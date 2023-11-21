@@ -15,6 +15,7 @@
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 1. [Настройте группы безопасности кластера {{ managed-k8s-name }} и группы узлов](../operations/connect/security-groups.md). [Группа безопасности](../../vpc/concepts/security-groups.md) [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group) должна разрешать входящие TCP-соединения к портам 10501 и 10502 из [подсетей](../../vpc/concepts/network.md#subnet) балансировщика или из его группы безопасности (позже подсети и группу нужно будет указать для [создания Ingress-контроллера](#create-ingress-and-apps)).
 1. [Установите Ingress-контроллер {{ alb-name }}](../operations/applications/alb-ingress-controller.md).
+1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Убедитесь, что вы можете подключиться к кластеру {{ managed-k8s-name }} с помощью `kubectl`:
 
@@ -299,7 +300,7 @@ yc certificate-manager certificate list
      * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
      * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md), либо установите значение `auto`, чтобы получить новый.
 
-       Если вы указали значение `auto`, то при удалении Ingress-контроллера IP-адрес также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
+       Если вы указали значение `auto`, то при удалении Ingress-контроллера [IP-адрес](../../vpc/concepts/address.md) также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
      * `ingress.alb.yc.io/group-name` — объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}. Укажите имя группы.
 
      (Опционально) Укажите дополнительные настройки контроллера:
@@ -626,7 +627,7 @@ yc certificate-manager certificate list
 
 ## Убедитесь в доступности приложений кластера {{ managed-k8s-name }} через {{ alb-name }} {#verify-setup}
 
-1. [Добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес Ingress-контроллера.
+1. Если вы не устанавливали [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес Ingress-контроллера. При использовании ExternalDNS c плагином для {{ dns-full-name }} запись создастся автоматически.
 1. [Настройте группы безопасности балансировщика](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
 1. Проверьте работу {{ alb-name }}:
 

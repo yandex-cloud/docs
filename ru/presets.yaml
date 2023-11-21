@@ -85,6 +85,7 @@ default:
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.ru
+  console-name: Cloud Console
   container-registry-full-name: Yandex Container Registry
   container-registry-name: Container Registry
   container-registry-short-name: Container Registry
@@ -4127,6 +4128,9 @@ default:
           evaluation-window: Окно вычисления
           time-shift: Задержка вычисления
       prometheus:
+        approved:
+          tab:
+            write: Запись метрик
         form:
           submit-button:
             text: Отправить заявку
@@ -8055,6 +8059,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/falco
         tag: 2.2.5
+    yc_filebeat-oss:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/filebeat-oss/chart/filebeat-oss
+        tag: 7.12.1-1
     yc_filebeat:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/filebeat/chart/filebeat
@@ -8103,6 +8111,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/policy-reporter
         tag: 2.13.11
+    yc_prometheus-operator:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
+        tag: 45.9.1-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor

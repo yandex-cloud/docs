@@ -22,13 +22,13 @@ For more information about access control in {{ yandex-cloud }}, see the {{ iam-
 
    By default, the user who creates an organization is the organization owner.
 
-* `organization-manager.viewer`: This role lets you view, but not edit, an organization's settings.
+* `organization-manager.viewer`: This role allows you to view an organization's settings without editing them.
 
-* `organization-manager.groups.memberAdmin`: This role lets you view information about a group and add and remove group members.
+* `organization-manager.groups.memberAdmin`: This role allows you to view information about a group and add and remove group members.
 
-* `organization-manager.osLogins.admin`: This role enables you to edit OS Login profiles, SSH keys, and create certificates for the organization users.
+* `organization-manager.osLogins.admin`: This role allows you to edit OS Login profiles, SSH keys, and create certificates for the organization users.
 
-* `organization-manager.osLogins.viewer`: This role enables you to view OS Login profiles and SSH keys of the organization users.
+* `organization-manager.osLogins.viewer`: This role allows you to view OS Login profiles and SSH keys of the organization users.
 
 ### Primitive roles {#primitive-roles}
 
@@ -337,10 +337,4 @@ In the management console, you can assign a group a role for a cloud, folder, or
 
 #### Assigning a role for an organization {#access-binding-organization}
 
-{% list tabs %}
-
-- CLI
-
-   {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
-
-{% endlist %}
+{% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}

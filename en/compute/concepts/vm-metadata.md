@@ -124,6 +124,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
   * `serial-port-enable`: Flag that enables access to the [serial console](../operations/serial-console/index.md). `1` means it is enabled, while `0`, which is the default value, means it is disabled.
   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
+   * `enable-oslogin`: Flag that enables access via [OS Login](../operations/vm-connect/os-login.md). `True` means access is enabled; `false` (default) means access is disabled.
 
     Cloud-init supports different [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) for providing metadata, such as [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can provide SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh-authorized-keys` section:
 
@@ -137,7 +138,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
     }
     ```
 
-  * `ssh-keys`: Key for delivering the SSH key to Linux VMs through {{ TF }}. Specify it in `<username>:<SSH key content>` format, e.g., `user:ssh-ed25519 AAC4NzaC1 user@example.com`. If you specify multiple keys, only the first one will be used.
+  * `ssh-keys`: Key for delivering the SSH key to Linux VMs through {{ TF }}. Specify it in `<username>:<SSH_key_content>` format, e.g., `user:ssh-ed25519 AAC4NzaC1... user@example.com`. If you specify multiple keys, only the first one will be used.
 
 - Windows
 
@@ -160,7 +161,7 @@ To request an identity document:
 1. Connect to the VM:
 
    ```bash
-   ssh <VM's IP>
+   ssh <VM's_IP>
    ```
 
 1. You can get an identity document in [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) and [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata) formats. Run this command:
@@ -184,7 +185,7 @@ To request an identity document:
    Sample response:
 
    ```
-   {"instanceId":"fhmm5252k8**********","productCodes":null,"imageId":"fd8evlqsgg4e81rbdkn7","productIds":["f2e3ia802labs61kou0g"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
+   {"instanceId":"fhmm5252k8vl********","productCodes":null,"imageId":"fd8evlqsgg4e********","productIds":["f2e3ia802lab********"],"createdAt":"2023-05-29T09:46:59Z","version":"2023-03-01"}
    ```
 
 {% note info %}
@@ -206,7 +207,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
    1. Connect to the VM:
 
       ```bash
-      ssh <VM's IP>
+      ssh <VM's_IP>
       ```
 
    1. Get an RSA signature from the VM metadata and save it to a file named `rsa2048`:
@@ -264,7 +265,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
    1. Connect to the VM:
 
       ```bash
-      ssh <VM's IP>
+      ssh <VM's_IP>
       ```
 
    1. Get a dsa2048 signature from the VM metadata and save it to a file named `dsa2048`:
@@ -327,7 +328,7 @@ Apart from identity documents, the VM metadata service provides their cryptograp
    1. Connect to the VM:
 
       ```bash
-      ssh <VM's IP>
+      ssh <VM's_IP>
       ```
 
    1. Get a base64 signature from the VM metadata and save it to a file named `signature`:

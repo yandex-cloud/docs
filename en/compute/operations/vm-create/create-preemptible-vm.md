@@ -89,6 +89,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
+   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../../concepts/placement-groups.md).
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    The VM appears in the list.
@@ -335,7 +336,7 @@ To change the type of a VM, for example, make it preemptible:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 

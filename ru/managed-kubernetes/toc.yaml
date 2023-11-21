@@ -45,6 +45,8 @@ items:
             href: operations/applications/falco.md
           - name: Установка Filebeat
             href: operations/applications/filebeat.md
+          - name: Установка Filebeat OSS
+            href: operations/applications/filebeat-oss.md
           - name: Установка Fluent Bit
             href: operations/applications/fluentbit.md
           - name: Установка Gateway API
@@ -71,6 +73,8 @@ items:
             href: operations/applications/node-local-dns.md
           - name: Установка Policy Reporter
             href: operations/applications/policy-reporter.md
+          - name: Установка Prometheus Operator
+            href: operations/applications/prometheus-operator.md
           - name: Установка Thumbor
             href: operations/applications/thumbor.md
           - name: Установка Velero
@@ -206,6 +210,8 @@ items:
               Мониторинг кластера с помощью {{ prometheus-name }} и {{
               grafana-name }}
             href: tutorials/prometheus-grafana-monitoring.md
+          - name: Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS
+            href: tutorials/filebeat-oss-monitoring.md
       - name: Использование продуктов {{ marketplace-name }}
         items:
           - name: Интеграция с Argo CD

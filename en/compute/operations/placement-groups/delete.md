@@ -2,7 +2,18 @@
 
 Delete the [placement group](../../concepts/placement-groups.md).
 
+{% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
 {% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the placement group belongs to.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+   1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
+   1. In the line with the placement group, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -22,8 +33,8 @@ Delete the [placement group](../../concepts/placement-groups.md).
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
-      | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
-      | epdlv1pp54019j09fhue | instance-in-group-2 | {{ region-id }}-b | RUNNING |             | 10.129.0.30 |
+      | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
+      | epdlv1pp5401******** | instance-in-group-2 | {{ region-id }}-b | RUNNING |             | 10.129.0.30 |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
@@ -75,7 +86,7 @@ Delete the [placement group](../../concepts/placement-groups.md).
       ...
       resource "yandex_compute_placement_group" "group1" {
         name        = "test-pg"
-        folder_id   = "abc*********123"
+        folder_id   = "b1gia87mbaom********"
         description = "my description"
       }
       ...

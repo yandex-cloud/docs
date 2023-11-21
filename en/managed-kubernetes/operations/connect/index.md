@@ -16,7 +16,7 @@ To connect to cluster nodes, follow the instructions in [{#T}](../node-connect-s
 
 ## Connecting to a cluster {#kubectl-connect}
 
-When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}](../../../iam/concepts/authorization/index.md) and is granted access based on the [assigned role](../../security/index.md#yc-api). To log in, you must install the [{{ yandex-cloud }} command line interface (CLI)](../../../cli/quickstart.md).
+When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}](../../../iam/concepts/authorization/index.md) and is granted access based on the [assigned role](../../security/index.md#yc-api). To log in, you must install the [{{ yandex-cloud }} command-line interface (CLI)](../../../cli/quickstart.md).
 1. [Install `kubectl`]({{ k8s-docs }}/tasks/tools/#kubectl).
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -28,7 +28,7 @@ When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}
 
      ```bash
      {{ yc-k8s }} cluster \
-       get-credentials <cluster name or ID> \
+       get-credentials <cluster_name_or_ID> \
        --internal
      ```
 
@@ -36,7 +36,7 @@ When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}
 
      ```bash
      {{ yc-k8s }} cluster \
-       get-credentials <cluster name or ID> \
+       get-credentials <cluster_name_or_ID> \
        --external
      ```
 

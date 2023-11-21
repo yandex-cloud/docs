@@ -122,9 +122,9 @@ For more information about calculating, see the [cluster-proportional-autoscaler
    * `vCPU cores`: 12
 
    By default, the `linear` mode and the following scaling parameters are used:
-   * `coresPerReplica`: `256`.
-   * `nodesPerReplica`: `16`.
-   * `preventSinglePointFailure`: `true`.
+   * `coresPerReplica`: `256`
+   * `nodesPerReplica`: `16`
+   * `preventSinglePointFailure`: `true`
 
    ```text
    replicas = max( ceil( 12 * 1/256 ), ceil( 3 * 1/16 ) ) = 1
@@ -143,16 +143,16 @@ For more information about calculating, see the [cluster-proportional-autoscaler
    ```bash
    NAME                      READY  STATUS   RESTARTS  AGE
    ...
-   coredns-7c646474c9-4dmjl  1/1    Running  0         128m
-   coredns-7c646474c9-n7qsv  1/1    Running  0         134m
+   coredns-7c********-4dmjl  1/1    Running  0         128m
+   coredns-7c********-n7qsv  1/1    Running  0         134m
    ```
 
 1. Set new parameters.
 
    Change the configuration as follows:
-   * `coresPerReplica`: `4`.
-   * `nodesPerReplica`: `2`.
-   * `preventSinglePointFailure`: `true`.
+   * `coresPerReplica`: `4`
+   * `nodesPerReplica`: `2`
+   * `preventSinglePointFailure`: `true`
 
    ```text
    replicas = max( ceil( 12 * 1/4 ), ceil( 3 * 1/2 ) ) = 3
@@ -221,11 +221,11 @@ Result:
 ```text
 NAME                      READY  STATUS   RESTARTS  AGE
 ...
-coredns-7c646474c9-7l8mc  1/1    Running  0         3m30s
-coredns-7c646474c9-n7qsv  1/1    Running  0         3h20m
-coredns-7c646474c9-pv9cv  1/1    Running  0         3m40s
-coredns-7c646474c9-r2lss  1/1    Running  0         49m
-coredns-7c646474c9-s5jgz  1/1    Running  0         57m
+coredns-7c********-7l8mc  1/1    Running  0         3m30s
+coredns-7c********-n7qsv  1/1    Running  0         3h20m
+coredns-7c********-pv9cv  1/1    Running  0         3m40s
+coredns-7c********-r2lss  1/1    Running  0         49m
+coredns-7c********-s5jgz  1/1    Running  0         57m
 ```
 
 ### Set up the reducing of the number of {{ managed-k8s-name }} nodes {#reduce-nodes}

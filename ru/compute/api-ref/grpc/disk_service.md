@@ -453,6 +453,15 @@ Field | Description
 --- | ---
 disk_id | **string**<br>Required. ID of the disk to move. <br>To get the disk ID, make a [DiskService.List](#List) request. The maximum string length in characters is 50.
 destination_zone_id | **string**<br>Required. ID of the availability zone to move the disk to. <br>To get the zone ID, make a [ZoneService.List](./zone_service#List) request. The maximum string length in characters is 50.
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy5)**<br>Placement policy configuration in target zone. Must be specified if disk has placement policy. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy5}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
 
 
 ### Operation {#Operation5}
@@ -500,15 +509,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy5)**<br>Placement policy configuration. 
-
-
-### DiskPlacementPolicy {#DiskPlacementPolicy5}
-
-Field | Description
---- | ---
-placement_group_id | **string**<br>Placement group ID. 
-placement_group_partition | **int64**<br> 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy6)**<br>Placement policy configuration. 
 
 
 ## ListSnapshotSchedules {#ListSnapshotSchedules}

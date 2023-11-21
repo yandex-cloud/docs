@@ -24,10 +24,11 @@ To prepare an image ready for use in {{ yandex-cloud }}:
         ]
       ```
 
-      If you put folders with drivers elsewhere, specify the appropriate paths.
+      Please keep in mind that Packer is case-sensitive. If you put folders with drivers elsewhere, specify the appropriate paths.
+
    1. Find out the checksum of your distribution (for example, execute `openssl dgst -sha256 <path to distribution>`). Insert the obtained value into the `iso_checksum` parameter after `sha256:`.
-   1. (Optional) With MacOS, you need to replace the `accelerator = "kvm"` value to `accelerator = "hvf"`.
-1. Go to the folder with the necessary image configuration (for example, `external-windows-packer/ws22gui-qemu`) and execute the `packer build .` command.
+   1. (Optional) With MacOS, you need to replace the `accelerator = "kvm"` value with `accelerator = "hvf"`.
+1. Go to the folder with the required image configuration (e.g., `external-windows-packer/ws22gui-qemu`) and execute the `packer build .` command.
 
 After command execution, a disk image is created in `.qcow2` format.
 

@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```bash
    yc iam key create \
-     --service-account-name <name of the service account> \
+     --service-account-name <name_of_the_service_account> \
      --format json \
      --output iamkey.json
    ```
@@ -57,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
        name: clusterissuer
        kind: ClusterIssuer
      dnsNames:
-       - <domain name>
+       - <domain_name>
    ```
 
 1. Provide the certificate to the {{ managed-k8s-name }} cluster:

@@ -24,7 +24,11 @@ diskId | <p>Required. ID of the disk to move.</p> <p>To get the disk ID, make a 
  
 ```json 
 {
-  "destinationZoneId": "string"
+  "destinationZoneId": "string",
+  "diskPlacementPolicy": {
+    "placementGroupId": "string",
+    "placementGroupPartition": "string"
+  }
 }
 ```
 
@@ -32,6 +36,9 @@ diskId | <p>Required. ID of the disk to move.</p> <p>To get the disk ID, make a 
 Field | Description
 --- | ---
 destinationZoneId | **string**<br><p>Required. ID of the availability zone to move the disk to.</p> <p>To get the zone ID, make a <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+diskPlacementPolicy | **object**<br><p>Placement policy configuration in target zone. Must be specified if disk has placement policy.</p> 
+diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

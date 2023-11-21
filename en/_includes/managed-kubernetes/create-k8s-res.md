@@ -42,10 +42,10 @@ Create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/inde
 
 1. Make sure the {{ managed-k8s-name }} cluster was created.
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster was created.
-   1. In the list of services, select **{{ managed-k8s-name }}**.
-   1. Make sure that the {{ managed-k8s-name }} cluster was created:
-      * The **Status** column value must be `Running`.
-      * The **Health** column value must be `Healthy`.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Check that your {{ managed-k8s-name }} cluster was created successfully:
+      * Look for `Running` in the **{{ ui-key.yacloud.k8s.cluster.overview.label_status }}** column.
+      * Look for `Healthy` in the **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** column.
 1. Create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group):
 
    {% list tabs %}

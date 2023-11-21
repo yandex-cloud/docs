@@ -94,8 +94,8 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
      ```text
      done (1m17s)
-     id: catpl8c44kiibp20u4f3
-     cluster_id: catcsqidoos7tq0513us
+     id: catpl8c44kii********
+     cluster_id: catcsqidoos7********
      ...
          start_time:
            hours: 22
@@ -123,7 +123,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
      * [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing {{ managed-k8s-name }} group nodes, under `nodeTemplate.labels`.
      * Scaling settings under `scale_policy`.
 
-     Example of the configuration file structure:
+     Here is an example of the configuration file structure:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -229,7 +229,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
   * [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing {{ managed-k8s-name }} group nodes, in the `nodeTemplate.labels` parameter.
   * [Scaling settings](../../concepts/autoscale.md#ca) as `scalePolicy`.
   * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
-  * [Update](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
+  * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
   * List of settings to be changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
@@ -254,6 +254,6 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
 {% note alert %}
 
-After you create a {{ managed-k8s-name }} node group, {{ compute-full-name }} will display one or more VMs with automatically generated names. Do not update the names of the VMs that belong to a {{ managed-k8s-name }} cluster. This will disrupt the operation of the node group and the whole {{ managed-k8s-name }} cluster.
+After you create a {{ managed-k8s-name }} node group, {{ compute-full-name }} will display one or more VMs with automatically generated names. Do not update the names of the VMs that belong to a {{ managed-k8s-name }} cluster. This will disrupt the operation of the node group and the entire {{ managed-k8s-name }} cluster.
 
 {% endnote %}

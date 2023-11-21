@@ -1,10 +1,10 @@
 # Installing Chaos Mesh
 
-[Chaos Mesh](https://chaos-mesh.org/) is an open-source platform that you can use to simulate various failures and faults in your {{ k8s }} clusters. Simulation can be performed at different development and testing stages and after release. You can use Chaos Mesh to detect and eliminate potential threats and set up security policies (for example, using [Kyverno](kyverno.md)).
+[Chaos Mesh](https://chaos-mesh.org/) is an open-source platform that you can use to simulate various failures and faults in your {{ k8s }} clusters. You can perform simulation at different development and testing stages, as well as after release. You can use Chaos Mesh to detect and eliminate potential threats and set up security policies, e.g., using [Kyverno](kyverno.md).
 
 {% note warning %}
 
-Test failure scenarios on a test cluster first to make sure they do not affect the performance of the main cluster.
+Test failure scenarios on a test cluster first to make sure they do not affect the performance of the production cluster.
 
 {% endnote %}
 
@@ -18,10 +18,10 @@ Before you start, [create a node group](../node-group/node-group-create.md) with
 1. Configure the application:
 
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Chaos Mesh.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

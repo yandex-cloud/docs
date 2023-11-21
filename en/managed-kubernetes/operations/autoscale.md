@@ -26,10 +26,10 @@ To create an autoscalable {{ managed-k8s-name }} node group:
 - Management console
 
   [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following parameters:
-  * **Type of scaling**: `Automatic`.
-  * **Minimum number of nodes**: Specify the number of {{ managed-k8s-name }} nodes that the group must include at minimum load.
-  * **Maximum number of nodes**: Specify the maximum number of {{ managed-k8s-name }} nodes allowed in the group.
-  * **Initial number of nodes**: Number of {{ managed-k8s-name }} nodes to create along with the group (must be between the minimum and the maximum number of nodes in the group).
+  * Scaling **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**: Specify the number of {{ managed-k8s-name }} nodes to remain in the group at minimum load.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: Specify the maximum number of {{ managed-k8s-name }} nodes allowed in the group.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: Number of {{ managed-k8s-name }} nodes to be created together with the group (this number must be between the minimum and the maximum number of nodes in the group).
 
 - CLI
 
@@ -95,7 +95,7 @@ For more information about {{ k8s-ca }}, see [{#T}](../concepts/autoscale.md#ca)
   1. Create a {{ k8s-hpa }} for your application, for example:
 
      ```bash
-     kubectl autoscale deployment/<application name> --cpu-percent=50 --min=1 --max=3
+     kubectl autoscale deployment/<application_name> --cpu-percent=50 --min=1 --max=3
      ```
 
      Where:
@@ -181,7 +181,7 @@ kubectl get pods --all-namespaces | grep -i Terminated \
 
 To delete stuck {{ managed-k8s-name }} pods automatically:
 1. [Set up a CronJob](#setup-cronjob).
-1. [Check the results of your CronJob jobs](#check-cronjob)
+1. [Check the results of your CronJob jobs](#check-cronjob).
 
 If you no longer need the CronJob, [delete it](#delete-cronjob).
 
@@ -258,7 +258,7 @@ If you no longer need the CronJob, [delete it](#delete-cronjob).
    clusterrolebinding.rbac.authorization.k8s.io/terminated-pod-cleaner created
    ```
 
-1. Verify that the CronJob has been created:
+1. Check that the CronJob has been created:
 
    ```bash
    kubectl get cronjob terminated-pod-cleaner

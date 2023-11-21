@@ -19,10 +19,10 @@ Jaeger is able to use the following types of data storage:
    ```
 
 1. To enable [pods](../../concepts/index.md#pod) in the {{ k8s }} cluster to connect to {{ ydb-name }}, configure [security groups](../connect/security-groups.md). Add a rule for incoming traffic:
-   * Port range: `2135`.
-   * Protocol: `TCP`.
-   * Source type: `Security group`.
-   * Security group: Current (`Self`).
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `2135`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`)
 
 ### {{ ydb-name }} setup {#create-ydb}
 
@@ -83,9 +83,9 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 1. Under **Applications available for installation**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store)and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter an application name.
-   * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, e.g., `lb.etnk1hv0jol3cu5pojp7.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
-   * **Database**: Specify a database name, for example, `/{{ region-id }}/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
+   * **Application name**: Enter a name for the application.
+   * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, e.g., `lb.etnk1hv0jol3********.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
+   * **Database**: Specify a database name, for example, `/{{ region-id }}/b1gkgm9daf46********/etnk2hv0jol5********`.
    * **Database directory**: `jaeger`.
    * **Use metadata to authenticate from inside a VM**: Select this option if authentication in the virtual machine is required.
    * **Service account key ID**: Specify the service account key ID.
@@ -95,7 +95,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
    The endpoint and the DB names were returned when [preparing the {{ ydb-name }} DB](#create-ydb) whereas the service account settings were retrieved in the [previous subsection](#create-sa-key).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

@@ -70,7 +70,7 @@
    kubectl apply -f hotrod.yaml
    ```
 
-1. Убедитесь, что поды `hotrod` перешел в состояние `Running`:
+1. Убедитесь, что поды `hotrod` перешли в состояние `Running`:
 
    ```bash
    kubectl get pods | grep hotrod

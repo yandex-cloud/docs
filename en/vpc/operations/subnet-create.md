@@ -144,7 +144,7 @@
 
    1. In the configuration file, describe the subnet parameters:
 
-      * `name`: Name of the subnet. The requirements are as follows:
+      * `name`: Name of the subnet. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -153,7 +153,7 @@
       * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `network_id`: ID of the network where the subnet is created.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_subnet" "lab-subnet-a" {
@@ -178,7 +178,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -260,7 +260,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

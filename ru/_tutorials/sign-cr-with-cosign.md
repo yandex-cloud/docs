@@ -267,7 +267,7 @@
    ```bash
    yc iam key create \
      --service-account-name=<имя_сервисного_аккаунта_с_ролью_{{ roles-cr-puller }}> \
-     --output=authorized-key.json
+     --output authorized-key.json
    ```
 
 1. Установите приложение [Kyverno](https://kyverno.io/docs/) в кластер {{ managed-k8s-name }}. Оно необходимо для создания политики, которой проверяются подписи Docker-образов.

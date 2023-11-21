@@ -32,10 +32,10 @@ To use Istio, you need a node group with at least 6 GB of RAM.
 1. Under **Applications available for installation**, select [Istio](/marketplace/products/yc/istio) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Istio. We do not recommend installing the application in the `default` namespace.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **Install add-ons**: Select this option to automatically install add-ons: the [Kiali](https://kiali.io/) management console, and such components as Grafana, Prometheus, [Jaeger](/marketplace/products/yc/jaeger-ydb-store), and [Loki](/marketplace/products/yc/loki).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

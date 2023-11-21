@@ -73,6 +73,7 @@
 
       {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
+1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../../../compute/concepts/placement-groups.md).
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 The virtual machine will appear in the list.

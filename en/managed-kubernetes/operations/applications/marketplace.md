@@ -14,8 +14,8 @@
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 
 {% endlist %}
 
@@ -25,9 +25,9 @@
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
-   1. Under **Installed applications**, click the name of the desired application.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+   1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, click the name of the desired application.
 
 {% endlist %}
 
@@ -43,11 +43,11 @@ To deploy applications, you need at least one [active node group](../node-group/
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
    1. Under **Applications available for installation**, click the name of the desired application.
-   1. In the resulting window, click **OK**.
-   1. Specify application settings and click **Install**.
+   1. In the window that opens, click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+   1. Specify application settings and click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 
 {% endlist %}
 
@@ -57,11 +57,11 @@ To deploy applications, you need at least one [active node group](../node-group/
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
-   1. Under **Installed applications**, click ![image](../../../_assets/horizontal-ellipsis.svg) next to the application to edit.
-   1. In the menu that opens, click **Edit**.
-   1. Make your changes and click **Save**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+   1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, click ![image](../../../_assets/horizontal-ellipsis.svg) next to the application you need to edit.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
+   1. Make your changes and click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -71,9 +71,9 @@ To deploy applications, you need at least one [active node group](../node-group/
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
-   1. Under **Installed applications**, click ![image](../../../_assets/horizontal-ellipsis.svg) next to the application to delete.
-   1. In the menu that opens, click **Delete**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+   1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, click ![image](../../../_assets/horizontal-ellipsis.svg) next to the application to delete.
+   1. In the menu that opens, click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
 
 {% endlist %}

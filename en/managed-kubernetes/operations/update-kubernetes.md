@@ -19,16 +19,16 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 - Management console
 
   To get a list of available versions for a {{ managed-k8s-name }} cluster:
-  1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ managed-k8s-name }}**.
+  1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Click **Edit** in the top-right corner.
-  1. View the list of available versions in the **{{ k8s }} version** field under **Master configuration**.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. View the list of available versions in the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**.
 
   To get a list of available versions for a {{ managed-k8s-name }} node group:
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
-  1. Click on the name of the cluster {{ managed-k8s-name }} and go to the **Nodes manager** tab.
-  1. Select the {{ managed-k8s-name }} node group from the list and click **Edit** in the upper-right corner.
-  1. Get a list of available versions in the **{{ k8s }} version** field.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of the {{ managed-k8s-name }} cluster you need and go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Select the {{ managed-k8s-name }} node group from the list and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.
 
 - CLI
 
@@ -44,7 +44,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
 - API
 
-  To get a list of available versions, use the [list](../../managed-kubernetes/api-ref/Version/list.md) method.
+  To get a list of available versions, use the [list](../../managed-kubernetes/api-ref/Version/list.md).
 
 {% endlist %}
 
@@ -60,11 +60,11 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
 
   You can specify update settings when [creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating its settings](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md).
 
-  In the **Maintenance frequency / Disable** field, select the {{ managed-k8s-name }} cluster update policy:
-  * **Disabled**: Select this option to not use automatic updates.
-  * **Anytime**: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
-  * **Daily**: Set the start time and duration of the update.
-  * **On selected days**: Set the day, start time, and duration of the update. If necessary, select multiple options using the **Add day and time** button.
+  In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select the {{ managed-k8s-name }} cluster update policy:
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Select this option not to use automatic updates.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Set the start time and duration of the update.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Set the day, start time, and duration of the update. If necessary, select multiple options using the **{{ ui-key.yacloud.k8s.clusters.create.button_add-day-of-week }}** button.
 
 - CLI
 
@@ -82,7 +82,7 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
   Where:
   * `--auto-upgrade`: Automatic {{ managed-k8s-name }} cluster update mode. The default value is `true` (automatic updates are enabled).
   * `--anytime-maintenance-window`: Random {{ managed-k8s-name }} cluster update time.
-  * `--daily-maintenance-window`: **Daily** update mode.
+  * `--daily-maintenance-window`: `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` update mode.
 
     Example of updating a {{ managed-k8s-name }} cluster daily at 22:00 UTC, with a duration of up to 10 hours:
 
@@ -193,7 +193,7 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
 
   {% include [updateMask warning](../../_includes/note-api-updatemask.md) %}
 
-  To disable automatic updates, provide the `false` value in the `masterSpec.maintenancePolicy.autoUpgrade parameter`.
+  To disable automatic updates, provide the `false` value in the `masterSpec.maintenancePolicy.autoUpgrade` parameter.
 
   To enable and configure the update window, provide one of the acceptable values of the `maintenanceWindow` parameter:
   * For {{ managed-k8s-name }} clusters to update at a random time, provide the `"anytime": {}` value.
@@ -242,11 +242,11 @@ If necessary, update the {{ managed-k8s-name }} cluster version manually. You ca
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Click **Edit** in the top-right corner.
-  1. In the **{{ k8s }} version** field, select the **Upgrade to version <version number>** option.
-  1. Click **Save changes**.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the `Upgrade to version <version_number>` option.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -288,7 +288,7 @@ If necessary, update the {{ managed-k8s-name }} cluster version manually. You ca
 
   Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
-  * The desired {{ k8s }} version in the `masterSpec.version.version` parameter.
+  * Required {{ k8s }} version in the `masterSpec.version.version` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -299,7 +299,7 @@ If necessary, update the {{ managed-k8s-name }} cluster version manually. You ca
 
 ### Configuring automatic updates of a node group {#node-group-auto-upgrade}
 
-Select automatic update mode for the {{ managed-k8s-name }} node group and set the desired update schedule:
+Select automatic update mode for the {{ managed-k8s-name }} node group and set the required update schedule:
 
 {% list tabs %}
 
@@ -307,15 +307,15 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
   You can specify update settings when [creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/node-group/node-group-create.md) or [updating its settings](../../managed-kubernetes/operations/node-group/node-group-update.md).
 
-  In the **Allow when creating and updating** field, specify scaling settings of the {{ managed-k8s-name }} node group:
-  * **Max expansion of group size**: Set the maximum number of instances by which you can expand the size of the {{ managed-k8s-name }} node group when updating it.
-  * **Max reduction of group size**: Set the maximum number of instances by which you can reduce the size of the {{ managed-k8s-name }} node group when updating it.
+  In the **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** field, specify scaling settings of the {{ managed-k8s-name }} node group:
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}**: Set the maximum number of instances by which you can exceed the size of the {{ managed-k8s-name }} node group when updating it.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}**: Set the maximum number of instances by which you can reduce the size of the {{ managed-k8s-name }} node group when updating it.
 
-  In the **Maintenance frequency / Disable** field, select the {{ managed-k8s-name }} node group update policy:
-  * **Disabled**: Select this option to not use automatic updates.
-  * **Anytime**: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
-  * **Daily**: Set the start time and duration of the update.
-  * **On selected days**: Set the day, start time, and duration of the update. If necessary, select multiple options using the **Add day and time** button.
+  In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select the {{ managed-k8s-name }} node group update policy:
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Select this option not to use automatic updates.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Set the start time and duration of the update.
+  * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Set the day, start time, and duration of the update. If necessary, select multiple options using the **{{ ui-key.yacloud.k8s.clusters.create.button_add-day-of-week }}** button.
 
 - CLI
 
@@ -344,11 +344,11 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
     {% endnote %}
 
   * `--auto-upgrade`: Automatic update mode for the {{ managed-k8s-name }} node group. The default value is `true` (automatic updates are enabled).
-  * `--auto-repair`: The mode for re-creating failed nodes.
+  * `--auto-repair`: Mode for re-creating failed nodes.
 
     The `--auto-repair` mode is at the [Preview](../../overview/concepts/launch-stages.md).
   * `--anytime-maintenance-window`: Random update time for the {{ managed-k8s-name }} node group.
-  * `--daily-maintenance-window`: **Daily** update mode.
+  * `--daily-maintenance-window`: `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` update mode.
 
     Example of updating a {{ managed-k8s-name }} node group daily at 22:00 UTC, with a duration of up to 10 hours:
 
@@ -374,7 +374,7 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
     {% endnote %}
 
-   You can get the {{ managed-k8s-name }} node group ID and name with a [list the groups in the cluster](node-group/node-group-list.md).
+   You can get the {{ managed-k8s-name }} node group ID and name with a [list of the groups in the cluster](node-group/node-group-list.md).
 
 - {{ TF }}
 
@@ -471,7 +471,7 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
 - API
 
-  You can set up automatic updates under `maintenancePolicy` when [creating](../../managed-kubernetes/api-ref/NodeGroup/create.md) or [reconfiguring](../../managed-kubernetes/api-ref/NodeGroup/update.md) a {{ managed-k8s-name }} node group.
+  You can set up automatic updates under `maintenancePolicy` when [creating](../../managed-kubernetes/api-ref/NodeGroup/create.md) or [updating](../../managed-kubernetes/api-ref/NodeGroup/update.md) a {{ managed-k8s-name }} node group.
 
   Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
   * ID of the {{ managed-k8s-name }} node group in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
@@ -522,9 +522,9 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
   To set the scaling of a {{ managed-k8s-name }} node group, add the `deployPolicy` section:
 
   ```json
-  "deployPolicy": {
-    "maxUnavailable": "<maximum_number_of_instances_you_can_add_to_the_target_size_of_the_instance-group>",
-    "maxExpansion": "<maximum_number_of_instances_by_which_you_can_reduce_the_size_of_the_group>"
+  "deploy_policy" {
+    "maxUnavailable": "<maximum_number_of_instances_that_node_group_size_can_shrink_by>",
+    "maxExpansion": "<maximum_number_of_instances_that_node_group_size_can_expand_by>"
   }
   ```
 
@@ -544,13 +544,13 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Go to the **Nodes manager** tab.
+  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list.
-  1. Click **Edit** in the top-right corner.
-  1. In the **{{ k8s }} version** field, select the **Upgrade to version <version number>** option.
-  1. Click **Save changes**.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the `Upgrade to version <version_number>` option.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -562,7 +562,7 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
     --version <new_version>
   ```
 
-  You can get the {{ managed-k8s-name }} node group ID and name with a [list the groups in the cluster](node-group/node-group-list.md).
+  You can get the {{ managed-k8s-name }} node group ID and name with a [list of the groups in the cluster](node-group/node-group-list.md).
 
 - {{ TF }}
 
@@ -605,9 +605,9 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 For a {{ managed-k8s-name }} cluster and a node group, updates within the same {{ k8s }} version are available. When installing the update, the major version of {{ k8s }} does not change.
 
 This update enables you to:
-* Install new packages
-* Update the {{ k8s }} image
-* Update the {{ k8s }} minor version
+* Install new packages.
+* Update the {{ k8s }} image.
+* Update the {{ k8s }} minor version.
 
 The {{ managed-k8s-name }} cluster and node groups will be updated if any of the automatic update options are enabled in their settings.
 
@@ -617,11 +617,11 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Click **Edit** in the top-right corner.
-  1. In the **{{ k8s }} version** field, select **Get the latest improvements and fixes for version...**.
-  1. Click **Save changes**.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select `Get the latest improvements and fixes for version...`
+  1. Click **{{ ui-key.yacloud.common.save}}**.
 
 - CLI
 
@@ -638,7 +638,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
   Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
-  * The `true` value in the `masterSpec.version.version` parameter.
+  * `True` value in the `masterSpec.version.version` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -651,13 +651,13 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Go to the **Nodes manager** tab.
+  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list.
-  1. Click **Edit** in the top-right corner.
-  1. In the **{{ k8s }} version** field, select **Get the latest improvements and fixes for version...**.
-  1. Click **Save changes**.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select `Get the latest improvements and fixes for version...`
+  1. Click **{{ ui-key.yacloud.common.save}}**.
 
 - CLI
 
@@ -668,13 +668,13 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
     --latest-revision
   ```
 
-  You can get the {{ managed-k8s-name }} node group ID and name with a [list the groups in the cluster](node-group/node-group-list.md).
+  You can get the {{ managed-k8s-name }} node group ID and name with a [list of the groups in the cluster](node-group/node-group-list.md).
 
 - API
 
   Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
   * ID of the {{ managed-k8s-name }} node group in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
-  * The `true` value in the `version.latestRevision` parameter.
+  * `True` value in the `version.latestRevision` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

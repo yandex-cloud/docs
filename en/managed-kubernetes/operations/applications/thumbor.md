@@ -39,7 +39,7 @@ Thumbor features:
    * **Allow unsigned URLs (unsafe)**: Select this option if you did not specify a security key at the previous step.
    * **Subfolder in the bucket**: Specify the name of the bucket folder (without the ending `/` symbol) where images are located.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -102,7 +102,7 @@ Before using the application, make sure that the proper [rules for connecting to
 
 - Management console
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ network-load-balancer-short-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Find out the load balancer's IP address with the following description: `cluster <your_cluster_name>, service <namespace>/thumbor`.
   1. Open `http://<load_balancer_IP>/unsafe/<bucket_image_name>` in the browser address bar.
 

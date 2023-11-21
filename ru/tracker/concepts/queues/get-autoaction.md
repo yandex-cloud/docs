@@ -12,7 +12,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/get-autoaction.md
 Чтобы получить параметры автодействия, используйте HTTP-запрос с методом `GET`. 
 
 ```json
-GET /{{ ver }}/queues/<queue-id>/autoactions/<autoaction-id>
+POST /{{ ver }}/queues/<queue-id>/autoactions/<autoaction-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}

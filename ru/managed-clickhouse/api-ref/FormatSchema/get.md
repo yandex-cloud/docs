@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/get.md
 ---
 
 # Managed Service for ClickHouse API, REST: FormatSchema.get
-
+Returns detailed information about a given format schema.
  
 
  
@@ -17,8 +17,8 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/format
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. The maximum string length in characters is 50.</p> 
-formatSchemaName | <p>Required. The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+clusterId | <p>Required. ClickHouse cluster ID.</p> <p>To get a ClickHouse cluster ID, use the <a href="/docs/managed-clickhouse/api-ref/Cluster/list">list</a> method.</p> <p>The maximum string length in characters is 50.</p> 
+formatSchemaName | <p>Required. Format schema name.</p> <p>To get a format schema name, use the <a href="/docs/managed-clickhouse/api-ref/FormatSchema/list">list</a> method.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -35,7 +35,7 @@ formatSchemaName | <p>Required. The maximum string length in characters is 63. V
  
 Field | Description
 --- | ---
-name | **string**
-clusterId | **string**
-type | **string**
-uri | **string**
+name | **string**<br><p>Format schema name.</p> 
+clusterId | **string**<br><p>ClickHouse cluster ID.</p> 
+type | **string**<br><p>Schema type. Possible values are the following:</p> <ul> <li>FORMAT_SCHEMA_TYPE_PROTOBUF - <a href="https://protobuf.dev/">Protobuf</a> data format (including <a href="https://clickhouse.com/docs/en/interfaces/formats#protobufsingle">ProtobufSingle</a>).</li> <li>FORMAT_SCHEMA_TYPE_CAPNPROTO - <a href="https://capnproto.org/">Cap'n Proto</a> data format.</li> </ul> 
+uri | **string**<br><p>Link to the file of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage.</p> 

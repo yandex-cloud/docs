@@ -8,7 +8,7 @@ Create a network load balancer with a [listener](concepts/listener.md), attach a
 
 1. Log in to or register in the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folders yet, [create one](../resource-manager/operations/folder/create.md).
+1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
 1. [Create](../compute/quickstart/quick-create-linux.md) multiple VMs in advance to include them in the target group attached to the network load balancer. For testing, you can use inexpensive [preemptible VMs](../compute/concepts/preemptible-vm.md).
 
 ## Create a target group {#create-target-group}
@@ -32,10 +32,10 @@ When creating a network load balancer, you need to create a listener that the lo
 
 To create a network load balancer:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
+1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-1. Enter a name for the load balancer, like `test-load-balancer`.
+1. Enter a name for the load balancer, such as `test-load-balancer`.
 1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, choose a method for assigning an IP address:
 
    * **{{ ui-key.yacloud.common.label_auto }}**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
@@ -53,7 +53,7 @@ To create a network load balancer:
 1. Select a target group or [create a new one](operations/target-group-create.md):
 
    * Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
-   * Enter the name of the target group. The requirements are as follows:
+   * Enter the name of the target group. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
@@ -82,7 +82,7 @@ To create a network load balancer:
 
 To check the [status of the network load balancer](concepts/index.md#lb-statuses) and resources in the attached target group:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
+1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. Locate the created load balancer in the list.
 1. Make sure the load balancer status is `Active`, which means it is ready to transmit traffic to the target resources.

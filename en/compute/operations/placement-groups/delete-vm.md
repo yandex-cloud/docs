@@ -4,7 +4,20 @@ Remove an instance from a [placement group](../../concepts/placement-groups.md).
 
 If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete.md) or [add it back](add-vm.md) to the placement group.
 
+{% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
 {% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the placement group belongs to.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+   1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
+   1. Select the placement group you want to remove the VM instance from.
+   1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
+   1. In the line with the VM instance, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.placement-group.instances.button_action-delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.placement-group.instances.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -24,8 +37,8 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
-      | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
-      | epdlv1pp54019j09fhue | instance-in-group-2 | {{ region-id }}-b | RUNNING |             | 10.129.0.30 |
+      | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
+      | epdlv1pp5401******** | instance-in-group-2 | {{ region-id }}-b | RUNNING |             | 10.129.0.30 |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
@@ -38,7 +51,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
       Result:
 
       ```bash
-      id: epdlv1pp54019j09fhue
+      id: epdlv1pp5401********
       ...
       status: STOPPED
       ```
@@ -61,7 +74,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
-      | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
+      | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 

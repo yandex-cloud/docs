@@ -1,4 +1,15 @@
+---
+title: "Attaching file storage to a VM"
+description: "Follow this guide to attach file storage to a VM."
+---
+
 # Attaching file storage to a VM
+
+{% note info %}
+
+You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.md#os) with kernel version 5.4 or higher.
+
+{% endnote %}
 
 1. If the [VM](../../concepts/vm.md) is started and running (its [status](../../concepts/vm-statuses.md) is `RUNNING`), [stop it](../vm-control/vm-stop-and-start.md#stop).
 1. Attach [file storage](../../concepts/filesystem.md) to the VM in {{ compute-name }}:

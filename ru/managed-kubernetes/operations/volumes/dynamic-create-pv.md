@@ -44,36 +44,36 @@
 
 
 
-   1. Выполните команду:
+1. Выполните команду:
 
-      ```bash
-      kubectl create -f pvc-dynamic.yaml
-      ```
+   ```bash
+   kubectl create -f pvc-dynamic.yaml
+   ```
 
-      Результат:
+   Результат:
 
-      ```text
-      persistentvolumeclaim/pvc-dynamic created
-      ```
+   ```text
+   persistentvolumeclaim/pvc-dynamic created
+   ```
 
-   1. Посмотрите информацию о созданном объекте `PersistentVolumeClaim`:
+1. Посмотрите информацию о созданном объекте `PersistentVolumeClaim`:
 
-      ```bash
-      kubectl describe persistentvolumeclaim pvc-dynamic
-      ```
+   ```bash
+   kubectl describe persistentvolumeclaim pvc-dynamic
+   ```
 
-      Результат:
+   Результат:
 
-      
-      ```text
-      Name:          pvc-dynamic
-      Namespace:     default
-      StorageClass:  yc-network-hdd
-      ...
-      Type    Reason                Age               From                         Message
-      ----    ------                ----              ----                         -------
-      Normal  WaitForFirstConsumer  9s (x3 over 15s)  persistentvolume-controller  waiting for first consumer to be created before binding
-      ```
+   
+   ```text
+   Name:          pvc-dynamic
+   Namespace:     default
+   StorageClass:  yc-network-hdd
+   ...
+   Type    Reason                Age               From                         Message
+   ----    ------                ----              ----                         -------
+   Normal  WaitForFirstConsumer  9s (x3 over 15s)  persistentvolume-controller  waiting for first consumer to be created before binding
+   ```
 
 
 

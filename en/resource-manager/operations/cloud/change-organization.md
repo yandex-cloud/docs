@@ -1,5 +1,5 @@
 ---
-title: "Tutorial on changing\_the organization for the cloud in {{ resmgr-full-name }}"
+title: "Guide on changing the organization for the cloud in {{ resmgr-full-name }}"
 description: "In this tutorial, you will learn how to change the organization for the cloud in {{ resmgr-full-name }}."
 ---
 
@@ -31,3 +31,8 @@ To move a cloud to another organization, you must have the `{{ roles-organizatio
    Currently, you cannot change the organization assigned to the cloud using the API.
 
 {% endlist %}
+
+## See also {#see-also}
+
+* [{#T}](../../../organization/operations/leave-organization.md)
+* [{#T}](../../../organization/concepts/manage-services.md)

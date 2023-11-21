@@ -71,6 +71,7 @@ variables[] | **[Variable](#Variable)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate}
@@ -409,6 +410,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## List {#List}
 
 Retrieves the list of InstanceGroup resources in the specified folder.
@@ -458,6 +466,7 @@ variables[] | **[Variable](#Variable1)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec1)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState1)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy1)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate1}
@@ -794,6 +803,13 @@ Field | Description
 --- | ---
 target_group_id | **string**<br>ID of the Application Load Balancer target group attributed to the instance group. 
 status_message | **string**<br>Status message of the target group. 
+
+
+### AutoHealingPolicy {#AutoHealingPolicy1}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
 
 
 ## Create {#Create}
@@ -1167,6 +1183,7 @@ variables[] | **[Variable](#Variable3)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec3)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState2)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy2)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### LoadBalancerState {#LoadBalancerState2}
@@ -1209,6 +1226,13 @@ Field | Description
 --- | ---
 target_group_id | **string**<br>ID of the Application Load Balancer target group attributed to the instance group. 
 status_message | **string**<br>Status message of the target group. 
+
+
+### AutoHealingPolicy {#AutoHealingPolicy2}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
 
 
 ## CreateFromYaml {#CreateFromYaml}
@@ -1276,6 +1300,7 @@ variables[] | **[Variable](#Variable3)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec3)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState3)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy3)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate3}
@@ -1612,6 +1637,13 @@ Field | Description
 --- | ---
 target_group_id | **string**<br>ID of the Application Load Balancer target group attributed to the instance group. 
 status_message | **string**<br>Status message of the target group. 
+
+
+### AutoHealingPolicy {#AutoHealingPolicy3}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
 
 
 ## Update {#Update}
@@ -1986,6 +2018,7 @@ variables[] | **[Variable](#Variable5)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec5)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState4)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy4)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### LoadBalancerState {#LoadBalancerState4}
@@ -2028,6 +2061,13 @@ Field | Description
 --- | ---
 target_group_id | **string**<br>ID of the Application Load Balancer target group attributed to the instance group. 
 status_message | **string**<br>Status message of the target group. 
+
+
+### AutoHealingPolicy {#AutoHealingPolicy4}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
 
 
 ## UpdateFromYaml {#UpdateFromYaml}
@@ -2095,6 +2135,7 @@ variables[] | **[Variable](#Variable5)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec5)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState5)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy5)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate5}
@@ -2433,6 +2474,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy5}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## Stop {#Stop}
 
 Stops the specified instance group.
@@ -2497,6 +2545,7 @@ variables[] | **[Variable](#Variable6)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec6)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState6)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy6)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate6}
@@ -2835,6 +2884,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy6}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## RollingRestart {#RollingRestart}
 
 Performs rolling restart of specified instances for the specified instance group. Rolling restart does restart of instances respecting all group policies.
@@ -2900,6 +2956,7 @@ variables[] | **[Variable](#Variable7)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec7)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState7)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy7)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate7}
@@ -3238,6 +3295,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy7}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## RollingRecreate {#RollingRecreate}
 
 Performs rolling recreate of specified instances for the specified instance group. Rolling recreate does recreate of instance VMs respecting all group policies.
@@ -3303,6 +3367,7 @@ variables[] | **[Variable](#Variable8)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec8)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState8)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy8)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate8}
@@ -3641,6 +3706,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy8}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## Start {#Start}
 
 Starts the specified instance group.
@@ -3705,6 +3777,7 @@ variables[] | **[Variable](#Variable9)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec9)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState9)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy9)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate9}
@@ -4043,6 +4116,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy9}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## Delete {#Delete}
 
 Deletes the specified instance group.
@@ -4228,6 +4308,7 @@ variables[] | **[Variable](#Variable10)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec10)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState10)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy10)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate10}
@@ -4566,6 +4647,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy10}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## StopInstances {#StopInstances}
 
 Stop instances from the instance group.
@@ -4631,6 +4719,7 @@ variables[] | **[Variable](#Variable11)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec11)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState11)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy11)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate11}
@@ -4969,6 +5058,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy11}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## ListOperations {#ListOperations}
 
 Lists operations for the specified instance group.
@@ -5266,6 +5362,7 @@ variables[] | **[Variable](#Variable12)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec12)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState12)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy12)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate12}
@@ -5604,6 +5701,13 @@ target_group_id | **string**<br>ID of the Application Load Balancer target group
 status_message | **string**<br>Status message of the target group. 
 
 
+### AutoHealingPolicy {#AutoHealingPolicy12}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
+
+
 ## PauseProcesses {#PauseProcesses}
 
 Pauses all processes regarding management of the specified instance group, i.e. scaling, checking instances' health, auto-healing and updating them. Running instances are not stopped.
@@ -5668,6 +5772,7 @@ variables[] | **[Variable](#Variable13)**<br>
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec13)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState13)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
+auto_healing_policy | **[AutoHealingPolicy](#AutoHealingPolicy13)**<br>AutoHealingPolicy policy of the instance group. 
 
 
 ### InstanceTemplate {#InstanceTemplate13}
@@ -6004,5 +6109,12 @@ Field | Description
 --- | ---
 target_group_id | **string**<br>ID of the Application Load Balancer target group attributed to the instance group. 
 status_message | **string**<br>Status message of the target group. 
+
+
+### AutoHealingPolicy {#AutoHealingPolicy13}
+
+Field | Description
+--- | ---
+auto_healing_action | enum **AutoHealingAction**<br>Instance Groups performs `auto_healing_action` when instance becomes unhealthy. <ul><li>`RESTART`: Re-starting an instance with restart: stopping and then starting the instance.</li><li>`RECREATE`: Re-creating an instance: deleting an instance and creating a new one.</li><li>`NONE`: No action</li></ul>
 
 

@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
      1. [Create a cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
      1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), activate the Calico network policy controller:
-        * In the management console, select **Enable network policies**.
+        * In the management console, select **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
         * Using the CLI, set the `--enable-network-policy` flag.
         * Using the [create](../api-ref/Cluster/create.md) method for the [Cluster](../api-ref/Cluster) resource.
 

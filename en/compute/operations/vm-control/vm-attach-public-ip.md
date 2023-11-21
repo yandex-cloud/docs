@@ -87,4 +87,56 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
 
    For more information about the `yc compute instance add-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/add-one-to-one-nat.md).
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   1. To create a public IP address and link it to a VM, use the `yandex_vpc_address` resource and specify it for the VM in the `nat_ip_address` field:
+
+      ```hcl
+      # Creating a static IP
+
+      resource "yandex_vpc_address" "addr" {
+        name = "vm-adress"
+        external_ipv4_address {
+          zone_id = "<availability_zone>"
+        }
+      }
+
+      # Creating a VM
+
+      resource "yandex_compute_instance" "vm-1" {
+        name        = "<VM_name>"
+        platform_id = "standard-v3"
+        resources {
+          core_fraction = 20
+          cores         = 2
+          memory        = 1
+        }
+        ...
+
+        ## Assigning the VM a subnet and IP in the network_interface section
+
+        network_interface {
+          subnet_id      = "<VM_subnet_ID>"
+          nat            = true
+          nat_ip_address = yandex_vpc_address.addr.external_ipv4_address[0].address
+        }
+        ...
+
+      }
+      ```
+
+      Where `nat_ip_address` is the public IP to be linked to the VM. The `yandex_vpc_address` resource contains a list of items, where `[0]` is the list's first item that contains the IP address.
+
+      For more information about the `yandex_compute_instance` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+
 {% endlist %}

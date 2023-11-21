@@ -27,13 +27,13 @@
 1. Configure the application:
 
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Loki.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **Bucket name**: Specify the name of the [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}.
    * **Static access key**: Paste the contents of the `sa-key.json` file.
    * **Install Promtail**: Leave the option enabled to deliver local logs to the Grafana Loki instance using the [Promtail agent](https://grafana.com/docs/loki/latest/clients/promtail/). This agent is usually used for applications that require regular monitoring.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 1. Once deployed, Loki is available within the {{ managed-k8s-name }} cluster at `http://loki-gateway.<namespace>.svc.cluster.local`.
 
 ## Installation using a Helm chart {#helm-install}

@@ -33,7 +33,7 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
    Result:
 
    ```text
-   <jaeger-ydb-store-agent application name> ClusterIP 10.2.238.190 ...
+   <jaeger-ydb-store-agent_application_name> ClusterIP 10.2.238.190 ...
    ```
 
 ## Install a test application {#hotrod-install}
@@ -54,7 +54,7 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
        image: jaegertracing/example-hotrod:latest
        env:
        - name: JAEGER_AGENT_HOST
-         value: "<jaeger-ydb-store-agent application name>.default.svc.cluster.local"
+         value: "<jaeger-ydb-store-agent_application_name>.default.svc.cluster.local"
        - name: JAEGER_AGENT_PORT
          value: "6831"
        ports:
@@ -87,13 +87,13 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
    Result:
 
    ```text
-   <jaeger-ydb-store-query application name>  LoadBalancer  10.2.222.155  130.133.51.247  16686:31189/TCP ...
+   <jaeger-ydb-store-query_application_name>  LoadBalancer  10.2.222.155  130.133.51.247  16686:31189/TCP ...
    ```
 
 1. Configure port forwarding for the `jaeger-ydb-store-query` service to redirect to the local machine:
 
    ```bash
-   kubectl port-forward service/<jaeger-ydb-store-query application name> 16686:16686
+   kubectl port-forward service/<jaeger-ydb-store-query_application_name> 16686:16686
    ```
 
 1. In a different console window, configure port forwarding for the `hotrod` application to redirect to the local machine:

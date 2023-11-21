@@ -9,7 +9,7 @@ To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 1. [Prepare the required {{ k8s }} resources](#create-k8s-res).
    1. [Create a {{ managed-k8s-name }} cluster](#create-cluster).
    1. [Create a {{ managed-k8s-name }} node group](#create-node-groups).
-1. [Prepare the required {{ container-registry-name }} resources](#create-cr-res).
+1. [Prepare the necessary {{ container-registry-name }} resources](#create-cr-res).
    1. [Create a registry](#registry-create).
    1. [Configure a credential helper](#config-ch).
    1. [Prepare a Docker image](#docker-image).
@@ -237,7 +237,7 @@ Build a Docker image and push it to the registry.
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+-----------------------------+-------+-----------------+
-   | crpa2mf008mpjig73rp6 | 2019-11-20 11:52:17 | crp71hkgiolp6677hg9i/ubuntu | hello | 27.5 MB         |
+   | crpa2mf008mp******** | 2019-11-20 11:52:17 | crp71hkgiolp********/ubuntu | hello | 27.5 MB         |
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    ```
 
@@ -271,13 +271,13 @@ Start the pod with the app from the Docker image and make sure that no additiona
 
    ```
    NAME                           READY  STATUS     RESTARTS  AGE
-   hello-ubuntu-5847fb96b4-54g48  0/1    Completed  3         61s
+   hello-ubuntu-5847fb9***-*****  0/1    Completed  3         61s
    ```
 
 1. Check the logs of the container running on this pod:
 
    ```
-   kubectl logs hello-ubuntu-5847fb96b4-54g48
+   kubectl logs hello-ubuntu-5847fb9***-*****
    ```
 
    Result:

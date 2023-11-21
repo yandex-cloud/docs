@@ -9,7 +9,7 @@
 | Total number of vCPUs across all VMs per cloud on {{ highfreq-ice-lake }} | 0 |
 | Total virtual memory across all VMs per cloud | 128 GB |
 | Total number of [disks](../compute/concepts/disk.md) per cloud | 32 |
-| Total number of disks per cloud in a {{ zone-id }} zone | 0 |
+| Total number of disks per cloud per {{ zone-id }} zone | 0 |
 | Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud | 500 GB |
 | Total SSD storage capacity per cloud | 200 GB |
 | Total non-replicated SSD storage capacity per cloud | 558 GB |
@@ -19,7 +19,7 @@
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud | 32 |
 | Total number of [file stores](../compute/concepts/filesystem.md) per cloud^1^ | 100 |
-| Total number of file stores per cloud in a {{ zone-id }} zone | 0 |
+| Total number of file stores per cloud per {{ zone-id }} zone | 0 |
 | Total [HDD](../compute/concepts/filesystem.md#types) file storage capacity per cloud^1^ | 0 B |
 | Total SDD file storage capacity per cloud^1^ | 0 B |
 | Number of [images](../compute/concepts/image.md) per cloud | 8 |
@@ -29,7 +29,8 @@
 | Total number of GPUs across all VMs per cloud on {{ a100-epyc }} | 0 |
 | Total number of GPUs across all VMs per cloud on {{ t4-ice-lake }} | 0 |
 | Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 |
-| Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
+| Maximum number of [VM placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
+| Maximum number of VMs per partition in a VM placement group with the [partition placement](../compute/concepts/placement-groups.md#partition) strategy | 100 |
 | Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per dedicated host group^1^ | 0 |
 | Number of dedicated host groups per cloud | 6 |
 
@@ -53,7 +54,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum number of disks and file stores attached to a single VM^2^ | 18 vCPUs or fewer: 8<br>More than 18 vCPUs: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 4 |
    | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
-   | Maximum number of VMs per placement group | 5 |
+   | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 
 - Intel Cascade Lake
 
@@ -64,7 +65,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum number of disks and file stores attached to a single VM^2^ | 20 vCPUs or fewer: 8<br>More than 20 vCPUs: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 8 |
    | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
-   | Maximum number of VMs per placement group | 5 |
+   | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 
 
 - Intel Ice Lake
@@ -75,7 +76,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum virtual memory per VM | 640 GB |
    | Maximum number of disks and file stores attached to a single VM^2^ | 32 vCPUs or fewer: 8<br>More than 32 vCPUs: 16^3^ |
    | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
-   | Maximum number of VMs per placement group | 5 |
+   | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 
 
 - Intel Ice Lake (Compute Optimized)
@@ -86,14 +87,14 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum virtual memory per VM | 448 GB |
    | Maximum number of disks and file stores attached to a single VM^2^ | 32 vCPUs or fewer: 8<br>More than 32 vCPUs: 16^3^ |
    | Maximum number of security groups per interface | 5 |
-   | Maximum number of VMs per placement group | 5 |
+   | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 
 
 {% endlist %}
 
 ^2^ Including the boot disk.
 
-^3^ When a VM starts, a maximum of 14 devices, including the boot disk and a NIC, can be connected to it. Other devices must be connected when the VM is already running. Please note that if you restart a VM with more than 14 devices connected, it will not be able to boot.
+^3^ When a VM starts, a maximum of 14 devices, including the boot disk and a NIC, can be connected to it. You should connect other devices when your VM is already running. Please note that if you restart a VM with more than 14 devices connected, it will not be able to boot.
 
 #### VM limits on disk operations {#compute-limits-vm-disks}
 

@@ -17,7 +17,7 @@ Remote site:
 * The `remote-net` network with `subnet-1` (`10.10.0.0/16`).
 * The `remote-gw` remote IPsec gateway in VM format based on the open-source [strongSwan](https://github.com/strongswan/strongswan) product. The IPsec gateway is connected to `subnet-1`. The main goal of the gateway is to set up an IPsec connection to the main gateway and provide network connectivity between test VMs.
 * The `remote-net-sg` security group is applied on the VM network interface of the remote gateway and allows IPsec traffic between the gateways.
-* A route table named `remote-net-rt` with static routes ensures traffic towards `subnet-а` and `subnet-b` of the cloud site via the remote IPsec gateway.
+* A route table named `remote-net-rt` with static routes ensures traffic towards `subnet-a` and `subnet-b` of the cloud site via the remote IPsec gateway.
 * The `vm-1` test VM based on Ubuntu Linux is connected to `subnet-1`. This VM is used to check IP connectivity via an IPsec connection.
 
 The IPsec connection is established between the public IPs of the main (`x1.x1.x1.x1`) and remote (`x2.x2.x2.x2`) gateways.

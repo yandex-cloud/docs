@@ -17,12 +17,12 @@
 1. Under **Applications available for installation**, select [Filebeat](/marketplace/products/yc/filebeat) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter an application name, e.g., `filebeat`.
+   * **Application name**: Enter a name for the application, e.g., `filebeat`.
    * **{{ ES }} username**: Enter the username that Filebeat will use to connect to the {{ mes-name }} cluster.
    * **{{ ES }} connection password**: Enter the user password for the {{ mes-name }} cluster.
-   * **{{ ES }} FQDN**: Enter the {{ mes-name }} cluster URL and port, e.g., `https://c-c9q07rjo9c11q4e1p0om.rw.{{ dns-zone }}:9200`. For more information about connecting to a {{ mes-name }} cluster, see the [service documentation](../../../managed-elasticsearch/operations/cluster-connect.md).
+   * **{{ ES }} FQDN**: Enter the {{ mes-name }} cluster URL and port, e.g., `https://c-c9q07rjo9c11********.rw.{{ dns-zone }}:9200`. For more information about connecting to a {{ mes-name }} cluster, see the [service documentation](../../../managed-elasticsearch/operations/cluster-connect.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 1. [Connect to the Kibana web interface](../../../managed-elasticsearch/quickstart.md#connect-kibana) and make sure that the {{ managed-k8s-name }} cluster events are coming in.
 
 ## Installation using a Helm chart {#helm-install}
