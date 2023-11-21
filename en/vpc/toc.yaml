@@ -15,7 +15,7 @@ items:
             href: operations/network-delete.md
           - name: Updating a cloud network
             href: operations/network-update.md
-          - name: Studying a cloud network map
+          - name: Reading a cloud network map
             href: operations/network-map.md
           - name: Moving a cloud network between folders
             href: operations/network-move.md
@@ -62,7 +62,7 @@ items:
             href: operations/security-group-update.md
           - name: Adding a new rule
             href: operations/security-group-add-rule.md
-          - name: Delete a rule
+          - name: Deleting a rule
             href: operations/security-group-delete-rule.md
           - name: Moving a security group between folders
             href: operations/security-group-move.md
@@ -112,8 +112,10 @@ items:
         href: tutorials/pt-application-firewall.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
+      - name: '{{ yandex-cloud }} network overview'
+        href: concepts/network-overview.md
       - name: Cloud networks and subnets
         href: concepts/network.md
       - name: Cloud resource addresses

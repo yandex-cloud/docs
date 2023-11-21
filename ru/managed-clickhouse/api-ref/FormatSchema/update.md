@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/update.md
 ---
 
 # Managed Service for ClickHouse API, REST: FormatSchema.update
-
+Changes a format schema.
  
 
  
@@ -17,8 +17,8 @@ PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/form
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. The maximum string length in characters is 50.</p> 
-formatSchemaName | <p>Required. The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+clusterId | <p>Required. ClickHouse cluster ID.</p> <p>To get a ClickHouse cluster ID, use the <a href="/docs/managed-clickhouse/api-ref/Cluster/list">list</a> method.</p> <p>The maximum string length in characters is 50.</p> 
+formatSchemaName | <p>Required. Format schema name.</p> <p>To get a format schema name, use the <a href="/docs/managed-clickhouse/api-ref/FormatSchema/list">list</a> method.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Body parameters {#body_params}
  
@@ -33,7 +33,7 @@ formatSchemaName | <p>Required. The maximum string length in characters is 63. V
 Field | Description
 --- | ---
 updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-uri | **string**
+uri | **string**<br><p><a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/s3-access#get-link-to-object">Link to the file</a> of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

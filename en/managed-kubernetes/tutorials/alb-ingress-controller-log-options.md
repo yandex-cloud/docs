@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ```bash
       yc iam key create \
-         --service-account-name <name of service account for Ingress controller> \
+         --service-account-name <Ingress_controller_service_account_name> \
          --output key.json
       ```
 
@@ -252,13 +252,13 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
      name: logs-demo-nondefault
      annotations:
        ingress.alb.yc.io/group-name: non-default
-       ingress.alb.yc.io/subnets: <list of subnet IDs>
-       ingress.alb.yc.io/security-groups: <list of security group IDs>
+       ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
+       ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
        ingress.alb.yc.io/group-settings-name: non-default-settings
        ingress.alb.yc.io/external-ipv4-address: auto
    spec:
      rules:
-       - host: <domain name>
+       - host: <domain_name>
          http:
            paths:
              - pathType: Prefix
@@ -275,13 +275,13 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
      name: logs-demo-disabled
      annotations:
        ingress.alb.yc.io/group-name: logs-disabled
-       ingress.alb.yc.io/subnets: <list of subnet IDs>
-       ingress.alb.yc.io/security-groups: <list of security group IDs>
+       ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
+       ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
        ingress.alb.yc.io/group-settings-name: logs-disabled-settings
        ingress.alb.yc.io/external-ipv4-address: auto
    spec:
      rules:
-       - host: <domain name>
+       - host: <domain_name>
          http:
            paths:
              - pathType: Prefix
@@ -298,12 +298,12 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
      name: logs-demo-default
      annotations:
        ingress.alb.yc.io/group-name: default
-       ingress.alb.yc.io/subnets: <list of subnet IDs>
-       ingress.alb.yc.io/security-groups: <list of security group IDs>
+       ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
+       ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
        ingress.alb.yc.io/external-ipv4-address: auto
    spec:
      rules:
-       - host: <domain name>
+       - host: <domain_name>
          http:
            paths:
              - pathType: Prefix
@@ -347,11 +347,11 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
       If no annotation is specified, the load balancer connects to the backends with no encryption.
 
    * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
-   * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
+   * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, e.g., `websocket`.
    * `ingress.alb.yc.io/request-timeout`: Maximum period for which the connection can be established.
-   * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time with no data to transmit.
+   * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time with zero data transmission.
 
-      Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement:
+      Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement include:
       * `ns`: Nanoseconds
       * `us`: Microseconds
       * `ms`: Milliseconds
@@ -400,7 +400,7 @@ No settings need to be specified to save logs to the default log group.
    metadata:
      name: non-default-settings
    logOptions:
-     logGroupID: <user_log_group_id>
+     logGroupID: <custom_log_group_ID>
      discardRules:
        - discardPercent: 50
          grpcCodes:

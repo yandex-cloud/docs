@@ -1,4 +1,4 @@
-# Tutorials
+# Tutorials for using Microsoft products in {{ yandex-cloud }}
 
 
 

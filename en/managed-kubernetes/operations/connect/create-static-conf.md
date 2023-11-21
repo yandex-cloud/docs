@@ -22,10 +22,10 @@ To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a vari
 
    - Management console
 
-     1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select {{ managed-k8s-name }}.
+     1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click the name of the {{ managed-k8s-name }} cluster.
 
-     You can see the unique ID of the {{ managed-k8s-name }} cluster under **General information**.
+    The unique ID of the {{ managed-k8s-name }} cluster will appear in the **{{ ui-key.yacloud.k8s.cluster.overview.label_id }}** field.
 
    - CLI
 
@@ -52,13 +52,13 @@ To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a vari
    - Bash
 
      ```bash
-     CLUSTER_ID=catb3ppsdsh7vajr216f
+     CLUSTER_ID=catb3ppsdsh7********
      ```
 
    - PowerShell
 
      ```shell script
-     $CLUSTER_ID = "catb3ppsdsh7vajr216f"
+     $CLUSTER_ID = "catb3ppsdsh7********"
      ```
 
    {% endlist %}

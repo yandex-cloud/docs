@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The created controller will be installed behind [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
 
-To set up the controller configuration yourself, follow the instructions provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the file named [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
+To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the file named [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
 
 ## Install the certificate manager {#install-certs-manager}
 
@@ -60,9 +60,9 @@ To set up the controller configuration yourself, follow the instructions provide
 
       ```text
       NAME                                      READY  STATUS   RESTARTS  AGE
-      cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
-      cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
-      cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
+      cert-manager-69********-ghw6s             1/1    Running  0         54s
+      cert-manager-cainjector-76********-gnrzz  1/1    Running  0         55s
+      cert-manager-webhook-77********-wz9bh     1/1    Running  0         54s
       ```
 
    1. Create the `acme-issuer.yaml` YAML file with the `ClusterIssuer` object manifest:

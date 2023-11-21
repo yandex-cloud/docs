@@ -307,6 +307,9 @@ view | <p>Defines which information about the Instance template should be return
       "applicationLoadBalancerState": {
         "targetGroupId": "string",
         "statusMessage": "string"
+      },
+      "autoHealingPolicy": {
+        "autoHealingAction": "string"
       }
     }
   ],
@@ -503,4 +506,6 @@ instanceGroups[].<br>applicationLoadBalancerSpec.<br>ignoreHealthChecks | **bool
 instanceGroups[].<br>applicationLoadBalancerState | **object**<br><p>Status of the Application Load Balancer target group attributed to the instance group.</p> <p>Returned if there is a working load balancer that the target group is connected to.</p> 
 instanceGroups[].<br>applicationLoadBalancerState.<br>targetGroupId | **string**<br><p>ID of the Application Load Balancer target group attributed to the instance group.</p> 
 instanceGroups[].<br>applicationLoadBalancerState.<br>statusMessage | **string**<br><p>Status message of the target group.</p> 
+instanceGroups[].<br>autoHealingPolicy | **object**<br><p>AutoHealingPolicy policy of the instance group.</p> 
+instanceGroups[].<br>autoHealingPolicy.<br>autoHealingAction | **string**<br><p>Instance Groups performs ``autoHealingAction`` when instance becomes unhealthy.</p> <ul> <li>RESTART: Re-starting an instance with restart: stopping and then starting the instance.</li> <li>RECREATE: Re-creating an instance: deleting an instance and creating a new one.</li> <li>NONE: No action</li> </ul> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/InstanceGroup/list#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/InstanceGroup/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/InstanceGroup/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/InstanceGroup/list#responses">nextPageToken</a> to continue paging through the results.</p> 

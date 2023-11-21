@@ -98,21 +98,21 @@
       Where:
 
       * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
-      * `role`: [Role](../../iam/concepts/access-control/roles.md) being assigned. Required parameter.
-      * `member`: Group the role is assigned to. It should be specified in `group:<group_ ID>` format. Required parameter.
+      * `role`: [Role](../../iam/concepts/access-control/roles.md) being assigned. This is a required parameter.
+      * `member`: Group the role is assigned to. It should be specified in `group:<group_ ID>` format. This is a required parameter.
 
       For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
    1. Deploy cloud resources.
 
@@ -126,8 +126,8 @@
 
       All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-      ```
-      yc resource-manager folder list-access-bindings <folder-name>|<folder-id>
+      ```bash
+      yc resource-manager folder list-access-bindings <folder_name>|<folder_ID>
       ```
 
 {% endlist %}

@@ -21,12 +21,13 @@
 1. Установите Ingress-контроллер:
    1. [Создайте](../../application-load-balancer/tools/k8s-ingress-controller/service-account.md) [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для Ingress-контроллера.
    1. [Установите](../../application-load-balancer/operations/k8s-ingress-controller-install.md) Ingress-контроллер {{ alb-name }} для {{ managed-k8s-name }}.
+1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за использование [мастера](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик  (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
 * Плата за использование вычислительных ресурсов [L7-балансировщика](../../application-load-balancer/concepts/index.md) (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
 * Плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
 
@@ -158,7 +159,7 @@
 
      При значении `auto` Ingress-контроллер получит [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) автоматически. При удалении Ingress-контроллера IP-адрес также будет удален из облака.
    * `ingress.alb.yc.io/security-groups` — идентификатор группы безопасности, созданной при [подготовке облака к работе](#prepare-cloud). Если в вашем облаке не включены группы безопасности, удалите эту аннотацию.
-   * `secretName` — указание на TLS-сертификат из [{{ certificate-manager-full-name }}](../../certificate-manager/) в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
+   * `secretName` — указание на [TLS-сертификат](../../certificate-manager/concepts/index.md) из [{{ certificate-manager-full-name }}](../../certificate-manager/) в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
    * `hosts`, `host` — доменное имя, которому соответствует TLS-сертификат.
 
    Подробнее см. [поля и аннотации ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md).
@@ -185,8 +186,8 @@
    * `<имя_сайта>` — доменное имя, которому соответствует TLS-сертификат.
    * `<IP-адрес>` — IP-адрес сайта.
 
-   В столбце ADDRESS должен появиться IP-адрес. В противном случае балансировщик не создался или создался некорректно — проверьте логи пода `yc-alb-ingress-controller-*`.
-1. [Создайте](../../dns/operations/resource-record-create.md) в {{ dns-name }} [A-запись](../../dns/concepts/resource-record.md#a), указывающую на публичный IP-адрес балансировщика.
+   В столбце ADDRESS должен появиться IP-адрес. В противном случае балансировщик не создался или создался некорректно — проверьте логи [пода](../../managed-kubernetes/concepts/index.md#pod) `yc-alb-ingress-controller-*`.
+1. Если вы не устанавливали [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [создайте](../../dns/operations/resource-record-create.md) в {{ dns-name }} [A-запись](../../dns/concepts/resource-record.md#a-a), указывающую на публичный адрес балансировщика. При использовании ExternalDNS c плагином для {{ dns-name }} запись создастся автоматически.
 
 ## Настройте горизонтальное автомасштабирование подов {#configure-autoscaling}
 
@@ -300,20 +301,16 @@
    ```
 
    Где:
-
    * `target` — название вашего сайта и порт (для HTTPS: 443).
-   
 1. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и выберите сохраненный ранее файл `ammo.json`.
    * В блоке настроек **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
      * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите `{{ ui-key.yacloud.load-testing.label_settings-type-config }}`.
      * В поле **{{ ui-key.yacloud.load-testing.field_config-file }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и загрузите подготовленный ранее файл `load.yaml`.
-
 1. Наблюдайте за прохождением теста:
-
    1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
-   1. Выберите ваш тестовый кластер.
+   1. Выберите ваш тестовый кластер {{ managed-k8s-name }}].
    1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
    1. Наблюдайте за изменением количества подов приложения по мере увеличения и уменьшения нагрузки.
    1. По завершении теста в [консоли управления]({{ link-console-main }}) выберите сервис {{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}.

@@ -6,7 +6,7 @@ To use {{ CSI }} capabilities:
 1. [Set up a work environment](#create-environment).
 1. [Configure {{ CSI }}](#configure-csi).
 
-See also:
+For more information, refer to:
 * [Using {{ CSI }} with a `PersistentVolume`](#csi-usage)
 * [Examples of creating a `PersistentVolume`](#examples)
 
@@ -21,7 +21,6 @@ See also:
 
 {% list tabs %}
 
-
 - Using {{ marketplace-full-name }}
 
    Install the {{ CSI }} application for S3 by following [this step-by-step guide](../applications/csi-s3.md#install-fb-marketplace). While installing the application, specify the following parameters:
@@ -30,7 +29,6 @@ See also:
    * **Secret name**: `csi-s3-secret`.
 
    After installing the application, you can create [static](../../concepts/volume.md#static-provisioning) and [dynamic](../../concepts/volume.md#dynamic-provisioning) `PersistentVolumes` to use {{ objstorage-name }} buckets.
-
 
 - Manually
 
@@ -225,7 +223,7 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
 
    While running, the pod will execute the `date` command several times and write its result to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
 1. Make sure that the file is in the bucket:
-   1. Go to the folder page and select **{{ objstorage-name }}**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the `pvc-<dynamic_bucket_name>` bucket.
 
 ### Static PersistentVolume {#create-static-pvc}
@@ -366,5 +364,5 @@ To use {{ CSI }} with a static `PersistentVolume`:
 
    While running, the pod will execute the `date` command several times and write its result to a file named `/data/s3-static/static-date.txt`. You will find this file in the bucket.
 1. Make sure that the file is in the bucket:
-   1. Go to the folder page and select **{{ objstorage-name }}**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the `<bucket_name>`.

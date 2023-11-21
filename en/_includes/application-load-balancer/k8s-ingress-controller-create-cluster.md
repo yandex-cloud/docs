@@ -1,1 +1,1 @@
-[Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) with the **Public address** setting : `Auto`.
+[Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) with the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** setting: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.

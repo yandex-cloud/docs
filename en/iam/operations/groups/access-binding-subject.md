@@ -1,6 +1,6 @@
 # Granting permissions to a user group
 
-Grant a [group](../../../organization/operations/manage-groups.md) access bindings to a resource. To grant a [subject](../../concepts/access-control/index.md#subject) group access bindings, follow the [{#T}](access-binding-object.md) instructions.
+Grant a [group](../../../organization/operations/manage-groups.md) access bindings to a resource. To grant group access permissions to a [subject](../../concepts/access-control/index.md#subject), follow this guide: [{#T}](access-binding-object.md).
 
 [Access](../../concepts/access-control/index.md#how-do-i-perform-access-management) management in {{ yandex-cloud }} is based on roles.
 
@@ -12,10 +12,4 @@ In the management console, you can assign a group a role for a cloud, folder, or
 
 ## Assigning a role for an organization {#access-binding-organization}
 
-{% list tabs %}
-
-- CLI
-
-   {% include [accessbinding-group-as-subject-org](../../../_includes/organization/accessbinding-group-as-subject-org.md) %}
-
-{% endlist %}
+{% include [accessbinding-group-as-subject-org](../../../_includes/organization/accessbinding-group-as-subject-org.md) %}

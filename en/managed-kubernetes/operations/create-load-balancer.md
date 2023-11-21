@@ -55,7 +55,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
        spec:
          containers:
          - name: hello-app
-           image: {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
+           image: {{ registry }}/crpjd37scfv6********/hello:1.1
    ```
 
 1. Create an application:
@@ -107,7 +107,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
        Labels:  app=hello
        Containers:
         hello-app:
-         Image:        {{ registry }}/crpab12cdef353nl11i9/hello:1.1
+         Image:        {{ registry }}/crpab12cdef3********/hello:1.1
          Port:         <none>
          Host Port:    <none>
          Environment:  <none>
@@ -119,11 +119,11 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
        Available      False   MinimumReplicasUnavailable
        Progressing    True    ReplicaSetUpdated
      OldReplicaSets:  <none>
-     NewReplicaSet:   hello-74c9c1b238 (2/2 replicas created)
+     NewReplicaSet:   hello-74******** (2/2 replicas created)
      Events:
        Type    Reason             Age   From                   Message
        ----    ------             ----  ----                   -------
-       Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-74c9c1b238 to 2
+       Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-74******** to 2
      ```
 
    {% endlist %}
@@ -184,8 +184,8 @@ When you create a service with the `LoadBalancer` type, {{ yandex-cloud }} contr
    - Management console
 
      1. In the [management console]({{ link-console-main }}), select your default folder.
-     1. Select **{{ network-load-balancer-name }}**.
-     1. The **Load balancers** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
+     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
 
    - CLI
 
@@ -234,7 +234,7 @@ When you create a service with the `LoadBalancer` type, {{ yandex-cloud }} contr
 
      ```text
      Hello, world!
-     Running in 'hello-74c9c1b238-c1rpa'
+     Running in 'hello-74********-c1rpa'
      ```
 
    {% endlist %}
@@ -252,7 +252,7 @@ metadata:
     # Load balancer type: Internal.
     yandex.cloud/load-balancer-type: internal
     # ID of the subnet where an IP address for the internal network load balancer should be allocated.
-    yandex.cloud/subnet-id: e1b23q26ab1c0dce8te9
+    yandex.cloud/subnet-id: e1b23q26ab1c********
 spec:
   type: LoadBalancer
   ports:
@@ -278,7 +278,7 @@ In {{ managed-k8s-name }}, the following advanced settings are available for a s
 * Manage traffic using the [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec) parameter:
   * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In which case:
     * If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node.
-  * `Local`: Traffic goes directly to the nodes where the application containers are running. In this case:
+  * `Local`: Traffic goes directly to the nodes where the application containers are running. In which case:
     * The originating IP address of the user query is saved.
     * Horizontal traffic exchanged by VMs is lower.
 
@@ -298,10 +298,15 @@ spec:
     targetPort: 8080
   selector:
     app: hello
-  loadBalancerIP: <pre-allocated IP address>
+  loadBalancerIP: <IP_address>
   type: LoadBalancer
-  externalTrafficPolicy: <Local or Cluster>
+  externalTrafficPolicy: <traffic_management>
 ```
+
+Where:
+
+* `loadBalancerIP`: Pre-allocated IP address.
+* `externalTrafficPolicy`: Traffic management (`Local` or `Cluster`).
 
 ## Parameters for checking node status {#healthcheck}
 
@@ -345,11 +350,11 @@ To connect to services published via {{ network-load-balancer-name }} from certa
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: <policy name>
+  name: <policy_name>
   namespace: <namespace>
 spec:
   podSelector:
-    <pod filtering rules>
+    <pod_filtering_rules>
   policyTypes:
   - Ingress
   ingress:
@@ -359,10 +364,10 @@ spec:
     - ipBlock:
         cidr: 198.18.248.0/24
     - ipBlock:
-        cidr: <range of IPs allowed to access the load balancer>
+        cidr: <range_of_IPs_allowed_to_access_the_load_balancer>
     ...
     - ipBlock:
-        cidr: <range of IPs allowed to access the load balancer>
+        cidr: <range_of_IPs_allowed_to_access_the_load_balancer>
 ```
 
 Where:

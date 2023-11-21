@@ -1,12 +1,12 @@
 {% note info %}
 
-You can enable sending of [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) logs to [{{ cloud-logging-full-name }}](../logging/) by specifying the `master logging` setting when [creating](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) a cluster. The setting is only available in the CLI, {{ TF }}, and API.
+You can enable sending [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) logs to [{{ cloud-logging-full-name }}](../logging/) by specifying the `master logging` setting when [creating](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) a cluster. The setting is only available in the CLI, {{ TF }}, and API.
 
 {% endnote %}
 
-The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}. The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
+The [Fluent Bit](https://fluentbit.io/) log processor allows you to transfer the {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}. The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
 
-To set up transfer of logs:
+To set up log transfer:
 1. [Prepare the {{ managed-k8s-name }} cluster](#configure-cluster).
 1. [Install and configure Fluent Bit](#fluent-bit-install).
 
@@ -22,7 +22,7 @@ To set up transfer of logs:
 
       ```bash
       yc iam key create \
-        --service-account-name <name of service account for Fluent Bit> \
+        --service-account-name <name_of_service_account_for_Fluent_Bit> \
         --output key.json
       ```
 
@@ -42,7 +42,7 @@ To set up transfer of logs:
 
 - Manually
 
-   1. Create the objects necessary for Fluent Bit to run:
+   1. Create the objects required for Fluent Bit to run:
 
       {% list tabs %}
 
@@ -88,8 +88,8 @@ To set up transfer of logs:
           [OUTPUT]
             Name            yc-logging
             Match           *
-            group_id        <og group ID>
-            resource_id     <optional: {{ managed-k8s-name }} cluster ID>
+            group_id        <log_group_ID>
+            resource_id     <optional:_{{ k8s }}_cluster_ID>
             message_key     log
             authorization   iam-key-file:/etc/secret/key.json
       ...
@@ -97,7 +97,7 @@ To set up transfer of logs:
 
       You can request the [log group](../logging/concepts/log-group.md) ID with a [list of log groups in the folder](../logging/operations/list.md).
 
-      If necessary, specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for the Fluent Bit.
+      Specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for Fluent Bit, if required.
    1. Create Fluent Bit objects:
 
       ```bash

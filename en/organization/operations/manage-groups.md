@@ -57,13 +57,7 @@ To grant a group access to a resource:
 
 A role granted for the entire organization allows group members to manage any {{ yandex-cloud }} resources activated for the organization as per the role's permissions.
 
-{% list tabs %}
-
-- CLI
-
-   {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
-
-{% endlist %}
+{% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
 
 ## Mapping user groups {#group-mapping}
 

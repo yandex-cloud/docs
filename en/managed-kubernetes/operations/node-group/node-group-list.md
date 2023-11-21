@@ -10,13 +10,13 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
-  1. Click on the name of the {{ k8s }} cluster.
-  1. Go to the **Node group** tab.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of the {{ k8s }} cluster.
+  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 
 - CLI
 
-  Run the command:
+  Run this command:
 
   ```bash
   yc managed-kubernetes node-group list
@@ -28,7 +28,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
   |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-  | catvhf4iv6dt8hguut9i | catcafja9ktuc7ven4le | test-nodegroup | cl1ec3le3qv3g2k441sd | 2019-04-09 10:56:22 | RUNNING |    2 |
+  | catvhf4iv6dt******** | catcafja9ktu******** | test-nodegroup | cl1ec3le3qv3******** | 2019-04-09 10:56:22 | RUNNING |    2 |
   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
   ```
 
@@ -46,10 +46,10 @@ To access a node group, use the `ID` or `NAME` parameters from the [previous](no
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
-  1. Click on the name of the {{ k8s }} cluster.
-  1. Go to the **Node group** tab.
-  1. Click on the name of the node group.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of the {{ k8s }} cluster.
+  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Click the name of the node group.
 
 - CLI
 
@@ -62,12 +62,12 @@ To access a node group, use the `ID` or `NAME` parameters from the [previous](no
   Result:
 
   ```text
-  id: catvhf4iv6dt8hguut9i
-  cluster_id: catcafja9ktuc7ven5ny
+  id: catvhf4iv6dt********
+  cluster_id: catcafja9ktu********
   created_at: "2019-04-09T10:56:22Z"
   ...
-      subnet_id: b0c0jfcpqgngfu05rhcj
-  instance_group_id: cl1ec3le3qv3g2k233sd
+      subnet_id: b0c0jfcpqgng********
+  instance_group_id: cl1ec3le3qv3********
   node_version: 1.13.3
   ```
 

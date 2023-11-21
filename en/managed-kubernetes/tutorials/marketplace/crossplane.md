@@ -90,7 +90,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
        source: Secret
        secretRef:
          name: yc-creds
-         namespace: <namespace for Crossplane>
+         namespace: <namespace_for_Crossplane>
          key: credentials
    ```
 
@@ -154,10 +154,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `VM_NAME`: Name of the VM to be created using Crossplane tools.
    * `NET_NAME`: Name of the {{ k8s }} cluster cloud network.
    * `SUBNET_NAME`: Name of the {{ k8s }} cluster node subnet.
-   * `SUBNET_ID`: ID of the subnet.
-   * `NET_ID`: ID of the network.
+   * `SUBNET_ID`: Subnet ID.
+   * `NET_ID`: Network ID.
    * `SUBNET_PREFIX`: Subnet CIDR.
-   * `FOLDER_ID`: ID of the folder.
+   * `FOLDER_ID`: Folder ID.
    * `IMAGE_ID`: ID of the VM's boot image. You can fetch it with a [list of images](../../../compute/operations/image-control/get-list.md). This example uses the [LEMP](/marketplace/products/yc/lemp) image.
 1. Apply the `providerconfig.yml` manifest:
 
@@ -209,7 +209,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
      1. Delete the `k8s-cluster.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

@@ -20,7 +20,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
-   1. Enter a name for the route table. The requirements are as follows:
+   1. Enter a name for the route table. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -156,7 +156,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
          * `destination_prefix`: Destination subnet prefix in CIDR notation.
          * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_route_table" "lab-rt-a" {
@@ -182,7 +182,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

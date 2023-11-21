@@ -1,6 +1,6 @@
-Управляйте TLS-сертификатом для Ingress-контроллера NGINX через {{ certificate-manager-name }}.
+Управляйте [TLS-сертификатом](../certificate-manager/concepts/index.md) для Ingress-контроллера NGINX через [{{ certificate-manager-full-name }}](../certificate-manager/).
 
-[External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) синхронизирует сертификат с [секретом {{ k8s }}](../managed-kubernetes/concepts/encryption.md). Это позволяет управлять сертификатом развернутого приложения через {{ certificate-manager-name }}: добавить самоподписанный сертификат и обновлять его самостоятельно или выпустить сертификат от Let's Encrypt<sup>®</sup>, который будет обновляться автоматически.
+[External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) синхронизирует сертификат с [секретом {{ k8s }}](../managed-kubernetes/concepts/encryption.md). Это позволяет управлять сертификатом развернутого приложения через {{ certificate-manager-name }}: добавить самоподписанный сертификат и обновлять его самостоятельно или выпустить сертификат от Let's Encrypt®, который будет обновляться автоматически.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -22,11 +22,11 @@
 
 1. Создайте [авторизованный ключ](../iam/concepts/authorization/access-key.md) для сервисного аккаунта и сохраните его в файл `authorized-key.json`:
 
-    ```bash
-    yc iam key create \
-      --service-account-name eso-service-account \
-      --output authorized-key.json
-    ```
+   ```bash
+   yc iam key create \
+     --service-account-name eso-service-account \
+     --output authorized-key.json
+   ```
 
 1. [Создайте кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера укажите сервисный аккаунт `k8s-sa`.
 
@@ -35,249 +35,247 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-
-* использование мастера и исходящий трафик {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../managed-kubernetes/pricing.md));
-* использование узлов кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-name }}](../compute/pricing.md));
-* использование публичных IP-адресов (см. [тарифы {{ vpc-name }}](../vpc/pricing.md));
-* входящий трафик, обработанный балансировщиком, и использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-short-name }}](../network-load-balancer/pricing.md)).
+* Использование [мастера {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#master) и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../managed-kubernetes/pricing.md)).
+* Использование [узлов](../managed-kubernetes/concepts/index.md#node-group) [кластера {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster) (см. [тарифы {{ compute-full-name }}](../compute/pricing.md)).
+* Использование [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../vpc/pricing.md)).
+* Входящий трафик, обработанный балансировщиком, и использование [сетевого балансировщика](../network-load-balancer/concepts/index.md) (см. [тарифы {{ network-load-balancer-full-name }}](../network-load-balancer/pricing.md)).
 
 ## Добавьте сертификат в {{ certificate-manager-name }}
 
-1. Выпустите и [добавьте](../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }} сертификат Let's Encrypt<sup>®</sup> или [загрузите](../certificate-manager/operations/import/cert-create.md) собственный сертификат.
-1. Для сертификата Let's Encrypt<sup>®</sup> пройдите [проверку прав](../certificate-manager/operations/managed/cert-validate.md) на домен, который указан в сертификате.
-1. Назначьте роль `certificate-manager.certificates.downloader` сервисному аккаунту `eso-service-account`, чтобы он мог читать содержимое сертификата:
+1. Выпустите и [добавьте](../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }} сертификат Let's Encrypt® или [загрузите](../certificate-manager/operations/import/cert-create.md) собственный сертификат.
+1. Для сертификата Let's Encrypt® пройдите [проверку прав](../certificate-manager/operations/managed/cert-validate.md) на домен, который указан в сертификате.
+1. Назначьте [роль](../iam/concepts/access-control/roles.md) `certificate-manager.certificates.downloader` [сервисному аккаунту](../iam/concepts/users/service-accounts.md) `eso-service-account`, чтобы он мог читать содержимое сертификата:
 
-    ```bash
-    yc cm certificate add-access-binding \
-      --id <идентификатор_сертификата> \
-      --service-account-name eso-service-account \
-      --role certificate-manager.certificates.downloader
-    ```
+   ```bash
+   yc cm certificate add-access-binding \
+     --id <идентификатор_сертификата> \
+     --service-account-name eso-service-account \
+     --role certificate-manager.certificates.downloader
+   ```
 
 1. Проверьте, что права назначены:
 
-    ```bash
-    yc cm certificate list-access-bindings --id <идентификатор_сертификата>
-    ```
+   ```bash
+   yc cm certificate list-access-bindings --id <идентификатор_сертификата>
+   ```
 
-    Результат выполнения команды:
+   Результат:
 
-    ```
-    +---------------------------------------------+----------------+-------------------------------------+
-    |                   ROLE ID                   |  SUBJECT TYPE  |              SUBJECT ID             |
-    +---------------------------------------------+----------------+-------------------------------------+
-    | certificate-manager.certificates.downloader | serviceAccount | <идентификатор_сервисного_аккаунта> |
-    +---------------------------------------------+----------------+-------------------------------------+
-    ```
+   ```text
+   +---------------------------------------------+----------------+-------------------------------------+
+   |                   ROLE ID                   |  SUBJECT TYPE  |              SUBJECT ID             |
+   +---------------------------------------------+----------------+-------------------------------------+
+   | certificate-manager.certificates.downloader | serviceAccount | <идентификатор_сервисного_аккаунта> |
+   +---------------------------------------------+----------------+-------------------------------------+
+   ```
 
 ## Установите External Secrets Operator {#install-eso}
 
 1. Добавьте Helm-репозиторий `external-secrets`:
 
-    ```bash
-    helm repo add external-secrets https://charts.external-secrets.io
-    ```
+   ```bash
+   helm repo add external-secrets https://charts.external-secrets.io
+   ```
 
-1. Установите External Secrets Operator в кластер {{ k8s }}:
+1. Установите External Secrets Operator в кластер {{ managed-k8s-name }}:
 
-    ```bash
-    helm install external-secrets \
-      external-secrets/external-secrets \
-      --namespace external-secrets \
-      --create-namespace
-    ```
+   ```bash
+   helm install external-secrets \
+     external-secrets/external-secrets \
+     --namespace external-secrets \
+     --create-namespace
+   ```
 
-    Эта команда создаст новое пространство имен `external-secrets`, необходимое для работы External Secrets Operator.
+   Эта команда создаст новое [пространство имен](../managed-kubernetes/concepts/index.md#namespace) `external-secrets`, необходимое для работы External Secrets Operator.
 
-    Результат выполнения команды:
+   Результат:
 
-    ```text
-    NAME: external-secrets
-    LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-    NAMESPACE: external-secrets
-    STATUS: deployed
-    REVISION: 1
-    TEST SUITE: None
-    NOTES:
-    external-secrets has been deployed successfully!
-    ...
-    ```
+   ```text
+   NAME: external-secrets
+   LAST DEPLOYED: Sun Sep 19 11:20:58 2021
+   NAMESPACE: external-secrets
+   STATUS: deployed
+   REVISION: 1
+   TEST SUITE: None
+   NOTES:
+   external-secrets has been deployed successfully!
+   ...
+   ```
 
-## Настройте кластер {{ k8s }} {#configure-cluster}
+## Настройте кластер {{ managed-k8s-name }} {#configure-cluster}
 
-1. Создайте [пространство имен](../managed-kubernetes/concepts/index.md#namespace) `ns` для объектов External Secrets Operator:
+1. Создайте пространство имен `ns` для объектов External Secrets Operator:
 
-    ```bash
-    kubectl create namespace ns
-    ```
+   ```bash
+   kubectl create namespace ns
+   ```
 
-1. Создайте секрет `yc-auth`, содержащий в себе ключ сервисного аккаунта `eso-service-account`:
+1. Создайте секрет `yc-auth`, содержащий в себе [ключ](../iam/concepts/authorization/key.md) сервисного аккаунта `eso-service-account`:
 
-    ```
-    kubectl --namespace ns create secret generic yc-auth \
-      --from-file=authorized-key=authorized-key.json
-    ```
+   ```bash
+   kubectl --namespace ns create secret generic yc-auth \
+     --from-file=authorized-key=authorized-key.json
+   ```
 
 1. Создайте [хранилище секретов (SecretStore)](https://external-secrets.io/v0.5.8/api-secretstore/) `secret-store`, содержащее секрет `yc-auth`:
 
-    ```bash
-    kubectl --namespace ns apply -f - <<< '
-    apiVersion: external-secrets.io/v1beta1
-    kind: SecretStore
-    metadata:
-      name: secret-store
-    spec:
-      provider:
-        yandexcertificatemanager:
-          auth:
-            authorizedKeySecretRef:
-              name: yc-auth
-              key: authorized-key'
-    ```
+   ```bash
+   kubectl --namespace ns apply -f - <<< '
+   apiVersion: external-secrets.io/v1beta1
+   kind: SecretStore
+   metadata:
+     name: secret-store
+   spec:
+     provider:
+       yandexcertificatemanager:
+         auth:
+           authorizedKeySecretRef:
+             name: yc-auth
+             key: authorized-key'
+   ```
 
 ## Создайте ExternalSecret {#create-externalsecret}
 
 1. Создайте объект [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/) `external-secret`, указывающий на сертификат из {{ certificate-manager-name }}:
 
-    ```bash
-    kubectl --namespace ns apply -f - <<< '
-    apiVersion: external-secrets.io/v1beta1
-    kind: ExternalSecret
-    metadata:
-      name: external-secret
-    spec:
-      refreshInterval: 1h
-      secretStoreRef:
-        name: secret-store
-        kind: SecretStore
-      target:
-        name: k8s-secret
-        template:
-          type: kubernetes.io/tls
-      data:
-      - secretKey: tls.crt
-        remoteRef:
-          key: <идентификатор_сертификата>
-          property: chain
-      - secretKey: tls.key
-        remoteRef:
-          key: <идентификатор_сертификата>
-          property: privateKey'
-    ```
+   ```bash
+   kubectl --namespace ns apply -f - <<< '
+   apiVersion: external-secrets.io/v1beta1
+   kind: ExternalSecret
+   metadata:
+     name: external-secret
+   spec:
+     refreshInterval: 1h
+     secretStoreRef:
+       name: secret-store
+       kind: SecretStore
+     target:
+       name: k8s-secret
+       template:
+         type: kubernetes.io/tls
+     data:
+     - secretKey: tls.crt
+       remoteRef:
+         key: <идентификатор_сертификата>
+         property: chain
+     - secretKey: tls.key
+       remoteRef:
+         key: <идентификатор_сертификата>
+         property: privateKey'
+   ```
 
-    Где:
+   Где:
+   * `k8s-secret` — имя секрета, в который External Secret Operator поместит сертификат из {{ certificate-manager-name }}.
+   * `tls.crt` — параметр секрета `k8s-secret`, который будет содержать сертификат.
+   * `tls.key` — параметр секрета `k8s-secret`, который будет содержать закрытый ключ сертификата.
 
-    * `k8s-secret` — имя секрета, в который External Secret Operator поместит сертификат из {{ certificate-manager-name }}.
-    * `tls.crt` — параметр секрета `k8s-secret`, который будет содержать сертификат.
-    * `tls.key` — параметр секрета `k8s-secret`, который будет содержать закрытый ключ сертификата.
+   Доступны следующие значения параметра `property`:
+   * `chain` — получить цепочку сертификатов в формате PEM.
+   * `privateKey` — получить закрытый ключ в формате PEM.
+   * `chainAndPrivateKey` или пустое значение — получить и цепочку сертификатов, и закрытый ключ.
 
-    Доступны следующие значения параметра `property`:
+   External Secrets Operator получит сертификат из {{ certificate-manager-name }} и поместит его в секрет `k8s-secret`.
+1. Проверьте, что сертификат попал в секрет `k8s-secret`:
 
-    * `chain` — получить цепочку сертификатов в формате PEM.
-    * `privateKey` — получить закрытый ключ в формате PEM.
-    * `chainAndPrivateKey` или пустое значение — получить и цепочку сертификатов, и закрытый ключ.
+   ```bash
+   kubectl -n ns get secret k8s-secret -ojson \
+     | jq '."data"."tls.crt"' -r \
+     | base64 --decode
+   ```
 
-    External Secrets Operator получит сертификат из {{ certificate-manager-name }} и поместит его в секрет `k8s-secret`.
+   Пример результата:
 
-2. Проверьте, что сертификат попал в секрет `k8s-secret`:
+   ```text
+   -----BEGIN CERTIFICATE-----
+   MIIFKTCCBBGgAwIBAgISBAlQtxTUnXa75N1TnPYRWbSLMA0GCSqGSIb3DQEBCwUA
+   MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD
+   EwJSMzAeFw0yMjA3MTMxNDMxNTVaFw0yMjEwMTExNDMxNTRaMB0xGzAZBgNVBAMT
+   EmRkb3Mtd2ViLm5yay5tZS51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC…
+   ```
 
-    ```bash
-    kubectl -n ns get secret k8s-secret -ojson \
-      | jq '."data"."tls.crt"' -r \
-      | base64 --decode
-    ```
+   Чтобы просмотреть сертификат в удобном виде, выполните команды:
 
-    Пример результата:
+   ```bash
+   kubectl -n ns get secret k8s-secret -ojson | jq '."data"."tls.crt"' -r \
+     | base64 --decode > cert.pem
+   ```
 
-    ```text
-    -----BEGIN CERTIFICATE-----
-    MIIFKTCCBBGgAwIBAgISBAlQtxTUnXa75N1TnPYRWbSLMA0GCSqGSIb3DQEBCwUA
-    MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD
-    EwJSMzAeFw0yMjA3MTMxNDMxNTVaFw0yMjEwMTExNDMxNTRaMB0xGzAZBgNVBAMT
-    EmRkb3Mtd2ViLm5yay5tZS51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC…
-    ```
+   ```bash
+   openssl x509 -in cert.pem -text
+   ```
 
-Чтобы просмотреть сертификат в человекочитаемом виде, выполните команды:
+   Пример результата:
 
-```bash
-kubectl -n ns get secret k8s-secret -ojson | jq '."data"."tls.crt"' -r \
-  | base64 --decode > cert.pem
-```
-
-```bash
-openssl x509 -in cert.pem -text
-```
-
-Пример результата:
-
-```text
-Certificate:
-    Data:
-        Version: 3 (0x2)
-        Serial Number:
-            04:09:50:b7:14:d4:9d:76:bb:e4:dd:53:9c:f6:11:59:b4:8b
-        Signature Algorithm: sha256WithRSAEncryption
-        Issuer: C = US, O = Let's Encrypt, CN = R3
-        Validity
-            Not Before: Jul 13 14:31:55 2022 GMT
-            Not After : Oct 11 14:31:54 2022 GMT
-        Subject: CN = example.com
-...
-```
+   ```text
+   Certificate:
+       Data:
+           Version: 3 (0x2)
+           Serial Number:
+               04:09:50:b7:14:d4:9d:76:bb:e4:dd:53:9c:f6:11:59:b4:8b
+           Signature Algorithm: sha256WithRSAEncryption
+           Issuer: C = US, O = Let's Encrypt, CN = R3
+           Validity
+               Not Before: Jul 13 14:31:55 2022 GMT
+               Not After : Oct 11 14:31:54 2022 GMT
+           Subject: CN = example.com
+   ...
+   ```
 
 ## Установите Ingress-контроллер NGINX {#install-nginx-ingress}
 
-1. Добавьте в Helm репозиторий для NGINX:
+1. Добавьте в Helm-репозиторий для NGINX:
 
-    ```bash
-    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-    ```
+   ```bash
+   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+   ```
 
-    Результат выполнения команды:
+   Результат:
 
-    ```text
-    "ingress-nginx" has been added to your repositories
-    ```
+   ```text
+   "ingress-nginx" has been added to your repositories
+   ```
 
-1. Обновите набор данных для создания экземпляра приложения в кластере {{ k8s }}:
+1. Обновите набор данных для создания экземпляра приложения в кластере {{ managed-k8s-name }}:
 
-    ```bash
-    helm repo update
-    ```
+   ```bash
+   helm repo update
+   ```
 
-    Результат выполнения команды:
+   Результат:
 
-    ```text
-    Hang tight while we grab the latest from your chart repositories...
-    ...Successfully got an update from the "ingress-nginx" chart repository
-    Update Complete. ⎈Happy Helming!⎈
-    ```
+   ```text
+   Hang tight while we grab the latest from your chart repositories...
+   ...Successfully got an update from the "ingress-nginx" chart repository
+   Update Complete. ⎈Happy Helming!⎈
+   ```
 
-1. Установите контроллер в стандартной конфигурации. Контроллер будет установлен вместе с {{ network-load-balancer-full-name }}:
+1. Установите контроллер в стандартной конфигурации. Контроллер будет установлен вместе с {{ network-load-balancer-name }}:
 
-    ```bash
-    helm install ingress-nginx ingress-nginx/ingress-nginx
-    ```
+   ```bash
+   helm install ingress-nginx ingress-nginx/ingress-nginx
+   ```
 
-    Результат выполнения команды:
+   Результат:
 
-    ```text
-    NAME: ingress-nginx
-    LAST DEPLOYED: Sun Jul 18 22:35:37 2021
-    NAMESPACE: default
-    STATUS: deployed
-    REVISION: 1
-    TEST SUITE: None
-    NOTES:
-    The ingress-nginx controller has been installed.
-    It may take a few minutes for the LoadBalancer IP to be available.
-    You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
-    ...
-    ```
+   ```text
+   NAME: ingress-nginx
+   LAST DEPLOYED: Sun Jul 18 22:35:37 2021
+   NAMESPACE: default
+   STATUS: deployed
+   REVISION: 1
+   TEST SUITE: None
+   NOTES:
+   The ingress-nginx controller has been installed.
+   It may take a few minutes for the LoadBalancer IP to be available.
+   You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
+   ...
+   ```
 
-Чтобы настроить контроллер самостоятельно, обратитесь к [документации Helm](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) и отредактируйте [файл](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml) `values.yaml`.
+Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
 
-## Создайте веб-ресурс в вашем кластере {#create-web-app}
+Чтобы пробросить определенные порты при установке Ingress-контроллера NGINX, следуйте [инструкции](../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
+
+## Создайте веб-ресурс в вашем кластере {{ managed-k8s-name }} {#create-web-app}
 
 Создайте [объект](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) Deployment с NGINX и [сервис](https://kubernetes.io/docs/concepts/services-networking/service/) для него:
 
@@ -326,7 +324,7 @@ spec:
    kubectl get svc
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME                      TYPE          CLUSTER-IP     EXTERNAL-IP     PORT(S)                     AGE
@@ -335,7 +333,7 @@ spec:
    ...
    ```
 
-1. Разместите у своего DNS-провайдера или на собственном DNS-сервере A-запись, указывающую на публичный IP-адрес Ingress-контроллера:
+1. Разместите у своего DNS-провайдера или на собственном DNS-сервере [A-запись](../dns/concepts/resource-record.md#a-a), указывающую на публичный IP-адрес Ingress-контроллера:
 
    ```bash
    <имя_домена> IN A 84.201.153.122
@@ -343,7 +341,7 @@ spec:
 
 {% note info %}
 
-Регистрация сертификата Let's Encrypt<sup>®</sup> и A-записи может занять несколько минут.
+Регистрация сертификата Let's Encrypt® и A-записи может занять несколько минут.
 
 {% endnote %}
 
@@ -381,10 +379,10 @@ spec:
 
 ## Проверьте доступность ресурса {#check-service-availability}
 
-Выполните GET-запрос к ресурсу по HTTPS, например командой:
+Выполните GET-запрос к ресурсу по HTTPS, например, командой:
 
 ```bash
-curl <имя_домена> -vv
+curl https://<ваш_домен> -vv
 ```
 
 Пример результата:
@@ -404,15 +402,14 @@ curl <имя_домена> -vv
 * SSL certificate verify ok.
 ```
 
-Сертификат от Let's Encrypt<sup>®</sup> должен обновляться автоматически вслед за [обновлением сертификата](../certificate-manager/operations/managed/cert-update.md) в {{ certificate-manager-name }}.
+Сертификат от Let's Encrypt® должен обновляться автоматически вслед за [обновлением сертификата](../certificate-manager/operations/managed/cert-update.md) в {{ certificate-manager-name }}.
 
 Вы можете задать таймаут синхронизации в параметре `refreshInterval` объекта [ExternalSecret](#create-externalsecret).
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-
-1. [Удалите](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ k8s }}.
-1. [Удалите](../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-short-name }}.
+1. [Удалите](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ managed-k8s-name }}.
+1. [Удалите](../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-name }}.
 1. [Удалите](../certificate-manager/operations/managed/cert-delete.md) сертификат.
-1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../vpc/operations/address-delete.md) их.
+1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические публичные IP-адреса, освободите и [удалите](../vpc/operations/address-delete.md) их.

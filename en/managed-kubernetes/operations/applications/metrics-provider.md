@@ -21,12 +21,12 @@ The provider transforms the request to collect external metrics from a {{ manage
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ managed-k8s-name }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [{{ MP }}](/marketplace/products/yc/metric-provider) and click **Use**.
+1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **Applications available for installation**, select [{{ MP }}](/marketplace/products/yc/metric-provider) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **Folder ID**: Specify the [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where {{ MP }} will run.
    * **Time window**: Specify the time window for which metrics will be collected (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
    * (Optional) **Disable decimation**: Select this option not to apply a data [decimation function](../../../monitoring/concepts/decimation.md).
@@ -46,7 +46,7 @@ The provider transforms the request to collect external metrics from a {{ manage
 
    * **Secret Key**: Copy and paste the contents of the `sa-key.json` file or create a new service account access key. The service account must have the `monitoring.viewer` role.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

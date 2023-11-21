@@ -8,5 +8,5 @@ For operations within an identity federation, the Identity Provider must support
 
 ## What's next {#what-is-next}
 
-* Learn how to [add a user](../operations/users/create.md#federated-user) from an identity federation.
+* Learn how to [add a user](../operations/users/create.md#add-user-sso) from an identity federation.
 * Learn about setting up an identity federation in the [{{ org-full-name }}](../../organization/concepts/add-federation.md) documentation.

@@ -23,35 +23,35 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
      * `load-balancer.admin`: For managing the [network load balancer](../../network-load-balancer/).
    * The `sa-k8s-nodes` service account to manage a group of nodes:
      * `container-registry.images.puller`: For pulling images from [{{ container-registry-full-name }}](../../container-registry/).
-1. [Create a network](../../vpc/quickstart.md) named `k8s-network` to host your cluster. When creating your network, select the **Create subnets** option.
+1. [Create a network](../../vpc/quickstart.md) named `k8s-network` to host your cluster. When creating your network, select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
 1. [Create security groups](../operations/connect/security-groups.md) for the master and the nodes:
    * `sg-k8s`: For [master and node group](../operations/connect/security-groups.md#rules-internal).
    * `k8s-public-services`: For providing [public access to services from the Internet](../operations/connect/security-groups.md#rules-nodes).
    * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/connect/security-groups.md#rules-master).
 1. [Create an encryption key](../../kms/operations/key.md#create):
-   * **Key name**: `k8s-symetric-key`.
-   * **Encryption algorithm**: `AES-128`.
-   * **Rotation period**: 365 days.
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_name }}**: `k8s-symetric-key`
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-128`
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}**: `365 days`
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
-   * **Resource service account**: `sa-k8s-master`.
-   * **Node service account**: `sa-k8s-nodes`.
-   * **Encryption key**: `k8s-symetric-key`.
-   * **Release channel**: `RAPID`.
-   * **Public address**: `Auto`.
-   * **Master type**: `Regional`.
-   * **Cloud network**: `k8s-network`.
-   * **Security groups**: `sg-k8s`, `k8s-master-whitelist`.
-   * **Enable tunneling mode**: Enabled.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: `sa-k8s-master`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: `sa-k8s-nodes`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}**: `k8s-symetric-key`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_release-channel }}**: `RAPID`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}**: `k8s-network`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_security-groups }}**: `sg-k8s`, `k8s-master-whitelist`
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**: `{{ ui-key.yacloud.common.enabled }}`
 1. [Create two groups of nodes](../operations/node-group/node-group-create.md) with the following settings in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones:
-   * In the **Scalability** section:
-     * **Type**: `Automatic`.
-     * **Minimum nodes**: `1`.
-     * **Maximum nodes**: `3`.
-     * **Initial nodes**: `1`.
-   * Under **Network settings**:
-     * **Public address**: `Auto`.
-     * **Security groups**: `sg-k8s`, `k8s-public-services`.
-     * **Location**: `{{ region-id }}-a` or `{{ region-id }}-b`.
+   * Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**: `1`
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: `3`
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: `1`
+   * Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_security-groups }}**: `sg-k8s`, `k8s-public-services`
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}**: `{{ region-id }}-a` or `{{ region-id }}-b`
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -146,7 +146,7 @@ In this section, you will learn to configure cluster autoscaling based on CPU lo
 
 {% note tip %}
 
-To increase load and accelerate scenario progress, run several processes in separate windows.
+To increase load and accelerate the execution of the scenario, run several processes in separate windows.
 
 {% endnote %}
 

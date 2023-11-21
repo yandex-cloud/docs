@@ -49,6 +49,8 @@ items:
             href: operations/objects/restore-object-version.md
           - name: Renaming and moving objects
             href: operations/objects/rename-move.md
+          - name: Copying objects
+            href: operations/objects/copy.md
           - name: Getting a public link to an object
             href: operations/objects/link-for-download.md
           - name: Configuring an object lock

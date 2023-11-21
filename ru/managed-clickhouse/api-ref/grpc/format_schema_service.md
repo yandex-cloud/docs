@@ -5,21 +5,21 @@ sourcePath: en/_api-ref-grpc/managed-clickhouse/api-ref/grpc/format_schema_servi
 
 # Managed Service for ClickHouse API, gRPC: FormatSchemaService
 
-
+A set of methods for managing [format schemas](https://clickhouse.com/docs/en/interfaces/formats) for input and output data.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) |  |
-| [List](#List) |  |
-| [Create](#Create) |  |
-| [Update](#Update) |  |
-| [Delete](#Delete) |  |
+| [Get](#Get) | Returns detailed information about a given format schema. |
+| [List](#List) | Returns a list of format schemas in a cluster. |
+| [Create](#Create) | Adds a format schema to a cluster. |
+| [Update](#Update) | Changes a format schema. |
+| [Delete](#Delete) | Deletes a format schema from a cluster. |
 
 ## Calls FormatSchemaService {#calls}
 
 ## Get {#Get}
 
-
+Returns detailed information about a given format schema.
 
 **rpc Get ([GetFormatSchemaRequest](#GetFormatSchemaRequest)) returns ([FormatSchema](#FormatSchema))**
 
@@ -27,23 +27,23 @@ sourcePath: en/_api-ref-grpc/managed-clickhouse/api-ref/grpc/format_schema_servi
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ClickHouse cluster ID. <br>To get a ClickHouse cluster ID, use the [ClusterService.List](./cluster_service#List) method. The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required. Format schema name. <br>To get a format schema name, use the [FormatSchemaService.List](#List) method. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### FormatSchema {#FormatSchema}
 
 Field | Description
 --- | ---
-name | **string**<br> 
-cluster_id | **string**<br> 
-type | enum **FormatSchemaType**<br> 
-uri | **string**<br> 
+name | **string**<br>Format schema name. 
+cluster_id | **string**<br>ClickHouse cluster ID. 
+type | enum **FormatSchemaType**<br>Schema type. Possible values are the following: <br><ul><li>FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)). </li><li>FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.</li></ul> 
+uri | **string**<br>Link to the file of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
 
 
 ## List {#List}
 
-
+Returns a list of format schemas in a cluster.
 
 **rpc List ([ListFormatSchemasRequest](#ListFormatSchemasRequest)) returns ([ListFormatSchemasResponse](#ListFormatSchemasResponse))**
 
@@ -51,32 +51,32 @@ uri | **string**<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-page_size | **int64**<br> The maximum value is 1000.
-page_token | **string**<br> The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ClickHouse cluster ID. <br>To get a ClickHouse cluster ID, use the [ClusterService.List](./cluster_service#List) method. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of the results is larger than `page_size`, the service returns [ListFormatSchemasResponse.next_page_token](#ListFormatSchemasResponse). You can use it to get the next page of the results in subsequent requests of a format schema list. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFormatSchemasResponse.next_page_token](#ListFormatSchemasResponse) returned by the previous format schema list request. The maximum string length in characters is 100.
 
 
 ### ListFormatSchemasResponse {#ListFormatSchemasResponse}
 
 Field | Description
 --- | ---
-format_schemas[] | **[FormatSchema](#FormatSchema1)**<br> 
-next_page_token | **string**<br> 
+format_schemas[] | **[FormatSchema](#FormatSchema1)**<br>List of format schemas. 
+next_page_token | **string**<br>This token allows you to get the next page of results when requesting the format schema list. If the number of the results is larger than [ListFormatSchemasRequest.page_size](#ListFormatSchemasRequest), use the `next_page_token` as the value for the [ListFormatSchemasRequest.page_token](#ListFormatSchemasRequest) parameter in the next request. Each subsequent request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### FormatSchema {#FormatSchema1}
 
 Field | Description
 --- | ---
-name | **string**<br> 
-cluster_id | **string**<br> 
-type | enum **FormatSchemaType**<br> 
-uri | **string**<br> 
+name | **string**<br>Format schema name. 
+cluster_id | **string**<br>ClickHouse cluster ID. 
+type | enum **FormatSchemaType**<br>Schema type. Possible values are the following: <br><ul><li>FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)). </li><li>FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.</li></ul> 
+uri | **string**<br>Link to the file of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
 
 
 ## Create {#Create}
 
-
+Adds a format schema to a cluster.
 
 **rpc Create ([CreateFormatSchemaRequest](#CreateFormatSchemaRequest)) returns ([operation.Operation](#Operation))**
 
@@ -88,10 +88,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-type | enum **FormatSchemaType**<br>Required.  
-uri | **string**<br>Required.  
+cluster_id | **string**<br>Required. ClickHouse cluster ID. <br>To get a ClickHouse cluster ID, use the [ClusterService.List](./cluster_service#List) method. The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required. Format schema name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+type | enum **FormatSchemaType**<br>Required. Schema type. Possible values are the following: <br><ul><li>FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)). </li><li>FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.</li></ul> 
+uri | **string**<br>Required. [Link to the file](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
 
 
 ### Operation {#Operation}
@@ -114,23 +114,23 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br> 
-format_schema_name | **string**<br> 
+cluster_id | **string**<br>ClickHouse cluster ID. 
+format_schema_name | **string**<br>Format schema name. 
 
 
 ### FormatSchema {#FormatSchema2}
 
 Field | Description
 --- | ---
-name | **string**<br> 
-cluster_id | **string**<br> 
-type | enum **FormatSchemaType**<br> 
-uri | **string**<br> 
+name | **string**<br>Format schema name. 
+cluster_id | **string**<br>ClickHouse cluster ID. 
+type | enum **FormatSchemaType**<br>Schema type. Possible values are the following: <br><ul><li>FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)). </li><li>FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.</li></ul> 
+uri | **string**<br>Link to the file of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
 
 
 ## Update {#Update}
 
-
+Changes a format schema.
 
 **rpc Update ([UpdateFormatSchemaRequest](#UpdateFormatSchemaRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -142,10 +142,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ClickHouse cluster ID. <br>To get a ClickHouse cluster ID, use the [ClusterService.List](./cluster_service#List) method. The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required. Format schema name. <br>To get a format schema name, use the [FormatSchemaService.List](#List) method. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-uri | **string**<br> 
+uri | **string**<br>[Link to the file](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
 
 
 ### Operation {#Operation1}
@@ -168,23 +168,23 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br> 
-format_schema_name | **string**<br> 
+cluster_id | **string**<br>ClickHouse cluster ID. 
+format_schema_name | **string**<br>Format schema name. 
 
 
 ### FormatSchema {#FormatSchema3}
 
 Field | Description
 --- | ---
-name | **string**<br> 
-cluster_id | **string**<br> 
-type | enum **FormatSchemaType**<br> 
-uri | **string**<br> 
+name | **string**<br>Format schema name. 
+cluster_id | **string**<br>ClickHouse cluster ID. 
+type | enum **FormatSchemaType**<br>Schema type. Possible values are the following: <br><ul><li>FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)). </li><li>FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.</li></ul> 
+uri | **string**<br>Link to the file of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. 
 
 
 ## Delete {#Delete}
 
-
+Deletes a format schema from a cluster.
 
 **rpc Delete ([DeleteFormatSchemaRequest](#DeleteFormatSchemaRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -196,8 +196,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
-format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ClickHouse cluster ID. <br>To get a ClickHouse cluster ID, use the [ClusterService.List](./cluster_service#List) method. The maximum string length in characters is 50.
+format_schema_name | **string**<br>Required. Format schema name. <br>To get a format schema name, use the [FormatSchemaService.List](#List) method. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation2}
@@ -220,7 +220,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br> 
-format_schema_name | **string**<br> 
+cluster_id | **string**<br>ClickHouse cluster ID. 
+format_schema_name | **string**<br>Format schema name. 
 
 

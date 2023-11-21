@@ -40,17 +40,17 @@ To export policy results, set up external storage:
 1. Under **Applications available for installation**, select [Policy Reporter](/marketplace/products/yc/policy-reporter) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Policy Reporter.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **Cluster ID**: Select the desired {{ managed-k8s-name }} cluster from the list.
    * **Install Policy Reporter UI**: Enable to install the **Policy Reporter UI** component for displaying results in a graphical view.
-   * **Export to {{ objstorage-name }}**: Enable to export results to {{ objstorage-name }}. You also need to fill in the additional fields:
+   * **Export to {{ objstorage-name }}**: Enable this option to export results to {{ objstorage-name }}. You also need to fill in the additional fields:
       * **{{ objstorage-name }} bucket name**: Specify the name of the [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}.
       * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new access key for the service account. The service account must have the `storage.uploader` role.
    * **Export to YDS**: Enable this option to export results to {{ yds-name }}. You also need to fill in the additional fields:
       * **Endpoint YDS**: Specify the {{ yds-name }} [stream](../../../data-streams/concepts/glossary.md#stream-concepts) endpoint.
       * **YDS stream name**: Specify the {{ yds-name }} stream name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

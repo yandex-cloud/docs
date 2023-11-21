@@ -106,9 +106,10 @@ Make sure the uploaded image is in the `READY` status.
 
       {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
+   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../../concepts/placement-groups.md).
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name](../../../vpc/concepts/address.md#fqdn) (FQDN).
+   The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
 
 - CLI
 

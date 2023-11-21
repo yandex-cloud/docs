@@ -1,16 +1,16 @@
-> ```hcl
-> resource "yandex_kubernetes_cluster" "<cluster name>" {
+>```hcl
+>resource "yandex_kubernetes_cluster" "<cluster_name>" {
 >  ...
 >  master {
 >    ...
 >    master_logging {
->      enabled                    = <log sending: true or false>
->      log_group_id               = "<log group ID>"
->      folder_id                  = "<folder ID>"
->      kube_apiserver_enabled     = <kube-apiserver log sending: true or false>
->      cluster_autoscaler_enabled = <cluster-autoscaler log sending: true or false>
->      events_enabled             = <{{ k8s }} event sending: true or false>
+>      enabled                    = <log_sending>
+>      log_group_id               = "<log_group_ID>"
+>      folder_id                  = "<folder_ID>"
+>      kube_apiserver_enabled     = <kube-apiserver_log_sending>
+>      cluster_autoscaler_enabled = <cluster-autoscaler_log_sending>
+>      events_enabled             = <{{ k8s }}_event_sending>
 >    }
 >  }
-> }
-> ```
+>}
+>```

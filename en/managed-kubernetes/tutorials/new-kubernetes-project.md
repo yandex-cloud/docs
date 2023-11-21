@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create service accounts {#create-sa}
 
 For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) to run, the following [service accounts](../../iam/concepts/users/service-accounts.md) are required:
-* With the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where a {{ managed-k8s-name }} cluster is created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster needs.
+* With the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where your {{ managed-k8s-name }} cluster is created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster needs.
 * With the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing a [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). [Nodes](../../managed-kubernetes/concepts/index.md#node-group) will pull the required Docker images from the registry on behalf of this service account.
 * For the {{ alb-name }} Ingress controller to run, you need service accounts with the following roles:
   * [alb.editor](../../iam/concepts/access-control/roles.md#alb-editor): To create the required resources.
@@ -131,7 +131,7 @@ To create a service account for making the resources required by the {{ managed-
 
    {% endlist %}
 
-1. Assign the service account the role [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) for the folder.
+1. Assign the service account the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role for the folder.
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -197,7 +197,7 @@ To create a service account that lets nodes download the necessary Docker images
 
    {% endlist %}
 
-1. Assign the service account the role [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) for the folder.
+1. Assign the service account the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder.
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -366,7 +366,7 @@ Build a Docker image and push it to the registry.
    +----------------------+---------------------+----------------------------+-------+-----------------+
    |          ID          |       CREATED       |            NAME            | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+----------------------------+-------+-----------------+
-   | crpa2mf008mpjig73rp6 | 2019-11-20 11:52:17 | crp71hkgiolp6677hg9i/nginx | hello | 27.5 MB         |
+   | crpa2mf008mp******** | 2019-11-20 11:52:17 | crp71hkgiolp********/nginx | hello | 27.5 MB         |
    +----------------------+---------------------+----------------------------+-------+-----------------+
    ```
 
@@ -389,13 +389,13 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
 
    ```text
    NAME                          READY  STATUS   RESTARTS  AGE
-   hello-nginx-5847fb96b4-54g48  1/1    Running  0         1h
+   hello-nginx-5847fb96**-*****  1/1    Running  0         1h
    ```
 
 1. Check the logs of the container running on this pod:
 
    ```bash
-   kubectl logs hello-nginx-5847fb96b4-54g48
+   kubectl logs hello-nginx-5847fb96**-*****
    ```
 
    Result:

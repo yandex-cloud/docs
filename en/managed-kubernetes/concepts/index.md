@@ -144,7 +144,7 @@ To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluste
 data:
   config: |+
     nonMasqueradeCIDRs:
-      - <CIDR of pod IP addresses to skip masquerading>
+      - <CIDR_of_pod_IP_addresses_to_skip_masking>
 ...
 ```
 

@@ -30,7 +30,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 
 {% note info %}
 
-You can also invite users to your organization directly, from your cloud page in the management console. For more information, see [this guide](./operations/users/create.md#add-useraccount).
+You can also invite users to your organization directly, from your cloud page in the management console. For more information, see [this guide](./operations/users/create.md).
 
 {% endnote %}
 

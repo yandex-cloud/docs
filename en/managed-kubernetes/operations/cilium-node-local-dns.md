@@ -12,7 +12,7 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 1. [Create a service account](../../iam/operations/sa/create.md) and [grant it the roles](../../iam/operations/sa/assign-role-for-sa.md) of `k8s.tunnelClusters.agent` and `vpc.publicAdmin`.
 1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
-   Under **Cluster network settings**, select **Enable tunnel mode**.
+   Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 1. [Create a node group](node-group/node-group-create.md) of any suitable configuration.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -155,7 +155,7 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
              requests:
                cpu: 25m
                memory: 5Mi
-           args: [ "-localip", "169.254.20.10,<kube-dns IP address>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
+           args: [ "-localip", "169.254.20.10,<kube-dns_IP_address>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
            securityContext:
              privileged: true
            ports:
@@ -285,19 +285,19 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
 
    ```text
    NAME     READY  STATUS   RESTARTS  AGE  IP         NODE        NOMINATED NODE  READINESS GATES
-   nettool  1/1    Running  0         23h  10.1.0.68  <node name>  <none>          <none>
+   nettool  1/1    Running  0         23h  10.1.0.68  <node_name>  <none>          <none>
    ```
 
 1. Find out the IP of the pod running NodeLocal DNS:
 
    ```bash
-   kubectl get pod -o wide -n kube-system | grep 'node-local.*<node name>'
+   kubectl get pod -o wide -n kube-system | grep 'node-local.*<node_name>'
    ```
 
    Result:
 
    ```text
-   node-local-dns-gv68c  1/1  Running  0  26m  <pod IP address>  <node name>  <none>  <none>
+   node-local-dns-gv68c  1/1  Running  0  26m  <pod_IP_address>  <node_name>  <none>  <none>
    ```
 
 ## Check NodeLocal DNS functionality {#test-nodelocaldns}
@@ -306,7 +306,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
 1. Retrieve the values of the metrics for DNS requests before testing:
 
    ```bash
-   kubectl exec -ti nettool -- curl http://<pod IP address>:9253/metrics | grep coredns_dns_requests_total
+   kubectl exec -ti nettool -- curl http://<pod_IP_address>:9253/metrics | grep coredns_dns_requests_total
    ```
 
    Result:
@@ -353,7 +353,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
 1. Make sure that the metric values have increased:
 
    ```bash
-   kubectl exec -ti nettool -- curl http://<pod IP address>:9253/metrics | grep coredns_dns_requests_total
+   kubectl exec -ti nettool -- curl http://<pod_IP_address>:9253/metrics | grep coredns_dns_requests_total
    ```
 
    Result:
