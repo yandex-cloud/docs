@@ -185,7 +185,7 @@ You can set up metadata service parameters when creating or updating VMs.
 
 You can use the following settings:
 * `aws-v1-http-endpoint` provides access to metadata using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
-* `aws-v1-http-endpoint` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
+* `aws-v1-http-token` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
 
    {% note info %}
 
