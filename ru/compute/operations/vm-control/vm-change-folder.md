@@ -82,4 +82,37 @@
 
   Воспользуйтесь методом REST API [move](../../api-ref/Instance/move.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move).
 
+  Ниже описан пример Bash-скрипта для REST API, который можно исполнить из Linux-сред. В нём также используется метод [move](../../api-ref/Disk/move.md) для ресурса [Disk](../../api-ref/Disk/index.md) (если не перенести загрузочный диск, он останется в исходном каталоге).
+  
+  [Аутентификация в API Compute Cloud](../../api-ref/authentication.md) осуществляется посредством [IAM-токена](../../../iam/operations/iam-token/create.md). Его получение - посредством [OAuth-токена](https://yandex.ru/dev/id/doc/ru/access) для аккаунта в Яндекс ID.
+  
+  В Linux-среде должны быть установлены:
+  * curl - для получения OAuth-токена и выполнения HTTP-запросов типа POST.
+  * jq - для извлечения OAuth-токена из JSON-вывода первой команды скрипта.
+ 
+  
+  Переносить ВМ можно без её остановки.
+  
+  > [!NOTE]
+  > ВМ после переноса остаётся подключена к подсети Virtual Private Cloud исходного каталога. Отключить от неё машину можно в настройках сетевого интерфейса на странице ВМ.
+  
+  ```#!/bin/bash
+  
+  # Задаётся переменная IAM_TOKEN. В переменной (скобках) - команда, получающая IAM-токен и извлекающая его из JSON-вывода (jq). Вместо "Oauth_Token" подставить OAuth-токен аккаунта в Яндекс ID.
+  IAM_TOKEN=$(curl -d "{\"yandexPassportOauthToken\":\"OAuth_Token\"}" "https://iam.api.cloud.yandex.net/iam/v1/tokens" | jq -r '.iamToken')
+  
+  instanceId='ID_переносимой_ВМ'
+  bootDiskId='ID_загрузочного_диска_этой_ВМ'
+  destinationFolderId='ID_каталога_в_который_переносится_ВМ'
+  
+  # Команда перемещения ВМ:
+  curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/instances/{${instanceId}}:move" \
+  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+  
+  # Команда перемещения загрузочного диска:
+  curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/disks/{${bootDiskId}}:move" \
+  -H "Authorization: Bearer ${IAM_TOKEN}" \
+  -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'```
+
 {% endlist %}
