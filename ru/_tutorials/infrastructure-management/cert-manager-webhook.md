@@ -44,7 +44,7 @@
 
     {% note warning %}
 
-    Сервисный аккаунт должен иметь роль [не ниже editor](../../resource-manager/security/#roles-list).
+    Сервисный аккаунт должен иметь роль `dns.editor` в каталоге c публичной зоной.
 
     {% endnote %}
 
@@ -68,7 +68,7 @@
       # Let's Encrypt will use this to contact you about expiring
       # certificates, and issues related to your account.
       email: your@email.com
-      server: https://acme-staging-v02.api.letsencrypt.org/directory
+      server: https://acme-v02.api.letsencrypt.org/directory
       privateKeySecretRef:
        # Secret resource that will be used to store the account's private key.
        name: secret-ref
