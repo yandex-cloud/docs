@@ -93,14 +93,14 @@ In addition to the cloud network in the default folder, you can create cloud net
 
    1. In the configuration file, describe the parameters of your cloud network:
 
-      * `name`: Name of the cloud network. The requirements are as follows:
+      * `name`: Name of the cloud network. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `description`: Description of the cloud network.
       * `labels`: Cloud network [labels](../../resource-manager/concepts/labels.md). Set a key-value pair.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_network" "default" {
@@ -124,7 +124,7 @@ In addition to the cloud network in the default folder, you can create cloud net
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -180,7 +180,7 @@ Create a cloud network with a name and description in the selected folder:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

@@ -789,6 +789,10 @@ description: "В статье приведен полный справочник
 
 ## {{ mgl-full-name }} {#managed-gitlab-roles}
 
+#### gitlab.auditor {#gitlab-auditor}
+
+{% include [gitlab.auditor](../_roles/gitlab/auditor.md) %}
+
 #### gitlab.viewer {#gitlab-viewer}
 
 {% include [gitlab.viewer](../_roles/gitlab/viewer.md) %}

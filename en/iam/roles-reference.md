@@ -789,6 +789,10 @@ For more information, see [{#T}](../managed-elasticsearch/security/index.md).
 
 ## {{ mgl-full-name }} {#managed-gitlab-roles}
 
+#### gitlab.auditor {#gitlab-auditor}
+
+{% include [gitlab.auditor](../_roles/gitlab/auditor.md) %}
+
 #### gitlab.viewer {#gitlab-viewer}
 
 {% include [gitlab.viewer](../_roles/gitlab/viewer.md) %}

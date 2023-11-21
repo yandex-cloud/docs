@@ -239,6 +239,16 @@ items:
             href: operations/instance-groups/update.md
           - name: Edit an instance group based on the YAML specification
             href: operations/instance-groups/update-from-yaml.md
+          - name: Moving an instance group to a different availability zone
+            href: operations/instance-groups/move-group.md
+          - name: >-
+              Moving an instance group with a network load balancer to a
+              different availability zone
+            href: operations/instance-groups/move-group-with-nlb.md
+          - name: >-
+              Moving an instance group with an L7 load balancer to a different
+              availability zone
+            href: operations/instance-groups/move-group-with-alb.md
           - name: Configuring application health check on the VM
             href: operations/instance-groups/enable-autohealing.md
           - name: Updating a group

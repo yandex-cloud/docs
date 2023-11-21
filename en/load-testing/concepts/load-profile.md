@@ -52,6 +52,12 @@ Most tools have their own formats for defining load profiles. When configuring a
 
     #### unlimited {#unlimited}
 
+   {% note info %}
+
+   You can set the `unlimited` load profile only with the help of a [configuration file](testing-stream.md#config_example).
+
+   {% endnote %}
+
     Sends as many requests as the target can accept within the established connections without restrictions during the specified time.
 
     Example:

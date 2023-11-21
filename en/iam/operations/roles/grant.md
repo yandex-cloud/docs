@@ -16,7 +16,7 @@ This section describes how to assign a role to a user with a Yandex account. The
    In the management console, you can only assign a role for a cloud or folder:
 
 
-   1. Add the user to the cloud via the [management console](../users/create.md#console-user) or [{{ org-full-name }}](../users/create.md#organization-user).
+   1. [Add the user to the cloud](../users/create.md) via {{ org-full-name }} or the Cloud Console.
 
    1. Assign the user a role in the cloud:
 
@@ -168,7 +168,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
    For example, to assign multiple roles for a folder:
 
-   1. Make sure the resource does not have any roles that you do not want to lose:
+   1. Make sure the resource has no roles assigned that you would rather not lose:
 
       ```bash
       yc resource-manager folder list-access-binding my-folder

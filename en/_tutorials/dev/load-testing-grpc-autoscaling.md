@@ -123,17 +123,17 @@ This instruction will use a gRPC service as a test target.
    metadata:
      name: grpc-demo
      annotations:
-       ingress.alb.yc.io/subnets: <subnet IDs>
+       ingress.alb.yc.io/subnets: <subnet_IDs>
        ingress.alb.yc.io/external-ipv4-address: auto
        ingress.alb.yc.io/protocol: grpc
-       ingress.alb.yc.io/security-groups: <security group ID>
+       ingress.alb.yc.io/security-groups: <security_group_ID>
    spec:
      tls:
        - hosts:
-           - <website name>
-         secretName: yc-certmgr-cert-id-<certificate ID>
+           - <website_name>
+         secretName: yc-certmgr-cert-id-<certificate_ID>
      rules:
-       - host: <website name>
+       - host: <website_name>
          http:
            paths:
              - pathType: Prefix
@@ -158,7 +158,7 @@ This instruction will use a gRPC service as a test target.
 
       If set to `auto`, the Ingress controller is assigned a [public IP address](../../vpc/concepts/address.md#public-addresses) automatically. Deleting the Ingress controller also deletes the IP address from the cloud.
    * `ingress.alb.yc.io/security-groups`: ID of the security group created when [preparing your cloud](#prepare-cloud). If security groups are not enabled in your cloud, delete this annotation.
-   * `secretName`: Reference to a TLS certificate from [{{ certificate-manager-full-name }}](../../certificate-manager/) as `yc-certmgr-cert-id-<certificate ID>`.
+   * `secretName`: Reference to a TLS certificate from [{{ certificate-manager-full-name }}](../../certificate-manager/) in `yc-certmgr-cert-id-<certificate_ID>` format.
    * `hosts`, `host`: Domain name the TLS certificate corresponds to.
 
    For more information, see [Ingress fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
@@ -213,9 +213,9 @@ This instruction will use a gRPC service as a test target.
            selector:
             matchLabels:
               service: "application-load-balancer"
-              load_balancer: <load balancer ID>
+              load_balancer: <load_balancer_ID>
               code: "total"
-              backend_group: <backend group IDs>
+              backend_group: <backend_group_IDs>
          target:
            type: AverageValue
            averageValue: 2
@@ -246,7 +246,7 @@ This instruction will use a gRPC service as a test target.
       * `loadtesting.generatorClient`: Enables you to run agents and tests on agents and upload test results to the storage.
       * `compute.admin`: Enables you to manage a [VM](../../compute/concepts/vm.md) in [{{ compute-full-name }}](../../compute/).
       * `vpc.user`: Enables you to connect to [{{ vpc-full-name }}](../../vpc/) network resources and use them.
-1. [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This ensures the agent has access to [{{ load-testing-full-name }}](../../load-testing/).
+1. [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This will enable the agent to access [{{ load-testing-full-name }}](../../load-testing/).
 1. [Create](../../load-testing/tutorials/loadtesting-grpc.md#create-agent) a test agent.
 1. Prepare the `ammo.json` file with [test data](../../load-testing/concepts/payload.md):
 
@@ -268,7 +268,7 @@ This instruction will use a gRPC service as a test target.
        - id: Gun
          gun:
            type: grpc
-           target: <your site name>:<port>
+           target: <your_site_name>:<port>
            tls: true
          ammo:
            type: grpc/json
@@ -305,9 +305,9 @@ This instruction will use a gRPC service as a test target.
 
 1. [Run a test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
-   * Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **Select files** and select the `ammo.json` file you saved earlier.
+   * Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and select the `ammo.json` file you saved earlier.
    * Under **{{ ui-key.yacloud.load-testing.label_test-settings }}** settings:
-      * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
+      * In the **{{ ui-key.yacloud.load-testing.field_settings-type }}** field, select `{{ ui-key.yacloud.load-testing.label_settings-type-config }}`.
       * In the **{{ ui-key.yacloud.load-testing.field_config-file }}** field, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and upload the prepared `load.yaml` file.
 
 1. Monitor the test:

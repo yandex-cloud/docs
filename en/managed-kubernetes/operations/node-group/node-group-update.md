@@ -28,7 +28,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} node group]
 
 * [Computing resources](../../../compute/concepts/vm-platforms.md) and {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size
 * {{ managed-k8s-name }} node name template
-* [Update](../../concepts/release-channels-and-updates.md#updates) policy
+* [Updates](../../concepts/release-channels-and-updates.md#updates) policy
 
 {% note alert %}
 
@@ -41,12 +41,13 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
 - Management console
 
   To update a {{ managed-k8s-name }} node group:
-  1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Go to the **Node group** tab.
-  1. Click **Edit** in the top-right corner.
+  1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Select the desired node group.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Change the required parameters in the window that opens.
-  1. Click **Save changes**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -81,7 +82,7 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
   * `--latest-revision`: Get all available updates for current [master {{ managed-k8s-name }}](../../concepts/index.md#master) version.
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
-    * `--anytime-maintenance-window`: Perform maintenance at any time.
+    * `--anytime-maintenance-window`: Update at any time.
     * `--daily-maintenance-window`: Update daily at the selected time.
     * `--weekly-maintenance-window`: Update on selected days.
 
@@ -108,11 +109,13 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
          instance_template {
            ...
            container_runtime {
-             type = "<docker | containerd>"
+             type = "<environment_type>"
            }
          }
        }
        ```
+
+       Where `type` is container runtime environment type: `docker` or `containerd`.
 
      * To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the {{ managed-k8s-name }} group nodes, add an `instance_template.labels` section:
 
@@ -168,10 +171,10 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
 
 - Management console
 
-  1. Go to the folder page and select **{{ compute-name }}**.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the name of the desired VM.
-  1. Under **Network**, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **Add public IP address**.
-  1. Specify the appropriate settings and click **Add**.
+  1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
+  1. Specify the appropriate settings and click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
 - CLI
 
@@ -235,8 +238,8 @@ You can perform the following actions with the {{ managed-k8s-name }} node group
 
   ```text
   done (28s)
-  id: catpl8c44kiibp20u4f3
-  cluster_id: catcsqidoos7tq0513us
+  id: catpl8c44kii********
+  cluster_id: catcsqidoos7********
   ...
   ```
 
@@ -292,8 +295,8 @@ You can perform the following actions with the {{ managed-k8s-name }} node group
 
   ```text
   done (3s)
-  id: catpl8c44kiibp20u4f3
-  cluster_id: catcsqidoos7tq0513us
+  id: catpl8c44kii********
+  cluster_id: catcsqidoos7********
   ...
   ```
 
@@ -344,8 +347,8 @@ You can perform the following actions with the {{ managed-k8s-name }} node group
 
   ```text
   done (2s)
-  id: catpl8c44kiibp20u4f3
-  cluster_id: catcsqidoos7tq0513us
+  id: catpl8c44kii********
+  cluster_id: catcsqidoos7********
   ...
   ```
 

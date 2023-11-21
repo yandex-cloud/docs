@@ -8,12 +8,12 @@ To use the Cilium network policy controller in a cluster:
 * [Create an L3/L4 network policy](#l3-l4-policy).
 * [Create an L7 network policy](#l7-policy).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) and [grant it the roles](../../iam/operations/sa/assign-role-for-sa.md) of `k8s.tunnelClusters.agent` and `vpc.publicAdmin`.
 1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
-   Under **Cluster network settings**, select **Enable tunnel mode**.
+   Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 
 1. [Create a node group](node-group/node-group-create.md) of any suitable configuration.
 
@@ -214,14 +214,14 @@ To use the Cilium network policy controller in a cluster:
          serviceAccountName: "hubble-ui"
          containers:
            - name: frontend
-             image: "quay.io/cilium/hubble-ui:v0.7.9@sha256:e0e461c680ccd083ac24fe4f9e19e675422485f04d8720635ec41f2ba9e5562c"
+             image: "quay.io/cilium/hubble-ui:v0.7.9@sha256:e0e461c680ccd083ac24fe4f9e19e675422485f04d8720635ec41f2b********"
              imagePullPolicy: IfNotPresent
              ports:
                - containerPort: 8080
                  name: http
              resources: {}
            - name: backend
-             image: "quay.io/cilium/hubble-ui-backend:v0.7.9@sha256:632c938ef6ff30e3a080c59b734afb1fb7493689275443faa1435f7141aabe76"
+             image: "quay.io/cilium/hubble-ui-backend:v0.7.9@sha256:632c938ef6ff30e3a080c59b734afb1fb7493689275443faa1435f71********"
              imagePullPolicy: IfNotPresent
              env:
                - name: EVENTS_SERVER_PORT
@@ -233,7 +233,7 @@ To use the Cilium network policy controller in a cluster:
                  name: grpc
              resources: {}
            - name: proxy
-             image: "docker.io/envoyproxy/envoy:v1.18.2@sha256:e8b37c1d75787dd1e712ff389b0d37337dc8a174a63bed9c34ba73359dc67da7"
+             image: "docker.io/envoyproxy/envoy:v1.18.2@sha256:e8b37c1d75787dd1e712ff389b0d37337dc8a174a63bed9c34ba7335********"
              imagePullPolicy: IfNotPresent
              ports:
                - containerPort: 8081
@@ -270,7 +270,7 @@ To use the Cilium network policy controller in a cluster:
    deployment.apps/hubble-ui created
    ```
 
-1. Check that the Hubble pods' status changes to `Running`. To do this, run the command:
+1. Check that the Hubble pods' status changes to `Running`. To do this, run the following command:
 
    ```bash
    kubectl get pod -A -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase \
@@ -427,10 +427,10 @@ To use the Cilium network policy controller in a cluster:
 1. Make sure that network policies are disabled: the `POLICY (ingress) ENFORCEMENT` and `POLICY (egress) ENFORCEMENT` columns are set to `Disabled`:
 
    ```bash
-   kubectl -n kube-system exec <Cilium controller pod name> -- cilium endpoint list
+   kubectl -n kube-system exec <Cilium_controller_pod_name> -- cilium endpoint list
    ```
 
-1. Make sure the `xwing` and `tiefighter` applications have access to the `deathstar` API and return the `Ship landed` string, since the network policies are not activated:
+1. Make sure the `xwing` and `tiefighter` applications have access to the `deathstar` API and return the `Ship landed` string, because the network policies are not activated:
 
    ```bash
    kubectl exec xwing -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing && \
@@ -490,7 +490,7 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
 1. Make sure that the status of the policy for the `k8s:class=deathstar` object is `Enabled`:
 
    ```bash
-   kubectl -n kube-system exec <Cilium controller pod name> -- cilium endpoint list
+   kubectl -n kube-system exec <Cilium_controller_pod_name> -- cilium endpoint list
    ```
 
 1. Check that the `deathstar` service is available for the `tiefighter` pod:
@@ -524,7 +524,7 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
 
 ## Create an L7 network policy {#l7-policy}
 
-In this part of the scenario, we'll change the access policy for the `tiefighter` pod:
+In this part of the scenario, we will change the access policy for the `tiefighter` pod:
 * Access to the `deathstar.default.svc.cluster.local/v1/exhaust-port` API method will be disabled.
 * Access to the `deathstar.default.svc.cluster.local/v1/request-landing` API method remains unchanged.
 

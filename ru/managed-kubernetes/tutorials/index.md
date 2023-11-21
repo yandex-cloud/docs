@@ -52,6 +52,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 ## Мониторинг {#monitoring}
 
 * [{#T}](prometheus-grafana-monitoring.md)
+* [{#T}](filebeat-oss-monitoring.md)
 
 
 ## Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}

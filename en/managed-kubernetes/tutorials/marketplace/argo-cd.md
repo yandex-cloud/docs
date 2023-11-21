@@ -34,17 +34,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
       {% endnote %}
 
    1. [Create a {{ k8s }} cluster](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../operations/node-group/node-group-create.md) with the following settings:
-      * **Service account for resources**: Select the service account with the `{{ roles-editor }}` role you created previously.
-      * **Service account for nodes**: Select the service account with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` roles that you created previously.
-      * **Public address**: `Auto`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Previously created service account with the `{{ roles-editor }}` role.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: Previously created service account with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` roles.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
       * Individual node group parameters:
-         * **vCPU**: `4`
-         * **RAM**: `8 GB`
-         * **Preemptible**
-         * **Scaling**: `Auto`
-         * **Minimum nodes**: `1`
-         * **Maximum nodes**: `4`
-         * **Initial nodes**: `1`
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+         * **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**
+         * **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**: `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}` **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}**
+         * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**: `1`
+         * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: `4`
+         * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: `1`
 
       Save the cluster ID, as you will need it at the next steps.
    1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
@@ -113,7 +113,7 @@ To run build tasks in the [{{ managed-k8s-name }} cluster](../../concepts/index.
    ```
 
 1. Retrieve the {{ GLR }} settings:
-   1. Open the {{ GL }} administration panel in the browser:
+   1. Open the {{ GL }} administration panel in your browser:
       * If the {{ GL }} has been deployed on a {{ compute-full-name }} [VM instance](../../../compute/concepts/vm.md), use its [public IP](../../../compute/concepts/network.md#public-ip).
       * If {{ GL }} is deployed in {{ mgl-name }}, use the [instance FQDN](../../../compute/concepts/network.md##hostname).
    1. Select the project named `gitlab-test`.
@@ -127,8 +127,8 @@ To run build tasks in the [{{ managed-k8s-name }} cluster](../../concepts/index.
    ```yaml
    ---
    imagePullPolicy: IfNotPresent
-   gitlabUrl: <Public IP of the VM or the {{ mgl-name }} instance FQDN>
-   runnerRegistrationToken: "<registration token>"
+   gitlabUrl: <VM_public_IP_or_{{ GL }}_instance_FQDN>
+   runnerRegistrationToken: "<registration_token>"
    terminationGracePeriodSeconds: 3600
    concurrent: 10
    checkInterval: 30
@@ -191,7 +191,7 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
 
      To configure {{ GL }} and enable Continuous Integration (CI), create a new project and enter the CI authorization parameters:
      1. On the {{ compute-name }} page, select the created VM and find its [public IP](../../../vpc/concepts/address.md#public-addresses).
-     1. In the browser, open a link in the format `http://<public VM IP address>`. The {{ GL }} admin panel opens.
+     1. Open `http://<VM_public_IP_address>` in your browser. The {{ GL }} admin panel opens.
      1. Set the administrator password and click **Change your password**.
      1. Enter the `root` username and your administrator password.
      1. Click **Sign in**.
@@ -204,7 +204,7 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
 1. Get an [authorized key](../../../iam/concepts/authorization/key.md) for the previously created service account with the `{{ roles-cr-pusher }}` role:
 
    ```bash
-   yc iam key create --service-account-name <registry's service account name> -o key.json
+   yc iam key create --service-account-name <registry_service_account_name> -o key.json
    ```
 
 1. Save the contents of the key for the next step:
@@ -220,9 +220,9 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
 
       | Name | Value | Options |
       | --- | --- | --- |
-      | CI_REGISTRY | {{ registry }}/<registry ID> | `no` |
+      | CI_REGISTRY | {{ registry }}/<registry_ID> | `no` |
       | CI_REGISTRY_USER | json_key | `no` |
-      | CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable` |
+      | CI_REGISTRY_PASSWORD | <`cat key.json \| base64`_command_output> | `Mask variable` |
 
 1. Set up access to the repository:
    1. [Generate a new pair of SSH keys](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) or use an existing one.
@@ -230,14 +230,14 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
 1. Clone the repository:
 
    ```bash
-   git clone git@<{{ mgl-name }} instance name>.gitlab.yandexcloud.net:gitlab-test/my-app.git
+   git clone git@<{{ GL }}_instance_name>.gitlab.yandexcloud.net:gitlab-test/my-app.git
    ```
 
 1. Download the `app.zip` archive and unzip it.
 1. Copy all files, including the hidden ones, from the archive to the `my-app` directory:
 
    ```bash
-   cp -a <path to directory with files from app.zip> <path to my-app directory>
+   cp -a <path_to_directory_with_files_from_app.zip> <path_to_my-app_directory>
    ```
 
 1. Save the changes and push them to the repository:
@@ -248,11 +248,11 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
    git push
    ```
 
-1. Run the build script. To track its progress, in the drop-down menu, select **CI/CD** → **Pipelines**. Wait until both build steps are complete.
+1. This will run the build script. To track its progress, in the drop-down menu, select **CI/CD** → **Pipelines**. Wait until both build steps are complete.
 1. Open the completed build and copy the following line from the log (you will need it at the next step):
 
    ```text
-   INFO[0025] Pushing image to {{ registry }}/<registry ID>/gitlab-test/my-app:main.<commit number>
+   INFO[0025] Pushing image to {{ registry }}/<registry_ID>/gitlab-test/my-app:main.<commit_number>
    ```
 
 ## Deploy your application using Argo CD {#deploy-argo}
@@ -266,7 +266,7 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
 1. Configure the `argocd-server` port forwarding to the local machine, and then connect to the {{ k8s }} cluster:
 
    ```bash
-   kubectl port-forward svc/<Argo CD application name>-argocd-server 8080:443
+   kubectl port-forward svc/<Argo_CD_app_name>-argocd-server 8080:443
    ```
 
 1. Get the administrator password from a {{ k8s }} secret:
@@ -290,7 +290,7 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
 1. In the Argo CD console, go to **Settings** → **Repositories**.
 1. Click **Connect Repo Using SSH**.
 1. In the resulting form, enter the settings:
-   * **Repository URL**: Repository URL like `https://<{{ GL }} instance name>.gitlab.yandexcloud.net/gitlab-test/my-app.git`.
+   * **Repository URL**: Repository URL like `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/gitlab-test/my-app.git`.
    * **Username**: `gitlab-ci-token`.
    * **Password**: A previously generated {{ GL }} token.
 1. Click **Connect**.
@@ -300,13 +300,13 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
    * **Project**: `default`.
    * **Sync policy**: `Automatic`, then select **Prune resources** and **Self Heal**.
    * **Sync options**: Select the `Auto-Create Namespace` option.
-   * **Source**: Specify the repository URL in the following format: `https://<{{ GL }} instance name>.gitlab.yandexcloud.net/gitlab-test/my-app.git`.
+   * **Source**: Specify the repository URL in the following format: `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/gitlab-test/my-app.git`.
    * **Path**: `.helm`.
    * **Cluster URL**: `https://kubernetes.default.svc`.
    * **Namespace**: `my-app`.
    * **Directory**: Select `Helm` and then, in the **Parameters** section that appears, set the parameters based on the value of the successful {{ GL }} build:
-     * **image.repository**: `{{ registry }}/<registry ID>/gitlab-test/my-app`.
-     * **image.tag**: `main.<commit number>`.
+     * **image.repository**: `{{ registry }}/<registry_ID>/gitlab-test/my-app`.
+     * **image.tag**: `main.<commit_number>`.
 1. Click **Create** and wait until the syncing completes.
 1. To test how the application runs, execute the following command in the {{ k8s }} cluster:
 

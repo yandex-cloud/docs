@@ -55,6 +55,8 @@ items:
     items:
       - name: Clouds and services
         href: concepts/manage-services.md
+      - name: Organization membership
+        href: concepts/membership.md
       - name: Identity federations
         href: concepts/add-federation.md
       - name: OS Login

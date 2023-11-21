@@ -197,10 +197,10 @@ Make sure all the pods have the `Running` status.
 
 ##### Make sure the cluster has enough CPU resources available {#check-cpu}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **Nodes manager** tab.
-1. Go to the **Nodes** tab and click the name of any {{ managed-k8s-name }} node.
-1. Go to the **Monitoring** tab.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab and click the name of any {{ managed-k8s-name }} node.
+1. Go to the **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}** tab.
 1. Make sure that, in the **CPU, [cores]** chart, the CPU `used` values have not reached the CPU `total` values. Check this for each {{ managed-k8s-name }} cluster node.
 
 ##### Set up autoscaling {#dns-autoscaler}

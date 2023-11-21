@@ -2,7 +2,26 @@
 
 Add an existing instance to a [placement group](../../concepts/placement-groups.md).
 
+{% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
 {% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the placement group belongs to.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+   1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
+   1. Select a placement group to add your VM to.
+   1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
+   1. In the top-right corner, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.instances.button_add-instance }}**.
+   1. In the window that opens, select the appropriate VM and click **{{ ui-key.yacloud.compute.placement-group.instances.popup-add_button_add }}**.
+
+   {% note info %}
+
+   Please note that only a `stopped` VM can be added to a placement group.
+
+   {% endnote %}
 
 - CLI
 
@@ -19,7 +38,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       Result:
 
       ```bash
-      id: epdlv1pp54019j09fhue
+      id: epdlv1pp5401********
       ...
       ```
 
@@ -40,7 +59,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
-      | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
+      | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
@@ -53,7 +72,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       Result:
 
       ```bash
-      id: epdlv1pp54019j09fhue
+      id: epdlv1pp5401********
       ...
       status: STOPPED
       ```
@@ -67,13 +86,19 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       Result:
 
       ```bash
-      id: epdlv1pp54019j09fhue
+      id: epdlv1pp5401********
       ...
       placement_policy:
-        placement_group_id: fd83bv4rnsna2sjkiq4s
+        placement_group_id: fd83bv4rnsna********
       ```
 
       This command adds the `instance-in-group-2` instance to the `my-group` placement group.
+
+      {% note info %}
+
+      If you omit the partition number when adding a VM to a group with the [partition placement](../../concepts/placement-groups.md#partition) strategy, the VM will be added to a random partition.
+
+      {% endnote %}
 
    1. Check that the instance was added to the placement group:
 
@@ -87,8 +112,8 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
-      | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
-      | epdlv1pp54019j09fhue | instance-in-group-2 | {{ region-id }}-b | STOPPED |             | 10.129.0.30 |
+      | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
+      | epdlv1pp5401******** | instance-in-group-2 | {{ region-id }}-b | STOPPED |             | 10.129.0.30 |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
@@ -101,7 +126,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       Result:
 
       ```bash
-      id: epdlv1pp54019j09fhue
+      id: epdlv1pp5401********
       ...
       status: RUNNING
       ```
@@ -138,7 +163,13 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       ...
       ```
 
-      Where `placement_group_id`: ID of a placement group.
+      Where `placement_group_id` is the ID of a placement group.
+
+      {% note info %}
+
+      If you omit the partition number when adding a VM to a group with the [partition placement](../../concepts/placement-groups.md#partition) strategy, the VM will be added to a random partition.
+
+      {% endnote %}
 
       For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
 

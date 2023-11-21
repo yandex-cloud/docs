@@ -1,4 +1,4 @@
-This tutorial describes how to sign [Docker images](../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in {{ container-registry-full-name }} and then set up signature verification in {{ managed-k8s-full-name }}.
+This scenario describes how to sign [Docker images](../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in {{ container-registry-full-name }} and then set up signature verification in {{ managed-k8s-full-name }}.
 
 To sign Docker images and set up their verification:
 1. [Sign a Docker image using Cosign](#cosign).
@@ -95,7 +95,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Sign the Docker image in the {{ container-registry-name }} registry:
 
    ```bash
-   cosign sign --key cosign.key {{ registry }}/<registry ID>/<Docker image name>:<tag>
+   cosign sign --key cosign.key {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
    ```
 
    The signed image will be used when [checking results](#check-result).
@@ -104,25 +104,25 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```text
    Enter password for private key:
-   Pushing signature to: {{ registry }}/<registry ID>/<Docker image name>
+   Pushing signature to: {{ registry }}/<registry_ID>/<Docker_image_name>
    ```
 
-   A second object with the `sha256-....sig` tag and the `{{ registry }}/<registry ID>/<Docker image name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
+   A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
 1. Check that the signature is valid manually:
 
    ```bash
-   cosign verify --key cosign.pub {{ registry }}/<registry ID>/<Docker image name>:<tag>
+   cosign verify --key cosign.pub {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
    ```
 
    Result:
 
    ```text
-   Verification for {{ registry }}/<registry ID>/<Docker image name>:<tag> --
+   Verification for {{ registry }}/<registry_ID>/<Docker_image_name>:<tag> --
    The following checks were performed on each of these signatures:
    - The cosign claims were validated
    - The signatures were verified against the specified public key
 
-   [{"critical":{"identity":{"docker-reference":"{{ registry }}/<registry ID>/<Docker image name>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
+   [{"critical":{"identity":{"docker-reference":"{{ registry }}/<registry_ID>/<Docker_image_name>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
    ```
 
 ## Create a policy for signature verification {#kyverno}
@@ -131,7 +131,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```bash
    yc iam key create \
-     --service-account-name=<name of the service account with the {{ roles-cr-puller }} role> \
+     --service-account-name=<name_of_service_account_with_{{ roles-cr-puller }}_role> \
      --output=authorized-key.json
    ```
 
@@ -192,13 +192,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
                     - Pod
             verifyImages:
             - imageReferences:
-              - "{{ registry }}/<registry ID>/*"
+              - "{{ registry }}/<registry_ID>/*"
               attestors:
               - count: 1
                 entries:
                 - keys:
                     publicKeys: |-
-                      <cosign.pub contents>
+                      <cosign.pub_contents>
       ```
 
       {% cut "Sample filled out policy.yaml file" %}
@@ -222,7 +222,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
                     - Pod
             verifyImages:
             - imageReferences:
-              - "{{ registry }}/crpd2f2bnrlb2i7ltssl/*"
+              - "{{ registry }}/crpd2f2bnrlb********/*"
               attestors:
               - count: 1
                 entries:
@@ -230,7 +230,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
                     publicKeys: |-
                       -----BEGIN PUBLIC KEY-----
                       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1jTu/9rJZZvUFi4bGhlvgMQdIY97
-                      7NuGl2zzpV7olAyIu/WiywxI7Fny5tk6JmNPIFvSAtys3c08gfEcVV3D1Q==
+                      7NuGl2zzpV7olAyIu/WiywxI7Fny5tk6JmNPIFvSAtys3c08gfEc********
                       -----END PUBLIC KEY-----
       ```
 
@@ -255,7 +255,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Create a [pod](../managed-kubernetes/concepts/index.md#pod) from the signed Docker image:
 
    ```bash
-   kubectl run pod --image={{ registry }}/<registry ID>/<Docker image name>:<tag>
+   kubectl run pod --image={{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
    ```
 
    Result:
@@ -267,7 +267,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Create a pod from an unsigned Docker image:
 
    ```bash
-   kubectl run pod2 --image={{ registry }}/<registry ID>/<name of the unsigned Docker image>:<tag>
+   kubectl run pod2 --image={{ registry }}/<registry_ID>/<name_of_the_unsigned_Docker_image>:<tag>
    ```
 
    Result:
@@ -279,7 +279,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    check-image:
      check-image:
-       failed to verify signature for {{ registry }}/crpsere9njsadcq6fgm2/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
+       failed to verify signature for {{ registry }}/crpsere9njsa********/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
    ```
 
 ## Delete the resources you created {#clear-out}

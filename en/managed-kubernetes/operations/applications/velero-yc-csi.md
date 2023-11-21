@@ -2,7 +2,7 @@
 
 [Velero](https://velero.io/) is a backup, recovery, and migration tool for [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) objects, including [persistent volumes](../../concepts/volume.md#persistent-volume). With Velero, you can:
 * Protect your data from loss using a flexible backup system.
-* Recover a {{ managed-k8s-name }} cluster faster if it becomes unavailable.
+* Recover a {{ managed-k8s-name }} cluster faster if it goes down.
 * Transfer data across {{ managed-k8s-name }} clusters.
 
 Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) and restore persistent volumes from {{ yandex-cloud }} [disk snapshots](../../../compute/concepts/snapshot.md).
@@ -51,11 +51,11 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
 
       {% endnote %}
 
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/key.md) for the service account. The service account must have the `storage.editor` role.
    * **{{ objstorage-name }} bucket name**: Specify the name of the {{ objstorage-name }} bucket.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

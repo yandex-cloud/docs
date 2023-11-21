@@ -53,6 +53,19 @@
      externaldns ./externaldns/
     ```
 
+## Особенности работы {#features}
+
+Чтобы автоматически создавать DNS-записи с помощью приложения [ExternalDNS c плагином для {{ dns-full-name }}](/marketplace/products/yc/externaldns):
+* С [Ingress-контроллерами](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) не нужны дополнительные настройки.
+* Для сервисов типа [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) необходимо использовать аннотацию `"external-dns.alpha.kubernetes.io/hostname=<ваш_домен>"`.
+
+  Чтобы установить значение TTL для DNS-записи, используйте аннотацию `"external-dns.alpha.kubernetes.io/ttl=<значение_TTL_в_секундах>"`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/alb-ingress-controller-log-options.md).
+* [{#T}](../../tutorials/load-testing-grpc-autoscaling.md).
+
 ## См. также {#see-also}
 
 * [Документация ExternalDNS](https://github.com/kubernetes-sigs/external-dns/).

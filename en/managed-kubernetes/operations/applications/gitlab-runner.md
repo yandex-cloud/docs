@@ -4,7 +4,7 @@
 
 ## Getting started {#before-you-begin}
 
-1. Open the {{ GL }} administration panel in the browser:
+1. Open the {{ GL }} administration panel in your browser:
    * If {{ GL }} is deployed on a [{{ compute-full-name }}](../../../compute/) [instance](../../../compute/concepts/vm.md), use its [public IP](../../../compute/concepts/network.md#public-ip).
    * If {{ GL }} is deployed in [{{ mgl-full-name }}](../../../managed-gitlab/), use the [instance FQDN](../../../compute/concepts/network.md##hostname).
 1. Obtain a registration token:
@@ -12,8 +12,8 @@
      1. Click **Menu** and select the **Admin** option.
      1. Choose **CI/CD** → **Runners**.
      1. Click **Register an instance runner** and save the value of the `Registration token` parameter.
-   * To configure {{ GLR }} for a group or a project:
-     1. Select the group or project you need.
+   * To configure {{ GLR }} for a group or project:
+     1. Select a group or project you want to configure.
      1. On the left-hand side of the window that opens, click **Settings** and select the **CI/CD** option.
      1. Under **Runners**, click **Expand**.
      1. Save the value of the `Registration token` parameter.
@@ -36,9 +36,9 @@
 
       {% endnote %}
 
-   * (Optional) **List of tags**: Provide a list of tags for task distribution across multiple GitLab Runners.
+   * (Optional) **List of tags**: Provide a list of tags for task distribution across multiple {{ GLR }}.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 1. Go back to the Runners page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
 
 ## Installation using a Helm chart {#helm-install}
@@ -57,7 +57,7 @@
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set gitlabDomain=<VM_public_IP_or_Yandex_Managed_Service_for_GitLab_instance_FQDN> \
+     --set gitlabDomain=<VM_public_IP_or_{{ GL }}_instance_FQDN> \
      --set runnerToken=<previously_retrieved_registration_token> \
      gitlab-runner ./gitlab-runner/
    ```

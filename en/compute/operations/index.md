@@ -14,12 +14,10 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
-
 ## DSVM {#dsvm}
 
 * [{#T}](dsvm/index.md)
 * [{#T}](dsvm/quickstart.md)
-
 
 ## Placement groups {#placement-groups}
 
@@ -160,6 +158,9 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 
 * [{#T}](instance-groups/update.md)
 * [{#T}](instance-groups/update-from-yaml.md)
+* [{#T}](instance-groups/move-group.md)
+* [{#T}](instance-groups/move-group-with-nlb.md)
+* [{#T}](instance-groups/move-group-with-alb.md)
 * [{#T}](instance-groups/enable-autohealing.md)
 * [{#T}](instance-groups/deploy/rolling-update.md)
 * [{#T}](instance-groups/deploy/zero-downtime.md)

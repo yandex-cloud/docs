@@ -20,9 +20,9 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
 1. Under **Applications available for installation**, select [Falco](/marketplace/products/yc/falco) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Falco.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 

@@ -285,6 +285,9 @@ A set of methods for managing InstanceGroup resources.
   "applicationLoadBalancerState": {
     "targetGroupId": "string",
     "statusMessage": "string"
+  },
+  "autoHealingPolicy": {
+    "autoHealingAction": "string"
   }
 }
 ```
@@ -476,6 +479,8 @@ applicationLoadBalancerSpec.<br>ignoreHealthChecks | **boolean** (boolean)<br><p
 applicationLoadBalancerState | **object**<br><p>Status of the Application Load Balancer target group attributed to the instance group.</p> <p>Returned if there is a working load balancer that the target group is connected to.</p> 
 applicationLoadBalancerState.<br>targetGroupId | **string**<br><p>ID of the Application Load Balancer target group attributed to the instance group.</p> 
 applicationLoadBalancerState.<br>statusMessage | **string**<br><p>Status message of the target group.</p> 
+autoHealingPolicy | **object**<br><p>AutoHealingPolicy policy of the instance group.</p> 
+autoHealingPolicy.<br>autoHealingAction | **string**<br><p>Instance Groups performs ``autoHealingAction`` when instance becomes unhealthy.</p> <ul> <li>RESTART: Re-starting an instance with restart: stopping and then starting the instance.</li> <li>RECREATE: Re-creating an instance: deleting an instance and creating a new one.</li> <li>NONE: No action</li> </ul> 
 
 ## Methods {#methods}
 Method | Description

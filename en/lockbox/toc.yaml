@@ -13,6 +13,8 @@ items:
         href: operations/secret-update.md
       - name: Configuring access rights to secrets
         href: operations/secret-access.md
+      - name: Getting information about a secret
+        href: operations/secret-get-info.md
       - name: Deleting secrets
         href: operations/secret-delete.md
       - name: Disabling and enabling a secret

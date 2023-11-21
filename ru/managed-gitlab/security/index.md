@@ -19,6 +19,10 @@
 
 ### Сервисные роли {#service-roles}
 
+#### gitlab.auditor {#gitlab-auditor}
+
+{% include [gitlab-auditor](../../_roles/gitlab/auditor.md) %}
+
 {% include [gitlab-viewer](../../_includes/iam/roles/gitlab-viewer.md) %}
 
 {% include [gitlab-editor](../../_includes/iam/roles/gitlab-editor.md) %}

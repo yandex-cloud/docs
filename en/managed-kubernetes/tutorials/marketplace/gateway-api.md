@@ -1,6 +1,6 @@
-# Setting up Gateway API
+# Setting up the Gateway API
 
-[Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
+The [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
 
 In this tutorial, you will learn how to enable access to the applications deployed in two test environments, `dev` and `prod`, by running [{{ alb-full-name }}](../../../application-load-balancer/) through the API Gateway. For this, you will need to create a [public domain zone](../../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../../dns).
 
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Manually
 
       1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
-      1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+      1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
       1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
       1. [Create a rule for connecting to the services from the internet](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes), then apply it to the cluster's node group.
 
@@ -69,7 +69,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Create a service account](../../../iam/operations/sa/create.md), which is required for Gateway API:
+1. [Create a service account](../../../iam/operations/sa/create.md) required for the Gateway API:
 1. [Assign it the roles](../../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `certificate-manager.admin`: To use certificates registered in [{{ certificate-manager-full-name }}](../../../certificate-manager/).
@@ -79,13 +79,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```bash
    yc iam key create \
-     --service-account-name <name of service account for Gateway API> \
+     --service-account-name <name_of_service_account_for_Gateway_API> \
      --output sa-key.json
    ```
 
 ## Install the Gateway API and set up the {#install-gateway-api} domain zones
 
-1. Install the [Gateway API application](/marketplace/products/yc/gateway-api) [by following the instructions](../../operations/applications/gateway-api.md). During the installation, use the service account key [issued previously](#k8s-create).
+1. Install the [Gateway API application](/marketplace/products/yc/gateway-api) [by following the guide](../../operations/applications/gateway-api.md). During the installation, use the service account key [issued previously](#k8s-create).
 1. Reserve the [public IP addresses](../../../vpc/concepts/address.md#public-addresses) for the `prod` and `dev` test environments:
 
    ```bash
@@ -93,26 +93,26 @@ If you no longer need the resources you created, [delete them](#clear-out).
      --name=prod \
      --labels reserved=true \
      --external-ipv4 \
-     zone=<availability zone> && \
+     zone=<availability_zone> && \
    yc vpc address create \
      --name=dev \
      --labels reserved=true \
      --external-ipv4 \
-     zone=<availability zone>
+     zone=<availability_zone>
    ```
 
-   Where the `availability zone` is the [availability zone](../../../overview/concepts/geo-scope.md) that hosts your {{ k8s }} cluster.
+   Where `availability_zone` is the [availability zone](../../../overview/concepts/geo-scope.md) hosting your {{ k8s }} cluster.
 
    Save the public IP addresses: you will need them to continue the setup.
 1. Add [resource records](../../../dns/concepts/resource-record.md) for your public DNS zone:
 
    ```bash
    yc dns zone add-records \
-     --name <name of your DNS zone> \
-     --record '*.prod.<name of your DNS zone> 60 A <IP address for the prod environment>' && \
+     --name <name_of_your_DNS_zone> \
+     --record '*.prod.<name_of_your_DNS_zone> 60 A <prod_environment_IP_address>' && \
    yc dns zone add-records \
-     --name <name of your DNS zone> \
-     --record '*.dev.<name of your DNS zone> 60 A <IP address for the dev environment>'
+     --name <name_of_your_DNS_zone> \
+     --record '*.dev.<name_of_your_DNS_zone> 60 A <dev_environment_IP_address>'
    ```
 
    > Example of a valid command:
@@ -138,14 +138,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
      -out gateway-cert-prod.pem \
      -nodes \
      -days 365 \
-     -subj '/CN=*.prod.<name of your DNS zone>' && \
+     -subj '/CN=*.prod.<name_of_your_DNS_zone>' && \
    openssl req -x509 \
       -newkey rsa:4096 \
       -keyout gateway-key-dev.pem \
       -out gateway-cert-dev.pem \
       -nodes \
       -days 365 \
-      -subj '/CN=*.dev.<name of your DNS zone>'
+      -subj '/CN=*.dev.<name_of_your_DNS_zone>'
    ```
 
    Based on these certificates, secrets will be created for the `prod` and `dev` test environments in the {{ k8s }} cluster.
@@ -162,7 +162,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Provision the test applications {#prepare-apps}
 
-Two applications will be created to test the Gateway API (`tutum/hello-world` and `nginxdemos/hello`). For each application, you'll need to configure and run three YAML files.
+Two applications will be created to test the Gateway API (`tutum/hello-world` and `nginxdemos/hello`). For each application, you will need to configure and run three YAML files.
 * `dev-gw.yaml` and `prod-gw.yaml` are the settings for the Gateway. In these manifest files, specify:
   * The [security group](../../operations/connect/security-groups.md) in which your {{ k8s }} cluster is deployed, in the `metadata.annotations.gateway.alb.yc.io/security-groups` parameter.
   * The name of your DNS zone, with the prefixes `*.dev` and `*.prod`, in the `hostname` parameters.
@@ -186,14 +186,14 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
    metadata:
      name: gateway-api-dev
      annotations:
-       gateway.alb.yc.io/security-groups: <security group in the cluster>
+       gateway.alb.yc.io/security-groups: <security_group_in_the_cluster>
     spec:
      gatewayClassName: yc-df-class
      listeners:
      - name: gateway-api-dev
        protocol: HTTP
        port: 80
-       hostname: "*.dev.<name of your DNS zone>"
+       hostname: "*.dev.<name_of_your_DNS_zone>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -206,7 +206,7 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
      - name: gateway-api-dev-tls
        protocol: HTTPS
        port: 443
-       hostname: "*.dev.<name of your DNS zone>"
+       hostname: "*.dev.<name_of_your_DNS_zone>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -225,7 +225,7 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
          mode: Terminate
      addresses:
       - type: IPAddress
-         value: <IP address for the dev environment>
+         value: <IP_address_for_the_dev_environment>
    ```
 
    {% endcut %}
@@ -243,7 +243,7 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
      namespace: dev-app
    spec:
      hostnames:
-     - "app.dev.<your DNS zone name>"
+     - "app.dev.<your_DNS_zone_name>"
      parentRefs:
      - name: gateway-api-dev
        namespace: default
@@ -322,14 +322,14 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
    metadata:
      name: gateway-api-prod
      annotations:
-       gateway.alb.yc.io/security-groups: <security group in the cluster>
+       gateway.alb.yc.io/security-groups: <security_group_in_the_cluster>
    spec:
      gatewayClassName: yc-df-class
      listeners:
      - name: gateway-api-prod
        protocol: HTTP
        port: 80
-       hostname: "*.prod.<name of your DNS zone>"
+       hostname: "*.prod.<name_of_your_DNS_zone>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -342,7 +342,7 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
      - name: gateway-api-prod-tls
        protocol: HTTPS
        port: 443
-       hostname: "*.prod.<name of your DNS zone>"
+       hostname: "*.prod.<name_of_your_DNS_zone>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -361,7 +361,7 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
          mode: Terminate
      addresses:
        - type: IPAddress
-         value: <IP address for the prod environment>
+         value: <IP_address_for_the_dev_environment>
    ```
 
    {% endcut %}
@@ -379,7 +379,7 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
      namespace: prod-app
    spec:
      hostnames:
-     - "app.prod.<name of your DNS zone>"
+     - "app.prod.<name_of_your_DNS_zone>"
      parentRefs:
      - name: gateway-api-prod
        namespace: default
@@ -479,9 +479,9 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
 
 ## Test the Gateway API {#check-apps}
 
-To test your Gateway API operation, follow the links in the browser:
-* `app.prod.<name of your DNS zone>`.
-* `dev.prod.<name of your DNS zone>`.
+To test your Gateway API operation, follow these links in your browser:
+* `app.prod.<name_of_your_DNS_zone>`
+* `dev.prod.<name_of_your_DNS_zone>`
 
 ## Delete the resources you created {#clear-out}
 
@@ -499,7 +499,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
   1. Delete the `k8s-gateway-api.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using the command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate

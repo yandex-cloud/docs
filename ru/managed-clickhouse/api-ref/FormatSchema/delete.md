@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/delete.md
 ---
 
 # Managed Service for ClickHouse API, REST: FormatSchema.delete
-
+Deletes a format schema from a cluster.
  
 
  
@@ -17,8 +17,8 @@ DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/for
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. The maximum string length in characters is 50.</p> 
-formatSchemaName | <p>Required. The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+clusterId | <p>Required. ClickHouse cluster ID.</p> <p>To get a ClickHouse cluster ID, use the <a href="/docs/managed-clickhouse/api-ref/Cluster/list">list</a> method.</p> <p>The maximum string length in characters is 50.</p> 
+formatSchemaName | <p>Required. Format schema name.</p> <p>To get a format schema name, use the <a href="/docs/managed-clickhouse/api-ref/FormatSchema/list">list</a> method.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
