@@ -32,7 +32,7 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
 * Для сессии текущего пользователя с помощью запроса:
 
     ```sql
-    SET max_memory_usage = <значение в байтах>;
+    SET max_memory_usage = <значение_в_байтах>;
     ```
 
 * Для всех пользователей по умолчанию с помощью создания [профиля настроек]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).

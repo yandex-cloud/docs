@@ -23,7 +23,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр, в который загружен Docker-образ, или [создайте](registry/registry-create.md) новый и [загрузите](docker-image/docker-image-push.md) в него образ.
   1. Откройте [репозиторий](../concepts/repository.md), в котором находится Docker-образ.
-  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного Docker-образа и выберите **{{ ui-key.yacloud.cr.image.label_start-scan }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного Docker-образа и выберите **{{ ui-key.yacloud.cr.image.label_start-scan }}**.
   1. Дождитесь завершения сканирования. Во время его выполнения Docker-образ будет иметь статус сканирования `{{ ui-key.yacloud.cr.image.label_scan-status-RUNNING }}`, а после окончания статус сменится на `{{ ui-key.yacloud.cr.image.label_scan-status-READY }}`.
   1. Просмотрите результаты сканирования. Для этого в строке нужного Docker-образа нажмите на значение в столбце **{{ ui-key.yacloud.cr.image.label_last-scan-time }}**.
 

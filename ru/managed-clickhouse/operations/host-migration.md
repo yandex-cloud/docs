@@ -41,9 +41,11 @@
          --cluster-name <имя_кластера> \
          --host type=clickhouse,`
                `zone-id=<зона_доступности>,`
-               `subnet-id=<ID_новой_подсети>,`
-               `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false>
+               `subnet-id=<идентификатор_новой_подсети>,`
+               `assign-public-ip=<публичный_доступ_к_хосту>
       ```
+
+      Где `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
       Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters). В параметре `zone-id` укажите зону, куда вы переносите хосты.
 
@@ -52,16 +54,18 @@
       1. В конфигурационный файл {{ TF }} с планом инфраструктуры добавьте манифест хоста:
 
          ```hcl
-         resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
            ...
            host {
              type             = "CLICKHOUSE"
              zone             = "<зона_доступности>"
              subnet_id        = "<идентификатор_новой_подсети>"
-             assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
+             assign_public_ip = <публичный_доступ_к_хосту>
            }
          }
          ```
+
+         Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
 
          В параметре `zone` укажите зону, куда вы переносите хосты.
 

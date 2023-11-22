@@ -77,6 +77,8 @@
           import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
           # Задайте настройки синтеза.
+          # Вместо iam_token передавайте api_key при авторизации с API-ключом 
+          #def synthesize(api_key, text) -> pydub.AudioSegment: 
           def synthesize(iam_token, text) -> pydub.AudioSegment:
               request = tts_pb2.UtteranceSynthesisRequest(
                   text=text,
@@ -95,7 +97,10 @@
 
               # Отправьте данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
+              # Параметры для авторизации с IAM-токеном
                   ('authorization', f'Bearer {iam_token}'),
+              # Параметры для авторизации с API-ключом от имени сервисного аккаунта
+              #   ('authorization', f'Api-Key {api_key}'),
               ))
 
               # Соберите аудиозапись по порциям.
@@ -112,7 +117,7 @@
 
           if __name__ == '__main__':
               parser = argparse.ArgumentParser()
-              parser.add_argument('--token', required=True, help='IAM token')
+              parser.add_argument('--token', required=True, help='IAM token or API key')
               parser.add_argument('--text', required=True, help='Text for synthesis')
               parser.add_argument('--output', required=True, help='Output file')
               args = parser.parse_args()

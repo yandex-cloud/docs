@@ -1,6 +1,6 @@
 # Creating a new product version
 
-On the **Product version** tab, click **Create version**. Fill out the form with the required information:
+In the **{{ ui-key.yacloud_portal.marketplace_v2.product.tab_versions }}** tab, click **{{ ui-key.yacloud_portal.marketplace_v2.version.version-table_action_create }}**. Fill out the form with the required information:
 
 {% note info %}
 

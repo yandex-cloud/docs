@@ -40,7 +40,7 @@
     Чтобы получить список моделей в кластере, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model list --cluster-name=<имя кластера>
+    {{ yc-mdb-ch }} ml-model list --cluster-name=<имя_кластера>
     ```
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -71,8 +71,8 @@
     Чтобы получить детальную информацию о модели, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model get <имя модели> \
-      --cluster-name=<имя кластера>
+    {{ yc-mdb-ch }} ml-model get <имя_модели> \
+      --cluster-name=<имя_кластера>
     ```
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -123,10 +123,10 @@
     Чтобы подключить модель к кластеру, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model create <имя модели> \
-      --cluster-name=<имя кластера> \
+    {{ yc-mdb-ch }} ml-model create <имя_модели> \
+      --cluster-name=<имя_кластера> \
       --type=ML_MODEL_TYPE_CATBOOST \
-      --uri=<ссылка на файл модели в {{ objstorage-full-name }}>
+      --uri=<ссылка_на_файл_модели_в_Object_Storage>
     ```
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -140,12 +140,12 @@
     1. Добавьте к описанию кластера {{ mch-name }} блок `ml_model` с описанием подключаемой модели машинного обучения:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           ml_model {
-            name = "<имя модели>"
+            name = "<имя_модели>"
             type = "ML_MODEL_TYPE_CATBOOST"
-            uri  = "<ссылка на файл модели в {{ objstorage-full-name }}>"
+            uri  = "<ссылка_на_файл_модели_в_Object_Storage>"
           }
         }
         ```
@@ -184,17 +184,17 @@
 
    ```
    SELECT 
-       catboostEvaluate('<путь к файлу модели>', 
-                     <имя столбца 1>,
-                     <имя столбца 2>,
+       catboostEvaluate('<путь_к_файлу_модели>', 
+                     <имя_столбца_1>,
+                     <имя_столбца_2>,
                      ...
-                     <имя столбца N>)
-   FROM <имя таблицы>
+                     <имя_столбца_N>)
+   FROM <имя_таблицы>
    ```
 
 В качестве аргументов функции `catboostEvaluate()` укажите:
 
-   * Путь к файлу модели в формате `/var/lib/clickhouse/models/<имя модели>.bin`.
+   * Путь к файлу модели в формате `/var/lib/clickhouse/models/<имя_модели>.bin`.
    * Имена столбцов, содержащих входные данные.
 
 Результатом выполнения запроса станет столбец с предсказаниями модели для каждой строки исходной таблицы.
@@ -228,9 +228,9 @@
     Чтобы изменить ссылку на файл с моделью в бакете {{ objstorage-full-name }}, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model update <имя модели> \
-      --cluster-name=<имя кластера> \
-      --uri=<новая ссылка на файл в {{ objstorage-full-name }}>
+    {{ yc-mdb-ch }} ml-model update <имя_модели> \
+      --cluster-name=<имя_кластера> \
+      --uri=<новая_ссылка_на_файл_в_Object_Storage>
     ```
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -244,12 +244,12 @@
     1. Измените в описании кластера {{ mch-name }} значение параметра `uri` в блоке `ml_model`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
         ...
           ml_model {
-            name = "<имя модели>"
+            name = "<имя_модели>"
             type = "ML_MODEL_TYPE_CATBOOST"
-            uri  = "<новая ссылка на файл модели в {{ objstorage-full-name }}>"
+            uri  = "<новая_ссылка_на_файл_модели_в_Object_Storage>"
           }
         }
         ```
@@ -306,8 +306,8 @@
     Чтобы отключить модель, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} ml-model delete <имя модели> \
-      --cluster-name=<имя кластера>
+    {{ yc-mdb-ch }} ml-model delete <имя_модели> \
+      --cluster-name=<имя_кластера>
     ```
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).

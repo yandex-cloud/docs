@@ -149,7 +149,10 @@
 
          # Отправьте данные для распознавания.
          it = stub.RecognizeStreaming(gen(), metadata=(
+         # Параметры для авторизации с API-ключом от имени сервисного аккаунта
             ('authorization', f'Api-Key {secret}'),
+         # Для авторизации с IAM-токеном используйте строку ниже
+         #   ('authorization', f'Bearer {secret}'),
          ))
 
          # Обработайте ответы сервера и выведите результат в консоль.
@@ -169,7 +172,7 @@
 
       if __name__ == '__main__':
          parser = argparse.ArgumentParser()
-         parser.add_argument('--secret', required=True, help='API-key secret')
+         parser.add_argument('--secret', required=True, help='API key or IAM token')
          args = parser.parse_args()
          run(args.secret)
       ```

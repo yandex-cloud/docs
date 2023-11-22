@@ -105,6 +105,9 @@
                         yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                         data = f.read(CHUNK_SIZE)
 
+            # Вместо iam_token передавайте api_key при авторизации с API-ключом 
+            # от имени сервисного аккаунта.
+            # def run(api_key, audio_file_name):
             def run(iam_token, audio_file_name):
                 # Установите соединение с сервером.
                 cred = grpc.ssl_channel_credentials()
@@ -113,7 +116,10 @@
 
                 # Отправьте данные для распознавания.
                 it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
+                # Параметры для авторизации с IAM-токеном
                     ('authorization', f'Bearer {iam_token}'),
+                # Параметры для авторизации с API-ключом от имени сервисного аккаунта
+                #   ('authorization', f'Api-Key {api_key}'),
                 ))
 
                 # Обработайте ответы сервера и выведите результат в консоль.
@@ -144,7 +150,7 @@
 
             if __name__ == '__main__':
                 parser = argparse.ArgumentParser()
-                parser.add_argument('--token', required=True, help='IAM token')
+                parser.add_argument('--token', required=True, help='IAM token or API key')
                 parser.add_argument('--path', required=True, help='audio file path')
                 args = parser.parse_args()
                 run(args.token, args.path)

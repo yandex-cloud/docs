@@ -140,7 +140,7 @@ The cost of resources includes:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -228,7 +228,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -351,7 +351,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -430,7 +430,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -460,7 +460,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
        SRC_BUCKET=$(echo "$message" | jq -r .details.bucket_id)
        SRC_OBJECT=$(echo "$message" | jq -r .details.object_id)
        aws --endpoint-url="$S3_ENDPOINT" s3 cp "s3://$SRC_BUCKET/$SRC_OBJECT" "s3://$DST_BUCKET/$SRC_OBJECT"
-     done
+     done;
    ) 1>&2
    ```
 
@@ -494,13 +494,13 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-            * `S3_ENDPOINT`: `https://storage.yandexcloud.net`.
-            * `DST_BUCKET`: Name of the backup bucket to copy files to.
+            * `S3_ENDPOINT`: `https://storage.yandexcloud.net`
+            * `DST_BUCKET`: Name of the backup bucket to copy files to
 
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
-            * `AWS_ACCESS_KEY_ID`: The `key_id` key of the `s3-static-key` secret.
-            * `AWS_SECRET_ACCESS_KEY`: The `secret` key of the `s3-static-key` secret.
+            * `AWS_ACCESS_KEY_ID`: `key_id` key of the `s3-static-key` secret
+            * `AWS_SECRET_ACCESS_KEY`: `secret` key of the `s3-static-key` secret
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -646,7 +646,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -775,7 +775,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

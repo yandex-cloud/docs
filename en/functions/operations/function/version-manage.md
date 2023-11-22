@@ -30,7 +30,7 @@ When creating a version, set the following parameters:
    1. Select the [runtime environment](../../concepts/runtime/index.md). Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
    1. Prepare the function code:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs12`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs18`
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
@@ -53,7 +53,7 @@ When creating a version, set the following parameters:
    ```
    yc serverless function version create \
      --function-name=my-nodejs-function \
-     --runtime nodejs12 \
+     --runtime nodejs18 \
      --entrypoint index.handler \
      --memory 128m \
      --execution-timeout 5s \
@@ -65,7 +65,7 @@ When creating a version, set the following parameters:
 
    * `--function-name`: Name of the function you want to create a version of.
    * `--runtime`: Runtime environment.
-   * `--entrypoint`: Entry point specified in the `<filename without extension>`.`<handler name>` format.
+   * `--entrypoint`: Entry point specified in `<filename_without_extension>`.`<handler_name>` format.
    * `--memory`: Amount of RAM.
    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
    * `--source-path`: ZIP archive with the function code and required dependencies.
@@ -78,7 +78,7 @@ When creating a version, set the following parameters:
    id: d4evvn8obisa********
    function_id: d4elpv8pft63********
    created_at: "2020-08-01T19:09:19.531Z"
-   runtime: nodejs12
+   runtime: nodejs18
    entrypoint: index.handler
    resources:
    memory: "134217728"
@@ -105,15 +105,15 @@ When creating a version, set the following parameters:
          * `name`: Function name.
          * `description`: Text description of the function.
          * `user_hash`: Arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
-         * `runtime`: Function [runtime environment](../../concepts/runtime/index.md)
+         * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
          * `memory`: Amount of memory allocated for function execution, in MB.
-         * `execution_timeout`: Function execution timeout
-         * `service_account_id`: ID of the service account that should be used to invoke the function.
-         * `content`: Function source code
+         * `execution_timeout`: Function execution timeout.
+         * `service_account_id`: ID of the service account to invoke the function under.
+         * `content`: Function source code.
             * `content.0.zip_filename`: Name of the ZIP archive that contains the function source code.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```
       resource "yandex_function" "test-function" {
@@ -175,6 +175,67 @@ When creating a version, set the following parameters:
 - API
 
    To create a function version, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
+
+   **Sample request**
+
+   To use the examples, install [cURL](https://curl.haxx.se) and [authenticate](../../api-ref/functions/authentication.md) in the API.
+
+   1. [Upload](../../../storage/operations/objects/upload.md) the `hello-js.zip` archive with the function version code to your {{ objstorage-name }} bucket.
+   1. Create a `body.json` file with the following request body:
+
+      ```json
+      {
+        "functionId": "<function_ID>",
+        "runtime": "nodejs18",
+        "entrypoint": "index.handler",
+        "resources": {
+          "memory": "134217728"
+        },
+        "executionTimeout": "5s",
+        "serviceAccountId": "<service_account_ID>",
+        "package": {
+          "bucketName": "<bucket_name>",
+          "objectName": "hello-js.zip"
+        },
+      }
+      ```
+
+      Where:
+      * `functionId`: ID of the function you want to create a version of.
+      * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
+      * `entrypoint`: Entry point specified in `<filename_without_extension>`.`<handler_name>` format.
+      * `memory`: Amount of RAM.
+      * `executionTimeout`: Maximum function execution time before the timeout is reached.
+      * `serviceAccountId`: ID of the service account with a [role](../../../storage/security/index.md#service-roles) that allows bucket data reads.
+      * `bucketName`: Name of the bucket where you uploaded the ZIP archive with the function code and required dependencies.
+      * `objectName`: [Key of the bucket object](../../../storage/concepts/object.md#key) that contains the function code.
+
+   1. Run the following query:
+
+      ```bash
+      export IAM_TOKEN=<IAM_token>
+      curl -X POST \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d "@<path_to_body.json_file>" \
+          https://serverless-functions.{{ api-host }}/functions/v1/versions
+      ```
+
+      Result:
+
+      ```json
+      {
+       "done": false,
+       "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.serverless.functions.v1.CreateFunctionVersionMetadata",
+        "functionVersionId": "d4e25m0gila4********"
+       },
+       "id": "d4edk0oobcc9********",
+       "description": "Create function version",
+       "createdAt": "2023-10-11T11:22:21.286786431Z",
+       "createdBy": "ajeol2afu1js********",
+       "modifiedAt": "2023-10-11T11:22:21.286786431Z"
+      }
+      ```
 
 
 - {{ yandex-cloud }} Toolkit

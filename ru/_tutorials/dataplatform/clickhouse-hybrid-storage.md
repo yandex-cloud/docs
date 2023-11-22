@@ -272,7 +272,7 @@ LIMIT 10
 1. Выполните запрос:
 
     ```text
-    "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<ID_кластера>", subcluster_name="clickhouse_subcluster"}
+    "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<идентификатор_кластера>", subcluster_name="clickhouse_subcluster"}
     ```
 
 ## Удалите созданные ресурсы {#clear-out}

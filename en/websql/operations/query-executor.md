@@ -1,21 +1,10 @@
 # Executing SQL queries
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
 
 To perform a query to a database, [establish a connection](connect.md##connect-db) with this database first. If the connection is inactive, [activate](connect.md#update-connection) it.
 
-To build a query:
-1. In the **Connection manager**, select the database and table.
-1. On the data panel, you will see a form with the default query:
-
-   ```sql
-   SELECT * FROM <table_name> LIMIT 10;
-   ```
-
-1. Use this query or edit it. The interface will suggest relevant parts of the SQL query and highlight errors.
-1. Click **Execute**
-
-In the results panel, you will see a table with the query results.
+{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
   {% note info %}
 

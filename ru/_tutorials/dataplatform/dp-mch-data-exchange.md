@@ -162,7 +162,7 @@
 
         # Указание порта и параметров кластера ClickHouse
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор кластера {{ mch-name }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.mdb.yandexcloud.net"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -170,13 +170,13 @@
         df = spark.read.format("jdbc") \
         .option("url", jdbcUrl) \
         .option("user","user1") \
-        .option("password","<пароль пользователя user1>") \
+        .option("password","<пароль_пользователя_user1>") \
         .option("dbtable","persons") \
         .load()
 
         # Перенос DataFrame в бакет для проверки
         df.repartition(1).write.mode("overwrite") \
-        .csv(path='s3a://<имя выходного бакета>/csv', header=True, sep=',')
+        .csv(path='s3a://<имя_выходного_бакета>/csv', header=True, sep=',')
         ```
 
         {% endcut %}
@@ -189,7 +189,7 @@
 
     1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `ch-to-dataproc.py`.
 
-1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/ch-to-dataproc.py`.
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/ch-to-dataproc.py`.
 
 1. Дождитесь завершения задания и проверьте, что в папке `csv` выходного бакета появилась исходная таблица.
 
@@ -223,7 +223,7 @@
 
         # Указание порта и параметров кластера ClickHouse
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор кластера {{ mch-name }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.mdb.yandexcloud.net"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -234,7 +234,7 @@
         .option("dbtable", "people") \
         .option("createTableOptions", "ENGINE = MergeTree() ORDER BY age") \
         .option("user","user1") \
-        .option("password","<пароль к базе данных {{ mch-name }}>") \
+        .option("password","<пароль_к_базе_данных_{{ CH }}>") \
         .save()
         ```
 
@@ -247,7 +247,7 @@
 
     1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `dataproc-to-ch.py`.
 
-1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/dataproc-to-ch.py`.
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/dataproc-to-ch.py`.
 
 1. Дождитесь завершения задания и проверьте, что данные перенеслись в {{ mch-name }}:
 

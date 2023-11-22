@@ -98,7 +98,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       ```hcl
@@ -129,7 +129,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

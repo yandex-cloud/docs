@@ -73,6 +73,8 @@ items:
         href: ../speechkit-hybrid/
   - name: API Reference
     items:
+      - name: Overview
+        href: concepts/api.md
       - name: Authentication in the API
         href: concepts/auth.md
       - name: Speech recognition

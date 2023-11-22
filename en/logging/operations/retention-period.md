@@ -1,9 +1,9 @@
 ---
-title: "Updating the record retention period"
-description: "Follow this guide to update the record retention period."
+title: "Updating a log group"
+description: "Follow this guide to update a log group."
 ---
 
-# Updating the record retention period
+# Updating a log group
 
 {% list tabs %}
 
@@ -13,7 +13,7 @@ description: "Follow this guide to update the record retention period."
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. In the line with the log group, click ![image](../../_assets/horizontal-ellipsis.svg).
    1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
-   1. Update the log group record retention period.
+   1. Edit log group parameters.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
@@ -24,7 +24,7 @@ description: "Follow this guide to update the record retention period."
 
    To access a log group, use its name or unique ID. To find them, [get](./list.md) a list of log groups in the folder.
 
-   To update the period for retaining records in a [log group](../concepts/log-group.md), run the command:
+   To edit [log group](../concepts/log-group.md) parameters, such as the record retention period, run this command:
 
    ```
    yc logging group update --name=default --retention-period=24h
@@ -55,15 +55,15 @@ description: "Follow this guide to update the record retention period."
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To edit the record retention time in a log group created with {{ TF }}:
+   To edit parameters of a [log group](../concepts/log-group.md) created with {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and edit the value of the `retention_period` parameter in the log group description:
+   1. Open the {{ TF }} configuration file and edit the required parameter, such as the record retention period, in the log group description:
 
       ```hcl
       ...
       resource "yandex_logging_group" "group1" {
         name      = "test-logging-group"
-        folder_id = "<folder ID>"
+        folder_id = "<folder_ID>"
         retention_period = "5h"
       }
       ...
@@ -71,7 +71,7 @@ description: "Follow this guide to update the record retention period."
 
       Where:
 
-      * `name`: Name of the log group. This is an optional parameter.
+      * `name`: Log group name. This is an optional parameter.
       * `folder_id`: Folder ID. This is an optional parameter. By default, the value specified in the provider settings is used.
       * `retention_period`: New log group record retention period.
 
@@ -109,14 +109,61 @@ description: "Follow this guide to update the record retention period."
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify that the log group has been updated in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+      You can check the log group update in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc logging group get <log group name>
+      yc logging group get <log_group_name>
       ```
 
 - API
 
-   To change the retention period in a log group, use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update) gRPC API call.
+   To update a log group, use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update) gRPC API call.
+
+   
+   **Sample request**
+
+   The example below uses the `grpcurl` utility. To use the example, [authenticate](../api-ref/authentication.md) in the API and clone the [cloudapi](https://github.com/yandex-cloud/cloudapi) repository.
+
+   In the example, the record retention period is updated.
+
+   Create the `payload.json` file:
+
+   ```json
+   {
+      "log_group_id": "<log_group_ID>",
+      "retention_period": "24h",
+      "update_mask": {
+         "paths": ["retention_period"]
+      }
+   }
+   ```
+
+   Run the following query:
+
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \
+     -d @ \
+     -import-path ~/cloudapi/ \
+     -import-path ~/cloudapi/third_party/googleapis/ \
+     -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
+   logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Update < payload.json
+   ```
+
+   Response:
+
+   ```text
+   {
+     "id": "e23omac87b3a********",
+     "description": "Update log group",
+     "createdAt": "2023-03-25T05:39:24.058608338Z",
+     "createdBy": "ajego134p5h1********",
+     "modifiedAt": "2023-03-25T05:39:24.058608338Z",
+     "metadata": {
+       "@type": "type.googleapis.com/yandex.cloud.logging.v1.UpdateLogGroupMetadata",
+       "logGroupId": "e23ff0on5amv********"
+     }
+   }
+   ```
+
 
 {% endlist %}
