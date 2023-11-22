@@ -85,6 +85,7 @@ description: "Следуя данной инструкции, вы сможет�
 
         В противном случае выберите **{{ ui-key.yacloud.common.disabled }}**.
 
+
       * Если вы хотите управлять базами данных через SQL, в поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** выберите из выпадающего списка **{{ ui-key.yacloud.common.enabled }}**. Управление базами данных через другие интерфейсы при этом станет недоступно. Поле неактивно, если управление пользователями через SQL выключено.
 
         В противном случае выберите **{{ ui-key.yacloud.common.disabled }}**.
@@ -155,24 +156,40 @@ description: "Следуя данной инструкции, вы сможет�
      ```bash
      {{ yc-mdb-ch }} cluster create \
        --name <имя_кластера> \
-       --environment <окружение:_prestable_или_production> \
+       --environment <окружение> \
        --network-name <имя_сети> \
-       --host type=<clickhouse_или_zookeeper>,`
+       --host type=<тип_хоста>,`
             `zone-id=<зона_доступности>,`
             `subnet-id=<идентификатор_подсети>,`
-            `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false> \
+            `assign-public-ip=<публичный_доступ_к_хосту> \
        --clickhouse-resource-preset <класс_хоста> \
        --clickhouse-disk-type <тип_диска> \
-       --clickhouse-disk-size <размер_хранилища_в_ГБ> \
+       --clickhouse-disk-size <размер_хранилища_ГБ> \
        --user name=<имя_пользователя>,password=<пароль_пользователя> \
        --database name=<имя_базы_данных> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
-       --yandexquery-access=<доступ_через_Yandex_Query:_true_или_false> \
-       --deletion-protection=<защита_от_удаления_кластера:_true_или_false>
+       --yandexquery-access=<доступ_через_Yandex_Query> \
+       --deletion-protection=<защита_от_удаления_кластера>
      ```
 
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
+
+
+     Где:
+
+     * `--environment` — окружение кластера: `prestable` или `production`.
+     * `--host` — параметры хоста:
+       * `type` — тип хоста: `clickhouse` или `zookeeper`.
+       * `zone-id` — зона доступности.
+       * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+     
+     * `--clickhouse-disk-type` — тип диска.
+     * `--yandexquery-access` — доступ через {{ yq-full-name }}: `true` или `false`.
+
+
+     * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
 
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -191,6 +208,7 @@ description: "Следуя данной инструкции, вы сможет�
            --enable-sql-user-management true \
            --admin-password "<пароль_пользователя_admin>"
          ```
+
 
      1. Чтобы включить [режим управления базами данных через SQL](./databases.md#sql-database-management):
 
@@ -247,12 +265,16 @@ description: "Следуя данной инструкции, вы сможет�
          {{ yc-mdb-ch }} cluster create \
             ...
             --cloud-storage=true \
-            --cloud-storage-data-cache=<true_или_false> \
+            --cloud-storage-data-cache=<хранение_файлов> \
             --cloud-storage-data-cache-max-size=<объем_памяти_в_байтах> \
             --cloud-storage-move-factor=<доля_свободного_места> \
-            --cloud-storage-prefer-not-to-merge=<true_или_false>
+            --cloud-storage-prefer-not-to-merge=<слияние_кусков_данных>
            ...
          ```
+
+         Где:
+         * `--cloud-storage-data-cache` — хранение файлов в кластерном хранилище: `true` или `false`.
+         * `--cloud-storage-prefer-not-to-merge` — отключает слияние кусков данных в кластерном и объектном хранилищах: `true` или `false`.
 
   {% note info %}
 
@@ -304,13 +326,13 @@ description: "Следуя данной инструкции, вы сможет�
          environment         = "<окружение>"
          network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
          security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
-         deletion_protection = <защита_от_удаления_кластера:_true_или_false>
+         deletion_protection = <защита_от_удаления_кластера>
 
          clickhouse {
            resources {
              resource_preset_id = "<класс_хоста>"
              disk_type_id       = "<тип_диска>"
-             disk_size          = <размер_хранилища,_ГБ>
+             disk_size          = <размер_хранилища_ГБ>
            }
          }
 
@@ -322,7 +344,7 @@ description: "Следуя данной инструкции, вы сможет�
            name     = "<имя_пользователя_БД>"
            password = "<пароль>"
            permission {
-             database_name = "<имя_БД,_в_которой_создается_пользователь>"
+             database_name = "<имя_БД_в_которой_создается_пользователь>"
            }
          }
 
@@ -330,7 +352,7 @@ description: "Следуя данной инструкции, вы сможет�
            type             = "CLICKHOUSE"
            zone             = "<зона_доступности>"
            subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-           assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
+           assign_public_ip = <публичный_доступ_к_хосту>
          }
        }
        ```
@@ -347,15 +369,25 @@ description: "Следуя данной инструкции, вы сможет�
           resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
             ...
             access {
-              data_lens  = <доступ_из_:_true_или_false>
-              metrika    = <доступ_из_Метрики_и_AppMetrika:_true_или_false>
-              serverless = <доступ_из_Cloud_Functions:_true_или_false>
-              yandex_query = <доступ_из_Yandex_Query:_true_или_false>
-              web_sql    = <выполнение_SQL-запросов_из_консоли_управления:_true_или_false>
+              data_lens  = <доступ_из_{{ datalens-name }}>
+              metrika    = <доступ_из_Метрики_и_AppMetrika>
+              serverless = <доступ_из_Cloud_Functions>
+              yandex_query = <доступ_из_Yandex_Query>
+              web_sql    = <выполнение_SQL-запросов_из_консоли_управления>
             }
             ...
           }
           ```
+
+
+
+       
+       Где:
+       * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
+       * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
+       * `serverless` — доступ из {{ sf-name }}: `true` или `false`.
+       * `yandex_query` — доступ из {{ yq-full-name }}: `true` или `false`.
+       * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
 
 
 
@@ -364,6 +396,7 @@ description: "Следуя данной инструкции, вы сможет�
        {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
        * {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+
 
        * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
@@ -403,6 +436,7 @@ description: "Следуя данной инструкции, вы сможет�
   * `configSpec.adminPassword` — задайте пароль пользователя `admin`, с помощью которого осуществляется управление.
 
   {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+
 
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
@@ -460,7 +494,7 @@ description: "Следуя данной инструкции, вы сможет�
   * Окружение `production`.
   * Сеть `default`.
   * Группа безопасности `{{ security-group }}`.
-  * Один хост {{ CH }} класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ region-id }}-a`.
+  * Один хост {{ CH }} класса `{{ host-class }}` в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a`.
   * {{ CK }}.
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
   * Один пользователь `user1` с паролем `user1user1`.
@@ -477,7 +511,7 @@ description: "Следуя данной инструкции, вы сможет�
     --environment=production \
     --network-name default \
     --clickhouse-resource-preset {{ host-class }} \
-    --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qumiqmtg12a \
+    --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qum******** \
     --version {{ versions.keeper }} \
     --embedded-keeper true \
     --clickhouse-disk-size 20 \

@@ -66,13 +66,13 @@
 
     ```boto
     [Credentials]
-    gs_service_client_id  =<сервисный аккаунт Google Cloud>
-    gs_service_key_file   =<абсолютный путь к JSON-файлу ключа доступа сервисного аккаунта Google Cloud>
-    aws_access_key_id     =<идентификатор ключа сервисного аккаунта {{ yandex-cloud }}>
-    aws_secret_access_key =<секретный ключ сервисного аккаунта {{ yandex-cloud }}>
+    gs_service_client_id  =<сервисный_аккаунт_Google_Cloud>
+    gs_service_key_file   =<абсолютный_путь_к_JSON-файлу>
+    aws_access_key_id     =<идентификатор_ключа_сервисного_аккаунта>
+    aws_secret_access_key =<секретный_ключ_сервисного_аккаунта>
 
     [GSUtil]
-      default_project_id    =<идентификатор проекта Google Cloud>
+      default_project_id    =<идентификатор_проекта_Google_Cloud>
 
     [s3]
       calling_format=boto.s3.connection.OrdinaryCallingFormat
@@ -81,8 +81,11 @@
 
     Где:
 
-    * `<сервисный аккаунт Google Cloud>` — [имя сервисного аккаунта Google Cloud](service-account-name@project-id.iam.gserviceaccount.com) вида `service-account-name@project-id.iam.gserviceaccount.com`;
-    * `<идентификатор проекта Google Cloud>` — [идентификатор проекта Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
+    * `gs_service_client_id` — [имя сервисного аккаунта Google Cloud](service-account-name@project-id.iam.gserviceaccount.com) вида `service-account-name@project-id.iam.gserviceaccount.com`.
+    * `gs_service_key_file` — абсолютный путь к JSON-файлу ключа доступа сервисного аккаунта Google Cloud.
+    * `aws_access_key_id` — идентификатор ключа сервисного аккаунта {{ yandex-cloud }}.
+    * `aws_secret_access_key` — секретный ключ сервисного аккаунта {{ yandex-cloud }}.
+    * `default_project_id` — [идентификатор проекта Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
 
 1. Создайте файл скрипта `main.py`, который выполняет сжатие и миграцию данных:
 
@@ -95,8 +98,8 @@
     import time
     import subprocess
     import os
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<абсолютный путь к JSON-файлу ключа доступа сервисного аккаунта Google Cloud>"
-    os.environ["BOTO_CONFIG"]="<абсолютный путь к файлу credentials.boto>"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<абсолютный_путь_к_JSON-файлу_ключа_доступа_сервисного_аккаунта_Google_Cloud>"
+    os.environ["BOTO_CONFIG"]="<абсолютный_путь_к_файлу_credentials.boto>"
 
     def parse_args():
         parser = argparse.ArgumentParser(description='Export data from Google Big Query to Yandex Cloud object storage')
@@ -177,10 +180,10 @@
 
     ```bash
     python main.py \
-        --bq_project=<идентификатор проекта Google Cloud> \
+        --bq_project=<идентификатор_проекта_Google_Cloud> \
         --bq_location=US \
-        --gs_bucket=<имя бакета Google Cloud Storage> \
-        --yc_bucket=<имя бакета {{ objstorage-name }}>
+        --gs_bucket=<имя_бакета_Google_Cloud_Storage> \
+        --yc_bucket=<имя_бакета_Object_Storage>
     ```
 
     Дождитесь окончания миграции данных.
@@ -202,8 +205,8 @@
     week,
     refresh_date
     FROM s3Cluster(
-      '<идентификатор кластера>',
-      'https://{{ s3-storage-host }}/<имя бакета {{ objstorage-name }}>/top_terms-*',
+      '<идентификатор_кластера>',
+      'https://{{ s3-storage-host }}/<имя_бакета_Object_Storage>/top_terms-*',
       'Parquet',
       'rank Int32,
       country_name String,
@@ -221,7 +224,7 @@
 
     * `db1` — название базы данных в кластере {{ mch-name }}, в которой требуется создать представление.
     * `v$google_top_rising_terms` — название представления для отображения импортированных данных.
-    * `<идентификатор кластера>` — идентификатор кластера {{ mch-name }}. Его можно получить вместе со [списком кластеров в каталоге](../managed-clickhouse/operations/cluster-list.md).
+    * `<идентификатор_кластера>` — идентификатор кластера {{ mch-name }}. Его можно получить вместе со [списком кластеров в каталоге](../managed-clickhouse/operations/cluster-list.md).
     * `top_terms-*` — ключевая часть имени объектов бакета {{ objstorage-name }}. Например, если из Google Cloud вы перенесли таблицу, в которой есть строки с именем `top_terms`, то в бакете {{ objstorage-name }} они будут выглядеть как набор объектов с именами `top_terms-000000000001`, `top_terms-000000000002` и т. д. Тогда в SQL-запросе нужно указать `top_terms-*`, чтобы в представление попали все записи с таким именем из этой таблицы.
 
 1. Чтобы вывести первые 100 записей из созданного представления, выполните SQL-запрос (для примера используется представление `v$google_top_rising_terms` и базе данных `db1`):

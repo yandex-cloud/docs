@@ -35,7 +35,7 @@
 
   ```bash
   {{ yc-mdb-ch }} database list \
-     --cluster-name=<имя кластера>
+     --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -80,8 +80,8 @@
   Выполните команду создания БД, задав имя новой базы:
 
   ```bash
-  {{ yc-mdb-ch }} database create <имя базы данных> \
-     --cluster-name=<имя кластера>
+  {{ yc-mdb-ch }} database create <имя_БД> \
+     --cluster-name=<имя_кластера>
   ```
 
   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
@@ -99,10 +99,10 @@
     1. Добавьте к описанию кластера {{ mch-name }} блок описания базы данных `database`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           database {
-            name = "<имя базы данных>"
+            name = "<имя_БД>"
           }
         }
         ```
@@ -131,7 +131,7 @@
   1. Создайте базу данных:
 
       ```sql
-      CREATE DATABASE <имя базы данных>;
+      CREATE DATABASE <имя_БД>;
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
@@ -159,8 +159,8 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} database delete <имя базы данных> \
-     --cluster-name=<имя кластера>
+  {{ yc-mdb-ch }} database delete <имя_БД> \
+     --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -195,7 +195,7 @@
   1. Удалите базу данных:
 
       ```sql
-      DROP DATABASE <имя базы данных>;
+      DROP DATABASE <имя_БД>;
       ```
 
   Подробнее об удалении объектов см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/drop/).

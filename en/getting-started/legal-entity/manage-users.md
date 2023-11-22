@@ -19,67 +19,11 @@ To access the organization's enabled services, invited users simply need to log 
 
 ## Add federated users {#add-user-sso}
 
-To add federated users, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns in the authentication successful response. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
+To add federated users, you need to know the user Name IDs returned by the Identity Provider (IdP) server together with the authentication successful response. This is usually the user's primary email address. If you do not know what the server returns as Name ID, contact the administrator who configured authentication for your federation.
 
 To add federation users to an organization:
 
-{% list tabs %}
-
-- Management console
-
-   1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-   1. In the left-hand panel, select [Users](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/organization/icon-users.svg).
-   1. In the top-right corner, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
-   1. Select the identity federation to add users from.
-   1. List the Name IDs of users, separating them with line breaks.
-   1. Click **{{ ui-key.yacloud_org.actions.add }}**. This will give the users access to the organization.
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   1. View a description of the add user command:
-
-   ```
-   yc organization-manager federation saml add-user-accounts --help
-   ```
-
-   1. Add users by listing their Name IDs separated by a comma:
-
-   ```
-   yc organization-manager federation saml add-user-accounts --name my-federation \
-   --name-ids=alice@example.com,bob@example.com,charlie@example.com
-   ```
-
-- API
-
-   To add identity federation users to the cloud:
-
-   1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
-
-   ```json
-   {
-   "nameIds": [
-     "alice@example.com",
-     "bob@example.com",
-     "charlie@example.com"
-   ]
-   }
-   ```
-   1. Send the request by specifying the Federation ID in the parameters:
-
-   ```bash
-   $ curl -X POST \
-   -H "Content-Type: application/json" \
-   -H "Authorization: Bearer <IAM token>" \
-   -d '@body.json' \
-   https://iam.api.cloud.yandex.net/iam/v1/saml/federations/<federation ID>:addUserAccounts
-   ```
-
-{% endlist %}
+{% include notitle [add-user-sso](../../_includes/organization/add-user-sso.md) %}
 
 ## Assign roles to the users {#add-role}
 

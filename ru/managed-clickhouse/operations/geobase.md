@@ -30,7 +30,7 @@
     * идентификатор региона (UInt32);
     * имя региона (String) — не может содержать символы табуляции или переводы строк, даже экранированные.
 
-1. Чтобы добавить в базу имена регионов на других языках, создайте файлы `regions_names_<код языка>.txt` с аналогичной структурой. Например, `regions_names_en.txt` для английского языка и `regions_names_tr.txt` для турецкого.
+1. Чтобы добавить в базу имена регионов на других языках, создайте файлы `regions_names_<код_языка>.txt` с аналогичной структурой. Например, `regions_names_en.txt` для английского языка и `regions_names_tr.txt` для турецкого.
 1. Создайте из файлов геобазы архив в формате `tar`, `tar.gz` или `zip`.
 
 ## Загрузить геобазу в {{ objstorage-full-name }} {#upload}
@@ -77,8 +77,8 @@
     1. Выполните команду, передав ссылку на архив с подключаемой геобазой в параметре `geobase_uri`:
 
         ```bash
-        {{ yc-mdb-ch }} cluster update-config <идентификатор или имя кластера> \
-             --set geobase_uri="<ссылка на архив с геобазой в {{ objstorage-name }}>"
+        {{ yc-mdb-ch }} cluster update-config <имя_или_идентификатор_кластера> \
+             --set geobase_uri="<ссылка_на_архив_с_геобазой_в_Object_Storage>"
         ```
 
         Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -92,11 +92,11 @@
     1. Добавьте в настройки кластера {{ mch-name }} параметр `geobase_uri` со ссылкой на архив с подключаемой геобазой в {{ objstorage-full-name }}:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           clickhouse {
             config {
-              geobase_uri = "<ссылка на архив с геобазой в {{ objstorage-full-name }}>"
+              geobase_uri = "<ссылка_на_архив_с_геобазой_в_Object_Storage>"
               ...
             }
           ...

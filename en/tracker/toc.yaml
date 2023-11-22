@@ -617,6 +617,12 @@ items:
                     href: concepts/queues/create-trigger.md
                   - name: Getting trigger parameters
                     href: concepts/queues/get-trigger.md
+                  - name: Updating a trigger
+                    href: concepts/queues/change-trigger.md
+                  - name: Trigger action objects
+                    href: concepts/queues/change-trigger-actions.md
+                  - name: Trigger condition objects
+                    href: concepts/queues/change-trigger-conditions.md
       - name: Issue boards
         items:
           - name: Getting parameters of all boards

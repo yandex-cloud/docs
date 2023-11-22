@@ -105,7 +105,7 @@
 
 Пусть необходимо включить шардирование для [таблицы]({{ ch.docs }}/getting-started/example-datasets/metrica/) `hits_v1`. Текст запроса на создание таблицы зависит от выбранного подхода к шардированию.
 
-Структура таблицы, которую нужно подставить вместо обозначения `<структура таблицы>`, приведена [в документации {{ CH }}]({{ ch.docs }}/getting-started/tutorial/#create-tables).
+Структура таблицы, которую нужно подставить вместо обозначения `<структура_таблицы>`, приведена [в документации {{ CH }}]({{ ch.docs }}/getting-started/tutorial/#create-tables).
 
 После включения шардирования любым из способов, вы сможете отправлять `SELECT`- и `INSERT`-запросы к созданной распределенной таблице, и они будут обрабатываться согласно заданной конфигурации.
 
@@ -121,7 +121,7 @@
 1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), которая будет размещена на всех хостах кластера:
 
    ```sql
-   CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <структура таблицы> )
+   CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <структура_таблицы> )
    ENGINE = MergeTree()
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
@@ -162,7 +162,7 @@
 1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), которая использует все хосты группы шардов `sgroup` кластера:
 
    ```sql
-   CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <структура таблицы> )
+   CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <структура_таблицы> )
    ENGINE = MergeTree()
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
@@ -196,7 +196,7 @@
 1. Создайте таблицу `hits_v1` на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), которая использует все хосты группы шардов `sgroup_data` кластера:
 
    ```sql
-   CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <структура таблицы> )
+   CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <структура_таблицы> )
    ENGINE = ReplicatedMergeTree('/tables/{shard}/hits_v1', '{replica}')
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
@@ -212,7 +212,7 @@
 1. Создайте таблицу на движке [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed):
 
    ```sql
-   CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <структура таблицы> )
+   CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <структура_таблицы> )
    ENGINE = Distributed(sgroup_data, tutorial, hits_v1, rand())
    ```
 
@@ -234,11 +234,11 @@
 
    ```bash
    clickhouse-client \
-      --host "<FQDN любого хоста с распределенной таблицей>" \
+      --host "<FQDN_любого_хоста_с_распределенной_таблицей>" \
       --secure \
       --port 9440 \
-      --user "<имя пользователя>" \
-      --password "<пароль пользователя>" \
+      --user "<имя_пользователя>" \
+      --password "<пароль_пользователя>" \
       --database "tutorial" \
       --query "INSERT INTO tutorial.hits_v1_distributed FORMAT TSV" \
       --max_insert_block_size=100000 < hits_v1.tsv

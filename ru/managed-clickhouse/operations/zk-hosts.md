@@ -44,7 +44,7 @@
   1. Запустите операцию с характеристиками хостов по умолчанию:
 
      ```bash
-     {{ yc-mdb-ch }} cluster add-zookeeper <имя кластера> \
+     {{ yc-mdb-ch }} cluster add-zookeeper <имя_кластера> \
         --host zone-id={{ region-id }}-c,subnet-name=default-c \
         --host zone-id={{ region-id }}-a,subnet-name=default-a \
         --host zone-id={{ region-id }}-b,subnet-name=default-b
@@ -62,29 +62,29 @@
   1. Убедитесь, что в конфигурационном файле описаны три подсети — по одной для каждой зоны доступности. При необходимости добавьте недостающие:
 
      ```hcl
-     resource "yandex_vpc_network" "<имя сети>" {
-       name = "<имя сети>"
+     resource "yandex_vpc_network" "<имя_сети>" {
+       name = "<имя_сети>"
      }
 
-     resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-a>" {
-       name           = "<имя подсети в зоне {{ region-id }}-a>"
+     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_{{ region-id }}-a>" {
+       name           = "<имя_подсети_в_зоне_{{ region-id }}-a>"
        zone           = "{{ region-id }}-a"
-       network_id     = yandex_vpc_network.<имя сети>.id
-       v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-a>" ]
+       network_id     = yandex_vpc_network.<имя_сети>.id
+       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-a>" ]
      }
 
-     resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-b>" {
-       name           = "<имя подсети в зоне {{ region-id }}-b>"
+     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_{{ region-id }}-b>" {
+       name           = "<имя_подсети_в_зоне_{{ region-id }}-b>"
        zone           = "{{ region-id }}-b"
-       network_id     = yandex_vpc_network.<имя сети>.id
-       v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-b>" ]
+       network_id     = yandex_vpc_network.<имя_сети>.id
+       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-b>" ]
      }
 
-     resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-c>" {
-       name           = "<имя подсети в зоне {{ region-id }}-c>"
+     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_{{ region-id }}-c>" {
+       name           = "<имя_подсети_в_зоне_{{ region-id }}-c>"
        zone           = "{{ region-id }}-c"
-       network_id     = yandex_vpc_network.<имя сети>.id
-       v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-c>" ]
+       network_id     = yandex_vpc_network.<имя_сети>.id
+       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-c>" ]
      }
      ```
 
@@ -97,25 +97,27 @@
      При необходимости измените класс существующих хостов {{ CH }} и зоны доступности, добавьте необходимое количество новых хостов.
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
-       name = "<имя кластера>"
+     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+       name = "<имя_кластера>"
        ...
        clickhouse {
          resources {
-           resource_preset_id = "<класс хоста: b1.medium или выше>"
-           disk_type_id       = "<тип диска>"
-           disk_size          = <размер хранилища, ГБ>
+           resource_preset_id = "<класс_хоста>"
+           disk_type_id       = "<тип_диска>"
+           disk_size          = <размер_хранилища_ГБ>
          }
        }
        ...
        host {
          type      = "CLICKHOUSE"
          zone      = "{{ region-id }}-a"
-         subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-a>.id
+         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-a>.id
        }
        ...
      }
      ```
+
+     Где `resource_preset_id` — класс хоста: `b1.medium` или выше.
 
   1. Добавьте к описанию кластера {{ CH }} не меньше трех блоков `host` с типом `ZOOKEEPER`.
 
@@ -126,33 +128,35 @@
      * Минимальный размер хранилища — 10 гигабайт.
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
        ...
        zookeeper {
          resources {
-           resource_preset_id = "<класс хоста: b1.medium или выше>"
+           resource_preset_id = "<класс_хоста>"
            disk_type_id       = "{{ disk-type-example }}"
-           disk_size          = <размер хранилища, ГБ>
+           disk_size          = <размер_хранилища_ГБ>
          }
        }
        ...
        host {
          type      = "ZOOKEEPER"
          zone      = "{{ region-id }}-a"
-         subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-a>.id
+         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-a>.id
        }
        host {
          type      = "ZOOKEEPER"
          zone      = "{{ region-id }}-b"
-         subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-b>.id
+         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-b>.id
        }
        host {
          type      = "ZOOKEEPER"
          zone      = "{{ region-id }}-c"
-         subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-c>.id
+         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-c>.id
        }
      }
      ```
+
+     Где `resource_preset_id` — класс хоста: `b1.medium` или выше.
 
   1. Проверьте корректность настроек.
 
@@ -221,8 +225,8 @@
 
      ```bash
      {{ yc-mdb-ch }} hosts add \
-       --cluster-name <имя кластера> \
-       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,type=zookeeper
+       --cluster-name <имя_кластера> \
+       --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>,type=zookeeper
      ```
 
 - {{ TF }}
@@ -233,12 +237,12 @@
   1. Добавьте к описанию кластера {{ mch-name }} блок `host` с типом `ZOOKEEPER`:
 
     ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
        ...
        host {
          type      = "ZOOKEEPER"
-         zone      = "<зона доступности>"
-         subnet_id = yandex_vpc_subnet.<имя подсети в выбранной зоне доступности>.id
+         zone      = "<зона_доступности>"
+         subnet_id = yandex_vpc_subnet.<имя_подсети_в_выбранной_зоне_доступности>.id
        }
        ...
      }
@@ -284,8 +288,8 @@
   Чтобы удалить хост из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} hosts delete <имя хоста> \
-    --cluster-name=<имя кластера>
+  {{ yc-mdb-ch }} hosts delete <имя_хоста> \
+    --cluster-name=<имя_кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).

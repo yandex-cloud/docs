@@ -1,10 +1,10 @@
 # Working with SQL query templates
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
 
 Use ready-made templates and your own saved queries to create SQL queries quickly.
 
-## Use ready-made templates {#available-templates}
+## Using ready-made templates {#available-templates}
 
 To apply ready-made templates:
 
@@ -34,3 +34,8 @@ You can save any SQL query as a template and use it whenever you need. To save a
 
 After you save the query, it will appear in the list of saved queries (![image](../../_assets/websql/template.svg)), and if you have added a suggestion, it will appear as a template along with the [ready-made {{ websql-full-name }} templates](#available-templates).
 
+{% note warning %}
+
+Queries are saved for the selected {{ yandex-cloud }} [organization](../../organization/concepts/manage-services.md) and current browser session.
+
+{% endnote %}

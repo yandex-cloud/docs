@@ -414,11 +414,11 @@ Story Points | storyPoints
 
 > Примеры:
 > ```
-> { "type": "GreaterCondition", "field": "spent", "value": 50400000 },  
-> { "type": "GreaterOrEqualCondition", "field": "spent", "value": 50400000 }, 
-> { "type": "LessCondition", "field":  "spent", "value": 50400000 }, 
-> { "type": "LessOrEqualCondition",  "spent", "value": 50400000 }, 
-> { "type": "BecameGreaterCondition", "field": "votes", "value": 6 },  
+> { "type": "GreaterCondition", "field": "spent", "value": 50400000 },
+> { "type": "GreaterOrEqualCondition", "field": "spent", "value": 50400000 },
+> { "type": "LessCondition", "field": "spent", "value": 50400000 },
+> { "type": "LessOrEqualCondition", "spent", "value": 50400000 },
+> { "type": "BecameGreaterCondition", "field": "votes", "value": 6 },
 > { "type": "BecameGreaterOrEqualCondition", "field": "votes", "value": 6 },
 > { "type": "BecameLessCondition", "field": "votes", "value": 6 },
 > { "type": "BecameLessOrEqualCondition", "field": "votes", "value": 6 }

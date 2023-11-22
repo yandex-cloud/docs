@@ -29,7 +29,7 @@
     - `resource_id=*`
     - `resource_type=vm`
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**. Виджет отобразится на дашборде.
-1. Нажмите ![gear](../_assets/monitoring/gear.svg), откроется модальное окно настроек виджета.
+1. Нажмите ![gear](../_assets/console-icons/gear.svg), откроется модальное окно настроек виджета.
 1. В параметр **{{ ui-key.yacloud_monitoring.dashboard.widget-settings.title }}** введите имя виджета, например, `CPU on all hosts`.
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**. Имя виджета отобразится в верхней части виджета.
 1. Перетащите созданный виджет на необходимое место на дашборде.
@@ -45,7 +45,7 @@
     - `resource_type=cluster`
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**. Виджет отобразится на дашборде.
-1. Нажмите ![gear](../_assets/monitoring/gear.svg), откроется модальное окно настроек виджета.
+1. Нажмите ![gear](../_assets/console-icons/gear.svg), откроется модальное окно настроек виджета.
 1. В параметр **{{ ui-key.yacloud_monitoring.dashboard.widget-settings.title }}** введите имя виджета, например, `Free space on ClickHouse hosts`.
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**. Имя виджета отобразится в верхней части виджета.
 1. Перетащите созданный виджет на необходимое место на дашборде.

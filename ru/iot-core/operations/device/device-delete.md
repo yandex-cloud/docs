@@ -12,7 +12,7 @@
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Справа от имени удаляемого устройства нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
+   1. Справа от имени удаляемого устройства нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

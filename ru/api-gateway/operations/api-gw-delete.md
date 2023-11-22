@@ -12,7 +12,7 @@ description: "Следуя данной инструкции, вы сможет�
     Чтобы удалить API-шлюз:
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо удалить API-шлюз.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-    1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
+    1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
 
 - CLI

@@ -1,14 +1,14 @@
 # Reports in {{ speechsense-name }}
 
-With reports in {{ speechsense-name }}, you can get information about operator performance and assess its quality. Reports are based on the [recordings of conversations between operators and customers uploaded to the service](../operations/data/upload-data.md). Samples of data you can get using reports:
+With reports in {{ speechsense-name }}, you can analyze agent performance and assess its quality. Reports are based on the [agent-customer call recordings uploaded to the service](../operations/data/upload-data.md). For instance, using reports, you can learn:
 
-* How operators work within different products.
-* How often operators communicate with customers informally.
+* How agents work within different products.
+* How often agents use informal language with customers.
 * How often a long pause occurs during a conversation.
-* How often they get a negative feedback during a conversation.
-* How often violations occur during conversations.
+* How often the agents get negative feedback from the customers.
+* How often the call rules are violated as per the report criteria.
 
-## How a report is generated {#form}
+## How to build a report {#form}
 
 A report is created based on these settings:
 
@@ -74,7 +74,7 @@ You can use filtering to select the dialogs to be included in your report. To fi
 
 * **Grouping**: You choose how to group data in your report. You can only group data according to metadata fields.
 
-As a result, you can get different data cross-sections. For example, you can:
+As a result, you will get different data cross-sections. For example, you can:
 
 * Set the analysis period.
 * Group data by operator to analyze each operator's performance.
@@ -86,14 +86,14 @@ Data cross-sections depend on the recordings' metadata. For example, if you want
 
 A report shows the quantitative characteristics of operator performance. It is only available in the {{ speechsense-name }} web interface as a chart and table:
 
-* **Chart** allows you to visually compare which operators make fewer mistakes for which products.
+* **Chart** allows you to visually estimate which operators make fewer mistakes for which products.
 
    If you need details by a certain parameter, [switch from the chart to a list of dialogs](../operations/data/manage-reports.md#go-to-a-dialog). Thus you can analyze a mistake presented in the report.
 
-* **Table** presents numeric values. Each parameter column displays two numbers:
+* **Table** presents numeric parameter values. Two numbers are displayed for each parameter:
 
    * Number of dialogs satisfying the specified parameter.
    * Percentage of those of the total number of all filtered dialogs.
 
 
-Chart parameter labels and table column names are based on the **Report parameter name** field values.
+Chart parameter labels and table column names correspond to the **Report parameter name** field value.

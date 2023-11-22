@@ -44,7 +44,7 @@ To make sure that all authentication requests from {{ yandex-cloud }} contain a 
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -57,7 +57,7 @@ To make sure that all authentication requests from {{ yandex-cloud }} contain a 
         --organization-id=<organization ID>
       ```
 
-   1. If the list contains at least one identity federation configured, the recommendation is fulfilled. If not, proceed to the <q>Instructions and solutions to use</q>.
+   1. If the list contains at least one identity federation configured, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -68,7 +68,7 @@ To make sure that all authentication requests from {{ yandex-cloud }} contain a 
 
 #### 1.2 Yandex ID accounts are only used in exceptional cases {#yandex-id-accounts}
 
-The best approach to account management, in terms of security, is using identity federations (for more information, see recommendation 1.1). Therefore, you should do your best to ensure that your organization's list of users only contains federated users (those with the <q>FEDERATION ID</q> attribute) and there are as few Yandex ID accounts on the list as possible. Exceptions allowed:
+The best approach to account management, in terms of security, is using identity federations (for more information, see recommendation 1.1). Therefore, you should do your best to ensure that your organization's list of users only contains federated users (those with the <q>FEDERATION ID</q> attribute) and there are as few Yandex ID accounts on the list as possible. The following exceptions are allowed:
 
 * Account with the `billing.accounts.owner` permissions (technically, this role can now be granted to a Yandex ID account only).
 * Account with the `organization-manager.organizations.owner` and `{{ roles-cloud-owner }}` permissions, only if you use it in case of emergency, such as when a federation's setup failed. If necessary, you can [delete](../../../security/operations/account-deletion.md) a privileged passport account with the `organization-manager.organizations.owner` role from an organization.
@@ -80,11 +80,11 @@ The best approach to account management, in terms of security, is using identity
 
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Go to **All services** → **{{ org-full-name }}** → **Users**.
-   1. If the **Federation** column is set to **federation** for all the accounts (but for those on the above list of exceptions allowed), the recommendation is fulfilled. If not, proceed to the <q>Instructions and solutions to use</q>.
+   1. If the **Federation** column is set to **federation** for all the accounts (but for those on the above list of exceptions allowed), the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -121,7 +121,7 @@ It's convenient to control access to resources via [user groups](../../../iam/op
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Go to **All services** → **{{ org-full-name }}** → **Groups** → **Select the desired group** → **Group access rights**.
    1. Toggle the **Inherited roles** switch.
-   1. If the list doesn't contain any accounts that must have no permission to manage group membership, the recommendation is fulfilled. Otherwise, proceed to the <q>Instructions and solutions to use</q>.
+   1. If the list does not contain any accounts that must have no permission to manage group membership, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -141,15 +141,15 @@ Use the [{{ roles-auditor }}](../../../iam/concepts/access-control/roles.md#audi
 
    1. Open the {{ yandex-cloud }} console in your browser.
    1. Go to **All services** → **{{ org-full-name }}** → **Users**.
-   1. If no accounts in the **Access rights** column have primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Instructions and solutions to use</q>.
-   1. Next, go to the global cloud menu (click on the cloud in the initial cloud menu). Select the **Access rights** tab.
-   1. If no accounts in the **Roles** column have primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Instructions and solutions to use</q>.
+   1. If no accounts in the **Access rights** column have such primitive roles as `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+   1. Next, go to the global cloud menu (click the cloud in the initial cloud menu). Select the **Access rights** tab.
+   1. If no accounts in the **Roles** column have such primitive roles as `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
    1. Next, go to each folder of each cloud and, similarly, select the **Access rights** tab.
-   1. If no accounts in the Roles column have primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Instructions and solutions to use</q>.
+   1. If no accounts in the Roles column have such primitive roles as `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
        
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -228,7 +228,7 @@ The cloud entities with service accounts assigned must be registered and limited
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -257,7 +257,7 @@ Remove the service accounts from the cloud entities that do not require them.
 
 #### 1.6 There are no cloud keys represented as plaintext in the VM metadata service {#cloud-keys}
 
-Don't write service account keys and other keys to the [VM metadata](../../../compute/concepts/vm-metadata.md) directly. [Assign a service account](../../../compute/operations/vm-connect/auth-inside-vm.md) to a VM instance and get a token using the metadata service. Sensitive data may be stored in any metadata field. However, the most common one is `user-data` (due to its use in the cloud-init utility).
+Do not write service account keys and other keys to the [VM metadata](../../../compute/concepts/vm-metadata.md) directly. [Assign a service account](../../../compute/operations/vm-connect/auth-inside-vm.md) to a VM instance and get a token using the metadata service. Sensitive data may be stored in any metadata field. However, the most common one is `user-data` (due to its use in the cloud-init utility).
 
 See the list of all regular expressions used to search for cloud accounts' credential secrets:
 
@@ -276,7 +276,7 @@ See the list of all regular expressions used to search for cloud accounts' crede
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -315,7 +315,9 @@ See the list of all regular expressions used to search for cloud accounts' crede
 
 **Guides and solutions to use:**
 
-Remove the keys from the metadata of the VMs with deviations found.
+Remove the keys from the metadata of the VMs with deviations found:
+
+{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
 
 #### 1.7 Getting a token via AWS IMDSv1 is disabled on the VM {#aws-token}
 
@@ -338,7 +340,7 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -371,7 +373,7 @@ yc compute instance update <VM_instance_ID> \
 
 #### 1.8 Service accounts have minimum privileges granted {#sa-privileges}
 
-Follow the principle of minimum privileges and [assign to the service account](../../../iam/operations/roles/grant.md) only those roles that are needed to run the application.
+Follow the principle of least privilege and [assign to the service account](../../../iam/operations/roles/grant.md) only those roles that are needed to run the application.
 
 {% list tabs %}
 
@@ -388,7 +390,7 @@ Follow the principle of minimum privileges and [assign to the service account](.
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -462,7 +464,7 @@ Each service account with extended rights should be placed as a resource in a se
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -516,7 +518,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -573,9 +575,9 @@ Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissu
 
 We recommend using two-factor authentication (2FA) for cloud infrastructure access control to avoid the risk of compromising user accounts. Access to the {{ yandex-cloud }} management console can be based on 2FA.
 
-To enable two-factor authentication, contact an identity provider that supports 2FA and set up a SAML-compliant identity federation. {{ yandex-cloud }} has no IdP of its own and user identification is done using external services, such as Yandex ID or corporate systems integrated via identity federations. For example, if you're using an IdP of Active Directory or Keycloak, set up 2FA in these systems. Make sure to set up 2FA at least for privileged cloud accounts.
+To enable two-factor authentication, contact an identity provider that supports 2FA and set up a SAML-compliant identity federation. {{ yandex-cloud }} has no IdP of its own and user identification is done using external services, such as Yandex ID or corporate systems integrated via identity federations. For example, if you are using an IdP of Active Directory or Keycloak, set up 2FA in these systems. Make sure to set up 2FA at least for privileged cloud accounts.
 
-For a Yandex ID account, set up 2FA using these [instructions](https://yandex.com/support/id/authorization/twofa.html).
+For a Yandex ID account, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 
 {% list tabs %}
 
@@ -599,8 +601,8 @@ For a Yandex ID account, set up 2FA using these [instructions](https://yandex.c
 
 {{ yandex-cloud }} privileged users include accounts with the following roles:
 
-* `billing.accounts.owner`.
-* `{{ roles-admin }}` assigned for a billing account.
+* `billing.accounts.owner`
+* `{{ roles-admin }}` assigned for a billing account
 * `organization-manager.organizations.owner`
 * `organization-manager.admin`
 * `{{ roles-cloud-owner }}`
@@ -672,7 +674,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -734,7 +736,7 @@ To use a database at the application level, in addition to {{ iam-short-name }} 
 
 If you grant third-party contractors access to your clouds, make sure to follow these security measures:
 
-* Assign permissions to contractor employees based on the principle of minimum privileges.
+* Assign permissions to contractor employees based on the principle of least privilege.
 * If possible, create a separate account for third-party employees in your corporate IdP and assign the required policies to this account.
 * Make sure they handle their account secrets carefully.
 * Review the expedience of granting external users access to your cloud infrastructure.
@@ -791,7 +793,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
    Checking roles in a cloud:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
-   1. Next, go to the global cloud menu (click on the cloud in the initial cloud menu). Select the **Access rights** tab.
+   1. Next, go to the global cloud menu (click the cloud in the initial cloud menu). Select the **Access rights** tab.
    1. Check whether there are `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` among users.
 
    Checking roles in a folder:
@@ -823,11 +825,11 @@ Make sure that these groups have no public access to your resources: clouds, fol
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Next, go to each cloud and find **{{ sf-name }}**.
    1. Open all cloud functions and make sure the **Public access** parameter is disabled.
-   1. If none of the specified resources contain `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Instructions and solutions to use</q>.
+   1. If none of the specified resources contain `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}`, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -913,7 +915,7 @@ Make sure the contact information is valid and messages are sent to multiple per
    1. Go to the **Account data** tab.
    1. At the bottom, click **Edit data in Yandex Balance**.
    1. Verify the specified contact information.
-   1. If it's valid, the recommendation is fulfilled. Otherwise, proceed to the <q>Instructions and solutions to use</q>.
+   1. If it is valid, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -937,7 +939,7 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -952,7 +954,7 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. If the result with the current federation's settings is output, where `cookie_max_age` > 21600s, proceed to the <q>Instructions and solutions to use</q>.
+   1. If an empty string is output, the recommendation is fulfilled. If the result with the current federation's settings is output, where `cookie_max_age` > 21600s, proceed to the <q>Guides and solutions to use</q>.
 
 {% endlist %}
 

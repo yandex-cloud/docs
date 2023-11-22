@@ -76,9 +76,9 @@
 1. Разместите у своего DNS-провайдера или на собственном [DNS-сервере](../../glossary/dns.md#dns-server) `CNAME`-запись для делегирования прав управления на DNS-зону, используемую для проверки:
 
    ```
-   _acme-challenge.example.com CNAME <Значение>
+   _acme-challenge.example.com CNAME <значение>
    ```
-   Строка `<Значение>` формируется по шаблону `<Идентификатор сертификата>.cm.yandexcloud.net.`
+   Строка `<значение>` формируется по шаблону `<идентификатор_сертификата>.cm.yandexcloud.net.`
 
    {% include [checking-domain-rights-cname](../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
 
@@ -99,7 +99,7 @@
 1. Разместите у своего DNS-провайдера или на собственном DNS-сервере `TXT`-запись:
 
     ```
-    _acme-challenge.example.com. IN TXT <Значение>
+    _acme-challenge.example.com. IN TXT <значение>
     ```
 1. В разделе **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, в блоке с типом записи `TXT`, в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}**, нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**. В открывшемся окне:
    1. Если в текущем каталоге есть подходящая зона DNS, она будет автоматически подставлена в поле **{{ ui-key.yacloud.dns.label_zone }}**. Если подходящей зоны DNS нет, нажмите **{{ ui-key.yacloud.dns.button_zone-create }}** и задайте ее параметры, чтобы [создать](../../dns/operations/zone-create-public.md) зону.
@@ -120,7 +120,7 @@
 * Для каждого домена сертификата настроена DNS-запись:
 
     ```
-    _acme-challenge.example.com CNAME <Идентификатор сертификата>.cm.yandexcloud.net.
+    _acme-challenge.example.com CNAME <идентификатор_сертификата>.cm.yandexcloud.net.
     ```
 
 ### Перенаправление статического сайта {{ objstorage-name }} {#auto-s3}
@@ -140,18 +140,18 @@
 * Сертификат не является [Wildcard-сертификатом](https://en.wikipedia.org/wiki/Wildcard_certificate) — не содержит масок на поддомены.
 * Для каждого домена сертификата в веб-сервере настроено перенаправление с
     ```
-    http://<Домен>/.well-known/acme-challenge/*
+    http://<домен>/.well-known/acme-challenge/*
     ```
     на
     ```
-    https://{{ api-host-certmanager-validation }}/<Идентификатор сертификата>/*
+    https://{{ api-host-certmanager-validation }}/<идентификатор_сертификата>/*
     ```
 
 Пример настройки перенаправления в nginx-конфигурации:
 ```
 server {
   location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
-    return 301 https://{{ api-host-certmanager-validation }}/<Идентификатор сертификата>/$1;
+    return 301 https://{{ api-host-certmanager-validation }}/<идентификатор_сертификата>/$1;
   }
 }
 ```

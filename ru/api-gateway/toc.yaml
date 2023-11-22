@@ -94,7 +94,7 @@ items:
             href: concepts/extensions/greedy-parameters.md
           - name: Обобщенный HTTP-метод
             href: concepts/extensions/any-method.md
-          - name: Авторизация с помощью функции
+          - name: Авторизация с помощью функции {{ sf-name }}
             href: concepts/extensions/function-authorizer.md
           - name: Авторизация с помощью JWT
             href: concepts/extensions/jwt-authorizer.md

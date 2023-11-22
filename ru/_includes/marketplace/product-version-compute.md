@@ -33,7 +33,7 @@
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_gpu }}`;
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_network }}`;
          * `{{ ui-key.yacloud.common.resource-acl.label_bindings }}`.
-           Чтобы исключить параметр, нажмите ![image](../../_assets/cross.svg) рядом с названием. Параметры `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_cpu }}`, `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_memory }}`, `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_disk-size }}` являются обязательными, их исключить нельзя.
+           Чтобы исключить параметр, нажмите ![image](../../_assets/console-icons/xmark.svg) рядом с названием. Параметры `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_cpu }}`, `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_memory }}`, `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_disk-size }}` являются обязательными, их исключить нельзя.
 
    * Для параметров:
       * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_platforms }}` — выберите все платформы, на которых может быть развернута ВМ.

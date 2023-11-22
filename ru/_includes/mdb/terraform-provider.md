@@ -11,7 +11,7 @@ terraform {
 }
 
 provider "yandex" {
-  token     = "<OAuth или статический ключ сервисного аккаунта>"
+  token     = "<OAuth_или_статический_ключ_сервисного_аккаунта>"
   cloud_id  = "{{ tf-cloud-id }}"
   folder_id = "{{ tf-folder-id }}"
 }

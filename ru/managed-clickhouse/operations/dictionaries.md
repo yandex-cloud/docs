@@ -38,7 +38,7 @@
     1. Выполните команду:
 
         ```bash
-        {{ yc-mdb-ch }} cluster get <имя кластера>
+        {{ yc-mdb-ch }} cluster get <имя_кластера>
         ```
 
     Подключенные словари отображаются в блоке `dictionaries:` результата выполнения команды.
@@ -95,8 +95,8 @@
 
         ```bash
         {{ yc-mdb-ch }} cluster add-external-dictionary \
-           --name=<имя кластера {{ CH }}> \
-           --dict-name=<имя словаря> \
+           --name=<имя_кластера_{{ CH }}> \
+           --dict-name=<имя_словаря> \
            ...
         ```
 
@@ -122,13 +122,13 @@
     1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/) и укажите [настройки словаря](#settings-sql):
 
         ```sql
-        CREATE DICTIONARY <имя словаря>(
-        <столбцы данных>
+        CREATE DICTIONARY <имя_словаря>(
+        <столбцы_данных>
         )
-        PRIMARY KEY <имя столбца с ключами>
-        SOURCE(<источник>(<конфигурация источника>))
-        LIFETIME(<интервал обновления>)
-        LAYOUT(<способ размещения в памяти>());
+        PRIMARY KEY <имя_столбца_с_ключами>
+        SOURCE(<источник>(<конфигурация_источника>))
+        LIFETIME(<интервал_обновления>)
+        LAYOUT(<способ_размещения_в_памяти>());
         ```
 
 {% endlist %}
@@ -161,8 +161,8 @@
 
         ```bash
         {{ yc-mdb-ch }} cluster remove-external-dictionary \
-           --name=<имя кластера> \
-           --dict-name=<имя словаря>
+           --name=<имя_кластера> \
+           --dict-name=<имя_словаря>
         ```
 
 - API
@@ -172,7 +172,7 @@
 - SQL
 
     1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя БД>.<имя словаря>`.
+    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя_БД>.<имя_словаря>`.
 
 {% endlist %}
 
@@ -180,12 +180,12 @@
 
 ### SQL {#settings-sql}
 
-* <имя словаря> — имя нового словаря.
-* <столбцы данных> — список столбцов с данными словаря и их тип.
-* PRIMARY KEY — имя ключевого столбца словаря.
-* SOURCE — источник и его параметры.
-* LIFETIME — периодичность обновления словаря.
-* LAYOUT — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`.
+* `<имя_словаря>` — имя нового словаря.
+* `<столбцы_данных>` — список столбцов с данными словаря и их тип.
+* `PRIMARY KEY` — имя ключевого столбца словаря.
+* `SOURCE` — источник и его параметры.
+* `LIFETIME` — периодичность обновления словаря.
+* `LAYOUT` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`.
 
 Подробные описание настроек читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
@@ -415,7 +415,7 @@
         * пароль для доступа к базе данных `user1user1`;
         * режим для установки защищенного SSL TCP/IP соединения с базой данных `verify-full`;
 
-    * имя хоста `rc1b-05vjbfhfkrycjyq8.{{ dns-zone }}`.
+    * имя хоста `rc1b-05vjbfhf********.{{ dns-zone }}`.
 
     Выполните следующую команду:
 
@@ -436,7 +436,7 @@
                           `user=user1,`
                           `password=user1user1,`
                           `ssl-mode=verify-full \
-       --postgresql-source-hosts=rc1b-05vjbfhfkrycjyq8.{{ dns-zone }}
+       --postgresql-source-hosts=rc1b-05vjbfhf********.{{ dns-zone }}
     ```
 
 {% endlist %}

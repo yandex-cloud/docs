@@ -1,8 +1,13 @@
+---
+title: "Asynchronous function invocation in {{ sf-full-name }}"
+description: "When you create a new function version in {{ sf-full-name }}, you can set up asynchronous invocation to invoke the function without waiting for it to complete."
+---
+
 # Asynchronous function invocation
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../_includes/note-preview.md) %}
 
-When you create a new function version, you can set up asynchronous invocation to call the function without waiting for it to complete.
+When you create a new function version, you can set up asynchronous invocation to invoke the function without waiting for it to complete.
 
 To invoke a function asynchronously, specify the `?integration=async` query string parameter. When invoked this way, a function cannot parse or set HTTP headers:
 * The contents of the HTTPS request body are provided as the first argument (without converting to a JSON structure).

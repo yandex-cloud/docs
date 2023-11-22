@@ -82,7 +82,7 @@ default:
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
   compute-name: Compute Cloud
   compute-short-name: Compute Cloud
-  compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
+  compute-ubuntu-lts-image-id: fd81hgrcv6ls********
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.ru
   console-name: Cloud Console
@@ -6068,6 +6068,7 @@ default:
           additional-field-serverless: Доступ из Serverless
           additional-field-websql: Доступ из консоли управления
           additional-field-yandex-query: ''
+          additional-field-yandex-query_ru: Доступ из Yandex Query
           backup-retain-period: Срок хранения автоматических резервных копии, дней
           backup-window-start: Начало резервного копирования (UTC)
           base_field_description: Описание

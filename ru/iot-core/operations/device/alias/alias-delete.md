@@ -12,8 +12,8 @@
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Справа от имени нужного устройства нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
-   1. Справа от удаляемого алиаса нажмите значок ![image](../../../../_assets/cross.svg).
+   1. Справа от имени нужного устройства нажмите значок ![image](../../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
+   1. Справа от удаляемого алиаса нажмите значок ![image](../../../../_assets/console-icons/xmark.svg).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI

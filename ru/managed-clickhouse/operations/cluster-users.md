@@ -13,6 +13,7 @@
 
 ## Управление пользователями через SQL {#sql-user-management}
 
+
 Чтобы включить управление, выберите опцию **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** при [создании](cluster-create.md) или [изменении настроек](update.md#SQL-management) кластера.
 
 В кластере с включенным управлением пользователями через SQL:
@@ -43,7 +44,7 @@
 
   ```bash
   {{ yc-mdb-ch }} user list
-     --cluster-name=<имя кластера>
+     --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -101,13 +102,15 @@
   Чтобы создать пользователя в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} user create <имя пользователя> \
-     --cluster-name=<имя кластера> \
-     --password=<пароль пользователя> \
-     --permissions=<список баз, к которым пользователь должен иметь доступ> \
-     --quota=<список настроек одной квоты для пользователя> \
-     --settings=<список настроек {{ CH }} для пользователя>
+  {{ yc-mdb-ch }} user create <имя_пользователя> \
+     --cluster-name=<имя_кластера> \
+     --password=<пароль_пользователя> \
+     --permissions=<список_БД> \
+     --quota=<список_настроек_одной_квоты_для_пользователя> \
+     --settings=<список_настроек_{{ CH }}_для_пользователя>
   ```
+
+  Где `--permissions` — список БД, к которым пользователь должен иметь доступ.
 
   {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
@@ -116,10 +119,10 @@
   Чтобы задать несколько квот, перечислите их, используя требуемое количество параметров `--quota` в команде:
 
   ```bash
-  {{ yc-mdb-ch }} user create <имя пользователя> \
+  {{ yc-mdb-ch }} user create <имя_пользователя> \
      ...
-     --quota="<настройки квоты 0>" \
-     --quota="<настройки квоты 1>" \
+     --quota="<настройки_квоты_0>" \
+     --quota="<настройки_квоты_1>" \
      ...
   ```
 
@@ -136,10 +139,10 @@
     1. Добавьте к описанию кластера {{ mch-name }} блок `user`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           user {
-            name     = "<имя пользователя>"
+            name     = "<имя_пользователя>"
             password = "<пароль>"
             ...
           }
@@ -177,7 +180,7 @@
   1. Создайте пользователя:
 
       ```sql
-      CREATE USER <имя пользователя> IDENTIFIED WITH sha256_password BY '<пароль пользователя>';
+      CREATE USER <имя_пользователя> IDENTIFIED WITH sha256_password BY '<пароль_пользователя>';
       ```
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
@@ -210,9 +213,9 @@
   Чтобы изменить пароль пользователя, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} user update <имя пользователя> \
-     --cluster-name=<имя кластера> \
-     --password=<новый пароль>
+  {{ yc-mdb-ch }} user update <имя_пользователя> \
+     --cluster-name=<имя_кластера> \
+     --password=<новый_пароль>
   ```
 
   {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -230,11 +233,11 @@
     1. Измените значение поля `password`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           user {
-            name     = "<имя пользователя>"
-            password = "<новый пароль>"
+            name     = "<имя_пользователя>"
+            password = "<новый_пароль>"
             ...
           }
         }
@@ -284,8 +287,8 @@
     Чтобы изменить пароль пользователя `admin`, выполните команду:
 
     ```bash
-    {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
-      --admin-password <новый пароль пользователя admin>
+    {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+      --admin-password <новый_пароль_пользователя_admin>
     ```
 
     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -308,9 +311,9 @@
     1. Измените значение поля `admin_password`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
-          admin_password = "<пароль пользователя admin>"
+          admin_password = "<пароль_пользователя_admin>"
           ...
         }
         ```
@@ -375,9 +378,9 @@
   1. Чтобы настроить права пользователя на доступ к определенным базам данных, выполните команду, перечислив список имен баз данных с помощью параметра `--permissions`:
 
      ```bash
-     {{ yc-mdb-ch }} user update <имя пользователя> \
-        --cluster-name=<имя кластера> \
-        --permissions=<список баз, к которым пользователь должен иметь доступ>
+     {{ yc-mdb-ch }} user update <имя_пользователя> \
+        --cluster-name=<имя_кластера> \
+        --permissions=<список_БД>
      ```
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -389,14 +392,14 @@
   1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, выполните команду, перечислив список всех квот, с помощью параметров `--quota` (один параметр на каждую квоту):
 
      ```bash
-     {{ yc-mdb-ch }} user update <имя пользователя> \
-        --cluster-name=<имя кластера> \
-        --quota=<настройки квоты 0 (без изменений)> \
-        --quota=<настройки квоты 1 (без изменений)> \
-        --quota=<настройки квоты 2 (с изменениями)> \
-        --quota=<настройки квоты 3 (без изменений)> \
-        --quota=<настройки квоты 4 (с изменениями)> \
-        --quota=<настройки квоты 5 (новая квота)>
+     {{ yc-mdb-ch }} user update <имя_пользователя> \
+        --cluster-name=<имя_кластера> \
+        --quota=<настройки_квоты_0_(без_изменений)> \
+        --quota=<настройки_квоты_1_(без_изменений)> \
+        --quota=<настройки_квоты_2_(с_изменениями)> \
+        --quota=<настройки_квоты_3_(без_изменений)> \
+        --quota=<настройки_квоты_4_(с_изменениями)> \
+        --quota=<настройки_квоты_5_(новая_квота)>
        ...
      ```
 
@@ -412,9 +415,9 @@
   1. Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду, перечислив измененные настройки с помощью параметра `--settings`:
 
      ```bash
-     {{ yc-mdb-ch }} user update <имя пользователя> \
-        --cluster-name=<имя кластера> \
-        --settings=<список настроек {{ CH }}>
+     {{ yc-mdb-ch }} user update <имя_пользователя> \
+        --cluster-name=<имя_кластера> \
+        --settings=<список_настроек_{{ CH }}>
      ```
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -432,17 +435,17 @@
     1. Чтобы настроить права пользователя на доступ к определенным базам данных, добавьте необходимое количество блоков `permission` к описанию пользователя кластера — по одному на каждую базу:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           user {
-            name     = "<имя пользователя>"
+            name     = "<имя_пользователя>"
             password = "<пароль>"
             permission {
-              database_name = "<база данных 1>"
+              database_name = "<база_данных_1>"
             }
             ...
             permission {
-              database_name = "<база данных N>"
+              database_name = "<база_данных_N>"
             }
           }
         }
@@ -455,14 +458,14 @@
         При описании квот обязательным является только поле `interval_duration`.
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           user {
-            name     = "<имя пользователя>"
+            name     = "<имя_пользователя>"
             password = "<пароль>"
             ...
             quota {
-              interval_duration = <длительность интервала в миллисекундах>
+              interval_duration = <длительность_интервала_в_миллисекундах>
               ...
             }
           }
@@ -472,14 +475,14 @@
     1. Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, добавьте блок `settings` к его описанию.
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           user {
-            name     = "<имя пользователя>"
+            name     = "<имя_пользователя>"
             password = "<пароль>"
             ...
             settings {
-              <настройки СУБД для отдельного пользователя>
+              <настройки_СУБД_для_отдельного_пользователя>
             }
           }
         }
@@ -516,19 +519,19 @@
   1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) и [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
 
       ```sql
-      GRANT SELECT ON <имя базы данных>.* TO <имя пользователя>;
+      GRANT SELECT ON <имя_базы_данных>.* TO <имя_пользователя>;
       ```
 
   1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement) и [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
 
       ```sql
-      CREATE QUOTA <название квоты> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <имя пользователя>;
+      CREATE QUOTA <название_квоты> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <имя_пользователя>;
       ```
 
   1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/). Например для изменения [настроек {{ CH }}](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
 
       ```sql
-      ALTER USER <имя пользователя> SETTINGS <список настроек {{ CH }}>;
+      ALTER USER <имя_пользователя> SETTINGS <список_настроек_{{ CH }}>;
       ```
 
 {% endlist %}
@@ -552,8 +555,8 @@
   Чтобы удалить пользователя, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} user delete <имя пользователя> \
-     --cluster-name=<имя кластера>
+  {{ yc-mdb-ch }} user delete <имя_пользователя> \
+     --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -591,7 +594,7 @@
   1. Удалите пользователя:
 
       ```sql
-      DROP USER <имя пользователя>;
+      DROP USER <имя_пользователя>;
       ```
 
   Подробнее об удалении объектов см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/drop/).

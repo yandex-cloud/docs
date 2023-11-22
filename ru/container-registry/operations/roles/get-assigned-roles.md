@@ -10,11 +10,11 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Просмотрите роли, которые назначены на ресурс.
      * Посмотреть роли на [реестр](../../concepts/registry.md):
-       1. Справа от имени нужного реестра нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
+       1. Справа от имени нужного реестра нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
        1. В открывшемся окне отобразится список пользователей и их разрешений на реестр.
      * Посмотреть роли на репозиторий:
        1. Выберите нужный реестр.
-       1. Справа от имени нужного репозитория нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
+       1. Справа от имени нужного репозитория нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
        1. В открывшемся окне отобразится список пользователей и их разрешений на репозиторий.
 
 - CLI

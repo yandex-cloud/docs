@@ -59,7 +59,7 @@ To link a billing account:
 
    {% note info %}
 
-   By clicking **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**, you accept the [{{yandex-cloud}} offer]({{ link-cloud-oferta }}).
+   By clicking **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**, you accept the [{{ yandex-cloud }} offer]({{ link-cloud-oferta }}).
 
    {% endnote %}
 
@@ -99,6 +99,8 @@ You can only change an organization's billing account once a month. To change a 
 1. Go to **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**. The page displays the billing account linked to {{ tracker-name }}.
 2. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.rebind-account }}** in the top-right corner. Select the billing account you want to use instead of the current one or click **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
    If you want to create a new account, follow [this guide](#create).
+
+![](../_assets/tracker/changelogs/change-ba.png =690x)
 
 You will switch over to the selected or created billing account at the beginning of next month.
 

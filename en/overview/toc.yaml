@@ -14,6 +14,10 @@ items:
             href: concepts/geo-scope.md
           - name: Deprecation of the {{ region-id }}-c zone
             href: concepts/ru-central1-c-deprecation.md
+          - name: Limitations in the {{ region-id }}-d zone
+            href: concepts/ru-central1-d-limits.md
+      - name: Network overview
+        href: concepts/network.md
       - name: User interaction with resources
         href: roles-and-resources.md
       - name: Deleting user data

@@ -68,7 +68,7 @@
        domains = ["<домен>"]
 
        managed {
-       challenge_type = "<тип_проверки_владельца_домена>"
+       challenge_type = "<тип_проверки>"
        }
      }
      ```

@@ -1,6 +1,6 @@
 # Query history
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
 
 In the query history, you can see all the requests executed within the connection session. You can view and repeat your previously executed requests:
 
@@ -9,5 +9,11 @@ In the query history, you can see all the requests executed within the connectio
 1. Click **Execute** to repeat this query.
 
 You can [edit the query parameters](query-executor.md) or [save your query as a template](templates.md).
+
+{% note warning %}
+
+The query history is saved for the selected {{ yandex-cloud }} [organization](../../organization/concepts/manage-services.md) and current browser session.
+
+{% endnote %}
 
 

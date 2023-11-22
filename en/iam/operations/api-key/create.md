@@ -85,7 +85,7 @@ To create an API key:
       * `description`: Key description. This is an optional parameter.
       * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -106,7 +106,7 @@ To create an API key:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -185,7 +185,7 @@ To make it easier to find an API key without knowing its ID, add a description w
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

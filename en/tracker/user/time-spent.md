@@ -1,4 +1,4 @@
-# Registering time spent
+# Logging time spent
 
 In {{ tracker-name }}, you can keep track of the time you spent resolving the issue.
 
@@ -12,6 +12,7 @@ There are two ways to manage time tracking:
 * [Advanced method](#extended-spent-time): Use the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section in the right-hand panel.
 
 We recommend using the advanced method for tracking time, as it has more flexible configuration options and is easy to use.
+
 
 ## Basic time tracking {#limited-spent-time}
 
@@ -37,13 +38,21 @@ To log time:
 
 1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.add-worklog }}**.
 
-1. Select the date of the record creation.
-
 1. Fill in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}** field.
 
-   E.g.:
-   * 1 week and 3 days: `1w 3d`, `1w 3d`.
-   * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`, `3h 20m 30s`.
+   For example:
+   * 1 week and 3 days: `1w 3d`.
+   * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`.
+
+1. Fill in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.date-label }}** field with the date and time in the current time zone.
+
+   {% note info %}
+
+   The date and time are saved in [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время) format.
+
+   You can only get the saved value by sending a [request to the API](../concepts/issues/issue-worklog.md).
+
+   {% endnote %}
 
 1. Leave a comment, if needed. The comment will not be visible in the issue but will be saved in the [Time spent report](../manager/statistics.md#section_uxt_3ft_xz) and the [History of issue changes](#records-history).
 
@@ -104,9 +113,9 @@ To log time:
 
    For example:
 
-   * 1 week and 3 days: `1w 3d`, `1w 3d`
-   * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`, `3h 20m 30s`
-   * Four [preferred time units](../manager/queue-spent-time.md#displayed-time): `4`
+   * 1 week and 3 days: `1w 3d`.
+   * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`.
+   * Four [preferred time units](../manager/queue-spent-time.md#displayed-time): `4`.
 
 1. In the **{{ ui-key.startrek.ui_components_FormField_TimeTrackingBlock.field-datetime-title }}** field, enter the date and time to display in the logged time record.
 1. You can optionally add a comment on the record in the **{{ ui-key.startrek.ui_components_FormField_TimeTrackingBlock.field-comment-title }}** field.

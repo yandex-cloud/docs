@@ -65,7 +65,7 @@
 
    {% note info %}
 
-   Нажимая кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**, вы принимаете [оферту {{yandex-cloud}}]({{ link-cloud-oferta }}).
+   Нажимая кнопку **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**, вы принимаете [оферту {{ yandex-cloud }}]({{ link-cloud-oferta }}).
 
    {% endnote %}
 

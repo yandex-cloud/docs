@@ -50,7 +50,7 @@
      1. Выберите реестр и нажмите на строку с его именем.
      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
      1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-     1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и добавьте сервисный аккаунт, указав его идентификатор.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и добавьте сервисный аккаунт, указав его идентификатор.
      1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `container-registry.images.puller`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

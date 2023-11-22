@@ -5,7 +5,7 @@ description: "Follow this guide to configure and invoke a function asynchronousl
 
 # Invoking a function asynchronously
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 ## Setting up asynchronous invocation {#async}
 

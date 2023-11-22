@@ -20,8 +20,15 @@ description: "Use this guide to read metrics via the Remote API."
        # Or via a file (recommended):
        # bearer_token_file: '<name of file with api_key>'
 
+       # We recommend adding a user-defined X-Lookback-Delta header.
+       # If you did not change the lookback-delta parameter value in the configuration
+       # of your Prometheus instance, specify the default value, 5m.
+       # This info is required for optimized decimation.
+       headers:
+         X-Lookback-Delta: 5m
+
        # By default, data is only requested for the time ranges
-       # that are not present in the Prometheus local storage (are older than Storage retention).
+       # that are not present in the Prometheus local storage (are older than the Storage retention).
        # If you want to always request data, which makes sense if reads and writes
        # are made from different Prometheus instances, enable the option:
        # [ read_recent: true ]
@@ -41,7 +48,7 @@ description: "Use this guide to read metrics via the Remote API."
 
 | Metric name | Units | Explanations |
 |----|----|----|
-| `prometheus_remote_storage_read_queries_total` | Invocations | Total number of read requests. |
-| `prometheus_remote_storage_read_request_duration_seconds` | Seconds | Read request execution time histogram. |
+| `prometheus_remote_storage_read_queries_total` | Invocations | Total number of read requests |
+| `prometheus_remote_storage_read_request_duration_seconds` | Seconds | Read request execution time histogram |
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}

@@ -9,7 +9,6 @@ For example, the `{{ roles-auditor }}` role allows you to perform the following 
 
 The `{{ roles-auditor }}` role is currently not supported in the following services:
 * {{ yds-full-name }}.
-* {{ data-transfer-full-name }}.
 * {{ ydb-full-name }}.
 * {{ yq-full-name }}.
 

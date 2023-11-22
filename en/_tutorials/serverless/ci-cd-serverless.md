@@ -4,12 +4,6 @@ You can build a continuous integration / continuous delivery (CI/CD) pipeline 
 
 As a project example, we will use a web app based on [Django](https://www.djangoproject.com/) that simulates a shopping cart in an online store. Product descriptions are stored in a database, while the product cart status is stored by the service in a user session. The Django app is deployed in a [serverless container](../../serverless-containers/concepts/container.md) with secrets securely delivered to the app using [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) accepts user requests and redirects them to the app's container.
 
-{% note info %}
-
-{{ lockbox-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to the service is available on request. Contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
-
 The project uses two environments:
 * `prod`: Production environment that is available to users.
 * `testing`: Test environment that is used for testing the app before its release to `production`.
@@ -153,7 +147,7 @@ Install the {{ GLR }} application by following [this guide](../../managed-kubern
 
 ## Create the CI script's configuration file {#add-ci}
 
-1. On the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
+1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
 1. Click ![image](../../_assets/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
 1. Name the file as `.gitlab-ci.yml` and add the following build stages to it:
 

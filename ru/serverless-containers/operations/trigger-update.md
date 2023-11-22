@@ -14,7 +14,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
   1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-  1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Выберите триггер, параметры которого хотите изменить.
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры триггера и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
