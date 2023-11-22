@@ -129,7 +129,7 @@ items:
             href: operations/trigger/trigger-info.md
       - name: Creating a trigger
         items:
-          - name: Create a timer
+          - name: Creating a timer
             href: operations/trigger/timer-create.md
           - name: Creating a trigger for {{ message-queue-name }}
             href: operations/trigger/ymq-trigger-create.md
@@ -415,6 +415,8 @@ items:
         href: tutorials/batch-recognition-stt.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
+      - name: Deploying a fault-tolerant architecture with preemptible VMs
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

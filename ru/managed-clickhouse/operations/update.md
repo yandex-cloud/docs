@@ -97,8 +97,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
      ```bash
-     {{ yc-mdb-ch }} cluster update <имя_или_ID_кластера> \
-        --clickhouse-resource-preset=<ID_класса>
+     {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+        --clickhouse-resource-preset=<идентификатор_класса>
      ```
 
      {{ mch-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -196,8 +196,8 @@
   1. Укажите нужный размер хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
      ```bash
-     {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
-       --clickhouse-disk-size <размер хранилища в ГБ>
+     {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+       --clickhouse-disk-size <размер_хранилища_ГБ>
      ```
 
   1. Чтобы увеличить размер хранилища хостов {{ ZK }}, передайте нужное значение в параметре `--zookeeper-disk-size`.
@@ -217,13 +217,13 @@
           ...
           clickhouse {
             resources {
-              disk_size = <размер_хранилища_в_ГБ>
+              disk_size = <размер_хранилища_ГБ>
               ...
             }
           }
           zookeeper {
             resources {
-              disk_size = <размер_хранилища_в_ГБ>
+              disk_size = <размер_хранилища_ГБ>
               ...
             }
           }
@@ -267,6 +267,7 @@
 
 {% endnote %}
 
+
 {% list tabs %}
 
 - Консоль управления
@@ -289,7 +290,7 @@
         * задайте пароль для пользователя `admin` в параметре `--admin-password`.
 
         ```bash
-        {{ yc-mdb-ch }} cluster update <имя_или_ID_кластера> \
+        {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
            ...
            --enable-sql-user-management true \
            --admin-password "<пароль_пользователя_admin>"
@@ -301,7 +302,7 @@
         * задайте пароль для пользователя `admin` в параметре `--admin-password`.
 
         ```bash
-        {{ yc-mdb-ch }} cluster update <имя_или_ID_кластера> \
+        {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
@@ -370,7 +371,7 @@
     1. Посмотрите полный список настроек, установленных для кластера:
 
         ```bash
-        {{ yc-mdb-ch }} cluster get <имя_или_ID_кластера> --full
+        {{ yc-mdb-ch }} cluster get <имя_или_идентификатор_кластера> --full
         ```
 
     1. Посмотрите описание команды CLI для изменения конфигурации кластера:
@@ -382,8 +383,8 @@
     1. Установите нужные значения параметров:
 
         ```bash
-        {{ yc-mdb-ch }} cluster update-config <имя_или_ID_кластера> \
-           --set <имя_параметра1>=<значение1>,...
+        {{ yc-mdb-ch }} cluster update-config <имя_или_идентификатор_кластера> \
+           --set <имя_параметра_1>=<значение_1>,...
         ```
 
         {{ mch-short-name }} запустит операцию по изменению настроек кластера.
@@ -431,9 +432,9 @@
 
               compression {
                 # Настройки сжатия данных
-                method              = "<метод_сжатия:_LZ4_или_ZSTD>"
-                min_part_size       = <минимальный_размер_куска_данных_таблицы_в_байтах>
-                min_part_size_ratio = <отношение_размера_наименьшего_куска_таблицы_к_полному_размеру_таблицы>
+                method              = "<метод_сжатия>"
+                min_part_size       = <размер_куска_данных>
+                min_part_size_ratio = <отношение_размеров>
               }
 
               graphite_rollup {
@@ -447,6 +448,11 @@
         ...
         }
         ```
+
+        Где:
+        * `method` — метод сжатия: `LZ4` или `ZSTD`.
+        * `min_part_size` — минимальный размер куска данных таблицы в байтах.
+        * `min_part_size_ratio` — отношение размера наименьшего куска таблицы к полному размеру таблицы.
 
     1. Проверьте корректность настроек.
 
@@ -507,18 +513,18 @@
 
         
         ```bash
-        {{ yc-mdb-ch }} cluster update <имя_или_ID_кластера> \
+        {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
            --backup-window-start <время_начала_резервного_копирования> \
-           --datalens-access=<true_или_false> \
-           --datatransfer-access=<true_или_false> \
-           --deletion-protection=<защита_от_удаления_кластера:_true_или_false> \
-           --maintenance-window type=<тип_технического_обслуживания:_anytime_или_weekly>,`
-                               `day=<день_недели_для_типа_weekly>,`
-                               `hour=<час_дня_для_типа_weekly> \
-           --metrika-access=<true_или_false> \
-           --serverless-access=<true_или_false> \
-           --yandexquery-access=<доступ_через_Yandex_Query:_true_или_false> \
-           --websql-access=<true_или_false>
+           --datalens-access=<доступ_из_{{ datalens-name }}> \
+           --datatransfer-access=<доступ_из_Data_Transfer> \
+           --deletion-protection=<защита_от_удаления_кластера> \
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                               `day=<день_недели>,`
+                               `hour=<час_дня> \
+           --metrika-access=<импорт_данных_из_AppMetrika> \
+           --serverless-access=<доступ_из_сервиса_Cloud_Functions> \
+           --yandexquery-access=<доступ_через_Yandex_Query> \
+           --websql-access=<выполнение_SQL-запросов>
         ```
 
 
@@ -545,7 +551,7 @@
     
     * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html). Значение по умолчанию — `false`.
 
-    * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+    * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
@@ -581,15 +587,22 @@
         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
           access {
-            data_lens  = <доступ_из_{{ datalens-name }}:_true_или_false>
-            metrika    = <доступ_из_Метрики_и_AppMetrika:_true_или_false>
-            serverless = <доступ_из_Cloud_Functions:_true_или_false>
-            web_sql    = <выполнение_SQL-запросов_из_консоли_управления:_true_или_false>
-            yandex_query = <доступ_из_Yandex_Query:_true_или_false>
+            data_lens  = <доступ_из_{{ datalens-name }}>
+            metrika    = <доступ_из_Метрики_и_AppMetrika>
+            serverless = <доступ_из_Cloud_Functions>
+            web_sql    = <выполнение_SQL-запросов_из_консоли_управления>
+            yandex_query = <доступ_из_Yandex_Query>
           }
           ...
         }
         ```
+
+        Где:
+        * `data_lens` — разрешает доступ из {{ datalens-name }}: `true` или `false`.
+        * `metrika` — разрешает доступ из Метрики и AppMetrika: `true` или `false`.
+        * `serverless` — разрешает доступ к кластеру из сервиса {{ sf-full-name }}: `true` или `false`.
+        * `web_sql` — разрешает выполнять SQL-запросы из консоли управления: `true` или `false`.
+        * `yandex_query` —  разрешает доступ к кластеру из сервиса {{ yq-full-name }}: `true` или `false`.
 
 
 
@@ -600,7 +613,7 @@
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
-          deletion_protection = <защита_от_удаления_кластера:_true_или_false>
+          deletion_protection = <защита_от_удаления_кластера>
         }
         ```
 
@@ -675,7 +688,7 @@
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-ch }} cluster move <имя_или_ID_кластера> \
+        {{ yc-mdb-ch }} cluster move <имя_или_идентификатор_кластера> \
            --destination-folder-name=<имя_каталога_назначения>
         ```
 
@@ -789,7 +802,7 @@
   1. Если гибридное хранилище в кластере выключено, включите его:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <имя_или_ID_кластера> \
+      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
           --cloud-storage=true
       ```
 
@@ -798,11 +811,11 @@
   1. Передайте список настроек, которые хотите изменить:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <имя_или_ID_кластера> \
-          --cloud-storage-data-cache=<true_или_false> \
-          --cloud-storage-data-cache-max-size=<объем_памяти _в_байтах> \
+      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+          --cloud-storage-data-cache=<хранение_файлов> \
+          --cloud-storage-data-cache-max-size=<объем_памяти_в_байтах> \
           --cloud-storage-move-factor=<доля_свободного_места> \
-          --cloud-storage-prefer-not-to-merge=<true_или_false>
+          --cloud-storage-prefer-not-to-merge=<слияние_кусков_данных>
       ```
 
       Вы можете изменить следующие настройки:

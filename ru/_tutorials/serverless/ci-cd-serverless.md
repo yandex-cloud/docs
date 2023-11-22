@@ -148,7 +148,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 ## Создайте файл конфигурации сценария CI {#add-ci}
 
 1. На панели слева в {{ GL }} перейдите в раздел **Repository** и выберите вкладку **Files**.
-1. Справа от имени проекта нажмите кнопку ![image](../../_assets/plus.svg) и в выпадающем меню выберите пункт **New file**.
+1. Справа от имени проекта нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
 1. Назовите файл `.gitlab-ci.yml` и добавьте в него этапы сборки:
 
    {% cut ".gitlab-ci.yml" %}

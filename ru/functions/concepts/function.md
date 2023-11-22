@@ -16,10 +16,10 @@ _Версия_ содержит код функции, параметры зап
 
 | Формат | Консоль управления | CLI {{ yandex-cloud }} |
 |----|----|----|
-|ZIP-архив с вашего ПК| ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-|ZIP-архив из [S3](../../glossary/s3.md) с указанием бакета и объекта| ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-|Директория| ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
-|Файл| ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+|ZIP-архив с вашего ПК| ![image](../../_assets/console-icons/circle-check-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
+|ZIP-архив из [S3](../../glossary/s3.md) с указанием бакета и объекта| ![image](../../_assets/console-icons/circle-check-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
+|Директория| ![image](../../_assets/console-icons/circle-xmark-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
+|Файл| ![image](../../_assets/console-icons/circle-xmark-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
 
 {% include [upload-limits](../../_includes/functions/upload-limits.md) %}
 

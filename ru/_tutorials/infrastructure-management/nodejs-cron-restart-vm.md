@@ -458,7 +458,7 @@
 
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-  1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -602,7 +602,7 @@
 
   1. На панели слева выберите **{{ ui-key.yacloud.compute.switch_instances }}**.
 
-  1. Напротив имени нужной ВМ нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+  1. Напротив имени нужной ВМ нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
 
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. Статус ВМ изменится на `Stopped`.
 

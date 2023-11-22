@@ -1,6 +1,6 @@
-# Monitoring in {{ cloud-logging-name }}
+# Viewing log group monitoring charts
 
-You can monitor how records are added to a log group using monitoring tools in the management console. These tools display diagnostic information in the form of charts.
+You can monitor how records are added to a log group using monitoring tools in the management console. These tools display diagnostic information as charts.
 
 The chart update period is 15 seconds.
 

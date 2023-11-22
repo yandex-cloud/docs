@@ -39,7 +39,7 @@
 
 1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
 1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ mch-name }}, перейдите в созданный кластер. На вкладке **{{ ui-key.yacloud.common.overview }}** сохраните идентификатор кластера. 
-1. В правом верхнем углу нажмите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f01znegjkj.{{ dns-zone }}`, это FQDN хоста кластера, он потребуется в дальнейшем.
+1. В правом верхнем углу нажмите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f0********.{{ dns-zone }}`, это FQDN хоста кластера, он потребуется в дальнейшем.
 
 ## Зарегистрируйте конфигурацию rollup в кластере {#rollup-config}
 
@@ -68,13 +68,13 @@
   1. Выполните команду:
 
       ```bash
-      yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <путь_к_файлу_yaml>
+      yc managed-clickhouse cluster add-graphite-rollup <идентификатор_кластера> --rollup-file-name <путь_к_yaml-файлу>
       ```
 
       Где:
 
-      * `<CLUSTER_ID>` — идентификатор кластера.
-      * `<путь_к_файлу_yaml>` — путь к `graphite-rollup.yaml`.
+      * `<идентификатор_кластера>` — идентификатор кластера.
+      * `--rollup-file-name` — путь к `graphite-rollup.yaml`.
 
       Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
 
@@ -142,14 +142,14 @@
 1. Если вы используете группы безопасности для облачной сети, [настройте их](../../managed-clickhouse/operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md). 
-1. Запустите ClickHouse CLI со следующими параметрами: вместо `<FQDN хоста>`, `<имя БД>`, `<имя пользователя БД>` и `<пароль пользователя БД>` укажите ранее сохраненные параметры.
+1. Запустите ClickHouse CLI со следующими параметрами: вместо `<FQDN_хоста>`, `<имя_БД>`, `<имя_пользователя_БД>` и `<пароль_пользователя_БД>` укажите ранее сохраненные параметры.
 
     ```bash
-    clickhouse-client --host <FQDN хоста> \
+    clickhouse-client --host <FQDN_хоста> \
                       --secure \
-                      --user <имя пользователя БД> \
-                      --database <имя БД> \
-                      --password <пароль пользователя БД> \
+                      --user <имя_пользователя_БД> \
+                      --database <имя_БД> \
+                      --password <пароль_пользователя_БД> \
                       --port 9440
     ```
 

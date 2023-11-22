@@ -10,7 +10,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать подключение.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. На панели слева выберите ![image](../../_assets/functions/db-connections.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-mdb-proxy.list.button_create }}**.
     1. Введите имя и описание подключения. Формат имени:
 

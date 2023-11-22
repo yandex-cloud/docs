@@ -109,9 +109,11 @@
      ```
      aws s3api put-bucket-logging \
        --endpoint-url https://{{ s3-storage-host }} \
-       --bucket <имя бакета, для которого надо включить логирование действий> \
+       --bucket <имя_бакета> \
        --bucket-logging-status file://log-config.json
      ```
+
+     Где `--bucket` — имя бакета, для которого надо включить логирование действий.
 
 - API
 
@@ -176,12 +178,12 @@
      {{ yc-mdb-ch }} cluster create \
         --name s3-logs \
         --environment production \
-        --network-name <имя сети> \
-        --host type=clickhouse,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+        --network-name <имя_сети> \
+        --host type=clickhouse,zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети> \
         --clickhouse-resource-preset b2.medium \
         --clickhouse-disk-type {{ disk-type-example }} \
         --clickhouse-disk-size 10 \
-        --user name=user,password=<пароль пользователя> \
+        --user name=user,password=<пароль_пользователя> \
         --database name=s3_data \
         --datalens-access=true \
         --websql-access=true
@@ -195,7 +197,7 @@
      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
        name                = "s3-logs"
        environment         = "PRODUCTION"
-       network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
+       network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
 
        clickhouse {
          resources {
@@ -219,8 +221,8 @@
 
        host {
          type      = "CLICKHOUSE"
-         zone      = "<зона доступности>"
-         subnet_id = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
+         zone      = "<зона_доступности>"
+         subnet_id = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
        }
 
        access {
@@ -312,14 +314,14 @@
         vhost String                -- Виртуальный хост запроса.
                                     -- Возможные значения:
                                     -- * {{ s3-storage-host }}.
-                                    -- * <имя бакета>.{{ s3-storage-host }}.
+                                    -- * <имя_бакета>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.
-                                    -- * <имя бакета>.{{ s3-web-host }}.
+                                    -- * <имя_бакета>.{{ s3-web-host }}.
      )
      ENGINE = S3(
            'https://{{ s3-storage-host }}/<имя_бакета>/s3-logs/*',
-           '<идентификатор ключа>',
-           '<секретный ключ>',
+           '<идентификатор_ключа>',
+           '<секретный_ключ>',
            'JSONEachRow'
         )
      SETTINGS date_time_input_format='best_effort';

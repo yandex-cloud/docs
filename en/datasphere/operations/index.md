@@ -78,6 +78,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [Sharing secrets](data/secrets.md#share)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
+* [{#T}](projects/open-in-datasphere.md)
 
 
 ## Additional {{ ml-platform-name }} features {#additional-feature}

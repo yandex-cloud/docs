@@ -36,7 +36,7 @@
 ## II квартал 2022 {#q2-2022}
 
 * Добавлена поддержка CLI: доступны команды `{{ yc-mdb-gp }} cluster` и `{{ yc-mdb-gp }} hosts`. {{ tag-cli }}
-* Добавлена возможность миграции базы данных из/в {{ mgp-name }} с помощью сервиса {{ data-transfer-full-name }}. Доступные приемники и источники приведены в [документации](../data-transfer/concepts/index.md#connectivity-matrix). Функциональность находится в стадии [Preview](../data-transfer/concepts/index.md#greenplum).
+* Добавлена возможность миграции базы данных из/в {{ mgp-name }} с помощью сервиса {{ data-transfer-full-name }}. Доступные приемники и источники приведены в [документации](../data-transfer/concepts/index.md#connectivity-matrix). Функциональность находится в стадии [Preview](../overview/concepts/launch-stages.md).
 * Добавлена поддержка расширения [pgcrypto](https://gpdb.docs.pivotal.io/6-9/ref_guide/modules/pgcrypto.html).
 * [Оптимизировано](https://github.com/wal-g/wal-g/pull/1257) создание резервных копий за счет особой обработки append-only сегментов.
 * Добавлен модуль [diskquota](https://gpdb.docs.pivotal.io/6-19/ref_guide/modules/diskquota.html), который позволяет ограничивать схемы БД по месту на диске.

@@ -1,0 +1,1 @@
+You are not charged for a request that fails due to an internal server error.

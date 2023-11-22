@@ -80,14 +80,14 @@
     1. Создайте пользователя для {{ RMQ }}:
 
         ```bash
-        sudo rabbitmqctl add_user <имя пользователя> <пароль>
+        sudo rabbitmqctl add_user <имя_пользователя> <пароль>
         ```
 
     1. Выдайте этому пользователю права на подключение к серверу:
 
         ```bash
-        sudo rabbitmqctl set_permissions -p / <имя пользователя> ".*" ".*" ".*" && \
-        sudo rabbitmqctl set_topic_permissions -p / <имя пользователя> amq.topic "cars" "cars"
+        sudo rabbitmqctl set_permissions -p / <имя_пользователя> ".*" ".*" ".*" && \
+        sudo rabbitmqctl set_topic_permissions -p / <имя_пользователя> amq.topic "cars" "cars"
         ```
 
 1. Установите утилиты `amqp-publish` и `amqp-declare-queue` для работы с {{ RMQ }} и [jq](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов:
@@ -100,7 +100,7 @@
 
     ```bash
     amqp-declare-queue \
-        --url=amqp://<имя пользователя>:<пароль>@<IP-адрес или FQDN сервера RabbitMQ>:5672 \
+        --url=amqp://<имя_пользователя>:<пароль>@<IP-адрес_или_FQDN_сервера_RabbitMQ>:5672 \
         --queue=cars
     ```
 
@@ -146,7 +146,7 @@
         ...
         config {
           rabbitmq {
-            username = "<имя пользователя>"
+            username = "<имя_пользователя>"
             password = "<пароль>"
           }
         }
@@ -177,7 +177,7 @@
 Эти данные будут передаваться в виде сообщений {{ RMQ }}. Каждое такое сообщение будет содержать JSON-объект как строку следующего вида:
 
 ```json
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
+{"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
 Кластер {{ mch-name }} будет использовать при вставке в таблицу [формат данных JSONEachRow]({{ ch.docs }}/interfaces/formats/#jsoneachrow), который преобразует строки из сообщения {{ RMQ }} в нужные значения столбцов.
@@ -201,7 +201,7 @@
         fuel_level Nullable(Float32)
     ) ENGINE = RabbitMQ
     SETTINGS
-        rabbitmq_host_port = '<Внутренний IP-адрес ВМ с RabbitMQ>:5672',
+        rabbitmq_host_port = '<внутренний_IP-адрес_ВМ_с_RabbitMQ>:5672',
         rabbitmq_routing_key_list = 'cars',
         rabbitmq_exchange_name = 'exchange',
         rabbitmq_format = 'JSONEachRow';
@@ -215,7 +215,7 @@
 
     ```json
     {
-        "device_id": "iv9a94th6rztooxh5ur2",
+        "device_id": "iv9a94th6rzt********",
         "datetime": "2020-06-05 17:27:00",
         "latitude": 55.70329032,
         "longitude": 37.65472196,
@@ -227,7 +227,7 @@
     }
 
     {
-        "device_id": "rhibbh3y08qmz3sdbrbu",
+        "device_id": "rhibbh3y08qm********",
         "datetime": "2020-06-06 09:49:54",
         "latitude": 55.71294467,
         "longitude": 37.66542005,
@@ -239,7 +239,7 @@
     }
 
     {
-        "device_id": "iv9a94th6rztooxh5ur2",
+        "device_id": "iv9a94th6rzt********",
         "datetime": "2020-06-07 15:00:10",
         "latitude": 55.70985913,
         "longitude": 37.62141918,
@@ -258,7 +258,7 @@
     --raw-output \
     --compact-output . ./sample.json |\
     amqp-publish \
-    --url=amqp://<имя пользователя RabbitMQ>:<пароль>@<IP-адрес или FQDN сервера RabbitMQ>:5672 \
+    --url=amqp://<имя_пользователя_RabbitMQ>:<пароль>@<IP-адрес_или_FQDN_сервера_RabbitMQ>:5672 \
     --routing-key=cars \
     --exchange=exchange
     ```

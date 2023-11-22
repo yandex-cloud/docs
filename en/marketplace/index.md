@@ -1,9 +1,9 @@
 # Placing your product in {{ marketplace-full-name }}
 
 {{ marketplace-name }} allows you to add your products to the catalog of ready-to-use {{ yandex-cloud }} solutions and earn a profit from them. There is a variety of categories for you to choose from:
-* Pre-configured images for {{ compute-full-name }}.
-* Applications for {{ managed-k8s-name }}.
-* Solutions for {{ datalens-full-name }}.
+* Pre-configured images for {{ compute-full-name }}
+* Applications for {{ managed-k8s-name }}
+* Solutions for {{ datalens-full-name }}
 
 ## Submit an application {#send-application}
 
@@ -19,7 +19,7 @@ To access the {{ marketplace-short-name }} partner account, you need the billing
 
 ## Create a product in the partner interface {#create-product}
 
-[Create a product](operations/create-product.md). Everything else happens after your application is approved. You can add details to your application and contact a {{ marketplace-short-name }} manager under **Application ticket**.
+[Create a product](operations/create-product.md). Everything else happens after your application is approved. You can add details to your application and contact a {{ marketplace-short-name }} manager under **{{ ui-key.yacloud_portal.marketplace_v2.common.menu_ticket }}**.
 
 ## Create a service plan {#create-tariff}
 

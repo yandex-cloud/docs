@@ -1,6 +1,6 @@
 # Speech synthesis
 
-_Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to speech in multiple languages.
+_Speech synthesis_ in {{ speechkit-full-name }} allows you to convert any text to speech in multiple languages.
 
 {{ speechkit-name }} voice models use deep neural network technology. When synthesizing speech, the model pays attention to many details in the original voice. The model evaluates the entire text, not individual sentences, before starting the synthesis. This enables the synthesized voice to sound clear and natural, without electronic distortion, and reproduce appropriate intonations of a real person's speech.
 
@@ -15,7 +15,7 @@ The service is available at `{{ api-host-sk-tts }}:443`.
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
-{{ speechkit-name }} synthesis has two APIs: [API v1](request.md) (REST) and [API v3](../tts-v3/api-ref/grpc/) (gRPC). The [{{ speechkit-name }} Python SDK](../sdk/python/index.md) is also implemented based on API v3.
+{{ speechkit-name }} synthesis has two APIs: [API v1](request.md) (REST) and [API v3](../tts-v3/api-ref/grpc/) (gRPC). The [{{ speechkit-name }} Python SDK](../sdk/python/index.md) is also implemented based on the API v3.
 
 |                                                    | API v1 | API v3 |
 |----------------------------------------------------|---|---------------------------------------------|
@@ -32,6 +32,12 @@ The service is available at `{{ api-host-sk-tts }}:443`.
 | [Pricing method](../pricing.md#rules-tts) | Total number of characters in the requests | By request |
 | Automatic splitting of long phrases | Not required | `unsafe_mode` parameter |
 
+
+{% note info %}
+
+Multiple responses with audio fragments can be returned to a single request to the {{ speechkit-name }} API v3. A complete response is a result of merging all the fragments received.
+
+{% endnote %}
 
 ## Languages and voices {#langs}
 
@@ -50,7 +56,7 @@ The synthesized speech will sound differently depending on the selected role. Ro
 To control pronunciation in the synthesized speech, mark up the source text. {{ speechkit-name }} can synthesize speech from text marked up using [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML) or TTS markup. These markup methods enable you to set the length of pauses, the pronunciation of individual sounds, and more. SSML and TTS markup have different data transmission parameters:
 
 * SSML is only supported in API v1 requests. To transmit text in SSML format, include the `ssml` parameter in the call body and use the `<speak>` tag as a wrapper for the text. For more information about SSML tags, see [{#T}](markup/ssml.md).
-* TTS markup is supported in API v1 and API v3. In API v1 requests, transmit the text marked up according to TTS rules in the `text` parameter in the request body. API v3 and the Python SDK require no special parameters and consider any transmitted text as marked up according to TTS rules. For more information about TTS markup, see [{#T}](markup/tts-markup.md).
+* TTS markup is supported in the API v1 and API v3. In API v1 requests, transmit the text marked up according to TTS rules in the `text` parameter in the request body. API v3 and the Python SDK require no special parameters and consider any transmitted text as marked up according to TTS rules. For more information about TTS markup, see [{#T}](markup/tts-markup.md).
 
 ## Synthesis settings {#settings}
 

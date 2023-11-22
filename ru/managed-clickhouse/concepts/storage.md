@@ -30,14 +30,14 @@
             <схема_таблицы>
         ) ENGINE = MergeTree
         ...
-        SETTINGS storage_policy = '<тип политики хранения>';
+        SETTINGS storage_policy = '<тип_политики_хранения>';
         ```
 
     * Чтобы задать или изменить политику для уже существующей таблицы, используйте запрос:
 
         ```sql
         ALTER TABLE table_with_non_default_policy
-        MODIFY SETTING storage_policy = '<тип политики хранения>';
+        MODIFY SETTING storage_policy = '<тип_политики_хранения>';
         ```
 
 Пример см. в практическом руководстве [Использование гибридного хранилища](../tutorials/hybrid-storage.md).

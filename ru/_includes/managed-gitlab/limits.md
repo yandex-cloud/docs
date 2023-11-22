@@ -9,5 +9,5 @@
 
 Вид ограничения | Минимальное значение | Максимальное значение
 --- | --- | ---
-Класс хоста | s2.micro (2 vCPU Intel Cascade Lake, 8 ГБ RAM) | s2.medium (8 vCPU, 32 ГБ RAM)
+Класс хоста | s2.micro (2 vCPU Intel Cascade Lake, 8 ГБ RAM) | s2.large (16 vCPU, 64 ГБ RAM)
 Размер диска | 30 ГБ | 500 ГБ

@@ -9,8 +9,8 @@
 Да, для этого при создании или изменении настроек пользователя передайте нужное значение настройки `join_use_nulls` в параметре `--settings`, например:
 
 ```bash
-yc managed-clickhouse user update <имя пользователя> \
-  --cluster-name=<имя кластера> \
+yc managed-clickhouse user update <имя_пользователя> \
+  --cluster-name=<имя_кластера> \
   --settings="join_use_nulls=1"
 ```
 
@@ -33,8 +33,8 @@ yc managed-clickhouse user update <имя пользователя> \
 Для этого при создании или изменении пользователя через CLI передайте настройку `readonly=1` в параметре `--settings`, например:
 
 ```bash
-yc managed-clickhouse user update <имя пользователя> \
-  --cluster-name=<имя кластера> \
+yc managed-clickhouse user update <имя_пользователя> \
+  --cluster-name=<имя_кластера> \
   --settings="readonly=1"
 ```
 

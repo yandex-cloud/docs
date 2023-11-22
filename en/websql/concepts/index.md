@@ -1,6 +1,6 @@
 # About {{ websql-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
 
 {{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to clusters of managed databases, work with databases, tables, and schemas, and execute SQL queries. The service operates in your browser and offers convenient suggestions for SQL query execution.
 
@@ -15,6 +15,8 @@ To work with {{ websql-full-name }}, use:
 ## Connection manager {#connection}
 
 In {{ websql-full-name }}, you can establish, update database connections and monitor their status. Database connections with the same URL and port number constitute _connection groups_. You can edit connection settings, rename or delete groups. Once you establish a connection with the database, you can view tables, schemas, and `views`.
+
+The connection manager supports operations with [demo connections](../operations/connect.md#demo) which are pre-established connections with test databases that allow you to explore the {{ websql-full-name }} features.
 
 ## SQL queries {#tables}
 

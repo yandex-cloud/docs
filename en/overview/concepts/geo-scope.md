@@ -10,8 +10,9 @@ The {{ yandex-cloud }} platform is hosted at three Yandex data centers located i
 * `{{ region-id }}-a`
 * `{{ region-id }}-b`
 * `{{ region-id }}-c` ([some limitations apply](ru-central1-c-deprecation.md))
+* `{{ region-id }}-d` (opening soon)
 
-In the second half of 2023, a new data center will open in Kaluga, which will house a new availability zone. 
+In the second half of 2023, a new data center will open in Kaluga to host a new availability zone: `{{ region-id }}-d`. 
 
 
 

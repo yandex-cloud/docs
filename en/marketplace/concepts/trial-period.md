@@ -1,6 +1,6 @@
 # Trial period
 
-A trial period is the time within which a {{ marketplace-short-name }} product is available to the user free of charge. You can only create a trial period for a plan with the `PAYG` pricing policy for the SKUs based on the VM consumption parameters. We do not recommend creating a trial period of less than 30 days.
+A trial period is the time within which a {{ marketplace-short-name }} product is available to the user free of charge. You can only create a trial period for a plan with the `{{ ui-key.yacloud_components.marketplace.product-pricing-type_payg }}` pricing policy for the SKUs based on the VM consumption parameters. We do not recommend creating a trial period of less than 30 days.
 
 The trial period for the product is only available to the user from the management console. When a user installs your product that has a trial period, they are awarded a grant. The grant amount is equal to the product usage cost for the specified period per VM: the number of days in the trial period is multiplied by the price of the cheapest SKU in the plan. The grant is available to the user only within the product's trial period.
 

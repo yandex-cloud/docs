@@ -10,19 +10,25 @@ _API-шлюз_ — это интерфейс взаимодействия с с�
 API-шлюз задается декларативно при помощи спецификации. Спецификация — это файл в формате JSON или YAML с описанием API-шлюза по стандарту  [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification). В сервисе {{ api-gw-name}} спецификация дополнена расширениями, которые вы можете использовать для интеграции с другими облачными платформами.
 
 Доступные расширения:
-* [Статический ответ](../concepts/extensions/dummy.md).
-* [Вызов функции](../concepts/extensions/cloud-functions.md).
-* [Обращение по HTTP](../concepts/extensions/http.md).
-* [Интеграция с {{ objstorage-name }}](../concepts/extensions/object-storage.md).
-* [Интеграция с {{ ml-platform-name }}](../concepts/extensions/datasphere.md).
-* [Интеграция с {{ yds-name }}](../concepts/extensions/datastreams.md).
-* [Интеграция с {{ serverless-containers-name }}](../concepts/extensions/containers.md).
-* [Интеграция с {{ message-queue-short-name }}](../concepts/extensions/ymq.md).
-* [Интеграция с {{ ydb-short-name }}](../concepts/extensions/ydb.md).
-* [Жадные параметры](../concepts/extensions/greedy-parameters.md).
-* [Обобщенный HTTP-метод](../concepts/extensions/any-method.md).
-* [Поддержка CORS](../concepts/extensions/cors.md).
-* [Валидация HTTP-запросов и ответов](../concepts/extensions/validator.md).
+* [Статический ответ](../concepts/extensions/dummy.md)
+* [Обращение по HTTP](../concepts/extensions/http.md)
+* [Интеграция с {{ sf-name }}](../concepts/extensions/cloud-functions.md)
+* [Интеграция с {{ serverless-containers-name }}](../concepts/extensions/containers.md)
+* [Интеграция с {{ objstorage-name }}](../concepts/extensions/object-storage.md)
+* [Интеграция с {{ ml-platform-name }}](../concepts/extensions/datasphere.md)
+* [Интеграция с {{ yds-name }}](../concepts/extensions/datastreams.md)
+* [Интеграция с {{ message-queue-short-name }}](../concepts/extensions/ymq.md)
+* [Интеграция с {{ ydb-short-name }}](../concepts/extensions/ydb.md)
+* [{#T}](../concepts/extensions/greedy-parameters.md)
+* [Обобщенный HTTP-метод](../concepts/extensions/any-method.md)
+* [Авторизация с помощью функции {{ sf-name }}](../concepts/extensions/function-authorizer.md)
+* [Авторизация с помощью JWT](../concepts/extensions/jwt-authorizer.md)
+* [{#T}](../concepts/extensions/websocket.md)
+* [{#T}](../concepts/extensions/validator.md)
+* [Поддержка CORS](../concepts/extensions/cors.md)
+* [{#T}](../concepts/extensions/parametrization.md)
+* [{#T}](../concepts/extensions/canary.md)
+* [{#T}](../concepts/extensions/rate-limit.md)
 
 ## Использование доменов {#domains}
 

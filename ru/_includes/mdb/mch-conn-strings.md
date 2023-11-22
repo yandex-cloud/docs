@@ -6,7 +6,7 @@
 
     ```bash
     sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD******** && \
     echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
     /etc/apt/sources.list.d/clickhouse.list
     ```
@@ -27,9 +27,9 @@
 * Подключение без SSL
 
     ```bash
-    clickhouse-client --host <FQDN любого хоста {{ CH }}> \
-                      --user <имя пользователя> \
-                      --database <имя БД> \
+    clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
+                      --user <имя_пользователя> \
+                      --database <имя_БД> \
                       --port 9000 \
                       --ask-password
     ```
@@ -55,9 +55,9 @@
 * Подключение без SSL
 
     ```bash
-    curl --header "X-ClickHouse-User: <имя пользователя БД>" \
-         --header "X-ClickHouse-Key: <пароль пользователя БД>" \
-         'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT%20version()'
+    curl --header "X-ClickHouse-User: <имя_пользователя_БД>" \
+         --header "X-ClickHouse-Key: <пароль_пользователя_БД>" \
+         'http://<FQDN_любого_хоста_{{ CH }}>:8123/?database=<имя_БД>&query=SELECT%20version()'
     ```
 
 
@@ -65,9 +65,9 @@
 
     ```bash
     curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
-         --header "X-ClickHouse-User: <имя пользователя БД>" \
-         --header "X-ClickHouse-Key: <пароль пользователя БД>" \
-         'https://<FQDN любого хоста {{ CH }}>:8443/?database=<имя БД>&query=SELECT%20version()'
+         --header "X-ClickHouse-User: <имя_пользователя_БД>" \
+         --header "X-ClickHouse-Key: <пароль_пользователя_БД>" \
+         'https://<FQDN_любого_хоста_{{ CH }}>:8443/?database=<имя_БД>&query=SELECT%20version()'
     ```
 
 {% endlist %}
@@ -100,10 +100,10 @@ sudo apt update && sudo apt install --yes golang git
 
     func main() {
 
-        const DB_HOST = "<FQDN любого хоста {{ CH }}>"
-        const DB_NAME = "<имя БД>"
-        const DB_USER = "<имя пользователя БД>"
-        const DB_PASS = "<пароль пользователя БД>"
+        const DB_HOST = "<FQDN_любого_хоста_{{ CH }}>"
+        const DB_NAME = "<имя_БД>"
+        const DB_USER = "<имя_пользователя_БД>"
+        const DB_PASS = "<пароль_пользователя_БД>"
 
         conn := &http.Client{
             Transport: &http.Transport{},
@@ -149,10 +149,10 @@ sudo apt update && sudo apt install --yes golang git
 
     func main() {
 
-        const DB_HOST = "<FQDN любого хоста {{ CH }}>"
-        const DB_NAME = "<имя БД>"
-        const DB_USER = "<имя пользователя БД>"
-        const DB_PASS = "<пароль пользователя БД>"
+        const DB_HOST = "<FQDN_любого_хоста_{{ CH }}>"
+        const DB_NAME = "<имя_БД>"
+        const DB_USER = "<имя_пользователя_БД>"
+        const DB_PASS = "<пароль_пользователя_БД>"
 
         const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}"
 
@@ -319,10 +319,10 @@ go run connect.go
 
     public class App {
       public static void main(String[] args) {
-        String DB_HOST    = "<FQDN любого хоста {{ CH }}>";
-        String DB_NAME    = "<имя БД>";
-        String DB_USER    = "<имя пользователя БД>";
-        String DB_PASS    = "<пароль пользователя БД>";
+        String DB_HOST    = "<FQDN_любого_хоста_{{ CH }}>";
+        String DB_NAME    = "<имя_БД>";
+        String DB_USER    = "<имя_пользователя_БД>";
+        String DB_PASS    = "<пароль_пользователя_БД>";
 
         String DB_URL = String.format("jdbc:clickhouse://%s:8123/%s", DB_HOST, DB_NAME);
 
@@ -352,10 +352,10 @@ go run connect.go
 
     public class App {
       public static void main(String[] args) {
-        String DB_HOST    = "<FQDN любого хоста {{ CH }}>";
-        String DB_NAME    = "<имя БД>";
-        String DB_USER    = "<имя пользователя БД>";
-        String DB_PASS    = "<пароль пользователя БД>";
+        String DB_HOST    = "<FQDN_любого_хоста_{{ CH }}>";
+        String DB_NAME    = "<имя_БД>";
+        String DB_USER    = "<имя_пользователя_БД>";
+        String DB_PASS    = "<пароль_пользователя_БД>";
 
         String CACERT     = "{{ crt-local-dir }}{{ crt-local-file-root }}";
 
@@ -407,10 +407,10 @@ npm install querystring
     const querystring = require('querystring');
     const fs = require('fs');
 
-    const DB_HOST = "<FQDN любого хоста {{ CH }}>";
-    const DB_NAME = "<имя БД>";
-    const DB_USER = "<имя пользователя БД>";
-    const DB_PASS = "<пароль пользователя БД>";
+    const DB_HOST = "<FQDN_любого_хоста_{{ CH }}>";
+    const DB_NAME = "<имя_БД>";
+    const DB_USER = "<имя_пользователя_БД>";
+    const DB_PASS = "<пароль_пользователя_БД>";
 
     const options = {
         'method': 'GET',
@@ -447,10 +447,10 @@ npm install querystring
     const querystring = require('querystring');
     const fs = require('fs');
 
-    const DB_HOST = "<FQDN любого хоста {{ CH }}>";
-    const DB_NAME = "<имя БД>";
-    const DB_USER = "<имя пользователя БД>";
-    const DB_PASS = "<пароль пользователя БД>";
+    const DB_HOST = "<FQDN_любого_хоста_{{ CH }}>";
+    const DB_NAME = "<имя_БД>";
+    const DB_USER = "<имя_пользователя_БД>";
+    const DB_PASS = "<пароль_пользователя_БД>";
 
     const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}";
 
@@ -554,10 +554,10 @@ node app.js
     ```ini
     [ClickHouse]
     Driver = ClickHouse ODBC Driver (Unicode)
-    Server = <FQDN любого хоста {{ CH }}>
-    Database = <имя БД>
-    UID = <имя пользователя БД>
-    PWD = <пароль пользователя БД>
+    Server = <FQDN_любого_хоста_{{ CH }}>
+    Database = <имя_БД>
+    UID = <имя_пользователя_БД>
+    PWD = <пароль_пользователя_БД>
     Port = 8123
     Proto = http
     ```
@@ -570,10 +570,10 @@ node app.js
     ```ini
     [ClickHouse]
     Driver = ClickHouse ODBC Driver (Unicode)
-    Server = <FQDN любого хоста {{ CH }}>
-    Database = <имя БД>
-    UID = <имя пользователя БД>
-    PWD = <пароль пользователя БД>
+    Server = <FQDN_любого_хоста_{{ CH }}>
+    Database = <имя_БД>
+    UID = <имя_пользователя_БД>
+    PWD = <пароль_пользователя_БД>
     Port = 8443
     Proto = https
     SSLMode = allow
@@ -659,13 +659,13 @@ isql -v ClickHouse
 
     ```php
     <?php
-        $host = '<FQDN любого хоста {{ CH }}>';
-        $db = '<имя БД>';
+        $host = '<FQDN_любого_хоста_{{ CH }}>';
+        $db = '<имя_БД>';
         $query = 'SELECT version()';
 
         $auth = [
-            'X-ClickHouse-User: <имя пользователя БД>',
-            'X-ClickHouse-Key: <пароль пользователя БД>',
+            'X-ClickHouse-User: <имя_пользователя_БД>',
+            'X-ClickHouse-Key: <пароль_пользователя_БД>',
         ];
 
         $context = stream_context_create([
@@ -690,13 +690,13 @@ isql -v ClickHouse
 
     ```php
     <?php
-        $host = '<FQDN любого хоста {{ CH }}>';
-        $db = '<имя БД>';
+        $host = '<FQDN_любого_хоста_{{ CH }}>';
+        $db = '<имя_БД>';
         $query = 'SELECT version()';
 
         $auth = [
-            'X-ClickHouse-User: <имя пользователя БД>',
-            'X-ClickHouse-Key: <пароль пользователя БД>',
+            'X-ClickHouse-User: <имя_пользователя_БД>',
+            'X-ClickHouse-Key: <пароль_пользователя_БД>',
         ];
 
         $ssl = [
@@ -739,9 +739,9 @@ php connect.php
 
     ```powershell
     curl.exe `
-        -H "X-ClickHouse-User: <имя пользователя БД>" `
-        -H "X-ClickHouse-Key: <пароль пользователя БД>" `
-        'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT+version()'
+        -H "X-ClickHouse-User: <имя_пользователя_БД>" `
+        -H "X-ClickHouse-Key: <пароль_пользователя_БД>" `
+        'http://<FQDN_любого_хоста_{{ CH }}>:8123/?database=<имя_БД>&query=SELECT+version()'
     ```
 
 
@@ -749,9 +749,9 @@ php connect.php
 
     ```powershell
     curl.exe `
-        -H "X-ClickHouse-User: <имя пользователя БД>" `
-        -H "X-ClickHouse-Key: <пароль пользователя БД>" `
-        'https://<FQDN любого хоста {{ CH }}>:8443/?database=<имя БД>&query=SELECT+version()'
+        -H "X-ClickHouse-User: <имя_пользователя_БД>" `
+        -H "X-ClickHouse-Key: <пароль_пользователя_БД>" `
+        'https://<FQDN_любого_хоста_{{ CH }}>:8443/?database=<имя_БД>&query=SELECT+version()'
     ```
 
 {% endlist %}
@@ -777,9 +777,9 @@ pip3 install clickhouse-driver
     ```python
     from clickhouse_driver import Client
 
-    client = Client(host='<FQDN любого хоста {{ CH }}>',
-                    user='<имя пользователя БД>',
-                    password='<пароль пользователя БД>',
+    client = Client(host='<FQDN_любого_хоста_{{ CH }}>',
+                    user='<имя_пользователя_БД>',
+                    password='<пароль_пользователя_БД>',
                     port=9000)
 
     print(client.execute('SELECT version()'))
@@ -793,9 +793,9 @@ pip3 install clickhouse-driver
     ```python
     from clickhouse_driver import Client
 
-    client = Client(host='<FQDN любого хоста {{ CH }}>',
-                    user='<имя пользователя БД>',
-                    password='<пароль пользователя БД>',
+    client = Client(host='<FQDN_любого_хоста_{{ CH }}>',
+                    user='<имя_пользователя_БД>',
+                    password='<пароль_пользователя_БД>',
                     port=9440,
                     secure=True,
                     verify=True,
@@ -834,13 +834,13 @@ pip3 install requests
     import requests
 
     response = requests.get(
-        'http://{0}:8123'.format('<FQDN любого хоста {{ CH }}>'),
+        'http://{0}:8123'.format('<FQDN_любого_хоста_{{ CH }}>'),
         params={
             'query': 'SELECT version()',
         },
         headers={
-            'X-ClickHouse-User': '<имя пользователя БД>',
-            'X-ClickHouse-Key': '<пароль пользователя БД>',
+            'X-ClickHouse-User': '<имя_пользователя_БД>',
+            'X-ClickHouse-Key': '<пароль_пользователя_БД>',
         })
 
     response.raise_for_status()
@@ -856,14 +856,14 @@ pip3 install requests
     import requests
 
     response = requests.get(
-        'https://{0}:8443'.format('<FQDN любого хоста {{ CH }}>'),
+        'https://{0}:8443'.format('<FQDN_любого_хоста_{{ CH }}>'),
         params={
             'query': 'SELECT version()',
         },
         verify='{{ crt-local-dir }}{{ crt-local-file-root }}',
         headers={
-            'X-ClickHouse-User': '<имя пользователя БД>',
-            'X-ClickHouse-Key': '<пароль пользователя БД>',
+            'X-ClickHouse-User': '<имя_пользователя_БД>',
+            'X-ClickHouse-Key': '<пароль_пользователя_БД>',
         })
 
     response.raise_for_status()
@@ -899,10 +899,10 @@ sudo apt update && sudo apt install --yes ruby
     require "net/http"
     require "uri"
 
-    DB_HOST = "<FQDN любого хоста {{ CH }}>"
-    DB_NAME = "<имя БД>"
-    DB_USER = "<имя пользователя БД>"
-    DB_PASS = "<пароль пользователя БД>"
+    DB_HOST = "<FQDN_любого_хоста_{{ CH }}>"
+    DB_NAME = "<имя_БД>"
+    DB_USER = "<имя_пользователя_БД>"
+    DB_PASS = "<пароль_пользователя_БД>"
 
     QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
 
@@ -930,10 +930,10 @@ sudo apt update && sudo apt install --yes ruby
     require "openssl"
     require "uri"
 
-    DB_HOST = "<FQDN любого хоста {{ CH }}>"
-    DB_NAME = "<имя БД>"
-    DB_USER = "<имя пользователя БД>"
-    DB_PASS = "<пароль пользователя БД>"
+    DB_HOST = "<FQDN_любого_хоста_{{ CH }}>"
+    DB_NAME = "<имя_БД>"
+    DB_USER = "<имя_пользователя_БД>"
+    DB_PASS = "<пароль_пользователя_БД>"
 
     QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
 

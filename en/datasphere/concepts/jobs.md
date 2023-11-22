@@ -13,8 +13,7 @@ name: simple-python-script # job name
 desc: Program description # job description
 cmd: python main.py --data ${DATA} --result ${OUTPUT}
 env:
-  python:
-    auto: true # enables delivery of code and pip dependencies to DataSphere
+  python: auto # enables delivery of code and pip dependencies to DataSphere
 inputs:
   - numbers.txt: DATA
 outputs:
@@ -27,3 +26,7 @@ cloud-instance-type: c1.4
 {% include [jobs-info](../../_includes/datasphere/jobs-environment.md) %}
 
 You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their progress and results will be available under **Run history**.
+
+#### See also {#see-also}
+
+[{#T}](../operations/projects/work-with-jobs.md)

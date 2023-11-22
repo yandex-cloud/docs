@@ -22,7 +22,7 @@
 К транспортной сети подключаются: 
 
 * [ЦОД (зоны доступности)](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}.
-* [Точки присутствия](../../interconnect/concepts/pops.md) (Point of Presence или PoP). На точках присутствия размещается сетевое оборудование транспортной сети. На отдельных точках присутствия организуются подключения к внешним сетям и интернету (*Internet Peering*). На отдельных точках присутствия клиентам {{ yandex-cloud }} предоставляется возможность организовать IP-связность между своими ресурсами в собственной инфраструктуре и [облачными ресурсами](../../interconnect/concepts/priv-con.md) и [публичным сервисам](../../interconnect/concepts/pub-con#svc-list) {{ yandex-cloud }} с помощью услуги [{{ interconnect-full-name }}](../../interconnect/concepts/).
+* [Точки присутствия](../../interconnect/concepts/pops.md) (Point of Presence или PoP). На точках присутствия размещается сетевое оборудование транспортной сети. На отдельных точках присутствия организуются подключения к внешним сетям и интернету (*Internet Peering*). На отдельных точках присутствия клиентам {{ yandex-cloud }} предоставляется возможность организовать IP-связность между своими ресурсами в собственной инфраструктуре и [облачными ресурсами](../../interconnect/concepts/priv-con.md) и [публичным сервисам](../../interconnect/concepts/pub-con.md#svc-list) {{ yandex-cloud }} с помощью услуги [{{ interconnect-full-name }}](../../interconnect/concepts/).
 
 Транспортная сеть {{ yandex-cloud }} состоит из двух уровней:
 

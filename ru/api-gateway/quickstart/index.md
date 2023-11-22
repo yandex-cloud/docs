@@ -229,7 +229,7 @@ description: "В этой инструкции вы создадите и про
 
   Чтобы обновить спецификацию API-шлюза:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо обновить API-шлюз.
-  1. В открывшемся окне выберите API-шлюз и нажмите кнопку ![image](../../_assets/options.svg).
+  1. В открывшемся окне выберите API-шлюз и нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте расширенную версию спецификации
       

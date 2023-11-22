@@ -12,6 +12,9 @@
 | Maximum number of clouds per organization | 5 |
 | Maximum number of access bindings per organization | 2,000 |
 | Maximum number of OS Login profiles per organization | 4,000 |
+| Maximum number of groups per organization | 100 |
+| Maximum number of group members | 1,000 |
+| Maximum number of groups a user may belong to | 1,000 |
 
 #### Limits {#organization-limits}
 

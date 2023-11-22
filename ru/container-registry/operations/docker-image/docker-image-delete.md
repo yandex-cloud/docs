@@ -20,7 +20,7 @@ description: "Из статьи вы узнаете, как удалить Docke
      1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Откройте нужный реестр.
      1. Откройте нужный репозиторий.
-  1. Нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке Docker-образа, который требуется удалить.
+  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке Docker-образа, который требуется удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
 
