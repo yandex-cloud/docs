@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ dataproc-full-name }}"
+description: "Различные сценарии использования {{ dataproc-full-name }} в {{ yandex-cloud }}."
+---
+
 # Все практические руководства
 
 * [{#T}](./configure-network.md).

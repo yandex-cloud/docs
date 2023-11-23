@@ -85,13 +85,13 @@
 1. Выберите общий тенант `Global`.
 1. Создайте новый шаблон индекса с именем `audit-trails*`:
 
-    1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+    1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
     1. В разделе **Management** выберите **Stack Management**.
     1. Перейдите в раздел **Index Patterns** и внизу страницы нажмите на ссылку **create an index pattern**.
     1. В поле **Index pattern name** укажите `audit-trails*` и нажмите кнопку **Next step**.
     1. В поле **Time field** выберите `application_usage_daily.timestamp` и нажмите кнопку **Create index pattern**.
 
-1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. В разделе **OpenSearch Dashboards** выберите **Discover**.
 1. В открывшемся дашборде должны появится данные из {{ at-name }} в формате [Elastic Common Schema]({{ links.es.docs }}/ecs/current/ecs-reference.html).
 
@@ -118,7 +118,7 @@
     ```
 
 1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../managed-opensearch/operations/connect.md#dashboards).
-1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. В разделе **Management** выберите **Stack Management**.
 1. Перейдите в раздел **Saved Objects** и импортируйте файлы из каталога `yc-solution-library-for-security/auditlogs/export-auditlogs-to-Opensearch/update-opensearch-scheme/content-for-transfer/`:
 
@@ -130,7 +130,7 @@
 
 Воспользуйтесь подготовленным дашбордом `Audit-trails-dashboard`:
 
-1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. В разделе **OpenSearch Dashboards** выберите **Dashboard**.
 1. В списке дашбордов выберите `Audit-trails-dashboard`.
 
@@ -140,7 +140,7 @@
 
 Используйте подготовленный запрос для просмотра событий безопасности, которые можно отбирать с помощью фильтров.
 
-1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. В разделе **OpenSearch Dashboards** выберите **Discover**.
 1. На вкладке **Open** выберите запрос `Search:Yandexcloud: Yandexcloud: Interesting fields`.
 
@@ -150,7 +150,7 @@
 
 Используйте примеры кода для сущностей `monitor` и `trigger` при настройке [алертов]({{ os.docs }}/monitoring-plugins/alerting/index/):
 
-1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. В разделе **OpenSearch Plugins** выберите **Alerting**.
 1. Скопируйте содержимое файлов примеров в окно создания:
 

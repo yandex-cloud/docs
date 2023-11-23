@@ -8,6 +8,8 @@ You can perform the following actions for any subcluster:
 * [{#T}](#change-disk-size)
 * [{#T}](#change-sg-set)
 
+To move subclusters to a different availability zone, follow [this guide](migration-to-an-availability-zone.md).
+
 ## Changing the number of hosts {#change-host-number}
 
 You can change the number of hosts in data storage and processing subclusters:

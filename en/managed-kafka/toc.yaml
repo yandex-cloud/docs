@@ -97,7 +97,7 @@ items:
             href: tutorials/use-ksqldb-with-mkf.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Topics and partitions
         href: concepts/topics.md
@@ -243,6 +243,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Public materials
+    href: public-talks.md
   - name: Releases
     href: release-notes.md
   - name: FAQ

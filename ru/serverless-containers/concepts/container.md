@@ -1,3 +1,7 @@
+---
+title: "Контейнер в {{ serverless-containers-full-name }}"
+---
+
 # Контейнер
 
 Контейнер позволяет запустить в {{ yandex-cloud }} приложение, которое содержится в [Docker-образе](../../container-registry/concepts/docker-image.md). После создания ревизии контейнера его можно вызвать:

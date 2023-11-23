@@ -1,3 +1,8 @@
+---
+title: "Как подключиться к узлу кластера {{ k8s }} по SSH в {{ managed-k8s-full-name }}"
+description: "Следуя данной инструкции, вы сможете подключиться к узлу по SSH." 
+---
+
 # Подключение к узлу по SSH
 
 Чтобы подключиться к [узлу](../concepts/index.md#node-group) [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) по [SSH](../../glossary/ssh-keygen.md):

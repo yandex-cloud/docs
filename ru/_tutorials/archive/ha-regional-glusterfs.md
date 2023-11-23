@@ -161,10 +161,10 @@
    ```
    Рекомендуем оставить имя файла ключа без изменения.
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-1. Клонируйте репозиторий `yandex-cloud/yc-architect-solution-library` из GitHub и перейдите в папку `yc-ha-regional-glusterfs`:
+1. Клонируйте репозиторий `yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs` из GitHub и перейдите в папку `yc-distributed-ha-storage-with-glusterfs`:
     ```
-    git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
-    cd ./yc-architect-solution-library/yc-ha-regional-glusterfs
+    git clone https://github.com/yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs.git
+    cd ./yc-distributed-ha-storage-with-glusterfs
     ```
 1. Отредактируйте файл `variables.tf`, указав параметры разворачиваемых ресурсов:
 

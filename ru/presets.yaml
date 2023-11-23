@@ -5864,14 +5864,14 @@ default:
         section_agent: Агент
         test-data-section: Прикрепленные файлы
       lockbox:
+        button_action-make-version-current: Сделать текущей версией
         button_action-open-version-add-dialog: Создать новую версию на основе этой
         button_action-schedule-for-destruction: Запланировать удаление
-        button_action-use-as-basis: Откатить до этой версии
         button_activate-secret: Активировать секрет
         button_add-version: Добавить версию
         button_create-secret: Создать секрет
         button_deactivate-secret: Деактивировать
-        button_use-as-basis-version-action-text: Откатить
+        field_make-version-current: Сделать текущей версией
         forms:
           button_add-pair: Добавить пару
           button_schedule-destruction: Запланировать
@@ -8115,7 +8115,7 @@ default:
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 45.9.1-1
+        tag: 45.9.1-2
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor

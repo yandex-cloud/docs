@@ -1,6 +1,9 @@
 ---
+title: "Как получить глобальные поля с помощью {{ tracker-full-name }} API"
+description: "Из статьи вы узнаете, как получить глобальные поля в {{ tracker-name }}."
 sourcePath: ru/tracker/api-ref/concepts/issues/get-global-fields.md
 ---
+
 # Получить глобальные поля
 
 ## Формат запроса {#query}

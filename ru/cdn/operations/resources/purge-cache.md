@@ -1,3 +1,8 @@
+---
+title: "Как очистить кеш ресурса в {{ cdn-full-name }}"
+description: "Следуя данной инструкции, вы сможете очистить кеш ресурса." 
+---
+
 # Очистка кеша ресурса
 
 Чтобы [очистить кеш](../../concepts/caching.md) ресурса:
@@ -14,7 +19,7 @@
 
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/basket.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
   1. Выберите тип очистки кеша:
 

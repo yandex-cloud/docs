@@ -1,6 +1,6 @@
 ---
-title: "Как работать с Git в {{ ml-platform-full-name}}"
-description: "Следуя данной инструкции, вы сможете клонировать и создавать репозитории, а также записывать в них изменения."
+title: "Как работать с Git в {{ ml-platform-full-name }}"
+description: "Из статьи вы узнаете, как работать с Git в {{ ml-platform-name }}."
 ---
 
 # Работа с Git

@@ -21,6 +21,7 @@
     1. Откройте вкладку **{{ ui-key.yacloud.billing.account.tab_acts-title }}**.
     1. В строке с нужным отчетным периодом нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. Откроется окно с отчетными документами за выбранный период.
     1. Справа от документа нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. Документ откроется в новой вкладке браузера, и вы сможете его сохранить.
+    1. Чтобы скачать документы за несколько периодов одним архивом, отметьте нужные периоды в левом столбце (отметка в заголовке таблицы позволяет выбрать все периоды) и нажмите **Скачать документы (PDF)** или **Скачать документы (ZIP)**. 
 
     ### Заказать акт сверки {#download-acts}
 
@@ -36,7 +37,8 @@
     1. Нажмите на кнопку **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report }}**. В открывшемся окне выберите период, за который требуется сформировать акт сверки, и нажмите **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report-short }}**.
     1. Когда статус запроса изменится на **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, в столбце **{{ ui-key.yacloud.billing.account.reconciliation-reports.field_actions }}** появится кнопка для скачивания. Выберите **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** или **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
     1. Нажмите кнопку с выбранным типом скачивания. Документ откроется в новом окне, и вы сможете его сохранить.
-   
+    1. Чтобы скачать акты за несколько периодов одним архивом, отметьте нужные периоды в левом столбце (отметка в заголовке таблицы позволяет выбрать все периоды) и нажмите **Скачать документы (PDF)** или **Скачать документы (ZIP)**.
+
     Для обмена оригиналами документов скачайте акт без подписи, распечатайте два экземпляра, подпишите их и отправьте:
 
     * Почтой России: 115035, г. Москва, ул. Садовническая, д. 82, стр. 2.
@@ -64,6 +66,7 @@
     1. Откройте вкладку **{{ ui-key.yacloud.billing.account.tab_acts-title }}**.
     1. В строке с нужным отчетным периодом нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. Откроется окно с актами за выбранный период.
     1. Справа от документа нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. Документ откроется в новой вкладке браузера, и вы сможете его сохранить.
+    1. Чтобы скачать акты за несколько периодов одним архивом, отметьте нужные периоды в левом столбце (отметка в заголовке таблицы позволяет выбрать все периоды) и нажмите **Скачать документы (PDF)** или **Скачать документы (ZIP)**.
 
     ### Электронный счет-фактура {#electronic-invoice}
 

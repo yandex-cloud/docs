@@ -77,6 +77,8 @@ instance_template:
           ip_version: IPV4
         }
       }
+  placement_policy:
+    placement_group_id: rmppvhrgm77g********
   metadata:
     user-data: |-
       #cloud-config
@@ -122,5 +124,7 @@ Key | Value
 `network_interface_specs.ip_version` | IP version for the public IP address.
 `metadata` | Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md).
 `metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program.
+`placement_policy` | (Optional) [VM placement group](../placement-groups.md) parameters
+`placement_policy.placement_group_id` | Placement group ID. VM instances will be hosted in data center server racks depending on the selected placement strategy:</br>– `Spread` placement strategy ensures that each VM instance is hosted in a separate server rack in one of the availability zones.</br>– `Partition` placement strategy provides even allocation of VM instances across group partitions and ensures that VM instances from different partitions reside in different server racks in one of the availability zones.
 
 For information about the technical restrictions of {{ ig-name }}, see [{#T}](../limits.md).

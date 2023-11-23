@@ -1,6 +1,6 @@
 # Работа с шаблонами SQL-запросов
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 Для быстрого создания SQL-запросов используйте готовые шаблоны и собственные сохраненные запросы. 
 

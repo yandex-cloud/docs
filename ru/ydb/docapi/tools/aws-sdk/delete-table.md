@@ -1,4 +1,6 @@
 ---
+title: "Как удалить таблицу в {{ ydb-full-name }}"
+description: "Следуя данной инструкции, вы сможете удалить таблицу."
 sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
 ---
 # Удаление таблицы

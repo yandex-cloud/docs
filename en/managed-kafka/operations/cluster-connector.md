@@ -10,6 +10,7 @@ You can:
 * [Edit a connector](#update)
 * [Pause a connector](#pause)
 * [Resume a connector](#resume)
+* [Import a connector to {{ TF }}](#import)
 * [Delete a connector](#delete)
 
 ## Getting a list of connectors {#list}
@@ -509,6 +510,30 @@ To pause a connector:
 
 {% endlist %}
 
+## Importing a connector to {{ TF }} {#import}
+
+Using import, you can bring the existing connectors under {{ TF }} management.
+
+{% list tabs %}
+
+- {{ TF }}
+
+    1. In the {{ TF }} configuration file, specify the connector you want to import:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<connector_name>" {}
+        ```
+
+    1. Run the following command to import the connector:
+
+        ```hcl
+        terraform import yandex_mdb_kafka_connector.<connector_name> <cluster_ID>:<connector_name>
+        ```
+
+        To learn more about importing connectors, see the [{{ TF }} provider documentation](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_connect.html.markdown#import).
+
+{% endlist %}
+
 ## Deleting a connector {#delete}
 
 {% list tabs %}
@@ -695,10 +720,10 @@ To pause a connector:
    * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
    * **{{ ui-key.yacloud.kafka.field_connector-compression-type }}**: Select the codec to compress messages:
 
-      * `none` (default): No compression.
-      * `gzip`: [gzip](https://www.gzip.org) codec.
-      * `snappy`: [snappy](https://github.com/google/snappy) codec.
-      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
+      * `none` (default): No compression
+      * `gzip`: [gzip](https://www.gzip.org) codec
+      * `snappy`: [snappy](https://github.com/google/snappy) codec
+      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
 
       You cannot change this parameter after creating the cluster.
 

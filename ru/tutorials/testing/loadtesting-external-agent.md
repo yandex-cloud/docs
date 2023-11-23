@@ -1,1 +1,1 @@
-{% include [loadtesting-external-agent](../../_tutorials/testing/loadtesting-external-agent.md) %}
+{% include [loadtesting-external-agent](../../_tutorials/dev/loadtesting-external-agent.md) %}

@@ -1,3 +1,8 @@
+---
+title: "Сеть в {{ managed-k8s-full-name }}"
+description: "При создании кластера {{ k8s }} вы можете задать сеть и подсеть для мастера, диапазон IP-адресов для подов и сервисов, а также маску подсети узлов." 
+---
+
 # Сеть в {{ managed-k8s-name }}
 
 При [создании кластера {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) вы можете задать:

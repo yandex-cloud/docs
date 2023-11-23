@@ -10,7 +10,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
       1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
@@ -127,7 +127,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
   
       1. Измените [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
@@ -242,7 +242,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** выключите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

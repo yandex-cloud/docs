@@ -1,3 +1,8 @@
+---
+title: "Как удалить секрет в {{ lockbox-full-name }}"
+description: "Следуя данной инструкции, вы сможете удалить секрет." 
+---
+
 # Удалить секрет
 
 Чтобы удалить секрет:
@@ -28,7 +33,7 @@
   1. Запросите список секретов:
 
      ```bash
-     yc lockbox secret list --cloud-id <идентификатор облака> --folder-name <имя каталога>
+     yc lockbox secret list --cloud-id <идентификатор_облака> --folder-name <имя_каталога>
      ```
 
 	 Результат:
@@ -37,22 +42,22 @@
 	 +----------------------+------------------+------------+---------------------+----------------------+--------+
      |          ID          |       NAME       | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
      +----------------------+------------------+------------+---------------------+----------------------+--------+
-     | e6q942hj2r5ni36j09ul | <имя секрета 1>  |            | 2021-11-09 13:07:12 | e2r9pdm39tn2hg2koasn | ACTIVE |
-     | e4qkyo469mu2det6pvku | <имя секрета 2>  |            | 2021-12-09 06:50:37 | e6fpq386othpq93s4t8m | ACTIVE |
+     | e6q942hj2r5n******** | <имя_секрета_1>  |            | 2021-11-09 13:07:12 | e2r9pdm39tn2******** | ACTIVE |
+     | e4qkyo469mu2******** | <имя_секрета_2>  |            | 2021-12-09 06:50:37 | e6fpq386othp******** | ACTIVE |
      +----------------------+------------------+------------+---------------------+----------------------+--------+
 	 ```
 
   1. Чтобы удалить секрет, выполните команду:
 
      ```bash
-     yc lockbox secret delete --id e4qkyo469mu2det6pvku
+     yc lockbox secret delete --id e4qkyo469mu2********
      ```
 
      Результат:
 
      ```text
-     id: e4qkyo469mu2det6pvku
-     folder_id: b1ulgko2th573evfdh3a
+     id: e4qkyo469mu2********
+     folder_id: b1ulgko2th57********
      created_at: "2021-11-08T17:13:48.393Z"
      ...
        status: ACTIVE
@@ -63,7 +68,7 @@
   1. Проверьте, что секрета нет в списке:
 
      ```bash
-     yc lockbox secret list --cloud-id <идентификатор облака> --folder-name <имя каталога>
+     yc lockbox secret list --cloud-id <идентификатор_облака> --folder-name <имя_каталога>
      ```
 
      Результат:
@@ -72,7 +77,7 @@
      +----------------------+-----------------+------------+---------------------+----------------------+--------+
      |          ID          |      NAME       | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
      +----------------------+-----------------+------------+---------------------+----------------------+--------+
-     | e6q942hj2r5ni36j09ul | <имя секрета 1> |            | 2021-11-09 13:07:12 | e2r9pdm39tn2hg2koasn | ACTIVE |
+     | e6q942hj2r5n******** | <имя_секрета_1> |            | 2021-11-09 13:07:12 | e2r9pdm39tn2******** | ACTIVE |
      +----------------------+-----------------+------------+---------------------+----------------------+--------+
      ```
 
@@ -89,8 +94,8 @@
      resource "yandex_lockbox_secret" "my_secret" {
        name                = "My secret"
        description         = "test secret from tf"
-       folder_id           = "b1gmitvfx321d3kr4mhjmo"
-       kms_key_id          = "abjp8q2fjfg0sedaqfkl0"
+       folder_id           = "b1gmitvfx321d3********"
+       kms_key_id          = "abjp8q2fjfg0s********"
        deletion_protection = true
        labels              = {
          tf-label    = "tf-label-value",

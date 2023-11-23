@@ -128,9 +128,10 @@
        --master-logging enabled=<отправка_логов>,`
          `log-group-id=<идентификатор_лог-группы>,`
          `folder-id=<идентификатор_каталога>,`
-         `kube-apiserver-enabled=<отправка_логов_kube-apiserver>,`
-         `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler>,`
-         `events-enabled=<отправка_событий_{{ k8s }}>
+         `kube-apiserver-enabled=<отправка_логов_kube-apiserver:_true_или_false>,`
+         `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler:_true_или_false>,`
+         `events-enabled=<отправка_событий_{{ k8s }}:_true_или_false>`
+         `audit-enabled=<отправка_событий_аудита:_true_или_false>
      ```
 
      Где:

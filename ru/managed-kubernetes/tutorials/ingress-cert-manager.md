@@ -1,3 +1,8 @@
+---
+title: "Как создать Ingress-контроллер NGINX и защитить его сертификатом Let's Encrypt® в {{ managed-k8s-full-name }}"
+description: "Следуя данному руководству, вы сможете создать Ingress-контроллер NGINX и защитить его сертификатом Let's Encrypt®." 
+---
+
 # Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®
 
 Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом:

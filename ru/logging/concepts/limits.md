@@ -1,4 +1,6 @@
 ---
+title: "Квоты и лимиты в {{ cloud-logging-full-name }}"
+description: "В сервисе {{ cloud-logging-full-name }} действует ряд квот и лимитов. Более подробно об ограничениях в сервисах вы узнаете из этой статьи."
 editable: false
 ---
 

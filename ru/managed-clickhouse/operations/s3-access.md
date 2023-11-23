@@ -1,3 +1,8 @@
+---
+title: "Как настроить доступ к {{ objstorage-full-name }} из кластера {{ CH }} в {{ mch-full-name }}"
+description: "Следуя данной инструкции, вы сможете настроить доступ к {{ objstorage-full-name }} из кластера {{ CH }}." 
+---
+
 # Настройка доступа к {{ objstorage-name }} из кластера {{ CH }}
 
 {{ mch-name }} поддерживает работу с {{ objstorage-full-name }} для:

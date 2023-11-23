@@ -19,7 +19,19 @@ The user created with a **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-p
 
 To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` query are canceled during the next database operation.
 
-With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/docs/current/predefined-roles.html) roles, including the superuser role. The highest privileges for working with clusters are granted to users with the `mdb_admin` [role](../concepts/roles.md#mdb-admin). For more information, see [{#T}](../concepts/roles.md).
+With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/docs/current/predefined-roles.html) roles, including the superuser role. You can assign users only the following special roles:
+
+* `mdb_admin`
+* `mdb_monitor`
+* `mdb_replication`
+
+The highest privileges for working with clusters are granted to users with the `mdb_admin` [role](../concepts/roles.md#mdb-admin). For more information, see [{#T}](../concepts/roles.md).
+
+{% note info %}
+
+You cannot create custom roles in {{ mpg-name }}. User permissions depend on a set of privileges the user is granted.
+
+{% endnote %}
 
 {% list tabs %}
 

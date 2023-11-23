@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ cdn-full-name }}"
+description: "Различные сценарии использования {{ cdn-full-name }} в {{ yandex-cloud }}."
+---
+
 # Практические руководства {{ cdn-name }}
 
 * [{#T}](prefetch.md)

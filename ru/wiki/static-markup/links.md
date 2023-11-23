@@ -1,3 +1,8 @@
+---
+title: "Как оформить ссылки в {{ wiki-full-name }}"
+description: "Следуя данной инструкции, вы сможете оформить ссылки в {{ wiki-full-name }}." 
+---
+
 # Ссылки
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

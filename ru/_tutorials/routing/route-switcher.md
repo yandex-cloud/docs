@@ -2,7 +2,7 @@
 
 В {{ yandex-cloud }} можно развернуть облачную инфраструктуру с использованием виртуальных машин (далее сетевых ВМ), выполняющих функции межсетевого экранирования, сетевой безопасности и маршрутизации трафика. С помощью [статической маршрутизации](../../vpc/concepts/static-routes.md) трафик из подсетей направляется на сетевые ВМ. 
 
-Для обеспечения высокой доступности можно развернуть несколько сетевых ВМ в разных [зонах доступности](../../overview/concepts/geo-scope.md) и настроить автоматическое переключение исходящего из подсетей трафика с одной сетевой ВМ на другую с помощью [модуля route-switcher](https://github.com/yandex-cloud/yc-architect-solution-library/tree/main/yc-route-switcher-v2).
+Для обеспечения высокой доступности можно развернуть несколько сетевых ВМ в разных [зонах доступности](../../overview/concepts/geo-scope.md) и настроить автоматическое переключение исходящего из подсетей трафика с одной сетевой ВМ на другую с помощью [модуля route-switcher](https://github.com/yandex-cloud-examples/yc-route-switcher/tree/main).
 
 В этом практическом руководстве показан пример использования модуля route-switcher для обеспечения отказоустойчивости [NAT-инстанса](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) — сетевой ВМ с преднастроенными правилами маршрутизации и трансляции IP-адресов. NAT-инстансы используются для организации доступа в интернет виртуальных машин и других облачных ресурсов, размещенных в {{ yandex-cloud }}.
 
@@ -198,11 +198,11 @@
    sudo apt install git
    ```
 
-1. Клонируйте репозиторий `yandex-cloud/yc-architect-solution-library` из GitHub и перейдите в папку сценария:
+1. Клонируйте репозиторий `yandex-cloud-examples/yc-route-switcher` из GitHub и перейдите в папку сценария:
 
     ```bash
-    git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
-    cd yc-architect-solution-library/yc-route-switcher-v2/examples
+    git clone https://github.com/yandex-cloud-examples/yc-route-switcher.git
+    cd yc-route-switcher/examples
     ```
 
 1. Откройте файл `terraform.tfvars`, например, с помощью редактора `nano`:

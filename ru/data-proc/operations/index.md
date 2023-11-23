@@ -1,3 +1,8 @@
+---
+title: "Пошаговые инструкции для {{ dataproc-full-name }}"
+description: "На странице представлен список пошаговых инструкций для {{ dataproc-name }}."
+---
+
 # Пошаговые инструкции для {{ dataproc-name }}
 
 ## Кластеры {{ dataproc-name }}

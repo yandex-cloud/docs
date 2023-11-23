@@ -1,6 +1,6 @@
 # История запросов
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 Все запросы, выполненные в рамках сессии подключения, отображаются в истории запросов. Вы можете просматривать и повторять выполненные запросы:
 

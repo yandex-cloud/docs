@@ -52,7 +52,7 @@
 
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}**.
 
-  1. В правом верхнем углу нажмите значок ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу нажмите значок ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
   1. Укажите нужные параметры и нажмите **{{ ui-key.yacloud.common.save }}**.
 

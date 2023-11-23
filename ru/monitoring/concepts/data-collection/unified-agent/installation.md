@@ -1,3 +1,8 @@
+---
+title: "Как установить и запустить {{ unified-agent-full-name }}"
+description: "Из статьи вы узнаете, как установить и запустить {{ unified-agent-full-name }}."
+---
+
 # Установка и запуск {{ unified-agent-full-name }}
 
 ## Список поддерживаемых операционных систем {#supported-os}
