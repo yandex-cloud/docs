@@ -1,3 +1,8 @@
+---
+title: "Как работать со списками в {{ wiki-full-name }}"
+description: "Из статьи вы узнаете, как работать со списками в {{ wiki-name }}."
+---
+
 # Списки
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

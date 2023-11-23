@@ -193,65 +193,6 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% endlist %}
 
-## Deleting a topic {#delete-topic}
-
-{% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
-
-{% list tabs %}
-
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
-   1. Click ![image](../../_assets/options.svg) for the topic you need and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To delete a topic:
-   1. View a description of the CLI update topic command:
-
-      ```bash
-      {{ yc-mdb-kf }} topic delete --help
-      ```
-
-   1. Delete a topic:
-
-      ```bash
-      {{ yc-mdb-kf }} topic delete <topic_name> --cluster-name <cluster_name>
-      ```
-
-- {{ TF }}
-
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
-
-      For more information about creating this file, see [{#T}](cluster-create.md).
-   1. Delete the `yandex_mdb_kafka_topic` resource with the relevant topic description.
-   1. Make sure the settings are correct.
-
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
-
-
-- API
-
-   To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) gRPC API call and provide the following in the request:
-   * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
-
-
-{% endlist %}
-
 ## Listing topics in a cluster {#list-topics}
 
 {% list tabs %}
@@ -311,8 +252,91 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - API
 
    To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/topic_service.md#Get) gRPC API call and provide the following in the request:
-   * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
+   * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
+
+
+{% endlist %}
+
+## Importing topics to {{ TF }} {#import-topic}
+
+Using import, you can bring the existing cluster topics under {{ TF }} management.
+
+{% list tabs %}
+
+- {{ TF }}
+
+    1. In the {{ TF }} configuration file, specify the topic you want to import:
+
+        ```hcl
+        resource "yandex_mdb_kafka_topic" "<topic_name>" {}
+        ```
+
+    1. Run the following command to import the topic:
+
+        ```hcl
+        terraform import yandex_mdb_kafka_topic.<topic_name> <cluster_ID>:<topic_name>
+        ```
+
+        To learn more about importing topics, see the [{{ TF }} provider documentation](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_topic.html.markdown#import).
+
+{% endlist %}
+
+## Deleting a topic {#delete-topic}
+
+{% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+   1. Click ![image](../../_assets/options.svg) for the topic you need and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To delete a topic:
+   1. View a description of the CLI update topic command:
+
+      ```bash
+      {{ yc-mdb-kf }} topic delete --help
+      ```
+
+   1. Delete a topic:
+
+      ```bash
+      {{ yc-mdb-kf }} topic delete <topic_name> --cluster-name <cluster_name>
+      ```
+
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+   1. Delete the `yandex_mdb_kafka_topic` resource with the relevant topic description.
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
+
+
+- API
+
+   To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) gRPC API call and provide the following in the request:
+   * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
 
 
 {% endlist %}

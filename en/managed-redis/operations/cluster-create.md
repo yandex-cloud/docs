@@ -157,15 +157,15 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Flag enabling online access to the host by a public IP: `true` or `false`.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone includes two or more subnets.
+         * `assign-public-ip`: Internet access to the host via a public IP: `true` or `false`.
          * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
 
       * `--backup-window-start`: Backup start time in `HH:MM:SS` format.
       * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
-      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
+      You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
@@ -419,7 +419,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with the following test characteristics:
+   Create a [sharded](../concepts/sharding.md) {{ mrd-name }} cluster with the following test characteristics:
 
    * Name: `myredis`
    * Version: `{{ versions.tf.latest }}`

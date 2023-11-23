@@ -1,3 +1,8 @@
+---
+title: "Как найти события {{ yandex-cloud }} в {{ objstorage-full-name }}"
+description: "Из статьи вы узнаете, как найти события {{ yandex-cloud }} в {{ objstorage-name }}."
+---
+
 # Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
 
 ## Перед началом работы {#before-you-begin}

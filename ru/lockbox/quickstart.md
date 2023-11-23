@@ -50,6 +50,6 @@ description: "В этой инструкции вы научитесь созд�
     
         ```
         curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-        https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<идентификатор секрета>/payload
+        https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<идентификатор_секрета>/payload
         ```
 {% endlist %}

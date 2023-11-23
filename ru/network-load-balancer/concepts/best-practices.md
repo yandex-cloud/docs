@@ -1,3 +1,8 @@
+---
+title: "Рекомендации по использованию сервиса {{ network-load-balancer-full-name }}"
+description: "На странице представлены рекомендации по использованию сервиса {{ network-load-balancer-name }}."
+---
+
 # Рекомендации по применению 
 
 ### Используйте разные зоны доступности {#place-resources-in-different-zones}

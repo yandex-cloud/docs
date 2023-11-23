@@ -19,7 +19,7 @@ Subclusters for one cluster must reside in the same [cloud network](../../vpc/co
 
 {% note warning %}
 
-The `{{ region-id }}-c` availability zone is [being deprecated](/blog/posts/2023/08/new-availability-zone). If your cluster is hosted in this availability zone, create a new cluster and move the workload to it.
+The `{{ region-id }}-c` availability zone is [being deprecated](/blog/posts/2023/08/new-availability-zone). If your cluster is hosted in this availability zone, [create a new cluster and move](../operations/migration-to-an-availability-zone.md) the workload to it.
 
 {% endnote %}
 

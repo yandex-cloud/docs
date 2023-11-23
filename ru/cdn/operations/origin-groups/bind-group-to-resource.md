@@ -190,7 +190,7 @@
 
   1. Нажмите на имя необходимого ресурса.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
   1. Выберите группу источников.
 

@@ -13,7 +13,7 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
-## How to create a {{ mkf-name }} cluster {#create-cluster}
+## Creating {{ mkf-name }} clusters {#create-cluster}
 
 Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
 
@@ -28,7 +28,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ KF }} version.
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting.
 
@@ -293,6 +293,30 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 {% endnote %}
 
+
+## Importing clusters to {{ TF }} {#import-cluster}
+
+Using import, you can bring the existing clusters under {{ TF }} management.
+
+{% list tabs %}
+
+- {{ TF }}
+
+    1. In the {{ TF }} configuration file, specify the cluster you want to import:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster_name>" {}
+        ```
+
+    1. Run the following command to import the cluster:
+
+        ```hcl
+        terraform import yandex_mdb_kafka_cluster.<cluster_name> <cluster_ID>
+        ```
+
+        To learn more about importing clusters, see the [{{ TF }} provider documentation](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_cluster.html.markdown#import).
+
+{% endlist %}
 
 ## Examples {#examples}
 

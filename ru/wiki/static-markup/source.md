@@ -1,3 +1,8 @@
+---
+title: "Оформление исходного кода в {{ wiki-full-name }}"
+description: "Из статьи вы узнаете, какими способами можно оформить фрагмент исходного кода в тексте."
+---
+
 # Оформление исходного кода
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

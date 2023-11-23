@@ -24,8 +24,10 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](placement-groups/create.md)
 * [{#T}](placement-groups/delete.md)
 * [{#T}](placement-groups/create-vm-in-pg.md)
+* [{#T}](placement-groups/create-ig-in-pg.md)
 * [{#T}](placement-groups/add-vm.md)
 * [{#T}](placement-groups/delete-vm.md)
+* [{#T}](placement-groups/delete-ig-from-pg.md)
 
 ## Images with pre-installed software {#images-with-pre-installed-software}
 
@@ -85,7 +87,6 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
-* [{#T}](disk-control/disk-change-zone.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/delete.md)
 
@@ -147,6 +148,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](instance-groups/create-autoscaled-group.md)
 * [{#T}](instance-groups/create-with-coi.md)
 * [{#T}](instance-groups/create-from-yaml.md)
+* [{#T}](placement-groups/create-ig-in-pg.md)
 
 ## Getting information about instance groups {#ig-info}
 
@@ -171,6 +173,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)
+* [{#T}](placement-groups/delete-ig-from-pg.md)
 
 
 ## Dedicated hosts {#dedicated-host}

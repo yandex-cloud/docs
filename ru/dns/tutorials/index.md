@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ dns-full-name }}"
+description: "Различные сценарии использования {{ dns-full-name }} в {{ yandex-cloud }}."
+---
+
 # Практические руководства {{ dns-name }}
 
 * [{#T}](local-dns-cache.md)

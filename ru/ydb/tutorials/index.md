@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ ydb-full-name }}"
+description: "Различные сценарии использования {{ ydb-full-name }} в {{ yandex-cloud }}."
+---
+
 # Практические руководства {{ ydb-name }}
 
 * [{#T}](java-servlet-todo-list.md)

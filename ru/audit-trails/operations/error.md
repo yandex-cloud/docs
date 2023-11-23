@@ -67,7 +67,7 @@
 
 [Убедитесь](../../ydb/operations/manage-databases.md#list-db), что база данных {{ ydb-short-name }} находится в статусе `Running`. При необходимости запустите БД, например, с помощью [консоли управления]({{ link-console-main }}):
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-1. Справа от имени нужной БД нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
+1. Справа от имени нужной БД нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
 
 ###  DATABASE_NOT_FOUND {#database-not-found}
 

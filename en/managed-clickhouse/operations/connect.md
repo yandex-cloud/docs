@@ -32,9 +32,9 @@ Rule settings depend on the connection method you select:
 
    1. [Configure all the security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 8123, 8443, 9000, and 9440 from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
 
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8123` (or any of the other ports listed)
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8123` (or any of the other ports listed).
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`) as the value. Otherwise, specify the VM security group.
 
       A separate rule is created for each port.
@@ -110,7 +110,7 @@ If, under [cluster maintenance](../concepts/maintenance.md#maintenance-order), a
 
 {% endnote %}
 
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
@@ -151,8 +151,8 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. On the **Driver properties** tab:
          1. Click **Download** in a new window with an invitation to download the driver files.
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
-            * `ssl:true`.
-            * `sslrootcert:<path to the saved SSL certificate file>`.
+            * `ssl:true`
+            * `sslrootcert:<path to the saved SSL certificate file>`
    1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
@@ -219,11 +219,15 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
 
 ## Connecting to a cluster from your browser {#browser-connection}
 
-There are two ways to run SQL queries from your browser:
+To run SQL queries from your browser, use:
 
-* [Management console](#console).
+* [Management console](#console)
 
-* [Built-in SQL editor](#inline-editor).
+* [Built-in SQL editor](#inline-editor)
+
+
+* [{{ websql-full-name }} service](#websql)
+
 
 When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session (for example, `USE` or `SET`) have no impact.
 
@@ -247,7 +251,7 @@ To connect to a cluster host from the built-in SQL editor, specify the following
 https://<FQDN of any {{ CH }} host>:8443/play
 ```
 
-You can only connect to publicly accessible cluster hosts. To learn how to get the FQDN of a host, see [this guide](#fqdn).
+You can only connect to publicly accessible cluster hosts. To learn how to get a host FQDN, see [this guide](#fqdn).
 
 To connect to a cluster by [selecting an available host automatically](#auto), use the following URL:
 
@@ -255,6 +259,18 @@ To connect to a cluster by [selecting an available host automatically](#auto), u
 * `https://<shard name>.c-<cluster ID>.rw.{{ dns-zone }}:8443/play` to connect to the available [shard](../concepts/sharding.md) host.
 
 To make a query to the database, specify the username and password in the upper-right corner.
+
+
+
+### {{ websql-full-name }} service {#websql}
+
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+In [{{ websql-full-name }}](../../websql), create a connection to a {{ CH }} cluster in {{ yandex-cloud }}.
+
+{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
+
+{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
 
 ## Sample connection strings {#connection-string}

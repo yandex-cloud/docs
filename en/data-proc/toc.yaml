@@ -17,6 +17,8 @@ items:
             href: operations/connect.md
           - name: Updating clusters
             href: operations/cluster-update.md
+          - name: Migrating a cluster to a different availability zone
+            href: operations/migration-to-an-availability-zone.md
           - name: Deleting clusters
             href: operations/cluster-delete.md
       - name: '{{ dataproc-name }} subclusters'
@@ -247,6 +249,8 @@ items:
                 href: api-ref/Subcluster/list.md
               - name: update
                 href: api-ref/Subcluster/update.md
+  - name: Public materials
+    href: public-talks.md
   - name: Releases
     items:
       - name: Service updates

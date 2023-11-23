@@ -131,7 +131,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
       1. Select **{{ GP }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: [Special FQDN of the primary master ](#fqdn-master), `c-<cluster_ID>.rw.{{ dns-zone }}`.
+         * **Host**: [Special FQDN of the primary master](#fqdn-master), `c-<cluster_ID>.rw.{{ dns-zone }}`.
          * **Port**: `{{ port-mgp }}`.
          * **Database**: DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.

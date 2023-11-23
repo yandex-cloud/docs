@@ -1,3 +1,8 @@
+---
+title: "Как вставить список страниц на страницу {{ wiki-full-name }}"
+description: "Следуя данной инструкции, вы сможете вставить список страниц на страницу." 
+---
+
 # Списки страниц
 
 {% include [actions-alert](../../_includes/wiki/actions-alert.md) %}

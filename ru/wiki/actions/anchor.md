@@ -1,3 +1,8 @@
+---
+title: "Как создать закладку на странице в {{ wiki-full-name }}"
+description: "Следуя данной инструкции, вы сможете создать закладку на странице." 
+---
+
 # Закладка на странице
 
 {% include [actions-alert](../../_includes/wiki/actions-alert.md) %}

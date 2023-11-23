@@ -1,3 +1,8 @@
+---
+title: "Как создать группу источников в {{ cdn-full-name }}"
+description: "Следуя данной инструкции, вы сможете создать группу источников." 
+---
+
 # Создание группы источников
 
 Чтобы создать [группу источников](../../concepts/origins.md):
@@ -8,7 +13,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. На панели слева выберите ![image](../../../_assets/cdn/origin-groups.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
   1. Введите название группы.
   1. Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:

@@ -4,4 +4,4 @@ canonical: "{{ link-docs }}/tutorials/infrastructure-management/vm-fluent-bit-lo
 
 # Передача логов с ВМ в {{ cloud-logging-full-name }}
 
-{% include [vm-fluent-bit-logging](../../_tutorials/infrastructure-management/vm-fluent-bit-logging.md) %}
+{% include [vm-fluent-bit-logging](../../_tutorials/security/vm-fluent-bit-logging.md) %}

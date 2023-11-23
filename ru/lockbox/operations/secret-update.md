@@ -1,3 +1,8 @@
+---
+title: "Как изменить секрет в {{ lockbox-full-name }}"
+description: "Следуя данной инструкции, вы сможете изменить секрет." 
+---
+
 # Изменить секрет
 
 Чтобы изменить секрет:
@@ -28,22 +33,22 @@
   1. Выполните команду, указав имя или идентификатор секрета:
      ```bash
      yc lockbox secret update \
-       --id <идентификатор секрета> \
-       --new-name <новое имя секрета> \
-       --description <новое описание секрета>
+       --id <идентификатор_секрета> \
+       --new-name <новое_имя_секрета> \
+       --description <новое_описание_секрета>
      ```
 
      Результат:
      ```
-     id: e6q2ig0u9b97tk2d251j
-     folder_id: b1gyggt2th593evcld2a
+     id: e6q2ig0u9b97********
+     folder_id: b1gyggt2th59********
      created_at: "2021-11-08T19:23:00.383Z"
-     name: <новое имя секрета>
-     description: <новое описание секрета>
+     name: <новое_имя_секрета>
+     description: <новое_описание_секрета>
      status: ACTIVE
      current_version:
-       id: e6q8ma3b6pd1kckgtaib
-       secret_id: e6q2ug0o9b24tk2d941j
+       id: e6q8ma3b6pd1********
+       secret_id: e6q2ug0o9b24********
        created_at: "2021-11-08T19:23:00.383Z"
        status: ACTIVE
        payload_entry_keys:
@@ -63,8 +68,8 @@
      resource "yandex_lockbox_secret" "my_secret" {
        name                = "My secret"
        description         = "test secret from tf"
-       folder_id           = "b1gmitvfx321d3kr4mhjmo"
-       kms_key_id          = "abjp8q2fjfg0sedaqfkl0"
+       folder_id           = "b1gmitvfx321d3********"
+       kms_key_id          = "abjp8q2fjfg0s********"
        deletion_protection = true
        labels              = {
          tf-label    = "tf-label-value",

@@ -1,3 +1,8 @@
+---
+title: "Инструкции по работе с {{ cloud-logging-full-name }}"
+description: "Из статьи вы узнаете, как работать с {{ cloud-logging-full-name }} в {{ yandex-cloud }}."
+---
+
 # Пошаговые инструкции для {{ cloud-logging-name }}
 
 * [{#T}](./write-logs.md)

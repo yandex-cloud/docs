@@ -1,3 +1,8 @@
+---
+title: "Как выглядит формат IAM Cookie"
+description: "Из статьи вы узнаете, как выглядит формат IAM Cookie."
+---
+
 # Cookie
 
 ## Формат IAM Cookie {#cookie-format}

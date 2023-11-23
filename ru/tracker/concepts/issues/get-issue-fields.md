@@ -1,6 +1,9 @@
 ---
+title: "Как получить параметры поля задачи с помощью {{ tracker-full-name }} API"
+description: "Из статьи вы узнаете, как получить параметры поля задачи в {{ tracker-name }}."
 sourcePath: ru/tracker/api-ref/concepts/issues/get-issue-fields.md
 ---
+
 # Получить параметры поля задачи
 
 ## Формат запроса {#section_nrf_1vp_4gb}

@@ -1,3 +1,8 @@
+---
+title: "Как просканировать Docker-образ на наличие уязвимостей в {{ container-registry-full-name }}"
+description: "Следуя данной инструкции, вы сможете просканировать Docker-образ на наличие уязвимостей." 
+---
+
 # Сканирование Docker-образа на наличие уязвимостей
 
 Вы можете [сканировать](../concepts/vulnerability-scanner.md) загруженные в [реестр](../concepts/registry.md) [Docker-образы](../concepts/docker-image.md) на наличие уязвимостей. Это можно делать:

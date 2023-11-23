@@ -387,6 +387,8 @@ items:
                 href: concepts/instance-groups/policies/deploy-policy.md
               - name: Политика масштабирования
                 href: concepts/instance-groups/policies/scale-policy.md
+              - name: Политика восстановления
+                href: concepts/instance-groups/policies/healing-policy.md
           - name: Типы масштабирования
             href: concepts/instance-groups/scale.md
           - name: Проверки и автовосстановление ВМ

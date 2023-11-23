@@ -13,7 +13,7 @@
 * Каталог **dmz** предоставляет возможность публикации приложений с открытым доступом из внешней сети интернет.
 * Каталоги **app** и **database** могут быть использованы для размещения бизнес-логики приложений (в руководстве ВМ в них не устанавливаются).
 
-Более подробное описание приведено в [репозитории проекта](https://github.com/yandex-cloud/yc-architect-solution-library/blob/main/demos/dmz-fw-ha/README.md). 
+Более подробное описание приведено в [репозитории проекта](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md). 
 
 Чтобы развернуть защищенную высокодоступную сетевую инфраструктуру с выделением DMZ на основе Next-Generation Firewall:
 
@@ -273,11 +273,11 @@
 
 ## Разверните ресурсы {#create-resources}
 
-1. Склонируйте репозиторий `yandex-cloud/yc-architect-solution-library` из GitHub и перейдите в папку сценария `dmz-fw-ha`:
+1. Склонируйте репозиторий `yandex-cloud-examples/yc-dmz-with-high-available-ngfw` из GitHub и перейдите в папку сценария `yc-dmz-with-high-available-ngfw`:
     
     ```bash
-    git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
-    cd yc-architect-solution-library/demos/dmz-fw-ha
+    git clone https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw.git
+    cd yc-dmz-with-high-available-ngfw
     ```
 
 1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
@@ -420,11 +420,11 @@
 
 1. [Установите](https://download.wireguard.com/windows-client/wireguard-installer.exe) на ваш ПК приложение WireGuard.
 1. Откройте приложение WireGuard и нажмите кнопку **Add Tunnel**.
-1. В появившемся диалоге выберите файл `jump-vm-wg.conf` в папке `dmz-fw-ha`.
+1. В появившемся диалоге выберите файл `jump-vm-wg.conf` в папке `yc-dmz-with-high-available-ngfw`.
    Чтобы найти папку, созданную в подсистеме Linux, например, Ubuntu, введите в адресной строке диалога путь к файлу:
 
    ```bash
-   \\wsl$\Ubuntu\home\<имя_пользователя_Ubuntu>\yc-architect-solution-library\demos\dmz-fw-ha
+   \\wsl$\Ubuntu\home\<имя_пользователя_Ubuntu>\yc-dmz-with-high-available-ngfw
    ```
    
    Где `<имя_пользователя_Ubuntu>` — имя пользователя текущего дистрибутива ОС Linux.
@@ -633,10 +633,10 @@ terraform apply
     ```
     Если система доступна извне, должна открыться страница `Welcome to nginx!`.
 
-1. Проверьте, что активны разрешающие правила политики безопасности межсетевых экранов. Для этого на вашем ПК перейдите в папку `dmz-fw-ha` и подключитесь к одной из ВМ в DMZ-сегменте по SSH:
+1. Проверьте, что активны разрешающие правила политики безопасности межсетевых экранов. Для этого на вашем ПК перейдите в папку `yc-dmz-with-high-available-ngfw` и подключитесь к одной из ВМ в DMZ-сегменте по SSH:
    
     ```bash
-    cd ~/yc-architect-solution-library/demos/dmz-fw-ha
+    cd ~/yc-dmz-with-high-available-ngfw
     ssh -i pt_key.pem admin@<Внутренний_ip_адрес_ВМ_в_DMZ_сегменте>
     ```
 
@@ -719,4 +719,4 @@ terraform apply
   ```
   {{ TF }} удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщики, каталоги и т.д.
 
-Так как созданные ресурсы расположены в каталогах, то в качестве более быстрого способа удаления всех ресурсов можно использовать удаление всех каталогов через консоль {{ yandex-cloud }} с дальнейшим удалением файла `terraform.tfstate` из папки `dmz-fw-ha` на вашем ПК.
+Так как созданные ресурсы расположены в каталогах, то в качестве более быстрого способа удаления всех ресурсов можно использовать удаление всех каталогов через консоль {{ yandex-cloud }} с дальнейшим удалением файла `terraform.tfstate` из папки `yc-dmz-with-high-available-ngfw` на вашем ПК.

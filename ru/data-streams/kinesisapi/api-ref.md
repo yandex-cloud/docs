@@ -1,3 +1,8 @@
+---
+title: "Все методы {{ yds-full-name }} HTTP API"
+description: "Узнайте, какие методы есть в {{ yds-full-name }} HTTP API." 
+---
+
 # Все методы
 
 {{ yds-full-name }} HTTP API, совместимый с [Amazon Kinesis Data Streams API](https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html), предоставляет следующие методы:

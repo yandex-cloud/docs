@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ compute-full-name }}"
+description: "Различные сценарии использования {{ compute-full-name }} в {{ yandex-cloud }}."
+---
+
 # Практические руководства {{ compute-name }}
 
 * [{#T}](ntp.md)

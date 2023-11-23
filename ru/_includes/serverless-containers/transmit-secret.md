@@ -37,11 +37,11 @@
     ```
     yc serverless container revision deploy \
        --container-name test \
-       --image {{ registry }}/crpp35**************/repository:tag \
+       --image {{ registry }}/crpp35a1s2d3********/repository:tag \
        --cores 1 \
        --memory 1GB \
-       --service-account-id bfbtfc************** \
-       --secret environment-variable=KEY,id=fc3q4a**************,version-id=fc3gvv**************,key=key-id
+       --service-account-id bfbtfcp0o9i8******** \
+       --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=key-id
     ```
 
     Где:

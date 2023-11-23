@@ -1,3 +1,8 @@
+---
+title: "Пошаговые инструкции для {{ monitoring-full-name }}"
+description: "На странице представлен список пошаговых инструкций для {{ monitoring-name }}."
+---
+
 # Пошаговые инструкции для {{ monitoring-full-name }}
 
 ## Работа с метриками {#working-with-metrics}

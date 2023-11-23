@@ -15,9 +15,9 @@
     1. В [консоли управления]({{ link-console-main }}) выберите нужное облако или каталог.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-    1. В открывшемся окне нажмите ![image](../../_assets/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}** → **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}**.
+    1. В открывшемся окне нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}** → **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}**.
     1. Выберите нужный сервисный аккаунт из списка или воспользуйтесь поиском.
-    1. Нажмите кнопку ![image](../../_assets/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
+    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
     1. Выберите роль в каталоге.
     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -116,15 +116,15 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
   
-  1. На панели слева нажмите значок ![icon-acl](../../_assets/organization/acl.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
+  1. На панели слева нажмите значок ![icon-acl](../../_assets/console-icons/shield.svg) [**{{ ui-key.yacloud_org.pages.acl }}**]({{ link-org-acl }}).
 
   1. В фильтре типов аккаунта выберите `{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}`.
 
-  1. Если у нужного сервисного аккаунта уже есть хотя бы одна роль, выберите его из списка или воспользуйтесь строкой поиска. В строке аккаунта нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. Если у нужного сервисного аккаунта уже есть хотя бы одна роль, выберите его из списка или воспользуйтесь строкой поиска. В строке аккаунта нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-     Если нужного сервисного аккаунта нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне нажмите ![image](../../_assets/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}** → **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}** и выберите аккаунт из списка или воспользуйтесь строкой поиска.
+     Если нужного сервисного аккаунта нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}** → **{{ ui-key.yacloud.common.resource-acl.label_service-accounts }}** и выберите аккаунт из списка или воспользуйтесь строкой поиска.
   
-  1. Нажмите кнопку ![image](../../_assets/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и введите название роли или выберите роль в списке.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и введите название роли или выберите роль в списке.
   
      Описание доступных ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md). 
   

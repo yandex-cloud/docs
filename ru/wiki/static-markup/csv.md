@@ -1,3 +1,8 @@
+---
+title: "Как отобразить в виде таблицы данные в формате CSV в {{ wiki-full-name }}"
+description: "Следуя данной инструкции, вы сможете отобразить в виде таблицы данные в формате CSV." 
+---
+
 # Форматирование CSV-данных
 
 {% include [formatter-alert](../../_includes/wiki/formatter-alert.md) %}

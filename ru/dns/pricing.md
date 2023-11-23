@@ -1,4 +1,6 @@
 ---
+title: "Правила тарификации для {{ dns-full-name }}"
+description: "В статье содержатся правила тарификации сервиса {{ dns-name }}."
 editable: false
 ---
 

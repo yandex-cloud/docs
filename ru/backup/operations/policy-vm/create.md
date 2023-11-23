@@ -11,7 +11,7 @@ description: "Из статьи вы узнаете, как создать по�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать политику.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Перейдите на вкладку ![policies](../../../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
+  1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. На странице создания политики:
 

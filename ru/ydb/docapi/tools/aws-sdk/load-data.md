@@ -1,4 +1,6 @@
 ---
+title: "Как загрузить данные в таблицу в {{ ydb-full-name }}"
+description: "Следуя данной инструкции, вы сможете загрузить данные в таблицу."
 sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 ---
 # Загрузка данных в таблицу

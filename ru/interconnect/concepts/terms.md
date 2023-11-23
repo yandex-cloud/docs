@@ -1,3 +1,8 @@
+---
+title: "Терминология {{ interconnect-full-name }}"
+description: "Ознакомьтесь с основными терминами сервиса {{ interconnect-full-name }}."
+---
+
 # Терминология {{ interconnect-name }}
 
 * **CIC** — сокращенное название услуги {{ interconnect-full-name }}.

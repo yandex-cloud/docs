@@ -1,4 +1,6 @@
 ---
+title: "Правила тарификации для {{ cloud-logging-full-name }}"
+description: "В статье содержатся правила тарификации сервиса {{ cloud-logging-name }}."
 editable: false
 ---
 

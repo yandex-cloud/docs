@@ -1,3 +1,8 @@
+---
+title: "Как настроить HTTP-методы в {{ cdn-full-name }}"
+description: "Следуя данной инструкции, вы сможете настроить HTTP-методы." 
+---
+
 # Настройка HTTP-методов
 
 Чтобы настроить для ресурса разрешенные HTTP-методы запросов от клиентов:
@@ -14,7 +19,7 @@
 
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
   1. В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-http-methods }}** выберите **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** из выпадающего списка.
 

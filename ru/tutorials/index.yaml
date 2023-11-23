@@ -9,14 +9,14 @@ meta:
     Практические руководства, которые помогут вам решать различные задачи с
     помощью сервисов {{ yandex-cloud }}.
 links:
-  - title: Веб-сервис
-    description: Создавайте сайты с использованием различных CMS и сетевых технологий
+  - title: Безопасность
+    description: Настройте безопасность инфраструктуры с помощью {{ yandex-cloud }}
     href: web/
   - title: Хранение и восстановление данных
     description: Настройте резервное копирование и восстановление данных
     href: archive/
-  - title: Для разработчиков
-    description: Используйте сервисы {{ yandex-cloud }} в разработке
+  - title: Разработка и тестирование
+    description: Используйте сервисы {{ yandex-cloud }} в разработке и тестировании
     href: dev/
   - title: Базовая инфраструктура
     description: >-
@@ -26,14 +26,6 @@ links:
   - title: Прикладные решения
     description: Выполняйте практические задачи средствами {{ yandex-cloud }}
     href: applied/
-  - title: Тестовая среда
-    description: Тестируйте приложения на виртуальных машинах
-    href: testing/
-  - title: Управление инфраструктурой
-    description: >-
-      Развертывайте инфраструктуру удобными средствами управления облачными
-      ресурсами
-    href: infrastructure-management/
   - title: Построение Data Platform
     description: Создавайте Data Platform с помощью {{ yandex-cloud }}
     href: dataplatform/

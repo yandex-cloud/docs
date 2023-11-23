@@ -1,3 +1,8 @@
+---
+title: "Как сделать предварительную загрузку файлов на CDN-серверы в {{ cdn-full-name }}"
+description: "Следуя данной инструкции, вы сможете сделать предварительную загрузку файлов на CDN-серверы." 
+---
+
 # Предварительная загрузка файлов на CDN-серверы
 
 Чтобы [предзагрузить контент](../../concepts/caching.md#prefetch) из [источников](../../concepts/origins.md) на серверы CDN:
@@ -14,7 +19,7 @@
   
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
   
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
   
   1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** укажите имена нужных файлов.
   

@@ -1,3 +1,8 @@
+---
+title: "Как включить сегментацию файлов в {{ cdn-full-name }}"
+description: "Следуя данной инструкции, вы сможете включить сегментацию файлов." 
+---
+
 # Включение сегментации файлов
 
 Чтобы включить [сегментацию](../../concepts/slicing.md) файлов [ресурса](../../concepts/resource.md):
@@ -14,7 +19,7 @@
 
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
 
-  1. Справа вверху нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Справа вверху нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
   1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-slice }}** включите опцию **{{ ui-key.yacloud.cdn.label_resource-content-optimize-true }}**.
 

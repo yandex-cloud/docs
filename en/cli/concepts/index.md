@@ -1,6 +1,6 @@
 # Running commands
 
-CLI commands are grouped together with each group corresponding to a {{ yandex-cloud }} service or component.
+CLI commands are grouped by {{ yandex-cloud }} service or component.
 
 {% note info %}
 
@@ -30,9 +30,9 @@ While a command is running, the CLI displays dots in synchronous mode and immedi
 
 The CLI can send requests to {{ yandex-cloud }} through a proxy server. To do this, you need to create an environment variable called `HTTPS_PROXY` which the CLI will read for connection parameters. In the variable, specify:
 
-* A login and a password if authentication is required to connect.
-* A proxy server domain name or IP address.
-* A port to connect to.
+* Login and a password if authentication is required to connect.
+* Proxy server domain name or IP address.
+* Port to connect to.
 
 {% note info %}
 

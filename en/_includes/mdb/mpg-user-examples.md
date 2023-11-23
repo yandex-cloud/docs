@@ -6,7 +6,13 @@
 
 - SQL
 
-   To add a new user `user2` to an existing cluster with read-only access to the `db1` database:
+   {% note alert %}
+
+   Do not use this example if a user is created using {{ TF }}: subsequent changes made via {{ TF }} may cancel the user's privileges granted through SQL.
+
+   {% endnote %}
+
+   To add a new user (`user2`) to an existing cluster with read-only access to the `db1` database:
 
    1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser) named `user2`. Select the databases that the user should have access to.
    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database under the account of the database owner.
@@ -20,7 +26,14 @@
 
       ```sql
       GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;
-      GRANT USAGE ON SCHEMA myschema TO user2;
+      GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA myschema to user2;
+      ```
+
+   1. (Optional) To change the default privileges, run this command:
+
+      ```sql
+      ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT SELECT ON TABLES TO user2;
+      ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT USAGE, SELECT ON SEQUENCES TO user2;
       ```
 
    To revoke the granted privileges, run the commands:

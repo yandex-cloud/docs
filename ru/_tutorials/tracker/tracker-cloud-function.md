@@ -70,7 +70,7 @@
 1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** выберите среду выполнения `Python / 3.9`.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
-1. Прикрепите [тестовый архив](https://github.com/yandex-cloud/yc-architect-solution-library/raw/main/yc-tracker/tracker-summarize-spent/build/tracker-summarize-spent.zip).
+1. Прикрепите [тестовый архив](https://github.com/yandex-cloud-examples/yc-tracker-summarize-spent/blob/main/build/tracker-summarize-spent.zip).
 1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `index.handler`.
 1. В разделе **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** добавьте:
    * `ORG` — идентификатор организации {{ ya-360 }}.

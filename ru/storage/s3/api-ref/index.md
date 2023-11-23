@@ -1,3 +1,8 @@
+---
+title: "Какие методы S3 API доступны для управления {{ objstorage-full-name }}"
+description: "Из статьи вы узнаете, какие методы S3 API доступны для управления {{ objstorage-name }}."
+---
+
 # Все сервисы и методы
 
 {{ objstorage-name }} HTTP API предоставляет следующие сервисы:

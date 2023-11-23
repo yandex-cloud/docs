@@ -1,3 +1,8 @@
+---
+title: "Кодирование файла в Base64 в {{ vision-full-name }}"
+description: "Следуя данной инструкции, вы сможете передать файл с изображением в {{ vision-short-name }} API." 
+---
+
 # Кодирование файла в Base64
 
 {{ vision-short-name }} API и OCR API работают с изображениями в формате [Base64](https://ru.wikipedia.org/wiki/Base64). Переведите ваше изображение или PDF-файл в формат `Base64`:

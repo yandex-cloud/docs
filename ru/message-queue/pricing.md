@@ -1,4 +1,6 @@
 ---
+title: "Правила тарификации для {{ message-queue-full-name }}"
+description: "В статье содержатся правила тарификации сервиса {{ message-queue-name }}."
 editable: false
 ---
 

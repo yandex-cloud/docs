@@ -1,3 +1,8 @@
+---
+title: "Экранирование символов в {{ wiki-full-name }}"
+description: "Из статьи вы узнаете, какими способами можно экранировать символы в тексте."
+---
+
 # Экранирование символов
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

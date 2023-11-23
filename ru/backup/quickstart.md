@@ -45,7 +45,7 @@
 
       {% include [name-format](../_includes/name-format.md) %}
 
-  1. Нажмите кнопку ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](security/index.md#backup-editor) `backup.editor`.
+  1. Нажмите кнопку ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](security/index.md#backup-editor) `backup.editor`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -58,17 +58,17 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором активирован сервис.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       1. Введите имя и описание ВМ.
       1. Выберите [зону доступности](../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      1. Выберите [облачную сеть](../vpc/concepts/network.md#network) и [подсеть](../vpc/concepts/network.md#subnet), к которым нужно подключить ВМ. Если сети нет, нажмите ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**:
+      1. Выберите [облачную сеть](../vpc/concepts/network.md#network) и [подсеть](../vpc/concepts/network.md#subnet), к которым нужно подключить ВМ. Если сети нет, нажмите ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**:
           1. В открывшемся окне укажите имя сети и каталог, в котором она будет создана.
           1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
-              У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+              У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
       1. Настройте [сетевой доступ](concepts/vm-connection.md#vm-network-access) для ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.label_backup }}** выберите опцию подключения ВМ к сервису {{ backup-name }}.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
@@ -112,9 +112,9 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором активирован сервис.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-      1. Перейдите на вкладку ![policies](../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
+      1. Перейдите на вкладку ![policies](../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
       1. Выберите одну из политик, созданных по умолчанию.
-      1. В блоке **{{ ui-key.yacloud.backup.label_linked-instances }}** нажмите кнопку ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
+      1. В блоке **{{ ui-key.yacloud.backup.label_linked-instances }}** нажмите кнопку ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
       1. Выберите нужную ВМ из списка и нажмите кнопку **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
 
     {% endlist %}

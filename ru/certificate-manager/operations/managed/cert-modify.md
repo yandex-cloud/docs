@@ -1,3 +1,8 @@
+---
+title: "Как изменить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}"
+description: "Следуя данной инструкции, вы сможете изменить сертификат от Let's Encrypt." 
+---
+
 # Изменить сертификат от Let's Encrypt
 
 После выпуска и добавления в {{ certificate-manager-name }} [сертификата от Let's Encrypt](../../concepts/managed-certificate.md) вы можете изменить его название или описание. Чтобы изменить сертификат:

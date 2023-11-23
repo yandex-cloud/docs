@@ -1,3 +1,8 @@
+---
+title: "Как включить сжатие файлов в {{ cdn-full-name }}"
+description: "Следуя данной инструкции, вы сможете включить сжатие файлов." 
+---
+
 # Включение сжатия файлов
 
 Чтобы включить [сжатие](../../concepts/compression.md) файлов [ресурса](../../concepts/resource.md):
@@ -20,7 +25,7 @@
 
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
   1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-gzip-on }}** включите опцию **{{ ui-key.yacloud.cdn.label_resource-content-compress-true }}**.
 

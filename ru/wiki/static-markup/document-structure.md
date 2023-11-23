@@ -1,3 +1,8 @@
+---
+title: "Из чего состоит структура страницы в {{ wiki-full-name }}"
+description: "Из статьи вы узнаете, из чего состоит структура страницы в {{ wiki-name }}."
+---
+
 # Структура страницы
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

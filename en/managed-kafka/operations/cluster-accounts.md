@@ -12,8 +12,9 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 * [{#T}](#update-account)
 * [{#T}](#grant-permission)
 * [{#T}](#revoke-permission)
-* [{#T}](#delete-account)
 * [{#T}](#list-accounts)
+* [{#T}](#import-account)
+* [{#T}](#delete-account)
 
 ## Creating a user {#create-user}
 
@@ -330,7 +331,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
       The following `--permission` parameters are available:
       * `topic`: Name of the topic the permissions are granted for.
 
-         If the user does not need permissions to certain topics, you [can revoke them](#revoke-permission).
+         If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
       * `role`: User role, such as `producer`, `consumer`, or `admin`.
 
@@ -469,9 +470,72 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
 {% endlist %}
 
+## Getting a list of users in a cluster {#list-accounts}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get a list of users:
+   1. To get a list of users, run the following command:
+
+      ```bash
+      {{ yc-mdb-kf }} user list --cluster-name <cluster_name>
+      ```
+
+   1. To get detailed information for a specific user, run this command:
+
+      ```bash
+      {{ yc-mdb-kf }} user get <username> --cluster-name <cluster_name>
+      ```
+
+
+- API
+
+   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+
+
+{% endlist %}
+
+## Importing users to {{ TF }} {#import-account}
+
+Using import, you can bring the existing cluster users under {{ TF }} management.
+
+{% list tabs %}
+
+- {{ TF }}
+
+   1. In the {{ TF }} configuration file, specify the user you want to import:
+
+      ```hcl
+      resource "yandex_mdb_kafka_user" "<username>" {}
+      ```
+
+   1. Run the following command to import the user:
+
+      ```hcl
+      terraform import yandex_mdb_kafka_user.<username> <cluster_ID>:<username>
+      ```
+
+      To learn more about importing users, see the [{{ TF }} provider documentation](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_user.html.markdown#import).
+
+{% endlist %}
+
 ## Deleting a user {#delete-account}
 
-If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. Assign this role to another user before deleting it.
+If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. To avoid this, assign this role to another user before deleting the admin user.
 
 {% list tabs %}
 
@@ -518,46 +582,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 
    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The name of the user to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-
-
-{% endlist %}
-
-## Getting a list of users in a cluster {#list-accounts}
-
-{% list tabs %}
-
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To get a list of users:
-   1. To get a list of users, run the following command:
-
-      ```bash
-      {{ yc-mdb-kf }} user list --cluster-name <cluster_name>
-      ```
-
-   1. To get detailed information for a specific user, run this command:
-
-      ```bash
-      {{ yc-mdb-kf }} user get <username> --cluster-name <cluster_name>
-      ```
-
-
-- API
-
-   To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/user_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
-
-   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+   * Username to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
 
 
 {% endlist %}

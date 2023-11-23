@@ -20,9 +20,9 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
 
 - CLI
 
-  In the CLI, you can specify metadata in three parameters:
-  * `--metadata-from-file`: Provide metadata as a file, for example, `--metadata-from-file key=path/to/file`. This is convenient when providing values consisting of multiple strings.
-  * `--metadata`: Provide a list of `key-value` pairs separated by commas, for example, `--metadata foo1=bar, foo2=baz`.
+  In the CLI, you can specify metadata in any of the three parameters:
+  * `--metadata-from-file`: Provide metadata as a file, e.g., `--metadata-from-file key=path/to/file`. This is convenient when providing values consisting of multiple strings.
+  * `--metadata`: Provide a list of `key-value` pairs separated by commas, e.g., `--metadata foo1=bar, foo2=baz`.
 
       If the value is multiline, use `\n` to split lines, e.g.: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
   * `--ssh-key`: Provide an SSH key. This is only available for Linux-based virtual machines.
@@ -226,7 +226,6 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
    1. Create a `certificate` file and add a public certificate to it:
 
-
       
       ```
       -----BEGIN CERTIFICATE-----
@@ -248,7 +247,6 @@ Apart from identity documents, the VM metadata service provides their cryptograp
       r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
       -----END CERTIFICATE-----
       ```
-
 
 
 
