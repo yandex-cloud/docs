@@ -1,4 +1,4 @@
-# Руководства для разработчиков
+# Руководства по разработке и тестированию
 
 * [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](../web/blue-green-canary-deployment.md)
 * [Автоматизация сборки образов с помощью Jenkins и Packer](../infrastructure-management/jenkins.md)
@@ -12,3 +12,5 @@
 * [HTTPS-тест с постоянной нагрузкой с помощью Phantom](../testing/loadtesting-https-phantom.md)
 * [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](../testing/loadtesting-https-pandora.md)
 * [Нагрузочное тестирование с нескольких агентов](../testing/loadtesting-multiply.md)
+* [Миграция результатов нагрузочного тестирования из OverLoad](../testing/loadtesting-overload-migration.md)
+* [Запуск внешних агентов для нагрузочного тестирования](../testing/loadtesting-external-agent.md)

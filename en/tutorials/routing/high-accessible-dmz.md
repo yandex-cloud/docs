@@ -13,7 +13,7 @@ The solution has the following basic segments (folders):
 * The **dmz** folder enables you to publish applications with public access from the internet.
 * The **app** and **database** folders can be used to host the business logic of applications (in this tutorial, no VMs are placed there).
 
-For more information, see the [project repository](https://github.com/yandex-cloud/yc-architect-solution-library/blob/main/demos/dmz-fw-ha/README.md).
+For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw/blob/main/README.md).
 
 To deploy a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall:
 
@@ -273,11 +273,11 @@ All the steps described below are completed in the Linux terminal.
 
 ## Deploy your resources {#create-resources}
 
-1. Clone the `yandex-cloud/yc-architect-solution-library` repository from GitHub and go to the `dmz-fw-ha` script directory:
+1. Clone the `yandex-cloud-examples/yc-dmz-with-high-available-ngfw` repository from GitHub and go to the `yc-dmz-with-high-available-ngfw` script directory:
 
    ```bash
-   git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
-   cd yc-architect-solution-library/demos/dmz-fw-ha
+   git clone https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ngfw.git
+   cd yc-dmz-with-high-available-ngfw
    ```
 
 1. Set up the CLI profile to execute operations on behalf of the service account:
@@ -420,11 +420,11 @@ To set up the VPN tunnel:
 
 1. [Install](https://download.wireguard.com/windows-client/wireguard-installer.exe) WireGuard on your PC.
 1. Open WireGuard and click **Add Tunnel**.
-1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `dmz-fw-ha` directory.
+1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-ngfw` directory.
    To find the directory created in a Linux subsystem, e.g., Ubuntu, type the file path in the dialog box address bar:
 
    ```bash
-   \\wsl$\Ubuntu\home\<Ubuntu_username>\yc-architect-solution-library\demos\dmz-fw-ha
+   \\wsl$\Ubuntu\home\<Ubuntu_username>\yc-dmz-with-high-available-ngfw
    ```
 
    Where `<Ubuntu_username>` is the name of the current Linux distribution user.
@@ -633,10 +633,10 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
    ```
    If the system is accessible from the outside, the `Welcome to nginx!` page should open.
 
-1. Make sure the firewall security policy rules that allow traffic are active. To do this, go to the `dmz-fw-ha` directory on your PC and connect to a VM in the DMZ segment over SSH:
+1. Make sure the firewall security policy rules that allow traffic are active. To do this, go to the `yc-dmz-with-high-available-ngfw` directory on your PC and connect to a VM in the DMZ segment over SSH:
 
    ```bash
-   cd ~/yc-architect-solution-library/demos/dmz-fw-ha
+   cd ~/yc-dmz-with-high-available-ngfw
    ssh -i pt_key.pem admin@<Internal_IP_of_VM_in_DMZ_segment>
    ```
 
@@ -719,4 +719,4 @@ terraform destroy
 ```
 {{ TF }} will **permanently** delete all the resources: networks, subnets, VMs, load balancers, folders, etc.
 
-Since the created resources are placed in folders, to destroy all of them faster, you can delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `dmz-fw-ha` directory on your PC.
+Since the created resources are placed in folders, to destroy all of them faster, you can delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `yc-dmz-with-high-available-ngfw` directory on your PC.

@@ -19,9 +19,9 @@ description: "Пошаговая инструкция по изменению г
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана группа бэкендов.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Нажмите ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры группы:
 
      * **{{ ui-key.yacloud.common.name }}** и **{{ ui-key.yc-ui-datasphere.common.description }}** группы бэкендов.
@@ -169,9 +169,9 @@ description: "Пошаговая инструкция по изменению г
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Нажмите кнопку ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
   1. В открывшемся окне задайте настройки бэкенда:
      
      {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
@@ -388,9 +388,9 @@ description: "Пошаговая инструкция по изменению г
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Напротив имени бэкенда нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне задайте настройки бэкенда. Подробнее о настройках см. [выше](#add-backend).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -611,9 +611,9 @@ description: "Пошаговая инструкция по изменению г
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Напротив имени бэкенда нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

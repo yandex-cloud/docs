@@ -14,8 +14,8 @@ To get information about an operation run asynchronously, use the following comm
    yc operation get <operation ID>
    ```
 
-   - If the operation is still in progress, the information about the operation is displayed again.
-   - If the operation is completed, you'll see the result of the operation.
+   - If the operation is still in progress, the information about the operation will be displayed again.
+   - If the operation is completed, you will see the result of the operation.
 
 - To return to synchronous mode of operation execution:
 

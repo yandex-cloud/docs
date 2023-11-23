@@ -95,7 +95,7 @@ This makes the dependencies within the virtual environment available during job 
 
 To use Python virtual environments integrated with {{ ml-platform-full-name }}, configure additional settings:
 
-1. Set the `cluster` driver deploy mode on the {{ dataproc-name }} cluster side. To do this, provide the `livy:livy.spark.deploy-mode=cluster` [component property](../concepts/settings-list.md) value when [updating the cluster](./cluster-update.md) .
+1. Set the `cluster` driver deploy mode on the {{ dataproc-name }} cluster side. To do this, provide the `livy:livy.spark.deploy-mode=cluster` [component property](../concepts/settings-list.md) value when [updating the cluster](./cluster-update.md).
 
    For more information about driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
 

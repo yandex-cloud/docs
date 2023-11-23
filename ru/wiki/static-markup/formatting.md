@@ -1,3 +1,8 @@
+---
+title: "Как работать с оформлением текста в {{ wiki-full-name }}"
+description: "Из статьи вы узнаете, как работать с оформлением текста в {{ wiki-name }}."
+---
+
 # Оформление текста
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

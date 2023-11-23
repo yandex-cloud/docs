@@ -256,7 +256,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Если провайдер CDN еще не активирован, нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
   1. Создайте CDN-ресурс:
-     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+     1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
      1. Задайте основные параметры CDN-ресурса следующим образом:
         * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
         * **{{ ui-key.yacloud.cdn.label_source-type }}** — `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
@@ -279,15 +279,15 @@
 
      Дождитесь выпуска сертификата Let's Encrypt® для доменного имени. Этот процесс может занять до 30 минут.
   1. Включите переадресацию клиентов с HTTP на HTTPS:
-     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
+     1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
      1. Убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** статус сертификата изменился на `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Включите для ресурса [кеширование](../../cdn/concepts/caching.md) на CDN-серверах:
-     1. На вкладке ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
+     1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
      1. Перейдите в раздел **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -531,7 +531,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
-  1. Нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
   1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** укажите путь к файлу, хранящемуся в источнике, без доменного имени:
 
      ```text
@@ -579,7 +579,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Выберите бакет с логами.
      1. Нажмите на имя объекта, соответствующего времени скачивания файла `ycgame-update-v1.1.exe`.
-     1. Нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
+     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
 
    - AWS CLI
 

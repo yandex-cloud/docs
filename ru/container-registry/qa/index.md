@@ -1,3 +1,8 @@
+---
+title: "Вопросы и ответы про {{ container-registry-full-name }}"
+description: "На странице представлены вопросы и ответы про {{ container-registry-name }}."
+---
+
 # Вопросы и ответы про {{ container-registry-name }}
 
 #### Почему тег `latest` отсутствует или установлен не на последнем загруженном Docker-образе? {#latest}

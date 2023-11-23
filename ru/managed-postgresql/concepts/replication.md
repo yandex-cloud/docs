@@ -1,3 +1,8 @@
+---
+title: "Репликация в {{ mpg-full-name }}"
+description: "Из статьи вы узнаете, как работает репликация хостов кластера в {{ mpg-full-name }}." 
+---
+
 # Репликация в {{ mpg-name }}
 
 В кластерах {{ mpg-name }} используется _кворумная репликация_ (quorum-based synchronous replication):

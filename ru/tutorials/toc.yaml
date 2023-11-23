@@ -1,7 +1,7 @@
 title: Практические руководства
 href: index.yaml
 items:
-  - name: Веб-сервис
+  - name: Безопасность
     items:
       - name: Все руководства
         href: web/index.md
@@ -9,6 +9,10 @@ items:
         href: web/alb-with-ddos-protection.md
       - name: Терминирование TLS-соединений
         href: web/tls-termination.md
+      - name: Передача логов с ВМ в {{ cloud-logging-name }}
+        href: infrastructure-management/vm-fluent-bit-logging.md
+      - name: Запись логов балансировщика в {{ PG }}
+        href: infrastructure-management/logging.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -47,7 +51,7 @@ items:
           Развертывание параллельной файловой системы GlusterFS в
           высокопроизводительном режиме
         href: archive/ha-regional-glusterfs-high-performance.md
-  - name: Для разработчиков
+  - name: Разработка и тестирование
     items:
       - name: Все руководства
         href: dev/index.md
@@ -83,6 +87,10 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
+      - name: Миграция результатов нагрузочного тестирования из OverLoad
+        href: testing/loadtesting-overload-migration.md
+      - name: Запуск внешних агентов для нагрузочного тестирования
+        href: testing/loadtesting-external-agent.md
   - name: Базовая инфраструктура
     items:
       - name: Все руководства
@@ -115,6 +123,10 @@ items:
             href: infrastructure-management/autoscale-monitoring.md
           - name: Обновление группы ВМ под нагрузкой
             href: infrastructure-management/updating-under-load.md
+          - name: >-
+              Создание триггера для бюджетов, который вызывает функцию для
+              остановки ВМ
+            href: infrastructure-management/serverless-trigger-budget-vm.md
       - name: Инструменты
         items:
           - name: Начало работы с {{ TF }}
@@ -127,6 +139,10 @@ items:
               Сборка образа ВМ с набором инфраструктурных инструментов с помощью
               Packer
             href: infrastructure-management/packer-custom-image.md
+          - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
+            href: infrastructure-management/terraform-state-lock.md
+          - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
+            href: infrastructure-management/terraform-modules.md
       - name: Сеть
         items:
           - name: Настройка синхронизации часов с помощью NTP
@@ -164,6 +180,10 @@ items:
               Настройка {{ dns-name }} для доступа к кластерам управляемых баз
               данных из других облачных сетей
             href: dataplatform/mdb-dns-peering.md
+          - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
+            href: infrastructure-management/dns-integration.md
+          - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
+            href: infrastructure-management/cert-manager-webhook.md
   - name: Прикладные решения
     items:
       - name: Все руководства
@@ -210,34 +230,6 @@ items:
             href: web/prefetch.md
           - name: Создание SAP-программы в {{ yandex-cloud }}
             href: infrastructure-management/sap.md
-  - name: Тестовая среда
-    items:
-      - name: Все руководства
-        href: testing/index.md
-      - name: Миграция результатов нагрузочного тестирования из OverLoad
-        href: testing/loadtesting-overload-migration.md
-      - name: Запуск внешних агентов для нагрузочного тестирования
-        href: testing/loadtesting-external-agent.md
-  - name: Управление инфраструктурой
-    items:
-      - name: Все руководства
-        href: infrastructure-management/index.md
-      - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
-        href: infrastructure-management/terraform-state-lock.md
-      - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
-        href: infrastructure-management/terraform-modules.md
-      - name: Передача логов с ВМ в {{ cloud-logging-name }}
-        href: infrastructure-management/vm-fluent-bit-logging.md
-      - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
-        href: infrastructure-management/dns-integration.md
-      - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
-        href: infrastructure-management/cert-manager-webhook.md
-      - name: Запись логов балансировщика в {{ PG }}
-        href: infrastructure-management/logging.md
-      - name: >-
-          Создание триггера для бюджетов, который вызывает функцию для остановки
-          ВМ
-        href: infrastructure-management/serverless-trigger-budget-vm.md
   - name: Построение Data Platform
     items:
       - name: Все руководства

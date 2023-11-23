@@ -1,3 +1,8 @@
+---
+title: "Как остановить и запустить L7-балансировщик в {{ alb-full-name }}"
+description: "Из статьи вы узнаете, как остановить и запустить L7-балансировщик {{ alb-name }}."
+---
+
 # Остановить и запустить L7-балансировщик
 
 ## Остановить балансировщик {#stop}
@@ -14,7 +19,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
+  1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
   
      Чтобы выполнить это действие с несколькими балансировщиками, выделите нужные в списке, в нижней части экрана нажмите кнопку **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
 
@@ -113,7 +118,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
+  1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
 
      Чтобы выполнить это действие с несколькими балансировщиками, выделите нужные в списке, в нижней части экрана нажмите кнопку **{{ ui-key.yacloud.common.start }}**, в открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
 

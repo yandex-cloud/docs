@@ -180,8 +180,8 @@
 1. Клонируйте GitHub-репозиторий, который содержит актуальные конфигурационные файлы:
 
    ```bash
-   git clone https://github.com/yandex-cloud/yc-architect-solution-library.git && \
-     cd yc-architect-solution-library/demos/yc-k8s-autoscaling
+   git clone https://github.com/yandex-cloud-examples/yc-mk8s-autoscaling-solution.git && \
+   cd yc-mk8s-autoscaling-solution
    ```
 
 1. Добавьте репозитории Helm, которые содержат Ingress-контроллер и систему мониторинга Prometheus:

@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ api-gw-full-name }}"
+description: "Различные сценарии использования {{ api-gw-full-name }} в {{ yandex-cloud }}."
+---
+
 # Практические руководства {{ api-gw-name }}
 
 * [{#T}](java-servlet-todo-list.md)

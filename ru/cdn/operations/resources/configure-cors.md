@@ -1,3 +1,8 @@
+---
+title: "Как настроить CORS при ответах клиентам в {{ cdn-full-name }}"
+description: "Следуя данной инструкции, вы сможете настроить CORS при ответах клиентам." 
+---
+
 # Настройка CORS при ответах клиентам
 
 Чтобы настроить для [ресурса](../../concepts/resource.md) кросс-доменные запросы по механизму [CORS](../../concepts/cors.md):
@@ -14,7 +19,7 @@
 
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   
   1. В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**:
 

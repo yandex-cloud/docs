@@ -1,4 +1,6 @@
 ---
+title: "Правила тарификации для {{ mgl-full-name }}"
+description: "В статье содержатся правила тарификации сервиса {{ mgl-name }}."
 editable: false
 ---
 

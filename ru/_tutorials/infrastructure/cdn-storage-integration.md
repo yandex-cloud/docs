@@ -403,7 +403,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `example-sg`.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите `example-network`.
@@ -566,7 +566,7 @@
    
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-bg`.
   1. В поле **{{ ui-key.yacloud.alb.label_backend-type }}** выберите [тип группы бэкендов](../../application-load-balancer/concepts/backend-group.md#group-types) `{{ ui-key.yacloud.alb.label_proto-http }}`.
@@ -577,7 +577,7 @@
       1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите бакет, созданный ранее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-  Если вы будете выполнять следующие шаги с помощью {{ TF }}, скопируйте идентификатор группы бэкендов `example-bg` со вкладки ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  Если вы будете выполнять следующие шаги с помощью {{ TF }}, скопируйте идентификатор группы бэкендов `example-bg` со вкладки ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
 
 - API
 
@@ -593,7 +593,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-router`.
   1. Создайте виртуальный хост `example-vh`:
@@ -998,7 +998,7 @@
 
      1. Выберите ресурс, созданный ранее.
      1. Убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_additional }}** статус сертификата изменился на `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

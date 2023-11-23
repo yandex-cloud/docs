@@ -71,7 +71,7 @@ If the traffic to the load balancer did not pass through a network VM, it may di
 
 #### Route tables contain static routes with identical prefixes {#same-prefixes}
 
-Routes must have the next hop IP of one of the network VMs. Network VMs run in `Active/Standby` mode. To ensure fault tolerance of outgoing traffic, set up traffic forwarding, e.g., using [route-switcher](https://github.com/yandex-cloud/yc-architect-solution-library/tree/main/yc-route-switcher-v2).
+Routes must have the next hop IP of one of the network VMs. Network VMs run in `Active/Standby` mode. To ensure fault tolerance of outgoing traffic, set up traffic forwarding, e.g., using [route-switcher](https://github.com/yandex-cloud-examples/yc-route-switcher/tree/main).
 
 #### Source NAT configured on network VMs {#source-nat}
 

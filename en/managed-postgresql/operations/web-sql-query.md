@@ -5,16 +5,14 @@ description: "{{ mpg-name }} lets you visualize the data structure in your {{ PG
 
 # SQL queries in the management console
 
-{{ mpg-name }} lets you:
+{{ mpg-name }} allows you to:
 
 * Visualize the structure of the data and the query execution plans in your {{ PG }} cluster.
 * Run SQL queries against databases from the {{ yandex-cloud }} management console.
 
-{% note warning %}
+{% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
 
 You cannot use SQL commands to do anything that requires superuser access.
-
-{% endnote %}
 
 To connect to a {{ mpg-name }} cluster and manipulate its data from the management console:
 

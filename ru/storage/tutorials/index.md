@@ -1,3 +1,8 @@
+---
+title: "Практические руководства {{ objstorage-full-name }}"
+description: "На странице представлен список практических руководств {{ objstorage-name }}."
+---
+
 # Практические руководства {{ objstorage-name }}
 
 

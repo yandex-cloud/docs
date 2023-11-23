@@ -161,11 +161,11 @@ The infrastructure support costs include:
    ```
    We recommend leaving the key file name unchanged.
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-1. Clone the `yandex-cloud/yc-architect-solution-library` repository from GitHub and go to the `yc-ha-regional-glusterfs` folder:
-   ```
-   git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
-   cd ./yc-architect-solution-library/yc-ha-regional-glusterfs
-   ```
+1. Clone the `yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs` repository from GitHub and go to the `yc-distributed-ha-storage-with-glusterfs` folder:
+    ```
+    git clone https://github.com/yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs.git
+    cd ./yc-distributed-ha-storage-with-glusterfs
+    ```
 1. Edit the `variables.tf` file, specifying the parameters of the deployed resources:
 
    {% note warning %}

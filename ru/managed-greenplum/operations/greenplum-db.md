@@ -1,3 +1,8 @@
+---
+title: "Как использовать вспомогательные утилиты в {{ mgp-full-name }}"
+description: "Следуя данной инструкции, вы сможете использовать вспомогательные утилиты." 
+---
+
 # Вспомогательные утилиты
 
 Пакет Greenplum Database 6 содержит [ряд полезных утилит](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/client_tool_guides-tools-ref.html) для работы с базой данных {{ GP }}. В частности:

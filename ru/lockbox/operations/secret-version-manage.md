@@ -1,5 +1,6 @@
 ---
-title: "Управление версиями секрета в {{ lockbox-full-name }}"
+title: "Как управлять версиями секрета в {{ lockbox-full-name }}"
+description: "Следуя данной инструкции, вы сможете управлять версиями секрета." 
 ---
 
 # Управление версиями секрета
@@ -52,12 +53,12 @@ title: "Управление версиями секрета в {{ lockbox-full-
      resource "yandex_lockbox_secret_version" "my_version" {
        secret_id = "<идентификатор_секрета>"
        entries {
-         key        = "<ключ_секрета1>"
-         text_value = "<значение_секрета1>"
+         key        = "<ключ_секрета_1>"
+         text_value = "<значение_секрета_1>"
        }
        entries {
-         key        = "<ключ_секрета2>"
-         text_value = "<значение_секрета2>"
+         key        = "<ключ_секрета_2>"
+         text_value = "<значение_секрета_2>"
        }
      }
      ```
@@ -131,7 +132,7 @@ title: "Управление версиями секрета в {{ lockbox-full-
 
 {% endlist %}
 
-## Откатиться к определенной версии {#backup}
+## Изменить текущую версию {#backup}
 
 {% list tabs %}
 
@@ -141,12 +142,12 @@ title: "Управление версиями секрета в {{ lockbox-full-
     1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/horizontal-ellipsis.svg).
-    1. Выберите пункт **{{ ui-key.yacloud.lockbox.button_action-use-as-basis }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_use-as-basis-version-action-text }}**.
+    1. Выберите пункт **{{ ui-key.yacloud.lockbox.field_make-version-current }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_action-make-version-current }}**.
 
 - API
 
-  Чтобы откатиться к существующей версии, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) с указанием целевой версии.
+  Чтобы изменить текущую версию, воспользуйтесь методом REST API [addVersion](../api-ref/Secret/addVersion.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) с указанием целевой версии.
 
 {% endlist %}
 

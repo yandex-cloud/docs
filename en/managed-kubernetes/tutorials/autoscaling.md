@@ -180,8 +180,8 @@ In this section, you will learn to configure cluster autoscaling based on the nu
 1. Clone the GitHub repository containing the up-to-date configuration files:
 
    ```bash
-   git clone https://github.com/yandex-cloud/yc-architect-solution-library.git && \
-     cd yc-architect-solution-library/demos/yc-k8s-autoscaling
+   git clone https://github.com/yandex-cloud-examples/yc-mk8s-autoscaling-solution.git && \
+   cd yc-mk8s-autoscaling-solution
    ```
 
 1. Add the Helm repositories with the Ingress controller and the Prometheus monitoring system:

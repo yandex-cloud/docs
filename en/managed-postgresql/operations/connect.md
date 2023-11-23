@@ -161,7 +161,7 @@ To upgrade the library version used by the `psql` utility:
 * For Debian-based Linux distributions, install the `postgresql-client-10` package or higher (for example, using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
 * For operating systems that use RPM packages, use the {{ PG }} distribution available from the [yum repository](https://yum.postgresql.org/).
 
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
@@ -215,6 +215,18 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% endlist %}
 
+
+## Connecting to a cluster from your browser {#browser}
+
+Use [{{ websql-full-name }}](../../websql) to connect to {{ PG }} clusters in {{ yandex-cloud }}.
+
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
+
+{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
+
+
 ## Connecting from {{ pgadmin }} {#connection-pgadmin}
 
 The connection was tested for [{{ pgadmin }}](https://www.pgadmin.org) ver. 7.0 on Ubuntu 20.04.
@@ -263,7 +275,7 @@ You can only use [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
    * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
    * **Port**: `{{ port-mpg }}`.
-   * **Database**: DB you want to connect to.
+   * **Database**: DB to connect to.
    * **Username**: Username for connection.
    * **Password**: User password.
 

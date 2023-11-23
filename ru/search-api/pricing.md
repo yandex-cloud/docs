@@ -1,4 +1,6 @@
 ---
+title: "Правила тарификации для {{ search-api-full-name }}"
+description: "В статье содержатся правила тарификации сервиса {{ search-api-name }}."
 editable: false
 ---
 

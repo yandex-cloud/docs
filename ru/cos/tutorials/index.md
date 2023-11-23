@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ coi }} в {{ cos-full-name }}"
+description: "Различные сценарии использования {{ coi }} в {{ yandex-cloud }}."
+---
+
 # Все руководства
 
 * [{#T}](vm-create.md)

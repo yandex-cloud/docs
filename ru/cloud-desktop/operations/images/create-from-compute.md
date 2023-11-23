@@ -1,3 +1,8 @@
+---
+title: "Как cоздать образ на основе виртуальной машины {{ compute-full-name }} в {{ cloud-desktop-full-name }}"
+description: "Следуя данной инструкции, вы сможете cоздать образ на основе виртуальной машины."
+---
+
 # Создать образ на основе виртуальной машины {{ compute-name }}
 
 Чтобы создать [пользовательский образ](../../concepts/images.md#custom-images) {{ cloud-desktop-name }} из [виртуальной машины](../../../compute/concepts/vm.md) {{ compute-name }}:

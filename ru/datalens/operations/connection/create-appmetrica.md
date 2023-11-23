@@ -1,3 +1,8 @@
+---
+title: "Как создать подключение к AppMetrica в {{ datalens-full-name }}"
+description: "Следуя данной инструкции, вы сможете создать подключение к AppMetrica." 
+---
+
 # Создание подключения к AppMetrica
 
 Чтобы создать подключение к AppMetrica:

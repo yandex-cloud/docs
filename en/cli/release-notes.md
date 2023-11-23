@@ -1174,7 +1174,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
    * `yc cdn origin`, to manage origins.
    * `yc cdn origin-group`, to manage origin groups.
    * `yc cdn provider`, to connect to a CDN provider.
-   * `yc cdn cache`: To manage caching of CDN resource content.
+   * `yc cdn cache`, to manage caching of CDN resource content.
 
 ##### {{ alb-name }} {#alb}
 

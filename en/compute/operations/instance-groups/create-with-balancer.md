@@ -138,6 +138,8 @@ To create an instance group with a network load balancer:
                primary_v4_address_spec: {}
            scheduling_policy:
              preemptible: false
+           placement_policy:
+             placement_group_id: rmppvhrgm77g********
          ```
 
          {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
@@ -152,14 +154,16 @@ To create an instance group with a network load balancer:
          * `image_id`: ID of the public image. You can view image IDs in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
          * `type_id`: Disk type.
          * `size`: Disk size.
-         * `network_id`: ID of `default-net`.
+         * `network_id`: ID of the `default-net` network.
          * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
          * `scheduling_policy`: Scheduling policy configuration.
          * `preemptible`: Flag indicating whether [preemptible VMs](../../concepts/preemptible-vm.md) are created.
             * `true`: Create a preemptible VM.
             * `false` (default): Create a regular VM.
 
-            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. It is possible that {{ ig-name }} will not be able to restart them immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
+            When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. {{ ig-name }} may not be able to restart them immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
+         * `placement_policy`: (Optional) [VM placement group](../../concepts/placement-groups.md) parameters:
+            * `placement_group_id`: Placement group ID.
       * [Policies](../../concepts/instance-groups/policies/index.md):
 
          ```yaml
@@ -217,6 +221,8 @@ To create an instance group with a network load balancer:
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+       placement_policy:
+          placement_group_id: rmppvhrgm77g********
        deploy_policy:
          max_unavailable: 1
          max_expansion: 0

@@ -19,8 +19,8 @@ description: "Чтобы удалить целевую группу, в конс
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
-  1. Выберите целевую группу и нажмите значок ![image](../../_assets/horizontal-ellipsis.svg).
+  1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+  1. Выберите целевую группу и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.common.delete }}**.
 
      Чтобы выполнить это действие с несколькими группами, выделите нужные в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.

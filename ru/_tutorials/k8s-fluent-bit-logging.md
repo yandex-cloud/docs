@@ -1,35 +1,74 @@
-{% note info %}
+# Настройка Fluent Bit для работы с {{ cloud-logging-full-name }}
 
-Включить отправку логов [кластера {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster) в [{{ cloud-logging-full-name }}](../logging/) можно с помощью настройки `master logging` при [создании](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) кластера. Настройка доступна только в CLI, {{ TF }} и API.
+Чтобы настроить передачу логов подов и сервисов {{ managed-k8s-name }} в {{ cloud-logging-name }}:
 
-{% endnote %}
-
-Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи кластера {{ managed-k8s-name }} в сервис {{ cloud-logging-name }}. Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
-
-Чтобы настроить передачу логов:
-1. [Подготовьте кластер {{ managed-k8s-name }}](#configure-cluster).
 1. [Установите и настройте Fluent Bit](#fluent-bit-install).
+1. [Проверьте результат](#check-result).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-1. {% include [cli-install](../_includes/cli-install.md) %}
+Подготовьте инфраструктуру:
 
-   {% include [default-catalogue](../_includes/default-catalogue.md) %}
+{% list tabs %}
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md), необходимый для работы Fluent Bit.
-   1. [Назначьте ему роль](../iam/operations/sa/assign-role-for-sa.md) `logging.writer`.
-   1. Создайте для него [авторизованный ключ](../iam/operations/authorized-key/create.md) и сохраните его в файл `key.json`:
+- Вручную
 
-      ```bash
-      yc iam key create \
-        --service-account-name <имя_сервисного_аккаунта_для_Fluent_Bit> \
-        --output key.json
-      ```
+    1. Если у вас еще нет сети, [создайте ее](../vpc/operations/network-create.md).
+    1. Если у вас еще нет подсетей, [создайте их](../vpc/operations/subnet-create.md) в зонах доступности, где будут созданы кластер {{ k8s }} и группа узлов.
+    1. [Создайте сервисные аккаунты](../iam/operations/sa/create.md):
+        * Сервисный аккаунт для ресурсов {{ k8s }} с ролью [{{ roles-editor }}](../iam/concepts/access-control/roles.md#editor) на каталог, в котором создается кластер {{ managed-k8s-name }}.
+        * Сервисный аккаунт для узлов {{ k8s }} с ролью [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../container-registry/concepts/registry.md) Docker-образов. От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 
-1. [Создайте лог-группу](../logging/operations/create-group.md).
-1. [Создайте кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с [версией {{ k8s }}](../managed-kubernetes/concepts/release-channels-and-updates.md) не ниже 1.21.
+    {% note tip %}
 
-1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
+    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
+
+    {% endnote %}
+
+    1. [Создайте кластер {{ managed-k8s-name }} ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
+    1. [Настройте группы безопасности](../managed-kubernetes/operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
+    1. [Создайте лог-группу](../logging/operations/create-group.md).
+
+- С помощью {{ TF }}
+
+    1. Если у вас еще нет {{ TF }}, [установите его](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster-with-log-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster-with-log-group.tf).
+
+        В этом файле описаны:
+
+        * [Сеть](../vpc/concepts/network.md#network).
+        * [Подсеть](../vpc/concepts/network.md#subnet).
+        * [Группы безопасности](../managed-kubernetes/operations/connect/security-groups.md) и правила, необходимые для работы кластера, группы узлов и инстанса {{ managed-k8s-name }}:
+            * Правила для служебного трафика.
+            * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
+            * Правила для доступа к сервисам из интернета.
+        * [Сервисный аккаунт](../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ managed-k8s-name }}.
+        * [Кластер {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+        * [Группа узлов {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#node-group).
+        * [Лог-группа](../logging/concepts/log-group.md) {{ cloud-logging-name }}.
+    1. Укажите в файле конфигурации:
+        * [Идентификатор каталога](../resource-manager/operations/folder/get-id.md).
+        * [Версию {{ k8s }}](../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
+        * Имя сервисного аккаунта для ресурсов и узлов {{ managed-k8s-name }}.
+        * Имя лог-группы {{ cloud-logging-name }}.
+    1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+    1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 ## Установите и настройте Fluent Bit {#fluent-bit-install}
 
@@ -37,34 +76,19 @@
 
 - С помощью {{ yandex-cloud }}
 
-  1. Установите Fluent Bit согласно [инструкции](../managed-kubernetes/operations/applications/fluentbit.md).
-  1. [Проверьте передачу логов](../logging/operations/read-logs.md) кластера {{ managed-k8s-name }} в {{ cloud-logging-name }}.
+  Установите Fluent Bit согласно [инструкции](../managed-kubernetes/operations/applications/fluentbit.md). В настройках приложения укажите идентификатор [созданной ранее](#before-you-begin) лог-группы. Идентификатор лог-группы можно получить со [списком лог-групп в каталоге](../logging/operations/list.md).
 
 - Вручную
 
+  1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
   1. Создайте объекты, необходимые для работы Fluent Bit:
 
-     {% list tabs %}
-
-     - Для кластеров с версией {{ k8s }} до 1.21 включительно:
-
-       ```bash
-       kubectl create namespace logging && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role.yaml && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding.yaml
-       ```
-     
-     - Для кластеров с версией {{ k8s }} с 1.22 и выше:
-
-       ```bash
-       kubectl create namespace logging && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-1.22.yaml && \
-       kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
-       ```
-
-     {% endlist %}
+     ```bash
+     kubectl create namespace logging && \
+     kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
+     kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-1.22.yaml && \
+     kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
+     ```
 
   1. Создайте секрет, содержащий ключ [сервисного аккаунта](../iam/concepts/users/service-accounts.md):
 
@@ -76,9 +100,9 @@
 
   1. Скачайте конфигурационный файл `config.yaml`:
 
-   ```bash
-   wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
-   ```
+     ```bash
+     wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
+     ```
 
   1. Укажите параметры трансляции логов в блоке `data.output-elasticsearch.conf` файла `config.yaml`:
 
@@ -117,13 +141,41 @@
      kubectl get pods -n logging
      ```
 
-  1. [Проверьте передачу логов](../logging/operations/read-logs.md) кластера {{ managed-k8s-name }} в {{ cloud-logging-name }}.
-
 {% endlist %}
+
+## Проверьте результат {#check-result}
+
+[Проверьте передачу логов](../logging/operations/read-logs.md) подов и сервисов {{ managed-k8s-name }} в лог-группу {{ cloud-logging-name }}.
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-1. [Удалите кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. Если вы зарезервировали для кластера {{ managed-k8s-name }} [публичный статический IP-адрес](../vpc/concepts/address.md#public-addresses), [удалите его](../vpc/operations/address-delete.md).
-1. [Удалите лог-группу](../logging/operations/delete-group.md).
+
+{% list tabs %}
+
+- Вручную
+
+    1. [Удалите кластер {{ k8s }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+    1. Если вы зарезервировали для кластера {{ managed-k8s-name }} статический [публичный IP-адрес](../vpc/concepts/address.md#public-addresses), освободите и [удалите его](../vpc/operations/address-delete.md).
+    1. [Удалите созданные подсети](../vpc/operations/subnet-delete.md) и [сети](../vpc/operations/network-delete.md).
+    1. [Удалите созданные сервисные аккаунты](../iam/operations/sa/delete.md).
+    1. [Удалите лог-группу](../logging/operations/delete-group.md).
+
+- С помощью {{ TF }}
+
+    1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Удалите конфигурационный файл `k8s-cluster-with-log-group.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+        Все ресурсы, которые были описаны в конфигурационном файле `k8s-cluster-with-log-group.tf`, будут удалены.
+
+{% endlist %}

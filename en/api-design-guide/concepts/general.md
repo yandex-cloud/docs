@@ -6,7 +6,7 @@
 
 #### Resource-based approach {#resource-oriented-design}
 
-APIs use a resource-based approach. The concepts that apply to all {{ yandex-cloud }} APIs are described below:
+APIs of most {{ yandex-cloud }} services use a resource-based approach. How it works:
 
 - In APIs, resources are VMs, disks, images, etc. Each resource has a [unique ID](resources-identification.md).
 
@@ -18,11 +18,12 @@ APIs use a resource-based approach. The concepts that apply to all {{ yandex-clo
 
 - Operations for creating, updating, and deleting resources support [idempotency](idempotency.md).
 
-{% note info %}
 
-The [{{ objstorage-full-name }} API](../../storage/s3/index.md) architecture provides compatibility with the Amazon S3 API. The {{ objstorage-name }} API may therefore not conform to the concepts described in this document. For more information, see the documentation on the service.
+#### Exceptions for the resource-based approach {#exceptions}
 
-{% endnote %}
+- [{{ objstorage-full-name }} API](../../storage/s3/index.md). Its architecture is compatible with the Amazon S3 API, so the {{ objstorage-name }} API operating principles do not always match those of the resource-based approach. For more information, see the documentation on the service.
+- [{{ yagpt-full-name }}](../../yandexgpt/api-ref/grpc/), [{{ speechkit-full-name }}](../../speechkit/concepts/api.md), [{{ translate-full-name }}](../../translate/api-ref/grpc/), and [{{ vision-full-name }}](../../vision/vision/api-ref/grpc/) AI service API. The API of these services does not use {{ yandex-cloud }} resources and API requests are not idempotent.
+
 
 #### See also {#see-also}
 - [Link to the .proto specifications of the {{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi)

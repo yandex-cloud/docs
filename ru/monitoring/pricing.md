@@ -1,4 +1,6 @@
 ---
+title: "Правила тарификации для {{ monitoring-full-name }}"
+description: "В статье содержатся правила тарификации сервиса {{ monitoring-name }}."
 editable: false
 ---
 

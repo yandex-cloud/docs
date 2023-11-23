@@ -1,3 +1,8 @@
+---
+title: "Валидация данных в {{ api-gw-full-name }}"
+description: "Из статьи вы узнаете, какие расширения {{ api-gw-name }} позволяют определить валидатор для схем, описанных в спецификации API-шлюза."
+---
+
 # Валидация данных
 
 Расширения `x-yc-apigateway-validators` и `x-yc-apigateway-validator` позволяют определить валидатор для следующих схем, описанных в спецификации API-шлюза внутри [операции](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#operation-object):

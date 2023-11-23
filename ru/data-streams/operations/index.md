@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ yds-full-name }}"
+description: "Различные сценарии использования {{ yds-full-name }} в {{ yandex-cloud }}."
+---
+
 # Пошаговые инструкции для {{ yds-name }}
 
 * [Управление потоками данных](manage-streams.md)

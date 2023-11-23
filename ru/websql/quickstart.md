@@ -1,6 +1,6 @@
 # Как начать работать с {{ websql-full-name }}
 
-{% include notitle [preview](../_includes/note-preview.md) %}
+{% include notitle [preview](../_includes/note-preview-by-request.md) %}
 
 В этом разделе вы научитесь подключаться к кластерам управляемых баз данных с помощью {{ websql-full-name }}.
 

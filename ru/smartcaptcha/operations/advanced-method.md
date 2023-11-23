@@ -1,3 +1,8 @@
+---
+title: "Как добавить виджет {{ captcha-full-name }} расширенным методом"
+description: "Следуя данной инструкции, вы сможете добавить виджет {{ captcha-name }} расширенным методом."
+---
+
 # Добавьте виджет {{ captcha-name }} расширенным методом
 
 Вы управляете загрузкой виджета через [объект](../concepts/widget-methods.md#methods) `window.smartCaptcha`. В инструкции для этого используется callback-функция `onloadFunction`:

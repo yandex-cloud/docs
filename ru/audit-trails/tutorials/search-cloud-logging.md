@@ -1,3 +1,8 @@
+---
+title: "Как найти события {{ yandex-cloud }} в {{ cloud-logging-full-name }}"
+description: "Из статьи вы узнаете, как найти события {{ yandex-cloud }} в {{ cloud-logging-full-name }}."
+---
+
 # Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
 
 ## Кто удалил каталог

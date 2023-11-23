@@ -1,6 +1,6 @@
 # Управление подключениями с базами данных
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 На панели **Диспетчер подключений** (![image](../../_assets/websql/connections.svg)) вы можете:
 

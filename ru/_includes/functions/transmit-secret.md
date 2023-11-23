@@ -43,16 +43,16 @@
       --entrypoint index.main \
       --memory 128m \
       --execution-timeout 5s \
-      --source-version-id vfdsde*************** \
-      --service-account-id bfbtfc************** \
-      --secret environment-variable=KEY,id=fc3q4a**************,version-id=fc3gvv**************,key=key-id
+      --source-version-id vfdsdeqa1s2d3******** \
+      --service-account-id bfbtfcp0o9i8******** \
+      --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=key-id
     ```
 
     Где:
 
     * `--function-name` — имя функции.
     * `--runtime` — среда выполнения.
-    * `--entrypoint` — точка входа, указывается в формате <имя файла с функцией>.<имя обработчика>.
+    * `--entrypoint` — точка входа, указывается в формате `<имя_файла_с_функцией>`.`<имя_обработчика>`.
     * `--memory` — объем RAM.
     * `--execution-timeout` — максимальное время выполнения функции до таймаута.
     * `--source-version-id` — идентификатор версии функции, код которой вы хотите скопировать.
@@ -83,14 +83,14 @@
           secrets {
             id                   = "<идентификатор_секрета>"
             version_id           = "<идентификатор_версии_секрета>"
-            key                  = "<ключ_секрета1>"
-            environment_variable = "<имя_переменной_окружения1>"
+            key                  = "<ключ_секрета_1>"
+            environment_variable = "<имя_переменной_окружения_1>"
           }
           secrets {
             id                   = "<идентификатор_секрета>"
             version_id           = "<идентификатор_версии_секрета>"
-            key                  = "<ключ_секрета2>"
-            environment_variable = "<имя_переменной_окружения2>"
+            key                  = "<ключ_секрета_2>"
+            environment_variable = "<имя_переменной_окружения_2>"
           }
           
           content {

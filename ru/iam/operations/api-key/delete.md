@@ -13,7 +13,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Выберите сервисный аккаунт и нажмите на строку с его именем.
   1. В списке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}** найдите API-ключ, который нужно удалить.
-  1. Нажмите значок ![image](../../../_assets/options.svg) в строке ключа.
+  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке ключа.
   1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-access-key }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 

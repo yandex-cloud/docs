@@ -136,6 +136,8 @@ items:
             href: blocks-ref/test-multiple.md
           - name: Число
             href: blocks-ref/test-number.md
+      - name: Трекер
+        href: blocks-ref/tracker.md
       - name: Файл
         href: blocks-ref/file.md
       - name: Целое число

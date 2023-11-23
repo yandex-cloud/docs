@@ -1,6 +1,9 @@
 ---
+title: "Как изменить название поля задачи с помощью {{ tracker-full-name }} API"
+description: "Из статьи вы узнаете, как изменить название поля задачи в {{ tracker-name }}."
 sourcePath: ru/tracker/api-ref/concepts/issues/patch-issue-field-name.md
 ---
+
 # Изменить название поля задачи
 
 ## Формат запроса {#section_v3n_hbv_ngb}

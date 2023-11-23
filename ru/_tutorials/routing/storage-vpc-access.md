@@ -132,12 +132,11 @@ warp get \
 
 ## Разверните решение с помощью {{ TF }} {#deploy}
 
-1. Склонируйте на вашу рабочую станцию [репозиторий](https://github.com/yandex-cloud/yc-architect-solution-library/) `yandex-cloud/yc-architect-solution-library` и перейдите в папку `yc-s3-private-endpoint`:
+1. Склонируйте на вашу рабочую станцию [репозиторий](https://github.com/yandex-cloud-examples/yc-s3-private-endpoint) `yandex-cloud-examples/yc-s3-private-endpoint` и перейдите в папку `yc-s3-private-endpoint`:
 
     ```bash
-    git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
-    
-    cd yc-architect-solution-library/yc-s3-private-endpoint
+    git clone https://github.com/yandex-cloud-examples/yc-s3-private-endpoint.git
+    cd yc-s3-private-endpoint
     ```
 
 1. Настройте окружение для аутентификации в {{ TF }} (подробнее см. [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)):

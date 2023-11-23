@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ cloud-logging-full-name }}"
+description: "Различные сценарии использования {{ cloud-logging-full-name }} в {{ yandex-cloud }}."
+---
+
 # Практические руководства {{ cloud-logging-name }}
 
 * [{#T}](k8s-fluent-bit-logging.md)

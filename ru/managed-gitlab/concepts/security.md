@@ -1,3 +1,8 @@
+---
+title: "Безопасность в {{ mgl-full-name }}"
+description: "Из статьи вы узнаете, какие меры безопасности доступны в {{ mgl-name }}."
+---
+
 # Безопасность в {{ mgl-name }}
 
 ## Обнаружение уязвимостей в CI/CD {#vulnerability-detection}

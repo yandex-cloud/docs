@@ -7,9 +7,11 @@ description: "{{ mmy-name }} lets you visualize the data structure in your clust
 
 {{ mmy-name }} allows you to visualize the data structure in your cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **{{ ui-key.yacloud.mysql.cluster.switch_explore }}** tab.
 
+{% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
+
 ## Access to the cluster from the management console {#sql-cluster-access}
 
-To connect to a {{ mmy-name }} cluster from the management console and operate its data, activate the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
+To connect to a {{ mmy-name }} cluster from the management console and operate its data, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings).
 
 {% include [web-sql-auth](../../_includes/mdb/web-sql-auth.md) %}
 

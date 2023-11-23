@@ -1,3 +1,8 @@
+---
+title: "История изменений в {{ forms-full-name }} в октябре 2023"
+description: "Ознакомьтесь с историей изменений в {{ forms-full-name }} за октябрь 2023."
+---
+
 # История изменений в {{ forms-full-name }} в октябре 2023
 
 * [Улучшение интеграции с {{ sf-full-name }}](#integration-with-functions)

@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования {{ mmy-full-name }}"
+description: "Различные сценарии использования {{ mmy-full-name }} в {{ yandex-cloud }}."
+---
+
 # Практические руководства {{ mmy-name }}
 
 * [{#T}](profiling-mmy.md)

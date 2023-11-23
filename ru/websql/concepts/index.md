@@ -1,6 +1,6 @@
 # О сервисе {{ websql-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 {{ websql-full-name }} — это сервис {{ yandex-cloud }}, который позволит вам подключаться к кластерам управляемых баз данных, работать с базами данных, таблицами и схемами и выполнять SQL-запросы. Сервис работает в браузере и предлагает удобные подсказки для выполнения SQL-запросов.
 

@@ -1,3 +1,8 @@
+---
+title: "Как работать с изображениями и файлами в {{ wiki-full-name }}"
+description: "Из статьи вы узнаете, как работать с изображениями и файлами в {{ wiki-name }}."
+---
+
 # Изображения и файлы
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

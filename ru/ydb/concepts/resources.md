@@ -1,3 +1,9 @@
+---
+title: "Термины и определения для {{ ydb-full-name }}"
+description: "На странице представлены термины и определения для сервиса {{ ydb-name }}."
+sourcePath: overlay/public_talks.md
+---
+
 # Термины и определения для {{ ydb-name }}
 
 ## База данных {#database}
