@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/yandexgpt/api-ref/grpc/operation_service.md
 ---
 
-# Foundation Models API, gRPC: OperationService
+# YandexGPT API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 
