@@ -11,8 +11,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `editor` and `container-registry.images.puller` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration.
+1. [Create a service account](../../iam/operations/sa/create.md) with the `editor`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration. In the cluster settings, specify the service account you created earlier.
 1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md).
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).

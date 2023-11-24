@@ -117,7 +117,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
     1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
-    1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/horizontal-ellipsis.svg).
+    1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт **{{ ui-key.yacloud.lockbox.button_action-open-version-add-dialog }}**.
     1. Измените или добавьте следующие параметры:
         * (Опционально) **{{ ui-key.yacloud.common.description }}** — описание версии.
@@ -141,7 +141,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
     1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
-    1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/horizontal-ellipsis.svg).
+    1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт **{{ ui-key.yacloud.lockbox.field_make-version-current }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_action-make-version-current }}**.
 
@@ -160,7 +160,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
     1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Нажмите на имя нужного секрета.
-    1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/horizontal-ellipsis.svg).
+    1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, напротив нужной версии нажмите ![image](../../_assets/console-icons/ellipsis.svg).
     1. Выберите пункт **{{ ui-key.yacloud.lockbox.button_action-schedule-for-destruction }}**.
     1. Введите время до удаления.
     1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_schedule-destruction }}**.

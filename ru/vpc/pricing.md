@@ -90,7 +90,7 @@ editable: false
 
 ### Использование групп безопасности {#prices-security-groups}
 
-Функциональность [групп безопасности](concepts/security-groups.md) находится на стадии [Preview](../overview/concepts/launch-stages.md) и ее использование не тарифицируется.
+Использование функциональности [групп безопасности](concepts/security-groups.md) не тарифицируется.
 
 ### Исходящий трафик {#prices-traffic}
 

@@ -23,7 +23,7 @@ description: "Из статьи вы узнаете, как изменить о�
 
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
-  1. В правом верхнем углу нажмите кнопку ![***](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.component.console-dashboard.button_action-change-org }}**.
+  1. В правом верхнем углу нажмите кнопку ![***](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.component.console-dashboard.button_action-change-org }}**.
   1. Выберите новую организацию из списка и нажмите **{{ ui-key.yacloud.iam.cloud.change-org.button_change }}**.
 
 - API

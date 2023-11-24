@@ -4479,6 +4479,8 @@ default:
         value_scheme-incremental: Инкрементальный
       billing:
         account:
+          acts_batch-download-text_pdf: Скачать документы (PDF)
+          acts_batch-download-text_zip: Скачать документы (ZIP)
           bind-cloud:
             button_bind: Привязать
           budgets:

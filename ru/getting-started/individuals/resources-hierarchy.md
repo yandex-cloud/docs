@@ -6,13 +6,13 @@
 
 ## Создайте каталог
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- Консоль управления {#console}
+- Консоль управления
 
   {% include [create-folder](../../_includes/create-folder.md) %}
 
-- CLI {#cli}
+- CLI
 
   1. Посмотрите описание команды создания каталога:
 
@@ -40,7 +40,7 @@
               --description "my first folder with description"
           ```
 
-- API {#api}
+- API
 
   Чтобы создать каталог, воспользуйтесь методом [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md).
 
@@ -50,16 +50,16 @@
 
 Через консоль управления можно изменить только имя каталога. Чтобы изменить его описание, используйте CLI или API.
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- Консоль управления {#console}
+- Консоль управления
 
   1. Выберите каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).
   1. Нажмите значок ![image](../../_assets/options.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Введите новое имя каталога.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
-- CLI {#cli}
+- CLI
 
   1. Посмотрите описание команды изменения каталога:
 
@@ -115,7 +115,7 @@
 
 
 
-- API {#api}
+- API
 
   Чтобы изменить каталог, воспользуйтесь методом [update](../../resource-manager/api-ref/Folder/update.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md).
   

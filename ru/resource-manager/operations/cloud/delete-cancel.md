@@ -16,7 +16,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако.
   
-  1. В правом верхнем углу нажмите значок ![***](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.component.console-dashboard.button_cancel-deletion }}**.
+  1. В правом верхнем углу нажмите значок ![***](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.component.console-dashboard.button_cancel-deletion }}**.
 
   Начатая ранее операция удаления облака будет отменена.
 

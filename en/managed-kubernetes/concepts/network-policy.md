@@ -44,12 +44,6 @@ Cilium tunneling mode helps:
 
 To be able to use tunnel mode, a service account [requires the `k8s.tunnelClusters.agent` role](../security/index.md#yc-api).
 
-{% note info %}
-
-Tunneling mode is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
-
 ## Cluster requirements to enable network policies {#requirements}
 
 To enable network policies in a {{ k8s }} cluster, [sufficient resources](node-group/allocatable-resources.md) in node groups are required. Using network policies requires additional memory and vCPU resources.
