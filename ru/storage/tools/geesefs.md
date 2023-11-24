@@ -31,6 +31,16 @@
 * Переименование папок.
 * `readdir` — чтение метаинформации о папках.
 
+### Частичное изменение и дозапись объектов {#patch}
+
+В GeeseFS поддерживается [частичное изменение и дозапись объектов](../concepts/object-patch.md) в бакеты {{ objstorage-name }}.
+
+Чтобы включить частичное изменение объектов, используйте опцию `--enable-patch`. 
+
+Подробнее в репозитории GeeseFS на GitHub:
+* [Partial object updates](https://github.com/yandex-cloud/geesefs#partial-object-updates-patch) — описание частичного изменения и дозаписи объектов.
+* [Concurrent Updates](https://github.com/yandex-cloud/geesefs#concurrent-patch) — описание частичного изменения объекта одновременно несколькими запросами.
+
 ### Ограничения {#restrictions}
 
 В GeeseFS не поддерживаются:

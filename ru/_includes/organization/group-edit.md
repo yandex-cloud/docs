@@ -8,9 +8,9 @@
 
     1. Перейдите в сервис [{{org-full-name}}]({{ link-org-main }}).
 
-    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg).
+    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
     
-    1. Выберите группу в списке и нажмите значок ![image](../../_assets/options.svg) напротив имени группы.
+    1. Выберите группу в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив имени группы.
     
     1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_edit }}** и введите новое название или описание группы.
 

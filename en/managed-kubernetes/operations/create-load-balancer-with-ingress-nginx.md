@@ -4,7 +4,8 @@ When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingre
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md).
+1. [Create a service account](../../iam/operations/sa/create.md) with the `editor`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md). In the cluster settings, specify the service account you created earlier.
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Add a repository for NGINX to Helm:

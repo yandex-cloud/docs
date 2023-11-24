@@ -22,7 +22,7 @@ description: "Используйте {{ org-full-name }}, чтобы расши�
 
 1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.raw_services }}]({{link-org-services}}) ![icon-services](../../_assets/organization/icon-services.svg).
+1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.raw_services }}]({{link-org-services}}) ![icon-services](../../_assets/console-icons/cloud.svg).
 
    На странице отображается список облаков, подключенных к организации, а также сервисы: {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, {{ datalens-full-name }} и {{ ml-platform-full-name }}.
 

@@ -15,7 +15,7 @@ description: "Из этой статьи вы узнаете, как измен�
 
 1. Войдите в [{{org-full-name}}]({{link-org-main}}) под аккаунтом администратора или владельца организации.
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.settings }}]({{link-org-settings}}) ![icon-settings](../../_assets/organization/icon-settings.svg).
+1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.settings }}]({{link-org-settings}}) ![icon-settings](../../_assets/console-icons/circle-info.svg).
 
 1. Чтобы изменить название и описание организации, в правом верхнем углу нажмите **{{ ui-key.yacloud_org.page.settings.action.edit }}**.
 

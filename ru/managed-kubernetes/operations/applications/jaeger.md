@@ -79,7 +79,7 @@
 ### Установка Jaeger {#install-jaeger}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **Доступные для установки приложения** выберите [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.

@@ -59,7 +59,7 @@
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке приложения, которое требуется изменить.
+  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется изменить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите нужные изменения и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -73,7 +73,7 @@
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке приложения, которое требуется удалить.
+  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
 
 {% endlist %}

@@ -1,0 +1,1 @@
+Пример использования написан с помощью утилиты `grpcurl`. Чтобы воспользоваться им, [аутентифицируйтесь](../../logging/api-ref/authentication.md) в API и клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi).

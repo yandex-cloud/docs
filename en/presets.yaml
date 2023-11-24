@@ -4478,6 +4478,8 @@ default:
         value_scheme-incremental: Incremental
       billing:
         account:
+          acts_batch-download-text_pdf: Download documents (PDF)
+          acts_batch-download-text_zip: Download documents (ZIP)
           bind-cloud:
             button_bind: Link
           budgets:

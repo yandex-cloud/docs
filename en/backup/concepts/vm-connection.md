@@ -4,7 +4,7 @@ To back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/con
 
 To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed: Linux (CentOS, Ubuntu) or Windows Server. You can connect existing Linux and Windows Server VMs or create a Linux VM with a connection to {{ backup-name }}. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
 
-For the connection to work properly, you need to assign the VM a [service account](#sa) with the `backup.editor` role, a [public IP address](#public-ip-address), and a [security group](#security-groups) with relevant rules (if this feature is enabled for your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud)).
+For connections to work properly, link a [service account](#sa) with the `backup.editor` role to your VM or set up [network access](#vm-network-access) for the VM.
 
 Once you have connected your VM to {{ backup-name }} and set it up, you need to link it to a [backup policy](policy.md).
 
@@ -27,17 +27,9 @@ When you create a VM for which you want to set up backups in {{ backup-name }},
 
 You can [assign the role](../../iam/operations/sa/assign-role-for-sa.md) to an existing service account or [create](../../iam/operations/sa/create.md) a service account with relevant roles.
 
-## Public IP address {#public-ip-address}
+## VM network access permissions {#vm-network-access}
 
-The VM instance connected to {{ backup-name }} must exchange data with the [backup provider](index.md#providers) server. For this, when creating a VM, you need to assign to it a [public IP address](../../vpc/concepts/address.md#public-addresses) in [{{ vpc-full-name }}](../../vpc/).
-
-Using a public IP address is a paid service. For more information, see [{#T}](../../vpc/pricing.md).
-
-## Security groups {#security-groups}
-
-Security groups allow you to manage VM access to resources in {{ yandex-cloud }} or on the web.
-
-For your VM instance to be able to exchange data with the backup provider servers, when creating it and connecting to {{ backup-name }}, select a security group with the following (or broader) rules:
+For the {{ backup-name }} agent to exchange data with the [backup provider](index.md#providers) servers, make sure the VM is granted network access to the IP addresses of {{ backup-name }} resources based on the following table:
 
 {% list tabs %}
 
@@ -49,6 +41,8 @@ For your VM instance to be able to exchange data with the backup provider server
    | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24` |
    | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
    | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.201.181.0/24` |
+   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `178.176.128.0/24` |
+   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `193.32.199.0/24` |
    | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24` |
    | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24` |
    | `7770-7800` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
@@ -57,4 +51,7 @@ For your VM instance to be able to exchange data with the backup provider server
 
 {% endlist %}
 
-You can [add the rules](../../vpc/operations/security-group-add-rule.md) to an existing security group or [create](../../vpc/operations/security-group-create.md) a new group with the rules.
+To provide network access, [assign](../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../vpc/concepts/static-routes.md#rt-vm) that allows internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or a custom router.
+
+The VM's [security group](../../vpc/concepts/security-groups.md) rules must allow access to the specified resources. You can [add the rules](../../vpc/operations/security-group-add-rule.md) to an existing security group or [create](../../vpc/operations/security-group-create.md) a new group with the rules.
+

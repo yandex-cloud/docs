@@ -70,7 +70,7 @@
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
     1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-    1. На панели слева выберите раздел ![icon-federation](../../_assets/organization/icon-federation.svg) [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
+    1. На панели слева выберите раздел ![icon-federation](../../_assets/console-icons/vector-square.svg) [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
     1. Выберите нужную федерацию и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
     1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** и задайте сопоставление:

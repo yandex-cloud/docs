@@ -13,8 +13,7 @@ To connect a Windows VM to {{ backup-name }}:
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../../iam/concepts/access-control/roles.md#backup-editor).
 1. [Connect](../../compute/operations/vm-control/vm-update.md) the previously created service account to the VM.
-1. If your VM has no public IP address, [attach](../../compute/operations/vm-control/vm-attach-public-ip.md) it.
-1. In a security group, [set up](../../vpc/operations/security-group-add-rule.md) [rules for working with {{ backup-name }}](../concepts/vm-connection.md#security-groups).
+1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
 1. [Connect to the VM via RDP](../../compute/operations/vm-connect/rdp.md).
 1. Run Windows PowerShell.
 1. Run the following command:

@@ -3,13 +3,13 @@
 Всю историю зачислений на [лицевой счет](../concepts/personal-account.md#balance) вы можете отслеживать на странице **{{ ui-key.yacloud.billing.account.switch_history }}** либо в сервисе [Яндекс Баланс](https://yandex.ru/support/balance/operations/find-bill.html). Способ отслеживания зависит от вашего юридического статуса ([типа платежного аккаунта](../concepts/billing-account.md#ba-types)).
 
 
-{% list tabs %}
+{% list tabs group=customers %}
         
-- Юридические лица и ИП
+- Юридические лица и ИП {#businesses}
   
   Организации и ИП могут отслеживать всю историю зачислений в сервисе Яндекс Баланс на странице [Счета](https://balance.yandex.ru/invoices.xml).
   
-- Физические лица
+- Физические лица {#individuals}
   
   Физические лица могут посмотреть всю историю зачислений на странице **{{ ui-key.yacloud.billing.account.switch_history }}**.
 

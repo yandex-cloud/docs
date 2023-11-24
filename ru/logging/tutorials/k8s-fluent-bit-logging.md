@@ -33,11 +33,11 @@ description: "Обработчик логов Fluent Bit позволяет тр
         * Сервисный аккаунт для ресурсов {{ k8s }} с ролью [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на каталог, в котором создается кластер {{ managed-k8s-name }}.
         * Сервисный аккаунт для узлов {{ k8s }} с ролью [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 
-    {% note tip %}
+        {% note tip %}
 
-    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
+        Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
-    {% endnote %}
+        {% endnote %}
 
     1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../iam/concepts/access-control/roles.md#logging-writer). Она необходима для отправки логов кластером {{ managed-k8s-name }} в {{ cloud-logging-name }}.
     1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.

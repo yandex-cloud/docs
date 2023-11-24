@@ -4,7 +4,9 @@
 
 ## Перед началом работы {#before-begin}
 
-{% include [terraform-install](../../_includes/terraform-install.md) %} В сценарии используется конфигурационный файл с названием `example.tf` в директории `~/cloud-terraform`.
+{% include [terraform-install](../../_includes/terraform-install.md) %}
+
+В сценарии используется конфигурационный файл с названием `example.tf`, который находится в директории `~/cloud-terraform`.
 
 ## Создание и запуск виртуальной машины с образом {{ coi }} {#creating-vm}
 

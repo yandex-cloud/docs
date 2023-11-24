@@ -28,7 +28,7 @@ _Организация_ — это рабочее пространство, к�
 
 Чтобы подключить сотрудников с аккаунтами на Яндексе:
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/console-icons/person.svg).
 
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 
@@ -47,7 +47,7 @@ _Организация_ — это рабочее пространство, к�
 
 Чтобы настроить федерацию удостоверений:
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
+1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{link-org-federations}}) ![icon-federation](../_assets/console-icons/vector-square.svg).
 
 1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 

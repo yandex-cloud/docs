@@ -48,7 +48,7 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
@@ -281,7 +281,7 @@
 
 - Консоль управления
 
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
   1. Нажмите имя федерации, для которой нужно добавить сертификат.
 
@@ -442,9 +442,9 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/console-icons/person.svg).
 
-  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
+  1. В правом верхнем углу нажмите ![icon-users](../../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
 
   1. Выберите федерацию, из которой необходимо добавить пользователей.
 

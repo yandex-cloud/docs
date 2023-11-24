@@ -24,45 +24,44 @@ description: "Среда выполнения выбирается при соз
 
 Среды выполнения, доступные в {{ sf-name }}.
 
-| Имя | Идентификатор | Предзагружаемая |
-| ---- | ---- | ---- |
+| Имя | Идентификатор | Предзагружаемая | Поддерживается сервисом |
+| ---- | ---- | ---- | ---- |
 | **Node.js** |  |  |
-| Node.js 10 | `nodejs10` | нет |
-| Node.js 12 | `nodejs12` | нет |
-| Node.js 14 | `nodejs14` | нет |
-| Node.js 16 | `nodejs16` | да |
-| Node.js 18 | `nodejs18` | да |
+| Node.js 10 | `nodejs10` | нет | нет |
+| Node.js 12 | `nodejs12` | нет | нет |
+| Node.js 14 | `nodejs14` | нет | нет |
+| Node.js 16 | `nodejs16` | да | нет |
+| Node.js 18 | `nodejs18` | да | да |
 | **PHP** |  |  |
-| PHP 7.4 | `php74` | нет |
-| PHP 8.0 | `php8`  | нет |
-| PHP 8.2 | `php82`  | нет |
+| PHP 7.4 | `php74` | нет | нет |
+| PHP 8.0 | `php8`  | нет | нет |
+| PHP 8.2 | `php82`  | нет | да |
 | **Python** |  |  |
-| Python 3.7 | `python37` | нет |
-| Python 3.8 | `python38` | нет |
-| Python 3.9 | `python39` | нет |
-| Python 3.11 | `python311` | да |
-| Python 3.12 | `python312` | да |
+| Python 3.7 | `python37` | нет | нет |
+| Python 3.8 | `python38` | нет | нет |
+| Python 3.9 | `python39` | нет | нет |
+| Python 3.11 | `python311` | да | нет |
+| Python 3.12 | `python312` | да | да |
 | **Go** |  |  |
-| Go 1.16 | `golang116` | нет |
-| Go 1.17 | `golang117` | нет |
-| Go 1.18 | `golang118` | нет |
-| Go 1.19 | `golang119` | нет |
-| Go 1.21 | `golang121` | нет |
+| Go 1.16 | `golang116` | нет | нет |
+| Go 1.17 | `golang117` | нет | нет |
+| Go 1.18 | `golang118` | нет | нет |
+| Go 1.19 | `golang119` | нет | нет |
+| Go 1.21 | `golang121` | нет | да |
 | **Java** |  |  |
-| Java 11 | `java11` | нет |
-| Java 17 | `java17` | нет |
-| Java 21 | `java21` | нет |
+| Java 11 | `java11` | нет | нет |
+| Java 17 | `java17` | нет | нет |
+| Java 21 | `java21` | нет | да |
 | **.NET Core** |  |  |
-| .NET Core 3.1 | `dotnetcore31` | нет |
-| .NET Core 6 | `dotnet6` | нет |
-| .NET Core 8 | `dotnet8` | нет |
+| .NET Core 3.1 | `dotnetcore31` | нет | нет |
+| .NET Core 6 | `dotnet6` | нет | да |
+| .NET Core 8 | `dotnet8` | нет | да |
 | **R** |  |  |
-| R 4.0.2 | `r402` | нет |
-| R 4.0 | `r40` | нет |
-| R 4.2 | `r42` | нет |
-| R 4.3 | `r43` | нет |
+| R 4.2 | `r42` | нет | нет |
+| R 4.3 | `r43` | нет | да |
 | **Other** |  |  |
-| Bash | `bash` | нет |
+| Bash 18.04 | `bash` | нет | нет |
+| Bash 22.04 | `bash-2204` | нет | да |
 
 ## Ресурсы экземпляра функции {#resources}
 
