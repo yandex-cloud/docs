@@ -485,6 +485,18 @@ items:
                 href: functions/api-ref/Function/update.md
               - name: updateAccessBindings
                 href: functions/api-ref/Function/updateAccessBindings.md
+          - name: Network
+            items:
+              - name: Overview
+                href: functions/api-ref/Network/index.md
+              - name: getUsed
+                href: functions/api-ref/Network/getUsed.md
+              - name: listConnectedResources
+                href: functions/api-ref/Network/listConnectedResources.md
+              - name: listUsed
+                href: functions/api-ref/Network/listUsed.md
+              - name: triggerUsedCleanup
+                href: functions/api-ref/Network/triggerUsedCleanup.md
   - name: API Triggers reference
     items:
       - name: Authentication in the API
