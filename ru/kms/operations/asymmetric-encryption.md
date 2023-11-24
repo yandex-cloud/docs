@@ -33,7 +33,7 @@ description: "Следуя данной инструкции, вы сможет�
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Перейдите на вкладку **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}**.
-      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}**, чтобы скачать публичный ключ шифрования.
     
     - CLI

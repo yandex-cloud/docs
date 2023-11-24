@@ -13,7 +13,7 @@
      1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в каталоге.
      1. Откройте нужный кластер {{ k8s }}.
      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-  1. На вкладке **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке группы узлов, которую требуется удалить.
+  1. На вкладке **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке группы узлов, которую требуется удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.popup-confirm_button_delete }}**.
 

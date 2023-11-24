@@ -54,6 +54,7 @@ description: "Из статьи вы узнаете, какие методы S3 
 ----- | -----
 [upload](object/upload.md) | Загружает объект в {{ objstorage-name }}.
 [get](object/get.md) | Выгружает объект из {{ objstorage-name }}.
+[patch](object/patch.md) | [Частично изменяет](../../concepts/object-patch.md) объект.
 [copy](object/copy.md) | Копирует объект, хранящийся в {{ objstorage-name }}.
 [getObjectMeta](object/getobjectmeta.md) | Выгружает метаданные объекта.
 [delete](object/delete.md) | Удаляет объект.

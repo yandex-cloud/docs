@@ -1,8 +1,8 @@
 ### Добавьте федеративных пользователей {#add-user-sso}
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- Консоль управления {#console}
+- Консоль управления
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
     1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
@@ -12,7 +12,7 @@
     1. Перечислите Name ID пользователей, разделяя их переносами строк.
     1. Нажмите **Добавить**. Пользователи будут подключены к организации.
 
-- CLI {#cli}
+- CLI
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -32,7 +32,7 @@
            --name-ids <список_Name_ID_пользователей>
         ```
 
-- API {#api}
+- API
 
     Воспользуйтесь методом REST API [addUserAccounts](../../iam/api-ref/Federation/addUserAccounts.md) для ресурса [Federation](../../iam/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/AddUserAccounts](../../iam/api-ref/grpc/federation_service.md#AddUserAccounts) и передайте в запросе:
 

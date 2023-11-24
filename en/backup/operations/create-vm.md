@@ -10,7 +10,7 @@ description: "Follow this guide to create a Linux VM with a connection to {{ bac
 ## Getting started {#before-you-begin}
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../../iam/concepts/access-control/roles.md#backup-editor).
-1. In a security group, [set up](../../vpc/operations/security-group-add-rule.md) [rules for working with {{ backup-name }}](../concepts/vm-connection.md#security-groups).
+1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
 
 ## Creating a VM {#creating-vm}
 

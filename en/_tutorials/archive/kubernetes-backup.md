@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Manually
 
    1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each of them with the following settings:
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: `1.21` or higher
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: `1.22` or higher
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`
 
    One {{ managed-k8s-name }} cluster will be used for creating a node group backup and another one for recovery.

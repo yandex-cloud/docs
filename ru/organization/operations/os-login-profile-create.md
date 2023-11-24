@@ -10,7 +10,7 @@
 
   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
   1. Выберите пользователя из списка.
   1. Перейдите на вкладку **Профили OS Login**.
   1. Нажмите кнопку **Создать профиль**.

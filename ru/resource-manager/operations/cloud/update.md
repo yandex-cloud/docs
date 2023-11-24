@@ -7,7 +7,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако.
-  1. В правом верхнем углу страницы нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу страницы нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне введите новое имя облака. Требования к имени:
 
 	 {% include [name-format.md](../../../_includes/name-format.md) %}

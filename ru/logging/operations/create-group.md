@@ -147,4 +147,48 @@ description: "Из статьи вы узнаете, как создать ло�
 
   Чтобы создать лог-группу, воспользуйтесь методом REST API [create](../api-ref/LogGroup/create.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create).
 
+  **Пример запроса**
+
+  {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
+
+  Создайте файл `payload.json`:
+
+  ```json
+  {
+     "folder_id": "<идентификатор_каталога>",
+     "name": "new-group",
+     "description": "Описание лог-группы, созданной с помощью grpcurl",
+     "labels": {
+       "compute": "instance-logging"
+     }
+  }
+  ```
+
+  Выполните запрос:
+
+  ```bash
+  grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \
+    -d @ \
+    -import-path ~/cloudapi/ \
+    -import-path ~/cloudapi/third_party/googleapis/ \
+    -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
+  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Create < payload.json
+  ```
+
+  Ответ:
+
+  ```text
+  {
+    "id": "e23nitus5cg9********",
+    "description": "Create log group",
+    "createdAt": "2023-11-23T14:54:23.077532292Z",
+    "createdBy": "ajeugsk5ubk6********",
+    "modifiedAt": "2023-11-23T14:54:23.077532292Z",
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.logging.v1.CreateLogGroupMetadata",
+      "logGroupId": "e23pjn86385t********"
+    }
+  }
+  ```
+
 {% endlist %}

@@ -12,10 +12,10 @@ description: "Следуя данной инструкции, вы сможет�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите на имя нужного секрета.
-  1. На панели слева выберите раздел ![image](../../_assets/organization/icon-groups.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. В открывшемся окне нажмите ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
+  1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. В открывшемся окне нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
   1. Выберите группу, пользователя или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которым нужно предоставить доступ к секрету.
-  1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../security/index.md#roles-list).
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../security/index.md#roles-list).
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI

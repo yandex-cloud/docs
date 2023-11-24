@@ -89,7 +89,7 @@
 
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Найдите аккаунт `sa-firezone` в списке и нажмите значок ![image](../../_assets/options.svg).
+      1. Найдите аккаунт `sa-firezone` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `admin`.
 

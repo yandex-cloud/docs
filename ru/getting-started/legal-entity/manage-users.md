@@ -30,16 +30,16 @@
 
 ## Назначьте роли пользователям {#add-role}
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- Консоль управления {#console}
+- Консоль управления
 
   В консоли управления можно назначить роль только на облако или каталог:
 
   {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
 
-- CLI {#cli}
+- CLI
 
   1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
   1. [Получите идентификатор пользователя](../../organization/operations/users-get.md).
@@ -68,7 +68,7 @@
       --subject userAccount:aje6o61dvog2h6g9a33s
     ```
 
-- API {#api}
+- API
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
 
