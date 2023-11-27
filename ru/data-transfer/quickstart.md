@@ -96,7 +96,7 @@
 ## Создайте эндпоинт для источника {#source}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
-1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 1. Нажмите кнопку **Создать эндпоинт**.
 1. Убедитесь, что в поле **Направление** указано `Источник`.
 1. Укажите имя эндпоинта.
@@ -109,7 +109,7 @@
 ## Создайте эндпоинт для приемника {#target}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
-1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 1. Нажмите кнопку **Создать эндпоинт**.
 1. Убедитесь, что в поле **Направление** указано `Приемник`.
 1. Укажите имя эндпоинта.
@@ -122,7 +122,7 @@
 ## Создайте трансфер {#create-transfer}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
-1. На панели слева выберите ![image](../_assets/data-transfer/transfer.svg) **Трансферы**.
+1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
 1. Нажмите кнопку **Создать трансфер**.
 1. Выберите эндпоинт для источника и эндпоинт для приемника.
 1. Укажите имя трансфера.
@@ -139,8 +139,8 @@
 ## Активируйте трансфер {#activate}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
-1. На панели слева выберите ![image](../_assets/data-transfer/transfer.svg) **Трансферы**.
-1. Нажмите значок ![ellipsis](../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Активировать**.
+1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
+1. Нажмите значок ![ellipsis](../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Активировать**.
 
 Начнется процесс переноса данных.
 

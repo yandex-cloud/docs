@@ -16,7 +16,7 @@
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
-  1. Нажмите кнопку ![pencil](../../../_assets/pencil.svg) **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
+  1. Нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Введите идентификатор политики доступа.
   1. Настройте правило:
      1. Введите идентификатор правила.
@@ -267,7 +267,7 @@
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
-  1. Нажмите значок ![options](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
+  1. Нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
 
 - AWS CLI

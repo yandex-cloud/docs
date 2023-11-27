@@ -1,4 +1,4 @@
-# All solutions for Cloud Functions
+# All solutions for {{ sf-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

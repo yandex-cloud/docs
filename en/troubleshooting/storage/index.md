@@ -1,4 +1,4 @@
-# All solutions for Object Storage
+# All solutions for {{ objstorage-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

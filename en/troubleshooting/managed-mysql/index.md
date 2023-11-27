@@ -1,4 +1,4 @@
-# All solutions for Managed Service for MySQL
+# All solutions for {{ mmy-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

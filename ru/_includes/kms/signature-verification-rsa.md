@@ -46,12 +46,12 @@
       public static void main(String[] args) throws Exception {
           String publicKeyPem = """
           -----BEGIN PUBLIC KEY-----
-          <public_key_contents>
+          <содержимое_открытого_ключа>
           -----END PUBLIC KEY-----""";
-          String signatureStr = "<signature_string>";
+          String signatureStr = "<подпись>";
           byte[] signatureBytes = Base64.getDecoder().decode(signatureStr);
-          String message = "<message_string>";
-          System.out.println(verifyRsaSignature(publicKeyPem, signatureBytes, message, "<algorithm_type>"));
+          String message = "<сообщение>";
+          System.out.println(verifyRsaSignature(publicKeyPem, signatureBytes, message, "<тип_алгоритма>"));
       }
   
       private static boolean verifyRsaSignature(String publicKeyPem, byte[] signatureBytes, String message, String hashAlgorithm)
@@ -88,10 +88,10 @@
   ```
 
   Где:
-  * `<public_key_contents>` — содержимое открытого ключа подписи.
-  * `<signature_string>` — содержимое электронной подписи в кодировке `base64`.
-  * `<message_string>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
-  * `<algorithm_type>` — использованная для подписи хэш-функция. Возможные значения: `SHA256`, `SHA384` и `SHA512`.
+  * `<содержимое_открытого_ключа>` — содержимое открытого ключа подписи.
+  * `<подпись>` — содержимое электронной подписи в кодировке `base64`.
+  * `<сообщение>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
+  * `<тип_алгоритма>` — использованная для подписи хэш-функция. Возможные значения: `SHA256`, `SHA384` и `SHA512`.
 
   Код выполняет проверку электронной подписи RSA. Если подпись корректна, код возвращает `true`, если нет — `false`.
 
@@ -110,12 +110,12 @@
   )
   
   func runRsaSignTest() {
-      publicKeyB64 := "<public_key_contents>"
-      signatureB64 := "<signature_string>"
+      publicKeyB64 := "<содержимое_открытого_ключа>"
+      signatureB64 := "<подпись>"
       signatureBytes, _ := base64.StdEncoding.DecodeString(signatureB64)
-      message := "<message_string>"
+      message := "<сообщение>"
   
-          fmt.Println(verifyRsa(publicKeyB64, signatureBytes, message, <algorithm_type>))
+          fmt.Println(verifyRsa(publicKeyB64, signatureBytes, message, <тип_алгоритма>))
   }
   
   func verifyRsa(publicKeyPem string, signatureBytes []byte, message string, hash crypto.Hash) bool {
@@ -157,10 +157,10 @@
   ```
 
   Где:
-  * `<public_key_contents>` — содержимое открытого ключа подписи в кодировке `base64`.
-  * `<signature_string>` — содержимое электронной подписи в кодировке `base64`.
-  * `<message_string>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
-  * `<algorithm_type>` — использованная для подписи хэш-функция. Возможные значения: `crypto.SHA256`, `crypto.SHA384` и `crypto.SHA512`.
+  * `<содержимое_открытого_ключа>` — содержимое открытого ключа подписи в кодировке `base64`.
+  * `<подпись>` — содержимое электронной подписи в кодировке `base64`.
+  * `<сообщение>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
+  * `<тип_алгоритма>` — использованная для подписи хэш-функция. Возможные значения: `crypto.SHA256`, `crypto.SHA384` и `crypto.SHA512`.
 
   Код выполняет проверку электронной подписи RSA. Если подпись корректна, код возвращает `true`, если нет — `false`.
 
@@ -216,19 +216,19 @@
   def test_verify_signature():
       public_key_b64 = """
       -----BEGIN PUBLIC KEY-----
-      <public_key_contents>
+      <содержимое_открытого_ключа>
       -----END PUBLIC KEY-----"""
-      signature_b64 = '<signature_string>'
+      signature_b64 = '<подпись>'
       signature_bytes = base64.b64decode(signature_b64)
-      message = '<message_string>'
-      print(verify_rsa_signature(public_key_b64, signature_bytes, message, '<algorithm_type>'))
+      message = '<сообщение>'
+      print(verify_rsa_signature(public_key_b64, signature_bytes, message, '<тип_алгоритма>'))
   ```
 
   Где:
-  * `<public_key_contents>` — содержимое открытого ключа подписи в кодировке `base64`.
-  * `<signature_string>` — содержимое электронной подписи в кодировке `base64`.
-  * `<message_string>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
-  * `<algorithm_type>` — использованная для подписи хэш-функция. Возможные значения: `SHA256`, `SHA384` и `SHA512`.
+  * `<содержимое_открытого_ключа>` — содержимое открытого ключа подписи в кодировке `base64`.
+  * `<подпись>` — содержимое электронной подписи в кодировке `base64`.
+  * `<сообщение>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
+  * `<тип_алгоритма>` — использованная для подписи хэш-функция. Возможные значения: `SHA256`, `SHA384` и `SHA512`.
 
   Код выполняет проверку электронной подписи RSA. Если подпись корректна, код возвращает `true`, если нет — `false`.
 

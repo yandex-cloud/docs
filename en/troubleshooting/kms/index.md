@@ -1,4 +1,4 @@
-# Solutions for Yandex KMS
+# All solutions for {{ kms-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

@@ -1,4 +1,4 @@
-# All solutions for Managed Service for PostgreSQL
+# All solutions for {{ mpg-short-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

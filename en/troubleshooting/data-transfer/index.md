@@ -1,4 +1,4 @@
-# All solutions for Data Transfer
+# All solutions for {{ data-transfer-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

@@ -49,7 +49,7 @@
     
        ```
        yc kms symmetric-crypto encrypt \
-        --id <ID ключа> \
+        --id <идентификатор_ключа> \
         --plaintext-file plaintext.txt \
         --ciphertext-file ciphertext
        ```
@@ -70,7 +70,7 @@
     
     ```
     yc kms symmetric-crypto decrypt \
-    --id <ID ключа> \
+    --id <идентификатор_ключа> \
     --ciphertext-file ciphertext \
     --plaintext-file decrypted.txt
     ```

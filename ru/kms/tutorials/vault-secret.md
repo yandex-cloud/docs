@@ -124,10 +124,12 @@
     ...
     seal "yandexcloudkms" {
       kms_key_id               = "<идентификатор_KMS-ключа>"
-      service_account_key_file = "<путь_к_JSON-файлу_с_авторизованным_ключом>"
+      service_account_key_file = "<путь_к_JSON-файлу>"
     }
     ...
     ```
+
+    Где `service_account_key_file` — путь к JSON-файлу с авторизованным ключом.
 
 - Аккаунт на Яндексе или федеративный аккаунт
 
