@@ -1,4 +1,4 @@
-# All solutions for Yandex Identity and Acceess Management
+# All solutions for {{ iam-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

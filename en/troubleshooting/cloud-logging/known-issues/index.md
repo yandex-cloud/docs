@@ -1,3 +1,3 @@
-## Solutions for known Cloud Logging issues {#known-issues-resolving}
+# Solutions for known {{ cloud-logging-name }} issues
 
-* [Cloud Logging consumption started showing up in your billing account itemization](cloud-logging-unexpectedly-charges-in-billing-account-details.md)
+* [](cloud-logging-unexpectedly-charges-in-billing-account-details.md)

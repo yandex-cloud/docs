@@ -53,7 +53,7 @@
 
 - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например, `data-folder`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -86,7 +86,7 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Выберите сервисный аккаунт `datasphere-sa`.
-  1. На верхней панели нажмите кнопку ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
+  1. На верхней панели нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ. После закрытия диалога значение ключа будет недоступно.
@@ -247,7 +247,7 @@
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}**, который используется для подключения к хранилищу.   
    * В поле **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**. В открывшемся окне введите имя секрета и секретный ключ, который используется для подключения к хранилищу.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. Перейдите на страницу коннектора S3 и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.activate }}**. После активации бакет будет доступен в интерфейсе {{ jlab }}Lab в списке на вкладке **S3 Mounts** ![S3 Mounts](../../_assets/datasphere/bucket.svg), и его можно будет просматривать как файловую систему.
+1. Перейдите на страницу коннектора S3 и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.activate }}**. После активации бакет будет доступен в интерфейсе {{ jlab }}Lab в списке на вкладке **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg), и его можно будет просматривать как файловую систему.
 
 ## Обучите модель {#train-model}
 
@@ -283,7 +283,7 @@
     data.head()
     ```
 
-    Чтобы получить путь к файлу `diabetes_data.csv`, во вкладке **S3 Mounts** ![S3 Mounts](../../_assets/datasphere/bucket.svg) нажмите на него правой кнопкой мыши и выберите **Copy path**. 
+    Чтобы получить путь к файлу `diabetes_data.csv`, во вкладке **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg) нажмите на него правой кнопкой мыши и выберите **Copy path**. 
 
 1. Разделите факторы для обучения и целевую переменную:
 

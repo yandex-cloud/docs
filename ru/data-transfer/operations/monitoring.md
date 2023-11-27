@@ -16,8 +16,8 @@
 - Консоль управления
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-  1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-  1. Нажмите на имя нужного трансфера и выберите вкладку ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Нажмите на имя нужного трансфера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}**.
   1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
 {% endlist %}
@@ -82,9 +82,9 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с трансфером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В списке сервисов выберите ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
-  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
   1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для срабатывания алерта.
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -106,9 +106,9 @@
 
 * Метрики:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = publisher.data.changeitems`
+    ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = publisher.data.changeitems`
 
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 
@@ -137,8 +137,8 @@
 
 * Метрики:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
+    ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 
@@ -167,7 +167,7 @@
 
 * Метрики:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
+    ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
 
 * Настройки алерта:
 
@@ -193,8 +193,8 @@
 
 * Метрики:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = publisher.data.bytes`
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
+    ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = publisher.data.bytes`
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 

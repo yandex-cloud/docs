@@ -15,12 +15,12 @@
     Акты и счета-фактуры формируются в последний день отчетного периода — месяца. Через 7 рабочих дней после окончания отчетного периода актуальные документы будут доступны для скачивания. Документы за предыдущие отчетные периоды также доступны в консоли управления.
 
     Чтобы скачать закрывающие документы:
-    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
     1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
     1. Перейдите в раздел **{{ ui-key.yacloud.billing.account.switch_acts }}**.
     1. Откройте вкладку **{{ ui-key.yacloud.billing.account.tab_acts-title }}**.
-    1. В строке с нужным отчетным периодом нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. Откроется окно с отчетными документами за выбранный период.
-    1. Справа от документа нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. Документ откроется в новой вкладке браузера, и вы сможете его сохранить.
+    1. В строке с нужным отчетным периодом нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. Откроется окно с отчетными документами за выбранный период.
+    1. Справа от документа нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. Документ откроется в новой вкладке браузера, и вы сможете его сохранить.
     1. Чтобы скачать документы за несколько периодов одним архивом, отметьте нужные периоды в левом столбце (отметка в заголовке таблицы позволяет выбрать все периоды) и нажмите **{{ ui-key.yacloud.billing.account.acts_batch-download-text_pdf }}** или **{{ ui-key.yacloud.billing.account.acts_batch-download-text_zip }}**. 
 
     ### Заказать акт сверки {#download-acts}
@@ -30,7 +30,7 @@
     Акт сверки за текущий месяц можно заказать спустя 7 рабочих дней после его завершения.
 
     Чтобы заказать акт сверки:
-    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
     1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
     1. Перейдите в раздел **{{ ui-key.yacloud.billing.account.switch_acts }}**.
     1. Откройте вкладку **{{ ui-key.yacloud.billing.account.tab_reconciliation-reports-title }}**.
@@ -60,12 +60,13 @@
     Документы формируются в последний день отчетного периода — месяца. Через 7 рабочих дней после окончания отчетного периода акт выполненных работ будет доступен для скачивания. АВР за предыдущие отчетные периоды также доступны в консоли управления.
 
     Чтобы заказать акт выполненных работ:
-    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
     1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
     1. Перейдите в раздел **{{ ui-key.yacloud.billing.account.switch_acts }}**.
     1. Откройте вкладку **{{ ui-key.yacloud.billing.account.tab_acts-title }}**.
-    1. В строке с нужным отчетным периодом нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. Откроется окно с актами за выбранный период.
-    1. Справа от документа нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. Документ откроется в новой вкладке браузера, и вы сможете его сохранить.
+    1. В строке с нужным отчетным периодом нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. Откроется окно с актами за выбранный период.
+    1. Справа от документа нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. Документ откроется в новой вкладке браузера, и вы сможете его сохранить.
+    1. Чтобы скачать акты за несколько периодов одним архивом, отметьте нужные периоды в левом столбце (отметка в заголовке таблицы позволяет выбрать все периоды) и нажмите **Скачать документы (PDF)** или **Скачать документы (ZIP)**.
     1. Чтобы скачать акты за несколько периодов одним архивом, отметьте нужные периоды в левом столбце (отметка в заголовке таблицы позволяет выбрать все периоды) и нажмите **{ ui-key.yacloud.billing.account.acts_batch-download-text_pdf }}** или **{{ ui-key.yacloud.billing.account.acts_batch-download-text_zip }}**.
 
     ### Электронный счет-фактура {#electronic-invoice}
@@ -81,7 +82,7 @@
   Физические лица, которые являются резидентами РФ, могут просматривать историю расходов помесячно в консоли управления {{ yandex-cloud }}.
 
   Чтобы посмотреть историю расходов:
-    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
     1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
     1. Перейдите в раздел **{{ ui-key.yacloud.billing.account.switch_expences }}**.
 

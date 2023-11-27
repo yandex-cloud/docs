@@ -81,8 +81,10 @@
         yc organization-manager organization add-access-binding \
         --role audit-trails.viewer \
         --id <идентификатор_организации> \
-        --service-account-id <идентификатор_сервисного_аккаунта_trail-sa>
+        --service-account-id <идентификатор_сервисного_аккаунта>
         ```
+
+        Где `--service-account-id` — идентификатор сервисного аккаунта `trail-sa`.
 
         Результат:
 
@@ -96,9 +98,11 @@
 
         ```bash
         yc resource-manager folder add-access-binding example-folder \
-            --role storage.uploader \
-            --subject serviceAccount:<идентификатор_сервисного_аккаунта_trail-sa>
+          --role storage.uploader \
+          --subject serviceAccount:<<идентификатор_сервисного_аккаунта>
         ```
+
+        Где `--subject` — идентификатор сервисного аккаунта `trail-sa`.
 
         Результат:
 
@@ -119,8 +123,10 @@
     ```bash
     yc resource-manager folder add-access-binding example-folder \
         --role storage.viewer \
-        --subject serviceAccount:<идентификатор_сервисного_аккаунта_bucket-yq-sa>
+        --subject serviceAccount:<идентификатор_сервисного_аккаунта>
     ```
+
+    Где `--subject` — идентификатор сервисного аккаунта `bucket-yq-sa`.
 
     Результат:
 

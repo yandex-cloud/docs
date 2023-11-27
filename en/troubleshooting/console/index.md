@@ -1,4 +1,4 @@
-# Solutions for Console
+# All solutions for {{ console-full-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

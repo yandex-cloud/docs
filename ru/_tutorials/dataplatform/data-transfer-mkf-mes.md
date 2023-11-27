@@ -310,7 +310,7 @@
     - Kibana
 
         1. [Подключитесь](../../managed-elasticsearch/operations/cluster-connect.md#connection-string) к кластеру-приемнику с помощью Kibana.
-        1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
+        1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
         1. В разделе **Analytics** выберите **Discover**.
         1. В поле **Index pattern** выберите индекс `sensors`.
 

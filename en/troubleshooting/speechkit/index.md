@@ -1,4 +1,4 @@
-# All solutions for Yandex SpeechKit
+# All solutions for {{ speechkit-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

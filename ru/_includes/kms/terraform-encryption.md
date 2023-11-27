@@ -4,7 +4,7 @@
 
    ```hcl
    resource "yandex_kms_secret_ciphertext" "password" {
-     key_id      = "<идентификатор ключа>"
+     key_id      = "<идентификатор_ключа>"
      aad_context = "additional authenticated data"
      plaintext   = "strong password"
    }

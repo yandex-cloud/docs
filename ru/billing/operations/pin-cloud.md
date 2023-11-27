@@ -21,9 +21,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+  1. В [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 
-  1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
   1. Выберите аккаунт из списка. 
 

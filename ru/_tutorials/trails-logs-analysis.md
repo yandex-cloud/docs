@@ -63,8 +63,13 @@
      ```bash
      yc resource-manager folder add-access-binding <имя_каталога> \
        --role audit-trails.viewer \
-       --subject serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>
+       --subject serviceAccount:<идентификатор_сервисного_аккаунта>
      ```
+
+      Где:
+
+      * `--role` — назначаемая роль.
+      * `--subject` — идентификатор сервисного аккаунта `sa-trail-logs`.
 
      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
   1. Назначьте сервисному аккаунту роль `yds.editor`:
@@ -72,8 +77,13 @@
      ```bash
      yc resource-manager folder add-access-binding <имя_каталога> \
        --role yds.editor \
-       --subject serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>
+       --subject serviceAccount:<идентификатор_сервисного_аккаунта>
      ```
+
+      Где:
+
+      * `--role` — назначаемая роль.
+      * `--subject` — идентификатор сервисного аккаунта `sa-trail-logs`.
 
 - {{ TF }}
 
@@ -89,15 +99,20 @@
      resource "yandex_resourcemanager_folder_iam_member" "sa-role-audit-viewer" {
        folder_id   = "<идентификатор_каталога>"
        role        = "audit-trails.viewer"
-       member      = "serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>"
+       member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "sa-role-yds-editor" {
        folder_id   = "<идентификатор_каталога>"
        role        = "yds.editor"
-       member      = "serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>"
+       member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
      }
      ```
+
+      Где:
+
+      * `role` — назначаемая роль.
+      * `member` — идентификатор сервисного аккаунта `sa-trail-logs`.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
   1. Проверьте корректность конфигурационных файлов.
@@ -125,7 +140,7 @@
 
      ```bash
      export FOLDER_ID=<идентификатор_каталога>
-     export IAM_TOKEN=<iam_токен>
+     export IAM_TOKEN=<IAM-токен>
      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
        "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
      ```
@@ -157,7 +172,7 @@
            "accessBinding": {
              "roleId": "audit-trails.viewer",
              "subject": {
-               "id": "<идентификатор_сервисного_аккаунта_sa-trail-logs>",
+               "id": "<идентификатор_сервисного_аккаунта>",
                "type": "serviceAccount"
              }
            }
@@ -167,7 +182,7 @@
            "accessBinding": {
              "roleId": "yds.writer",
              "subject": {
-               "id": "<идентификатор_сервисного_аккаунта_sa-trail-logs>",
+               "id": "<идентификатор_сервисного_аккаунта>",
                "type": "serviceAccount"
              }
            }
@@ -176,11 +191,16 @@
      }
      ```
 
+      Где:
+
+      * `roleId` — назначаемая роль.
+      * `id` — идентификатор сервисного аккаунта `sa-trail-logs`.
+
   1. Назначьте роли сервисному аккаунту:
 
      ```bash
      export FOLDER_ID=<идентификатор_каталога>
-     export IAM_TOKEN=<iam_токен>
+     export IAM_TOKEN=<IAM-токен>
      curl -X POST \
        -H "Content-Type: application/json" \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -443,10 +463,15 @@
 
   ```bash
   yc datatransfer transfer create --name logs-transfer
-    --source-id <идентификатор_эндпоинта-источника_source-logs-stream>
-    --target-id <идентификатор_эндпоинта-приемника_target-logs-ch>
+    --source-id <идентификатор_эндпоинта-источника>
+    --target-id <идентификатор_эндпоинта-приемника>
     --type increment-only
   ```
+
+  Где:
+
+  * `--source-id` — идентификатор эндпоинта-источника `source-logs-stream`.
+  * `--target-id` — идентификатор эндпоинта-приемника `target-logs-ch`.
 
   Подробнее о команде `yc datatransfer transfer create` см. в [справочнике CLI](../cli/cli-ref/managed-services/datatransfer/transfer/create.md).
 
@@ -458,11 +483,16 @@
      resource "yandex_datatransfer_transfer" "transfer" {
        folder_id   = "<идентификатор_каталога>"
        name        = "logs-transfer"
-       source_id   = "<идентификатор_эндпоинта-источника_source-logs-stream>"
-       target_id   = "<идентификатор_эндпоинта-приемника_target-logs-ch>"
+       source_id   = "<идентификатор_эндпоинта-источника>"
+       target_id   = "<идентификатор_эндпоинта-приемника>"
        type        = "INCREMENT_ONLY"
      }
      ```
+
+     Где:
+
+     * `source_id` — идентификатор эндпоинта-источника `source-logs-stream`.
+     * `target_id` — идентификатор эндпоинта-приемника `target-logs-ch`.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-dt-transfer }}).
   1. Проверьте корректность конфигурационных файлов.
@@ -495,7 +525,7 @@
 
   ```sql
   select * from trail_data.trail_logs_stream
-  where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<название_каталога>'
+  where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<имя_каталога>'
   ```
 
 * Какие действия совершал конкретный пользователь за период времени (требуется указать Name ID пользователя и дату):

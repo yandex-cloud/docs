@@ -1,4 +1,4 @@
-# All solutions for Virtual Private Cloud
+# All solutions for {{ vpc-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

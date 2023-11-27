@@ -1,4 +1,4 @@
-# All solutions for Cloud CDN
+# All solutions for {{ cdn-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

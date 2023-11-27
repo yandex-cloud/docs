@@ -27,7 +27,7 @@
       ```bash
       {{ yc-k8s }} cluster create \
          ...
-         --kms-key-id <идентификатор ключа шифрования> \
+         --kms-key-id <идентификатор_ключа> \
          ...
       ```
 
@@ -36,7 +36,7 @@
       ```bash
       {{ yc-k8s }} cluster create \
          ...
-         --kms-key-name <имя ключа шифрования> \
+         --kms-key-name <имя_ключа> \
          ...
       ```
 
@@ -56,10 +56,10 @@
     1. Добавьте блок `kms_provider` в описание кластера:
 
         ```hcl
-        resource "yandex_kubernetes_cluster" "<имя кластера>" {
+        resource "yandex_kubernetes_cluster" "<имя_кластера>" {
           ...
           kms_provider {
-            key_id = "<идентификатор ключа шифрования>"
+            key_id = "<идентификатор_ключа>"
           }
         }
         ```
