@@ -95,4 +95,6 @@ items:
         href: ddos.md
       - name: WAF
         href: waf.md
+      - name: TLS
+        href: tls.md
 base: ru/glossary

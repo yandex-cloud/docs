@@ -17,7 +17,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный объект.
   1. Выберите сервис **{{ objstorage-name }}**.
   1. В списке бакетов нажмите на строку с нужным бакетом.
-  1. В списке объектов в строке с нужным объектом нажмите ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.storage.file.button_version-history }}**.
+  1. В списке объектов в строке с нужным объектом нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.file.button_version-history }}**.
   1. В списке версий в строке с нужной версией нажмите **{{ ui-key.yacloud.storage.file.action_file-restore }}**. Выбранная версия будет восстановлена и отображена как текущая.
 
 - AWS CLI

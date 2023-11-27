@@ -183,15 +183,15 @@
       ```
       yc resource-manager folder add-access-binding \
       --role audit-trails.viewer \
-      --id <идентификатор_каталога_example-folder> \
-      --service-account-id <идентификатор_сервисного_аккаунта_sa-arcsight>
+      --id <идентификатор_каталога> \
+      --service-account-id <идентификатор_сервисного_аккаунта>
       ```
       
       Где:
   
-      * `role` — назначаемая роль;
-      * `id` — идентификатор каталога `example-folder`;
-      * `service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
+      * `--role` — назначаемая роль;
+      * `--id` — идентификатор каталога `example-folder`;
+      * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
 
       Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
   
@@ -200,30 +200,30 @@
       ```
       yc resource-manager folder add-access-binding \
       --role storage.uploader \
-      --id <идентификатор_каталога_example-folder> \
-      --service-account-id <идентификатор_сервисного_аккаунта_sa-arcsight>
+      --id <идентификатор_каталога> \
+      --service-account-id <идентификатор_сервисного_аккаунта>
       ```
   
       Где:
   
-      * `role` — назначаемая роль;
-      * `id` — идентификатор каталога `example-folder`;
-      * `service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
+      * `--role` — назначаемая роль;
+      * `--id` — идентификатор каталога `example-folder`;
+      * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
 
   1. [Роль](../../kms/security/#service) `kms.keys.encrypterDecrypter` на ключ шифрования `arcsight-kms`:
   
       ```
       yc kms symmetric-key add-access-binding \
       --role kms.keys.encrypterDecrypter \
-      --id <идентификатор_KMS_ключа_arcsight-kms> \
-      --service-account-id <идентификатор_сервисного_аккаунта_sa-arcsight>
+      --id <идентификатор_ключа> \
+      --service-account-id <идентификатор_сервисного_аккаунта>
       ```
   
       Где:
   
-      * `role` — назначаемая роль;
-      * `id` — идентификатор {{ kms-short-name }}-ключа `arcsight-kms`;
-      * `service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
+      * `--role` — назначаемая роль;
+      * `--id` — идентификатор {{ kms-short-name }}-ключа `arcsight-kms`;
+      * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
 
 {% endlist %}
 
@@ -237,31 +237,31 @@
      
       ```
       yc resource-manager folder add-access-binding \
-      --id <идентификатор_каталога_example-folder> \
+      --id <идентификатор_каталога> \
       --role storage.viewer \
-      --service-account-id <идентификатор_сервисного_аккаунта_sa-arcsight-bucket>  
+      --service-account-id <идентификатор_сервисного_аккаунта>  
       ```
 
       Где:
   
-      * `role` — назначаемая роль;
-      * `id` — идентификатор каталога `example-folder`;
-      * `service-account-id` — идентификатор сервисного аккаунта `sa-arcsight-bucket`.
+      * `--id` — идентификатор каталога `example-folder`;
+      * `--role` — назначаемая роль;
+      * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight-bucket`.
   
   1. Роль `kms.keys.encrypterDecrypter` на ключ шифрования `arcsight-kms`:
   
       ```
       yc kms symmetric-key add-access-binding \
       --role kms.keys.encrypterDecrypter \
-      --id <идентификатор_ключа_arcsight-kms> \
-      --service-account-id <идентификатор_сервисного_аккаунта_sa-arcsight-bucket>
+      --id <идентификатор_ключа> \
+      --service-account-id <идентификатор_сервисного_аккаунта>
       ```
   
       Где:
   
-      * `role` — назначаемая роль;
-      * `id` — идентификатор {{ kms-short-name }}-ключа `arcsight-kms`;
-      * `service-account-id` — идентификатор сервисного аккаунта `sa-arcsight-bucket`.
+      * `--role` — назначаемая роль;
+      * `--id` — идентификатор {{ kms-short-name }}-ключа `arcsight-kms`;
+      * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight-bucket`.
   
 {% endlist %}
 
@@ -315,7 +315,7 @@
 1. На промежуточной ВМ создайте файл со статическим ключом доступа:
 
    ```bash
-   echo <идентифекатор_ключа_доступа>:<секретный_ключ_доступа> > ${HOME}/.passwd-s3fs
+   echo <идентификатор_ключа_доступа>:<секретный_ключ_доступа> > ${HOME}/.passwd-s3fs
    chmod 600 ${HOME}/.passwd-s3fs
    ```
 

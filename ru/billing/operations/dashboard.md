@@ -11,13 +11,13 @@
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите ![image](../../_assets/billing/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}** нажмите **{{ ui-key.yacloud.billing.account.detail.button_move-to-datalens }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}** нажмите **{{ ui-key.yacloud.billing.account.detail.button_move-to-datalens }}**.
   1. Нажмите **Создать подключение**.
   1. В открывшемся окне укажите название подключения и нажмите **Создать**.
   1. В списке выберите **{{ yandex-cloud }} Billing Dashboard**.
   1. Перейдите на вкладку **Resources**.
   1. В поле **Usage date** выберите нужный период времени. Дата определяется как диапазон с 0:00 до 23:59 по московскому времени (UTC +3).
-  1. Справа от чарта **Resource total cost** нажмите ![options-grey](../../_assets/options-grey.svg) и выберите **Редактировать**.
+  1. Справа от чарта **Resource total cost** нажмите ![options-grey](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В открывшемся редакторе:
       1. В блоке **Столбцы** удалите столбцы с названиями **Cost** и **Credit**.
       1. В блоке **Фильтры** выберите фильтр **Resouce ID** и настройте его:

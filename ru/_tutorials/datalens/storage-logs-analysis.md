@@ -138,7 +138,7 @@
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** в поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** выберите `burstable`.
 
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/edit.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -260,7 +260,7 @@
 
   1. Выберите кластер `s3-logs`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
   1. В поле **Date time input format** выберите `best_effort`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
@@ -358,7 +358,7 @@
 1. Нажмите кнопку **Создать датасет**.
 1. В созданном датасете перенесите таблицу `s3_data.s3logs` на рабочую область.
 1. Перейдите на вкладку **Поля**.
-1. Нажмите значок ![image](../../_assets/plus-sign.svg)**Добавить поле**.
+1. Нажмите значок ![image](../../_assets/console-icons/plus.svg)**Добавить поле**.
 1. Создайте расчетное поле с типом файла:
    
    * Название поля — `object_type`.

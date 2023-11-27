@@ -15,7 +15,7 @@
 ## Изменить банковскую карту для оплаты {#change_card}
 
 Чтобы указать другую карту:
-1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Выберите аккаунт из списка.
 1. Нажмите ссылку **{{ ui-key.yacloud.billing.account.overview.card_label_edit }}** в блоке **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**.
 1. Укажите данные карты: 16-значный номер, срок действия и код CVV (с обратной стороны карты).

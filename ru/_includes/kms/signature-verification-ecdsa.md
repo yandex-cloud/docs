@@ -47,12 +47,12 @@
           String publicKeyPem = 
           """
           -- -- - BEGIN PUBLIC KEY-- -- -
-          <public_key_contents>
+          <содержимое_открытого_ключа>
               -- -- - END PUBLIC KEY-- -- - 
           """;
-          String signatureStr = "<signature_string>";
+          String signatureStr = "<подпись>";
           byte[] signatureDer = Base64.getDecoder().decode(signatureStr);
-          System.out.println(verifyEcdsaSignature(publicKeyPem, signatureDer, "<message_string>", "<algorithm_type>"));
+          System.out.println(verifyEcdsaSignature(publicKeyPem, signatureDer, "<сообщение>", "<тип_алгоритма>"));
       }
 
       public static boolean verifyEcdsaSignature(String publicKeyPem, byte[] signatureDer, String message, String hash_algorithm)
@@ -84,10 +84,10 @@
   ```
 
   Где:
-  * `<public_key_contents>` — содержимое открытого ключа подписи.
-  * `<signature_string>` — содержимое электронной подписи в кодировке `base64`.
-  * `<message_string>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
-  * `<algorithm_type>` — использованная для подписи хэш-функция. Возможные значения: `SHA256`, `SHA384` и `SHA512`.
+  * `<содержимое_открытого_ключа>` — содержимое открытого ключа подписи.
+  * `<подпись>` — содержимое электронной подписи в кодировке `base64`.
+  * `<сообщение>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
+  * `<тип_алгоритма>` — использованная для подписи хэш-функция. Возможные значения: `SHA256`, `SHA384` и `SHA512`.
 
   Код выполняет проверку электронной подписи на эллиптических кривых (ECDSA). Если подпись корректна, код возвращает `true`, если нет — `false`.
 
@@ -109,13 +109,13 @@
 
   func runEcdsaSignTest() {
       publicKeyPem := `-----BEGIN PUBLIC KEY-----
-      <public_key_contents>
+      <содержимое_открытого_ключа>
       -----END PUBLIC KEY-----`
-      signatureB64 := "<signature_string>"
+      signatureB64 := "<подпись>"
       signatureDER, _ := base64.StdEncoding.DecodeString(signatureB64)
-      message := "<message_string>"
+      message := "<сообщение>"
 
-          fmt.Println(verifyEcdsa(publicKeyPem, signatureDER, message, <algorithm_type>))
+          fmt.Println(verifyEcdsa(publicKeyPem, signatureDER, message, <тип_алгоритма>))
   }
 
   type ECDSASignature struct {
@@ -158,10 +158,10 @@
   ```
 
   Где:
-  * `<public_key_contents>` — содержимое открытого ключа подписи в кодировке `base64`.
-  * `<signature_string>` — содержимое электронной подписи в кодировке `base64`.
-  * `<message_string>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
-  * `<algorithm_type>` — использованная для подписи хэш-функция. Возможные значения: `sha256.New()`, `sha512.New384()` и `sha512.New()`.
+  * `<содержимое_открытого_ключа>` — содержимое открытого ключа подписи в кодировке `base64`.
+  * `<подпись>` — содержимое электронной подписи в кодировке `base64`.
+  * `<сообщение>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
+  * `<тип_алгоритма>` — использованная для подписи хэш-функция. Возможные значения: `sha256.New()`, `sha512.New384()` и `sha512.New()`.
 
   Код выполняет проверку электронной подписи на эллиптических кривых (ECDSA). Если подпись корректна, код возвращает `true`, если нет — `false`.
 
@@ -209,19 +209,19 @@
   def test_verify_signature():
       public_key_b64 = """
       -----BEGIN PUBLIC KEY-----
-      <public_key_contents>
+      <содержимое_открытого_ключа>
       -----END PUBLIC KEY-----"""
-      signature_b64 = "<signature_string>"
+      signature_b64 = "<подпись>"
       signature_der = base64.b64decode(signature_b64)
-      message = '<message_string>'
-      print(verify_ecdsa_signature(public_key_b64, signature_der, message, "<algorithm_type>"))
+      message = '<сообщение>'
+      print(verify_ecdsa_signature(public_key_b64, signature_der, message, "<тип_алгоритма>"))
   ```
 
   Где:
-  * `<public_key_contents>` — содержимое открытого ключа подписи.
-  * `<signature_string>` — содержимое электронной подписи в кодировке `base64`.
-  * `<message_string>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
-  * `<algorithm_type>` — использованная для подписи хэш-функция. Возможные значения: `SHA256`, `SHA384` и `SHA512`.
+  * `<содержимое_открытого_ключа>` — содержимое открытого ключа подписи.
+  * `<подпись>` — содержимое электронной подписи в кодировке `base64`.
+  * `<сообщение>` — строка, содержащая исходное сообщение, подписанное электронной подписью, или хэш подписанного электронной подписью файла.
+  * `<тип_алгоритма>` — использованная для подписи хэш-функция. Возможные значения: `SHA256`, `SHA384` и `SHA512`.
 
   Код выполняет проверку электронной подписи на эллиптических кривых (ECDSA). Если подпись корректна, код возвращает `true`, если нет — `false`.
 
