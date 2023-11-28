@@ -21,6 +21,8 @@ items:
         href: operations/instance/instance-backups.md
       - name: Удаление инстанса
         href: operations/instance/instance-delete.md
+      - name: Создание и добавление пользователей в проект
+        href: operations/create-user.md
       - name: Настройка правил ревью кода
         href: operations/approval-rules.md
       - name: Настройка OmniAuth
