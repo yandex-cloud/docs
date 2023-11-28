@@ -99,6 +99,9 @@ links:
   - title: Managed Service for Elasticsearch
     description: Управление кластерами Elasticsearch
     href: managed-elasticsearch/
+  - title: Managed Service for GitLab
+    description: Управление инстансами GitLab
+    href: managed-gitlab/
   - title: Managed Service for Greenplum®
     description: Управление кластерами Greenplum®
     href: managed-greenplum/

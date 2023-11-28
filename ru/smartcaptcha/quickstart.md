@@ -139,7 +139,7 @@ description: "Следуя данной инструкции, вы сможет�
     }
 
 
-    let token = "<token>";
+    let token = "<токен>";
     check_captcha(token, (passed) => {
         if (passed) {
             console.log("Passed");
@@ -213,7 +213,7 @@ description: "Следуя данной инструкции, вы сможет�
             print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
             return True
         return json.loads(server_output)["status"] == "ok"
-    token = "<token>"  # Например, request.form["smart-token"]
+    token = "<токен>"  # Например, request.form["smart-token"]
     if check_captcha(token):
         print("Passed")
     else:

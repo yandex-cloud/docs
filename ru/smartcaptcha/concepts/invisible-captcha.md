@@ -29,7 +29,7 @@
         }
 
         window.smartCaptcha.render('captcha-container', {
-          sitekey: '<Ключ_для_клиентской_части>',
+          sitekey: '<ключ_клиентской_части>',
           invisible: true, // Сделать капчу невидимой
           callback: callback,
         });
@@ -104,7 +104,7 @@ window.smartCaptcha.render('captcha-container', {
         }
 
         widgetId = window.smartCaptcha.render('captcha-container', {
-          sitekey: '<Ключ_для_клиентской_части>',
+          sitekey: '<ключ_клиентской_части>',
           invisible: true, // Сделать капчу невидимой
           callback: callback,
         });

@@ -13,6 +13,7 @@ When connecting an external DB that is not a {{ yandex-cloud }} resource, grant 
     * `178.154.242.128/28`
     * `178.154.242.144/28`
     * `178.154.242.160/28`
+    * `130.193.60.0/28`
 
   - ipv6
 

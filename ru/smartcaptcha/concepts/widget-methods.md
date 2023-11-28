@@ -35,8 +35,8 @@ description: "Вы можете подключить виджет {{ captcha-nam
 ```html
 <div
   class="smart-captcha"
-  data-sitekey="<Ключ_клиентской_части>"
-  data-hl="<Язык>"
+  data-sitekey="<ключ_клиентской_части>"
+  data-hl="<язык>"
 ></div>
 ```
 
@@ -74,7 +74,7 @@ description: "Вы можете подключить виджет {{ captcha-nam
       <div
         id="captcha-container"
         class="smart-captcha"
-        data-sitekey="<Ключ_клиентской_части>"
+        data-sitekey="<ключ_клиентской_части>"
         data-hl="en"
         data-callback="callback"
       ></div>
@@ -109,8 +109,8 @@ description: "Вы можете подключить виджет {{ captcha-nam
       const container = document.getElementById('<идентификатор_контейнера>');
 
       const widgetId = window.smartCaptcha.render(container, {
-        sitekey: '<Ключ_клиентской_части>',
-        hl: '<Язык>',
+        sitekey: '<ключ_клиентской_части>',
+        hl: '<язык>',
       });
     }
   }
@@ -302,7 +302,7 @@ description: "Вы можете подключить виджет {{ captcha-nam
     }
 
     window.smartCaptcha.render('captcha-container', {
-      sitekey: '<Ключ_клиентской_части>',
+      sitekey: '<ключ_клиентской_части>',
       callback: callback,
     });
   }

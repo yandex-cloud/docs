@@ -79,6 +79,8 @@ items:
         href: attach-file.md
       - name: Переместить страницу
         href: page-management/move-page.md
+      - name: Найти на странице
+        href: page-management/search-by-page.md
       - name: Редактировать список авторов страницы
         href: page-management/edit-owner.md
       - name: Настроить доступ к странице

@@ -5,19 +5,13 @@ description: "На странице представлен список поша
 
 # Пошаговые инструкции для {{ mgl-name }}
 
-## Управление инстансом {{ GL }} {#gl-instance}
-
 * [{#T}](instance/instance-list.md)
 * [{#T}](instance/instance-create.md)
+* [{#T}](connect.md)
 * [{#T}](instance/instance-stop.md)
 * [{#T}](instance/instance-update.md)
 * [{#T}](instance/instance-backups.md)
 * [{#T}](instance/instance-delete.md)
-
-## Подключение к инстансу {{ GL }} {#instance-connect}
-
-* [{#T}](connect.md)
-
-## Аутентификация {#auth}
-
+* [{#T}](create-user.md)
+* [{#T}](approval-rules.md)
 * [{#T}](omniauth.md)
