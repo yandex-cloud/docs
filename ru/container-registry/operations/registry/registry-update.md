@@ -1,3 +1,8 @@
+---
+title: "Как изменить реестр в {{ container-registry-full-name }}"
+description: "Следуя данной инструкции, вы сможете изменить реестр." 
+---
+
 # Изменить реестр
 
 Узнайте, как изменить:
@@ -15,7 +20,7 @@
 
   Чтобы изменить имя [реестра](../../concepts/registry.md):
   1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить реестр.
-  1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке реестра, который требуется изменить.
+  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis-vertical.svg) в строке реестра, который требуется изменить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне укажите нужное имя реестра.
   1. (опционально) Измените метки.
@@ -85,9 +90,9 @@
 
   Чтобы добавить или удалить [IP-адрес](../../../vpc/concepts/address.md) и настроить доступ к реестру:
   1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** в каталоге, где требуется изменить реестр.
-  1. Нажмите на имя нужного реестра, затем выберите вкладку ![ip-address.svg](../../../_assets/container-registry/ip-access.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}** и нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
+  1. Нажмите на имя нужного реестра, затем выберите вкладку ![ip-address.svg](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}** и нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}** и укажите IP-адрес и право на действие с реестром — `PULL` (позволяет скачивать Docker-образы из реестра) или `PUSH` (позволяет загружать Docker-образы в реестр).
-  1. Нажмите значок ![image](../../../_assets/cross.svg) в строке IP-адреса, права доступа с которого требуется удалить.
+  1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) в строке IP-адреса, права доступа с которого требуется удалить.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI

@@ -1,4 +1,6 @@
 ---
+title: "Публичные материалы о {{ ydb-full-name }}"
+description: "Видеозаписи конференций и вебинаров, посвященных {{ ydb-full-name }}."
 sourcePath: overlay/public_talks.md
 ---
 

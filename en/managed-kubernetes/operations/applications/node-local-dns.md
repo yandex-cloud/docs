@@ -15,7 +15,7 @@
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../../_assets/marketplace.svg) tab.
+1. Click the name of the {{ managed-k8s-name }} cluster and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../../_assets/marketplace.svg) tab.
 1. Under **Applications available for installation**, select [NodeLocal DNS](/marketplace/products/yc/node-local-dns) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
@@ -23,7 +23,7 @@
    * **ClusterIp address for kube-dns**: Specify the IP obtained [before starting](#before-you-begin).
    * **Work with Cilium**: Select this option if a cluster uses the [Cilium network policy controller](../../concepts/network-policy.md#cilium).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 After installing NodeLocal DNS, use the following values:
 * {{ managed-k8s-name }} cluster zone: `cluster.local`

@@ -19,6 +19,8 @@ items:
             href: operations/load-balancer-start-and-stop.md
           - name: Changing load balancer settings
             href: operations/load-balancer-update.md
+          - name: Moving a VM to a target group in a new availability zone
+            href: operations/load-balancer-change-zone.md
           - name: Deleting a load balancer
             href: operations/load-balancer-delete.md
           - name: Checking target health statuses

@@ -22,10 +22,10 @@
 1. Under **Applications available for installation**, select [Crossplane with {{ yandex-cloud }} support](/marketplace/products/yc/crossplane) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) for Crossplane or create a new one.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **Service account key**: Paste the contents of the [service account key](../../../iam/concepts/authorization/access-key.md) file you [previously obtained](#before-you-begin), or create a new one.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -52,7 +52,7 @@
 1. Create a namespace for Crossplane:
 
    ```bash
-   kubectl create namespace <namespace_name>
+   kubectl create namespace <namespace>
    ```
 
 1. Add the Helm GitHub repository:

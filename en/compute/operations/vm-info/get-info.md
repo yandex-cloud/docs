@@ -67,7 +67,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 
 ### Google Compute Engine {#gce-metadata}
 
-The {{ yandex-cloud }} metadata service lets you return metadata in Google Compute Engine format.
+The {{ yandex-cloud }} metadata service allows you to return metadata in Google Compute Engine format.
 
 #### HTTP request {#gce-http}
 
@@ -83,9 +83,9 @@ Metadata-Flavor: Google
 
 Where:
 * `alt`: Response format (by default, `text`).
-* `recursive`: If `true`, it returns all values in the tree recursively. By default, `false`.
-* `wait_for_change`: If `true`, this response is only returned when one of the metadata parameters is modified. By default, `false`.
-* `last_etag`: The ETag value from the previous response to a similar request. Use it when `wait_for_change="true"`.
+* `recursive`: If `true`, it returns all values in the tree recursively. The default value is `false`.
+* `wait_for_change`: If `true`, this response is only returned when one of the metadata parameters is modified. The default value is `false`.
+* `last_etag`: ETag value from the previous response to a similar request. Use it when `wait_for_change="true"`.
 * `timeout_sec`: Maximum request timeout. Use it when `wait_for_change="true"`.
 
 #### Request examples {#request-examples}
@@ -132,7 +132,7 @@ Other elements, such as `project`, which are used for backward compatibility and
 
 ### Amazon EC2 {#ec2-metadata}
 
-The {{ yandex-cloud }} metadata service lets you return metadata in Amazon EC2 format.
+The {{ yandex-cloud }} metadata service allows you to return metadata in Amazon EC2 format.
 
  This format has no support for user-defined metadata fields.
 
@@ -185,7 +185,7 @@ You can set up metadata service parameters when creating or updating VMs.
 
 You can use the following settings:
 * `aws-v1-http-endpoint` provides access to metadata using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
-* `aws-v1-http-endpoint` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
+* `aws-v1-http-token` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Acceptable values: `enabled`, `disabled`.
 
    {% note info %}
 
@@ -276,3 +276,7 @@ To set up metadata service parameters for a VM instance:
       ```
 
 {% endlist %}
+
+### Removing SSH keys from metadata {#delete-keys-from-metadata}
+
+{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}

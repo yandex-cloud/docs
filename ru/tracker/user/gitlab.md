@@ -1,3 +1,8 @@
+---
+title: "Как работает связь между {{ tracker-full-name }} и {{ GL }}"
+description: "Из статьи вы узнаете, как работает связь между {{ tracker-name }} и {{ GL }}."
+---
+
 # {{ GL }}
 
 ## Настроить связь {#relation}
@@ -63,12 +68,7 @@
 
 1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
-Чтобы привязать коммит к задаче в {{ tracker-name }}, укажите ключ задачи в комментарии к коммиту. Привязанные коммиты можно просмотреть:
-
-- на странице задачи на вкладке **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}**;
-- на странице очереди на вкладке **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**.
-
-Если вы не видите вкладки **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**, убедитесь, что она включена в [настройках очереди](../manager/edit-queue-general.md#ul_gcz_xlp_m2b).
+{% include [commits](../../_includes/tracker/add_commits.md) %}
 
 ## Собственный сервер {#on-premise}
 

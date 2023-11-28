@@ -1,3 +1,8 @@
+---
+title: "Как изменить версию кластера {{ CH }} в {{ mch-full-name }}"
+description: "Следуя данной инструкции, вы сможете изменить версию кластера {{ CH }}." 
+---
+
 # Обновление версии {{ CH }}
 
 Вы можете изменить версию {{ CH }}, которую использует кластер, на любую из [поддерживаемых {{ mch-name }} версий](../concepts/update-policy.md#versioning-policy), но при этом запрещен переход:
@@ -71,23 +76,23 @@
         +----------------------+---------------+---------------------+--------+---------+
         |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
         +----------------------+---------------+---------------------+--------+---------+
-        | c9q8p8j2gaih8iti42mh | clickhouse691 | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
+        | c9q8p8j2gaih******** | clickhouse691 | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
         +----------------------+---------------+---------------------+--------+---------+
         ```
 
     1. Получите информацию о нужном кластере и проверьте версию {{ CH }} в вашем кластере, указанную в свойстве `config.version`:
 
         ```bash
-        {{ yc-mdb-ch }} cluster get c9q8p8j2gaih8iti42mh
-        id: c9q8p8j2gaih8iti42mh
-        folder_id: b1gqs1teo2q2a4vnmi2t
+        {{ yc-mdb-ch }} cluster get c9q8p8j2gaih********
+        id: c9q8p8j2gaih********
+        folder_id: b1gqs1teo2q2********
         created_at: "2019-04-23T12:44:17.929853Z"
         name: clickhouse691
         environment: PRODUCTION
         monitoring:
         - name: Console
             description: Console charts
-            link: {{ link-console-main }}/folders/b1gqs1teo2q2a4vnmi2t/managed-clickhouse/cluster/c9q8p8j2gaih8iti42mh?section=monitoring
+            link: {{ link-console-main }}/folders/b1gqs1teo2q2********/managed-clickhouse/cluster/c9q8p8j2gaih********?section=monitoring
         config:
             version: "19.1"
             ...
@@ -96,7 +101,7 @@
     1. Обновите версию {{ CH }}:
 
         ```bash
-        {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih8iti42mh --version 19.4
+        {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih******** --version 19.4
         ```
 
     После того как обновление запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и затем проверьте версию кластера.
@@ -110,9 +115,9 @@
     1. Добавьте к описанию кластера {{ mch-name }} поле `version` или измените его значение, если оно уже существует:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
-          version = "<версия ClickHouse>"
+          version = "<версия_{{ CH }}>"
         }
         ```
 

@@ -27,10 +27,14 @@ items:
                 href: operations/cluster-version-update.md
               - name: Managing {{ OS }} plugins
                 href: operations/plugins.md
+          - name: Managing {{ OS }} hosts
+            items:
+              - name: Managing host groups
+                href: operations/host-groups.md
+              - name: Migrating host groups to a different availability zone
+                href: operations/host-migration.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
-          - name: Managing {{ OS }} hosts
-            href: operations/host-groups.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Configuring access to Object Storage
@@ -57,13 +61,13 @@ items:
         href: tutorials/migration-from-mkf.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host groups
         href: concepts/host-groups.md
       - name: Host roles
         href: concepts/host-roles.md
-      - name: Indices
+      - name: Indexes
         href: concepts/indexing.md
       - name: Search using {{ OS }}
         href: concepts/searching.md
@@ -183,6 +187,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Public materials
+    href: public-talks.md
   - name: Questions and answers
     items:
       - name: General questions

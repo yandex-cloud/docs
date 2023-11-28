@@ -12,15 +12,15 @@ description: "Для визуализация данных из {{ tracker-short
 * визуализировать необходимые метрики и данные с помощью {{ datalens-short-name }}.
 
 Для визуализации данных выполните следующие шаги:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте БД для хранения данных {{ tracker-short-name }}](#database-create).
 1. [Создайте OAuth токен для доступа к {{ tracker-short-name }}](#oauth-token).
 1. [Создайте функцию {{ sf-name }} для импорта данных](#function-import).
 1. [Создайте подключение к {{ datalens-short-name }}](#connection-create).
-1. [Создайте дашборд в {{ datalens-short-name }}](#dashboard-create).
 1. [Создайте датасет](#dataset-create).
 1. [Создайте чарт](#chart-create).
-1. [Добавьте чарты на дашборд](#dashboard-create).
+1. [Создайте дашборд в {{ datalens-short-name }} и добавьте на него чарты](#dashboard-create).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -105,7 +105,7 @@ description: "Для визуализация данных из {{ tracker-short
 1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** выберите среду выполнения `Python / 3.9`.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
-1. Прикрепите [тестовый архив](https://github.com/yandex-cloud/yc-architect-solution-library/raw/main/yc-tracker/tracker-data-import/build/tracker-data-import.zip).
+1. Прикрепите [тестовый архив](https://github.com/yandex-cloud-examples/yc-tracker-data-import/blob/main/build/tracker-data-import.zip).
 1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `tracker_import.handler`.
 1. В разделе **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `60`;
@@ -193,15 +193,9 @@ description: "Для визуализация данных из {{ tracker-short
 
 1. На верхней панели выберите [тип визуализации](../../datalens/visualization-ref/index.md). По умолчанию выбран тип **Столбчатая диаграмма**.
 
-## Создайте дашборд {#dashboard-create}
+## Создайте дашборд и добавьте на него чарты {#dashboard-create}
 
 1. На главной странице [{{ datalens-full-name }}]({{ link-datalens-main }}) нажмите **Создать дашборд**.
-1. В открывшемся окне введите название дашборда. Дашборд появится в списке на странице навигации.
-
-Подробнее о настройке дашбордов см. в разделе [Дашборд {{ datalens-full-name }}](../../datalens/concepts/dashboard.md).
-
-## Добавьте чарты на дашборд {#add-charts}
-
 1. В верхней части страницы [дашборда](#dashboard-create) нажмите кнопку **Добавить** → **Чарт**.
 1. Заполните параметры виджета. Обратите внимание на следующие поля:
     * **Название**. Задает имя виджета. Отображается на верхней части виджета.
@@ -209,6 +203,12 @@ description: "Для визуализация данных из {{ tracker-short
     * **Описание**. Задает описание виджета. Отображается на нижней части виджета.
     * **Автовысота**. Задает автоматическую высоту для виджетов типа **Таблица** и **Markdown**. Если параметр отключен, то высоту виджета на странице можно установить с помощью мыши.
 1. Нажмите кнопку **Добавить**. Виджет отобразится на дашборде.
+1. Сохраните дашборд:
+
+   1. В правом верхнем углу дашборда нажмите кнопку **Сохранить**.
+   1. Введите название дашборда и нажмите **Создать**.
+
+   Подробнее о настройке дашбордов см. в разделе [Дашборд {{ datalens-full-name }}](../../datalens/concepts/dashboard.md).
 
 {% cut "Пример дашборда на основе данных из таблицы `v_tracker_issues`" %}
 

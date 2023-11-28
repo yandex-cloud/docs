@@ -121,7 +121,7 @@
    1. Авторизуйтесь в {{ GL }}.
    1. На главной странице выберите репозиторий.
    1. Выберите раздел **Repository** → **Files**.
-   1. Нажмите кнопку ![image](../../_assets/plus.svg) и в выпадающем меню выберите пункт **New file**.
+   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
    1. Назовите файл `Dockerfile` и добавьте в него код:
 
       ```Dockerfile
@@ -160,7 +160,7 @@
 
    | **Переменная**        | **Ее значение**                    |
    | --------------------- | ---------------------------------- |
-   | `CI_REGISTRY`         | `cr.yandex/<идентификатор реестра>`. Укажите идентификатор созданного ранее реестра {{ container-registry-full-name }}. |
+   | `CI_REGISTRY`         | `cr.yandex/<идентификатор_реестра>`. Укажите идентификатор созданного ранее реестра {{ container-registry-full-name }}. |
    | `CI_REGISTRY_KEY`     | Содержимое файла `key.json`.       |
 
    Для добавления переменной:
@@ -176,7 +176,7 @@
 
 1. Откройте проект {{ GL }}.
 1. На панели слева перейдите в раздел **Repository** и выберите вкладку **Files**.
-1. Справа от имени проекта нажмите кнопку ![image](../../_assets/plus.svg) и в выпадающем меню выберите пункт **New file**.
+1. Справа от имени проекта нажмите кнопку ![image](../../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
 1. Назовите файл `.gitlab-ci.yml`. Добавьте в него шаги сборки Docker-образа и его загрузки в {{ container-registry-full-name }}:
 
    {% cut ".gitlab-ci.yml" %}
@@ -251,7 +251,7 @@
       - build
       - test
    
-   <блок build, добавленный ранее в файл>
+   <блок_build_добавленный_ранее_в_файл>
 
    container_scanning_free_yc:
       stage: test
@@ -265,7 +265,7 @@
             - gl-container-scanning-report-yc.json
       variables:
          # Укажите идентификатор созданного ранее реестра.
-         CI_REGISTRY_ID: "<идентификатор реестра>"
+         CI_REGISTRY_ID: "<идентификатор_реестра>"
       script:
          - export CI_COMMIT_SHORT_SHA=${CI_COMMIT_SHORT_SHA}
          # Установка Yandex Cloud CLI.

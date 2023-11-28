@@ -1,3 +1,8 @@
+---
+title: "Инструкции по работе с {{ lockbox-full-name }}"
+description: "Из статьи вы узнаете, как работать с {{ lockbox-full-name }} в {{ yandex-cloud }}."
+---
+
 # Пошаговые инструкции для {{ lockbox-name }}
 
 * [{#T}](secret-create.md)

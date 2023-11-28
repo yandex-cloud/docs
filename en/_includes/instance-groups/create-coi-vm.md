@@ -34,9 +34,9 @@ To create an instance group based on a {{ coi }}:
 
    {% endlist %}
 
-   If there aren't any, [create one](../../vpc/operations/network-create.md).
+   If there are not any, [create one](../../vpc/operations/network-create.md).
 
-1. Create a YAML file with a name like `specification.yaml`.
+1. Create a YAML file and name it, e.g., `specification.yaml`.
 
 1. {% include [get-latest-coi](../container-registry/get-latest-coi.md) %}
 
@@ -76,6 +76,8 @@ To create an instance group based on a {{ coi }}:
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+       placement_policy:
+        placement_group_id: rmppvhrgm77g********
        metadata:
          docker-container-declaration: |-
            spec:
@@ -101,11 +103,12 @@ To create an instance group based on a {{ coi }}:
      * `image_id`: ID of the public {{ coi }}.
      * `type_id`: Disk type.
      * `size`: Disk size. It must be at least 30 GB.
-     * `network_id`: ID of `default-net`.
+     * `network_id`: ID of the `default-net` network.
      * `primary_v4_address_spec`: IPv4 specification. Only IPv4 is currently available. You can [allow public access to group instances](../../compute/concepts/instance-groups/instance-template.md#instance-template) by specifying the IP version for the public IP address.
      * `metadata`: Values to send to the VM metadata.
      * `docker-container-declaration`: Key in the VM metadata that is used with the [COI specification of the Docker container](../../cos/concepts/coi-specifications.md). In the metadata, you can use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec). To do this, specify the `docker-compose` key instead of the `docker-container-declaration` key.
-
+      * `placement_policy`: (Optional) [VM placement group](../../compute/concepts/placement-groups.md) parameters:
+         * `placement_group_id`: Placement group ID.
    * [Policies](../../compute/concepts/instance-groups/policies/index.md):
 
      ```yaml
@@ -151,6 +154,8 @@ To create an instance group based on a {{ coi }}:
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+       placement_policy:
+          placement_group_id: rmppvhrgm77g********
        metadata:
          docker-container-declaration: |-
            spec:

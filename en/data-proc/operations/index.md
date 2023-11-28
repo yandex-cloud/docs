@@ -1,11 +1,12 @@
 # Step-by-step guides for {{ dataproc-name }}
 
-## Clusters {{ dataproc-name }}
+## {{ dataproc-name }} clusters
 
 * [{#T}](cluster-list.md)
 * [{#T}](cluster-create.md)
 * [{#T}](connect.md)
 * [{#T}](cluster-update.md)
+* [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](cluster-delete.md)
 
 ## Subclusters {{ dataproc-name }}
@@ -32,7 +33,7 @@
 * [{#T}](jobs-hive.md)
 * [{#T}](jobs-mapreduce.md)
 
-## Clusters {{ metastore-full-name }}
+## {{ metastore-full-name }} clusters
 
 * [{#T}](./metastore/cluster-create.md)
 * [{#T}](./metastore/dataproc-connect.md)

@@ -55,9 +55,9 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
   
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-acl](../../_assets/organization/acl.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-acl](../../_assets/console-icons/shield.svg).
 
-  1. Если у нужного пользователя уже есть хотя бы одна роль, выберите его из списка или воспользуйтесь строкой поиска вверху страницы. В строке пользователя нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. Если у нужного пользователя уже есть хотя бы одна роль, выберите его из списка или воспользуйтесь строкой поиска вверху страницы. В строке пользователя нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
      Если нужного пользователя нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и выберите пользователя из списка или воспользуйтесь строкой поиска.
   
@@ -192,7 +192,7 @@
 
 Если вы хотите запретить пользователю доступ к ресурсу, отзовите у него соответствующие роли на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее об управлении доступом в {{ yandex-cloud }} читайте в документации [{{ iam-full-name }}](../../iam/concepts/access-control/index.md).
 
-Отозвать роль может пользователь с ролью администратора `organization-manager.admin` или владельца `organization-manager.organizations.owner` организации. Как назначить роль пользователю, читайте в разделе [Роли](#admin).
+Отозвать роль может пользователь с ролью администратора `organization-manager.admin` или владельца `organization-manager.organizations.owner` организации. О том, как назначить пользователю роль, читайте в разделе [Роли](#admin).
 
 {% list tabs %}
 
@@ -202,13 +202,13 @@
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
   
-  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-users](../../_assets/organization/icon-users.svg).
+  1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-users](../../_assets/console-icons/person.svg).
 
   1. Выберите пользователя из списка или воспользуйтесь строкой поиска вверху страницы.
   
-  1. В правом столбце нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. В правом столбце нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
   
-  1. Нажмите значок ![cross](../../_assets/cross.svg) рядом с ролью, чтобы удалить ее.
+  1. Нажмите значок ![cross](../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

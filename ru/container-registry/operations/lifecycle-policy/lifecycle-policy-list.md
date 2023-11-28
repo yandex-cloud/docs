@@ -1,3 +1,8 @@
+---
+title: "Как получить информацию о политиках удаления в {{ container-registry-full-name }}"
+description: "Следуя данной инструкции, вы сможете получить информацию о политиках удаления." 
+---
+
 # Получить информацию о политиках удаления
 
 Узнайте, как получить:
@@ -20,7 +25,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
-  1. На панели слева нажмите ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
 
 - CLI
 
@@ -77,7 +82,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
-  1. На панели слева нажмите ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
   1. Нажмите на имя нужной политики удаления.
 
 - CLI

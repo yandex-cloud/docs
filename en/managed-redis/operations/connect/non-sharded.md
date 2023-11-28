@@ -32,21 +32,21 @@ If, when the [master host is changed automatically](../../concepts/replication.m
 
 ### Current master {#fqdn-master}
 
-Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` in a non-sharded cluster always points to the current master host. The cluster ID can be requested with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` in a non-sharded cluster always points to the current master host. The cluster ID can be requested with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-An example an SSL-encrypted connection to a master host for a cluster with `c9qash3nb1v9ulc8j9nm` as the ID:
+Here is an example of an SSL-encrypted connection to a master host for a cluster with the `c9qash3nb1v9********` ID:
 
 ```bash
-redis-cli -h c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+redis-cli -h c-c9qash3nb1v9********.rw.{{ dns-zone }} \
   -p 6380 \
   --tls \
   --cacert ~/.redis/{{ crt-local-file }} \
-  -a <{{ RD }} password>
+  -a <{{ RD }}_password>
 ```
 
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+## Connecting from graphical IDEs {#connection-ide}
 
 {% include [IDE environment settings](../../../_includes/mdb/mrd/ide-envs.md) %}
 

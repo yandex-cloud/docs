@@ -10,7 +10,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
-  1. На панели слева нажмите ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте параметры политики удаления:
      * (Опционально) **{{ ui-key.yacloud.common.name }}**.

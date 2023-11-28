@@ -41,10 +41,14 @@ items:
             href: operations/placement-groups/delete.md
           - name: Creating a VM in a placement group
             href: operations/placement-groups/create-vm-in-pg.md
+          - name: Creating an instance group in a placement group
+            href: operations/placement-groups/create-ig-in-pg.md
           - name: Adding a VM to a placement group
             href: operations/placement-groups/add-vm.md
           - name: Removing a VM from a placement group
             href: operations/placement-groups/delete-vm.md
+          - name: Removing an instance group from a placement group
+            href: operations/placement-groups/delete-ig-from-pg.md
       - name: Images with pre-installed software
         items:
           - name: Creating a VM from a public image
@@ -139,8 +143,6 @@ items:
             href: operations/disk-control/disk-change-folder.md
           - name: Encrypting a disk
             href: operations/disk-control/disk-encrypt.md
-          - name: Moving a disk to a different availability zone
-            href: operations/disk-control/disk-change-zone.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
       - name: Disk snapshots
@@ -225,6 +227,8 @@ items:
             href: operations/instance-groups/create-with-coi.md
           - name: Creating an instance group based on the YAML specification
             href: operations/instance-groups/create-from-yaml.md
+          - name: Creating an instance group in a placement group
+            href: operations/placement-groups/create-ig-in-pg.md
       - name: Getting information about instance groups
         items:
           - name: Getting a list of instance groups
@@ -237,8 +241,18 @@ items:
         items:
           - name: Editing an instance group
             href: operations/instance-groups/update.md
-          - name: Edit an instance group based on the YAML specification
+          - name: Editing an instance group based on the YAML specification
             href: operations/instance-groups/update-from-yaml.md
+          - name: Moving an instance group to a different availability zone
+            href: operations/instance-groups/move-group.md
+          - name: >-
+              Moving an instance group with a network load balancer to a
+              different availability zone
+            href: operations/instance-groups/move-group-with-nlb.md
+          - name: >-
+              Moving an instance group with an L7 load balancer to a different
+              availability zone
+            href: operations/instance-groups/move-group-with-alb.md
           - name: Configuring application health check on the VM
             href: operations/instance-groups/enable-autohealing.md
           - name: Updating a group
@@ -261,6 +275,8 @@ items:
             href: operations/instance-groups/start.md
           - name: Deleting an instance group
             href: operations/instance-groups/delete.md
+          - name: Removing an instance group from a placement group
+            href: operations/placement-groups/delete-ig-from-pg.md
       - name: Dedicated hosts
         items:
           - name: Creating a group of dedicated hosts

@@ -1,6 +1,6 @@
-Disks consist of blocks. By default, the block size of all created disks is 4 KB; however, this is not enough for disks larger than 8 TB. You can set the block size when creating an empty disk. In this case, you will immediately see the maximum disk size. You cannot change the block size after the disk is created.
+Disks consist of blocks. By default, the block size of all new disks is 4 KB. You can set block size in the range from 4 KB to 128 KB when creating a disk.
 
-The maximum disk size depends on the specified block size. The size of a newly created disk must be a multiple of 4 MB.
+For network disks, the maximum disk size depends on the block size. The size of a newly created disk must be a multiple of 4 MB. The possible disk and block sizes are as follows:
 
 | Block size | Maximum disk size |
 | --- | --- |
@@ -10,6 +10,10 @@ The maximum disk size depends on the specified block size. The size of a newly c
 | 32 KB | 64 TB |
 | 64 KB | 128 TB |
 | 128 KB | 256 TB |
+
+For non-replicated and high-performance SSDs, you can select any block size for any disk size. The size of a disk must be a multiple of 93 GB.
+
+You cannot change the block size after the disk is created.
 
 {% note alert %}
 

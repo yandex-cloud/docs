@@ -1,10 +1,15 @@
+---
+title: "Спецификация группы виртуальных машин {{ compute-full-name }} в формате YAML"
+description: "Из статьи вы узнаете, что такое спецификация группы виртуальных машин в формате YAML и как она выглядит." 
+---
+
 # Спецификация группы виртуальных машин в формате YAML
 
 Группу ВМ можно создать или изменить по спецификации в формате [YAML](https://ru.wikipedia.org/wiki/YAML). В спецификации описываются:
 
 * базовые атрибуты и настройки группы — имя, описание, [метки](../../../resource-manager/concepts/labels.md), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и защита от удаления;
 * [шаблон ВМ](instance-template.md) и использующиеся в нем [переменные](variables-in-the-template.md);
-* политики [распределения](policies/allocation-policy.md), [развертывания](policies/deploy-policy.md) и [масштабирования](policies/scale-policy.md);
+* политики [распределения](policies/allocation-policy.md), [развертывания](policies/deploy-policy.md), [масштабирования](policies/scale-policy.md) и [восстановления](policies/healing-policy.md);
 * настройки балансировки трафика между ВМ с помощью [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) или [{{ alb-full-name }}](../../../application-load-balancer/).
 
 {% note info %}
@@ -64,6 +69,9 @@ deploy_policy:
   max_unavailable: 1
   startup_duration: 0s
   strategy: OPPORTUNISTIC
+  minimal_action: RESTART
+auto_healing_policy:
+  auto_healing_action: RESTART
 allocation_policy:
   zones:
     - zone_id: {{ region-id }}-b
@@ -88,6 +96,7 @@ service_account_id: ajefnb8427bh********
 * [{#T}](policies/allocation-policy.md) (поле `allocation_policy`).
 * [{#T}](policies/deploy-policy.md) (поле `deploy_policy`).
 * [{#T}](policies/scale-policy.md) (поле `scale_policy`).
+* [{#T}](policies/healing-policy.md) (поле `auto_healing_policy`).
 * [{#T}](autohealing.md) (поле `health_checks_spec`).
 * [{#T}](balancers.md) (поля `load_balancer_spec` и `application_load_balancer_spec`).
 

@@ -22,7 +22,7 @@
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **Доступные для установки приложения** выберите [ExternalDNS c плагином для {{ dns-full-name }}](/marketplace/products/yc/externaldns) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для ExternalDNS или создайте новое.
@@ -52,6 +52,19 @@
      --set-file config.auth.json=<путь_к_файлу_с_авторизованным_ключом_сервисного_аккаунта> \
      externaldns ./externaldns/
     ```
+
+## Особенности работы {#features}
+
+Чтобы автоматически создавать DNS-записи с помощью приложения [ExternalDNS c плагином для {{ dns-full-name }}](/marketplace/products/yc/externaldns):
+* С [Ingress-контроллерами](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) не нужны дополнительные настройки.
+* Для сервисов типа [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) необходимо использовать аннотацию `"external-dns.alpha.kubernetes.io/hostname=<ваш_домен>"`.
+
+  Чтобы установить значение TTL для DNS-записи, используйте аннотацию `"external-dns.alpha.kubernetes.io/ttl=<значение_TTL_в_секундах>"`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/alb-ingress-controller-log-options.md).
+* [{#T}](../../tutorials/load-testing-grpc-autoscaling.md).
 
 ## См. также {#see-also}
 

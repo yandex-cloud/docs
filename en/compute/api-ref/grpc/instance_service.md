@@ -2735,7 +2735,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the network interface that is being updated. 
+instance_id | **string**<br>Required. ID of the instance that is being updated. 
 network_interface_index | **string**<br>Required. The index of the network interface to be updated. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the instance should be updated. 
 subnet_id | **string**<br>ID of the subnet. 
@@ -3209,6 +3209,8 @@ Field | Description
 instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 destination_zone_id | **string**<br>Required. ID of the availability zone to move the instance to. <br>To get the zone ID, make a [ZoneService.List](./zone_service#List) request. The maximum string length in characters is 50.
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Required. Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
+boot_disk_placement | **[DiskPlacementPolicy](#DiskPlacementPolicy2)**<br>Boot disk placement policy configuration in target zone. Must be specified if disk has placement policy. 
+secondary_disk_placements[] | **[DiskPlacementPolicyChange](#DiskPlacementPolicyChange)**<br>Secondary disk placement policy configurations in target zone. Must be specified for each disk that has placement policy. 
 
 
 ### NetworkInterfaceSpec {#NetworkInterfaceSpec1}
@@ -3247,6 +3249,22 @@ fqdn | **string**<br>Required. FQDN (required)
 dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
 ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
 ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy2}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+placement_group_partition | **int64**<br> 
+
+
+### DiskPlacementPolicyChange {#DiskPlacementPolicyChange}
+
+Field | Description
+--- | ---
+disk_id | **string**<br>Disk ID. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy3)**<br>Placement policy configuration for given disk. 
 
 
 ### Operation {#Operation16}

@@ -1,4 +1,6 @@
 ---
+title: "Настройка инструментов AWS в {{ ydb-full-name }}"
+description: "На странице представлены инструменты AWS, которые вы можете использовать для работы с БД через Document API в режиме совместимости с AWS DynamoDB." 
 sourcePath: overlay/quickstart/document-api/aws-setup.md
 ---
 # Настройка инструментов AWS
@@ -119,8 +121,8 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
     ```bash
     aws configure
-    AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
-    AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    AWS Access Key ID [None]: AKIAIOSFODNN********
+    AWS Secret Access Key [None]: wJalr********/*******/bPxRfiCYEX********
     Default region name [None]: {{ region-id }}
     Default output format [None]:
     ```

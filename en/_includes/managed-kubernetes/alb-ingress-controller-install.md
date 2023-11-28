@@ -17,8 +17,8 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
    ```bash
    yc iam key create \
-     --service-account-name <name_of_service_account_for_Ingress_controller> \
-     --format=json > sa-key.json
+     --service-account-name <Ingress_controller_service_account_name> \
+     --output sa-key.json
    ```
 
 
@@ -26,15 +26,15 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../_assets/marketplace.svg) tab.
-1. Under **Applications available for installation**, select [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+1. Under **Applications available for installation**, select the [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **Folder ID**: Specify a [folder ID](../../resource-manager/operations/folder/get-id.md).
    * **Cluster ID**: Specify a [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Service account key**: Paste the contents of the `sa-key.json` file.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 
 ## Installation using a Helm chart {#install-alb-helm}

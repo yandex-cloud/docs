@@ -1,3 +1,8 @@
+---
+title: "Мониторинг в {{ network-load-balancer-full-name }}"
+description: "Cетевой балансировщик отправляет метрики processed_bytes и processed_packets." 
+---
+
 # Мониторинг
 
 Cетевой балансировщик отправляет следующие метрики в сервис [{{ monitoring-full-name }}](../../monitoring/concepts/index.md):

@@ -219,7 +219,7 @@
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
-  1. Напротив нужной метки нажмите значок ![image](../../../_assets/cross.svg).
+  1. Напротив нужной метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - AWS CLI

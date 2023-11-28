@@ -106,9 +106,9 @@
   ```bash
   curl -X POST \
       -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -H "Authorization: Bearer <IAM-токен>" \
       -d '{
-          "folderId": "b1gvmob95yysaplct532",
+          "folderId": "b1gvmob95yys********",
           "name": "my-robot",
           "description": "this is my favorite service account"
       }' \

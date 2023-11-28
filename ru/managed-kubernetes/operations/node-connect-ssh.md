@@ -1,3 +1,8 @@
+---
+title: "Как подключиться к узлу кластера {{ k8s }} по SSH в {{ managed-k8s-full-name }}"
+description: "Следуя данной инструкции, вы сможете подключиться к узлу по SSH." 
+---
+
 # Подключение к узлу по SSH
 
 Чтобы подключиться к [узлу](../concepts/index.md#node-group) [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) по [SSH](../../glossary/ssh-keygen.md):
@@ -148,7 +153,7 @@ yc managed-kubernetes node-group add-metadata \
 - Консоль управления
 
   1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в каталоге, где создан ваш кластер {{ managed-k8s-name }}.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Нажмите на группу ВМ, имя которой соответствует идентификатору группы узлов {{ managed-k8s-name }}.
   1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_instances }}**.
   1. Нажмите на ВМ, публичный адрес которой хотите узнать.

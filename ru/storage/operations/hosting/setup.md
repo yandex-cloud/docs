@@ -1,3 +1,8 @@
+---
+title: "Настройка хостинга в {{ objstorage-full-name }}"
+description: "Следуя данной инструкции, вы сможете настроить хостинг." 
+---
+
 # Настройка хостинга
 
 В бакетах {{ objstorage-name }} поддерживаются:
@@ -14,7 +19,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить хостинг.
   1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
-  1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Перейдите на вкладку ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
       * в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта;
       * (опционально) в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках 4хх. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
@@ -164,7 +169,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить переадресацию.
   1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
-  1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Перейдите на вкладку ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}** укажите:
       * Доменное имя хоста, на который будут перенаправляться все запросы к бакету.
       * (Опционально) Протокол, если указанный хост принимает запросы строго по определенному протоколу.
@@ -307,7 +312,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить условную переадресацию запросов.
   1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
-  1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Перейдите на вкладку ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}** нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}** укажите хотя бы одно условие переадресации:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** — HTTP-код, которым {{ objstorage-name }} должен был бы ответить на запрос без переадресации.

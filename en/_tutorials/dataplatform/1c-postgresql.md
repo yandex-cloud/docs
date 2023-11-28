@@ -1,10 +1,10 @@
 # Creating a {{ PG }} cluster for <q>1C:Enterprise</q>
 
-{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for <q>1C:Enterprise</q>. For this, the service supports PostgreSQL versions {{ pg.versions.console.str-1c }} with all the necessary [extensions](#extensions) installed and connection pooler configuration changed.
+{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for <q>1C:Enterprise</q>. To this end, the service supports PostgreSQL versions {{ pg.versions.console.str-1c }} with all the necessary [extensions](#extensions) installed and the connection pooler configuration modified.
 
 {% note warning %}
 
-You can only connect <q>1C:Enterprise</q> to clusters running version {{ pg.versions.console.str-1c }}.
+You can only connect <q>1C:Enterprise</q> to version {{ pg.versions.console.str-1c }} clusters.
 
 {% endnote %}
 
@@ -43,7 +43,7 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
       * `db_name`: Database name.
       * `username` and `password`: Database owner username and password.
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

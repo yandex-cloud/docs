@@ -3,11 +3,11 @@ title: "How to delete a log group in {{ cloud-logging-name }}"
 description: "In this tutorial, you will learn how to delete a log group in {{ cloud-logging-name }}."
 ---
 
-# Deleting a group
+# Deleting a log group
 
 {% note info %}
 
-The name of the [default log group](../concepts/log-group.md) is `default`. The group can be deleted. However, if a service or application writes logs and the folder ID is indicated as the destination, it will be automatically re-created.
+The name of the [default log group](../concepts/log-group.md) is `default`. The group can be deleted. However, if a service or application writes logs and the folder ID is indicated as the destination, it will be automatically recreated.
 
 {% endnote %}
 
@@ -17,7 +17,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [log group](../concepts/log-group.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-   1. In the log group's line, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the log group row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
@@ -107,5 +107,38 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 - API
 
    To delete a custom log group, use the [delete](../api-ref/LogGroup/delete.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Delete](../api-ref/grpc/log_group_service.md#Delete) gRPC API call.
+
+   
+   **Sample request**
+
+   The example below uses the `grpcurl` utility. To use the example, [authenticate](../api-ref/authentication.md) in the API and clone the [cloudapi](https://github.com/yandex-cloud/cloudapi) repository.
+
+   Run the following query:
+
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \
+      -d '{"log_group_id": "<log_group_ID>"}' \
+      -import-path ~/cloudapi/ \
+      -import-path ~/cloudapi/third_party/googleapis/ \
+      -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
+   logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Delete
+   ```
+
+   Response:
+
+   ```text
+   {
+     "id": "e23omac87b3a********",
+     "description": "Delete log group",
+     "createdAt": "2023-03-25T05:48:01.626155032Z",
+     "createdBy": "ajego134p5h1********",
+     "modifiedAt": "2023-03-25T05:48:01.626155032Z",
+     "metadata": {
+       "@type": "type.googleapis.com/yandex.cloud.logging.v1.DeleteLogGroupMetadata",
+       "logGroupId": "e23ff0on5amv********"
+     }
+   }
+   ```
+
 
 {% endlist %}

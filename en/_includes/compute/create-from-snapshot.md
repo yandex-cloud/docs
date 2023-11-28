@@ -82,6 +82,7 @@
 
       {% include [vm-connect-linux](../vm-connect-linux.md) %}
 
+   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_placement }}**, select a VM [placement group](../../compute/concepts/placement-groups.md).
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../vpc/concepts/address.md) and [hostname](../../vpc/concepts/address.md#fqdn) (FQDN).

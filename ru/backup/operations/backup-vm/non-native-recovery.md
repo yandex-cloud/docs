@@ -16,13 +16,13 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Перейдите на вкладку ![backups](../../../_assets/backup/backups.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
-  1. Напротив резервной копии, из которой нужно восстановить ВМ, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.backup.action_recovery }}**.
+  1. Перейдите на вкладку ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
+  1. Напротив резервной копии, из которой нужно восстановить ВМ, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_recovery }}**.
   1. В поле **{{ ui-key.yacloud.backup.field_recover-to-vm }}** выберите ВМ, в которую нужно восстановить резервную копию, или [создайте](../#connect-vm) новую ВМ с подключением к {{ backup-name }}. Чтобы создать новую ВМ для восстановления, нажмите кнопку **{{ ui-key.yacloud.common.create }}**:
       1. На открывшейся странице задайте параметры новой ВМ и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
           Дождитесь [подключения](../../concepts/vm-connection.md) ВМ к {{ backup-name }}.
       1. Вернитесь на страницу восстановления ВМ.
-      1. Чтобы обновить список ВМ, нажмите ![refresh](../../../_assets/backup/refresh.svg).
+      1. Чтобы обновить список ВМ, нажмите ![refresh](../../../_assets/console-icons/arrow-rotate-right.svg).
       1.  Выберите ВМ, созданную ранее.
   1. Чтобы исключить конфликт между восстановленной и исходной ВМ, включите опцию **{{ ui-key.yacloud.backup.field_delete-old-vm }}**.
 

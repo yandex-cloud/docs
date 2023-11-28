@@ -127,7 +127,7 @@ Secret version control enables you to:
 
 {% endlist %}
 
-## Rolling back to a version {#backup}
+## Setting a current version {#backup}
 
 {% list tabs %}
 
@@ -137,12 +137,12 @@ Secret version control enables you to:
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click the name of the secret you need.
    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the appropriate version.
-   1. Select **{{ ui-key.yacloud.lockbox.button_action-use-as-basis }}**.
-   1. Click **{{ ui-key.yacloud.lockbox.button_use-as-basis-version-action-text }}**.
+   1. Select **{{ ui-key.yacloud.lockbox.field_make-version-current }}**.
+   1. Click **{{ ui-key.yacloud.lockbox.button_action-make-version-current }}**.
 
 - API
 
-   To roll back to an existing version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
+   To set a new current version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
 
 {% endlist %}
 

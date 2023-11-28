@@ -26,6 +26,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ interconnect-full-name }}](../../interconnect/index.yaml) | Dedicated network connection management |
 | [{{ cloud-logging-full-name }}](../../logging/index.yaml) | Service for aggregating and reading logs of user applications and {{ yandex-cloud }} resources |
 | [{{ org-full-name }}](../../organization/index.yaml) | Service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources |
+| [{{ postbox-full-name }}](../../postbox/index.yaml) | {{ preview-stage }} Transactional email service |
 | [{{ compute-full-name }}](../../compute/index.yaml) | Service for creating and managing VMs |
 | [{{ container-registry-full-name }}](../../container-registry/index.yaml) | Service for managing Docker images and containers |
 | [{{ dataproc-full-name }}](../../data-proc/index.yaml) | Managed Apache Hadoop® clusters |
@@ -40,6 +41,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ kms-full-name }}](../../kms/index.yaml) | Encryption key management |
 | [{{ load-testing-full-name }}](../../load-testing/index.yaml) | {{ preview-stage }} Service for load testing and performance analysis |
 | [{{ lockbox-name }}](../../lockbox/index.yaml) | {{ preview-stage }} Service for creating and storing secrets in the {{ yandex-cloud }} infrastructure |
+| [{{ maf-full-name }}](../../managed-airflow/index.yaml) | {{ preview-stage }} Service for creating and managing {{ AF }} clusters |
 | [{{ mkf-full-name }}](../../managed-kafka/index.yaml) | Service for creating and managing {{ KF }} clusters |
 | [{{ mch-full-name }}](../../managed-clickhouse/index.yaml) | Service for creating and managing {{ CH }} clusters |
 | [{{ mes-full-name }}](../../managed-elasticsearch/index.yaml) | Service for creating and managing {{ ES }} clusters |
@@ -50,6 +52,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ mmy-full-name }}®](../../managed-mysql/index.yaml) | Service for creating and managing {{ MY }} clusters |
 | [{{ mos-full-name }}](../../managed-opensearch/index.yaml) | Service for creating and managing {{ OS }} clusters |
 | [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) | Service for creating and managing {{ PG }} clusters |
+| [{{ managed-prometheus-full-name }}](../../monitoring/operations/prometheus/index.md) | {{ preview-stage }} Monitoring system compatible with [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/) |
 | [{{ mrd-full-name }}™](../../managed-redis/index.yaml) | Service for creating and managing {{ RD }} clusters |
 | [{{ ydb-full-name }}](../../ydb/index.yaml) | {{ ydb-full-name }} database management service |
 | [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Queue service for messaging between components of distributed applications and microservices |
@@ -68,6 +71,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ translate-full-name }}](../../translate/index.yaml) | Machine translation service |
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management service |
 | [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image analysis |
+| [{{ websql-full-name }}](../../websql/index.yaml) | {{ preview-stage }} Service for connecting to managed database clusters |
 | [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating corporate databases |
 | [{{ yagpt-full-name }}](../../yandexgpt/index.yaml) | {{ preview-stage }} Generative language model for business |
 

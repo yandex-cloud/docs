@@ -1,3 +1,8 @@
+---
+title: "Расширение x-yc-apigateway-authorizer:function для {{ api-gw-full-name }}"
+description: "Узнайте для чего используется расширение x-yc-apigateway-authorizer:function, его спецификацию, а также ознакомьтесь с примером функции, которую вызывается с помощью расширения." 
+---
+
 # Расширение x-yc-apigateway-authorizer:function
 
 Расширение `x-yc-apigateway-authorizer:function` используется внутри схем компонента [securityScheme](https://swagger.io/docs/specification/authentication/) с типами:

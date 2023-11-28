@@ -3,14 +3,6 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Organizing a workflow in {{ ml-platform-name }}
-    items:
-      - name: Setting up a project to work with a cloud
-        href: tutorials/basics.md
-      - name: Setting up a student community
-        href: tutorials/community-for-students.md
-      - name: Automating project setup
-        href: tutorials/automation-community-settings.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -25,7 +17,7 @@ items:
             href: operations/community/manage-community-labels.md
           - name: Community configuration management
             href: operations/community/manage-community-config.md
-          - name: Adding a communication channel
+          - name: Adding a link for a community
             href: operations/community/link-channel.md
           - name: Linking a billing account
             href: operations/community/link-ba.md
@@ -55,10 +47,10 @@ items:
             href: operations/projects/delete.md
           - name: Removing a user from a project
             href: operations/projects/delete-user.md
-          - name: Connecting to JupyterLab from a local IDE
-            href: operations/projects/remote-connect.md
       - name: Working in a notebook
         items:
+          - name: Connecting to JupyterLab from a local IDE
+            href: operations/projects/remote-connect.md
           - name: Selecting computing resources
             href: operations/projects/control-compute-resources.md
           - name: Checking GPU load
@@ -99,8 +91,6 @@ items:
             href: operations/data/models.md
       - name: Connecting to data sources
         items:
-          - name: Connecting to an S3 storage
-            href: operations/data/s3-connectors.md
           - name: Connecting to S3 using the boto3 library
             href: operations/data/connect-to-s3.md
           - name: Connecting to a {{ CH }} database
@@ -137,6 +127,8 @@ items:
             href: operations/projects/publication.md
           - name: Exporting a project
             href: operations/projects/export.md
+          - name: Opening a notebook in {{ ml-platform-name }}
+            href: operations/projects/open-in-datasphere.md
       - name: Migrating to new version
         href: operations/migration.md
   - name: Concepts
@@ -169,8 +161,8 @@ items:
             href: concepts/async.md
           - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
-      - name: DataSphere Jobs
-        href: concepts/jobs.md
+          - name: DataSphere jobs
+            href: concepts/jobs.md
       - name: Resources
         items:
           - name: Overview
@@ -197,32 +189,46 @@ items:
         href: concepts/limits.md
       - name: Special terms for educational institutions
         href: concepts/freetier.md
+  - name: Organizing a workflow in {{ ml-platform-name }}
+    items:
+      - name: Setting up a project to work with a cloud
+        href: tutorials/basics.md
+      - name: Setting up a student community
+        href: tutorials/community-for-students.md
+      - name: Automating project setup
+        href: tutorials/automation-community-settings.md
+      - name: Integrating {{ dataproc-full-name }}
+        href: tutorials/data-proc-integration.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Integrating with {{ dataproc-full-name }}
-        href: tutorials/data-proc-integration.md
-      - name: Classification of images in video frames
-        href: tutorials/video-recognition.md
-      - name: Deploying a service from a code cell
-        href: tutorials/node-from-cell.md
-      - name: Deploying a service based on a Docker image
-        href: tutorials/node-from-docker.md
-      - name: Image generation using Stable Diffusion model
-        href: tutorials/stable-diffusion.md
-      - name: >-
-          Web analytics with funnels and cohorts calculated based on Yandex
-          Metrica data
-        href: tutorials/data-from-metrica-yc-visualization.md
-      - name: Running scheduled computations
-        href: tutorials/regular-launch.md
-      - name: Running computations using the API
-        href: tutorials/batch-code-execution.md
-      - name: Training a model on data from {{ objstorage-full-name }}
-        href: tutorials/s3-to-datasphere.md
-      - name: Creating an MLFlow server for logging experiments and artifacts
-        href: tutorials/mlflow-datasphere.md
+      - name: Development
+        items:
+          - name: Classification of images in video frames
+            href: tutorials/video-recognition.md
+          - name: Running scheduled computations
+            href: tutorials/regular-launch.md
+          - name: Running computations using the API
+            href: tutorials/batch-code-execution.md
+          - name: Training a model on data from {{ objstorage-full-name }}
+            href: tutorials/s3-to-datasphere.md
+          - name: Creating an MLFlow server for logging experiments and artifacts
+            href: tutorials/mlflow-datasphere.md
+      - name: Use
+        items:
+          - name: Deploying a service from a code cell
+            href: tutorials/node-from-cell.md
+          - name: Deploying a service based on a Docker image
+            href: tutorials/node-from-docker.md
+          - name: Image generation using Stable Diffusion model
+            href: tutorials/stable-diffusion.md
+      - name: Data analytics
+        items:
+          - name: >-
+              Web analytics with funnels and cohorts calculated based on Yandex
+              Metrica data
+            href: tutorials/data-from-metrica-yc-visualization.md
   - name: API reference
     items:
       - name: Overview

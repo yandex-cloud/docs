@@ -43,7 +43,7 @@
      * Выберите тип диска.
 
        
-       {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+       {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
 
        Тип диска для кластера {{ mkf-name }} нельзя изменить после создания.

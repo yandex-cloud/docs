@@ -55,8 +55,12 @@ items:
     items:
       - name: Clouds and services
         href: concepts/manage-services.md
+      - name: Organization membership
+        href: concepts/membership.md
       - name: Identity federations
         href: concepts/add-federation.md
+      - name: User groups
+        href: concepts/groups.md
       - name: OS Login
         href: concepts/os-login.md
       - name: Quotas and limits

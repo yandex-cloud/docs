@@ -15,7 +15,11 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
    sudo apt update && sudo apt install jq
    ```
 
-1. [Create a service account](../iam/operations/sa/create.md) named `eso-service-account`. You'll need it to work with the External Secrets Operator.
+1. [Create service accounts](../iam/operations/sa/create.md):
+
+   * `eso-service-account` for interaction between the External Secrets Operator and Certificate Manager.
+   * `k8s-sa` with the `editor`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../iam/concepts/access-control/roles.md) for the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) to create {{ managed-k8s-name }} cluster resources and pull Docker images. The `load-balancer.admin` role is required to create a [network load balancer](../network-load-balancer/concepts/index.md).
+
 1. Create an [authorized key](../iam/concepts/authorization/access-key.md) for the service account and save it to the `authorized-key.json` file:
 
    ```bash
@@ -24,7 +28,7 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
      --output authorized-key.json
    ```
 
-1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
+1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. In the cluster settings, specify the `k8s-sa` service account.
 
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -50,7 +54,7 @@ The infrastructure support cost includes:
      --role certificate-manager.certificates.downloader
    ```
 
-1. Check to see that the rights have been granted:
+1. Check that the rights have been granted:
 
    ```bash
    yc cm certificate list-access-bindings --id <certificate_ID>

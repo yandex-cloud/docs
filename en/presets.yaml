@@ -76,6 +76,7 @@ default:
   cloud-logging-name: Cloud Logging
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
+  cname-example: cl-msa87*****.edgecdn.ru
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
@@ -84,6 +85,7 @@ default:
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.com
+  console-name: Cloud Console
   container-registry-full-name: Yandex Container Registry
   container-registry-name: Container Registry
   container-registry-short-name: Container Registry
@@ -117,6 +119,7 @@ default:
   dns-name: Cloud DNS
   dns-ns-host-sld: yandexcloud.net
   dns-zone: mdb.yandexcloud.net
+  domain-name-example: cdn.example.com
   ds: Serverlesss
   DS: YDS
   dt-copy-regular: Regular
@@ -141,6 +144,7 @@ default:
   external-ip-examples:
     '0': 84.201.155.117
     '1': 84.252.131.221
+  folder-id-example: b1g86q4m5vej********
   forms-full-name: Yandex Forms
   forms-name: Forms
   GL: GitLab
@@ -197,9 +201,9 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27, 1.28
-  k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
-  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-versions-rapid: 1.24, 1.25, 1.26, 1.27, 1.28
+  k8s-versions-regular: 1.24, 1.25, 1.26, 1.27
+  k8s-versions-stable: 1.24, 1.25, 1.26, 1.27
   k8s-vpa: Vertical Pod Autoscaler
   KF: Apache Kafka®
   KFC: Kafka Connect
@@ -682,6 +686,7 @@ default:
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
   websql-full-name: Yandex WebSQL
+  websql-link: https://websql.cloud.yandex.ru
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
@@ -942,45 +947,63 @@ default:
       elasticsearch:
         v2:
           cpu:
+            c100|month|string: ₽1209.6000
             c100|string: ₽1.6800
           ram:
+            basic|month|string: ₽1512.0000
             basic|string: ₽2.1000
+            gold|month|string: ₽1771.2000
             gold|string: ₽2.4600
+            platinum|month|string: ₽2037.6000
             platinum|string: ₽2.8300
         v3:
           cpu:
+            c100|month|string: ₽1209.6000
             c100|string: ₽1.6800
           ram:
+            basic|month|string: ₽1512.0000
             basic|string: ₽2.1000
+            gold|month|string: ₽1771.2000
             gold|string: ₽2.4600
+            platinum|month|string: ₽2037.6000
             platinum|string: ₽2.8300
       greenplum:
         v2:
           cpu:
             c100:
               dedicated|string: ₽1.2000
+            c100|month|string: ₽1720.8000
             c100|string: ₽2.3900
           ram:
             dedicated|string: ₽0.3100
+          ram|month|string: ₽453.6000
           ram|string: ₽0.6300
         v3:
           cpu:
             c100:
               dedicated|string: ₽1.0800
+            c100|month|string: ₽1548.0000
             c100|string: ₽2.1500
           ram:
             dedicated|string: ₽0.2800
+          ram|month|string: ₽410.4000
           ram|string: ₽0.5700
       kafka:
         v2:
           cpu:
+            c100|month|string: ₽1209.6000
             c100|string: ₽1.6800
+            c50|month|string: ₽540.0000
             c50|string: ₽0.7500
+          ram|month|string: ₽324.0000
           ram|string: ₽0.4500
         v3:
           cpu:
+            c100|month|string: ₽1087.2000
             c100|string: ₽1.5100
+            c50|month|string: ₽489.6000
             c50|string: ₽0.6800
+          ram|month|string: ₽288.0000
           ram|string: ₽0.4000
       local-nvme:
         ch|month|string: ₽13.0100
@@ -999,50 +1022,76 @@ default:
       mongodb:
         v1:
           cpu:
+            c100|month|string: ₽1152.0000
             c100|string: ₽1.6000
+            c20|month|string: ₽331.2000
             c20|string: ₽0.4600
+            c5|month|string: ₽28.8000
             c5|string: ₽0.0400
+            c50|month|string: ₽540.0000
             c50|string: ₽0.7500
+          ram|month|string: ₽648.0000
           ram|string: ₽0.9000
         v2:
           cpu:
+            c100|month|string: ₽1152.0000
             c100|string: ₽1.6000
+            c20|month|string: ₽331.2000
             c20|string: ₽0.4600
+            c5|month|string: ₽28.8000
             c5|string: ₽0.0400
+            c50|month|string: ₽540.0000
             c50|string: ₽0.7500
+          ram|month|string: ₽648.0000
           ram|string: ₽0.9000
         v3:
           cpu:
+            c100|month|string: ₽1152.0000
             c100|string: ₽1.6000
+            c50|month|string: ₽540.0000
             c50|string: ₽0.7500
+          ram|month|string: ₽648.0000
           ram|string: ₽0.9000
       mysql:
         v1:
           cpu:
+            c100|month|string: ₽1360.8000
             c100|string: ₽1.8900
+            c20|month|string: ₽309.6000
             c20|string: ₽0.4300
+            c5|month|string: ₽28.8000
             c5|string: ₽0.0400
+            c50|month|string: ₽518.4000
             c50|string: ₽0.7200
+          ram|month|string: ₽367.2000
           ram|string: ₽0.5100
         v2:
           cpu:
             c100:
               dedicated|string: ₽0.5500
+            c100|month|string: ₽1346.4000
             c100|string: ₽1.8700
+            c20|month|string: ₽309.6000
             c20|string: ₽0.4300
+            c5|month|string: ₽28.8000
             c5|string: ₽0.0400
+            c50|month|string: ₽518.4000
             c50|string: ₽0.7200
           ram:
             dedicated|string: ₽0.1600
+          ram|month|string: ₽367.2000
           ram|string: ₽0.5100
         v3:
           cpu:
             c100:
               dedicated|string: ₽0.5000
+            c100|month|string: ₽1209.6000
             c100|string: ₽1.6800
+            c50|month|string: ₽468.0000
             c50|string: ₽0.6500
           ram:
             dedicated|string: ₽0.1500
+          ram|month|string: ₽331.2000
           ram|string: ₽0.4600
       network-hdd:
         ch|month|string: ₽3.2000
@@ -1076,51 +1125,81 @@ default:
       opensearch:
         v2:
           cpu:
+            c100|month|string: ₽1209.6000
             c100|string: ₽1.6800
+            c50|month|string: ₽483.8400
             c50|string: ₽0.6720
+          ram|month|string: ₽504.0000
           ram|string: ₽0.7000
         v3:
           cpu:
+            c100|month|string: ₽1209.6000
             c100|string: ₽1.6800
+            c50|month|string: ₽483.8400
             c50|string: ₽0.6720
+          ram|month|string: ₽504.0000
           ram|string: ₽0.7000
       pg:
         v1:
           cpu:
+            c100|month|string: ₽1540.8000
             c100|string: ₽2.1400
+            c20|month|string: ₽324.0000
             c20|string: ₽0.4500
+            c5|month|string: ₽43.2000
             c5|string: ₽0.0600
+            c50|month|string: ₽540.0000
             c50|string: ₽0.7500
+          ram|month|string: ₽352.8000
           ram|string: ₽0.4900
         v2:
           cpu:
+            c100|month|string: ₽1303.2000
             c100|string: ₽1.8100
+            c20|month|string: ₽324.0000
             c20|string: ₽0.4500
+            c5|month|string: ₽43.2000
             c5|string: ₽0.0600
+            c50|month|string: ₽540.0000
             c50|string: ₽0.7500
+          ram|month|string: ₽352.8000
           ram|string: ₽0.4900
         v3:
           cpu:
+            c100|month|string: ₽1173.6000
             c100|string: ₽1.6300
+            c50|month|string: ₽489.6000
             c50|string: ₽0.6800
+          ram|month|string: ₽316.8000
           ram|string: ₽0.4400
       redis:
         v1:
           cpu:
+            c100|month|string: ₽1440.0000
             c100|string: ₽2.0000
+            c20|month|string: ₽259.2000
             c20|string: ₽0.3600
+            c5|month|string: ₽7.2000
             c5|string: ₽0.0100
+          ram|month|string: ₽388.8000
           ram|string: ₽0.5400
         v2:
           cpu:
+            c100|month|string: ₽1209.6000
             c100|string: ₽1.6800
+            c5|month|string: ₽79.2000
             c5|string: ₽0.1100
+            c50|month|string: ₽727.2000
             c50|string: ₽1.0100
+          ram|month|string: ₽324.0000
           ram|string: ₽0.4500
         v3:
           cpu:
+            c100|month|string: ₽1087.2000
             c100|string: ₽1.5100
+            c50|month|string: ₽655.2000
             c50|string: ₽0.9100
+          ram|month|string: ₽288.0000
           ram|string: ₽0.4000
     dataproc:
       v2:
@@ -1169,13 +1248,19 @@ default:
       kafka:
         v2:
           cpu:
+            c100|month|string: ₽871.2000
             c100|string: ₽1.2100
+            c50|month|string: ₽561.6000
             c50|string: ₽0.7800
+          ram|month|string: ₽230.4000
           ram|string: ₽0.3200
         v3:
           cpu:
+            c100|month|string: ₽784.8000
             c100|string: ₽1.0900
+            c50|month|string: ₽504.0000
             c50|string: ₽0.7000
+          ram|month|string: ₽201.6000
           ram|string: ₽0.2800
   sku|RUB|mk8s:
     master:
@@ -1343,52 +1428,74 @@ default:
             greenplum:
               cpu:
                 c100:
+                  v3|month|string: ₽1315.8000
                   v3|string: ₽1.8275
               ram:
+                v3|month|string: ₽348.8400
                 v3|string: ₽0.4845
             kafka:
               cpu:
                 c100:
+                  v2|month|string: ₽1028.1600
                   v2|string: ₽1.4280
+                  v3|month|string: ₽924.1200
                   v3|string: ₽1.2835
               ram:
+                v2|month|string: ₽275.4000
                 v2|string: ₽0.3825
+                v3|month|string: ₽244.8000
                 v3|string: ₽0.3400
             mysql:
               cpu:
                 c100:
+                  v2|month|string: ₽1144.4400
                   v2|string: ₽1.5895
+                  v3|month|string: ₽1028.1600
                   v3|string: ₽1.4280
               ram:
+                v2|month|string: ₽312.1200
                 v2|string: ₽0.4335
+                v3|month|string: ₽281.5200
                 v3|string: ₽0.3910
             opensearch:
               cpu:
                 c100:
+                  v3|month|string: ₽1028.1600
                   v3|string: ₽1.4280
               ram:
+                v3|month|string: ₽428.4000
                 v3|string: ₽0.5950
             pg:
               cpu:
                 c100:
+                  v2|month|string: ₽1107.7200
                   v2|string: ₽1.5385
+                  v3|month|string: ₽997.5600
                   v3|string: ₽1.3855
               ram:
+                v2|month|string: ₽299.8800
                 v2|string: ₽0.4165
+                v3|month|string: ₽269.2800
                 v3|string: ₽0.3740
             redis:
               cpu:
                 c100:
+                  v2|month|string: ₽1028.1600
                   v2|string: ₽1.4280
+                  v3|month|string: ₽924.1200
                   v3|string: ₽1.2835
               ram:
+                v2|month|string: ₽275.4000
                 v2|string: ₽0.3825
+                v3|month|string: ₽244.8000
                 v3|string: ₽0.3400
           ydb:
             cpu:
               c100:
+                v2|month|string: ₽1144.4400
                 v2|string: ₽1.5895
             ram:
+              v2|month|string: ₽312.1200
               v2|string: ₽0.4335
         y1:
           compute:
@@ -1418,59 +1525,83 @@ default:
             greenplum:
               cpu:
                 c100:
+                  v3|month|string: ₽1207.4400
                   v3|string: ₽1.6770
               ram:
+                v3|month|string: ₽320.1120
                 v3|string: ₽0.4446
             kafka:
               cpu:
                 c100:
+                  v2|month|string: ₽943.4880
                   v2|string: ₽1.3104
+                  v3|month|string: ₽848.0160
                   v3|string: ₽1.1778
               ram:
+                v2|month|string: ₽252.7200
                 v2|string: ₽0.3510
+                v3|month|string: ₽224.6400
                 v3|string: ₽0.3120
             mysql:
               cpu:
                 c100:
+                  v2|month|string: ₽1050.1920
                   v2|string: ₽1.4586
+                  v3|month|string: ₽943.4880
                   v3|string: ₽1.3104
               ram:
+                v2|month|string: ₽286.4160
                 v2|string: ₽0.3978
+                v3|month|string: ₽258.3360
                 v3|string: ₽0.3588
             opensearch:
               cpu:
                 c100:
+                  v3|month|string: ₽943.4880
                   v3|string: ₽1.3104
               ram:
+                v3|month|string: ₽393.1200
                 v3|string: ₽0.5460
             pg:
               cpu:
                 c100:
+                  v2|month|string: ₽1016.4960
                   v2|string: ₽1.4118
+                  v3|month|string: ₽915.4080
                   v3|string: ₽1.2714
               ram:
+                v2|month|string: ₽275.1840
                 v2|string: ₽0.3822
+                v3|month|string: ₽247.1040
                 v3|string: ₽0.3432
             redis:
               cpu:
                 c100:
+                  v2|month|string: ₽943.4880
                   v2|string: ₽1.3104
+                  v3|month|string: ₽848.0160
                   v3|string: ₽1.1778
               ram:
+                v2|month|string: ₽252.7200
                 v2|string: ₽0.3510
+                v3|month|string: ₽224.6400
                 v3|string: ₽0.3120
           ydb:
             cpu:
               c100:
+                v2|month|string: ₽1050.1920
                 v2|string: ₽1.4586
             ram:
+              v2|month|string: ₽286.4160
               v2|string: ₽0.3978
   sku|RUB|ydb:
     cluster:
       v1:
         ssd|month|string: ₽21.3800
       v2:
+        cpu|month|string: ₽1346.4000
         cpu|string: ₽1.8700
+        ram|month|string: ₽367.2000
         ram|string: ₽0.5100
     v1:
       serverless:
@@ -3735,6 +3866,12 @@ default:
         filter-issues: Issues
         filter-projects: Projects
         search-placeholder: Search
+      ui_components_projects_Sidebar:
+        sidebar-param-title--endDate: End date
+        sidebar-param-title--lead: Responsible
+        sidebar-param-title--startDate: Start date
+        sidebar-param-title--status: Status
+        sidebar-param-title--teamUsers: Participants
       ui_components_projects_Table:
         add-issue: Add issue
         add-sub-issue: Add sub-issue
@@ -3990,6 +4127,9 @@ default:
           evaluation-window: Evaluation window
           time-shift: Evaluation delay
       prometheus:
+        approved:
+          tab:
+            write: Writing metrics
         form:
           submit-button:
             text: Submit request
@@ -4338,6 +4478,8 @@ default:
         value_scheme-incremental: Incremental
       billing:
         account:
+          acts_batch-download-text_pdf: Download documents (PDF)
+          acts_batch-download-text_zip: Download documents (ZIP)
           bind-cloud:
             button_bind: Link
           budgets:
@@ -4936,6 +5078,9 @@ default:
           popup-confirm_button_resume: Resume
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
+        host-group:
+          hosts:
+            label_title: List of hosts
         images:
           button_action-delete: Delete
           button_action-image: Create image
@@ -5244,6 +5389,8 @@ default:
         button_setup-omniauth: Configure
         field_admin-email: Email
         field_admin-login: Login
+        field_approval-rules: Approval rules
+        field_approval-rules-token: Gitlab token
         label_admin-section: Administrator data
         label_configuration-section: Configuration
         title_backups: Backups
@@ -5269,9 +5416,28 @@ default:
             title_consumption-history: Usage history
             title_current-state: Current state
             title_states-history: State history
+          user-auth:
+            action_add-rule: Add rule
+            action_edit-rules: Edit rules
+            title_column-address: Address (CIDR/FQDN)
+            title_column-databases: Database
+            title_column-method: Method
+            title_column-type: Type
+            title_column-user: User
+            title_page-auth-user: User authentication
+            value_hba-type-host: host
+            value_hba-type-hostnossl: hostnossl
+            value_hba-type-hostssl: hostssl
         field_expand-add-segments-per-host-count: Add segments to host
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts
+        field_hosts-count: Host count
+        field_segments-in-host: Segments per host
+        label_user-auth: User authentication
+        label-analyze-timeout: ANALYZE timeout
+        label-start-time: Start time (UTC)
+        label-vacuum-timeout: VACUUM timeout
+        section_background-activities: Managing background processes
         section_cloud-storage: Hybrid storage
         section_resource-master: Master
         section_resource-segment: Segment
@@ -5332,7 +5498,7 @@ default:
             label_data-proc: Data Proc
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
-            label_data-transfer_ru: Yandex Data Transfer
+            label_data-transfer_ru: Data Transfer
             label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
@@ -5699,14 +5865,14 @@ default:
         section_agent: Agent
         test-data-section: Attached files
       lockbox:
+        button_action-make-version-current: Set as current version
         button_action-open-version-add-dialog: Create a new version from this one
         button_action-schedule-for-destruction: Schedule destruction
-        button_action-use-as-basis: Roll back to this version
         button_activate-secret: Activate secret
         button_add-version: Add version
         button_create-secret: Create secret
         button_deactivate-secret: Deactivate
-        button_use-as-basis-version-action-text: Roll back
+        field_make-version-current: Set as current version
         forms:
           button_add-pair: Add pair
           button_schedule-destruction: Schedule
@@ -5903,6 +6069,7 @@ default:
           additional-field-serverless: Serverless access
           additional-field-websql: Access from the management console
           additional-field-yandex-query: ''
+          additional-field-yandex-query_ru: Yandex Query access
           backup-retain-period: Retention period for automatic backups, days
           backup-window-start: Backup start time (UTC)
           base_field_description: Description
@@ -6281,6 +6448,7 @@ default:
             section_function-retry: Repeat request settings
             section_iot: IoT Core message settings
             section_logging: Cloud Logging settings
+            section_mail-attachments: Settings for saving attachments
             section_storage: Object Storage settings
             section_timer: Timer settings
             section_ymq: Message Queue message settings
@@ -7661,12 +7829,14 @@ default:
         endpoint: Endpoint
         execute: Execute
         folder: Folder
+        foundation-models: Foundation models
         general: General settings
         link: Link
         manage-labels: Manage labels
         member:
           remove: Remove
         members: Members
+        models: Models
         more: More
         name: Name
         never: Never
@@ -7674,6 +7844,7 @@ default:
         pin: Pin
         port: Port
         prefix: Prefix
+        projects-resources: Project
         resize: Resize
         resources: Resources
         response: Response
@@ -7687,8 +7858,11 @@ default:
         submit: Confirm
         subnet: Subnet
         timeout: Timeout
+        tuned-foundation-models: Tuned foundation models
+        tuning-model: Tune model
         type: Type
         unpin: Unpin
+        YGPT: YandexGPT
       data-proc:
         available-clusters: Available clusters
         create-template: Create template
@@ -7714,6 +7888,13 @@ default:
         per-time: Total unit limit per hour
         period-of-inactivity: Period of inactivity
         security-group: Security group
+      foundation-model:
+        data-for-tuning: Data for tuning
+        instruction: Instruction
+        learning-rate: Learning rate
+        samples-file: File with samples
+        start-tuning: Start tuning
+        test-in-playground: Test in Playground
       import-ipynb:
         open-in-dataSphere: Run in Yandex DataSphere
       invite-link:
@@ -7835,12 +8016,17 @@ default:
       transferring:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects
+      yagpt-playground:
+        request:
+          title: Request
+        temperature:
+          title: Temperature
   mkt-k8s-key:
     yc_alb-ingress-controller:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.1.23
+        tag: v0.1.24
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -7875,6 +8061,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/falco
         tag: 2.2.5
+    yc_filebeat-oss:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/filebeat-oss/chart/filebeat-oss
+        tag: 7.12.1-1
     yc_filebeat:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/filebeat/chart/filebeat
@@ -7923,6 +8113,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/policy-reporter
         tag: 2.13.11
+    yc_prometheus-operator:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
+        tag: 45.9.1-2
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor

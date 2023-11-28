@@ -87,3 +87,9 @@ allocation_policy:
       - second
       - third
 ```
+
+#### См. также {#see-also}
+
+* [{#T}](healing-policy.md)
+* [{#T}](scale-policy.md)
+* [{#T}](deploy-policy.md)

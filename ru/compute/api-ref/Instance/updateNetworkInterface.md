@@ -17,7 +17,7 @@ PATCH https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/updateNet
  
 Parameter | Description
 --- | ---
-instanceId | <p>Required. ID of the network interface that is being updated.</p> 
+instanceId | <p>Required. ID of the instance that is being updated.</p> 
  
 ## Body parameters {#body_params}
  

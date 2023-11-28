@@ -53,13 +53,14 @@ variable_value | **string**<br>The text of the variable.
 
 Field | Description
 --- | ---
-Hint | **oneof:** `voice`, `audio_template`, `speed`, `volume`, `role` or `pitch_shift`<br>The hint for TTS engine to specify synthesised audio characteristics.
+Hint | **oneof:** `voice`, `audio_template`, `speed`, `volume`, `role`, `pitch_shift` or `duration`<br>The hint for TTS engine to specify synthesised audio characteristics.
 &nbsp;&nbsp;voice | **string**<br>Name of speaker to use. 
 &nbsp;&nbsp;audio_template | **[AudioTemplate](#AudioTemplate)**<br>Template for synthesizing. 
 &nbsp;&nbsp;speed | **double**<br>Hint to change speed. 
 &nbsp;&nbsp;volume | **double**<br>Hint to regulate normalization level. <ul><li>For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7. </li><li>For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.</li></ul> 
 &nbsp;&nbsp;role | **string**<br>Hint to specify pronunciation character for the speaker. 
 &nbsp;&nbsp;pitch_shift | **double**<br>Hint to increase (or decrease) speaker's pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0. 
+&nbsp;&nbsp;duration | **[DurationHint](#DurationHint)**<br>Hint to limit both minimum and maximum audio duration. 
 
 
 ### AudioTemplate {#AudioTemplate}
@@ -87,6 +88,14 @@ Field | Description
 variable_name | **string**<br>The name of the variable. 
 variable_start_ms | **int64**<br>Start time of the variable in milliseconds. 
 variable_length_ms | **int64**<br>Length of the variable in milliseconds. 
+
+
+### DurationHint {#DurationHint}
+
+Field | Description
+--- | ---
+policy | enum **DurationHintPolicy**<br>Type of duration constraint. <ul><li>`EXACT_DURATION`: Limit audio duration to exact value.</li><li>`MIN_DURATION`: Limit the minimum audio duration.</li><li>`MAX_DURATION`: Limit the maximum audio duration.</li></ul>
+duration_ms | **int64**<br>Constraint on audio duration in milliseconds. 
 
 
 ### AudioFormatOptions {#AudioFormatOptions}

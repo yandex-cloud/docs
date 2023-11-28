@@ -10,23 +10,23 @@ Get a list of {{ k8s }} clusters in the default folder.
 
 - Management console
 
-  To get a list of {{ k8s }} clusters, go to the folder page and select **{{ managed-k8s-name }}**.
+  To get a list of {{ k8s }} clusters, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 
 - CLI
 
-  Run the command:
+  Run this command:
 
   ```bash
   yc managed-kubernetes cluster list
   ```
 
-  Command result:
+  Result:
 
   ```text
   +----------------------+------------------+---------------------+---------+---------+-------------------------+-------------------+
   |          ID          |       NAME       |     CREATED AT      | HEALTH  | STATUS  |    EXTERNAL ENDPOINT    | INTERNAL ENDPOINT |
   +----------------------+------------------+---------------------+---------+---------+-------------------------+-------------------+
-  | cata9ertn6tcr09bh9rm | test-k8s-cluster | 2019-04-12 10:00:27 | HEALTHY | RUNNING | https://84.201.150.176/ | https://10.0.0.3/ |
+  | cata9ertn6tc******** | test-k8s-cluster | 2019-04-12 10:00:27 | HEALTHY | RUNNING | https://84.201.150.176/ | https://10.0.0.3/ |
   +----------------------+------------------+---------------------+---------+---------+-------------------------+-------------------+
   ```
 
@@ -44,8 +44,8 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
-  1. Click on the name of the {{ k8s }} cluster.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of the {{ k8s }} cluster.
 
 - CLI
 
@@ -55,11 +55,11 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
   yc managed-kubernetes cluster get test-k8s-cluster
   ```
 
-  Command result:
+  Result:
 
   ```text
-  id: cata9ertn6tcr09bh9rm
-  folder_id: b1g88tflru0ek1omtsu0
+  id: cata9ertn6tc********
+  folder_id: b1g88tflru0e********
   created_at: "2019-04-12T10:00:27Z"
   ...
   ip_allocation_policy:

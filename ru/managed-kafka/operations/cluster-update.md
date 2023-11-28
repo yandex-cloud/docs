@@ -1,3 +1,8 @@
+---
+title: "Как изменить настройки кластера {{ KF }} в {{ mkf-full-name }}"
+description: "Следуя данной инструкции, вы сможете изменить настройки {{ KF }}-кластера." 
+---
+
 # Изменение настроек кластера {{ KF }}
 
 После создания кластера {{ mkf-name }} вы можете:
@@ -440,7 +445,8 @@
                                `day=<день_недели>,`
                                `hour=<час_дня> \
            --datatransfer-access=<доступ_к_кластеру> \
-           --deletion-protection=<защита_от_удаления>
+           --deletion-protection=<защита_от_удаления> \
+           --schema-registry=<управление_схемами_данных>
         ```
 
     Вы можете изменить следующие настройки:
@@ -454,6 +460,10 @@
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    * `--schema-registry` – включите эту опцию, чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+
+        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -475,6 +485,20 @@
         ```
 
         {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    1. Чтобы включить управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), добавьте к описанию кластера поле `config.schema_registry` со значением `true`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
+          config {
+            ...
+            schema_registry  = <управление_схемами_данных>
+          }
+        }
+        ```
+
+        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -503,6 +527,10 @@
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    * Настройки управления схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md) в параметре `configSpec.schemaRegistry`.
+
+        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
     * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 

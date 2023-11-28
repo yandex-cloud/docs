@@ -1,21 +1,6 @@
 # Managing user groups
 
-For organizations with a lot of employees, multiple users may need to be granted the same access rights to {{ yandex-cloud }} resources. In this case, it's more convenient to grant roles and permissions to a group rather than individually.
-
-You can group users by any criteria: for example, by their duties or department.
-
-{% note info %}
-
-Groups may only have a one-level structure.
-
-The following limits apply to groups by default:
-* The number of groups per organization: 100.
-* The number of members per group: 1000.
-* The number of groups a user may belong to: 1000.
-
-To increase the quotas, contact [support]({{ link-console-support }}).
-
-{% endnote %}
+You can [group](../concepts/groups.md) users by any criteria, e.g., by their duties or department.
 
 ## Creating a group {#create-group}
 
@@ -57,13 +42,7 @@ To grant a group access to a resource:
 
 A role granted for the entire organization allows group members to manage any {{ yandex-cloud }} resources activated for the organization as per the role's permissions.
 
-{% list tabs %}
-
-- CLI
-
-   {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
-
-{% endlist %}
+{% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
 
 ## Mapping user groups {#group-mapping}
 

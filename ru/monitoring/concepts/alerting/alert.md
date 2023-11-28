@@ -49,9 +49,9 @@ _Алерт_ — периодически вычисляемый набор по
 
 Можно:
 
-* отключить вычисление запроса, нажав кнопку ![image](../../../_assets/monitoring/concepts/visualization/chart-query-dots-menu.svg) и выбрав **{{ ui-key.yacloud_monitoring.actions.common.deactivate }}**. Ссылки на запросы, которые не вычисляются, приводят к ошибкам.
-* скрыть результаты вычисления запроса на графике, нажав кнопку ![image](../../../_assets/monitoring/concepts/visualization/chart-query-hide.svg).
-* отобразить результаты вычисления запроса на графике, нажав кнопку ![image](../../../_assets/monitoring/concepts/visualization/chart-query-show.svg).
+* отключить вычисление запроса, нажав кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выбрав **{{ ui-key.yacloud_monitoring.actions.common.deactivate }}**. Ссылки на запросы, которые не вычисляются, приводят к ошибкам.
+* скрыть результаты вычисления запроса на графике, нажав кнопку ![image](../../../_assets/console-icons/eye.svg).
+* отобразить результаты вычисления запроса на графике, нажав кнопку ![image](../../../_assets/console-icons/eye-slash.svg).
 
 ### Условия срабатывания {#condition}
 

@@ -168,7 +168,7 @@ You can store a {{ certificate-manager-name }} user certificate's public part in
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 

@@ -25,24 +25,24 @@
 - Консоль управления
   
   1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-  1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-  1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. В левом верхнем углу нажмите кнопку ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+  1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
 {% endlist %}
 
 
 ## Типы платежных аккаунтов {#ba-types}
 
-{% list tabs %}
+{% list tabs group=accounts %}
 
- - Личный аккаунт
+ - Личный аккаунт {#individual}
   
    * Предназначен для резидентов Российской Федерации или Республики Казахстан.
    * Для оплаты потребленных ресурсов используется [банковская карта](../payment/payment-methods-individual.md).
    * Средства за потребленные ресурсы списываются автоматически. Подробнее см. раздел [Цикл оплаты для физических лиц](../payment/billing-cycle-individual.md).
       * После списания средств с банковской карты на электронную почту высылается [чек об оплате](individual-bill.md).
   
- - Бизнес-аккаунт
+ - Бизнес-аккаунт {#business}
   
    * Предназначен для резидентов Российской Федерации, резидентов Республики Казахстан и нерезидентов РФ и РК.
    * Для оплаты потребленных ресурсов используется банковский перевод с [расчетного счета организации](../payment/payment-methods-business.md) или оплата [банковской картой](../payment/payment-methods-card-business.md).

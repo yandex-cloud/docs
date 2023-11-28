@@ -12,7 +12,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Нажмите **{{ ui-key.yacloud.alb.button_add-targets }}**.
   1. Выберите ВМ из списка или добавьте целевой ресурс вручную:
@@ -180,9 +180,9 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Справа от нужной виртуальной машины нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Справа от нужной виртуальной машины нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

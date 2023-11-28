@@ -19,6 +19,8 @@
 * `Validating` — процедура проверки ожидает подтверждения от Let's Encrypt.
 * `Valid` — процедура проверки успешно пройдена.
 * `Invalid` — процедура проверки прав на конкретный домен завершилась с ошибкой или истек срок в одну неделю, отведенный на прохождение процедуры.
+* `Renewal_failed` — процедура проверки прав при обновлении сертификата завершилась с ошибкой или истек срок в одну неделю, отведенный на прохождение процедуры.
+* `Issued` — сертификат выпущен.
 
 ## HTTP {#http}
 
@@ -32,23 +34,21 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и нажмите на имя нужного сертификата.
-1. Создайте файл с расширением `.html`:
+1. Подготовьте файл, который позволит удостоверяющему центру Let's Encrypt убедиться, что вы являетесь владельцем указанного в сертификате домена:
 
-    1. Из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** на странице сертификата скопируйте текст и вставьте его в файл:
+    1. С помощью панели управления вашим хостингом создайте на сервере файл, имя и путь к которому соответствуют значению поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** в блоке **HTTP-запись**. Например:
 
-        > 6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.sifhsdf778s98asAsa897da98sda
+        * `/.well-known/acme-challenge/` — путь размещения файла.
+        * `di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1B********` — имя файла.
 
-    1. Сохраните файл под именем, которое содержится в части ссылки в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}**:
-        * `http://example.com/.well-known/acme-challenge/` — путь размещения файла.
-        * `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8` — имя файла.
+    1. Поместите в созданный файл значение поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** из блока **HTTP-запись**. Например:
 
-    В результате у вас получится файл `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.html` с содержимым `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.sifhsdf778s98asAsa897da98sda`.
+        > di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1BLW0QUDbE._TYLpfPMbwHQZ1aEmsdpidY5bPUnVyDvqSO********
 
-1. Разместите файл на вашем веб-сервере в директории `.well-known/acme-challenge/`:
+    В результате на вашем веб-сервере должен появиться файл `http://example.com/.well-known/acme-challenge/di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1B********`, содержащий текст `di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1BLW0QUDbE._TYLpfPMbwHQZ1aEmsdpidY5bPUnVyDvqSO********`.
 
-   > http://example.com/.well-known/acme-challenge/6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8
-
-1. Когда статус сертификата изменится на `Issued`, удалите файл с веб-сервера.
+1. Дождитесь, когда удостоверяющий центр Let's Encrypt выпустит сертификат, после чего статус сертификата изменится на `Issued`.
+1. Удалите с вашего веб-сервера созданный для проверки сертификата файл.
 
 ## DNS {#dns}
 
@@ -76,9 +76,9 @@
 1. Разместите у своего DNS-провайдера или на собственном [DNS-сервере](../../glossary/dns.md#dns-server) `CNAME`-запись для делегирования прав управления на DNS-зону, используемую для проверки:
 
    ```
-   _acme-challenge.example.com CNAME <Значение>
+   _acme-challenge.example.com CNAME <значение>
    ```
-   Строка `<Значение>` формируется по шаблону `<Идентификатор сертификата>.cm.yandexcloud.net.`
+   Строка `<значение>` формируется по шаблону `<идентификатор_сертификата>.cm.yandexcloud.net.`
 
    {% include [checking-domain-rights-cname](../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
 
@@ -99,7 +99,7 @@
 1. Разместите у своего DNS-провайдера или на собственном DNS-сервере `TXT`-запись:
 
     ```
-    _acme-challenge.example.com. IN TXT <Значение>
+    _acme-challenge.example.com. IN TXT <значение>
     ```
 1. В разделе **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, в блоке с типом записи `TXT`, в поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}**, нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**. В открывшемся окне:
    1. Если в текущем каталоге есть подходящая зона DNS, она будет автоматически подставлена в поле **{{ ui-key.yacloud.dns.label_zone }}**. Если подходящей зоны DNS нет, нажмите **{{ ui-key.yacloud.dns.button_zone-create }}** и задайте ее параметры, чтобы [создать](../../dns/operations/zone-create-public.md) зону.
@@ -120,7 +120,7 @@
 * Для каждого домена сертификата настроена DNS-запись:
 
     ```
-    _acme-challenge.example.com CNAME <Идентификатор сертификата>.cm.yandexcloud.net.
+    _acme-challenge.example.com CNAME <идентификатор_сертификата>.cm.yandexcloud.net.
     ```
 
 ### Перенаправление статического сайта {{ objstorage-name }} {#auto-s3}
@@ -140,18 +140,18 @@
 * Сертификат не является [Wildcard-сертификатом](https://en.wikipedia.org/wiki/Wildcard_certificate) — не содержит масок на поддомены.
 * Для каждого домена сертификата в веб-сервере настроено перенаправление с
     ```
-    http://<Домен>/.well-known/acme-challenge/*
+    http://<домен>/.well-known/acme-challenge/*
     ```
     на
     ```
-    https://{{ api-host-certmanager-validation }}/<Идентификатор сертификата>/*
+    https://{{ api-host-certmanager-validation }}/<идентификатор_сертификата>/*
     ```
 
 Пример настройки перенаправления в nginx-конфигурации:
 ```
 server {
   location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
-    return 301 https://{{ api-host-certmanager-validation }}/<Идентификатор сертификата>/$1;
+    return 301 https://{{ api-host-certmanager-validation }}/<идентификатор_сертификата>/$1;
   }
 }
 ```

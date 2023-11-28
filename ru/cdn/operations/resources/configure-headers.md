@@ -1,3 +1,8 @@
+---
+title: "Как настроить HTTP-заголовки запросов и ответов в {{ cdn-full-name }}"
+description: "Следуя данной инструкции, вы сможете настроить HTTP-заголовки запросов и ответов." 
+---
+
 # Настройка HTTP-заголовков запросов и ответов
 
 Чтобы настроить для ресурса HTTP-заголовки запросов и ответов:
@@ -20,7 +25,7 @@
 
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   
   1. В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-request-headers }}**:
 

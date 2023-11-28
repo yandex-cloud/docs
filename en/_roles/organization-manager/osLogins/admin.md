@@ -1,0 +1,1 @@
+The `organization-manager.osLogins.admin` role enables you to edit OS Login profiles, SSH keys, and create certificates for the organization users.

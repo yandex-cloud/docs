@@ -10,6 +10,12 @@
 
 Для корректной работы {{ data-transfer-name }} требуется, чтобы источник или приемник данных размещался вне зоны `{{ region-id }}-d`. 
 
-## {{ managed-k8s-name }} {#managed-k8s}
+См. [рекомендации](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md) в документации сервиса.
 
-Создание кластеров и узлов в зоне `{{ region-id }}-d` еще не поддержано.
+## {{ cloud-desktop-name }} {#cloud-desktop}
+
+Создание рабочих столов в зоне `{{ region-id }}-d` еще не поддержано.
+
+## {{ ydb-name }} {#managed-ydb}
+
+Создание баз в Dedicated-режиме в зоне `{{ region-id }}-d` еще не поддержано.

@@ -14,8 +14,8 @@ If you no longer need the resources you created, [delete them](#delete-resources
 1. {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following settings:
-   * **Platform**: Select `Intel Broadwell with NVIDIA® Tesla v100`.
-   * **GPU**: Specify the required number of GPUs.
+   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
+   * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: Specify the required number of GPUs.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Create a pod with a GPU {#create-pod-gpu}
@@ -60,9 +60,9 @@ If you no longer need the resources you created, [delete them](#delete-resources
    Namespace:    default
    Priority:     0
    ...
-     Normal  Pulling    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Successfully pulled image "registry.k8s.io/cuda-vector-add:v0.1"
-     Normal  Created    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Created container cuda-vector-add
-     Normal  Started    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Created container
+     Normal  Pulling    16m   kubelet, cl1i7hcbti99********-ebyq  Successfully pulled image "registry.k8s.io/cuda-vector-add:v0.1"
+     Normal  Created    16m   kubelet, cl1i7hcbti99********-ebyq  Created container cuda-vector-add
+     Normal  Started    16m   kubelet, cl1i7hcbti99********-ebyq  Created container
    ```
 
 1. View the pod logs:

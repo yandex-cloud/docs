@@ -29,9 +29,9 @@ Once the organization is created, you become its owner and can manage it.
 ## Switching to another organization or federation {#switch-to-another-org}
 
 1. In the [management console]({{ link-console-main }}), click your account picture in the left-hand panel.
-1. Under **Login history**, select an organization or federation from the list.
+1. Select an organization or federation from the list of those available in your account. Available organizations and federations are marked with the ![case](../../_assets/console-icons/briefcase.svg) icon.
 
-   Alternatively, you can select an organization belonging to a different Yandex account you previously logged in to. To do this, click the account name.
+   Alternatively, you can select an organization or federation belonging to a different Yandex account you previously logged in to. To do this, click the account name in **Login history**.
 
    If the account you need is not on the list, log in to that account by clicking ![image](../../_assets/plus-sign.svg).
 

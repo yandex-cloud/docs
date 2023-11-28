@@ -1,6 +1,6 @@
 # {{ managed-k8s-name }} cluster backups in {{ objstorage-name }}
 
-Data in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) are securely stored and replicated within the {{ yandex-cloud }} infrastructure. However, you can back up data from [{{ managed-k8s-name }} cluster node groups](../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../storage/) or other types of storage.
+Data in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is securely stored and replicated within the {{ yandex-cloud }} infrastructure. However, you can back up data from [{{ managed-k8s-name }} cluster node groups](../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../storage/) or other types of storage.
 
 You can create backups of {{ managed-k8s-name }} cluster node group data using the [Velero](https://velero.io/) tool. It supports working with {{ yandex-cloud }} [disks](../../compute/concepts/disk.md) using the {{ k8s }} CSI driver and helps create [snapshots of disks](../../compute/concepts/snapshot.md) and [volumes](../../managed-kubernetes/concepts/volume.md).
 
@@ -25,8 +25,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Manually
 
    1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each of them with the following settings:
-   * **{{ k8s }} version**: **1.22** or higher.
-   * **Public address**: `Auto`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: `1.22` or higher
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`
 
    One {{ managed-k8s-name }} cluster will be used for creating a node group backup and another one for recovery.
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).

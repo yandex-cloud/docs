@@ -1,5 +1,13 @@
 # {{ ig-name }} concepts
 
+{% note info %}
+
+{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
+
+If you have instance groups in the `{{ region-id }}-c` availability zone, [move](../../operations/instance-groups/move-group.md) them.
+
+{% endnote %}
+
 {{ ig-name }} is a {{ compute-name }} component that allows you to create and manage VM instance groups.
 {{ ig-name }} can automatically identify and fix unhealthy instances in a group to ensure their optimal performance.
 
@@ -10,6 +18,8 @@ All operations in {{ ig-name }} must be performed on behalf of a service account
 {% endnote %}
 
 Each group consists of one or more instances of the same type. Group instances may reside in different availability zones and regions. You can read more about {{ yandex-cloud }} availability zones [here](../../../overview/concepts/geo-scope.md).
+
+Group instances can also be part of a [VM placement group](../placement-groups.md). To enable this, when [creating an instance group](../../operations/placement-groups/create-ig-in-pg.md), describe placement group parameters in the [instance template](instance-template.md#instance-template). You can create an instance group in a placement group using the [CLI](../../../cli/quickstart.md) and [API](../../api-ref/).
 
 ![Instance groups](../../../_assets/instance-groups/ig.svg "Instance groups")
 

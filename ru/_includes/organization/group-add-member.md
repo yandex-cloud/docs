@@ -4,7 +4,7 @@
 
     1. Перейдите в сервис [{{ org-full-name }}]({{link-org-main}}).
 
-    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg) и нажмите строку с названием группы.
+    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg) и нажмите строку с названием группы.
 
     1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.
 

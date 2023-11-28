@@ -28,7 +28,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    {{ yc-mdb-gp }} cluster list-backups <cluster_name_or_ID>
    ```
 
-   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    Result:
 
@@ -81,6 +81,8 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
 For a new cluster, you should set all the parameters that are required at creation.
 
+To migrate {{ mgp-name }} cluster hosts to a different availability zone, restore your cluster from a backup. You may need to do this, for example, if your cluster hosts reside in the `{{ region-id }}-c` availability zone which is to be [deprecated](/blog/posts/2023/08/new-availability-zone). During cluster recovery from a backup, specify a new availability zone.
+
 {% note warning %}
 
 Recovering from a backup imposes restrictions on parameters of the new cluster.
@@ -101,7 +103,7 @@ If you set the current time as the recovery time, the new cluster will match the
    1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
-   1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the point in time to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
+   1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
@@ -113,7 +115,7 @@ If you set the current time as the recovery time, the new cluster will match the
    1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
-   1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the point in time to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
+   1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
@@ -160,7 +162,7 @@ If you set the current time as the recovery time, the new cluster will match the
       Where:
 
       * `--backup-id`: [Backup](../concepts/backup.md) ID.
-      * `--time`: Point in time to which you need to restore a {{ GP }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored from a backup.
+      * `--time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored from a backup.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
@@ -185,7 +187,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
-   * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Timestamp to which you want to recover the cluster, in the `time` parameter. By default, the cluster is restored from a backup.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 

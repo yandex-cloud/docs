@@ -4,7 +4,7 @@ For data migration, {{ RD }} uses a _logical dump_: this is a file with a sequen
 
 {% note info %}
 
-A binary RDB dump can't be used for migration, because {{ mrd-name }} doesn't permit accessing file systems on cluster hosts.
+A binary RDB dump cannot be used for migration, because {{ mrd-name }} does not permit accessing file systems on cluster hosts.
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
       1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the configuration file for the appropriate cluster type to the same working directory:
 
@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -128,7 +128,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. If connecting to the {{ RD }} cluster requires a password, enter it in the `REDISDUMPGO_AUTH` environment variable:
 
    ```bash
-   export REDISDUMPGO_AUTH="<{{ RD }} password>"
+   export REDISDUMPGO_AUTH="<{{ RD }}_password>"
    ```
 
 1. Start an interactive `screen` session:
@@ -141,13 +141,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```bash
    ./redis-dump-go \
-       -host <master host IP or FQDN in a {{ RD }} cluster> \
-       -port <port {{ RD }}> > <dump file>
+       -host <IP_address_or_FQDN_of_{{ RD }}_cluster_master_host> \
+       -port <{{ RD }}_port> > <dump_file>
    ```
 
    {% note tip %}
 
-   As the dump is created, the number of processed keys is shown on the screen. Remember or write down the last output value: you'll need it to check that the dump has been recovered completely in the target cluster.
+   As the dump is created, the number of processed keys is shown on the screen. Remember or write down the last output value: you will need it to check whether the dump has been restored completely in the target cluster.
 
    {% endnote %}
 
@@ -187,7 +187,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ```bash
       host=$(redis-cli \
-        -h <FQDN of any host {{ RD }}> \
+        -h <FQDN_of_any_{{ RD }}_host> \
         -p {{ port-mrd-sentinel }} \
         sentinel \
         get-master-addr-by-name \
@@ -196,16 +196,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
         -h ${host} \
         -p {{ port-mrd }} \
         -a <target cluster password> \
-        --pipe < <dump file>
+        --pipe < <dump_file>
       ```
 
       **Connecting directly to the master host**
 
       ```bash
       redis-cli \
-        -h <FQDN of any host> \
+        -h <FQDN_of_any_host> \
         -p {{ port-mrd }} \
-        -a <target cluster password> \
+        -a <target_cluster_password> \
         --pipe < <dump file>
       ```
 
@@ -218,15 +218,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
          `load-dump.sh`
 
          ```bash
-         shards=('<FQDN of the master host in shard 1>' \
+         shards=('<FQDN_of_master_host_in_shard_1>' \
                  ...
-                 '<FQDN of master host in shard N>')
+                 '<FQDN_of_master_host_in_shard_N>')
 
          for shard in "${shards[@]}" ; do
            redis-cli -h "${shard}" \
                      -p {{ port-mrd }} \
-                     -a "<target cluster password>" \
-                     --pipe < <dump file>
+                     -a "<target_cluster_password>" \
+                     --pipe < <dump_file>
          done
          ```
 
@@ -236,7 +236,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          bash ./load-dump.sh
          ```
 
-         As you run the script, you'll see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../../managed-redis/concepts/sharding.md).
+         As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../../managed-redis/concepts/sharding.md).
 
    - Connecting via TLS
 
@@ -246,7 +246,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ```bash
       host=$(redis-cli \
-             -h <FQDN of any {{ RD }} host> \
+             -h <FQDN_of_any_{{ RD }}_host> \
              -p {{ port-mrd-sentinel }} \
              sentinel \
              get-master-addr-by-name \
@@ -254,22 +254,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
       redis-cli \
           -h ${host} \
           -p {{ port-mrd-tls }} \
-          -a <target cluster password> \
+          -a <target_cluster_password> \
           --tls \
           --cacert ~/.redis/{{ crt-local-file }} \
-          --pipe < <dump file>
+          --pipe < <dump_file>
       ```
 
       **Connecting directly to the master host**
 
       ```bash
       redis-cli \
-          -h c-<cluster ID>.rw.{{ dns-zone }} \
+          -h c-<cluster_ID>.rw.{{ dns-zone }} \
           -p {{ port-mrd-tls }} \
-          -a <target cluster password> \
+          -a <target_cluster_password> \
           --tls \
           --cacert ~/.redis/{{ crt-local-file }} \
-          --pipe < <dump file>
+          --pipe < <dump_file>
       ```
 
       {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
@@ -281,17 +281,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
          `load-dump.sh`
 
          ```bash
-         shards=('<FQDN of the master host in shard 1>' \
+         shards=('<FQDN_of_master_host_in_shard_1>' \
                  ...
-                 '<FQDN of master host in shard N>')
+                 '<FQDN_of_master_host_in_shard_N>')
 
          for shard in "${shards[@]}" ; do
            redis-cli -h "${shard}" \
                      -p {{ port-mrd-tls }} \
-                     -a "<target cluster password>" \
+                     -a "<target_cluster_password>" \
                      --tls \
                      --cacert ~/.redis/{{ crt-local-file }} \
-                     --pipe < <dump file>
+                     --pipe < <dump_file>
          done
          ```
 
@@ -301,7 +301,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          bash ./load-dump.sh
          ```
 
-         As you run the script, you'll see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../../managed-redis/concepts/sharding.md).
+         As you run the script, you will see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../../managed-redis/concepts/sharding.md).
 
       {% endcut %}
 
@@ -317,7 +317,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-1. Click the name of the desired cluster and open the [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-redis/operations/monitoring.md) tab.
+1. Click the cluster name and open the [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-redis/operations/monitoring.md) tab.
 
 Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../../managed-redis/concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys in the shards.
 
@@ -325,7 +325,7 @@ The total number of keys in the cluster must be equal to the number of keys proc
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -347,12 +347,12 @@ Delete the resources you no longer need to avoid being charged for them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      All resources described in the configuration file will be deleted.
+      All the resources described in the configuration file will be deleted.
 
 {% endlist %}

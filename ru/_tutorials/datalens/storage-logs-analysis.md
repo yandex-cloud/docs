@@ -109,9 +109,11 @@
      ```
      aws s3api put-bucket-logging \
        --endpoint-url https://{{ s3-storage-host }} \
-       --bucket <имя бакета, для которого надо включить логирование действий> \
+       --bucket <имя_бакета> \
        --bucket-logging-status file://log-config.json
      ```
+
+     Где `--bucket` — имя бакета, для которого надо включить логирование действий.
 
 - API
 
@@ -136,7 +138,7 @@
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** в поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** выберите `burstable`.
 
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/edit.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -176,12 +178,12 @@
      {{ yc-mdb-ch }} cluster create \
         --name s3-logs \
         --environment production \
-        --network-name <имя сети> \
-        --host type=clickhouse,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+        --network-name <имя_сети> \
+        --host type=clickhouse,zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети> \
         --clickhouse-resource-preset b2.medium \
         --clickhouse-disk-type {{ disk-type-example }} \
         --clickhouse-disk-size 10 \
-        --user name=user,password=<пароль пользователя> \
+        --user name=user,password=<пароль_пользователя> \
         --database name=s3_data \
         --datalens-access=true \
         --websql-access=true
@@ -195,7 +197,7 @@
      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
        name                = "s3-logs"
        environment         = "PRODUCTION"
-       network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
+       network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
 
        clickhouse {
          resources {
@@ -219,8 +221,8 @@
 
        host {
          type      = "CLICKHOUSE"
-         zone      = "<зона доступности>"
-         subnet_id = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
+         zone      = "<зона_доступности>"
+         subnet_id = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
        }
 
        access {
@@ -258,7 +260,7 @@
 
   1. Выберите кластер `s3-logs`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
   1. В поле **Date time input format** выберите `best_effort`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
@@ -312,14 +314,14 @@
         vhost String                -- Виртуальный хост запроса.
                                     -- Возможные значения:
                                     -- * {{ s3-storage-host }}.
-                                    -- * <имя бакета>.{{ s3-storage-host }}.
+                                    -- * <имя_бакета>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.
-                                    -- * <имя бакета>.{{ s3-web-host }}.
+                                    -- * <имя_бакета>.{{ s3-web-host }}.
      )
      ENGINE = S3(
            'https://{{ s3-storage-host }}/<имя_бакета>/s3-logs/*',
-           '<идентификатор ключа>',
-           '<секретный ключ>',
+           '<идентификатор_ключа>',
+           '<секретный_ключ>',
            'JSONEachRow'
         )
      SETTINGS date_time_input_format='best_effort';
@@ -356,7 +358,7 @@
 1. Нажмите кнопку **Создать датасет**.
 1. В созданном датасете перенесите таблицу `s3_data.s3logs` на рабочую область.
 1. Перейдите на вкладку **Поля**.
-1. Нажмите значок ![image](../../_assets/plus-sign.svg)**Добавить поле**.
+1. Нажмите значок ![image](../../_assets/console-icons/plus.svg)**Добавить поле**.
 1. Создайте расчетное поле с типом файла:
    
    * Название поля — `object_type`.

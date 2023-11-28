@@ -13,6 +13,8 @@ items:
         href: operations/cluster-update.md
       - name: Работа с интерфейсами {{ AF }}
         href: operations/af-interfaces.md
+      - name: Загрузка DAG-файлов в кластер
+        href: operations/upload-dags.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Концепции
@@ -21,12 +23,12 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Правила тарификации
-        href: pricing.md
   - name: Практические руководства
     items:
       - name: Автоматизация работы с {{ dataproc-name }}
         href: tutorials/data-proc-automation.md
   - name: Управление доступом
     href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
 base: ru/managed-airflow

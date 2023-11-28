@@ -130,12 +130,11 @@ The infrastructure support costs include:
 
 ## Deploy the solution using {{ TF }} {#deploy}
 
-1. Clone the `yandex-cloud/yc-architect-solution-library` [repository](https://github.com/yandex-cloud/yc-architect-solution-library/) to your workstation and go to the `yc-s3-private-endpoint` folder:
+1. Clone the `yandex-cloud-examples/yc-s3-private-endpoint` [repository](https://github.com/yandex-cloud-examples/yc-s3-private-endpoint) to your workstation and go to the `yc-s3-private-endpoint` folder:
 
    ```bash
-   git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
-
-   cd yc-architect-solution-library/yc-s3-private-endpoint
+   git clone https://github.com/yandex-cloud-examples/yc-s3-private-endpoint.git
+   cd yc-s3-private-endpoint
    ```
 
 1. Set up an environment for authentication in {{ TF }} (for more information, see [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)):

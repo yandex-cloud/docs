@@ -22,7 +22,7 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
 1. Under **Applications available for installation**, select [cert-manager with a plugin for {{ dns-full-name }} ACME webhook](/marketplace/products/yc/cert-manager-webhook-yandex) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter an application name, e.g., `cert-manager`.
+   * **Application name**: Enter a name for the application, e.g., `cert-manager`.
    * **Service account key**: Paste the contents of the `key.json` file or create a new [key](../../../iam/concepts/authorization/key.md).
    * **Folder ID**: Specify the ID of the folder hosting the {{ dns-name }} zone, to confirm domain ownership at the DNS-01 challenge.
    * **Email address to get notifications from Let's Encrypt**: Specify the email address for Let's Encrypt® notifications.
@@ -30,7 +30,7 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
       * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
       * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 1. Create a file named `certificate.yaml` with a request for a test certificate:
 
    ```yaml

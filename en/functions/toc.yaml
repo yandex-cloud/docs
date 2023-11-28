@@ -129,7 +129,7 @@ items:
             href: operations/trigger/trigger-info.md
       - name: Creating a trigger
         items:
-          - name: Create a timer
+          - name: Creating a timer
             href: operations/trigger/timer-create.md
           - name: Creating a trigger for {{ message-queue-name }}
             href: operations/trigger/ymq-trigger-create.md
@@ -415,6 +415,8 @@ items:
         href: tutorials/batch-recognition-stt.md
       - name: Canary release of a {{ sf-name }} function
         href: tutorials/canary-release.md
+      - name: Deploying a fault-tolerant architecture with preemptible VMs
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
@@ -483,6 +485,18 @@ items:
                 href: functions/api-ref/Function/update.md
               - name: updateAccessBindings
                 href: functions/api-ref/Function/updateAccessBindings.md
+          - name: Network
+            items:
+              - name: Overview
+                href: functions/api-ref/Network/index.md
+              - name: getUsed
+                href: functions/api-ref/Network/getUsed.md
+              - name: listConnectedResources
+                href: functions/api-ref/Network/listConnectedResources.md
+              - name: listUsed
+                href: functions/api-ref/Network/listUsed.md
+              - name: triggerUsedCleanup
+                href: functions/api-ref/Network/triggerUsedCleanup.md
   - name: API Triggers reference
     items:
       - name: Authentication in the API

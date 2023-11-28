@@ -5,7 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Подключить виртуальную машину на Windows Server к {{ backup-name }}
 
-Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами Windows Server 2019 и 2022. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection.md#windows).
+
+{% include [requirements](../../_includes/backup/requirements.md) %}
 
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 

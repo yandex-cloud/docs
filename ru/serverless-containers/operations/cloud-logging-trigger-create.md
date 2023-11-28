@@ -20,7 +20,7 @@
 
     1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -32,12 +32,7 @@
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}** укажите:
 
-        * лог-группу;
-        * (опционально) типы ресурсов, например функции {{ sf-name }} `serverless.function`;
-        * (опционально) идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например контейнеров {{ serverless-containers-name }};
-        * (опционально) уровни логирования.
-
-       Триггер срабатывает, когда в указанную лог-группу добавляют записи, которые соответствуют всем опциональным настройкам. Если опциональная настройка не задана, триггер срабатывает при любом ее значении.
+        {% include [logging-settings](../../_includes/functions/logging-settings.md) %}
 
     1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 

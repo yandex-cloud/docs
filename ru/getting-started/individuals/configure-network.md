@@ -1,3 +1,8 @@
+---
+title: "Как настроить безопасную сетевую конфигурацию в {{ yandex-cloud }}"
+description: "Из статьи вы узнаете, как настроить безопасную сетевую конфигурацию в {{ yandex-cloud }}."
+---
+
 # Настройте безопасную сетевую конфигурацию
 
 ## Зарезервируйте два статических публичных IP-адреса {#reserve-ips}
@@ -10,7 +15,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется зарезервировать IP-адреса.
     1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-    1. В открывшемся окне выберите зону доступности `{{ region-id }}-b`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+    1. В открывшемся окне выберите зону доступности `{{ region-id }}-b`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}1**.
     1. Снова нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
     1. В открывшемся окне выберите зону доступности `{{ region-id }}-a`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 

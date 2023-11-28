@@ -77,6 +77,19 @@ instanceId | <p>Required. ID of the instance to move.</p> <p>To get the instance
         "string"
       ]
     }
+  ],
+  "bootDiskPlacement": {
+    "placementGroupId": "string",
+    "placementGroupPartition": "string"
+  },
+  "secondaryDiskPlacements": [
+    {
+      "diskId": "string",
+      "diskPlacementPolicy": {
+        "placementGroupId": "string",
+        "placementGroupPartition": "string"
+      }
+    }
   ]
 }
 ```
@@ -118,6 +131,14 @@ networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>dnsZon
 networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional)</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
 networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional)</p> 
 networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
+bootDiskPlacement | **object**<br><p>Boot disk placement policy configuration in target zone. Must be specified if disk has placement policy.</p> 
+bootDiskPlacement.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+bootDiskPlacement.<br>placementGroupPartition | **string** (int64)
+secondaryDiskPlacements[] | **object**<br><p>Secondary disk placement policy configurations in target zone. Must be specified for each disk that has placement policy.</p> 
+secondaryDiskPlacements[].<br>diskId | **string**<br><p>Disk ID.</p> 
+secondaryDiskPlacements[].<br>diskPlacementPolicy | **object**<br><p>Placement policy configuration for given disk.</p> 
+secondaryDiskPlacements[].<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
+secondaryDiskPlacements[].<br>diskPlacementPolicy.<br>placementGroupPartition | **string** (int64)
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

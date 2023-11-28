@@ -1,3 +1,8 @@
+---
+title: "Как найти события {{ yandex-cloud }} в {{ cloud-logging-full-name }}"
+description: "Из статьи вы узнаете, как найти события {{ yandex-cloud }} в {{ cloud-logging-full-name }}."
+---
+
 # Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
 
 ## Кто удалил каталог
@@ -8,7 +13,7 @@ json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolde
 ```
 Поиск по названию:
 ```json
-json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<название_каталога>"
+json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
 ```
 
 ## Кто создал/остановил/перезапустил/удалил виртуальную машину

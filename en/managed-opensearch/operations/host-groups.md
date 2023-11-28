@@ -9,12 +9,16 @@ keywords:
 
 # Managing {{ OS }} host groups
 
-In {{ OS }} clusters, you cannot add, update, or delete individual hosts. Instead, you can manage [host groups](../concepts/host-groups.md):
+In {{ mos-name }} clusters, you cannot add, update, or delete individual hosts. Instead, you can manage [host groups](../concepts/host-groups.md):
 
-* [{#T}](#list-groups)
-* [{#T}](#add-host-group)
-* [{#T}](#update-host-group)
-* [{#T}](#delete-host-group)
+* [{#T}](#list-groups).
+* [{#T}](#add-host-group).
+* [{#T}](#update-host-group).
+* [{#T}](#delete-host-group).
+
+You can also get a list of [cluster hosts](#list-hosts).
+
+To learn how to migrate {{ mos-name }} cluster host groups to a different availability zone, see [this guide](host-migration.md).
 
 ## Getting a list of host groups in a cluster {#list-groups}
 

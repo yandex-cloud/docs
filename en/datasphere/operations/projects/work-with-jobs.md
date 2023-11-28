@@ -32,10 +32,10 @@ When a job is run, the `datasphere` library analyzes the environment, collects c
    ```yaml
    name: <job_name>
    desc: <job_description>
-   cmd: python <executable_file> --data ${DATA} --result ${OUTPUT}
+   cmd: >
+       python <executable_file> --data ${DATA} --result ${OUTPUT}
    env:
-     python:
-       auto: true
+     python: auto
    inputs:
      - <input_data>: DATA
    outputs:
@@ -48,7 +48,7 @@ When a job is run, the `datasphere` library analyzes the environment, collects c
    * `name`: Job name.
    * `desc`: Job description.
    * `cmd`: Script file and variables for inputs and outputs.
-   * `auto`: Parameter that defines whether to provide the code and `PIP` dependencies to {{ ml-platform-name }}.
+   * `env`: Environment parameters. The `python: auto` value indicates that the code and `PIP` dependencies should be provided to {{ ml-platform-name }}.
    * `inputs`: File with input data. You can change the `DATA` variable name.
    * `outputs`: File with results. You can change the `OUTPUT` variable name.
    * `cloud-instance-type`: [Computing resource configuration](../../concepts/configurations.md).

@@ -9,7 +9,7 @@ keywords:
 
 # Changing {{ OS }} cluster settings
 
-After creating a cluster, you can edit its service settings. You can also change the [host group configuration](host-groups.md#update-host-group) and update the [{{ OS }} version](cluster-version-update.md).
+After creating a cluster, you can edit its service settings. You can also change the [host group configuration](host-groups.md#update-host-group) and [host group availability zone](host-migration.md) and change the [{{ OS }} version](cluster-version-update.md).
 
 ## Updating service settings {#change-service-settings}
 

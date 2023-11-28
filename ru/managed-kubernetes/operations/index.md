@@ -28,6 +28,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](applications/externaldns.md)
 * [{#T}](applications/falco.md)
 * [{#T}](applications/filebeat.md)
+* [{#T}](applications/filebeat-oss.md)
 * [{#T}](applications/fluentbit.md)
 * [{#T}](applications/gateway-api.md)
 * [{#T}](applications/gitlab-agent.md)
@@ -41,6 +42,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
 * [{#T}](applications/policy-reporter.md)
+* [{#T}](applications/prometheus-operator.md)
 * [{#T}](applications/thumbor.md)
 * [{#T}](applications/velero-yc-csi.md)
 

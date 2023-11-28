@@ -10,12 +10,12 @@ description: "Follow this guide to update a {{ managed-k8s-name }} cluster."
 ## Changing {{ managed-k8s-name }} clusters {#update-cluster}
 
 You can change the following parameters of a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster):
-* Name.
-* Description.
-* [Service accounts](../../../iam/operations/sa/create.md).
-* [{{ k8s }} version](../../concepts/release-channels-and-updates.md).
-* [Update](../../concepts/release-channels-and-updates.md#updates) policy.
-* List of [security groups](../connect/security-groups.md).
+* Name
+* Description
+* [Service accounts](../../../iam/operations/sa/create.md)
+* [{{ k8s }} version](../../concepts/release-channels-and-updates.md)
+* [Updates](../../concepts/release-channels-and-updates.md#updates) policy
+* List of [security groups](../connect/security-groups.md)
 * Settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/).
 
   [Security groups](../../../vpc/concepts/security-groups.md) are at the [Preview stage](../../../overview/concepts/launch-stages.md). If they are not available on your [network](../../../vpc/concepts/network.md#network), all incoming and outgoing traffic for the resources will be allowed. No additional setup is required.
@@ -41,11 +41,11 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 - Management console
 
   To update a {{ managed-k8s-name }} cluster:
-  1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Click **Edit** in the top-right corner.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Change the required parameters in the window that opens.
-  1. Click **Save changes**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -70,12 +70,12 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
         --service-account-name <resource_service_account_name> \
         --node-service-account-id <{{ managed-k8s-name }}_node_service_account_ID> \
         --security-group-ids <list_of_security_group_IDs> \
-        --master-logging enabled=<log_sending:_true_or_false>,`
+        --master-logging enabled=<log_sending>,`
             `log-group-id=<log_group_ID>,`
             `folder-id=<folder_ID>,`
-            `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
-            `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
-            `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
+            `kube-apiserver-enabled=<kube-apiserver_log_sending>,`
+            `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending>,`
+            `events-enabled=<{{ k8s }}_event_sending>
       ```
 
       Where:
@@ -95,7 +95,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
      * `--latest-revision`: Get all available updates for current [master {{ managed-k8s-name }}](../../concepts/index.md#master) version.
      * `--auto-upgrade`: Manage automatic {{ managed-k8s-name }} cluster updates.
      * Managing the maintenance window:
-       * `--anytime-maintenance-window`: Perform maintenance at any time.
+       * `--anytime-maintenance-window`: Update at any time.
        * `--daily-maintenance-window`: Update daily at the selected time.
        * `--weekly-maintenance-window`: Update on selected days.
 
@@ -156,8 +156,8 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster label
 
   ```bash
   done (1s)
-  id: abcd123ef4ghi567j8k9
-  folder_id: l1m01nopqr1st2uvwxy1
+  id: abcd123ef4gh********
+  folder_id: l1m01nopqr1s********
   ...
   description: My test {{ k8s }} cluster
   labels:
@@ -189,8 +189,8 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster label
 
   ```bash
   done (1s)
-  id: abcd123ef4ghi567j8k9
-  folder_id: l1m01nopqr1st2uvwxy1
+  id: abcd123ef4gh********
+  folder_id: l1m01nopqr1s********
   ...
   description: My test {{ k8s }} cluster
   labels:
@@ -216,8 +216,8 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster label
 
   ```bash
   done (1s)
-  id: cati493bu7ian006a4a8
-  folder_id: b1g88tflru0ek1omtsu0
+  id: cati493bu7ia********
+  folder_id: b1g88tflru0e********
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
   ...

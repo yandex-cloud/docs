@@ -1,6 +1,6 @@
 # Миграция хостов {{ MG }}-кластера в другую зону доступности
 
-Хосты кластера {{ mmg-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты можно перенести из одной зоны в другую. Для этого:
+Хосты кластера {{ mmg-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести хосты из одной зоны в другую:
 
 1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности, в которую вы переносите хосты.
 1. Добавьте хост в кластер:
@@ -99,7 +99,7 @@
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
-      1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
+      1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
    - CLI
 
@@ -129,4 +129,6 @@
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу вашего каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+
+{% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}

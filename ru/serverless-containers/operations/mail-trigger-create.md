@@ -4,7 +4,24 @@
 
 ## Перед началом работы {#before-you-begin}
 
-{% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
+Для создания триггера вам понадобятся:
+
+* Контейнер, который триггер будет вызывать. Если у вас нет контейнера:
+
+    * [Создайте контейнер](../../serverless-containers/operations/create.md).
+    * [Создайте ревизию контейнера](../../serverless-containers/operations/manage-revision.md#create).
+
+* (Опционально) Очередь [Dead Letter Queue](../../serverless-containers/concepts/dlq.md), куда будут перенаправляться сообщения, которые не смог обработать контейнер. Если у вас нет очереди, [создайте ее](../../message-queue/operations/message-queue-new-queue.md).
+
+* [Сервисные аккаунты](../../iam/concepts/users/service-accounts.md) с правами:
+    
+    * на вызов контейнера;
+    * (опционально) на запись в очередь Dead Letter Queue;
+    * (опционально) на загрузку объектов в бакет.
+    
+    Вы можете использовать один и тот же сервисный аккаунт или разные. Если у вас нет сервисного аккаунта, [создайте его](../../iam/operations/sa/create.md).
+
+* (Опционально) [Бакет](../../storage/concepts/bucket.md), в который будут сохраняться вложения из писем. Если у вас нет бакета, [создайте его](../../storage/operations/buckets/create.md) с ограниченным доступом.
 
 ## Создать триггер {#trigger-create}
 
@@ -18,7 +35,7 @@
 
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -27,6 +44,10 @@
         * (Опционально) Введите имя и описание триггера.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
+    
+    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
+      
+        {% include [mail-trigger-attachements](../../_includes/functions/mail-trigger-attachements.md) %}
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 

@@ -46,8 +46,8 @@ folder-id: b1g28j9359gic3p2gca2
 где,
 
 * `client` — название компании клиента.
-* `cloud-id` — [идентификатор облака](../../resource-manager/concepts/resources-hierarchy#cloud), к ресурсам которого будет подключаться {{ interconnect-name }}.
-* `folder-id` — [идентификатор каталога](../../resource-manager/concepts/resources-hierarchy#folder), в который будут отправляться метрики мониторинга {{ interconnect-name }}.
+* `cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), к ресурсам которого будет подключаться {{ interconnect-name }}.
+* `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в который будут отправляться метрики мониторинга {{ interconnect-name }}.
 * `партнёр` — имя партнёра [из списка партнёров](../../interconnect/concepts/partners.md#list)
 * `точка присутствия` — код точки присутствия [из списка партнёров](../../interconnect/concepts/partners.md#list) на которых партнёр предоставляет подключения к {{ yandex-cloud }}
 * `пакет трафика` — [полоса пропускания](../../interconnect/concepts/capacity.md) в Мбит/c, которая соответствует выбранному клиентом пакету трафика.

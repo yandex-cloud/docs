@@ -1,3 +1,8 @@
+---
+title: "Синтез речи с помощью Python SDK {{ speechkit-full-name }}"
+description: "Следуя данной инструкции, вы сможете протестировать синтез речи с помощью Python SDK {{ speechkit-name }}." 
+---
+
 # Синтез речи с помощью Python SDK
 
 Ниже приведен пример синтеза речи из текста в [TTS-разметке](../../tts/markup/tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV) с помощью [Python SDK {{ speechkit-name }}](index.md). В примере заданы параметры:

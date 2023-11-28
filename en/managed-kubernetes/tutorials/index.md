@@ -1,6 +1,6 @@
 # {{ managed-k8s-name }} tutorials
 
-You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
+You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
 
 ## Creating a project {#creating-project}
 
@@ -9,7 +9,7 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containe
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
 
-## Setting up and testing scalability {#scaling}
+## Setting up and testing scaling {#scaling}
 
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
@@ -66,4 +66,5 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containe
 * [{#T}](marketplace/jaeger-over-ydb.md)
 * [{#T}](marketplace/kyverno.md)
 * [{#T}](marketplace/metrics-provider.md)
+* [{#T}](marketplace/thumbor.md)
 

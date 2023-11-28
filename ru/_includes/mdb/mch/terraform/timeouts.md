@@ -13,7 +13,7 @@
 Добавьте к описанию кластера блок `timeouts`, например:
 
 ```hcl
-resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
   ...
   timeouts {
     create = "1h30m" # Полтора часа

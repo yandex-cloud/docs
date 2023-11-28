@@ -17,7 +17,7 @@ You cannot use an [SSH key pair](./ssh.md#creating-ssh-keys) to connect to a VM 
 
    - Using an image with OS Login
 
-      [Create a VM from the prepared image](../../../compute/operations/images-with-pre-installed-software/create.md) with access via OS Login. These images are available on [{{ marketplace-full-name }}](/marketplace) and contain `OS Login` in their names. Enable **Access via OS Login** when creating a VM.
+      [Create a VM from the prepared image](../../../compute/operations/images-with-pre-installed-software/create.md) with access via OS Login. These images are available on [{{ marketplace-full-name }}](/marketplace) and contain `OS Login` in their names. When creating a VM, enable **Access via OS Login** or set the [enable-oslogin](../../concepts/vm-metadata.md) parameter to `true` in the `metadata`.
 
    - Installing OS Login on your image
 
@@ -37,7 +37,7 @@ You cannot use an [SSH key pair](./ssh.md#creating-ssh-keys) to connect to a VM 
          {% endnote %}
 
       1. Run the executable file and make sure the components are installed correctly.
-      1. [Create a VM from a custom image](../../../compute/operations/vm-create/create-from-user-image.md). Enable **Access via OS Login** when creating a VM.
+      1. [Create a VM from a custom image](../../../compute/operations/vm-create/create-from-user-image.md). When creating a VM, enable **Access via OS Login** or set the [enable-oslogin](../../concepts/vm-metadata.md) parameter to `true` in the `metadata`.
 
       If you have any issues, [contact support]({{ link-console-support }}).
 

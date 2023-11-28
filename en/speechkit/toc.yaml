@@ -7,13 +7,13 @@ items:
     items:
       - name: Overview
         href: quickstart/index.md
-      - name: How to recognize short audio files in API v1
+      - name: How to recognize short audio files in the API v1
         href: quickstart/stt-quickstart-v1.md
-      - name: How to recognize streaming audio in API v3
-        href: quickstart/stt-quickstart-v3.md
-      - name: How to synthesize speech in API v1
+      - name: How to recognize long audio files in the API v2
+        href: quickstart/stt-quickstart-v2.md
+      - name: How to synthesize speech in the API v1
         href: quickstart/tts-quickstart-v1.md
-      - name: How to synthesize speech in API v3
+      - name: How to synthesize speech in the API v3
         href: quickstart/tts-quickstart-v3.md
   - name: Speech recognition
     items:
@@ -73,6 +73,8 @@ items:
         href: ../speechkit-hybrid/
   - name: API Reference
     items:
+      - name: Overview
+        href: concepts/api.md
       - name: Authentication in the API
         href: concepts/auth.md
       - name: Speech recognition

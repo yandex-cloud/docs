@@ -45,11 +45,11 @@ For more information about setting up and registering an agent, see the [{{ GL }
 1. Under **Applications available for installation**, select [{{ GL }} Agent](/marketplace/products/yc/gitlab-agent) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter the application name, e.g., `gitlab-agent`.
+   * **Application name**: Enter a name for the application, e.g., `gitlab-agent`.
    * **{{ GL }} domain name**: Enter the name of your {{ GL }} domain, e.g., `gitlab-test.gitlab.yandexcloud.net`.
    * **Agent access token**: Paste the {{ GL }} access token you [received earlier](#before-you-begin) into this field.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application status to change to `Deployed`.
+1. Wait for the application status to change to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 1. Open your {{ GL }} instance and go to **Infrastucture → {{ k8s }} clusters**. Make sure the agent status changed to `Connected`.
 
 ## Installation using a Helm chart {#helm-install}

@@ -12,7 +12,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите подключить [профиль безопасности](../concepts/profiles.md) к [виртуальному хосту](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../application-load-balancer/).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Выберите профиль, который вы хотите подключить к хосту.
-  1. Нажмите кнопку ![plug](../../_assets/smartwebsecurity/plug.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+  1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. В открывшемся окне выберите:
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).

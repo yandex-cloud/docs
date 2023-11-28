@@ -14,7 +14,7 @@
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
+   1. Нажмите значок ![image](../../../../_assets/console-icons/ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Добавьте алиас:
       1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-alias }}**.
       1. Заполните поля: введите алиас (например, `events`) и тип топика после `$devices/<deviceID>` (например, `events`).<br/>Вы сможете использовать алиас `events` вместо топика `$devices/<deviceID>/events`.

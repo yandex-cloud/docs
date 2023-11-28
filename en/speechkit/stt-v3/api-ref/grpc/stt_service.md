@@ -128,7 +128,7 @@ classifiers[] | **[RecognitionClassifier](#RecognitionClassifier)**<br>List of c
 Field | Description
 --- | ---
 classifier | **string**<br>Classifier name 
-triggers[] | enum **TriggerType**<br>Describes the types of responses to which the classification results will come 
+triggers[] | enum **TriggerType**<br>Describes the types of responses to which the classification results will come <ul><li>`ON_UTTERANCE`: Apply classifier to utterance responses</li><li>`ON_FINAL`: Apply classifier to final responses</li><li>`ON_PARTIAL`: Apply classifier to partial responses</li></ul>
 
 
 ### SpeechAnalysisOptions {#SpeechAnalysisOptions}
@@ -261,7 +261,7 @@ Type | **oneof:** `normalized_text`<br>Type of refinement.
 
 Field | Description
 --- | ---
-code_type | enum **CodeType**<br>Code type. 
+code_type | enum **CodeType**<br>Code type. <ul><li>`WORKING`: All good.</li><li>`WARNING`: For example, if speech is sent not in real time or context is unknown and we've made fallback.</li><li>`CLOSED`: After session was closed.</li></ul>
 message | **string**<br>Human readable message. 
 
 
@@ -269,7 +269,7 @@ message | **string**<br>Human readable message.
 
 Field | Description
 --- | ---
-window_type | enum **WindowType**<br>Response window type 
+window_type | enum **WindowType**<br>Response window type <ul><li>`LAST_UTTERANCE`: The result of applying the classifier to the last utterance response</li><li>`LAST_FINAL`: The result of applying the classifier to the last final response</li><li>`LAST_PARTIAL`: The result of applying the classifier to the last partial response</li></ul>
 start_time_ms | **int64**<br>Start time of the audio segment used for classification 
 end_time_ms | **int64**<br>End time of the audio segment used for classification 
 classifier_result | **[RecognitionClassifierResult](#RecognitionClassifierResult)**<br>Result for dictionary-based classifier 
@@ -306,7 +306,7 @@ confidence | **double**<br>The prediction confidence
 Field | Description
 --- | ---
 speaker_tag | **string**<br>Speaker tag 
-window_type | enum **WindowType**<br>Response window type 
+window_type | enum **WindowType**<br>Response window type <ul><li>`TOTAL`: Stats for all received audio.</li><li>`LAST_UTTERANCE`: Stats for last utterance.</li></ul>
 speech_boundaries | **[AudioSegmentBoundaries](#AudioSegmentBoundaries)**<br>Audio segment boundaries 
 total_speech_ms | **int64**<br>Total speech duration 
 speech_ratio | **double**<br>Speech ratio within audio segment 
@@ -361,6 +361,8 @@ total_simultaneous_speech_duration_ms | **int64**<br>Total simultaneous speech d
 total_simultaneous_speech_ratio | **double**<br>Simultaneous speech ratio within audio segment 
 simultaneous_speech_duration_estimation | **[DescriptiveStatistics](#DescriptiveStatistics1)**<br>Descriptive statistics for simultaneous speech duration distribution 
 speaker_interrupts[] | **[InterruptsEvaluation](#InterruptsEvaluation)**<br>Interrupts description for every speaker 
+total_speech_duration_ms | **int64**<br>Total speech duration, including both simultaneous and separate speech 
+total_speech_ratio | **double**<br>Total speech ratio within audio segment 
 
 
 ### InterruptsEvaluation {#InterruptsEvaluation}

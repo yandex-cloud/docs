@@ -94,7 +94,7 @@
     
         ```bash
         aws --endpoint-url=https://{{ s3-storage-host }} \
-           s3 cp <имя файла> s3://<имя бакета>/.well-known/acme-challenge/<имя файла>
+           s3 cp <имя_файла> s3://<имя_бакета>/.well-known/acme-challenge/<имя_файла>
         ```
     
     {% endlist %}
@@ -108,7 +108,7 @@
     
         ```bash
         aws --endpoint-url=https://{{ s3-storage-host }} \
-           s3 rm s3://<имя бакета>/.well-known/acme-challenge/<имя файла>
+           s3 rm s3://<имя_бакета>/.well-known/acme-challenge/<имя_файла>
         ```
    
     {% endlist %}

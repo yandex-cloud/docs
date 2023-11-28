@@ -97,8 +97,8 @@ Prepare the infrastructure:
 
     ```sql
     INSERT INTO measurements VALUES
-    ('iv9a94th6rztooxh5ur2', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-    ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
+    ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+    ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
 ## Prepare and activate the transfer {#prepare-transfer}
@@ -148,7 +148,7 @@ Prepare the infrastructure:
 
 {% note info %}
 
-If the transfer activation fails with an error saying `Unable to push DDL`:
+If the transfer activation fails with the `Unable to push DDL` error:
 
 1. [Connect to the target database](../../managed-mysql/operations/connect.md) and create in it an empty table named `measurements` similar to the source table.
 1. Restart the transfer.
@@ -175,7 +175,7 @@ To check if the transfer performs properly, test the copy and replication proces
 
    ```sql
    INSERT INTO measurements VALUES
-   ('iv7b74th678tooxdagrf', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+   ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
    ```
 
 1. Make sure the new row has been added to the target database:

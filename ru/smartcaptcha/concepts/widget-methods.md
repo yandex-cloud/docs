@@ -1,3 +1,8 @@
+---
+title: "Методы установки виджета {{ captcha-full-name }}"
+description: "Вы можете подключить виджет {{ captcha-name }} автоматическим или расширенным методом. В зависимости от метода подключения отличается способ передачи параметров для виджета."
+---
+
 # Методы установки виджета {{ captcha-full-name }}
 
 Подключить виджет {{ captcha-name }} можно одним из двух методов:
@@ -30,8 +35,8 @@
 ```html
 <div
   class="smart-captcha"
-  data-sitekey="<Ключ_клиентской_части>"
-  data-hl="<Язык>"
+  data-sitekey="<ключ_клиентской_части>"
+  data-hl="<язык>"
 ></div>
 ```
 
@@ -69,7 +74,7 @@
       <div
         id="captcha-container"
         class="smart-captcha"
-        data-sitekey="<Ключ_клиентской_части>"
+        data-sitekey="<ключ_клиентской_части>"
         data-hl="en"
         data-callback="callback"
       ></div>
@@ -104,8 +109,8 @@
       const container = document.getElementById('<идентификатор_контейнера>');
 
       const widgetId = window.smartCaptcha.render(container, {
-        sitekey: '<Ключ_клиентской_части>',
-        hl: '<Язык>',
+        sitekey: '<ключ_клиентской_части>',
+        hl: '<язык>',
       });
     }
   }
@@ -297,7 +302,7 @@
     }
 
     window.smartCaptcha.render('captcha-container', {
-      sitekey: '<Ключ_клиентской_части>',
+      sitekey: '<ключ_клиентской_части>',
       callback: callback,
     });
   }

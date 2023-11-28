@@ -6,7 +6,7 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
-      - name: Загрузить данные
+      - name: Загрузка данных
         href: operations/data/upload-data.md
       - name: Работа с диалогами
         href: operations/data/manage-dialogs.md

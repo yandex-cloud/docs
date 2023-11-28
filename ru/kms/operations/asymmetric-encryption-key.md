@@ -89,7 +89,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}**.
-  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
       1. Измените необходимые атрибуты ключевой пары.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -153,7 +153,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}**.
-  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 - CLI

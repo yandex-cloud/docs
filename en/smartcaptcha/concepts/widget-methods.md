@@ -142,7 +142,7 @@ Where:
 
 * `container`: Container for the widget. You can transmit a DOM element or ID of the container.
 * `params`: Object with parameters for the CAPTCHA:
-   * `sitekey`: Client-side key.
+   * `sitekey`: [Client-side key](./keys.md).
    * `callback`: Handler function.
    * `hl`: Widget language.
    * `test`: Launching CAPTCHA in test mode. The user will always get a task. Use this property for debugging and testing only.

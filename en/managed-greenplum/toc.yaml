@@ -41,6 +41,8 @@ items:
             href: operations/roles-and-users.md
           - name: Managing resource groups
             href: operations/resource-groups.md
+          - name: Monitoring and managing sessions and queries in the Command Center
+            href: operations/command-center.md
           - name: Managing client processes and user sessions
             href: operations/cluster-process.md
       - name: '{{ GP }} extensions'
@@ -69,13 +71,15 @@ items:
         href: operations/greenplum-db.md
   - name: Tutorials
     items:
+      - name: All use cases
+        href: tutorials/index.md
       - name: Migrating databases to {{ mgp-name }}
         href: tutorials/data-migration.md
       - name: >-
           Creating an external table from a table in a {{ objstorage-full-name
           }} bucket using a configuration file
         href: tutorials/config-server-for-s3.md
-      - name: Migrating databases from {{ GP }} to {{ PG }}
+      - name: Migrating a database from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
@@ -83,7 +87,7 @@ items:
         href: tutorials/yezzey.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
@@ -205,6 +209,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Public materials
+    href: public-talks.md
   - name: Releases
     href: release-notes.md
   - name: Questions and answers

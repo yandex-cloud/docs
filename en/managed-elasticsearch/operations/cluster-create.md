@@ -45,7 +45,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       1. Enter a name and description for the {{ mes-name }} cluster. The {{ mes-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mes-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
@@ -117,7 +117,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create an {{ mes-name }} cluster:
+   To create a {{ mes-name }} cluster:
    1. Check whether the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any [subnets](../../vpc/concepts/network.md#subnet) for the {{ mes-name }} cluster hosts:
 
       ```bash
@@ -369,7 +369,7 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
 - {{ TF }}
 
-   Create a {{ mes-name }} cluster. Here is the configuration file for the {{ mes-name }} cluster:
+   Create a {{ mes-name }} cluster. The configuration file for the {{ mes-name }} cluster is as follows:
 
    
    

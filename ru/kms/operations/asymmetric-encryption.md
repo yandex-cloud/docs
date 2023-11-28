@@ -33,7 +33,7 @@ description: "Следуя данной инструкции, вы сможет�
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Перейдите на вкладку **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}**.
-      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. В строке с нужной ключевой парой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}**, чтобы скачать публичный ключ шифрования.
     
     - CLI
@@ -97,9 +97,10 @@ description: "Следуя данной инструкции, вы сможет�
         -pkeyopt rsa_padding_mode:oaep \
         -pkeyopt rsa_oaep_md:sha256 \
         -pkeyopt rsa_mgf1_md:sha256 | base64 > <путь_к_файлу_с_шифртекстом>
-      ````
+      ```
 
       Где:
+
       * `-in` — путь к файлу с сообщением, которое нужно зашифровать.
       * `-inkey` — путь к файлу с публичным ключом шифрования.
       * `<путь_к_файлу_с_шифртекстом>` — путь к файлу, в котором будет сохранено зашифрованное сообщение.
@@ -124,10 +125,10 @@ description: "Следуя данной инструкции, вы сможет�
 
       public class EncryptRsa {
           public static void main(String[] args) throws Exception {
-              String plaintext = "<message_text>";
+              String plaintext = "<сообщение>";
               String publicKeyPem = """
               -----BEGIN PUBLIC KEY-----
-              <public_key_contents>
+              <содержимое_открытого_ключа>
               -----END PUBLIC KEY-----""";
               byte[] cipherTextBytes = encryptWithRsaOaep(plaintext, publicKeyPem);
               System.out.println(Base64.getEncoder().encodeToString(cipherTextBytes));
@@ -176,9 +177,9 @@ description: "Следуя данной инструкции, вы сможет�
       )
 
       func runRsaEncryption() {
-          plaintext := "<message_text>"
+          plaintext := "<сообщение>"
           publicKeyPem := `-----BEGIN PUBLIC KEY-----
-          <public_key_contents>
+          <содержимое_открытого_ключа>
           -----END PUBLIC KEY-----`
           ciphertextBytes := encryptRSA(publicKeyPem, plaintext, crypto.SHA256)
           ciphertextBase64 := base64.StdEncoding.EncodeToString(ciphertextBytes)
@@ -252,10 +253,10 @@ description: "Следуя данной инструкции, вы сможет�
       return ciphertext
 
       def test_encrypt_text():
-          plaintext = "<message_text>"
+          plaintext = "<сообщение>"
           public_key_string = """
           -----BEGIN PUBLIC KEY-----
-          <public_key_contents>
+          <содержимое_открытого_ключа>
           -----END PUBLIC KEY-----"""
           ciphertext = encrypt_with_rsa_oaep(plaintext, public_key_string,'SHA256')
           ciphertext_base64 = base64.b64encode(ciphertext).decode()

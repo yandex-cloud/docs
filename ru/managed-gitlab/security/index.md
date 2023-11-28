@@ -1,3 +1,8 @@
+---
+title: "Управление доступом в {{ mgl-full-name }}"
+description: "Управление доступом в веб-инструменте жизненного цикла DevOps с открытым исходным кодом — {{ mgl-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
+---
+
 # Управление доступом в {{ mgl-name }}
 
 В этом разделе вы узнаете:
@@ -18,6 +23,10 @@
 ## Какие роли действуют в сервисе {#roles-list}
 
 ### Сервисные роли {#service-roles}
+
+#### gitlab.auditor {#gitlab-auditor}
+
+{% include [gitlab-auditor](../../_roles/gitlab/auditor.md) %}
 
 {% include [gitlab-viewer](../../_includes/iam/roles/gitlab-viewer.md) %}
 

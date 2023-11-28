@@ -25,6 +25,8 @@ items:
                 href: operations/hosts/cluster-hosts.md
               - name: Расширение кластера
                 href: operations/hosts/cluster-expand.md
+              - name: Миграция хостов в другую зону доступности
+                href: operations/hosts/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
           - name: Удаление кластера
@@ -41,6 +43,8 @@ items:
             href: operations/roles-and-users.md
           - name: Управление ресурсными группами
             href: operations/resource-groups.md
+          - name: Правила аутентификации пользователей
+            href: operations/user-auth-rules.md
           - name: Мониторинг и управление сессиями и запросами в командном центре
             href: operations/command-center.md
           - name: Управление клиентскими процессами и сессиями пользователей
@@ -109,6 +113,8 @@ items:
         href: concepts/tables.md
       - name: Пользователи и роли
         href: concepts/cluster-users.md
+      - name: Аутентификация пользователей
+        href: concepts/user-authentication.md
       - name: Командный центр
         href: concepts/command-center.md
       - name: Управление соединениями

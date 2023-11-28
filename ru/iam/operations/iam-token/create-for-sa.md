@@ -1,3 +1,8 @@
+---
+title: "Как получить IAM-токен для сервисного аккаунта в {{ iam-full-name }}"
+description: "Следуя данной инструкции, вы сможете получить IAM-токен для сервисного аккаунта." 
+---
+
 # Получение IAM-токена для сервисного аккаунта
 
 Есть несколько способов получить [IAM-токен](../../concepts/authorization/iam-token.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md):
@@ -74,7 +79,7 @@ yc iam create-token
   {
     "typ": "JWT",
     "alg": "PS256",
-    "kid": "lfkoe35hsk58aks301nl"
+    "kid": "lfkoe35hsk58********"
   }
   ```
 
@@ -518,11 +523,11 @@ yc iam create-token
   ```curl
   curl -X POST \
       -H 'Content-Type: application/json' \
-      -d '{"jwt": "<SIGNED_JWT>"}' \
+      -d '{"jwt": "<JWT-токен>"}' \
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
-  Где `<SIGNED_JWT>` — токен в формате JWT, полученный на предыдущем шаге.
+  Где `<JWT-токен>` — токен в формате JWT, полученный на предыдущем шаге.
 
 - Go
 

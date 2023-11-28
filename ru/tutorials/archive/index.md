@@ -1,3 +1,8 @@
+---
+title: "Сценарии хранения и восстановления данных в {{ yandex-cloud }}"
+description: "Различные сценарии хранения и восстановления данных в {{ yandex-cloud }}."
+---
+
 # Хранение и восстановление данных
 
 * [Миграция в {{ yandex-cloud }} с помощью Hystax Acura](../infrastructure-management/hystax-migration.md)

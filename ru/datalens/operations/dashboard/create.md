@@ -8,19 +8,18 @@ description: "Для создания дашборда в {{ datalens-full-name 
 Для создания дашборда выполните следующее:
 
 
+
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
 
 
-
-
-
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. На панели слева нажмите ![image](../../../_assets/datalens/dashboard-0523.svg) **Дашборды**.
 1. Нажмите кнопку **Создать дашборд**.
-
-
-
-
+1. Добавьте на дашборд необходимые [виджеты](../../dashboard/widget.md).
+1. В правом верхнем углу экрана нажмите кнопку **Сохранить**.
 1. В открывшемся окне введите название дашборда и нажмите кнопку **Создать**. Дашборд появится в списке на странице навигации.
+
+
 
 #### Что дальше {#what-is-next}
 

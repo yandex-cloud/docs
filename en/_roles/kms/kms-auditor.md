@@ -1,1 +1,0 @@
-The `kms.auditor` role.

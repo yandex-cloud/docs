@@ -19,6 +19,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing PostgreSQL hosts
             href: operations/hosts.md
+          - name: Migrating hosts to a different availability zone
+            href: operations/host-migration.md
           - name: Managing replication slots
             href: operations/replication-slots.md
           - name: Managing backups
@@ -297,6 +299,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Public materials
+    href: public-talks.md
   - name: Releases
     href: release-notes.md
   - name: Questions and answers

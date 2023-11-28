@@ -1,3 +1,8 @@
+---
+title: "Как добавить виджет {{ captcha-full-name }} расширенным методом"
+description: "Следуя данной инструкции, вы сможете добавить виджет {{ captcha-name }} расширенным методом."
+---
+
 # Добавьте виджет {{ captcha-name }} расширенным методом
 
 Вы управляете загрузкой виджета через [объект](../concepts/widget-methods.md#methods) `window.smartCaptcha`. В инструкции для этого используется callback-функция `onloadFunction`:
@@ -14,12 +19,10 @@
 1. Добавьте на страницу пустой контейнер, в который будет вставлен виджет:
 
     ```html
-    <div id="<id_контейнера>"></div>
+    <div id="<идентификатор_контейнера>"></div>
     ```
 
-    Где:
-
-    `<id_контейнера>` — произвольный идентификатор.
+    Где `id` — произвольный идентификатор.
 
 1. Добавьте на страницу код callback-функции:
 
@@ -27,7 +30,7 @@
     <script>
         function onloadFunction() {
         if (window.smartCaptcha) {
-            const container = document.getElementById('<id_контейнера>');
+            const container = document.getElementById('<идентификатор_контейнера>');
 
             const widgetId = window.smartCaptcha.render(container, {
                 sitekey: '<ключ_клиента>',
@@ -40,8 +43,8 @@
 
     Где:
 
-    * `<ключ_клиента>` — [ключ клиентской части](../concepts/keys.md);
-    * `<язык>` — [язык](../concepts/widget-methods.md#render) виджета и задания.
+    * `sitekey` — [ключ клиентской части](../concepts/keys.md);
+    * `hl` — [язык](../concepts/widget-methods.md#render) виджета и задания.
 
     В код callback-функции стоит добавить проверку существования объекта `window.smartCaptcha`, чтобы не вызвать ошибку в случае вызова функции до завершения загрузки JS-скрипта.
 

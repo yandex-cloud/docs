@@ -219,7 +219,7 @@
 
      ```
      resource "yandex_iam_service_account_key" "sa-auth-key" {
-       service_account_id = "<идентификатор сервисного аккаунта sa-function>"
+       service_account_id = "<идентификатор_сервисного_аккаунта_sa-function>"
        key_algorithm      = "RSA_2048"
      }
      ```
@@ -293,7 +293,7 @@
 1. Отредактируйте файл `.env`:
 
    * `ENDPOINT` — первая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
-   * `DATABASE` — вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+   * `DATABASE` — вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
    * `FUNCTION_NAME` — имя функции: `func-test-ydb`.
    * `FOLDER_ID` — идентификатор каталога.
    * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта `sa-function`.

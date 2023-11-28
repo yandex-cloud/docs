@@ -1,3 +1,8 @@
+---
+title: "Как добавить данные в кластер {{ CH }} в {{ mch-full-name }}"
+description: "Следуя данной инструкции, вы сможете добавить данные в кластер {{ CH }}." 
+---
+
 # Добавление данных в {{ CH }}
 
 Для обычной вставки данных в таблицы используйте запрос `INSERT INTO`:
@@ -15,8 +20,8 @@ INSERT INTO db_name.table_name VALUES (v11, v12, v13), (v21, v22, v23), ...
 Для вставки данных в таблицу из локального файла используйте запрос `INSERT INTO` вида:
 
 ```sql
-INSERT INTO db_name.table_name FROM INFILE '<полный путь к файлу>'
-[COMPRESSION '<формат сжатия>'] FORMAT <формат данных>;
+INSERT INTO db_name.table_name FROM INFILE '<полный_путь_к_файлу>'
+[COMPRESSION '<формат_сжатия>'] FORMAT <формат_данных>;
 ```
 
 Опция `COMPRESSION` позволяет передавать сжатые файлы. Используйте ее, чтобы загружать большие объемы информации. Опция поддерживается при работе через [clickhouse-client]({{ ch.docs }}/interfaces/cli) или [HTTP-интерфейс]({{ ch.docs }}/interfaces/http). Если формат сжатия не указан, то он определяется по расширению файла. Возможные значения формата сжатия: `none`, `gzip`, `deflate`, `br`, `xz`, `zstd`, `lz4`, `bz2`.
@@ -233,10 +238,10 @@ pip3 install protobuf varint pycapnp
      import capnp
      from user_capnp import User
 
-     DB_HOST="<FQDN хоста {{ CH }}>"
+     DB_HOST="<FQDN_хоста_{{ CH }}>"
      DB_NAME="db1"
-     DB_USER="<имя пользователя БД>"
-     DB_PASS="<пароль пользователя БД>"
+     DB_USER="<имя_пользователя_БД>"
+     DB_PASS="<пароль_пользователя_БД>"
      CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
      SCHEMA_NAME = 'schema-capnproto'
@@ -277,7 +282,7 @@ pip3 install protobuf varint pycapnp
 
      execute_query(
          '''
-         INSERT INTO {database}.users FORMAT {type} SETTINGS format_schema='{name}:{cls}'
+         INSERT INTO {database}.users SETTINGS format_schema='{name}:{cls}' FORMAT {type}
          '''.format(database=DB_NAME, 
                     type=SCHEMA_TYPE, 
                     name=SCHEMA_NAME, 
@@ -299,10 +304,10 @@ pip3 install protobuf varint pycapnp
      import varint
      from user_pb2 import User
 
-     DB_HOST="<FQDN хоста {{ CH }}>"
+     DB_HOST="<FQDN_хоста_{{ CH }}>"
      DB_NAME="db1"
-     DB_USER="<имя пользователя БД>"
-     DB_PASS="<пароль пользователя БД>"
+     DB_USER="<имя_пользователя_БД>"
+     DB_PASS="<пароль_пользователя_БД>"
      CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
      SCHEMA_NAME = 'schema-protobuf'
@@ -342,7 +347,7 @@ pip3 install protobuf varint pycapnp
      add_user(message, 23, 'Tim')
 
      execute_query(
-         '''INSERT INTO {database}.users FORMAT {type} SETTINGS format_schema='{name}:{cls}'
+         '''INSERT INTO {database}.users SETTINGS format_schema='{name}:{cls}' FORMAT {type}
          '''.format(database=DB_NAME, 
                     type=SCHEMA_TYPE, 
                     name=SCHEMA_NAME, 

@@ -1,3 +1,8 @@
+---
+title: "Как настроить эндпоинт-источник {{ yds-full-name }} в {{ data-transfer-full-name }}"
+description: "Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ yds-full-name }} в {{ data-transfer-full-name }}." 
+---
+
 # Настройка эндпоинта-источника {{ yds-full-name }}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:

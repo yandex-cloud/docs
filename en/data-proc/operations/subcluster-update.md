@@ -2,11 +2,13 @@
 
 You can perform the following actions for any subcluster:
 
-* [{#T}](#change-host-number).
-* [{#T}](#change-resource-preset).
-* [{#T}](#change-autoscaling-rule).
-* [{#T}](#change-disk-size).
-* [{#T}](#change-sg-set).
+* [{#T}](#change-host-number)
+* [{#T}](#change-resource-preset)
+* [{#T}](#change-autoscaling-rule)
+* [{#T}](#change-disk-size)
+* [{#T}](#change-sg-set)
+
+To move subclusters to a different availability zone, follow [this guide](migration-to-an-availability-zone.md).
 
 ## Changing the number of hosts {#change-host-number}
 
@@ -171,19 +173,19 @@ You can change the computing power of hosts in a separate subcluster:
 
 {% endlist %}
 
-{{ dataproc-name }} runs the update subcluster operation. Note that all the hosts in the updated subcluster will be restarted.
+{{ dataproc-name }} will run the update subcluster operation. Note that all the hosts in the updated subcluster will be restarted.
 
 ## Changing the autoscaling rule for data processing subclusters {#change-autoscaling-rule}
 
 You can configure the [autoscaling](../concepts/autoscaling.md) rule in data processing subclusters:
 
-Make sure the cloud's quota is sufficient to increase the VM resources. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and check that the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section still has space available in the following lines:
+Make sure the cloud quota is sufficient to increase the VM resources. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and check that the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section still has space available in the following lines:
 
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**.
 
 {% list tabs %}
 
@@ -296,11 +298,11 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
 
 {% endnote %}
 
-Make sure the cloud's quota is sufficient to increase the VM resources. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and check that the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section still has space available in the following lines:
+Make sure the cloud quota is sufficient to increase the VM resources. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and check that the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section still has space available in the following lines:
 
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**.
 
 {% list tabs %}
 
@@ -331,7 +333,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
       {{ yc-dp }} subcluster update --help
       ```
 
-   1. Specify the desired storage size in the update subcluster command:
+   1. Specify the required storage size in the update subcluster command:
 
       ```bash
       {{ yc-dp }} subcluster update <subcluster ID or name> \

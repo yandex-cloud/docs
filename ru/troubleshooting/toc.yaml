@@ -221,6 +221,8 @@ items:
       - name: Примеры конфигураций и сценариев Cloud Functions
         href: functions/how-to/index.md
         hidden: true
+      - name: Как подключиться к функции из MDB
+        href: functions/how-to/accessing-function-from-mdb.md
       - name: Как настроить статический IP-адрес
         href: functions/how-to/static-ip-address.md
   - name: Cloud Logging

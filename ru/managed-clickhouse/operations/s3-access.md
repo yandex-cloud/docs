@@ -1,3 +1,8 @@
+---
+title: "Как настроить доступ к {{ objstorage-full-name }} из кластера {{ CH }} в {{ mch-full-name }}"
+description: "Следуя данной инструкции, вы сможете настроить доступ к {{ objstorage-full-name }} из кластера {{ CH }}." 
+---
+
 # Настройка доступа к {{ objstorage-name }} из кластера {{ CH }}
 
 {{ mch-name }} поддерживает работу с {{ objstorage-full-name }} для:
@@ -55,11 +60,11 @@
 
 Чтобы работать в {{ mch-name }} с данными объекта в {{ objstorage-name }}, нужно [получить ссылку](../../storage/operations/objects/link-for-download.md) на этот объект в бакете.
 
-Приведите ссылку вида `https://{{ s3-storage-host }}/<имя бакета>/<имя объекта>?X-Amz-Algorithm=...` к виду `https://{{ s3-storage-host }}/<имя бакета>/<имя объекта>`, удалив все параметры в строке запроса.
+Приведите ссылку вида `https://{{ s3-storage-host }}/<имя_бакета>/<имя_объекта>?X-Amz-Algorithm=...` к виду `https://{{ s3-storage-host }}/<имя_бакета>/<имя_объекта>`, удалив все параметры в строке запроса.
 
 ## Примеры работы с объектами {#examples}
 
-[Ссылки на объекты](#get-link-to-object) вида `https://{{ s3-storage-host }}/<имя бакета>/<имя объекта>` можно использовать при работе с геометками, схемами, а также при использовании табличной функции `s3` и табличного движка `S3`.
+[Ссылки на объекты](#get-link-to-object) вида `https://{{ s3-storage-host }}/<имя_бакета>/<имя_объекта>` можно использовать при работе с геометками, схемами, а также при использовании табличной функции `s3` и табличного движка `S3`.
 
 Табличный движок `S3` аналогичен движкам [File]({{ ch.docs }}/engines/table-engines/special/file/) и [URL]({{ ch.docs }}/engines/table-engines/special/url/), за исключением того, что данные хранятся в S3-совместимом хранилище (таком как {{ objstorage-full-name }}), а не на файловой системе или удаленном HTTP/HTTPS сервере. Этот движок позволяет читать и записывать данные в хранилище с использованием стандартных SQL-запросов `SELECT` и `INSERT`. 
 
@@ -74,7 +79,7 @@
   1. Создайте таблицу:
   
      ```sql
-     CREATE TABLE test (n Int32) ENGINE = S3('https://{{ s3-storage-host }}/<имя бакета>/table.tsv', 'TSV');
+     CREATE TABLE test (n Int32) ENGINE = S3('https://{{ s3-storage-host }}/<имя_бакета>/table.tsv', 'TSV');
      ```
   
   1. Выполните тестовые запросы к таблице:
@@ -93,13 +98,13 @@
   1. Вставьте данные:
      
      ```sql
-     INSERT INTO FUNCTION s3('https://{{ s3-storage-host }}/<имя бакета>/table.tsv', 'TSV', 'n Int32') VALUES (1);
+     INSERT INTO FUNCTION s3('https://{{ s3-storage-host }}/<имя_бакета>/table.tsv', 'TSV', 'n Int32') VALUES (1);
      ```
      
   1. Выполните тестовый запрос:
   
      ```sql
-     SELECT * FROM s3('https://{{ s3-storage-host }}/<имя бакета>/table.tsv', 'TSV', 'n Int32');
+     SELECT * FROM s3('https://{{ s3-storage-host }}/<имя_бакета>/table.tsv', 'TSV', 'n Int32');
 
      ┌─n─┐
      │ 1 │

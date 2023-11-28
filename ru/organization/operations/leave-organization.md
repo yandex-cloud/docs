@@ -1,14 +1,19 @@
+---
+title: "Как покинуть организацию в {{ org-full-name }}"
+description: "Следуя данной инструкции, вы узнаете, как можно покинуть организацию." 
+---
+
 # Покинуть организацию
 
 Если вы не федеративный пользователь, вы можете самостоятельно покинуть организацию. Для этого:
 
-1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
+1. Перейдите в сервис [{{ org-full-name }}]({{link-org-main}}).
 
 1. Если вы состоите в нескольких организациях, нажмите на изображение пользователя в левом нижнем углу и выберите нужную.
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/organization/icon-users.svg).
+1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/console-icons/person.svg).
 
-1. В строке сотрудника нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+1. В строке сотрудника нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
 
 Обратите внимание, вы потеряете доступ ко всем облакам и другим ресурсам, принадлежащим организации.
 

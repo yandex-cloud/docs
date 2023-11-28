@@ -11,9 +11,9 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
   To update a VM:
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click the name of the desired VM.
+  1. Click the VM name.
   1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. Edit the VM parameters. Rename the machine, for example, by editing the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field.
+  1. Edit the VM parameters, e.g., rename it by editing the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI
@@ -32,8 +32,8 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
-  1. Change the VM parameters. For example, rename it:
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Change the VM parameters, e.g., rename it:
 
      ```bash
      yc compute instance update first-instance \
@@ -70,7 +70,7 @@ To view the list of configurable parameters, run the command:
 
 ### Changing the name and description {#changing-the-name-and-description}
 
-To update a VM name or description, perform the following steps:
+To change the name and description of a VM, follow these steps:
 
 {% list tabs %}
 
@@ -84,7 +84,7 @@ To update a VM name or description, perform the following steps:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Update the VM name and description:
 
      ```bash
@@ -109,7 +109,7 @@ Do not update the VM name if the VM belongs to a {{ managed-k8s-name }} cluster 
 
 Metadata based on different operating systems may differ. When you change an existing set of metadata, it is completely replaced by the set passed in the command.
 
-To update VM metadata, perform the following steps:
+To update VM metadata, follow these steps:
 
 {% list tabs %}
 
@@ -123,7 +123,7 @@ To update VM metadata, perform the following steps:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Retrieve VM information with its metadata. All user-defined metadata is specified in the `user-data` key.
 
      ```bash
@@ -152,3 +152,7 @@ To update VM metadata, perform the following steps:
         The existing metadata set will be completely overwritten.
 
 {% endlist %}
+
+### Removing SSH keys from metadata {#delete-keys-from-metadata}
+
+{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}

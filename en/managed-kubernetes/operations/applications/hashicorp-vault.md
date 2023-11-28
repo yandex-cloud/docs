@@ -55,15 +55,15 @@ To use HashiCorp Vault, you need:
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**! [Marketplace](../../../_assets/marketplace.svg) tab.
+1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../../_assets/marketplace.svg) tab.
 1. Under **Applications available for installation**, select [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **Service account key for Vault**: Copy the contents of the `authorized-key.json` file to this field.
    * **{{ kms-short-name }} key ID for Vault**: Specify the [previously obtained](#sa-keys-create) {{ kms-name }} key ID.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application to change its status to `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -91,7 +91,7 @@ Once HashiCorp Vault is installed, you need to initialize one of its servers. Th
 
 {% note info %}
 
-While initializing the vault, there is no need to perform the `unseal` operation, since the application image is integrated with {{ kms-name }}.
+There is no need to perform the `unseal` operation when initializing the vault, because the application image is integrated with {{ kms-name }}.
 
 For more information, see [Auto Unseal](../../../kms/tutorials/vault-secret.md) and the [HashiCorp Vault](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault) documentation.
 
@@ -123,9 +123,9 @@ To initialize the vault:
    Result:
 
    ```text
-   Recovery Key 1: ulbugw4IKttmCCPprF6JwmUCyx1YfieCQPQiI2S0VV9o
-   Recovery Key 2: S0kcValC6qSfEI4WJBovSbJWZntBUwtTrtisSIcS3n0e
-   Recovery Key 3: t44ZRqbzLZNzfChinZNzLCNnwvFN/R52vbDq/UueHPPg
+   Recovery Key 1: ulbugw4IKttmCCPprF6JwmUCyx1YfieCQPQi********
+   Recovery Key 2: S0kcValC6qSfEI4WJBovSbJWZntBUwtTrtis********
+   Recovery Key 3: t44ZRqbzLZNzfChinZNzLCNnwvFN/R52vbD*/*******
    ...
 
    Recovery key initialized with 5 key shares and a key threshold of 3. Please

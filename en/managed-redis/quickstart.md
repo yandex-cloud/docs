@@ -58,9 +58,9 @@ To get started with the service:
       1. Get the address of the master host by using Sentinel and any {{ RD }} host:
 
          ```bash
-         redis-cli -h <FQDN of any {{ RD }} host> \
+         redis-cli -h <FQDN_of_any_{{ RD }}_host> \
            -p {{ port-mrd-sentinel }} \
-           sentinel get-master-addr-by-name <{{ RD }} cluster name> | head -n 1
+           sentinel get-master-addr-by-name <{{ RD }}_cluster_name> | head -n 1
          ```
 
       1. Connect to the host with this address:
@@ -70,17 +70,17 @@ To get started with the service:
       **To connect directly to the master (without SSL):**
 
       ```bash
-      redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
+      redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \
         -p {{ port-mrd }} \
-        -a <{{ RD }} password>
+        -a <{{ RD }}_password>
       ```
 
       **To connect directly to the master (with SSL):**
 
       ```bash
-      redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
+      redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \
         -p {{ port-mrd-tls }} \
-        -a <{{ RD }} password> \
+        -a <{{ RD }}_password> \
         --tls \
         --cacert ~/.redis/{{ crt-local-file }}
       ```
@@ -90,17 +90,17 @@ To get started with the service:
       **To connect without SSL:**
 
       ```bash
-      redis-cli -h <FQDN of the master host in any shard> \
+      redis-cli -h <FQDN_of_master_host_in_any_shard> \
         -p {{ port-mrd }} \
-        -a <{{ RD }} password>
+        -a <{{ RD }}_password>
       ```
 
       **To connect with SSL:**
 
       ```bash
-      redis-cli -h <FQDN of the master host in any shard> \
+      redis-cli -h <FQDN_of_master_host_in_any_shard> \
         -p {{ port-mrd-tls }} \
-        -a <{{ RD }} password> \
+        -a <{{ RD }}_password> \
         --tls \
         --cacert ~/.redis/{{ crt-local-file }}
       ```

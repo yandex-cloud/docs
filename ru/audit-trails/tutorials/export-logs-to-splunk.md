@@ -93,7 +93,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить шифрование.
-  1. В левой панели выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ или создайте новый:
 
      {% include [storage-create-kms](../../storage/_includes_service/storage-create-kms.md) %}
@@ -136,9 +136,9 @@
   
       Где:
   
-      * `role` — назначаемая роль.
-      * `id` — идентификатор каталога, с которого будут собираться аудитные логи.
-      * `service-account-id` — идентификатор сервисного аккаунта.
+      * `--role` — назначаемая роль.
+      * `--id` — идентификатор каталога, с которого будут собираться аудитные логи.
+      * `--service-account-id` — идентификатор сервисного аккаунта.
   
   1. Назначьте роль [storage.uploader](../../storage/security/#storage-uploader) на каталог, в котором будет находиться трейл:
      
@@ -151,24 +151,24 @@
   
       Где:
   
-      * `role` — назначаемая роль.
-      * `id` — идентификатор каталога, в котором будет находиться трейл.
-      * `service-account-id` — идентификатор сервисного аккаунта.
+      * `--role` — назначаемая роль.
+      * `--id` — идентификатор каталога, в котором будет находиться трейл.
+      * `--service-account-id` — идентификатор сервисного аккаунта.
   
   1. Назначьте роль [kms.keys.encrypterDecrypter](../../kms/security/#service) на ключ шифрования:
   
       ```
       yc kms symmetric-key add-access-binding \
       --role kms.keys.encrypterDecrypter \
-      --id <идентификатор_KMS_ключа> \
+      --id <идентификатор_KMS-ключа> \
       --service-account-id <идентификатор_сервисного_аккаунта>
       ```
   
       Где:
   
-      * `role` — назначаемая роль.
-      * `id` — идентификатор KMS-ключа.
-      * `service-account-id` — идентификатор сервисного аккаунта.
+      * `--role` — назначаемая роль.
+      * `--id` — идентификатор KMS-ключа.
+      * `--service-account-id` — идентификатор сервисного аккаунта.
   
 {% endlist %}
 
@@ -244,7 +244,7 @@
       1. По умолчанию выбран тип шлюза `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Создайте таблицу маршрутизации:
-      1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+      1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы [создать](../../vpc/operations/static-route-create.md) новую таблицу или выберите одну из существующих.
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
       1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** выберите `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}`.
@@ -252,8 +252,8 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**. 
   1. Привяжите таблицу маршрутизации к подсети, в которой будет развернута промежуточная ВМ, чтобы направить трафик из нее через NAT-шлюз:
-      1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-      1. В строке нужной подсети нажмите кнопку ![image](../../_assets/options.svg).
+      1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+      1. В строке нужной подсети нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
       1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
       1. В открывшемся окне выберите созданную таблицу в списке.
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -292,7 +292,7 @@
   
      * `folder_id` — идентификатор каталога.
      * `splunk_token` — токен Event Collector, полученный в Splunk.
-     * `splunk_server` — адрес вашего сервера Splunk в формате https://<имя_или_адрес_хоста>.
+     * `splunk_server` — адрес вашего сервера Splunk в формате `https://<имя_или_адрес_хоста>`.
      * `bucket_name` — имя бакета.
      * `bucket_folder` — имя корневой папки в бакете.
      * `sa_id` — идентификатор сервисного аккаунта.

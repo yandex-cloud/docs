@@ -22,7 +22,7 @@
 
 ```HTML
 <div id="captcha-container" class="smart-captcha" ...>
-    <input type="hidden" name="smart-token" value="dD0xNjYyNDU3NDMzO2k9MmEwMjo2Yjg6YjA4MTpiNTk3OjoxOjFiO0Q9MjVCREY1RDgzMDBERjQ3QjExNkUyMDJDNjJFNEI3Q0Y0QjYzRkRDNzJEMkVGQzQyRUNDNjMxODgzMUM0REZBNzI1QUE1QzUwO3U9MTY2MjQ1NzQzMzk5MTEwNjQxNTtoPTg4MWRjMDc2YzE3MjkxNGUwNDgwMTVkYzhlZjU3ODQ0">
+    <input type="hidden" name="smart-token" value="dD0xNjYyNDU3NDMzO2k9MmEwMjo2Yjg6YjA4MTpiNTk3OjoxOjFiO0Q9MjVCREY1RDgzMDBERjQ3QjExNkUyMDJDNjJFNEI3Q0Y0QjYzRkRDNzJEMkV********DNjMxODgzMUM0REZBNzI1QUE1QzUwO3U9MTY2MjQ1NzQzMzk5MTEwNjQxNTtoPTg4MWRjMDc2YzE3MjkxNGUwNDgwMTVkYzhl********">
     ...
 </div>
 ```
@@ -35,7 +35,7 @@
 Чтобы узнать результат проверки, отправьте GET-запрос с токеном на адрес `https://smartcaptcha.yandexcloud.net/validate`:
 
 ```TEXT
-https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&ip=<IP_адрес_пользователя>&token=<токен>
+https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&ip=<IP-адрес_пользователя>&token=<токен>
 ```
 
 Где:

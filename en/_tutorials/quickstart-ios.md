@@ -9,7 +9,7 @@ To embed {{ captcha-name }} in an iOS app:
 
 1. [Add HTML code](../smartcaptcha/tutorials/mobile-app/website.md) to work with {{ captcha-name }} (or use a ready-made `{{ captcha-mobile-site }}`).
 1. Create a CAPTCHA following [this guide](../smartcaptcha/operations/create-captcha.md).
-1. [Retrieve the CAPTCHA keys](../smartcaptcha/operations/get-keys.md). Copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values from the **{{ ui-key.yacloud.common.overview }}** tab of the CAPTCHA you created. You will need the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** to load web pages using CAPTCHA, and the **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** to get the CAPTCHA test results.
+1. [Retrieve the CAPTCHA keys](../smartcaptcha/operations/get-keys.md). Copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values from the **{{ ui-key.yacloud.common.overview }}** tab of the CAPTCHA you created. You will need the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** to load web pages using CAPTCHA and the **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**, to get the CAPTCHA test results.
 
 ## Configure your website's JS part {#customize-js-part}
 
@@ -85,6 +85,8 @@ webControllerView.reload()
 ```
 
 ## Sample implementation in Swift using {{ captcha-mobile-site }} {#ios-example}
+
+This section describes the steps to follow to create an app with a CAPTCHA for iOS. For more information, refer to an example of a ready-to-use app with all components configured: [Yandex SmartCaptcha for iOS](https://github.com/yandex-cloud-examples/yc-smartcaptcha-ios-example/tree/main).
 
 1. Create a class to store **WKWebView**:
 

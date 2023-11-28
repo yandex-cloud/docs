@@ -1,3 +1,8 @@
+---
+title: "Как изменить параметры HTTP-роутера в {{ alb-full-name }}"
+description: "Следуя данной инструкции, вы сможете изменить параметры HTTP-роутера." 
+---
+
 # Изменить параметры HTTP-роутера
 
 Чтобы изменить параметры HTTP-роутера:
@@ -8,7 +13,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры роутера, виртуального хоста или маршрута.
@@ -151,7 +156,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
@@ -605,7 +610,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_routes-sort }}**.

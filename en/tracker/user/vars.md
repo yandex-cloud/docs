@@ -99,3 +99,15 @@ Examples of variables in JSON format:
 {{ tracker-name }} supports transmitting values in JSON format for simple field types that have such formats as string, number, and arrays of strings or numbers. The "Object" field type isn't supported: for example, the `not_var{{issue.author.json}}` variable won't work. Instead of it, you can use a variable to get a simple field attribute: `not_var{{issue.author.login.json}}`.
 
 {% endnote %}
+
+## Comment variables {#comment-var}
+
+Comment fields are written in the format: `{{userComment.<field key>}}` and its act like `{{issue.<field key>}}`.
+
+You can use the following options to get information about the comment:
+
+| Variable | Value
+----- | -----
+`not_var{{userComment.id}}` | Comment ID
+`not_var{{userComment.text}}` | Comment content
+`not_var{{userComment.author}}` | The author of the comment. The key indicates the role of the user

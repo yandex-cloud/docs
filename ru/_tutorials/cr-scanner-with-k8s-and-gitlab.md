@@ -80,7 +80,7 @@
       * Нажмите кнопку **Add variable**.
 1. Создайте файл конфигурации сценария CI:
    1. На панели слева в {{ GL }} перейдите в раздел **Repository** и выберите вкладку **Files**.
-   1. Справа от имени проекта нажмите кнопку ![image](../_assets/plus.svg) и в выпадающем меню выберите пункт **New file**.
+   1. Справа от имени проекта нажмите кнопку ![image](../_assets/console-icons/plus.svg) и в выпадающем меню выберите пункт **New file**.
    1. Назовите файл `.gitlab-ci.yml`. Добавьте в него шаги сборки и загрузки Docker-образа, его сканирования на наличие уязвимостей и обновления конфигурации приложения в кластере {{ managed-k8s-name }}. Структура файла зависит от способа аутентификации {{ k8s }} в {{ GL }}:
 
       {% list tabs %}
@@ -209,13 +209,13 @@
           image: bitnami/kubectl:latest
           stage: deploy
           script:
-            - kubectl config use-context ${CI_PROJECT_PATH}:<имя_{{ GLA }}>
+            - kubectl config use-context ${CI_PROJECT_PATH}:<имя_GitLab_Agent>
             - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}," | kubectl apply -f -
         ```
 
         {% endcut %}
 
-        Вместо `<имя_{{ GLA }}>` укажите имя агента в {{ mgl-name }}.
+        Вместо `<имя_GitLab_Agent>` укажите имя агента в {{ mgl-name }}.
 
       {% endlist %}
 

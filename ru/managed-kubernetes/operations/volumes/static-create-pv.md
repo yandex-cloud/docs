@@ -1,3 +1,8 @@
+---
+title: "Как создать под со статически подготовленным томом в {{ managed-k8s-full-name }}"
+description: "Следуя данной инструкции, вы сможете создать под со статически подготовленным томом." 
+---
+
 # Статическая подготовка тома
 
 Создайте [под](../../concepts/index.md#pod) со статически подготовленным [томом](../../concepts/volume.md):
@@ -164,34 +169,34 @@
 
    {% endnote %}
 
-   1. Выполните команду:
+1. Выполните команду:
 
-      ```bash
-      kubectl create -f test-claim.yaml
-      ```
+   ```bash
+   kubectl create -f test-claim.yaml
+   ```
 
-      Результат:
+   Результат:
 
-      ```text
-      persistentvolumeclaim/<имя_PersistentVolumeClaim> created
-      ```
+   ```text
+   persistentvolumeclaim/<имя_PersistentVolumeClaim> created
+   ```
 
-   1. Посмотрите информацию о созданном `PersistentVolumeClaim`:
+1. Посмотрите информацию о созданном `PersistentVolumeClaim`:
 
-      ```bash
-      kubectl describe persistentvolumeclaim <имя_PersistentVolumeClaim>
-      ```
+   ```bash
+   kubectl describe persistentvolumeclaim <имя_PersistentVolumeClaim>
+   ```
 
-      Результат:
+   Результат:
 
-      ```text
-      Name:          <имя_PersistentVolumeClaim>
-      Namespace:     default
-      StorageClass:  <имя_класса_хранилища>
-      Status:        Bound
-      Volume:        <имя_PersistentVolume>
-      ...
-      ```
+   ```text
+   Name:          <имя_PersistentVolumeClaim>
+   Namespace:     default
+   StorageClass:  <имя_класса_хранилища>
+   Status:        Bound
+   Volume:        <имя_PersistentVolume>
+   ...
+   ```
 
 ## Создайте под со статически подготовленным томом {#create-pod}
 

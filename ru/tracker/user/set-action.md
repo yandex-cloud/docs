@@ -1,3 +1,8 @@
+---
+title: "Как настроить действие триггера в {{ tracker-full-name }}"
+description: "Из статьи вы узнаете, как можно настроить действие триггера." 
+---
+
 # Настроить действие триггера
 
 В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}** с помощью кнопки **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_add-action }}** настройте одно или несколько действий:

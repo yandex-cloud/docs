@@ -23,7 +23,7 @@
 
         1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог или облако.
         1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-        1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
+        1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив имени пользователя.
         1. Если вы хотите отозвать все роли пользователя в облаке — нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** и подтвердите отзыв.
 
 - CLI
@@ -36,22 +36,22 @@
     1. Чтобы удалить привязку прав доступа, выполните команду:
 
         ```bash
-        yc <service-name> <resource> remove-access-binding <resource-name>|<resource-id> \
-            --role <role-id> \
-            --subject <subject-type>:<subject-id>
+        yc <имя_сервиса> <категория_ресурса> remove-access-binding <имя_или_идентификатор_ресурса> \
+            --role <идентификатор_роли> \
+            --subject <тип_субъекта>:<идентификатор_субъекта>
         ```
 
         Где:
-        * `<role-id>` — идентификатор роли, которую надо отозвать, например `{{ roles-cloud-owner }}`.
-        * `<subject-type>` — тип [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
-        * `<subject-id>` — идентификатор субъекта.
+        * `--role` — идентификатор роли, которую надо отозвать, например `{{ roles-cloud-owner }}`.
+        * `<тип_субъекта>` — тип [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
+        * `<идентификатор_субъекта>` — идентификатор субъекта.
 
 - API
 
     Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа:
 
     1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
-    1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `ajei8n54hmfhuk5nog0g` роль `editor`:
+    1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `ajei8n54hmfh********` роль `editor`:
 
         **body.json:**
         ```json
@@ -61,7 +61,7 @@
                 "accessBinding": {
                     "roleId": "editor",
                     "subject": {
-                        "id": "ajei8n54hmfhuk5nog0g",
+                        "id": "ajei8n54hmfh********",
                         "type": "userAccount"
                         }
                     }
@@ -84,11 +84,11 @@
 
         ```
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
-            cloud_id    = "<идентификатор облака>"
+            cloud_id    = "<идентификатор_облака>"
             role        = "<роль>"
             members     = [
-            "serviceAccount:<идентификатор сервисного аккаунта>",
-            "userAccount:<идентификатор пользователя>",
+            "serviceAccount:<идентификатор_сервисного_аккаунта>",
+            "userAccount:<идентификатор_пользователя>",
             ]
         }
         ```
@@ -121,7 +121,7 @@
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
         ```
-        yc resource-manager cloud list-access-bindings <имя облака>|<идентификатор облака>
+        yc resource-manager cloud list-access-bindings <имя_или_идентификатор_облака>
         ```
 
 {% endlist %}

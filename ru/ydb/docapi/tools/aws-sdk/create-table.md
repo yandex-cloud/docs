@@ -1,4 +1,6 @@
 ---
+title: "Как создать таблицу в {{ ydb-full-name }}"
+description: "Следуя данной инструкции, вы сможете создать таблицу." 
 sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 ---
 # Создание таблицы в AWS SDK
@@ -116,7 +118,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -141,7 +143,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                    .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
+                    .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
                     .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -206,7 +208,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -214,7 +216,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       import boto3
 
       def create_series_table():
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_эндпоинт>")
 
           table = ydb_docapi_client.create_table(
               TableName = 'Series', # Series — имя таблицы 
@@ -271,7 +273,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -285,7 +287,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       use Aws\DynamoDb\Exception\DynamoDbException;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API эндпоинт>',
+          'endpoint' => '<Document_API_эндпоинт>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -353,7 +355,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -363,7 +365,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API эндпоинт>",
+          endpoint: "<Document_API_эндпоинт>",
       });
       
       dynamodb.send(new AWS.CreateTableCommand({
@@ -437,7 +439,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
   
@@ -456,7 +458,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
         region = '{{ region-id }}'
       
         Aws.config.update(
-          endpoint: '<Document API эндпоинт>',
+          endpoint: '<Document_API_эндпоинт>',
           region: region
         )
       

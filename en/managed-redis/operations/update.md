@@ -20,11 +20,11 @@ After creating a cluster, you can:
 * [Changing security groups](#change-sg-set).
 
 
-{% note info %}
+Learn more about other cluster updates:
 
-For information about how to update the {{ RD }} cluster version, see [{#T}](cluster-version-update.md).
+* [{#T}](cluster-version-update.md)
 
-{% endnote %}
+* [{#T}](host-migration.md)
 
 ## Change the cluster name and description {#change-name-and-description}
 
@@ -56,9 +56,9 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    1. Specify a new name and description in the cluster update command:
 
       ```bash
-      {{ yc-mdb-rd }} cluster update <cluster ID or name> \
-        --new-name <new cluster name> \
-        --description <new cluster description>
+      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+        --new-name <new_cluster_name> \
+        --description <new_cluster_description>
       ```
 
 - {{ TF }}
@@ -78,9 +78,9 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    1. In the {{ mrd-name }} cluster description, change the `description` parameter value:
 
       ```hcl
-      resource "yandex_mdb_redis_cluster" "<cluster name>" {
-        name        = "<cluster name>"
-        description = "<cluster new description>"
+      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        name        = "<cluster_name>"
+        description = "<new_cluster_description>"
         ...
       }
       ```
@@ -175,8 +175,8 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    1. Specify the class in the update cluster command:
 
       ```bash
-      {{ yc-mdb-rd }} cluster update <cluster ID or name> \
-        --resource-preset <host class ID>
+      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+        --resource-preset <host_class_ID>
       ```
 
       {{ mrd-short-name }} will run the update host class command for the cluster.
@@ -190,10 +190,10 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    1. In the {{ mrd-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
 
       ```hcl
-      resource "yandex_mdb_redis_cluster" "<cluster name>" {
+      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
         ...
         resources {
-          resource_preset_id = "<host class>"
+          resource_preset_id = "<host_class>"
           ...
           }
       }
@@ -257,11 +257,11 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
       {{ yc-mdb-rd }} cluster update --help
       ```
 
-   1. Specify the desired storage size in the update cluster command.It must be at least as large as the current `disk_size` value in the cluster properties.
+   1. Specify the required storage size in the update cluster command.It must be at least as large as the current `disk_size` value in the cluster properties.
 
       ```bash
-      {{ yc-mdb-rd }} cluster update <cluster ID or name> \
-        --disk-size <storage size in GB>
+      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+        --disk-size <storage_size_GB>
       ```
 
       If all the criteria are met, {{ mrd-short-name }} starts increasing the size of the {{ RD }} host disks.
@@ -277,10 +277,10 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    1. In the {{ mrd-name }} cluster description, change the `disk_size` parameter value under `resources`:
 
       ```hcl
-      resource "yandex_mdb_redis_cluster" "<cluster name>" {
+      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
         ...
         resources {
-          disk_size = <storage size in GB>
+          disk_size = <storage_size_GB>
           ...
           }
       }
@@ -339,16 +339,21 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    1. In the {{ mrd-name }} cluster description, change the values of the parameters under `config`:
 
       ```hcl
-      resource "yandex_mdb_redis_cluster" "<cluster name>" {
+      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
         ...
         config {
           password         = "<password>"
-          timeout          = <time in seconds before disabling inactive clients>
-          maxmemory_policy = "<memory management policy when there is not enough memory>"
+          timeout          = <time>
+          maxmemory_policy = "<policy>"
           ...
         }
       }
       ```
+
+      Where:
+
+      * `timeout`: Time, in seconds, before disabling inactive clients.
+      * `maxmemory_policy`: Memory management policy when there is not enough memory.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
@@ -369,7 +374,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    To change {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }} version>` parameter.
+   * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }}_version>` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -409,12 +414,12 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    1. Run the following command with a list of settings to update:
 
       ```bash
-      {{ yc-mdb-rd }} cluster update <cluster ID or name> \
-          --backup-window-start <backup start time> \
-          --maintenance-window type=<maintenance type: anytime or weekly>,`
-                              `day=<day of week for weekly>,`
-                              `hour=<hour for weekly> \
-          --deletion-protection=<cluster deletion protection: true or false>
+      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+          --backup-window-start <time> \
+          --maintenance-window type=<maintenance_type>,`
+                              `day=<day_of_week>,`
+                              `hour=<hour> \
+          --deletion-protection=<deletion_protection>
       ```
 
    You can change the following settings:
@@ -475,8 +480,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    1. Specify the destination folder in the move cluster command:
 
       ```bash
-      {{ yc-mdb-rd }} cluster move <cluster ID> \
-         --destination-folder-name=<destination folder name>
+      {{ yc-mdb-rd }} cluster move <cluster_ID> \
+         --destination-folder-name=<destination_folder_name>
       ```
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -520,8 +525,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    1. Specify the security groups in the update cluster command:
 
       ```bash
-      {{ yc-mdb-rd }} cluster update <cluster ID or name> \
-        --security-group-ids <security group list>
+      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+        --security-group-ids <list_of_security_group_IDs>
       ```
 
 - {{ TF }}
@@ -533,9 +538,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    1. In the {{ mrd-name }} cluster description, change the `security_group_ids` parameter value:
 
       ```hcl
-      resource "yandex_mdb_redis_cluster" "<cluster name>" {
+      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
         ...
-        security_group_ids = ["<security group ID list>"]
+        security_group_ids = [<list_of_security_group_IDs>]
       }
       ```
 

@@ -1,3 +1,8 @@
+---
+title: "Как подключиться к кластеру {{ dataproc-full-name }}"
+description: "Следуя данной инструкции, вы сможете подключиться к кластеру {{ dataproc-name }}." 
+---
+
 # Подключение к кластеру {{ dataproc-name }}
 
 После создания кластера {{ dataproc-name }} вы можете подключиться к хостам подкластеров:
@@ -103,6 +108,14 @@
 {% endnote %}
 
 Подробнее о группах безопасности см. в разделе [{#T}](../concepts/network.md#security-groups).
+
+## FQDN хоста {{ dataproc-name }} {#fqdn}
+
+Для подключения к хосту потребуется его [FQDN](../concepts/network.md#hostname) — доменное имя. Его можно посмотреть в консоли управления:
+
+1. Перейдите на страницу кластера.
+1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
 
 ## SSH-подключение к хосту {{ dataproc-name }} {#data-proc-ssh}
 

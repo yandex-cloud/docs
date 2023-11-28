@@ -1,17 +1,52 @@
 # YC CLI Releases
 
 ## Current version {#latest-release}
-## Version 0.112.0 (12/10/23) {#version0.112.0}
-### Changes to {{ yandex-cloud }} services {#services}
+
+### Version 0.113.0 (31/10/23) {#version0.113.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* Added the `--location` parameter to the `yc k8s node-group update` command. This parameter allows changing the [availability zone](../overview/concepts/geo-scope.md) in which a node group is deployed.
+
+##### Managed database services {#managed-db}
+
+**{{ mkf-name }}**
+
+* In the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands, the `--unmanaged-topics` flag is marked as `deprecated`. The relevant field is no longer sent in API requests, but the flag is kept for backward compatibility.
+
+**{{ mos-name }}**
+
+* Added the `yc managed-opensearch` command group to manage {{ mos-name }} databases.
+
+**{{ mch-name }}**
+
+* Added the `options` setting for the `yc managed-clickhouse cluster --mongodb-source` command.
+* Added the `level` setting for the `yc managed-clickhouse cluster set-compression` command.
 
 ##### {{ compute-name }} {#compute}
+
+* You can now replace environment variables in templates that are uploaded using the `--metadata-from-file` command.
+
+##### {{ vpc-name }} {#vpc}
+
+* Added the `yc vpc subnet relocate` command.
+
+## Previous releases {#previous-releases}
+
+### Version 0.112.0 (12/10/23) {#version0.112.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+###### {{ compute-name }} {#compute}
 
 * Added support for a CentOS 7 connection using the `yc compute ssh` command.
 * Added the `yc compute instance relocate` and `yc compute disk relocate` commands to move VM instances and disks between availability zones.
 
-## Version 0.111.0 (21/09/23) {#version0.111.0}
+### Version 0.111.0 (21/09/23) {#version0.111.0}
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to {{ yandex-cloud }} services {#services}
 
 ##### {{ compute-name }} {#compute}
 
@@ -45,8 +80,6 @@ Added the following asynchronous invocation parameters to the `yc serverless fun
 * `--async-failure-ymq-arn` to set the queue to write a failure result to.
 * `--async-failure-sa-id` to specify the service account to write to the failure results queue.
 
-
-## Previous releases {#previous-releases}
 
 ### Version 0.110.0 (14/09/23) {#version0.110.0}
 
@@ -487,7 +520,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 **{{ mgp-name }}**
 
-* Added the `yc managed-greenplum cluster expand` command that lets you expand existing {{ mgp-name }} clusters. Command parameters:
+* Added the `yc managed-greenplum cluster expand` command that allows you to expand existing {{ mgp-name }} clusters. Command parameters:
 
    * `--segment-host-count`: Number of hosts added to a cluster.
    * `--add-segments-per-host-count`: Number of segments added per cluster host.
@@ -779,7 +812,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ alb-name }} {#alb}
 
-* In the `yc alb lb add-location` and `yc alb lb target-states` commands, fixed the error that occurred when processing the `--name` parameter. Now the parameter lets you search for a load balancer by name correctly.
+* In the `yc alb lb add-location` and `yc alb lb target-states` commands, fixed the error that occurred when processing the `--name` parameter. Now the parameter allows you to search for a load balancer by name correctly.
 
 ##### {{ cloud-desktop-name }} {#cloud-desktop}
 
@@ -819,16 +852,16 @@ Added commands for {{ mgp-name }} primary support:
 * Added the `--host-group-ids` parameter to the `yc managed-mysql cluster create` command to set a list of hosts for hosting a cluster on dedicated servers.
 * Added the following to the `yc managed-mysql cluster restore` command:
 
-   * The `--host-group-ids` parameter that sets a list of hosts for hosting a cluster on dedicated servers.
-   * The `--deletion-protection` flag that lets you restore a cluster with deletion protection enabled.
+   * `--host-group-ids` parameter that sets a list of hosts for hosting a cluster on dedicated servers.
+   * `--deletion-protection` flag that allows you to restore a cluster with deletion protection enabled.
 
 **{{ mpg-name }}**
 
 * Added the `--host-group-ids` parameter to the `yc managed-postgresql cluster create` command to set a list of hosts for hosting a cluster on dedicated servers.
 * Added the following to the `yc managed-postgresql cluster restore` command:
 
-   * The `--host-group-ids` parameter that sets a list of hosts for hosting a cluster on dedicated servers.
-   * The `--deletion-protection` flag that lets you restore a cluster with deletion protection enabled.
+   * `--host-group-ids` parameter that sets a list of hosts for hosting a cluster on dedicated servers.
+   * `--deletion-protection` flag that allows you to restore a cluster with deletion protection enabled.
 
 
 **{{ mms-name }}**
@@ -1000,7 +1033,7 @@ Added commands for {{ mgp-name }} primary support:
 * Added the `yc managed-elasticsearch backup list` command to view backups of all clusters in the folder.
 * Added the `yc managed-elasticsearch backup get` command to view information about a specific backup.
 * Added the `--host-group-ids` flag, which sets the list of hosts for hosting the cluster on dedicated servers, to the `yc managed-sqlserver cluster create` and `yc managed-sqlserver cluster restore` commands.
-* Added the `--deletion-protection` flag, which lets you set up protection against accidental cluster deletion, to the `yc managed-sqlserver cluster restore` command.
+* Added the `--deletion-protection` flag, which allows you to set up protection against accidental cluster deletion, to the `yc managed-sqlserver cluster restore` command.
 
 ### Version 0.86.0 (15/12/21) {#version0.86.0}
 
@@ -1016,13 +1049,13 @@ Added commands for {{ mgp-name }} primary support:
 
 **{{ mkf-name }}**
 
-* Added the `--maintenance-window` parameter, which lets you set up parameters of the maintenance window, to the `yc managed-kafka cluster update` command.
-* Added the `yc managed-kafka cluster reschedule-maintenance` command, which lets you change the start time of a scheduled cluster maintenance task.
+* Added the `--maintenance-window` parameter, which allows you to set up parameters of the maintenance window, to the `yc managed-kafka cluster update` command.
+* Added the `yc managed-kafka cluster reschedule-maintenance` command, which allows you to change the start time of a scheduled cluster maintenance task.
 
 
 ##### {{ alb-name }} {#alb}
 
-* Added the `private-ip-address` key, which lets you not specify subnet IDs for addresses from private ranges, for the `--target` parameter in the `yc application-load-balancer target-group {add,update,remove}-targets` commands.
+* Added the `private-ip-address` key for the `--target` parameter in the `yc application-load-balancer target-group {add,update,remove}-targets` commands, which allows you not to specify subnet IDs for addresses from private ranges.
 * Added commands to manage TCP handlers of L7 load balancers:
    * `yc alb load-balancer add-stream-listener`
    * `yc alb load-balancer update-stream-listener`
@@ -1067,7 +1100,7 @@ Added commands for {{ mgp-name }} primary support:
 
 * Command `yc managed-kafka cluster update`.
 
-   Added the `--version` flag that lets you update the {{ KF }} cluster version.
+   Added the `--version` flag that allows you to update the {{ KF }} cluster version.
 
 
 ##### {{ managed-k8s-name }} {#k8s}
@@ -1120,7 +1153,7 @@ Fixed a bug in the `yc init` command. Now, when checking the availability of end
 **{{ mch-name }}**
 
 Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands:
-* `--embedded-keeper`: Lets you create a cluster using {{ CH }} instead of {{ ZK }}.
+* `--embedded-keeper`: Allows you to you create a cluster using {{ CH }} instead of {{ ZK }}.
 
 
 ##### {{ dataproc-name }} {#dataproc}
@@ -1137,11 +1170,11 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 ##### {{ cdn-name }} {#cdn}
 
-* Added command groups to support the {{ cdn-full-name }} service that lets you enable content delivery to end users over the Content Delivery Network (CDN):
-   * `yc cdn origin`: To manage origins.
-   * `yc cdn origin-group`: To manage origin groups.
-   * `yc cdn provider`: To connect to a CDN provider.
-   * `yc cdn cache`: To manage caching of CDN resource content.
+* Added command groups to support the {{ cdn-full-name }} service that allows you to enable content delivery to end users over the Content Delivery Network (CDN):
+   * `yc cdn origin`, to manage origins.
+   * `yc cdn origin-group`, to manage origin groups.
+   * `yc cdn provider`, to connect to a CDN provider.
+   * `yc cdn cache`, to manage caching of CDN resource content.
 
 ##### {{ alb-name }} {#alb}
 
@@ -1196,7 +1229,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-* Added the `yc serverless containers` group of commands to support {{ serverless-containers-full-name }}: it lets you run containers without using {{ k8s }} or deploying VMs.
+* Added the `yc serverless containers` group of commands to support {{ serverless-containers-full-name }}: it allows you to run containers without using {{ k8s }} or deploying VMs.
 
 ##### {{ vpc-name }} {#vpc}
 
@@ -1413,7 +1446,7 @@ Added support for {{ cloud-logging-full-name }}.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
 
-   Added the `--network-acceleration-type` flag, which lets you specify a network type for node groups: standard or software-accelerated.
+   Added the `--network-acceleration-type` flag, which allows you to specify a network type for node groups: standard or software-accelerated.
 
 * `yc managed-kubernetes cluster create` command.
 
@@ -1671,7 +1704,7 @@ Added primary support for {{ mms-full-name }}:
 
 * `yc managed-clickhouse host add` and `yc managed-clickhouse shards add` commands.
 
-   Added the `--copy-schema` flag that lets you copy the schema of other {{ CH }} hosts.
+   Added the `--copy-schema` flag that allows you to copy the schema of other {{ CH }} hosts.
 
 ### Version 0.70.0 (22/12/20) {#version0.70.0}
 
@@ -2858,7 +2891,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands.
 
-   For the `--listener` flag, you can now set the `target-port` parameter, which lets you configure NAT so that target resources receive traffic on a port other than `listener`.
+   For the `--listener` flag, you can now set the `target-port` parameter, which allows you to configure NAT so that target resources receive traffic on a port other than `listener`.
 
 
 #### Managed database services {#managed-db}
@@ -2908,7 +2941,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `yc compute instance create` command.
 
-   Added the `--gpus` flag, which lets you specify the number of GPUs in a virtual machine.
+   Added the `--gpus` flag, which allows you to specify the number of GPUs in a virtual machine.
 
 
 #### Managed database services {#managed-db}
@@ -2920,7 +2953,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
    Improved cluster information printout.
 * `yc <managed DB service name> cluster create` command.
 
-   Added the `--backup-window-start` flag, which lets you set the daily cluster backup time when creating a cluster.
+   Added the `--backup-window-start` flag, which allows you to set the daily cluster backup time when creating a cluster.
 
 **{{ mch-name }}**
 

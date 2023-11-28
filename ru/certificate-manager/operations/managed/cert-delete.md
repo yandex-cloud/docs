@@ -1,3 +1,8 @@
+---
+title: "Как удалить сертификат от Let's Encrypt в {{ certificate-manager-full-name }}"
+description: "Следуя данной инструкции, вы сможете удалить сертификат от Let's Encrypt." 
+---
+
 # Удалить сертификат от Let's Encrypt
 
 Чтобы удалить [сертификат от Let's Encrypt](../../concepts/managed-certificate.md):
@@ -9,7 +14,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Найдите в списке сертификат, который необходимо удалить.
-  1. Нажмите кнопку ![image](../../../_assets/options.svg).
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
@@ -54,7 +59,7 @@
 
      ```bash
      id: fpq6gvvm6piu********
-     folder_id: b1g7gvsi89m34qmcm3ke
+     folder_id: b1g7gvsi89m3********
      created_at: "2020-09-15T08:49:11.533Z"
      ...
      - example.com

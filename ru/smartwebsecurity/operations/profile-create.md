@@ -21,7 +21,7 @@
   1. (опционально) Введите описание.
   1. (опционально) Добавьте профилю [метку](../../resource-manager/concepts/labels.md).
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите, что делать с трафиком, который не попал под условия других правил: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-  1. Нажмите кнопку ![plus-sign](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}

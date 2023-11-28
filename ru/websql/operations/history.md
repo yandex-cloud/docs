@@ -1,10 +1,10 @@
 # История запросов
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 Все запросы, выполненные в рамках сессии подключения, отображаются в истории запросов. Вы можете просматривать и повторять выполненные запросы:
 
-1. Перейдите в раздел **История запросов** (![image](../../_assets/websql/history.svg)). Успешно выполненные запросы помечены значком ![image](../../_assets/websql/success.svg), запросы, которые не удалось выполнить, — значком ![image](../../_assets/websql/failed.svg).
+1. Перейдите в раздел **История запросов** (![image](../../_assets/console-icons/clock-arrow-rotate-left.svg)). Успешно выполненные запросы помечены значком ![image](../../_assets/websql/success.svg), запросы, которые не удалось выполнить, — значком ![image](../../_assets/websql/failed.svg).
 1. Выберите запрос — он отобразится в панели данных. 
 1. Нажмите **Выполнить** для повтора этого запроса. 
 

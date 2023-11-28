@@ -1,6 +1,12 @@
+---
+title: "Сценарии использования {{ dataproc-full-name }}"
+description: "Различные сценарии использования {{ dataproc-full-name }} в {{ yandex-cloud }}."
+---
+
 # Все практические руководства
 
 * [{#T}](./configure-network.md).
+* [{#T}](./reconnect-network.md).
 * [{#T}](./copy-files-from-object-storage.md).
 * [{#T}](./exchange-data-with-mch.md)
 * [{#T}](./sqoop-mmy.md)

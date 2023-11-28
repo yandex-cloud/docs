@@ -1,3 +1,8 @@
+---
+title: "Как управлять трансфером в {{ data-transfer-full-name }}"
+description: "Следуя данной инструкции, вы сможете управлять трансфером." 
+---
+
 # Управление трансфером
 
 Вы можете:
@@ -11,6 +16,8 @@
 
 Подробнее о состояниях трансфера, возможных действиях с ним и имеющихся ограничениях см. в разделе [{#T}](../concepts/transfer-lifecycle.md).
 
+Если вы хотите перенести трансфер и эндпоинты в другую зону доступности, обратитесь к [инструкции](endpoint/migration-to-an-availability-zone.md).
+
 ## Получить список трансферов {#list}
 
 {% list tabs %}
@@ -18,7 +25,7 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
 
 - CLI
 
@@ -45,7 +52,7 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
     1. Выберите эндпоинт для источника или [создайте](./endpoint/index.md#create) новый.
     1. Выберите эндпоинт для приемника или [создайте](./endpoint/index.md#create) новый.
@@ -199,8 +206,8 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-    1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
     1. Измените параметры трансфера:
         * **{{ ui-key.yacloud.common.name }}**.
         * **{{ ui-key.yacloud.common.description }}**.
@@ -306,8 +313,8 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 - CLI
 
@@ -351,8 +358,8 @@
 
     1. Переведите источник в режим <q>только чтение</q> (read-only).
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
     1. Дождитесь перехода трансфера в статус {{ dt-status-stopped }}.
 
 - CLI
@@ -396,9 +403,9 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
-    1. На панели слева выберите ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Если нужный трансфер находится в активном состоянии, [деактивируйте его](#deactivate).
-    1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.common.remove }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.common.remove }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.remove }}**.
 
 - CLI

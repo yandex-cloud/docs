@@ -67,8 +67,7 @@ To activate the service:
          1. Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
             Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-      1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      1. Select [appropriate security groups](concepts/vm-connection.md#security-groups) (if there is no corresponding field, the VM will be enabled for all incoming and outgoing traffic).
+      1. Set up [network access](concepts/vm-connection.md#vm-network-access) for your VM.
    1. Under **{{ ui-key.yacloud.compute.instances.create.label_backup }}**, select the {{ backup-name }} connection option for your VM.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       1. Select the service account with the `backup.editor` role.

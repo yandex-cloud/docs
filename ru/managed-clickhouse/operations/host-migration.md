@@ -1,6 +1,6 @@
 # Миграция хостов {{ CH }}-кластера в другую зону доступности
 
-Хосты кластера {{ mch-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты можно перенести из одной зоны в другую. Для этого:
+Хосты кластера {{ mch-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты можно перенести из одной зоны в другую.
 
 {% note warning %}
 
@@ -41,9 +41,11 @@
          --cluster-name <имя_кластера> \
          --host type=clickhouse,`
                `zone-id=<зона_доступности>,`
-               `subnet-id=<ID_новой_подсети>,`
-               `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false>
+               `subnet-id=<идентификатор_новой_подсети>,`
+               `assign-public-ip=<публичный_доступ_к_хосту>
       ```
+
+      Где `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
       Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters). В параметре `zone-id` укажите зону, куда вы переносите хосты.
 
@@ -52,16 +54,18 @@
       1. В конфигурационный файл {{ TF }} с планом инфраструктуры добавьте манифест хоста:
 
          ```hcl
-         resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
            ...
            host {
              type             = "CLICKHOUSE"
              zone             = "<зона_доступности>"
              subnet_id        = "<идентификатор_новой_подсети>"
-             assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
+             assign_public_ip = <публичный_доступ_к_хосту>
            }
          }
          ```
+
+         Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
 
          В параметре `zone` укажите зону, куда вы переносите хосты.
 
@@ -100,7 +104,7 @@
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-      1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
+      1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
    - CLI
 
@@ -130,4 +134,6 @@
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу вашего каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+
+{% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}

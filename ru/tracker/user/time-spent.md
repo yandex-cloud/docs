@@ -38,7 +38,6 @@
 
 1. В правом верхнем углу выберите **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.add-worklog }}**.
 
-
 1. Заполните поле **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}**. 
    
    Например:
@@ -47,7 +46,7 @@
 
 1. Заполните поле **{{ ui-key.startrek.ui_components_AddWorklogDialog.date-label }}**, указав дату и время в текущем часовом поясе.
    
-   {% note info  %}
+   {% note info %}
 
    Дата и время сохраняются в формате [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время). 
 

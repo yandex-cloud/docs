@@ -1,3 +1,8 @@
+---
+title: "Пошаговые инструкции для {{ mgp-full-name }}"
+description: "На странице представлен список пошаговых инструкций для {{ mgp-name }}."
+---
+
 # Пошаговые инструкции для {{ mgp-name }}
 
 ## Кластеры
@@ -9,10 +14,11 @@
 * [{#T}](cluster-stop.md)
 * [{#T}](./hosts/cluster-hosts.md)
 * [{#T}](./hosts/cluster-expand.md)
+* [{#T}](./hosts/host-migration.md)
 * [{#T}](cluster-backups.md)
 * [{#T}](cluster-delete.md)
 
-Если вы хотите перенести хосты кластера {{ mgp-name }} в другую зону доступности, см. [инструкцию по управлению резервными копиями](cluster-backups.md).
+Если вы хотите перенести хосты кластера {{ mgp-name }} в другую зону доступности, обратитесь к [инструкции по управлению резервными копиями](cluster-backups.md).
 
 ## Базы данных
 
@@ -23,6 +29,7 @@
 
 * [{#T}](roles-and-users.md)
 * [{#T}](resource-groups.md)
+* [{#T}](user-auth-rules.md)
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 

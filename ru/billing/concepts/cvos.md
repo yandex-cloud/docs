@@ -66,17 +66,17 @@
 
 Сумма списания за CVoS определяется по формулам:
 
-{% list tabs %}
+{% list tabs group=charges %}
 
-- Сумма списания в час
+- Сумма списания в час {#hour}
 
   ![image](../../_assets/billing/cud-hour-amount.svg)
 
-- Сумма списания в день
+- Сумма списания в день {#day}
 
   ![image](../../_assets/billing/cud-day-amount.svg)
 
-- Сумма списания в месяц
+- Сумма списания в месяц {#month}
 
   ![image](../../_assets/billing/cud-month-amount.svg)
 

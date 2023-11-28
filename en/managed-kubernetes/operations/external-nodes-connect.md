@@ -11,7 +11,7 @@ Connecting [external nodes](../concepts/external-nodes.md) to a [{{ managed-k8s-
 
 {% endnote %}
 
-You can connect external servers as nodes to a {{ managed-k8s-name }} cluster using special {{ k8s }} API resources. The definitions ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) of these resources are automatically pre-installed in a {{ managed-k8s-name }} cluster.
+You can connect external servers to a {{ managed-k8s-name }} cluster using special {{ k8s }} API resources. The definitions ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) of these resources are automatically pre-installed in a {{ managed-k8s-name }} cluster.
 
 ## Requirements for connecting external nodes to a cluster {#requirements}
 
@@ -39,10 +39,10 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
 
 - Management console
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **Nodes manager** tab.
-  1. Click **Create node group**, then **External**.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** and then **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
   1. Enter a name for the {{ managed-k8s-name }} node group.
-  1. Click **Add**.
+  1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI
 
@@ -70,12 +70,12 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
 
 - Management console
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **Nodes manager** tab.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the required {{ managed-k8s-name }} node group.
-  1. Click **Edit**.
+  1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Enter the [IP address](../../vpc/concepts/address.md) of the connecting server accessible from the {{ managed-k8s-name }} cluster's [cloud network](../../vpc/concepts/network.md#network).
-  1. Click **Add IP address** to add more IP addresses, if needed.
-  1. Click **Save**.
+  1. Click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}** to add more IP addresses if needed.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -112,7 +112,7 @@ A node connection to a {{ managed-k8s-name }} cluster is complete when new nodes
 - Management console
 
   1. Go to the details of the relevant {{ managed-k8s-name }} node group.
-  1. Click **Nodes manager**.
+  1. Select the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 
 - CLI
 
@@ -152,9 +152,9 @@ In the `NodeGroup` resource specification, include the name of the relevant secr
 - Management console
 
   1. Go to the details of the relevant {{ managed-k8s-name }} node group.
-  1. Click **Edit**.
+  1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Select the desired secret from the drop-down list.
-  1. Click **Save**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -213,9 +213,9 @@ For a semi-automated installation, set up all {{ managed-k8s-name }} external no
 - Management console
 
   1. Go to the details of the relevant {{ managed-k8s-name }} node group.
-  1. Click **Edit**.
+  1. Click **{{ ui-key.yacloud.common.edit }}**.
   1. Delete the IP addresses of the appropriate {{ managed-k8s-name }} nodes.
-  1. Click **Save**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -235,7 +235,7 @@ If there are issues, review the events in the `yandex-system` namespace first:
 
 - Management console
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **Events** tab.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_events }}** tab.
   1. Select the `yandex-system` namespace.
 
 - CLI

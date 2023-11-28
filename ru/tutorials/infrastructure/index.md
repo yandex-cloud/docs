@@ -1,3 +1,8 @@
+---
+title: "Сценарии использования систем управления базовой инфраструктурой в {{ yandex-cloud }}"
+description: "Различные сценарии использования систем управления базовой инфраструктурой в {{ yandex-cloud }}."
+---
+
 # Руководства по работе с системами управления базовой инфраструктурой
 
 * [Архитектура и защита базового интернет-сервиса](../routing/web-service.md)
@@ -12,6 +17,7 @@
 * [Масштабирование группы ВМ по расписанию](../infrastructure-management/vm-scale-scheduled.md)
 * [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Обновление группы ВМ под нагрузкой](../infrastructure-management/updating-under-load.md)
+* [Создание триггера для бюджетов, который вызывает функцию {{ sf-full-name }} для остановки ВМ](../infrastructure-management/serverless-trigger-budget-vm.md)
 
 ## Инструменты {#tools}
 
@@ -19,6 +25,8 @@
 * [Загрузка состояний {{ TF }} в {{ objstorage-full-name }}](../infrastructure-management/terraform-state-storage.md)
 * [Начало работы с Packer](../infrastructure-management/packer-quickstart.md)
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](../infrastructure-management/packer-custom-image.md)
+* [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
+* [Использование модулей {{ yandex-cloud }} в {{ TF }}](../infrastructure-management/terraform-modules.md)
 
 ## Сеть {#routing}
 
@@ -39,3 +47,5 @@
 * [Настройка локального кеширующего DNS-резолвера](../infrastructure-management/local-dns-cache.md)
 * [Миграция DNS-зон из {{ yandex-360 }} в {{ dns-full-name }}](../infrastructure-management/connect-migration.md)
 * [{#T}](../dataplatform/mdb-dns-peering.md)
+* [{#T}](../infrastructure-management/dns-integration.md)
+* [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](../infrastructure-management/cert-manager-webhook.md)

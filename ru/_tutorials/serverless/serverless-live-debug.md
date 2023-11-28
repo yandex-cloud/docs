@@ -141,7 +141,7 @@
 
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите облако.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Найдите аккаунт `sa-live-debug` в списке и нажмите значок ![image](../../_assets/options.svg).
+      1. Найдите аккаунт `sa-live-debug` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `{{ roles-admin }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -347,7 +347,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-cloud }}) выберите каталог `live-debug`. 
-  1. Нажмите значок ![image](../../_assets/options.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В поле **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** выберите `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 

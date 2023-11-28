@@ -33,7 +33,7 @@
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `sa-trail-logs`.
-  1. Нажмите ![](../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
+  1. Нажмите ![](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
@@ -63,8 +63,13 @@
      ```bash
      yc resource-manager folder add-access-binding <имя_каталога> \
        --role audit-trails.viewer \
-       --subject serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>
+       --subject serviceAccount:<идентификатор_сервисного_аккаунта>
      ```
+
+      Где:
+
+      * `--role` — назначаемая роль.
+      * `--subject` — идентификатор сервисного аккаунта `sa-trail-logs`.
 
      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
   1. Назначьте сервисному аккаунту роль `yds.editor`:
@@ -72,8 +77,13 @@
      ```bash
      yc resource-manager folder add-access-binding <имя_каталога> \
        --role yds.editor \
-       --subject serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>
+       --subject serviceAccount:<идентификатор_сервисного_аккаунта>
      ```
+
+      Где:
+
+      * `--role` — назначаемая роль.
+      * `--subject` — идентификатор сервисного аккаунта `sa-trail-logs`.
 
 - {{ TF }}
 
@@ -89,15 +99,20 @@
      resource "yandex_resourcemanager_folder_iam_member" "sa-role-audit-viewer" {
        folder_id   = "<идентификатор_каталога>"
        role        = "audit-trails.viewer"
-       member      = "serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>"
+       member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "sa-role-yds-editor" {
        folder_id   = "<идентификатор_каталога>"
        role        = "yds.editor"
-       member      = "serviceAccount:<идентификатор_сервисного_аккаунта_sa-trail-logs>"
+       member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
      }
      ```
+
+      Где:
+
+      * `role` — назначаемая роль.
+      * `member` — идентификатор сервисного аккаунта `sa-trail-logs`.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
   1. Проверьте корректность конфигурационных файлов.
@@ -125,7 +140,7 @@
 
      ```bash
      export FOLDER_ID=<идентификатор_каталога>
-     export IAM_TOKEN=<iam_токен>
+     export IAM_TOKEN=<IAM-токен>
      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
        "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
      ```
@@ -157,7 +172,7 @@
            "accessBinding": {
              "roleId": "audit-trails.viewer",
              "subject": {
-               "id": "<идентификатор_сервисного_аккаунта_sa-trail-logs>",
+               "id": "<идентификатор_сервисного_аккаунта>",
                "type": "serviceAccount"
              }
            }
@@ -167,7 +182,7 @@
            "accessBinding": {
              "roleId": "yds.writer",
              "subject": {
-               "id": "<идентификатор_сервисного_аккаунта_sa-trail-logs>",
+               "id": "<идентификатор_сервисного_аккаунта>",
                "type": "serviceAccount"
              }
            }
@@ -176,11 +191,16 @@
      }
      ```
 
+      Где:
+
+      * `roleId` — назначаемая роль.
+      * `id` — идентификатор сервисного аккаунта `sa-trail-logs`.
+
   1. Назначьте роли сервисному аккаунту:
 
      ```bash
      export FOLDER_ID=<идентификатор_каталога>
-     export IAM_TOKEN=<iam_токен>
+     export IAM_TOKEN=<IAM-токен>
      curl -X POST \
        -H "Content-Type: application/json" \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -201,7 +221,7 @@
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите имя кластера `trail-logs`.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите тип [виртуальной машины](../compute/concepts/vm.md) `burstable` и [тип хоста](../managed-clickhouse/concepts/instance-types.md) `b2.medium`.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** укажите имя БД `trail_data`, имя пользователя `user` и пароль. Запомните имя БД.
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите значок ![pencil](../_assets/pencil.svg). Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите значок ![pencil](../_assets/console-icons/pencil.svg). Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
         * Доступ из {{ datalens-name }}.
         * Доступ из консоли управления.
@@ -318,7 +338,7 @@
   1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД: `stream-db`.
   1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-  1. Вернитесь на страницу создания потока. Нажмите значок ![image](../_assets/data-streams/update-db.svg) и выберите из списка созданную БД.
+  1. Вернитесь на страницу создания потока. Нажмите значок ![image](../_assets/console-icons/arrow-rotate-right.svg) и выберите из списка созданную БД.
   1. Введите имя потока данных: `trail-logs-stream`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -358,7 +378,7 @@
 - Консоль управления
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
   1. Укажите имя эндпоинта: `source-logs-stream`.
@@ -405,7 +425,7 @@
 - Консоль управления
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** выберите `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
   1. Укажите имя эндпоинта: `target-logs-ch`.
@@ -428,13 +448,13 @@
 - Консоль управления
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. На панели слева выберите ![image](../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Укажите имя трансфера: `logs-transfer`.
   1. Выберите эндпоинт для источника: `source-logs-stream`.
   1. Выберите эндпоинт для приемника: `target-logs-ch`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. Нажмите значок ![ellipsis](../_assets/horizontal-ellipsis.svg) рядом с именем трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+  1. Нажмите значок ![ellipsis](../_assets/console-icons/ellipsis.svg) рядом с именем трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
   1. Дождитесь, когда трансфер перейдет в статус `{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}`.
 
 - CLI
@@ -443,10 +463,15 @@
 
   ```bash
   yc datatransfer transfer create --name logs-transfer
-    --source-id <идентификатор_эндпоинта-источника_source-logs-stream>
-    --target-id <идентификатор_эндпоинта-приемника_target-logs-ch>
+    --source-id <идентификатор_эндпоинта-источника>
+    --target-id <идентификатор_эндпоинта-приемника>
     --type increment-only
   ```
+
+  Где:
+
+  * `--source-id` — идентификатор эндпоинта-источника `source-logs-stream`.
+  * `--target-id` — идентификатор эндпоинта-приемника `target-logs-ch`.
 
   Подробнее о команде `yc datatransfer transfer create` см. в [справочнике CLI](../cli/cli-ref/managed-services/datatransfer/transfer/create.md).
 
@@ -458,11 +483,16 @@
      resource "yandex_datatransfer_transfer" "transfer" {
        folder_id   = "<идентификатор_каталога>"
        name        = "logs-transfer"
-       source_id   = "<идентификатор_эндпоинта-источника_source-logs-stream>"
-       target_id   = "<идентификатор_эндпоинта-приемника_target-logs-ch>"
+       source_id   = "<идентификатор_эндпоинта-источника>"
+       target_id   = "<идентификатор_эндпоинта-приемника>"
        type        = "INCREMENT_ONLY"
      }
      ```
+
+     Где:
+
+     * `source_id` — идентификатор эндпоинта-источника `source-logs-stream`.
+     * `target_id` — идентификатор эндпоинта-приемника `target-logs-ch`.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-dt-transfer }}).
   1. Проверьте корректность конфигурационных файлов.
@@ -495,7 +525,7 @@
 
   ```sql
   select * from trail_data.trail_logs_stream
-  where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<название_каталога>'
+  where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<имя_каталога>'
   ```
 
 * Какие действия совершал конкретный пользователь за период времени (требуется указать Name ID пользователя и дату):

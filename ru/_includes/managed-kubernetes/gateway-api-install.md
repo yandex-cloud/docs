@@ -16,7 +16,7 @@
    * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
    * `certificate-manager.admin` — для работы с [сертификатами](../../certificate-manager/concepts/index.md#types), зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer` — для использования [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
-1. Создайте для него [статический ключ](../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
+1. Создайте для него [авторизованный ключ](../../iam/operations/authorized-key/create.md) и сохраните в файл `sa-key.json`:
 
    ```bash
    yc iam key create \
@@ -28,7 +28,7 @@
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![Marketplace](../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **Доступные для установки приложения** выберите [Gateway API](/marketplace/products/yc/gateway-api) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) или создайте новое.

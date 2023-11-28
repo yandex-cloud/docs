@@ -7,7 +7,7 @@ description: "Из этой статьи вы узнаете, как удали�
 
 {% note info %}
 
-Удалить аккаунт может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](../security/index.md#admin).
+Удалить аккаунт может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#admin).
 
 {% endnote %}
 
@@ -15,8 +15,8 @@ description: "Из этой статьи вы узнаете, как удали�
 
 1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/organization/icon-users.svg).
+1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/console-icons/person.svg).
 
 1. Выберите сотрудника из списка или воспользуйтесь строкой поиска вверху страницы.
 
-1. В строке сотрудника нажмите значок ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+1. В строке сотрудника нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.remove }}**.

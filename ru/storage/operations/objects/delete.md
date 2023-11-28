@@ -22,7 +22,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Нажмите на имя необходимого бакета.
-  1. Чтобы удалить один объект, нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) справа от имени объекта и в появившемся меню нажмите **{{ ui-key.yacloud.storage.file.button_delete }}**.
+  1. Чтобы удалить один объект, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) справа от имени объекта и в появившемся меню нажмите **{{ ui-key.yacloud.storage.file.button_delete }}**.
 
      Чтобы выполнить это же действие с несколькими объектами, отметьте их в списке и нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_gr-delete }}** в нижней части экрана.
 

@@ -6,7 +6,7 @@
 
     1. Перейдите в сервис [{{ org-full-name }}]({{link-org-main}}).
 
-    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg).
+    1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
 
     1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud_org.entity.group.action_create }}** и введите название и описание группы.
 

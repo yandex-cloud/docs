@@ -12,7 +12,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-  1. На панели слева выберите ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
      * Имя и опциональное описание в свободной форме.
      * Алгоритм шифрования, например `AES-256`.
@@ -23,10 +23,7 @@
 
 - CLI
 
-  Выполните команду со следующими параметрами:
-  * `name` — имя ключа.
-  * `default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
-  * `rotation-period` — период ротации ключа. Чтобы создать ключ без автоматической ротации, не указывайте параметр `rotation-period`.
+  Выполните команду:
 
   ```bash
   yc kms symmetric-key create \
@@ -34,6 +31,12 @@
     --default-algorithm aes-256 \
     --rotation-period 24h
   ```
+
+  Где:
+
+  * `--name` — имя ключа.
+  * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
+  * `--rotation-period` — период ротации ключа. Чтобы создать ключ без автоматической ротации, не указывайте параметр `--rotation-period`.
 
   Вместе с ключом создается его первая версия. Она указана в поле `primary_version`.
 
@@ -63,17 +66,13 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-  1. На панели слева выберите ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. В строке с нужным ключом нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Изменив атрибуты ключа, нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
-  Выполните команду со следующими параметрами:
-  * `name` — имя ключа. Если в каталоге есть несколько ключей с одинаковыми именами, используйте идентификатор ключа.
-  * `new-name` — новое имя ключа.
-  * `default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
-  * `rotation-period` — период ротации ключа. Чтобы отключить автоматическую ротацию измененного ключа, не указывайте параметр `rotation-period`.
+  Выполните команду:
 
   ```bash
   yc kms symmetric-key update \
@@ -82,6 +81,13 @@
     --default-algorithm aes-128 \
     --rotation-period 48h
   ```
+
+  Где:
+
+  * `--name` — имя ключа. Если в каталоге есть несколько ключей с одинаковыми именами, используйте идентификатор ключа.
+  * `--new-name` — новое имя ключа.
+  * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
+  * `--rotation-period` — период ротации ключа. Чтобы отключить автоматическую ротацию измененного ключа, не указывайте параметр `--rotation-period`.
 
 - API
 
@@ -136,7 +142,7 @@
      Проверить изменение ключа можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
-     yc kms symmetric-key get <имя ключа>
+     yc kms symmetric-key get <имя_ключа>
      ```
 
 {% endlist %}
@@ -153,8 +159,8 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-  1. На панели слева выберите ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. В строке с нужным ключом нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-rotate }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-rotate }}**.
   1. Подтвердите ротацию (убедитесь, что смена версии по умолчанию не повредит вашей работе).
 
 - CLI
@@ -189,8 +195,8 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-  1. На панели слева выберите ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. В строке с нужным ключом нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-delete }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+  1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-key.overview.popup-confirm_button_delete }}**.
 
 - CLI

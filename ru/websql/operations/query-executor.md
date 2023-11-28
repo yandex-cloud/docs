@@ -1,6 +1,6 @@
 # Выполнение SQL-запросов
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 Чтобы выполнить запрос к базе данных, с ней должно быть [установлено соединение](connect.md##connect-db). Если соединение неактивно, [активируйте](connect.md#update-connection) его.
 

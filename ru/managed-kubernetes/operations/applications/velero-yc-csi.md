@@ -40,7 +40,7 @@
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **Доступные для установки приложения** выберите [Velero](/marketplace/products/yc/velero-yc-csi) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) `velero`. Приложение использует его по умолчанию.
@@ -52,7 +52,7 @@
      {% endnote %}
 
    * **Название приложения** — укажите название приложения.
-   * **Статический ключ для доступа к {{ objstorage-name }}** — скопируйте содержимое файла `sa-key.json` или создайте новый [ключ доступа](../../../iam/concepts/authorization/key.md) для сервисного аккаунта. Сервисный аккаунт должен иметь роль `storage.editor`.
+   * **Статический ключ для доступа к {{ objstorage-name }}** — скопируйте содержимое файла `sa-key.json` или создайте новый [ключ доступа](../../../iam/concepts/authorization/access-key.md) для сервисного аккаунта. Сервисный аккаунт должен иметь роль `storage.editor`.
    * **Имя бакета {{ objstorage-name }}** — укажите имя бакета {{ objstorage-name }}.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.

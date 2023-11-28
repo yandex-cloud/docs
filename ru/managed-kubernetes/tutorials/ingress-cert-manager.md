@@ -1,3 +1,8 @@
+---
+title: "Как создать Ingress-контроллер NGINX и защитить его сертификатом Let's Encrypt® в {{ managed-k8s-full-name }}"
+description: "Следуя данному руководству, вы сможете создать Ingress-контроллер NGINX и защитить его сертификатом Let's Encrypt®." 
+---
+
 # Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®
 
 Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом:
@@ -33,6 +38,8 @@
 Созданный контроллер будет установлен за [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
 
 Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
+
+Чтобы пробросить определенные порты при установке Ingress-контроллера NGINX, следуйте [инструкции](../operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 
 ## Установите менеджер сертификатов {#install-certs-manager}
 

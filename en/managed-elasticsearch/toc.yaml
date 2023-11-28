@@ -33,6 +33,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing {{ ES }} hosts
             href: operations/cluster-hosts.md
+          - name: Migrating hosts to a different availability zone
+            href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Configuring access to Object Storage
@@ -71,7 +73,7 @@ items:
         href: concepts/hosts-roles.md
       - name: Elasticsearch editions
         href: concepts/es-editions.md
-      - name: Indices
+      - name: Indexes
         href: concepts/indexing.md
       - name: Searching with Elasticsearch
         href: concepts/searching.md
@@ -233,6 +235,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Public materials
+    href: public-talks.md
   - name: Releases
     href: release-notes.md
   - name: Questions and answers

@@ -96,7 +96,14 @@ relationship | Тип связи между задачами | Список св
 {% cut "Типы связей" %}
 
 * `relates` — простая связь.
-* `is dependent by` — текущая задача является блокером.* `depends on` — текущая задача зависит от связываемой.* `is subtask for` — текущая задача является подзадачей связываемой.* `is parent task for` — текущая задача является родительской для связываемой задачи.* `duplicates` — текущая задача дублирует связываемую.* `is duplicated by` — связываемая задача дублирует текущую.* `is epic of` — текущая задача является эпиком связываемой. Связь такого типа можно установить только для задач типа "Эпик".* `has epic` — связываемая задача является эпиком текущей. Связь такого типа можно установить только для задач типа "Эпик".
+* `is dependent by` — текущая задача является блокером.
+* `depends on` — текущая задача зависит от связываемой.
+* `is subtask for` — текущая задача является подзадачей связываемой.
+* `is parent task for` — текущая задача является родительской для связываемой задачи.
+* `duplicates` — текущая задача дублирует связываемую.
+* `is duplicated by` — связываемая задача дублирует текущую.
+* `is epic of` — текущая задача является эпиком связываемой. Связь такого типа можно установить только для задач типа "Эпик".
+* `has epic` — связываемая задача является эпиком текущей. Связь такого типа можно установить только для задач типа "Эпик".
 
 {% endcut %}
 
@@ -185,7 +192,7 @@ Story Points | storyPoints
 Копия | emailCc
 Создано по письму на адрес \* | emailCreatedBy
 
-\* Для полей, отмеченых звехдочкой, вместо типа условия **равно** (`FieldEquals`)  используется **Равно строке** (`FieldEqualsString`).
+\* Для полей, отмеченных звездочкой, вместо типа условия **равно** (`FieldEquals`) используется **Равно строке** (`FieldEqualsString`).
 
 {% endcut %}
 
@@ -407,11 +414,11 @@ Story Points | storyPoints
 
 > Примеры:
 > ```
-> { "type": "GreaterCondition", "field": "spent", "value": 50400000 },  
-> { "type": "GreaterOrEqualCondition", "field": "spent", "value": 50400000 }, 
-> { "type": "LessCondition", "field":  "spent", "value": 50400000 }, 
-> { "type": "LessOrEqualCondition",  "spent", "value": 50400000 }, 
-> { "type": "BecameGreaterCondition", "field": "votes", "value": 6 },  
+> { "type": "GreaterCondition", "field": "spent", "value": 50400000 },
+> { "type": "GreaterOrEqualCondition", "field": "spent", "value": 50400000 },
+> { "type": "LessCondition", "field": "spent", "value": 50400000 },
+> { "type": "LessOrEqualCondition", "spent", "value": 50400000 },
+> { "type": "BecameGreaterCondition", "field": "votes", "value": 6 },
 > { "type": "BecameGreaterOrEqualCondition", "field": "votes", "value": 6 },
 > { "type": "BecameLessCondition", "field": "votes", "value": 6 },
 > { "type": "BecameLessOrEqualCondition", "field": "votes", "value": 6 }

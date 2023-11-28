@@ -9,10 +9,10 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-    1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.subject.select }}**.
+    1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.subject.select }}**.
     1. Выберите раздел **{{ ui-key.yacloud_org.common.resource-acl.label_groups }}**.
     1. Выберите группу `All authenticated users`.
-    1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
+    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
     1. Выберите роль `resource-manager.viewer`.
     1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -80,7 +80,7 @@
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор каталога>"
+       folder_id = "<идентификатор_каталога>"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "viewer" {
@@ -121,7 +121,7 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
 
 {% endlist %}
