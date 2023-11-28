@@ -46,7 +46,7 @@ Create a VM to deploy the test application to, a set of components required for 
    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet to connect the VM to once it is created.
 1. Enter the VM access information:
-   * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
    * To the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
       You will need to create a key pair for the SSH connection [yourself](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
@@ -63,7 +63,7 @@ On the created VM, deploy a collection of components required for the test appli
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH. You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
    ```bash
-   ssh <login>@<VM public IP>
+   ssh <login>@<VM_public_IP_address>
    ```
 
 1. Run the `apt update` command to update the lists of packages available for installation.
@@ -249,7 +249,7 @@ To make sure the test application is functional and the web server is properly c
 1. In the browser bar, enter the URL for testing the web server and application:
 
    ```http
-   http://<VM public IP address>/test/?text=hello_world
+   http://<VM_public_IP>/test/?text=hello_world
    ```
 
 1. If everything is working, the screen will display text with reversed words from the `text` parameter.
@@ -280,10 +280,10 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet to connect the VM to once it is created.
 1. Enter the VM access information:
-   * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+   * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
    * To the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-      You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) the SSH key pair yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
+      You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can start configuring it.
@@ -302,7 +302,7 @@ To set {{ GL }} up and configure the CI process, create a new project and enter 
    ```
 
 1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-1. In the browser, open a link, such as `http://<public VM IP address>`. The {{ GL }} web interface will open.
+1. Open `http://<VM_public_IP_address>` in your browser. The {{ GL }} web interface will open.
 1. Log in using the administrator account:
    * **Username or email**: `root`
    * **Password**: Password you copied earlier
@@ -314,7 +314,7 @@ To set {{ GL }} up and configure the CI process, create a new project and enter 
 1. Set the project name: `gitlab-test`.
 1. Click **Create project**.
 1. Obtain an OAuth token from the Yandex OAuth service. To do this, follow the [link]({{ link-cloud-oauth }}) and click **Allow**.
-1. In the browser, open a `http://<VM public IP address>/root` link.
+1. Open `http://<VM_public_IP_address>/root` in your browser.
 1. Select the `gitlab-test` project.
 1. On the screen that opens, choose the **Settings** tab on the left. In the menu that opens, select **CI/CD**.
 1. Under **Variables**, click **Expand**.
@@ -331,7 +331,7 @@ A Runner is a tool for performing tasks that a user creates. You need to install
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM with {{ GL }} over SSH:
 
    ```bash
-   ssh <login>@<public IP address of VM with {{ GL }}>
+   ssh <login>@<public_IP_of_VM_with_{{ GL }}>
    ```
 
 1. Add the new repository to the package manager:
@@ -359,9 +359,9 @@ A Runner is a tool for performing tasks that a user creates. You need to install
    Running in system-mode.
 
    Please enter the gitlab-ci coordinator URL (e.g., https://gitlab.com/):
-   http://<CI {{ GL }} IP address>/
+   http://<CI_{{ GL }}_IP_address>/
    Please enter the gitlab-ci token for this runner:
-   <Runner token>
+   <Runner_token>
    Please enter the gitlab-ci description for this runner:
    [ci-tutorial-gitlab]: gitlab test runner
    Please enter the gitlab-ci tags for this runner (comma separated):
@@ -425,7 +425,7 @@ You need to define the configuration for CI.
 1. Open the home page of the `gitlab-test` repository:
 
    ```http
-   http://<public IP address of VM with {{ GL }}>/root/gitlab-test
+   http://<public_IP_of_VM_with_{{ GL }}>/root/gitlab-test
    ```
 
 1. Click **Set up CI/CD**. A window will open for adding a new file.
@@ -441,8 +441,8 @@ You need to define the configuration for CI.
      stage: build
      variables:
        snapshot_name: test-app-snap
-       folder_id: <folder ID>
-       subnet_name: <subnet name>
+       folder_id: <folder_ID>
+       subnet_name: <subnet_name>
      script:
        - export instance_name="ci-tutorial-test-app-$(date +%s)"
        - export PATH="/opt/yc/bin:${PATH}"
@@ -488,10 +488,10 @@ To test the created VM:
 1. In the folder where the VMs were created, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. If everything is properly configured, the VM list should display a new VM, such as `ci-tutorial-test-app-1543910277`.
 1. Select the created VM and copy its public IP address.
-1. In the browser, open a link, such as:
+1. In the browser, open the following link:
 
    ```http
-   http://<public IP address of created VM>/test/?text=hello_world
+   http://<public_IP_of_created_VM>/test/?text=hello_world
    ```
 
 1. The application created in the previous steps should also function on the created VM and return the inverted words from the `text` parameter.

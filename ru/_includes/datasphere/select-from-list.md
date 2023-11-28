@@ -1,1 +1,1 @@
-Нажмите кнопку ![image](../../_assets/datasphere/add_user.svg) **{{ ui-key.yc-ui-datasphere.common.add-member }}**. Выберите в списке одного или нескольких пользователей и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.add }}**.
+Нажмите кнопку ![image](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-member }}**. Выберите в списке одного или нескольких пользователей и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.add }}**.

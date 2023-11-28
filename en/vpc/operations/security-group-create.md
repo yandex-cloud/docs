@@ -48,12 +48,8 @@ To create a new [security group](../concepts/security-groups.md):
    * `--rule`: Rule description:
       * `direction`: Traffic direction. `ingress`: incoming traffic, `egress`: outgoing traffic.
       * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
-      * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
-      * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets that traffic will come from or to.
-
-- API
-
-   Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create) gRPC API call.
+      * `protocol`: Data transfer protocol. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+      * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets to deal with outgoing and incoming traffic.
 
 - {{ TF }}
 
@@ -67,14 +63,14 @@ To create a new [security group](../concepts/security-groups.md):
       * `description`: Optional description of the security group.
       * `network_id`: ID of the network that the security group will be assigned to.
       * `ingress` and `egress`: Rule parameters for incoming and outgoing traffic:
-         * `protocol`: Traffic transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+         * `protocol`: Traffic transfer protocol. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
          * `description`: Optional description of the rule.
-         * `v4_cidr_blocks`: List of CIDRs and masks of subnets that traffic will come from or to.
+         * `v4_cidr_blocks`: List of CIDRs and masks of subnets to deal with outgoing and incoming traffic.
          * `port`: Port for traffic.
-         * `from-port`: The first port in the range of ports for traffic.
-         * `to-port`: The last port in the range of ports for traffic.
+         * `from-port`: First port in the traffic ports range.
+         * `to-port`: Last port in the traffic ports range.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       ```
@@ -117,7 +113,7 @@ To create a new [security group](../concepts/security-groups.md):
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    3. Deploy cloud resources.
 
@@ -129,5 +125,22 @@ To create a new [security group](../concepts/security-groups.md):
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-{% endlist %}
+- API
 
+   Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create) gRPC API call, and provide the following in the request:
+
+   * ID of the folder where the security group will be placed, in the `folderId` parameter.
+   * ID of the network where the security group will be placed, in the `networkId` parameter.
+   * Settings for the security group rules, in the `ruleSpecs[]` array.
+
+      * Traffic direction for which the rule is created, in the `ruleSpecs[].direction` parameter. that may take one of the following values:
+
+         * `ingress`: Incoming traffic
+         * `egress`: Outgoing traffic
+
+      * Name of the traffic transmission protocol, in the `ruleSpecs[].protocolName` parameter. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+      * List of CIDRs and masks of subnets to deal with outgoing and incoming traffic, in the `ruleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter. If the rule is configured for transmitting traffic to a security group, then transmit the security group ID in the `ruleSpecs[].securityGroupId` parameter instead.
+      * First port in the traffic ports range, in the `ruleSpecs[].ports.fromPort` parameter. The possible values are from `0` to `65535`.
+      * Last port in the traffic ports range, in the `ruleSpecs[].ports.toPort` parameter. The possible values are from `0` to `65535`.
+
+{% endlist %}

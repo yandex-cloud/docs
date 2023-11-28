@@ -4,7 +4,7 @@
 
 ## Перенести проекты и данные автоматически {#auto}
 
-Вы можете автоматически перенести проекты, состояние интерпретатора, ресурсы проекта и все данные из старой версии {{ ml-platform-name }} в новую с помощью инструмента переноса проектов. Для этого в левом боковом меню выберите ![transfer](../../_assets/datasphere/transfer.svg) **{{ ui-key.yc-ui-datasphere.transferring.title }}** и следуйте подсказкам в интерфейсе.
+Вы можете автоматически перенести проекты, состояние интерпретатора, ресурсы проекта и все данные из старой версии {{ ml-platform-name }} в новую с помощью инструмента переноса проектов. Для этого в левом боковом меню выберите ![transfer](../../_assets/console-icons/folder-arrow-right.svg) **{{ ui-key.yc-ui-datasphere.transferring.title }}** и следуйте подсказкам в интерфейсе.
 
 {% note warning %}
 
@@ -76,7 +76,7 @@
         1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) созданному аккаунту [роль](../../storage/security/index.md), которая разрешит чтение и запись данных.
         1. [Создайте ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
    1. Создайте секрет:
-        1. Перейдите на вкладку ![Secrets](../../_assets/datasphere/jupyterlab/secret.svg) и нажмите значок ![plus](../../_assets/datasphere/jupyterlab/add.svg).
+        1. Перейдите на вкладку ![Secrets](../../_assets/console-icons/shield-check.svg) и нажмите значок ![plus](../../_assets/datasphere/jupyterlab/add.svg).
         1. В диалоговом окне заполните поля:
             * **Name** — идентификатор ключа.
             * **Content** — секретный ключ в формате `<идентификатор статического ключа>:<секретная часть статического ключа>`.
@@ -122,7 +122,7 @@
 
             Если вы уже выполняли код в открытом проекте, то в списке **Checkpoints** будут содержаться созданные ранее контрольные точки.
         1. Выполните код в ячейке или группе ячеек ноутбука и дождитесь выполнения кода.
-    * В [автоматическом](../concepts/save-state.md#auto-save) режиме сохранения состояний: в правом верхнем углу вкладки ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** нажмите значок ![plus-sign](../../_assets/plus-sign.svg), либо используйте сочетание клавиш **Cmd** + **K** или **Ctrl** + **K**.
+    * В [автоматическом](../concepts/save-state.md#auto-save) режиме сохранения состояний: в правом верхнем углу вкладки ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** нажмите значок ![plus-sign](../../_assets/console-icons/plus.svg), либо используйте сочетание клавиш **Cmd** + **K** или **Ctrl** + **K**.
 
     Созданная контрольная точка появится в начале списка **Checkpoints**.
 1. Сохраните контрольную точку:

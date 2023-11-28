@@ -278,7 +278,7 @@ items:
   - name: Вопросы и ответы
     href: faq.md
   - name: Публичные материалы
-    href: public_talks.md
+    href: https://ydb.tech/ru/docs/public-talks
   - name: Обучающие курсы
     href: training.md
 base: ru/ydb

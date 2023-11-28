@@ -11,7 +11,7 @@
 ## Измените данные организации {#change}
 
 1. Войдите в [{{org-full-name}}]({{ link-org-main }}) под аккаунтом администратора организации.
-1. На панели слева выберите раздел [Об организации](https://org.cloud.yandex.ru/settings) ![icon-settings](../../_assets/organization/icon-settings.svg).
+1. На панели слева выберите раздел [Об организации](https://org.cloud.yandex.ru/settings) ![icon-settings](../../_assets/console-icons/circle-info.svg).
 1. Чтобы изменить название и описание организации, в правом верхнем углу нажмите **{{ ui-key.yacloud_org.page.settings.action.edit }}**.
 1. Измените название, техническое название или описание организации.
 1. Нажмите кнопку **{{ ui-key.yacloud_org.forms.action.save }}**.

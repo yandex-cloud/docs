@@ -14,6 +14,6 @@
 ## Удалить метку {#delete-label}
 
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.more }}** и в выпадающем списке выберите **{{ ui-key.yc-ui-datasphere.common.manage-labels }}**.
-1. Справа от метки нажмите значок ![image](../../../_assets/cross.svg).
+1. Справа от метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
 1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

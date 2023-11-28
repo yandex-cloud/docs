@@ -4,7 +4,7 @@ editable: false
 
 # {{ yagpt-full-name }} pricing
 
-{{ yagpt-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage.
+{{ yagpt-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and it is charged according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb).
 
 {% note warning %}
 

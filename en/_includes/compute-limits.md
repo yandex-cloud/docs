@@ -5,8 +5,8 @@
 --- | ---
 | Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 12 |
 | Total number of [vCPUs](../compute/concepts/performance-levels.md) across all VMs per cloud | 32 |
-| Total number of vCPUs across all VMs per cloud in a {{ zone-id }} zone | 0 |
-| Total number of vCPUs across all VMs per cloud on {{ highfreq-ice-lake }} | 0 |
+| Total number of vCPUs across all VMs per cloud per {{ zone-id }} zone | 0 |
+| Total number of {{ highfreq-ice-lake }} vCPUs across all VMs per cloud | 0 |
 | Total virtual memory across all VMs per cloud | 128 GB |
 | Total number of [disks](../compute/concepts/disk.md) per cloud | 32 |
 | Total number of disks per cloud per {{ zone-id }} zone | 0 |
@@ -26,8 +26,8 @@
 | Number of [images optimized for deployment](../compute/concepts/image.md#images-optimized-for-deployment) per cloud^1^ | 0 |
 | Number of [instance groups](../compute/concepts/instance-groups/index.md) per cloud | 10 |
 | Total number of NVIDIA® Tesla® V100 [GPUs](../compute/concepts/gpus.md) across all VMs per cloud | 0 |
-| Total number of GPUs across all VMs per cloud on {{ a100-epyc }} | 0 |
-| Total number of GPUs across all VMs per cloud on {{ t4-ice-lake }} | 0 |
+| Total number of {{ a100-epyc }} GPUs across all VMs per cloud | 0 |
+| Total number of {{ t4-ice-lake }} GPUs across all VMs per cloud | 0 |
 | Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 |
 | Maximum number of [VM placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
 | Maximum number of VMs per partition in a VM placement group with the [partition placement](../compute/concepts/placement-groups.md#partition) strategy | 100 |
@@ -42,10 +42,10 @@
 
 Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
-{% list tabs %}
+{% list tabs group=platforms %}
 
 
-- Intel Broadwell
+- Intel Broadwell {#broadwell}
 
    | Type of limit | Value |
    --- | ---
@@ -56,7 +56,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
    | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 
-- Intel Cascade Lake
+- Intel Cascade Lake {#cascade}
 
    | Type of limit | Value |
    --- | ---
@@ -68,7 +68,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 
 
-- Intel Ice Lake
+- Intel Ice Lake {#ice}
 
    | Type of limit | Value |
    --- | ---
@@ -79,7 +79,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5 |
 
 
-- Intel Ice Lake (Compute Optimized)
+- Intel Ice Lake (Compute Optimized) {#optimized}
 
    | Type of limit | Value |
    --- | ---
@@ -98,23 +98,23 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 #### VM limits on disk operations {#compute-limits-vm-disks}
 
-{% list tabs %}
+{% list tabs group=disks %}
 
-- Network SSD
-
-   | Type of limit | Value |
-   --- | ---
-   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 3,500 |
-   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 45 MB/s |
-
-- Network HDD
+- Network SSD {#net-ssd}
 
    | Type of limit | Value |
    --- | ---
    | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 3,500 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 45 MB/s |
 
-- Non-replicated SSD
+- Network HDD {#net-hdd}
+
+   | Type of limit | Value |
+   --- | ---
+   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 3,500 |
+   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 45 MB/s |
+
+- Non-replicated SSD {#non-replicated-ssd}
 
    | Type of limit | Value |
    --- | ---
@@ -124,7 +124,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
    | Maximum^5^ bandwidth per VM | 1 GB/s |
 
-- High-performance SSD
+- High-performance SSD {#high-perf-ssd}
 
    | Type of limit | Value |
    --- | ---
@@ -138,9 +138,9 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 #### Disk and file storage limits {#compute-limits-disks}
 
-{% list tabs %}
+{% list tabs group=disks %}
 
-- Network SSD
+- Network SSD {#net-ssd}
 
    | Type of limit | Value |
    --- | ---
@@ -155,7 +155,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum^5^ bandwidth for reads per disk | 450 MB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 15 MB/s |
 
-- Network HDD
+- Network HDD {#net-hdd}
 
    | Type of limit | Value |
    --- | ---
@@ -170,7 +170,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum^5^ bandwidth for reads per disk | 240 MB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 30 MB/s |
 
-- Non-replicated SSD
+- Non-replicated SSD {#non-replicated-ssd}
 
    | Type of limit | Value |
    --- | ---
@@ -185,7 +185,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
 
-- High-performance SSD
+- High-performance SSD {#high-perf-ssd}
 
    | Type of limit | Value |
    --- | ---
@@ -203,9 +203,9 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 {% endlist %}
 
 
-{% list tabs %}
+{% list tabs group=storages %}
 
-- SSD storage
+- SSD storage {#ssd}
 
    | Type of limit | Value |
    --- | ---
@@ -214,7 +214,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
    | Maximum number of files in storage | 1,000,000 |
    | Maximum size of file in storage | 300 GB |
 
-- HDD storage
+- HDD storage {#hdd}
 
    | Type of limit | Value |
    --- | ---

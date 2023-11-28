@@ -13,7 +13,7 @@ description: "Из статьи вы узнаете, как удалить по�
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}**.
-1. Напротив нужного пользователя нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.member.remove }}**.
+1. Напротив нужного пользователя нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.member.remove }}**.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 1. Если вы добавляли пользователя с помощью ссылки, то ее необходимо пересоздать:
     * Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.add-member }}**. 

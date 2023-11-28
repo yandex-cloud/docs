@@ -9,9 +9,9 @@
 1. [Бакет](../../storage/concepts/bucket.md) монтируется через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-интерфейс к папке на промежуточной [ВМ](../../glossary/vm.md).
 1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) забирает логи из папки и передает их в ArcSight для анализа.
 
-Подробнее о сценариях загрузки аудитных логов в ArcSight смотрите в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight#two-log-shipping-scenarios).
+Подробнее о сценариях загрузки аудитных логов в ArcSight смотрите в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight#two-log-shipping-scenarios).
 
-{% include [Yc-solution-library-for-security](../../_includes/security-solution-library.md) %}
+{% include [Yc-security-solutions-library](../../_includes/security-solution-library.md) %}
 
 Чтобы настроить доставку файлов аудитных логов в ArcSight:
 
@@ -354,7 +354,7 @@
 1. На промежуточной ВМ [установите](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_smartconn_install/) `ArcSight SmartConnector`:
     1. При установке выберите **ArcSight FlexConnector JSON Folder Follower** и укажите путь к папке `mybucket`.
     1. Укажите **JSON configuration filename prefix**: `yc`.
-1. [Скачайте](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight/arcsight_content) файлы `arcsight_content`.
+1. [Скачайте](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight/tree/main/arcsight_content) файлы `arcsight_content`.
 1. Скопируйте файл `yc.jsonparser.properties` из папки `flex` в папку с адресом `<папка_установки_агента>/current/user/agent/flexagent`.
 1. Скопируйте файл `map.0.properties` из папки `flex` в папку с адресом `<папка_установки_агента>/current/user/agent/map`.
 1. Отредактируйте файл `<папка_установки_агента>/current/user/agent/agent.properties`:

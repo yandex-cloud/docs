@@ -18,26 +18,9 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
       yc compute placement-group create --help
       ```
 
-   1. Create a placement group:
+   1. Create a placement group in the default folder with one of the placement strategies:
 
-      ```bash
-      yc compute placement-group create --spread-strategy --name my-group
-      ```
-
-      Result:
-
-      ```bash
-      id: fdvte50kv3nc********
-      folder_id: aoeieef3k7pp********
-      created_at: "2019-12-20T08:59:44Z"
-      name: my-group
-      spread_placement_strategy: {}
-      ```
-
-      This command creates a placement group with the following characteristics:
-
-      - Name: `my-group`
-      - Placement strategy: `spread`
+      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
 
    1. View the description of the CLI command for creating a VM:
 
@@ -48,23 +31,33 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
    1. Create a virtual machine:
 
       ```bash
-      yc compute instance create --zone {{ region-id }}-a --name instance-in-group-1 --placement-group-name my-group
+      yc compute instance create \
+        --zone {{ region-id }}-a \
+        --name instance-in-group-1 \
+        --placement-group-name my-group \
+        --placement-group-partition <partition_number>
       ```
+
+      Where:
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host your VM instance.
+      * `--name`: VM instance name.
+      * `--placement-group-name`: Placement group name.
+      * `--placement-group-partition`: Partition number in the placement group with the [partition placement](../../concepts/placement-groups.md#partition) strategy.
+
+         {% note info %}
+
+         If you omit the partition number when creating a VM in a group with the partition placement strategy, the VM will be added to a random partition.
+
+         {% endnote %}
 
       Result:
 
-      ```bash
+      ```yaml
       id: epdep2kq6dt5********
       ...
       placement_policy:
         placement_group_id: fd83bv4rnsna********
       ```
-
-      This command creates a VM instance with the following characteristics:
-
-      - Name: `instance-in-group-1`
-      - Availability zone: `{{ region-id }}-a`
-      - Placement group: `my-group`
 
    1. Check that the instance was created and added to the placement group:
 
@@ -72,9 +65,11 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
       yc compute placement-group list-instances --name my-group
       ```
 
+      Where `--name` is the placement group name.
+
       Result:
 
-      ```bash
+      ```text
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -114,7 +109,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
       ...
       ```
 
-      Where `placement_group_id`: ID of a placement group.
+      Where `placement_group_id` is the placement group ID.
 
       For more information about the parameters of the `yandex_compute_instance` and `yandex_compute_placement_group` resources in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
 

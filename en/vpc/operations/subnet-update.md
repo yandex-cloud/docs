@@ -68,10 +68,6 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       - 192.168.0.0/24
       ```
 
-- API
-
-   To update a [subnet](../concepts/network.md#subnet), use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -127,6 +123,28 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       ```
       yc vpc subnet get <subnet name>
       ```
+
+- API
+
+   To change the [subnet](../concepts/network.md#subnet), use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call, and provide the following in the request:
+
+   * ID of the subnet to be changed, in the `subnetId` parameter.
+
+      {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+   * New subnet settings if needed:
+
+      * Name, in the `name` parameter.
+      * Description, in the `description` parameter.
+      * Network labels, in the `labels` parameter.
+      * Route table ID, in the `routeTableId` parameter.
+      * DHCP options, in the `dhcpOptions` parameter.
+
+   * List of settings you want to update, in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

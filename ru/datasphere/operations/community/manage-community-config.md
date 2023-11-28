@@ -12,7 +12,7 @@ description: "Следуя данной инструкции, вы сможет�
 {% endnote %}
 
 1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![community-panel](../../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Выберите сообщество, в котором вы хотите настроить функциональность {{ ml-platform-name }}.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.restrictions }}**.
 1. В блоке **{{ ui-key.yc-ui-datasphere.restrictions.project-mode }}**:

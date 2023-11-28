@@ -76,6 +76,8 @@ items:
             href: get-params.md
           - name: Получить идентификаторы вопросов и ответов
             href: question-id.md
+          - name: Настроить предзаполнение скрытого поля
+            href: hidden-query.md
   - name: Получить ответы
     href: answers.md
   - name: Управлять формами

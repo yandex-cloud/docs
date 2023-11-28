@@ -6,6 +6,8 @@
 * [группы бэкендов](../application-load-balancer/concepts/backend-group.md);
 * [целевые группы](../application-load-balancer/concepts/target-group.md).
 
+Включает в себя все разрешения, предоставляемые ролью `alb.user`.
+
 {% note info %}
 
 Обладание ролью `{{ roles-alb-admin }}` одновременно с ролью `vpc.publicAdmin` на сеть, в которой находится балансировщик, позволяет создавать L7-балансировщик с публичным IP-адресом.

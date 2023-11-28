@@ -100,13 +100,13 @@ Configure {{ at-name }} to process the service and the federated accounts with t
 
 1. [Configure the collection of audit logs at the organization level](../../audit-trails/quickstart.md) in {{ at-full-name }}.
 
-1. At least track the following events (in [Object Storage](../../audit-trails/tutorials/search-bucket.md), a [log group](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main), and [your SIEM](../../audit-trails/concepts/export-siem.md)):
+1. At least track the following events (in [Object Storage](../../audit-trails/tutorials/search-bucket.md), a [log group](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk), and [your SIEM](../../audit-trails/concepts/export-siem.md)):
 
    * Creating service account keys (events: `{{ at-event-prefix }}.audit.iam.CreateAccessKey`, `{{ at-event-prefix }}.audit.iam.CreateKey`, `{{ at-event-prefix }}.audit.iam.CreateApiKey`, and `authentication.subject_id = <service_account_ID>`).
    * Assigning access rights to the service account (event: `UpdateServiceAccountAccessBindings` and `details.service_account_id = <service_account_ID>`).
    * Any action using the `organization-manager.organizations.owner` privilege (`.authentication.subject_id == <ID_of_user_with_this_privilege>`).
 
-You can use [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main) to analyze and respond to events in {{ at-name }}.
+You can use [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) to analyze and respond to events in {{ at-name }}.
 
 ## Response to federation failure {#federation-repair}
 

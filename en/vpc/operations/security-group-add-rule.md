@@ -105,10 +105,6 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
       To get help about the `--add-rule` parameter, run `yc vpc security-group update-rules --help`.
 
-- API
-
-   To add a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -199,13 +195,13 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
    1. In the configuration file, describe the following parameters:
 
       * `security_group_binding`: Security group ID.
-      * `direction`: Incoming or outgoing traffic. Possible values: `ingress` or `egress`.
+      * `direction`: Incoming or outgoing traffic. The possible values are `ingress` or `egress`.
       * `description`: Description of the rule.
-      * `v4_cidr_blocks`: List of CIDRs and masks of subnets that traffic will come from or to.
+      * `v4_cidr_blocks`: List of CIDRs and masks of subnets to deal with outgoing and incoming traffic.
       * `port`: Port for traffic.
-      * `from_port`: The first port in the range of ports for traffic.
-      * `to_port`: The last port in the range of ports for traffic.
-      * `protocol`: Traffic transfer protocol. Possible values: `TCP`, `UDP`, `ICMP`, or `ANY`.
+      * `from_port`: First port in the traffic ports range.
+      * `to_port`: Last port in the traffic ports range.
+      * `protocol`: Traffic transfer protocol. The possible values are `TCP`, `UDP`, `ICMP`, or `ANY`.
 
       ```hcl
       ...
@@ -266,5 +262,26 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       yc vpc security-group get <security group name>
       ```
 
-{% endlist %}
+- API
 
+   To add a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call, and provide the following in the request:
+
+   * ID of the security group you want to add rules to, in the `securityGroupId` parameter.
+
+      {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
+
+      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+   * New security group rules, in the `additionRuleSpecs[]` array.
+
+      * Traffic direction for which the rule is created, in the `additionRuleSpecs[].direction` parameter. The possible values include:
+
+         * `ingress`: Incoming traffic
+         * `egress`: Outgoing traffic
+
+      * Name of the traffic transmission protocol, in the `additionRuleSpecs[].protocolName` parameter. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+      * List of CIDRs and masks of subnets to deal with outgoing and incoming traffic, in the `additionRuleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter. If the rule is configured for transmitting traffic to a security group, provide the security group ID in the `additionRuleSpecs[].securityGroupId` parameter instead.
+      * First port in the traffic ports range, in the `additionRuleSpecs[].ports.fromPort` parameter. The possible values are from `0` to `65535`.
+      * Last port in the traffic ports range, in the `additionRuleSpecs[].ports.toPort` parameter. The possible values are from `0` to `65535`.
+
+{% endlist %}

@@ -84,10 +84,6 @@ description: "Follow this guide to delete a rule from a security group."
       ...
       ```
 
-- API
-
-   To delete a rule, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -162,5 +158,16 @@ description: "Follow this guide to delete a rule from a security group."
       ```
       yc vpc security-group get <security group name>
       ```
+
+- API
+
+   To delete a rule from a security group, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) gRPC API call, and provide the following in the request:
+
+   * ID of the security group you want to delete rules from, in the `securityGroupId` parameter.
+   * IDs of the rules to be deleted, in the `deletionRuleIds[]` array.
+
+   {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
+
+   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

@@ -56,10 +56,6 @@ You cannot restore an address after it is deleted.
       yc vpc address delete e9b6un9gkso6stdh6b3p
       ```
 
-- API
-
-   To delete a [static IP address](../concepts/address.md), use the [delete](../api-ref/Address/delete.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Delete](../api-ref/grpc/address_service.md#Delete) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -118,5 +114,13 @@ You cannot restore an address after it is deleted.
       ```
       yc vpc address list
       ```
+
+- API
+
+   To delete a [static IP address](../concepts/address.md), use the [delete](../api-ref/Address/delete.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Delete](../api-ref/grpc/address_service.md#Delete) gRPC API call, and provide the ID of the IP address to delete in the `addressId` request parameter.
+
+   {% include [get-address-id](../../_includes/vpc/get-adress-id.md) %}
+
+   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

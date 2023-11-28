@@ -10,7 +10,7 @@
 
 1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
 1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-1. На панели слева выберите раздел [Пользователи](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/organization/icon-users.svg).
+1. На панели слева выберите раздел [Пользователи](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/console-icons/person.svg).
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
 

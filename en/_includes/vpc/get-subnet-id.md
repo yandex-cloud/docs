@@ -1,0 +1,1 @@
+To get the subnet ID, use the [list](../../vpc/api-ref/Subnet/list) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.

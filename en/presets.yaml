@@ -3867,7 +3867,7 @@ default:
         filter-projects: Projects
         search-placeholder: Search
       ui_components_projects_Sidebar:
-        sidebar-param-title--endDate: End date
+        sidebar-param-title--endDate: Deadline
         sidebar-param-title--lead: Responsible
         sidebar-param-title--startDate: Start date
         sidebar-param-title--status: Status
@@ -4947,6 +4947,10 @@ default:
           label_billing: Billing
           label_monitoring: Monitoring
           label_notifications: Notifications
+        security-group-field:
+          label_sg-auto: Auto
+          label_sg-from-list: From list
+          label_sg-none: Without groups
         service-account-select:
           button_create-account-new: Create new account
           label_no-service-account: Not selected
@@ -7124,7 +7128,7 @@ default:
                         title: SHA 512
                     KafkaConnectionType:
                       managed:
-                        title: Managed Service for Kafka cluster
+                        title: Managed Service for Apache Kafka cluster
                     KafkaSaslSecurity:
                       mechanism:
                         title: Mechanism
@@ -7171,7 +7175,7 @@ default:
                       auth:
                         title: Authentication
                       cluster_id:
-                        title: Managed Service for Kafka cluster
+                        title: Managed Service for Apache Kafka cluster
                     ManagedKafkaAuth:
                       no_auth:
                         title: No authentication
@@ -7630,7 +7634,7 @@ default:
                       connection:
                         title: Connection settings
                       paths:
-                        array_item_label: path
+                        array_item_label: Path
                         title: Included paths list
                     YdbTarget:
                       cleanup_policy:
@@ -7681,7 +7685,7 @@ default:
                         title: Connection settings
                     YDSTargetAdvancedSettings:
                       save_tx_order:
-                        title: Save tx order
+                        title: Save transaction order
         endpoint:
           airbyte:
             aws_cloud_trail_source:
@@ -7703,7 +7707,7 @@ default:
                   bigquery_source:
                     BigQuerySource:
                       credentials_json:
-                        title: Credentials JSON
+                        title: 'Credentials '
                       dataset_id:
                         title: Default dataset ID
                       project_id:
@@ -8072,7 +8076,7 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-2
+        tag: 2.1.7-3
     yc_gateway-api:
       helmChart:
         name: >-

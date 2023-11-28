@@ -29,33 +29,37 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. Create a virtual machine:
+   1. Create a VM:
 
       ```bash
-      yc compute instance create --zone {{ region-id }}-a --name instance-in-group-2
+      yc compute instance create \
+        --zone {{ region-id }}-a \
+        --name instance-in-group-2
       ```
+
+      Where:
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) for the VM.
+      * `--name`: VM name.
 
       Result:
 
-      ```bash
+      ```yaml
       id: epdlv1pp5401********
       ...
       ```
 
-      This command creates a VM instance with the following characteristics:
-
-      - Named `instance-in-group-2`.
-      - In the `{{ region-id }}-a` availability zone.
-
-   1. View a list of VM instances in the placement group:
+   1. View a list of VMs in the placement group:
 
       ```bash
-      yc compute placement-group list-instances --name my-group
+      yc compute placement-group list-instances \
+        --name my-group
       ```
+
+      Where `--name` is the placement group name.
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -63,7 +67,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
-   1. Stop the VM:
+   1. Stop the VM instance by including its name in the command below:
 
       ```bash
       yc compute instance stop instance-in-group-2
@@ -71,7 +75,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
       Result:
 
-      ```bash
+      ```yaml
       id: epdlv1pp5401********
       ...
       status: STOPPED
@@ -80,35 +84,44 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
    1. Add a VM instance to the placement group:
 
       ```bash
-      yc compute instance update --name instance-in-group-2 --placement-group-name my-group
+      yc compute instance update \
+        --name instance-in-group-2 \
+        --placement-group-name my-group \
+        --placement-group-partition <partition_number>
       ```
+
+      Where:
+      * `--name`: VM name.
+      * `--placement-group-name`: Placement group name.
+      * `--placement-group-partition`: Partition number in the placement group with the [partition placement](../../concepts/placement-groups.md#partition) strategy.
+
+         {% note info %}
+
+         If you omit the partition number when adding a VM to a group with the partition placement strategy, the VM will be added to a random partition.
+
+         {% endnote %}
 
       Result:
 
-      ```bash
+      ```yaml
       id: epdlv1pp5401********
       ...
       placement_policy:
         placement_group_id: fd83bv4rnsna********
       ```
 
-      This command adds the `instance-in-group-2` instance to the `my-group` placement group.
-
-      {% note info %}
-
-      If you omit the partition number when adding a VM to a group with the [partition placement](../../concepts/placement-groups.md#partition) strategy, the VM will be added to a random partition.
-
-      {% endnote %}
-
-   1. Check that the instance was added to the placement group:
+   1. Check that the VM instance was added to the placement group:
 
       ```bash
-      yc compute placement-group list-instances --name my-group
+      yc compute placement-group list-instances \
+        --name my-group
       ```
+
+      Where `--name` is the placement group name.
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -117,7 +130,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
-   1. Start the VM:
+   1. Start the VM instance by including its name in the command below:
 
       ```bash
       yc compute instance start instance-in-group-2
@@ -125,7 +138,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
 
       Result:
 
-      ```bash
+      ```text
       id: epdlv1pp5401********
       ...
       status: RUNNING
@@ -163,7 +176,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
       ...
       ```
 
-      Where `placement_group_id` is the ID of a placement group.
+      Where `placement_group_id` is the placement group ID.
 
       {% note info %}
 

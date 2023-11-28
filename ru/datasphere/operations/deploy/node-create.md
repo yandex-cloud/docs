@@ -41,7 +41,7 @@
         - Ячейка
 
           * В поле **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}** выберите ранее созданную контрольную точку.
-          * В блоках **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** и **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}** определите имена и типы выходных и входных переменных, на основе которых будет автоматически сгенерирован [API](../../../glossary/rest-api.md). Вы можете добавить переменные, нажимая кнопку ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}**.
+          * В блоках **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** и **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}** определите имена и типы выходных и входных переменных, на основе которых будет автоматически сгенерирован [API](../../../glossary/rest-api.md). Вы можете добавить переменные, нажимая кнопку ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}**.
           * (Опционально) Если для выполнения кода ячейки используется [нестандартное окружение](node-customization.md), в блоке **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}** выберите **{{ ui-key.yc-ui-datasphere.new-node.user-custom }}** и укажите:
             * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** — `json_key`.
             * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}** — [секрет](../../concepts/secrets.md) с паролем для вашего реестра контейнеров.
@@ -73,7 +73,7 @@
 
     1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите каталог, в котором будут создаваться новые ресурсы.
     1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите [конфигурацию](../../concepts/configurations.md) вычислительных ресурсов [инстанса](../../concepts/deploy/index.md), [зону доступности](../../../overview/concepts/geo-scope.md) и идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в которых будет размещен инстанс. 
-    1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}** нажмите кнопку ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** и укажите [идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно будет подключаться к ноде. По умолчанию указывается идентификатор каталога пользователя, создающего ноду.
+    1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}** нажмите кнопку ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** и укажите [идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно будет подключаться к ноде. По умолчанию указывается идентификатор каталога пользователя, создающего ноду.
     1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 Чтобы посмотреть все созданные ноды:
@@ -133,10 +133,10 @@
         * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — **{{ ui-key.yc-ui-datasphere.common.cell }}**.
         * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** — имя ноды, например `randomizer-node`.
         * В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** выберите контрольную точку `randomizer-checkpoint`.
-        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** нажмите кнопку ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
+        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** нажмите кнопку ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
           * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}** — `input_data`.
           * **{{ ui-key.yc-ui-datasphere.common.type }}** — `{{ ui-key.yc-ui-datasphere.node-page.type.dict }}`.
-        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}** нажмите кнопку ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
+        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}** нажмите кнопку ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
           * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}** — `output_data`.
           * **{{ ui-key.yc-ui-datasphere.common.type }}** — `{{ ui-key.yc-ui-datasphere.node-page.type.dict }}`.
     1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите свой каталог.

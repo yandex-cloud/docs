@@ -21,7 +21,7 @@ These load balancers operate similarly, but you should keep the following distin
 | **Load balancer property** | **External** | **Internal** |
 | --- | --- | --- |
 | Listener IP address | [Public](../../vpc/concepts/ips.md) IP addresses only | IP addresses from [RFC-1918](https://www.ietf.org/rfc/rfc1918.txt) only |
-| Blocking the listener target port for traffic on target VMs | blocked | blocked |
+| Blocking the listener target port for traffic on target VMs | active (*) | blocked |
 | Blocking the listener target port for health checks on target VMs | active | blocked |
 | Locality in traffic processing | - | [specifics apply](./specifics.md#nlb-int-locality) |
 | Use of static routes | - | [specifics apply](./specifics.md#nlb-int-routing) |
@@ -29,5 +29,4 @@ These load balancers operate similarly, but you should keep the following distin
 Explanation of the table:
 * The VM ports (Target-Port) used to receive traffic from the internal load balancer and health checks become unavailable for connecting.
 The VMs will only receive traffic from the internal load balancer. The same restriction will not allow a VM from the load balancer's target group to access it through the port being used.
-* The VM ports (Target-Port) used to receive traffic from the external load balancer become unavailable for connection. The VMs will only receive traffic from the external load balancer. The same restriction will not allow a VM from the load balancer's target group to access it through the port being used.
-* For example, [in the scheme](./scenarios.md#nlb-vm), port `8080` of <q>Listener-2</q> for the `vm-a2` and `vm-b2` VMs will be blocked for connection from cloud resources in the 10.0.1.0/24 and 10.0.2.0/24 subnets, respectively.
+* (*) A VM from the load balancer's target group cannot access itself through the target port.

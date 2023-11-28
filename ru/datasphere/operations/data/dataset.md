@@ -188,17 +188,17 @@
 Чтобы активировать датасет:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/datasphere/dataset.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
-1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.activate}}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
+1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.activate}}**.
 
 ## Посмотреть список датасетов, доступных в проекте {#list}
 
-На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Затем перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
+На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Затем перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
 
 ## Поделиться датасетом {#share}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. Выберите нужный датасет в списке.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
 1. Включите опцию видимости напротив названия сообщества, с которым нужно поделиться датасетом.
@@ -213,5 +213,5 @@
 
 Чтобы удалить датасет:
 
-1. На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
-1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.

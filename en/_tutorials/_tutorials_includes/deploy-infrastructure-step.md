@@ -15,22 +15,25 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
      }
 
      backend "s3" {
-       endpoint   = "{{ s3-storage-host }}"
-       bucket     = "<bucket name>"
-       region     = "{{ region-id }}"
-       key        = "<path to state file in the bucket>/<state file name>.tfstate"
-       access_key = "<static key ID>"
-       secret_key = "<secret key>"
+       endpoints = {
+         s3 = "{{ s3-storage-host }}"
+       }
+       bucket = "<bucket_name>"
+       region = "{{ region-id }}"
+       key    = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
 
        skip_region_validation      = true
        skip_credentials_validation = true
+       skip_requesting_account_id  = true # This option is required to describe backend for {{ TF }} version 1.6.1 or higher.
+       skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
+
      }
    }
 
    provider "yandex" {
-     token     = "<OAuth or static key of the service account>"
-     cloud_id  = "<cloud ID>"
-     folder_id = "<folder ID>"
+     token     = "<OAuth_or_IAM_token>"
+     cloud_id  = "<cloud_ID>"
+     folder_id = "<folder_ID>"
      zone      = "{{ region-id }}-a"
    }
 
@@ -58,7 +61,7 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       ssh-keys = "ubuntu:${file("<path_to_public_SSH_key>")}"
      }
    }
 
@@ -82,7 +85,7 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       ssh-keys = "ubuntu:${file("<path_to_public_SSH_key>")}"
      }
    }
 
@@ -120,5 +123,12 @@ The VMs will have different vCPU and RAM configurations: 1 vCPU and 2 GB of RAM 
 
 
 
+   Where:
+
+   * `token`: OAuth token for a Yandex account or an IAM token for a federated account.
+   * `bucket`: Bucket name.
+   * `key`: Bucket object key (path and name to the {{ TF }} state file in the bucket).
+   * `ssh-keys`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
 1. Check the configuration using the `terraform plan` command.
-1. Expand the configuration using the `terraform apply` command.
+1. Deploy the configuration using the `terraform apply` command.

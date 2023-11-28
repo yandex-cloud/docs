@@ -243,7 +243,7 @@ If disk encryption is required, place your application files on a VM's secondary
 
 **Guides and solutions to use:**
 
-[VM disk encryption using {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM).
+[VM disk encryption using {{ kms-short-name }}](https://github.com/yandex-cloud-examples/yc-encrypt-vm-disk-with-kms).
 
 #### 4.7 For critical data, MDB encryption with {{ kms-short-name }} is used {#self-data-kms}
 

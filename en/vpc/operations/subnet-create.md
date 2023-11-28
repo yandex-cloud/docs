@@ -72,8 +72,9 @@
 
       Where:
 
-      * `--network-id` is the cloud network ID. You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR.
-      * `--zone` is the availability zone where the subnet is created. If this flag is omitted, the subnet is created in the default availability zone.
+      * `--network-id`: Cloud network ID. You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR.
+      * `--zone`: Availability zone where the subnet is created. If this flag is not set, the subnet is created in the default availability zone.
+      * `--range`: List of internal IPv4 addresses defined for this subnet. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is /28, the maximum subnet size is /16. Only IPv4 is supported.
 
       The subnet naming requirements are as follows:
 
@@ -132,10 +133,6 @@
       ...
       ```
 
-- API
-
-   To create a subnet, use the [create](../api-ref/Subnet/create.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Create](../api-ref/grpc/subnet_service.md#Create) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -149,7 +146,7 @@
          {% include [name-format](../../_includes/name-format.md) %}
 
       * `description`: Description of the subnet.
-      * `v4_cidr_blocks`: List of IPv4 addresses to send traffic from or to. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. Minimum subnet size is /28, maximum subnet size is /16. Only IPv4 is supported.
+      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
       * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `network_id`: ID of the network where the subnet is created.
 
@@ -195,6 +192,19 @@
          ```
          yc vpc subnet list
          ```
+
+- API
+
+   To create a subnet, use the [create](../api-ref/Subnet/create.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Create](../api-ref/grpc/subnet_service.md#Create) gRPC API call, and provide the following in the request:
+
+   * ID of the folder where the subnet will be placed, in the `folderId` parameter.
+   * ID of the network where the subnet will be placed, in the `networkId` parameter.
+   * ID of the availability zone where the subnet will be placed, in the `zoneId` parameter.
+   * List of internal IPv4 addresses defined for this subnet, in the `v4CidrBlocks[]` array. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+
+   {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

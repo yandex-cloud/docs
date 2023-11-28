@@ -1,0 +1,1 @@
+To get the security group ID, use the [list](../../vpc/api-ref/SecurityGroup/list) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroup/List](../../vpc/api-ref/grpc/security_group_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.

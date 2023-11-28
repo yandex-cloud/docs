@@ -120,11 +120,11 @@ Before creating a VM:
 1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to the VM via SSH.
 
 Create a VM with the following characteristics:
-* Location: Dedicated host.
-* Platform: Intel Ice Lake.
-* VCPU cores: 64.
+* Location: Dedicated host
+* Platform: Intel Ice Lake
+* VCPU cores: 64
 * RAM: 704 GB
-* Number of local disks: 1.
+* Number of local disks: 1
 * Local disk size: 3198924357632 B (~ 2.91 TB).
 * Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
 
@@ -158,7 +158,7 @@ To do this, follow these steps:
 
    Where:
 
-   * `--cloud-id`: [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md).
+   * `--cloud-id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md).
    * `--folder-id`: ID of the folder.
    * `--zone`: Availability zone where the group of dedicated hosts resides.
    * `--name`: VM name.
@@ -167,10 +167,14 @@ To do this, follow these steps:
    * `--memory`: Amount of RAM.
    * `--host-id`: ID of the dedicated host.
    * `--network-interface`: VM network interface description:
-     * `subnet-id`: ID of the subnet in the availability zone hosting the VM.
+
+      * `subnet-id`: ID of the subnet in the availability zone hosting the VM.
+
    * `--attach-local-disk`: Description of the local disk being attached:
-     * `size`: Disk size.
-   * `--ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key.
+
+      * `size`: Disk size.
+
+   * `--ssh-key`: Path to the public SSH key. The `yc-user` user will be automatically created on the VM for this key.
    * `--create-boot-disk`: Boot disk parameters.
 
    Result:

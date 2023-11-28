@@ -844,6 +844,9 @@ items:
       - name: Field title conflicts with another field
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FIELD-TITLE-CONFLICT.md
+      - name: File check failed
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-UNSUPPORTED_DOCUMENT.md
       - name: Incompatible dimensions
         hidden: true
         href: >-

@@ -101,26 +101,26 @@
 
 ## Загрузите дополнительный контент {#additional-content}
 
-Для удобства пользователей команда безопасности {{ yandex-cloud }} подготовила библиотеку Solution Library — набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}. Библиотека доступна в [публичном репозитории на GitHub](https://github.com/yandex-cloud/yc-solution-library-for-security). Она включает следующие объекты для загрузки в {{ OS }}:
+Для удобства пользователей команда безопасности {{ yandex-cloud }} подготовила библиотеку Solution Library — набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}. Библиотека доступна в [публичном репозитории на GitHub](https://github.com/yandex-cloud-examples/yc-security-solutions-library). Она включает следующие объекты для загрузки в {{ OS }}:
 
 * дашборд с вариантами использования и статистикой;
 * набор готовых запросов для поиска событий безопасности;
 * примеры событий, на которые предварительно настроены оповещения (назначение уведомлений клиент указывает самостоятельно).
 
-Все необходимые поля событий преобразованы в формат [Elastic Common Schema (ECS)]({{ links.es.docs }}/ecs/current/index.html), а полная таблица маппинга находится в [документе {{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/papers/Описание%20объектов.pdf).
+Все необходимые поля событий преобразованы в формат [Elastic Common Schema (ECS)]({{ links.es.docs }}/ecs/current/index.html), а полная таблица маппинга находится в [документе {{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/papers/Описание%20объектов.pdf).
 
 Чтобы воспользоваться Security Content:
 
 1. Клонируйте репозиторий {{ yandex-cloud }} Security Solution Library:
 
     ```bash
-    git clone https://github.com/yandex-cloud/yc-solution-library-for-security.git
+    git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch.git
     ```
 
 1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../managed-opensearch/operations/connect.md#dashboards).
 1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. В разделе **Management** выберите **Stack Management**.
-1. Перейдите в раздел **Saved Objects** и импортируйте файлы из каталога `yc-solution-library-for-security/auditlogs/export-auditlogs-to-Opensearch/update-opensearch-scheme/content-for-transfer/`:
+1. Перейдите в раздел **Saved Objects** и импортируйте файлы из каталога `yc-export-auditlogs-to-opensearch/update-opensearch-scheme/content-for-transfer/`:
 
     * `dashboard.ndjson`
     * `filters.ndjson`
@@ -154,8 +154,8 @@
 1. В разделе **OpenSearch Plugins** выберите **Alerting**.
 1. Скопируйте содержимое файлов примеров в окно создания:
 
-    * [monitor.json](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-Opensearch/update-opensearch-scheme/content-for-transfer/monitor.json)
-    * [trigger_action_example.json](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-Opensearch/update-opensearch-scheme/content-for-transfer/trigger_action_example.json)
+    * [monitor.json](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch/blob/main/update-opensearch-scheme/content-for-transfer/monitor.json)
+    * [trigger_action_example.json](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch/blob/main/update-opensearch-scheme/content-for-transfer/trigger_action_example.json)
 
 ## Удалите созданные ресурсы {#clear-out}
 

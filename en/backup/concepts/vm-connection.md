@@ -2,7 +2,7 @@
 
 To back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/concepts/vm.md) using {{ backup-name }}, you need to connect it to this service and set it up properly.
 
-To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed: Linux (CentOS, Ubuntu) or Windows Server. You can connect existing Linux and Windows Server VMs or create a Linux VM with a connection to {{ backup-name }}. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
+To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
 
 For connections to work properly, link a [service account](#sa) with the `backup.editor` role to your VM or set up [network access](#vm-network-access) for the VM.
 
@@ -10,12 +10,43 @@ Once you have connected your VM to {{ backup-name }} and set it up, you need to 
 
 ## Supported operating systems {#os}
 
-{{ backup-name }} supports backing up VMs running the following operating systems:
-* Ubuntu 20.04 or lower
-* CentOS 7
-* Windows Server 2019 and 2022
+You can automatically install the {{ backup-name }} agent when creating a VM from {{ marketplace-full-name }} images:
+
+### Linux-based images {#linux}
+
+* [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)
+* [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts)
+* [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-26-04-lts)
+* [CentOS 7](/marketplace/products/yc/centos-7)
+
+### Windows-based images {#windows}
+
+* [Kosmos VM 2022 based on Windows Server 2022 Datacenter](/marketplace/products/fotonsrv/kosmosvm2022)
+* [Kosmos VM 2019 based on Windows Server 2019 Datacenter](/marketplace/products/fotonsrv/kosmosvm2019)
+* [Kosmos VM 2016 on Windows Server 2016 Datacenter](/marketplace/products/fotonsrv/kosmosvm2016)
+* [Kosmos VM RDS (5 licenses)](/marketplace/products/fotonsrv/kos-5-rds)
+* [Kosmos VM RDS (10 licenses)](/marketplace/products/fotonsrv/kos-10-rds)
+* [Kosmos VM RDS (50 licenses)](/marketplace/products/fotonsrv/kos-50-rds)
+* [Kosmos BD WEB 2019](/marketplace/products/fotonsrv/kosmosbdweb2019)
+* [Kosmos BD Standard 2019](/marketplace/products/fotonsrv/kosmosbdstd2019)
+* [Kosmos VM Visio Pro 2021](/marketplace/products/fotonsrv/kosmosvisio)
+
+{% note info %}
 
 Install Ubuntu or CentOS from a public image (a {{ marketplace-full-name }} product). When creating a VM, you can select the OS directly or use an [image](../../compute/concepts/image.md) or [disk snapshot](../../compute/concepts/snapshot.md) from a different VM if its OS was also installed from a public image.
+
+{% endnote %}
+
+### Installing the agent on your own {#self-install}
+
+You can install the {{ backup-name }} agent yourself:
+
+* [Guide for Linux](../operations/connect-vm-linux.md)
+* [Guide for Windows](../operations/connect-vm-windows.md)
+
+For a complete list of supported operating systems, see the [backup provider documentation](https://cyberprotect.ru/ru-RU/support/documentation/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html?TocPath=%25D0%25A2%25D1%2580%25D0%25B5%25D0%25B1%25D0%25BE%25D0%25B2%25D0%25B0%25D0%25BD%25D0%25B8%25D1%258F%2520%25D0%25BA%2520%25D0%25BF%25D1%2580%25D0%25BE%25D0%25B3%25D1%2580%25D0%25B0%25D0%25BC%25D0%25BC%25D0%25BD%25D0%25BE%25D0%25BC%25D1%2583%2520%25D0%25BE%25D0%25B1%25D0%25B5%25D1%2581%25D0%25BF%25D0%25B5%25D1%2587%25D0%25B5%25D0%25BD%25D0%25B8%25D1%258E%257C_____2).
+
+If you have issues while installing the agent, [contact]({{ link-console-support }}) support.
 
 Going forward, {{ backup-name }} will support Ubuntu 22.04.
 

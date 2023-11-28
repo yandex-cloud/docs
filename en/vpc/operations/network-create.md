@@ -81,10 +81,6 @@ In addition to the cloud network in the default folder, you can create cloud net
         description: Auto-created default network
       ```
 
-- API
-
-   To create a [cloud network](../concepts/network.md), use the [create](../api-ref/Network/create.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Create](../api-ref/grpc/network_service.md#Create) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -141,6 +137,18 @@ In addition to the cloud network in the default folder, you can create cloud net
          ```
          yc vpc network list
          ```
+
+- API
+
+   To create a [cloud network](../concepts/network.md), use the [create](../api-ref/Network/create.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Create](../api-ref/grpc/network_service.md#Create) gRPC API call, and provide the following in the request:
+
+    * ID of the folder where the network will be placed, in the `folderId` parameter.
+    * Name of the new network, in the `name` parameter. The name must be from 3 to 63 characters long, the last character cannot be a hyphen.
+    * Network description in the `description` parameter. The description may be up to 256 characters long.
+
+   The `name` and `description` parameters are optional: you can create a network without any name or description and access it by its ID.
+
+   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

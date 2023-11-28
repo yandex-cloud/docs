@@ -23,7 +23,7 @@
 Администратор сообщества может изменить платежный аккаунт, который используется для оплаты проектов и ресурсов сообщества.
 
 1. На странице сообщества перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
-1. В разделе **{{ ui-key.yc-ui-datasphere.common.billing }}**, нажмите **![pencil](../../../_assets/pencil.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. В разделе **{{ ui-key.yc-ui-datasphere.common.billing }}**, нажмите **![pencil](../../../_assets/console-icons/pencil.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Выберите существующий платежный аккаунт или создайте новый, следуя подсказкам в интерфейсе.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.link }}**.
 
