@@ -19,42 +19,45 @@ description: "Асинхронное распознавание позволяе
 
 {% include [async-stt-modes](../../_includes/speechkit/async-modes.md) %}
 
-## Как распознается длинное аудио {#long-audio-recognition}
+## Как асинхронно распознать предзаписанное аудио {#async-recognition}
 
-Для асинхронного распознавания речи используется API v2 {{ speechkit-name }}. Чтобы распознать длинное аудио, нужно выполнить два запроса:
+Для асинхронного распознавания речи используется API v2 {{ speechkit-name }}. Чтобы распознать предзаписанное аудио:
 
-1. Отправить файл на распознавание.
-1. Получить результаты распознавания.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
+1. [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
 
-Запросы отправляются от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому назначены роли на каталог:
+   * `{{ roles-speechkit-stt }}` — для распознавания речи;
+   * `storage.uploader` — для загрузки аудиофайла в [бакет {{ objstorage-full-name }}](../../storage/concepts/bucket.md);
+   * (Опционально) `storage.configurer`, `kms.keys.encrypter` и `kms.keys.decrypter` — для шифрования и расшифровки объектов в бакете. Эти роли нужны, только если вы используете [шифрование в {{ objstorage-name }}](../../storage/concepts/encryption.md).
 
-* `{{ roles-speechkit-stt }}` — для распознавания речи.
-* `storage.uploader` — для загрузки аудиофайла в [бакет {{ objstorage-full-name }}](../../storage/concepts/bucket.md).
-* `storage.configurer`, `kms.keys.encrypter` и `kms.keys.decrypter` — для шифрования и расшифровки объектов в бакете. Эти роли нужны, только если вы используете [шифрование в {{ objstorage-name }}](../../storage/concepts/encryption.md).
+1. Получите [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../iam/operations/api-key/create.md) для вашего сервисного аккаунта, они понадобятся для авторизации в API.
+1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
+1. [Загрузите аудиофайл в бакет](../../storage/operations/objects/upload.md).
+1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на загруженный файл.
 
-Для авторизации в HTTP-заголовках запроса передаются [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../iam/concepts/authorization/api-key.md) для сервисного аккаунта:
+   Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
 
-* IAM-токен: `Authorization: Bearer <IAM-токен>`;
-* API-ключ: `Authorization: Api-Key <API-ключ>`.
+1. [Отправьте API-запрос на распознавание файла](api/transcribation-api.md#sendfile). В теле запроса передайте ссылку на аудиофайл. В HTTP-заголовке укажите данные авторизации:
 
-Аудиофайл для распознавания [загружается](../../storage/operations/objects/upload.md) в бакет {{ objstorage-name }}. Для передачи этого файла в теле запроса используется [ссылка на файл](../../storage/operations/objects/link-for-download.md). Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
+   * `Authorization: Bearer <IAM-токен>` — для авторизации с IAM-токеном;
+   * `Authorization: Api-Key <API-ключ>` — для авторизации с API-ключом.
 
-После отправки [запроса на распознавание речи](api/transcribation-api.md#sendfile) в ответе сервис возвращает идентификатор операции распознавания. Он используется в [запросе на получение результатов распознавания](api/transcribation-api#get-result).
+   В ответе на запрос возвращается идентификатор операции распознавания. Сохраните его — он понадобится в следующем запросе.
 
-{% note warning %}
+   {% note warning %}
 
-Результаты хранятся на сервере {{ stt-long-resultsStorageTime }}. После этого вы не сможете запросить результаты распознавания, используя полученный идентификатор.
+   Результаты хранятся на сервере {{ stt-long-resultsStorageTime }}. После этого вы не сможете запросить результаты распознавания, используя полученный идентификатор.
 
-{% endnote %}
+   {% endnote %}
 
-Результаты содержат распознанный текст целиком и список распознанных слов.
+1. Подождите, пока закончится распознавание. Одна минута одноканального аудио распознается примерно за 10 секунд.
+1. [Отправьте API-запрос на получение результатов распознавания](api/transcribation-api.md#get-result). В HTTP-заголовке укажите те же данные авторизации.
+
+   Результаты содержат распознанный текст целиком и список распознанных слов.
 
 
-#### См. также {#see-also}
+## Примеры использования API асинхронного распознавания {#examples}
 
-О том, как использовать API асинхронного распознавания речи, читайте в разделах:
-
-* [{#T}](api/transcribation-api.md).
 * [{#T}](api/transcribation-lpcm.md).
 * [{#T}](api/transcribation-ogg.md).
 * [{#T}](api/batch-transcribation.md).

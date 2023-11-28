@@ -40,7 +40,6 @@
 со следующими параметрами:
 
 client: ООО "Мое дело" 
-cloud-id: b1g8dn6s3v2eiid9dbci
 folder-id: b1g28j9359gic3p2gca2
 точка присутствия: M9
 тип трансивера: 10GBASE-LR
@@ -56,7 +55,6 @@ folder-id: b1g28j9359gic3p2gca2
 Где:
 
 * `client` — название компании клиента.
-* `cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), к ресурсам которого будет подключаться {{ interconnect-name }}.
 * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в который будут отправляться метрики мониторинга {{ interconnect-name }}.
 * `точка присутствия` — [код точки присутствия](../../interconnect/concepts/pops.md).
 * `тип трансивера` — [тип трансивера](../../interconnect/concepts/transceivers.md) для подключения кроссировки.

@@ -160,7 +160,7 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
 
    | **Variable** | **Its value** |
    | --------------------- | ---------------------------------- |
-   | `CI_REGISTRY` | `cr.yandex/<registry ID>`. Specify the ID of the {{ container-registry-full-name }} registry that you created previously. |
+   | `CI_REGISTRY` | `cr.yandex/<registry_ID>`. Specify the ID of the {{ container-registry-full-name }} registry that you created previously. |
    | `CI_REGISTRY_KEY` | Contents of the `key.json` file. |
 
    To add a variable:
@@ -240,7 +240,7 @@ To detect vulnerabilities in your Docker images, you can additionally activate 
 To enable scanning, expand your {{ GL }} project's CI script:
 
 1. Open the project.
-1. On the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
+1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
 1. Open the `.gitlab-ci.yml` file.
 1. Add to it the steps for vulnerability scanning of your Docker image:
 
@@ -251,7 +251,7 @@ To enable scanning, expand your {{ GL }} project's CI script:
       - build
       - test
 
-   <the build section that you previously added to the file>
+   <the_build_section_that_you_previously_added_to_the_file>
 
    container_scanning_free_yc:
       stage: test
@@ -265,7 +265,7 @@ To enable scanning, expand your {{ GL }} project's CI script:
             - gl-container-scanning-report-yc.json
       variables:
          # Specify the ID of the registry that you created previously.
-         CI_REGISTRY_ID: "< registry ID>"
+         CI_REGISTRY_ID: "< registry_ID>"
       script:
          - export CI_COMMIT_SHORT_SHA=${CI_COMMIT_SHORT_SHA}
          # Install Yandex Cloud CLI.
@@ -325,7 +325,7 @@ Delete the other resources, depending on the method used to create them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `container-registry-and-gitlab.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

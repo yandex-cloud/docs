@@ -25,6 +25,12 @@ For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-
 
 ## General API request format {#common-request-form}
 
+{% note info %}
+
+To access the S3 API from {{ objstorage-name }}, we recommend the [AWS CLI](../tools/aws-cli.md) or [AWS SDK](../tools/sdk/index.md) suitable for your development environment.
+
+{% endnote %}
+
 General {{ objstorage-name }} API request format:
 
 ```

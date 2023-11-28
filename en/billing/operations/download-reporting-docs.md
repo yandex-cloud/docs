@@ -35,6 +35,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     1. Open the **{{ ui-key.yacloud.billing.account.tab_reconciliation-reports-title }}** tab.
     1. Click **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report }}**. In the window that opens, select the period to generate the reconciliation report for and click **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report-short }}**.
     1. Once the request status changes to **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **{{ ui-key.yacloud.billing.account.reconciliation-reports.field_actions }}** column. Select **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
+   1. Click the button with the selected download type. The document will open in a new window and become available for saving.
 
        {% cut "Exchanging original documents" %}
 
@@ -73,6 +74,8 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     ### Electronic invoice {#electronic-invoice}
 
     Electronic invoices (e-invoices) are transmitted to the [Information system for receiving and processing e-invoices](https://esf.gov.kz:8443/esf-web/login) within 15 calendar days of the turnover date.
+
+    
 
 - Individuals
 

@@ -1,6 +1,6 @@
 # Creating an instance group in a placement group
 
-You can create an [instance group](../../concepts/instance-groups/index.md) in a placement group.
+You can create an [instance group](../../concepts/instance-groups/index.md) in a [placement group](../../concepts/placement-groups.md).
 
 {% list tabs %}
 
@@ -16,26 +16,9 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
       yc compute placement-group create --help
       ```
 
-   1. Create a placement group:
+   1. Create a placement group in the default folder with one of the placement strategies:
 
-      ```bash
-      yc compute placement-group create --spread-strategy --name my-group
-      ```
-
-      Result:
-
-      ```bash
-      id: fdvte50kv3nc********
-      folder_id: aoeieef3k7pp********
-      created_at: "2019-12-20T08:59:44Z"
-      name: my-group
-      spread_placement_strategy: {}
-      ```
-
-      This command creates a placement group with the following characteristics:
-
-      * Name: `my-group`
-      * Placement strategy: `spread`
+      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
 
    1. View a description of the CLI command to create an instance group:
 
@@ -43,13 +26,13 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
       {{ yc-compute-ig }} create --help
       ```
 
-   1. Check whether there are [networks](../../../vpc/concepts/network.md#network) in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+   1. Make sure the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) contains at least one [network](../../../vpc/concepts/network.md#network):
 
       ```bash
       yc vpc network list
       ```
 
-      If there are not any, [create one](../../../vpc/operations/network-create.md).
+      If there are none, [create one](../../../vpc/operations/network-create.md).
 
    1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 

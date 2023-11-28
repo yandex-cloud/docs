@@ -58,10 +58,6 @@ To delete a security group:
       yc vpc security-group delete test-sg-cli
       ```
 
-- API
-
-   Use the [delete](../api-ref/SecurityGroup/delete.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -136,5 +132,13 @@ To delete a security group:
       ```
       yc vpc security-group list
       ```
+
+- API
+
+   Use the [delete](../api-ref/SecurityGroup/delete.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete) gRPC API call, and provide the ID of the security group you want to to delete in the `securityGroupId` request parameter.
+
+   {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
+
+   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

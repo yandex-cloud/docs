@@ -8,7 +8,7 @@ description: "Следуя данной инструкции, вы сможет�
 Чтобы изменить [алиас](../../concepts/deploy/index.md#alias):
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.common.alias }}**.
-1. Напротив нужного алиаса нажмите ![Options](../../../_assets/options.svg) и выберите ![Edit](../../../_assets/datasphere/edit.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Напротив нужного алиаса нажмите ![Options](../../../_assets/console-icons/ellipsis.svg) и выберите ![Edit](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Измените параметры алиаса:
     * [Ноды](../../concepts/deploy/index.md#node), на которые перенаправляться запросы к алиасу.
     * Процент запросов, который перенаправляться к каждой ноде. 

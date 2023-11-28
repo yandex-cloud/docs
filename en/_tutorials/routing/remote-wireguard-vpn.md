@@ -15,7 +15,7 @@ Notes to the chart elements:
 | Keycloak VM | Open-source [Keycloak](https://www.keycloak.org/) software for user single sign-on authentication in a corporate user identity federation, such as Active Directory |
 
 
-For more information, see the [project repository](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/remote-access-vpn/README.md).
+For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone/blob/main/README.md).
 
 To set up Firezone and test it:
 
@@ -160,14 +160,14 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 
 ## Deploy Firezone and Keycloak {#deploy-firezone}
 
-1. On your workstation, clone the `yandex-cloud/yc-solution-library-for-security` [repository](https://github.com/yandex-cloud/yc-solution-library-for-security/) from GitHub and go to the `remote-access-vpn` script directory:
+1. On your workstation, clone the `yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone` [repository](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone) from the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) and go to the `yc-remote-acess-vpn-with-wireguard-firezone` script directory:
    ```bash
-   git clone https://github.com/yandex-cloud/yc-solution-library-for-security.git
+   git clone https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone.git
 
-   cd yc-solution-library-for-security/network-sec/remote-access-vpn
+   cd yc-remote-acess-vpn-with-wireguard-firezone
    ```
 
-1. Edit the `output.tf` file in the `settings` directory, specifying the parameters of the deployed resources:
+1. Edit the `outputs.tf` file in the `settings` directory, specifying the parameters of the deployed resources:
 
    * In the `domain` section, specify your domain name (first- or second-level, dot-separated) for the Firezone and Keycloak VMs. In this example, we use `example.com` as domain.
    * In the `folder_id` section, specify the ID of the folder to host your resources, such as `b1grj7grr1kn********`.

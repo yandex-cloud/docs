@@ -31,9 +31,9 @@ The following options of pipeline usage are available for your projects:
 
 ## Extra materials {#additional-content}
 
-See examples of pipeline security prepared as part of [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security):
-* [Detecting vulnerabilities in CI/CD (`Ultimate` license)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/secure_ci_cd/secure_ci_cd_with_webinar/ultimate_secure_ci_cd).
-* [Detecting vulnerabilities in CI/CD (`Free` license)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/secure_ci_cd/secure_ci_cd_with_webinar/free_secure_ci_cd).
+See examples of pipeline security prepared as part of [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library):
+* [Detecting vulnerabilities in CI/CD (`Ultimate` license)](https://github.com/yandex-cloud-examples/yc-webinar-secure-cicd-with-gitlab/tree/main/ultimate_secure_ci_cd).
+* [Detecting vulnerabilities in CI/CD (`Free` license)](https://github.com/yandex-cloud-examples/yc-webinar-secure-cicd-with-gitlab/tree/main/free_secure_ci_cd).
 
 ## Recommendations on security settings for a {{ GL }} instance {#secure-instance}
 

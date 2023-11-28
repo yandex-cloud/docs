@@ -9,9 +9,9 @@ The solution described in the tutorial follows the procedure below:
 1. A [bucket](../../storage/concepts/bucket.md) is mounted via a [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) interface to a folder on an intermediate VM.
 1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) collects logs from the folder and delivers them to ArcSight for analysis.
 
-For more information about the scripts for uploading audit logs to ArcSight, see [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight#two-log-shipping-scenarios).
+For more information about the scripts for uploading audit logs to ArcSight, see [solution](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight#two-log-shipping-scenarios) from the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library).
 
-{% include [Yc-solution-library-for-security](../../_includes/security-solution-library.md) %}
+{% include [Yc-security-solutions-library](../../_includes/security-solution-library.md) %}
 
 To configure delivery of audit log files to ArcSight:
 
@@ -354,7 +354,7 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 1. On the intermediate VM, [install](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_smartconn_install/) `ArcSight SmartConnector`:
    1. When installing it, select **ArcSight FlexConnector JSON Folder Follower** and specify the path to the `mybucket` folder.
    1. Specify **JSON configuration filename prefix**: `yc`.
-1. [Download](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight/arcsight_content) the `arcsight_content` files.
+1. [Download](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight/tree/main/arcsight_content) the `arcsight_content` files.
 1. Copy the `yc.jsonparser.properties` file from the `flex` folder to the `<agent_installation_folder>/current/user/agent/flexagent` folder.
 1. Copy the `map.0.properties` file from the `flex` folder to the `<agent_installation_folder>/current/user/agent/map` folder.
 1. Edit the file `<agent_installation_folder>/current/user/agent/agent.properties`:

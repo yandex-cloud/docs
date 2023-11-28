@@ -8,8 +8,8 @@
 1. Задайте параметры алиаса:
     * В поле **{{ ui-key.yc-ui-datasphere.common.name }}** укажите имя алиаса.
     * В поле **{{ ui-key.yc-ui-datasphere.common.prefix }}** выберите доступный префикс алиаса.
-    * В блоке **{{ ui-key.yc-ui-datasphere.new-alias.field.label-nodes }}** выберите ноду, на которую будут перенаправляться запросы к алиасу. Укажите процент запросов, который будет перенаправляться к ноде. Чтобы добавить еще одну ноду нажмите ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-alias.add-new }}**.
-    * (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-alias.field.label-metadata }}** нажмите ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-alias.add-new }}** и укажите метаданные алиаса в формате ключ-значение.
+    * В блоке **{{ ui-key.yc-ui-datasphere.new-alias.field.label-nodes }}** выберите ноду, на которую будут перенаправляться запросы к алиасу. Укажите процент запросов, который будет перенаправляться к ноде. Чтобы добавить еще одну ноду нажмите ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-alias.add-new }}**.
+    * (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-alias.field.label-metadata }}** нажмите ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-alias.add-new }}** и укажите метаданные алиаса в формате ключ-значение.
     * В блоке **{{ ui-key.yc-ui-datasphere.common.folder }}** выберите каталог, в котором будут создаваться новые ресурсы.
     * В блоке **{{ ui-key.yc-ui-datasphere.new-alias.field.label-acl }}** выберите **{{ ui-key.yc-ui-datasphere.common.type }}** — **{{ ui-key.yc-ui-datasphere.alias.public }}** или **{{ ui-key.yc-ui-datasphere.alias.private }}**.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.save }}**.

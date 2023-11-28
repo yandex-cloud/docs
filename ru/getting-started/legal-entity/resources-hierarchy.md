@@ -56,7 +56,7 @@
 - Консоль управления
 
   1. Выберите каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).
-  1. Нажмите значок ![image](../../_assets/options.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Введите новое имя каталога.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
@@ -130,7 +130,7 @@
 
   1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-  1. Выберите каталог в блоке **{{ ui-key.yacloud.iam.users.label_folders-roles }}** и нажмите значок ![image](../../_assets/plus-sign.svg).
+  1. Выберите каталог в блоке **{{ ui-key.yacloud.iam.users.label_folders-roles }}** и нажмите значок ![image](../../_assets/console-icons/plus.svg).
   1. Выберите необходимую роль из списка.
 
 - CLI

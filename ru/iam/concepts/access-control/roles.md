@@ -50,7 +50,11 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ alb-full-name }} {#alb-roles}
 
+{% include [roles-alb-auditor](../../../_includes/roles-alb-auditor.md) %}
+
 {% include [roles-alb-viewer](../../../_includes/roles-alb-viewer.md) %}
+
+{% include [roles-alb-user](../../../_includes/roles-alb-user.md) %}
 
 {% include [roles-alb-editor](../../../_includes/roles-alb-editor.md) %}
 

@@ -159,7 +159,7 @@ The infrastructure support cost for this scenario includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -219,7 +219,7 @@ The infrastructure support cost for this scenario includes:
 
       ```
       resource "yandex_iam_service_account_key" "sa-auth-key" {
-        service_account_id = "<sa-function service account ID>"
+        service_account_id = "<sa-function_service_account_ID>"
         key_algorithm      = "RSA_2048"
       }
       ```
@@ -235,7 +235,7 @@ The infrastructure support cost for this scenario includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -293,7 +293,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 1. Edit the `.env` file:
 
    * `ENDPOINT`: First part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
-   * `DATABASE`: Second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+   * `DATABASE`: Second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
    * `FUNCTION_NAME`: `func-test-ydb`.
    * `FOLDER_ID`: Folder ID.
    * `SERVICE_ACCOUNT_ID`: ID of the `sa-function` service account.
@@ -363,7 +363,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
    1. Select the `func-test-ydb` function.
    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}** tab.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.
-   1. In the browser address bar, add the `api_key` parameter to the link, such as `?api_key=b95`:
+   1. In your browser address bar, add the `api_key` parameter to the link, such as `?api_key=b95`:
 
       ```
       https://functions.yandexcloud.net/efghm9el0ja9********?api_key=b95

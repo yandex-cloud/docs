@@ -52,6 +52,8 @@
      * Значение по умолчанию — 1, для подключения к серийной консоли Linux параметр указывать необязательно.
      * При подключении к серийной консоли Windows (SAC) передайте значение 2.
    * `ssh-key` — опциональный параметр. Путь к закрытому ключу для [SSH-доступа](../../../glossary/ssh-keygen.md) к ВМ на базе Linux, который нужно добавить в [метаданные](../../concepts/vm-metadata.md). Если параметр не указан, будет сгенерирован SSH-ключ `yc_serialssh_key`.
+     
+     {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
 ### Решение проблем {#troubleshooting}
 

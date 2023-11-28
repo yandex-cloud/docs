@@ -23,10 +23,6 @@ After creating a security group, you can change its name and description, and [a
    yc vpc security-group update <group ID> --new-name test-sg-renamed
    ```
 
-- API
-
-   To change the security group name or description, use the [update](../api-ref/SecurityGroup/update.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -86,5 +82,21 @@ After creating a security group, you can change its name and description, and [a
       ```
       yc vpc security-group get <security group name>
       ```
+
+- API
+
+   To change the security group name or description, use the [update](../api-ref/SecurityGroup/update.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update) gRPC API call, and provide the following in the request:
+
+   * ID of the security group you want to update, in the `securityGroupIds` parameter.
+
+      {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
+
+      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+   * New security group name, in the `name` parameter.
+   * New security group description, in the `description` parameter.
+   * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

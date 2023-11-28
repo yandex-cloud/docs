@@ -36,9 +36,9 @@ description: "Из статьи вы узнаете, какие меры без�
 
 ## Дополнительные материалы {#additional-content}
 
-Изучите примеры безопасности пайплайна, подготовленные в рамках [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security):
-* [Обнаружение уязвимостей в CI/CD (тип лицензии `Ultimate`)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/secure_ci_cd/secure_ci_cd_with_webinar/ultimate_secure_ci_cd).
-* [Обнаружение уязвимостей в CI/CD (тип лицензии `Free`)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/secure_ci_cd/secure_ci_cd_with_webinar/free_secure_ci_cd).
+Изучите примеры безопасности пайплайна, подготовленные в рамках [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library):
+* [Обнаружение уязвимостей в CI/CD (тип лицензии `Ultimate`)](https://github.com/yandex-cloud-examples/yc-webinar-secure-cicd-with-gitlab/tree/main/ultimate_secure_ci_cd).
+* [Обнаружение уязвимостей в CI/CD (тип лицензии `Free`)](https://github.com/yandex-cloud-examples/yc-webinar-secure-cicd-with-gitlab/tree/main/free_secure_ci_cd).
 
 ## Рекомендации по настройке безопасности инстанса {{ GL }} {#secure-instance}
 

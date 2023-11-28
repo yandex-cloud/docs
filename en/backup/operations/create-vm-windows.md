@@ -1,6 +1,6 @@
 # Creating a Windows Server VM with a connection to {{ backup-name }}
 
-{{ backup-name }} supports backing up [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Windows Server 2019 and 2022. For more information, see [{#T}](../concepts/vm-connection.md#os).
+You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Windows-based operating systems](../concepts/vm-connection.md#windows).
 
 ## Getting started {#before-you-begin}
 

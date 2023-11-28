@@ -58,10 +58,6 @@ You cannot restore a network after it is deleted.
       yc vpc network delete test-network-1
       ```
 
-- API
-
-   To delete a [cloud network](../concepts/network.md), use the [delete](../api-ref/Network/delete.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Delete](../api-ref/grpc/network_service.md#Delete) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -124,5 +120,13 @@ You cannot restore a network after it is deleted.
       ```
       yc vpc network list
       ```
+
+- API
+
+   To delete a [cloud network](../concepts/network.md), use the [delete](../api-ref/Network/delete.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Delete](../api-ref/grpc/network_service.md#Delete) gRPC API call, and provide the ID of the cloud network to be deleted, in the `networkId` request parameter.
+
+   {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
+
+   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

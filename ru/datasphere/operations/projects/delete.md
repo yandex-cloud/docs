@@ -11,7 +11,7 @@ description: "Из статьи вы узнаете, как удалить но�
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. Нажмите **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}**.
 1. На панели слева нажмите правой кнопкой мыши на имя ноутбука, который вы хотите удалить.
-1. Выберите ![image](../../../_assets/cross.svg) **Delete** и в открывшемся окне нажмите кнопку **Delete**.
+1. Выберите ![image](../../../_assets/console-icons/xmark.svg) **Delete** и в открывшемся окне нажмите кнопку **Delete**.
 
 ## Удалить проект {#delete-project}
 
@@ -23,5 +23,5 @@ description: "Из статьи вы узнаете, как удалить но�
 
 Чтобы удалить проект:
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
-1. В правом верхнем углу экрана нажмите **{{ ui-key.yc-ui-datasphere.common.more }}** и выберите ![image](../../../_assets/datasphere/basket.svg) **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. В правом верхнем углу экрана нажмите **{{ ui-key.yc-ui-datasphere.common.more }}** и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. В открывшемся окне нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.delete }}**.

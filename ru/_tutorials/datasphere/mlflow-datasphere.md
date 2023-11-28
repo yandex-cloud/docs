@@ -42,7 +42,7 @@
 
 - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например, `data-folder`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -75,7 +75,7 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Выберите сервисный аккаунт `datasphere-sa`.
-  1. На верхней панели нажмите кнопку ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
+  1. На верхней панели нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ. После закрытия диалога значение ключа будет недоступно.
@@ -312,7 +312,7 @@
 ## Создайте секреты {#create-secrets}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета — `MLFLOW_S3_ENDPOINT_URL`.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** вставьте адрес — `https://storage.yandexcloud.net/`.

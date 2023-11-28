@@ -14,9 +14,9 @@
 * набор данных `Saved Queries` для поиска событий безопасности;
 * набор правил корреляции `Detection Rules`, на которые предварительно настроены оповещения.
 
-Все [исходные файлы](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s) для решения находятся в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security).
+Все [исходные файлы](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk) для решения находятся в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library).
 
-{% include [Yc-solution-library-for-security](../_includes/security-solution-library.md) %}
+{% include [Yc-security-solutions-library](../_includes/security-solution-library.md) %}
 
 Чтобы использовать решение для логов не только облака, но и организации или каталога, создайте трейл по инструкции для [организации](../audit-trails/operations/export-organization-bucket.md) или [каталога](../audit-trails/operations/export-folder-bucket.md).
 
@@ -281,7 +281,7 @@
 
 {% note info %}
 
-Вы также можете развернуть необходимое окружение с помощью {{ TF }}. См. [пример файла конфигурации](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/terraform/example/main.tf).
+Вы также можете развернуть необходимое окружение с помощью {{ TF }}. См. [пример файла конфигурации](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/terraform/example/main.tf).
 
 {% endnote %}
 
@@ -324,14 +324,14 @@
 
 - {{ TF }}
 
-   1. Скачайте директорию с [модулями {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main/terraform/modules):
+   1. Скачайте директорию с [модулями {{ TF }}](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/tree/main/terraform/modules):
       * `yc-managed-elk` создает кластер {{ ES }} и назначает пароль пользователю `admin`. Параметры кластера:
          * количество хостов — три, по одному в каждой зоне доступности;
          * [класс хостов](../managed-elasticsearch/concepts/instance-types.md#available-flavors) — s2.medium;
          * редакция — `Platinum`;
          * хранилище — network-hdd, 1 ТБ;
          * количество реплик индексов — 2;
-         * политика создания новых индексов — [rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (новые индексы создаются каждые 30 дней или по достижению объема в 50 ГБ). Подробнее см. [Рекомендации для высокой доступности данных](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/CONFIGURE-HA_RU.md).
+         * политика создания новых индексов — [rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (новые индексы создаются каждые 30 дней или по достижению объема в 50 ГБ). Подробнее см. [Рекомендации для высокой доступности данных](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/CONFIGURE-HA.md).
 
       * `yc-elastic-trail`:
          * создает статический ключ доступа для работы сервисного аккаунта с объектами JSON в бакете, шифрования и расшифрования секретов;
@@ -472,7 +472,7 @@
 
 {% note tip %}
 
-Также за обновлениями решения вы можете следить в репозитории [yandex-cloud/yc-solution-library-for-security](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main).
+Также за обновлениями решения вы можете следить в репозитории [yandex-cloud-examples/yc-security-solutions-library](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk).
 
 {% endnote %}
 

@@ -55,7 +55,7 @@
 - Консоль управления
 
   1. Выберите каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).
-  1. Нажмите значок ![image](../../_assets/options.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Введите новое имя каталога.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 

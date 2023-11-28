@@ -41,7 +41,7 @@
 
 - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -251,10 +251,10 @@
         * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — **{{ ui-key.yc-ui-datasphere.common.cell }}**.
         * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** — имя ноды, например `classifier-node`.
         * В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** выберите контрольную точку `checkpoint-for-node`.
-        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** нажмите кнопку ![Add](../../_assets/plus-sign.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
+        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** нажмите кнопку ![Add](../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
           * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}** — `encoded_images`.
           * **Тип** — `{{ ui-key.yc-ui-datasphere.node-page.type.list }}`.
-        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}** нажмите кнопку ![Add](../../_assets/plus-sign.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
+        * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}** нажмите кнопку ![Add](../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** и создайте переменную со следующими параметрами:
           * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}** — `labels`.
           * **Тип** — `{{ ui-key.yc-ui-datasphere.node-page.type.list }}`.
         * В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}** выберите `{{ ui-key.yc-ui-datasphere.common.default }} Python 3.8`.

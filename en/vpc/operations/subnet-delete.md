@@ -59,10 +59,6 @@ You cannot restore a subnet after it is deleted.
       yc vpc subnet delete test-subnet-1
       ```
 
-- API
-
-   To delete a [subnet](../concepts/network.md#subnet), use the [delete](../api-ref/Subnet/delete.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../api-ref/grpc/subnet_service.md#Delete) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -124,6 +120,14 @@ You cannot restore a subnet after it is deleted.
       ```
       yc vpc subnet list
       ```
+
+- API
+
+   To delete a [subnet](../concepts/network.md#subnet), use the [delete](../api-ref/Subnet/delete.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../api-ref/grpc/subnet_service.md#Delete) gRPC API call and provide the ID of the subnet to be deleted in the `subnetId` request parameter.
+
+   {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

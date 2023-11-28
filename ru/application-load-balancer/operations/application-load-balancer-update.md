@@ -15,19 +15,28 @@ description: "Следуя данной инструкции, вы сможет�
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите на имя нужного балансировщика.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. Измените параметры балансировщика.
-  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** измените параметры нужных обработчиков.
-  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
-  
-      1. Измените [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
-      1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+  1. Измените необходимые параметры балансировщика:
 
-          * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — измените HTTP-коды.
-          * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — измените классы HTTP-кодов.
-          * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — измените gRPC-коды.
-          * **{{ ui-key.yacloud.alb.label_discard-percent }}** — измените процент отбрасываемых логов.
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** измените [группы безопасности](../concepts/application-load-balancer.md#security-groups):
+    
+          {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
 
-          Чтобы добавить еще одно правило, нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
+      1. В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
+    
+      1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+      
+          1. Измените [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
+          1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+    
+              * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — измените HTTP-коды.
+              * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — измените классы HTTP-кодов.
+              * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — измените gRPC-коды.
+              * **{{ ui-key.yacloud.alb.label_discard-percent }}** — измените процент отбрасываемых логов.
+    
+              Чтобы добавить еще одно правило, нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
+    
+      1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** измените параметры нужных обработчиков.
+
   1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
@@ -42,11 +51,14 @@ description: "Следуя данной инструкции, вы сможет�
      yc alb load-balancer update --help
      ```
 
-  1. Выполните команду, указав новые параметры балансировщика:
+  1. Выполните команду, указав новые параметры балансировщика. Например, привяжите к балансировщику [группы безопасности](../concepts/application-load-balancer.md#security-groups):
 
      ```bash
-     yc alb load-balancer update <имя_балансировщика> --new-name <новое_имя_балансировщика>
+     yc alb load-balancer update <имя_балансировщика> \
+       --security-group-id <список_идентификаторов_групп_безопасности>
      ```
+
+     Где `--security-group-id` — новый список от одного до пяти  разделенных запятыми идентификаторов [групп безопасности](../concepts/application-load-balancer.md#security-groups). Если не указать этот параметр, то для балансировщика будет разрешен любой трафик.
 
      Результат:
      
@@ -78,6 +90,9 @@ description: "Следуя данной инструкции, вы сможет�
        - zone_id: {{ region-id }}-c
          subnet_id: fo2ap2nrhjk9********
      log_group_id: eolul9ap0bv0********
+     security_group_ids:
+       - enpulh2tbrep********
+       - enpg05a3ck35********
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
      
@@ -237,6 +252,7 @@ description: "Следуя данной инструкции, вы сможет�
          location {
            zone_id   = "{{ region-id }}-a"
            subnet_id = yandex_vpc_subnet.test-subnet.id
+           security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
          }
        }
 

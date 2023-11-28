@@ -54,10 +54,6 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
       The static public IP address is reserved.
 
-- API
-
-   To reserve a static IP address, use the [create](../api-ref/Address/create.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Create](../api-ref/grpc/address_service.md#Create) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -74,7 +70,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       * `external_ipv4_address`: IPv4 address description:
          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_address" "addr" {
@@ -97,5 +93,16 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       ```bash
       yc vpc address list
       ```
+
+- API
+
+   To reserve a static IP address, use the [create](../api-ref/Address/create.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Create](../api-ref/grpc/address_service.md#Create) gRPC API call, and provide the following in the request:
+
+    * ID of the folder where the static IP address will be placed, in the `folderId` parameter.
+    * Name of the static public IP address, in the `name` parameter. The name format is as follows:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+    * ID of the [availability zone](../../overview/concepts/geo-scope.md) where the address will be placed, in the `externalIpv4AddressSpec.zoneId` parameter.
 
 {% endlist %}

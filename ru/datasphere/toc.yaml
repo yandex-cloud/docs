@@ -181,6 +181,8 @@ items:
             href: concepts/s3-connector.md
           - name: Модели
             href: concepts/models/index.md
+          - name: Дообученные фундаментальные модели
+            href: concepts/models/tuned-models.md
       - name: Эксплуатация моделей
         href: concepts/deploy/index.md
       - name: Фундаментальные модели

@@ -94,4 +94,4 @@
 ## См. также {#see-also}
 
 * [Документация Policy Reporter](https://kyverno.github.io/policy-reporter/).
-* [Пример в библиотеке решений {{ yandex-cloud }}: Анализ логов безопасности {{ k8s }} в ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_k8s/README.md).
+* [Пример в библиотеке решений {{ yandex-cloud }}: Анализ логов безопасности {{ k8s }} в ELK](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk/blob/main/README.md).

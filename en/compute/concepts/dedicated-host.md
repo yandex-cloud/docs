@@ -4,9 +4,9 @@ A _dedicated host_ is a physical server that is intended solely for hosting your
 
 ![Dedicated host](../../_assets/compute/dedicated-host.svg "Dedicated host")
 
-You can create a group of one or more dedicated hosts of the same type. To optimize the use of resources, you can host multiple [VMs with different configurations](vm-platforms.md) on each dedicated host.
+You can create a group of one or more dedicated hosts of the same type. To optimize the use of resources, you can host multiple [VMs with different configurations](performance-levels.md) on each dedicated host.
 
-Advantages of using dedicated hosts:
+Dedicated hosts provide the following advantages:
 * Security and compliance:
   You can use a dedicated host to physically isolate your VM in the public cloud if this is required by your company's information security service or industry standards, such as medical or financial ones.
 * Using your own licenses:
@@ -18,8 +18,7 @@ Advantages of using dedicated hosts:
 
 {% include [dedicated](../../_includes/compute/dedicated-quota.md) %}
 
-To ensure fault tolerance of your infrastructure hosted on dedicated hosts, we recommend using at least two hosts for it.
-
+To ensure fault tolerance of your infrastructure hosted on dedicated hosts, we recommend using at least two hosts.
 
 ## Types of dedicated hosts {#host-types}
 
@@ -61,8 +60,14 @@ Do not use archived types to create dedicated hosts. Select a current type inste
 
 The above lists of the current and archived types are provided for indicative purposes and may change. You can get an up-to-date list of types (both current and archived) in the following ways:
 
-* In the [management console]({{ link-console-main }}), on the dedicated host group creation page in {{ compute-name }}.
-* In the CLI by running the `yc compute host-type list` command (to learn more, see [creating a group](../operations/dedicated-host/create-host-group.md)).
+* In the [management console]({{ link-console-main }}) on the dedicated host group creation page in {{ compute-name }}.
+* Using the following CLI command:
+
+    ```bash
+    yc compute host-type list
+    ```
+
+    For more information, see the [guide on creating host groups](../operations/dedicated-host/create-host-group.md).
 
 ^1^ This specifies the number of vCPUs where you can run VMs. Other vCPUs of the host are allocated for system usage (for more information, see [below](#resource-fragmentation)): on the Intel Xeon Gold 6230 processors, there are 14 vCPUs, while on Intel Xeon Gold 6230R and Intel Xeon Gold 6338 processors, there are 20 vCPUs.
 
@@ -97,41 +102,107 @@ When working with local disks attached to VMs on dedicated hosts, you cannot:
 * Attach additional network disks to a `stopped` VM. You can only attach additional network disks to a [running](../operations/vm-control/vm-stop-and-start.md#start) VM.
 * Attach additional local disks to a VM or delete the attached ones. To change the local disks attached, recreate the VM. For more information about creating VMs with local disks on dedicated hosts, see the [guides](../operations/index.md#dedicated-host).
 
-## Scaling policy {#scale-policy}
+If a dedicated host fails, the data stored on local disks will be lost. To ensure data security, set up replication yourself, e.g., using [{{ backup-full-name }}](../../backup/concepts/index.md).
 
-When creating a host group, you need to specify the number of dedicated hosts. When updating the group, you can reduce or increase the number of hosts in it. The scaling policy is defined by the `ScalePolicy` parameter:
+## Host group size {#host-group-size}
+
+When creating a host group, you need to specify the number of dedicated hosts. When updating the group, you can reduce or increase the number of hosts in it:
 
 ```
 yc compute host-group create \
-  --fixed-size <number of hosts> \
+  --fixed-size <number_of_hosts> \
   ...
 ```
 
-Where `fixed-size` is the number of dedicated hosts in the group.
+## Maintenance {#maintenance}
 
-## Maintenance policy {#maintenance-policy}
+{{ compute-name }} performs host maintenance on a regular basis. Some maintenance activities run in the background without affecting user experience. Others require the host to be released of VMs. For the latter kind of maintenance:
 
-{{ compute-name }} stops VMs during maintenance without moving them to other hosts. How the VMs behave afterwards depends on the physical server status.
+* A new (replacement) host is added to the host group.
+* The date for automatic release of the old host is calculated.
 
-If the physical server is restarted, the VMs running on it are automatically restarted, too, and linked:
-* To the same host group if the VM was linked to any group. In this case, the VM may be linked to a different host in the group.
+You can get the `host-id` and `server-id` values and the auto release date for the new host in the [management console]({{ link-console-main }}) on the **{{ ui-key.yacloud.compute.host-group.hosts.label_title }}** page or using this [CLI](../../cli/quickstart.md) command:
+
+```bash
+yc compute host-group list-hosts <host_group_ID>
+```
+
+Result:
+
+```
++----------------------+----------------------+----------------------+--------------------------+
+|          ID          |      SERVER ID       | REPLACEMENT HOST ID  |   REPLACEMENT DEADLINE   |
++----------------------+----------------------+----------------------+--------------------------+
+| fhm1ab2mhnf3******** | fhmlabct12vp******** | fhmabcun12kb******** | 2023-10-24T12:36:14.321Z |
+| fhmabcun12kb******** | fhm1a2bcsl13******** |                      |                          |
++----------------------+----------------------+----------------------+--------------------------+
+```
+
+Where:
+
+* `REPLACEMENT HOST ID`: ID of the new (replacement) host.
+* `REPLACEMENT DEADLINE`: Date and time of the host's automatic release (UTC).
+
+The host that enters maintenance is not billed, not counted in the host group size, nor used to host newly activated VMs.
+
+The auto release date and time are scheduled for the 7th day after dedicating the replacement host. {{ compute-name }} will start automatically releasing the host in the period from `<REPLACEMENT DEADLINE>` to `<REPLACEMENT DEADLINE> + 1 hour`. Depending on the type of your VMs:
+
+* VMs with no local disks, GPU, or [affinity](#bind-vm) to the `host-id` will be transferred using [live migration](live-migration.md).
+* VMs with affinity to the `host-id` will be stopped. You should either remove host affinity or update it to a new `host-id` and then restart the VM.
+* VMs with local disks will first be stopped and, in 12 hours, change their status to `ERROR` with their local disks cleaned.
+
+The auto release date can be shifted backwards or forwards by as much as 21 days after dedicating the replacement host. You can change the date using this command:
+
+```bash
+yc compute host-group update-host <host_group_ID> \
+  --host-id <host_ID> \
+  --replacement-deadline <deadline>
+```
+
+Where `--replacement-deadline` is the date and time in UTC `YYYY-MM-DDTHH:MM:SSZ` format.
+
+VMs are automatically moved based on the VM host affinity rules. A VM will be moved to any host in a host group that has sufficient resources, including the replacement host. If there are no resources, the VMs will be stopped.
+
+You can move your VMs from the old host yourself before the specified date:
+
+* Using [live migration](live-migration.md): To do this, contact [support]({{ link-console-support }}).
+* By [stopping and restarting](../operations/vm-control/vm-stop-and-start.md) your VMs in the [management console]({{ link-console-main }}) or with these CLI commands:
+
+   ```bash
+   yc compute instance stop <VM_name>
+   ```
+
+   ```bash
+   yc compute instance start <VM_name>
+   ```
+
+* By [deleting](../operations/vm-control/vm-delete.md) and [recreating](../operations/vm-create/create-linux-vm.md) your VMs (for VMs with local disks).
+
+Use the command below to learn which dedicated host the VM is actually running on:
+
+```bash
+yc compute instance get <VM_name>
+```
+
+Result:
+
+```
+...
+host_id: <host_ID>
+```
+
+## Host issues {#malfunctions}
+
+If the physical server is restarted, the VMs running on it will be restarted automatically and [linked](#bind-vm):
+
+* To the same host group if the VM was linked to a group. In this case, you can link the VM to a different host in the group.
 * To a dedicated host if the VM was linked to a specific host.
 
-The maintenance policy is set when creating a group of dedicated hosts and defined by the `MaintenancePolicy` parameter:
+If the physical server is completely stopped, {{ compute-name }} proceeds as follows:
 
-```
-yc compute host-group create \
-  --maintenance-policy restart \
-...
-```
-
-Where `maintenance-policy` is the maintenance policy. The possible value is `restart`, which stops VMs for maintenance and restart them afterwards.
-
-If the physical server is completely stopped, {{ compute-name }} performs the following:
-1. Disables access to your dedicated host.
-1. Deletes the physical server and its unique ID (`server-id`). In this case, the IDs of the host group (`host-group-id`) and each dedicated host (`host-id`) are retained.
-1. Replaces failed hardware and assigns a new ID.
-1. Migrates VMs from failed hardware to the new one based on the [VM linking rules](#bind-vm).
+* Removes the physical server from the host group.
+* Replaces the failed server with a new one (with a new `server-id`). In this case, the IDs of the host group (`host-group-id`) and the dedicated host (`host-id`) are retained.
+* Runs the VMs of the failed server based on the VM host affinity rules. In this case, the VMs with no local disks are run automatically, while those with local disks get the `ERROR` status. The contents of the local disks from the failed server are not moved to the new one.
 
 ## Linking a VM to a group or host {#bind-vm}
 
@@ -139,7 +210,8 @@ To uniquely map a VM and a physical server, you can create a VM that is linked:
 * To a group of dedicated hosts:
   When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host of the group.
 * To the selected host of a group of hosts:
-  When the VM is stopped, it will not be available on the host, and when it is restarted, it will be linked to the same host from the group.
+
+   When the VM is stopped, it will not be available on the host, and when it is restarted, it will be linked to the same host from the group.
 
 Linking a VM ensures that it will run on the same physical server or group of servers even after scheduled maintenance.
 
@@ -152,31 +224,50 @@ When creating a VM, you can specify multiple host groups or specific hosts it ca
 
 ```
 yc compute instance create \
-  --host-group-id 1 \
+  --host-group-id <host_group_ID> \
   --network-interface subnet-name=default-{{ region-id }}-a \
   --zone {{ region-id }}-a
 ```
 
-In this case, the VM will be linked to one of the specified host groups:
+In this case, the VM will be linked to the specified host group:
 
 ```
 done (33s)
-id: abcdefghigklm12no3pq
-folder_id: a1b23cd45efg6higklmn
-created_at: "2020-09-08T20:19:41Z"
-zone_id: {{ region-id }}-a
-platform_id: standard-v2
-resources:
-  memory: "2147483648"
-  cores: "2"
-  core_fraction: "100"
-host-group-id: 2
+id: abcdefghigkl********
+folder_id: a1b23cd45efg********
+...
+placement_policy:               # VM host affinity rules
+  host_affinity_rules:
+    - key: yc.hostGroupId
+      op: IN
+      values:
+        - <host_group_ID>
+host_group_id: <host_group_ID>  # VM's actual location
+host_id: <host_ID>              # VM's actual location
 ...
 ```
+
+Rules in `host_affinity_rules` are combined via `OR`. For example, the following rules allow running VMs on any host of the `host_group_id` group or the `host_id` host:
+
+```
+placement_policy:
+  host_affinity_rules:
+    - key: yc.hostGroupId
+      op: IN
+      values:
+        - <host_group_ID>
+    - key: yc.hostId
+      op: IN
+      values:
+        - <host_ID>
+```
+
+## Placement groups {#placement-groups}
+
+We do not recommend using [placement groups](placement-groups.md) for VMs on dedicated hosts.
 
 ## Pricing {#billing}
 
 For information about pricing for dedicated hosts, see [{#T}](../pricing.md#prices-dedicated-host).
-
 
 _Intel and Xeon are trademarks of Intel Corporation or its subsidiaries._

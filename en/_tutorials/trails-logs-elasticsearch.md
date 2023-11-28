@@ -14,9 +14,9 @@ The following data required for log analysis is uploaded to the {{ mes-name }} c
 * A set of `Saved Queries` to search for security events.
 * A set of `Detection Rules` with correlation rules for which alerts are preset.
 
-All the [source files](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s) for the solution are stored in the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security).
+All the [source files](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk) for the solution are stored in the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library).
 
-{% include [Yc-solution-library-for-security](../_includes/security-solution-library.md) %}
+{% include [Yc-security-solutions-library](../_includes/security-solution-library.md) %}
 
 To use the solution not only for cloud logs but also organization or folder logs, create a trail by following the guide for [organization](../audit-trails/operations/export-organization-bucket.md) or [folder](../audit-trails/operations/export-folder-bucket.md).
 
@@ -278,7 +278,7 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 
 {% note info %}
 
-You can also deploy the required environment using {{ TF }}. For more information, refer to  a [sample configuration file](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/terraform/example/main.tf).
+You can also deploy the required environment using {{ TF }}. For more information, refer to  a [sample configuration file](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/terraform/example/main.tf).
 
 {% endnote %}
 
@@ -321,14 +321,14 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
 
 - {{ TF }}
 
-   1. Download a directory with [{{ TF }} modules](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main/terraform/modules):
+   1. Download a directory with [{{ TF }} modules](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/tree/main/terraform/modules):
       * `yc-managed-elk` creates a {{ ES }} cluster and assigns a password to the `admin` user. Cluster parameters:
          * Number of hosts: Three, one in each availability zone.
          * [Host class](../managed-elasticsearch/concepts/instance-types.md#available-flavors): s2.medium.
          * Edition: `Platinum`.
          * Storage: network-hdd, 1 TB.
          * Number of index replicas: 2.
-         * Policy for creating new indexes: [Rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (new indexes are created once in 30 days or after reaching 50 GB). For more information, see [Recommendations for high data availability](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/CONFIGURE-HA_RU.md).
+         * Policy for creating new indexes: [Rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (new indexes are created once in 30 days or after reaching 50 GB). For more information, see [Recommendations for high data availability](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/CONFIGURE-HA-en.md).
 
       * `yc-elastic-trail`:
          * Creates a static access key for the service account to use JSON objects in the bucket and encrypt or decrypt secrets.
@@ -469,7 +469,7 @@ To use the latest version of the solution for exporting audit logs to your {{ ES
 
 {% note tip %}
 
-You can also check the [yandex-cloud/yc-solution-library-for-security](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main) repository for solution updates.
+You can also check the [yandex-cloud-examples/yc-export-auditlogs-to-elk](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) repository for solution updates.
 
 {% endnote %}
 

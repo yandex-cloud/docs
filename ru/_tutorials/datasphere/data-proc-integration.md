@@ -34,7 +34,7 @@
 
 - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите ![create](../../_assets/plus-sign.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
    1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../../overview/concepts/geo-scope.md).
    1. Нажмите **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
@@ -50,12 +50,12 @@
 - Консоль управления
 
    1. В каталоге `data-folder` выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. На панели слева выберите ![image](../../_assets/vpc/gateways.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Нажмите **{{ ui-key.yacloud.common.create }}** и задайте настройки шлюза:
       * Введите имя шлюза, например `nat-for-cluster`.
       * **{{ ui-key.yacloud.vpc.gateways.field_type }}** шлюза — **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
       * Нажмите **{{ ui-key.yacloud.common.save }}**.
-   1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
    1. Нажмите **{{ ui-key.yacloud.common.create }}** и введите параметры таблицы маршрутизации:
       1. Введите имя, например `route-table`.
       1. Выберите сеть `data-network`.
@@ -67,8 +67,8 @@
 
   Затем привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
 
-   1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. В строке нужной подсети нажмите ![image](../../_assets/options.svg).
+   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. В строке нужной подсети нажмите ![image](../../_assets/console-icons/ellipsis.svg).
    1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. В открывшемся окне выберите созданную таблицу в списке.
    1. Нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -120,7 +120,7 @@
 ### Измените настройки проекта {#change-settings}
 
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}** нажмите кнопку **![pencil](../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}** нажмите кнопку **![pencil](../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Укажите параметры:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-data-proc`.

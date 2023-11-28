@@ -57,7 +57,7 @@
 ## Поделиться коннектором S3 {#share}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/bucket.svg) **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Выберите нужный коннектор S3 в списке.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
 1. Включите опцию видимости напротив названия сообщества, с которым нужно поделиться коннектором S3.
@@ -67,8 +67,8 @@
 Вы можете удалить только [деактивированный](#unmount) коннектор, недоступный в сообществе.
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. В списке коннекторов S3 выберите тот, который хотите удалить. Нажмите ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/bucket.svg)**{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
+1. В списке коннекторов S3 выберите тот, который хотите удалить. Нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что секрет удален. 

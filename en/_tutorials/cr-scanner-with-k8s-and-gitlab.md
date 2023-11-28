@@ -209,7 +209,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
            image: bitnami/kubectl:latest
            stage: deploy
            script:
-             - kubectl config use-context ${CI_PROJECT_PATH}:<{{ GLA }}_name>
+             - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_Agent_name>
              - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}," | kubectl apply -f -
          ```
 

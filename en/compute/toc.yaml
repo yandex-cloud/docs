@@ -831,6 +831,8 @@ items:
         href: qa/general.md
       - name: Virtual machines
         href: qa/vm.md
+      - name: 'Error: Not enough resources'
+        href: qa/not-enough-resources.md
       - name: Connection
         href: qa/connection.md
       - name: Disks, snapshots, and images

@@ -3,7 +3,7 @@
 В {{ ml-platform-name }} вы можете настроить ограничения потребления для проекта. Пороги потребления для проекта задаются в [юнитах](../../pricing.md#unit).
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
-1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** и в блоке **{{ ui-key.yc-ui-datasphere.project-page.settings.limits }}** нажмите кнопку ![pencil](../../../_assets/pencil-line.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** и в блоке **{{ ui-key.yc-ui-datasphere.project-page.settings.limits }}** нажмите кнопку ![pencil](../../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Задайте одно или несколько ограничений для вычислений в проекте:
 
    * **{{ ui-key.yc-ui-datasphere.edit-project-page.balance }}** — общее количество юнитов, доступных для проекта. Каждое исполнение ячейки будет уменьшать баланс на то количество юнитов, которое необходимо для выполнения одной секунды вычислений выбранной [конфигурации](../../concepts/configurations.md). Ячейки можно запускать до тех пор, пока баланс положительный. Если во время вычислений в одной из ячеек баланс станет меньше или равен нулю, все запущенные вычисления будут остановлены с предупреждением, что баланса проекта недостаточно.

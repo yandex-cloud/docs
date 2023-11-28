@@ -69,7 +69,7 @@
 
 Образы [WAF](/marketplace?tab=software&search=waf) доступны в [{{ marketplace-full-name }}](/marketplace). Типы лицензий и другая необходимая информация доступны в описаниях продуктов.
 
-[Решение: Отказоустойчивая эксплуатация PT Application Firewall на базе {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)
+[Решение: Отказоустойчивая эксплуатация PT Application Firewall на базе {{ yandex-cloud }}](https://github.com/yandex-cloud-examples/yc-webinar-pt-application-firewall-ha-operations)
 
 Возможна также установка Wallarm WAF в [{{ managed-k8s-name }}](../../../managed-kubernetes/). См. [инструкцию](https://docs.wallarm.com/admin-en/installation-kubernetes-en/) в документации Wallarm. Тип лицензии — BYOL (лицензия, приобретенная у стороннего поставщика).
 

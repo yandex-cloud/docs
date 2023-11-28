@@ -94,4 +94,4 @@ To export policy results, set up external storage:
 ## See also {#see-also}
 
 * [Policy Reporter documentation](https://kyverno.github.io/policy-reporter/).
-* [Example in the {{ yandex-cloud }} Solution Library: Analyzing {{ k8s }} security logs in ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_k8s/README.md).
+* [Example in the {{ yandex-cloud }} Solution Library: Analyzing {{ k8s }} security logs in ELK](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk/blob/main/README.md).

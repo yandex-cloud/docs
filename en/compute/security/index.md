@@ -1,19 +1,21 @@
 ---
 title: "Access management in {{ compute-full-name }}"
-description: "Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes what resources you can assign a role for and what roles the service supports."
+description: "Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes which resources you can assign a role for and what roles exist in the service."
 ---
 
 # Access management in {{ compute-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can also assign a role for a separate VM.
 
 ## Which roles exist in the service {#roles-list}
 
@@ -25,12 +27,12 @@ In this section, you will learn:
 
 | Role | Permissions |
 ----- | -----
-| `compute.admin` | Grants the right to manage VMs and [instance groups](../../compute/concepts/instance-groups/index.md) and assign roles to other users. |
-| `compute.editor` | Gives rights to manage virtual machines and instance groups. |
-| `compute.viewer` | Grants the right to view information on [{{ compute-name }} resources](../concepts/index.md). |
+| `compute.admin` | Grants the permission to manage VMs and [instance groups](../../compute/concepts/instance-groups/index.md) and assign roles to other users. |
+| `compute.editor` | Grants the permission to manage virtual machines and instance groups. |
+| `compute.viewer` | Grants the permission to view information on [{{ compute-name }} resources](../concepts/index.md). |
 | `compute.disks.user` | Allows you to use disks to create new resources, such as virtual machines. |
 | `compute.images.user` | Allows you to use images to create new resources, such as virtual machines. |
-| `compute.operator` | Allows you to [stop, start, and restart virtual machines](../../compute/operations/vm-control/vm-stop-and-start.md), but does not allow creating or deleting virtual machines. |
+| `compute.operator` | Allows you to [stop, start, and restart virtual machines](../../compute/operations/vm-control/vm-stop-and-start.md), but does not allow creating or deleting them. |
 | `compute.snapshotSchedules.editor` | Grants the permission to [create](../operations/snapshot-control/create-schedule.md) scheduled disk snapshots and [update](../operations/snapshot-control/update-schedule.md) them. |
 | `compute.snapshotSchedules.viewer` | Grants the permission to view information about [scheduled disk snapshots](../concepts/snapshot-schedule.md). |
 | `compute.osLogin` | Allows SSH access to VMs via OS Login. |
