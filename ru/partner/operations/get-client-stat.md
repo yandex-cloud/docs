@@ -11,9 +11,9 @@
 
   Чтобы посмотреть сведения по использованию сервисов {{ yandex-cloud }} в виде графиков и таблиц:
 
-  1. В [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/main-menu.svg) **Все сервисы**.
-  1. Выберите сервис ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-  1. Нажмите на имя нужного аккаунта и выберите ![image](../../_assets/billing/detalization.svg) **Детализация**.
+  1. В [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/console-icons/dots-9.svg) **Все сервисы**.
+  1. Выберите сервис ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Нажмите на имя нужного аккаунта и выберите ![image](../../_assets/console-icons/layout-cells-large.svg) **Детализация**.
 
   Подробнее о настройках страницы **Детализация** см. в [документации сервиса {{ billing-name }}](../../billing/operations/check-charges.md).
 

@@ -4,7 +4,7 @@ editable: false
 
 # Правила тарификации для {{ yagpt-full-name }}
 
-Сервис {{ yagpt-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).
+Сервис {{ yagpt-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md) и тарифицируется в соответствии с документом [Специальные условия использования](https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb).
 
 {% note warning %}
 

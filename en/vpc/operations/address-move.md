@@ -86,8 +86,15 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
 
 - API
 
-   To move a [public IP address](../concepts/address.md#public-addresses) to a different folder, use the [move](../api-ref/Address/move.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Move](../api-ref/grpc/address_service.md#Move) gRPC API call.
+   To move a [public IP address](../concepts/address.md#public-addresses) to a different folder, use the [move](../api-ref/Address/move.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Move](../api-ref/grpc/address_service.md#Move) gRPC API call, and provide the following in the request:
 
+    * ID of the address to move, in the `addressId` parameter.
+
+      {% include [get-address-id](../../_includes/vpc/get-adress-id.md) %}
+
+    * ID of the folder the gateway will be moved to, in the `destinationFolderId` parameter.
+
+      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

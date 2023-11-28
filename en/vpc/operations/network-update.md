@@ -66,10 +66,6 @@ After creating a cloud network, you can change its name, description, and tags.
         --labels new_label=test_label
       ```
 
-- API
-
-   To update a [cloud network](../concepts/network.md), use the [update](../api-ref/Network/update.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Update](../api-ref/grpc/network_service.md#Update) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -126,6 +122,26 @@ After creating a cloud network, you can change its name, description, and tags.
       ```
       yc vpc network get <cloud network name>
       ```
+
+- API
+
+   To update a [cloud network](../concepts/network.md), use the [update](../api-ref/Network/update.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Update](../api-ref/grpc/network_service.md#Update) gRPC API call, and provide the following in the request:
+
+   * ID of the cloud network you want to update, in the `networkId` parameter.
+
+      {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
+
+      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+   * New network settings if needed:
+
+      * Name, in the `name` parameter.
+      * Description, in the `description` parameter.
+      * Network labels, in the `labels` parameter.
+
+   * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

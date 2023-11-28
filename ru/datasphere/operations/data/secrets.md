@@ -5,7 +5,7 @@
 ## Создать секрет {#create}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета.
 
@@ -19,7 +19,7 @@
 Поделиться секретом в сообществе может только администратор сообщества. Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../../security/index.md).
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Выберите нужный секрет в списке.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
 1. Включите опцию видимости напротив названия сообщества, в котором нужно поделиться секретом.
@@ -50,8 +50,8 @@
 ## Копировать секрет {#copy}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. В списке секретов выберите тот, который вы хотите скопировать в свой проект, нажмите ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.clone }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В списке секретов выберите тот, который вы хотите скопировать в свой проект, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.clone }}**.
 1. Отредактируйте имя и контент секрета для копирования.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**. Откроется страница с информацией о созданном секрете.
 
@@ -60,8 +60,8 @@
 ## Изменить секрет {#change}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. В списке секретов выберите тот, который вы хотите изменить, нажмите ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В списке секретов выберите тот, который вы хотите изменить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Измените секрет: отредактируйте имя и контент.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
@@ -70,8 +70,8 @@
 ## Удалить секрет {#delete}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. В списке секретов выберите тот, который хотите удалить, нажмите ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В списке секретов выберите тот, который хотите удалить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что секрет удален. 

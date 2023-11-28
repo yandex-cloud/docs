@@ -133,10 +133,6 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       route_table_id: enp1sdveovdpdhaao5dq
       ```
 
-- API
-
-   To create a route table and add [static routes](../concepts/static-routes.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -199,5 +195,30 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
          ```
          yc vpc route-table list
          ```
+
+- API
+
+   To create a route table and add [static routes](../concepts/static-routes.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) gRPC API call, and provide the following in the request:
+
+   * ID of the folder where the route table will be placed, in the `folderId` parameter.
+   * Route table name, in the `name` parameter. The name format is as follows:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+   * ID of the network where the route table will be placed, in the `networkId` parameter.
+   * Destination subnet prefix in CIDR notation, in the `staticRoutes[].destinationPrefix` parameter.
+   * Internal IP address of the VM the traffic will be sent through, in the `staticRoutes[].nextHopAddress` parameter. The IP address must be within the [allowed range](../concepts/network.md#subnet).
+
+   To use static routes, link the route table to a subnet. Use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) gRPC API call and provide the following in the request:
+
+   * Subnet ID, in the `subnetId` parameter.
+
+      {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+   * Route table ID, in the `routeTableId` parameter.
+   * Name of the `routeTableId` parameter, in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

@@ -16,4 +16,4 @@
 Максимальный размер файла для [OCR API](../vision/ocr/api-ref/index.md) | {{ ocr-max-filesize }}
 Максимальный размер изображения | 20 мегапикселей (длина × ширина)
 Максимальное количество страниц в PDF-файле при работе с [Vision API](../vision/vision/api-ref/index.md) | 8
-Максимальное количество страниц в PDF-файле при работе с [OCR API](../vision/ocr/api-ref/index.md) в асинхронном режиме | 200
+Максимальное количество страниц в PDF-файле при работе с [OCR API в асинхронном режиме](../vision/ocr/api-ref/TextRecognitionAsync/index.md) | 200

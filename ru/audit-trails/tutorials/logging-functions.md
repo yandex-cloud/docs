@@ -14,7 +14,7 @@
  
 ## Пример реализации {#example}
 
-В [Yc-solution-library-for-security](https://github.com/yandex-cloud/yc-solution-library-for-security) содержится пример [решения](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector), которое использует {{ sf-name }} для оповещения о заданных событиях через Telegram-бота и компенсирующего воздействия на ресурсы {{ yandex-cloud }} через методы [API](../../glossary/rest-api.md).
+В [Yc-security-solutions-library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) содержится пример [решения](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response), которое использует {{ sf-name }} для оповещения о заданных событиях через Telegram-бота и компенсирующего воздействия на ресурсы {{ yandex-cloud }} через методы [API](../../glossary/rest-api.md).
 
 Оповещение реализовано для следующих событий:
 * Группы безопасности: разрешение входящего трафика на все внутренние адреса (0.0.0.0/0).

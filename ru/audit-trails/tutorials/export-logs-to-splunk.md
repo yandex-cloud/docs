@@ -267,13 +267,13 @@
 - {{ TF }}
 
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-  1. Склонируйте [репозиторий Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
+  1. Склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk) из [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library):
   
      ```
-     git clone https://github.com/yandex-cloud/yc-solution-library-for-security.git
+     git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk.git
      ```
   
-  1. Создайте подкаталог в каталоге `/auditlogs/export-auditlogs-to-Splunk/terraform/` и перейдите в него.
+  1. Создайте подкаталог в каталоге `/yc-export-auditlogs-to-splunk/terraform/` и перейдите в него.
   1. Создайте конфигурационный файл с вызовом модуля `yc-splunk-trail`:
   
      ```

@@ -1,5 +1,7 @@
 # Подключение к серийной консоли виртуальной машины по SSH
 
+{% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
+
 После [включения доступа](./index.md), вы можете подключиться к серийной консоли для взаимодействия с [ВМ](../../concepts/vm.md). Перед [подключением](../../../glossary/ssh-keygen.md) к серийной консоли внимательно ознакомьтесь с разделом [{#T}](#security).
 
 ## Безопасность {#security}

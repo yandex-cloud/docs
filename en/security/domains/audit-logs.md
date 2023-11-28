@@ -30,7 +30,7 @@ See the {{ objstorage-full-name }} security guidelines in [{#T}](secure-config.m
 
 You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events.
 
-![](../../_assets/overview/solution-library-icon.svg)[Solution: Monitoring {{ at-name }} and security events using {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
+![](../../_assets/overview/solution-library-icon.svg)[Solution: Monitoring {{ at-name }} and security events using {{ monitoring-name }}](https://github.com/yandex-cloud-examples/yc-audit-trails-monitoring)
 
 You can export audit logs to a log group in [{{ cloud-logging-name }}](../../logging/) and to [a customer's SIEM system](#export) to analyze information about events and incidents.
 
@@ -45,15 +45,15 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
 - {{ mes-full-name }} (ELK)
 
-   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in {{ mes-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
+   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in {{ mes-full-name }}](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk)
 
 - ArcSight
 
-   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in ArcSight SIEM](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight)
+   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in ArcSight SIEM](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight)
 
 - Splunk
 
-   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in Splunk SIEM](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
+   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in Splunk SIEM](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
 
 Utilities like [GeeseFS](../../storage/tools/geesefs.md) or [s3fs](../../storage/tools/s3fs.md) can help set up export to any SIEM. They allow you to mount an {{ objstorage-full-name }} bucket as a VM's local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket.
 
@@ -65,7 +65,7 @@ Utilities like [GeeseFS](../../storage/tools/geesefs.md) or [s3fs](../../storage
 
 Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, as well as automatic responses to malicious actions, including removing dangerous rules or revoking access rights.
 
-![](../../_assets/overview/solution-library-icon.svg)[Solution: Notifications and responses to {{ at-name }} information security events using {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
+![](../../_assets/overview/solution-library-icon.svg)[Solution: Notifications and responses to {{ at-name }} information security events using {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response)
 
 ## OS level {#os-level}
 

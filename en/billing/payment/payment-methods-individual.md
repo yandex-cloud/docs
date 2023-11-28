@@ -10,7 +10,8 @@ When [creating](../quickstart/index.md) a billing account, you need to link a ba
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-You cannot unlink a bank card from a billing account. Instead, you can change the [linked bank card](../operations/pin-card.md) in the billing account settings.
+You cannot unlink a bank card from your billing account. Instead, you can change the [linked card](../operations/pin-card.md) in the billing account settings. If you delete the card linked to your {{ yandex-cloud }} billing account from [Yandex ID](https://passport.yandex.com/profile), your billing account may get locked (by changing its [status to `SUSPENDED`](../concepts/billing-account-statuses.md)) when debiting.
+
 
 ## Personal account top-up {#refill}
 

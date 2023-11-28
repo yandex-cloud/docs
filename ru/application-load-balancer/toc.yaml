@@ -11,6 +11,8 @@ items:
         items:
           - name: Создать целевую группу
             href: operations/target-group-create.md
+          - name: Получить информацию о целевой группе
+            href: operations/target-group-get.md
           - name: Изменить целевую группу
             href: operations/target-group-update.md
           - name: Удалить целевую группу
@@ -19,6 +21,8 @@ items:
         items:
           - name: Создать группу бэкендов
             href: operations/backend-group-create.md
+          - name: Получить информацию о группе бэкендов
+            href: operations/backend-group-get.md
           - name: Изменить группу бэкендов
             href: operations/backend-group-update.md
           - name: Удалить группу бэкендов
@@ -29,6 +33,8 @@ items:
             href: operations/http-router-create.md
           - name: Создать HTTP-роутер для gRPC-трафика
             href: operations/http-router-create-grpc.md
+          - name: Получить информацию об HTTP-роутере
+            href: operations/http-router-get.md
           - name: Изменить HTTP-роутер
             href: operations/http-router-update.md
           - name: Удалить HTTP-роутер
@@ -39,6 +45,8 @@ items:
             href: operations/application-load-balancer-create.md
           - name: Изменить L7-балансировщик
             href: operations/application-load-balancer-update.md
+          - name: Получить информацию об L7-балансировщике
+            href: operations/application-load-balancer-get.md
           - name: Посмотреть статистику L7-балансировщика
             href: operations/application-load-balancer-get-stats.md
           - name: Посмотреть логи L7-балансировщика

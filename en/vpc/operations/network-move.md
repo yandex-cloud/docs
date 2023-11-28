@@ -90,7 +90,15 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
 - API
 
-   To move a [cloud network](../concepts/network.md) to a different folder, use the [move](../api-ref/Network/move.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Move](../api-ref/grpc/network_service.md#Move) gRPC API call.
+   To move a [cloud network](../concepts/network.md) to a different folder, use the [move](../api-ref/Network/move) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Move](../api-ref/grpc/network_service.md#Move) gRPC API call, and provide the following in the request:
+
+   * ID of the cloud network you want to move, in the `networkId` parameter.
+
+      {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
+
+   * ID of the folder you want to move the cloud network to, in the `destinationFolderId` parameter.
+
+      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

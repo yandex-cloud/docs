@@ -243,7 +243,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-[Шифрование диска ВМ с помощью {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM).
+[Шифрование диска ВМ с помощью {{ kms-short-name }}](https://github.com/yandex-cloud-examples/yc-encrypt-vm-disk-with-kms).
 
 #### 4.7 Для критичных данных используется шифрование MDB с помощью {{ kms-short-name }} {#self-data-kms}
 

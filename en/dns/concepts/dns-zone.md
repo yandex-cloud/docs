@@ -27,6 +27,14 @@ Domain names in public zones are available from the internet. If you have a regi
 
 
 
+If you have already set up domain delegation, delete other `NS` records.
+
+{% note info %}
+
+Make sure to transfer resource records (A, CNAME, TXT, etc., except for NS) from the previously used servers to the new public zone.
+
+{% endnote %}
+
 You cannot create public top-level domain (TLD) zones.
 
 For security reasons, nested public zones can only be created by users and service accounts with the `dns.editor`, `dns.admin`, `editor`, or `admin` role in the folder where the parent public zone is located. Remember this when organizing the structure of your domain names. For more complex scenarios, contact [support](../../support/overview.md).
@@ -43,13 +51,13 @@ Requests to public DNS zones and requests for external DNS names from your VMs a
 
 We recommend [using caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. You can use these to reduce the number of public DNS requests, and thereby, your [costs](../pricing.md#public-dns-requests).
 
-## Internal zones {#private-zones}
+## Private zones {#private-zones}
 
-Domain names from internal zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within internal zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
+Domain names from private zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within private zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
 
 {% note warning %}
 
-A created internal zone overlaps public zones. If you create an internal zone named `example.com`, all `example.com.` subdomains in this {{ vpc-short-name }} network, which are accessible from the internet, will be inaccessible.
+A created private zone overlaps public zones. If you create a private zone named `example.com`, all `example.com.` subdomains in this {{ vpc-short-name }} network, which are accessible from the internet, will be inaccessible.
 
 {% endnote %}
 
@@ -86,7 +94,7 @@ These zones contain records with internal FQDNs of VMs and MDB database names, V
 
 For security reasons, it is not allowed to create user records, such as `*.yandexcloud.net` and `*.cloud.yandex.net`. To set up easy-to-remember domain names for resources, we recommend registering [CNAME](resource-record.md#cname) or [ANAME](resource-record.md#aname) records in your private DNS zones.
 
-To increase fault tolerance, some traffic can be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).
+To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).
 
 ## Reverse zones {#reverse-zone}
 

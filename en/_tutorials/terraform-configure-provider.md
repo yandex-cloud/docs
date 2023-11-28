@@ -1,6 +1,6 @@
 {% note info %}
 
-These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the latest stable version of {{ TF }}.
+These settings apply to {{ TF }} `0.13` and higher. We recommend using the latest stable version of {{ TF }}.
 
 {% endnote %}
 
@@ -72,7 +72,7 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
    }
 
    provider "yandex" {
-     zone = "<default availability zone>"
+     zone = "<default_availability_zone>"
    }
    ```
 
@@ -84,7 +84,7 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
    * `provider`: The provider name.
 
 
-   * `zone`: The [availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
+   * `zone`: [Availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 1. Run the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
 
 If the provider installation failed, create a [support]({{ link-console-support }}?section=contact) request indicating the provider name and version.
@@ -92,7 +92,7 @@ If the provider installation failed, create a [support]({{ link-console-support 
 
 If you used the `.terraform.lock.hcl` file, run the `terraform providers lock` command before initializing, specifying the URL of the mirror that the provider will be uploaded from and the platforms that the configuration will be used on:
 
-```
+```bash
 terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=linux_amd64 -platform=darwin_arm64 yandex-cloud/yandex
 ```
 

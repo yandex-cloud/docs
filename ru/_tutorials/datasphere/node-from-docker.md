@@ -43,7 +43,7 @@
 
 - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/plus-sign.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -216,7 +216,7 @@
 ## Разверните сервис в {{ ml-platform-name }} {#deploy}
 
 1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![image](../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Выберите сообщество с привязанным платежным аккаунтом.
 1. [Создайте проект](../../datasphere/operations/projects/create.md) `Node from Docker`.
 1. [В настройках проекта](../../datasphere/operations/projects/update.md) укажите:

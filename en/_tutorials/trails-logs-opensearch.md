@@ -101,26 +101,26 @@ Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
 
 ## Upload additional content {#additional-content}
 
-For your convenience, the {{ yandex-cloud }} security team created Solution Library with a set of examples and recommendations for building a secure infrastructure in {{ yandex-cloud }}. The library is available in this [public GitHub repository](https://github.com/yandex-cloud/yc-solution-library-for-security). It contains the following objects to upload to {{ OS }}:
+For your convenience, the {{ yandex-cloud }} security team created Solution Library with a set of examples and recommendations for building a secure infrastructure in {{ yandex-cloud }}. The library is available in this [public GitHub repository](https://github.com/yandex-cloud-examples/yc-security-solutions-library). It contains the following objects to upload to {{ OS }}:
 
 * Dashboard with use cases and statistics.
 * Set of ready-to-use queries to search for security events.
 * Sample events with preset alerts (the client should specify the alert destination on their own).
 
-All required event fields are converted to [Elastic Common Schema (ECS)]({{ links.es.docs }}/ecs/current/index.html) format, while the complete mapping table is provided in the [{{ yandex-cloud }} Security Solution Library document](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/papers/Описание%20объектов.pdf).
+All required event fields are converted to [Elastic Common Schema (ECS)]({{ links.es.docs }}/ecs/current/index.html) format, while the complete mapping table is provided in the [{{ yandex-cloud }} Security Solution Library document](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/papers/Описание%20объектов%20eng.docx).
 
 To use Security Content:
 
 1. Clone the {{ yandex-cloud }} Security Solution Library repository:
 
     ```bash
-    git clone https://github.com/yandex-cloud/yc-solution-library-for-security.git
+    git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch.git
     ```
 
 1. Connect to the target cluster using [{{ OS }} Dashboards](../managed-opensearch/operations/connect.md#dashboards).
 1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
 1. Under **Management**, select **Stack Management**.
-1. Go to **Saved Objects** and import files from the `yc-solution-library-for-security/auditlogs/export-auditlogs-to-Opensearch/update-opensearch-scheme/content-for-transfer/` folder:
+1. Go to **Saved Objects** and import files from the `yc-export-auditlogs-to-opensearch/update-opensearch-scheme/content-for-transfer/` folder:
 
     * `dashboard.ndjson`
     * `filters.ndjson`
@@ -154,8 +154,8 @@ Use code samples for the `monitor` and `trigger` entities when setting up [alert
 1. Under **OpenSearch Plugins**, select **Alerting**.
 1. Copy the sample file contents and paste them into the creation window:
 
-    * [monitor.json](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-Opensearch/update-opensearch-scheme/content-for-transfer/monitor.json)
-    * [trigger_action_example.json](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-Opensearch/update-opensearch-scheme/content-for-transfer/trigger_action_example.json)
+    * [monitor.json](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch/blob/main/update-opensearch-scheme/content-for-transfer/monitor.json)
+    * [trigger_action_example.json](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch/blob/main/update-opensearch-scheme/content-for-transfer/trigger_action_example.json)
 
 ## Delete the resources you created {#clear-out}
 

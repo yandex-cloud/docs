@@ -121,7 +121,7 @@ The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources 
 
 For the {{ managed-k8s-name }} cluster to run, you need two service accounts: [the service account of the cluster and the service account of the node group](../../managed-kubernetes/security/index.md#sa-annotation).
 
-![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-name }}](https://github.com/yandex-cloud-examples/yc-mk8s-roles-and-policies).
 
 ## Secure {{ managed-k8s-name }} configuration {#secure-config-1}
 
@@ -141,7 +141,7 @@ In addition, kube-bench supports integration with [Starboard Operator](https://b
 
 Starboard Operator is a free tool that helps you automate scanning of images for vulnerabilities and checking that the configuration complies with CIS {{ k8s }} Benchmark.
 
-![](../../_assets/overview/solution-library-icon.svg) [Integration between Starboard and {{ container-registry-full-name }} to scan running images](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/starboard_and_yc-cr)
+![](../../_assets/overview/solution-library-icon.svg) [Integration between Starboard and {{ container-registry-full-name }} to scan running images](https://github.com/yandex-cloud-examples/yc-cr-trivy-integration)
 
 ### Integrity control (FIM — File integrity monitoring) {#fim}
 
@@ -154,7 +154,7 @@ You must control two levels of file integrity in node groups:
 
 You can use, for example, [Osquery](https://osquery.io/) as an agent installed on the nodes using [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and uses specific node folders mounted as a volume into the DaemonSet container (redirected file system).
 
- ![](../../_assets/overview/solution-library-icon.svg)A comprehensive solution in [Osquery and kubequery in K8s.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/osquery-kubequery)
+ ![](../../_assets/overview/solution-library-icon.svg)A comprehensive solution in [Osquery and kubequery in K8s.](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery)
 
 #### Container files {#fim-container-files}
 
@@ -219,7 +219,7 @@ To protect the containerization host levels, you can use a variety of paid and f
 
 Be sure to also use the {{ k8s }} built-in support for [AppArmor](https://kubernetes.io/docs/tutorials/security/apparmor/) and [Seccomp](https://kubernetes.io/docs/tutorials/security/seccomp/).
 
-![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 
 ## Vulnerability management {{ managed-k8s-name }} {#vulnerability-management}
 
@@ -258,8 +258,8 @@ To implement the requirements, you can either use the {{ k8s }} built-in [Pod Se
 
 Examples using Kyverno:
 
-* ![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
-* ![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+* ![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
+* ![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-name }}.](https://github.com/yandex-cloud-examples/yc-mk8s-roles-and-policies)
 
 To control compliance with Pod Security Standards, you can also use the following tools within CI/CD:
 
@@ -281,7 +281,7 @@ You can control Dockerfile in your CI/CD pipeline using the [Conftest](https://w
 
 When using minimal images or distroless images without a shell, use [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
 
-![](../../_assets/overview/solution-library-icon.svg)[Solution running Osquery.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/osquery-kubequery)
+![](../../_assets/overview/solution-library-icon.svg)[Solution running Osquery.](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery)
 
 ## Load sharing between nodes {#load-sharing}
 
@@ -301,7 +301,7 @@ Events available to the user in the {{ managed-k8s-name }} service can be classi
 
 Audit events are collected from the {{ k8s }} API level by {{ cloud-logging-name }}.
 
-![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 
 ### {{ k8s }} node level {#kubernetes-nodes-level}
 
@@ -314,7 +314,7 @@ To learn more about options for collecting and exporting pod-level events in {{ 
 Examples of collecting and exporting pod logs:
 
 * Exporting logs to {{ cloud-logging-name }} using Fluent Bit is described in the [{{ managed-k8s-name }}](../../managed-kubernetes/tutorials/fluent-bit-logging.md) documentation.
-* Exporting pod logs into Elastic or Splunk is described in the [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/kubernetes-security/osquery-kubequery/README_RU.md).
+* Exporting pod logs into Elastic or Splunk is described in the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery/blob/main/README-en.md).
 
 The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs to Elastic and [Fluent Bit with a {{ cloud-logging-name }} plugin](/marketplace/products/yc/fluent-bit) is available in {{ marketplace-name }}.
 
@@ -326,7 +326,7 @@ Instructions on how to export {{ monitoring-name }} metrics is given in the sect
 
 ### {{ k8s }} flow logs {#flow-logs-kubernetes}
 
-![](../../_assets/overview/solution-library-icon.svg)[Exporting flow logs to {{ objstorage-full-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/cilium-s3)
+![](../../_assets/overview/solution-library-icon.svg)[Exporting flow logs to {{ objstorage-full-name }}.](https://github.com/yandex-cloud-examples/yc-export-mk8s-cilium-logs-to-s3)
 
 ### {{ managed-k8s-name }} role model audit {#role-model-audit}
 

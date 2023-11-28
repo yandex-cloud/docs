@@ -322,17 +322,19 @@ Command result:
 
          If no annotation is specified, the load balancer connects to the backends with no encryption.
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
-      * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
+      * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, e.g., `websocket`.
       * `ingress.alb.yc.io/request-timeout`: Maximum period for which the connection can be established.
       * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time with zero data transmission.
 
-         Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement:
+         Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, e.g., `300ms`, `1.5h`. Acceptable units of measurement include:
          * `ns`: Nanoseconds
          * `us`: Microseconds
          * `ms`: Milliseconds
          * `s`: Seconds
          * `m`: Minutes
          * `h`: Hours
+
+      * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
       {% note info %}
 
@@ -364,7 +366,7 @@ Command result:
 
 - Ingress controller for a backend group
 
-   To set up a [backend group](../../application-load-balancer/concepts/backend-group.md) use [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) `HttpBackendGroup`. As a backend, you can use a {{ alb-name }} target group or {{ objstorage-name }} bucket.
+   To set up a [backend group](../../application-load-balancer/concepts/backend-group.md) use the `HttpBackendGroup` [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/). As a backend, you can use an {{ alb-name }} target group or an {{ objstorage-name }} bucket.
 
    To configure {{ alb-name }} to work with a backend group:
    1. Create a [backend group with a bucket](../../application-load-balancer/operations/backend-group-create.md#with-s3-bucket):
@@ -545,7 +547,7 @@ Command result:
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
-      * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
+      * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, e.g., `websocket`.
       * `ingress.alb.yc.io/request-timeout`: Maximum period for which the connection can be established.
       * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time with zero data transmission.
 
@@ -556,6 +558,8 @@ Command result:
          * `s`: Seconds
          * `m`: Minutes
          * `h`: Hours
+
+      * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
       {% note info %}
 
@@ -630,7 +634,7 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
 
    - {{ k8s }} services
 
-      Open the application URIs in the browser:
+      Open the application URIs in your browser:
 
       ```http
       https://<your_domain>/app1

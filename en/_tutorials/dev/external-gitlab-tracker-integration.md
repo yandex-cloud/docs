@@ -72,7 +72,7 @@ To set up integration for an individual {{ GL }} project, create one.
       ```
 
    1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-   1. In the browser, open this link: `http://<public VM IP address>`. The {{ GL }} web interface will open.
+   1. Open `http://<VM_public_IP_address>` in your browser. The {{ GL }} web interface will open.
    1. Log in using the administrator account:
       * **Username or email**: `root`
       * **Password**: Password you copied earlier

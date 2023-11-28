@@ -11,6 +11,8 @@ You can:
 
 For more information about transfer states, operations applicable to transfers, and existing limitations, please see [{#T}](../concepts/transfer-lifecycle.md).
 
+To move a transfer and endpoints to a different availability zone, follow [this guide](endpoint/migration-to-an-availability-zone.md).
+
 ## Getting a list of transfers {#list}
 
 {% list tabs %}

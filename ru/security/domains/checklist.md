@@ -52,7 +52,7 @@ description: "Из статьи вы узнаете, из чего состои�
 
 * **Шифрование в {{ objstorage-full-name }}**: включите шифрование бакетов (server-side encryption), см. [инструкцию](../../storage/operations/buckets/encrypt.md). Такое шифрование защищает данные бакета от опубликования в интернете.
 * **Шифрование дисков ВМ (если требуется)**.
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-full-name }}](https://github.com/yandex-cloud-examples/yc-encrypt-vm-disk-with-kms)
 * **Client-side encryption (если требуется)**: используйте шифрование данных с помощью ключей {{ kms-name }}, см. [обзор способов шифрования](../../kms/tutorials/encrypt/index.md).
 * **Защита ключей {{ kms-name }}**: выдавайте только гранулярные доступы к отдельным ключам {{ kms-name }} — роли `kms.keys.encrypter`, `kms.keys.decrypter` или `kms.keys.encrypterDecrypter`; используйте [ротацию ключей](../../kms/concepts/version.md).
 * **Управление секретами**: используйте сервисы управления секретами, такие как [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер {{ registry }}/yc/vault -->
@@ -83,7 +83,7 @@ description: "Из статьи вы узнаете, из чего состои�
 * **Внешние сканирования безопасности**: проводите сканирования в соответствии с [правилами](../compliance/pentest.md).
 * **Обновления ПО, ОС**: самостоятельно устанавливайте обновления, используйте автоматизированные инструменты обновлений.
 * **Web Application Firewall**: установите WAF из [{{ marketplace-name }}](/marketplace?categories=security) или воспользуйтесь Managed WAF — для получения доступа обратитесь к своему менеджеру.
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: PT Application Firewall на базе {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: PT Application Firewall на базе {{ yandex-cloud }}](https://github.com/yandex-cloud-examples/yc-webinar-pt-application-firewall-ha-operations)
   ![](../../_assets/overview/solution-library-icon.svg)[Пример: установка уязвимого веб-приложения (DVWA) в {{ yandex-cloud }} с помощью {{ TF }} для тестирования Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
 
 ## Сбор, мониторинг и анализ аудитных логов {#logs-analysis}
@@ -92,14 +92,14 @@ description: "Из статьи вы узнаете, из чего состои�
 * **Сбор событий с уровня гостевых ОС и приложений**: собирайте события, например, с помощью [{{ mes-full-name }}](../../managed-elasticsearch/) или с помощью бесплатных решений Osquery, [Wazuh](/marketplace/products/opennix/wazuh) и др.
 * **Сбор Flow logs (если требуется)**: например, с помощью NGFW из {{ marketplace-name }} или бесплатного ПО (в планах встроенные возможности).
 * **Экспорт событий {{ at-name }} в SIEM**.
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в {{ mes-name }} (ELK)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в ArcSight](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight)
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в Splunk](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в {{ mes-name }} (ELK)](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в ArcSight](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в Splunk](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
   Возможен экспорт в любой SIEM с помощью s3fs, см. [инструкцию](../../storage/tools/s3fs.md).
 * **Use cases**.
   ![](../../_assets/overview/solution-library-icon.svg)[Use cases и важные события безопасности в аудитных логах](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
 * **Реагирование на {{ at-name }} с {{ sf-name }}**:
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: уведомления и реагирование на события ИБ {{ at-name }} с помощью {{ cloud-logging-full-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: уведомления и реагирование на события ИБ {{ at-name }} с помощью {{ cloud-logging-full-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response)
 * **Регулярный аудит состояния**: используйте [{{ yandex-cloud }} CLI](../../cli/) для запросов к текущему состоянию облачной инфраструктуры либо партнерское решение [Cloud Advisor](/blog/posts/2021/03/cloud-advisor-review).
 
 ## Физическая безопасность {#physical-security}
@@ -124,7 +124,7 @@ description: "Из статьи вы узнаете, из чего состои�
 
 * **Server-side шифрование**: включите шифрование секретов в etcd, см. [руководство](../../kms/tutorials/k8s.md). Делайте это всегда, вне зависимости от того, будете ли вы использовать сервисы управления секретами.
 * **Управление секретами**: используйте [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер `{{ registry }}/yc/vault` -->
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: управление секретами с SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: управление секретами с SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud-examples/yc-mk8s-manage-secrets-with-secretmanager-plugin)
 
 ### Сетевая безопасность {#kubernetes-network-security}
 
@@ -137,20 +137,20 @@ description: "Из статьи вы узнаете, из чего состои�
 ### Аутентификация и управление доступом {#kubernetes-authentication}
 
 * **Управление доступом**: настройте роли для доступа к {{ k8s }}, см. [инструкцию](../../managed-kubernetes/security/index.md#sa-annotation). Контролируйте права доступа сервисного аккаунта группы узлов (как правило, достаточно роли `container-registry.images.puller`).
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка ролевых моделей и политик в {{ managed-k8s-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка ролевых моделей и политик в {{ managed-k8s-name }}](https://github.com/yandex-cloud-examples/yc-mk8s-roles-and-policies)
 
 ### Безопасная конфигурация {#kubernetes-secure-configuration}
 
 * **Конфигурация группы узлов в соответствии с baseline и стандартами**: настройте группы узлов в соответствии со стандартами и baseline: NIST, CIS и др. Возможно использовать автоматизированные инструменты: kube-bench, kubescape.
 * **Runtime security и policy engine**: используйте решения для runtime security, например [Falco](/marketplace/products/yc/falco), а также решения для policy engine, например OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: установка Falco и policy engine с отправкой алертов в {{ mes-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: установка Falco и policy engine с отправкой алертов в {{ mes-name }}](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 * **Обновления безопасности**: выберите подходящий [канал обновления](../../managed-kubernetes/concepts/release-channels-and-updates.md) и настройте автоматическое применение обновлений либо применяйте их вручную сразу после публикации в выбранном канале. Также выполняйте своевременное обновление собственного ПО на группах узлов.
 * **Распределение подов на разные группы узлов**: настройте node taints and tolerations + node affinity (по нагрузке и степени приватности).
 
 ### Сбор, мониторинг и анализ аудитных логов {#kubernetes-logs-analysis}
 
 * **Сбор и анализ аудитных логов {{ k8s }} и инструментов защиты**.
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: анализ логов безопасности {{ k8s }} в {{ mes-name }}: аудитные логи, policy engine, Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: анализ логов безопасности {{ k8s }} в {{ mes-name }}: аудитные логи, policy engine, Falco](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 * **Сбор и анализ аудитных логов workloads и группы узлов**: например, с помощью открытых инструментов [Fluent Bit](/marketplace/products/yc/fluent-bit), Beats и др.
 
 

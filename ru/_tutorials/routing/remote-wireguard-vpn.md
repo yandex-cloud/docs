@@ -15,7 +15,7 @@
 | Keycloak ВМ | Open-source ПО [Keycloak](https://www.keycloak.org/) для Single Sign-On аутентификации пользователей в корпоративной федерации пользователей, например Active Directory |
 
 
-Более подробное описание приведено в [репозитории проекта](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/remote-access-vpn/README.md).
+Более подробное описание приведено в [репозитории проекта](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone/blob/main/README.md).
 
 Чтобы настроить Firezone и проверить его работу:
 
@@ -160,14 +160,15 @@
 
 ## Разверните Firezone и Keycloak {#deploy-firezone}
 
-1. На вашей рабочей станции склонируйте [репозиторий](https://github.com/yandex-cloud/yc-solution-library-for-security/) `yandex-cloud/yc-solution-library-for-security` из GitHub и перейдите в папку сценария `remote-access-vpn`:
-   ```bash
-   git clone https://github.com/yandex-cloud/yc-solution-library-for-security.git
+1. На вашей рабочей станции склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone) `yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone` из [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) и перейдите в папку сценария `yc-remote-acess-vpn-with-wireguard-firezone`:
 
-   cd yc-solution-library-for-security/network-sec/remote-access-vpn
+   ```bash
+   git clone https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone.git
+
+   cd yc-remote-acess-vpn-with-wireguard-firezone
    ```
 
-1. Отредактируйте файл `output.tf` в папке `settings`, указав параметры разворачиваемых ресурсов:
+1. Отредактируйте файл `outputs.tf` в папке `settings`, указав параметры разворачиваемых ресурсов:
 
    * В секции `domain` укажите ваше доменное имя (второго и первого уровня, разделенное точкой) для виртуальных машин Firezone и Keycloak. В этом примере используется домен `example.com`.
    * В секции `folder_id` укажите ID каталога для размещения ресурсов, например `b1grj7grr1kn********`.

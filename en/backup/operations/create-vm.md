@@ -5,7 +5,7 @@ description: "Follow this guide to create a Linux VM with a connection to {{ bac
 
 # Creating a Linux VM with a connection to {{ backup-name }}
 
-{{ backup-name }} supports backing up [{{ compute-name }} VMs](../../compute/concepts/vm.md) running such Linux OS's as Ubuntu 20.04 or lower and CentOS 7. For more information, see [{#T}](../concepts/vm-connection.md#os).
+You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Linux-based operating systems](../concepts/vm-connection.md#linux).
 
 ## Getting started {#before-you-begin}
 

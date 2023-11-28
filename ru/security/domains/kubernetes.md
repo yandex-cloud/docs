@@ -121,7 +121,7 @@
 
 Для работы кластера {{ managed-k8s-name }} необходимы два сервисных аккаунта: [сервисный аккаунт кластера и сервисный аккаунт группы узлов](../../managed-kubernetes/security/index.md#sa-annotation).
 
-![](../../_assets/overview/solution-library-icon.svg)[Пример настройки ролевых моделей и политик в {{ managed-k8s-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+![](../../_assets/overview/solution-library-icon.svg)[Пример настройки ролевых моделей и политик в {{ managed-k8s-name }}.](https://github.com/yandex-cloud-examples/yc-mk8s-roles-and-policies)
 
 ## Безопасная конфигурация {{ managed-k8s-name }} {#secure-config-1}
 
@@ -141,7 +141,7 @@
 
 Starboard Operator — это бесплатный инструмент, который позволяет автоматизировать сканирование образов на уязвимости и проверку конфигурации на соответствие CIS {{ k8s }} Benchmark.
 
-![](../../_assets/overview/solution-library-icon.svg) [Интеграция Starboard и {{ container-registry-full-name }} с целью сканирования запущенных образов](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/starboard_and_yc-cr)
+![](../../_assets/overview/solution-library-icon.svg) [Интеграция Starboard и {{ container-registry-full-name }} с целью сканирования запущенных образов](https://github.com/yandex-cloud-examples/yc-cr-trivy-integration)
 
 ### Контроль целостности (FIM — File integrity monitoring) {#fim}
 
@@ -154,7 +154,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Можно использовать, например, [Osquery](https://osquery.io/) в качестве агента, который устанавливается на узлы с помощью [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) и использует конкретные каталоги узла, монтируемые как том в контейнер DaemonSet (прокинутая файловая система).
 
-![](../../_assets/overview/solution-library-icon.svg) Комплексное решение в [Osquery and kubequery in K8s.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/osquery-kubequery)
+![](../../_assets/overview/solution-library-icon.svg) Комплексное решение в [Osquery and kubequery in K8s.](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery)
 
 #### Файлы контейнера {#fim-container-files}
 
@@ -219,7 +219,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Также необходимо использовать встроенную в {{ k8s }} поддержку [AppArmor](https://kubernetes.io/docs/tutorials/security/apparmor/) и [Seccomp](https://kubernetes.io/docs/tutorials/security/seccomp/).
 
-![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности {{ k8s }} в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности {{ k8s }} в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 
 ## Управление уязвимостями {{ managed-k8s-name }} {#vulnerability-management}
 
@@ -258,8 +258,8 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Примеры, в которых используется Kyverno:
 
-* ![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности {{ k8s }} в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
-* ![](../../_assets/overview/solution-library-icon.svg)[Пример настройки ролевых моделей и политик в {{ managed-k8s-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+* ![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности {{ k8s }} в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
+* ![](../../_assets/overview/solution-library-icon.svg)[Пример настройки ролевых моделей и политик в {{ managed-k8s-name }}.](https://github.com/yandex-cloud-examples/yc-mk8s-roles-and-policies)
 
 Для контроля соответствия требованиям Pod Security Standarts также можно использовать следующие инструменты в рамках [CI/CD](/blog/posts/2022/10/ci-cd):
 
@@ -281,7 +281,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 При использовании минимальных образов или образов distroless (distroless images), в которых отсутствует shell, рекомендуется использовать [ephemeral cointainers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
 
-![](../../_assets/overview/solution-library-icon.svg)[Решение с использованием Osquery.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/osquery-kubequery)
+![](../../_assets/overview/solution-library-icon.svg)[Решение с использованием Osquery.](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery)
 
 ## Разделение нагрузки по узлам {#load-sharing}
 
@@ -301,7 +301,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Сбор событий аудита с уровня {{ k8s }} API выполняется сервисом {{ cloud-logging-name }}.
 
-![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности {{ k8s }} в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности {{ k8s }} в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud-examples/yc-export-mk8s-auditlogs-to-elk)
 
 ### Уровень узлов {{ k8s }} {#kubernetes-nodes-level}
 
@@ -314,7 +314,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 Примеры сбора и экспорта логов подов:
 
 * Экспорт логов в {{ cloud-logging-name }} с использованием Fluent Bit описан в документации  [{{ managed-k8s-name }}](../../managed-kubernetes/tutorials/fluent-bit-logging.md).
-* Экспорт логов подов в Elastic или Splunk рассмотрен в [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/kubernetes-security/osquery-kubequery/README_RU.md).
+* Экспорт логов подов в Elastic или Splunk рассмотрен в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery/blob/main/README.md).
 
 В {{ marketplace-name }} доступны плагин [Filebeat](/marketplace/products/yc/filebeat) для передачи логов в Elastic и [Fluent Bit с плагином {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit).
 
@@ -326,7 +326,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 ### Flow logs {{ k8s }} {#flow-logs-kubernetes}
 
-![](../../_assets/overview/solution-library-icon.svg)[Экспорт flow logs в {{ objstorage-full-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/cilium-s3)
+![](../../_assets/overview/solution-library-icon.svg)[Экспорт flow logs в {{ objstorage-full-name }}.](https://github.com/yandex-cloud-examples/yc-export-mk8s-cilium-logs-to-s3)
 
 ### Аудит ролевой модели {{ managed-k8s-name }} {#role-model-audit}
 

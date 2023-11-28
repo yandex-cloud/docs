@@ -2,7 +2,7 @@
 
 {{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data.
 
-{{ backup-name }} supports backing up [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server. For more information, see [{#T}](concepts/vm-connection.md#os).
+You can back up {{ compute-name }} [VMs](../compute/concepts/vm.md) with [supported operating systems](concepts/vm-connection.md#os).
 
 To get started with {{ backup-name }}:
 1. [Activate the service](#activate-provider).
@@ -134,4 +134,4 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
 #### What's next {#what-is-next}
 
 * [Learn about service features](concepts/index.md).
-* [See other instructions on how to use the service](operations/index.md).
+* [See other service guides](operations/index.md).

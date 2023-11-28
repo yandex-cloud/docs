@@ -32,26 +32,9 @@ Create a [placement group](../../concepts/placement-groups.md).
       yc compute placement-group create --help
       ```
 
-   1. Create a placement group:
+   1. Create a placement group in the default folder with one of the placement strategies:
 
-      ```bash
-      yc compute placement-group create --spread-strategy --name my-group
-      ```
-
-      Result:
-
-      ```bash
-      id: fd83bv4rnsna********
-      folder_id: b1g5kkhshgs9********
-      created_at: "2019-12-30T10:07:34Z"
-      name: my-group
-      spread_placement_strategy: {}
-      ```
-
-      This command creates a placement group with the following characteristics:
-
-      - Name: `my-group`
-      - Placement strategy: `spread`
+      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
 
    1. Check that the placement group was added:
 
@@ -92,9 +75,9 @@ Create a [placement group](../../concepts/placement-groups.md).
 
       ```hcl
       resource "yandex_compute_placement_group" "group1" {
-        name        = "<placement group name>"
-        folder_id   = "<folder ID>"
-        description = "<placement group description>"
+        name        = "<placement_group_name>"
+        folder_id   = "<folder_ID>"
+        description = "<placement_group_description>"
       }
       ```
 

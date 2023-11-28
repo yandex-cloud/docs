@@ -45,7 +45,7 @@
 
 - Консоль управления
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -112,8 +112,8 @@
 
    Привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
 
-   1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. В строке нужной подсети нажмите кнопку ![image](../../_assets/options.svg).
+   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. В строке нужной подсети нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
    1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. В открывшемся окне выберите созданную таблицу в списке.
    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -154,7 +154,7 @@
 
 1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}** нажмите кнопку **![pencil](../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}** нажмите кнопку **![pencil](../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Укажите параметры:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-project`.
@@ -169,7 +169,7 @@
 
 Создайте [секреты](../../datasphere/concepts/secrets.md) для хранения идентификатора и секретной части статического ключа доступа: 
 
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** на странице проекта нажмите ![secret](../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** на странице проекта нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета. Секрет с идентификатором статического ключа назовите `token`, а секрет с секретной частью — `key_value`.
 1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** введите значение, которое будет храниться в зашифрованном виде.

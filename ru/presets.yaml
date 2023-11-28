@@ -495,6 +495,7 @@ default:
   roles-search-api-executor: search-api.executor
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
+  roles-speechsense-data-editor: Data editor
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
   roles-vision-user: ai.vision.user
@@ -3868,7 +3869,7 @@ default:
         filter-projects: По проектам
         search-placeholder: Поиск
       ui_components_projects_Sidebar:
-        sidebar-param-title--endDate: Дата завершения
+        sidebar-param-title--endDate: Дедлайн
         sidebar-param-title--lead: Ответственный
         sidebar-param-title--startDate: Дата начала
         sidebar-param-title--status: Статус
@@ -4948,6 +4949,10 @@ default:
           label_billing: Биллинг
           label_monitoring: Monitoring
           label_notifications: Уведомления
+        security-group-field:
+          label_sg-auto: Автоматически
+          label_sg-from-list: Из списка
+          label_sg-none: Без групп
         service-account-select:
           button_create-account-new: Создать новый
           label_no-service-account: Не выбрано
@@ -5855,7 +5860,7 @@ default:
         label_import-tests-from-overload: Импортировать тесты из Overload
         label_local-source: С компьютера
         label_monitoring-report: Мониторинг
-        label_rps: Запросов в секунду
+        label_rps: Ответов в секунду
         label_settings-type-config: Конфигурационный файл
         label_settings-type-form: Форма
         label_test-config: Конфигурация
@@ -6976,7 +6981,7 @@ default:
                       fields:
                         title: Список полей
                       json_fields:
-                        title: JSON спецификация
+                        title: JSON-спецификация
                     DataTransformationOptions:
                       buffer_flush_interval:
                         title: Интервал отправки
@@ -7027,7 +7032,7 @@ default:
                       connection:
                         title: Настройки подключения
                       sanitize_doc_keys:
-                        title: Исправить невалидные ключи в документах
+                        title: Исправить некорректные ключи в документах
                     OnPremiseElasticSearch:
                       addresses:
                         title: Узлы с данными
@@ -7127,7 +7132,7 @@ default:
                         title: SHA 512
                     KafkaConnectionType:
                       managed:
-                        title: Кластер Managed Service for Kafka
+                        title: Кластер Managed Service for Apache Kafka
                     KafkaSaslSecurity:
                       mechanism:
                         title: Механизм
@@ -7174,7 +7179,7 @@ default:
                       auth:
                         title: Аутентификация
                       cluster_id:
-                        title: Кластер Managed Service for Kafka
+                        title: Кластер Managed Service for Apache Kafka
                     ManagedKafkaAuth:
                       no_auth:
                         title: Без аутентификации
@@ -7207,9 +7212,9 @@ default:
                   logbroker:
                     ParserConfigCommon:
                       parser_config_audit_trails_v1:
-                        title: AuditTrails.v1 парсер
+                        title: Парсер AuditTrails.v1
                       parser_config_common_cloud_logging:
-                        title: CloudLogging парсер
+                        title: Парсер CloudLogging
             metrika:
               console:
                 form:
@@ -7619,7 +7624,7 @@ default:
                       database:
                         title: База данных
                       service_account_id:
-                        title: ID сервисного аккаунта
+                        title: Идентификатор сервисного аккаунта
                     YdbPartitionPolicy:
                       keep_part_count:
                         title: Количество таблиц
@@ -7693,11 +7698,11 @@ default:
                   aws_cloud_trail_source:
                     AWSCloudTrailSource:
                       aws_key_id:
-                        title: ID ключа
+                        title: Идентификатор ключа
                       aws_region_name:
                         title: Имя региона
                       aws_secret_key:
-                        title: Secret Key
+                        title: Ключ секрета
                       start_date:
                         title: Начальная дата
             bigquery_source:
@@ -7706,11 +7711,11 @@ default:
                   bigquery_source:
                     BigQuerySource:
                       credentials_json:
-                        title: Учетные данные JSON
+                        title: Учетные данные
                       dataset_id:
-                        title: ID набора данных по умолчанию
+                        title: Идентификатор набора данных по умолчанию
                       project_id:
-                        title: ID проекта
+                        title: Идентификатор проекта
             mssql_source:
               endpoint:
                 airbyte:
@@ -8075,7 +8080,7 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-2
+        tag: 2.1.7-3
     yc_gateway-api:
       helmChart:
         name: >-

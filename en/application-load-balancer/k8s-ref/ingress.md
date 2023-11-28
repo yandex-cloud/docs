@@ -60,6 +60,7 @@ metadata:
     ingress.alb.yc.io/modify-header-response-replace: <string>
     ingress.alb.yc.io/modify-header-response-rename: <string>
     ingress.alb.yc.io/modify-header-response-remove: <string>
+    ingress.alb.yc.io/use-regex: <string>
 ```
 
 Where:
@@ -273,6 +274,10 @@ Where:
    ```
 
    Where `<key>` is the name of the header to remove.
+
+* `ingress.alb.yc.io/use-regex` (`string`)
+
+   Enables support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path if the `true` string is provided. Only applies if the `pathType` parameter is set to `Exact`.
 
 ## IngressSpec {#spec}
 

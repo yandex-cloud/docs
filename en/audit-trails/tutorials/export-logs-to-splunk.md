@@ -267,13 +267,13 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
 - {{ TF }}
 
    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Clone the [Yandex Cloud Security Solution Library repository](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
+   1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk) from the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library)
 
       ```
-      git clone https://github.com/yandex-cloud/yc-solution-library-for-security.git
+      git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk.git
       ```
 
-   1. Create a subfolder in `/auditlogs/export-auditlogs-to-Splunk/terraform/` and go there.
+   1. Create a subfolder in `/yc-export-auditlogs-to-splunk/terraform/` and go there.
    1. Create a configuration file that calls the `yc-splunk-trail` module:
 
       ```

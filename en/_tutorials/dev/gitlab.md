@@ -69,7 +69,7 @@ The cost for maintaining a {{ GL }} server includes:
    ```
 
 1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-1. In the browser, open a link in the format `http://<public VM IP address>`. The {{ GL }} web interface will open.
+1. Open `http://<VM_public_IP_address>` in your browser. The {{ GL }} web interface will open.
 1. Log in using the administrator account:
    * **Username or email**: `root`
    * **Password**: Password you copied earlier
@@ -172,8 +172,7 @@ A Runner is a program that tests and builds projects in the {{ GL }} environment
       Please enter the gitlab-ci coordinator URL (e.g., https://gitlab.com)
       ```
 
-      Enter `http://<public-IP-address-of-your-VM>`.
-
+      Enter `http://<public_IP_of_your_VM>`.
    1. Enter the registration token for the Runner. To retrieve it, go to the project page in {{ GL }}, select **Settings** on the left-hand panel, and click the **CI/CD** tab. Then click **Expand** under **Runners**. Under **Set up a specific Runner manually**, copy the token from step 3 and enter it in the request response:
 
       ```text
@@ -254,7 +253,7 @@ To create a test script:
       * `test`: At the second stage, the executable file is run.
       * `pack`: At the third stage, an archive with the executable file is created, which you can download via the {{ GL }} web interface after the script successfully finishes. Under `artifacts`, there is a list of files available for download.
 
-      Under `cache`, specify which files and directories are transferred between stages. If you omit it, the `hello` file will not be available at the `test` stage and an error will occur.
+      Under `cache`, specify which files and directories are to be transferred between stages. If you omit it, the `hello` file will not be available at the `test` stage and an error will occur.
 
       ![Test script](../../_assets/tutorials/gitlab/gitlab6.png)
 

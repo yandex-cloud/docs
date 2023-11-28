@@ -34,15 +34,15 @@
     Будет создан Docker-образ с пакетами библиотеки TensorFlow для использования GPU в расчетах.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 
 {% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 
 ## Применить Docker-образ для проекта {#set}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Напротив нужного образа нажмите ![Options](../../_assets/options.svg) и выберите ![Apply](../../_assets/datasphere/apply.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Напротив нужного образа нажмите ![Options](../../_assets/console-icons/ellipsis.svg) и выберите ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 1. Откройте проект в {{ jlab }}Lab и дождитесь окончания загрузки.
 1. Откройте вкладку с ноутбуком и убедитесь, что окружение пользовательского образа доступно в вашем проекте. Например, для образа TensorFlow создайте и запустите ячейку со следующим кодом:
 
@@ -60,8 +60,8 @@
    ```
 Чтобы вернуться к окружению по умолчанию:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Напротив образа по умолчанию нажмите ![Options](../../_assets/options.svg) и выберите ![Apply](../../_assets/datasphere/apply.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Напротив образа по умолчанию нажмите ![Options](../../_assets/console-icons/ellipsis.svg) и выберите ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 
 {% note warning %}
 
@@ -76,7 +76,7 @@
 Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../../datasphere/security/index.md). 
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/datasphere/docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/console-icons/logo-docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Выберите нужный образ в списке.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
 1. Включите опцию видимости напротив названия сообщества, в котором нужно поделиться Docker-образом.
@@ -84,9 +84,9 @@
 ## Удалить Docker-образ {#delete}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/datasphere/docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/console-icons/logo-docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. В списке Docker-образов выберите тот, который хотите удалить.
-1. Нажмите ![options](../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что ресурс удален.
