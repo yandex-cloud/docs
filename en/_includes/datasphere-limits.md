@@ -12,13 +12,12 @@
 | **VM usage restrictions** |
 | c1.32 ^1^ | 0 |
 | c1.80 ^2^ | 0 |
-| g1.1 ^1^ | 0 |
-| g1.2 ^1^ | 0 |
 | g1.4 ^1^ | 0 |
 | g2.1 ^1^ | 0 |
 | g2.2 ^1^ | 0 |
 | g2.4 ^1^ | 0 |
 | g2.8 ^2^ | 0 |
+| gt4.1 ^1^ | 0 |
 
 ^1^ quotas can be increased after you deposit at least $10 to your billing account or upon request to the support team.
 

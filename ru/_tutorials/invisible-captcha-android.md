@@ -96,7 +96,7 @@
    Пример запроса:
 
    ```text
-   https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&ip=<IP_адрес_пользователя>&token=<токен>
+   https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&ip=<IP-адрес_пользователя>&token=<токен>
    ```
 
 1. Получите [ответ с сервера](../smartcaptcha/concepts/validation.md). Он содержит JSON-объект с полями `status` и `message`. Например:

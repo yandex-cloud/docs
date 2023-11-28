@@ -5392,6 +5392,8 @@ default:
         button_setup-omniauth: Настроить
         field_admin-email: Электронная почта
         field_admin-login: Логин
+        field_approval-rules: Правила ревью кода
+        field_approval-rules-token: Gitlab токен
         label_admin-section: Данные администратора
         label_configuration-section: Конфигурация
         title_backups: Резервные копии
