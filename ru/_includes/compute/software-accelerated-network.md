@@ -1,11 +1,12 @@
 ## Обычная сеть ВМ {#reg-vm}
 
-В инфраструктуре {{ yandex-cloud }} все виртуальные машины работают в [среде виртуализации](../../glossary/virtualization.md) [QEMU-KVM](https://ru.wikipedia.org/wiki/QEMU). *Гипервизор* пропорционально распределяет вычислительную нагрузку по всем процессорным ядрам, которые выделены [виртуальной машине](../../glossary/vm.md). 
+В инфраструктуре {{ yandex-cloud }} все виртуальные машины работают в [среде виртуализации](../../glossary/virtualization.md) [QEMU-KVM](https://ru.wikipedia.org/wiki/QEMU). *Гипервизор* пропорционально распределяет вычислительную нагрузку по всем процессорным ядрам, которые выделены [виртуальной машине](../../glossary/vm.md).
 
 Вычислительную нагрузку можно логически разделить на три части:
+
 * Пользовательская нагрузка — процессы операционной системы и пользовательские процессы, которые запускаются в ОС пользовательской ВМ.
 * Процессы, обеспечивающие работу [сетевых дисков](../../compute/concepts/disk.md).
-* Процессы для обработки сетевой трафик ВМ. 
+* Процессы для обработки сетевой трафик ВМ.
 
 Распределение нагрузки по вычислительным ядрам можно представить следующим образом:
 
@@ -42,7 +43,11 @@ SAN нельзя включить для виртуальной машины с 
 
 [Стоимость](../../compute/pricing.md#software-accelerated-network) дополнительных аппаратных ресурсов зависит от [платформы](../../compute/concepts/vm-platforms.md) и количества ядер ВМ.
 
-Чтобы включить программно-ускоренную сеть, [измените настройки](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) существующей ВМ или выберите опцию **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** при [создании новой ВМ](../../compute/operations/vm-create/create-linux-vm.md).
+Чтобы включить программно-ускоренную сеть:
+
+* включите опцию **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** при [создании новой ВМ](../../compute/operations/vm-create/create-linux-vm.md) или [измените настройки](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) существующей ВМ;
+
+* включите опцию **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** в конфигурации базовой ВМ при [создании группы ВМ](../../compute/operations/instance-groups/create-fixed-group.md) или в [YAML-спецификации](../../compute/concepts/instance-groups/specification.md) укажите для ключа `network_settings.type` значение `SOFTWARE_ACCELERATED`.
 
 ## Рекомендации по использованию программно-ускоренной сети {#use-cases}
 

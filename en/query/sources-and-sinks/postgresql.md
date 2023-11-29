@@ -27,7 +27,7 @@ To create a connection to {{ mpg-name }}:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. In the panel on the left, go to the **Connections** tab.
-1. Click ![info](../../_assets/plus.svg) **Create**.
+1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
 1. Specify the connection parameters:
 
    1. Under **General parameters**:
@@ -97,7 +97,7 @@ Below is a table of correspondence between {{ PG }} types and {{ yq-full-name }}
 | `serial` | `INT32` | |
 | `serial4` | `INT32` | |
 | `bigint` | `INT64` | |
-| `int8` | `INT64` | | 
+| `int8` | `INT64` | |
 | `bigserial` | `INT64` | |
 | `serial8` | `INT64` | |
 | `real` | `FLOAT` | |

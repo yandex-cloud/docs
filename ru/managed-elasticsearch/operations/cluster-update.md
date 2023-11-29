@@ -37,7 +37,7 @@ keywords:
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
     1. Выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
 
 - CLI
@@ -114,7 +114,7 @@ keywords:
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
   1. Чтобы изменить класс хостов {{ ES }} с ролью *Data node*:
      1. Выберите вкладку **{{ ui-key.yacloud.opensearch.title_data-node }}**.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хоста.
@@ -219,7 +219,7 @@ keywords:
   Чтобы увеличить размер хранилища для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
   1. Чтобы увеличить размер диска для хостов {{ ES }} с ролью *Data node*:
      1. Выберите вкладку **{{ ui-key.yacloud.opensearch.title_data-node }}**.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** укажите необходимый размер диска.
@@ -334,7 +334,7 @@ keywords:
 - Консоль управления
 
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Выберите кластер и нажмите кнопку ![Pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите кнопку ![Pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
     1. Измените [настройки {{ ES }}](../concepts/settings-list.md), нажав кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -390,7 +390,7 @@ keywords:
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
   1. Укажите новый пароль пользователя `admin` в блоке **{{ ui-key.yacloud.mdb.forms.section_user }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -485,7 +485,7 @@ keywords:
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
     1. Измените дополнительные настройки кластера:
 
         {% include [Дополнительные настройки кластера MES](../../_includes/mdb/mes/extra-settings.md) %}

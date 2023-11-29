@@ -58,7 +58,7 @@ To specify which operations the user can perform, assign relevant roles to the u
 
 ## Revoke assigned roles {#revoke-roles}
 
-If the user no longer needs the assigned roles, revoke them:
+If the assigned roles are no longer needed, revoke them:
 
 {% list tabs %}
 

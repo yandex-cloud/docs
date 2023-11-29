@@ -40,6 +40,6 @@
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится инстанс {{ GL }}.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 {% endlist %}

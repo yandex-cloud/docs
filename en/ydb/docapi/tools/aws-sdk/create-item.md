@@ -116,7 +116,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -139,7 +139,7 @@ To add a new record to the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -162,7 +162,7 @@ To add a new record to the `Series` table:
 
               }
               catch (Exception e) {
-                  System.err.println("Couldn't add the record: " + series_id + " " + title);
+                  System.err.println("Couldn't add record: " + series_id + " " + title);
                   System.err.println(e.getMessage());
               }
 
@@ -206,7 +206,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -215,7 +215,7 @@ To add a new record to the `Series` table:
       import boto3
 
       def put_serie(series_id, title, release_date, series_info):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
           table = ydb_docapi_client.Table('Series')
           response = table.put_item(
@@ -270,7 +270,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -285,7 +285,7 @@ To add a new record to the `Series` table:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
+          'endpoint' => '<Document_API_endpoint>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -320,7 +320,7 @@ To add a new record to the `Series` table:
           echo "Series added: $series_id - $title\n";
 
       } catch (DynamoDbException $e) {
-          echo "Couldn't add the record:\n";
+          echo "Couldn't add record:\n";
           echo $e->getMessage() . "\n";
       }
 
@@ -353,7 +353,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -364,7 +364,7 @@ To add a new record to the `Series` table:
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+          endpoint: "<Document_API_endpoint>",
       });
 
       const table = "Series";
@@ -383,12 +383,10 @@ To add a new record to the `Series` table:
           })
       };
 
-      console.log("Adding new record...");
-      docClient.put(params, function(err, data) {
-          if (err) {
-              console.error("Couldn't add the record. JSON error:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+      console.log("Adding new item...");
+
+      dynamodb.send(new AWS.PutItemCommand(params))
+          .then(data => {
               console.log("Series added:", JSON.stringify(data, null, 2));
           })
           .catch(err => {
@@ -423,7 +421,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -446,7 +444,7 @@ To add a new record to the `Series` table:
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 
@@ -465,6 +463,7 @@ To add a new record to the `Series` table:
           table_name: table_name,
           item: item
         }
+
         puts "Uploading the series '#{item[:title]} (#{item[:series_id]})' " \
           "to the table '#{table_name}'..."
         add_item_to_table(dynamodb_client, table_item)

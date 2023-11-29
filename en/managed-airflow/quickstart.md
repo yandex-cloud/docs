@@ -47,3 +47,4 @@ In addition to the web interface, you can use the [{{ AF }} API](https://airflow
 
 * Read about [service concepts](concepts/index.md).
 * Learn more about [creating clusters](operations/cluster-create.md) and [working with {{ AF }} interfaces](operations/af-interfaces.md).
+* Create DAG files and [upload them](operations/upload-dags.md) to the {{ maf-name }} cluster. For a DAG file example, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).

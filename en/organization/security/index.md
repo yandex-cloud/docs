@@ -51,7 +51,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 - {{ org-name }}
 
-   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
+   1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -192,13 +192,13 @@ In a similar way, you can [assign roles](../../iam/operations/sa/assign-role-for
 
 If you wish to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access control in {{ yandex-cloud }}, please see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
 
-The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information about how to assign roles to users, see [Roles](#admin).
+The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant roles to a user, see [Roles](#admin).
 
 {% list tabs %}
 
 - {{ org-name }}
 
-   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
+   1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -222,7 +222,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>
       ```
 
-      * `<SERVICE-NAME>`: Name of the service that the resource belongs to, e.g., `organization-manager`.
+      * `<SERVICE-NAME>`: Name of the service the resource belongs to, e.g., `organization-manager`.
       * `<RESOURCE>`: Resource category. For an organization, `organization` is the category of importance.
       * `<RESOURCE-NAME>`: Name of the resource. Refer to an organization by its [technical name](../operations/org-profile.md).
       * `<RESOURCE-ID>`: Resource ID.

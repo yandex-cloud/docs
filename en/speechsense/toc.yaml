@@ -8,10 +8,14 @@ items:
     items:
       - name: Uploading data
         href: operations/data/upload-data.md
+      - name: Working with dialogs
+        href: operations/data/manage-dialogs.md
       - name: Working with reports
         href: operations/data/manage-reports.md
   - name: Concepts
     items:
+      - name: Dialogs in {{ speechsense-name }}
+        href: concepts/dialogs.md
       - name: Reports in {{ speechsense-name }}
         href: concepts/reports.md
   - name: API reference

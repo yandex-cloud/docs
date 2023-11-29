@@ -59,7 +59,7 @@ To provide secure access to your resources, create an IPSec instance.
 
 ## Configure VPN routing {#vpn-routing}
 
-Configure routing between the remote network and your IPSec instance.  In the example, we'll use the subnet `192.168.0.0/24`.
+Configure routing between the remote network and your IPSec instance. In the example, we will use the `192.168.0.0/24` subnet.
 
 ### Create a route table {#create-route-table}
 

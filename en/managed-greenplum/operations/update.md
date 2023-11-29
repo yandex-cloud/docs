@@ -2,15 +2,15 @@
 
 After creating a cluster, you can:
 
-* [{#T}](#change-name-and-description)
+* [{#T}](#change-name-and-description).
 
-* [{#T}](#change-public-access)
+* [{#T}](#change-public-access).
 
-* [{#T}](#change-additional-settings)
+* [{#T}](#change-additional-settings).
 
-* [{#T}](#change-gp-settings)
+* [{#T}](#change-gp-settings).
 
-* [{#T}](#change-disk-size)
+* [{#T}](#change-disk-size).
 
 * [Configure {{ GP }} servers according to the {{ GP }} documentation](#change-gp-settings).
 
@@ -226,6 +226,40 @@ If you enabled public access to the cluster but cannot access it from the inter
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Editing the scheduled maintenance operations settings {#change-background-settings}
+
+You can edit your cluster's [scheduled maintenance operations](../concepts/maintenance.md#regular-ops) settings.
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.greenplum.section_background-activities }}**, change the parameters:
+
+      {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
+
+   1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- API
+
+   To edit your cluster's scheduled maintenance operations settings, use the REST API [update](../api-ref/Cluster/update.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call, and provide the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New parameter values for the `configSpec.backgroundActivities.analyzeAndVacuum` object:
+
+      * `start.hours`: Start hour of the `VACUUM` operation in UTC. Valid values: from `0` to `23`, with `19` by default.
+      * `start.minutes`: Start minute of the `VACUUM` operation in UTC. Valid values: from `0` to `59`, with `0` by default.
+      * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. The default value is `36,000`. As soon as this period expires, `VACUUM` will be forced to terminate.
+      * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36,000`. As soon as this period expires, the operation will be forced to terminate.
+
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

@@ -2,7 +2,7 @@
 
 If your employees have Yandex accounts (for example, `{{ login-example }}`), they can use them to access the {{ yandex-cloud }} services enabled in your organization.
 
-You can add a user to an organization via the management console or {{ org-full-name }}. When you add a user, an invitation to join the organization will be sent to the user's email address.
+You can invite a user to an organization via the management console or {{ org-full-name }}. An invitation to join your organization will be sent to the user's email address.
 
 ### Send an invitation {#send-invitation}
 
@@ -10,14 +10,17 @@ You can add a user to an organization via the management console or {{ org-full-
 
 - {{ org-name }}
 
-   1. [Log in to an account]({{ link-passport-login }}) that belongs to an organization administrator or owner.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
    1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg).
    1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-   1. Enter the email addresses of the Yandex users you want to add to the organization, such as `{{ login-example }}`.
-   1. Click **Send invitation**.
+   1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
 
-- {{ console-name }}
+      You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+
+   1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+
+- Management console
 
    1. [Log in]({{ link-passport-login }}) to the cloud administrator account.
    1. Log in to the [management console]({{ link-console-main }}).
@@ -27,12 +30,15 @@ You can add a user to an organization via the management console or {{ org-full-
 
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. In the top-right corner, click ![icon-users](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
-   1. Enter the email addresses of the Yandex users you want to add to the organization, such as `{{ login-example }}`.
-   1. Click **Send invitation**.
+   1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
+
+      You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+
+   1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
 
 {% endlist %}
 
-The user will be able to log in to the organization after using the link and accepting the invitation. To access the [services](../../organization/concepts/manage-services.md#collaboration) enabled for the organization, the users you invited simply need to log in to their Yandex account.
+The user will be able to log in to the organization upon accepting the invitation via the emailed link and selecting an account for log-in. To access the [services](../../organization/concepts/manage-services.md#collaboration) enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
 You can delete or resend your invitation only via {{ org-name }}.
 

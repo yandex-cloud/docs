@@ -31,7 +31,7 @@ The following types of dashboards are available:
 
 For parameters of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* and *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* type, the *{{ ui-key.yacloud_monitoring.component.parametrizer.dashboard.multivalue-key-value }}* setting is available. It lets you select multiple parameter values at the same time.
 
-For all parameter types, you can set the *{{ ui-key.yacloud_monitoring.component.parametrizer.default-value }}* that will be used when loading a dashboard in the {{monitoring-full-name}} web interface.
+For all parameter types, you can set the *{{ ui-key.yacloud_monitoring.component.parametrizer.default-value }}* that will be used when loading a dashboard in the {{ monitoring-full-name }} web interface.
 
  <!-- Big Yandex dashboards -->
 

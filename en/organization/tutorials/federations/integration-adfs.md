@@ -329,7 +329,7 @@ To add a certificate to a federation:
 
 {% note tip %}
 
-To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e., both the current one and those to be used afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to be used afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
 
 {% endnote %}
 
@@ -338,7 +338,7 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 After you set up the federation in {{ org-full-name }}, you can configure the AD FS server to notify the management console of each successful authentication session and redirect the user back to the management console.
 
-The instructions in this section are written for Windows Server 2016 (different steps might be needed for other versions).
+This section offers guidelines written for Windows Server 2016 (different steps might be needed for other versions).
 
 To set up authentication on the AD FS server:
 
@@ -499,7 +499,7 @@ To do this, you need to know the name IDs of the users that the Identity Provide
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../security/index.md#admin).
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant roles to a user, see [Roles](../../security/index.md#admin).
 
 To add federation users to an organization:
 
@@ -507,7 +507,7 @@ To add federation users to an organization:
 
 - Management console
 
-   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
+   1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 

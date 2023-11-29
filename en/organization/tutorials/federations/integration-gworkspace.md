@@ -347,7 +347,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% note tip %}
 
-To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e., both the current one and those to be used afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to be used afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
 
 {% endnote %}
 
@@ -433,13 +433,13 @@ To do this, you will need user name IDs. They are returned by the IdP server alo
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../security/index.md#admin).
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant roles to a user, see [Roles](../../security/index.md#admin).
 
 {% list tabs %}
 
 - Management console
 
-   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
+   1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 

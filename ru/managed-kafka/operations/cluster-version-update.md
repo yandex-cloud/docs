@@ -26,7 +26,7 @@
 - Консоль управления
 
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. В строке с нужным кластером нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите номер новой версии.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

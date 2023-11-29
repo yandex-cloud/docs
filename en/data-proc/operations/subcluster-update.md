@@ -2,13 +2,13 @@
 
 You can perform the following actions for any subcluster:
 
-* [{#T}](#change-host-number)
-* [{#T}](#change-resource-preset)
-* [{#T}](#change-autoscaling-rule)
-* [{#T}](#change-disk-size)
-* [{#T}](#change-sg-set)
+* [{#T}](#change-host-number).
+* [{#T}](#change-resource-preset).
+* [{#T}](#change-autoscaling-rule).
+* [{#T}](#change-disk-size).
+* [{#T}](#change-sg-set).
 
-To move subclusters to a different availability zone, follow [this guide](migration-to-an-availability-zone.md).
+To move subclusters to a different availability zone, follow this [guide](migration-to-an-availability-zone.md).
 
 ## Changing the number of hosts {#change-host-number}
 

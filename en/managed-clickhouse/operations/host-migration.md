@@ -1,6 +1,6 @@
 # Migrating {{ CH }} cluster hosts to a different availability zone
 
-{{ mch-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. You can move hosts from one availability zone to another. To do this:
+{{ mch-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. You can move hosts from one availability zone to another.
 
 {% note warning %}
 
@@ -10,7 +10,7 @@
 
 To move cluster hosts between availability zones:
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
 1. Add a host to your cluster:
 
    {% list tabs %}
@@ -63,7 +63,7 @@ To move cluster hosts between availability zones:
          }
          ```
 
-         In the `zone` parameter, specify the availability zone you want to move the hosts to.
+         In the `zone` parameter, specify the availability zone you are moving the hosts to.
 
       1. Make sure the settings are correct.
 
@@ -131,3 +131,5 @@ To move cluster hosts between availability zones:
    {% endlist %}
 
 1. Wait until the cluster status changes to **Alive**. In the management console, go to your folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+
+{% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}

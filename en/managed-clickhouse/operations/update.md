@@ -147,12 +147,12 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
    To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.resources.resourcePresetId` parameter (`configSpec.zookeeper.resources.resourcePresetId` for ZooKeeper).
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
 
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -246,7 +246,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
    To increase the storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required size of the {{ CH }} host storage in the `configSpec.clickhouse.resources.diskSize` parameter.
    * Required size of the {{ ZK }} host storage in the `configSpec.zookeeper.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter.
@@ -464,12 +464,12 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    To change {{ CH }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required values in the `configSpec.clickhouse.config` parameter.
 
       All supported settings are described in the [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) section and in the [API reference](../api-ref/Cluster/update.md).
 
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -513,8 +513,8 @@ For more information, see [Memory management](../concepts/memory-management.md).
          --datatransfer-access=<true_or_false> \
          --deletion-protection=<cluster_deletion_protection:_true_or_false> \
          --maintenance-window type=<maintenance_type:_anytime_or_weekly>,`
-                             `day=<day_of_the_week_for_weekly_type>,`
-                             `hour=<hour_of_the_day_for_weekly_type> \
+                             `day=<day_of_week_for_weekly_type>,`
+                             `hour=<hour_for_weekly_type> \
          --metrika-access=<true_or_false> \
          --serverless-access=<true_or_false> \
          --yandexquery-access=<access_via_Yandex_Query:_true_or_false> \
@@ -553,7 +553,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
 
 
-   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -581,10 +581,10 @@ For more information, see [Memory management](../concepts/memory-management.md).
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         access {
-          data_lens    = <access_from_{{ datalens-name }}:_true_or_false>
-          metrika      = <access_from_Yandex_Metrica_and_AppMetrika:_true_or_false>
-          serverless   = <access_from_Cloud_Functions:_true_or_false>
-          web_sql      = <execution_of_SQL_queries_from_management_console:_true_or_false>
+          data_lens  = <access_from_{{ datalens-name }}:_true_or_false>
+          metrika    = <access_from_Yandex_Metrica_and_AppMetrika:_true_or_false>
+          serverless = <access_from_Cloud_Functions:_true_or_false>
+          web_sql    = <execution_of_SQL_queries_from_management_console:_true_or_false>
           yandex_query = <access_from_Yandex_Query:_true_or_false>
         }
         ...
@@ -622,7 +622,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
       * Settings for access from other  services and access to SQL queries from the  management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
@@ -755,7 +755,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -822,7 +822,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
 
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

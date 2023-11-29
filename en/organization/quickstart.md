@@ -32,16 +32,18 @@ To connect employees with Yandex accounts:
 
 1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 
-1. Enter the email addresses of the Yandex users you want to invite to the organization (for example, `{{login-example}}`).
+1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
+
+   You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
 
 
 1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
 
-Users will be added to the organization when they accept the invitation.
+The users will be connected to the organization upon accepting the invitation via the emailed link and selecting an account for log-in.
 
 ### Configure an identity federation {#add-federation}
 
-Identity federation is a technology with which you can implement a single sign-on system (SSO) and use corporate accounts for authorization in {{org-full-name}}. In this case, your corporate account management system acts as an identity provider (IdP).
+An identity federation is a technology that allows you to implement a Single Sign-On (SSO) authentication scheme and use corporate accounts to log in to {{ org-full-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
 
 To configure your identity federation, follow these steps:
 
@@ -53,7 +55,7 @@ To configure your identity federation, follow these steps:
 
 1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-1. In the **IdP Issuer** field, specify the IdP server ID to be used for authentication. The IdP server must send the same ID in its response to {{ org-name }} during user authentication.
+1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, specify the IdP server ID to be used for authentication. The IdP server must send the same ID in its response to {{ org-name }} during user authentication.
 
    {% note info %}
 
@@ -71,9 +73,9 @@ To configure your identity federation, follow these steps:
 
    If you do not enable this option, you will need to [manually add](operations/add-account.md#add-user-sso) your federated users.
 
-1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{yandex-cloud}}.
+1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{ yandex-cloud }}.
 
-   User attributes supported by {{org-full-name}} services are listed in identity federation setup guides for different identity providers:
+   User attributes supported by {{ org-full-name }} services are listed in identity federation setup guides for different identity providers:
 
    * [Active Directory](tutorials/federations/integration-adfs.md).
    * [Google Workspace](tutorials/federations/integration-gworkspace.md).

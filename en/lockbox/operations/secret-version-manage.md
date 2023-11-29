@@ -1,3 +1,7 @@
+---
+title: "Secret versions management in {{ lockbox-full-name }}"
+---
+
 # Secret version control
 
 Secret version control enables you to:
@@ -127,7 +131,7 @@ Secret version control enables you to:
 
 {% endlist %}
 
-## Setting a current version {#backup}
+## Rolling back to a version {#backup}
 
 {% list tabs %}
 
@@ -142,7 +146,7 @@ Secret version control enables you to:
 
 - API
 
-   To set a new current version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
+   To roll back to an existing version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
 
 {% endlist %}
 
@@ -157,8 +161,38 @@ Secret version control enables you to:
    1. Click the name of the secret you need.
    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the appropriate version.
    1. Select **{{ ui-key.yacloud.lockbox.button_action-schedule-for-destruction }}**.
-   1. Enter the time until destruction.
+   1. Enter the destruction pending period.
    1. Click **{{ ui-key.yacloud.lockbox.forms.button_schedule-destruction }}**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to schedule version destruction:
+
+      ```bash
+      yc lockbox secret schedule-version-destruction --help
+      ```
+   1. Schedule a version for destruction by specifying the secret name, version ID, and the destruction pending period. For example, 1 week: `168h`:
+
+      ```bash
+      yc lockbox secret schedule-version-destruction <secret_name> \
+        --version-id <version_ID> \
+        --pending-period 168h
+      ```
+      Result:
+
+      ```bash
+      id: e6qor8pe3ju7********
+      secret_id: e6qkkp3k29jf********
+      created_at: "2023-11-08T13:14:34.676Z"
+      destroy_at: "2023-11-15T17:06:28.795Z"
+      status: SCHEDULED_FOR_DESTRUCTION
+      payload_entry_keys:
+        - secret-key
+      ```
 
 - API
 

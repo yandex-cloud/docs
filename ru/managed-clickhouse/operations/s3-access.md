@@ -41,7 +41,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md) или [ACL объекта](../../storage/operations/objects/edit-acl.md):
 
-      1. В списке бакетов или объектов выберите нужный элемент и нажмите на значок ![image](../../_assets/options.svg).
+      1. В списке бакетов или объектов выберите нужный элемент и нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg).
       1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_permissions }}** или **{{ ui-key.yacloud.storage.file.button_permissions }}**.
       1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.

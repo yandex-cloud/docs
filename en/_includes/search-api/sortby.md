@@ -1,6 +1,6 @@
 #### Sorting results {#sortby}
 
-The `sortby` field contains a rule for sorting search results that defines a sequence of search results returned. Possible values:
+The `sortby` field contains a rule for sorting search results that defines the sequence of the returned search results. The possible values include:
 
 * `rlv`: By relevance (default).
 * `tm`: By document update time.

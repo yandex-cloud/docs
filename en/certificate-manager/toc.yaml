@@ -37,7 +37,7 @@ items:
         items:
           - name: Adding a domain
             href: operations/domain/domain-create.md
-          - name: Renewing a domain certificate
+          - name: Linking a certificate to a domain
             href: operations/domain/domain-link-cert.md
           - name: Updating a domain
             href: operations/domain/domain-modify.md

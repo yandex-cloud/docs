@@ -8,22 +8,22 @@ To show polygons on a map, add a [Geopolygon](../concepts/data-types.md#geopolyg
 * Use the `GEOPOLYGON(polygon_string)` [function](../function-ref/GEOPOLYGON.md) to create a calculated field with the [Geopolygon](../concepts/data-types.md#geopolygon) data type.
 * If your data contains a field with a city, region, or country name, use the [geopoint/geopolygon reference](https://geointellect.com/files/geo_for_datalens.zip) from Geointellect, a partner of Yandex.
 
-Follow [this link](https://storage.yandexcloud.net/doc-files/Regions.csv) to download a sample CSV file with Russian region polygons.
+Follow the [link](https://storage.yandexcloud.net/doc-files/Regions.csv) to download a sample CSV file with Russian region polygons.
 
 A choropleth map is used for estimating the value of a measure within a territorial unit. For example, you can use a choropleth map to show the population density of individual districts.
 
 ![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png)
 
 
-## Sections in the wizard {#wizard-sections}
+## Wizard sections {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
------ | ----
+| Wizard section<br/> | Description |
+| ----- | ---- |
 | Polygons (Geopolygons) | Measure with the type [Geopolygon](../concepts/data-types.md#geopolygon). |
-| Colors | Dimension or measure. Affects the color and intensity of area fill |
-| Tooltips | Dimension or measure. A tooltip that appears when you hover over an area |
-| Layer filters | Dimension or measure. Used as a filter for the current layer |
-| Filters | Dimension or measure. Used as a filter for the entire chart |
+| Colors | Dimension or measure. Affects the color and intensity of area fill. |
+| Tooltips | Dimension or measure. A tooltip that appears when you hover over an area. |
+| Layer filters | Dimension or measure. Used as a filter for the current layer. |
+| Filters | Dimension or measure. Used as a filter for the entire chart. |
 
 ## Creating a choropleth map {#create-diagram}
 
@@ -43,4 +43,4 @@ You can also:
 ## Recommendations {#recomendations}
 
 * Don't use a choropleth map to precisely compare some values.
-* To make it more precise, add data signatures or pop-up hints with information to the map.
+* To make it more precise, add data signatures or tooltips with information to the map.

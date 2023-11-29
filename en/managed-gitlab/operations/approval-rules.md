@@ -55,22 +55,29 @@ The `APPROVALRULES` file structure is as follows:
 ApprovalRules:
   - <rule_name>:
     approvers:
-      - <name_of the_{{ GL }}_user_who_can_approve_a_merge_request>
-      ...
-    groups:
-      - <name_of_the_{{ GL }}_group_whose_members_can_approve_a_merge_request>
-      ...
-    count: <required_number_of_approvals>
+        - <user_name>
+        ...
+      groups:
+        - <group_name>
+        ...
+      count: <required_number_of_approvals>
 
 BranchGroups:
   - <branch_group_name>:
-    branches:
-      - <name_of_the_branch_changes_to_which_require_a_review>
-      ...
-    rules:
-      - <name_of_the_rule_applied_to the_specified_branches>
-      ...
+      branches:
+        - <branch_name>
+        ...
+      rules:
+        - <rule_name>
+        ...
 ```
+
+Where:
+
+* `approvers`: Name of the {{ GL }} user who can approve the merge request.
+* `groups`: Name of the {{ GL }} group whose users can approve the merge request.
+* `branches`: Name of the branch the updates of which require a review.
+* `rules`: Name of the rule that applies to the specified branches.
 
 You can use the `*` wildcard instead of user names and in branch names.
 
@@ -79,16 +86,16 @@ You can use the `*` wildcard instead of user names and in branch names.
 > ```text
 > ApprovalRules:
 >   - FourEyesRule:
->     approvers:
->       - "*"
->     count: 1
+>       approvers:
+>         - "*"
+>       count: 1
 >
 > BranchGroups:
 >   - Master:
->     branches:        
->       - master
->     rules:
->       - FourEyesRule
+>       branches:       
+>         - master
+>       rules:
+>         - FourEyesRule
 > ```
 
 ## Set up Code Ownership {#code-ownership}
@@ -110,11 +117,11 @@ To use the Code Ownership settings when handling merge requests to specific bran
 ```text
 BranchGroups:
   - <branch_group_name>:
-    branches:        
-      - <branch_name>
-      ...
-    rules:
-      - CODE_OWNERS
+      branches:        
+        - <branch_name>
+        ...
+      rules:
+        - CODE_OWNERS
 ```
 
 ## Debugging {#debugging}

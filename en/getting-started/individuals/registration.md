@@ -1,6 +1,6 @@
 ---
-title: "Instructions for individuals on how to create a billing account in {{ yandex-cloud }}"
-description: "In this tutorial, you'll learn how to create an individual's billing account in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents."
+title: "Instructions on how to create a billing account for individuals in {{ yandex-cloud }}"
+description: "In this tutorial, you will learn how to create a billing account for an individual in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents."
 ---
 
 # Getting started for individuals
@@ -11,15 +11,15 @@ description: "In this tutorial, you'll learn how to create an individual's billi
 
 A billing account is required even if you are going to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../usage-grant.md).
 
-{% list tabs %}
+{% list tabs group=versions %}
 
-- Trial period
+   - Trial period {#trial}
 
-   ![quickstart](../../_assets/overview/individuals-trial-period.svg)
+      ![quickstart](../../_assets/overview/individuals-trial-period.svg)
 
-- Paid version
+   - Paid version {#paid}
 
-   ![quickstart](../../_assets/overview/individuals-paid-version.svg)
+      ![quickstart](../../_assets/overview/individuals-paid-version.svg)
 
 {% endlist %}
 

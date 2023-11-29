@@ -128,7 +128,7 @@ description: "Следуя данной инструкции, вы научит�
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
-    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.table.button_action-edit-format-schema }}**.
+    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.table.button_action-edit-format-schema }}**.
 
 - CLI
 
@@ -206,7 +206,7 @@ description: "Следуя данной инструкции, вы научит�
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
-   1. Выберите нужную схему, нажмите на значок ![image](../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.table.button_action-delete-format-schema }}**.
+   1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.table.button_action-delete-format-schema }}**.
 
 - CLI
 

@@ -39,7 +39,7 @@ If the image is from a web resource:
    ![Alternative text](image URL)
    ```
 
-Example:
+For example:
 
 | Markup | Result |
 --- | ---
@@ -61,13 +61,7 @@ If you paste an image link with no markup, the image will be added to the page w
 
 1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-comment.edit }}** in the top-right corner of the page.
 
-   {% note tip %}
-
-   In editing mode, you can see a list of all uploaded files in the left-hand panel of the ![](../_assets/wiki/attach-btn.png) tab.
-
-   {% endnote %}
-
-1. Paste the link to the page. Example:
+1. Paste the link to the page. For example:
 
    ```
    200x0:/users/login/.files/image.png

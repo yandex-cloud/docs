@@ -154,7 +154,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
-  1. Нажмите на значок ![image](../../_assets/options.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
 
 - CLI
 
@@ -242,7 +242,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
-  1. Нажмите на значок ![image](../../_assets/options.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

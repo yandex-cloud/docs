@@ -344,6 +344,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
    ![image](../../_assets/datalens/solution-07/46-create-dashbord.png)
 
+
 1. Name the dashboard **Accidents in Russia** and click **Create**.
 
 {% note info %}
@@ -351,6 +352,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 If this is the first dashboard you create in the folder, it will open once created. If the folder already contains dashboards, you will see the list of them. In the latter case, select the **Accidents in Russia** dashboard.
 
 {% endnote %}
+
 
 ## Step 7. Add charts to the dashboard {#step7}
 
@@ -404,7 +406,7 @@ If this is the first dashboard you create in the folder, it will open once creat
 
       ![image](../../_assets/datalens/solution-07/54-choose-field.png)
 
-   The selector is displayed on the dashboard as a rectangle.
+   The selector will be displayed on the dashboard as a rectangle.
 
 1. Repeat the previous three steps for the fields:
 
@@ -413,7 +415,9 @@ If this is the first dashboard you create in the folder, it will open once creat
    - Road type
    - Road name
 
-1. You can drag and resize dashboard elements. Place the elements according to the screenshot or however is convenient for you and click **Save** to save the dashboard.
+
+1. You can drag and resize dashboard elements. Place the elements according to the screenshot or your preference and click **Save** to save the dashboard.
+
 
    ![image](../../_assets/datalens/solution-07/55-dashbord-view.png)
 

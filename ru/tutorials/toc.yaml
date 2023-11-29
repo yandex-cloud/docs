@@ -513,6 +513,8 @@ items:
           Визуализация данных из {{ tracker-name }} при помощи {{ datalens-name
           }}
         href: datalens/data-from-tracker.md
+      - name: Визуализация географических данных с помощью API Яндекс Геокодера
+        href: datalens/data-from-ch-geocoder.md
   - name: Бессерверные технологии
     items:
       - name: Все руководства

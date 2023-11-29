@@ -18,11 +18,11 @@ After creating a cluster, you can:
 
 Learn more about other cluster updates:
 
-* [{#T}](cluster-version-update.md)
+* [{#T}](cluster-version-update.md).
 
-* [{#T}](storage-space.md)
+* [{#T}](storage-space.md).
 
-* [{#T}](host-migration.md)
+* [{#T}](host-migration.md).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -219,7 +219,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }}_version>` parameter.
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -295,7 +295,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--autofailover` manages automatic master change setup. For more information, see [{#T}](../concepts/replication.md#replication-auto). The default value is `true`.
 
-   * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
+   * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md) (`SESSION`, `TRANSACTION`, or `STATEMENT`).
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -556,7 +556,7 @@ To switch the master:
 
 After the cluster is moved, it will continue using the cloud network from the source folder. If you want to host the cluster in a different cloud network, use the [restore from a backup](./cluster-backups.md) feature and specify the required network for the cluster backup.
 
-To move a cluster to a different availability zone, follow this [guide](host-migration.md). As a result, the cluster hosts will be moved.
+To move a cluster to a different availability zone, follow this [guide](host-migration.md). You will thus move the cluster hosts.
 
 
 ## Changing security groups {#change-sg-set}

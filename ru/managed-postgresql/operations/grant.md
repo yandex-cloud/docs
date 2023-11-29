@@ -39,7 +39,7 @@ description: "Атомарные полномочия в PostgreSQL называ
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
-  1. В строке с именем нужного пользователя нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. В строке с именем нужного пользователя нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Разверните список **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** и в поле **Grants** выберите роли, которые хотите назначить пользователю.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 

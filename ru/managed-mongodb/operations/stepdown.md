@@ -12,7 +12,7 @@
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}**.
-    1. Нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) в строке `PRIMARY` хоста и выберите пункт **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
+    1. Нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) в строке `PRIMARY` хоста и выберите пункт **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
 
 - CLI
 

@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/community_service.md
 
 # DataSphere API v2, gRPC: CommunityService
 
-
+A set of methods for managing Community resources.
 
 | Call | Description |
 | --- | --- |

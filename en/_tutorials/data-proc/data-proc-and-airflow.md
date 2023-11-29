@@ -59,7 +59,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    This automatically creates three subnets in different availability zones and a security group.
 
-1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the `dataproc-network-ru-central1-a` subnet.
+1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the `dataproc-network-{{ region-id }}-a` subnet.
 1. [Add these rules](../../vpc/operations/security-group-add-rule.md) to the security group in `dataproc-network`:
 
    {% cut "Security group rules" %}
@@ -108,15 +108,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a {{ metastore-name }} cluster](../../data-proc/operations/metastore/cluster-create.md) with the following settings:
 
    * **Network**: `dataproc-network`.
-   * **Subnet**: `dataproc-network-ru-central1-a`.
+   * **Subnet**: `dataproc-network-{{ region-id }}-a`.
    * **Security group**: Default group in `dataproc-network`.
    * **Key ID** and **secret key**: Belong to the static access key.
 
 1. [Create a {{ maf-name }} cluster](../../managed-airflow/operations/cluster-create.md) with the following settings:
 
-   * **Availability zone**: `ru-central1-a`.
+   * **Availability zone**: `{{ region-id }}-a`.
    * **Network**: `dataproc-network`.
-   * **Subnet**: `dataproc-network-ru-central1-a`.
+   * **Subnet**: `dataproc-network-{{ region-id }}-a`.
    * **Security group**: Default group in `dataproc-network`.
    * **Bucket name**: `airflow-bucket`.
    * **Key ID** and **secret key**: Belong to the static access key.
@@ -167,7 +167,7 @@ For DAG tasks, we will use two connections: one for {{ objstorage-name }} and on
 
    * **Connection Id**: `yc-s3`
    * **Connection Type**: `Amazon Elastic MapReduce`
-   * **Run Job Flow Configuration**: JSON file, such as:
+   * **Run Job Flow Configuration**: JSON file in the following format:
 
       ```json
       {
@@ -222,15 +222,15 @@ To prepare a DAG:
    )
 
    # Your infrastructure data
-   YC_DP_FOLDER_ID = ''                 # ID of the cloud folder.
-   YC_DP_SSH_PUBLIC_KEY = ''            # Public part of the SSH key for the {{ dataproc-name }} cluster.
-   YC_DP_SUBNET_ID = ''                 # Subnet ID.
-   YC_DP_GROUP_ID = ''                  # Security group ID.
-   YC_DP_SA_ID = ''                     # Service account ID.
-   YC_DP_METASTORE_URI = ''             # IP address of the {{ metastore-name }} cluster.
-   YC_DP_AZ = 'ru-central1-a'           # Availability zone for the {{ dataproc-name }} cluster.
-   YC_SOURCE_BUCKET = 'pyspark-bucket'  # Bucket with the Python script for the PySpark job.
-   YC_DP_LOGS_BUCKET = 'log-bucket'     # Bucket for storing logs.
+   YC_DP_FOLDER_ID = '<folder_ID>'
+   YC_DP_SSH_PUBLIC_KEY = '<public_part_of_SSH_key>'
+   YC_DP_SUBNET_ID = '<subnet_ID>'
+   YC_DP_GROUP_ID = '<security_group_ID>'
+   YC_DP_SA_ID = '<service_account_ID>'
+   YC_DP_METASTORE_URI = '<IP_address>'
+   YC_DP_AZ = '{{ region-id }}-a'
+   YC_SOURCE_BUCKET = 'pyspark-bucket'
+   YC_DP_LOGS_BUCKET = 'log-bucket'
 
    # Creating a connection for {{ objstorage-name }}
    session = settings.Session()
@@ -308,6 +308,18 @@ To prepare a DAG:
        # Building a DAG based on the above steps
        create_spark_cluster >> poke_spark_processing >> delete_spark_cluster
    ```
+
+   Where:
+
+   * `YC_DP_FOLDER_ID`: ID of the cloud folder.
+   * `YC_DP_SSH_PUBLIC_KEY`: Public part of the SSH key for the {{ dataproc-name }} cluster.
+   * `YC_DP_SUBNET_ID`: Subnet ID.
+   * `YC_DP_GROUP_ID`: Security group ID.
+   * `YC_DP_SA_ID`: Service account ID.
+   * `YC_DP_METASTORE_URI`: IP address of the {{ metastore-name }} cluster.
+   * `YC_DP_AZ`: Availability zone for the {{ dataproc-name }} cluster, e.g., `{{ region-id }}-a`.
+   * `YC_SOURCE_BUCKET`: Bucket with the Python script for the PySpark job, e.g., `pyspark-bucket`.
+   * `YC_DP_LOGS_BUCKET`: Bucket for storing logs, e.g., `pyspark-bucket`.
 
    {% endcut %}
 

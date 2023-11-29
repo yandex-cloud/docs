@@ -1,6 +1,6 @@
 # Exporting audit logs to SIEM Splunk systems
 
-Create a trail to upload configuration-level (Control Plane) audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to SIEM Splunk.
+Create a trail to upload management event (Control Plane) audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to SIEM Splunk.
 
 The solution described in the tutorial follows the procedure below:
 1. A [trail](../concepts/trail.md) uploads logs to an {{ objstorage-name }} bucket.
@@ -140,7 +140,7 @@ The infrastructure support cost includes:
       * `id`: ID of the folder from which audit logs will be collected.
       * `service-account-id`: ID of your service account.
 
-   1. Assign the [storage.uploader](../../storage/security/#storage-uploader) role to the folder that will host the trail:
+   1. Assign the [storage.uploader](../../storage/security/#storage-uploader) role to the folder to host the trail:
 
       ```
       yc resource-manager folder add-access-binding \

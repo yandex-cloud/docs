@@ -67,6 +67,10 @@ items:
       - name: Визуализация данных с использованием инструмента "Тепловые карты"
         hidden: true
         href: tutorials/data-on-heat-map-dashboard.md
+      - name: >-
+          Геокодинг с помощью API Яндекс Карт для визуализации в {{
+          datalens-short-name }}
+        href: tutorials/data-from-ch-geocoder.md
   - name: Подключение
     items:
       - name: Обзор
@@ -711,7 +715,7 @@ items:
             href: operations/dashboard/add-title.md
           - name: Создание алиаса
             href: operations/dashboard/create-alias.md
-          - name: Удаление поля алиаса
+          - name: Удаление алиаса
             href: operations/dashboard/edit-alias.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md

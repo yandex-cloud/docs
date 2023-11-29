@@ -9,8 +9,8 @@
    Result:
 
    ```bash
-   id: aje6o61dvog2h6g9a...
-   folder_id: b1gvmob95yysaplct...
+   id: aje6o61dvog2********
+   folder_id: b1gvmob95yys********
    created_at: "2018-10-15T18:01:25Z"
    name: my-robot
    ```
@@ -27,7 +27,7 @@
    +----------------------+------------------+-----------------+
    |          ID          |       NAME       |   DESCRIPTION   |
    +----------------------+------------------+-----------------+
-   | aje6o61dvog2h6g9a... | my-robot         | my description  |
+   | aje6o61dvog2******** | my-robot         | my description  |
    +----------------------+------------------+-----------------+
    ```
 
@@ -36,5 +36,5 @@
    ```bash
    yc resource-manager folder add-access-binding my-folder \
      --role viewer \
-     --subject serviceAccount:aje6o61dvog2h6g9a...
+     --subject serviceAccount:aje6o61dvog2********
    ```

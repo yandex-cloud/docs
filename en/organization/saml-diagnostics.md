@@ -111,3 +111,7 @@ This type of identity federations is no longer supported. Contact [support]({{ l
    Invalid URL in the `sso_url` field. Please check the URL.
 
 {% endlist %}
+
+## Invalid NameID {#invalid-name-id}
+
+The NameID value must follow this format: `"^[a-z0-9A-Z/@_.\\-=+*\\\\]+$"`.

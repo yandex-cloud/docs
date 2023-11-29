@@ -8,5 +8,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[Community](Community/index.md) | 
+[Community](Community/index.md) | A set of methods for managing Community resources.
 [Project](Project/index.md) | A set of methods for managing Project resources.

@@ -27,7 +27,7 @@ After creating a cluster, you can:
 * [{#T}](#change-sg-set).
 
 
-To move a cluster to a different availability zone, follow this [guide](host-migration.md). As a result, the cluster hosts will be moved.
+To move a cluster to a different availability zone, follow this [guide](host-migration.md). You will thus move the cluster hosts.
 
 ## Changing the host class {#change-resource-preset}
 
@@ -406,7 +406,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       }
       ```
 
-      Where `deletion_protection` enables cluster deletion protection, `true` or `false`.
+      Where `deletion_protection` is cluster deletion protection, `true` or `false`.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -579,7 +579,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 

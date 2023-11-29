@@ -18,7 +18,7 @@ In {{ mos-name }} clusters, you cannot add, update, or delete individual hosts. 
 
 You can also get a list of [cluster hosts](#list-hosts).
 
-To learn how to migrate {{ mos-name }} cluster host groups to a different availability zone, see [this guide](host-migration.md).
+To learn how to migrate {{ mos-name }} cluster host groups to a different availability zone, read this [guide](host-migration.md).
 
 ## Getting a list of host groups in a cluster {#list-groups}
 

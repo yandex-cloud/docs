@@ -19,10 +19,13 @@ You can add users in the service settings. To do this:
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Open the service [settings]({{ link-datalens-settings }}) and click ![image](../../_assets/datalens/service-settings.svg) in the left-hand panel.
 1. Under **Manage users**, click **Invite users**.
-1. In the window that opens, enter the email address of the Yandex user you want to add (e.g., `{{ login-example }}`). You can list multiple email addresses to add multiple users.
+1. Enter the email addresses of the users you want to invite, e.g., `{{login-example}}`.
+
+   You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+
 1. Click **Send invitation**.
 
-The user will receive an email with a {{ datalens-short-name }} invitation. Once the user accepts the invitation, they can log in to your organization and start using {{ datalens-short-name }}. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance.
+The user will receive a {{ datalens-short-name }} invitation email. Once the user accepts the invitation and selects the account for log-in, they can log in to your organization and start using {{ datalens-short-name }}. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance.
 
 ### Adding a user via {{ org-full-name }} {#org-user}
 

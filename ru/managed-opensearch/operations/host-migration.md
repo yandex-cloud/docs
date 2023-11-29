@@ -7,8 +7,8 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
-   1. В строке с группой хостов нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg), затем выберите **Изменить**.
+   1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+   1. В строке с группой хостов нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Изменить**.
    1. В поле **Размещение хостов** выберите зону доступности, куда вы переносите кластеры, и уберите первоначальную зону.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

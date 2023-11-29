@@ -23,6 +23,7 @@ On this page, you will find events for the following services:
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
 * [{{ data-transfer-name }}](#datatransfer)
+* [{{ ml-platform-name }}](#datasphere)
 * [{{ iam-name }}](#iam)
 * [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
@@ -36,11 +37,15 @@ On this page, you will find events for the following services:
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
 * [{{ mrd-short-name }}](#managed-service-for-redis)
+* [{{ mes-short-name }}](#managed-service-for-elasticsearch)
+* [{{ mos-short-name }}](#managed-service-for-opensearch)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ search-api-name }}](#searchapi)
 * [{{ serverless-containers-name }}](#serverless-containers)
 * [{{ org-name }}](#organization)
 * [{{ resmgr-name }}](#resmgr)
+* [{{ sws-name }}](#smartwebsecurity)
 * [{{ captcha-name }}](#smartcaptcha)
 * [{{ vpc-name }}](#vpc)
 * [{{ ydb-short-name }}](#ydb)
@@ -254,6 +259,7 @@ Service name: `compute`.
 | `UpdateSnapshot` | Updating a disk snapshot |
 | `UpdateSnapshotSchedule` | Updating disk snapshot schedule parameters |
 | `UpdateSnapshotScheduleDisks` | Updating disk snapshot schedule parameters |
+| `instancegroup` | Managing an instance group |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
 | `instancegroup.DeleteInstanceGroup` | Deleting an instance group. |
 | `instancegroup.DeleteInstanceGroupInstances` | Deleting an instance from a group |
@@ -284,6 +290,7 @@ Service name: `containerregistry`.
 | `DeleteLifecyclePolicy` | Deleting a lifecycle policy |
 | `DeleteRegistry` | Deleting a registry |
 | `DeleteRepository` | Deleting a repository |
+| `DeleteScanPolicy` | Deleting a scan policy |
 | `ScanImage` | Scanning an image |
 | `UpdateIpPermission` | Updating policies for accessing a registry from IP addresses |
 | `UpdateLifecyclePolicy` | Updating a lifecycle policy |
@@ -323,10 +330,27 @@ Service name: `datatransfer`.
 | `DeleteTransfer` | Deleting a transfer |
 | `FreezeTransferVersion` | Committing a certain data plane version for a transfer |
 | `RestartTransfer` | Restarting a transfer |
-| `UnfreezeTransferVersion` | Allowing a transfer update to the latest data planе version |
+| `UnfreezeTransferVersion` | Allowing a transfer update to the latest data plane version |
 | `UpdateEndpoint` | Editing an endpoint |
 | `UpdateTransfer` | Updating a transfer |
 | `UpdateTransferVersion` | Updating the version of a data plane transfer |
+
+## {{ ml-platform-name }} {#datasphere}
+
+Service name: `datasphere`.
+
+| Event name | Description |
+--- | ---
+| `CreateCommunity` | Creating a community |
+| `CreateProject` | Creating a project |
+| `DeleteCommunity` | Deleting a community |
+| `DeleteProject` | Deleting a project |
+| `SetCommunityAccessBindings` | Setting access bindings for a community |
+| `SetProjectAccessBindings` | Setting access bindings for a project |
+| `UpdateCommunity` | Updating a community |
+| `UpdateCommunityAccessBindings` | Updating access bindings for a community |
+| `UpdateProject` | Updating a project |
+| `UpdateProjectAccessBindings` | Updating access bindings for a project |
 
 ## {{ iam-name }} {#iam}
 
@@ -397,6 +421,7 @@ Service name: `kms`.
 | `UpdateAsymmetricSignatureKey` | Updating a digital signature key pair |
 | `UpdateSymmetricKey` | Changing a symmetric key |
 | `UpdateSymmetricKeyAccessBindings` | Updating access bindings for a symmetric key |
+| `UpdateAsymmetricEncryptionKeyAccessBindings` | Updating access bindings for an asymmetric encryption key pair |
 
 ## {{ lockbox-name }} {#lockbox}
 
@@ -426,9 +451,23 @@ Service name: `mdb.kafka`.
 --- | ---
 | `CreateCluster` | Creating clusters |
 | `DeleteCluster` | Deleting clusters |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
-| `UpdateCluster` | Updating clusters |
+| `StartCluster` | Starting a cluster |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
+| `CreateConnector` | Creating a connector |
+| `CreateTopic` | Creating a topic |
+| `CreateUser` | Creating a cluster user |
+| `DeleteConnector` | Deleting a connector |
+| `DeleteTopic` | Deleting a topic |
+| `DeleteUser` | Deleting a cluster user |
+| `GrantUserPermission` | Granting permissions to a cluster user |
+| `MoveCluster` | Moving a cluster |
+| `PauseConnector` | Pausing a connector |
+| `ResumeConnector` | Resuming a connector |
+| `RevokeUserPermission` | Revoking a cluster user's permissions |
+| `UpdateConnector` | Updating a connector |
+| `UpdateTopic` | Updating a topic |
+| `UpdateUser` | Updating a cluster user |
 
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
@@ -485,6 +524,7 @@ Service name: `gitlab`.
 | `UpdateOmniauthInstance` | Updating OmniAuth settings |
 | `UpgradeInstance` | Updating the GitLab version |
 | `CleanupRegistryInstance` | Docker Registry cleanup |
+| `ResizeInstance` | Resizing an instance |
 
 
 ## {{ mgp-short-name }} {#managed-service-for-greenplum}
@@ -525,9 +565,12 @@ Service name: `mdb.mongodb`.
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
 | `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
-| `UpdateCluster` | Updating clusters |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
 | `UpdateUser` | Editing a database user |
+| `ResetupHosts` | Resyncing a host |
+| `RestartHosts` | Restarting a host |
+| `StepdownHosts` | Changing the master host |
 
 
 ## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
@@ -569,10 +612,10 @@ Service name: `mdb.mysql`.
 | `DeleteUser` | Deleting a database user |
 | `GrantUserPermission` | Assigning privileges to a database user |
 | `MoveCluster` | Moving a cluster |
-| `RescheduleMaintenance` | Rescheduling scheduled maintenance |
+| `RescheduleMaintenance` | Changing scheduled maintenance date and time |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
+| `StartCluster` | Starting a cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
 | `StopCluster` | Stopping cluster |
 | `UpdateCluster` | Updating clusters |
@@ -625,8 +668,45 @@ Service name: `mdb.redis`.
 | `StartCluster` | Starting cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
 | `StopCluster` | Stopping cluster |
-| `UpdateCluster` | Updating clusters |
+| `UpdateCluster` | Updating a cluster |
 | `UpdateClusterHosts` | Updating cluster hosts |
+
+## {{ mes-short-name }} {#managed-service-for-elasticsearch}
+
+Service name: `mdb.elasticsearch`.
+
+| Event name | Description |
+--- | ---
+| `AddClusterHosts` | Adding new hosts to a cluster |
+| `BackupCluster` | Creating backups |
+| `CreateCluster` | Creating a cluster |
+| `DeleteCluster` | Deleting a cluster |
+| `DeleteClusterHosts` | Deleting hosts from a cluster |
+| `RescheduleMaintenance` | Changing scheduled maintenance date and time |
+| `RestoreCluster` | Creating a new cluster from a backup |
+| `StartCluster` | Starting a cluster |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
+
+## {{ mos-short-name }} {#managed-service-for-opensearch}
+
+Service name: `mdb.opensearch`.
+
+| Event name | Description |
+--- | ---
+| `AddDashboardsNodeGroup` | Adding a `Dashboards` host group |
+| `AddOpenSearchNodeGroup` | Adding an `OpenSearch` host group |
+| `BackupCluster` | Creating backups |
+| `CreateCluster` | Creating a cluster |
+| `DeleteCluster` | Deleting a cluster |
+| `DeleteDashboardsNodeGroup` | Deleting a `Dashboards` host group |
+| `DeleteOpenSearchNodeGroup` | Deleting an `OpenSearch` host group |
+| `RescheduleMaintenance` | Changing scheduled maintenance date and time |
+| `RestoreCluster` | Creating a new cluster from a backup |
+| `StartCluster` | Starting a cluster |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
+| `UpdateOpenSearchNodeGroup` | Updating an `OpenSearch` host group |
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
@@ -675,6 +755,16 @@ Service name: `storage`.
 | `ObjectTagsUpdate` | Updating object tags |
 
 \* The audit log does not include the above events by default. To find out whether these events can be added to the audit log, contact [support]({{ link-console-support }}).
+
+## {{ search-api-name }} {#searchapi}
+
+Service name: `searchapi`.
+
+| Event name | Description |
+--- | ---
+| `CreateCustomer` | Creating a client |
+| `DeleteCustomer` | Deleting a client |
+| `UpdateCustomer` | Updating a client |
 
 ## {{ serverless-containers-name }} {#serverless-containers}
 
@@ -738,6 +828,16 @@ Service name: `resourcemanager`.
 | `UpdateFolderAccessBindings` | Updating access bindings for a folder |
 | `SetCloudAccessBindings` | Setting access bindings for a cloud |
 | `SetFolderAccessBindings` | Setting access bindings for a folder |
+
+## {{ sws-name }} {#smartwebsecurity}
+
+Service name: `smartwebsecurity`.
+
+| Event name | Description |
+--- | ---
+| `CreateSecurityProfile` | Creating a security profile |
+| `DeleteSecurityProfile` | Deleting a security profile |
+| `UpdateSecurityProfile` | Updating a security profile |
 
 ## {{ captcha-name }} {#smartcaptcha}
 

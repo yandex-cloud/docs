@@ -9,7 +9,7 @@ You can create a QL chart using one of the following methods:
 
 {% include [datalens-monitoring-prometheus-access-note](../../../_includes/datalens/datalens-monitoring-prometheus-access-note.md) %}
 
-QL charts have the same [general settings](../../concepts/chart/settings.md#common-settings) and [section settings](../../concepts/chart/settings.md#section-settings) available as charts based on a dataset. Only some [measure settings](../../concepts/chart/settings.md#indicator-settings) are supported for chart fields.
+QL charts have the same [general settings](../../concepts/chart/settings.md#common-settings) and [section settings](../../concepts/chart/settings.md#section-settings) available as charts based on a dataset. Only certain [measure settings](../../concepts/chart/settings.md#indicator-settings) are supported for chart fields.
 
 ## Creating a QL chart from the main page {#main-page}
 
@@ -55,11 +55,11 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
      | Parameter | Data type | Description |
      |---|---|---|
-     | from | datetime | Lower time limit |
-     | to | datetime | Upper time limit |
-     | step | number | Step on the time scale (seconds) |
+     | from | datetime | Lower time limit. |
+     | to | datetime | Upper time limit. |
+     | step | number | Step on the time scale (seconds). |
 
-     On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors — `from` and `to`.
+     On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors, `from` and `to`.
 
    - {{ monitoring-short-name }}
 
@@ -79,10 +79,10 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
      | Parameter | Data type | Description |
      |---|---|---|
-     | from | datetime | Lower time limit |
-     | to | datetime | Upper time limit |
+     | from | datetime | Lower time limit. |
+     | to | datetime | Upper time limit. |
 
-     On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors — `from` and `to`.
+     On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors, `from` and `to`.
 
    {% endlist %}
 
@@ -102,22 +102,22 @@ After the query runs, a visualization of your data will be displayed.
 
 In [QL charts](../../concepts/chart/index.md#sql-charts), you can control selector parameters from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
 
-You cannot use parameters of the `date-interval` and the `datetime-interval` types in query code unless they have the `_from` and `_to` suffixes. For a parameter named `interval`, for instance, you need to specify:
-
-* `interval_from` to get the start of the range.
-* `interval_to` to get the end of the range.
-
 To add a parameter:
 
 1. Go to the **Parameters** tab when creating a chart.
 1. Click **Add parameter**.
 1. Set the value type for the parameter, e.g., `date-interval`.
 1. Name the parameter, e.g., `interval`.
-1. Set the range start and end values, e.g., `2017-01-01 — 2019-12-31`.
+1. Reset the default values, e.g., `2017-01-01 — 2019-12-31`.
 
    ![image](../../../_assets/datalens/parameters/date-interval.png =450x167)
 
-In your query, use a parameter name with `_from` and `_to` postfixes to get the interval start and end, respectively. For example, use `interval_from` to get the interval start (`2017-01-01`) and `interval_to` to get the interval end (`2019-12-31`).
+### Intervals {#params-interval}
+
+You can use the `date-interval` and the `datetime-interval` type parameters in query code only with the `_from` and `_to` postfixes. For example, for the `interval` parameter set to `2017-01-01 — 2019-12-31`, specify:
+
+* `interval_from` to get the start of the range (`2017-01-01`).
+* `interval_to` to get the end of the range (`2019-12-31`).
 
 {% cut "Sample query" %}
 
@@ -130,3 +130,52 @@ ORDER BY datedate
 ```
 
 {% endcut %}
+
+### Substituting parameter values in a QL chart query {#params-in-select}
+
+Parameter values from a selector arrive to a QL chart as a:
+
+* Single value if one element is selected.
+* [Tuple](https://docs.python.org/3/library/stdtypes.html#tuples) if multiple values are selected.
+
+If the query has the `IN` operator specified before a parameter, the substituted value is always converted into a tuple. A query like this will run correctly if you select one or more values.
+
+{% cut "Sample query with the `IN` operator" %}
+
+```sql
+SELECT sum (Sales) as Sales, Category
+FROM samples.SampleLite
+WHERE Category in not_var{{category}}
+GROUP BY Category
+ORDER BY Category
+```
+
+{% endcut %}
+
+If the query has `=` before a parameter, the query will only run correctly if a single value is selected.
+
+{% cut "Sample query with the `=` operator" %}
+
+```sql
+SELECT sum (Sales) as Sales, Category
+FROM samples.SampleLite
+WHERE Category = not_var{{category}}
+GROUP BY Category
+ORDER BY Category
+```
+
+{% endcut %}
+
+### Null choice in selector and parameters {#empty-selector}
+
+If a selector has no value selected and no default value is set for a parameter, a null value is provided to a query. In this case, all values will be selected in [dataset-based charts](../../concepts/chart/dataset-based-charts.md), and the filter for the relevant column will disappear when generating a query.
+
+To enable a similar behavior in QL charts, you can use a statement like this in your query:
+
+```sql
+AND
+CASE
+    WHEN LENGTH(not_var{{param}}::VARCHAR)=0 THEN TRUE
+    ELSE column IN not_var{{param}}
+END
+```

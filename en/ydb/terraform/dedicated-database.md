@@ -5,7 +5,7 @@ To create a dedicated database, add the following code section to the project co
 ```tf
 resource "yandex_ydb_database_dedicated" "my_database_2" {
   name = "dedicated-base"
-  folder_id = "<folder ID in {{ yandex-cloud }}>"
+  folder_id = "<folder_ID_in_Yandex_Cloud>"
 
   resource_preset_id = "medium"
   scale_policy {
@@ -20,15 +20,15 @@ resource "yandex_ydb_database_dedicated" "my_database_2" {
   }
 
   location_id = "ru-central1"
-  network_id  = "enpv06v9b6ogg372hc71" # ID of the network where to create the database
+  network_id  = "enpv06v9b6og********" # ID of the network where to create the database
   subnet_ids = [
-    "e2lekh3vqf1pvao73lfv", "e9bmliplcipm13ek7uco", "b0cm0qpcf4q5vcfb2pc2"
+    "e2lekh3vqf1p********", "e9bmliplcipm********", "b0cm0qpcf4q5********"
   ]
 }
 ```
 
 Let's look at groups of settings for the dedicated database. First, set the two parameters: database name and its location in {{ yandex-cloud }}:
-* `name`: Name of the database. It may contain lowercase Latin letters, digits, and hyphens. The first character is a letter, the last character is not a hyphen. It must be from 3 to 63 characters long. This is a required parameter.
+* `name`: Name of the database. It may contain lowercase Latin letters, digits, and hyphens. The first character must be a letter, the last one cannot be a hyphen. It must be from 3 to 63 characters long. This is a required parameter.
 * `folder_id`: ID of the directory (folder) in {{ yandex-cloud }} where the database will be created. This is a required parameter.
 
 Next, you can define the number of virtual machines allocated to the database and their configuration:
@@ -37,7 +37,7 @@ Next, you can define the number of virtual machines allocated to the database an
 
 The configuration of data storage properties is described by the `storage_config` section, which sets up the following options:
 * `group_count`: Number of [storage groups](https://ydb.tech/ru/docs/concepts/databases#storage-groups) which define the total storage size. One storage group is a multiple of 100 GB of disk space. You can only set integer values for storage groups.
-* `storage_type_id`:  Storage type, either `ssd` or `hdd`.
+* `storage_type_id`: Storage type, either `ssd` or `hdd`.
 
 The last set of properties for creating a dedicated database is the network section:
 * `location_id`: Database location according to the availability zone set in the provider initialization section.

@@ -116,7 +116,7 @@ To delete the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -134,7 +134,7 @@ To delete the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -174,8 +174,8 @@ To delete the `Series` table:
       Result:
 
       ```text
-      Trying to delete the table, wait...
-      Series table deleted.
+      Attempting to delete table, wait...
+      Table Series deleted.
       ```
 
 - Python
@@ -190,7 +190,7 @@ To delete the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -198,7 +198,7 @@ To delete the `Series` table:
       import boto3
 
       def delete_serie_table():
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
           table = ydb_docapi_client.Table('Series')
           table.delete()
@@ -232,7 +232,7 @@ To delete the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -246,7 +246,7 @@ To delete the `Series` table:
       use Aws\DynamoDb\Exception\DynamoDbException;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
+          'endpoint' => '<Document_API_endpoint>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -293,7 +293,7 @@ To delete the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -303,7 +303,7 @@ To delete the `Series` table:
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+          endpoint: "<Document_API_endpoint>",
       });
 
       dynamodb.send(new AWS.DeleteTableCommand({
@@ -369,7 +369,7 @@ To delete the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -389,7 +389,7 @@ To delete the `Series` table:
         table_name = 'Series'
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 

@@ -5,7 +5,6 @@ description: "На странице представлен список прак
 
 # Руководства по визуализации и анализу данных
 
- 
 
 * [Визуализация данных из файла](data-from-csv-visualization.md)
 * [Создание и публикация диаграммы с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
@@ -20,5 +19,6 @@ description: "На странице представлен список прак
 * [Анализ customer journey мобильного приложения на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
 * [Анализ логов {{ objstorage-full-name }} при помощи {{ datalens-full-name }}](storage-logs-analysis.md)
 * [Визуализация данных из {{ tracker-full-name }}](data-from-tracker.md)
+* [Визуализация географических данных с помощью API Яндекс Геокодера](data-from-ch-geocoder.md)
 
 

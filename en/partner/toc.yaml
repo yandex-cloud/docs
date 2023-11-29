@@ -11,6 +11,8 @@ items:
         href: operations/access/check.md
       - name: Granting a partner access to a customer's cloud
         href: operations/access/grant.md
+      - name: Granting access to a partner account
+        href: operations/access/partners-account.md
       - name: Viewing details of service usage by customers
         href: operations/get-client-stat.md
       - name: Suspending services to customers

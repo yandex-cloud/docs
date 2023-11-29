@@ -289,4 +289,4 @@ Runner - это программа, которая осуществляет пр
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
 1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.

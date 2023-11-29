@@ -15,7 +15,7 @@ To deploy a project:
 
 1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) repository using Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you do not have any. For convenience, you can use a separate folder named `alice-skill`.
-1. Install and initialize the following software programs:
+1. Install and initialize the following programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
    * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/install).
    * [Bash command interpreter](http://www.gnu.org/software/bash/).
@@ -39,7 +39,7 @@ To deploy a project:
    1. Select the desired name for the client app and upload an icon.
    1. Under **Platforms**, select **Web services**. Specify two Callback URIs:
       * `https://social.yandex.net/broker/redirect`.
-      * `https://<API gateway service domain>/receive-token`.
+      * `https://<API_gateway_service_domain>/receive-token`.
 
       Please note that the specified `receive-token` URL may be unavailable until the current specification is uploaded to the API gateway. The specification will be uploaded during the project's deployment.
    1. Under **Permissions**, expand **Yandex ID API (login)** and select **Access to user avatar (login:avatar)**.
@@ -62,8 +62,8 @@ Set the project parameters in the `variables.json` file:
 * `folder-id`: ID of the cloud folder.
 * `domain`: API gateway service domain.
 * `oauth-client-id`: ID of the client app registered in [Yandex OAuth](https://oauth.yandex.com/).
-* `database-endpoint`: Endpoint, the first part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
-* `database`: Database location, the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+* `database-endpoint`: First part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+* `database`: Database location, the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
 * `yc-profile`: {{ yandex-cloud }} CLI [profile name](../../cli/operations/profile/profile-list.md).
 * `secure-config-path`: Path to the secret file.
 * `storage-bucket`: Name of the bucket you created for storing static data.
@@ -79,8 +79,8 @@ cp secure-config-template.json secure-config.json
 
 Substitute the values from the variables:
 * `oauth_secret`: Password of the client app registered in [Yandex OAuth](https://oauth.yandex.com/).
-* `hash`: A random 64-byte string that is base64 encoded, such as `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqKLbAUWQ==`.
-* `block`: A random 32-byte string that is base64 encoded, such as `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijIzGZ8fqQ=`.
+* `hash`: Base64-encoded random 64-byte string, e.g., `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`.
+* `block`: Base64-encoded random 32-byte string, e.g., `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`.
 
 You can generate random values at [generate.plus](https://generate.plus/en/base64).
 
@@ -108,10 +108,10 @@ To do this, go to the folder with the `app.tf` config file and run the command:
 terraform init
 ```
 
-Once {{ TF }} is initialized, run the command passing the [OAuth token](../../iam/concepts/authorization/oauth-token.md) value to be used for authorization in {{ yandex-cloud }}:
+Once {{ TF }} is initialized, run the command by providing the [OAuth token](../../iam/concepts/authorization/oauth-token.md) value to be used for authorization in {{ yandex-cloud }}:
 
 ```bash
-terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
+terraform apply -var-file ./variables.json -var yc-token=<OAuth_token>
 ```
 
 As a result, {{ TF }} automatically creates or updates the required resources.
@@ -194,13 +194,13 @@ Result:
 
 ```text
 done (2s)
-id: d5dc6k34opmskp7ela3d
-folder_id: b1guj13dic1461knkpbw
+id: d5dc6k34opm********
+folder_id: b1guj13dic14********
 created_at: "2021-06-03T11:18:00.379Z"
 name: gate-1
 status: ACTIVE
-domain: d5dc6k87opmskp7elb3q.apigw.yandexcloud.net
-log_group_id: ckg57bweoekkrkddsknd
+domain: d5dc6k87opms********.apigw.yandexcloud.net
+log_group_id: ckg57bweoekk********
 ```
 
 ## Register Alice's skill {#register-skill}

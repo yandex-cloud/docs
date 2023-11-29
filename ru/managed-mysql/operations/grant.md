@@ -16,24 +16,24 @@ description: "Вы можете управлять правами пользов
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
 
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
 
   1. При необходимости добавьте пользователю нужные базы данных:
 
      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
      1. Выберите базу данных из выпадающего списка.
      1. Повторите два предыдущих шага, пока не будут выбраны все требуемые базы данных.
-     1. Чтобы отозвать доступ к определенной базе, удалите ее из перечня, нажав значок ![image](../../_assets/cross.svg) справа от имени базы данных.
+     1. Чтобы отозвать доступ к определенной базе, удалите ее из перечня, нажав значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы данных.
 
   1. Задайте нужные привилегии пользователя для каждой из баз данных пользователя:
 
-     1. Нажмите значок ![image](../../_assets/plus-sign.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}**.
+     1. Нажмите значок ![image](../../_assets/console-icons/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}**.
      1. Выберите привилегию, которую вы хотите добавить пользователю из выпадающего списка.
      1. Повторите два предыдущих шага, пока не будут добавлены все требуемые привилегии.
 
-  1. Чтобы отозвать привилегию, нажмите значок ![image](../../_assets/cross.svg) справа от ее имени.
+  1. Чтобы отозвать привилегию, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от ее имени.
   1. При необходимости задайте [административные привилегии](../concepts/settings-list.md#setting-administrative-privileges) для пользователя.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 

@@ -123,3 +123,5 @@
    {% endlist %}
 
 1. Wait until the cluster status changes to **Alive**. In the management console, go to your folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+
+{% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}

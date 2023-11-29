@@ -2,9 +2,9 @@
 
 {{ search-api-full-name }} provides access to the Russian, Turkish, and international search types. The required search type is selected at the [registration](../operations/registration.md) stage. You can change the search type after registration.
 
-With {{ search-api-full-name }}, you can get default search results and results of a search optimized for [mobile devices](../operations/mobile.md).
+With {{ search-api-full-name }}, you can get default search results and those optimized for [mobile devices](../operations/mobile.md).
 
-The search type determines the search result _ranking formula_ and the _search database_, a set of documents a search is made across.
+The search type determines the search result _ranking formula_ and the _search database_, i.e., the documents that are searched through.
 
 ## Request for search results
 
@@ -14,8 +14,8 @@ The search type determines the search result _ranking formula_ and the _search d
 
 In addition to the {{ yandex-cloud }} Terms of Use, the following Terms of Use apply to {{ search-api-name }}:
 
-* [Terms of Use of {{ search-api-full-name }}](https://yandex.ru/legal/cloud_terms_search_api) for residents of Russia or Kazakhstan
-* [Terms of Use of {{ search-api-full-name }}](https://yandex.com/legal/cloud_terms_search_api) for non-residents of Russia and Kazakhstan
+* [{{ search-api-full-name }} Terms of Use](https://yandex.ru/legal/cloud_terms_search_api) for residents of Russia or Kazakhstan
+* [{{ search-api-full-name }} Terms of Use](https://yandex.com/legal/cloud_terms_search_api) for non-residents of Russia and Kazakhstan
 
 Individual license agreements for each type of search are valid until October 31, 2023, and only apply to users who started using Yandex.XML before September 12, 2023.
 

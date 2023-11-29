@@ -170,6 +170,8 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ compute-full-name }} {#compute-roles}
 
+{% include [roles-compute-auditor](../../../_includes/roles-compute-auditor.md) %}
+
 {% include [roles-compute-viewer](../../../_includes/roles-compute-viewer.md) %}
 
 {% include [roles-compute-editor](../../../_includes/roles-compute-editor.md) %}
@@ -358,6 +360,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [load-testing-generatorClient](../../../_includes/roles-load-testing-generatorClient.md) %}
 
+{% include [load-testing-externalAgent](../../../_includes/roles-load-testing-externalAgent.md) %}
+
 ## {{ lockbox-full-name }} {#lockbox-roles}
 
 {% include [lockbox-admin](../../../_includes/roles-lockbox-admin.md) %}
@@ -542,6 +546,8 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ network-load-balancer-full-name }} {#load-balancer-roles}
 
+{% include [roles-lb-auditor](../../../_includes/roles-lb-auditor.md) %}
+
 {% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
 
 {% include [roles-lb-private-admin](../../../_includes/roles-lb-private-admin.md) %}
@@ -648,17 +654,25 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ vpc-full-name }} {#vpc-roles}
 
+{% include [roles-vpc-auditor](../../../_includes/roles-vpc-auditor.md) %}
+
 {% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
 
 {% include [roles-vpc-user](../../../_includes/roles-vpc-user.md) %}
+
+{% include [roles-vpc-bridge-admin](../../../_includes/roles-vpc-bridge-admin.md) %}
 
 {% include [roles-vpc-private-admin](../../../_includes/roles-vpc-private-admin.md) %}
 
 {% include [roles-vpc-public-admin](../../../_includes/roles-vpc-public-admin.md) %}
 
+{% include [roles-vpc-gw-viewer](../../../_includes/roles-vpc-gw-viewer.md) %}
+
 {% include [roles-vpc-gw-editor](../../../_includes/roles-vpc-gw-editor.md) %}
 
 {% include [roles-vpc-gw-user](../../../_includes/roles-vpc-gw-user.md) %}
+
+{% include [roles-vpc-sg-user](../../../_includes/roles-vpc-sg-user.md) %}
 
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 

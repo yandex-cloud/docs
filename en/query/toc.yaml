@@ -36,6 +36,8 @@ items:
             href: concepts/stream-processing.md
           - name: Streaming processing windows
             href: concepts/stream-processing-windows.md
+          - name: Data pattern processing
+            href: concepts/match-recognize.md
       - name: Unified analysis of streaming and analytical data
         href: concepts/unified-processing.md
       - name: Backups

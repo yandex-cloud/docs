@@ -27,7 +27,7 @@ keywords:
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
 
 - API
 
@@ -44,8 +44,8 @@ keywords:
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
-    1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
     1. Укажите параметры группы:
 
         * [Тип группы](../concepts/host-groups.md): `{{ OS }}` или `Dashboards`.
@@ -130,8 +130,8 @@ keywords:
 - Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
-    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужной группы и выберите пункт **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
 
 - API
 
@@ -156,7 +156,7 @@ keywords:
 - Консоль управления
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
 
 - API
 

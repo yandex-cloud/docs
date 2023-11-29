@@ -8,7 +8,7 @@ In this tutorial, you will generate an image based on a text description using a
 
 To generate an image using the Stable Diffusion model:
 
-1. [Prepare the infrastructure](#infra).
+1. [Prepare your infrastructure](#infra).
 1. [Create a model and generate an image](#generate).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -64,6 +64,12 @@ In this tutorial, all computations are made in the g1.1 configuration. However, 
 
    ```python
    %pip install numpy==1.21
+   ```
+
+1. Install the Protocol Buffers library, version 3.20:
+
+   ```python
+   %pip install protobuf==3.20
    ```
 
 1. Restart the kernel by clicking **Kernel** → **Restart kernel** in the top panel of the project window.

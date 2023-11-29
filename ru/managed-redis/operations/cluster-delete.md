@@ -20,7 +20,7 @@ description: "После удаления кластера баз данных R
   
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно удалить кластер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. В строке нужного кластера нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+  1. В строке нужного кластера нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. В открывшемся окне поставьте флаг **Я удаляю кластер** и нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
   
 - CLI

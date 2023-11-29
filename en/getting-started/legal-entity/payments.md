@@ -20,15 +20,15 @@ To top up your personal account:
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Select a payment method:
 
-{% list tabs %}
+{% list tabs group=payments %}
 
-- Bank card
+- Bank card {#card}
 
    Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Then enter your card details and click **Pay**. Visa, MasterCard, and MIR bank cards are accepted.
 
-   Payment is processed in real time and completed within 15 minutes.
+   Your payment will be processed in real time and completed within 15 minutes.
 
-- Bank transfer
+- Bank transfer {#transfer}
 
    Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 
@@ -73,7 +73,7 @@ You can create a trigger that will invoke a [function](../../functions/concepts/
       * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** type, specify the account balance.
    1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, select a budget tracking period:
       * If you selected **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** as the tracking period type, set the budget start date. The start date is the first day of the month.
-      * Set the budget end date. The end date defines when the budget stops tracking usage or the account balance and sending notifications. The end date is the last day of the month. It must be no more than five years from the current date.
+      * Set the budget end date. The end date defines when the budget stops tracking usage or the account balance and sending notifications. The end date is the last day of the month. It must be within five years of the current date.
    1. Select the users to notify.
    1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, define the budget scope. You can select individual clouds, folders, and services to include in a set budget. By default, data is collected from all the clouds, folders, and services that the selected billing account has access to.
    1. Set at least one utilization threshold to trigger notifications. You can specify a threshold as a percentage or a cash value and select the users to receive notifications. A budget can have multiple thresholds.

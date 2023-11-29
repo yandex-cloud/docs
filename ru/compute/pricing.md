@@ -5,8 +5,7 @@ editable: false
 # Правила тарификации для {{ compute-name }}
 
 
-Чтобы рассчитать стоимость использования сервиса {{ compute-name }}, воспользуйтесь [нашим калькулятором]({{ link-cloud-calculator }}) или ознакомьтесь с тарифами в этом разделе.
-
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 
 

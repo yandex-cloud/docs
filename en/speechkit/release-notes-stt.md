@@ -6,6 +6,17 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on November 10, 2023 {#101123}
+
+New changes to `general:rc`:
+
+* Russian speech recognition model has been updated.
+* The quality of recognizing names of cities in the Republic of Kazakhstan has been improved based on user requests.
+* The quality of normalization of speech recognition results in the Kazakh language has been enhanced.
+* Internal server errors that occur when working with small audio fragments have been fixed.
+
+## Previous versions {#previous}
+
 ### Release on September 6, 2023 {#060923}
 
 New changes to `general:rc`:
@@ -16,8 +27,6 @@ New changes to `general:rc`:
 * Improved the general quality of recognition for Uzbek.
 
 [Audio classifiers](stt/analysis.md) added to `general:rc` in the service [release on August 15, 2023](#150823) are now available in the `general` model.
-
-## Previous versions {#previous}
 
 ### Release on August 15, 2023 {#150823}
 

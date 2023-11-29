@@ -121,7 +121,7 @@ To create an API key:
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```
-      yc iam key list --service-account-id <service account ID>
+      yc iam key list --service-account-id <service_account_ID>
       ```
 
 {% endlist %}

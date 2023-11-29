@@ -1,6 +1,6 @@
 # Creating a Slack chat bot
 
-In this use case, you'll learn how to use serverless technologies to create a Slack bot that will run commands in a chat and respond to user messages.
+In this scenario, you will learn how to use serverless technologies to create a Slack bot that will run commands in a chat and respond to user messages.
 
 
 ## Prepare the environment {#start}
@@ -53,14 +53,14 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
        post:
          x-yc-apigateway-integration:
            type: cloud_functions
-           function_id: <function ID>
-           service_account_id: <service account ID>
+           function_id: <function_ID>
+           service_account_id: <service_account_ID>
          operationId: slack-challenge
    ```
 
-   Parameters:
-   * `<Function ID>`: ID of the `for-slack-bot-challenge` function.
-   * `<Service account ID>`: ID of the service account.
+   Where:
+   * `function_id`: ID of the `for-slack-bot-challenge` function.
+   * `service_account_id`: Service account ID.
 
 ### Test the link between Slack and {{ yandex-cloud }} {#connect-test}
 
@@ -95,7 +95,7 @@ The bot will use responses to chat commands and messages taken from {{ ydb-full-
       ```
 
    1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
-1. [Add](../../ydb/operations/crud.md#web-sql) an entry to the table. For example, specify the coffee variety name and id = 1.
+1. [Add](../../ydb/operations/crud.md#web-sql) an entry to the table. For example, specify the coffee variety name and `id` = `1`.
 
 ## Create functions {#create-functions}
 
@@ -175,8 +175,8 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       * `SLACK_SIGNING_SECRET`
    1. Add the variables to work with {{ ydb-name }}:
       * `ENDPOINT`: First part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value from the **{{ ui-key.yacloud.ydb.overview.label_title }}** section in the `for-slack-bot` database properties (the one preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
-      * `DATABASE`: Second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value from the **{{ ui-key.yacloud.ydb.overview.label_title }}** section in the `for-slack-bot` database properties (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
-      * `USE_METADATA_CREDENTIALS` = 1.
+      * `DATABASE`: Second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value from the **{{ ui-key.yacloud.ydb.overview.label_title }}** section in the `for-slack-bot` database properties (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
+      * `USE_METADATA_CREDENTIALS` = `1`.
 
 ## Edit the API gateway {#create-api-gw}
 
@@ -189,26 +189,26 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_functions
         function_id: <ID_of_function_1>
-        service_account_id: <Service account ID>
+        service_account_id: <service_account_ID>
       operationId: slack-challenge
   /hello-from-serverless:
     post:
       x-yc-apigateway-integration:
         type: cloud_functions
         function_id: <ID_of_function_2>
-         service_account_id: <Service account ID>
+         service_account_id: <service_account_ID>
        operationId: hello-from-serverless
   /what-kind-of-coffee:
     post:
       x-yc-apigateway-integration:
         type: cloud_functions
         function_id: <ID_of_function_3>
-        service_account_id: <Service account ID>
+        service_account_id: <service_account_ID>
       operationId: /what-kind-of-coffee
 ```
 
-Parameters:
-* `<Service account ID>`: ID of the service account.
+Where:
+* `service_account_id`: Service account ID.
 * `<ID_of_function_1>`: ID of the `for-slack-bot-small-talk` function.
 * `<ID_of_function_2>`: ID of the `for-slack-bot-hello-from-serverless` function.
 * `<ID_of_function_3>`: ID of the `for-slack-bot-what-kind-of-coffee` function.
@@ -246,4 +246,4 @@ Open the Slack client and choose a chat with the `ServerlessBotApp` bot under **
 1. To test the `for-slack-bot-hello-from-serverless` function:
    * Send the `/hello-from-serverless` command in the chat. The bot should respond `Thanks!`.
 1. To test the `for-slack-bot-what-kind-of-coffee` function:
-   * Send the `/what-kind-of-coffee` command in the chat. The bot should respond `Today we use <entry from the coffee table>`.
+   * Send the `/what-kind-of-coffee` command in the chat. The bot should respond `Today we use <entry_from_the_coffee_table>`.

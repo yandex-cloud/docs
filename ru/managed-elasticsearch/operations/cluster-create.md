@@ -73,7 +73,7 @@ keywords:
         * Выберите объем хранилища, который будет использоваться для данных.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** укажите конфигурацию хостов, создаваемых вместе с кластером {{ mes-name }}:
         1. Чтобы добавить хост, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-        1. Чтобы изменить добавленный хост, наведите указатель на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
+        1. Чтобы изменить добавленный хост, наведите указатель на строку хоста и нажмите значок ![image](../../_assets/console-icons/pencil.svg).
 
            При изменении хоста можно: {#change-data-node-settings}
            * Выбрать [зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet).
@@ -92,7 +92,7 @@ keywords:
   1. При необходимости задайте конфигурацию хостов с ролью _Master node_, выбрав вкладку **Master node**:
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите платформу, тип хостов и класс хостов.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** настройте хранилище по аналогии с хостами с ролью _Data node_.
-     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите кнопку **{{ ui-key.yacloud.elasticsearch.button_add-hosts }}**. Будут добавлены три хоста. Чтобы изменить один из добавленных хостов, наведите указатель на строку хоста и нажмите значок ![image](../../_assets/pencil.svg).
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите кнопку **{{ ui-key.yacloud.elasticsearch.button_add-hosts }}**. Будут добавлены три хоста. Чтобы изменить один из добавленных хостов, наведите указатель на строку хоста и нажмите значок ![image](../../_assets/console-icons/pencil.svg).
 
         При изменении хоста можно: {#change-master-node-settings}
         * Выбрать зону доступности и подсеть.

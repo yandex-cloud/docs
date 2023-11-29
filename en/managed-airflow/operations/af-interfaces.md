@@ -17,7 +17,7 @@ To work with {{ maf-name }}, you can use the [web interface](#web-gui) or the [{
 
 ## Using the {{ AF }} API {#rest-api}
 
-You can make [API {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html) requests from VMs located in your {{ maf-name }} cluster's cloud network.
+You can make [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html) requests from VMs located in your {{ maf-name }} cluster cloud network.
 
 1. In the cloud network hosting the {{ maf-name }} cluster, create a [Linux](../../compute/quickstart/quick-create-linux.md) VM.
 1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) to connect to the VM.
@@ -27,10 +27,12 @@ Sample request:
 
 ```bash
 curl -X GET \
-    'https://c-<cluster ID>.airflow.yandexcloud.net/api/v1/dags' \
-    --user 'admin:<admin user password>' \
+    'https://c-<cluster_ID>.airflow.yandexcloud.net/api/v1/dags' \
+    --user 'admin:<admin_user_password>' \
     --header 'Content-Type: application/json' \
-    --header 'X-Cloud-Authorization: Bearer <IAM token of a subject with the managed-airflow.user role for an Airflow cluster>'
+    --header 'X-Cloud-Authorization: Bearer <IAM_token>'
 ```
+
+Where `<IAM_token>` is the IAM token of the subject with the `managed-airflow.user` role for the Airflow cluster.
 
 The request returns a list of DAG files. For a sample response, refer to the [{{ AF }} API documentation](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).

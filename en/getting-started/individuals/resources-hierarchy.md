@@ -14,13 +14,13 @@ The owner can create new folders and resources in this cloud, and manage access 
 
 - CLI
 
-   1. See a description of the create folder command:
+   1. View the description of the create folder command:
 
       ```
       $ yc resource-manager folder create --help
       ```
 
-   2. Create a new folder:
+   1. Create a new folder:
 
       * with a name and without a description:
          ```
@@ -55,18 +55,18 @@ The management console only allows you to change the name of a folder. To change
 - Management console
 
    1. On the [home page]({{ link-console-main }}) of the management console, select the folder. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../../resource-manager/operations/cloud/switch-cloud.md).
-   2. Click ![image](../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
-   3. Enter a new name for the folder.
-   4. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
+   1. Click ![image](../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Enter a new name for the folder.
+   1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
 - CLI
 
-   1. See the description of the update folder command:
+   1. View the description of the update folder command:
 
       ```
       $ yc resource-manager folder update --help
       ```
-   2. If you know the folder ID or name, proceed to the next step. Otherwise, use one of these methods to get them:
+   1. If you know the folder ID or name, proceed to the next step. Otherwise, use one of these methods to get them:
 
       * Get a list of folders:
 
@@ -99,7 +99,7 @@ The management console only allows you to change the name of a folder. To change
          folder_id: b1gpvjd9ia42nsng55ck
          ...
          ```
-   3. Change the folder parameters, e.g., name and description. You can specify the folder to update by its name or ID.
+   1. Change the folder parameters, e.g., name and description. You can specify the folder to update by its name or ID.
 
       ```
       $ yc resource-manager folder update default \

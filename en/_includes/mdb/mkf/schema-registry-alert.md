@@ -1,5 +1,5 @@
 {% note warning %}
 
-You cannot disable the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting after a cluster is created.
+Once enabled, the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting cannot be disabled.
 
 {% endnote %}

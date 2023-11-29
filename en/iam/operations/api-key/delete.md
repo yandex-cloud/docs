@@ -24,7 +24,7 @@ description: "Follow this guide to delete an API key."
    1. Get a list of API key `IDs` for a specific service account. Specify the service account name in the `--service-account-name` parameter:
 
       ```bash
-      yc iam api-key list --service-account-name <service account name>
+      yc iam api-key list --service-account-name <service_account_name>
       ```
 
       Result:
@@ -33,8 +33,8 @@ description: "Follow this guide to delete an API key."
       +----------------------+---------------------+
       |          ID          |     CREATED AT      |
       +----------------------+---------------------+
-      | ajenhvftf77r9cf84a17 | 2022-03-13 21:15:40 |
-      | ajeq610sgh05p641pam4 | 2022-03-13 21:14:43 |
+      | ajenhvftf77r******** | 2022-03-13 21:15:40 |
+      | ajeq610sgh05******** | 2022-03-13 21:14:43 |
       +----------------------+---------------------+
       ```
 
@@ -51,7 +51,7 @@ description: "Follow this guide to delete an API key."
    Delete the API key using the [delete](../../api-ref/ApiKey/delete.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
 
    ```bash
-   export APIKEY_ID=ajeke74kbp5bfq7m6ka2
+   export APIKEY_ID=ajeke74kbp5b********
    export IAM_TOKEN=CggaATEVAgA...
    curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
        https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
@@ -87,7 +87,7 @@ description: "Follow this guide to delete an API key."
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -102,7 +102,7 @@ description: "Follow this guide to delete an API key."
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```
-      yc iam key list --service-account-id <service account ID>
+      yc iam key list --service-account-id <service_account_ID>
       ```
 
 {% endlist %}

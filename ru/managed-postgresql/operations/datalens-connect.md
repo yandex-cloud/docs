@@ -87,7 +87,7 @@ description: "Из статьи вы узнаете, как подключить
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
-  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) вверху страницы и выберите **Удалить**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) вверху страницы и выберите **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
 
 {% endlist %}

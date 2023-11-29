@@ -1,8 +1,8 @@
 ---
 title: "Managing {{ ES }} hosts"
-description: "You can get a list of {{ ES }} cluster hosts and add or delete them. You can only manage hosts with the Data Node role."
+description: "You can get a list of {{ ES }} cluster hosts and add or delete them. You can only manage hosts with the Data node role."
 keywords:
-  - Managing {{ ES }} hosts
+  - managing Elasticsearch hosts
   - Elasticsearch hosts
   - Elasticsearch
 ---
@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-You can get a list of {{ ES }} cluster hosts and add or delete them. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
+You can get a list of {{ ES }} cluster hosts and add or delete them. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 {% note info %}
 
@@ -40,7 +40,7 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
    {{ yc-mdb-es }} host list --cluster-name <cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -93,7 +93,7 @@ You cannot enable public access to a host once it is created.
    * `assign-public-ip`: Public access to the host, `true` or `false`.
    * `type`: Host role, `datanode` or `masternode`.
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -181,7 +181,7 @@ The following restrictions apply when deleting hosts:
    {{ yc-mdb-es }} host delete <host_name> --cluster-name <cluster_name>
    ```
 
-   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -210,7 +210,7 @@ The following restrictions apply when deleting hosts:
    To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
 
-    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
    * Name(s) of the host(s) to delete in the `hostNames` parameter.
 

@@ -11,13 +11,13 @@ description: "In this tutorial, you will learn how to create a billing account f
 
 A billing account is required even if you are going to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../usage-grant.md).
 
-{% list tabs %}
+{% list tabs group=versions %}
 
-- Trial period
+- Trial period {#trial}
 
    ![quickstart](../../_assets/overview/legal-entity-trial-period.svg)
 
-- Paid version
+- Paid version {#paid}
 
    ![quickstart](../../_assets/overview/legal-entity-paid-version.svg)
 
@@ -29,9 +29,9 @@ Provide details to create a billing account:
 
 1. Select a payment method: **{{ ui-key.yacloud.billing.account.overview.payment-type_label_card }}** or **{{ ui-key.yacloud.billing.account.overview.payment-type_label_invoice }}**. You can [change your payment method](../../billing/operations/change-payment-method.md) any time after creating a billing account.
 
-{% list tabs %}
+{% list tabs group=payments %}
 
-- Bank card
+- Bank card {#card}
 
    1. Enter the legal information of your organization.
 
@@ -62,7 +62,7 @@ Provide details to create a billing account:
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- Bank transfer
+- Bank transfer {#transfer}
 
    1. Enter the legal information of your organization and your contact details.
 

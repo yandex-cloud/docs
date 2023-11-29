@@ -32,7 +32,7 @@ description: "Вы можете создавать резервные копии
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
   1. Чтобы восстановить состояние кластера на требуемый момент времени после создания этой резервной копии, задайте нужное значение настройки **{{ ui-key.yacloud.mdb.forms.field_date }}**. Значение можно ввести вручную или выбрать из выпадающего календаря.
 
@@ -45,7 +45,7 @@ description: "Вы можете создавать резервные копии
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups }}**.
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
-  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
   1. Чтобы восстановить состояние кластера на требуемый момент времени после создания этой резервной копии, задайте нужное значение настройки **{{ ui-key.yacloud.mdb.forms.field_date }}**. Значение можно ввести вручную или выбрать из выпадающего календаря.
 
@@ -254,7 +254,7 @@ description: "Вы можете создавать резервные копии
   
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
-  1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
@@ -466,7 +466,7 @@ description: "Вы можете создавать резервные копии
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Выберите кластер {{ mpg-name }}, резервную копию которого нужно удалить.
     1. На левой панели выберите раздел **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
-    1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке резервной копии, которую вы хотите удалить.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке резервной копии, которую вы хотите удалить.
     1. Выберите пункт **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
     1. Подтвердите удаление и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.action_delete-backup }}**.
 

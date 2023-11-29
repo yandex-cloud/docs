@@ -6,6 +6,8 @@ editable: false
 
 # Правила тарификации для {{ mgl-full-name }}
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
 
 При работе {{ mgl-name }} вы оплачиваете:

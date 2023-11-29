@@ -141,7 +141,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
-    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужного словаря и выберите пункт **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
 - CLI
 

@@ -25,7 +25,7 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the stream settings.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the desired stream and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the line with the desired stream and select **{{ ui-key.yacloud.common.edit }}**.
    1. Configure the stream settings:
       1. Select the required number of shards.
       1. Set the maximum shard throughput per second.
@@ -45,7 +45,7 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete a stream from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the stream and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the line with the stream and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
 {% endlist %}

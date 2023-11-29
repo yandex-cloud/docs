@@ -7,7 +7,7 @@ description: "This article describes how to use POST requests."
 
 {% note warning %}
 
-Special characters provided as parameter values in the request body should be replaced with respective escaped sequences based on XML-encoding. For example use the `&amp;` sequence instead of the ampersand `&`.
+Special characters provided as parameter values in the request body should be replaced with respective escaped sequences based on XML encoding. For example, instead of ampersand (`&`), one should use `&amp;`.
 
 {% endnote %}
 
@@ -25,7 +25,7 @@ https://yandex.<domain>/search/xml
 
 {% include [name-and-key](../../_includes/search-api/key.md) %}
 
-Provide the API key value in the `Authorization` header. [Learn more about authorization in {{ search-api-name }}](../operations/auth.md).
+Provide the API key value in the `Authorization` header. Fore more information, see [Authentication in {{ search-api-full-name }}](../operations/auth.md).
 
 {% include [filter](../../_includes/search-api/filter.md) %}
 
@@ -59,7 +59,7 @@ Provide the API key value in the `Authorization` header. [Learn more about autho
 
 ### Grouping tag <request> {#request}
 
-The `<request>` grouping tag groups all the contents of the request body. Child tags contain search query parameters.
+The `<request>` grouping tag groups all contents of the request body. Child tags contain search query parameters.
 
 {% include [query](../../_includes/search-api/query.md) %}
 
@@ -71,19 +71,19 @@ The `<request>` grouping tag groups all the contents of the request body. Child 
 
 #### Grouping tag <groupings> {#groupings}
 
-The `groupings` grouping tag unites parameters for grouping results.
+The `groupings` tag brings grouping result parameters together.
 
-##### Groupby result grouping {#groupby}
+##### `Groupby` result grouping {#groupby}
 
 {% include [groupby-description](../../_includes/search-api/groupby-description.md) %}
 
-Possible `groupby` parameters:
+`groupby` may have the following parameters:
 
 {% include [groupby-description](../../_includes/search-api/groupby-parameters.md) %}
 
 ## Sample POST request {#example-post-request}
 
-The following request URL and request body return the third page with search results in response to the `<table>` query for the `xml-search-user` user. Results are sorted by document update time. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Results are grouped by domain. Each group contains three documents and the number of groups returned per page is 10. The maximum number of passages per document is 2. The service returns a UTF-8 encoded XML file.
+The following request URL and request body return the third page with search results in response to the `<table>` query for the `xml-search-user` user. The results are sorted by the document update time. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is 10. The maximum number of passages per document is 2. {{ search-api-full-name }} returns a UTF-8 encoded XML file.
 
 Request URL:
 
