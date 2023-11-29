@@ -48,8 +48,6 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
    * `--name`: Name of the log group.
    * `--retention-period`: Log group record retention period. This is an optional parameter.
 
-      {% include [retention-period](../../_includes/logging/retention-period.md) %}
-
       {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
    
@@ -93,8 +91,6 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
       * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
       * `retention_period`: Record retention period in the log group. This is an optional parameter.
-
-         {% include [retention-period](../../_includes/logging/retention-period.md) %}
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 

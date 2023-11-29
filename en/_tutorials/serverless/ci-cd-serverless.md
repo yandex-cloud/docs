@@ -51,7 +51,7 @@ Install the following items in the local environment:
 1. Go to the project directory and run the `bootstrap.sh` script specifying your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID:
 
    ```bash
-   YC_CLOUD_ID=<cloud ID> ./bootstrap.sh
+   YC_CLOUD_ID=<cloud_ID> ./bootstrap.sh
    ```
 
    The script will deploy the basic infrastructure and create YAML files in the `config` directory with a description of created resources. You can edit the script to create additional folders with required resources. For example, you can do it to add another test environment.

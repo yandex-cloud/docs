@@ -133,12 +133,12 @@ To move a cluster to a different availability zone, follow this [guide](host-mig
 
    To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Host class in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.resourcePresetId` parameter.
 
       To retrieve a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -245,9 +245,9 @@ To move a cluster to a different availability zone, follow this [guide](host-mig
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.diskSize` parameter.
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -293,8 +293,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To change {{ MG }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Target {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.config` parameter.
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Required {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.config` parameter.
 
       All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
@@ -336,7 +336,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
-        --backup-retain-period-days=<retain_period> \
+        --backup-retain-period-days=<retention_period> \
         --backup-window-start <backup_start_time> \
         --maintenance-window type=<maintenance_type>,`
                            `day=<day_of_week>,`
@@ -368,7 +368,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -408,7 +408,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-      Where `data_lens`: Access from {{ datalens-name }}: `true` or `false`.
+      Where `data_lens` enables access from {{ datalens-name }}, `true` or `false`.
 
    1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 

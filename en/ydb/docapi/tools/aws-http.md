@@ -35,7 +35,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
 1. Set the `ENDPOINT` environment variable to the prepared value:
 
    ```bash
-   export ENDPOINT=<Document API endpoint>
+   export ENDPOINT=<Document_API_endpoint>
    ```
 
 ## Creating a table {#create-table}

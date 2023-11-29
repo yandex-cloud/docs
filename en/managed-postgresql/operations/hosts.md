@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to manage {{ PG }} cluster ho
 
 # Managing {{ PG }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, follow [this guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -42,7 +42,7 @@ You can add and remove cluster hosts and manage their settings. To move cluster 
    ```
 
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -121,7 +121,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 
       
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mpg-short-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
       You can also specify several additional options in the `--host` parameter to manage public access to a host and replication in a cluster:
@@ -274,7 +274,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
       For each host, specify:
       * Name in the `hostName` field.
-      * List of settings to update in the `updateMask` parameter.
+      * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

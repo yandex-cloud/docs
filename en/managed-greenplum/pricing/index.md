@@ -52,7 +52,7 @@ You are charged for the following:
       * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
    * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
 
-   To save money on storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
+   To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
@@ -146,26 +146,22 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 ### Host computing resources {#prices-hosts}
 
-{% list tabs %}
+#### Standard hosts {#standard-hosts}
 
-- Standard hosts
+The cost calculation will be different depending on the [host configuration](../concepts/instance-types.md):
 
-   The cost is calculated differently depending on the [host configuration](../concepts/instance-types.md):
-
-   * For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network use](../../compute/pricing.md#software-accelerated-network).
-   * For hosts with other configurations, you only pay for their computing resources:
+* For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network use](../../compute/pricing.md#software-accelerated-network).
+* For hosts with other configurations, you only pay for their computing resources:
 
     {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}
 
 
-- Dedicated hosts
+#### Dedicated hosts {#dedicated-hosts}
 
-   The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
+The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 
-    {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
+ {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
 
-
-{% endlist %}
 
 ### Storage and backups {#prices-storage}
 

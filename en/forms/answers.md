@@ -94,6 +94,12 @@ Files that users attached to the form are available via links that you can find 
 
 1. In the list, find the response that has a link to a file and click it.
 
+{% note warning %}
+
+Files attached to a response are available via links only to the employees with permission to edit the form to which these files were uploaded. The files cannot be downloaded automatically using robots or scripts.
+
+{% endnote %}
+
 {% cut "If files are uploaded to Yandex Disk" %}
 
 When you click the link, the file page opens on Yandex&#160;Disk. In this case, image and document preview is unavailable.

@@ -6,7 +6,6 @@ The owner can create new folders and resources in this cloud, and manage access 
 
 ## Create a folder
 
-
 {% list tabs %}
 
 - Management console
@@ -15,7 +14,7 @@ The owner can create new folders and resources in this cloud, and manage access 
 
 - CLI
 
-   1. See a description of the create folder command:
+   1. View the description of the create folder command:
 
       ```
       yc resource-manager folder create --help
@@ -63,7 +62,7 @@ The management console only allows you to change the name of a folder. To change
 
 - CLI
 
-   1. See the description of the update folder command:
+   1. View the description of the update folder command:
 
       ```
       yc resource-manager folder update --help
@@ -127,7 +126,7 @@ The management console only allows you to change the name of a folder. To change
 
 {% list tabs %}
 
-- Management console
+- Management console {#console}
 
    1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
    1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
@@ -136,7 +135,7 @@ The management console only allows you to change the name of a folder. To change
 
 - CLI
 
-   1. See the description of the command to assign a role for a folder:
+   1. View the description of the command to assign a role for a folder:
 
       ```
       yc resource-manager folder add-access-binding --help
@@ -260,7 +259,7 @@ The management console only allows you to change the name of a folder. To change
 
    {% endnote %}
 
-   1. Make sure the resource does not have any roles that you do not want to lose:
+   1. Make sure the resource has no roles assigned that you would rather not lose:
 
       ```
       yc resource-manager folder list-access-binding my-folder

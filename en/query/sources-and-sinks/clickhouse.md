@@ -27,7 +27,7 @@ To create a connection to {{ mch-name }}:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. In the panel on the left, go to the **Connections** tab.
-1. Click ![info](../../_assets/plus.svg) **Create**.
+1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
 1. Specify the connection parameters:
 
    1. Under **General parameters**:
@@ -98,7 +98,7 @@ Below is a table of correspondence between {{ CH }} types and {{ yq-full-name }}
 | `Float32` | `FLOAT` | |
 | `Float64` | `DOUBLE` | |
 | `Date` | `DATE` | |
-| `Datetime` | `DATETIME` | The valid date range is between 01/01/1970 00:00 and 31/12/2105 23:59. |
+| `Datetime` | `DATETIME` | The valid date range is between 01/01/1970 00:00 and 31/12/2105 23:59 |
 | `String` | `STRING` | |
 | `FixedString` | `STRING` | Null `FixedString` bytes are transferred to `STRING` without changes. |
 

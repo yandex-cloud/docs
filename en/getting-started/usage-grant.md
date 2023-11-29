@@ -29,23 +29,23 @@ Grant terms of use depend on:
 
 ### Grant terms of use {#terms-august}
 
-{% list tabs %}
+{% list tabs group=residents %}
 
-- Residents of Russia
+- Residents of Russia {#russia}
 
    Payment method | Using the grant
    --- | ---
    Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: ₽1,000 from the total grant amount. It can be used to pay for {{ compute-full-name }} services, {{ marketplace-full-name }} tools, and support services.<br>_Part 2_: ₽3,000 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services. 
    Bank transfer | The total grant in the amount of ₽4,000 can be used to pay for any {{ yandex-cloud }} services.
 
-- Residents of Kazakhstan
+- Residents of Kazakhstan {#kazakhstan}
 
    Payment method | Using the grant
    --- | ---
    Bank card | The grant is provisionally divided into two parts and distributed among services as follows:<br>_Part 1_: ₸6,000 from the total grant amount. It can be used to pay for {{ compute-full-name }} services, {{ marketplace-full-name }} tools, and support services.<br>_Part 2_: ₸18,000 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services. 
    Bank transfer | Total grant in the amount of ₸24,000 can be used to pay for any {{ yandex-cloud }} services.
 
-- Non-residents of Russia and Kazakhstan
+- Non-residents of Russia and Kazakhstan {#nonresidents}
 
    Payment method | Using the grant
    --- | ---

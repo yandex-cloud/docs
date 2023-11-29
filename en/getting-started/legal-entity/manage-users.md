@@ -12,14 +12,17 @@ To add employee accounts to the organization, follow these steps:
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 1. In the left-hand panel, select [Users](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/organization/icon-users.svg).
 1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-1. Enter the email addresses of the Yandex users you want to invite to the organization (for example, `login@yandex.ru`).
-1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. The users will be added to the organization when they accept the invitation to join.
+1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
+
+    You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+
+1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. The users will be added to the organization as soon as they accept the invitation and select a log-in account for the organization.
 
 To access the organization's enabled services, invited users simply need to log in to their Yandex account.
 
 ## Add federated users {#add-user-sso}
 
-To add federated users, you need to know the user Name IDs returned by the Identity Provider (IdP) server together with the authentication successful response. This is usually the user's primary email address. If you do not know what the server returns as Name ID, contact the administrator who configured authentication for your federation.
+To add federated users, you need to know the user Name IDs returned by the Identity Provider (IdP) server together with the authentication successful response. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
 To add federation users to an organization:
 

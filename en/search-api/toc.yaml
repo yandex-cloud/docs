@@ -7,9 +7,9 @@ items:
     items:
       - name: Registration
         href: operations/registration.md
-      - name: General procedure for activation
+      - name: How to activate
         href: operations/workaround.md
-      - name: Testing requests
+      - name: Query testing
         href: operations/test-request.md
       - name: Authentication in the API
         href: operations/auth.md

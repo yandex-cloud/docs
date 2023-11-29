@@ -19,4 +19,4 @@ The service is dynamically evolving with constant enhancements and refinements t
 
 * In **Chat** mode, you chat with a model, specifying tasks and supplementing your previous remarks. The communication context is transmitted in every message and maintained during the current session until you explicitly start a new one.
 
-Nether of the modes can process unlimited amounts of data yet. Currently, the maximum total number of [tokens](tokens.md) allowed per user request and model response is {{ yagpt-max-tokens }}. For more information about service limits, see [{#T}](limits.md).
+Neither mode can currently process unlimited amounts of data. As of now, the maximum total number of [tokens](tokens.md) allowed per user request and model response is {{ yagpt-max-tokens }}. For more information about {{ yagpt-name }} limits, see [{#T}](limits.md).

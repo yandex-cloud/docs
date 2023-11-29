@@ -65,7 +65,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays information about the service account. If there are errors in the configuration, Terraform points them out.
+      If the configuration is specified correctly, the terminal will display information about the service account. If there are errors in the configuration, Terraform points them out.
 
    1. Deploy cloud resources.
 
@@ -106,9 +106,9 @@ Create a service account with the following name and description:
    ```bash
    curl -X POST \
        -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
+       -H "Authorization: Bearer <IAM_token>" \
        -d '{
-           "folderId": "b1gvmob95yysaplct532",
+           "folderId": "b1gvmob95yys********",
            "name": "my-robot",
            "description": "this is my favorite service account"
        }' \

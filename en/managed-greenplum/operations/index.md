@@ -9,10 +9,11 @@
 * [{#T}](cluster-stop.md)
 * [{#T}](./hosts/cluster-hosts.md)
 * [{#T}](./hosts/cluster-expand.md)
+* [{#T}](./hosts/host-migration.md)
 * [{#T}](cluster-backups.md)
 * [{#T}](cluster-delete.md)
 
-To move {{ mgp-name }} cluster hosts to a different availability zone, use the [guide for managing backups](cluster-backups.md).
+To move {{ mgp-name }} cluster hosts to a different availability zone, refer to the [guide on managing backups](cluster-backups.md).
 
 ## Databases
 

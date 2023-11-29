@@ -1,4 +1,4 @@
-# Creating an issue
+# How to create a task
 
 You can create issues in any of the available [queues](../queue-intro.md). Select the queue so that its subject corresponds to the issue's subject. If you do not know which queue to create your issue in, check with the project manager or your company's admin.
 
@@ -36,6 +36,12 @@ To create an issue:
       You can also leave the values at defaults to come back to them later.
 
 1. If necessary, configure [additional parameters](create-param.md#default-fields): To do this, add fields by clicking ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}** and fill them out.
+
+   {% note info %}
+
+   To populate all relevant fields (for example, tags) when creating a task, use a [template](create-template.md) or [integration with {{ forms-full-name }}](create-ticket-with-forms.md).
+
+   {% endnote %}
 
 1. Click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
 

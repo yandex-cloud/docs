@@ -1,6 +1,6 @@
 # Managing {{ MG }} cluster hosts
 
-You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
+You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list-hosts}
 

@@ -160,12 +160,14 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts to.
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
 
    ![image](../../_assets/datalens/solution-parameters/create-dashboard.png)
 
+
 1. Enter the dashboard name **Visualizing data using the parameters**, then click **Create**.
+
 
 ## Add charts to the dashboard {#add-charts-on-dashboard}
 
@@ -183,6 +185,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 1. In a similar manner, add the **Chart with a configurable visualization dimension**.
 1. Position the charts on the dashboard however you like.
 
+
 ## Add selectors to the dashboard {#add-selectors-on-dashboard}
 
 Add [selectors](../../datalens/dashboard/selector.md) with manual input to edit values in the charts.
@@ -192,6 +195,7 @@ Add [selectors](../../datalens/dashboard/selector.md) with manual input to edit 
 After you add a selector, unlink it from other selectors in this dashboard tab.
 
 {% endnote %}
+
 
 1. Add a selector for the chart **Sales by product category**:
 

@@ -116,7 +116,7 @@ To conditionally delete a record from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -137,7 +137,7 @@ To conditionally delete a record from the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -225,7 +225,7 @@ To conditionally delete a record from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -236,7 +236,7 @@ To conditionally delete a record from the `Series` table:
       from botocore.exceptions import ClientError
 
       def delete_underrated_serie(title, series_id, rating):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
           table = ydb_docapi_client.Table('Series')
 
@@ -325,7 +325,7 @@ To conditionally delete a record from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -340,7 +340,7 @@ To conditionally delete a record from the `Series` table:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
+          'endpoint' => '<Document_API_endpoint>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -375,10 +375,10 @@ To conditionally delete a record from the `Series` table:
 
       try {
           $result = $dynamodb->deleteItem($params);
-          echo "Item deleted.\n";
+          echo "Record deleted.\n";
 
       } catch (DynamoDbException $e) {
-          echo "Couldn't delete item:\n";
+          echo "Couldn't delete record:\n";
           echo $e->getMessage() . "\n";
       }
 
@@ -418,7 +418,7 @@ To conditionally delete a record from the `Series` table:
       Run the program again. Now the operation is successful:
 
       ```text
-      Item deleted.
+      Record deleted.
       ```
 
 - Node.js
@@ -433,7 +433,7 @@ To conditionally delete a record from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -444,7 +444,7 @@ To conditionally delete a record from the `Series` table:
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+          endpoint: "<Document_API_endpoint>",
       });
 
       const table = "Series";
@@ -472,10 +472,7 @@ To conditionally delete a record from the `Series` table:
           .catch(err => {
               console.error("Couldn't delete item. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
-          } else {
-              console.log("Record deleted:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
       ```
 
       You can delete a single item by specifying its primary key using the command `DeleteItemCommand`. If necessary, you can specify the `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
@@ -533,7 +530,7 @@ To conditionally delete a record from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -555,7 +552,7 @@ To conditionally delete a record from the `Series` table:
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 
@@ -573,7 +570,7 @@ To conditionally delete a record from the `Series` table:
             }
         }
 
-        puts "Deleting series '#{title} (#{series_id})' from the table '#{table_name}' if the specified condition is not satisfied."
+        puts "Deleting series '#{title} (#{series_id})' from the table '#{table_name}' if the specified condition is satisfied."
 
         if table_item_deleted?(dynamodb_client, table_item)
           puts 'Record deleted.'

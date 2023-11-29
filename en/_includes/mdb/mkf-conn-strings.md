@@ -64,10 +64,8 @@ Before connecting:
 1. Install the dependencies:
 
    ```bash
-   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
-   sudo dpkg -i packages-microsoft-prod.deb && \
    sudo apt-get update && \
-   sudo apt-get install -y apt-transport-https dotnet-sdk-5.0
+   sudo apt-get install -y apt-transport-https dotnet-sdk-6.0
    ```
 
 1. Create a directory for the project:
@@ -84,11 +82,11 @@ Before connecting:
    <Project Sdk="Microsoft.NET.Sdk">
      <PropertyGroup>
        <OutputType>Exe</OutputType>
-       <TargetFramework>netcoreapp5.0</TargetFramework>
+       <TargetFramework>netcoreapp6.0</TargetFramework>
      </PropertyGroup>
 
      <ItemGroup>
-       <PackageReference Include="Confluent.Kafka" Version="1.4.2" />
+       <PackageReference Include="Confluent.Kafka" Version="2.2.0" />
      </ItemGroup>
    </Project>
    ```
@@ -343,12 +341,12 @@ Before connecting:
 
       ```bash
       cd ~/cs-project/consumer && dotnet build && \
-      dotnet run bin/Debug/netcoreapp5.0/App.dll
+      dotnet run bin/Debug/netcoreapp6.0/App.dll
       ```
 
       ```bash
       cd ~/cs-project/producer && dotnet build && \
-      dotnet run bin/Debug/netcoreapp5.0/App.dll
+      dotnet run bin/Debug/netcoreapp6.0/App.dll
       ```
 
 {% endlist %}
@@ -875,9 +873,9 @@ Before connecting:
    {% endcut %}
 
    Refer to the relevant project pages in the Maven repository for up-to-date versions of the dependencies:
-   - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients).
-   - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind).
-   - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
+   - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
+   - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
+   - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
 1. Copy `pom.xml` to the directories of the producer application and consumer application:
 

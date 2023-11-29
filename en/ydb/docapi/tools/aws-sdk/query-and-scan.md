@@ -129,7 +129,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -154,7 +154,7 @@ To extract data using `query` from the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -235,7 +235,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -244,7 +244,7 @@ To extract data using `query` from the `Series` table:
       from boto3.dynamodb.conditions import Key
 
       def query_series(series_id):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
           table = ydb_docapi_client.Table('Series')
           response = table.query(
@@ -291,7 +291,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -306,7 +306,7 @@ To extract data using `query` from the `Series` table:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
+          'endpoint' => '<Document_API_endpoint>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -384,7 +384,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -395,7 +395,7 @@ To extract data using `query` from the `Series` table:
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+          endpoint: "<Document_API_endpoint>",
       });
 
       console.log("Searching for movies with partition key 3. 3.");
@@ -450,7 +450,7 @@ To extract data using `query` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -477,7 +477,7 @@ To extract data using `query` from the `Series` table:
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 
@@ -633,7 +633,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -658,7 +658,7 @@ To find a series with the partition key 3 and the title starting with a T in the
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -731,7 +731,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -741,7 +741,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       from boto3.dynamodb.conditions import Key
 
       def query_and_project_series(series_id, title_range):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
           table = ydb_docapi_client.Table('Series')
 
@@ -788,7 +788,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -803,7 +803,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
+          'endpoint' => '<Document_API_endpoint>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -875,7 +875,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -884,7 +884,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       AWS.config.update({
         region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+        endpoint: "<Document_API_endpoint>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient();
@@ -944,7 +944,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -956,7 +956,7 @@ To find a series with the partition key 3 and the title starting with a T in the
         if result.items.count.zero?
           puts 'No results found.'
         else
-          puts "Found #{result.items.count} records:"
+          puts "#{result.items.count} items found:"
           result.items.each do |movie|
             puts "#{movie['title']} (#{movie['series_id'].to_i}) "
           end
@@ -971,7 +971,7 @@ To find a series with the partition key 3 and the title starting with a T in the
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 
@@ -1125,7 +1125,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1151,7 +1151,7 @@ To extract data using `scan` from the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -1218,7 +1218,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1228,7 +1228,7 @@ To extract data using `scan` from the `Series` table:
       from boto3.dynamodb.conditions import Key
 
       def scan_series(id_range, display_series):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
           table = ydb_docapi_client.Table('Series')
           scan_kwargs = {
@@ -1302,7 +1302,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1317,7 +1317,7 @@ To extract data using `scan` from the `Series` table:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
+          'endpoint' => '<Document_API_endpoint>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -1398,7 +1398,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1407,7 +1407,7 @@ To extract data using `scan` from the `Series` table:
 
       AWS.config.update({
         region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+        endpoint: "<Document_API_endpoint>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient();
@@ -1424,6 +1424,7 @@ To extract data using `scan` from the `Series` table:
                 ":end_id": 3
           }
       };
+
       console.log("Scanning the Series table");
       docClient.scan(params, onScan);
 
@@ -1481,7 +1482,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1519,7 +1520,7 @@ To extract data using `scan` from the `Series` table:
         end_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 

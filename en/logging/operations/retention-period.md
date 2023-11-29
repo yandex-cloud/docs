@@ -1,5 +1,5 @@
 ---
-title: "Updating a log group"
+title: "Editing a log group"
 description: "Follow this guide to update a log group."
 ---
 
@@ -35,8 +35,6 @@ description: "Follow this guide to update a log group."
    * `--name`: Name of the log group whose record retention period you want to update.
    * `--retention-period`: New log group record retention period.
 
-      {% include [retention-period](../../_includes/logging/retention-period.md) %}
-
       {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
    Result:
@@ -71,11 +69,9 @@ description: "Follow this guide to update a log group."
 
       Where:
 
-      * `name`: Log group name. This is an optional parameter.
+      * `name`: Name of the log group. This is an optional parameter.
       * `folder_id`: Folder ID. This is an optional parameter. By default, the value specified in the provider settings is used.
       * `retention_period`: New log group record retention period.
-
-         {% include [retention-period](../../_includes/logging/retention-period.md) %}
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
@@ -126,7 +122,7 @@ description: "Follow this guide to update a log group."
 
    In the example, the record retention period is updated.
 
-   Create the `payload.json` file:
+   Create a `payload.json` file:
 
    ```json
    {

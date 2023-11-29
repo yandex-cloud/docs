@@ -162,7 +162,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
   1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-  1. Нажмите на значок ![image](../../_assets/options.svg) для нужного подкластера и выберите пункт **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-delete }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного подкластера и выберите пункт **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-delete }}**.
   1. (Опционально) Укажите таймаут [декомиссии](../concepts/decommission.md).
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-remove-subcluster_button }}**.
 

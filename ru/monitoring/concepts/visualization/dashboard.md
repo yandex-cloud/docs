@@ -31,7 +31,7 @@ description: "Дашборд в {{ monitoring-full-name }} — набор вид
 
 Для параметров типа *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* и *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* доступна настройка *{{ ui-key.yacloud_monitoring.component.parametrizer.dashboard.multivalue-key-value }}*, позволяющая выбирать несколько значений параметра одновременно.
 
-Для всех типов параметров доступно указание *{{ ui-key.yacloud_monitoring.component.parametrizer.default-value }}* — это значение параметра будет использоваться при загрузке дашборда в веб-интерфейсе {{monitoring-full-name}}.
+Для всех типов параметров доступно указание *{{ ui-key.yacloud_monitoring.component.parametrizer.default-value }}* — это значение параметра будет использоваться при загрузке дашборда в веб-интерфейсе {{ monitoring-full-name }}.
 
  <!-- Big Yandex dashboards -->
 

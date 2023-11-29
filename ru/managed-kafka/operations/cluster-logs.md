@@ -18,7 +18,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/managed-kafka/logs.svg) **{{ ui-key.yacloud.common.logs }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
     1. Выберите **{{ ui-key.yacloud.kafka.label_filter_origin }}**, **{{ ui-key.yacloud.mdb.cluster.logs.label_hosts }}** и **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}**.
     1. Укажите период времени, за который нужно отобразить лог.
 

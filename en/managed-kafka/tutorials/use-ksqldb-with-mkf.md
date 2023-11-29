@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration.
+1. [Create a {{ mkf-name }} cluster](../operations/cluster-create.md) in any suitable configuration.
 
    * If the ksqlDB server is hosted on the internet, create a publicly accessible {{ mkf-name }} cluster.
    
@@ -28,10 +28,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Log cleanup policy: `Delete`.
       * Log retention, ms: `-1`.
       * Minimum number of in-sync replicas: `1`.
-   1. A service topic named `default_ksql_processing_log`. It may have any settings.
-   1. A topic for data storage named `locations`. It may have any settings.
+   1. A service topic named `default_ksql_processing_log` for maintaining ksqlDB logs. The topic may have any settings.
+   1. A data storage topic named `locations`. The topic may have any settings.
 
-1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `ksql` and assign it the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` roles for all the previously created topics.
+1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `ksql` and assign it the [ACCESS_ROLE_PRODUCER](../operations/cluster-accounts#grant-permission) and `ACCESS_ROLE_CONSUMER` roles for all topics.
 
 1. Check that you can connect to the ksqlDB server.
 
@@ -54,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. In the ksqlDB `/etc/ksqldb/ksql-server.properties` configuration file, specify the credentials to authenticate in the {{ mkf-name }} cluster:
 
    ```ini
-   bootstrap.servers=<FQDN_of_broker_1:9091,...,FQDN_of_broker_N:9091>
+   bootstrap.servers=<FQDN_of_broker_1>:9091,...,<FQDN_of_broker_N>:9091
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/ksqldb/ssl
@@ -64,7 +64,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
-   You can get the cluster name with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+
+1. In the ksqlDB logging configuration file `/etc/ksqldb/ksql-server.properties`, configure logging to a {{ mkf-name }} cluster topic:
+
+   ```ini
+   log4j.appender.kafka_appender=org.apache.kafka.log4jappender.KafkaLog4jAppender
+   log4j.appender.kafka_appender.layout=io.confluent.common.logging.log4j.StructuredJsonLayout
+   log4j.appender.kafka_appender.BrokerList=<FQDN_of_broker_1>:9091,...,<FQDN_of_broker_N>:9091
+   log4j.appender.kafka_appender.Topic=default_ksql_processing_log
+   log4j.logger.io.confluent.ksql=INFO,kafka_appender
+
+   log4j.appender.kafka_appender.clientJaasConf=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<ksql_user_password>";
+   log4j.appender.kafka_appender.SecurityProtocol=SASL_SSL
+   log4j.appender.kafka_appender.SaslMechanism=SCRAM-SHA-512
+   log4j.appender.kafka_appender.SslTruststoreLocation=/etc/ksqldb/ssl
+   log4j.appender.kafka_appender.SslTruststorePassword=<certificate_store_password>
+   ```
 
 1. Restart the ksqlDB service with the command below:
 
@@ -160,7 +176,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <FQDN_of_broker_1:9091,...,FQDN_of_broker_N:9091> \
+      -b <FQDN_of_broker_1>:9091,...,<FQDN_of_broker_N>:9091> \
       -t locations \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -202,14 +218,13 @@ Data is read using the `ksql` user.
 
    This data is sent synchronously to the {{ KF }} `locations` topic using the `ksql` user.
 
-## Check that the test data is present in the {{ KF }} topic {#fetch-data-from-kf}
+## Check for records in {{ KF }} topics {#fetch-data-from-kf}
 
-1. Connect to the ksqlDB server.
 1. Check the messages in the `locations` topic of the {{ mkf-name }} cluster using `kafkacat` and the `ksql` user:
 
    ```bash
    kafkacat -C \
-    -b <FQDN_of_broker_1,...,FQDN_of_broker_N:9091> \
+    -b <FQDN_of_broker_1>:9091,...,<FQDN_of_broker_N>:9091 \
     -t locations \
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -219,10 +234,24 @@ Data is read using the `ksql` user.
    ```
 
 1. Make sure that the console displays the messages you [inserted into the table](#insert-data-to-ksqldb).
+1. Check the messages in the `default_ksql_processing_log` topic of the {{ mkf-name }} cluster using `kafkacat` and the `ksql` user:
+
+   ```bash
+   kafkacat -C \
+    -b <FQDN_of_broker_1>:9091,...,<FQDN_of_broker_N>:9091 \
+    -t default_ksql_processing_log \
+    -X security.protocol=SASL_SSL \
+    -X sasl.mechanisms=SCRAM-SHA-512 \
+    -X sasl.username=ksql \
+    -X sasl.password="<ksql_user_password>" \
+    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
+   ```
+
+1. Make sure the console displays ksqlDB log records.
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).

@@ -19,8 +19,8 @@ To create a binding to read data from {{ objstorage-short-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a binding.
 1. In the list of services, select **{{ yq-full-name }}**.
-1. In the left panel, go to the **Bindings** tab.
-1. Click ![info](../../_assets/plus.svg) **Create**.
+1. In the left-hand panel, go to the **Bindings** tab.
+1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
 1. Under **Connection parameters**:
 
    1. In the **Type** field, select `{{ objstorage-short-name }}`.

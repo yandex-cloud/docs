@@ -41,7 +41,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
-      1. Enter the bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
@@ -105,7 +105,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
       Run the following query:
 
       ```bash
-      ydb -e grpcs://<YDB endpoint> -d <database> \
+      ydb -e grpcs://<YDB_endpoint> -d <DB_name> \
       scripting yql -s \
       "CREATE TABLE Tasks
       (
@@ -140,7 +140,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
    1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, enter the account that you created when [preparing the environment](#prepare).
    1. Add environment variables:
       * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
-      * `DATABASE`: Enter the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }}](#create-db) database (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+      * `DATABASE`: Enter the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }}](#create-db) database (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
    1. Repeat steps 3–12 and create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
    1. Repeat steps 3–12 and create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
@@ -175,13 +175,13 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
         --memory 128m \
         --execution-timeout 5s \
         --source-path ./servlet.zip \
-        --environment DATABASE=<database>,ENDPOINT=<YDB endpoint>
+        --environment DATABASE=<DB_name>,ENDPOINT=<YDB_endpoint>
       ```
 
       Where:
       * `function-name`: Name of the function you want to create a version of.
       * `runtime`: Runtime environment.
-      * `entrypoint`: Entry point specified in the \<function file name>.\<handler name> format.
+      * `entrypoint`: Entry point specified in \<function_file_name>.\<handler_name> format.
       * `memory`: Amount of RAM.
       * `execution-timeout`: Maximum function execution time before the timeout is reached.
       * `source-path`: ZIP archive with the function code and required dependencies.
@@ -241,25 +241,25 @@ To ensure interaction between services, create an API gateway:
               bucket: <bucket>
               object: index.html
               presigned_redirect: false
-              service_account: <service account>
+              service_account: <service_account>
             operationId: static
         /add:
-           post:
-             x-yc-apigateway-integration:
-               type: cloud-functions
-               function_id: <add-task ID>
-             operationId: addTask
+          post:
+            x-yc-apigateway-integration:
+              type: cloud-functions
+              function_id: <add-task_ID>
+            operationId: addTask
         /list:
           get:
             x-yc-apigateway-integration:
               type: cloud-functions
-              function_id: <list-tasks ID>
+              function_id: <list-tasks_ID>
             operationId: listTasks
         /delete:
           delete:
             x-yc-apigateway-integration:
               type: cloud-functions
-              function_id: <delete-task ID>
+              function_id: <delete-task_ID>
             operationId: deleteTask
       ```
 
@@ -288,25 +288,25 @@ To ensure interaction between services, create an API gateway:
               bucket: <bucket>
               object: index.html
               presigned_redirect: false
-              service_account: <service account>
+              service_account: <service_account>
             operationId: static
         /add:
           post:
             x-yc-apigateway-integration:
               type: cloud-functions
-              function_id: <add-task ID>
+              function_id: <add-task_ID>
             operationId: addTask
         /list:
           get:
             x-yc-apigateway-integration:
               type: cloud-functions
-              function_id: <list-tasks ID>
+              function_id: <list-tasks_ID>
             operationId: listTasks
         /delete:
           delete:
             x-yc-apigateway-integration:
               type: cloud-functions
-              function_id: <delete-task ID>
+              function_id: <delete-task_ID>
             operationId: deleteTask
       ```
 

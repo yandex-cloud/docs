@@ -1,6 +1,6 @@
 # Managing {{ RD }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -40,7 +40,7 @@ You can add and remove cluster hosts and manage their settings. To move cluster 
 
 
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -108,7 +108,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
 
       
-      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+      If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 
    1. View a description of the CLI command for adding a host:
@@ -121,19 +121,19 @@ Public access to hosts can only be configured for clusters created with enabled 
 
       ```bash
       {{ yc-mdb-rd }} host add \
-         --cluster-name=<cluster_name> \
-         --host zone-id=<availability_zone>,`
-               `subnet-id=<subnet_ID>,`
-               `assign-public-ip=<public_access>,`
-               `replica-priority=<host_priority>,`
-               `shard-name=<shard_name>
+        --cluster-name=<cluster_name> \
+        --host zone-id=<availability_zone>,`
+          `subnet-id=<subnet_ID>,`
+          `assign-public-ip=<public_access>,`
+          `replica-priority=<host_priority>,`
+          `shard-name=<shard_name>
       ```
 
       Where:
       * `--cluster-name`: Name of a {{ mrd-name }} cluster. You can retrieve it with a [list of clusters in a folder](cluster-list.md#list-clusters).
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Flag enabling online access to the host by a public IP, `true` or `false`.
          * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover). It is only available for non-sharded clusters.
          * `shard-name`: Name of the shard to which the host must be added if the cluster is sharded.
@@ -159,7 +159,7 @@ Public access to hosts can only be configured for clusters created with enabled 
       }
       ```
 
-      Where `assign_public_ip` enables public access to the host, `true` or `false`.
+      Where `assign_public_ip` is public access to the host, `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -214,12 +214,12 @@ If you cannot [connect](connect/index.md) to the added host, check that the clus
 
    ```bash
    {{ yc-mdb-rd }} host update <host_name> \
-      --cluster-name=<cluster_name> \
-      --assign-public-ip=<public_access> \
-      --replica-priority=<host_priority>
+     --cluster-name=<cluster_name> \
+     --assign-public-ip=<public_access> \
+     --replica-priority=<host_priority>
    ```
 
-   Where `--assign-public-ip` enables public access to the host, `true` or `false`.
+   Where `--assign-public-ip` is public access to the host, `true` or `false`.
 
    You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -244,7 +244,7 @@ If you cannot [connect](connect/index.md) to the added host, check that the clus
       }
       ```
 
-      Where `assign_public_ip` enables public access to the host, `true` or `false`.
+      Where `assign_public_ip` is public access to the host, `true` or `false`.
 
    1. Make sure the settings are correct.
 

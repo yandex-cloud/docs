@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to manage {{ MY }} cluster ho
 
 # Managing {{ MY }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -99,7 +99,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       ```
 
       
-      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+      If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 
    1. View a description of the CLI command for adding a host:
@@ -117,7 +117,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
           `subnet-id=<subnet_ID>,`
           `assign-public-ip=<public_access_to_subcluster_host>,`
           `replication-source=<source_host_name>,`
-          `backup-priority=<host_priority_for_backups>,`
+          `backup-priority=<host_backup_priority>,`
           `priority=<priority_of_assigning_host_as_master>
       ```
 
@@ -125,11 +125,11 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       * `--cluster-name`: Name of a {{ mmy-name }} cluster.
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Internet access to the host: `true` or `false.`
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+         * `assign-public-ip`: Internet access to the host, `true` or `false.`
          * `replication-source`: [Replication](../concepts/replication.md) source for the host.
-         * `backup-priority`: Host priority for [backups](../concepts/backup.md#size), between `0` and `100`.
-         * `priority`: Priority for assigning the host as the master host if the [primary master host fails](../concepts/replication.md#master-failover): between `0` and `100`.
+         * `backup-priority`: Host [backup](../concepts/backup.md#size) priority, between `0` and `100`.
+         * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
       You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -192,7 +192,7 @@ If you cannot [connect](connect.md) to the added host, check that the cluster [s
 For each host in a {{ mmy-name }} cluster, you can:
 * Setting the [replication source](../concepts/replication.md#manual-source).
 * Managing [public access](../concepts/network.md#public-access-to-host).
-* Setting [priority](../concepts/backup.md#size) for backups.
+* Setting backup [priority](../concepts/backup.md#size).
 * Set a priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
 {% note info %}
@@ -229,16 +229,16 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
      --cluster-name=<cluster_name> \
      --replication-source=<source_host_name> \
      --assign-public-ip=<public_access_to_host> \
-     --backup-priority=<host_priority_for_backups> \
+     --backup-priority=<host_backup_priority> \
      --priority=<priority_of_assigning_host_as_master>
    ```
 
    Where:
    * `--cluster-name`: Name of a {{ mmy-name }} cluster.
    * `--replication-source`: [Replication](../concepts/replication.md) source for the host.
-   * `--assign-public-ip`: Internet access to the host: `true` or `false`.
-   * `--backup-priority`: Host priority for [backups](../concepts/backup.md#size): between `0` and `100`.
-   * `--priority`: Priority for assigning the host as the master host if the [primary master host fails](../concepts/replication.md#master-failover): between `0` and `100`.
+   * `--assign-public-ip`: Internet access to the host, `true` or `false`.
+   * `--backup-priority`: Host [backup](../concepts/backup.md#size) priority, between `0` and `100`.
+   * `priority`: Priority of assigning the host as master if the [primary master host fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
    You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -287,7 +287,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
       For each host, specify:
       * Name in the `hostName` field.
-      * List of settings to update in the `updateMask` parameter.
+      * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

@@ -52,21 +52,21 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. Create a database:
 
       ```bash
-      yc ydb database create <name> --serverless
+      yc ydb database create <DB_name> --serverless
       ```
 
-      Where `name` is the name of your database.
+      Where `DB_name` is the name of your database.
 
       Result:
 
       ```text
       done (6s)
-      id: etn95g8jk8g0qk84hk20
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: etn95g8jk8g0********
+      folder_id: b1g7gvsi89m3********
       created_at: "2022-05-30T07:26:44Z"
       name: test
       status: PROVISIONING
-      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaom********/etn95g8jk8g0********
       serverless_database:
         storage_size_limit: "53687091200"
       location_id: {{ region-id }}
@@ -79,7 +79,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
                 hours: 17
           backup_time_to_live: 172800s
           type: SYSTEM
-      document_api_endpoint: {{ ydb.document-api-endpoint }}/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      document_api_endpoint: {{ ydb.document-api-endpoint }}/{{ region-id }}/b1gia87mbaom********/etn95g8jk8g0********
       monitoring_config: {}
       ```
 
@@ -90,7 +90,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
      yc ydb database get <name>
      ```
 
-     Where `name` is the name of the new DB.
+     Where `DB_name` is the name of the new DB.
 
      When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
@@ -143,10 +143,10 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
   1. Create a database:
 
       ```bash
-      yc ydb database create <name> \
+      yc ydb database create <DB_name> \
         --dedicated \
-        --resource-preset <preset> \
-        --storage type=<type>,groups=<groups> \
+        --resource-preset <configuration> \
+        --storage type=<storage_media_type>,groups=<number_of_storage_groups> \
         --public-ip \
         --network-name default\
         --async
@@ -155,7 +155,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       Where:
 
       * `--resource-preset STR`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](concepts/resources.md#resource-presets).
-      * `--storage STR`: Media type and number of [storage groups](concepts/resources.md#storage-groups) in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+      * `--storage STR`: Media type and number of [storage groups](concepts/resources.md#storage-groups), in the `type=<storage_media_type>,groups=<number_of_storage_groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
       * `--public-ip`: Flag indicating that public IP addresses are assigned. Without it, you cannot connect to the database you created from the internet.
       * `--network-name STR`: Name of the cloud network to create the database in. You can specify the network as `default`.
       * `--async`: Asynchronous DB creation flag.
@@ -166,12 +166,12 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
       ```text
       done (7m18s)
-      id: etnk1u65e4shtgj207sc
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: etnk1u65e4sh********
+      folder_id: b1g7gvsi89m3********
       created_at: "2022-05-31T10:10:12Z"
       name: test-ded
       status: PROVISIONING
-      endpoint: {{ ydb.ep-dedicated }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
+      endpoint: {{ ydb.ep-dedicated }}/?database=/{{ region-id }}/b1gia87mbaom********/etnk1u65e4sh********
       resource_preset_id: medium
       storage_config:
         storage_options:
@@ -181,11 +181,11 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       scale_policy:
         fixed_scale:
           size: "1"
-      network_id: enpqkm0od2bueqbuo9qa
+      network_id: enpqkm0od2bu********
       subnet_ids:
-      - b0cmespgm8o3pr0ssprq
-      - e2lif378n1pg90pp96bl
-      - e9b72lv142k40bul5qgv
+      - b0cmespgm8o3********
+      - e2lif378n1pg********
+      - e9b72lv142k4********
       dedicated_database:
         resource_preset_id: medium
         storage_config:
@@ -196,11 +196,11 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
         scale_policy:
           fixed_scale:
             size: "1"
-        network_id: enpqkm0od2bueqbuo9qa
+        network_id: enpqkm0od2bu********
         subnet_ids:
-        - b0cmespgm8o3pr0ssprq
-        - e2lif378n1pg90pp96bl
-        - e9b72lv142k40bul5qgv
+        - b0cmespgm8o3********
+        - e2lif378n1pg********
+        - e9b72lv142k4********
         assign_public_ips: true
       assign_public_ips: true
       location_id: {{ region-id }}
@@ -222,7 +222,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
      yc ydb database get <name>
      ```
 
-     Where `name` is the name of the new DB.
+     Where `DB_name` is the name of the new DB.
 
      When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
@@ -274,18 +274,18 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
      ```text
      ...
-     endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
+     endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********
      ...
      ```
 
-     Here, part of the `{{ ydb.ep-serverless }}` string contains the endpoint, while `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
+     Here, part of the `{{ ydb.ep-serverless }}` string contains the endpoint, while `/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********` specifies the DB path.
 
   1. Run a query to the previously created DB using the resulting endpoint value and DB path:
 
      ```bash
      ydb \
        --endpoint {{ ydb.ep-serverless }} \
-       --database /{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
+       --database /{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3******** \
        yql -s "SELECT 1;"
      ```
 

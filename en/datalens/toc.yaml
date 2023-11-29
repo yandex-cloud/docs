@@ -701,11 +701,11 @@ items:
             href: operations/dashboard/add-description.md
           - name: Adding a message displayed when contacting support
             href: operations/dashboard/add-support-message.md
-          - name: Adding a message displayed if an access error occurs
+          - name: Adding an access error message
             href: operations/dashboard/add-access-message.md
-          - name: Adding charts to dashboards
+          - name: Adding a chart to a dashboard
             href: operations/dashboard/add-chart.md
-          - name: Adding selectors to dashboards
+          - name: Adding a selector to a dashboard
             href: operations/dashboard/add-selector.md
           - name: Adding text to a dashboard
             href: operations/dashboard/add-text.md

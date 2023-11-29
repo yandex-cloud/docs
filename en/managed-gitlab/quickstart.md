@@ -3,7 +3,7 @@
 To get started with the service:
 1. [Create an instance](#instance-create).
 1. [Set up a working environment](#configure-mgl).
-1. [Get started with the repository](#start-work-with-git).
+1. [Start using the repository](#start-work-with-git).
 
 ## Getting started {#before-you-begin}
 
@@ -36,20 +36,20 @@ In this section, you will learn how to prepare an instance {{ mgl-name }} to wor
    1. Follow the link sent to the administrator's email address when registering the instance.
    1. Change the administrator's password.
    1. Log in using the administrator's username and password.
-1. [Create a group](https://docs.gitlab.com/ee/user/group/#create-a-group) that will host your project.
+1. [Create a group](https://docs.gitlab.com/ee/user/group/#create-a-group) to host your project.
 1. [Create a user](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) and [add them to the group](https://docs.gitlab.com/ee/user/project/members/#add-users-to-a-project) with the `Maintainer` or `Owner` role.
-1. [Create and SSH key](https://docs.gitlab.com/ee/user/ssh.html) and [assign it to the user account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
+1. [Create an SSH key](https://docs.gitlab.com/ee/user/ssh.html) and [assign it to the user account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
 1. [Create an empty project](https://docs.gitlab.com/ee/user/project/) to host your repository.
 
-## Get started with the repository {#start-work-with-git}
+## Start using the repository {#start-work-with-git}
 
-In this section, you will learn how to get started with a local copy of your repository under a created user. Perform these steps on the local computer:
+In this section, you will learn how to start using a local copy of your repository as a new user. Perform these steps on the local computer:
 1. [Install the Git client](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#install-git).
-1. [Clone the repository](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-a-repository) to the local machine.
-1. Go to the directory with the repository:
+1. [Clone the repository](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-a-repository) to the local computer.
+1. Go to the directory containing the repository:
 
    ```bash
-   cd <project name>
+   cd <project_name>
    ```
 
 1. Create a file named `README.md`:

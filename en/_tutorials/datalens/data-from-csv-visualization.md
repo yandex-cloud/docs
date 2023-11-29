@@ -137,7 +137,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
 
 1. Copy the chart from the previous step.
 
-   1. Click the down arrow next to the **Save** button in the upper-right corner.
+   1. Click the down arrow next to the **Save** button in the top-right corner.
    1. Click **Save as**.
 
       ![image](../../_assets/datalens/solution-01/19-Chart-SaveAs.png)
@@ -169,7 +169,9 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    ![image](../../_assets/datalens/solution-01/22-Create-Dashboard.png)
 
-1. Enter the name **SuperHeroes dashboard** for the dashboard and click **Create**.
+
+1. Enter **SuperHeroes dashboard** for the dashboard name and click **Create**.
+
 
 ## Step 6. Add charts to the dashboard {#step6}
 
@@ -226,6 +228,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to be able to filter super
 1. In the top-right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-01/30-Dash.png)
+
 
 1. Apply various filters and analyze the weight dependencies on a superhero's gender and good or bad alignment
 

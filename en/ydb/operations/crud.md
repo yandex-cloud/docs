@@ -39,13 +39,13 @@ REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2,
 
 ### REPLACE {#replace}
 
-Once you create the ```series```, ```seasons```, and ```episodes``` tables, you can insert data into the table using the [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into) statement. Basic syntax:
+Once you create the `series`, `seasons`, and `episodes` tables, you can insert data into the table using the [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into) statement. Basic syntax:
 
 ```sql
-REPLACE INTO table_name (column_list) VALUES (list_of_added_values);
+REPLACE INTO <table_name> (<column_list>) VALUES (<list_of_added_values>);
 ```
 
-The [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into) statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the UPSERT statement is different.
+The [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into) statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the `UPSERT` statement is different.
 
 {% note info %}
 
@@ -99,7 +99,7 @@ When making an UPSERT, a blind write is performed. For writing data, we recommen
 
 {% endnote %}
 
-The code below inserts one row of data into the ```episodes``` table.
+The code below inserts one row of data into the `episodes` table.
 
 ```sql
 UPSERT INTO episodes
@@ -123,7 +123,7 @@ VALUES
 
 ### INSERT {#insert}
 
-The [INSERT](https://ydb.tech/en/docs/yql/reference/syntax/insert_into) statement is used to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the error message ```Transaction rolled back due to constraint violation: insert_pk.```.
+The [INSERT](https://ydb.tech/en/docs/yql/reference/syntax/insert_into) statement is used to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the error message `Transaction rolled back due to constraint violation: insert_pk.`.
 
 {% note info %}
 
@@ -131,7 +131,7 @@ When an INSERT operation is executed, the data is read before it is written. Thi
 
 {% endnote %}
 
-The code below inserts one row of data into the ```episodes``` table.
+The code below inserts one row of data into the `episodes` table.
 
 ```sql
 INSERT INTO episodes
@@ -158,10 +158,10 @@ VALUES
 The [UPDATE](https://ydb.tech/en/docs/yql/reference/syntax/update) statement changes the values of columns for the table rows filtered by the WHERE clause. Basic syntax:
 
 ```sql
-UPDATE table_name SET column1_name=new_column1_value, ... ,columnN_name=new_columnN_value WHERE conditions_for_row_filter;
+UPDATE <table_name> SET <column_1_name>=<new_column_1_value>, ... ,<column_N_name>=<new_column_N_value> WHERE <condition_for_row_filter>;
 ```
 
-UPDATE statements can't change primary key values. Enter and execute the following UPDATE statement to change the value of the ```title``` column from "Test Episode" to "Test Episode Updated" for the episode with ```series_id = 2```, ```season_id = 1```, and ```episode_id = 3```.
+UPDATE statements can't change primary key values. Enter and execute the following UPDATE statement to change the value of the `title` column from "Test Episode" to "Test Episode Updated" for the episode with `series_id = 2`, `season_id = 1`, and `episode_id = 3`.
 
 ```sql
 UPDATE episodes
@@ -175,7 +175,7 @@ WHERE
 
 ### DELETE {#delete}
 
-The [DELETE](https://ydb.tech/en/docs/yql/reference/syntax/delete) statement deletes the rows from the table filtered by the WHERE clause. The code below removes an ```episode``` with ```series_id = 2```, ```season_id = 5```, and ```episode_id = 21``` from the episodes table.
+The [DELETE](https://ydb.tech/en/docs/yql/reference/syntax/delete) statement deletes the rows from the table filtered by the WHERE clause. The code below removes an `episode` with `series_id = 2`, `season_id = 5`, and `episode_id = 21` from the episodes table.
 
 ```sql
 DELETE
@@ -191,7 +191,7 @@ WHERE
 
 To read data in the table, use the [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select) statement.
 
-To query data from the ```series``` table, execute the code shown below.
+To query data from the `series` table, execute the code shown below.
 
 ```sql
 SELECT
@@ -201,7 +201,7 @@ SELECT
 FROM series;
 ```
 
-You can use an asterisk to select all the columns in a table. To obtain the values of all columns from the ```series``` table, execute the code shown below.
+You can use an asterisk to select all the columns in a table. To obtain the values of all columns from the `series` table, execute the code shown below.
 
 ```sql
 SELECT

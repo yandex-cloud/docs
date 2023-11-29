@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/project_job_service.md
 
 # DataSphere API v2, gRPC: ProjectJobService
 
-A set of methods for managing Project Jobs.
+A set of methods for managing Project Jobs. Do not use these methods manually. 
+For working with DataSphere Jobs, install DataSphere CLI via `pip install datasphere`.
 
 | Call | Description |
 | --- | --- |

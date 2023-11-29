@@ -2,6 +2,8 @@
 
 
 
+{% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 

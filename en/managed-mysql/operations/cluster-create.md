@@ -29,7 +29,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
    1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the DBMS version.
    1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the characteristics of all existing hosts change, too.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -49,7 +49,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
          {% endnote %}
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
-      * DB name; it must be unique within the folder.
+      * DB name. The name must be unique within the folder.
 
          {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
@@ -138,7 +138,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       Where:
 
-      * `environment`: Environment, `prestable` or `production`.
+      * `environment`: `prestable` or `production`.
 
       
       * `assign-public-ip`: Public access to the host, `true` or `false`.
@@ -268,7 +268,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * `version`: {{ MY }} version, `{{ versions.tf.str }}`.
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
       * `assign_public_ip`: Public access to the host, `true` or `false`.
-      * `backup-priority`: Priority when selecting a new master host, between `0` and `100`.
+      * `backup-priority`: Host priority when selecting a new master host, between `0` and `100`.
       * `backup-priority`: Backup priority, between `0` and `100`.
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -292,7 +292,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          Where:
 
-         * `hours`: Backup start hour
+         * `hours`: Backup starting hour
          * `minutes`: Backup start minutes
 
       * To set the retention period for backup files, define the `backup_retain_period_days` parameter in the {{ mmy-name }} cluster description:
@@ -343,6 +343,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    If required, provide the [backup](../concepts/backup.md) start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. By default, it is set to `7`.
 
    To allow [connection](connect.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
+
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
@@ -370,12 +371,12 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    Create a {{ mmy-name }} cluster with the following test characteristics:
 
    
-   * Name: `my-mysql`.
-   * Version: `{{ versions.cli.latest }}`.
-   * Environment: `Production`.
-   * Network: `default`.
-   * Security group ID: `{{ security-group }}`.
-   * Number of `{{ host-class }}` class hosts in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone: 1.
+   * Name: `my-mysql`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `Production`
+   * Network: `default`
+   * Security group ID: `{{ security-group }}`
+   * Number of `{{ host-class }}` class hosts in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone: 1
    * Network SSD storage (`{{ disk-type-example }}`): 20 GB
    * User: `user1`, with the `user1user1` password
    * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
@@ -424,13 +425,13 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * Number of `{{ host-class }}` hosts in the new `mysubnet` subnet, in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
 
    
-  * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet on port `{{ port-mmy }}`.
+   * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet on port `{{ port-mmy }}`.
 
 
-   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-   * User: `user1`, with the `user1user1` password.
-   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-   * Protection against accidental {{ mmy-name }} cluster deletion: Enabled.
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
+   * Protection against accidental {{ mmy-name }} cluster deletion: Enabled
 
    The configuration file for the {{ mmy-name }} cluster is as follows:
 
@@ -512,12 +513,12 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    Create a {{ mmy-name }} cluster with the following test characteristics:
 
    
-   * Name: `my-mysql-3`.
-   * Version: `{{ versions.cli.latest }}`.
-   * Environment: `prestable`.
-   * Network: `default`.
-   * Security group ID: `{{ security-group }}`.
-   * `{{ host-class }}` public hosts: 3.
+   * Name: `my-mysql-3`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `prestable`
+   * Network: `default`
+   * Security group ID: `{{ security-group }}`
+   * `{{ host-class }}` public hosts: 3
 
       One host will be added to each subnet of the `default` network:
       * `subnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
@@ -526,9 +527,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
       The host residing in `subnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
 
-   * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
-   * User: `user1`, with the `user1user1` password.
-   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+   * Network SSD storage (`{{ disk-type-example }}`): 32 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
 
 
    1. Run this command to create a {{ mmy-name }} cluster:
@@ -578,7 +579,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
    * New network: `mynet`
-   * `{{ host-class }}` public hosts: 3.
+   * `{{ host-class }}` public hosts: 3
 
       One host will be added to the new subnets:
       * `mysubnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
@@ -590,12 +591,12 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
       The host residing in `mysubnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
 
    
-   * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet on port `{{ port-mmy }}`.
+   * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
 
 
-   * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
-   * User: `user1`, with the `user1user1` password.
-   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+   * Network SSD storage (`{{ disk-type-example }}`): 32 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
 
    The configuration file for the {{ mmy-name }} cluster is as follows:
 

@@ -80,7 +80,7 @@ For example, allow any authenticated user to view folder information:
       ```hcl
       ...
       data "yandex_resourcemanager_folder" "project1" {
-        folder_id = "<folder ID>"
+        folder_id = "<folder_ID>"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "viewer" {
@@ -121,7 +121,7 @@ For example, allow any authenticated user to view folder information:
       You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc resource-manager folder list-access-bindings <folder name>|<folder ID>
+      yc resource-manager folder list-access-bindings <folder_name_or_ID>
       ```
 
 {% endlist %}

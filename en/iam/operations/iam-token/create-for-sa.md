@@ -518,11 +518,11 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
    ```curl
    curl -X POST \
        -H 'Content-Type: application/json' \
-       -d '{"jwt": "<SIGNED_JWT>"}' \
+       -d '{"jwt": "<JWT_token>"}' \
        https://iam.{{ api-host }}/iam/v1/tokens
    ```
 
-   Where `<SIGNED_JWT>` is the JWT received in the previous step.
+   Where `<JWT_token>` is the JWT received in the previous step.
 
 - Go
 

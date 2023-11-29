@@ -45,6 +45,8 @@
 
         * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
 
+        * (опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
+
       * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
           {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
@@ -348,6 +350,7 @@
            }
          }
        }
+     }
 
      resource "yandex_vpc_network" "network-1" {
        name = "network1"

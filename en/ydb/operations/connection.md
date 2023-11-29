@@ -111,7 +111,7 @@ Set up the selected mode:
    > Result:
    >
    > ```text
-   > User SID: aje6o75au36h5d0yuv2g@as
+   > User SID: aje6o75au36h********@as
    > ```
 
 
@@ -154,7 +154,7 @@ Set up the selected mode:
       > Result:
       >
       > ```text
-      > User SID: aje6o75au36h5d0yuv2g@as
+      > User SID: aje6o75au36h********@as
       > ```
 
 - Authorized access key
@@ -203,7 +203,7 @@ Set up the selected mode:
       > Result:
       >
       > ```text
-      > User SID: aje6o75au36h5d0yuv2g@as
+      > User SID: aje6o75au36h********@as
       > ```
 
 - Metadata service
@@ -239,7 +239,7 @@ Set up the selected mode:
    > Result:
    >
    > ```text
-   > User SID: aje6o75au36h5d0yuv2g@as
+   > User SID: aje6o75au36h********@as
    > ```
 
 {% endlist %}

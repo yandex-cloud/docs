@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ mkf-name }}
+# {{ mkf-name }} pricing
 
 In this section, you can find {{ mkf-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
@@ -182,7 +182,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
@@ -204,21 +204,17 @@ The cost of fast local storage also depends on the type of hosts.
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
 
 
-{% list tabs %}
+#### Standard hosts {#prices-kafka-standard}
 
-* Standard hosts
-
-   {% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}
+{% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}
 
 
-* Dedicated hosts
+#### Dedicated hosts {#prices-kafka-dedicated}
 
-   {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
-   {% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}
+{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}
 
-
-{% endlist %}
 
 
 

@@ -45,6 +45,8 @@ instance_template:
     primary_v4_address_spec:
       one_to_one_nat_spec:
         ip_version: IPV4
+  network_settings:
+    type: STANDARD
   scheduling_policy: {}
   placement_policy:
     placement_group_id: rmppvhrgm77g********
@@ -238,4 +240,4 @@ service_account_id: ajefnb8427bh********
 Создать группу виртуальных машин по YAML-спецификации можно через интерфейс командной строки (CLI) или API. Подробнее см. в инструкциях:
 
 * [{#T}](../../operations/instance-groups/create-from-yaml.md)
-* [{#T}](../../operations/instance-groups/update-from-yaml.md) 
+* [{#T}](../../operations/instance-groups/update-from-yaml.md)

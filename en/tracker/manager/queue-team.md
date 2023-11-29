@@ -11,7 +11,11 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
 
-The queue team includes the employees who create and execute issues in the given queue. The queue owner is an employee who has full access to editing the queue settings. You can set the team and queue owner on the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
+The queue team includes the employees who create and execute issues in the given queue. The queue team members get notified by email on any task changes. Their privileges are determined by the **{{ ui-key.startrek-backend.roles.role.name.team-member }}** role in the queue access settings.
+
+The queue owner is an employee who has full access to editing the queue settings.
+
+You can set the team and queue owner on the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
 
 ## Changing the queue owner {#change-owner}
 

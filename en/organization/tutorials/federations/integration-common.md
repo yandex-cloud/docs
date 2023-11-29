@@ -18,7 +18,7 @@ To set up authentication:
 
 ## Getting started {#before-you-begin}
 
-To use the instructions in this section, you will need a valid certificate to sign SAML messages on the Identity Provider's (IdP) server. If you do not have a valid SSL certificate, get one.
+To use the guidelines in this section, you will need a valid certificate to sign SAML messages on the Identity Provider's (IdP) server. If you do not have a valid SSL certificate, get one.
 
 The subject name in the certificate must contain the FQDN of the Identity Provider (IdP) server, for example, `fs.contoso.com`, to prevent the browser from blocking the authentication page.
 
@@ -177,7 +177,7 @@ To create a federation:
          * `encrypted_assertions`: Sign authentication requests.
             If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -300,7 +300,7 @@ To add a certificate to a federation:
 
 {% note tip %}
 
-To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e., both the current one and those to be used afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to be used afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
 
 {% endnote %}
 
@@ -483,7 +483,7 @@ To do this, you need to know the name IDs of the users that the Identity Provide
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../security/index.md#admin).
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant roles to a user, see [Roles](../../security/index.md#admin).
 
 To add federation users to an organization:
 
@@ -491,7 +491,7 @@ To add federation users to an organization:
 
 - Management console
 
-   1. [Log in to an account]({{ link-passport }}) that belongs to an organization administrator or owner.
+   1. [Log in]({{ link-passport }}) as the organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 

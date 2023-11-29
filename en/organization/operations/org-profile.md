@@ -7,13 +7,13 @@ description: "In this tutorial, you will learn how to edit organization data in 
 
 {% note info %}
 
-Organization data can be edited by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#admin).
+Organization data can be edited by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant roles to a user, see [Roles](../security/index.md#admin).
 
 {% endnote %}
 
 To edit your organization data:
 
-1. Log in to [{{org-full-name}}]({{link-org-main}}) using the organization's administrator or owner account.
+1. Log in to [{{org-full-name}}]({{link-org-main}}) as the organization administrator or owner.
 
 1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.settings }}]({{link-org-settings}}) ![icon-settings](../../_assets/organization/icon-settings.svg).
 
@@ -22,5 +22,3 @@ To edit your organization data:
 1. Change the organization name, technical name, or description.
 
 1. Click **{{ ui-key.yacloud_org.forms.action.save }}**.
-
-You cannot delete an organization on your own. If an organization is not in use, [remove](./edit-account.md) all users from it, [create]({{ link-console-support }}) a delete organization request, and submit it to the support team.

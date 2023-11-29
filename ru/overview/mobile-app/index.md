@@ -21,7 +21,7 @@
 
   Используйте {{ yandex-cloud }} для устройств с Android:
   * **Необходимая версия ОС:** 8 или выше.
-  * **Ссылка для скачивания:** [Google Play]({{ link-app-android }}).
+  * **Ссылка для скачивания:** [Google Play]({{ link-app-android }}) или [RuStore](https://apps.rustore.ru/app/ru.yandex.cloud).
 
 - iOS
 

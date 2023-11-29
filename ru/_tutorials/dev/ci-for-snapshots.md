@@ -263,7 +263,7 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
 1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 1. После остановки ВМ выберите вкладку **{{ ui-key.yacloud.compute.switch_disks }}**.
-1. В строке диска нажмите кнопку ![vertical-ellipsis](../../_assets/vertical-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
+1. В строке диска нажмите кнопку ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
 1. В открывшемся окне введите имя снимка: `test-app-snap`.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

@@ -45,6 +45,8 @@ items:
         items:
           - name: Все задания
             href: operations/jobs.md
+          - name: Запуск заданий
+            href: operations/running-jobs.md
           - name: Задания Spark
             href: operations/jobs-spark.md
           - name: Задания PySpark

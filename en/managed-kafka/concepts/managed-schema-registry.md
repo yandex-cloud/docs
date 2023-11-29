@@ -36,7 +36,7 @@ To work with the registry, there is a JSON REST API that is fully compatible wit
 
 Schema information is posted to a [service topic](./topics.md#service-topics) called `__schema_registry`. You cannot use regular tools to write data to this topic.
 
-To use this registry, enable the relevant option when [creating a cluster](../operations/cluster-create.md).
+To enable management, activate the option when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md#change-additional-settings) a cluster.
 
 
 To work with {{ mkf-msr }}, you need an advanced [security group configuration](../operations/connect.md#configuring-security-groups).

@@ -8,7 +8,7 @@ See the interface definitions of the API on [GitHub](https://github.com/yandex-c
 
 Service | Description
 --- | ---
-[CommunityService](./community_service.md) | 
+[CommunityService](./community_service.md) | A set of methods for managing Community resources.
 [ProjectService](./project_service.md) | A set of methods for managing Project resources.
-[ProjectJobService](./project_job_service.md) | A set of methods for managing Project Jobs.
+[ProjectJobService](./project_job_service.md) | A set of methods for managing Project Jobs. Do not use these methods manually. For working with DataSphere Jobs, install DataSphere CLI via `pip install datasphere`.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

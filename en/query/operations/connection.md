@@ -9,7 +9,7 @@ To create a connection:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Connections**.
-1. Click ![info](../../_assets/plus.svg) **Create**.
+1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
 1. Enter a name and description for the connection. The naming requirements are as follows:
 
    {% include [name-format](../_includes/connection-name-format.md) %}
@@ -67,7 +67,7 @@ To view information about a connection:
 1. In the [management console]({{ link-console-main }}), select the folder where the connection is created.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Connections**.
-1. Click ![info](../../_assets/query/info.svg) next to the name of the desired connection. You can find information about the source and service account under **General**. Look up the connection ID, creation timestamp, and author under **Meta**.
+1. Click ![info](../../_assets/console-icons/circle-info.svg) next to the name of the desired connection. You can find information about the source and service account under **General**. Look up the connection ID, creation timestamp, and author under **Meta**.
 
 ## Changing connection parameters {#update}
 
@@ -76,7 +76,7 @@ To edit connection parameters:
 1. In the [management console]({{ link-console-main }}), select the folder where the connection is created.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Connections**.
-1. Click ![pencil](../../_assets/query/pensil.svg) next to the name of the desired connection.
+1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the name of the desired connection.
 1. Set new parameters for the connection. You cannot change the connection type.
 1. Click **Edit**.
 
@@ -87,5 +87,5 @@ To delete a connection:
 1. In the [management console]({{ link-console-main }}), select the folder where the connection is created.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Connections**.
-1. Click ![delete](../../_assets/query/delete.svg) next to the name of the appropriate connection.
+1. Click ![delete](../../_assets/console-icons/trash-bin.svg) next to the name of the appropriate connection.
 1. Confirm connection deletion.

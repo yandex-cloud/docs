@@ -62,7 +62,7 @@
       All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
-      yc resource-manager folder list-access-bindings <folder_name>|<folder_ID>
+      yc resource-manager folder list-access-bindings <folder_name_or_ID>
       ```
 
 {% endlist %}

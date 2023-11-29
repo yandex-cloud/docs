@@ -29,12 +29,16 @@ description: "Управление доступом в сервисе облач
 
 * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
 * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* {% include [vpc.auditor](../../_includes/iam/roles/short-descriptions/vpc.auditor.md) %}
 * {% include [vpc.viewer](../../_includes/iam/roles/short-descriptions/vpc.viewer.md) %}
 * {% include [vpc.user](../../_includes/iam/roles/short-descriptions/vpc.user.md) %}
+* {% include [vpc.bridgeAdmin](../../_includes/iam/roles/short-descriptions/vpc.bridgeAdmin.md) %}
 * {% include [vpc.privateAdmin](../../_includes/iam/roles/short-descriptions/vpc.privateAdmin.md) %}
 * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
+* {% include [vpc.gateways.viewer](../../_includes/iam/roles/short-descriptions/vpc.gateways.viewer.md) %}
 * {% include [vpc.gateways.editor](../../_includes/iam/roles/short-descriptions/vpc.gateways.editor.md) %}
 * {% include [vpc.gateways.user](../../_includes/iam/roles/short-descriptions/vpc.gateways.user.md) %}
+* {% include [vpc.securityGroups.user](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.user.md) %}
 * {% include [vpc.securityGroups.admin](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.admin.md) %}
 * {% include [vpc.admin](../../_includes/iam/roles/short-descriptions/vpc.admin.md) %}
 

@@ -9,7 +9,7 @@ To create a binding:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a binding.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Bindings**.
-1. Click ![info](../../_assets/plus.svg) **Create**.
+1. Click ![info](../../_assets/console-icons/plus.svg) **Create**.
 1. Under **Connection parameters**:
    1. Select the type of connection to create a binding for: `{{ yds-short-name }}` or `{{ objstorage-short-name }}`.
    1. Select a connection or create a new one.
@@ -33,7 +33,7 @@ To create a binding:
 1. In the [management console]({{ link-console-main }}) , select the folder where you created the binding.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Bindings**.
-1. Click ![info](../../_assets/query/info.svg) next to the name of the desired binding.
+1. Click ![info](../../_assets/console-icons/circle-info.svg) next to the name of the desired binding.
    You will see information about the binding under the list of bindings:
    **General**:
 
@@ -60,7 +60,7 @@ To create a binding:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to change the binding.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Bindings**.
-1. Click ![pencil](../../_assets/query/pensil.svg) next to the name of the desired binding.
+1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the name of the desired binding.
 1. Specify new parameters for the data binding. You cannot edit information in the **Connection parameters** section.
 1. Click **Edit**.
 
@@ -69,5 +69,5 @@ To create a binding:
 1. In the [management console]({{ link-console-main }}), select the folder to delete the binding from.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Bindings**.
-1. Click ![delete](../../_assets/query/delete.svg) next to the name of the appropriate binding.
+1. Click ![delete](../../_assets/console-icons/trash-bin.svg) next to the name of the appropriate binding.
 1. Confirm the deletion.

@@ -4,7 +4,7 @@ description: "The cost of {{ mmy-name }} usage is calculated based on the disk t
 editable: false
 ---
 
-# Pricing for {{ mmy-name }}
+# {{ mmy-name }} pricing
 
 In this section, you can find {{ mmy-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
@@ -47,7 +47,7 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 
 * Storage allocated for DB clusters.
 
@@ -76,7 +76,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
@@ -98,19 +98,15 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 ### Host computing resources {#prices-hosts}
 
 
-{% list tabs %}
+#### Standard hosts {#standard-hosts}
 
-- Standard hosts
+ {% include [USD: standard hosts](../_pricing/managed-mysql/usd-hosts-standard.md) %} 
 
-    {% include [USD: standard hosts](../_pricing/managed-mysql/usd-hosts-standard.md) %} 
+#### Dedicated hosts {#dedicated-hosts}
 
-- Dedicated hosts
+The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
 
-    The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
-
-     {% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %} 
-
-{% endlist %}
+ {% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %} 
 
 
 

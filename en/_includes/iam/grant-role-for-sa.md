@@ -30,17 +30,17 @@ Access rights will be inherited by child resources from their parent resources. 
    To assign a service account a role for a cloud or folder, run this command:
 
    ```bash
-   yc resource-manager <resource_category> add-access-binding <resource name>|<resource ID> \
+   yc resource-manager <resource_category> add-access-binding <resource_name_or_ID> \
      --role <role_ID> \
      --subject serviceAccount:<service_account_ID>
    ```
 
    Where:
 
-   * `<resource_category>`: `Cloud` to assign a cloud role or `folder` to assign a folder role.
-   * `<resource name>|<resource ID>`: Name or ID of the resource the role is assigned for.
-   * `<role_ID>`: Role ID, such as `{{ roles-viewer }}`.
-   * `<service_account_ID>`: ID of the service account the role is being assigned to.
+   * `<resource_category>`: `Cloud` to assign a cloud role, or `folder` to assign a folder role.
+   * `<resource_name_or_ID>`: Name or ID of the resource the role is assigned for.
+   * `--role`: Role ID, e.g., `{{ roles-viewer }}`.
+   * `--subject serviceAccount`: ID of the service account which is being assigned the role.
 
    For example, to assign a service account the `{{ roles-viewer }}` role for the `my-folder` [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
@@ -82,7 +82,7 @@ Access rights will be inherited by child resources from their parent resources. 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -97,7 +97,7 @@ Access rights will be inherited by child resources from their parent resources. 
       All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
-      yc resource-manager folder list-access-bindings <folder name>|<folder_ID>
+      yc resource-manager folder list-access-bindings <folder_name_or_ID>
       ```
 
 {% endlist %}
@@ -112,7 +112,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
 - {{ org-name }}
 
-   1. [Log in to an account]({{ link-passport-login }}) that belongs to an organization administrator or owner.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -139,16 +139,15 @@ To grant a service account access rights to an organization, you need the `{{ ro
    To assign a service account a role for an organization, run this command:
 
    ```bash
-   yc organization-manager organization add-access-binding <organization_technical_name>|<organization_ID> \
+   yc organization-manager organization add-access-binding <organization_name_or_ID> \
      --role <role_ID> \
      --subject serviceAccount:<service_account_ID>
    ```
 
    Where:
-   * `<organization_technical_name>`: Technical name of the organization.
-   * `<organization_ID>`: ID of the organization.
-   * `<role_ID>`: Role ID, such as `{{ roles-viewer }}`.
-   * `<service_account_ID>`: ID of the service account the role is being assigned to.
+   * `<organization_name_or_ID>`: Technical name or ID of the organization.
+   * `--role`: Role ID, e.g., `{{ roles-viewer }}`.
+   * `--subject serviceAccount`: ID of the service account which is being assigned the role.
 
    For example, to assign a service account the `{{ roles-viewer }}` role for the `MyOrg` organization:
 
@@ -166,7 +165,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
       +---------------------------------+---------------------------------+----------------------+
       |               ID                |              NAME               |        TITLE         |
       +---------------------------------+---------------------------------+----------------------+
-      | bpf1smsil5q0cmlmb...            | hdt5j5uwsw4w3...                | MyOrg                |
+      | bpf1smsil5q0********            | hdt5j5uw********                | MyOrg                |
       +---------------------------------+---------------------------------+----------------------+
       ```
 
@@ -181,8 +180,8 @@ To grant a service account access rights to an organization, you need the `{{ ro
       Result:
 
       ```bash
-      id: aje6o61dvog2h6g9a...
-      folder_id: b1gvmob95yysaplct...
+      id: aje6o61dvog2********
+      folder_id: b1gvmob95yys********
       created_at: "2018-10-15T18:01:25Z"
       name: my-robot
       ```
@@ -199,16 +198,16 @@ To grant a service account access rights to an organization, you need the `{{ ro
       +----------------------+------------------+-----------------+
       |          ID          |       NAME       |   DESCRIPTION   |
       +----------------------+------------------+-----------------+
-      | aje6o61dvog2h6g9a... | my-robot         | my description  |
+      | aje6o61dvog2******** | my-robot         | my description  |
       +----------------------+------------------+-----------------+
       ```
 
-   1. Assign the `my-robot` service account the `{{ roles-viewer }}` role for an organization with the `bpf1smsil5q0cmlmb...` ID:
+   1. Assign the `my-robot` service account the `{{ roles-viewer }}` role for an organization with the `bpf1smsil5q0********` ID:
 
       ```bash
-      yc organization-manager organization add-access-binding bpf1smsil5q0cmlmb... \
+      yc organization-manager organization add-access-binding bpf1smsil5q0******** \
         --role viewer \
-        --subject serviceAccount:aje6o61dvog2h6g9a...
+        --subject serviceAccount:aje6o61dvog2********
       ```
 
 - API
@@ -221,7 +220,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
    1. Get a list of folder service accounts to find out their IDs:
 
       ```bash
-      export FOLDER_ID=b1gvmob95yysaplct...
+      export FOLDER_ID=b1gvmob95yys********
       export IAM_TOKEN=CggaATEVAgA...
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -234,8 +233,8 @@ To grant a service account access rights to an organization, you need the `{{ ro
       {
        "serviceAccounts": [
         {
-         "id": "ajebqtreob2dpblin...",
-         "folderId": "b1gvmob95yysaplct...",
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "my-robot",
          "description": "my description"
@@ -258,9 +257,9 @@ To grant a service account access rights to an organization, you need the `{{ ro
       {
        "organizations": [
         {
-         "id": "bpfaidqca8vdopn05...",
+         "id": "bpfaidqca8vd********",
          "createdAt": "2023-04-07T08:11:54.313033Z",
-         "name": "xvdq9q22tcmla...",
+         "name": "xvdq9q22********",
          "title": "MyOrg"
         }
        ]
@@ -278,7 +277,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
           "accessBinding": {
             "roleId": "viewer",
             "subject": {
-              "id": "ajebqtreob2dpblin...",
+              "id": "ajebqtreob2d********",
               "type": "serviceAccount"
             }
           }
@@ -286,10 +285,10 @@ To grant a service account access rights to an organization, you need the `{{ ro
       }
       ```
 
-   1. Assign a role to a service account. For example, for an organization with the `bpfaidqca8vdopn05...` ID:
+   1. Assign a role to a service account. For example, for an organization with the `bpfaidqca8vd********` ID:
 
       ```bash
-      export ORGANIZATION_ID=bpfaidqca8vdopn05...
+      export ORGANIZATION_ID=bpfaidqca8vd********
       export IAM_TOKEN=CggaATEVAgA...
       curl -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -303,7 +302,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -346,7 +345,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
       All the resources you need will then be created in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
-      yc organization-manager organization list-access-bindings <organization_technical_name>|<organization_ID>
+      yc organization-manager organization list-access-bindings <organization_name_or_ID>
       ```
 
 {% endlist %}

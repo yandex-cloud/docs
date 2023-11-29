@@ -1,6 +1,6 @@
 # Creating static access keys
 
-These are instructions for how to create [static access keys](../../concepts/authorization/access-key.md) for a [service account](../../concepts/users/service-accounts.md).
+This guide will instruct you how to create [static access keys](../../concepts/authorization/access-key.md) for a [service account](../../concepts/users/service-accounts.md).
 
 If you do not have a service account yet, [create one](../sa/create.md) and [assign roles to it](../sa/assign-role-for-sa.md).
 
@@ -106,7 +106,7 @@ To create a static access key:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -149,7 +149,7 @@ Add a description when creating an access key.
    ```bash
    curl -X POST \
      -H 'Content-Type: application/json' \
-     -H "Authorization: Bearer <IAM-TOKEN>" \
+     -H "Authorization: Bearer <IAM_token>" \
      -d '{
          "serviceAccountId": "<service_account_ID>",
          "description": "this key is for my bucket"

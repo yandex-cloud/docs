@@ -2,11 +2,11 @@
 
 [JMS](https://www.oracle.com/technetwork/java/jms/index.html) is an API for sending messages between application components. With the AWS SQS Java Messaging Library, you can use {{ message-queue-name }} to send and receive messages via JMS.
 
-## Installation {#install}
+## Installing {#install}
 
 Install the AWS SDK for Java by [following the instructions](https://docs.aws.amazon.com/en_us/sdk-for-java/v1/developer-guide/setup-install.html) on the official website.
 
-## Before you start {#prepare}
+## Getting started {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 
@@ -20,6 +20,21 @@ export AWS_SECRET_ACCESS_KEY="<secret key>"
 Create a queue in {{ message-queue-name }} and prepare its URL.
 
 ## Example {#sample}
+To run the example, add these dependencies:
+```java
+<dependencies>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>amazon-sqs-java-messaging-lib</artifactId>
+      <version>1.0.8</version>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-sqs</artifactId>
+      <version>1.11.176</version>
+    </dependency>
+  </dependencies>
+```
 
 In this example:
 

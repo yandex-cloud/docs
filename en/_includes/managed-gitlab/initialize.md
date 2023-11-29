@@ -13,7 +13,7 @@ To configure {{ GL }} and enable Continuous Integration (CI), create a new proje
      * **Project name**: `gitlab-test`.
      * **Project URL**: Select the administrator user in the field next to the {{ mgl-name }} instance FQDN.
 
-     Leave the other fields as they are.
+     Leave the other fields unchanged.
   1. Click **Create project**.
 
 - VM instance with a {{ GL }} image
@@ -27,10 +27,10 @@ To configure {{ GL }} and enable Continuous Integration (CI), create a new proje
      ```
 
   1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-  1. In the browser, open a link in the format `http://<public VM IP address>`. The {{ GL }} web interface will open.
+  1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
   1. Log in using the administrator account:
-     * **Username or email**: `root`.
-     * **Password**: The previously copied password.
+     * **Username or email**: `root`
+     * **Password**: Password you copied earlier
 
      If you are unable to log in, [reset the administrator account password](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password).
   1. [Change the administrator account password](https://docs.gitlab.com/ee/user/profile/user_passwords.html#change-your-password).

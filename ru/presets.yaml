@@ -85,7 +85,6 @@ default:
   compute-ubuntu-lts-image-id: fd81hgrcv6ls********
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.ru
-  console-name: Cloud Console
   container-registry-full-name: Yandex Container Registry
   container-registry-name: Container Registry
   container-registry-short-name: Container Registry
@@ -1817,37 +1816,55 @@ default:
       elasticsearch:
         v2:
           cpu:
+            c100|month|string: "9,676800\_$"
             c100|string: "0,013440\_$"
           ram:
+            basic|month|string: "12,096000\_$"
             basic|string: "0,016800\_$"
+            gold|month|string: "14,169600\_$"
             gold|string: "0,019680\_$"
+            platinum|month|string: "16,300800\_$"
             platinum|string: "0,022640\_$"
         v3:
           cpu:
+            c100|month|string: "9,676800\_$"
             c100|string: "0,013440\_$"
           ram:
+            basic|month|string: "12,096000\_$"
             basic|string: "0,016800\_$"
+            gold|month|string: "14,169600\_$"
             gold|string: "0,019680\_$"
+            platinum|month|string: "16,300800\_$"
             platinum|string: "0,022640\_$"
       greenplum:
         v2:
           cpu:
+            c100|month|string: "13,766400\_$"
             c100|string: "0,019120\_$"
+          ram|month|string: "3,628800\_$"
           ram|string: "0,005040\_$"
         v3:
           cpu:
+            c100|month|string: "12,384000\_$"
             c100|string: "0,017200\_$"
+          ram|month|string: "3,283200\_$"
           ram|string: "0,004560\_$"
       kafka:
         v2:
           cpu:
+            c100|month|string: "9,676800\_$"
             c100|string: "0,013440\_$"
+            c50|month|string: "4,320000\_$"
             c50|string: "0,006000\_$"
+          ram|month|string: "2,592000\_$"
           ram|string: "0,003600\_$"
         v3:
           cpu:
+            c100|month|string: "8,697600\_$"
             c100|string: "0,012080\_$"
+            c50|month|string: "3,916800\_$"
             c50|string: "0,005440\_$"
+          ram|month|string: "2,304000\_$"
           ram|string: "0,003200\_$"
       local-nvme:
         ch|month|string: "0,104080\_$"
@@ -1865,50 +1882,76 @@ default:
       mongodb:
         v1:
           cpu:
+            c100|month|string: "9,216000\_$"
             c100|string: "0,012800\_$"
+            c20|month|string: "2,649600\_$"
             c20|string: "0,003680\_$"
+            c5|month|string: "0,230400\_$"
             c5|string: "0,000320\_$"
+            c50|month|string: "4,320000\_$"
             c50|string: "0,006000\_$"
+          ram|month|string: "5,184000\_$"
           ram|string: "0,007200\_$"
         v2:
           cpu:
+            c100|month|string: "9,216000\_$"
             c100|string: "0,012800\_$"
+            c20|month|string: "2,649600\_$"
             c20|string: "0,003680\_$"
+            c5|month|string: "0,230400\_$"
             c5|string: "0,000320\_$"
+            c50|month|string: "4,320000\_$"
             c50|string: "0,006000\_$"
+          ram|month|string: "5,184000\_$"
           ram|string: "0,007200\_$"
         v3:
           cpu:
+            c100|month|string: "9,216000\_$"
             c100|string: "0,012800\_$"
+            c50|month|string: "4,320000\_$"
             c50|string: "0,006000\_$"
+          ram|month|string: "5,184000\_$"
           ram|string: "0,007200\_$"
       mysql:
         v1:
           cpu:
+            c100|month|string: "10,886400\_$"
             c100|string: "0,015120\_$"
+            c20|month|string: "2,476800\_$"
             c20|string: "0,003440\_$"
+            c5|month|string: "0,230400\_$"
             c5|string: "0,000320\_$"
+            c50|month|string: "4,147200\_$"
             c50|string: "0,005760\_$"
+          ram|month|string: "2,937600\_$"
           ram|string: "0,004080\_$"
         v2:
           cpu:
             c100:
               dedicated|string: "0,004400\_$"
+            c100|month|string: "10,771200\_$"
             c100|string: "0,014960\_$"
+            c20|month|string: "2,476800\_$"
             c20|string: "0,003440\_$"
+            c5|month|string: "0,230400\_$"
             c5|string: "0,000320\_$"
+            c50|month|string: "4,147200\_$"
             c50|string: "0,005760\_$"
           ram:
             dedicated|string: "0,001280\_$"
+          ram|month|string: "2,937600\_$"
           ram|string: "0,004080\_$"
         v3:
           cpu:
             c100:
               dedicated|string: "0,004000\_$"
+            c100|month|string: "9,676800\_$"
             c100|string: "0,013440\_$"
+            c50|month|string: "3,744000\_$"
             c50|string: "0,005200\_$"
           ram:
             dedicated|string: "0,001200\_$"
+          ram|month|string: "2,649600\_$"
           ram|string: "0,003680\_$"
       network-hdd:
         ch|month|string: "0,025600\_$"
@@ -1940,51 +1983,81 @@ default:
       opensearch:
         v2:
           cpu:
+            c100|month|string: "9,676800\_$"
             c100|string: "0,013440\_$"
+            c50|month|string: "3,870720\_$"
             c50|string: "0,005376\_$"
+          ram|month|string: "4,032000\_$"
           ram|string: "0,005600\_$"
         v3:
           cpu:
+            c100|month|string: "9,676800\_$"
             c100|string: "0,013440\_$"
+            c50|month|string: "3,870720\_$"
             c50|string: "0,005376\_$"
+          ram|month|string: "4,032000\_$"
           ram|string: "0,005600\_$"
       pg:
         v1:
           cpu:
+            c100|month|string: "12,326400\_$"
             c100|string: "0,017120\_$"
+            c20|month|string: "2,592000\_$"
             c20|string: "0,003600\_$"
+            c5|month|string: "0,345600\_$"
             c5|string: "0,000480\_$"
+            c50|month|string: "4,320000\_$"
             c50|string: "0,006000\_$"
+          ram|month|string: "2,822400\_$"
           ram|string: "0,003920\_$"
         v2:
           cpu:
+            c100|month|string: "10,425600\_$"
             c100|string: "0,014480\_$"
+            c20|month|string: "2,592000\_$"
             c20|string: "0,003600\_$"
+            c5|month|string: "0,345600\_$"
             c5|string: "0,000480\_$"
+            c50|month|string: "4,320000\_$"
             c50|string: "0,006000\_$"
+          ram|month|string: "2,822400\_$"
           ram|string: "0,003920\_$"
         v3:
           cpu:
+            c100|month|string: "9,388800\_$"
             c100|string: "0,013040\_$"
+            c50|month|string: "3,916800\_$"
             c50|string: "0,005440\_$"
+          ram|month|string: "2,534400\_$"
           ram|string: "0,003520\_$"
       redis:
         v1:
           cpu:
+            c100|month|string: "11,520000\_$"
             c100|string: "0,016000\_$"
+            c20|month|string: "2,073600\_$"
             c20|string: "0,002880\_$"
+            c5|month|string: "0,092308\_$"
             c5|string: "0,000128\_$"
+          ram|month|string: "3,110400\_$"
           ram|string: "0,004320\_$"
         v2:
           cpu:
+            c100|month|string: "9,676800\_$"
             c100|string: "0,013440\_$"
+            c5|month|string: "0,633600\_$"
             c5|string: "0,000880\_$"
+            c50|month|string: "5,817600\_$"
             c50|string: "0,008080\_$"
+          ram|month|string: "2,592000\_$"
           ram|string: "0,003600\_$"
         v3:
           cpu:
+            c100|month|string: "8,697600\_$"
             c100|string: "0,012080\_$"
+            c50|month|string: "5,241600\_$"
             c50|string: "0,007280\_$"
+          ram|month|string: "2,304000\_$"
           ram|string: "0,003200\_$"
     dataproc:
       v2:
@@ -2207,52 +2280,74 @@ default:
             greenplum:
               cpu:
                 c100:
+                  v3|month|string: "10,526400\_$"
                   v3|string: "0,014620\_$"
               ram:
+                v3|month|string: "2,790720\_$"
                 v3|string: "0,003876\_$"
             kafka:
               cpu:
                 c100:
+                  v2|month|string: "8,225280\_$"
                   v2|string: "0,011424\_$"
+                  v3|month|string: "7,392960\_$"
                   v3|string: "0,010268\_$"
               ram:
+                v2|month|string: "2,203200\_$"
                 v2|string: "0,003060\_$"
+                v3|month|string: "1,958400\_$"
                 v3|string: "0,002720\_$"
             mysql:
               cpu:
                 c100:
+                  v2|month|string: "9,155520\_$"
                   v2|string: "0,012716\_$"
+                  v3|month|string: "8,225280\_$"
                   v3|string: "0,011424\_$"
               ram:
+                v2|month|string: "2,496960\_$"
                 v2|string: "0,003468\_$"
+                v3|month|string: "2,252160\_$"
                 v3|string: "0,003128\_$"
             opensearch:
               cpu:
                 c100:
+                  v3|month|string: "8,225280\_$"
                   v3|string: "0,011424\_$"
               ram:
+                v3|month|string: "3,427200\_$"
                 v3|string: "0,004760\_$"
             pg:
               cpu:
                 c100:
+                  v2|month|string: "8,861760\_$"
                   v2|string: "0,012308\_$"
+                  v3|month|string: "7,980480\_$"
                   v3|string: "0,011084\_$"
               ram:
+                v2|month|string: "2,399040\_$"
                 v2|string: "0,003332\_$"
+                v3|month|string: "2,154240\_$"
                 v3|string: "0,002992\_$"
             redis:
               cpu:
                 c100:
+                  v2|month|string: "8,225280\_$"
                   v2|string: "0,011424\_$"
+                  v3|month|string: "7,392960\_$"
                   v3|string: "0,010268\_$"
               ram:
+                v2|month|string: "2,203200\_$"
                 v2|string: "0,003060\_$"
+                v3|month|string: "1,958400\_$"
                 v3|string: "0,002720\_$"
           ydb:
             cpu:
               c100:
+                v2|month|string: "9,155520\_$"
                 v2|string: "0,012716\_$"
             ram:
+              v2|month|string: "2,496960\_$"
               v2|string: "0,003468\_$"
         y1:
           compute:
@@ -2282,59 +2377,83 @@ default:
             greenplum:
               cpu:
                 c100:
+                  v3|month|string: "9,659520\_$"
                   v3|string: "0,013416\_$"
               ram:
+                v3|month|string: "2,560896\_$"
                 v3|string: "0,003557\_$"
             kafka:
               cpu:
                 c100:
+                  v2|month|string: "7,547904\_$"
                   v2|string: "0,010483\_$"
+                  v3|month|string: "6,784128\_$"
                   v3|string: "0,009422\_$"
               ram:
+                v2|month|string: "2,021760\_$"
                 v2|string: "0,002808\_$"
+                v3|month|string: "1,797120\_$"
                 v3|string: "0,002496\_$"
             mysql:
               cpu:
                 c100:
+                  v2|month|string: "8,401536\_$"
                   v2|string: "0,011669\_$"
+                  v3|month|string: "7,547904\_$"
                   v3|string: "0,010483\_$"
               ram:
+                v2|month|string: "2,291328\_$"
                 v2|string: "0,003182\_$"
+                v3|month|string: "2,066688\_$"
                 v3|string: "0,002870\_$"
             opensearch:
               cpu:
                 c100:
+                  v3|month|string: "7,547904\_$"
                   v3|string: "0,010483\_$"
               ram:
+                v3|month|string: "3,144960\_$"
                 v3|string: "0,004368\_$"
             pg:
               cpu:
                 c100:
+                  v2|month|string: "8,131968\_$"
                   v2|string: "0,011294\_$"
+                  v3|month|string: "7,323264\_$"
                   v3|string: "0,010171\_$"
               ram:
+                v2|month|string: "2,201472\_$"
                 v2|string: "0,003058\_$"
+                v3|month|string: "1,976832\_$"
                 v3|string: "0,002746\_$"
             redis:
               cpu:
                 c100:
+                  v2|month|string: "7,547904\_$"
                   v2|string: "0,010483\_$"
+                  v3|month|string: "6,784128\_$"
                   v3|string: "0,009422\_$"
               ram:
+                v2|month|string: "2,021760\_$"
                 v2|string: "0,002808\_$"
+                v3|month|string: "1,797120\_$"
                 v3|string: "0,002496\_$"
           ydb:
             cpu:
               c100:
+                v2|month|string: "8,401536\_$"
                 v2|string: "0,011669\_$"
             ram:
+              v2|month|string: "2,291328\_$"
               v2|string: "0,003182\_$"
   sku|USD|ydb:
     cluster:
       v1:
         ssd|month|string: "0,171040\_$"
       v2:
+        cpu|month|string: "10,771200\_$"
         cpu|string: "0,014960\_$"
+        ram|month|string: "2,937600\_$"
         ram|string: "0,004080\_$"
     v1:
       serverless:
@@ -3637,7 +3756,6 @@ default:
         create-issue: Создать задачу из комментария
       ui_components_IssueLinks:
         empty-list-button: Создать подзадачу
-        external-relations: Связи с внешними приложениями
         links-group-title--relates: Связанные
       ui_components_IssueListsPanel:
         create: Создать
@@ -6007,6 +6125,7 @@ default:
             label_services: Сервисы
             label_status: Статус
             section_additional: Дополнительные настройки
+            section_configuration: Настройки
             section_resource: Ресурсы
             section_ui-proxy: UI Proxy
           shards:

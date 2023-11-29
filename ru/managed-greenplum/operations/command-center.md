@@ -24,14 +24,14 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/mdb/mgp-command-center.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
     1. Выберите, что вы хотите посмотреть, и перейдите на нужную вкладку:
 
         * текущие сессии или запросы — вкладка **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**;
         * сессии или запросы за прошедший момент времени — вкладка **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
 
     1. Выберите раздел **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** или **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**. Во вкладке **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}** эти разделы располагаются под графиком.
-    1. Чтобы отфильтровать список сессий или запросов, нажмите кнопку ![image](../../_assets/mdb/mgp-command-center-filter.svg) **{{ ui-key.yacloud.common.label_filters }}** и выберите нужные параметры.
+    1. Чтобы отфильтровать список сессий или запросов, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** и выберите нужные параметры.
     1. Чтобы посмотреть детали:
 
         * сессии — нажмите на имя сессии;
@@ -50,7 +50,7 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/mdb/mgp-command-center.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
     1. Выберите нужный показатель потребления:
 
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-running-time-seconds }}** — время в секундах, которое понадобилось ресурсам CPU для обработки запросов.
@@ -62,7 +62,7 @@
 
         После того как вы выберете показатель потребления, отобразится график с деталями и список запросов. На графике указаны значение показателя, пользователь, который выполнил запрос, и время выполнения запроса.
 
-    1. Чтобы отфильтровать результаты, нажмите кнопку ![image](../../_assets/mdb/mgp-command-center-filter.svg) **{{ ui-key.yacloud.common.label_filters }}** и выберите нужные параметры.
+    1. Чтобы отфильтровать результаты, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** и выберите нужные параметры.
 
 {% endlist %}
 
@@ -75,8 +75,8 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/mdb/mgp-command-center.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
-    1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** нажмите на значок ![image](../../_assets/options.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
+    1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
 
         Если у вас отображается пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**, выберите его и остановите запрос.
 
@@ -93,8 +93,8 @@
 - Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/mdb/mgp-command-center.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
-    1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}** нажмите на значок ![image](../../_assets/options.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
+    1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
     1. Подтвердите остановку сессии.
 
 {% endlist %}

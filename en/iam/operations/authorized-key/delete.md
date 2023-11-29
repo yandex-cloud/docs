@@ -22,7 +22,7 @@ description: "In this tutorial, you will learn how to delete authorized keys in 
    1. Get a list of authorized key `IDs` for a specific service account. Specify the service account name in the `--service-account-name` parameter:
 
       ```bash
-      yc iam key list --service-account-name <service account name>
+      yc iam key list --service-account-name <service_account_name>
       ```
 
       Result:
@@ -31,8 +31,8 @@ description: "In this tutorial, you will learn how to delete authorized keys in 
       +----------------------+-------------------------------------+-----------+---------------------+
       |          ID          |               SUBJECT               | ALGORITHM |     CREATED AT      |
       +----------------------+-------------------------------------+-----------+---------------------+
-      | ajeave7oktutd6kha7lq | serviceAccount:ajeedllrkjmam6jsn9n4 | RSA_2048  | 2022-03-13 20:14:22 |
-      | ajeb794igb80sl0fbpvp | serviceAccount:ajeedllrkjmam6jsn9n4 | RSA_2048  | 2022-03-13 20:06:13 |
+      | ajeave7oktut******** | serviceAccount:ajeedllrkjma******** | RSA_2048  | 2022-03-13 20:14:22 |
+      | ajeb794igb80******** | serviceAccount:ajeedllrkjma******** | RSA_2048  | 2022-03-13 20:06:13 |
       +----------------------+-------------------------------------+-----------+---------------------+
       ```
 

@@ -26,7 +26,7 @@ GROUP BY                                -- CASE checks a list of conditions
                                         -- via an alias specified using AS.
 ```
 
-Take a look at the block on the right and click ![run](../../_assets/query/run.svg) **Run**.
+Take a look at the block on the right and click ![run](../../_assets/console-icons/play-fill.svg) **Run**.
 Query execution results are available in the **Result** tab as a table or schema.
 
 ## See also {#see-also}

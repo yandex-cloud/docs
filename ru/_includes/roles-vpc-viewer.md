@@ -7,3 +7,5 @@
 - [группы безопасности](../vpc/concepts/security-groups.md).
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
+
+Включает разрешения, предоставляемые ролью `vpc.auditor`.

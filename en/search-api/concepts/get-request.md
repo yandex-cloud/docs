@@ -7,7 +7,7 @@ description: "This article describes how to use GET requests."
 
 {% note warning %}
 
-Special characters provided as parameter values should be replaced with respective escaped sequences based on percent-encoding. For example use the `%3D` sequence instead of the equals sign `=`.
+Special characters provided as parameter values should be replaced with the respective escaped sequences based on percent-encoding. For example, instead of the equals sign (`=`), one should use `%3D`.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ https://yandex.<domain>/search/xml
   ? [folderid=<folder_ID>]
   & [apikey=<API key>]
   & [query=<search_query_text>]
-  & [lr=<search_country/region_ID>]
+  & [lr=<search_country_or_region_ID>]
   & [l10n=<notification_language>]
   & [sortby=<sorting_type>]
   & [filter=<filtering_type>]
@@ -39,7 +39,7 @@ https://yandex.<domain>/search/xml
 
 {% include [sortby](../../_includes/search-api/sortby.md) %}
 
-Format: `sortby=<sorting type>.order%3D<sorting order>`. For example, for reverse sorting by date, use the following construct: `sortby=tm.order%3Dascending`.
+The format is as follows: `sortby=<sorting type>.order%3D<sorting order>`. For example, for reverse sorting by date, use `sortby=tm.order%3Dascending`.
 
 {% include [filter](../../_includes/search-api/filter.md) %}
 
@@ -63,7 +63,7 @@ Where:
 
 ## Sample GET request {#example-get-request}
 
-The following request returns the second page with search results in response to the `<table>` query for the `xml-search-user` user. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Results are grouped by domain. Each group contains three documents and the number of groups returned per page is five. Bot protection is disabled.
+The following request returns the second page with search results in response to the `<table>` query for the `xml-search-user` user. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). The results are grouped by domain. Each group contains three documents, and the number of groups returned per page is five. Bot protection is disabled.
 
 ```xml
 https://yandex.ru/search/xml?user=xml-search-user`&`key=03.44583456:c876e1b098gh65khg834ggg1jk4ll9j8`&`query=%3Ctable%3E`&`groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D5.docs-in-group%3D3`&`maxpassages=3`&`page=1

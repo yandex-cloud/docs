@@ -1,10 +1,12 @@
-1. On the navigation page, find the dashboard and open it.
 
-1. At the top of the dashboard interface, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select ![image](../../../_assets/datalens/share-black.svg) **Public access**.
+{% include [datalens-workbooks-collections-select-note](./datalens-workbooks-collections-select-note.md) %}
 
-1. In the window that opens, enable **Access via link**.
 
-1. Select the charts you want to publish with the dashboard.
+1. On the [navigation page](https://datalens.yandex.ru/navigation), find the dashboard you need and open it.
+1. At the top of the dashboard interface, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select ![image](../../../_assets/datalens/share.svg) **Public access**.
+1. In the window that opens, set up public access as follows:
 
-1. Copy the public link and click **Apply**.
-
+   1. Under **Current object**, enable publishing. You will see a link for public access to the dashboard below.
+   1. (Optional) Under **Author or link to source**, specify the link to the dashboard source or author and its text. The link will be displayed at the bottom of the dashboard.
+   1. (Optional) Under **Linked objects**, select the objects to be public. By default, {{ datalens-short-name }} will automatically grant access to all linked objects.
+   1. Click **Apply**.

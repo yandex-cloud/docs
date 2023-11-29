@@ -20,6 +20,13 @@ To add data to a dataset using a SQL query:
 1. In the left-hand panel, click ![image](../../../_assets/datalens/datasets.svg) **Datasets** and select the dataset you need. If you do not have a dataset, [create one](create.md).
 1. In the top-left corner, select the **Sources** tab.
 1. In the left part of the screen, under **Connection**, click ![image](../../../_assets/plus-sign.svg) **Add**.
+
+   {% note info %}
+
+   The ![image](../../../_assets/plus-sign.svg)**Add** button is only available if the source is a database.
+
+   {% endnote %}
+
 1. Enter a **Source name** and enter the SQL code in the **Subquery** field.
 1. Click **Create**.
 

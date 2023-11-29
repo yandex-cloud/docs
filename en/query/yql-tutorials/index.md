@@ -16,8 +16,8 @@ To create an analytical query and start the training:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
 1. In the list of services, select **{{ yq-full-name }}**.
-1. On the left panel, select ![study](../../_assets/query/study.svg) **Tutorial**.
-1. Click **Create connection**. In the Create connection section, all parameter fields are filled out, just type a description (optional) and click **Create**. You'll be taken to the screen for creating data binding.
+1. On the left panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **Tutorial**.
+1. Click **Create connection**. In the Create connection section, all parameter fields are filled out, just type a description (optional) and click **Create**. You will be taken to the screen for creating data binding.
 1. Type a description of data binding (optional) and click **Create**. Appropriate training resources are created.
 
 In the list on the left panel, choose the desired training section:
@@ -35,7 +35,7 @@ To create a streaming query and start the training:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
 1. In the list of services, select **{{ yq-full-name }}**.
-1. On the left panel, select ![study](../../_assets/query/study.svg) **Tutorial**.
+1. On the left panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **Tutorial**.
 1. Select `Streaming`.
 1. Click **Create connection**. In the Create connection section, some parameter fields are completed.
 1. Select or create a database.
@@ -48,6 +48,6 @@ In the list on the left panel, choose the desired training section:
 
 1. [Querying real-time data](./streaming-query.md).
 
-## See also {#see-also}
+#### See also {#see-also}
 
 [{{ yql-short-name }} syntax](https://ydb.tech/en/docs/yql/reference/syntax/)

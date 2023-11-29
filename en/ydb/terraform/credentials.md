@@ -4,39 +4,34 @@ To authenticate in {{ yandex-cloud }} and manage YDB databases via Terraform, yo
 
 You can create and set up a service account by following this guide:
 1. In the management console, select the folder to create a service account in.
-
-2. In the **Service accounts** tab, click `Create service account`.
-
-3. Enter a name for the service account:
-   * The name must be from 3 to 63 characters long.
-   * It may contain lowercase Latin letters, numbers, and hyphens.
-   * The first character of the name must be a letter, and the last character cannot be a hyphen.
-4. Assign the service account the roles required to manage YDB resources: `admin`, `ydb.admin`.
-
-5. Click **Create**.
-
+1. In the **Service accounts** tab, click `Create service account`.
+1. Enter a name for the service account:
+   * 3 to 63 characters long.
+   * The name may contain lowercase Latin letters, numbers, and hyphens.
+   * The first character of the name must be a letter, the last one cannot be a hyphen.
+1. Assign the service account the roles required to manage YDB resources: `admin`, `ydb.admin`.
+1. Click **Create**.
+ 
 Go to **Service account** and create an authorized key for Terraform authentication in {{ yandex-cloud }}:
 1. Click `Create new key` and select `Create authorized key`.
-
-2. Enter the **Key description** (optional) and click **Create**.
-
-3. Click **Download key file** to download the key file locally.
+1. Enter the **Key description** (optional) and click **Create**.
+1. Click **Download key file** to download the key file locally.
 
 Now to the final step in authentication setup: create a special profile for connecting to {{ yandex-cloud }} on the local machine using yc CLI.
 
 Run the following commands:
 1. Create a `yc` profile to perform operations on behalf of the service account. Specify the profile name: `yc config profile create <profile_name>`. The terminal will display the following message: `Profile '<profile_name>' created and activated.`
-2. Configure the profile with the following commands:
+1. Configure the profile with the following commands:
    ```bash
-   yc config set service-account-key <uploaded key in JSON format>
-   yc config set cloud-id <cloud ID>
-   yc config set folder-id <folder ID>
+   yc config set service-account-key <uploaded_key>
+   yc config set cloud-id <cloud_ID>
+   yc config set folder-id <folder_ID>
    ```
 
 Where:
-* `service-account-key`: File with the service account authorized key
-* `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md)
-* `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md)
+* `service-account-key`: JSON file containing the authorized key of the service account.
+* `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
+* `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
 Add authentication data to environment variables:
 {% list tabs %}

@@ -28,7 +28,7 @@ SELECT
     JSON_QUERY($json, "$.friends[0]"); -- Querying the object data.
 ```
 
-Take a look at the block on the right and click ![run](../../_assets/query/run.svg) **Run**.
+Take a look at the block on the right and click ![run](../../_assets/console-icons/play-fill.svg) **Run**.
 Query execution results are available in the **Result** tab as a table or schema.
 
 ## Escaping quotes in JSON {#escaping-json}

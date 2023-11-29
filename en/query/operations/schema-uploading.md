@@ -5,7 +5,7 @@ To simplify repetitive actions related to data schema setup and [data binding](.
 1. In the [management console]({{ link-console-main }}), select the folder where you want to change a data binding.
 1. In the list of services, select **{{ yq-full-name }}**.
 1. On the left-hand panel, select **Bindings**.
-1. Click ![pencil](../../_assets/query/pensil.svg) next to the name of the desired binding.
+1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the name of the desired binding.
 1. Click the **Upload from file** button and select the [data schema](#schema) file.
 1. Click **Edit**.
 
