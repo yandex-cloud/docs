@@ -31,8 +31,8 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
 
      ```text
      [default]
-       aws_access_key_id = <key ID>
-       aws_secret_access_key = <key contents>
+       aws_access_key_id = <key_ID>
+       aws_secret_access_key = <key_contents>
      ```
 
      Where:
@@ -58,12 +58,12 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
 1. Create an `env.list` file with environment variables for the Docker container:
 
    ```text
-   <variable name>=<variable value>
+   <variable_name>=<variable_value>
    ...
    ```
 
    Supported variables:
-   * `S3_BUCKET`: Bucket name or path to its folder to mount to the FTP server, in `<bucket name>/<folder path>` format. This is a required variable.
+   * `S3_BUCKET`: Bucket name or path to its folder to mount to the FTP server, in `<bucket_name>:<folder_path>` format. This is a required variable.
    * `SFTP`: Enables the use of SFTP. By default, it is set to `YES`.
    * `FTP`: Enables the use of FTP. By default, it is set to `NO`.
    * `FTP_USER`: Username for establishing a server connection. By default, it is set to `s3`.
@@ -71,7 +71,7 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
    * `FTP_PASV_ENABLE`: Enables passive FTP connection mode. By default, it is set to `YES`.
    * `FTP_PASV_MIN_PORT`: Start of the port range for passive mode. By default, it is set to `21100`.
    * `FTP_PASV_MAX_PORT`: End of the port range for passive mode. By default, it is set to `21100`.
-   * `FTP_PASV_ADDRESS`: Server IP address or its domain name (if the `FTP_PASV_ADDR_RESOLVE` option is selected) for passive mode. By default, the IP address specified in the Docker container's route table (the `ip route show` command) is used as the default route target IP address (specified in a `default via <IP address> ...` string).
+   * `FTP_PASV_ADDRESS`: Server IP address or its domain name (if the `FTP_PASV_ADDR_RESOLVE` option is selected) for passive mode. By default, the IP address specified in the Docker container's route table (the `ip route show` command) is used as the default route target IP address (specified in a `default via <IP_address> ...` string).
    * `FTP_PASV_ADDR_RESOLVE`: Allows specifying the server domain name instead of its IP address in the `FTP_PASV_ADDRESS` variable. By default, it is set to `YES`.
    * `FTP_PASV_PROMISCUOUS`: Disables client IP address mapping for passive mode: a managing connection may be opened from one client address, while a connection for data exchange, from another. By default, it is set to `NO`. We do not recommend disabling this check.
    * `FTP_PORT_PROMISCUOUS`: Disables client IP address mapping for active mode: when a managing connection is established, a client can specify another client's address in the `PORT` command. By default, it is set to `NO`. We do not recommend disabling this check.
@@ -93,7 +93,7 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
         --device /dev/fuse \
         --security-opt apparmor:unconfined \
         --env-file env.list \
-        -v <full path to the secrets folder>:/secrets \
+        -v <full_path_to_the_secrets_folder>:/secrets \
         -p 1022:22 \
         --name ftp \
         {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
@@ -109,7 +109,7 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
         --device /dev/fuse \
         --security-opt apparmor:unconfined \
         --env-file env.list \
-        -v <full path to the secrets folder>:/secrets \
+        -v <full_path_to_the_secrets_folder>:/secrets \
         --expose 21 \
         -p 1021:21 \
         --expose 21100 \
@@ -126,4 +126,4 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
 
 The GeeseFS client that is part of a Docker container works with files asynchronously. It caches new files and uploads them to a bucket after a while. If an FTP server connection is broken between these two points of time, uploaded files may be lost either partially or completely.
 
-To ensure data integrity when establishing SFTP connections, use the `fsync@openssh.com` extension so that file uploads are considered successful only after the `fsync` system call. For example, for the sftp client that is part of OpenSSH, the extension is enabled with the `-f` flag: `sftp -f <server address>`. Waiting for `fsync` calls slows down operations with files.
+To ensure data integrity when establishing SFTP connections, use the `fsync@openssh.com` extension so that file uploads are considered successful only after the `fsync` system call. For example, for the sftp client that is part of OpenSSH, the extension is enabled with the `-f` flag: `sftp -f <server_address>`. Waiting for `fsync` calls slows down operations with files.
