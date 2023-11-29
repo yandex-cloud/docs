@@ -1,0 +1,1 @@
+[`vpc.gateways.viewer`](../../../../iam/concepts/access-control/roles.md#vpc-gateways-viewer) — предоставляет доступ к информации о сетевых шлюзах.

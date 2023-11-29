@@ -134,7 +134,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -161,7 +161,7 @@ To upload data to the `Series` table:
         public static void main(String[] args) throws Exception {
 
           AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
             .build();
 
           DynamoDB dynamoDB = new DynamoDB(client);
@@ -240,7 +240,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -250,7 +250,7 @@ To upload data to the `Series` table:
       import boto3
 
       def load_series(series):
-        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
         table = ydb_docapi_client.Table('Series')
         for serie in series:
@@ -297,7 +297,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -312,7 +312,7 @@ To upload data to the `Series` table:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-        'endpoint' => '<Document API endpoint>',
+        'endpoint' => '<Document_API_endpoint>',
         'region'   => '{{ region-id }}',
         'version'  => 'latest'
       ]);
@@ -389,7 +389,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -400,7 +400,7 @@ To upload data to the `Series` table:
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+          endpoint: "<Document_API_endpoint>",
       });
 
       console.log("Uploading series to YDB. Please wait...");
@@ -415,15 +415,13 @@ To upload data to the `Series` table:
                   "title": series.title,
                   "info": series.info
               }
-          };
-
-          docClient.put(params, function(err, data) {
-              if (err) {
-                  console.error("Couldn't add series", series.title, ". Error JSON:", JSON.stringify(err, null, 2));
-              } else {
-                  console.log("Added series:", series.title);
-              }
-          });
+          }))
+              .then(() => {
+                  console.log("Series added:", series.title);
+              })
+              .catch(err => {
+                  console.error("Couldn't add series", series.title, ". JSON error:", JSON.stringify(err, null, 2));
+              })
       });
       ```
 
@@ -460,7 +458,7 @@ To upload data to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -490,7 +488,7 @@ To upload data to the `Series` table:
         data_file = 'seriesdata.json'
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 

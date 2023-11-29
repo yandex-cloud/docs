@@ -4,6 +4,10 @@ editable: false
 
 # Правила тарификации для {{ managed-k8s-name }}
 
+
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+
 В рамках сервиса {{ managed-k8s-name }} тарифицируется использование [мастера](concepts/index.md#master) и исходящий трафик.
 
 Узлы тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md).

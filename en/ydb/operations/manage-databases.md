@@ -88,10 +88,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       ```hcl
       resource "yandex_ydb_database_serverless" "database1" {
         name                = "<DB_name>"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        deletion_protection = "<deletion_protection>"
 
         serverless_database {
-          enable_throttling_rcu_limit = <true_or_false>
+          enable_throttling_rcu_limit = <throttling_limit>
           provisioned_rcu_limit       = <throughput>
           storage_size_limit          = <data_size>
           throttling_rcu_limit        = <provisioned_throughput_capacity>
@@ -102,11 +102,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       Where:
 
       * `name`: DB name. This is a required parameter.
-      * `deletion_protection`: DB deletion protection. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-      * `enable_throttling_rcu_limit`: Enable the throttling limit. This is an optional parameter. The default value is `false`.
-      * `provisioned_rcu_limit`: Limit on the request unit usage per second. This is an optional parameter. The default value is 0.
-      * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is 50 GB.
-      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is 0.
+      * `deletion_protection`: DB deletion protection: `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
+      * `enable_throttling_rcu_limit`: Enable the throughput limit: `true` or `false`. This is an optional parameter. The default value is `false`.
+      * `provisioned_rcu_limit`: Limit on the request unit usage per second. This is an optional parameter. The default value is `0`.
+      * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is `50`.
+      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is `0`.
 
    1. Apply the changes:
 
@@ -149,8 +149,8 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
    1. Configure the DB settings:
       1. Change the DB name, if required.
-      1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**, specify the [throughput](../pricing/serverless.md#prices-ru) and [max size](../pricing/serverless.md#rules-storage).
-      1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-billing }}**, set the [provisioned capacity](../pricing/serverless.md#prices-ru).
+      1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**, specify [throughput](../pricing/serverless.md#prices-ru) and [data size](../pricing/serverless.md#rules-storage).
+      1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-billing }}**, set the [provisioned throughput capacity](../pricing/serverless.md#prices-ru).
    1. Click **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
 - {{ yandex-cloud }} CLI
@@ -192,10 +192,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       ```hcl
       resource "yandex_ydb_database_serverless" "database1" {
         name                = "<DB_name>"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        deletion_protection = "<deletion_protection>"
 
         serverless_database {
-          enable_throttling_rcu_limit = <true_or_false>
+          enable_throttling_rcu_limit = <throttling_limit>
           provisioned_rcu_limit       = <throughput>
           storage_size_limit          = <data_size>
           throttling_rcu_limit        = <provisioned_throughput_capacity>
@@ -206,11 +206,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       Where:
 
       * `name`: DB name. This is a required parameter.
-      * `deletion_protection`: DB deletion protection. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-      * `enable_throttling_rcu_limit`: Enable the throttling limit. This is an optional parameter. The default value is `false`.
-      * `provisioned_rcu_limit`: Limit on the request unit usage per second. This is an optional parameter. The default value is 0.
-      * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is 50 GB.
-      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is 0.
+      * `deletion_protection`: DB deletion protection: `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
+      * `enable_throttling_rcu_limit`: Enable the throughput limit: `true` or `false`. This is an optional parameter. The default value is `false`.
+      * `provisioned_rcu_limit`: Limit on the request unit usage per second. This is an optional parameter. The default value is `0`.
+      * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is `50`.
+      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is `0`.
 
    1. Apply the changes:
 
@@ -314,13 +314,13 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
       * `--dedicated`: Configuration of the DB with dedicated servers.
       * `--network-name`: Name of the cloud network to create the DB in. You can specify the network as `default`.
-      * `--storage`: Media type and [storage group](../concepts/resources.md#storage-groups) count in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+      * `--storage`: Storage type and number of [storage groups](../concepts/resources.md#storage-groups), in the `type=<storage_media_type>,groups=<number_of_storage_groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
       * `--resource-preset`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
 
    Important additional parameters:
 
    * `--public-ip`: Flag indicating that public IP addresses are assigned. Without it, you cannot connect to the DB you created, from the internet.
-   * `--fixed-size INT`: Number of cluster nodes, with the default value of 1. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
+   * `--fixed-size INT`: Number of cluster nodes, with the default value of `1`. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
    * `--async`: Asynchronous DB creation flag. Creating a dedicated DB may take a long time, up to a few minutes. You can set this flag to recover control as soon as the command to create DB is accepted by the cloud.
 
    **Examples**
@@ -360,10 +360,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
          name                = "<DB_name>"
 
          network_id          = "<network_ID>"
-         subnet_ids          = ["<ID_of_subnet1>", "<ID_of_subnet2>", "<ID_of_subnet3>"]
+         subnet_ids          = ["<ID_of_subnet_1>", "<ID_of_subnet_2>", "<ID_of_subnet_3>"]
 
          resource_preset_id  = "<computing_resource_configuration>"
-         deletion_protection = "<deletion_protection:_true_or_false>"
+         deletion_protection = "<deletion_protection>"
 
          scale_policy {
            fixed_scale {
@@ -384,7 +384,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       * `network_id`: ID of the network the DB is connected to.
       * `subnet_ids`: List of subnet IDs, separated by commas.
       * `resource_preset_id`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
-      * `deletion_protection`: DB deletion protection. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
+      * `deletion_protection`: DB deletion protection: `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
       * `scale_policy`: Scaling policy, where `size` indicates the number of DB instances.
       * `storage_config`: Storage configuration, where:
          * `group_count`: Number of [storage groups](../concepts/resources.md#storage-groups).

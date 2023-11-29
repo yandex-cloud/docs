@@ -173,6 +173,81 @@ items:
                 href: api-ref/SymmetricKey/update.md
               - name: updateAccessBindings
                 href: api-ref/SymmetricKey/updateAccessBindings.md
+          - name: AsymmetricEncryptionCrypto
+            items:
+              - name: Overview
+                href: >-
+                  asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/index.md
+              - name: decrypt
+                href: >-
+                  asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/decrypt.md
+              - name: getPublicKey
+                href: >-
+                  asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/getPublicKey.md
+          - name: AsymmetricEncryptionKey
+            items:
+              - name: Overview
+                href: asymmetricencryption/api-ref/AsymmetricEncryptionKey/index.md
+              - name: create
+                href: asymmetricencryption/api-ref/AsymmetricEncryptionKey/create.md
+              - name: delete
+                href: asymmetricencryption/api-ref/AsymmetricEncryptionKey/delete.md
+              - name: get
+                href: asymmetricencryption/api-ref/AsymmetricEncryptionKey/get.md
+              - name: list
+                href: asymmetricencryption/api-ref/AsymmetricEncryptionKey/list.md
+              - name: listAccessBindings
+                href: >-
+                  asymmetricencryption/api-ref/AsymmetricEncryptionKey/listAccessBindings.md
+              - name: listOperations
+                href: >-
+                  asymmetricencryption/api-ref/AsymmetricEncryptionKey/listOperations.md
+              - name: setAccessBindings
+                href: >-
+                  asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md
+              - name: update
+                href: asymmetricencryption/api-ref/AsymmetricEncryptionKey/update.md
+              - name: updateAccessBindings
+                href: >-
+                  asymmetricencryption/api-ref/AsymmetricEncryptionKey/updateAccessBindings.md
+          - name: AsymmetricSignatureCrypto
+            items:
+              - name: Overview
+                href: asymmetricsignature/api-ref/AsymmetricSignatureCrypto/index.md
+              - name: getPublicKey
+                href: >-
+                  asymmetricsignature/api-ref/AsymmetricSignatureCrypto/getPublicKey.md
+              - name: sign
+                href: asymmetricsignature/api-ref/AsymmetricSignatureCrypto/sign.md
+              - name: signHash
+                href: >-
+                  asymmetricsignature/api-ref/AsymmetricSignatureCrypto/signHash.md
+          - name: AsymmetricSignatureKey
+            items:
+              - name: Overview
+                href: asymmetricsignature/api-ref/AsymmetricSignatureKey/index.md
+              - name: create
+                href: asymmetricsignature/api-ref/AsymmetricSignatureKey/create.md
+              - name: delete
+                href: asymmetricsignature/api-ref/AsymmetricSignatureKey/delete.md
+              - name: get
+                href: asymmetricsignature/api-ref/AsymmetricSignatureKey/get.md
+              - name: list
+                href: asymmetricsignature/api-ref/AsymmetricSignatureKey/list.md
+              - name: listAccessBindings
+                href: >-
+                  asymmetricsignature/api-ref/AsymmetricSignatureKey/listAccessBindings.md
+              - name: listOperations
+                href: >-
+                  asymmetricsignature/api-ref/AsymmetricSignatureKey/listOperations.md
+              - name: setAccessBindings
+                href: >-
+                  asymmetricsignature/api-ref/AsymmetricSignatureKey/setAccessBindings.md
+              - name: update
+                href: asymmetricsignature/api-ref/AsymmetricSignatureKey/update.md
+              - name: updateAccessBindings
+                href: >-
+                  asymmetricsignature/api-ref/AsymmetricSignatureKey/updateAccessBindings.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы

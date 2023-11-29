@@ -36,22 +36,22 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
    1. To delete an access binding, run:
 
       ```bash
-      yc <service-name> <resource> remove-access-binding <resource-name>|<resource-id> \
-          --role <role-id> \
-          --subject <subject-type>:<subject-id>
+      yc <service_name> <resource_category> remove-access-binding <resource_name_or_ID> \
+          --role <role_ID> \
+          --subject <subject_type>:<subject_ID>
       ```
 
       Where:
-      * `<role-id>`: The ID of the role to revoke (such as `{{ roles-cloud-owner }}`).
-      * `<subject-type>`: The [subject](../../concepts/access-control/index.md#subject) type to revoke a role from.
-      * `<subject-id>`: The subject ID.
+      * `--role`: ID of the role to be revoked, e.g., `{{ roles-cloud-owner }}`.
+      * `<subject-type>`: [Subject](../../concepts/access-control/index.md#subject) type to revoke a role from.
+      * `<subject_ID>`: Subject ID.
 
 - API
 
    To revoke a resource role from a subject, delete the corresponding access binding:
 
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
-   1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `editor` role from user `ajei8n54hmfhuk5nog0g`:
+   1. Create a request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `editor` role from the `ajei8n54hmfh********` user:
 
       **body.json:**
       ```json
@@ -61,7 +61,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
               "accessBinding": {
                   "roleId": "editor",
                   "subject": {
-                      "id": "ajei8n54hmfhuk5nog0g",
+                      "id": "ajei8n54hmfh********",
                       "type": "userAccount"
                       }
                   }
@@ -84,11 +84,11 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
         ```
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
-            cloud_id    = "<cloud ID>"
+            cloud_id    = "<cloud_ID>"
             role        = "<role>"
             members     = [
-            "serviceAccount:<service account ID>",
-            "userAccount:<user ID>",
+            "serviceAccount:<service_account_ID>",
+            "userAccount:<user_ID>",
             ]
         }
         ```
@@ -118,10 +118,10 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
         1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+        All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
            ```
-           yc resource-manager cloud list-access-bindings <cloud name>|<cloud ID>
+           yc resource-manager cloud list-access-bindings <cloud_name_or_ID>
            ```
 
 {% endlist %}

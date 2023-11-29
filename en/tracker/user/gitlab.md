@@ -63,12 +63,7 @@ Private repositories can only be accessed by users logged in to GitLab (**Intern
 
 1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
-To link a commit to an issue in {{ tracker-name }}, specify the issue key in the comments for the commit. You can view the linked commits:
-
-- In the **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}** tab on the issue page.
-- In the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab on the queue page.
-
-If the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab is missing, make sure it is enabled in your [queue settings](../manager/edit-queue-general.md#ul_gcz_xlp_m2b).
+{% include [commits](../../_includes/tracker/add_commits.md) %}
 
 ## Own server {#on-premise}
 

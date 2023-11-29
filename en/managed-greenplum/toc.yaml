@@ -25,6 +25,8 @@ items:
                 href: operations/hosts/cluster-hosts.md
               - name: Expanding a cluster
                 href: operations/hosts/cluster-expand.md
+              - name: Migrating hosts to a different availability zone
+                href: operations/hosts/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Deleting clusters

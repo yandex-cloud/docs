@@ -12,13 +12,13 @@ Collaboration services and business intelligence tools are available to all orga
 
 {% note info %}
 
-All clouds and services can be managed by users with the `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#admin).
+All clouds and services can be managed by users with the `organization-manager.organizations.owner` role. To learn how to grant roles to a user, see [Roles](../security/index.md#admin).
 
 {% endnote %}
 
 To go to cloud and service management:
 
-1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
+1. [Log in]({{link-passport}}) as the organization administrator or owner.
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 

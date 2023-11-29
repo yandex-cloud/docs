@@ -122,7 +122,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -146,7 +146,7 @@ To update a movie record in the `Series` table:
         public static void main(String[] args) throws Exception {
 
           AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
             .build();
 
           DynamoDB dynamoDB = new DynamoDB(client);
@@ -162,13 +162,13 @@ To update a movie record in the `Series` table:
             .withReturnValues(ReturnValue.UPDATED_NEW);
 
           try {
-            System.out.println("Updating the record...");
+            System.out.println("Updating record...");
             UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
             System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
 
           }
           catch (Exception e) {
-            System.err.println("Couldn't update the record: " + series_id + " " + title);
+            System.err.println("Couldn't update record: " + series_id + " " + title);
             System.err.println(e.getMessage());
           }
         }
@@ -221,7 +221,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -231,7 +231,7 @@ To update a movie record in the `Series` table:
       import boto3
 
       def update_serie(title, series_id, release_date, rating):
-        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
         table = ydb_docapi_client.Table('Series')
 
@@ -298,7 +298,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -313,7 +313,7 @@ To update a movie record in the `Series` table:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-        'endpoint' => '<Document API endpoint>',
+        'endpoint' => '<Document_API_endpoint>',
         'region'   => '{{ region-id }}',
         'version'  => 'latest'
       ]);
@@ -333,6 +333,7 @@ To update a movie record in the `Series` table:
         }
       ');
 
+
       $eav = $marshaler->marshalJson('
         {
           ":d": "2005-09-13",
@@ -351,11 +352,11 @@ To update a movie record in the `Series` table:
 
       try {
           $result = $dynamodb->updateItem($params);
-          echo "Record is updated.\n";
+          echo "Record updated.\n";
           echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
 
       } catch (DynamoDbException $e) {
-        echo "Couldn't update the record:\n";
+        echo "Couldn't update record:\n";
         echo $e->getMessage() . "\n";
       }
 
@@ -365,6 +366,7 @@ To update a movie record in the `Series` table:
       This code uses `UpdateExpression` to describe the updates that need to be performed for the specified record.
 
       The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
+
    1. Run the program:
 
       ```bash
@@ -404,7 +406,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -415,7 +417,7 @@ To update a movie record in the `Series` table:
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+          endpoint: "<Document_API_endpoint>",
       });
 
       const table = "Series";
@@ -425,7 +427,7 @@ To update a movie record in the `Series` table:
       console.log("Updating record...");
 
       dynamodb.send(new AWS.UpdateItemCommand({
-        TableName:table,
+        TableName: table,
         Key: marshall({
           "series_id": series_id,
           "title": title
@@ -434,9 +436,9 @@ To update a movie record in the `Series` table:
         ExpressionAttributeValues: marshall({
           ":d": "2005-09-13",
           ":r": 8
-        },
-        ReturnValues:"UPDATED_NEW"
-        }))
+        }),
+        ReturnValues: "UPDATED_NEW"
+      }))
           .then(data => {
               console.log("Update successful:", JSON.stringify(data, null, 2));
           })
@@ -447,7 +449,7 @@ To update a movie record in the `Series` table:
 
       To update the attributes of an existing record, use the command `UpdateItemCommand`. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
 
-      The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes `UPDATED_NEW`.
+      The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only the updated attributes `UPDATED_NEW`.
 
    1. Run the program:
 
@@ -482,7 +484,7 @@ To update a movie record in the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -512,7 +514,7 @@ To update a movie record in the `Series` table:
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 
@@ -531,6 +533,7 @@ To update a movie record in the `Series` table:
           },
           return_values: 'UPDATED_NEW'
         }
+
         puts "Updating the table '#{table_name}' with information about " \
           "'#{title} (#{series_id})'..."
 
@@ -546,7 +549,7 @@ To update a movie record in the `Series` table:
 
       This program uses the `update_expression` expression to describe all the updates that you want to perform for the specified element.
 
-      The `return_values` parameter indicates to {{ ydb-short-name }} to return only updated attributes `UPDATED_NEW`.
+      The `return_values` parameter instructs {{ ydb-short-name }} to return only the updated attributes `UPDATED_NEW`.
 
    1. Run the program:
 
@@ -587,6 +590,7 @@ To increase the `rating` atomic counter for a series:
       ```
 
       As a result of running the command, the `SeriesItemOps04` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
+
    1. Go to the project folder:
 
       ```bash
@@ -683,7 +687,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -705,7 +709,7 @@ To increase the `rating` atomic counter for a series:
         public static void main(String[] args) throws Exception {
 
           AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
             .build();
 
           DynamoDB dynamoDB = new DynamoDB(client);
@@ -776,7 +780,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -786,7 +790,7 @@ To increase the `rating` atomic counter for a series:
       import boto3
 
       def increase_rating(title, series_id, rating_increase):
-        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
         table = ydb_docapi_client.Table('Series')
 
@@ -805,7 +809,7 @@ To increase the `rating` atomic counter for a series:
 
       if __name__ == '__main__':
         update_response = increase_rating("Supernatural", 3, 1)
-        print("Data about the series has been updated:")
+        print("Series data updated:")
         pprint(update_response, sort_dicts = False)
       ```
 
@@ -849,7 +853,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -864,7 +868,7 @@ To increase the `rating` atomic counter for a series:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-        'endpoint' => '<Document API endpoint>',
+        'endpoint' => '<Document_API_endpoint>',
         'region'   => '{{ region-id }}',
         'version'  => 'latest'
       ]);
@@ -904,7 +908,7 @@ To increase the `rating` atomic counter for a series:
         echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
 
       } catch (DynamoDbException $e) {
-        echo "Couldn't update the record:\n";
+        echo "Couldn't update record:\n";
         echo $e->getMessage() . "\n";
       }
 
@@ -952,7 +956,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -961,7 +965,7 @@ To increase the `rating` atomic counter for a series:
 
       AWS.config.update({
         region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+        endpoint: "<Document_API_endpoint>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient()
@@ -984,10 +988,10 @@ To increase the `rating` atomic counter for a series:
         ReturnValues:"UPDATED_NEW"
       };
 
-      console.log("Updating the record...");
+      console.log("Updating record...");
       docClient.update(params, function(err, data) {
         if (err) {
-          console.error("Couldn't update the record. JSON error:", JSON.stringify(err, null, 2));
+          console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
               console.log("Update successful:", JSON.stringify(data, null, 2));
@@ -998,6 +1002,7 @@ To increase the `rating` atomic counter for a series:
       Each time the above code is run, the value of `rating` increases by one.
 
    1. Run the program:
+
       ```bash
       node SeriesItemOps04.js
       ```
@@ -1029,7 +1034,7 @@ To increase the `rating` atomic counter for a series:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1059,7 +1064,7 @@ To increase the `rating` atomic counter for a series:
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 
@@ -1227,7 +1232,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1250,7 +1255,7 @@ To update a record in the `Series` table when the condition is satisfied:
         public static void main(String[] args) throws Exception {
 
           AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
             .build();
 
           DynamoDB dynamoDB = new DynamoDB(client);
@@ -1347,7 +1352,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1357,7 +1362,7 @@ To update a record in the `Series` table when the condition is satisfied:
       from botocore.exceptions import ClientError
 
       def add_recommend(title, series_id, rating_val):
-        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
         table = ydb_docapi_client.Table('Series')
         rec = "Recommended for viewing"
@@ -1385,7 +1390,7 @@ To update a record in the `Series` table when the condition is satisfied:
             return response
 
       if __name__ == '__main__':
-        print("Trying a conditional update...")
+        print("Attempting to perform conditional update...")
         update_response = add_recommend("Supernatural", 3, 9)
         if update_response:
           print("Series data updated:")
@@ -1409,9 +1414,9 @@ To update a record in the `Series` table when the condition is satisfied:
       Condition not satisfied
       ```
 
-      The update failed because the series rating is 9 and the update condition requires the rating to be higher than 9.
+      The update failed because the series rating is 9 and the condition for update is a rating value higher than 9.
 
-   1. Modify the code so that the condition for the update is a rating of 9 or higher. In this case, the `ConditionExpression` parameter looks as follows:
+   1. Modify the code so that the condition for the update is a rating of 9 or higher. In this case, the `ConditionExpression` parameter will look like as follows:
 
       ```python
       ConditionExpression = "info.rating >= :num",
@@ -1451,7 +1456,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1466,7 +1471,7 @@ To update a record in the `Series` table when the condition is satisfied:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-        'endpoint' => '<Document API endpoint>',
+        'endpoint' => '<Document_API_endpoint>',
         'region'   => '{{ region-id }}',
         'version'  => 'latest'
       ]);
@@ -1508,7 +1513,7 @@ To update a record in the `Series` table when the condition is satisfied:
         echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
 
       } catch (DynamoDbException $e) {
-        echo "Couldn't update the record:\n";
+        echo "Couldn't update record:\n";
         echo $e->getMessage() . "\n";
       }
 
@@ -1518,6 +1523,7 @@ To update a record in the `Series` table when the condition is satisfied:
       This code shows an example of using the `UpdateItem` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
       In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
+
    1. Run the program:
 
       ```bash
@@ -1577,7 +1583,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1586,7 +1592,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       AWS.config.update({
         region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+        endpoint: "<Document_API_endpoint>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient()
@@ -1624,7 +1630,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       This code shows an example of using the `UpdateItem` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
-      In this case, a recommendation for viewing is added to a record if the rating exceeds 9.
+      In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
 
    1. Run the program:
 
@@ -1682,7 +1688,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1712,7 +1718,7 @@ To update a record in the `Series` table when the condition is satisfied:
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 
@@ -1749,6 +1755,7 @@ To update a record in the `Series` table when the condition is satisfied:
       This code shows an example of using the `update_item` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
       In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
+
    1. Run the program:
 
       ```bash

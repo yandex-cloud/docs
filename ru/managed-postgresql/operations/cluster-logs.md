@@ -11,7 +11,7 @@
 - Консоль управления
 
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/managed-postgresql/logs.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. При необходимости запросите лог `POOLER`, укажите хосты и уровень логирования в выпадающих списках рядом с полем ввода дат.
 

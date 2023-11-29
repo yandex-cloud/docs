@@ -1,5 +1,9 @@
 # Веб-аналитика с подключением к Яндекс Метрике
 
+
+{% include [datalens-metrica-pro-note](../../_includes/datalens/datalens-metrica-pro-note.md) %}
+
+
 В качестве источника данных будет использован один из счетчиков Яндекс Метрики, к которому у вас есть доступ. Просмотреть список доступных вам счетчиков можно по ссылке [https://metrika.yandex.ru/list](https://metrika.yandex.ru/list).
 
 ![image](../../_assets/datalens/solution-03/01-metrica-list.png)

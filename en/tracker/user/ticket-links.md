@@ -92,9 +92,6 @@ To remove the link to a parent issue:
 
 ## Linking a commit to an issue {#section_commit}
 
-You can link an issue to a commit, provided its repository is [linked to {{ tracker-name }}](../user/add-repository.md). To do this, specify the issue key in the comment to the commit. You can view the linked commits:
+You can link an issue to a commit, provided its repository is [linked to {{ tracker-name }}](add-repository.md).
 
-* On the project page, under **{{ ui-key.startrek.ui_components_IssueLinks.external-relations }}**.
-* In the top-right corner of the issue page, under ![](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.commits }}**.
-
-If you do not see the **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.commits }}** section, make sure it is enabled in your [queue settings](../manager/edit-queue-general.md).
+{% include [commits](../../_includes/tracker/add_commits.md) %}

@@ -17,7 +17,7 @@ Configure the CLI to work on behalf of a service account:
     * Specify the service account [ID](../iam/operations/sa/get-id.md) using the `--service-account-id` parameter:
 
          ```
-         yc iam key create --service-account-id b1gnbfd11bq5g5vnjgr4 --output key.json
+         yc iam key create --service-account-id b1gnbfd11bq5******** --output key.json
          ```
 
 1. Create a profile to execute operations on behalf of the service account:

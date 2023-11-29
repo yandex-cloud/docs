@@ -25,37 +25,36 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
   {% endnote %}
 
 1. Go to the **Connections** tab and create a connection using your audio's metadata:
- * Enter a **Connection name**.
- * Select **Two-channel audio** under **Data type**.
- * Set connection parameters using the metadata of your audio recordings:
-  * Under **Operator**, specify the number of the track that contains the operator's voice in your audio recordings and define their display name (`Operator` by default).
-  * Under **Client**, specify the number of the track that contains the client's voice in your audio recordings and define their display name (`Client` by default).
-  * Under **Shared metadata**, change the parameter names used in the system, if necessary.
-  * If your metadata includes additional information you want to save and analyze, add it to the appropriate section. Provide the parameter key (must match the key in the metadata file), specify a type, and enter a display name to use in the system. The supported additional parameters are `Date`, `String`, `Number`, `Logical`, and `JSON`.
- * Click **Create connection**.
 
- {% cut "Example of metadata.json" %}
+    1. Enter the **Connection name**.
+    1. Select **Two-channel audio** under **Data type**.
+    1. Set connection parameters using the metadata of your audio recordings:
+        * Under **Operator**, specify the number of the track that contains the agent's voice in your audio recordings and define their display name (`Operator` by default).
+        * Under **Client**, specify the number of the track that contains the client's voice in your audio recordings and define their display name (`Client` by default).
+        * Under **Shared metadata**, change the parameter names used in the system, if necessary.
+        * If your metadata includes additional information you want to save and analyze, add it to the appropriate section. Provide the parameter key (must match the key in the metadata file), specify a type, and enter a display name to use in the system. The supported additional parameters are `Date`, `String`, `Number`, `Logical`, and `JSON`.
+    1. Click **Create connection**.
 
- ```json
-	[
-	  {
+        {% cut "Example of metadata.json" %}
+
+        ```json
+        {
 	    "direction_outgoung": 0,
 	    "client_id": "456",
 	    "client_name": "John Doe",
-	    "date_from": "2023-09-29T09:08:38.958Z",
+	    "date": "2023-09-29T09:08:38.958Z",
 	    "date_to": "2023-09-29T09:15:07.897Z",
 	    "knowledge_id": [
-	      165572,
-	      163362
+	    165572,
+	    163362
 	    ],
 	    "language": "RU",
 	    "operator_id": "123",
 	    "operator_name": "Jane Smith"
-	  }
-	]
- ```
+        }
+        ```
 
- {% endcut %}
+        {% endcut %}
 
 1. Create a project: on the space page, click **Create project**, enter a project name, and add a connection to the project. You can select up to two connection metadata-based filtering rules for each connection. With filters, you can ensure that only the dialogs you need are added to the project. Once you are done adding connections and configuring filters, click **Create project**.
 
@@ -64,7 +63,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 {{ speechsense-name }} uses the [gRPC API](api-ref/grpc/index.md) to upload data.
 
 1. [Create a service account](../iam/operations/sa/create.md) and add it to your space with the `speech-sense.data.editor` [role](../iam/concepts/access-control/roles.md). This way, the service account will be authorized to upload data to the connection you created. To learn more about the roles available in the service, see [{#T}](security/index.md).
-1. [Create an API key](../iam/operations/api-key/create.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
+1. [Create an API key](../iam/operations/api-key/create.md) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
 1. [Upload your data](operations/data/upload-data.md) using a Python data transfer script. You can send your entire audio recording as one message or in snippets.
 
 {% include [supported-formats](../_includes/speechsense/formats.md) %}

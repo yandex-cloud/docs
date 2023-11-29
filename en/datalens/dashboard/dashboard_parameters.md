@@ -116,6 +116,7 @@ The following limitations apply when using parameters:
    * `timezone`
    * `date`
    * `datetime`
+   * `_action_params`
 
    Parameters with these keys are ignored and not saved.
 

@@ -4,4 +4,4 @@ A _passage_ is a fragment of found document that contains words from a search qu
 
 The `maxpassages` field defines the maximum number of passages that can be used when generating a document snippet.
 
-Possible values are from 1 to 5. A search result may contain less passages than set by this parameter. By default, a maximum of four passages with search query text is returned per document.
+The possible values range from 1 to 5. A search result may contain fewer passages than specified by this parameter. By default, a maximum of four passages with search query text is returned per document.

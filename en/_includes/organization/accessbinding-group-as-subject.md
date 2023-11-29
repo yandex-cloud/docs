@@ -27,7 +27,7 @@
    1. Assign the role using the command:
 
       ```bash
-      yc <service_name> <resource> add-access-binding <resource_name>|<resource_ID> \
+      yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
         --role <role_ID> \
         --subject group:<group_ID>
       ```
@@ -36,10 +36,9 @@
 
       * `<service_name>`: Name of the service whose resource requires assigning a role, such as `resource-manager`, to be accessed.
       * `<resource>`: Resource category, e.g., `cloud`.
-      * `<resource_name>`: Resource name. You can specify the resource name or ID.
-      * `<resource_ID>`: Resource ID.
-      * `<role_ID>`: Role ID, such as `{{ roles-cloud-owner }}`.
-      * `<group_id>`: ID of the group the role is assigned to.
+      * `<resource_name_or_ID>`: Name or ID of the resource. You can specify the resource name or ID.
+      * `--role`: Role ID, e.g., `{{ roles-cloud-owner }}`.
+      * `--subject group`: ID of the group the role is assigned to.
 
       For example, here is how you can assign the `resource-manager.viewer` role for the `mycloud` [cloud](../../resource-manager/concepts/resources-hierarchy.md#folder):
 

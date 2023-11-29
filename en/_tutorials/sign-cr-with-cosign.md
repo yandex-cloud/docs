@@ -74,56 +74,186 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Sign a Docker image using Cosign {#cosign}
 
-1. [Install Cosign](https://docs.sigstore.dev/cosign/installation).
-1. Generate a key pair using Cosign:
+{% list tabs %}
 
-   ```bash
-   cosign generate-key-pair
-   ```
+- Image signature based on asymmetric keys {{ kms-short-name }}
 
-   Set a private key's password and enter it twice.
+   1. Install a special Cosign build for your OS:
 
-   Result:
+      {% include [install-cosign](../_includes/kms/install-cosign.md) %}
 
-   ```text
-   Enter password for private key:
-   Enter password for private key again:
-   Private key written to cosign.key
-   Public key written to cosign.pub
-   ```
+   1. Get an [IAM token](../iam/concepts/authorization/iam-token.md) and save it to the `$YC_IAM_TOKEN` environment variable:
 
-1. Sign the Docker image in the {{ container-registry-name }} registry:
+      * **Bash:**
 
-   ```bash
-   cosign sign --key cosign.key {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
-   ```
+         ```bash
+         export YC_IAM_TOKEN=$(yc iam create-token)
+         ```
 
-   The signed image will be used when [checking results](#check-result).
+      * **PowerShell:**
 
-   Enter the password for the private key. Result:
+         ```powershell
+         $env:YC_IAM_TOKEN = $(yc iam create-token)
+         ```
+   1. Log in to {{ container-registry-name }}:
 
-   ```text
-   Enter password for private key:
-   Pushing signature to: {{ registry }}/<registry_ID>/<Docker_image_name>
-   ```
+      * **Bash:**
 
-   A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
-1. Check that the signature is valid manually:
+         ```bash
+         docker login \
+             --username iam \
+             --password $YC_IAM_TOKEN \
+             cr.yandex
+         ```
 
-   ```bash
-   cosign verify --key cosign.pub {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
-   ```
+      * **PowerShell:**
 
-   Result:
+         ```powershell
+         docker login `
+             --username iam `
+             --password $Env:YC_IAM_TOKEN `
+             cr.yandex
+         ```
 
-   ```text
-   Verification for {{ registry }}/<registry_ID>/<Docker_image_name>:<tag> --
-   The following checks were performed on each of these signatures:
-   - The cosign claims were validated
-   - The signatures were verified against the specified public key
+      Result:
 
-   [{"critical":{"identity":{"docker-reference":"{{ registry }}/<registry_ID>/<Docker_image_name>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
-   ```
+      ```bash
+      WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+      Login succeeded
+      ```
+
+      {% note info %}
+
+      To avoid using a credential helper for authentication, edit the `${HOME}/.docker/config.json` configuration file to remove the `{{ registry }}` domain line under `credHelpers`.
+
+      {% endnote %}
+
+   1. Create a digital signature key pair and save it to {{ kms-short-name }}:
+
+      ```bash
+      cosign generate-key-pair \
+          --kms yckms:///folder/<folder_ID>/keyname/<key_pair_name>
+      ```
+
+      Where:
+      * `<folder_ID>`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where the new key pair will be saved.
+      * `<key_pair_name>`: Name of the signature key pair you create.
+
+      Result:
+
+      ```bash
+      client.go:183: Using IAM Token from 'YC_IAM_TOKEN' environment variable as credentials
+      client.go:310: generated yckms KEY_ID: '<key_pair_ID>'
+      Public key written to cosign.pub
+      ```
+
+      The utility will return the ID of the created signature key pair and save a public signature key to a local file. Save the key pair ID, you will need it in the next steps.
+
+      You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the appropriate [CLI](../cli/cli-ref/managed-services/kms/asymmetric-signature-key/list.md) command.
+
+   1. Sign the image in {{ container-registry-name }}:
+
+      ```bash
+      cosign sign \
+          --key yckms:///<key_pair_ID> \
+          cr.yandex/<registry_ID>/<Docker_image_name>:<tag> \
+          --tlog-upload=false
+      ```
+
+      Where:
+      * `<key_pair_ID>`: ID of the signature key pair you obtained in the previous step.
+      * `<registry_id>`: [ID of the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-list.md#registry-list) in which the image you are signing is located.
+      * `<Docker_image_name>`: Name of the [Docker image](../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) you are signing in the {{ container-registry-name }} registry.
+      * `<tag>`: Tag of the image version to be signed.
+
+      Result:
+
+      ```bash
+      Pushing signature to: cr.yandex/<registry_ID>/<Docker_image_name>
+      ```
+
+      A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
+
+   1. Check manually that the Docker image signature is correct:
+
+      ```bash
+      cosign verify \
+          --key yckms:///<key_pair_ID> \
+          cr.yandex/<registry_ID>/<Docker_image_name>:<tag> \
+          --insecure-ignore-tlog
+      ```
+
+      Where:
+      * `<key_pair_ID>`: Previously obtained ID of the signature key pair.
+      * `<registry_id>`: [ID of the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-list.md#registry-list) in which the image is located.
+      * `<Docker_image_name>`: Name of the [Docker image](../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) in the {{ container-registry-name }} registry.
+      * `<tag>`: Tag of the image version to verify the signature for.
+
+      Result:
+
+      ```bash
+      Verification for {{ registry }}/<registry_ID>/<Docker_image_name>:<tag> --
+      The following checks were performed on each of these signatures:
+      - The cosign claims were validated
+      - The signatures were verified against the specified public key
+
+      [{"critical":{"identity":{"docker-reference":"{{ registry }}/<registry_ID>/<Docker_image_name>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
+      ```
+
+- Image signature based on local keys
+
+   1. [Install Cosign](https://docs.sigstore.dev/cosign/installation).
+   1. Generate a key pair using Cosign:
+   
+      ```bash
+      cosign generate-key-pair
+      ```
+   
+      Set a private key's password and enter it twice.
+   
+      Result:
+   
+      ```bash
+      Enter password for private key:
+      Enter password for private key again:
+      Private key written to cosign.key
+      Public key written to cosign.pub
+      ```
+   
+   1. Sign the Docker image in the {{ container-registry-name }} registry:
+   
+      ```bash
+      cosign sign --key cosign.key {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
+      ```
+   
+      The signed image will be used when [checking results](#check-result).
+   
+      Enter the password for the private key. Result:
+   
+      ```bash
+      Enter password for private key:
+      Pushing signature to: {{ registry }}/<registry_ID>/<Docker_image_name>
+      ```
+   
+      A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
+   1. Check that the signature is valid manually:
+   
+      ```bash
+      cosign verify --key cosign.pub {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
+      ```
+   
+      Result:
+   
+      ```bash
+      Verification for {{ registry }}/<registry_ID>/<Docker_image_name>:<tag> --
+      The following checks were performed on each of these signatures:
+      - The cosign claims were validated
+      - The signatures were verified against the specified public key
+   
+      [{"critical":{"identity":{"docker-reference":"{{ registry }}/<registry_ID>/<Docker_image_name>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
+      ```
+
+{% endlist %}
 
 ## Create a policy for signature verification {#kyverno}
 

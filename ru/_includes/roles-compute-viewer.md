@@ -12,3 +12,5 @@
 * [зоны доступности](../overview/concepts/geo-scope.md).
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
+
+Включает разрешения, предоставляемые ролью `compute.auditor`.

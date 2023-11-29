@@ -38,8 +38,8 @@ For more information, see [{#T}](../concepts/index.md).
          {% endnote %}
 
 
-       * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone.
-       * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to allow accessing the cluster from the internet.
+         * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone.
+         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to allow accessing the cluster from the internet.
 
    1. If you are not going to export {{ GP }} data to cold storage in {{ objstorage-full-name }}, disable the associated option under **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** (enabled by default).
 
@@ -80,11 +80,13 @@ For more information, see [{#T}](../concepts/index.md).
 
          {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      * **{{ ui-key.yacloud.mdb.forms.section_pooler }}**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
+   1. (Optional) Configure the operating mode and [connection pooler](../concepts/pooling.md) parameters under **{{ ui-key.yacloud.mdb.forms.section_pooler }}**:
 
-         {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
+      {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 
-   1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
+   1. (Optional) Under **{{ ui-key.yacloud.greenplum.section_background-activities }}**, edit the parameters of [scheduled maintenance operations](../concepts/maintenance.md#regular-ops):
+
+      {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
 
    1. Specify the master host parameters on the **{{ ui-key.yacloud.greenplum.section_resource-master }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#master).
 
@@ -108,6 +110,8 @@ For more information, see [{#T}](../concepts/index.md).
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
+
+   1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -183,10 +187,10 @@ For more information, see [{#T}](../concepts/index.md).
             * `network-ssd-nonreplicated`
 
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-      * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes 2 or more subnets.
+      * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
       * `--assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-a-host) to the host is needed, `true` or `false`.
       * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-      * `--deletion-protection` is cluster deletion protection, `true` or `false`.
+      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
 
            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -315,7 +319,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       Where:
 
-      * `assign_public_ip`: Public access to hosts of the cluster, true or false.
+      * `assign_public_ip`: Public access to cluster hosts, true or false.
       * `deletion_protection`: Cluster deletion protection, true or false.
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts: 1 or 2.
@@ -359,6 +363,7 @@ For more information, see [{#T}](../concepts/index.md).
    * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/), in the `config.access.dataTransfer` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
    * [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) in the `configSpec.greenplumConfig_<version>` parameter.
+   * [Scheduled maintenance operations](../concepts/maintenance.md#regular-ops) settings in the `configSpec.backgroundActivities.analyzeAndVacuum` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}

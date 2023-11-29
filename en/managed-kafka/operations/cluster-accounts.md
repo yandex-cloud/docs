@@ -7,14 +7,14 @@ Users in {{ KF }}:
 * [Manage topics](cluster-topics.md#admin-api). For more information, see [{#T}](../concepts/topics.md).
 
 After [creating an {{ KF }} cluster](cluster-create.md), you can:
-* [{#T}](#create-user)
-* [{#T}](#update-password)
-* [{#T}](#update-account)
-* [{#T}](#grant-permission)
-* [{#T}](#revoke-permission)
-* [{#T}](#list-accounts)
-* [{#T}](#import-account)
-* [{#T}](#delete-account)
+* [{#T}](#create-user).
+* [{#T}](#update-password).
+* [{#T}](#update-account).
+* [{#T}](#grant-permission).
+* [{#T}](#revoke-permission).
+* [{#T}](#list-accounts).
+* [{#T}](#import-account).
+* [{#T}](#delete-account).
 
 ## Creating a user {#create-user}
 
@@ -302,6 +302,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1.  Click the ![image](../../_assets/plus.svg) icon in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column for the topic and select:
       * `ACCESS_ROLE_CONSUMER`: Consumers using this user will be granted access to the topic.
       * `ACCESS_ROLE_PRODUCER`: Producers using this user will be granted access to the topic.
+      * `ACCESS_ROLE_ADMIN`: Only available if access to any topics is selected.
 
       You can select the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles at the same time to make a user suitable for both producers and consumers.
    1. To grant permissions to other topics, repeat the steps.
@@ -511,7 +512,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
 ## Importing users to {{ TF }} {#import-account}
 
-Using import, you can bring the existing cluster users under {{ TF }} management.
+Using import, you can transfer current cluster users under {{ TF }} control.
 
 {% list tabs %}
 
@@ -535,7 +536,7 @@ Using import, you can bring the existing cluster users under {{ TF }} management
 
 ## Deleting a user {#delete-account}
 
-If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. To avoid this, assign this role to another user before deleting the admin user.
+If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. Assign this role to another user before deleting it.
 
 {% list tabs %}
 
@@ -582,7 +583,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 
    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
+   * The name of the user to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
 
 
 {% endlist %}

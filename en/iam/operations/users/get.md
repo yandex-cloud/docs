@@ -28,7 +28,7 @@ You can get the ID, email address, and other user information.
       Result:
 
       ```bash
-      id: ajei8n5ahmfhuk5fog0g
+      id: ajei8n5ahmfh********
       yandex_passport_user_account:
           login: just.mad.hatter
           default_email: just.mad.hatter@yandex.ru

@@ -1,6 +1,6 @@
 # Managing {{ CH }} cluster hosts
 
-You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
+You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 {% note warning %}
 
@@ -31,15 +31,15 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
    ```
 
    ```text
-   +-----------------------+--------------+---------+--------+-------------------+
-   |         NAME          |  CLUSTER ID  |  ROLE   | HEALTH |      ZONE ID      |
-   +-----------------------+--------------+---------+--------+-------------------+
+   +----------------------------+--------------+---------+--------+---------------+
+   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
+   +----------------------------+--------------+---------+--------+---------------+
    | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
    | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
-   +-----------------------+--------------+---------+--------+-------------------+
+   +----------------------------+--------------+---------+--------+---------------+
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -88,17 +88,17 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       Result:
 
       ```text
-      +-----------+-----------+------------+-------------------+------------------+
-      |     ID    |   NAME    | NETWORK ID |       ZONE        |      RANGE       |
-      +-----------+-----------+------------+-------------------+------------------+
+      +-----------+-----------+------------+---------------+------------------+
+      |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
+      +-----------+-----------+------------+---------------+------------------+
       | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
       | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
       | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
       | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
-      +-----------+-----------+------------+-------------------+------------------+
+      +-----------+-----------+------------+---------------+------------------+
       ```
 
-      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+      If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 
    1. View a description of the CLI command for adding a host:
@@ -126,7 +126,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       {{ mch-name }} will run the add host operation.
 
       
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 - {{ TF }}
@@ -209,7 +209,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
       --assign-public-ip=<public access to host: true or false>
    ```
 
-   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -291,7 +291,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
       --cluster-name=<cluster name>
    ```
 
-   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

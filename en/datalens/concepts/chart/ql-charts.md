@@ -6,7 +6,7 @@ _QL charts_ are charts created from a connection if the connection source is a d
 
 Running a query does not create a separate [Dataset](../dataset/index.md) object: a chart is generated on the fly and displayed in the preview panel.
 
-Unlike [dataset-based charts](#dataset-based-charts), the logic of a visualization area in QL charts favors queries against the source, that is, the visualization area only displays the data queried.
+Unlike [dataset-based charts](dataset-based-charts.md), the logic of a visualization area in QL charts favors queries against the source, that is, the visualization area only displays the data from the query.
 
 
 {% note alert %}

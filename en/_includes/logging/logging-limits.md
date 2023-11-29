@@ -3,8 +3,10 @@
 | Type of limit | Value |
 ----- | -----
 | Number of custom log groups per cloud | 10 |
-| Maximum write speed | 1000 entries per second |
-| Maximum record retention period | 3 days |
+| Maximum write speed | 1,000 entries per second |
+| Maximum record retention period | 31 days |
+
+There is no guarantee that records will be deleted as soon as the specified retention period expires: they may be deleted later.
 
 #### Limits {#logging-limits}
 

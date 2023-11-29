@@ -22,7 +22,7 @@ keywords:
 - Консоль управления
 
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/managed-elasticsearch/logs.svg) **{{ ui-key.yacloud.common.logs }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. Выберите компонент `ELASTICSEARCH` из выпадающего списка рядом с полем ввода дат.
 

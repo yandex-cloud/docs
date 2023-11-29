@@ -1,6 +1,6 @@
 # Setting up access rights for service accounts
 
-This section describes how to assign [roles](../../concepts/access-control/roles.md) for the [service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the instructions in [{#T}](assign-role-for-sa.md).
+This section describes how to assign [roles](../../concepts/access-control/roles.md) for the [service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the guide in [{#T}](assign-role-for-sa.md).
 
 ## Assign a role to a service account {#assign-role-to-sa}
 
@@ -43,8 +43,8 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
-      | ajebqtreob2dpblin8pe | test-sa  | test-description |
-      | aje6o61dvog2h6g9a33s | my-robot |                  |
+      | ajebqtreob2d******** | test-sa  | test-description |
+      | aje6o61dvog2******** | my-robot |                  |
       +----------------------+----------+------------------+
       ```
 
@@ -76,7 +76,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
         Result:
 
         ```
-        id: gfei8n54hmfhuk5nogse
+        id: gfei8n54hmfh********
         yandex_passport_user_account:
             login: test-user
             default_email: test-user@yandex.ru
@@ -87,7 +87,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
         ```bash
         yc iam service-account add-access-binding my-robot \
           --role editor \
-          --subject userAccount:gfei8n54hmfhuk5nogse
+          --subject userAccount:gfei8n54hmfh********
         ```
 
 - API
@@ -97,8 +97,8 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. Find out the service account ID using the [list](../../api-ref/ServiceAccount/list.md) REST API method:
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+      curl -H "Authorization: Bearer <IAM_token>" \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
       ```
 
       Result:
@@ -107,8 +107,8 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       {
       "serviceAccounts": [
           {
-          "id": "aje6o61dvog2h6g9a33s",
-          "folderId": "b1gvmob95yysaplct532",
+          "id": "aje6o61dvog2********",
+          "folderId": "b1gvmob95yys********",
           "createdAt": "2018-10-19T13:26:29Z",
           "name": "my-robot"
           }
@@ -120,7 +120,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
     1. Find out the user ID from the login using the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
 
         ```bash
-        curl -H "Authorization: Bearer <IAM-TOKEN>" \
+        curl -H "Authorization: Bearer <IAM_token>" \
           https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
         ```
 
@@ -128,7 +128,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
         ```
         {
-        "id": "gfei8n54hmfhuk5nogse",
+        "id": "gfei8n54hmfh********",
         "yandexPassportUserAccount": {
             "login": "test-user",
             "defaultEmail": "test-user@yandex.ru"
@@ -142,17 +142,17 @@ This section describes how to assign [roles](../../concepts/access-control/roles
        ```bash
        curl -X POST \
          -H 'Content-Type: application/json' \
-         -H "Authorization: Bearer <IAM-TOKEN>" \
+         -H "Authorization: Bearer <IAM_token>" \
          -d '{
          "accessBindingDeltas": [{
              "action": "ADD",
              "accessBinding": {
                  "roleId": "editor",
                  "subject": {
-                     "id": "gfei8n54hmfhuk5nogse",
+                     "id": "gfei8n54hmfh********",
                      "type": "userAccount"
          }}}]}' \
-         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
         ```
 
 - {{ TF }}
@@ -161,18 +161,18 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
-      * `service_account_id`: ID of the service account that access must be configured for.
+      * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
       Example of the configuration file structure:
 
       ```
       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-        service_account_id = "<service account ID>"
+        service_account_id = "<service_account_ID>"
         role               = "<role>"
         members            = [
-          "federatedUser:<user ID>",
+          "federatedUser:<user_ID>",
         ]
       }
       ```
@@ -188,7 +188,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -203,7 +203,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
+      yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
       ```
 
 {% endlist %}
@@ -231,7 +231,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
    {% endnote %}
 
-   1. Make sure the resource does not have any roles that you do not want to lose:
+   1. Make sure the resource has no roles assigned that you would rather not lose:
 
       ```bash
       yc iam service-account list-access-bindings my-robot
@@ -241,8 +241,8 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
         ```bash
         yc iam service-account set-access-bindings my-robot \
-          --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse \
-          --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+          --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+          --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
 - API
@@ -252,14 +252,14 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    ```bash
    curl -X POST \
        -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
+       -H "Authorization: Bearer <IAM_token>" \
        -d '{
        "accessBindingDeltas": [{
            "action": "ADD",
            "accessBinding": {
                "roleId": "editor",
                "subject": {
-                   "id": "gfei8n54hmfhuk5nogse",
+                   "id": "gfei8n54hmfh********",
                    "type": "userAccount"
                }
            }
@@ -268,10 +268,10 @@ This section describes how to assign [roles](../../concepts/access-control/roles
            "accessBinding": {
                "roleId": "viewer",
                "subject": {
-                   "id": "helj89sfj80aj24nugsz",
+                   "id": "helj89sfj80a********",
                    "type": "userAccount"
        }}}]}' \
-       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
    ```
 
     You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC API call.
@@ -286,16 +286,16 @@ This section describes how to assign [roles](../../concepts/access-control/roles
     ```bash
     curl -X POST \
         -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -H "Authorization: Bearer <IAM_token>" \
         -d '{
         "accessBindings": [{
             "roleId": "editor",
-            "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+            "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
         },{
             "roleId": "viewer",
-            "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+            "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
         }]}' \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
     ```
 
 - {{ TF }}
@@ -315,7 +315,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
        {% endnote %}
 
-       * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+       * `members`: List of users or service account the role is being assigned to. It is specified in the format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
@@ -323,17 +323,17 @@ This section describes how to assign [roles](../../concepts/access-control/roles
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-       service_account_id = "aje82upckiqhi3943ekr"
+       service_account_id = "aje82upckiqh********"
        role               = "admin"
        members = [
-         "userAccount:aje82upckiqhi3943ekr",
+         "userAccount:aje82upckiqh********",
        ]
      }
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam2" {
-       service_account_id = "aje82upckiqhi3943ekr"
+       service_account_id = "aje82upckiqh********"
        role               = "viewer"
        members = [
-         "userAccount:aje82upckiqhi3943ekr",
+         "userAccount:aje82upckiqh********",
        ]
      }
      ...
@@ -372,7 +372,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
        You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
        ```
-       yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
+       yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
        ```
 
 {% endlist %}
@@ -399,8 +399,8 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
-      | ajebqtreob2dpblin8pe | test-sa  | test-description |
-      | aje6o61dvog2h6g9a33s | my-robot |                  |
+      | ajebqtreob2d******** | test-sa  | test-description |
+      | aje6o61dvog2******** | my-robot |                  |
       +----------------------+----------+------------------+
       ```
 
@@ -409,15 +409,15 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       ```
       yc resource-manager folder add-access-binding my-folder \
         --role viewer \
-        --subject serviceAccount:ajebqtreob2dpblin8pe
+        --subject serviceAccount:ajebqtreob2d********
       ```
 
-   1. Retrieve the user ID and assign, to the user, the `iam.serviceAccounts.tokenCreator` role for the `test-sa`  service account (in the administrator profile):
+   1. Retrieve the user ID and assign, to the user, the `iam.serviceAccounts.tokenCreator` role for the `test-sa` service account (in the administrator profile):
 
       ```
       yc iam service-account add-access-binding test-sa \
         --role iam.serviceAccounts.tokenCreator \
-        --subject userAccount:gfei8n54hmfhuk5nogse
+        --subject userAccount:gfei8n54hmfh********
       ```
 
 
@@ -427,13 +427,13 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
       ```
       yc compute instance list --folder-name my-folder \
-        --impersonate-service-account-id ajebqtreob2dpblin8pe
+        --impersonate-service-account-id ajebqtreob2d********
       ```
 
       The user can also obtain an [IAM token](../../concepts/authorization/iam-token.md) for your `test-sa` service account, for short-term access.
 
       ```
-      yc iam create-token --impersonate-service-account-id ajebqtreob2dpblin8pe
+      yc iam create-token --impersonate-service-account-id ajebqtreob2d********
       ```
 
       The token will expire automatically.
@@ -443,14 +443,14 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       ```
       yc resource-manager folder remove-access-binding my-folder \
         --role viewer \
-        --subject serviceAccount:ajebqtreob2dpblin8pe
+        --subject serviceAccount:ajebqtreob2d********
       ```
    1. Revoke the `iam.serviceAccounts.tokenCreator` role from the user you assigned the service account's privileges to:
 
       ```
       yc iam service-account remove-access-binding test-sa \
         --role iam.serviceAccounts.tokenCreator \
-        --subject userAccount:gfei8n54hmfhuk5nogse
+        --subject userAccount:gfei8n54hmfh********
       ```
 
 
@@ -478,8 +478,8 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
-      | ajebqtreob2dpblin8pe | test-sa  | test-description |
-      | aje6o61dvog2h6g9a33s | my-robot |                  |
+      | ajebqtreob2d******** | test-sa  | test-description |
+      | aje6o61dvog2******** | my-robot |                  |
       +----------------------+----------+------------------+
       ```
 
@@ -488,7 +488,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       ```bash
       yc iam service-account add-access-binding my-robot \
         --role editor \
-        --subject serviceAccount:ajebqtreob2dpblin8pe
+        --subject serviceAccount:ajebqtreob2d********
       ```
 
 - API
@@ -496,8 +496,8 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
    1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+      curl -H "Authorization: Bearer <IAM_token>" \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
       ```
 
       Result:
@@ -506,15 +506,15 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       {
        "serviceAccounts": [
         {
-         "id": "ajebqtreob2dpblin8pe",
-         "folderId": "b1gvmob95yysaplct532",
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "test-sa",
          "description": "test-description"
         },
         {
-         "id": "aje6o61dvog2h6g9a33s",
-         "folderId": "b1gvmob95yysaplct532",
+         "id": "aje6o61dvog2********",
+         "folderId": "b1gvmob95yys********",
          "createdAt": "2018-10-15T18:01:25Z",
          "name": "my-robot"
         }
@@ -527,17 +527,17 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       ```bash
       curl -X POST \
           -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -H "Authorization: Bearer <IAM_token>" \
           -d '{
           "accessBindingDeltas": [{
               "action": "ADD",
               "accessBinding": {
                   "roleId": "editor",
                   "subject": {
-                      "id": "ajebqtreob2dpblin8pe",
+                      "id": "ajebqtreob2d********",
                       "type": "serviceAccount"
           }}}]}' \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
       ```
 
 - {{ TF }}
@@ -548,19 +548,19 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
-      * `service_account_id`: ID of the service account that access must be configured for.
+      * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
    {% cut "Example of allowing the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
 
    ```hcl
    ...
    resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-     service_account_id = "aje82upckiqhi3943ekr"
+     service_account_id = "aje82upckiqh********"
      role               = "admin"
      members = [
-       "serviceAccount:aje82upckiqhi3943ekr",
+       "serviceAccount:aje82upckiqh********",
      ]
    }
    ...
@@ -598,7 +598,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
+      yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
       ```
 
 {% endlist %}
@@ -631,7 +631,7 @@ For example, allow any authenticated user to view information about the `my-robo
    ```bash
    curl -X POST \
        -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
+       -H "Authorization: Bearer <IAM_token>" \
        -d '{
        "accessBindingDeltas": [{
            "action": "ADD",
@@ -641,7 +641,7 @@ For example, allow any authenticated user to view information about the `my-robo
                    "id": "allAuthenticatedUsers",
                    "type": "system"
        }}}]}' \
-       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
    ```
 
 - {{ TF }}
@@ -652,16 +652,16 @@ For example, allow any authenticated user to view information about the `my-robo
 
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
-      * `service_account_id`: ID of the service account that access must be configured for.
+      * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the format `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the format `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
    {% cut "Example of allowing any authenticated user to view information about the `my-robot` service account" %}
 
    ```hcl
    ...
    resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-     service_account_id = "aje82upckiqhi3943ekr"
+     service_account_id = "aje82upckiqh********"
      role               = "viewer"
      members = [
        "system:allUsers",
@@ -702,7 +702,7 @@ For example, allow any authenticated user to view information about the `my-robo
       You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
+      yc resource-manager service-account list-access-bindings <service_account_name_or_ID>
       ```
 
 {% endlist %}

@@ -5,8 +5,8 @@
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
    1. Click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
-   1. Specify the {{ ydb-full-name }} database or [create](../../ydb/quickstart.md#create-db) a new one. If you opted for creating a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) after creating it to update the list of databases.
-   1. Enter the name of the stream. The naming requirements are as follows:
+   1. Specify the {{ ydb-full-name }} database or [create](../../ydb/quickstart.md#create-db) a new one. If you opted for creating a new database, click ![refresh-button](../../_assets/console-icons/arrow-rotate-right.svg) after creating it to update the list of databases.
+   1. Enter a name for the stream. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

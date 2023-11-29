@@ -1,9 +1,9 @@
 ---
-title: "How to work with encryption keys. Step-by-step guide"
-description: "Step-by-step guide for working with encryption keys in {{ yandex-cloud }}. In this tutorial, you will learn how to manage encryption keys and their versions. Find out how to encrypt data using the {{ yandex-cloud }} CLI and API."
+title: "How to work with encryption keys. Step-by-step guides"
+description: "Step-by-step guides on using encryption keys in {{ yandex-cloud }}. In this tutorial, you will learn how to manage encryption keys and their versions. Find out about encrypting data using the {{ yandex-cloud }} CLI and API."
 ---
 
-# Step-by-step guide for {{ kms-name }}
+# Step-by-step guides for {{ kms-name }}
 
 ## Symmetric encryption {#symmetric-encryption}
 
@@ -45,3 +45,4 @@ description: "Step-by-step guide for working with encryption keys in {{ yandex-c
 
 - [{#T}](asymmetric-signature-key.md)
 - [{#T}](signature-verification.md)
+- [{#T}](signature-verification-cosign.md)

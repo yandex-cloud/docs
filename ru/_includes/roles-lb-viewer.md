@@ -5,3 +5,5 @@
 - [целевые группы](../network-load-balancer/concepts/target-resources.md).
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
+
+Включает разрешения, предоставляемые ролью `load-balancer.auditor`.

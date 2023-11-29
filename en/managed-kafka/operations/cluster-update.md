@@ -392,7 +392,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
-   - Public access settings, in the `configSpec.assignPublicIp` parameter.
+   - Public access settings in the `configSpec.assignPublicIp` parameter.
    - List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -438,9 +438,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
       {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour_of_day> \
-         --datatransfer-access=<day_of_week> \
-         --deletion-protection=<deletion_protection>
+                             `hour=<hour> \
+         --datatransfer-access=<access_to_cluster> \
+         --deletion-protection=<deletion_protection>\
+         --schema-registry=<data_schema_management>
       ```
 
    You can change the following settings:
@@ -454,6 +455,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
       {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+   * `--schema-registry`: Enable this option to manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+
+      {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
    You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -475,6 +480,20 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
       ```
 
       {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+   1. To enable data schema management via [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add to the cluster description the `config.schema_registry` field with `true` for value:
+
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+        ...
+        config {
+          ...
+          schema_registry  = <data_schema_management>
+        }
+      }
+      ```
+
+      {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
    1. Make sure the settings are correct.
 
@@ -503,6 +522,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+   * Settings for data schema management via [{{ mkf-msr }}](../concepts/managed-schema-registry.md) in the `configSpec.schemaRegistry` parameter.
+
+      {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

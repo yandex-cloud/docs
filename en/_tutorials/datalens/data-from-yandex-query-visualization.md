@@ -41,8 +41,8 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you need
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
-1. In the left-hand panel, select ![study](../../_assets/query/study.svg) **Tutorial**.
-1. Click **Create connection**. In the Create connection section, all parameter fields are filled out, just type a description (optional) and click **Create**. You'll be taken to the screen for creating data [binding](../../query/concepts/glossary.md#binding).
+1. In the left-hand panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **Tutorial**.
+1. Click **Create connection**. In the Create connection section, all parameter fields are already populated, so type a description (optional) and click **Create**. The action will take you to the data [binding](../../query/concepts/glossary.md#binding) creation screen.
 1. Type a description of data binding (optional) and click **Create**. Appropriate training resources are created.
 
 ## Create a connection in {{ datalens-full-name }} {#create_connection_lens}
@@ -50,7 +50,7 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you need
 To create a {{ yq-full-name }} connection:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select a **{{ yq-full-name }}** connection.
 1. Specify the connection parameters:
 
@@ -119,14 +119,14 @@ To visualize and analyze the data, use a [combined](../../datalens/visualization
    ![select-layer-column](../../_assets/datalens/yandex-query-visualization/select-layer-column.png)
 
 1. Drag the `total_amount` measure to the **Y** section. You will see a bar chart in the visualization area.
-1. Add a layer. To do this, click ![plus](../../_assets/datalens/plus.svg) to the right of the first layer's name.
+1. Add a layer. To do this, click ![plus](../../_assets/console-icons/plus.svg) to the right of the first layer's name.
 1. For the second layer, choose **Line chart**.
 
    ![select-layer-line](../../_assets/datalens/yandex-query-visualization/select-layer-line.png)
 
 1. Add a field to the chart:
 
-   1. In the left-hand panel, click ![plus](../../_assets/datalens/plus.svg) and select **Field**.
+   1. In the left-hand panel, click ![plus](../../_assets/console-icons/plus.svg) and select **Field**.
 
       ![chart-add-field](../../_assets/datalens/yandex-query-visualization/chart-add-field.png)
 

@@ -18,23 +18,23 @@ When using macros, triggers, and auto actions, you can insert values from the is
 
 ## Variable types {#variable-type}
 
-The names of variables that correspond to their issue fields follow the format: `{{issue.<field_key>}}`. To get a specific parameter for the issue field, use the following format: `{{issue.<field_key>.<parameter>}}`.
+The variable names assigned to issue fields, have the format: `{{issue.<field_key>}}`. To get a specific parameter of an issue field, use the following format: `{{issue.<field_key>.<parameter>}}`.
 
 ### User attributes {#users-data}
 
-You can get a user's first and last name using default variables. To get specific user attributes, specify a variable using the format `{{issue.<role>.<attribute>}}`, where `<role>` is the role and name used for the user field and `<attribute>` is the attribute indicator.
+You can use default variables to get the user's first and last name. To obtain specific user attributes, use a variable in the format `{{issue.<role>.<attribute>}}`, where `<role>` is the role and name of the field in which the user is specified, and `<attribute>` is the attribute.
 
 User roles:
-* `assignee`: Issue's assignee.
-* `author`: Issue's reporter.
-* `followers`: Followers of the issue.
-* `access`: Users from the **{{ ui-key.startrek-backend.fields.issue.access }}** field.
+* `assignee`: Issue essignee
+* `author`: Author
+* `followers`: Followers
+* `access`: Users from the **{{ ui-key.startrek-backend.fields.issue.access }}** field
 
 User attributes:
-* `login`: The user's login.
-* `firstName`: First name.
-* `lastname`: Last name.
-* `uid`: ID.
+* `login`: Login
+* `firstName`: First name
+* `lastname`: Last name
+* `uid`: ID
 * `email`: Email address.
 
 For example, by using the `not_var{{issue.followers.email}}` variable, you can get email addresses for all the issue's followers.
@@ -59,7 +59,7 @@ Some issue parameters aren't displayed in fields, but you can get their values u
 
 ### Local fields {#local-fields}
 
-The names of variables that correspond to their local issue fields follow the format: `{{issue.local.<field_ID>}}`.
+The variable names assigned to local issue fields, have the format: `{{issue.local.<field_ID>}}`.
 
 ### Date and time modifiers {#date-time}
 
@@ -89,10 +89,11 @@ Examples of variables in JSON format:
 | `not_var{{issue.summary.json}}` | Issue name | `"Issue name"` |
 | `not_var{{issue.description.json}}` | Problem description | `"Description"` |
 | `not_var{{issue.tags.json}}` | Tags | `["tag1","tag2"]` |
-| `{{issue.<role>.login.json}}` | User's login (for the `author` and `assignee` fields) | `"john-johnson"` |
-| `{{issue.<role>.uid.json}}` | User ID (for the `author` and `assignee` fields) | `1120000000211495` |
-| `{{issue.<role>.login.json}}` | Logins of users (for the `followers` and `access` fields) | `["john-johnson", "user3993"]` |
-| `{{issue.<role>.uid.json}}` | User IDs (for the `followers` and `access` fields) | `[1120000000211495, 1120000000011060]` |
+| `{{issue.<role>.login.json}}` | User's login (for the `author` and `assignee` fields). | `"ivan-ivanov"` |
+| `{{issue.<role>.uid.json}}` | User ID (for the `author` and `assignee` fields). | `1120000000211495` |
+| `{{issue.<role>.login.json}}` | Logins of users (for the `followers` and `access` fields). | `["ivan-ivanov", "user3993"]` |
+| `{{issue.<role>.uid.json}}` | User IDs (for the `followers` and `access` fields). | `[1120000000211495, 1120000000011060]` |
+| `not_var{{issue.components.display.json}}` | Components | `["component1","component2"]` |
 
 {% note warning %}
 

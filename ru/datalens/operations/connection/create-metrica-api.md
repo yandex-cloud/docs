@@ -5,6 +5,10 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создание подключения к Metrica
 
+
+{% include [datalens-metrica-pro-note](../../../_includes/datalens/datalens-metrica-pro-note.md) %}
+
+
 Чтобы создать подключение к Metrica:
 
 

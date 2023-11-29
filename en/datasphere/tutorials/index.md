@@ -5,7 +5,7 @@ description: "Here is a variety of {{ ml-platform-full-name }} use cases: servic
 
 # {{ ml-platform-full-name }} tutorials
 
-## Settings {#settings}
+## Setup {#settings}
 
 * [{#T}](basics.md)
 * [{#T}](community-for-students.md)
@@ -25,6 +25,7 @@ description: "Here is a variety of {{ ml-platform-full-name }} use cases: servic
 * [{#T}](node-from-cell.md)
 * [{#T}](node-from-docker.md)
 * [{#T}](stable-diffusion.md)
+* [{#T}](yagpt-tuning.md)
 
 ## Analytics {#analytics}
 

@@ -33,6 +33,7 @@ description: "На странице представлен список поша
 ## Задания (jobs)
 
 * [{#T}](jobs.md)
+* [{#T}](running-jobs.md)
 * [{#T}](jobs-spark.md)
 * [{#T}](jobs-pyspark.md)
 * [{#T}](jobs-hive.md)

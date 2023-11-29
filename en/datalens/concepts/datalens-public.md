@@ -45,24 +45,35 @@ You can embed published dashboards and charts into a website or app using an `if
 * `_theme=light`: Use the light theme for the object.
 * `_theme=dark`: Use the dark theme for the object.
 
-The parameter is added to the URL following the question mark `?`, e.g.:
+The parameter is added to the URL following the question mark `?`.
+For example:
 
 ```
-<iframe src="https://datalens.yandex/oxxbqilhotpgk?_theme=dark"></iframe>
+<iframe frameborder="0" src="https://datalens.yandex/bdzixmpsae3o2?_embedded=1&_no_controls=1&_lang=ru&_theme=dark"></iframe>
 ```
 
-You can apply filtering to embedded charts. To do this, pass the filter parameter in the chart link.
-To set the filter parameter:
+### Getting the embed code {#get-code}
 
-1. Add the chart and selectors to the dashboard.
+To get the embed code with a preset dashboard or chart design:
+
+1. [Publish](#how-to-publish) your dashboard or chart.
+1. Open the dashboard or chart using the public link provided to you.
+1. Click ![image](../../_assets/datalens/arrow-up-right.svg) in the top-right corner and select ![image](../../_assets/datalens/code.svg) **Embed code**.
+1. In the window that opens, set up the menu language, theme, and appearance. On the right of the window, copy the link or embed code with the preset design parameters.
+
+### Filtering embedded charts {#filtering-embedded-charts}
+
+You can apply filtering to embedded charts. To do this, provide the filtering parameters in the chart link.
+To set up filtering:
+
+1. Add a chart and selector to the dashboard.
 1. [Publish](#how-to-publish) the dashboard.
-1. Select the desired selector.
-1. Proceed to edit the chart on the dashboard. Click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) and select **Embed code**.
+1. Set the required selector values.
+1. Click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) next to the chart on the dashboard and select ![image](../../_assets/datalens/code.svg) **Embed code**.
+1. In the window that opens, set up the menu language, theme, and appearance. On the right of the window, copy the link or embed code with the preset design and filter parameters.
 
-The filter parameter is added to the chart URL following the question mark `?`. To pass multiple parameters (for example, to set up the theme), use the ampersand `&` between them.
+The filter parameters will be added to the chart URL following the question mark (`?`). If multiple parameters are provided, they will be separated by the ampersand character (`&`).
 
 ```
-<iframe src="https://datalens.yandex/oxxbqilhotpgk?e16d1014-7135-4af5-9169-1b8ab88bdb4e=East&_theme=dark"></iframe>
+<iframe frameborder="0" src="https://datalens.yandex/z2uxl5pbztkep?shopid_vj2j=sp-15&shopid_vj2j=sp-18&shopid_vj2j=sp-20&_embedded=1&_no_controls=1&_theme=light&_lang=ru" width="100%" height="400px"></iframe>
 ```
-
-

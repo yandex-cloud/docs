@@ -85,7 +85,6 @@ default:
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
   console-full-name: Yandex Cloud Console
   console-host: console.cloud.yandex.com
-  console-name: Cloud Console
   container-registry-full-name: Yandex Container Registry
   container-registry-name: Container Registry
   container-registry-short-name: Container Registry
@@ -1817,37 +1816,55 @@ default:
       elasticsearch:
         v2:
           cpu:
+            c100|month|string: $9.676800
             c100|string: $0.013440
           ram:
+            basic|month|string: $12.096000
             basic|string: $0.016800
+            gold|month|string: $14.169600
             gold|string: $0.019680
+            platinum|month|string: $16.300800
             platinum|string: $0.022640
         v3:
           cpu:
+            c100|month|string: $9.676800
             c100|string: $0.013440
           ram:
+            basic|month|string: $12.096000
             basic|string: $0.016800
+            gold|month|string: $14.169600
             gold|string: $0.019680
+            platinum|month|string: $16.300800
             platinum|string: $0.022640
       greenplum:
         v2:
           cpu:
+            c100|month|string: $13.766400
             c100|string: $0.019120
+          ram|month|string: $3.628800
           ram|string: $0.005040
         v3:
           cpu:
+            c100|month|string: $12.384000
             c100|string: $0.017200
+          ram|month|string: $3.283200
           ram|string: $0.004560
       kafka:
         v2:
           cpu:
+            c100|month|string: $9.676800
             c100|string: $0.013440
+            c50|month|string: $4.320000
             c50|string: $0.006000
+          ram|month|string: $2.592000
           ram|string: $0.003600
         v3:
           cpu:
+            c100|month|string: $8.697600
             c100|string: $0.012080
+            c50|month|string: $3.916800
             c50|string: $0.005440
+          ram|month|string: $2.304000
           ram|string: $0.003200
       local-nvme:
         ch|month|string: $0.104080
@@ -1865,50 +1882,76 @@ default:
       mongodb:
         v1:
           cpu:
+            c100|month|string: $9.216000
             c100|string: $0.012800
+            c20|month|string: $2.649600
             c20|string: $0.003680
+            c5|month|string: $0.230400
             c5|string: $0.000320
+            c50|month|string: $4.320000
             c50|string: $0.006000
+          ram|month|string: $5.184000
           ram|string: $0.007200
         v2:
           cpu:
+            c100|month|string: $9.216000
             c100|string: $0.012800
+            c20|month|string: $2.649600
             c20|string: $0.003680
+            c5|month|string: $0.230400
             c5|string: $0.000320
+            c50|month|string: $4.320000
             c50|string: $0.006000
+          ram|month|string: $5.184000
           ram|string: $0.007200
         v3:
           cpu:
+            c100|month|string: $9.216000
             c100|string: $0.012800
+            c50|month|string: $4.320000
             c50|string: $0.006000
+          ram|month|string: $5.184000
           ram|string: $0.007200
       mysql:
         v1:
           cpu:
+            c100|month|string: $10.886400
             c100|string: $0.015120
+            c20|month|string: $2.476800
             c20|string: $0.003440
+            c5|month|string: $0.230400
             c5|string: $0.000320
+            c50|month|string: $4.147200
             c50|string: $0.005760
+          ram|month|string: $2.937600
           ram|string: $0.004080
         v2:
           cpu:
             c100:
               dedicated|string: $0.004400
+            c100|month|string: $10.771200
             c100|string: $0.014960
+            c20|month|string: $2.476800
             c20|string: $0.003440
+            c5|month|string: $0.230400
             c5|string: $0.000320
+            c50|month|string: $4.147200
             c50|string: $0.005760
           ram:
             dedicated|string: $0.001280
+          ram|month|string: $2.937600
           ram|string: $0.004080
         v3:
           cpu:
             c100:
               dedicated|string: $0.004000
+            c100|month|string: $9.676800
             c100|string: $0.013440
+            c50|month|string: $3.744000
             c50|string: $0.005200
           ram:
             dedicated|string: $0.001200
+          ram|month|string: $2.649600
           ram|string: $0.003680
       network-hdd:
         ch|month|string: $0.025600
@@ -1940,51 +1983,81 @@ default:
       opensearch:
         v2:
           cpu:
+            c100|month|string: $9.676800
             c100|string: $0.013440
+            c50|month|string: $3.870720
             c50|string: $0.005376
+          ram|month|string: $4.032000
           ram|string: $0.005600
         v3:
           cpu:
+            c100|month|string: $9.676800
             c100|string: $0.013440
+            c50|month|string: $3.870720
             c50|string: $0.005376
+          ram|month|string: $4.032000
           ram|string: $0.005600
       pg:
         v1:
           cpu:
+            c100|month|string: $12.326400
             c100|string: $0.017120
+            c20|month|string: $2.592000
             c20|string: $0.003600
+            c5|month|string: $0.345600
             c5|string: $0.000480
+            c50|month|string: $4.320000
             c50|string: $0.006000
+          ram|month|string: $2.822400
           ram|string: $0.003920
         v2:
           cpu:
+            c100|month|string: $10.425600
             c100|string: $0.014480
+            c20|month|string: $2.592000
             c20|string: $0.003600
+            c5|month|string: $0.345600
             c5|string: $0.000480
+            c50|month|string: $4.320000
             c50|string: $0.006000
+          ram|month|string: $2.822400
           ram|string: $0.003920
         v3:
           cpu:
+            c100|month|string: $9.388800
             c100|string: $0.013040
+            c50|month|string: $3.916800
             c50|string: $0.005440
+          ram|month|string: $2.534400
           ram|string: $0.003520
       redis:
         v1:
           cpu:
+            c100|month|string: $11.520000
             c100|string: $0.016000
+            c20|month|string: $2.073600
             c20|string: $0.002880
+            c5|month|string: $0.092308
             c5|string: $0.000128
+          ram|month|string: $3.110400
           ram|string: $0.004320
         v2:
           cpu:
+            c100|month|string: $9.676800
             c100|string: $0.013440
+            c5|month|string: $0.633600
             c5|string: $0.000880
+            c50|month|string: $5.817600
             c50|string: $0.008080
+          ram|month|string: $2.592000
           ram|string: $0.003600
         v3:
           cpu:
+            c100|month|string: $8.697600
             c100|string: $0.012080
+            c50|month|string: $5.241600
             c50|string: $0.007280
+          ram|month|string: $2.304000
           ram|string: $0.003200
     dataproc:
       v2:
@@ -2207,52 +2280,74 @@ default:
             greenplum:
               cpu:
                 c100:
+                  v3|month|string: $10.526400
                   v3|string: $0.014620
               ram:
+                v3|month|string: $2.790720
                 v3|string: $0.003876
             kafka:
               cpu:
                 c100:
+                  v2|month|string: $8.225280
                   v2|string: $0.011424
+                  v3|month|string: $7.392960
                   v3|string: $0.010268
               ram:
+                v2|month|string: $2.203200
                 v2|string: $0.003060
+                v3|month|string: $1.958400
                 v3|string: $0.002720
             mysql:
               cpu:
                 c100:
+                  v2|month|string: $9.155520
                   v2|string: $0.012716
+                  v3|month|string: $8.225280
                   v3|string: $0.011424
               ram:
+                v2|month|string: $2.496960
                 v2|string: $0.003468
+                v3|month|string: $2.252160
                 v3|string: $0.003128
             opensearch:
               cpu:
                 c100:
+                  v3|month|string: $8.225280
                   v3|string: $0.011424
               ram:
+                v3|month|string: $3.427200
                 v3|string: $0.004760
             pg:
               cpu:
                 c100:
+                  v2|month|string: $8.861760
                   v2|string: $0.012308
+                  v3|month|string: $7.980480
                   v3|string: $0.011084
               ram:
+                v2|month|string: $2.399040
                 v2|string: $0.003332
+                v3|month|string: $2.154240
                 v3|string: $0.002992
             redis:
               cpu:
                 c100:
+                  v2|month|string: $8.225280
                   v2|string: $0.011424
+                  v3|month|string: $7.392960
                   v3|string: $0.010268
               ram:
+                v2|month|string: $2.203200
                 v2|string: $0.003060
+                v3|month|string: $1.958400
                 v3|string: $0.002720
           ydb:
             cpu:
               c100:
+                v2|month|string: $9.155520
                 v2|string: $0.012716
             ram:
+              v2|month|string: $2.496960
               v2|string: $0.003468
         y1:
           compute:
@@ -2282,59 +2377,83 @@ default:
             greenplum:
               cpu:
                 c100:
+                  v3|month|string: $9.659520
                   v3|string: $0.013416
               ram:
+                v3|month|string: $2.560896
                 v3|string: $0.003557
             kafka:
               cpu:
                 c100:
+                  v2|month|string: $7.547904
                   v2|string: $0.010483
+                  v3|month|string: $6.784128
                   v3|string: $0.009422
               ram:
+                v2|month|string: $2.021760
                 v2|string: $0.002808
+                v3|month|string: $1.797120
                 v3|string: $0.002496
             mysql:
               cpu:
                 c100:
+                  v2|month|string: $8.401536
                   v2|string: $0.011669
+                  v3|month|string: $7.547904
                   v3|string: $0.010483
               ram:
+                v2|month|string: $2.291328
                 v2|string: $0.003182
+                v3|month|string: $2.066688
                 v3|string: $0.002870
             opensearch:
               cpu:
                 c100:
+                  v3|month|string: $7.547904
                   v3|string: $0.010483
               ram:
+                v3|month|string: $3.144960
                 v3|string: $0.004368
             pg:
               cpu:
                 c100:
+                  v2|month|string: $8.131968
                   v2|string: $0.011294
+                  v3|month|string: $7.323264
                   v3|string: $0.010171
               ram:
+                v2|month|string: $2.201472
                 v2|string: $0.003058
+                v3|month|string: $1.976832
                 v3|string: $0.002746
             redis:
               cpu:
                 c100:
+                  v2|month|string: $7.547904
                   v2|string: $0.010483
+                  v3|month|string: $6.784128
                   v3|string: $0.009422
               ram:
+                v2|month|string: $2.021760
                 v2|string: $0.002808
+                v3|month|string: $1.797120
                 v3|string: $0.002496
           ydb:
             cpu:
               c100:
+                v2|month|string: $8.401536
                 v2|string: $0.011669
             ram:
+              v2|month|string: $2.291328
               v2|string: $0.003182
   sku|USD|ydb:
     cluster:
       v1:
         ssd|month|string: $0.171040
       v2:
+        cpu|month|string: $10.771200
         cpu|string: $0.014960
+        ram|month|string: $2.937600
         ram|string: $0.004080
     v1:
       serverless:
@@ -3637,7 +3756,6 @@ default:
         create-issue: Create issue from comment
       ui_components_IssueLinks:
         empty-list-button: Create sub-issue
-        external-relations: Links to external applications
         links-group-title--relates: Related
       ui_components_IssueListsPanel:
         create: Create
@@ -6003,6 +6121,7 @@ default:
             label_services: Services
             label_status: Status
             section_additional: Advanced settings
+            section_configuration: Configuration
             section_resource: Resources
             section_ui-proxy: UI Proxy
           shards:

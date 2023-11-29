@@ -87,7 +87,7 @@ description: "Вы можете запросить детальную инфор
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера.
-  1. На панели слева выберите ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.mysql.cluster.switch_operations }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.cluster.switch_operations }}**.
 
 - CLI
 

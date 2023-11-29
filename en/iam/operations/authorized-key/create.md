@@ -35,7 +35,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
 
    ```json
    {
-      "id": "lfkoe35hsk58aks301nl",
+      "id": "lfkoe35hsk58********",
       "service_account_id": "ajepg0mjt06s********",
       "created_at": "2019-03-20T10:04:56Z",
       "key_algorithm": "RSA_2048",
@@ -53,15 +53,15 @@ To create an [authorized key](../../concepts/authorization/key.md):
    ```bash
    curl -X POST \
      -H 'Content-Type: application/json' \
-     -H "Authorization: Bearer <iam-token>" \
-     -d '{"serviceAccountId": "<service-account-id>"}' \
+     -H "Authorization: Bearer <IAM_token>" \
+     -d '{"serviceAccountId": "<service_account_ID>"}' \
      https://iam.{{ api-host }}/iam/v1/keys
    ```
 
    Where:
 
-   * `<iam-token>`: IAM token of the user who has permissions to create keys for the specified service account.
-   * `<service-account-id>`: `ID` of the service account the keys are created for.
+   * `<IAM_token>`: IAM token of the user with permissions to create keys for the specified service account.
+   * `<service_account_ID>`: `ID` of the service account for which the keys are created.
 
    If successful, the server response will contain the private key (`privateKey`) and public key ID (`id`). Save this data. You will not be able to get the key value again.
 
@@ -114,7 +114,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -129,7 +129,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```
-      yc iam key list --service-account-id <service account ID>
+      yc iam key list --service-account-id <service_account_ID>
       ```
 
 {% endlist %}

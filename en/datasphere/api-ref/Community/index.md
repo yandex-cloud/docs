@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/index.md
 ---
 
 # DataSphere API v2, REST: Community methods
-
+A set of methods for managing Community resources.
 ## JSON Representation {#representation}
 ```json 
 {

@@ -116,7 +116,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -141,7 +141,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                    .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+                    .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_endpoint>", "{{ region-id }}"))
                     .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -206,7 +206,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -214,10 +214,10 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       import boto3
 
       def create_series_table():
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_endpoint>")
 
           table = ydb_docapi_client.create_table(
-              TableName = 'Series', # Series: table name
+              TableName = 'Series', # Series is the table name
               KeySchema = [
                   {
                       'AttributeName': 'series_id',
@@ -271,7 +271,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -285,7 +285,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       use Aws\DynamoDb\Exception\DynamoDbException;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
+          'endpoint' => '<Document_API_endpoint>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -353,7 +353,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -363,7 +363,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+          endpoint: "<Document_API_endpoint>",
       });
 
       dynamodb.send(new AWS.CreateTableCommand({
@@ -437,7 +437,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -456,7 +456,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
         region = '{{ region-id }}'
 
         Aws.config.update(
-          endpoint: '<Document API endpoint>',
+          endpoint: '<Document_API_endpoint>',
           region: region
         )
 
@@ -467,7 +467,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
           key_schema: [
             {
               attribute_name: 'series_id',
-              key_type: 'HASH'  # Partitioning key.
+              key_type: 'HASH'  # Partition key.
             },
             {
               attribute_name: 'title',

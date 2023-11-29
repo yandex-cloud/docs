@@ -1,6 +1,6 @@
 # Selecting data from specific columns
 
-You can fetch data from all columns as well as from their subsets. You can also rename existing columns and create new ones.
+You can fetch data from all columns as well as from their their subsets. You can also rename existing columns and create new ones.
 
 For example:
 
@@ -20,7 +20,7 @@ FROM
 LIMIT 10
 ```
 
-Take a look at the block on the right and click ![run](../../_assets/query/run.svg) **Run**.
+Take a look at the block on the right and click ![run](../../_assets/console-icons/play-fill.svg) **Run**.
 Query execution results are available in the **Result** tab as a table or schema.
 
 ## See also {#see-also}

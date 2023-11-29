@@ -1,1 +1,0 @@
-By default, the maximum record retention period is 3 days. To increase it, contact support. Please note that there is no guarantee that records will be deleted as soon as the specified retention period expires: they may be deleted later.

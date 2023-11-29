@@ -7,11 +7,11 @@ description: "In this tutorial, you will learn how to delete user accounts in {{
 
 {% note info %}
 
-An account can be deleted by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#admin).
+An account can be deleted by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant roles to a user, see [Roles](../security/index.md#admin).
 
 {% endnote %}
 
-1. [Log in]({{link-passport-login}}) to the organization's administrator or owner account.
+1. [Log in]({{link-passport-login}}) as the organization administrator or owner.
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 

@@ -1,0 +1,1 @@
+[`vpc.securityGroups.user`](../../../../iam/concepts/access-control/roles.md#vpc-securitygroups-user) — позволяет назначать группы безопасности сетевым интерфейсам, а также предоставляет доступ к информации обо всех ресурсах сервиса {{vpc-short-name }}.
