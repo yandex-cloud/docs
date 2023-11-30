@@ -204,6 +204,7 @@ default:
   k8s-versions-regular: 1.24, 1.25, 1.26, 1.27
   k8s-versions-stable: 1.24, 1.25, 1.26, 1.27
   k8s-vpa: Vertical Pod Autoscaler
+  keycloak: Keycloak
   KF: Apache Kafka®
   KFC: Kafka Connect
   kms-full-name: Yandex Key Management Service

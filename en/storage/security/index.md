@@ -1,20 +1,20 @@
 ---
 title: "Access management in {{ objstorage-full-name }} (S3)"
-description: "Access management in {{ objstorage-full-name }} (S3), a service for scalable data storage. This section describes what resources you can assign a role for and what roles the service supports."
+description: "Access management in {{ objstorage-full-name }} (S3), a service for scalable data storage. This section describes which resources you can assign a role for and what roles exist in the service."
 ---
 
 # Access management in {{ objstorage-name }}
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
-Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
+Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or an individual bucket. These assigned roles will also apply to nested resources.
 
 For information about managing access to buckets and objects, see [{#T}](../concepts/acl.md).
 
@@ -45,7 +45,6 @@ For information about managing access to buckets and objects, see [{#T}](../conc
 #### {{ roles-cloud-owner }} {#owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
-
 
 ### Primitive roles {#primitive-roles}
 

@@ -95,8 +95,6 @@ items:
                 href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
                 href: stt-v3/api-ref/grpc/stt_service.md
-              - name: AsyncRecognizer
-                href: stt-v3/api-ref/grpc/AsyncRecognizer.md
               - name: OperationService
                 href: stt-v3/api-ref/grpc/operation_service.md
       - name: Синтез

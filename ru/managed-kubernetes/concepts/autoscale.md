@@ -52,10 +52,4 @@
 * `updateMode: "Auto"`, чтобы {{ k8s-vpa }} автоматически управлял ресурсами подов.
 * `updateMode: "Off"`, чтобы {{ k8s-vpa }} [предоставлял рекомендации](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) по управлению ресурсами подов, но не изменял их.
 
-{% note info %}
-
-{{ k8s-vpa }} не применит новые рекомендации, если приложение развернуто только в одном поде.
-
-{% endnote %}
-
 Подробнее о {{ k8s-vpa }} см. в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).

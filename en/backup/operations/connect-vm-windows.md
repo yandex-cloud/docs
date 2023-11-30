@@ -7,6 +7,8 @@ description: "Follow this guide to connect a Windows Server VM to {{ backup-name
 
 You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Windows-based operating systems](../concepts/vm-connection.md#windows).
 
+{% include [requirements](../../_includes/backup/requirements.md) %}
+
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
 To connect a Windows VM to {{ backup-name }}:

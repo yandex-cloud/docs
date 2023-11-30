@@ -1,0 +1,1 @@
+For the {{ backup-name }} agent to run properly, VMs must meet the [minimum requirements](../../backup/concepts/vm-connection.md#requirements).

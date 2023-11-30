@@ -2,6 +2,8 @@
 
 You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Windows-based operating systems](../concepts/vm-connection.md#windows).
 
+{% include [requirements](../../_includes/backup/requirements.md) %}
+
 ## Getting started {#before-you-begin}
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../../iam/concepts/access-control/roles.md#backup-editor).
