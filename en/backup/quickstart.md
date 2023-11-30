@@ -4,6 +4,8 @@
 
 You can back up {{ compute-name }} [VMs](../compute/concepts/vm.md) with [supported operating systems](concepts/vm-connection.md#os).
 
+{% include [requirements](../_includes/backup/requirements.md) %}
+
 To get started with {{ backup-name }}:
 1. [Activate the service](#activate-provider).
 1. [Set up a service account](#prepare-service-account).

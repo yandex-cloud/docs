@@ -49,7 +49,7 @@ To top up your personal account:
 
    Before paying, please make sure the following is correct in your payment order:
    * Payment amount.
-   * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Kazakhstan), and Teletech d.o.o. Beograd (for non-residents of Russia and Kazakhstan).
+   * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Kazakhstan), and Iron Hive doo Beograd (Serbia) (for non-residents of Russia and Kazakhstan).
    * Your company or individual entrepreneur TIN.
    * [Personal account number](../concepts/personal-account.md#id) in the payment details.
    * [Contract number](../concepts/contract.md) in the payment details.

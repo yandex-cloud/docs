@@ -16,15 +16,15 @@ General configuration format:
 </CORSConfiguration>
 ```
 
-A configuration may contain up to 1000 rules.
+A configuration may contain up to 100 rules.
 
 ## Elements {#elements}
 
 | Element | Description |
 ----- | -----
-| `CORSConfiguration` | Root element of a CORS configuration. May contain a maximum of 100 `CORSRule` elements.<br/><br/>Path: `/CORSConfiguration`. |
+| `CORSConfiguration` | Root element of a CORS configuration. It may contain a maximum of 100 `CORSRule` elements.<br/><br/>Path: `/CORSConfiguration`. |
 | `CORSRule` | Rule for filtering incoming requests to the resource. Each rule must contain at least one `AllowedMethod` and `AllowedOrigin` element.<br/><br/>Path: `/CORSConfiguration/CORSRule`. |
-| `ID` | Unique rule ID (maximum 255 characters).<br/><br/>Optional. You can use it to search for a rule in a file.<br/><br/>Path: `/CORSConfiguration/CORSRule/ID`. |
+| `ID` | Unique rule ID (up to 255 characters).<br/><br/>This is an optional parameter. You can use it to search for a rule in a file.<br/><br/>Path: `/CORSConfiguration/CORSRule/ID`. |
 | `AllowedMethod` | HTTP method (`PUT`, `GET`, `HEAD`, `POST`, or `DELETE`) that can be used in a cross-domain request. Each method should be specified in a separate element. Specify at least one method.<br/><br/>Path: `/CORSConfiguration/CORSRule/AllowedMethod`. |
 | `AllowedOrigin` | Website that allows sending cross-domain requests to a bucket. Specify at least one `AllowedOrigin` element.<br/><br/>It may contain no more than one `*` character. Examples: `http://*.example.com`, `*`.<br/><br/>Path: `/CORSConfiguration/CORSRule/AllowedOrigin`. |
 | `AllowedHeader` | Header allowed in a request to an object. If multiple headers are allowed, specify each one in a separate `AllowedHeader` element. You can use a single `*` character in the header name to define a template. For example, `<AllowedHeader>*</AllowedHeader>` means that all headers are allowed.<br/><br/>An [options](../object/options.md) request contains the `Access-Control-Request-Headers` header. {{ objstorage-name }} maps the headers passed in `Access-Control-Request-Headers` to the `AllowedHeader` set and returns a list of allowed headers in response to the `options` request.<br/><br/>Path: `/CORSConfiguration/CORSRule/AllowedHeader`. |

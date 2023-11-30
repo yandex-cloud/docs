@@ -4,11 +4,7 @@ Data in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/inde
 
 You can create backups of {{ managed-k8s-name }} cluster node group data using the [Velero](https://velero.io/) tool. It supports working with {{ yandex-cloud }} [disks](../../compute/concepts/disk.md) using the {{ k8s }} CSI driver and helps create [snapshots of disks](../../compute/concepts/snapshot.md) and [volumes](../../managed-kubernetes/concepts/volume.md).
 
-{% note tip %}
-
-When working with Velero, you can use [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), or any other type of volumes without built-in support for snapshots. To use such a volume type, install Velero with the [restic plugin](https://velero.io/docs/v1.8/restic/).
-
-{% endnote %}
+When working with Velero that is installed manually, you can use [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), or any other type of volumes without built-in support for snapshots. To use such a volume type, install Velero with the [restic plugin](https://velero.io/docs/v1.8/restic/). Velero installed from [{{ marketplace-name }}](/marketplace/products/yc/velero-yc-csi) does not include the restic plugin.
 
 In this article, you will learn how to create a backup of a {{ managed-k8s-name }} cluster node group using Velero, save it in {{ objstorage-name }}, and restore it in a node group in a different cluster:
 1. [Create a backup of your {{ managed-k8s-name }} node group](#backup).
@@ -25,6 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Manually
 
    1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each of them with the following settings:
+
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: `1.22` or higher
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`
 
@@ -90,33 +87,27 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Configure additional settings {#additional-settings}
 
-1. {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-1. Select the [Velero client](https://github.com/vmware-tanzu/velero/releases) of version `1.8.1` or lower.
-1. Download the Velero client, extract the contents of the archive, and install it. For more information about installation, see the [Velero documentation](https://velero.io/docs/v1.5/basic-install/#install-the-cli).
-1. View a description of any Velero command:
+1. Select a [Velero client](https://github.com/vmware-tanzu/velero/releases) for your platform based on the [compatibility table](https://github.com/vmware-tanzu/velero#velero-compatibility-matrix).
+1. Download the Velero client, extract the contents of the archive, and install it. For more information about installation, see the [Velero documentation](https://velero.io/docs/main/basic-install/#install-the-cli).
+1. Make sure the Velero client has been installed. To do this, run the following command:
 
    ```bash
-   velero --help
+   velero version
    ```
 
-1. Create a file named `credentials` with the previously received static key data:
+   Result:
 
-   ```ini
-   [default]
-     aws_access_key_id=<key_ID>
-     aws_secret_access_key=<key_value>
+   ```text
+   Client:
+           Version: v1.10.3
+           Git commit: 18ee078dffd9345df610e0ca9f61b31124e93f50
    ```
 
 ## Backups {#backup}
 
 To back up the {{ managed-k8s-name }} node group data:
 1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the first {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
-
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
-
 1. Back up data from the {{ managed-k8s-name }} cluster node group:
 
    ```bash
@@ -147,9 +138,7 @@ To back up the {{ managed-k8s-name }} node group data:
 
 To restore data from the {{ managed-k8s-name }} cluster node group:
 1. [Configure kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) to work with the second {{ managed-k8s-name }} cluster.
-
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
-
 1. Make sure the data backup is displayed in the new {{ managed-k8s-name }} cluster:
 
    ```bash
@@ -172,8 +161,9 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    ```
 
    Where:
-   * `--exclude-namespaces`: Parameter that allows users not to restore objects from the `velero` namespace.
-   * `--from-backup`: Backup name.
+
+   * `--exclude-namespaces`: List of namespaces to exclude from the recovery process.
+   * `--from-backup`: Name of the backup for recovery.
 
    Result:
 

@@ -25,6 +25,15 @@ description: "Следуя данному руководству, вы смож�
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+1. Установите {{ k8s-vpa }} из [репозитория](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
+
+     ```bash
+     cd /tmp && \
+       git clone https://github.com/kubernetes/autoscaler.git && \
+       cd autoscaler/vertical-pod-autoscaler/hack && \
+       ./vpa-up.sh
+     ```
+
 ## Создайте {{ k8s-vpa }} и тестовое приложение {#create-vpa-workload}
 
 1. Создайте файл `app.yaml`, содержащий настройки тестового приложения `nginx` и балансировщика нагрузки:
@@ -95,7 +104,8 @@ description: "Следуя данному руководству, вы смож�
        kind:       Deployment
        name:       nginx
      updatePolicy:
-       updateMode: "Auto"
+       updateMode:  "Auto"
+       minReplicas: 1
    ```
 
    {% endcut %}
@@ -121,14 +131,7 @@ description: "Следуя данному руководству, вы смож�
    vpa-recommender-67********-jqvgt           1/1  Running  0  44h
    vpa-updater-64********-xqsts               1/1  Running  0  44h
    nginx-6c********-62j7w                     1/1  Running  0  42h
-   nginx-6c********-6t4nz                     1/1  Running  0  42h
    ```
-
-   {% note info %}
-
-   Для корректной работы {{ k8s-vpa }} требуется как минимум два пода `nginx`.
-
-   {% endnote %}
 
 ## Проверьте работу {{ k8s-vpa }} {#test-vpa}
 
@@ -174,7 +177,7 @@ description: "Следуя данному руководству, вы смож�
 1. Убедитесь, что {{ k8s-vpa }} управляет ресурсами подов приложения `nginx`:
 
    ```bash
-   kubectl get pod <имя одного из подов nginx> --output yaml
+   kubectl get pod <имя пода nginx> --output yaml
    ```
 
    Результат:
