@@ -14,6 +14,8 @@ You can set up time synchronization on {{ compute-full-name }} [VMs](../../compu
 The VM time is synced to correctly work with other servers and applications, process data in real time, store exact time data in system logs, etc.
 
 NTP servers recommended for syncing:
+* `ntp1.yandex.net`
+* `ntp2.yandex.net`
 * `ntp0.NL.net`
 * `ntp2.vniiftri.ru`
 * `ntp.ix.ru`

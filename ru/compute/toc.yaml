@@ -143,6 +143,8 @@ items:
             href: operations/disk-control/disk-change-folder.md
           - name: Зашифровать диск
             href: operations/disk-control/disk-encrypt.md
+          - name: Получить информацию о диске
+            href: operations/disk-control/get-info.md
           - name: Удалить диск
             href: operations/disk-control/delete.md
       - name: Снимки дисков
@@ -167,6 +169,8 @@ items:
             href: operations/disk-placement-groups/create.md
           - name: Добавить диск в группу размещения
             href: operations/disk-placement-groups/add-disk.md
+          - name: Получить информацию о группе размещения дисков
+            href: operations/disk-placement-groups/get-info.md
           - name: Удалить диск из группы размещения
             href: operations/disk-placement-groups/remove-disk.md
       - name: Создание образа
@@ -199,6 +203,8 @@ items:
             href: operations/filesystem/detach-from-vm.md
           - name: Изменить файловое хранилище
             href: operations/filesystem/update.md
+          - name: Получить информацию о файловом хранилище
+            href: operations/filesystem/get-info.md
           - name: Удалить файловое хранилище
             href: operations/filesystem/delete.md
       - name: Управление серийной консолью

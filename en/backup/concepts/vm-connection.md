@@ -8,6 +8,14 @@ For connections to work properly, link a [service account](#sa) with the `backup
 
 Once you have connected your VM to {{ backup-name }} and set it up, you need to link it to a [backup policy](policy.md).
 
+## VM configuration requirements {#requirements}
+
+A VM's minimum configuration required to install and correctly run the {{ backup-name }} agent is as follows:
+* Free disk space:
+  * For Linux-based VMs: 2 GB.
+  * For Windows-based VMs: 1.2 GB.
+* RAM: For backups, 1 GB of RAM is required per TB of a backup. The amount of RAM used depends on the volume and type of data being handled by the agent.
+
 ## Supported operating systems {#os}
 
 You can automatically install the {{ backup-name }} agent when creating a VM from {{ marketplace-full-name }} images:

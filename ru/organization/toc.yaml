@@ -53,6 +53,10 @@ items:
             href: tutorials/federations/integration-keycloak.md
           - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
             href: tutorials/federations/integration-common.md
+          - name: Сопоставление групп пользователей
+            items:
+              - name: Сопоставление групп пользователей в Keycloak
+                href: tutorials/federations/group-mapping/keycloak.md
   - name: Концепции
     items:
       - name: Облака и сервисы

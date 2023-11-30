@@ -7,6 +7,8 @@ description: "Follow this guide to create a Linux VM with a connection to {{ bac
 
 You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Linux-based operating systems](../concepts/vm-connection.md#linux).
 
+{% include [requirements](../../_includes/backup/requirements.md) %}
+
 ## Getting started {#before-you-begin}
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../../iam/concepts/access-control/roles.md#backup-editor).
