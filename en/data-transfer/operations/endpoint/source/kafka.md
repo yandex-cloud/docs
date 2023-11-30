@@ -20,7 +20,7 @@ To create or edit an endpoint of a managed database, you need the [`{{ roles.mkf
 {% endnote %}
 
 
-Connection with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mkf-full-name }}](../../../../managed-kafka/).
+Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 {% list tabs %}
 

@@ -96,6 +96,7 @@ Prepare the target for receiving the data:
 ## Creating an endpoint for the source {#source}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
+1. In the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 1. Click **Create endpoint**.
 1. Make sure that the **Direction** field is set to `Source`.
 1. Enter a name for the endpoint.
@@ -108,6 +109,7 @@ For more information, see [{#T}](operations/endpoint/index.md).
 ## Creating an endpoint for the target {#target}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
+1. In the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 1. Click **Create endpoint**.
 1. Make sure that the **Direction** field is set to `Target`.
 1. Enter a name for the endpoint.

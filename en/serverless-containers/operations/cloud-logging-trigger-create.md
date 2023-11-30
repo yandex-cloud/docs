@@ -32,12 +32,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify:
 
-      * Log group.
-      * (Optional) Resource types, such as `serverless.function` for {{ sf-name }} functions.
-      * (Optional) IDs of {{ yandex-cloud }} or your resources, such as {{ serverless-containers-name }} containers.
-      * (Optional) Logging levels.
-
-      A trigger fires when records that match all the optional settings are added to the specified log group. If an optional setting is not specified, the trigger fires for any value of the setting.
+      {% include [logging-settings](../../_includes/functions/logging-settings.md) %}
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 

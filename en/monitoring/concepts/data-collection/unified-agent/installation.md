@@ -94,10 +94,11 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   ```
 
    Supported values for the `ubuntu_name` parameter:
-  - `ubuntu-14.04-trusty`
-  - `ubuntu-16.04-xenial`
-  - `ubuntu-18.04-bionic`
-  - `ubuntu-20.04-focal`
+   * `ubuntu-14.04-trusty`;
+   * `ubuntu-16.04-xenial`;
+   * `ubuntu-18.04-bionic`;
+   * `ubuntu-20.04-focal`;
+   * `ubuntu-22.04-jammy` since version `23.03.02`.
 
   To find out all the available versions of the agent, run this command:
   ```(bash)

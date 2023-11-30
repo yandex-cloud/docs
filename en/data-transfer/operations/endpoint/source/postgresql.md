@@ -22,7 +22,7 @@ To create or edit an endpoint of a managed database, you need the [`{{ roles.mpg
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mpg-name }}](../../../../managed-postgresql/).
+Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% list tabs %}
 
