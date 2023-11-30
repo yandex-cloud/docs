@@ -20,8 +20,12 @@ The following services are always free of charge:
 * [{{ forms-full-name }}](../forms/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ load-testing-full-name }}](../load-testing/pricing.md)
+* {{ preview-stage }} [{{ maf-full-name }}](../managed-airflow/pricing.md)
+* {{ preview-stage }}[{{ sws-full-name }}](../smartwebsecurity/pricing.md)
+* {{ preview-stage }} [{{ speechsense-full-name }}](../speechsense/pricing.md)
 * {{ preview-stage }} [{{ yq-full-name }}](../query/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
+* {{ preview-stage }}[{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}](../wiki/pricing.md)
 
 Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled as {{ preview-stage }}.

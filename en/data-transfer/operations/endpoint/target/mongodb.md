@@ -21,11 +21,11 @@ To create or edit an endpoint of a managed database, you need the [`{{ roles.mmg
 {% endnote %}
 
 
+Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+
 {% list tabs %}
 
 - Management console
-
-   Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mmg-full-name }}](../../../../managed-mongodb/).
 
    {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 

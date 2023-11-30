@@ -1,6 +1,6 @@
-## Service: {{ mch-full-name }} {#managed-clickhouse}
+## {{ mch-full-name }} service {#managed-clickhouse}
 
-Common labels for all {{ mch-full-name }} service metrics:
+Common labels for all {{ mch-full-name }} metrics:
 
 | Label | Value |
 ----|----
@@ -54,7 +54,7 @@ The load on processor cores.
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk |
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk |
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk |
-| `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk |
+| `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk; disabled for network drives |
 | `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk |
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk |
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk |

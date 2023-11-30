@@ -165,7 +165,7 @@ items:
         href: qa/general.md
       - name: Navigation
         href: qa/navigation.md
-      - name: Metric collection and export
+      - name: Collecting and exporting metrics
         href: qa/metrics-export.md
       - name: Metrics and units of measure
         href: qa/metrics-measure.md

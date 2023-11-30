@@ -99,10 +99,11 @@ description: "Из статьи вы узнаете, как установить
   ```
 
   Поддерживаемые значения параметра `ubuntu_name`:
-    - `ubuntu-14.04-trusty`;
-    - `ubuntu-16.04-xenial`;
-    - `ubuntu-18.04-bionic`;
-    - `ubuntu-20.04-focal`.
+  * `ubuntu-14.04-trusty`;
+  * `ubuntu-16.04-xenial`;
+  * `ubuntu-18.04-bionic`;
+  * `ubuntu-20.04-focal`;
+  * `ubuntu-22.04-jammy`, начиная с версии `23.03.02`.
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)

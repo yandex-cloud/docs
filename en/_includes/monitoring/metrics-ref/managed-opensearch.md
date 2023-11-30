@@ -1,6 +1,6 @@
-## Service: {{ mos-full-name }} {#managed-opensearch}
+## {{ mos-full-name }} service {#managed-opensearch}
 
-Common labels for all {{ mos-full-name }} service metrics:
+Common labels for all {{ mos-full-name }} metrics:
 
 | Label | Value |
 ----|----
@@ -14,53 +14,53 @@ The load on processor cores.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance. |
-| `cpu.guarantee`<br/>`DGAUGE`, pcs | Guaranteed number of cores. |
-| `cpu.limit`<br/>`DGAUGE`, pcs | Limit on CPUs in use. |
-| `cpu.guest`<br/>`DGAUGE`, % | CPU usage, `guest` usage type. |
-| `cpu.idle`<br/>`DGAUGE`, % | CPU usage, `idle` usage type. |
-| `cpu.iowait`<br/>`DGAUGE`, % | CPU usage, `iowait` usage type. |
-| `cpu.irq`<br/>`DGAUGE`, % | CPU usage, `irq` usage type. |
-| `cpu.nice`<br/>`DGAUGE`, % | CPU usage, `nice` usage type. |
-| `cpu.softirq`<br/>`DGAUGE`, % | CPU usage, `softirq` usage type. |
-| `cpu.steal`<br/>`DGAUGE`, % | CPU usage, `steal` usage type. |
-| `cpu.system`<br/>`DGAUGE`, % | CPU usage, `system` usage type. |
-| `cpu.user`<br/>`DGAUGE`, % | CPU usage, `user` usage type. |
-| `load.avg_15min`<br/>`DGAUGE`, % | Average load in 15 minutes. |
-| `load.avg_1min`<br/>`DGAUGE`, % | Average load per 1 minute. |
-| `load.avg_5min`<br/>`DGAUGE`, % | Average load in 5 minutes. |
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance |
+| `cpu.guarantee`<br/>`DGAUGE`, pcs | Guaranteed number of cores |
+| `cpu.limit`<br/>`DGAUGE`, pcs | Limit on CPUs in use |
+| `cpu.guest`<br/>`DGAUGE`, % | CPU usage, `guest` usage type |
+| `cpu.idle`<br/>`DGAUGE`, % | CPU usage, `idle` usage type |
+| `cpu.iowait`<br/>`DGAUGE`, % | CPU usage, `iowait` usage type |
+| `cpu.irq`<br/>`DGAUGE`, % | CPU usage, `irq` usage type |
+| `cpu.nice`<br/>`DGAUGE`, % | CPU usage, `nice` usage type |
+| `cpu.softirq`<br/>`DGAUGE`, % | CPU usage, `softirq` usage type |
+| `cpu.steal`<br/>`DGAUGE`, % | CPU usage, `steal` usage type |
+| `cpu.system`<br/>`DGAUGE`, % | CPU usage, `system` usage type |
+| `cpu.user`<br/>`DGAUGE`, % | CPU usage, `user` usage type |
+| `load.avg_15min`<br/>`DGAUGE`, % | Average load in 15 minutes |
+| `load.avg_1min`<br/>`DGAUGE`, % | Average load per 1 minute |
+| `load.avg_5min`<br/>`DGAUGE`, % | Average load in 5 minutes |
 
 ### Disk metrics {#managed-opensearch-disk-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space. |
-| `disk.free_inodes`<br/>`DGAUGE`, pcs | Number of free inodes. |
-| `disk.total_bytes`<br/>`DGAUGE`, bytes | Available space. |
-| `disk.total_inodes`<br/>`DGAUGE`, pcs | Available inodes. |
-| `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space. |
-| `disk.used_inodes`<br/>`DGAUGE`, pcs | Used inodes. |
+| `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space |
+| `disk.free_inodes`<br/>`DGAUGE`, pcs | Number of free inodes |
+| `disk.total_bytes`<br/>`DGAUGE`, bytes | Available space |
+| `disk.total_inodes`<br/>`DGAUGE`, pcs | Available inodes |
+| `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space |
+| `disk.used_inodes`<br/>`DGAUGE`, pcs | Used inodes |
 
 ### Disk operation metrics {#managed-opensearch-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time. |
-| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time. |
-| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a specific disk. |
-| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk. |
-| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk. |
-| `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk. |
-| `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk. |
-| `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk. |
-| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk. |
-| `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk. |
-| `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk. |
-| `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read speed. |
-| `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second. |
-| `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second. |
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization. |
-| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed. |
-| `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second. |
-| `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second. |
+| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
+| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time |
+| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a specific disk |
+| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a specific disk |
+| `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a specific disk |
+| `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Read operations per second for a specific disk |
+| `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Merged read operations per second for a specific disk |
+| `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a specific disk; disabled for network drives |
+| `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a specific disk |
+| `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a specific disk |
+| `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a specific disk |
+| `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read speed |
+| `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
+| `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization |
+| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
+| `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
+| `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
 ### RAM metrics {#managed-opensearch-ram-metrics}
 | Name<br/>Type, units | Description |
@@ -86,7 +86,7 @@ The load on processor cores.
 | `net.errin`<br/>`DGAUGE`, pcs | Number of errors upon receipt |
 | `net.errout`<br/>`DGAUGE`, pcs | Number of errors at sending |
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
-| `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network. |
+| `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network |
 
 ### Service metrics {#managed-opensearch-metrics}
 ##### {{ OS }} native metrics {#managed-opensearch-system-metrics}
