@@ -21,7 +21,7 @@ To create or edit an endpoint of a managed database, you need the [`{{ roles.mos
 {% endnote %}
 
 
-Connection with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mos-full-name }}](../../../../managed-opensearch/).
+Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 {% list tabs %}
 
@@ -54,7 +54,7 @@ Connecting to nodes with explicitly specified network addresses and ports.
 
       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Fully delete tables included in the transfer (used by default).
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete tables included in the transfer (used by default).
 
          Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
 
