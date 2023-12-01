@@ -6,9 +6,9 @@
 
    This setting includes the following parameters:
 
-   * **Hard limit**: Hard buffer size limit (in bytes). If this value is exceeded, the connection with the client will terminate immediately. The minimum value is `0` (no limit). The default value is `0`. In the management console, you define units of measurement using the **Hard limit unit** parameter.
-   * **Soft limit**: Soft buffer size limit (in bytes). The connection to the client will not terminate unless this value is exceeded for a period of time specified in the **Soft seconds** parameter. The minimum value is `0` (no limit). The default value is `0`. In the management console, you define units of measurement using the **Soft limit unit** parameter.
-   * **Soft seconds**: Time (seconds) for which soft buffer limit may be exceeded. The minimum value is `0`. The default value is `0`.
+   * **Hard limit**: Hard buffer size limit (in bytes). If this value is exceeded, the connection with the client will terminate immediately. The minimum value is `0` (no limit). By default, it is set to `0`. In the management console, define units of measurement using the **Hard limit unit** parameter.
+   * **Soft limit**: Soft buffer size limit (in bytes). The connection to the client will not terminate unless this value is exceeded for a period of time specified in the **Soft seconds** parameter. The minimum value is `0` (no limit). By default, it is set to `0`. In the management console, define units of measurement using the **Soft limit unit** parameter.
+   * **Soft seconds**: Time (seconds) for which the soft buffer limit may be exceeded. The minimum value is `0`. By default, it is set to `0`.
 
    For more information about this setting, see the [{{ RD }} documentation](https://redis.io/docs/reference/clients/#output-buffer-limits).
 
@@ -39,6 +39,18 @@
    {% note warning %}
 
    If you change this parameter, all running {{ RD }} nodes will be restarted.
+
+   {% endnote %}
+
+* **Maxmemory percent**{#settings-maxmemory-percent} {{ tag-all }}
+
+   Maximum percentage of RAM to allocate for user data on {{ mrd-name }} cluster hosts.
+
+   The minimum value is 1 and the maximum value is 75. The default value is 75.
+
+   {% note info %}
+
+   Decreasing the maximum percentage value will reduce the database capacity. This may be helpful if the database has Out of Memory Killer (OOM Killer) issues.
 
    {% endnote %}
 

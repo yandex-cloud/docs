@@ -228,7 +228,7 @@ networkpolicy.networking.k8s.io/default-deny created
 
    {% note info %}
 
-   Сетевые политики разрешат трафик от подов с [меткой](../concepts/index.md#node-labels) `run: access` к подам с меткой `app: nginx`. Метки автоматически добавляются утилитой kubectl и основаны на имени ресурса.
+   Сетевые политики разрешат трафик от подов с [{{ k8s }}-меткой](../concepts/index.md#node-labels) `run: access` к подам с {{ k8s }}-меткой `app: nginx`. Метки автоматически добавляются утилитой kubectl и основаны на имени ресурса.
 
    {% endnote %}
 
@@ -282,7 +282,7 @@ networkpolicy.networking.k8s.io/default-deny created
 
 ### Проверьте, что сетевая изоляция для других подов работает {#check-isolation}
 
-В созданных сетевых политиках `access-nginx` разрешено подключаться подам с меткой `run: access`.
+В созданных сетевых политиках `access-nginx` разрешено подключаться подам с {{ k8s }}-меткой `run: access`.
 1. Создайте под без метки `run: access`:
 
    ```bash

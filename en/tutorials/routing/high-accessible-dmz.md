@@ -97,7 +97,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
    wsl -l
    ```
 
-   If WSL is installed, the terminal will display a list of available distributions, for example:
+   If WSL is installed, the terminal displays a list of available distributions, for example:
 
    ```bash
    Windows Subsystem for Linux Distributions:
@@ -499,9 +499,9 @@ In the same way, configure the `eth1`, `eth2`, `eth3`, and `eth4` network interf
 1. For the `eth1` interface, set **ExternalZone** under **Security Zone**. Do not rename this interface.
 1. Rename the `eth2` interface to `dmz`, activate **Interface leads to DMZ**, and specify **DMZZone**.
    Set up Automatic Hide NAT to hide the addresses of VMs hosted in the DMZ segment with access to the internet. To do this:
-      1. In the `dmz` interface editing dialog box, click `Net_10.160.1.0` and go to the **NAT** tab.
-      1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list and enable **Hide behind gateway**.
-      1. Repeat these same steps for `Net_10.160.2.0`.
+   1. In the `dmz` interface editing dialog box, click `Net_10.160.1.0` and go to the **NAT** tab.
+   1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list and enable **Hide behind gateway**.
+   1. Repeat these same steps for `Net_10.160.2.0`.
 1. Rename the `eth3` interface to `app` and specify **InternalZone**.
 1. Rename the `eth4` interface to `database` and specify **InternalZone**.
 
@@ -509,8 +509,8 @@ In the same way, configure the `eth1`, `eth2`, `eth3`, and `eth4` network interf
 
 Configure the FW-B gateway network interfaces the same way as those of the FW-A gateway. When naming the interfaces, select existing names from the list.
 To select an interface name from currently set ones:
-   1. Under **Leads To**, select **Override**.
-   1. Find the relevant name in the drop-down list next to the **Specific** option.
+1. Under **Leads To**, select **Override**.
+1. Find the relevant name in the drop-down list next to the **Specific** option.
 
 {% note warning %}
 

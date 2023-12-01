@@ -89,17 +89,11 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 
    ![create-chart-3](../_assets/datalens/quickstart/06-create-map-chart.png)
 
-
-## Create a dashboard {#create-dashboard}
+## Create a dashboard and add charts there {#dashboard-create}
 
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
 1. In the left-hand panel, click ![image](../_assets/datalens/dashboard-0523.svg) **Dashboards**.
 1. Click **Create dashboard**.
-1. Enter a name for the dashboard and click **Create**.
-
-## Add charts to the dashboard {#add-charts}
-
-
 1. In the panel at the bottom of the page, select **Chart**.
 1. In the window that opens, click **Select**.
 1. Select the **Sales map** chart. This will automatically fill in the **Name** field.
@@ -120,12 +114,12 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
    1. Click **Add**.
 
 1. Position the selector on the dashboard wherever you like.
+1. Save the dashboard:
 
+   1. In the top-right corner of the dashboard, click **Save**.
+   1. Enter a name for the dashboard and click **Create**.
 
-1. Save the dashboard. To do this, click **Save** in the top-right corner.
-
-
-![add-selectors](../_assets/datalens/quickstart/08-add-selectors.png)
+   ![add-selectors](../_assets/datalens/quickstart/08-add-selectors.png)
 
 
 

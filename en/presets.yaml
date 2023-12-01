@@ -5830,6 +5830,7 @@ default:
           label_node-groups: Node group
           label_nodes: Nodes
         workloads:
+          label_tab-logs: Logs
           label_tab-yaml: YAML
       kafka:
         button_add-topic: Add topic
@@ -7141,6 +7142,9 @@ default:
                     ElasticSearchConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for Elasticsearch cluster
+                    ElasticSearchSource:
+                      dump_index_with_mapping:
+                        title: Dump an index with type mapping
                     ElasticSearchTarget:
                       cleanup_policy:
                         title: Cleanup policy
@@ -7330,6 +7334,8 @@ default:
                         title: AuditTrails.v1 parser
                       parser_config_common_cloud_logging:
                         title: CloudLogging parser
+                      parser_config_common_debezium_cdc:
+                        title: Debezium CDC parser
             metrika:
               console:
                 form:
@@ -7577,6 +7583,9 @@ default:
                     OpenSearchConnectionType:
                       mdb_cluster_id:
                         title: Managed Service for OpenSearch cluster
+                    OpenSearchSource:
+                      dump_index_with_mapping:
+                        title: Dump an index with type mapping
                     OpenSearchTarget:
                       cleanup_policy:
                         title: Cleanup policy
@@ -7786,6 +7795,10 @@ default:
                       connection:
                         title: Connection settings
                     YDSSourceAdvancedSettings:
+                      allow_ttl_rewind:
+                        title: >-
+                          Should continue working, if consumer read lag exceed
+                          TTL of topic
                       converter:
                         title: Conversion rules
                       supported_codecs:

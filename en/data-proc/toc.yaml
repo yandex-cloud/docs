@@ -99,6 +99,10 @@ items:
             href: tutorials/remote-run-job.md
       - name: Configuring networks for {{ dataproc-name }}
         href: tutorials/configure-network.md
+      - name: >-
+          Reconfiguring a network connection when recreating a {{ dataproc-name
+          }} cluster
+        href: tutorials/reconnect-network.md
       - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
       - name: Exchanging data with {{ mch-full-name }}
@@ -147,7 +151,7 @@ items:
         href: concepts/autoscaling.md
       - name: Decommissioning subclusters and hosts
         href: concepts/decommission.md
-      - name: Network in {{ dataproc-name }}
+      - name: Networking in {{ dataproc-name }}
         href: concepts/network.md
       - name: Maintenance
         href: concepts/maintenance.md

@@ -45,7 +45,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       1. Enter a name and description for the {{ mes-name }} cluster. The {{ mes-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mes-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
@@ -68,7 +68,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
-            {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
          * Select the storage size to use for data.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the configuration of the hosts created together with the {{ mes-name }} cluster:

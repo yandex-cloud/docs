@@ -37,8 +37,6 @@ items:
         href: billing/known-issues/account-blocked-due-to-debt.md
       - name: Закончился пробный период
         href: billing/known-issues/trial-expired-issue.md
-      - name: Платежный аккаунт создался в статусе «Платный» после регистрации
-        href: billing/known-issues/account-created-in-paid-status.md
       - name: >-
           На привязанную к платежному аккаунту почту неожиданно пришел чек на
           сумму, отсутствующую в истории платежей
@@ -84,16 +82,16 @@ items:
       - name: Примеры конфигураций и сценариев Cloud Billing
         href: billing/how-to/index.md
         hidden: true
-      - name: Как посмотреть стоимость потребления отдельных ресурсов
-        href: billing/how-to/how-to-view-separate-resource-consumption.md
       - name: Как изменить тип платежного аккаунта
         href: billing/how-to/changing-billing-account-type.md
-      - name: Как изменить тарифный план поддержки
-        href: billing/how-to/changing-support-plan.md
+      - name: Как изменить владельца платежного аккаунта
+        href: billing/how-to/changing-account-owner.md
       - name: Как подключиться к ЭДО
         href: billing/how-to/edi-system-connection.md
       - name: Как сформировать счет на оплату
         href: billing/how-to/generating-invoice.md
+      - name: Как вернуть деньги
+        href: billing/how-to/getting-refund.md
       - name: Как перевести средства между разными платежными аккаунтами
         href: billing/how-to/transfer-funds-between-billing-accounts.md
       - name: Как работают гранты и промокоды в биллинге Yandex Cloud
@@ -202,11 +200,11 @@ items:
           Ограничение доступа к бакету Object Storage диапазоном IP-адресов,
           принадлежащих Cloud CDN
         href: cdn/how-to/permit-bucket-access-only-to-cdn-networks.md
-  - name: Cloud Functions
+  - name: '{{ sf-name }} '
     items:
-      - name: Все решения для Cloud Functions
+      - name: Все решения для {{ sf-name }}
         href: functions/index.md
-      - name: Решения для известных проблем Cloud Functions
+      - name: Решения для известных проблем {{ sf-name }}
         href: functions/known-issues/index.md
         hidden: true
       - name: >-
@@ -218,13 +216,25 @@ items:
           Устранение ошибок с HTTP 499 при работе облачной функции или
           serverless-контейнера
         href: functions/known-issues/errors-499-in-function-or-container-logs.md
-      - name: Примеры конфигураций и сценариев Cloud Functions
+      - name: Не работает подключение к YDB из кода функции {{ sf-name }}
+        href: functions/known-issues/ydb-connection-issues-after-function-update.md
+      - name: Устранение ошибки No node can serve the request (Too many reschedules)
+        href: functions/known-issues/too-many-reschedules.md
+      - name: >-
+          Устранение ошибки No node can serve the request (concurrent requests
+          exceeded)
+        href: functions/known-issues/concurrent-request-quota-exceeded.md
+      - name: Примеры конфигураций и сценариев {{ sf-name }}
         href: functions/how-to/index.md
         hidden: true
+      - name: Как узнать количество вызовов функции за период
+      - href: functions/how-to/get-function-invokes-count.md
       - name: Как подключиться к функции из MDB
         href: functions/how-to/accessing-function-from-mdb.md
       - name: Как настроить статический IP-адрес
         href: functions/how-to/static-ip-address.md
+      - name: Возможности асинхорнной работы облачных функций
+        href: functions/how-to/async-functions-invokes.md
   - name: Cloud Logging
     items:
       - name: Все решения для Cloud Logging
@@ -369,8 +379,6 @@ items:
         href: datalens/how-to/ip-address-range.md
       - name: Как отфильтровать селектором уже отфильтрованные данные
         href: datalens/how-to/filtering-filtered-data.md
-      - name: Добавление существующего пользователя в {{ datalens-short-name }}
-        href: datalens/how-to/add-existing-user-to-organization.md
       - name: Решения для известных проблем {{ datalens-short-name }}
         href: datalens/known-issues/index.md
         hidden: true
@@ -427,8 +435,6 @@ items:
           при сохранении дашборда в {{ datalens-short-name }}
         href: >-
           datalens/known-issues/validation-error-request-failed-with-status-code-500.md
-      - name: Поддержка пользовательских полей Битрикс24 в {{ datalens-short-name }}
-        href: datalens/known-issues/bitrix24-user-fields-support.md
       - name: >-
           Устранение ошибки Bad Request for url MetrikaHttpApiException
           direct_client_logins
@@ -610,11 +616,11 @@ items:
       - name: Примеры конфигураций и сценариев KMS
         href: kms/how-to/index.md
         hidden: true
-  - name: Managed Kubernetes
+  - name: '{{ managed-k8s-name }}'
     items:
-      - name: Все решения для Managed Service for Kubernetes
+      - name: Все решения для {{ managed-k8s-name }}
         href: managed-kubernetes/index.md
-      - name: Решения для известных проблем Managed Service for Kubernetes
+      - name: Решения для известных проблем {{ managed-k8s-name }}
         href: managed-kubernetes/known-issues/index.md
         hidden: true
       - name: >-
@@ -628,15 +634,17 @@ items:
         href: >-
           managed-kubernetes/known-issues/unable-to-mount-volume-with-a-large-number-of-files.md
       - name: >-
-          Хосты группы узлов Managed Service for Kubernetes долго находятся в
-          статусе Reconciling
+          Хосты группы узлов {{ managed-k8s-name }} долго находятся в статусе
+          Reconciling
         href: >-
           managed-kubernetes/known-issues/node-group-hosts-are-in-reconciling-status-for-a-long-time.md
       - name: Под kube-dns-autoscaler постоянно перезапускается
         href: >-
           managed-kubernetes/known-issues/pod-kube-dns-autoscaler-constantly-restarting.md
-      - name: Не уменьшается количество узлов в группе
+      - name: Не уменьшается количество узлов в группе {{ managed-k8s-name }}
         href: managed-kubernetes/known-issues/cannot-reduce-the-number-of-nodes.md
+      - name: Не увеличивается количество узлов в группе {{ managed-k8s-name }}
+        href: managed-kubernetes/known-issues/autoscaler-node-enlarging-issues.md
       - name: Устранение ошибки Multi-Attach error for volume
         href: managed-kubernetes/known-issues/multi-attach-error-for-volume.md
       - name: Устранение ошибки DEADLINE_EXCEEDED
@@ -651,46 +659,48 @@ items:
           Устранение ошибки 0/10 nodes are available - node(s) had untolerated
           taint
         href: managed-kubernetes/known-issues/untolerated-taints-issue.md
-      - name: Примеры конфигураций и сценариев Managed Service for Kubernetes
+      - name: Примеры конфигураций и сценариев {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/index.md
         hidden: true
       - name: >-
           Добавление и изменение SSH-ключей пользователей Linux на хостах группы
-          узлов Managed Services for Kubernetes
+          узлов {{ managed-k8s-name }}
         href: >-
           managed-kubernetes/how-to/adding-and-changing-ssh-keys-for-linux-users-on-node-groups.md
       - name: >-
-          Назначение статических внешних IP-адресов для узлов кластера Managed
-          Service for Kubernetes
+          Назначение статических внешних IP-адресов для узлов кластера {{
+          managed-k8s-name }}
         href: >-
           managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
-      - name: Выдача нодам Kubernetes доступа в Интернет
+      - name: Выдача узлам {{ managed-k8s-name }} доступа в Интернет
         href: managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md
-      - name: Как изменить сеть или подсеть для MDB-кластера
+      - name: Как изменить сеть или подсеть для кластера {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/changing-net-or-subnet.md
-      - name: Как создать внутренний Ingress-контроллер
+      - name: Как создать внутренний Ingress-контроллер в {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/create-internal-ingress-balancer.md
       - name: >-
           Как настроить автоматическое удаление старых образов с узлов {{
           managed-k8s-name }}
         href: managed-kubernetes/how-to/configuring-automatic-image-deletion.md
-  - name: Managed GitLab
+  - name: '{{ mgl-name }}'
     items:
-      - name: Все решения для Managed Service for Kubernetes
+      - name: Все решения для {{ mgl-name }}
         href: managed-gitlab/index.md
-      - name: Решения для известных проблем Managed Service for Kubernetes
+      - name: Решения для известных проблем  {{ mgl-name }}
         href: managed-gitlab/known-issues/index.md
         hidden: true
-      - name: Примеры конфигураций и сценариев Managed Service for Kubernetes
+      - name: Устранение ошибки HTTP 500 в {{ mgl-name }}
+        href: managed-gitlab/known-issues/error-500.md
+      - name: Примеры конфигураций и сценариев {{ mgl-name }}
         href: managed-gitlab/how-to/index.md
         hidden: true
-      - name: Изменение типа инстанса Managed Service for GitLab
+      - name: Изменение типа инстанса  {{ mgl-name }}
         href: managed-gitlab/how-to/change-gitlab-instance-flavour.md
-      - name: Обновление ПО на инстансе Managed Service for GitLab
+      - name: Обновление ПО на инстансе  {{ mgl-name }}
         href: managed-gitlab/how-to/update-gitlab-software-version.md
-      - name: Как настроить Cleanup Policy когда закончилось место
+      - name: Как настроить Cleanup Policy в  {{ mgl-name }}
         href: managed-gitlab/how-to/cleanup-policy.md
-      - name: Как настроить миграцию проектов
+      - name: Как настроить миграцию проектов в  {{ mgl-name }}
         href: managed-gitlab/how-to/migrate-projects.md
   - name: Managed YDB
     items:
@@ -907,6 +917,8 @@ items:
           serverless-containers/known-issues/serverless-container-invoking-error-502.md
       - name: Устранение ошибки Service account is not available
         href: serverless-containers/known-issues/service-account-is-not-available.md
+      - name: Устранение ошибки user container exec format error
+        href: serverless-containers/known-issues/exec-format-error.md
       - name: Примеры конфигураций и сценариев Serverless Containers
         href: serverless-containers/how-to/index.md
         hidden: true

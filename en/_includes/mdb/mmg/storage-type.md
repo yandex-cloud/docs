@@ -9,7 +9,9 @@ When creating a cluster, you can select the following disk types for data storag
 
 * **Local SSD storage** (`local-ssd`): Disks with the fastest performance.
 
-  This disk type is only available for **Intel Broadwell** and **Intel Cascade Lake**. For a list of host classes and their respective platforms, see [{#T}](../../../managed-mongodb/concepts/instance-types.md).
+   The size of such a storage can be increased:
+   * For **Intel Broadwell** and **Intel Cascade Lake**: Only in 100 GB increments.
+   * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments only.
 
-  The storage size can only be increased in increments of 100 GB.
+   For a list of host classes and their respective platforms, see [{#T}](../../../managed-mongodb/concepts/instance-types.md).
 

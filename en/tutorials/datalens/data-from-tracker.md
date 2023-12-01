@@ -1,0 +1,1 @@
+{% include [visualisation-in-datalens](../../_tutorials/datalens/data-from-tracker.md) %}

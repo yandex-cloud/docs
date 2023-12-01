@@ -9,10 +9,9 @@ Visualizing data from {{ tracker-short-name }} to {{ datalens-full-name }} allow
 
 To visualize data from {{ tracker-short-name }} to {{ datalens-short-name }}:
 * Set up regular export of data to external storage.
-* Visualize the necessary metrics and data using {{ datalens-short-name }}.
+* Visualize the required metrics and data using {{ datalens-short-name }}.
 
 To visualize the data, follow these steps:
-
 
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a DB for storing the {{ tracker-short-name }} data](#database-create).
@@ -21,9 +20,7 @@ To visualize the data, follow these steps:
 1. [Create a connection to {{ datalens-short-name }}](#connection-create).
 1. [Create a dataset](#dataset-create).
 1. [Create a chart](#chart-create).
-1. [Create a dashboard in {{ datalens-short-name }}](#dashboard-create).
-1. [Add charts to the dashboard](#add-charts).
-
+1. [Create a dashboard in {{ datalens-short-name }} and add charts there](#dashboard-create).
 
 ## Getting started {#before-you-begin}
 
@@ -196,18 +193,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. On the top panel, select a [visualization type](../../datalens/visualization-ref/index.md). By default, the **Column chart** type is selected.
 
-
-## Create a dashboard {#dashboard-create}
+## Create a dashboard and add charts there {#dashboard-create}
 
 1. On the [{{ datalens-full-name }}]({{ link-datalens-main }}) home page, click **Create dashboard**.
-
-1. In the window that opens, enter a name for the dashboard and click **Create**. The dashboard will appear in the list on the navigation page.
-
-For more information about setting up dashboards, see [{{ datalens-full-name }} dashboard](../../datalens/concepts/dashboard.md).
-
-## Add charts to the dashboard {#add-charts}
-
-
 1. At the top of the [dashboard](#dashboard-create) page, click **Add**→ **Chart**.
 1. Fill in the widget parameters. Pay close attention to the following fields:
    * **Name**: Sets the name of the widget. It is displayed at the top of the widget.
@@ -215,6 +203,12 @@ For more information about setting up dashboards, see [{{ datalens-full-name }} 
    * **Description**: Sets the description of the widget. It is displayed at the bottom of the widget.
    * **Auto height**: Sets the automatic height for **Table** and **Markdown** widgets. If this parameter is disabled, you can set the height of the widget on the page using the mouse.
 1. Click **Add**. The widget will be displayed on the dashboard.
+1. Save the dashboard:
+
+   1. In the top-right corner of the dashboard, click **Save**.
+   1. Enter a name for the dashboard and click **Create**.
+
+   For more information about setting up dashboards, see [{{ datalens-full-name }} dashboard](../../datalens/concepts/dashboard.md).
 
 
 {% cut "Sample dashboard based on data from the `v_tracker_issues` table" %}

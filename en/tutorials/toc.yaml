@@ -5,50 +5,10 @@ items:
     items:
       - name: All tutorials
         href: web/index.md
-      - name: Static site in {{ objstorage-name }}
-        href: web/static.md
-      - name: Website based on LAMP or LEMP stack
-        href: web/lamp-lemp.md
-      - name: >-
-          Fault-tolerant website with load balancing by {{
-          network-load-balancer-name }}
-        href: web/load-balancer-website.md
-      - name: Fault-tolerant website with load balancing by {{ alb-name }}
-        href: web/application-load-balancer-website.md
-      - name: Joomla-based website with {{ PG }}
-        href: web/joomla-postgresql.md
-      - name: Creating a website in WordPress
-        href: web/wordpress.md
-      - name: WordPress website on a {{ MY }} database
-        href: web/wordpress-mysql.md
-      - name: >-
-          Transferring a WordPress website from a different hosting provider to
-          {{ yandex-cloud }}
-        href: web/wordpress-transfer.md
-      - name: 1C-Bitrix website
-        href: web/bitrix-website.md
-      - name: Setting up virtual hosting
-        href: web/virtual-hosting.md
-      - name: Creating load balancer with DDoS protection
+      - name: Creating a load balancer with DDoS protection
         href: web/alb-with-ddos-protection.md
-      - name: Publishing game updates using {{ cdn-name }}
-        href: web/prefetch.md
-      - name: >-
-          Integrating an L7 load balancer with the {{ cdn-name }} and {{
-          objstorage-name }}
-        href: web/cdn-storage-integration.md
-      - name: Blue-green and canary deployment of service versions
-        href: web/blue-green-canary-deployment.md
       - name: Terminating TLS connections
         href: web/tls-termination.md
-  - name: Online stores
-    items:
-      - name: All tutorials
-        href: internet-store/index.md
-      - name: 1C-Bitrix online store
-        href: internet-store/bitrix-shop.md
-      - name: OpenCart based online store
-        href: internet-store/opencart.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -59,7 +19,7 @@ items:
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Single-node file server
         href: archive/single-node-file-server.md
-      - name: Configuring an SFTP server on Centos 7
+      - name: Configuring an SFTP server based on CentOS 7
         href: archive/backup-and-archive-to-sftp.md
       - name: Creating a VM backup with Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
@@ -71,24 +31,30 @@ items:
         href: archive/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
-      - name: Deploying the GlusterFS parallel file system
+      - name: '{{ managed-k8s-name }} cluster backups to {{ objstorage-name }}'
+        href: archive/kubernetes-backup.md
+      - name: Deploying the GlusterFS parallel file system in high availability mode
         href: archive/ha-regional-glusterfs.md
       - name: Deploying the GlusterFS parallel file system in high performance mode
         href: archive/ha-regional-glusterfs-high-performance.md
-      - name: Digitizing image archives in {{ vision-name }}
-        href: archive/archive-from-vision-to-object-storage.md
-  - name: Test environment
+  - name: Developers
     items:
       - name: All tutorials
-        href: testing/index.md
+        href: dev/index.md
+      - name: Enabling blue-green and canary deployment of web service versions
+        href: web/blue-green-canary-deployment.md
+      - name: Automating image builds using Jenkins and Packer
+        href: infrastructure-management/jenkins.md
+      - name: Continuous deployment of containerized applications using {{ GL }}
+        href: infrastructure-management/gitlab-containers.md
       - name: Testing applications with {{ GL }}
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
-      - name: High-performance computing on preemptible VMs
+      - name: '{{ GL }} integration with {{ tracker-full-name }}'
+        href: dev/gitlab-tracker-integration.md
+      - name: High-performance computing (HPC) on preemptible VMs
         href: testing/hpc-on-preemptible.md
-      - name: Emulating multiple IoT devices
-        href: testing/iot-emulation.md
       - name: Load testing of the gRPC service
         href: testing/loadtesting-grpc.md
       - name: Deploying and load testing gRPC with scaling
@@ -99,54 +65,151 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Load testing using multiple agents
         href: testing/loadtesting-multiply.md
+  - name: Basic infrastructure
+    items:
+      - name: All tutorials
+        href: infrastructure/index.md
+      - name: Architecture and protection of a basic internet service
+        href: routing/web-service.md
+      - name: Fault tolerance and scaling
+        items:
+          - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
+            href: infrastructure-management/fault-tolerance.md
+          - name: >-
+              Fault-tolerant website with load balancing by {{
+              network-load-balancer-name }}
+            href: web/load-balancer-website.md
+          - name: Fault-tolerant website with load balancing by {{ alb-name }}
+            href: web/application-load-balancer-website.md
+          - name: >-
+              Integrating an L7 load balancer with the {{ cdn-name }} and {{
+              objstorage-name }}
+            href: web/cdn-storage-integration.md
+          - name: Running instance groups with auto scaling
+            href: infrastructure-management/vm-autoscale.md
+          - name: Scheduled scaling of instance groups
+            href: infrastructure-management/vm-scale-scheduled.md
+          - name: >-
+              Automatically scaling an instance group to handle messages from a
+              queue in {{ message-queue-name }}
+            href: infrastructure-management/autoscale-monitoring.md
+          - name: Updating an instance group under load
+            href: infrastructure-management/updating-under-load.md
+      - name: Tools
+        items:
+          - name: Getting started with {{ TF }}
+            href: infrastructure-management/terraform-quickstart.md
+          - name: Uploading {{ TF }} states to {{ objstorage-name }}
+            href: infrastructure-management/terraform-state-storage.md
+          - name: Getting started with Packer
+            href: infrastructure-management/packer-quickstart.md
+          - name: >-
+              Building a VM image with a set of infrastructure tools using
+              Packer
+            href: infrastructure-management/packer-custom-image.md
+      - name: Network
+        items:
+          - name: Configuring clock synchronization using NTP
+            href: infrastructure-management/ntp.md
+          - name: DHCP settings for working with a corporate DNS server
+            href: routing/dhcp-options.md
+          - name: Routing through a NAT instance
+            href: routing/nat-instance.md
+          - name: Installing a Cisco CSR 1000v virtual router
+            href: routing/cisco.md
+          - name: Installing a Mikrotik CHR virtual router
+            href: routing/mikrotik.md
+      - name: VPNs
+        items:
+          - name: Setting up network connectivity with IPsec gateways
+            items:
+              - name: Solution diagram
+                href: routing/ipsec/index.md
+              - name: Implementation on your own using {{ yandex-cloud }}
+                href: routing/ipsec/ipsec-vpn.md
+              - name: SGW solution by the {{ yandex-cloud }} architect team
+                href: routing/ipsec/sgw.md
+            href: routing/ipsec/index.md
+          - name: Connecting to a cloud network using OpenVPN
+            href: routing/openvpn.md
+          - name: Creating and configuring a UserGate gateway in proxy server mode
+            href: routing/usergate-proxy.md
+      - name: '{{ dns-name }}'
+        items:
+          - name: Configuring a local caching DNS resolver
+            href: infrastructure-management/local-dns-cache.md
+          - name: "Migrating DNS zones from Yandex\_360 to {{ dns-name }}"
+            href: infrastructure-management/connect-migration.md
+          - name: >-
+              Configuring {{ dns-name }} for access to managed database clusters
+              from other cloud networks
+            href: dataplatform/mdb-dns-peering.md
+  - name: Application solutions
+    items:
+      - name: All tutorials
+        href: applied/index.md
+      - name: Creating a site
+        items:
+          - name: Static site in {{ objstorage-name }}
+            href: web/static.md
+          - name: Website based on LAMP or LEMP stack
+            href: web/lamp-lemp.md
+          - name: Joomla-based website with {{ PG }} DB
+            href: web/joomla-postgresql.md
+          - name: Creating a website in WordPress
+            href: web/wordpress.md
+          - name: WordPress website on a {{ MY }} database
+            href: web/wordpress-mysql.md
+          - name: >-
+              Transferring a WordPress website from a different hosting provider
+              to {{ yandex-cloud }}
+            href: web/wordpress-transfer.md
+          - name: 1C-Bitrix website
+            href: web/bitrix-website.md
+          - name: OpenCart based online store
+            href: internet-store/opencart.md
+          - name: Setting up virtual hosting
+            href: web/virtual-hosting.md
+      - name: 1С
+        items:
+          - name: 1C-Bitrix online store
+            href: internet-store/bitrix-shop.md
+          - name: >-
+              Creating a cluster of 1C:Enterprise Linux servers with a {{
+              mpg-name }} cluster
+            href: infrastructure-management/1c-postgresql-linux.md
+      - name: Internet of Things (IoT)
+        items:
+          - name: Status monitoring of geographically distributed devices
+            href: iot/datalens.md
+          - name: Monitoring sensor readings and event notifications
+            href: iot/monitoring.md
+          - name: Emulating multiple IoT devices
+            href: testing/iot-emulation.md
+      - name: Other
+        items:
+          - name: Publishing game updates using {{ cdn-name }}
+            href: web/prefetch.md
+          - name: Creating an SAP program in {{ yandex-cloud }}
+            href: infrastructure-management/sap.md
+  - name: Test environment
+    items:
+      - name: All tutorials
+        href: testing/index.md
       - name: Migrating load testing results from OverLoad
         href: testing/loadtesting-overload-migration.md
+      - name: Running external agents for load testing
+        href: testing/loadtesting-external-agent.md
   - name: Performing infrastructure management
     items:
       - name: All tutorials
         href: infrastructure-management/index.md
-      - name: Getting started with {{ TF }}
-        href: infrastructure-management/terraform-quickstart.md
-      - name: Uploading {{ TF }} states to {{ objstorage-name }}
-        href: infrastructure-management/terraform-state-storage.md
       - name: Locking {{ TF }} states using {{ ydb-name }}
         href: infrastructure-management/terraform-state-lock.md
       - name: Using {{ yandex-cloud }} modules in {{ TF }}
         href: infrastructure-management/terraform-modules.md
-      - name: Getting started with Packer
-        href: infrastructure-management/packer-quickstart.md
-      - name: Building a VM image with a set of infrastructure tools using Packer
-        href: infrastructure-management/packer-custom-image.md
-      - name: Automating image builds using Jenkins and Packer
-        href: infrastructure-management/jenkins.md
-      - name: Continuous deployment of containerized applications using {{ GL }}
-        href: infrastructure-management/gitlab-containers.md
-      - name: >-
-          Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
-          }} cluster
-        href: infrastructure-management/1c-postgresql-linux.md
-      - name: Configuring clock synchronization using NTP
-        href: infrastructure-management/ntp.md
-      - name: Running instance groups with auto scaling
-        href: infrastructure-management/vm-autoscale.md
-      - name: Scheduled scaling of instance groups
-        href: infrastructure-management/vm-scale-scheduled.md
-      - name: >-
-          Automatically scaling an instance group to handle messages from a
-          queue in {{ message-queue-name }}
-        href: infrastructure-management/autoscale-monitoring.md
-      - name: Updating an instance group under load
-        href: infrastructure-management/updating-under-load.md
       - name: Transferring logs from a VM instance to {{ cloud-logging-name }}
         href: infrastructure-management/vm-fluent-bit-logging.md
-      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
-        href: infrastructure-management/fault-tolerance.md
-      - name: Creating an SAP program in {{ yandex-cloud }}
-        href: infrastructure-management/sap.md
-      - name: Configuring a local caching DNS resolver
-        href: infrastructure-management/local-dns-cache.md
-      - name: Migrating DNS zones from Yandex 360 to {{ dns-name }}
-        href: infrastructure-management/connect-migration.md
       - name: Integrating {{ dns-name }} and an enterprise DNS service
         href: infrastructure-management/dns-integration.md
       - name: Creating an ACME resolver webhook for responses to DNS01 checks
@@ -166,33 +229,61 @@ items:
           }}
         href: dataplatform/kafka-connector.md
       - name: >-
+          Moving data between {{ mkf-name }} clusters using {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf.md
+      - name: >-
           Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mmy.md
+      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
+        href: dataplatform/debezium-mmy.md
       - name: >-
           Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mpg.md
+      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
+        href: dataplatform/debezium-mpg.md
+      - name: >-
+          Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/ydb-mkf-replication.md
       - name: >-
           Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mch.md
       - name: >-
+          Delivering data from {{ mkf-name }} to {{ mgp-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/managed-kafka-to-greenplum.md
+      - name: >-
           Delivering data from {{ mkf-name }} to {{ mes-name }} using {{
           data-transfer-name }}
         href: dataplatform/data-transfer-mkf-mes.md
       - name: >-
-          Moving data between {{ mkf-name }} clusters using {{
+          Delivering data from {{ mkf-name }} to {{ mmg-name }} using {{
           data-transfer-name }}
-        href: dataplatform/data-transfer-mkf.md
+        href: dataplatform/data-transfer-mkf-mmg.md
+      - name: >-
+          Delivering data from {{ mkf-name }} to {{ mmy-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf-mmy.md
+      - name: >-
+          Delivering data from {{ mkf-name }} to {{ mos-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/data-transfer-mkf-mos.md
+      - name: >-
+          Delivering data from {{ mkf-name }} to {{ mpg-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mkf-to-mpg.md
       - name: >-
           Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-ydb-stream.md
-      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/debezium-mmy.md
-      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/debezium-mpg.md
+      - name: >-
+          Delivering data from {{ mkf-name }} to {{ yds-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mkf-yds-stream.md
       - name: Configuring Kafka Connect for {{ mkf-name }} clusters
         href: dataplatform/kafka-connect.md
       - name: Managing data schemas in {{ mkf-name }}
@@ -201,6 +292,10 @@ items:
         href: dataplatform/managed-schema-registry.md
       - name: Using Confluent Schema Registry with {{ mkf-name }}
         href: dataplatform/confluent-schema-registry.md
+      - name: >-
+          Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mysql-to-clickhouse.md
       - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
       - name: Exchanging data between {{ mch-name }} and {{ dataproc-name }}
@@ -217,14 +312,15 @@ items:
         href: dataplatform/fetch-data-from-rabbitmq.md
       - name: Saving a {{ yds-name }} data stream in {{ mch-name }}
         href: dataplatform/yds-to-clickhouse.md
+      - name: >-
+          Asynchronously replicating data from {{ metrika }} to {{ CH }} using
+          {{ data-transfer-name }}
+        stage: preview
+        href: dataplatform/metrika-to-clickhouse.md
       - name: Using hybrid storage in {{ mch-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Sharding {{ mch-name }} tables
         href: dataplatform/clickhouse-sharding.md
-      - name: >-
-          Configuring {{ dns-name }} for access to managed database clusters
-          from other cloud networks
-        href: dataplatform/mdb-dns-peering.md
       - name: >-
           Configuring {{ dns-name }} for accessing {{ mch-name }} clusters from
           other cloud networks
@@ -237,6 +333,8 @@ items:
           Using initialization scripts to configure GeeseFS in {{ dataproc-name
           }}
         href: dataplatform/data-proc-init-actions-geesefs.md
+      - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
+        href: dataplatform/data-proc-and-airflow.md
       - name: >-
           Migrating data from a third-party {{ ES }} cluster to {{ mes-name }}
           using the Reindex API
@@ -329,6 +427,8 @@ items:
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Migrating databases from {{ GP }} to {{ PG }}
         href: dataplatform/greenplum-to-postgresql.md
+      - name: Exporting {{ GP }} data to a cold {{ objstorage-name }} storage
+        href: dataplatform/greenplum-yezzey.md
       - name: >-
           Migrating databases from a third-party {{ RD }} cluster to {{ mrd-name
           }}
@@ -351,36 +451,28 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Deploying Remote Desktop Gateway
         href: windows/rds-gw.md
-  - name: Network infrastructure
+  - name: Architecture and networking
     items:
       - name: All tutorials
         href: routing/index.md
       - name: Setting up networking between resources in different folders
         href: routing/multi-folder-vpc.md
-      - name: Architecture and protection of a basic internet service
-        href: routing/web-service.md
-      - name: DHCP settings for working with a corporate DNS server
-        href: routing/dhcp-options.md
       - name: Creating a bastion host
         href: routing/bastion.md
-      - name: Routing through a NAT instance
-        href: routing/nat-instance.md
-      - name: Creating an IPSec VPN tunnel
-        href: routing/ipsec-vpn.md
-      - name: Installing a Cisco CSR 1000v virtual router
-        href: routing/cisco.md
-      - name: Installing a Mikrotik CHR virtual router
-        href: routing/mikrotik.md
-      - name: Connecting to a cloud network using OpenVPN
-        href: routing/openvpn.md
-      - name: Creating and configuring a UserGate gateway in proxy server mode
-        href: routing/usergate-proxy.md
+      - name: Creating a tunnel between two subnets using OpenVPN Access Server
+        href: routing/site-to-site-openvpn.md
+      - name: Secure user access to cloud resources based on WireGuard VPN
+        href: routing/remote-wireguard-vpn.md
       - name: Creating and configuring a UserGate gateway in firewall mode
         href: routing/usergate-firewall.md
+      - name: Implementing fault-tolerant scenarios for network VMs
+        href: routing/route-switcher.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a
           dedicated DMZ based on the Next-Generation Firewall
         href: routing/high-accessible-dmz.md
+      - name: Configuring a secure GRE tunnel over IPsec
+        href: routing/gre-over-ipsec.md
       - name: Configuring networks for {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
@@ -417,16 +509,12 @@ items:
         href: datalens/data-from-appmetrica-yc-visualization.md
       - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
         href: datalens/storage-logs-analysis.md
-  - name: Internet of things
-    items:
-      - name: Tutorials for working with the Internet of Things
-        href: iot/index.md
-      - name: Status monitoring of geographically distributed devices
-        href: iot/datalens.md
-      - name: Monitoring sensor readings and event notifications
-        href: iot/monitoring.md
+      - name: Visualizing data from {{ tracker-name }} in {{ datalens-name }}
+        href: datalens/data-from-tracker.md
   - name: Serverless technologies
     items:
+      - name: All tutorials
+        href: serverless/index.md
       - name: URL shortener
         href: serverless/serverless-url-shortener.md
       - name: Entering data into storage systems

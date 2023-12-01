@@ -35,6 +35,20 @@
 
   Также пригласить пользователей можно в сервисе {{ org-full-name }}, подробнее в [документации](../organization/operations/add-account.md).
 
+  Администратор сможет [назначить права](../organization/operations/roles.md) пользователю только после того, как пользователь примет приглашение. Чтобы пользователь сразу после принятия приглашения получал нужные права или состоял в [группе](../organization/concepts/groups.md), вы можете добавить его в группу {{ org-full-name }}. Для этого:
+
+  1. [Отправьте приглашение](../_includes/organization/add-user.md#useraccount) в {{ org-full-name }}.
+   
+  1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../_assets/console-icons/persons.svg) и нажмите строку с названием группы.
+
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.
+
+  1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
+   
+  1. В окне **{{ ui-key.yacloud_org.component.subject-select-dialog.title_dialog }}** выберите пользователя из списка **Приглашенные аккаунты** или воспользуйтесь поиском по пользователям.
+   
+  1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+
 - {{ ya-360 }}
 
   Добавление пользователей в организацию доступно только в самом сервисе [{{ ya-360 }}]((https://admin.yandex.ru/)), на странице управления организацией. Подробнее о добавлении пользователей в {{ ya-360 }} в [документации](https://yandex.ru/support/business/users.html#add-users).

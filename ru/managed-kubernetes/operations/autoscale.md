@@ -38,9 +38,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 - CLI
 
-  1. {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Изучите команду создания группы узлов {{ managed-k8s-name }}:
 

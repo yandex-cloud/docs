@@ -24,9 +24,9 @@ The {{ mrd-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can check the supported resource configurations in [{#T}](concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ RD }} host is not performing its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ RD }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -37,7 +37,9 @@ The following is charged:
    
    * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
 
-   * Local SSD (`local-ssd`) storage can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+      * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+      * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
    For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
@@ -58,7 +60,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

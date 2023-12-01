@@ -104,6 +104,14 @@ Security groups must be configured correctly for all subnets where cluster hosts
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
 
+## {{ dataproc-name }} host FQDN {#fqdn}
+
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can view it in the management console:
+
+1. Go to the cluster page.
+1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+
 ## Connecting to a {{ dataproc-name }} host via SSH {#data-proc-ssh}
 
 To connect to a {{ dataproc-name }} host, make sure the SSH key that you specified when creating the {{ dataproc-name }} cluster is accessible on the local machine or the VM. You can copy the key to the machine from which the connection is performed to the cluster, or connect to it with an SSH agent.

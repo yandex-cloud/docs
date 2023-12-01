@@ -6,7 +6,6 @@
 * [Устранение ошибки ERR.DS_API.US Not correct folder_id в DataLens](err-ds_api_us-not-correct-folder-id.md)
 * [У табличных чартов DataLens не совпадают значения в полях «Итого» с аналогичными данными из Метрики](values-in-total-fields-dont-match-with-data-from-ymetrics.md)
 * [Устранение проблем использования связанных таблиц при подключении к Bitrix](bitrix24-linking-talbes-issue.md)
-* [Поддержка пользовательских полей Битрикс24](bitrix24-user-fields-support.md)
 * [Устранение проблем при загрузке CSV-файла в датасет в качестве источника данных](csv-upload-issue.md)
 * [Устранение ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT](err-ds_api_formula-validation-agg-inconsistent.md)
 * [Устранение ошибки Validation error Request failed with status code 500 при сохранении дашборда](validation-error-request-failed-with-status-code-500.md)

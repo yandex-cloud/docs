@@ -28,7 +28,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ KF }} version.
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting.
 
@@ -43,7 +43,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       * Select the disk type.
 
          
-         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
 
          You cannot change the disk type for a {{ mkf-name }} cluster once you create it.

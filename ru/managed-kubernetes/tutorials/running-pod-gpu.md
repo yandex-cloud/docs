@@ -11,7 +11,9 @@
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
-1. {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
 1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 1. [Создайте группу узлов {{ managed-k8s-name }}](../operations/node-group/node-group-create.md) с настройками:
    * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}** — выберите `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.

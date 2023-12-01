@@ -446,7 +446,7 @@ At this stage, you will create and set up an infrastructure for a remote site of
 
    1. Go to the **{{ ui-key.yacloud.vpc.network.switch_overview }}** tab.
    1. In the line of `subnet-1`, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-   1. In the window that opens, select the `remote-net-rt` route table and click **ui-key.yacloud.vpc.subnet.add-route-table.button_add**.
+   1. In the window that opens, select the `remote-net-rt` route table and click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 ### Create and configure VMs on the remote site {#setup-remote-vms}
 

@@ -169,14 +169,9 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    ![image](../../_assets/datalens/solution-01/22-Create-Dashboard.png)
 
-
-1. Enter **SuperHeroes dashboard** for the dashboard name and click **Create**.
-
-
 ## Step 6. Add charts to the dashboard {#step6}
 
-
-1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the upper-right corner.
+1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the top-right corner.
 
    ![image](../../_assets/datalens/solution-01/23-Dash-Edit.png)
 
@@ -229,8 +224,8 @@ Add [selectors](../../datalens/dashboard/selector.md) to be able to filter super
 
    ![image](../../_assets/datalens/solution-01/30-Dash.png)
 
-
-1. Apply various filters and analyze the weight dependencies on a superhero's gender and good or bad alignment
+1. Enter **SuperHeroes dashboard** for the dashboard name and click **Create**.
+1. Apply various filters and analyze the weight dependencies on a superhero's gender and good or bad alignment.
 
    ![image](../../_assets/datalens/solution-01/31-Final-Dash.png)
 

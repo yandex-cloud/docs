@@ -118,7 +118,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
       ![image](../../_assets/datalens/solution-02/16-formula.png)
 
-1. Click **Save** in the upper-right corner to save the dataset.
+1. Click **Save** in the top-right corner to save the dataset.
 
    ![image](../../_assets/datalens/solution-02/17-save-dataset.png)
 
@@ -149,17 +149,18 @@ To visualize sales dynamics by month, create a line [chart](../../datalens/conce
    ![image](../../_assets/datalens/solution-02/21-date-to-month.png)
 
 1. Save the chart.
-   1. Click **Save** in the upper-right corner to save the chart.
+   1. Click **Save** in the top-right corner to save the chart.
 
       ![image](../../_assets/datalens/solution-02/22-save-chart.png)
 
    1. In the window that opens, enter a name for the chart: **Sales dynamics by month and payment type**, and click **Save**.
+
 ## Step 4. Create a column chart {#step4}
 
 To visualize sales by brand and product categories, create a column [chart](../../datalens/concepts/chart/index.md).
 
 1. Copy the chart from the previous step.
-   1. Click the down arrow next to the **Save** button in the upper-right corner.
+   1. Click the down arrow next to the **Save** button in the top-right corner.
    1. Choose **Save as**.
 
       ![image](../../_assets/datalens/solution-02/23-save-as.png)
@@ -188,12 +189,12 @@ To visualize sales by brand and product categories, create a column [chart](../.
 
 ## Step 5. Create a pivot table chart {#step5}
 
-To visualize sales in terms of products and time, create a pivot table [chart](../../datalens/concepts/chart/index.md).
+To visualize sales by products and time, create a pivot table [chart](../../datalens/concepts/chart/index.md).
 
 1. Copy the chart from the previous step.
-   1. Click the down arrow next to the **Save** button in the upper-right corner.
+   1. Click the down arrow next to the **Save** button in the top-right corner.
    1. Click **Save as**.
-   1. In the window that opens, enter the name **Sales by year and product** for the new chart.
+   1. In the window that opens, enter **Sales by year and product** as the name for the new chart.
    1. Click **Save**.
 
 1. Choose the **Pivot table** visualization type.
@@ -255,11 +256,9 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    ![image](../../_assets/datalens/solution-02/35-create-dashboard.png)
 
-1. Enter the name **Moscow Shops dashboard** for the dashboard and click **Create**.
-
 ## Step 8. Add charts to the dashboard {#step8}
 
-1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the upper-right corner.
+1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the top-right corner.
 
    ![image](../../_assets/datalens/solution-02/36-edit-dashboard.png)
 
@@ -318,9 +317,13 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter your charts by d
 
 1. Position the selectors on the dashboard however you like.
 
-1. Save the dashboard.
+1. Save the dashboard:
+
+   1. In the top-right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-02/43-dashboard2.png)
+
+   1. Enter **Moscow Shops dashboard** for the dashboard name and click **Create**.
 
 1. Your dashboard is ready. Now you can filter charts using selectors.
 

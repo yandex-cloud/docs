@@ -27,6 +27,8 @@ items:
                 href: operations/endpoint/source/bigquery.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
+              - name: Elasticsearch
+                href: operations/endpoint/source/elasticsearch.md
               - name: EventHub
                 href: operations/endpoint/source/eventhub.md
               - name: Greenplum®
@@ -41,6 +43,8 @@ items:
                 href: operations/endpoint/source/mysql.md
               - name: Object Storage
                 href: operations/endpoint/source/object-storage.md
+              - name: OpenSearch
+                href: operations/endpoint/source/opensearch.md
               - name: Oracle
                 href: operations/endpoint/source/oracle.md
               - name: PostgreSQL
@@ -215,6 +219,8 @@ items:
     items:
       - name: Все изменения
         href: changelogs/index.md
+      - name: Ноябрь 2023
+        href: changelogs/2311.md
       - name: Октябрь 2023
         href: changelogs/2310.md
       - name: Сентябрь 2023

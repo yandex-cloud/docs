@@ -185,9 +185,8 @@ Wait for the connection to be saved.
 
 ## Step 8. Create a dashboard {#step8}
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. Click **Create Dashboard**.
-1. Name it as **DODO Dashboard** and click **Create**.
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. Click **Create dashboard**.
 1. In the window that opens, click **Add** in the top-right corner and select **Chart**.
 1. Select the chart named **The number of pizzerias**.
 1. Click **Add**.
@@ -210,8 +209,12 @@ Wait for the connection to be saved.
    ![selector-settings](../../_assets/datalens/solution-09/31-selector-settings.png)
 
 1. Move the selector to the top. You can resize the charts if necessary.
-1. Click **Save**.
-1. Choose Moscow in the selector. If the map remains centered on the same location when you change the city in the filter, refresh the browser page. {{ datalens-name }} records the map scale and location if you changed them during the current session.
+1. Save the dashboard:
+
+   1. In the top-right corner, click **Save**.
+   1. Enter **DODO Dashboard** as the dashboard name and click **Create**.
+
+1. Choose Moscow in the selector. If the map remains centered on the same location when you change the city in the filter, refresh the page in your browser. {{ datalens-name }} records the map scale and location if you changed them during the current session.
 
    ![dashboard-pizza](../../_assets/datalens/solution-09/09-dashboard-pizza-moscow.png)
 
@@ -281,12 +284,12 @@ Wait for the connection to be saved.
 
    ![dashboard-spb](../../_assets/datalens/solution-09/10-dashboard-spb.png)
 
-If the map remains centered on the same location when you change the city in the filter, refresh the browser page. {{ datalens-name }} records the map scale and location if you changed them during the current session.
-
+If the map remains centered on the same location when you change the city in the filter, refresh the page in your browser. {{ datalens-name }} records the map scale and location if you changed them during the current session.
 
 ## Optional {#additional}
 
 Here are a few tasks you may want to complete on your own:
+
 1. Add a geolayer with companies in the **Where to eat** category (restaurants and fast food chains in general, not only pizzerias).
 1. Add [Audience: interests and social demographics]({{ link-datalens-main }}/marketplace/f2eemc2dui59rn72h0ck) from Marketplace to similarly display the city audience data on the map.
 1. Using Voronezh as an example, study the [Geointellect geolayers]({{ link-datalens-main }}/marketplace/f2eu3edujf1jdmaihu7u) (this is free of charge). You can use our demo set that contains calculated indexes for the business potential of fast food locations.

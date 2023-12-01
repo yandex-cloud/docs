@@ -83,6 +83,6 @@ When creating a static route with a `Gateway` as the `next hop`, you can only sp
 
 1. [Creating and setting up a NAT gateway](../operations/create-nat-gateway.md).
 1. [Routing through a NAT instance](../../tutorials/routing/nat-instance.md).
-1. [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec-vpn.md).
+1. [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec/index.md).
 1. [Creating and configuring a UserGate gateway in firewall mode](../../tutorials/routing/usergate-firewall.md).
 1. [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall](../../tutorials/routing/high-accessible-dmz.md).

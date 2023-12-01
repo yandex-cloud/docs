@@ -4,11 +4,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. Убедитесь, что кластер {{ managed-k8s-name }} расположен в той же [облачной сети](../../../vpc/concepts/network.md), что и [кластер {{ mes-name }}](../../../managed-elasticsearch/concepts/index.md).
+Перед установкой Filebeat убедитесь, что кластер {{ managed-k8s-name }} расположен в той же [облачной сети](../../../vpc/concepts/network.md), что и [кластер {{ mes-name }}](../../../managed-elasticsearch/concepts/index.md).
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
