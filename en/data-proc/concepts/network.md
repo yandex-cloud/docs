@@ -10,11 +10,21 @@ When you create a host in a subcluster, {{ dataproc-name }} generates a fully qu
 
 The host IP address may change during operation; however, its FQDN is permanent.
 
+To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
+
 {% note warning %}
 
 When you reduce the number of hosts in a subcluster, the service selects the hosts to remove. The FQDNs of the removed hosts stop working.
 
 {% endnote %}
+
+### Assigning network aliases to hosts {#fqdn-reconnect}
+
+To maintain external network access to {{ dataproc-name }} services, create a network alias (CNAME record) in {{ dns-full-name }} to point to the current name of the {{ dataproc-name }} cluster master host.
+
+To reconfigure external connections when recreating a cluster or moving the workload to a different cluster, you can just change the `CNAME` record you created.
+
+For a setup example, see [{#T}](../tutorials/reconnect-network.md).
 
 ## Security groups {#security-groups}
 

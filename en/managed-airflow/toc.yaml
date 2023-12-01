@@ -23,12 +23,12 @@ items:
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Pricing policy
-        href: pricing.md
   - name: Tutorials
     items:
       - name: Automating {{ dataproc-name }} operations
         href: tutorials/data-proc-automation.md
   - name: Access management
     href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
 base: en/managed-airflow

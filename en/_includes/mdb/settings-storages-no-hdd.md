@@ -1,5 +1,7 @@
-The selected disk type depends on the step with which you can change the storage size:
+The selected type determines the increments in which you can change your disk size:
 
-* Storage on local SSD drives: in increments of 100 GB.
-* Storage on non-replicated SSD disks: in increments of 93 GB.
-* Storage on network SSD drives: in increments of 1 GB.
+* Network SSD storage: In increments of 1 GB.
+* Local SSD storage:
+   * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+   * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
+* Non-replicated SSD storage: In increments of 93 GB.

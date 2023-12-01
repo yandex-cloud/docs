@@ -3,13 +3,13 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Choose a version of Yandex Forms
+      - name: Choosing a version of Yandex Forms
         href: go-to-forms.md
-      - name: Create the first form
+      - name: Creating the first form
         href: quick-guide.md
-      - name: Enable Yandex Forms for business
+      - name: Enabling Yandex Forms for business
         href: enable-forms.md
-      - name: Log in to Yandex Forms for business
+      - name: Logging in to Yandex Forms for business
         href: login.md
   - name: Concepts
     items:
@@ -19,11 +19,11 @@ items:
         href: personal-forms.md
       - name: Forms for business
         href: forms-for-org.md
-  - name: Create a form
+  - name: Creating a form
     items:
       - name: Overview
         href: new-form.md
-      - name: Add prompts
+      - name: Adding prompts
         href: add-questions.md
       - name: Conducting a test
         href: tests.md
@@ -33,26 +33,32 @@ items:
         href: send-condition.md
       - name: Customizing the result page
         href: success-page.md
-      - name: Validate a response
+      - name: Validating a response
         href: option-validation.md
-  - name: Configure integration with other services
+  - name: Setting up integration with other services
     items:
       - name: Overview
         href: notifications.md
-      - name: Send an email
+      - name: Sending an email
         href: send-mail.md
-      - name: Enable Metrica
+      - name: Enabling Metrica
         href: metrica.md
       - name: Creating an issue in Tracker
         href: create-task.md
-      - name: Add a response to Wiki
+      - name: Adding a response to Wiki
         href: send-wiki.md
-      - name: Send the HTTP request
+      - name: Sending an HTTP request
         href: send-request.md
-      - name: Save files from responses to the storage
+      - name: Saving files from responses to the storage
         href: storage-for-attached-files.md
-      - name: Invoking a {{ sf-name }} function
-        href: call-function.md
+      - name: Invoking a {{ sf-full-name }} function
+        items:
+          - name: Setting up integration with {{ sf-name }}
+            href: call-function.md
+          - name: Delivering responses to a database
+            href: send-to-database.md
+          - name: Visualizing data in {{ datalens-full-name }}
+            href: visualize-datalens.md
       - name: Variables in integration settings
         href: vars.md
   - name: Publishing a form
@@ -60,21 +66,21 @@ items:
     items:
       - name: Publishing a form
         href: publish.md
-      - name: Limit responses
+      - name: Limiting responses
         href: restrictions.md
-      - name: Configuring pre-filling forms
+      - name: Configuring pre-filling of forms
         items:
           - name: Overview
             href: pre-fill.md
           - name: GET parameters
             href: get-params.md
-          - name: Get IDs for questions and responses
+          - name: Getting IDs for questions and responses
             href: question-id.md
-  - name: Get responses
+  - name: Getting responses
     href: answers.md
-  - name: Manage forms
+  - name: Managing forms
     href: forms-settings.md
-  - name: Configure access
+  - name: Configuring access
     href: access.md
   - name: Response reference
     items:
@@ -100,7 +106,7 @@ items:
         href: blocks-ref/short-text.md
       - name: People
         href: blocks-ref/people.md
-      - name: Several options
+      - name: Multiple answers
         href: blocks-ref/multiple.md
       - name: One answer
         href: blocks-ref/radiobutton.md
@@ -126,7 +132,7 @@ items:
             href: blocks-ref/tests-ref.md
           - name: One answer
             href: blocks-ref/test-single.md
-          - name: Several options
+          - name: Multiple answers
             href: blocks-ref/test-multiple.md
           - name: Number
             href: blocks-ref/test-number.md

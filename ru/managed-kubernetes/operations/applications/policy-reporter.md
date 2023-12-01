@@ -12,7 +12,7 @@
 
 Для выгрузки результатов срабатываний политик настройте внешнее хранилище:
 
-* {{ objstorage-name }}:
+* **{{ objstorage-name }}**
 
   1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -29,7 +29,7 @@
 
   1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 
-* {{ yds-name }}:
+* **{{ yds-name }}**
 
   [Создайте поток данных](../../../data-streams/quickstart/create-stream.md).
 

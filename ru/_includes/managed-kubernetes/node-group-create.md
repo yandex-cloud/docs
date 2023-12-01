@@ -77,7 +77,7 @@
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
    * Чтобы иметь возможность изменять [небезопасные параметры ядра](../../managed-kubernetes/concepts/index.md#node-group) на узлах группы {{ managed-k8s-name }}, используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-sysctl }}**. Для ввода имени каждого параметра ядра создайте отдельное поле.
    * Чтобы задать [taint-политики узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#taints-tolerations), используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-taint }}**. Укажите ключ, значение и эффект каждой taint-политики в отдельном наборе полей.
-   * Чтобы задать [метки узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-labels) группы, используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Укажите ключ и значение каждой метки в отдельном наборе полей.
+   * Чтобы задать [{{ k8s }}-метки](../../managed-kubernetes/concepts/index.md#node-labels) узлов группы, используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Укажите ключ и значение каждой {{ k8s }}-метки в отдельном наборе полей.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 Процесс создания группы узлов {{ managed-k8s-name }} может занять несколько минут в зависимости от количества узлов.

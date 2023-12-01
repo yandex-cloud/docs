@@ -10,7 +10,7 @@ To run a webhook in a {{ managed-k8s-name }} cluster:
 1. [Prepare configuration files](#prepare-files).
 1. [Run a certificate manager with the webhook](#run-webhook).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Set up the {{ managed-k8s-name }} cluster](../../managed-kubernetes/quickstart.md).
 1. [Install the certificate manager](../../managed-kubernetes/tutorials/ingress-cert-manager.md#install-certs-manager) of the latest version.
@@ -44,7 +44,7 @@ To run a webhook in a {{ managed-k8s-name }} cluster:
 
    {% note warning %}
 
-   Make sure your service account is assigned a role [no lower than editor](../../resource-manager/security/#roles-list).
+   The service account must have the `dns.editor` role in the folder with the public zone.
 
    {% endnote %}
 
@@ -68,7 +68,7 @@ To run a webhook in a {{ managed-k8s-name }} cluster:
      # Let's Encrypt will use this to contact you about expiring
      # certificates, and issues related to your account.
      email: your@email.com
-     server: https://acme-staging-v02.api.letsencrypt.org/directory
+     server: https://acme-v02.api.letsencrypt.org/directory
      privateKeySecretRef:
       # Secret resource that will be used to store the account's private key.
       name: secret-ref
@@ -129,4 +129,4 @@ To run a webhook in a {{ managed-k8s-name }} cluster:
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, [delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+If you no longer need the resources you created, [delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

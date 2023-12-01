@@ -5,18 +5,15 @@ The host class determines the computing power allocated for each host in a clust
 
 The host class also determines which [disk types](./storage.md) are available:
 
-* For master hosts:
+* **s2**, **i2**: `local-ssd` and `network-ssd-nonreplicated`.
+* **s3**, **i3**: `network-ssd`, `network-hdd`, `local-ssd`, and `network-ssd-nonreplicated`.
 
-   * **s2**, **i2**: `local-ssd`
-   * **s3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`
-   * **i3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`
+For segment hosts, the following disk types are available:
 
-* For segment hosts:
+* `local-ssd`
+* `network-ssd-nonreplicated`
 
-   * **s2**, **i2**: `local-ssd`
-   * **s3**, **i3**: `network-ssd-nonreplicated`
-
-The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 

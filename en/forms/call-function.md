@@ -1,4 +1,4 @@
-# Invoking a function {{ sf-name }}
+# Invoking a {{ sf-full-name }} function
 
 You can integrate a form with a [{{ sf-full-name }} function](../functions/index.yaml). For example, you can collect user data and transfer it to a website or database to register customers using the form.
 
@@ -8,7 +8,7 @@ You can integrate a form with {{ sf-name }} functions only using [forms for busi
 
 {% endnote %}
 
-## Step 1. Create a service account {#step-one}
+### Step 1. Create a service account {#step-one}
 
 1. Go to the [{{ yandex-cloud }} management console]({{ link-console-main }}).
 1. In the left-hand panel, select the folder to create a function in.
@@ -21,7 +21,7 @@ You can integrate a form with {{ sf-name }} functions only using [forms for busi
 
 If no billing account is linked to your {{ yandex-cloud }} account, a window for creating a billing account will open. Fill in its fields to create an account. For more information, see [{#T}](../getting-started/individuals/registration.md#new-account).
 
-## Step 2. Creating a service account key {#step-two}
+### Step 2. Create a service account key {#step-two}
 
 1. In the left-hand panel of the [management console]({{ link-console-main }}), select the folder where the appropriate service account is located.
 1. Go to the **Service accounts** tab.
@@ -31,14 +31,14 @@ If no billing account is linked to your {{ yandex-cloud }} account, a window for
 1. Click **Create**.
 1. This will open a window with the key ID and the secret key. Store them in a secure place. You will not be able to access them after you close the window.
 
-## Step 3. Enable cloud function invocation {#step-three}
+### Step 3. Enable cloud function invocation {#step-three}
 
 1. In {{ forms-full-name }}, open the form to set up the cloud function integration for.
 1. Go to the **Settings** tab and select **Additional** in the left panel.
 1. Under **Cloud function key**, fill in the **Key ID** and **Secret key** fields. Paste the values you copied when creating the service account key there.
 1. Click **Save**.
 
-## Step 4. Creating a cloud function {#step-four}
+### Step 4. Create a cloud function {#step-four}
 
 1. Go back to the [{{ yandex-cloud }} management console]({{ link-console-main }}).
 1. In the left-hand panel, click ![](../_assets/organization/icon-services-menu.svg) and select {{ sf-name }}.
@@ -57,10 +57,41 @@ If no billing account is linked to your {{ yandex-cloud }} account, a window for
 
 To learn more about creating functions, see the [documentation for cloud functions](../functions/quickstart/create-function/index.md).
 
-## Step 5. Set up integration {#step-five}
+### Step 5. Set up integration {#step-five}
 
 1. Go back to the form and click the **Integrations** tab.
 1. Select a group of actions to set up issue creation in and click {{ sf-name }} at the bottom of the group.
 1. In the **Function code** field, paste the function ID that you copied in the previous step.
-1. Under **Parameters**, select parameters to be transferred to the function. To transfer response data from the form, use [variables](vars.md).
-1. Click **Save**. Responses will be delivered in JSON format.
+1. Under **Parameters**, you can optionally select additional parameters to be transferred to the function.
+1. Click **Save**.
+
+Responses to the form will be delivered in JSON format. See its structure below:
+
+```json
+{
+    "id":<form response ID>,
+    "uid":"<user ID>",
+    "data":{
+        "<prompt ID with its type specified>":{
+            "value":<response to prompt>,
+            "question":{
+                "id":<prompt ID>,
+                "slug":"<prompt ID with its type specified>",
+                "options":{
+                    <prompt parameters>
+                },
+                "answer_type":{
+                    "id":<ID of prompt type>,"slug":"<prompt type>"
+                }
+            }		
+        }
+    },
+"survey":{
+    "id":"<form ID>"
+    },
+"created":"<form response date>",
+"cloud_uid":"<user ID>"
+}
+```
+
+You can view the sent request and the function execution results on the [completed integrations](notifications.md#completed-integration) page.

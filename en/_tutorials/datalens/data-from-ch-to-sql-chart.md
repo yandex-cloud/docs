@@ -116,12 +116,6 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    ![image](../../_assets/datalens/solution-02/35-create-dashboard.png)
 
-
-1. Enter `Change in number of clients by year` for the dashboard name and click **Create**.
-
-   The dashboard created will open for editing.
-
-
 ## Add the QL chart to the dashboard {#add-sql-chart-to-dashboard}
 
 1. At the top of the page, click **Add** and select **Chart**.
@@ -188,8 +182,8 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    1. Click **Add**.
    1. Place the selector on the dashboard on top of the chart next to the first selector.
-   1. In the upper-right corner of the dashboard, click **Save**.
-
+   1. In the top-right corner of the dashboard, click **Save**.
+   1. Enter `Change in number of clients by year` as the dashoboard name and click **Create**.
 
       ![image](../../_assets/datalens/sql-chart/add-selector-on-dashboard.png)
 

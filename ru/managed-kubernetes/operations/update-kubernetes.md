@@ -339,7 +339,7 @@
 
     {% note info %}
 
-    Параметры `--max-expansion` и `--max-unavailable` следует использовать совместно.
+    Флаги `--max-expansion` и `--max-unavailable` следует использовать совместно.
 
     {% endnote %}
 

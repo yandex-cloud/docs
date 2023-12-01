@@ -24,6 +24,7 @@ To move {{ mgp-name }} cluster hosts to a different availability zone, refer to 
 
 * [{#T}](roles-and-users.md)
 * [{#T}](resource-groups.md)
+* [{#T}](user-auth-rules.md)
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 

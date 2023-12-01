@@ -12,10 +12,12 @@ keywords:
 
 The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the configuration of all hosts with this role that were previously created in the cluster changes accordingly. For more information about roles, see [{#T}](./index.md).
 
-The host class with the [Data node role](./hosts-roles.md) affects the list of available [disk types](./storage.md):
+The following [disk types](./storage.md) are available to hosts with the [Data node role](./hosts-roles.md):
 
-* **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
-* **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
+* `network-ssd`
+* `network-hdd`
+* `local-ssd`
+* `network-ssd-nonreplicated`
 
 For hosts with the Master node role, the only available storage type is network SSD (`network-ssd`).
 

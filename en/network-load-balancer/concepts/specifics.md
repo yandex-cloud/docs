@@ -20,7 +20,7 @@ Let's look at how an `external` load balancer works:
 
 Traffic path from a client application to the web service:
 
-1. The traffic from the client application `1.2.3.4:30325` *(you can use any socket or port number)* is sent to an NLB as a sequence of IP packets, and the `158.160.0.x:443` traffic listener accepts it.
+1. The traffic from the `1.2.3.4:30325` client application *(you can use any socket or port number)* is sent to an NLB as a sequence of IP packets, and the `158.160.0.x:443` traffic listener accepts it.
 1. The listener calculates a `5-tuple` hash function from the parameters of the received IP packet and decides to forward it to the `vm-a1` VM in the target group. The virtual network retains information that the traffic to the `158.160.0.x:443` listener was directed to the `10.0.1.1:8443` resource.
 1. After processing the received request, the `vm-a1` VM responds to the client application from its `10.0.1.1` IP address. The traffic leaves the VM via the default gateway into the virtual network.
 1. The virtual network is aware that the traffic from the client application was previously received by the load balancer's listener and sent for processing to the `vm-a1` VM (see 2). This information allows the virtual network to change the sender's address and port (perform source NAT) for all packets sent from `10.0.1.1:8443` to `158.160.0.x:443`. The traffic is then sent to the destination address according to routing policies and reaches the client application.
@@ -73,9 +73,13 @@ If the traffic to the load balancer did not pass through a network VM, it may di
 
 Routes must have the next hop IP of one of the network VMs. Network VMs run in `Active/Standby` mode. To ensure fault tolerance of outgoing traffic, set up traffic forwarding, e.g., using [route-switcher](https://github.com/yandex-cloud-examples/yc-route-switcher/tree/main).
 
+![image](../../_assets/network-load-balancer/nlb-int-routing-1.svg)
+
 #### Source NAT configured on network VMs {#source-nat}
 
 Make sure you set up [Source NAT](https://en.wikipedia.org/wiki/Network_address_translation#SNAT) to network VM addresses. Network VMs run in `Active/Active` mode. To set up Source NAT, refer to the documentation for software deployed on your network VM. View an [example of how to set up Source NAT](../../tutorials/routing/high-accessible-dmz.md#setup-static-nat) on a Check Point NGFW.
+
+![image](../../_assets/network-load-balancer/nlb-int-routing-2.svg)
 
 #### Route tables contain static routes with identical prefixes and different next hop IPs of network VMs {#divergent-next-hop}
 
@@ -84,3 +88,5 @@ Make sure you set up [Source NAT](https://en.wikipedia.org/wiki/Network_address_
 This use case is not supported. Use one of the options described above.
 
 {% endnote %}
+
+![image](../../_assets/network-load-balancer/nlb-int-routing-3.svg)

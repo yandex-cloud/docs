@@ -3,7 +3,6 @@
 * [В детализации по платежному аккаунту стало неожиданно отображаться потребление по сервису Cloud Logging](cloud-logging-unexpectedly-charges-in-billing-account-details.md)
 * [Не удается оформить резервируемое потребление для Compute cloud](unable-to-issue-a-new-cvos-position.md)
 * [Платежный аккаунт находится в статусе SUSPENDED](account-blocked-due-to-debt.md)
-* [Платежный аккаунт создался в статусе «Платный» после регистрации](account-created-in-paid-status.md)
 * [Устранение проблем с привязкой банковской карты к платежному аккаунту](couldnt-link-card.md)
 * [Устранение ошибки INVALID_PERSON_TYPE при регистрации платежного аккаунта](invalid-person-type.md)
 * [Устранение проблем с оплатой](payment-problems.md)

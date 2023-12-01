@@ -1,10 +1,12 @@
-# Управление метками узлов кластера {{ managed-k8s-name }}
+# Управление {{ k8s }}-метками узлов
 
 Вы можете добавлять [{{ k8s }}-метки](../../concepts/index.md#node-labels) сразу на все узлы {{ managed-k8s-name }} в [группе узлов](../../concepts/index.md#node-group). Для этого задайте набор меток в параметре `node_labels` при [создании группы узлов {{ managed-k8s-name }}](../../operations/node-group/node-group-create.md).
+
 1. Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
    Вы можете использовать уже работающий кластер {{ managed-k8s-name }} или [создать новый](../kubernetes-cluster/kubernetes-cluster-create.md).
-1. Создайте группу узлов {{ managed-k8s-name }} с метками.
+   
+1. Создайте группу узлов с {{ k8s }}-метками:
 
    {% list tabs %}
 
@@ -154,7 +156,7 @@
 
    {% endlist %}
 
-1. Посмотрите информацию о созданной группе узлов {{ managed-k8s-name }} с метками:
+1. Посмотрите информацию о созданной группе узлов с {{ k8s }}-метками:
 
    {% list tabs %}
 
@@ -164,7 +166,7 @@
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Выберите кластер {{ managed-k8s-name }}, в котором создана группа узлов.
      1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
-     1. На странице одного из узлов {{ managed-k8s-name }}, перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_labels }}**. На вкладке перечислены системные и пользовательские метки узла {{ managed-k8s-name }}.
+     1. На странице одного из узлов {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_labels }}**. На вкладке перечислены системные и пользовательские {{ k8s }}-метки узла.
 
    - CLI
 

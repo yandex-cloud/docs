@@ -1,37 +1,51 @@
-title: Yandex Cloud platform practical guidelines
+title: Yandex Cloud tutorials
 description:
   - >-
-    Detailed step-by-step instructions that will help you handle various tasks
-    using Yandex Cloud services.
+    These tutorials will help you solve various tasks using {{ yandex-cloud }}
+    services.
 meta:
-  title: Practical guidelines
+  title: Tutorials
   description: >-
-    Detailed step-by-step instructions that will help you handle various tasks
-    using Yandex Cloud services.
+    These tutorials will help you solve various tasks using {{ yandex-cloud }}
+    services.
 links:
   - title: Web service
-    description: Create websites using various CMS and network technologies
+    description: Create websites using various CMS's and network technologies
     href: web/
-  - title: Online store
-    description: Open online stores on a variety of platforms
-    href: internet-store/
-  - title: Data archive
-    description: Set up data backups
+  - title: Storing and recovering data
+    description: Set up data backup and recovery
     href: archive/
+  - title: Developers
+    description: Use {{ yandex-cloud }} services for your development tasks
+    href: dev/
+  - title: Basic infrastructure
+    description: >-
+      Deploy your basic infrastructure using convenient tools for managing cloud
+      resources
+    href: infrastructure/
+  - title: Application solutions
+    description: Solve your hands-on tasks using {{ yandex-cloud }}
+    href: applied/
   - title: Test environment
     description: Test applications on VMs
     href: testing/
-  - title: Performing infrastructure management
+  - title: Infrastructure management
     description: >-
       Deploy your infrastructure using convenient tools for managing cloud
       resources
     href: infrastructure-management/
-  - title: Network routing
+  - title: Building a data platform
+    description: Create your data platform with {{ yandex-cloud }}
+    href: dataplatform/
+  - title: Microsoft products in {{ yandex-cloud }}
+    description: Deploy Microsoft products in {{ yandex-cloud }}
+    href: windows/
+  - title: Architecture and networking
     description: Configure static routes and VPN to access cloud resources
     href: routing/
   - title: Data visualization and analytics
     description: Collect, visualize, and analyze data from various sources
     href: datalens/
-  - title: Internet of things
-    description: Manage your smart devices using the Yandex IoT Core service
-    href: iot/
+  - title: Serverless technologies
+    description: Create your own apps and set up integrations with serverless technologies
+    href: serverless/serverless-url-shortener

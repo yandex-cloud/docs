@@ -32,7 +32,7 @@ Read more:
 To set up networking between various sites and external clouds, use a site-to-site VPN. This will protect your applications against unauthorized access and make sure they cannot be accessed from outside. This also allows you to save on public IP addresses: you will only need a single public IP for a VPN connection.
 
 Read more:
-* [{#T}](../../tutorials/routing/ipsec-vpn.md).
+* [{#T}](../../tutorials/routing/ipsec/index.md).
 * [Setting up a VPN with the Azure cloud](https://github.com/yandex-cloud/yc-solution-library-for-azure/tree/main/Yandex-Azure%20VPN).
 * [Setting up a VPN with the AWS cloud](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
 

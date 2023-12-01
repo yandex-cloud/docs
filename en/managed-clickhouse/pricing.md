@@ -53,7 +53,9 @@ You are charged for the following:
 * Storage allocated for DB clusters.
 
 
-* Local SSD (`local-ssd`) storage can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+* You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+   * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+   * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
 * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
 
@@ -150,7 +152,7 @@ Where:
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

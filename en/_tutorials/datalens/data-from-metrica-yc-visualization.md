@@ -53,6 +53,7 @@ To make sure {{ datalens-full-name }} and {{ ml-platform-full-name }} can run wi
 ### Required paid resources {#paid-resources}
 
 The cost of the infrastructure deployment includes:
+
 * Fee for the cluster computing resources and storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for the computation time (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
 * Fee for the outbound traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
@@ -231,15 +232,17 @@ Skip this section if you are using your own tag data.
 ### 4.1. Create a dashboard {#creating-dashboard}
 
 1. In the left-hand panel, select ![dashboards](../../_assets/datalens/dashboard-0523.svg) **Dashboards** and click **Create dashboard**.
-1. Enter `ch_metrica_data` as the name of the dashboard and click **Create**.
 1. Add the first chart to the dashboard. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**:
    1. From the **Chart** drop-down list, select `ch_metrica_data_hits_area`.
    1. In the **Name** field, enter **Hits by browser** as the chart name and click **Add**.
-1. Similarly, add the chart `ch_metrica_data_hits_table` named **Hits by browser for period**.
+1. Similarly, add the `ch_metrica_data_hits_table` chart named **Hits by browser for period**.
 1. Move the charts and resize them on the dashboard:
    1. Drag the table chart to the right of the diagram chart.
-   1. To change the vertical dimensions of the charts, drag them by the lower-right corner.
-1. In the top-right corner, click **Save**.
+   1. To change the vertical dimensions of the charts, drag them by the bottom-right corner.
+1. Save the dashboard:
+
+   1. In the top-right corner, click **Save**.
+   1. Enter `ch_metrica_data` as the dashboard name and click **Create**.
 
 ### 4.2. Set up a dashboard {#configuring-dashboard}
 
@@ -389,7 +392,7 @@ Create a chart with retention based on the `ch_metrica_data_users_visits_cohorts
 1. Select the format for `Visits from the first week`. To do this, click the ![image](../../_assets/datalens/mesh.svg) icon under **Measures** in the `Visits from the first week` field. In the window that opens, set the following configuration:
    1. Set **Format** to `Percent`.
    1. Click **Apply**.
-1. Edit the threshold values for the measure colors. Under **Colors**, click the ![gear](../../_assets/datalens/gear.svg) icon. In the window that opens, enable **Set threshold values**, then specify the threshold values of `0.01`, `0.025`, and `0.1`, and click **Apply**.
+1. Edit the threshold values for the measure colors. Under **Colors**, click the ![gear](../../_assets/datalens/gear.svg) icon. In the window that opens, enable **Set threshold values**, then specify the threshold values of `0.01`, `0.025`, and `0.1` and click **Apply**.
 1. Click **Save**.
 
 ### 6.5. {{ datalens-short-name }}. Add charts to a new dashboard tab {#adding-charts-to-dashboard-tab}

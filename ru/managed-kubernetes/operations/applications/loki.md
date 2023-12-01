@@ -4,9 +4,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+Чтобы начать работу с Loki:
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролями](../../../iam/concepts/access-control/roles.md) `storage.uploader` и `storage.viewer`. Он необходим для доступа к [{{ objstorage-full-name }}](../../../storage/).
 1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:

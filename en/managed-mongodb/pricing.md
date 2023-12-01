@@ -37,7 +37,9 @@ The following is charged:
 
 * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
-* Local SSD (`local-ssd`) storage can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+      * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
+      * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
 
    For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 

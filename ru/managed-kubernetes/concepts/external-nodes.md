@@ -58,7 +58,7 @@ description: "В данной статье описаны особенности
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: yandex.cloud/node-group-id # Метка узлов, расположенных в {{ yandex-cloud }}.
+          - key: yandex.cloud/node-group-id # {{ k8s }}-метка узлов, расположенных в {{ yandex-cloud }}.
             operator: Exists
 ...
 ```

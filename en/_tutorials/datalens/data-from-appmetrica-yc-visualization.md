@@ -250,10 +250,9 @@ To set up the connection and export data from your app, see [Export data to {{ y
 ## 5. Create and configure a dashboard in {{ datalens-short-name }} {#creating-configuring-dashboard}
 
 1. Open the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}) and click **Create dashboard**.
-1. Enter `auto.ru app` as the dashboard name, then click **Create**.
 1. Add a chart to your dashboard.
 
-   1. In the upper-right corner, click **Add** → **Chart**.
+   1. In the top-right corner, click **Add** → **Chart**.
    1. From the **Chart** drop-down list, select **Table by car brands**. The **Name** field will be populated automatically.
    1. Click **Add**.
 
@@ -269,17 +268,20 @@ To set up the connection and export data from your app, see [Export data to {{ y
    1. Click **Add**.
 
 1. Position the charts and selector on the dashboard. To resize an element, drag it by the bottom-right corner.
-1. In the top-right corner, click **Save**.
+1. Save the dashboard:
+
+   1. In the top-right corner, click **Save**.
+   1. Enter `auto.ru app` as the dashboard name, then click **Create**.
 
    ![image](../../_assets/datalens/solution-13/13-dashboard.png)
 
 Try to change **event name** in the selector to another value to see how the dashboard changes.
 
-## 6. Customer journey. Create an SQL chart and a Sankey chart {#customer-journey}
+## 6. Customer journey. Create a QL chart and a Sankey chart {#customer-journey}
 
-### 6.1. Create a QL chart {{ datalens-short-name }} {#creating-sql-chart}
+### 6.1. Create a QL chart in {{ datalens-short-name }} {#creating-sql-chart}
 
-Use QL charts to research event sequences and experiment in {{ datalens-short-name }}.
+Use QL charts to delve into event sequences and experiment in {{ datalens-short-name }}.
 
 1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
 1. Select the `AppMetrica_workshop` connection that you created in step [4.2](#creation-datalens-connection-to-ch).

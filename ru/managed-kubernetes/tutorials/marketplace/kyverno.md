@@ -60,7 +60,7 @@
 ## Создайте политику Kyverno {#kyverno-policies}
 
 1. Установите приложение [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) согласно [инструкции](../../operations/applications/kyverno.md).
-1. Создайте политику, которая будет требовать, чтобы все [поды](../../concepts/index.md#pod) имели [метку](../../../resource-manager/concepts/labels.md) `app.kubernetes.io/name`.
+1. Создайте политику, которая будет требовать, чтобы все [поды](../../concepts/index.md#pod) имели [{{ k8s }}-метку](../../../resource-manager/concepts/labels.md) `app.kubernetes.io/name`.
    1. Сохраните спецификацию для создания объекта `ClusterPolicy` в YAML-файл с названием `policy.yaml`:
 
       ```yaml
@@ -101,7 +101,7 @@
 
 ## Проверьте работу Kyverno & Kyverno Policies {#check-apps}
 
-* Создайте под без метки `app.kubernetes.io/name`:
+* Создайте под без {{ k8s }}-метки `app.kubernetes.io/name`:
 
   ```bash
   kubectl run nginx --image nginx
@@ -119,7 +119,7 @@
       Rule check-for-labels failed at path /metadata/labels/app.kubernetes.io/name/'
   ```
 
-* Создайте под с меткой `app.kubernetes.io/name`:
+* Создайте под с {{ k8s }}-меткой `app.kubernetes.io/name`:
 
   ```bash
   kubectl run nginx --image nginx --labels app.kubernetes.io/name=nginx
