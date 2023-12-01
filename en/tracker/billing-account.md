@@ -19,6 +19,12 @@ To link a billing account:
 1. Go to **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**. The page shows all your billing accounts from {{ yandex-cloud }}.
 1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountList.bind }}** next to the relevant billing account.
 
+{% note warning %}
+
+If different users are responsible for {{ tracker-name }} and billing account administration, the {{ tracker-name }} admin will only be able to link a billing account if they have the `billing.accounts.admin` or `billing.accounts.editor` role in the {{ org-full-name }} organization's [cloud](../organization/concepts/manage-services.md#cloud). [Learn more about {{ billing-name }} roles](../iam/concepts/access-control/roles.md#billing-roles).
+
+{% endnote %}
+
 ## Create a billing account {#create}
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).

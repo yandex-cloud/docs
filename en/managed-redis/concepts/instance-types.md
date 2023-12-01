@@ -17,10 +17,9 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 The host class also determines which [disk types](./storage.md) are available:
 
-* **hm1**: `network-ssd`, `local-ssd`
-* **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`
-* **hm3**: `network-ssd`, `network-ssd-nonreplicated`
-* **b2**, **b3**: `network-ssd`
+* **hm1**: `network-ssd`, `local-ssd`.
+* **hm2**, **hm3**: `network-ssd`, `local-ssd`, and `network-ssd-nonreplicated`.
+* **b2**, **b3**: `network-ssd`.
 
 
 

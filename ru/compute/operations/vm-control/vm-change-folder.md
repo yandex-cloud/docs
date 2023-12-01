@@ -13,9 +13,9 @@
 * Метрики в [{{ monitoring-full-name }}](../../../monitoring/) не переносятся. То, что было в предыдущем каталоге, останется в нем, новые метрики будут создаваться уже в новом каталоге.
 * Перенос возможен только внутри одного облака.
 
-## Перенести виртуальную машину {#change-folder}
+## Перенести виртуальную машину {#relocate-vm}
 
-Чтобы изменить каталог виртуальной машины:
+### Изменить каталог ВМ {#change-folder}
 
 {% list tabs %}
 
@@ -37,8 +37,8 @@
       +----------------------+-----------------+---------------+---------+----------------------+
       |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
       +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4tkoa3jl6 | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7gcoji2f8s | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+      | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
       ```      
 
@@ -54,8 +54,8 @@
       +----------------------+--------------------+------------------+--------+
       |          ID          |        NAME        |      LABELS      | STATUS |
       +----------------------+--------------------+------------------+--------+
-      | b1gd129pp9ha0vnvf5g7 | my-folder          |                  | ACTIVE |
-      | b1g66mft1vopnevbn57j | default            |                  | ACTIVE |
+      | b1gd129pp9ha******** | my-folder          |                  | ACTIVE |
+      | b1g66mft1vop******** | default            |                  | ACTIVE |
       +----------------------+--------------------+------------------+--------+
       ```
 
@@ -67,13 +67,13 @@
 
   1. Перенесите виртуальную машину в другой каталог со следующими параметрами: 
       
-      * в параметре `id` укажите идентификатор виртуальной машины, например `fhm0b28lgfp4tkoa3jl6`;
-      * в параметре `destination-folder-id` укажите идентификатор целевого каталога, например `b1gd129pp9ha0vnvf5g7`.
+      * в параметре `id` укажите идентификатор виртуальной машины, например `fhm0b28lgfp4********`;
+      * в параметре `destination-folder-id` укажите идентификатор целевого каталога, например `b1gd129pp9ha********`.
 
       ```bash
       yc compute instance move \
-        --id fhm0b28lgfp4tkoa3jl6 \
-        --destination-folder-id b1gd129pp9ha0vnvf5g7
+        --id fhm0b28lgfp4******** \
+        --destination-folder-id b1gd129pp9ha********
       ```
 
       Подробнее о команде `yc compute instance move` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/move.md).
@@ -82,37 +82,172 @@
 
   Воспользуйтесь методом REST API [move](../../api-ref/Instance/move.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move).
 
-  Ниже описан пример Bash-скрипта для REST API, который можно исполнить из Linux-сред. В нём также используется метод [move](../../api-ref/Disk/move.md) для ресурса [Disk](../../api-ref/Disk/index.md) (если не перенести загрузочный диск, он останется в исходном каталоге).
+  **Пример**
+
+  Ниже описан пример Bash-скрипта для ОС Linux.
   
-  [Аутентификация в API Compute Cloud](../../api-ref/authentication.md) осуществляется посредством [IAM-токена](../../../iam/operations/iam-token/create.md). Его получение - посредством [OAuth-токена](https://yandex.ru/dev/id/doc/ru/access) для аккаунта в Яндекс ID.
+  Чтобы воспользоваться примером, [аутентифицируйтесь](../../api-ref/authentication.md) в API и установите утилиту [cURL](https://curl.haxx.se).
+
+  Переносить ВМ можно без ее остановки.
+
+  1. Создайте файл для скрипта:
+
+      ```bash
+      sudo touch <имя_файла>
+      ```
+
+  1. Откройте файл для записи:
+
+      ```bash
+      sudo nano <имя_файла>
+      ```
   
-  В Linux-среде должны быть установлены:
-  * curl - для получения OAuth-токена и выполнения HTTP-запросов типа POST.
-  * jq - для извлечения OAuth-токена из JSON-вывода первой команды скрипта.
- 
+  1. Поместите скрипт в файл: 
+
+      ```bash
+      #!/bin/bash
+
+      # Создание переменных
+
+      export IAM_TOKEN=`yc iam create-token`
+      
+      instanceId='<идентификатор_ВМ>'
+      bootDiskId='<идентификатор_загрузочного_диска_ВМ>'
+      destinationFolderId='<идентификатор_каталога>'
+      
+      # Перемещение ВМ
+
+      curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/instances/{${instanceId}}:move" \
+      -H "Authorization: Bearer ${IAM_TOKEN}" \
+      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+      
+      # Перемещение загрузочного диска
+
+      curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/disks/{${bootDiskId}}:move" \
+      -H "Authorization: Bearer ${IAM_TOKEN}" \
+      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+      ```
+
+      Где:
+
+      * `IAM_TOKEN` — IAM-токен для аутентификации в API.
+      * `instanceId` — идентификатор ВМ, которую надо перенести.
+      * `bootDiskId` — идентификатор загрузочного диска переносимой ВМ.
+      * `destinationFolderId` — идентификатор каталога, в который будет перенесена ВМ.
+
+  1. Сделайте файл исполняемым:
+
+      ```bash
+      chmod +x <имя_файла>
+      ```
+
+  1. Выполните скрипт:
+
+      ```bash
+      ./<имя_файла>
+      ```
+
+{% endlist %}
+
+### Изменить подсеть ВМ {#change-subnet}
+
+После переноса ВМ остается подключена к [подсети](../../../vpc/concepts/network.md#subnet) исходного каталога. Чтобы перенести ВМ в подсеть каталога назначения:
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который была перемещена ВМ.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Нажмите на имя нужной ВМ.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** нажмите значок ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+  1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите новую подсеть и нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
   
-  Переносить ВМ можно без её остановки.
-  
-  > [!NOTE]
-  > ВМ после переноса остаётся подключена к подсети Virtual Private Cloud исходного каталога. Отключить от неё машину можно в настройках сетевого интерфейса на странице ВМ.
-  
-  ```#!/bin/bash
-  
-  # Задаётся переменная IAM_TOKEN. В переменной (скобках) - команда, получающая IAM-токен и извлекающая его из JSON-вывода (jq). Вместо "Oauth_Token" подставить OAuth-токен аккаунта в Яндекс ID.
-  IAM_TOKEN=$(curl -d "{\"yandexPassportOauthToken\":\"OAuth_Token\"}" "https://iam.api.cloud.yandex.net/iam/v1/tokens" | jq -r '.iamToken')
-  
-  instanceId='ID_переносимой_ВМ'
-  bootDiskId='ID_загрузочного_диска_этой_ВМ'
-  destinationFolderId='ID_каталога_в_который_переносится_ВМ'
-  
-  # Команда перемещения ВМ:
-  curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/instances/{${instanceId}}:move" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
-  -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
-  
-  # Команда перемещения загрузочного диска:
-  curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/disks/{${bootDiskId}}:move" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
-  -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'```
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Остановите ВМ:
+
+      ```bash
+      yc compute instance stop fhm0b28lgfp4********
+      ```
+
+  1. Посмотрите описание команды CLI для изменения подсети:
+
+      ```bash
+      yc compute instance update-network-interface --help
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      yc compute instance update-network-interface fhm0b28lgfp4******** \
+        --subnet-id e2lfibapq818******** \
+        --ipv4-address auto \
+        --network-interface-index 0 \
+        --security-group-id enpi8m85mj14********
+      ```
+
+      Где:
+
+      * `--subnet-id` — подсеть в каталоге назначения.
+      * `--ipv4-address` — внутренний IP-адрес ВМ.
+      * `--network-interface-index` — индекс сетевого интерфейса ВМ.
+      * `--security-group-id` — группа безопасности, которая будет назначена ВМ.
+
+      Результат:
+
+      ```text
+      done (9s)
+      id: epdk82knf9rj********
+      folder_id: b1gd73mbrli7********
+      created_at: "2023-11-16T06:09:46Z"
+      name: oslogigor1
+      zone_id: ru-central1-b
+      platform_id: standard-v3
+      resources:
+        memory: "2147483648"
+        cores: "2"
+        core_fraction: "100"
+      status: STOPPED
+      metadata_options:
+        gce_http_endpoint: ENABLED
+        aws_v1_http_endpoint: ENABLED
+        gce_http_token: ENABLED
+        aws_v1_http_token: DISABLED
+      boot_disk:
+        mode: READ_WRITE
+        device_name: epdophaf2gh9********
+        auto_delete: true
+        disk_id: epdophaf2gh9********
+      network_interfaces:
+        - index: "0"
+          mac_address: d0:0d:14:40:a9:77
+          subnet_id: e2lfibapq818********
+          primary_v4_address:
+          address: 10.129.0.22
+      gpu_settings: {}
+      fqdn: relocated-vm.ru-central1.internal
+      scheduling_policy: {}
+      network_settings:
+      type: STANDARD
+      placement_policy: {}
+      ```
+
+  1. Запустите ВМ:
+
+      ```bash
+      yc compute instance start fhm0b28lgfp4********
+      ```
+
+- API
+
+  Воспользуйтесь методом REST API [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/instance_service.md#UpdateNetworkInterface).
 
 {% endlist %}

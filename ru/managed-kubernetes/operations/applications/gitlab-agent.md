@@ -16,9 +16,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+Чтобы установить {{ GL }} Agent:
 
 1. [Создайте инстанс {{ mgl-name }}](../../../managed-gitlab/operations/instance/instance-create.md) или standalone-инстанс.
 1. Создайте файл конфигурации агента в репозитории:

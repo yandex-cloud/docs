@@ -43,10 +43,10 @@
        --container-runtime <среда_запуска_контейнеров> \
        --preemptible \
        --public-ip \
-       --template-labels <ресурсные_метки> \
+       --template-labels <облачные_метки_группы_узлов> \
        --version <версия_{{ k8s }}_на_узлах_группы> \
        --node-name <шаблон_имени_узлов> \
-       --node-taints <метки_taint-политик>
+       --node-taints <taint-политики>
      ```
 
      Где:
@@ -80,13 +80,13 @@
      * `--container-runtime` — [среда запуска контейнеров](../../concepts/index.md#config), `docker` или `containerd`.
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels` — [ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) в формате `<имя_метки>=<значение_метки>` для ВМ, представляющих узлы группы {{ managed-k8s-name }}. Можно указать несколько меток через запятую.
+     * `--template-labels` — [облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в формате `<имя_метки>=<значение_метки>`. Можно указать несколько меток через запятую.
      * `--version` — версия {{ k8s }} на узлах группы {{ managed-k8s-name }}.
      * `--node-name` — шаблон имени узлов {{ managed-k8s-name }}. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
        {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-     * `--node-taints` — метки [taint-политик](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько меток.
+     * `--node-taints` — [taint-политики](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько политик.
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
@@ -104,7 +104,7 @@
 
   1. Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}:
      1. Получите список групп размещения с помощью команды `yc compute placement-group list`.
-     1. Передайте имя или идентификатор группы размещения в параметре `--placement group` при создании группы узлов {{ managed-k8s-name }}:
+     1. Передайте имя или идентификатор группы размещения во флаге `--placement group` при создании группы узлов {{ managed-k8s-name }}:
 
         ```bash
         {{ yc-k8s }} node-group create \
@@ -120,7 +120,7 @@
      * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `cluster_id`.
      * [Платформу](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
      * Настройку [среды запуска контейнеров](../../concepts/index.md#config) в параметре `container_runtime`.
-     * [Ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы {{ managed-k8s-name }}, в блоке `nodeTemplate.labels`.
+     * [Облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в блоке `nodeTemplate.labels`.
      * Настройки масштабирования в блоке `scale_policy`.
 
      Пример структуры конфигурационного файла:
@@ -166,7 +166,8 @@
 
        * `container_runtime`:
          * `type` — [среда запуска контейнеров](../../concepts/index.md#config): `docker` или `containerd`.
-       * `labels` — [ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы {{ managed-k8s-name }}. Можно указать несколько меток через запятую.
+
+       * `labels` — [облачные метки группы узлов](../../../resource-manager/concepts/labels.md). Можно указать несколько меток через запятую.
        * `scale_policy` – настройки масштабирования.
 
      {% note warning %}
@@ -226,7 +227,7 @@
     {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
   * [Среду запуска контейнеров](../../concepts/index.md#config) в параметре `nodeTemplate.containerRuntimeSettings.type`.
-  * [Ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы {{ managed-k8s-name }}, в параметре `nodeTemplate.labels`.
+  * [Облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в параметре `nodeTemplate.labels`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов {{ managed-k8s-name }} в параметрах `allocationPolicy`.
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
@@ -242,7 +243,7 @@
 
   Чтобы разрешить использование узлами группы {{ managed-k8s-name }} [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
 
-  Чтобы задать метки [taint-политик](../../concepts/index.md#taints-tolerations), передайте их значения в параметре `nodeTaints`.
+  Чтобы задать [taint-политики](../../concepts/index.md#taints-tolerations), передайте их значения в параметре `nodeTaints`.
 
   Чтобы задать шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 

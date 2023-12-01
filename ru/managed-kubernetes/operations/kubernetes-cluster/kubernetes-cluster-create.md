@@ -4,8 +4,6 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы создать кластер {{ managed-k8s-name }}:
-
 {% list tabs %}
 
 - Консоль управления
@@ -17,7 +15,7 @@
 
 
   1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
-  1. Убедитесь, что у [аккаунта](../../../iam/concepts/index.md#accounts), с помощью которого вы собираетесь создавать кластер {{ managed-k8s-name }}, есть [необходимые для этого роли](../../concepts/index.md#required-roles).
+  1. Убедитесь, что у [аккаунта](../../../iam/concepts/index.md#accounts), с помощью которого вы собираетесь создавать кластер {{ managed-k8s-name }}, есть [необходимые для этого роли](../../security/index.md#required-roles).
   1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
   1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../concepts/index.md#node-group).
@@ -45,9 +43,11 @@
 
 - CLI
 
-  1. {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Чтобы создать кластер:
 
   1. Укажите параметры кластера {{ managed-k8s-name }} в команде создания (в примере приведены не все параметры):
 
@@ -101,7 +101,7 @@
        release_channel: REGULAR
      ```
 
-  1. Чтобы включить [контроллер сетевых политик](../../concepts/network-policy.md) Calico, передайте в команде создания кластера {{ managed-k8s-name }} параметр `--enable-network-policy`:
+  1. Чтобы включить [контроллер сетевых политик](../../concepts/network-policy.md) Calico, передайте в команде создания кластера {{ managed-k8s-name }} флаг `--enable-network-policy`:
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -238,20 +238,24 @@
 
 - {{ TF }}
 
-  Допустим, нужно создать кластер {{ managed-k8s-name }} и сеть для него со следующими характеристиками:
-  * С именем `k8s-zonal`.
-  * Версии `1.22`.
-  * В [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) с идентификатором `{{ tf-cloud-id }}`.
-  * В [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) с идентификатором `{{ tf-folder-id }}`.
-  * В новой сети `mynet`.
-  * В новой подсети `mysubnet`, в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.1.0.0/16`.
-  * С новым сервисным аккаунтом `myaccount`, имеющим права `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.viewer`.
-  * С [ключом шифрования {{ kms-full-name }}](../../concepts/encryption.md) `kms-key`.
-  * В новой [группе безопасности](../../../vpc/concepts/security-groups.md) `k8s-public-services`, разрешающей [подключение к сервисам из интернета](../connect/security-groups.md#rules-nodes).
+  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
 
-  Для этого установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+  * Название — `k8s-zonal`.
+  * Версия — 1.22.
+  * Идентификатор [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) — `{{ tf-cloud-id }}`.
+  * Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) — `{{ tf-folder-id }}`.
+  * Сеть — `mynet`.
+  * Подсеть — `mysubnet`. Ее сетевые настройки:
 
-  {% cut "Конфигурационный файл для кластера {{ managed-k8s-name }}:" %}
+    * [Зона доступности](../../../overview/concepts/geo-scope.md) — `{{ region-id }}-a`.
+    * Диапазон — `10.1.0.0/16`.
+
+  * Сервисный аккаунт — `myaccount`.
+  * Права сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.viewer`.
+  * [Ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md) — `kms-key`.
+  * [Группа безопасности](../../../vpc/concepts/security-groups.md) — `k8s-public-services`. Она содержит [правила для подключения к сервисам из интернета](../connect/security-groups.md#rules-nodes).
+
+  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
   
   ```hcl
@@ -394,8 +398,6 @@
 
 
 
-  {% endcut %}
-
 {% endlist %}
 
 ### Создание регионального кластера {{ managed-k8s-name }} {#example-regional-cluster}
@@ -404,22 +406,34 @@
 
 - {{ TF }}
 
-  Допустим, нужно создать кластер {{ managed-k8s-name }} и сеть для него со следующими характеристиками:
-  * С именем `k8s-regional`.
-  * Версии `1.22`.
-  * В облаке с идентификатором `{{ tf-cloud-id }}`.
-  * В каталоге с идентификатором `{{ tf-folder-id }}`.
-  * В новой сети `mynet` с новыми подсетями:
-    * `mysubnet-a` в зоне доступности {{ region-id }}-a с диапазоном `10.5.0.0/16`.
-    * `mysubnet-b` в зоне доступности {{ region-id }}-b с диапазоном `10.6.0.0/16`.
-    * `mysubnet-c` в зоне доступности {{ region-id }}-c с диапазоном `10.7.0.0/16`.
-  * С новым сервисным аккаунтом `myaccount`, имеющим права `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.viewer`.
-  * С ключом шифрования {{ kms-name }} `kms-key`.
-  * В новой группе безопасности `k8s-main-sg`, содержащей [правила для служебного трафика](../connect/security-groups.md#rules-internal).
+  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
 
-  Для этого установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+  * Название — `k8s-regional`.
+  * Версия — 1.22.
+  * Идентификатор облака — `{{ tf-cloud-id }}`.
+  * Идентификатор каталога — `{{ tf-folder-id }}`.
+  * Сеть — `mynet`.
+  * Подсеть — `mysubnet-a`. Ее сетевые настройки:
 
-  {% cut "Конфигурационный файл для кластера {{ managed-k8s-name }}:" %}
+    * Зона доступности — `{{ region-id }}-a`.
+    * Диапазон — `10.5.0.0/16`.
+
+  * Подсеть — `mysubnet-b`. Ее сетевые настройки:
+
+    * Зона доступности — `{{ region-id }}-b`.
+    * Диапазон — `10.6.0.0/16`.
+
+  * Подсеть — `mysubnet-c`. Ее сетевые настройки:
+
+    * Зона доступности — `{{ region-id }}-c`.
+    * Диапазон — `10.7.0.0/16`.
+
+  * Сервисный аккаунт — `myaccount`.
+  * Права сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.viewer`.
+  * Ключ шифрования {{ kms-name }} — `kms-key`.
+  * Группа безопасности — `k8s-main-sg`. Она содержит [правила для служебного трафика](../connect/security-groups.md#rules-internal).
+
+  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
   
   ```hcl
@@ -584,7 +598,5 @@
   ```
 
 
-
-  {% endcut %}
 
 {% endlist %}

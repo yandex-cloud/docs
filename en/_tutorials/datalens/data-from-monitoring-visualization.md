@@ -64,7 +64,7 @@ To create a {{ monitoring-name }} connection:
 ## Create a QL chart {#create-sql-chart}
 
 1. Go to the created connection.
-1. In the top right-hand corner, click **Create QL chart**.
+1. In the top-right corner, click **Create QL chart**.
 1. On the **Query** tab, enter the query code. You can either write it or copy it from {{ monitoring-name }}.
 
    {% cut "How to copy a query from {{ monitoring-name }}" %}
@@ -105,10 +105,6 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    ![image](../../_assets/datalens/monitoring-visualization/create-dashboard.png)
 
-1. Enter the dashboard name `Monitoring Data` and click **Create**.
-
-   The dashboard created will open for editing.
-
 ## Add the QL chart to the dashboard {#add-sql-chart-to-dashboard}
 
 1. At the top of the page, click **Add** and select **Chart**.
@@ -122,7 +118,10 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
    Click **Add**.
 
 1. The chart is displayed on the dashboard. Stretch it to improve visualization.
-1. Save the dashboard.
+1. Save the dashboard:
+
+   1. In the top-right corner, click **Save**.
+   1. Enter `Monitoring Data` as the dashboard name and click **Create**.
 
 ## Add selectors to the dashboard {#add-selectors-to-dashboard}
 

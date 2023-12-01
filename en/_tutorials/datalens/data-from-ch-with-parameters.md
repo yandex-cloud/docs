@@ -165,13 +165,9 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    ![image](../../_assets/datalens/solution-parameters/create-dashboard.png)
 
-
-1. Enter the dashboard name **Visualizing data using the parameters**, then click **Create**.
-
-
 ## Add charts to the dashboard {#add-charts-on-dashboard}
 
-1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the upper-right corner.
+1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the top-right corner.
 1. Click **Add** and select **Chart**.
 
    ![image](../../_assets/datalens/solution-parameters/add-chart.png)
@@ -184,6 +180,10 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
 1. In a similar manner, add the **Chart with a configurable visualization dimension**.
 1. Position the charts on the dashboard however you like.
+1. Save the dashboard:
+
+   1. In the top-right corner, click **Save**.
+   1. Enter **Visualizing data using the parameters** for the dashboard name and click **Create**.
 
 
 ## Add selectors to the dashboard {#add-selectors-on-dashboard}
@@ -196,8 +196,8 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
 
 {% endnote %}
 
-
-1. Add a selector for the chart **Sales by product category**:
+1. To switch to dashboard editing mode, click **Edit** in the top-right corner.
+1. Add a selector for the **Sales by product category** chart:
 
    1. At the top of the page, click **Add**.
    1. Choose **Selector**.

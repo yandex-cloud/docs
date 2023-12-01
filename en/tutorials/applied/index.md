@@ -1,0 +1,30 @@
+# Application solutions
+
+## Creating a site {#web}
+
+* [Static website in {{ objstorage-full-name }}](../web/static.md)
+* [Website on LAMP or LEMP stack](../web/lamp-lemp.md)
+* [Joomla-based website with {{ PG }} database](../web/joomla-postgresql.md)
+* [Creating a website in WordPress](../web/wordpress.md)
+* [WordPress website with a {{ MY }} database cluster](../web/wordpress-mysql.md)
+* [Transferring a WordPress website from a different hosting provider to {{ yandex-cloud }}](../web/wordpress-transfer.md)
+* [1C-Bitrix website](../web/bitrix-website.md)
+* [OpenCart-based online store](../internet-store/opencart.md)
+* [Setting up virtual hosting](../web/virtual-hosting.md)
+
+## 1С {#1c}
+
+* [1C-Bitrix Online Store: Website Management](../internet-store/bitrix-shop.md)
+* [Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-full-name }}](../infrastructure-management/1c-postgresql-linux.md)
+
+## Internet of Things (IoT) {#iot}
+
+* [Monitoring the status of geographically distributed devices](../iot/datalens.md)
+* [Monitoring sensor readings and event notifications](../iot/monitoring.md)
+* [Emulating multiple IoT devices](../testing/iot-emulation.md)
+
+
+## Other {#other}
+
+* [Publishing game updates using {{ cdn-full-name }}](../web/prefetch.md)
+* [{#T}](../infrastructure-management/sap.md)

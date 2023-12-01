@@ -8,9 +8,16 @@
 * [{#T}](debezium-mmy.md)
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](debezium-mpg.md)
+* [{#T}](ydb-mkf-replication.md)
 * [{#T}](data-transfer-mkf-mch.md)
+* [{#T}](managed-kafka-to-greenplum.md)
 * [{#T}](data-transfer-mkf-mes.md)
+* [{#T}](data-transfer-mkf-mmg.md)
+* [{#T}](data-transfer-mkf-mmy.md)
+* [{#T}](data-transfer-mkf-mos.md)
+* [{#T}](mkf-to-mpg.md)
 * [{#T}](mkf-ydb-stream.md)
+* [{#T}](mkf-yds-stream.md)
 * [{#T}](kafka-connect.md)
 * Using the registry of data format schemas with {{ mkf-full-name }}:
   * [Managing data schemas in {{ mkf-name }}](schema-registry-overview.md)
@@ -19,6 +26,7 @@
 
 ## {{ CH }} {#clickhouse}
 
+* [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](dp-mch-data-exchange.md)
 * [{#T}](clickhouse-for-graphite.md)
@@ -31,8 +39,10 @@
 
 ## {{ GP }} {#greenplum}
 
+* [{#T}](managed-kafka-to-greenplum.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](greenplum-to-postgresql.md)
+* [{#T}](greenplum-yezzey.md)
 
 
 ## {{ ES }} {#elasticsearch}
@@ -47,6 +57,7 @@
 * [{#T}](mongodb-data-migration.md)
 * [{#T}](mongodb-sharding.md)
 * [{#T}](mongodb-profiling.md)
+* [{#T}](data-transfer-mkf-mmg.md)
 
 
 ## {{ MY }} {#mysql}
@@ -55,6 +66,8 @@
 * [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
+* [{#T}](data-transfer-mkf-mmy.md)
+* [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mmy-to-yds.md)
 * [{#T}](mmy-to-mpg.md)
@@ -67,6 +80,7 @@
 ## {{ OS }} {#opensearch}
 
 * [{#T}](elasticsearch-to-opensearch.md)
+* [{#T}](data-transfer-mkf-mos.md)
 
 
 ## {{ PG }} {#postgresql}
@@ -76,6 +90,7 @@
 * [Migrating databases from {{ mpg-name }}](outbound-replication.md)
 * [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
+* [{#T}](mkf-to-mpg.md)
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](sqoop-mpg.md)
@@ -101,4 +116,5 @@
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)
 * [{#T}](data-proc-init-actions-geesefs.md)
+* [{#T}](data-proc-and-airflow.md)
 

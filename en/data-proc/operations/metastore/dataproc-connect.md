@@ -29,7 +29,7 @@ To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have
 
    1. If the {{ metastore-name }} cluster and {{ dataproc-name }} cluster are hosted in different cloud networks, set up routing between these cloud networks so that the {{ metastore-name }} subnet is accessible from the {{ dataproc-name }} subnet.
 
-      There are [multiple ways](../../../tutorials/routing/index.md) to configure routing. For example, you can [create an IPsec tunnel](../../../tutorials/routing/ipsec-vpn.md).
+      There are [multiple ways](../../../tutorials/routing/index.md) to configure routing. For example, you can [create an IPsec tunnel](../../../tutorials/routing/ipsec/ipsec-vpn.md).
 
    1. If the cloud network uses [security groups](../../../vpc/concepts/security-groups.md), [set up the security group](../../../vpc/operations/security-group-add-rule.md) of the {{ dataproc-name }} cluster to work with {{ metastore-name }}. To do this, add the following rule for outgoing traffic:
 

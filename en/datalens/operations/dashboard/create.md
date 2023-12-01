@@ -11,10 +11,13 @@ To create a dashboard:
 
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. Click **Create dashboard**.
-1. In the window that opens, enter a name for the dashboard and click **Create**. The dashboard will appear in the list on the navigation page.
 
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, click ![image](../../../_assets/datalens/dashboard-0523.svg) **Dashboards**.
+1. Click **Create dashboard**.
+1. Add the [widgets](../../dashboard/widget.md) you need to the dashboard.
+1. In the top-right corner, click **Save**.
+1. In the window that opens, enter a name for the dashboard and click **Create**. The dashboard will appear in the list on the navigation page.
 
 
 

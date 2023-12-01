@@ -13,7 +13,16 @@
 1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/). Или [добавьте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
-1. [Настройте группы безопасности кластера {{ managed-k8s-name }} и группы узлов](../operations/connect/security-groups.md). [Группа безопасности](../../vpc/concepts/security-groups.md) [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group) должна разрешать входящие TCP-соединения к портам 10501 и 10502 из [подсетей](../../vpc/concepts/network.md#subnet) балансировщика или из его группы безопасности (позже подсети и группу нужно будет указать для [создания Ingress-контроллера](#create-ingress-and-apps)).
+1. Создайте правила [групп безопасности](../../vpc/concepts/security-groups.md), чтобы разрешить:
+
+   * [Служебный входящий и исходящий трафик](../operations/connect/security-groups.md#rules-internal) для кластера {{ managed-k8s-name }} и группы узлов.
+   * Входящий трафик для группы узлов:
+
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `10501-10502`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите диапазоны адресов подсетей, которые вы будете использовать при [создании Ingress-контроллера](#create-ingress-and-apps). Например, `10.96.0.0/16` или `10.112.0.0/16`.
+
 1. [Установите Ingress-контроллер {{ alb-name }}](../operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -25,7 +34,7 @@
 
 ## Настройте Ingress-контроллер и тестовые приложения {#create-ingress-and-apps}
 
-В качестве рабочей нагрузки Ingress-контроллера могут выступать [сервисы {{ k8s }}](../concepts/index.md#service), [целевые группы](../../application-load-balancer/concepts/target-group.md) {{ alb-name }} или [бакеты](../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../storage/).
+В качестве рабочей нагрузки Ingress-контроллера могут выступать [сервисы {{ k8s }}](../concepts/index.md#service) или [группы бэкендов](../../application-load-balancer/concepts/backend-group.md#types): целевые группы {{ alb-name }} или бакеты {{ objstorage-full-name }}.
 
 Перед началом работы получите идентификатор [добавленного ранее](#before-you-begin) TLS-сертификата:
 
@@ -49,7 +58,7 @@ yc certificate-manager certificate list
 
   1. В отдельной директории создайте файлы приложений `demo-app-1.yaml` и `demo-app-2.yaml`:
 
-     {% cut "demo-app1.yaml" %}
+     {% cut "demo-app-1.yaml" %}
 
      ```yaml
      apiVersion: v1
@@ -150,7 +159,7 @@ yc certificate-manager certificate list
 
      {% endcut %}
 
-     {% cut "demo-app2.yaml" %}
+     {% cut "demo-app-2.yaml" %}
 
      ```yaml
      apiVersion: v1
@@ -262,7 +271,7 @@ yc certificate-manager certificate list
          ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
          ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
          ingress.alb.yc.io/external-ipv4-address: <auto_или_статический_IP-адрес>
-         ingress.alb.yc.io/group-name: <имя_Ingress-группы>
+         ingress.alb.yc.io/group-name: my-ingress-group
      spec:
        tls:
          - hosts:
@@ -298,10 +307,13 @@ yc certificate-manager certificate list
      Где:
      * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
      * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
-     * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md), либо установите значение `auto`, чтобы получить новый.
+     * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md) либо установите значение `auto`, чтобы получить новый.
 
        Если вы указали значение `auto`, то при удалении Ingress-контроллера [IP-адрес](../../vpc/concepts/address.md) также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
-     * `ingress.alb.yc.io/group-name` — объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}. Укажите имя группы.
+
+     * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы {{ k8s }} Ingress объединяются в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}.
+
+       Вместо `my-ingress-group` вы можете указать произвольное имя группы. Убедитесь, что оно соответствует [требованиям]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
      (Опционально) Укажите дополнительные настройки контроллера:
      * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
@@ -350,13 +362,24 @@ yc certificate-manager certificate list
      kubectl apply -f .
      ```
 
-  1. Дождитесь создания Ingress-контроллера и получения им публичного IP-адреса, это может занять несколько минут:
+  1. Дождитесь создания Ingress-контроллера и получения им публичного IP-адреса, это может занять несколько минут.
+
+     Чтобы отслеживать создание контроллера и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
+
+     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+     1. Выберите один из подов `alb-demo-***`, в котором запущен процесс создания Ingress-контроллера.
+     1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
+
+        В режиме реального времени записываются и отображаются логи о создании Ingress-контроллера. Если возникла ошибка во время создания, она появится в логах.
+
+  1. Убедитесь, что Ingress-контроллер создан. Для этого выполните команду и проверьте, что в поле `ADDRESS` в выводе команды появилось значение:
 
      ```bash
      kubectl get ingress alb-demo-tls
      ```
 
-     Результат — непустое значение в поле `ADDRESS` для созданного Ingress-контроллера:
+     Результат:
 
      ```bash
      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
@@ -375,7 +398,7 @@ yc certificate-manager certificate list
      1. [Настройте главную страницу сайта и страницу ошибки](../../tutorials/web/static.md#index-and-error).
   1. Создайте конфигурационный файл приложения `demo-app-1.yaml`:
 
-     {% cut "demo-app1.yaml" %}
+     {% cut "demo-app-1.yaml" %}
 
      ```yaml
      apiVersion: v1
@@ -510,10 +533,10 @@ yc certificate-manager certificate list
      metadata:
        name: alb-demo-tls
        annotations:
-         ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей> # Одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
-         ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности> # Одна или несколько групп безопасности для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию.
-         ingress.alb.yc.io/external-ipv4-address: <auto_или_статический_IP-адрес> # Предоставление публичного доступа к {{ alb-name }} из интернета. Укажите заранее полученный IP-адрес, либо установите значение `auto`, чтобы получить новый.
-         ingress.alb.yc.io/group-name: <имя_Ingress-группы> # Объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}.
+         ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
+         ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
+         ingress.alb.yc.io/external-ipv4-address: <auto_или_статический_IP-адрес>
+         ingress.alb.yc.io/group-name: my-ingress-group
      spec:
        tls:
          - hosts:
@@ -531,6 +554,17 @@ yc certificate-manager certificate list
                      kind: HttpBackendGroup
                      name: example-backend-group
      ```
+
+     Где:
+     * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
+     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
+     * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md) либо установите значение `auto`, чтобы получить новый.
+
+       Если вы указали значение `auto`, то при удалении Ingress-контроллера [IP-адрес](../../vpc/concepts/address.md) также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
+
+     * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы {{ k8s }} Ingress объединяются в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}.
+
+       Вместо `my-ingress-group` вы можете указать произвольное имя группы. Убедитесь, что оно соответствует [требованиям]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
      (Опционально) Укажите дополнительные настройки контроллера:
      * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
@@ -577,11 +611,22 @@ yc certificate-manager certificate list
 
   1. Дождитесь создания Ingress-контроллера и получения им публичного IP-адреса, это может занять несколько минут:
 
+     Чтобы отслеживать создание контроллера и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
+
+     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+     1. Выберите один из подов `alb-demo-***`, в котором запущен процесс создания Ingress-контроллера.
+     1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
+
+        В режиме реального времени записываются и отображаются логи о создании Ingress-контроллера. Если возникла ошибка во время создания, она появится в логах.
+
+  1. Убедитесь, что Ingress-контроллер создан. Для этого выполните команду и проверьте, что в поле `ADDRESS` в выводе команды появилось значение:
+
      ```bash
      kubectl get ingress alb-demo-tls
      ```
 
-     Результат — непустое значение в поле `ADDRESS` для созданного Ingress-контроллера:
+     Результат:
 
      ```bash
      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE

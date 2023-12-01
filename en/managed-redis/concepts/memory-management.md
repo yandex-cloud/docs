@@ -1,6 +1,6 @@
 # Memory management in {{ mrd-name }}
 
-For user data on the {{ mrd-name }} cluster hosts, {{ mrd-memory-used }} of the total amount of RAM is allocated. The remaining RAM is committed to the {{ RD }} process. The amount of RAM available for user data is determined by the `maxmemory` parameter when starting the {{ RD }} process.
+For user data on the {{ mrd-name }} cluster hosts, {{ mrd-memory-used }} of the total amount of RAM is allocated. The remaining RAM is committed to the {{ RD }} process. You can reduce the amount of RAM allocated for user data by using the [Maxmemory percent](settings-list.md#settings-maxmemory-percent) parameter. This may be helpful if an out-of-memory error occurs in the cluster.
 
 By committing RAM on the host, you can:
 

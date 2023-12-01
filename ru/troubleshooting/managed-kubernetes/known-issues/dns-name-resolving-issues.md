@@ -67,7 +67,7 @@ coredns-85fd96f799-9lz6b   1/1     Running   3          20d   10.96.140.90    cl
 
 - Используйте NodeLocal DNS 
 
-  Чтобы снизить нагрузку по DNS-запросам в [кластере {{ managed-k8s-name }}], включите NodeLocal DNS Cache. 
+  Чтобы снизить нагрузку по DNS-запросам в кластере {{ managed-k8s-name }}, включите NodeLocal DNS Cache.
 
   Если кластер {{ managed-k8s-name }} содержит более 50 узлов, используйте автоматическое масштабирование DNS.
 

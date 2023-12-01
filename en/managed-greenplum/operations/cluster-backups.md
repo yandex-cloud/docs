@@ -107,6 +107,8 @@ If you set the current time as the recovery time, the new cluster will match the
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
+   1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
+   1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
    To restore a previously deleted cluster from a backup:
@@ -119,6 +121,8 @@ If you set the current time as the recovery time, the new cluster will match the
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
+   1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
+   1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {{ mgp-name }} will launch the operation to create a cluster from the backup.
@@ -143,7 +147,7 @@ If you set the current time as the recovery time, the new cluster will match the
       ```bash
       {{ yc-mdb-gp }} cluster restore \
          --backup-id=<backup_ID> \
-         --time=<timestamp> \
+         --time=<time_point> \
          --name=<cluster_name> \
          --environment=<environment> \
          --network-name={{ network-name }} \
@@ -153,6 +157,8 @@ If you set the current time as the recovery time, the new cluster will match the
          --segment-resource-preset=<host_class> \
          --segment-disk-size=<storage_size_GB> \
          --segment-disk-type=<disk_type> \
+         --segment-host-count <number_of_segment_hosts> \
+         --segment-in-host <number_of_segments_per_host> \
          --zone-id=<availability_zone> \
          --subnet-id=<subnet_ID> \
          --assign-public-ip=<public_access_to_cluster>
@@ -176,6 +182,8 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--segment-resource-preset`: [Segment host class](../concepts/instance-types.md#available-flavors).
       * `--segment-disk-size`: Segment host storage size in GB.
       * `--segment-disk-type`: [Disk type](../concepts/storage.md) on the segment hosts.
+      * `--segment-host-count`: Number of segment hosts.
+      * `--segment-in-host`: Number of [segments](../concepts/index.md) per host.
       * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
       
@@ -189,6 +197,8 @@ If you set the current time as the recovery time, the new cluster will match the
 
    * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Time point to which you want to restore the cluster, in the `time` parameter. By default, the cluster is restored from a backup.
+   * Number of segment hosts in the `segmentHostCount` parameter.
+   * Number of [segments](../concepts/index.md) per host in the `segmentInHost` parameter.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
    By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.

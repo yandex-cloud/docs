@@ -88,6 +88,16 @@ description: "Из статьи вы узнаете, как подготовит
 
 {% endlist %}
 
+### Источник {{ ES }} {#source-es}
+
+{% list tabs %}
+
+- {{ ES }}
+
+    {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+{% endlist %}
+
 ### Источник {{ GP }} {#source-gp}
 
 {% note info %}
@@ -324,6 +334,16 @@ description: "Из статьи вы узнаете, как подготовит
         {% endnote %}
 
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }})_. Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ MY }}](./endpoint/source/mysql.md#additional-settings).
+
+{% endlist %}
+
+### Источник {{ OS }} {#source-os}
+
+{% list tabs %}
+
+- {{ OS }}
+
+    {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
 {% endlist %}
 

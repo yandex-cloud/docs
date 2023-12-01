@@ -5835,6 +5835,7 @@ default:
           label_node-groups: Группы узлов
           label_nodes: Узлы
         workloads:
+          label_tab-logs: Логи
           label_tab-yaml: YAML
       kafka:
         button_add-topic: Добавить топик
@@ -7146,6 +7147,9 @@ default:
                     ElasticSearchConnectionType:
                       mdb_cluster_id:
                         title: Кластер Managed Service for Elasticsearch
+                    ElasticSearchSource:
+                      dump_index_with_mapping:
+                        title: Перенести индекс с сопоставлением типов
                     ElasticSearchTarget:
                       cleanup_policy:
                         title: Политика очистки
@@ -7335,6 +7339,8 @@ default:
                         title: Парсер AuditTrails.v1
                       parser_config_common_cloud_logging:
                         title: Парсер CloudLogging
+                      parser_config_common_debezium_cdc:
+                        title: Парсер Debezium CDC
             metrika:
               console:
                 form:
@@ -7582,6 +7588,9 @@ default:
                     OpenSearchConnectionType:
                       mdb_cluster_id:
                         title: Кластер Managed Service for OpenSearch
+                    OpenSearchSource:
+                      dump_index_with_mapping:
+                        title: Перенести индекс с сопоставлением типов
                     OpenSearchTarget:
                       cleanup_policy:
                         title: Политика очистки
@@ -7791,6 +7800,8 @@ default:
                       connection:
                         title: Настройки подключения
                     YDSSourceAdvancedSettings:
+                      allow_ttl_rewind:
+                        title: Продолжать работу при превышении по TTL топика
                       converter:
                         title: Правила конвертации
                       supported_codecs:

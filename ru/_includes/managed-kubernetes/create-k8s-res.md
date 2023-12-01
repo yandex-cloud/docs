@@ -2,7 +2,7 @@
 
 ### Создайте кластер {{ managed-k8s-name }} {#create-cluster}
 
-Создайте [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) в параметрах `--service-account-id` и `--node-service-account-id`.
+Создайте [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) во флагах `--service-account-id` и `--node-service-account-id`.
 
 {% list tabs %}
 

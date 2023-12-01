@@ -26,6 +26,9 @@ description: "Управление доступом в сервисе для п�
 
 Роли, действующие в сервисе:
 
+* {% include [certificate-manager.auditor](../../_includes/iam/roles/short-descriptions/certificate-manager.auditor.md) %}
+* {% include [certificate-manager.viewer](../../_includes/iam/roles/short-descriptions/certificate-manager.viewer.md) %}
+* {% include [certificate-manager.editor](../../_includes/iam/roles/short-descriptions/certificate-manager.editor.md) %}
 * {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
 * {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
 * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}

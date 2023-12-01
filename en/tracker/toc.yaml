@@ -179,7 +179,7 @@ items:
             href: manager/bulk-change.md
       - name: Setting up an issue reminder
         href: user/reminder.md
-      - name: Registering time spent
+      - name: Specifying time spent
         href: user/time-spent.md
       - name: Adding issue fields
         href: user/create-param.md
@@ -295,6 +295,8 @@ items:
             href: user/user-notifications.md
           - name: Notifications about your subscriptions
             href: user/user-subscriptions.md
+      - name: Notifications about portfolios and projects
+        href: user/notifications-projects-portfolios.md
       - name: Sending notifications to mailboxes in your domain
         href: manager/mail-notifications.md
   - name: Statistics and dashboards

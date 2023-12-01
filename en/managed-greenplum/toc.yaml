@@ -43,6 +43,8 @@ items:
             href: operations/roles-and-users.md
           - name: Managing resource groups
             href: operations/resource-groups.md
+          - name: User authentication rules
+            href: operations/user-auth-rules.md
           - name: Monitoring and managing sessions and queries in the Command Center
             href: operations/command-center.md
           - name: Managing client processes and user sessions
@@ -93,7 +95,7 @@ items:
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Network in {{ mgp-name }}
+      - name: Networking in {{ mgp-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -109,6 +111,8 @@ items:
         href: concepts/tables.md
       - name: Users and roles
         href: concepts/cluster-users.md
+      - name: User authentication
+        href: concepts/user-authentication.md
       - name: Command center
         href: concepts/command-center.md
       - name: Managing connections

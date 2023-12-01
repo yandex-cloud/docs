@@ -21,7 +21,8 @@
 | Number of hosts in a sharded cluster | 3, 6, or 9 hosts depending on the [disk type](../../managed-redis/concepts/storage.md#storage-type-selection) | 70 (10 shards, 7 hosts) |
 | Amount of data on the host when using SSD network storage | Twice the amount of selected RAM | 4096 GB |
 | Amount of data on the host when using non-replicated SSD storage<sup>*</sup> | Twice the amount of selected RAM, at least 93 GB | 8184 GB |
-| Amount of data on the host when using local SSD storage<sup>*</sup> | Twice the amount of selected RAM, at least 100 GB | 1500 GB |
+| Amount of data on the host when using local SSD storage (for Intel Broadwell and Intel Cascade Lake)<sup>*</sup> | Twice the amount of selected RAM, at least 100 GB | 1500 GB |
+| Amount of data on the host when using local SSD storage (for Intel Ice Lake)<sup>*</sup> | Twice the amount of selected RAM, at least {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |
 | Number of cluster connections | N/A | 65,000 |
 
 {% include [storage-limitations-mrd](./mrd/storage-limitations-note.md) %}

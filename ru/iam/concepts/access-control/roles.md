@@ -90,6 +90,12 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
+{% include [roles-certificate-manager-auditor](../../../_includes/roles-certificate-manager-auditor.md) %}
+
+{% include [roles-certificate-manager-viewer](../../../_includes/roles-certificate-manager-viewer.md) %}
+
+{% include [roles-certificate-manager-editor](../../../_includes/roles-certificate-manager-editor.md) %}
+
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
@@ -163,6 +169,10 @@ _Роль_ — это набор разрешений, который опред
 {% include [organization-manager-organizations-owner](../../../_includes/roles-organization-manager-organizations-owner.md) %}
 
 {% include [organization-manager-groups-memberAdmin](../../../_includes/roles-organization-manager-groups-memberAdmin.md) %}
+
+{% include [roles-organization-manager-federations-viewer](../../../_includes/roles-organization-manager-federations-viewer.md) %}
+
+{% include [roles-organization-manager-federations-admin](../../../_includes/roles-organization-manager-federations-admin.md) %}
 
 {% include [organization-manager-oslogins-admin](../../../_includes/roles-organization-manager-oslogins-admin.md) %}
 
@@ -369,6 +379,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [lockbox-editor](../../../_includes/roles-lockbox-editor.md) %}
 
 {% include [lockbox-viewer](../../../_includes/roles-lockbox-viewer.md) %}
+
+{% include [roles-lockbox-auditor](../../../_includes/roles-lockbox-auditor.md) %}
 
 {% include [lockbox-payloadViewer](../../../_includes/roles-lockbox-payloadViewer.md) %}
 
@@ -604,6 +616,8 @@ _Роль_ — это набор разрешений, который опред
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
 
 ## {{ captcha-full-name }} {#smartcaptcha-roles}
+
+{% include [roles-smart-captcha-auditor](../../../_includes/roles-smart-captcha-auditor.md) %}
 
 {% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
 
