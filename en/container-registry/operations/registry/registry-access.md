@@ -9,7 +9,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the registry was created.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry to configure access to.
-  1. In the left-hand panel, click ![IP-access](../../../_assets/container-registry/ip-access.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**.
+  1. In the left-hand panel, click ![IP-access](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**.
   1. Click **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
   1. Enter the IP and specify an action: PULL to allow pulling and PUSH to allow pushing Docker images to the registry.
   1. To configure access for multiple IPs, click **{{ ui-key.yacloud.common.add }}**.

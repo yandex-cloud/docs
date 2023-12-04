@@ -83,6 +83,15 @@ When transferring [partitioned tables](https://www.postgresql.org/docs/current/d
    * Only the parent table will be transferred to the target, and it will contain the data of those child tables which were explicitly specified in the list of tables to be transferred.
    * The user can still speed up the transfer because child tables from the source are concurrently copied to the common table on the target. To speed up the transfer, enable [parallel copy](sharded.md).
 
+### Data transfer rate {#postgresql-speed}
+
+Average rate of transferring a table to a single stream for transfers from {{ PG }} to:
+
+* {{ PG }}: 21 Mbps.
+* Another DBMS: 3.5 Mbps.
+
+You can speed up data transfers using [sharded copying](./sharded.md).
+
 
 
 ## {{ yds-full-name }} {#yds}

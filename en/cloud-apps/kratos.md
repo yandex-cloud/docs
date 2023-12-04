@@ -50,4 +50,4 @@ The cost of resources for the application includes:
 
 You can find the link to access the Ory Kratos API in the management console, on the API gateway page, in the **Service domain** field. Use the `/public`, `/admin`, or `/ui` path to access the public API, private API, or GUI, respectively.
 
-Ory Kratos API configuration files are generated based on the [VM instance metadata](../compute/concepts/vm-metadata.md). To edit them, open the management console, select the appropriate instance group, click **Change** and then click ![image](../_assets/options.svg) → **Edit** under **Instance template**.
+Ory Kratos API configuration files are generated based on the [VM instance metadata](../compute/concepts/vm-metadata.md). To edit them, open the management console, select the appropriate instance group, click **Change** and then click ![image](../_assets/console-icons/ellipsis.svg) → **Edit** under **Instance template**.

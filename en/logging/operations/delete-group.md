@@ -17,7 +17,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [log group](../concepts/log-group.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-   1. In the log group row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the log group row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

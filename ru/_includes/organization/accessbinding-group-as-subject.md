@@ -1,20 +1,18 @@
 {% list tabs %}
 
-- Консоль управления
+- {{ org-name }}
 
-   1. Выберите облако или каталог.
+   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
 
-   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. На панели слева выберите раздел ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
 
-   1. В окне **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
    1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите группу, или воспользуйтесь поиском по названию группы.
 
-   1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
-
-   1. Выберите роль в облаке или каталоге.
+   1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль в облаке или каталоге. Вы можете назначить больше одной роли. 
 
    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

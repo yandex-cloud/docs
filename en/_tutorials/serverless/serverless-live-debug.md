@@ -121,7 +121,7 @@ The infrastructure support costs include:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays information about the service account. If there are errors in the configuration, Terraform points them out.
+         If the configuration is specified correctly, the terminal will display information about the service account. If there are errors in the configuration, Terraform points them out.
 
       1. Deploy cloud resources.
 
@@ -141,7 +141,7 @@ The infrastructure support costs include:
 
       1. On the [start page]({{ link-console-main }}) of the management console, select the required cloud.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Find the `sa-live-debug` service account in the list and click ![image](../../_assets/options.svg).
+      1. Find the `sa-live-debug` service account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select the `{{ roles-admin }}` role.
       1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -194,7 +194,7 @@ The infrastructure support costs include:
              terraform plan
             ```
 
-            If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+            If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -257,8 +257,8 @@ The infrastructure support costs include:
          ```
 
          Where:
-         * `service-account-key`: File with the service account authorized key
-         * `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md)
+         * `service-account-key`: File with the authorized key of the service account.
+         * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
 
       1. Add the credentials to the environment variables:
 
@@ -347,7 +347,7 @@ Delete the folder with the resources required for interactive debugging of {{ sf
 - Management console
 
    1. In the [management console]({{ link-console-cloud }}), select `live-debug`.
-   1. Click ![image](../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** field, select `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
    1. Click **{{ ui-key.yacloud.common.delete }}**.
 

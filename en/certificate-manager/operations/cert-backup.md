@@ -63,9 +63,9 @@ To save a certificate:
 
          ```bash
          yc cm certificate content \
-           --id <certificate ID> \
-           --chain <path_to_file_to_save_chain_to> \
-           --key <path_to_file_to_change_key_to>
+           --id <certificate_ID> \
+           --chain <path_to_certificate_chain_file> \
+           --key <path_to_private_key_file>
          ...
          ```
 

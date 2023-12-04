@@ -43,7 +43,7 @@ Here is an example of a secret key: `YCVdheub7w9bImcGAnd3dZnf08FRbvjeUFvehGvc`.
 
 ## Services that support this authentication method {#supported-services}
 
-For information about how to use static access keys, read the documentation on the services that support this authorization method:
+The following services support authentication based on static access keys:
 
 * [{{ objstorage-name }}](../../../storage/s3/index.md)
 * [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)

@@ -686,7 +686,6 @@ default:
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
   websql-full-name: Yandex WebSQL
-  websql-link: https://websql.cloud.yandex.ru
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
@@ -4318,6 +4317,8 @@ default:
         acl:
           edit:
             action:
+              role:
+                add: Добавить роль
               subject:
                 select: Выбрать пользователя
         federation:

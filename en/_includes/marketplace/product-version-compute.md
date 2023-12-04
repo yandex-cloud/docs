@@ -33,7 +33,7 @@
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_gpu }}`
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_network }}`
          * `{{ ui-key.yacloud.common.resource-acl.label_bindings }}`
-           To remove a parameter, click ![image](../../_assets/cross.svg) next to its name. The `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_cpu }}`, `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_memory }}`, and `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_disk-size }}` parameters are required and cannot be removed.
+           To remove a parameter, click ![image](../../_assets/console-icons/xmark.svg) next to its name. The `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_cpu }}`, `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_memory }}`, and `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_disk-size }}` parameters are required and cannot be removed.
 
    * For the parameters:
       * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_platforms }}`: Select all the platforms on which the VM can be deployed.

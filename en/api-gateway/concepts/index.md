@@ -11,18 +11,24 @@ API gateways are set in a declarative way using specifications. A specification 
 
 Available extensions:
 * [Static response](../concepts/extensions/dummy.md)
-* [Invoking a function](../concepts/extensions/cloud-functions.md)
 * [Access over HTTP](../concepts/extensions/http.md)
+* [Integration with {{ sf-name }}](../concepts/extensions/cloud-functions.md)
+* [Integration with {{ serverless-containers-name }}](../concepts/extensions/containers.md)
 * [Integration with {{ objstorage-name }}](../concepts/extensions/object-storage.md)
 * [Integration with {{ ml-platform-name }}](../concepts/extensions/datasphere.md)
 * [Integration with {{ yds-name }}](../concepts/extensions/datastreams.md)
-* [Integration with {{ serverless-containers-name }}](../concepts/extensions/containers.md)
 * [Integration with {{ message-queue-short-name }}](../concepts/extensions/ymq.md)
 * [Integration with {{ ydb-short-name }}](../concepts/extensions/ydb.md)
-* [Greedy parameters](../concepts/extensions/greedy-parameters.md)
+* [{#T}](../concepts/extensions/greedy-parameters.md)
 * [Generalized HTTP method](../concepts/extensions/any-method.md)
+* [Authorization using a {{ sf-name }} function](../concepts/extensions/function-authorizer.md)
+* [Authorization using a JWT](../concepts/extensions/jwt-authorizer.md)
+* [{#T}](../concepts/extensions/websocket.md)
+* [{#T}](../concepts/extensions/validator.md)
 * [CORS support](../concepts/extensions/cors.md)
-* [HTTP request and response validation](../concepts/extensions/validator.md)
+* [{#T}](../concepts/extensions/parametrization.md)
+* [{#T}](../concepts/extensions/canary.md)
+* [{#T}](../concepts/extensions/rate-limit.md)
 
 ## Using domains {#domains}
 

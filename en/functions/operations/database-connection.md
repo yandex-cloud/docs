@@ -10,7 +10,7 @@ Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluste
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your connection.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-   1. In the left-hand panel, select ![image](../../_assets/functions/db-connections.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
    1. Click **{{ ui-key.yacloud.serverless-mdb-proxy.list.button_create }}**.
    1. Enter a connection name and description. The name format is as follows:
 

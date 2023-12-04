@@ -16,9 +16,9 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
-  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
   1. Click the name of the lifecycle policy you need.
-  1. In the top-right corner, click ![image](../../../_assets/compute/run-vm.svg) **{{ ui-key.yacloud.cr.registry.button_lifecycle-dry-run }}**. Once the test is completed, the **{{ ui-key.yacloud.cr.registry.label_lifecycle-dry-runs }}** section will contain a line with the policy dry run results.
+  1. In the top-right corner, click ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.cr.registry.button_lifecycle-dry-run }}**. Once the test is completed, the **{{ ui-key.yacloud.cr.registry.label_lifecycle-dry-runs }}** section will contain a line with the policy dry run results.
   1. To get a list of Docker images to be deleted according to the policy rules, click the line with the policy dry run results.
 
 - CLI

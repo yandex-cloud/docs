@@ -1,13 +1,13 @@
 # {{ yandex-cloud }} network overview
 
-A network in {{ yandex-cloud }} can be divided into two large parts:
+A {{ yandex-cloud }} network is formed of two large parts:
 
 * [Physical network](#underlay): Hardware network within [data centers](../../overview/concepts/geo-scope.md) and a transport network between the data centers and external network and internet [connection points](../../interconnect/concepts/pops.md). A physical network is often referred to as *underlay*.
 * [Virtual network](#overlay): Network that works on top of the physical network infrastructure. [Virtual Private Cloud (VPC)](../../vpc/concepts/) services provide users with:
-  * IP connectivity between the cloud resources
-  * Cloud resource access to the internet
+  * IP connectivity between cloud resources.
+  * Access to the internet for cloud resources.
 
-   A virtual network is often referred to as *Overlay*. One or more [virtual networks](../../vpc/concepts/network.md) can be created in a single [resource folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Virtual networks are isolated from each other even if hosted in the same resource folder.
+   A virtual network is often referred to as *overlay*. One or more [virtual networks](../../vpc/concepts/network.md) can be created in a single [resource folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Virtual networks are isolated from each other even if hosted in the same resource folder.
 
 Below is an overview of the [physical network](#underlay) and [virtual network](#overlay) in {{ yandex-cloud }}. For more information about network components, see [Extra materials](#refs).
 
@@ -22,7 +22,7 @@ One of the main physical network components is the *{{ yandex-cloud }} transport
 The following objects connect to the transport network:
 
 * {{ yandex-cloud }} [data centers (availability zones)](../../overview/concepts/geo-scope.md).
-* [Points of presence (PoP)](../../interconnect/concepts/pops.md). PoPs host the network equipment of the transport network. Connections to external networks and the internet (*Internet Peering*) are set up on individual PoPs. On individual PoPs, {{ yandex-cloud }} customers can set up IP connectivity between their own infrastructure's resources and [cloud resources](../../interconnect/concepts/priv-con.md) and [public services](../../interconnect/concepts/pub-con#svc-list) in {{ yandex-cloud }} using [{{ interconnect-full-name }}](../../interconnect/concepts/).
+* [Points of presence (PoP)](../../interconnect/concepts/pops.md). PoPs host the network equipment of the transport network. Connections to external networks and the internet (*Internet Peering*) are set up on individual PoPs. On individual PoPs, {{ yandex-cloud }} customers can set up IP connectivity between their own infrastructure's resources and [cloud resources](../../interconnect/concepts/priv-con.md) and [public services](../../interconnect/concepts/pub-con.md#svc-list) in {{ yandex-cloud }} using [{{ interconnect-full-name }}](../../interconnect/concepts/).
 
 The {{ yandex-cloud }} transport network consists of two layers:
 
@@ -47,7 +47,7 @@ The {{ yandex-cloud }} virtual network includes a set of [{{ vpc-name }}](../../
 
 The virtual network in {{ yandex-cloud }} is built on selected components of the [Tungsten Fabric](https://github.com/tungstenfabric/opencontrails-docs) project (formerly known as OpenContrail).
 
-A {{ yandex-cloud }} virtual network can be presented as follows:
+The {{ yandex-cloud }} virtual network can be presented as follows:
 
 ![VPC-Infra](../../_assets/overview/vpcinfra.svg)
 
@@ -55,7 +55,7 @@ The {{ yandex-cloud }} virtual network architecture has the following key compon
 
 ### VRouter {#vrouter}
 
-*VRouter* is a network traffic listener. It runs on each {{ yandex-cloud }} physical server. It is used as the default gateway for all subnet objects (subnet's first IP address (`x.x.x.1`)). It handles network traffic of all VMs running on a server. Traffic is forwarded based on the flows table the records in which are programmed using another virtual network component called VRouter agent. To enable traffic forwarding through the [underlay](#underlay) network, the [MPLS over UDP](https://datatracker.ietf.org/doc/html/rfc7510) tunneling technology is used.
+*VRouter* is a network traffic listener. It runs on each {{ yandex-cloud }} physical server. It is used as the default gateway for all subnet objects (subnet's first IP address (`x.x.x.1`)). It handles network traffic of all the VMs running on a server. Traffic is forwarded based on the flows table the records in which are programmed using another virtual network component called VRouter agent. To enable traffic forwarding through the [underlay](#underlay) network, the [MPLS over UDP](https://datatracker.ietf.org/doc/html/rfc7510) tunneling technology is used.
 
 VRouter enables One-to-One NAT for VM [public IP addresses](../../vpc/concepts/address.md#public-addresses).
 

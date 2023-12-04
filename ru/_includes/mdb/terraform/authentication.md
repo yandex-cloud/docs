@@ -1,0 +1,1 @@
+[Получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.

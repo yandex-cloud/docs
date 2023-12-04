@@ -1,6 +1,6 @@
 # Executing SQL queries
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 To perform a query to a database, [establish a connection](connect.md##connect-db) with this database first. If the connection is inactive, [activate](connect.md#update-connection) it.
 

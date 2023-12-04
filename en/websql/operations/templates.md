@@ -1,6 +1,6 @@
 # Working with SQL query templates
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 Use ready-made templates and your own saved queries to create SQL queries quickly.
 

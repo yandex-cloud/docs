@@ -19,7 +19,7 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -54,7 +54,7 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
    Where:
 
    * `--name`: Timer name.
-   * `--cron-expression`: Container invocation schedule in [cron expression](../concepts/trigger/timer.md#cron-expression) format.
+   * `--cron-expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
    * `--invoke-container-id`: Container ID.
    * `--invoke-container-service-account-id`: ID of the service account with rights to invoke the container.
 

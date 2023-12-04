@@ -16,7 +16,7 @@ To access a device, use its unique ID or name. For information on retrieving the
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. To the right of the name of the device you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the name of the device you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -112,7 +112,7 @@ To access a device, use its unique ID or name. For information on retrieving the
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. To the right of the name of the device you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the name of the device you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

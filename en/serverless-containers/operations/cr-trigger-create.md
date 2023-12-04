@@ -20,7 +20,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -74,11 +74,9 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    Where:
 
-   * `--name`: Trigger name
-   * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md)
-   * `--events`: [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger
-
-   {% include [batch-settings-events](../../_includes/functions/batch-settings-events.md) %}
+   * `--name`: Trigger name.
+   * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
+   * `--events`: [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger.
 
    {% include [batch-settings-events](../../_includes/serverless-containers/batch-settings-events.md) %}
 

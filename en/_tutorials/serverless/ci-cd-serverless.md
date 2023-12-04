@@ -148,7 +148,7 @@ Install the {{ GLR }} application by following [this guide](../../managed-kubern
 ## Create the CI script's configuration file {#add-ci}
 
 1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
-1. Click ![image](../../_assets/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
+1. Click ![image](../../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
 1. Name the file as `.gitlab-ci.yml` and add the following build stages to it:
 
    {% cut ".gitlab-ci.yml" %}

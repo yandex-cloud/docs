@@ -9,7 +9,7 @@ A Docker image is an executable package that contains everything you need to run
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 To prepare a container's Docker image:
-1. [Create](../../container-registry/operations/registry/registry-create.md) a registry.
+1. [Create](../../container-registry/operations/registry/registry-create.md) a registry in {{ container-registry-full-name}}.
 1. [Create and build](../../container-registry/operations/docker-image/docker-image-create.md) a Docker image based on [Dockerfile](https://docs.docker.com/engine/reference/builder/).
 1. [Push](../../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the registry.
 

@@ -50,12 +50,14 @@
 
 * С помощью {{ TF }}
 
-    1. Если у вас еще нет {{ TF }}, [установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+
     1. Настройте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). Провайдер AWS для {{ TF }} использует конфигурацию AWS CLI для доступа к сервису.
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf) и поместите его в отдельную рабочую директорию.
+    1. [Настройте провайдер {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf) и поместите в отдельную рабочую директорию.
     1. Отредактируйте файл `provider.tf`:
 
-        * [Укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) для провайдера `yandex`.
+        * [Укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) для провайдера `yandex`. Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
         * Добавьте провайдер `aws` в блок `required_providers`:
 
             ```hcl

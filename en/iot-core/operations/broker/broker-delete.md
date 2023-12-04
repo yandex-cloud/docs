@@ -16,7 +16,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. To the right of the name of the broker you want to delete, click the ![image](../../../_assets/horizontal-ellipsis.svg) icon and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. To the right of the name of the broker you want to delete, click the ![image](../../../_assets/console-icons/ellipsis.svg) icon and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

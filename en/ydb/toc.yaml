@@ -275,4 +275,6 @@ items:
         href: ./terraform/cdc.md
   - name: FAQ
     href: faq.md
+  - name: Public materials
+    href: https://ydb.tech/en/docs/public-talks
 base: en/ydb

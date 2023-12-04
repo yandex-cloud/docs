@@ -10,7 +10,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
-  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}**.
   1. Set the lifecycle policy parameters:
      * (Optional) **{{ ui-key.yacloud.common.name }}**.

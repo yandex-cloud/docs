@@ -1,15 +1,27 @@
 # Authorized keys
 
-_Authorized keys_ are a pair of public and private keys that are used when creating a [JSON Web Token](https://tools.ietf.org/html/rfc7519). A JSON Web Token is necessary for requesting an [IAM token](iam-token.md) for a [service account](../users/service-accounts.md).
+_Authorized keys_ are keys with the RSA-2048 or RSA-4096 encryption algorithm and unlimited validity. These keys are used when [requesting an IAM token](../../operations/iam-token/create-for-sa.md#via-cli) for a service account. Some {{ yandex-cloud }} services, such as [{{ ydb-full-name }}](../../../ydb/operations/connection.md#auth), use authorized keys for authentication.
 
-A private key is returned when creating a new pair of keys, while a public key is contained in the [Key](../../api-ref/Key/index.md) resource.
+After you [request an authorized key](../../operations/authorized-key/create.md), you will get a JSON file with public and private key parts. Save this file. You only get it once and cannot download it later.
 
-{% note alert %}
+You can request the public part of the key using the [get](../../api-ref/Key/get) REST API method for the [Key](../../api-ref/Key/) resource or the [KeyService/Get](api-ref/grpc/key_service#Get) gRPC API call. You cannot request the private part of the key, as it is stored on the user side. If you need the private part of the key but cannot access the previously saved file, create a new authorized key.
 
-The private key of a service account is the confidential information which allows you to perform operations in {{ yandex-cloud }}. Keep your private key in a secure location.
+{% note warning %}
+
+The private part of the key is confidential information that allows you to perform operations in {{ yandex-cloud }}. It is important to store it securely.
 
 {% endnote %}
 
-#### See also {#see-also}
+## Services that support this authentication method {#supported-services}
 
-* [{#T}](../../operations/authorized-key/create.md)
+The following services support authentication based on authorized keys:
+
+
+* [{{ container-registry-full-name }}](../../../container-registry/operations/authentication.md#sa-json)
+* [{{ datalens-full-name }}](../../../datalens/operations/connection/create-big-query.md)
+* [{{ kms-full-name }}](../../../kms/tutorials/index.md)
+* [{{ maf-full-name }}](../../../managed-airflow/tutorials/data-proc-automation.md)
+* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/tutorials/index.md)
+* [{{ ydb-full-name }}](../../../ydb/operations/connection.md#auth)
+* [{{ monitoring-full-name }}](../../../monitoring/operations/unified-agent/non-yc.md#example)
+

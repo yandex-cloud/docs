@@ -156,7 +156,7 @@ For OnPremise, all fields are filled in manually.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}**: Specify the name of the schema to store service tables (`__consumer_keeper` and `__data_transfer_mole_finder`).
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}**: Select to merge the contents of tables. For more information, see [Service specifics for sources and targets](../../../concepts/index.md#postgresql).
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}**: Select to merge the contents of tables. For more information, see [Specifics of working with endpoints](../../../concepts/work-with-endpoints.md#postgresql).
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}**: If necessary, set detailed settings for parallel copying of tables (if parallel copying parameters are set in the transfer).
 

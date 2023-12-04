@@ -8,7 +8,7 @@ Before writing your functions, review the [programming model](#programming-model
 
 ## Function versions {#version}
 
-_Version_ contains the function code, run parameters, and all required dependencies. You can work with different versions of the same function during different development stages, e.g., under development, alpha version, beta version, etc. When making changes, new versions are always created with the default `$latest` [tag](#tag). It does not matter whether you uploaded a completely new code or only made some minor changes.
+_Versions_ contain the function code, run parameters, and all required dependencies. You can work with different versions of the same function during different development stages, e.g., under development, alpha version, beta version, etc. When making changes, new versions are always created with the default `$latest` [tag](#tag). It does not matter whether you uploaded a completely new code or only made some minor changes.
 
 ### Code upload format {#upload}
 
@@ -16,10 +16,10 @@ To [create a version](../operations/function/version-manage.md), you can use the
 
 | Format | Management console | {{ yandex-cloud }} CLI |
 |----|----|----|
-| ZIP archive from your PC | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| ZIP archive from S3, specifying the bucket and object | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Directory | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
-| File | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| ZIP archive from your PC | ![image](../../_assets/console-icons/circle-check-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
+| ZIP archive from S3, specifying the bucket and object | ![image](../../_assets/console-icons/circle-check-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
+| Directory | ![image](../../_assets/console-icons/circle-xmark-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
+| File | ![image](../../_assets/console-icons/circle-xmark-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
 
 {% include [upload-limits](../../_includes/functions/upload-limits.md) %}
 

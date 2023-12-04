@@ -29,8 +29,11 @@
 
 * С помощью {{ TF }}
 
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
     1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-ydb-yds.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-ydb-yds.tf).
 
         В этом файле описаны:
@@ -48,7 +51,6 @@
         * `target_db_name` — имя базы данных {{ ydb-name }} для потока данных приемника;
         * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов](#prepare-transfer).
 
-    1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash

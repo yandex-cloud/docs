@@ -58,7 +58,7 @@ To get started in {{ yandex-cloud }}:
               http_headers:
                 'Content-Type': "text/plain"
               content:
-                'text/plain': "Hello, {user}!\n"
+                'text/plain': "Hello {user}!\n"
       ```
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
@@ -183,7 +183,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
       * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
       * `memory`: Amount of memory allocated for function execution, in MB.
       * `execution_timeout`: Function execution timeout.
-      * `service_account_id`: ID of the service account that should be used to invoke the function.
+      * `service_account_id`: ID of the service account to invoke the function under.
       * `tags`: Function tags.
       * `content`: Function source code.
       * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
@@ -199,7 +199,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -229,7 +229,7 @@ Add function information to the API gateway specification.
 
    To update an API gateway specification:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update an API gateway.
-   1. In the window that opens, select the API gateway and click ![image](../../_assets/options.svg).
+   1. In the window that opens, select the API gateway and click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add an extended version of the specification
 
@@ -367,7 +367,7 @@ Add function information to the API gateway specification.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -409,5 +409,5 @@ Result:
 
 #### See also {#see-also}
 
-* [Concepts when using the service](../concepts/index.md).
-* [Step-by-step instructions for managing API gateways](../operations/index.md).
+* [Service usage concepts](../concepts/index.md).
+* [Step-by-step guides on managing API gateways](../operations/index.md).
