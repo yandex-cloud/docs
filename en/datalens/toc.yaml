@@ -857,6 +857,10 @@ items:
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API.md
+      - name: Error parsing clique GUID
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-INVALID_GUID.md
       - name: Invalid clique specification. Probably, clique does not exists
         hidden: true
         href: >-
