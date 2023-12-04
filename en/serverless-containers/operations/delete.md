@@ -11,7 +11,7 @@ description: "Follow this guide to delete a container."
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-   1. In the required container row, click ![image](../../_assets/horizontal-ellipsis.svg).
+   1. In the required container row, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

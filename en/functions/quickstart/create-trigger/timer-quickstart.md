@@ -19,7 +19,7 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -33,8 +33,8 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select your function and specify:
 
-      * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**](../../concepts/function.md#tag): `$latest`.
-      * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**](../../../iam/concepts/users/service-accounts.md) you created earlier.
+      * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**](../../concepts/function.md#tag): `$latest`
+      * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**](../../../iam/concepts/users/service-accounts.md) you created earlier
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

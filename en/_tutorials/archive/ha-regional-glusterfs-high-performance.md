@@ -40,7 +40,7 @@ The infrastructure support costs include:
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, such as `sa-glusterfs`.
+      1. Enter a name for the service account, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI
@@ -140,9 +140,9 @@ The infrastructure support costs include:
          ```
 
          Where:
-         * `service-account-key`: File with the service account authorized key
-         * `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md)
-         * `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md)
+         * `service-account-key`: File with the authorized key of the service account.
+         * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
+         * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
       1. Add the credentials to the environment variables:
          ```
@@ -156,7 +156,7 @@ The infrastructure support costs include:
 
 ## Prepare an environment for deploying the resources {#setup-environment}
 
-1. Create an SSH key pair:
+1. SSH:
    ```bash
    ssh-keygen -t ed25519
    ```

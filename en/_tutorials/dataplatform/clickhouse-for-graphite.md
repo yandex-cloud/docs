@@ -2,11 +2,11 @@
 
 {{ mch-full-name }} can be used as data storage for [Graphite](https://graphite.readthedocs.io/en/latest/index.html).
 
-The table engine [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) enables you to trim and aggregate or average the contents of a database specifically for Graphite. The engine reduces the data storage volume and improves the efficiency of queries from Graphite.
+The [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table engine enables you to decimate and aggregate or average the contents of a database specifically for Graphite. The engine reduces the data storage volume and improves the efficiency of queries from Graphite.
 
 {% note info %}
 
-If trimming and aggregation or averaging are not required, any {{ CH }} [table engine]({{ ch.docs }}/engines/table-engines/) can be used to store Graphite data.
+If decimation and aggregation or averaging are not required, any {{ CH }} [table engine]({{ ch.docs }}/engines/table-engines/) can be used to store Graphite data.
 
 {% endnote %}
 
@@ -39,11 +39,11 @@ The cost of maintaining your {{ CH }} database for Graphite includes:
 
 1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the `db1` database and public access to all of its hosts. Save the database name, username, and password.
 1. In the [management console]({{ link-console-main }}), select {{ mch-name }} and go to the created cluster. Save the cluster ID in the **{{ ui-key.yacloud.common.overview }}** tab.
-1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**. In the **Shell** tab, save the `--host` parameter from the **Sample connection string** field, e.g., `rc1a-2sqal8f01znegjkj.{{ dns-zone }}`. This is the cluster host FQDN which you will need later.
+1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**. In the **Shell** tab, save the `--host` parameter from the **Sample connection string** field, e.g., `rc1a-2sqal8f0********.{{ dns-zone }}`. This is the cluster host FQDN which you will need later.
 
 ## Register the rollup configuration in a cluster {#rollup-config}
 
-Register the `rollup` configuration in a cluster to trim and aggregate or average the contents of a database for Graphite:
+Register the `rollup` configuration in a cluster to decimate and aggregate or average the contents of a database for Graphite:
 
 {% list tabs %}
 
@@ -68,13 +68,13 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
    1. Run this command:
 
       ```bash
-      yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <path_to_yaml_file>
+      yc managed-clickhouse cluster add-graphite-rollup <cluster_ID> --rollup-file-name <path_to_yaml_file>
       ```
 
       Where:
 
-      * `<CLUSTER_ID>`: Cluster ID
-      * `<path_to_yaml_file>`: Path to `graphite-rollup.yaml`
+      * `<cluster_ID>`: Cluster ID
+      * `--rollup-file-name`: Path to `graphite-rollup.yaml`
 
       For more information about the `managed-clickhouse cluster add-graphite-rollup` command, see the [CLI reference](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
 
@@ -142,14 +142,14 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 1. If you are using security groups for a cloud network, [set them up](../../managed-clickhouse/operations/connect.md#configuring-security-groups) to allow all required traffic between the cluster and the VM.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md).
-1. Run the ClickHouse CLI with the following parameters: replace `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>` with the previously saved values.
+1. Run the ClickHouse CLI with the following parameters: replace `<host_FQDN>`, `<database_name>`, `<database_username>`, and `<database_user_password>` with the previously saved values.
 
    ```bash
-   clickhouse-client --host <host FQDN> \
+   clickhouse-client --host <host_FQDN> \
                      --secure \
-                     --user <database username> \
-                     --database <database name> \
-                     --password <database user password> \
+                     --user <database_username> \
+                     --database <database_name> \
+                     --password <database_user_password> \
                      --port 9440
    ```
 
@@ -178,7 +178,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 ## Configure Graphite {#graphite-setup}
 
-Configure Graphite to save metrics in the {{ CH }} cluster. In this case, data is trimmed automatically by the {{ CH }} server according to the parameters you specified.
+Configure Graphite to save metrics in the {{ CH }} cluster. In this case, data is decimated automatically by the {{ CH }} server according to the parameters you specified.
 
 1. Install the `carbon-clickhouse` utility in the system with Graphite:
 

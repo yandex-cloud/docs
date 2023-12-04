@@ -10,9 +10,9 @@ description: "Follow this guide to delete an API gateway."
 - Management console
 
    To delete an API gateway:
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete an API gateway.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-   1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
+   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
 
 - CLI

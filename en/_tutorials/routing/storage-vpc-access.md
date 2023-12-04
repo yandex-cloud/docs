@@ -4,6 +4,8 @@ In {{ yandex-cloud }}, you can connect to [{{ objstorage-full-name }}](../../sto
 
 This article describes how to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ objstorage-name }} for resources that are hosted in a {{ vpc-short-name }} [cloud network](../../vpc/concepts/network.md#network) and have no public IPs or access to the internet through a [NAT gateway](../../vpc/concepts/gateways.md).
 
+![Storage VPC Access](../../_assets/tutorials/storage/storage-vpc-access.svg)
+
 After the solution is deployed in {{ yandex-cloud }}, the following resources will be created:
 
 | Name | Description |
@@ -59,7 +61,7 @@ warp get \
 * Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter in the pre-scheduled period of time only. When the changes are being applied, traffic handling may be interrupted.
 * By default, buckets in {{ objstorage-name }} can be accessed via the {{ yandex-cloud }} [management console]({{ link-console-main }}). You can revoke this permission using the `bucket_console_access = false` parameter.
 * If you omit the `mgmt_ip` parameter when `bucket_private_access = true`, solution deployment using {{ TF }} on a workstation will fail with a bucket access error.
-* If you are using your own DNS server, create `A` resource records in its settings, such as:
+* If you are using your own DNS server, create `A` resource records in its settings in the following format:
 
    | Name | Type | Value |
    | ----------- | ----------- | ----------- |

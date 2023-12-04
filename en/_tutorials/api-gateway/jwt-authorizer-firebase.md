@@ -433,7 +433,7 @@ Deploy a static website:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), go to `bucket-for-tutorial`.
-      1. Go to ![website](../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. Go to ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
       1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
          * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website home page: `index.html`.
          * In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display for 4xx errors: `error.html`.

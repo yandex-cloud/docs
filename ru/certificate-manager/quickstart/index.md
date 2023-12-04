@@ -19,11 +19,11 @@
     {% endnote %}
 
 1. Публичный бакет в Object Storage с точно таким же именем, что и домен. Если бакета еще нет, создайте его:
-    
+
     {% list tabs %}
-    
+
     - Консоль управления
-    
+
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
         1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. 
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
@@ -35,26 +35,27 @@
     {% endlist %}
     
 1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
-   
+
     {% list tabs %}
-    
+
     - Консоль управления
-    
+
         1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
         1. В панели слева выберите пункт **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
         1. Выберите раздел **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** и укажите главную страницу сайта.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}** для завершения операции.
-    
+
     {% endlist %}
-    
+
 1. Настройте [алиас](../../storage/operations/hosting/own-domain.md) для бакета у своего провайдера [DNS](../../glossary/dns.md) или на собственном DNS-сервере.
 
     Например, для домена `www.example.com` необходимо добавить запись:
-    
+
     ```
     www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```
+
 1. Установите и настройте AWS CLI по [инструкции](../../storage/tools/aws-cli.md#before-you-begin).
 
 ## Создание запроса на получение сертификата от Let's Encrypt {#request-certificate}
@@ -77,42 +78,58 @@
 
 ## Прохождение проверки прав на домен {#validate}
 
-1. Создайте файл для прохождения проверки:
-    1. Перейдите в [консоль управления]({{ link-console-main }}).
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-    1. Выберите в списке нужный сертификат со статусом `Validating` и нажмите на него.
-    1. В блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
-        1. Скопируйте ссылку из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}**:
-            * Часть ссылки вида `http://example.com/.well-known/acme-challenge/` — это путь для размещения файла.
-            * Вторая часть ссылки `rG1Mm1bJ...` — это имя файла, которое вам необходимо использовать.
-        1. Скопируйте содержимое файла из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}**. 
-1. Загрузите созданный файл в бакет, так чтобы он располагался в папке `.well-known/acme-challenge`:
-    
-    {% list tabs %}
-    
-    - AWS CLI
-    
-        ```bash
-        aws --endpoint-url=https://{{ s3-storage-host }} \
-           s3 cp <имя_файла> s3://<имя_бакета>/.well-known/acme-challenge/<имя_файла>
-        ```
-    
-    {% endlist %}
-    
-1. Дождитесь изменения статуса сертификата на `Issued`.
-1. Удалите созданный файл из бакета:
-    
-    {% list tabs %}
-    
-    - AWS CLI
-    
-        ```bash
-        aws --endpoint-url=https://{{ s3-storage-host }} \
-           s3 rm s3://<имя_бакета>/.well-known/acme-challenge/<имя_файла>
-        ```
-   
-    {% endlist %}
+### Создание файла для проверки {#create-file}
 
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Выберите в списке нужный сертификат со статусом `Validating` и нажмите на него.
+  1. В блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
+      1. Скопируйте ссылку из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}**:
+          * Часть ссылки вида `http://example.com/.well-known/acme-challenge/` — это путь для размещения файла.
+          * Вторая часть ссылки `rG1Mm1bJ...` — это имя файла, которое вам необходимо использовать.
+      1. Скопируйте поле **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** в файл.
+
+{% endlist %}
+
+### Загрузка файла и проверка {#upload-and-check}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.storage.bucket.button_create }}** и создайте папку `.well-known`.
+  1. В `.well-known` создайте папку `acme-challenge`.
+  1. В `acme-challenge` нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
+  1. В открывшемся окне выберите файл с записью и нажмите **Открыть**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
+  1. Дождитесь изменения статуса сертификата на `Issued`.
+  1. Перейдите в папку `acme-challenge`.
+  1. Нажмите ![image](../../_assets/options.svg) справа от файла и выберите **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
+  1. Подтвердите удаление.
+
+- AWS CLI
+
+  1. Загрузите файл в бакет так, чтобы он располагался в папке `.well-known/acme-challenge`:
+
+      ```bash
+      aws --endpoint-url=https://{{ s3-storage-host }} \
+        s3 cp <имя_файла> s3://<имя_бакета>/.well-known/acme-challenge/<имя_файла>
+      ```
+
+  1. Дождитесь изменения статуса сертификата на `Issued`.
+  1. Удалите созданный файл из бакета:
+    
+      ```bash
+      aws --endpoint-url=https://{{ s3-storage-host }} \
+         s3 rm s3://<имя_бакета>/.well-known/acme-challenge/<имя_файла>
+      ```
+   
+{% endlist %}
 
 {% note warning %}
 

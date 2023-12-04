@@ -4,7 +4,8 @@ You can establish connections to managed DB clusters from your {{ yandex-cloud }
 
 {% endnote %}
 
-1. In [{{ websql-full-name }}]({{ websql-link }}), go to the **Connection manager** section and click ![image](../../_assets/websql/new-connection.svg) in the top-right corner.
+1. Make sure the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option is enabled in the [{{ PG }}](../../managed-postgresql/operations/cluster-create.md), [{{ MY }}](../../managed-mysql/operations/cluster-create.md), or [{{ CH }}](../../managed-clickhouse/operations/cluster-create.md) cluster settings.
+1. In {{ websql-full-name }}, go to the **Connection manager** section and click ![image](../../_assets/websql/new-connection.svg) in the top-right corner.
 1. In the window that opens, click **Import from Yandex Cloud**.
 1. Specify the connection parameters:
    * **Cloud**: Select a cloud.

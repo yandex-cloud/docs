@@ -1,10 +1,27 @@
 # Creating an email trigger that invokes a {{ sf-name }} function
 
-Create an [email trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-name }} [function](../../concepts/function.md) when an email arrives. The service automatically generates an email address when creating the trigger.
+Create an [email trigger](../../concepts/trigger/mail-trigger.md) to invoke a {{ sf-name }} [function](../../concepts/function.md) when an email arrives. The service automatically generates an email address when creating the trigger.
 
 ## Getting started {#before-you-begin}
 
-{% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
+To create a trigger, you need:
+
+* A function that the trigger will invoke. If you do not have a function:
+
+   * [Create a function](../../../functions/operations/function/function-create.md).
+   * [Create a function version](../../../functions/operations/function/version-manage.md).
+
+* (Optional) A [Dead Letter Queue](../../../functions/concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+
+* [Service accounts](../../../iam/concepts/users/service-accounts.md) with rights:
+
+   * To invoke a function.
+   * (Optional) To write to a Dead Letter Queue.
+   * (Optional) To upload objects to buckets.
+
+   You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
+
+* (Optional) [Bucket](../../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket , [create one](../../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,15 +35,19 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to call a {{ s
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * (Optional) Enter a trigger name and description.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}**.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
+
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
+
+      {% include [mail-trigger-attachements](../../../_includes/functions/mail-trigger-attachements.md) %}
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 

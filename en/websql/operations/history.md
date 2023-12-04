@@ -1,6 +1,6 @@
 # Query history
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 In the query history, you can see all the requests executed within the connection session. You can view and repeat your previously executed requests:
 

@@ -48,44 +48,45 @@
 
 - С помощью {{ TF }}
 
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-        1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-        1. Скачайте в ту же рабочую директорию файл конфигурации для подходящего типа кластера:
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-            * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-non-sharded.tf) — для нешардированного кластера.
-            * [redis-cluster-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-sharded.tf) — для [шардированного](../../managed-redis/concepts/sharding.md) кластера.
+    1. Скачайте в ту же рабочую директорию файл конфигурации для подходящего типа кластера:
 
-            В каждом файле описаны:
+        * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-non-sharded.tf) — для нешардированного кластера.
+        * [redis-cluster-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-sharded.tf) — для [шардированного](../../managed-redis/concepts/sharding.md) кластера.
 
-            * сеть;
-            * подсеть;
-            * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине;
-            * кластер {{ mrd-name }} с публичным доступом из интернета;
-            * (опционально) виртуальная машина с публичным доступом из интернета.
+        В каждом файле описаны:
 
+        * сеть;
+        * подсеть;
+        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине;
+        * кластер {{ mrd-name }} с публичным доступом из интернета;
+        * (опционально) виртуальная машина с публичным доступом из интернета.
 
-        1. Укажите в файле конфигурации:
+    1. Укажите в файле конфигурации:
 
-            * Пароль для доступа к кластеру {{ mrd-name }}.
-            * (Опционально) Параметры виртуальной машины:
+        * Пароль для доступа к кластеру {{ mrd-name }}.
+        * (Опционально) Параметры виртуальной машины:
 
-                * Идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) виртуальной машины. Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-                * Логин и абсолютный путь к [публичной части SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
+            * Идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) виртуальной машины. Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+            * Логин и абсолютный путь к [публичной части SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
-        1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-            ```bash
-            terraform validate
-            ```
+        ```bash
+        terraform validate
+        ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-        1. Создайте необходимую инфраструктуру:
+    1. Создайте необходимую инфраструктуру:
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 

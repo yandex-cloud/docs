@@ -21,7 +21,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the name of the registry to delete, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. To the right of the name of the registry to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

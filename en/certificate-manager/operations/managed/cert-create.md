@@ -68,7 +68,7 @@ To add a new Let's Encrypt® [certificate](../../concepts/managed-certificate.md
         domains = ["<domain>"]
 
         managed {
-        challenge_type = "<type_of_domain_owner_check>"
+        challenge_type = "<type_of_check>"
         }
       }
       ```
@@ -76,7 +76,7 @@ To add a new Let's Encrypt® [certificate](../../concepts/managed-certificate.md
       Where:
       * `domains`: List of domains to create a certificate for.
       * `challenge_type`: [Type of domain rights check](../../concepts/challenges.md) to be [passed](cert-validate.md) by the domain owner. The possible values include:
-         * `DNS_CNAME`: Create a [DNS record](../../../dns/concepts/resource-record.md) in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. Method recommended for automatic certificate renewal.
+         * `DNS_CNAME`: Create a [DNS record](../../../dns/concepts/resource-record.md) in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. This method is recommended for automatic certificate renewal.
          * `DNS_TXT`: Create a DNS record in TXT format with the specified value.
          * `HTTP`: Place the specified value in the specified URL.
 

@@ -1,2 +1,2 @@
-* `--attachements-bucket`: Name of the bucket to save email attachments to.
-* `--attachements-service-account-id`: ID of the service account authorized to upload objects to {{ objstorage-name }} [buckets](../../storage/concepts/bucket.md).
+* `--attachements-bucket`: Name of the bucket to save email attachments to. This is an optional parameter.
+* `--attachements-service-account-id`: ID of the service account authorized to upload objects to {{ objstorage-name }} buckets. This is an optional parameter.

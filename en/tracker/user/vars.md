@@ -103,12 +103,16 @@ Examples of variables in JSON format:
 
 ## Comment variables {#comment-var}
 
-Comment fields are written in the format: `{{userComment.<field key>}}` and its act like `{{issue.<field key>}}`.
+Using variables, you can get some attributes of issue comments. These variables have the format: `{{<comment type>.<attribute>}}`, where `<comment type>` is selected depending on the author (user or robot), while `<attribute>` is the comment's parameter.
 
-You can use the following options to get information about the comment:
+Possible <comment type> values:
+* `userComment`: Comment from the current edit operation. If a user has made more than one comment, the first one will be considered.
+* `generatedComment`: Comment generated automatically as a result of a fired trigger or auto action.
 
-| Variable | Value
+Use the parameters below to get comment details:
+
+| Variable | Value |
 ----- | -----
-`not_var{{userComment.id}}` | Comment ID
-`not_var{{userComment.text}}` | Comment content
-`not_var{{userComment.author}}` | The author of the comment. The key indicates the role of the user
+| `not_var{{<comment type>.id}}` | Comment ID |
+| `not_var{{<comment type>.text}}` | Text of the comment |
+| `not_var{{<comment type>.author}}` | Comment author |

@@ -109,7 +109,7 @@ The cost includes:
      ```
      aws s3api put-bucket-logging \
        --endpoint-url https://{{ s3-storage-host }} \
-       --bucket <name of the bucket to enable action logging for> \
+       --bucket <bucket_name> \
        --bucket-logging-status file://log-config.json
      ```
 
@@ -176,12 +176,12 @@ The cost includes:
      {{ yc-mdb-ch }} cluster create \
         --name s3-logs \
         --environment production \
-        --network-name <network name> \
-        --host type=clickhouse,zone-id=<availability zone>,subnet-id=<subnet ID> \
+        --network-name <network_name> \
+        --host type=clickhouse,zone-id=<availability_zone>,subnet-id=<subnet_ID> \
         --clickhouse-resource-preset b2.medium \
         --clickhouse-disk-type {{ disk-type-example }} \
         --clickhouse-disk-size 10 \
-        --user name=user,password=<user password> \
+        --user name=user,password=<user_password> \
         --database name=s3_data \
         --datalens-access=true \
         --websql-access=true
@@ -195,7 +195,7 @@ The cost includes:
      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
         name                = "s3-logs"
         environment         = "PRODUCTION"
-        network_id          = yandex_vpc_network.<name of network in {{ TF }}>.id
+        network_id          = yandex_vpc_network.<name_of_network_in_{{ TF }}>.id
 
         clickhouse {
           resources {
@@ -219,8 +219,8 @@ The cost includes:
 
         host {
           type      = "CLICKHOUSE"
-          zone      = "<availability zone>"
-          subnet_id = yandex_vpc_subnet.<name of subnet in {{ TF }}>.id
+          zone      = "<availability_zone>"
+          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_{{ TF }}>.id
         }
 
         access {
@@ -314,12 +314,12 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
                                     -- * {{ s3-storage-host }}.
                                     -- * <bucket name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.
-                                    -- * <bucket name>.{{ s3-web-host }}.
+                                    -- * <bucket_name>.{{ s3-web-host }}.
      )
      ENGINE = S3(
            'https://{{ s3-storage-host }}/<bucket_name>/s3-logs/*',
            '<key_ID>',
-           '<secret key>',
+           '<secret_key>',
            'JSONEachRow'
         )
      SETTINGS date_time_input_format='best_effort';
@@ -381,7 +381,7 @@ To visualize the number of requests to a bucket using different methods, create 
 
 ### Create the second chart {#create-column-chart}
 
-To visualize the ratio of the number of requests by object type, create a bar chart:
+To visualize the number of requests ratio by object type, create a bar chart:
 
 1. Copy the chart from the previous step:
 

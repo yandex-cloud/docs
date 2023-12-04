@@ -1,5 +1,5 @@
 ---
-title: "Editing a log group"
+title: "Updating a log group"
 description: "Follow this guide to update a log group."
 ---
 
@@ -11,9 +11,9 @@ description: "Follow this guide to update a log group."
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your [log group](../concepts/log-group.md).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-   1. In the line with the log group, click ![image](../../_assets/horizontal-ellipsis.svg).
+   1. In the line with the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
-   1. Edit log group parameters.
+   1. Edit the log group parameters.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
@@ -69,7 +69,7 @@ description: "Follow this guide to update a log group."
 
       Where:
 
-      * `name`: Name of the log group. This is an optional parameter.
+      * `name`: Log group name. This is an optional parameter.
       * `folder_id`: Folder ID. This is an optional parameter. By default, the value specified in the provider settings is used.
       * `retention_period`: New log group record retention period.
 
@@ -122,7 +122,7 @@ description: "Follow this guide to update a log group."
 
    In the example, the record retention period is updated.
 
-   Create a `payload.json` file:
+   Create the `payload.json` file:
 
    ```json
    {

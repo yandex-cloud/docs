@@ -9,7 +9,7 @@ Learn more about [invoking a container](./invoke.md).
 
 ## Container revision {#revision}
 
-A container revision is created from a Docker image hosted in {{ container-registry-full-name }}. The revision contains all the information needed to run the container.
+You can only create a container revision from a Docker image uploaded to a [registry](../../container-registry/concepts/registry) in {{ container-registry-full-name }}. No other registries are supported. The revision contains all the information needed to run the container.
 
 {% include [manage-revision-note](../../_includes/serverless-containers/manage-revision-note.md) %}
 

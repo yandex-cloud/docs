@@ -13,7 +13,7 @@ description: "In this guide, you will learn how to export logs from {{ cloud-log
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Select a log group to export logs from.
     1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
-    1. To the right of the **{{ ui-key.yacloud.logging.button_execute }}** button, click ![image](../../_assets/organization/arrow-down.svg) → **{{ ui-key.yacloud.logging.label_export }}**.
+    1. To the right of the **{{ ui-key.yacloud.logging.button_execute }}** button, click ![image](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud.logging.label_export }}**.
     1. In the window that opens:
         1. Specify the export period.
         1. Select a log sink.

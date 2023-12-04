@@ -1,6 +1,6 @@
 # Managing database connections
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 You can use the **Connection manager** (![image](../../_assets/websql/connections.svg)) panel to:
 

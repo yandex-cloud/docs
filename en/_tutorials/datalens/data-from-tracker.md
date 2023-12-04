@@ -210,7 +210,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    For more information about setting up dashboards, see [{{ datalens-full-name }} dashboard](../../datalens/concepts/dashboard.md).
 
-
 {% cut "Sample dashboard based on data from the `v_tracker_issues` table" %}
 
 ![Sample dashboard based on data from the v_tracker_issues table](../../_assets/datalens/dashboard-from-table-issues.png)

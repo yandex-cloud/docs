@@ -14,4 +14,12 @@ For more information, refer to the [recommendations](../../data-transfer/operati
 
 ## {{ managed-k8s-name }} {#managed-k8s}
 
-So far, you cannot create clusters and nodes in the `{{ region-id }}-d` availability zone.
+In the `{{ region-id }}-d` availability zone, you can create clusters and nodes only using CLI and Terraform. Right now you cannot select the `{{ region-id }}-d` availability zone in the management console to create a new cluster.
+
+## {{ cloud-desktop-name }} {#cloud-desktop}
+
+There is no support yet for creating desktops in the `{{ region-id }}-d` availability zone.
+
+## {{ ydb-name }} {#managed-ydb}
+
+There is no support yet for creating databases in Dedicated mode in the `{{ region-id }}-d` availability zone.

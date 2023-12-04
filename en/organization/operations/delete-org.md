@@ -21,6 +21,6 @@ To delete an organization:
 
 1. In the top-right corner, click ![image](../../_assets/basket.svg) **{{ ui-key.yacloud.common.delete }}**.
 
-1. From the drop-down list, select the period after which the organization should be deleted.
+1. Specify when you want the organization to be deleted. Select one of the suggested periods or `Delete now`. The default organization deletion delay is 7 days.
 
 1. Click **{{ ui-key.yacloud.common.delete }}**.

@@ -22,9 +22,9 @@ The visual representation of one or more metrics over a specific period of time.
 
 The following chart types are available:
 
-* ![image](../../../_assets/monitoring/chart-lines.svg) Line charts.
-* ![image](../../../_assets/monitoring/chart-area.svg) Area charts.
-* ![image](../../../_assets/monitoring/chart-columns.svg) Bar charts.
+* ![image](../../../_assets/console-icons/chart-line.svg) Line charts.
+* ![image](../../../_assets/console-icons/chart-area-stacked.svg) Area charts.
+* ![image](../../../_assets/console-icons/chart-column.svg) Bar charts.
 
 You can also normalize data and display it as a stacked bar chart.
 

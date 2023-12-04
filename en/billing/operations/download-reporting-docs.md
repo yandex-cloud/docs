@@ -37,12 +37,10 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     1. Once the request status changes to **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, the download button will appear in the **{{ ui-key.yacloud.billing.account.reconciliation-reports.field_actions }}** column. Select **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** or **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
    1. Click the button with the selected download type. The document will open in a new window and become available for saving.
 
-       {% cut "Exchanging original documents" %}
-
-       To exchange original documents, download an unsigned report, print two copies, sign them, and send them as follows:
+       To exchange original documents, download an unsigned report, print and sign two copies, and send them as follows:
 
        * By post, to: 115035, Russia, Moscow, 82/2, Sadovnicheskaya St.
-          On the envelope, specify <q>For Project Deals Support Group</q> without any employee names.
+          Put on the envelope <q>For Project Deals Support Group</q> without giving any employee names.
 
        * By delivery service, to: 115035, Russia, Moscow, 82/2, Sadovnicheskaya St.
           Enter the building from Sadovnicheskaya Street, between entrances 5 and 6 of the <q>Aurora</q> Business Center.
@@ -50,8 +48,6 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
           To call the office phone number, dial +7 495 739-70-00, then press 1; once the voice menu is on, dial 7704.
 
        As soon as the documents are signed, you will be sent your copy.
-
-       {% endcut %}
 
     1. Click the button with the selected download type. The document will open in a new window and become available for saving.
 

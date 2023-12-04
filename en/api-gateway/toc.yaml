@@ -90,7 +90,7 @@ items:
             href: concepts/extensions/greedy-parameters.md
           - name: Generalized HTTP method
             href: concepts/extensions/any-method.md
-          - name: Authorization using a function
+          - name: Authorization using a {{ sf-name }} function
             href: concepts/extensions/function-authorizer.md
           - name: Authorization using a JWT
             href: concepts/extensions/jwt-authorizer.md

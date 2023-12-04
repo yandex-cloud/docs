@@ -20,7 +20,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -68,10 +68,10 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
      --log-group-name <log group name> \
      --batch-size 1 \
      --batch-cutoff 1s \
-     --resource-ids <resource_ID> \
-     --resource-types <resource_type> \
-     --stream-names <log_stream> \
-     --log-levels <log_level> \
+     --resource-ids <resource ID> \
+     --resource-types <resource type> \
+     --stream-names <log stream> \
+     --log-levels <log level> \
      --invoke-function-id <function ID> \
      --invoke-function-service-account-id <service account ID> \
      --retry-attempts 1 \

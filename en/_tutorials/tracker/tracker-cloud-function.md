@@ -76,8 +76,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `ORG`: {{ ya-360 }} organization ID.
    * `TOKEN`: Application access token.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-1. Wait for the page to load. Then, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, copy and save the function call link.
-   Link example:
+1. Wait for the page to load. Then, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, copy and save the function invocation link.
+   Here is an example of such a link:
    ```
    	https://functions.yandexcloud.net/d4e94uav31086c******
    ```
@@ -88,7 +88,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Create a queue
 
 1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-queue }}**.
-1. Select a queue template, such as **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}**.
+1. Select a queue template, e.g., **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}**.
 1. Enter a name, e.g., `Function Test`.
 1. Click **{{ ui-key.startrek.blocks-desktop_queue-new-presets.create }}**.
 

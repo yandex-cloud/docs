@@ -458,7 +458,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -602,7 +602,7 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
    1. In the left-hand panel, select **{{ ui-key.yacloud.compute.switch_instances }}**.
 
-   1. Click ![image](../../_assets/options.svg) next to the VM name and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM name and select **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
 
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
 

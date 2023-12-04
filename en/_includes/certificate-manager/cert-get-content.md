@@ -16,7 +16,7 @@ To get the contents of a certificate:
 
    ```
    yc certificate-manager certificate content \
-     --id fpqcsmn76v82fi446ri7 \
+     --id fpqcsmn76v82******** \
      --chain certificate_full_chain.pem \
      --key private_key.pem
    ```

@@ -12,15 +12,15 @@ An alert can have one of the following statuses:
 
 | Status | Description |
 ----- | -----
-| `{{ ui-key.yacloud_monitoring.alert.status_ok }}` | The metric value is within the specified normal threshold |
-| `{{ ui-key.yacloud_monitoring.alert.status_warn }}` | The metric value has reached the `Warning` threshold |
-| `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | The metric value has reached the `Alarm` critical status threshold |
-| `{{ ui-key.yacloud_monitoring.alert.status_no_data }}` | Lack of metric data to calculate the alert function |
-| `{{ ui-key.yacloud_monitoring.alert.status_error }}` | The alert value cannot be calculated |
+| `{{ ui-key.yacloud_monitoring.alert.status_ok }}` | The metric value is within the specified normal threshold. |
+| `{{ ui-key.yacloud_monitoring.alert.status_warn }}` | The metric value has reached the `Warning` threshold. |
+| `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | The metric value has reached the `Alarm` critical status threshold. |
+| `{{ ui-key.yacloud_monitoring.alert.status_no_data }}` | Lack of metric data to calculate the alert function. |
+| `{{ ui-key.yacloud_monitoring.alert.status_error }}` | The alert value cannot be calculated. |
 
-## Alert calculation history {#evaluation-history}
+## Alert evaluation history {#evaluation-history}
 
-Alert calculation history is represented as a chart that consists of columns colored depending on the alert status as of its calculation.
+Alert evaluation history is represented as a chart that consists of columns colored depending on the alert status as of its calculation.
 
 To navigate through history, you can choose one of the preset output scales:
 
@@ -49,9 +49,9 @@ This is a set of [queries](../data-model.md#queries) that return a line or multi
 
 You can:
 
-* Disable query calculation by clicking ![image](../../../_assets/monitoring/concepts/visualization/chart-query-dots-menu.svg) or selecting **{{ ui-key.yacloud_monitoring.actions.common.deactivate }}**. Links to queries that are not calculated will return errors.
-* Hide query calculation results on the chart by clicking ![image](../../../_assets/monitoring/concepts/visualization/chart-query-hide.svg).
-* Present query calculation results on the chart by clicking ![image](../../../_assets/monitoring/concepts/visualization/chart-query-show.svg).
+* Disable query calculation by clicking ![image](../../../_assets/console-icons/ellipsis.svg) or selecting **{{ ui-key.yacloud_monitoring.actions.common.deactivate }}**. Links to queries that are not calculated will return errors.
+* Hide query calculation results on the chart by clicking ![image](../../../_assets/console-icons/eye.svg).
+* Present query calculation results on the chart by clicking ![image](../../../_assets/console-icons/eye-slash.svg).
 
 ### Alert triggers {#condition}
 
@@ -65,14 +65,14 @@ Aggregation function is applied to the [test query](#request) calculation result
 
 | Aggregation function | Description |
 ----- | -----
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.at-least-one }}** | At least one metric value in the query exceeds the thresholds set in the specified period |
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.at-all-times }}** | All metric values in the query exceed the thresholds set in the specified period |
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.avg }}** | Calculates an average value for each metric in the specified period. For example, if a query returns two metrics, {{ monitoring-short-name }} calculates an average value for each of them in the specified window |
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.count }}** | Calculates the number of metric values in the specified period |
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.last-non-nan }}** | Uses the latest metric value in the specified period. If {{ monitoring-full-name }} could not obtain the metric value, it changes the alert status to `No Data` |
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.max }}** | Uses the maximum metric value in the specified period |
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.min }}** | Uses the minimum metric value in the specified period |
-| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.sum }}** | Calculates the sum of values for each metric in the specified period |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.at-least-one }}** | At least one metric value in the query exceeds the thresholds set in the specified period. |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.at-all-times }}** | All metric values in the query exceed the thresholds set in the specified period. |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.avg }}** | Calculates an average value for each metric in the specified period. For example, if a query returns two metrics, {{ monitoring-short-name }} calculates an average value for each of them in the specified window. |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.count }}** | Calculates the number of metric values in the specified period. |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.last-non-nan }}** | Uses the latest metric value in the specified period. If {{ monitoring-full-name }} could not obtain the metric value, it changes the alert status to `No Data`. |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.max }}** | Uses the maximum metric value in the specified period. |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.min }}** | Uses the minimum metric value in the specified period. |
+| **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.sum }}** | Calculates the sum of values for each metric in the specified period. |
 
 For example, to track the latest metric value within the last 15 minutes, select the **{{ ui-key.yacloud_monitoring.alert.title_aggregation-last_non_nan }}** function and set the [evaluation window](#evaluation-window) to `15m`.
 

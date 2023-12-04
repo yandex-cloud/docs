@@ -10,13 +10,13 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Assign a role for the resource.
      * Assigning roles for a [registry](../../concepts/registry.md):
-       1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
+       1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
        1. In the window that opens, select a group, a user, or a [service account](../../../iam/concepts/users/service-accounts.md) and click **{{ ui-key.yacloud.common.add }}**.
        1. In the **{{ ui-key.yacloud.component.acl-dialog.column_permissions }}** drop-down list, select the required roles.
        1. Click **{{ ui-key.yacloud.common.save }}**.
      * Assigning roles for a [repository](../../concepts/repository.md):
        1. Select the repository.
-       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
+       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
        1. In the window that opens, select a group, a user, or a service account and click **{{ ui-key.yacloud.common.add }}**.
        1. In the **{{ ui-key.yacloud.component.acl-dialog.column_permissions }}** drop-down list, select the required roles.
        1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -59,7 +59,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
      * `<role id>`: ID of the role.
      * `<user id>`: ID of the group, user, or service account that is assigned the role.
 
-     > Example. Add the role `container-registry.admin` for the registry with the ID `crp0pmf1n68dh715tf02` to the user with the ID `kolhpriseeioo9dc3v24`:
+     > For example, add the `container-registry.admin` role for the registry with the `crp0pmf1n68dh715tf02` ID to the user with the `kolhpriseeioo9dc3v24` ID:
      >
 
      
@@ -135,7 +135,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
      {% note alert %}
 
-     You will be charged for all the resources created with {{ TF }}. Check the plan carefully.
+     You will be charged for all the resources created with {{ TF }}. Check the pricing plan carefully.
 
      {% endnote %}
 

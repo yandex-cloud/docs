@@ -73,7 +73,7 @@ The infrastructure support cost includes:
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, such as `sa-terraform`.
+      1. Enter a name for the service account, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI
@@ -179,7 +179,7 @@ The infrastructure support cost includes:
 
          Where:
 
-         `service-account-key` is the file with the service account authorized key.
+         `service-account-key`: File with the authorized key of the service account.
 
       1. Add the credentials to the environment variables:
 

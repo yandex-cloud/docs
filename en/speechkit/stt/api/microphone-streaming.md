@@ -149,7 +149,10 @@ Authentication is performed under a service account using an [API key](../../../
 
          # Send data for recognition.
          it = stub.RecognizeStreaming(gen(), metadata=(
+         # Parameters for authorization as a service account with an API key
             ('authorization', f'Api-Key {secret}'),
+         # For authorization with an IAM token, use the string below
+         #   ('authorization', f'Bearer {secret}'),
          ))
 
          # Process the server responses and output the result to the console.
@@ -169,7 +172,7 @@ Authentication is performed under a service account using an [API key](../../../
 
       if __name__ == '__main__':
          parser = argparse.ArgumentParser()
-         parser.add_argument('--secret', required=True, help='API-key secret')
+         parser.add_argument('--secret', required=True, help='API key or IAM token')
          args = parser.parse_args()
          run(args.secret)
       ```
