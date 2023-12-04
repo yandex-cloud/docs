@@ -864,8 +864,7 @@ items:
         href: troubleshooting/errors/ERR-DS_API.md
       - name: Не удалось распарсить название клики
         hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-INVALID_GUID.md
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-INVALID_GUID.md
       - name: Invalid clique specification. Probably, clique does not exists
         hidden: true
         href: >-

@@ -146,7 +146,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
-   1. In the row with the certificate in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the row with the certificate in question, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

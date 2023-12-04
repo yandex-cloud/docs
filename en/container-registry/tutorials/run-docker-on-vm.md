@@ -42,7 +42,7 @@ The infrastructure support costs include:
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a service account in.
+     1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to create a service account.
      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter the service account name and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -50,7 +50,7 @@ The infrastructure support costs include:
      1. Select the registry and click the row with its name.
      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
      1. In the top-right corner, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-     1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and add the service account by providing its ID.
+     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and add the service account by providing its ID.
      1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select `container-registry.images.puller`.
      1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -586,6 +586,6 @@ To create an infrastructure for running a Docker image on a VM using the registr
 
    {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-1. [{#T}](#create-image)
-1. [{#T}](#run)
-1. [{#T}](#check-result)
+1. [{#T}](#create-image).
+1. [{#T}](#run).
+1. [{#T}](#check-result).

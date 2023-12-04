@@ -4,7 +4,24 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
 ## Getting started {#before-you-begin}
 
-{% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
+To create a trigger, you need:
+
+* A container that the trigger will invoke. If you do not have a container:
+
+   * [Create a container](../../serverless-containers/operations/create.md).
+   * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
+
+* (Optional) A [dead letter queue](../../serverless-containers/concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+
+* [Service accounts](../../iam/concepts/users/service-accounts.md) with rights:
+
+   * To invoke a container.
+   * (Optional) To write to a Dead Letter Queue.
+   * (Optional) To upload objects to buckets.
+
+   You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
+
+* (Optional) [Bucket](../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,7 +35,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -27,6 +44,10 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
       * (Optional) Enter a trigger name and description.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
+
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
+
+      {% include [mail-trigger-attachements](../../_includes/functions/mail-trigger-attachements.md) %}
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -65,7 +86,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
    Where:
 
-   * `--name`: Trigger name
+   * `--name`: Trigger name.
 
    {% include [batch-settings-messages](../../_includes/serverless-containers/batch-settings-messages.md) %}
 

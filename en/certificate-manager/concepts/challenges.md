@@ -4,7 +4,7 @@ To get and renew a Let's Encrypt certificate, check the rights for each domain s
 
 {% note info %}
 
-You only need to check domains rights for Let's Encrypt certificates. {{ certificate-manager-name }} does not check domain rights for imported user certificates.
+You only need to check domain rights for Let's Encrypt certificates. {{ certificate-manager-name }} does not check domain rights for imported user certificates.
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ To check the rights for the `example.com` domain:
 
 ## DNS {#dns}
 
-If you do not have access to the web server or you need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains like `*.example.com`, use `DNS` as the challenge type.
+If you do not have access to the web server or you need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains in `*.example.com` format, use `DNS` as the challenge type.
 
 To pass the check, you need to add a special DNS record of one of the following two types: `TXT` or `CNAME`.
 
@@ -76,9 +76,9 @@ To automatically check the rights for the `example.com` domain:
 1. Host a `CNAME` record with your DNS provider or on your own DNS server to delegate management privileges to the DNS zone used for the check:
 
    ```
-   _acme-challenge.example.com CNAME <Value>
+   _acme-challenge.example.com CNAME <value>
    ```
-   The `<Value>` string is created using the following template: `<Certificate ID>.cm.yandexcloud.net.`
+   The `<value>` string is created using the template: `<certificate_ID>.cm.yandexcloud.net.`
 
    {% include [checking-domain-rights-cname](../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
 
@@ -91,7 +91,7 @@ To automatically check the rights for the `example.com` domain:
 
 ### Adding a TXT record {#txt}
 
-To check the rights for the domain `example.com` domain:
+To check the rights for the `example.com` domain:
 1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, please select the certificate that is involved in the check.
@@ -99,7 +99,7 @@ To check the rights for the domain `example.com` domain:
 1. With your DNS provider or on your own DNS server, host a `TXT` record:
 
    ```
-   _acme-challenge.example.com. IN TXT <Value>
+   _acme-challenge.example.com. IN TXT <value>
    ```
 1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the section with the `TXT` record type, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
    1. If the current folder contains an appropriate DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no appropriate DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
@@ -120,7 +120,7 @@ A check is performed automatically if the following conditions are met:
 * A DNS record is configured for each certificate domain:
 
    ```
-   _acme-challenge.example.com CNAME <certificate ID>.cm.yandexcloud.net.
+   _acme-challenge.example.com CNAME <certificate_ID>.cm.yandexcloud.net.
    ```
 
 ### Redirecting a static website {{ objstorage-name }} {#auto-s3}
@@ -137,21 +137,21 @@ A check is performed automatically if the following conditions are met:
 
 A check is performed automatically if the following conditions are met:
 * The certificate status is `Renewing`: it is being [renewed](managed-certificate.md#renew).
-* The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it doesn't contain masks for subdomains.
+* The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it does not contain masks for subdomains.
 * For each certificate domain in the web server, a redirect is configured from
    ```
-   http://<Domain>/.well-known/acme-challenge/*
+   http://<domain>/.well-known/acme-challenge/*
    ```
    to
    ```
-   https://{{ api-host-certmanager-validation }}/<Certificate ID>/*
+   https://{{ api-host-certmanager-validation }}/<certificate_ID>/*
    ```
 
 Example of setting up a redirect in the nginx configuration:
 ```
 server {
   location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
-    return 301 https://{{ api-host-certmanager-validation }}/<Certificate ID>/$1;
+    return 301 https://{{ api-host-certmanager-validation }}/<certificate_ID>/$1;
   }
 }
 ```

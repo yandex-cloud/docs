@@ -63,7 +63,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Using {{ TF }}
 
   
-  1. If you don't have {{ TF }} yet, set up and configure it according to the [instructions](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 
@@ -105,7 +105,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For example, you need to enable sharding for the [table]({{ ch.docs }}/getting-started/example-datasets/metrica/) named `hits_v1`. The text of the table creation query depends on the sharding approach that you selected.
 
-For the table structure to use for `<table structure>`, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#create-tables).
+For the table structure to use for `<table_structure>`, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#create-tables).
 
 When you enable sharding by any of the methods, you can send the `SELECT` and `INSERT` queries to the created distributed table, and they will be processed according to the specified configuration.
 
@@ -121,7 +121,7 @@ Before operating a distributed table:
 1. Create a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table named `hits_v1`, which will run on all cluster hosts:
 
    ```sql
-   CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <table structure> )
+   CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <table_structure> )
    ENGINE = MergeTree()
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
@@ -162,7 +162,7 @@ Before operating a distributed table:
 1. Create a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table named `hits_v1`, which will use all of the hosts of the `sgroup` shard group in the cluster:
 
    ```sql
-   CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <table structure> )
+   CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <table_structure> )
    ENGINE = MergeTree()
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
@@ -196,7 +196,7 @@ Before operating a distributed table:
 1. Create a [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) table named `hits_v1`, which will use all of the hosts of the `sgroup_data` shard group in the cluster:
 
    ```sql
-   CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <table structure> )
+   CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <table_structure> )
    ENGINE = ReplicatedMergeTree('/tables/{shard}/hits_v1', '{replica}')
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
@@ -212,7 +212,7 @@ To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 1. Create a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine:
 
    ```sql
-   CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <table structure> )
+   CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <table_structure> )
    ENGINE = Distributed(sgroup_data, tutorial, hits_v1, rand())
    ```
 
@@ -234,11 +234,11 @@ To check the health of the created distributed table named `tutorial.hits_v1_dis
 
    ```bash
    clickhouse-client \
-     --host "<FQDN of any host with a distributed table>" \
+     --host "<FQDN_of_any_host_with_a_distributed_table>" \
      --secure \
      --port 9440 \
      --user "<username>" \
-     --password "<user password>" \
+     --password "<user_password>" \
      --database "tutorial" \
      --query "INSERT INTO tutorial.hits_v1_distributed FORMAT TSV" \
      --max_insert_block_size=100000 < hits_v1.tsv

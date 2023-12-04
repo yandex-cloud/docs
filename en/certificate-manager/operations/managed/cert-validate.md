@@ -58,8 +58,8 @@ To check rights for domains:
         status: PENDING
         message: Create a file in your web server's base directory.
         http_challenge:
-          url: http://example.com/.well-known/acme-challenge/3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8
-          content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYPLcVtVL44
+          url: http://example.com/.well-known/acme-challenge/3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtX********
+          content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYP********
       ```
 
    1. The information required for passing the rights check for a domain can be found under `http_challenge`. For more information, see [{#T}](../../concepts/challenges.md).
@@ -133,7 +133,7 @@ To check rights for domains:
       * The `yandex_cm_certificate` resource parameters are as follows:
 
          * `domains`: Domain to create a certificate for.
-         * `challenge_type`: Domain owner verification method. The possible values include:
+         * `challenge_type`: Domain owner verification method that may take one of the following values:
 
             * `DNS_CNAME`: Create a DNS record in CNAME format with the specified value. This method is recommended for automatic certificate renewal.
             * `DNS_TXT`: Create a DNS record in TXT format with the specified value.

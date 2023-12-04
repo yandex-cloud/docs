@@ -20,7 +20,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -111,7 +111,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## For more information, see also {#see-also}
+## See also {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/budget-trigger-create.md).
 * [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

@@ -63,8 +63,11 @@
 
 * С помощью Terraform
 
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
     1. Скачайте в ту же рабочую директорию файл конфигурации [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-migration-pgsql-mpg.tf).
 
         В этом файле описаны:
@@ -82,7 +85,7 @@
 
             * `target_pgsql_version` — версия {{ PG }}, она должна быть не ниже, чем в кластере-источнике;
             * `target_user` и `target_password` — имя и пароль пользователя-владельца базы данных.
-    1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
@@ -346,8 +349,11 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
 
 * С помощью {{ TF }}
 
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
     1. Скачайте в ту же рабочую директорию файл конфигурации [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-restore-pgsql-mpg.tf).
 
         В этом файле описаны:
@@ -375,7 +381,6 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
             * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts);
             * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
-    1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash

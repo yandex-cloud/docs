@@ -8,11 +8,11 @@ Aliases are linked to specific devices. To update an alias, you [need the device
 
    To update an alias:
 
-   1. In the [management console]({{ link-console-main }}), select a folder to update an alias in.
+   1. In the [management console]({{ link-console-main }}), select a folder in which to update an alias.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
-   1. Click ![image](../../../../_assets/horizontal-ellipsis.svg) to the right of the name of the device you need and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) to the right of the name of the device you need and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Update the values of the alias fields.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

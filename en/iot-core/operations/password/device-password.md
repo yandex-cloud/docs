@@ -22,7 +22,7 @@ You can add a password to an already created device or set it when creating a de
 
    To add a password to an existing device:
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to set a password for a previously created device.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to set a password for a previously created device.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry with the required device from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
@@ -204,7 +204,7 @@ You can add a password to an already created device or set it when creating a de
    1. Select the device from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
-   The list of device passwords is displayed in the **{{ ui-key.yacloud.iot.label_passwords }}** section.
+   The list of device passwords will be displayed in the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
 - CLI
 
@@ -263,7 +263,7 @@ You can add a password to an already created device or set it when creating a de
    1. Select the registry with the required device from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
    1. Select the device from the list.
-   1. In the row with the password you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the row with the password you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

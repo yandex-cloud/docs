@@ -1,6 +1,6 @@
 # Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}
 
-You can use {{ dataproc-name }} to:
+With {{ dataproc-name }}, you can:
 
 * [Upload data from {{ mch-name }} to Spark DataFrame](#export-from-mch).
 * [Export data from Spark DataFrame to {{ mch-name }}](#import-to-mch).
@@ -56,17 +56,17 @@ Prepare the infrastructure:
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
 
-      * With public access to cluster hosts.
-      * With a database called `db1`.
-      * With the `user1` user.
+      * Public access to cluster hosts: Allowed.
+      * Database: `db1`.
+      * User: `user1`.
 
    
-   1. If you are using security groups in your {{ mch-name }} cluster, make sure they have been [set up correctly](../../managed-clickhouse/operations/connect.md#configuring-security-groups) and allow connecting to the cluster:
+   1. If you are using security groups in your {{ mch-name }} cluster, make sure they are [set up correctly](../../managed-clickhouse/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
 
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [data-proc-data-exchange-with-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-proc-data-exchange-with-mch.tf) configuration file to the same working directory.
 
@@ -162,7 +162,7 @@ Prepare the infrastructure:
 
       # Setting the port and ClickHouse cluster parameters
       jdbcPort = 8443
-      jdbcHostname = "c-<{{ mch-name }} cluster ID>.rw.mdb.yandexcloud.net"
+      jdbcHostname = "c-<{{ CH }}_cluster_ID>.rw.mdb.yandexcloud.net"
       jdbcDatabase = "db1"
       jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -170,16 +170,16 @@ Prepare the infrastructure:
       df = spark.read.format("jdbc") \
       .option("url", jdbcUrl) \
       .option("user","user1") \
-      .option("password","<password of user1>") \
+      .option("password","<password_of_user1>") \
       .option("dbtable","persons") \
       .load()
 
       # Transferring the DataFrame to the bucket for checking
       df.repartition(1).write.mode("overwrite") \
-      .csv(path='s3a://<output bucket name>/csv', header=True, sep=',')
+      .csv(path='s3a://<output_bucket_name>/csv', header=True, sep=',')
       ```
 
-        {% endcut %}
+      {% endcut %}
 
    1. Specify the following in the script:
 
@@ -189,7 +189,7 @@ Prepare the infrastructure:
 
    1. Create a `scripts` folder in the input bucket and [upload](../../storage/operations/objects/upload.md#simple) the `ch-to-dataproc.py` file to it.
 
-1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/ch-to-dataproc.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
+1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input_bucket_name>/scripts/ch-to-dataproc.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 
 1. Wait for the job to complete and make sure the output bucket's `csv` folder contains the source table.
 
@@ -223,7 +223,7 @@ Prepare the infrastructure:
 
       # Specifying the port and ClickHouse cluster parameters
       jdbcPort = 8443
-      jdbcHostname = "c-<{{ mch-name }} cluster ID>.rw.mdb.yandexcloud.net"
+      jdbcHostname = "c-<{{ CH }}_cluster_ID>.rw.mdb.yandexcloud.net"
       jdbcDatabase = "db1"
       jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -234,7 +234,7 @@ Prepare the infrastructure:
       .option("dbtable", "people") \
       .option("createTableOptions", "ENGINE = MergeTree() ORDER BY age") \
       .option("user","user1") \
-      .option("password","<{{ mch-name }} database password>") \
+      .option("password","<{{ CH }}_database_password>") \
       .save()
       ```
 

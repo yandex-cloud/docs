@@ -13,7 +13,7 @@ After you create an API gateway, you can change any of its parameters and the Op
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to edit an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-   1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
+   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
    1. Edit the API gateway parameters or OpenAPI specification if needed.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 

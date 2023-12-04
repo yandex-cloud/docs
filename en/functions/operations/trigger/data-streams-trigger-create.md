@@ -35,7 +35,7 @@ To create a trigger, you need:
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -95,11 +95,11 @@ To create a trigger, you need:
    * `--name`: Trigger name.
    * `--database`: Location of the {{ ydb-short-name }} database that the {{ yds-name }} stream is linked to.
 
-      To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, the `database` parameter, such as `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
+      To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
 
    * `--stream`: {{ yds-name }} data stream name.
-   * `--batch-size`: Message batch size. Optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
-   * `--batch-cutoff`: Maximum waiting time. Optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data passed to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
+   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data passed to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
    * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
@@ -142,6 +142,6 @@ To create a trigger, you need:
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## For more information, see also {#see-also}
+## See also {#see-also}
 
 * [Trigger for {{ yds-name }} that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/data-streams-trigger-create.md).

@@ -20,7 +20,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -130,7 +130,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    1. In the configuration file, describe the trigger parameters.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -178,7 +178,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

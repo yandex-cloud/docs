@@ -34,8 +34,11 @@ description: "Следуя данной инструкции, вы сможет�
 
    - С помощью {{ TF }}
 
-     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
      1. Скачайте в ту же рабочую директорию файл конфигурации [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf). В файле описаны:
         * [Сеть](../../vpc/operations/network-create.md).
         * Подсеть.

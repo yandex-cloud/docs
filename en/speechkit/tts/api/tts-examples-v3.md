@@ -1,4 +1,4 @@
-# Speech synthesis in API v3
+# Speech synthesis in the API v3
 
 With the {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/), you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file.
 
@@ -77,6 +77,8 @@ To implement an example:
          import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
          # Specify the synthesis settings.
+         # Instead of iam_token, provide api_key for authorization with an API key
+         #def synthesize(api_key, text) -> pydub.AudioSegment:
          def synthesize(iam_token, text) -> pydub.AudioSegment:
              request = tts_pb2.UtteranceSynthesisRequest(
                  text=text,
@@ -95,7 +97,10 @@ To implement an example:
 
              # Send data for synthesis.
              it = stub.UtteranceSynthesis(request, metadata=(
+             # Parameters for authorization with an IAM token
                  ('authorization', f'Bearer {iam_token}'),
+             # Parameters for authorization as a service account with an API key
+             #   ('authorization', f'Api-Key {api_key}'),
              ))
 
              # Create an audio file out of chunks.
@@ -112,7 +117,7 @@ To implement an example:
 
          if __name__ == '__main__':
              parser = argparse.ArgumentParser()
-             parser.add_argument('--token', required=True, help='IAM token')
+             parser.add_argument('--token', required=True, help='IAM token or API key')
              parser.add_argument('--text', required=True, help='Text for synthesis')
              parser.add_argument('--output', required=True, help='Output file')
              args = parser.parse_args()

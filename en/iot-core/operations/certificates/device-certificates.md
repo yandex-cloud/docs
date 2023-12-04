@@ -151,7 +151,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    1. Go to **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Select the device from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
-   1. In the row with the certificate in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the row with the certificate in question, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

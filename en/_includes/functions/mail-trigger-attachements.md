@@ -1,0 +1,2 @@
+* In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the bucket to save email attachments to.
+* In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}** field, specify a service account authorized to upload objects to the {{ objstorage-name }} bucket.

@@ -14,7 +14,7 @@ In text mode:
 * In the query string, you enter functions which, for an argument, get a query to metrics or a result returned by another function.
 * Syntax highlighting is enabled with function names and selector label values highlighted in different colors.
 
-To switch to text mode, click ![raw](../../../_assets/monitoring/raw.svg).
+To switch to text mode, click ![raw](../../../_assets/console-icons/code.svg).
 
 The query string in text mode looks like this:
 

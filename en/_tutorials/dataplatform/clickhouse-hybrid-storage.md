@@ -56,7 +56,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
 
    1. To verify that the config files are correct, run the command below:
 
@@ -121,7 +121,7 @@ The `TTL ...` expression defines a policy for operating with expiring data:
 1. TTL sets the lifetime of a table row (in this case, the number of days from the current date to March 20, 2014).
 1. For data in the table, the value `EventDate` is checked:
    * If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in network disk storage.
-   * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data is placed in the object storage according to the `TO DISK 'object_storage'` policy.
+   * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data will be placed in the object storage according to the `TO DISK 'object_storage'` policy.
 
 You do not need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you do not specify TTL, data will be placed in object storage only when you run out of space in your network disk storage. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
@@ -131,7 +131,7 @@ The expression for TTL in the example above is complex because of the selected t
 
 {% endnote %}
 
-Between storage on network disks and object storage, data is not moved line by line but in [chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Make sure to choose the TTL expression and the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) so that TTL matches for all the rows in the data chunk. Otherwise, you may have problems moving data into object storage when TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
+Between network disk storage and object storage, data is not moved line by line but in [chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Make sure to choose the TTL expression and the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) so that TTL matches for all the rows in the data chunk. Otherwise, you may have problems moving data into object storage as TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
 
 To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
 
@@ -259,7 +259,7 @@ As you can see from the SQL request result, from the user's point of view, the t
 
 ## (Optional step) Monitor the amount of space used by data in {{ objstorage-name }} {#metrics}
 
-To find out the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}:
+To find out the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table chunks in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}:
 
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Go to **Metric Explorer**.
@@ -283,7 +283,7 @@ Delete the resources you no longer need to avoid paying for them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete `clickhouse-hybrid-storage.tf`.
    1. Run this command:
 

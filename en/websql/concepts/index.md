@@ -1,6 +1,6 @@
 # About {{ websql-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
 {{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to clusters of managed databases, work with databases, tables, and schemas, and execute SQL queries. The service operates in your browser and offers convenient suggestions for SQL query execution.
 

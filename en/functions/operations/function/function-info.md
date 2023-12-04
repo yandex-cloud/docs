@@ -11,9 +11,9 @@ description: "Follow this guide to get information about a function."
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/functions/functions.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
    1. Select a function.
-   1. The **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page shows the function details.
+   1. The **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page will show the function details.
 
 - CLI
 

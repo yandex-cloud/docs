@@ -18,7 +18,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -30,8 +30,8 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify the function invocation schedule in the [cron expression](../concepts/trigger/timer.md#cron-expression) format.
-      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter the message to be delivered to the function if the timer triggers in the `payload` field. Data type is a string of no more than 4096 characters.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify the function invocation schedule as a [cron expression](../concepts/trigger/timer.md#cron-expression).
+      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter the message to be delivered to the function if the timer triggers in the `payload` field. The data type is a string up to 4,096 characters long.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -69,8 +69,8 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
    Where:
 
    * `--name`: Timer name.
-   * `--cron-expression`: Container invocation schedule in [cron expression](../concepts/trigger/timer.md#cron-expression) format.
-   * `--payload`: Message to be delivered to the function if the timer triggers. String length should not exceed 4,096 characters.
+   * `--cron-expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
+   * `--payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 

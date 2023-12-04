@@ -23,6 +23,8 @@ Authorization: Api-Key <API key>
 
 ## Services that support this authentication method {#supported-services}
 
+The following services support authentication based on API keys:
+
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)

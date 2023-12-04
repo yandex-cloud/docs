@@ -51,8 +51,11 @@
 
 - С помощью Terraform
 
-    1. {% include [terraform-install](../_includes/terraform-install.md) %}
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
+
     1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-connect.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connect.tf).
 
         В этом файле описаны:
@@ -64,7 +67,6 @@
         * кластер {{ mkf-name }} с необходимыми настройками.
 
     1. Укажите в файле пароль для пользователя `user`, который будет использоваться для доступа к кластеру {{ mkf-name }}, а также имя пользователя и публичную часть [SSH-ключа](../glossary/ssh-keygen.md) для виртуальной машины. Если на виртуальную машину будет установлена Ubuntu 20.04 из рекомендованного [списка образов](../compute/operations/images-with-pre-installed-software/get-list.md), то указанное здесь имя пользователя игнорируется. В таком случае при [подключении](#prepare-vm) используйте имя пользователя `ubuntu`.
-    1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
        ```bash

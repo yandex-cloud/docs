@@ -14,7 +14,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry name in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -108,7 +108,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry description in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -213,7 +213,7 @@ You can perform the following actions related to registry labels:
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the registry label to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -316,7 +316,7 @@ You can perform the following actions related to registry labels:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry label in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -420,8 +420,8 @@ You can perform the following actions related to registry labels:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry label from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. To the right of the label to delete, click ![image](../../../_assets/cross.svg).
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI

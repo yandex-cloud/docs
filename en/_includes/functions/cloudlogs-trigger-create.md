@@ -29,7 +29,7 @@ To create a trigger, you need:
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -93,14 +93,14 @@ To create a trigger, you need:
 
    * `--name`: Trigger name.
    * `--log-groups`: List of IDs of log groups.
-   * `--batch-size`: Message batch size. Optional parameter. Values can range from 1 to 10. The default value is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional parameter. Values can range from 0 to 20 seconds. The default value is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the `batch-size` or the `batch-cutoff` expires.
+   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the `batch-size` or the `batch-cutoff` expires.
    * `--invoke-function-id`: Function ID.
    * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
-   * `--retry-attempts`: Time after which the function will be invoked again if the current attempt fails. Optional parameter. Values can range from 10 to 60 seconds. The default value is 10 seconds.
-   * `--retry-interval`: Number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter. Values can range from 1 to 5. The default value is 1.
-   * `--dlq-queue-id`: [Dead Letter Queue](../../functions/concepts/dlq.md) ID. Optional parameter.
-   * `--dlq-service-account-id`: Service account with the permission to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter.
+   * `--retry-attempts`: Time after which the function will be invoked again if the current attempt fails. This is an optional parameter. The values may range from 10 to 60 seconds. The default value is 10 seconds.
+   * `--retry-interval`: Number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). This is an optional parameter. The values may range from 1 to 5. The default value is 1.
+   * `--dlq-queue-id`: [Dead Letter Queue](../../functions/concepts/dlq.md) ID. This is an optional parameter.
+   * `--dlq-service-account-id`: Service account with the permission to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). This is an optional parameter.
 
 
    Result:

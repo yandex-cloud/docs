@@ -10,11 +10,11 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. View the roles assigned for a resource:
      * Viewing roles for a [registry](../../concepts/registry.md):
-       1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
+       1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
        1. In the window that opens, you can see a list of users and their permissions for the registry.
      * Viewing roles for a repository:
        1. Select the registry.
-       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
+       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
        1. In the window that opens, you can see a list of users and their permissions for the repository.
 
 - CLI
@@ -35,7 +35,7 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
   * `<resource name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.
   * `<resource id>`: ID of the resource that the role is assigned for.
 
-  > Example. View the roles for the registry with the ID `crp0pmf1n68dh715tf02`:
+  > For example, view the roles for the registry with the `crp0pmf1n68dh715tf02` ID:
   >
   > ```bash
   > yc container registry list-access-bindings crp0pmf1n68dh715tf02
@@ -53,7 +53,7 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
 
 - API
 
-  Use the method `listAccessBindings` for the resources `registry` and `repository`.
+  Use the `listAccessBindings` method for the `registry` and `repository` resources.
 
 {% endlist %}
 

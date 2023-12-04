@@ -83,7 +83,7 @@ To get started with {{ certificate-manager-name }}, you need:
    1. Select a certificate with the `Validating` status in the list and click it.
    1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
       1. Copy the URL from the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field:
-         * The part of the link like `http://example.com/.well-known/acme-challenge/` is the path to host your file at.
+         * The part of the link in `http://example.com/.well-known/acme-challenge/` format is the file path.
          * The second part of the link, `rG1Mm1bJ...`, is the file name that you should use.
       1. Copy the contents of the file from the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field.
 1. Upload the created file to the bucket so that it resides in the `.well-known/acme-challenge` directory:
@@ -94,7 +94,7 @@ To get started with {{ certificate-manager-name }}, you need:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }} \
-         s3 cp <file name> s3://<bucket name>/.well-known/acme-challenge/<file name>
+         s3 cp <file_name> s3://<bucket_name>/.well-known/acme-challenge/<file_name>
       ```
 
    {% endlist %}
@@ -108,7 +108,7 @@ To get started with {{ certificate-manager-name }}, you need:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }} \
-         s3 rm s3://<bucket name>/.well-known/acme-challenge/<file name>
+         s3 rm s3://<bucket_name>/.well-known/acme-challenge/<file_name>
       ```
 
    {% endlist %}

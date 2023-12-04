@@ -719,4 +719,4 @@ terraform destroy
 ```
 {{ TF }} will **permanently** delete all the resources: networks, subnets, VMs, load balancers, folders, etc.
 
-Since the created resources are placed in folders, to destroy all of them faster, you can delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `yc-dmz-with-high-available-ngfw` directory on your PC.
+As the resources you created reside in folders, to delete them all faster you can delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `yc-dmz-with-high-available-ngfw` directory on your PC.

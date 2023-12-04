@@ -1,12 +1,12 @@
 # Audio file streaming recognition using API v3
 
-Below, we provide an example of synchronous recognition of speech from an audio file using {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md). The example uses the following parameters:
+Below, we provide an example of synchronous recognition of speech from an audio file using the {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md). The example uses the following parameters:
 
 * [Language](../models.md#languages): Russian.
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
 * [Number of audio channels](../../stt-v3/api-ref/grpc/stt_service#RawAudio): 1 (default).
 * [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions) enabled.
-* Other parameters were left with their default values.
+* Other parameters left by default.
 
 To use the API, the `grpcio-tools` package is required.
 
@@ -101,6 +101,9 @@ To implement an example from this section:
                   yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                   data = f.read(CHUNK_SIZE)
 
+      # Instead of iam_token, provide api_key for authorization as a service account
+      # with an API key.
+      # def run(api_key, audio_file_name):
       def run(iam_token, audio_file_name):
           # Establish a server connection.
           cred = grpc.ssl_channel_credentials()
@@ -109,7 +112,10 @@ To implement an example from this section:
 
           # Send data for recognition.
           it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
+          # Parameters for authorization with an IAM token
               ('authorization', f'Bearer {iam_token}'),
+          # Parameters for authorization as a service account with an API key
+          #   ('authorization', f'Api-Key {api_key}'),
           ))
 
           # Process the server responses and output the result to the console.
@@ -129,7 +135,7 @@ To implement an example from this section:
 
       if __name__ == '__main__':
           parser = argparse.ArgumentParser()
-          parser.add_argument('--token', required=True, help='IAM token')
+          parser.add_argument('--token', required=True, help='IAM token or API key')
           parser.add_argument('--path', required=True, help='audio file path')
           args = parser.parse_args()
           run(args.token, args.path)

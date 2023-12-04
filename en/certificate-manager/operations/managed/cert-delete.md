@@ -54,7 +54,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
 
       ```bash
       id: fpq6gvvm6piu********
-      folder_id: b1g7gvsi89m34qmcm3ke
+      folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T08:49:11.533Z"
       ...
       - example.com

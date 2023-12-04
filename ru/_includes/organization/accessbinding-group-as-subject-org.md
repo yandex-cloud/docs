@@ -1,5 +1,21 @@
 {% list tabs %}
 
+- {{ org-name }}
+
+  1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
+
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
+
+  1. На панели слева выберите раздел ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
+
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите группу, или воспользуйтесь поиском по названию группы.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите роль в организации. Вы можете назначить больше одной роли.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI
 
     {% include [cli-install](../cli-install.md) %}

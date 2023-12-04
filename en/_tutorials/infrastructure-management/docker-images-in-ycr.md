@@ -45,7 +45,7 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating an 
 
 Infrastructure support costs include fees for the following resources:
 
-* Disks and continuously running VMs  (see [{{ compute-full-name }} pricing)](../../compute/pricing.md).
+* Disks and continuously running VMs (see [{{ compute-full-name }} pricing)](../../compute/pricing.md).
 * Using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Storing created Docker images and a vulnerability scanner, if you choose to [enable](#vulnerability-scanner) it (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
@@ -80,7 +80,7 @@ Infrastructure support costs include fees for the following resources:
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and rules required for running the  {{ mgl-name }} instance and [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+      * [Security group](../../vpc/concepts/security-groups.md) and rules required for running the {{ mgl-name }} instance and [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
       * {{ managed-k8s-name }} cluster with a zonal master.
       * [Node group for the cluster](../../managed-kubernetes/concepts/index.md#node-group).
       * [Service account](../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
@@ -121,7 +121,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
 1. Log in to {{ GL }}.
 1. On the home page, select a repository.
 1. Select the **Repository** → **Files** section.
-1. Click ![image](../../_assets/plus.svg) and select **New file** from the drop-down menu.
+1. Click ![image](../../_assets/console-icons/plus.svg) and select **New file** from the drop-down menu.
 1. Name the file as `Dockerfile` and add the following code to it:
 
    ```Dockerfile
@@ -176,7 +176,7 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
 
 1. Open the {{ GL }} project.
 1. In the left-hand panel, select **Repository** and click the **Files** tab.
-1. Click ![image](../../_assets/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
+1. Click ![image](../../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
 1. Name the file as `.gitlab-ci.yml`. Add to it the steps to build a Docker image and push it to {{ container-registry-full-name }}:
 
    {% cut ".gitlab-ci.yml" %}
