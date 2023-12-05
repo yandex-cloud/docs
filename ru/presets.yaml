@@ -146,6 +146,7 @@ default:
   folder-id-example: b1g86q4m5vej********
   forms-full-name: Yandex Forms
   forms-name: Forms
+  foundation-models-full-name: Yandex Foundation Models
   GL: GitLab
   gl:
     docs: https://docs.gitlab.com
@@ -690,9 +691,9 @@ default:
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
   ya-360: Яндекс 360 для бизнеса
-  yagpt-full-name: YandexGPT
-  yagpt-max-tokens: 7400
-  yagpt-name: YandexGPT
+  yagpt-full-name: YandexGPT API
+  yagpt-max-tokens: 8000
+  yagpt-name: YandexGPT API
   yandex-360: Яндекс 360
   yandex-cloud: Yandex Cloud
   yc-compute: yc compute
@@ -6198,7 +6199,6 @@ default:
           additional-field-metrika: Доступ из Метрики и AppMetrica
           additional-field-serverless: Доступ из Serverless
           additional-field-websql: Доступ из консоли управления
-          additional-field-yandex-query: ''
           additional-field-yandex-query_ru: Доступ из Yandex Query
           backup-retain-period: Срок хранения автоматических резервных копии, дней
           backup-window-start: Начало резервного копирования (UTC)
@@ -6894,6 +6894,12 @@ default:
         switch_networks: Подсети
         switch_security-groups: Группы безопасности
         title_network-map-page: Карта облачной сети
+      yagpt:
+        label_button-instruct-submit: Узнать ответ
+        label_instruction-text: Инструкции
+        label_promt: Промт-режим
+        label_request-text: Запрос
+        label_temperature-text: Температура
       ydb:
         browse:
           button_create: Создать
@@ -8175,7 +8181,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/helm/cert-manager-webhook-yandex
-        tag: 1.0.6
+        tag: 1.0.7
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh

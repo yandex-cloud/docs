@@ -18,7 +18,7 @@ This section covers the revision history for {{ mgp-name }}.
 * Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
 * Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard: {{ tag-con }}
-   * The cluster size cannot exceed `<maximum_host_count> × <maximum_disk_size_per_host>`.
+   * Cluster size cannot exceed `<maximum_host_count> × <maximum_disk_size_per_host>`.
    * You can select groups of dedicated hosts to deploy the cluster.
    * If the amount of data you specify is large, the wizard will prompt you to create a cluster on dedicated hosts.
 
@@ -36,7 +36,7 @@ This section covers the revision history for {{ mgp-name }}.
 ## Q2 2022 {#q2-2022}
 
 * Added CLI support: `{{ yc-mdb-gp }} cluster` and `{{ yc-mdb-gp }} hosts` commands are available. {{ tag-cli }}
-* You can now migrate databases from/to {{ mgp-name }} using {{ data-transfer-full-name }}. See the [documentation](../data-transfer/concepts/index.md#connectivity-matrix) for available targets and sources. This feature is at the [Preview](../data-transfer/concepts/index.md#greenplum) stage.
+* You can now migrate databases from/to {{ mgp-name }} using {{ data-transfer-full-name }}. See the [documentation](../data-transfer/concepts/index.md#connectivity-matrix) for available targets and sources. This feature is at the [Preview](../overview/concepts/launch-stages.md) stage.
 * Added support for the [pgcrypto](https://gpdb.docs.pivotal.io/6-9/ref_guide/modules/pgcrypto.html) extension.
 * [Optimized](https://github.com/wal-g/wal-g/pull/1257) backup creation through special processing of append-only segments.
 * Added the [diskquota](https://gpdb.docs.pivotal.io/6-19/ref_guide/modules/diskquota.html) module that enables you to limit the amount of disk space used by schemas in a database.

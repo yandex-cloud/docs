@@ -4,7 +4,7 @@ editable: false
 
 # Правила тарификации для {{ yagpt-full-name }}
 
-Сервис {{ yagpt-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md) и тарифицируется в соответствии с документом [Специальные условия использования](https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb).
+{{ yagpt-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md) и является частью сервиса {{ foundation-models-full-name }}. Сервис тарифицируется в соответствии с документом [Специальные условия использования](https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb). Детализация использования {{ yagpt-full-name }} доступна в {{ billing-name }} как использование ресурсов {{ foundation-models-full-name }}. 
 
 {% note warning %}
 
@@ -37,7 +37,6 @@ editable: false
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
 
-
 ## Примеры расчета стоимости использования {{ yagpt-name }} {#price-examples}
 
 ### Пример расчета генерации текста {#price-example-generating}
@@ -50,9 +49,9 @@ editable: false
 > 
 > Расчет стоимости:
 > 
-> (20 + 32) × 1,0 × (0,40&nbsp;₽ / 1000) = 0,208&nbsp;₽
+> (20 + 32) × 1,0 × (0,40&nbsp;₽ / 1000) = 0,0208&nbsp;₽
 >
-> Итого: 0,208&nbsp;₽.
+> Итого: 0,0208&nbsp;₽.
 
 Где:
 * 20 — число токенов в промте.

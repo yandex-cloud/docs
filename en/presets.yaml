@@ -6193,7 +6193,6 @@ default:
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
           additional-field-websql: Access from the management console
-          additional-field-yandex-query: ''
           additional-field-yandex-query_ru: Yandex Query access
           backup-retain-period: Retention period for automatic backups, days
           backup-window-start: Backup start time (UTC)
@@ -6889,6 +6888,12 @@ default:
         switch_networks: Subnets
         switch_security-groups: Security groups
         title_network-map-page: Cloud network map
+      yagpt:
+        label_button-instruct-submit: View answer
+        label_instruction-text: Instructions
+        label_promt: Prompt mode
+        label_request-text: Request
+        label_temperature-text: Temperature
       ydb:
         browse:
           button_create: Create
@@ -8172,7 +8177,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/helm/cert-manager-webhook-yandex
-        tag: 1.0.6
+        tag: 1.0.7
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh

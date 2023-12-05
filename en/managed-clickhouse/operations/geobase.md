@@ -20,7 +20,7 @@ To add your own geobase to a {{ CH }} cluster:
       * `5`: Region.
       * `6`: City.
    * Population (UInt32): Optional.
-1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function, e.g.:
+1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function. For example:
 
    * `regionToCountry(RegionID)`: Uses the default dictionary: `regions_hierarchy.txt`.
    * `regionToCountry(RegionID, 'alt')`: Uses the dictionary with the `alt` suffix: `regions_hierarchy_alt.txt`.
@@ -30,7 +30,7 @@ To add your own geobase to a {{ CH }} cluster:
    * Region ID (UInt32)
    * Region name (String): Cannot contain tab or newline characters, even escaped ones.
 
-1. To add region names in other languages to your geobase, create `regions_names_<language code>.txt` files with the same structure. For example, you may create `regions_names_en.txt` for English and `regions_names_tr.txt` for Turkish.
+1. To add region names in other languages to your geobase, create `regions_names_<language_code>.txt` files with the same structure. For example, you may create `regions_names_en.txt` for English and `regions_names_tr.txt` for Turkish.
 1. Create a `tar`, `tar.gz`, or `zip` archive from the geobase files.
 
 ## Uploading a geobase to {{ objstorage-full-name }} {#upload}
@@ -77,11 +77,11 @@ To add your own geobase to a {{ CH }} cluster:
    1. Run the command by passing the link to the archive with the added geobase in the `geobase_uri` parameter:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update-config <cluster ID or name> \
-           --set geobase_uri="<link to geobase archive in {{ objstorage-name }}>"
+      {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
+           --set geobase_uri="<link_to_geobase_archive_in_Object_Storage>"
       ```
 
-      You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -92,11 +92,11 @@ To add your own geobase to a {{ CH }} cluster:
    1. Add the `geobase_uri` parameter with a link to the archive with the geobase to connect in {{ objstorage-full-name }} to the {{ mch-name }} cluster settings:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         clickhouse {
           config {
-            geobase_uri = "<link to geobase archive in {{ objstorage-full-name }}>"
+            geobase_uri = "<link_to_geobase_archive_in_Object_Storage>"
             ...
           }
         ...
@@ -123,7 +123,7 @@ To add your own geobase to a {{ CH }} cluster:
 
    {% note warning %}
 
-   This API method resets any cluster settings that are not provided explicitly in the request to their defaults. To avoid this, be sure to provide the names of the fields to be changed in the `updateMask` parameter.
+   This API method resets any cluster settings that are not provided explicitly in the request to their defaults. To avoid this, make sure to provide the names of the fields to be changed in the `updateMask` parameter.
 
    {% endnote %}
 

@@ -49,22 +49,22 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
    - For **Cap'n Proto**:
 
       ```bash
-      {{ yc-mdb-ch }} format-schema create "<format schema name>" \
-        --cluster-name="<cluster name>" \
+      {{ yc-mdb-ch }} format-schema create "<format_schema_name>" \
+        --cluster-name="<cluster_name>" \
         --type="capnproto" \
-        --uri="<link to the file in {{ objstorage-full-name }}>"
+        --uri="<link_to_the_file_in_Object_Storage>"
       ```
 
    - For **Protobuf**:
 
       ```bash
-      {{ yc-mdb-ch }} format-schema create "<format schema name>" \
-        --cluster-name="<cluster name>" \
+      {{ yc-mdb-ch }} format-schema create "<format_schema_name>" \
+        --cluster-name="<cluster_name>" \
         --type="protobuf" \
-        --uri="<link to the file in {{ objstorage-full-name }}>"
+        --uri="<link_to_the_file_in_Object_Storage>"
       ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -75,15 +75,17 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
    1. Add the `format_schema` block to the {{ mch-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         format_schema {
-          name = "<schema name>"
-          type = "<schema type: FORMAT_SCHEMA_TYPE_CAPNPROTO or FORMAT_SCHEMA_TYPE_PROTOBUF>"
-          uri  = "<link to data format schema file in {{ objstorage-full-name }}>"
+          name = "<schema_name>"
+          type = "<schema_type>"
+          uri  = "<link_to_data_format_schema_file_in_Object_Storage>"
         }
       }
       ```
+
+      Where `type` is the schema type: `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
 
    1. Make sure the settings are correct.
 
@@ -110,7 +112,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
 ## Changing a format schema {#update-format-schema}
 
-{{ mch-name }} doesn't track changes in the format schema file that is in the {{ objstorage-full-name }} bucket.
+{{ mch-name }} does not track changes in the format schema file that is in the {{ objstorage-full-name }} bucket.
 
 To update the contents of a schema that is already connected to the cluster:
 
@@ -137,9 +139,9 @@ To update the contents of a schema that is already connected to the cluster:
    To change the link to the file in object storage with the format schema, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} format-schema update "<data schema name>" \
-     --cluster-name="<cluster name>" \
-     --uri="<new link to the file in {{ objstorage-full-name }}>"
+   {{ yc-mdb-ch }} format-schema update "<data_schema_name>" \
+     --cluster-name="<cluster_name>" \
+     --uri="<new_link_to_file_in_Object_Storage>"
    ```
 
    You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -153,12 +155,12 @@ To update the contents of a schema that is already connected to the cluster:
    1. In the {{ mch-name }} cluster description, change the parameter of the `uri` value in the `format_schema` block:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         format_schema {
-          name = "<schema name>"
-          type = "<schema type>"
-          uri  = "<new link to the schema file in {{ objstorage-full-name }}>"
+          name = "<schema_name>"
+          type = "<schema_type>"
+          uri  = "<new_link_to_schema_file_in_Object_Storage>"
         }
       }
       ```
@@ -180,9 +182,9 @@ To update the contents of a schema that is already connected to the cluster:
    To update a data format schema, use the [update](../api-ref/FormatSchema/update.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Update](../api-ref/grpc/format_schema_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
+   * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
    * The new link to the file in {{ objstorage-full-name }} in the `uri` parameter.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of cluster configuration fields to be updated in the `updateMask` parameter.
 
       {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -215,8 +217,8 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
    To disable a format schema, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} format-schema delete "<format schema name>" \
-     --cluster-name="<cluster name>"
+   {{ yc-mdb-ch }} format-schema delete "<format_schema_name>" \
+     --cluster-name="<cluster_name>"
    ```
 
    You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -268,10 +270,10 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
    To get a list of format schemas in a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} format-schema list --cluster-name="<cluster name>"
+   {{ yc-mdb-ch }} format-schema list --cluster-name="<cluster_name>"
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -294,8 +296,8 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
    To get detailed information about a format schema, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} format-schema get "<format schema name>" \
-     --cluster-name="<cluster name>"
+   {{ yc-mdb-ch }} format-schema get "<format_schema_name>" \
+     --cluster-name="<cluster_name>"
    ```
 
    You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).

@@ -22,7 +22,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}** at the top right.
+   1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
    1. Specify the [host class](../concepts/instance-types.md).
    1. Set up the storage settings.
    1. Change the {{ ZK }} host settings, if required. To do this, hover over the required host row and click ![image](../../_assets/pencil.svg).
@@ -44,7 +44,7 @@ To learn more, see [Replication](../concepts/replication.md).
    1. Run the operation with the default host characteristics:
 
       ```bash
-      {{ yc-mdb-ch }} cluster add-zookeeper <cluster name> \
+      {{ yc-mdb-ch }} cluster add-zookeeper <cluster_name> \
          --host zone-id={{ region-id }}-c,subnet-name=default-c \
          --host zone-id={{ region-id }}-a,subnet-name=default-a \
          --host zone-id={{ region-id }}-b,subnet-name=default-b
@@ -52,7 +52,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
       If the network hosting the cluster contains exactly 3 subnets, each per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} automatically distributes hosts over the subnets.
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -62,29 +62,29 @@ To learn more, see [Replication](../concepts/replication.md).
    1. Make sure the configuration file describes three subnets, one for each availability zone. Add the missing ones, if required:
 
       ```hcl
-      resource "yandex_vpc_network" "<network name>" {
-        name = "<network name>"
+      resource "yandex_vpc_network" "<network_name>" {
+        name = "<network_name>"
       }
 
-      resource "yandex_vpc_subnet" "<name of subnet in {{ region-id }}-a zone>" {
-        name           = "<name of subnet in {{ region-id }}-a zone>"
+      resource "yandex_vpc_subnet" "<name_of_subnet_in_availability_zone_{{ region-id }}-a>" {
+        name           = "<name_of_subnet_in_availability_zone_{{ region-id }}-a>"
         zone           = "{{ region-id }}-a"
-        network_id     = yandex_vpc_network.<network name>.id
-        v4_cidr_blocks = [ "<subnet address range in {{ region-id }}-a zone>" ]
+        network_id     = yandex_vpc_network.<network_name>.id
+        v4_cidr_blocks = [ "<IP_range_of_subnet_in_availability_zone_{{ region-id }}-a>" ]
       }
 
-      resource "yandex_vpc_subnet" "<name of subnet in {{ region-id }}-b zone>" {
-        name           = "<name of subnet in {{ region-id }}-b zone>"
+      resource "yandex_vpc_subnet" "<name_of_subnet_in_availability_zone_{{ region-id }}-b>" {
+        name           = "<name_of_subnet_in_availability_zone_{{ region-id }}-b>"
         zone           = "{{ region-id }}-b"
-        network_id     = yandex_vpc_network.<network name>.id
-        v4_cidr_blocks = [ "<subnet address range in {{ region-id }}-b zone>" ]
+        network_id     = yandex_vpc_network.<network_name>.id
+        v4_cidr_blocks = [ "<IP_range_of_subnet_in_availability_zone_{{ region-id }}-b>" ]
       }
 
-      resource "yandex_vpc_subnet" "<name of subnet in {{ region-id }}-c zone>" {
-        name           = "<name of subnet in {{ region-id }}-c zone>"
+      resource "yandex_vpc_subnet" "<name_of_subnet_in_availability_zone_{{ region-id }}-c>" {
+        name           = "<name_of_subnet_in_availability_zone_{{ region-id }}-c>"
         zone           = "{{ region-id }}-c"
-        network_id     = yandex_vpc_network.<network name>.id
-        v4_cidr_blocks = [ "<subnet address range in {{ region-id }}-c zone>" ]
+        network_id     = yandex_vpc_network.<network_name>.id
+        v4_cidr_blocks = [ "<IP_range_of_subnet_in_availability_zone_{{ region-id }}-c>" ]
       }
       ```
 
@@ -97,25 +97,27 @@ To learn more, see [Replication](../concepts/replication.md).
       If necessary, change the class of existing {{ CH }} hosts and availability zone and add the required number of new hosts.
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
-        name                = "<cluster name>"
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        name = "<cluster_name>"
         ...
         clickhouse {
           resources {
-            resource_preset_id = "<host class: b1.medium or higher>"
-            disk_type_id       = "<disk type>"
-            disk_size          = <storage size, GB>
+            resource_preset_id = "<host_class>"
+            disk_type_id       = "<disk_type>"
+            disk_size          = <storage_size_GB>
           }
         }
         ...
         host {
           type      = "CLICKHOUSE"
           zone      = "{{ region-id }}-a"
-          subnet_id = yandex_vpc_subnet.<name of subnet in {{ region-id }}-a availability zone>.id
+          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-a>.id
         }
         ...
       }
       ```
+
+      Where `resource_preset_id` is host class: `b1.medium` or higher.
 
    1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
 
@@ -126,39 +128,41 @@ To learn more, see [Replication](../concepts/replication.md).
       * The minimum storage size is 10 GB.
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         zookeeper {
           resources {
-            resource_preset_id = "<host class: b1.medium or higher>"
+            resource_preset_id = "<host_class>"
             disk_type_id       = "{{ disk-type-example }}"
-            disk_size          = <storage size, GB>
+            disk_size          = <storage_size_GB>
           }
         }
         ...
         host {
           type      = "ZOOKEEPER"
           zone      = "{{ region-id }}-a"
-          subnet_id = yandex_vpc_subnet.<name of subnet in {{ region-id }}-a availability zone>.id
+          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-a>.id
         }
         host {
           type      = "ZOOKEEPER"
           zone      = "{{ region-id }}-b"
-          subnet_id = yandex_vpc_subnet.<name of subnet in {{ region-id }}-b availability zone>.id
+          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-b>.id
         }
         host {
           type      = "ZOOKEEPER"
           zone      = "{{ region-id }}-c"
-          subnet_id = yandex_vpc_subnet.<name of subnet in {{ region-id }}-c availability zone>.id
+          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-c>.id
         }
       }
       ```
+
+      Where `resource_preset_id` is host class: `b1.medium` or higher.
 
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -175,7 +179,7 @@ To learn more, see [Replication](../concepts/replication.md).
 {% note info %}
 
 {{ ZK }} hosts get the following specs by default:
-* `b2.medium` host class.
+* Host class: `b2.medium`.
 * 10 GB of network SSD [storage](../concepts/storage.md) (`{{ disk-type-example }}`).
 
 {% endnote %}
@@ -207,7 +211,7 @@ To learn more, see [Replication](../concepts/replication.md).
          ```
 
          
-         If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+         If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 
       * You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -221,8 +225,8 @@ To learn more, see [Replication](../concepts/replication.md).
 
       ```bash
       {{ yc-mdb-ch }} hosts add \
-        --cluster-name <cluster name \
-        --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
+        --cluster-name <cluster_name> \
+        --host zone-id=<availability_zone>,subnet-id=<subnet_ID>,type=zookeeper
       ```
 
 - {{ TF }}
@@ -233,12 +237,12 @@ To learn more, see [Replication](../concepts/replication.md).
    1. Add a `host` block of the `ZOOKEEPER` type to the {{ mch-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         host {
           type      = "ZOOKEEPER"
-          zone      = "<availability zone>"
-          subnet_id = yandex_vpc_subnet.<subnet in selected availability zone>.id
+          zone      = "<availability_zone>"
+          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_selected_availability_zone>.id
         }
         ...
       }
@@ -248,7 +252,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -284,11 +288,11 @@ To learn more, see [Replication](../concepts/replication.md).
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-ch }} hosts delete <host name> \
-     --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} hosts delete <host_name> \
+     --cluster-name=<cluster_name>
    ```
 
-   The host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -312,6 +316,6 @@ To learn more, see [Replication](../concepts/replication.md).
 
    To delete a {{ ZK }} host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) gRPC API call and provide the following in the request:
    * ID of the cluster where the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
+   * Host name, in the `hostNames` parameter. To find out the name, get a [list of hosts in the cluster](hosts.md#list-hosts).
 
 {% endlist %}

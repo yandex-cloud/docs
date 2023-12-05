@@ -9,7 +9,7 @@
   1. [Получите IAM-токен](../../iam/operations/iam-token/create.md).
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
   1. При обращении к {{ yagpt-name }} через API в каждом запросе передавайте полученные параметры:
-     
+
      * в заголовке `Authorization` указывайте IAM-токен;
      * в заголовке `x-folder-id` указывайте идентификатор каталога.
 
@@ -23,7 +23,7 @@
   1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-federation.md).
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
   1. При обращении к {{ yagpt-name }} через API в каждом запросе передавайте полученные параметры:
-     
+
      * в заголовке `Authorization` указывайте IAM-токен;
      * в заголовке `x-folder-id` указывайте идентификатор каталога.
 
@@ -44,7 +44,7 @@
          ```bash
          Authorization: Bearer <IAM-токен>
          ```
-         
+
    * С помощью [API-ключей](../../iam/concepts/authorization/api-key).
 
      {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}

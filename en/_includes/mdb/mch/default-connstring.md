@@ -1,8 +1,8 @@
 ```bash
-clickhouse-client --host <FQDN of any {{ CH }}host> \
+clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
                   --secure \
                   --user <username> \
-                  --database <DB name> \
+                  --database <DB_name> \
                   --port 9440 \
                   --ask-password
 ```

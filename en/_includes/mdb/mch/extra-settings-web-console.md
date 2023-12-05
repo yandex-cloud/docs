@@ -16,7 +16,7 @@
 
 * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). For more information about setting up access, see the [{{ sf-name }}](../../../functions/operations/database-connection.md) documentation.
 
-* **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query }}**: Enable this option to allow cluster access from [{{ yq-full-name }}](../../../query/concepts/index.md). This feature is in the [Preview](../../../overview/concepts/launch-stages.md) stage.
+* **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**: Enable this option to allow cluster access from [{{ yq-full-name }}](../../../query/concepts/index.md). This feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage.
 
 
 

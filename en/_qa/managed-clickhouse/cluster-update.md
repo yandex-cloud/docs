@@ -10,7 +10,7 @@ Yes. To do this, when creating a user or updating user settings, pass the desire
 
 ```bash
 yc managed-clickhouse user update <username> \
-  --cluster-name=<cluster name> \
+  --cluster-name=<cluster_name> \
   --settings="join_use_nulls=1"
 ```
 
@@ -34,7 +34,7 @@ To do this, when creating or editing a user via the CLI, pass `readonly=1` in th
 
 ```bash
 yc managed-clickhouse user update <username> \
-  --cluster-name=<cluster name> \
+  --cluster-name=<cluster_name> \
   --settings="readonly=1"
 ```
 

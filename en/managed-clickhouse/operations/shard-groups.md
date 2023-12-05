@@ -21,10 +21,10 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    ```bash
    {{ yc-mdb-ch }} shard-groups list \
-      --cluster-name=<cluster name>
+      --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -54,11 +54,11 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    ```bash
    {{ yc-mdb-ch }} shard-groups get \
-      --cluster-name=<cluster name> \
-      --name=<shard group name>
+      --cluster-name=<cluster_name> \
+      --name=<shard_group_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -89,13 +89,15 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    ```bash
    {{ yc-mdb-ch }} shard-groups create \
-      --cluster-name=<cluster name> \
-      --name=<shard group name> \
-      --description=<shard group description> \
-      --shards=<names of shards to include in the group>
+      --cluster-name=<cluster_name> \
+      --name=<shard_group_name> \
+      --description=<shard_group_description> \
+      --shards=<list_of_shard_names>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   Where `--shards` is a list of shard names to be included in the group.
+
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    Shard names can be requested with a [list of shards in the cluster](shards.md#list-shards).
 
@@ -107,16 +109,16 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
    1. Add a `shard_group` description block to the {{ mch-name }} cluster description.
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         shard_group {
-          name        = "<shard group name>"
-          description = "<optional shard group description>"
+          name        = "<shard_group_name>"
+          description = "<optional_shard_group_description>"
           shard_names = [
             # List of shards in the group
-            "<name of shard 1>",
+            "<name_of_shard_1>",
             ...
-            "<shard name N>"
+            "<name_of_shard_N>"
           ]
         }
       }
@@ -126,7 +128,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -139,7 +141,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
    To create a shard group, use the [createShardGroup](../api-ref/Cluster/createShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateShardGroup](../api-ref/grpc/cluster_service.md#CreateShardGroup) gRPC API call and provide the following in the request:
    * The ID of the cluster where you want to create a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter.
-   * A list of shard names to include in the group, in the `shardNames` parameter. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster.
+   * A list of shard names be included in the group, in the `shardNames` parameter. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster.
    * If necessary, a description of the shard group, in the `description` parameter.
 
 {% endlist %}
@@ -164,15 +166,17 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    ```bash
    {{ yc-mdb-ch }} shard-groups update \
-      --cluster-name=<cluster name> \
-      --name=<shard group name> \
-      --description=<new shard group description> \
-      --shards=<new list of shards to include in the group>
+      --cluster-name=<cluster_name> \
+      --name=<shard_group_name> \
+      --description=<new_shard_group_description> \
+      --shards=<new_list_of_shard_names>
    ```
 
-   This command replaces the existing list of shards in the group with the new one that was passed to the command in the `--shards` parameter. Before running the command, make sure that you added all the appropriate shards in the new list.
+   Where `--shards` is a new list of shard names be included in the group.
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   This command replaces the existing list of shards in the group with the new one that was provided to the command in the `--shards` parameter. Before running the command, make sure that you added all the appropriate shards in the new list.
+
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    You can request the name of the shard group with a [list of shard groups in the cluster](#list-shard-groups).
 
@@ -186,16 +190,16 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
    1. In the {{ mch-name }} cluster description, change the `shard_group` block to the required shard group:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         shard_group {
-          name        = "<new shard group name>"
-          description = "<new shard group description>"
+          name        = "<new_shard_group_name>"
+          description = "<new_shard_group_description>"
           shard_names = [
             # New list of shards in the group
-            "<name of shard 1>",
+            "<name_of_shard_1>",
             ...
-            "<shard name N>"
+            "<name_of_shard_N>"
           ]
         }
       }
@@ -205,7 +209,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -250,11 +254,11 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    ```bash
    {{ yc-mdb-ch }} shard-groups delete \
-      --cluster-name=<cluster name> \
-      --name=<shard group name>
+      --cluster-name=<cluster_name> \
+      --name=<shard_group_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    You can request the name of the shard group with a [list of shard groups in the cluster](#list-shard-groups).
 

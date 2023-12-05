@@ -30,7 +30,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
    +----------------------+---------------+-----------------------------+--------+---------+
    |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
    +----------------------+---------------+-----------------------------+--------+---------+
-   | c9wlk4v14uq79r9cgcku |     mych      | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
+   | c9wlk4v14uq7******** |     mych      | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
    | ...                                                                                   |
    +----------------------+---------------+-----------------------------+--------+---------+
    ```
@@ -60,10 +60,10 @@ You can request detailed information about each {{ mch-short-name }} cluster you
    To get information about a {{ CH }} cluster, run the following command:
 
    ```
-   {{ yc-mdb-ch }} cluster get <cluster name or ID>
+   {{ yc-mdb-ch }} cluster get <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -83,7 +83,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name.
-   1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_operations }}** tab.
+   1. Go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_operations }}** tab.
 
 - CLI
 
@@ -94,7 +94,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
    To get a list of operations, run the following command:
 
    ```
-   {{ yc-mdb-ch }} cluster list-operations <cluster name or ID>
+   {{ yc-mdb-ch }} cluster list-operations <cluster_name_or_ID>
    ```
 
    You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).

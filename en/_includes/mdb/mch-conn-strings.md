@@ -6,7 +6,7 @@
 
    ```bash
    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
-   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD******** && \
    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
    /etc/apt/sources.list.d/clickhouse.list
    ```
@@ -27,9 +27,9 @@
 * Connecting without using SSL
 
    ```bash
-   clickhouse-client --host <FQDN of any {{ CH }} host> \
+   clickhouse-client --host <FQDN_of_any_{{ CH }}_host> \
                      --user <username> \
-                     --database <DB name> \
+                     --database <DB_name> \
                      --port 9000 \
                      --ask-password
    ```
@@ -41,9 +41,9 @@
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
-After running the command, enter the user password to complete the connection procedure.
+After running the command, enter the user password to complete the connection process.
 
 Once connected to the DBMS, run `SELECT @@version;`.
 
@@ -55,9 +55,9 @@ Once connected to the DBMS, run `SELECT @@version;`.
 * Connecting without using SSL
 
    ```bash
-   curl --header "X-ClickHouse-User: <DB username>" \
-        --header "X-ClickHouse-Key: <DB user password>" \
-        'http://<Any {{ CH }} host FQDN>:8123/?database=<DB name>&query=SELECT%20version()'
+   curl --header "X-ClickHouse-User: <DB_username>" \
+        --header "X-ClickHouse-Key: <DB_user_password>" \
+        'http://<Any_{{ CH }}_host_FQDN>:8123/?database=<DB_name>&query=SELECT%20version()'
    ```
 
 
@@ -65,14 +65,14 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
    ```bash
    curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
-        --header "X-ClickHouse-User: <DB username>" \
-        --header "X-ClickHouse-Key: <DB user password>" \
-        'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
+        --header "X-ClickHouse-User: <DB_username>" \
+        --header "X-ClickHouse-Key: <DB_user_password>" \
+        'https://<FQDN_of_any_{{ CH }}_host>:8443/?database=<DB_name>&query=SELECT%20version()'
    ```
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 ### Go {#go}
 
@@ -100,10 +100,10 @@ sudo apt update && sudo apt install --yes golang git
 
    func main() {
 
-       const DB_HOST = "<FQDN of any {{ CH }} host>"
-       const DB_NAME = "<DB name>"
-       const DB_USER = "<DB user name>"
-       const DB_PASS = "<DB user password>"
+       const DB_HOST = "<FQDN_of_any_{{ CH }}_host>"
+       const DB_NAME = "<DB_name>"
+       const DB_USER = "<DB_user_name>"
+       const DB_PASS = "<DB_user_password>"
 
        conn := &http.Client{
            Transport: &http.Transport{},
@@ -137,22 +137,22 @@ sudo apt update && sudo apt install --yes golang git
    `connect.go`
 
    ```go
-
    package main
 
    import (
        "fmt"
        "net/http"
        "io/ioutil"
-       "crypto/x509"    "crypto/tls"
+       "crypto/x509"
+       "crypto/tls"
    )
 
    func main() {
 
-       const DB_HOST = "<FQDN of any  host{{ CH }}>"
-       const DB_NAME = "<DB name>"
-       const DB_USER = "<DB user name>"
-       const DB_PASS = "<DB user password>"
+       const DB_HOST = "<FQDN_of_any_{{ CH }}_host>"
+       const DB_NAME = "<DB_name>"
+       const DB_USER = "<DB_user_name>"
+       const DB_PASS = "<DB_user_password>"
 
        const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}"
 
@@ -194,7 +194,7 @@ sudo apt update && sudo apt install --yes golang git
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -319,10 +319,10 @@ go run connect.go
 
    public class App {
        public static void main(String[] args) {
-       String DB_HOST    = "<FQDN of any {{ CH }} host>";
-       String DB_NAME    = "<DB name>";
-       String DB_USER    = "<DB user name>";
-       String DB_PASS    = "<DB user password>";
+       String DB_HOST    = "<FQDN_of_any_{{ CH }}_host>";
+       String DB_NAME    = "<DB_name>";
+       String DB_USER    = "<DB_user_name>";
+       String DB_PASS    = "<DB_user_password>";
 
        String DB_URL = String.format("jdbc:clickhouse://%s:8123/%s", DB_HOST, DB_NAME);
 
@@ -352,10 +352,10 @@ go run connect.go
 
    public class App {
        public static void main(String[] args) {
-       String DB_HOST    = "<FQDN of any {{ CH }} host>";
-       String DB_NAME    = "<DB name>";
-       String DB_USER    = "<DB user name>";
-       String DB_PASS    = "<DB user password>";
+       String DB_HOST    = "<FQDN_of_any_{{ CH }}_host>";
+       String DB_NAME    = "<DB_name>";
+       String DB_USER    = "<DB_user_name>";
+       String DB_PASS    = "<DB_user_password>";
 
        String CACERT     = "{{ crt-local-dir }}{{ crt-local-file-root }}";
 
@@ -376,7 +376,7 @@ go run connect.go
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -407,10 +407,10 @@ npm install querystring
    const querystring = require('querystring');
    const fs = require('fs');
 
-   const DB_HOST = "<FQDN of any {{ CH }} host>";
-   const DB_NAME = "<DB name>";
-   const DB_USER = "<DB user name>";
-   const DB_PASS = "<DB user password>";
+   const DB_HOST = "<FQDN_of_any_{{ CH }}_host>";
+   const DB_NAME = "<DB_name>";
+   const DB_USER = "<DB_user_name>";
+   const DB_PASS = "<DB_user_password>";
 
    const options = {
        'method': 'GET',
@@ -447,10 +447,10 @@ npm install querystring
    const querystring = require('querystring');
    const fs = require('fs');
 
-   const DB_HOST = "<FQDN of any {{ CH }} host>";
-   const DB_NAME = "<DB name>";
-   const DB_USER = "<DB user name>";
-   const DB_PASS = "<DB user password>";
+   const DB_HOST = "<FQDN_of_any_{{ CH }}_host>";
+   const DB_NAME = "<DB_name>";
+   const DB_USER = "<DB_user_name>";
+   const DB_PASS = "<DB_user_password>";
 
    const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}";
 
@@ -481,9 +481,9 @@ npm install querystring
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
-**Connection:**
+**Connecting:**
 
 ```bash
 node app.js
@@ -554,10 +554,10 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
    ```ini
    [ClickHouse]
    Driver = ClickHouse ODBC Driver (Unicode)
-   Server = <FQDN of any {{ CH }} host>
-   Database = <DB name>
-   UID = <DB user name>
-   PWD = <DB user password>
+   Server = <FQDN_of_any_{{ CH }}_host>
+   Database = <DB_name>
+   UID = <DB_user_name>
+   PWD = <DB_user_password>
    Port = 8123
    Proto = http
    ```
@@ -570,10 +570,10 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
    ```ini
    [ClickHouse]
    Driver = ClickHouse ODBC Driver (Unicode)
-   Server = <FQDN of any {{ CH }} host>
-   Database = <DB name>
-   UID = <DB user name>
-   PWD = <DB user password>
+   Server = <FQDN_of_any_{{ CH }}_host>
+   Database = <DB_name>
+   UID = <DB_user_name>
+   PWD = <DB_user_password>
    Port = 8443
    Proto = https
    SSLMode = allow
@@ -583,7 +583,7 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -605,22 +605,22 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
    * Connecting without using SSL
 
-      * **Name**: Name for the connection.
-      * **Host**: [FQDN of any {{ CH }} host](../../managed-clickhouse/operations/connect.md#fqdn).
-      * **Port**: `{{ port-mch-http }}`.
-      * **Database**: DB name.
-      * **User**: DB user name.
-      * **Password**: DB user password.
+      * **Name**: Name for the connection
+      * **Host**: [FQDN of any {{ CH }} host](../../managed-clickhouse/operations/connect.md#fqdn)
+      * **Port**: `{{ port-mch-http }}`
+      * **Database**: DB name
+      * **User**: DB user name
+      * **Password**: DB user password
 
    * Connecting via SSL
 
-      * **Name**: Name for the connection.
-      * **Host**: [FQDN of any {{ CH }} host](../../managed-clickhouse/operations/connect.md#fqdn).
-      * **Port**: `{{ port-mch-http }}`.
-      * **Database**: DB name.
-      * **SSLMode**: `Allow`.
-      * **User**: DB user name.
-      * **Password**: DB user password.
+      * **Name**: Name for the connection
+      * **Host**: [FQDN of any {{ CH }} host](../../managed-clickhouse/operations/connect.md#fqdn)
+      * **Port**: `{{ port-mch-http }}`
+      * **Database**: DB name
+      * **SSLMode**: `Allow`
+      * **User**: DB user name
+      * **Password**: DB user password
 
    {% endlist %}
 
@@ -659,13 +659,13 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
    ```php
    <?php
-       $host = '<FQDN of any {{ CH }} host>';
-       $db = '<DB name>';
+       $host = '<FQDN_of_any_{{ CH }}_host>';
+       $db = '<DB_name>';
        $query = 'SELECT version()';
 
        $auth = [
-           'X-ClickHouse-User: <DB user name>',
-           'X-ClickHouse-Key: <DB user password>',
+           'X-ClickHouse-User: <DB_user_name>',
+           'X-ClickHouse-Key: <DB_user_password>',
        ];
 
        $context = stream_context_create([
@@ -690,13 +690,13 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
    ```php
    <?php
-       $host = '<FQDN of any {{ CH }} host>';
-       $db = '<DB name>';
+       $host = '<FQDN_of_any_{{ CH }}_host>';
+       $db = '<DB_name>';
        $query = 'SELECT version()';
 
        $auth = [
-           'X-ClickHouse-User: <DB user name>',
-           'X-ClickHouse-Key: <DB user password>',
+           'X-ClickHouse-User: <DB_user_name>',
+           'X-ClickHouse-Key: <DB_user_password>',
        ];
 
        $ssl = [
@@ -722,7 +722,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -739,9 +739,9 @@ php connect.php
 
    ```powershell
    curl.exe `
-       -H "X-ClickHouse-User: <DB user name>" `
-       -H "X-ClickHouse-Key: <DB user password>" `
-       'http://<FQDN of any {{ CH }} host>:8123/?database=<DB name>&query=SELECT+version()'
+       -H "X-ClickHouse-User: <DB_user_name>" `
+       -H "X-ClickHouse-Key: <DB_user_password>" `
+       'http://<FQDN_of_any_{{ CH }}_host>:8123/?database=<DB_name>&query=SELECT+version()'
    ```
 
 
@@ -749,14 +749,14 @@ php connect.php
 
    ```powershell
    curl.exe `
-       -H "X-ClickHouse-User: <DB user name>" `
-       -H "X-ClickHouse-Key: <DB user password>" `
-       'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT+version()'
+       -H "X-ClickHouse-User: <DB_user_name>" `
+       -H "X-ClickHouse-Key: <DB_user_password>" `
+       'https://<FQDN_of_any_{{ CH }}_host>:8443/?database=<DB_name>&query=SELECT+version()'
    ```
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 ### Python (clickhouse-driver) {#python-clickhouse-driver}
 
@@ -777,9 +777,9 @@ pip3 install clickhouse-driver
    ```python
    from clickhouse_driver import Client
 
-   client = Client(host='<FQDN of any {{ CH }} host>',
-                   user='<DB user name>',
-                   password='<DB user password>',
+   client = Client(host='<FQDN_of_any_{{ CH }}_host>',
+                   user='<DB_user_name>',
+                   password='<DB_user_password>',
                    port=9000)
 
    print(client.execute('SELECT version()'))
@@ -793,9 +793,9 @@ pip3 install clickhouse-driver
    ```python
    from clickhouse_driver import Client
 
-   client = Client(host='<FQDN of any {{ CH }} host>',
-                   user='<DB user name>',
-                   password='<DB user password>',
+   client = Client(host='<FQDN_of_any_{{ CH }}_host>',
+                   user='<DB_user_name>',
+                   password='<DB_user_password>',
                    port=9440,
                    secure=True,
                    verify=True,
@@ -806,7 +806,7 @@ pip3 install clickhouse-driver
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -834,13 +834,13 @@ pip3 install requests
    import requests
 
    response = requests.get(
-       'http://{0}:8123'.format('<FQDN of any {{ CH }} host>'),
+       'http://{0}:8123'.format('<FQDN_of_any_{{ CH }}_host>'),
        params={
            'query': 'SELECT version()',
        },
        headers={
-           'X-ClickHouse-User': '<DB user name>',
-           'X-ClickHouse-Key': '<DB user password>',
+           'X-ClickHouse-User': '<DB_user_name>',
+           'X-ClickHouse-Key': '<DB_user_password>',
        })
 
    response.raise_for_status()
@@ -856,14 +856,14 @@ pip3 install requests
    import requests
 
    response = requests.get(
-       'https://{0}:8443'.format('<FQDN of any {{ CH }} host>'),
+       'https://{0}:8443'.format('<FQDN_of_any_{{ CH }}_host>'),
        params={
            'query': 'SELECT version()',
        },
        verify='{{ crt-local-dir }}{{ crt-local-file-root }}',
        headers={
-           'X-ClickHouse-User': '<DB user name>',
-           'X-ClickHouse-Key': '<DB user password>',
+           'X-ClickHouse-User': '<DB_user_name>',
+           'X-ClickHouse-Key': '<DB_user_password>',
        })
 
    response.raise_for_status()
@@ -872,7 +872,7 @@ pip3 install requests
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -899,10 +899,10 @@ sudo apt update && sudo apt install --yes ruby
    require "net/http"
    require "uri"
 
-   DB_HOST = "<FQDN of any {{ CH }} host>"
-   DB_NAME = "<DB name>"
-   DB_USER = "<DB user name>"
-   DB_PASS = "<DB user password>"
+   DB_HOST = "<FQDN_of_any_{{ CH }}_host>"
+   DB_NAME = "<DB_name>"
+   DB_USER = "<DB_user_name>"
+   DB_PASS = "<DB_user_password>"
 
    QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
 
@@ -930,10 +930,10 @@ sudo apt update && sudo apt install --yes ruby
    require "openssl"
    require "uri"
 
-   DB_HOST = "<FQDN of any {{ CH }} host>"
-   DB_NAME = "<DB name>"
-   DB_USER = "<DB user name>"
-   DB_PASS = "<DB user password>"
+   DB_HOST = "<FQDN_of_any_{{ CH }}_host>"
+   DB_NAME = "<DB_name>"
+   DB_USER = "<DB_user_name>"
+   DB_PASS = "<DB_user_password>"
 
    QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
 
@@ -956,7 +956,7 @@ sudo apt update && sudo apt install --yes ruby
 
 {% endlist %}
 
-To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 

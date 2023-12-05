@@ -1,12 +1,13 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/Tokenizer/index.md
+sourcePath: en/_api-ref/ai/foundation_models/v1/api-ref/Tokenizer/index.md
 ---
 
-# YandexGPT API, REST: Tokenizer methods
-Service for tokenizing input text.
+# Foundation Models API, REST: Tokenizer methods
+Service for tokenizing input content.
 
 ## Methods {#methods}
 Method | Description
 --- | ---
-[tokenize](tokenize.md) | RPC method for tokenizing input text.
+[tokenize](tokenize.md) | RPC method for tokenizing text.
+[tokenizeCompletion](tokenizeCompletion.md) | RPC method for tokenizing content of CompletionRequest

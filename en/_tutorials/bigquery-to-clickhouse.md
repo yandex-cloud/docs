@@ -66,13 +66,13 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
    ```boto
    [Credentials]
-   gs_service_client_id  =<Google Cloud service account>
-   gs_service_key_file   =<absolute path to the JSON file with the access key for the Google Cloud service account>
-   aws_access_key_id     =<{{ yandex-cloud }} service account key ID>
-   aws_secret_access_key =<{{ yandex-cloud }} service account secret key>
+   gs_service_client_id  =<Google_Cloud_service_account>
+   gs_service_key_file   =<absolute_path_to_JSON_file>
+   aws_access_key_id     =<service_account_key_ID>
+   aws_secret_access_key =<service_account_secret_key>
 
    [GSUtil]
-     default_project_id    =<Google Cloud project ID>
+     default_project_id    =<Google_Cloud_project_ID>
 
    [s3]
      calling_format=boto.s3.connection.OrdinaryCallingFormat
@@ -81,8 +81,11 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
    Where:
 
-   * `<Google Cloud service account>`: [Name of the Google Cloud service account](service-account-name@project-id.iam.gserviceaccount.com), such as `service-account-name@project-id.iam.gserviceaccount.com`.
-   * `<ID of the Google Cloud project>`: [Project ID in Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
+   * `gs_service_client_id`: [Name of the Google Cloud service account](service-account-name@project-id.iam.gserviceaccount.com) in the format `service-account-name@project-id.iam.gserviceaccount.com`.
+   * `gs_service_key_file`: Absolute path to the JSON file with the access key of the Google Cloud service account.
+   * `aws_access_key_id`: Key ID of the {{ yandex-cloud }} service account.
+   * `aws_secret_access_key`: Secret key of the {{ yandex-cloud }} service account.
+   * `default_project_id`: [Google Cloud project ID](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
 
 1. Create a `main.py` script file for data compression and migration:
 
@@ -95,8 +98,8 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
    import time
    import subprocess
    import os
-   os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<absolute path to JSON file with the access key for the Google Cloud service account>"
-   os.environ["BOTO_CONFIG"]="<absolute path to the credentials.boto file>"
+   os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<absolute_path_to_JSON_file_with_the_access_key_for_the_Google_Cloud_service_account>"
+   os.environ["BOTO_CONFIG"]="<absolute_path_to_the_credentials.boto_file>"
 
    def parse_args():
        parser = argparse.ArgumentParser(description='Export data from Google Big Query to Yandex Cloud object storage')
@@ -177,10 +180,10 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
    ```bash
    python main.py \
-       --bq_project=<ID of the Google Cloud project> \
+       --bq_project=<Google_Cloud_project_ID> \
        --bq_location=US \
-       --gs_bucket=<name of the Google Cloud Storage bucket> \
-       --yc_bucket=<{{ objstorage-name }} bucket name>
+       --gs_bucket=<Google_Cloud_Storage_bucket_name> \
+       --yc_bucket=<Object_Storage_bucket_name>
    ```
 
    Wait until the data migrates completely.
@@ -202,8 +205,8 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
    week,
    refresh_date
    FROM s3Cluster(
-     '<cluster ID>',
-     'https://{{ s3-storage-host }}/<{{ objstorage-name }} bucket name>/top_terms-*',
+     '<cluster_ID>',
+     'https://{{ s3-storage-host }}/<Object_Storage_bucket_name>/top_terms-*',
      'Parquet',
      'rank Int32,
      country_name String,
@@ -221,7 +224,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
    * `db1`: Name of the database in the {{ mch-name }} cluster where you want to create a view.
    * `v$google_top_rising_terms`: Name of the view created for the imported data.
-   * `<cluster ID>`: ID of the {{ mch-name }} cluster. You can retrieve it with a [list of clusters in the folder](../managed-clickhouse/operations/cluster-list.md).
+   * `<cluster_ID>`: ID of the {{ mch-name }} cluster. You can retrieve it with a [list of clusters in the folder](../managed-clickhouse/operations/cluster-list.md).
    * `top_terms-*`: The key part in the names of objects in the {{ objstorage-name }} bucket. For example, if you moved a table from Google Cloud that includes rows with the `top_terms` name, then in the {{ objstorage-name }} bucket they will look as a set of objects with the names `top_terms-000000000001`, `top_terms-000000000002`, and so on. In this case, in the SQL query, you should specify `top_terms-*` so that the view includes all the entries from this table having such a name.
 
 1. To output the first 100 entries from the selected view, run the SQL query (in the example, we use the `v$google_top_rising_terms` view and the `db1` database):
@@ -247,7 +250,7 @@ The system will analyze the usage of this query in the search system, and the re
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-delete.md).
 1. [Delete all objects from the {{ objstorage-name }} bucket](../storage/operations/objects/delete-all.md), then [delete the bucket](../storage/operations/buckets/delete.md).

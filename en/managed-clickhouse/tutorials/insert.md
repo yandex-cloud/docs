@@ -12,11 +12,11 @@ For more information about the `INSERT INTO` statement, see the [{{ CH }} docume
 
 ## Inserting data from a file {#file-insert}
 
-To insert local file data into a table, use an `INSERT INTO` statement, such as:
+To insert local file data into a table, use an `INSERT INTO` statement, e.g.:
 
 ```sql
-INSERT INTO db_name.table_name FROM INFILE '<full file path>'
-[COMPRESSION '<compression format>'] FORMAT <data format>;
+INSERT INTO db_name.table_name FROM INFILE '<full_file_path>'
+[COMPRESSION '<compression_format>'] FORMAT <data_format>;
 ```
 
 With the `COMPRESSION` option, you can transfer compressed files. Use it to upload large amounts of data. The option is supported when using [clickhouse-client]({{ ch.docs }}/interfaces/cli) or [HTTP interface]({{ ch.docs }}/interfaces/http). If no compression format is specified, it is identified by the file extension. The compression format may take the following values: `none`, `gzip`, `deflate`, `br`, `xz`, `zstd`, `lz4`, and `bz2`.
@@ -25,7 +25,7 @@ For a list of supported data formats, see the [{{ CH }} documentation]({{ ch.doc
 
 ## Inserting data through buffering {#buffer-insert}
 
-When you insert data into {{ CH }}, a part of computing resources is used for performing housekeeping operations. Each time you run an `INSERT` query, {{ CH }} creates a separate data chunk in storage. In addition to table rows, chunks like this contain auxiliary files with metadata. Next, {{ CH }} joins data chunks in the background. The more join queries are required, the more resources will be used.
+When you insert data into {{ CH }}, a part of computing resources is used for performing housekeeping operations. Each time you run an `INSERT` query, {{ CH }} creates a separate data part in storage. In addition to table rows, a part like that will contain auxiliary metadata files. Next, {{ CH }} joins data parts in the background. The more join queries are required, the more resources will be used.
 
 As a result, the load on the cluster from one thousand queries to insert a single row will exceed that from a single query to insert one thousand rows. Therefore, we recommend inserting data into tables in large chunks from 1,000 to 100,000 rows.
 
@@ -233,10 +233,10 @@ To prepare scripts:
       import capnp
       from user_capnp import User
 
-      DB_HOST="<FQDN of the {{ CH }} host>"
+      DB_HOST="<FQDN_of_the_{{ CH }}_host>"
       DB_NAME="db1"
-      DB_USER="<DB user name>"
-      DB_PASS="<DB user password>"
+      DB_USER="<DB_user_name>"
+      DB_PASS="<DB_user_password>"
       CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
       SCHEMA_NAME = 'schema-capnproto'
@@ -299,10 +299,10 @@ To prepare scripts:
       import varint
       from user_pb2 import User
 
-      DB_HOST="<FQDN of the {{ CH }} host>"
+      DB_HOST="<FQDN_of_the_{{ CH }}_host>"
       DB_NAME="db1"
-      DB_USER="<DB user name>"
-      DB_PASS="<DB user password>"
+      DB_USER="<DB_user_name>"
+      DB_PASS="<DB_user_password>"
       CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
       SCHEMA_NAME = 'schema-protobuf'
@@ -356,7 +356,7 @@ To prepare scripts:
 
    {% endlist %}
 
-   To learn how to get the FQDN of a host, see [this guide](../operations/connect.md#fqdn).
+   To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
 
 ### Inserting data {#insert-data}
 

@@ -2,7 +2,7 @@
 
 {{ mch-name }} lets you manage cluster databases two ways:
 
-* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
+* Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
 
 ## Managing databases via SQL {#sql-database-management}
@@ -23,7 +23,7 @@ In a cluster with DB management via SQL enabled:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
 
 - CLI
 
@@ -35,10 +35,10 @@ In a cluster with DB management via SQL enabled:
 
    ```bash
    {{ yc-mdb-ch }} database list \
-      --cluster-name <cluster name>
+      --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -80,13 +80,13 @@ In a cluster with DB management via SQL enabled:
    Run the create database command and set the name of the new database:
 
    ```bash
-   {{ yc-mdb-ch }} database create <database name> \
-     --cluster-name <cluster name>
+   {{ yc-mdb-ch }} database create <DB_name> \
+     --cluster-name=<cluster_name>
    ```
 
    {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    {{ mch-short-name }} runs the create database operation.
 
@@ -99,10 +99,10 @@ In a cluster with DB management via SQL enabled:
    1. Add a `database` description block to the {{ mch-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         database {
-          name = "<database name>"
+          name = "<DB_name>"
         }
       }
       ```
@@ -113,7 +113,7 @@ In a cluster with DB management via SQL enabled:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -131,7 +131,7 @@ In a cluster with DB management via SQL enabled:
    1. Create a database:
 
       ```sql
-      CREATE DATABASE <database name>;
+      CREATE DATABASE <DB_name>;
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
@@ -159,11 +159,11 @@ In a cluster with DB management via SQL enabled:
    To delete a database, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} database delete <database name> \
-      --cluster-name <cluster name>
+   {{ yc-mdb-ch }} database delete <DB_name> \
+      --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -177,7 +177,7 @@ In a cluster with DB management via SQL enabled:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -195,7 +195,7 @@ In a cluster with DB management via SQL enabled:
    1. Delete the database:
 
       ```sql
-      DROP DATABASE <database name>;
+      DROP DATABASE <DB_name>;
       ```
 
    For more information about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
