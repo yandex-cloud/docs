@@ -9,6 +9,7 @@
 Чтобы построить архитектуру для интеграции L7-балансировщика с CDN и Object Storage:
 
 1. [Подготовьте облако к работе](#before-you-begin).
+1. [Добавьте сертификат в {{ certificate-manager-name }}](#add-certificate)
 1. [Создайте облачную сеть и подсети](#create-network).
 1. [Создайте бакет в {{ objstorage-name }}](#create-buckets).
 1. [Загрузите файл сервиса в бакет](#upload-files).
@@ -48,6 +49,12 @@
 * плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md));
 * плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../cdn/pricing.md));
 * плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+
+## Добавьте сертификат в {{ certificate-manager-name }} {#add-certificate}
+
+Выпустите и [добавьте](../../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }} сертификат Let's Encrypt® или [загрузите](../../certificate-manager/operations/import/cert-create.md) собственный сертификат.
+
+Для сертификата Let's Encrypt® пройдите [проверку прав](../../certificate-manager/operations/managed/cert-validate.md) на домен, который указан в сертификате.
 
 
 ## Создайте облачную сеть и подсети {#create-network}
@@ -987,13 +994,11 @@
           * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`. 
           * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
           * Выберите опцию **{{ ui-key.yacloud.cdn.field_access }}**.
-          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `Let's Encrypt®`, чтобы автоматически выпустить сертификат для доменного имени `cdn.yandexcloud.example` после создания CDN-ресурса.
+          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.yandexcloud.example`.
           * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
 
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-     Дождитесь выпуска сертификата Let's Encrypt® для доменного имени. Этот процесс может занять до 30 минут.
-    
   1. Включите переадресацию клиентов с HTTP на HTTPS:
 
      1. Выберите ресурс, созданный ранее.
@@ -1041,7 +1046,7 @@
         --cname cdn.yandexcloud.example \
         --origin-group-id <идентификатор_группы_источников> \
         --origin-protocol http \
-        --lets-encrypt-gcore-ssl-cert \
+        --cert-manager-ssl-cert-id <идентификатор_сертификата> \
         --forward-host-header
       ```
 
@@ -1088,7 +1093,8 @@
           origin_protocol     = "http"
           origin_group_id     = yandex_cdn_origin_group.my_group.id
           ssl_certificate {
-            type = "lets_encrypt_gcore"
+            type                   = "certificate_manager"
+            certificate_manager_id = "<идентификатор_сертификата>"
           }
           options {
               edge_cache_settings    = "345600"

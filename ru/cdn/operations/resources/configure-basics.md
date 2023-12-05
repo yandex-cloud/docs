@@ -174,12 +174,12 @@ description: "Следуя данной инструкции, вы сможет�
 
 - CLI
 
-  Измените протокол для источников с HTTP на HTTPS и выберите сертификат Let's Encrypt®:
+  Измените протокол для источников с HTTP на HTTPS и выберите сертификат Let's Encrypt®, [добавленный](../../../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }}, или [загруженный](../../../certificate-manager/operations/import/cert-create.md) собственный сертификат:
 
     ```bash
     yc cdn resource update someidkfjqjfl325fw \
       --origin-protocol HTTPS \
-      --lets-encrypt-gcore-ssl-cert 
+      --cert-manager-ssl-cert-id <идентификатор_сертификата>
     ```
 
   Результат:
@@ -198,7 +198,7 @@ description: "Следуя данной инструкции, вы сможет�
     origin_group_name: My origins group
     origin_protocol: HTTPS
     ssl_certificate:
-    type: LETS_ENCRYPT_GCORE
+    type: CM
     status: CREATING
     ```
 

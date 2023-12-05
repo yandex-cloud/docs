@@ -5,6 +5,10 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создание ресурса
 
+
+{% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+
+
 Чтобы создать [ресурс](../../concepts/resource.md):
 
 {% list tabs %}
@@ -56,7 +60,6 @@ description: "Следуя данной инструкции, вы сможет�
       1. В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
       
           * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
-          * `Let's Encrypt®` — сертификат будет выпущен CDN-провайдером. Управлять таким сертификатом из {{ certificate-manager-name }} будет невозможно.
           * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат в {{ certificate-manager-name }}. Это может быть как [сертификат от Let's Encrypt®](../../../certificate-manager/concepts/managed-certificate.md), так и [пользовательский сертификат](../../../certificate-manager/concepts/imported-certificate.md).
           
           Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).

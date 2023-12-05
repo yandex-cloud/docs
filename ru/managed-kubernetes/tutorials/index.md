@@ -2,12 +2,13 @@
 
 C помощью {{ managed-k8s-name }} вы можете работать с [контейнеризованными приложениями](../../glossary/containerization.md) в инфраструктуре {{ yandex-cloud }}: разворачивать, масштабировать и управлять приложениями в контейнерах.
 
-## Создание проекта {#creating-project}
+## Создание и настройка проекта {#creating-project}
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](running-pod-gpu.md)
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
+* [{#T}](migration-to-an-availability-zone.md)
 
 ## Настройка и тестирование масштабирования {#scaling}
 

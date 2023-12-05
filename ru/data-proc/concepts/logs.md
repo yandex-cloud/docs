@@ -24,7 +24,7 @@
    * `syslog` — системный лог;
    * `telegraf` — лог отправки метрик кластера {{ dataproc-name }} в сервис [{{ monitoring-name }}](../../monitoring/).
 
-* Управляющий хост:
+* Хост-мастер:
    * `flume` — кластеры {{ dataproc-name }} с [версией образа](../concepts/environment.md) ниже 2.0;
    * `hadoop-hdfs-namenode`;
    * `hadoop-hdfs-secondarynamenode`;

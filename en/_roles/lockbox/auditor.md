@@ -1,0 +1,1 @@
+The `lockbox.auditor` role.

@@ -1,5 +1,7 @@
-The `managed-clickhouse.admin` role enables you to edit and delete clusters, view information about clusters, runtime logs, and quotas, as well as manage cluster access.
+The `managed-clickhouse.admin` role grants full access to ClickHouse clusters.
 
-To create clusters, you also need the `vpc.user` role.
+Users with this role can create, edit, delete, run, and stop ClickHouse clusters, manage cluster access, read and write to databases, and view information about clusters, runtime logs, and quotas.
 
-It includes the `managed-clickhouse.editor` role.
+It includes the permissions of the `managed-clickhouse.editor` role.
+
+To create ClickHouse clusters, you also need the `vpc.user` role.
