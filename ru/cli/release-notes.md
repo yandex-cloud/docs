@@ -11,6 +11,22 @@ description: "На странице представлены релизы YC CLI
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+#### {{ objstorage-name }}
+
+* Исправлена передача имени бакета в команды `yc storage bucket create`, `yc storage bucket update`, `yc storage bucket set-https`.
+
+#### {{ sf-name }} {#serverless-functions}
+
+В команду `yc serverless function version create` добавлен параметр для указания монтирования бакетов в функцию:
+
+* `--storage-mounts`, пример: `--storage-mounts mount-point=dir,bucket=user-bucket,read-only=false`.
+
+#### {{ serverless-containers-name }} {#serverless-containers}
+
+В команду `yc serverless container revision deploy` добавлен параметр для указания монтирования бакетов в контейнер:
+
+* `--storage-mounts`, пример: `--storage-mounts mount-point-path=/data,bucket=user-bucket,read-only=false`.
+
 ##### {{ compute-name }} {#compute}
 
 * В команде `yc compute ssh` все временные сертификаты сохраняются в домашней директории пользователя.

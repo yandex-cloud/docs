@@ -24,7 +24,7 @@ After creating a cluster, you can:
 
 * [Changing hybrid storage settings](#change-hybrid-storage).
 
-To move a cluster to a different availability zone, follow this [guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different availability zone, see this [guide](host-migration.md). You will thus move the cluster hosts.
 
 
 ## Change service account settings {#change-service-account}
@@ -152,7 +152,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
       To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -196,8 +196,8 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
    1. Specify the required storage in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <cluster name or ID> \
-       --clickhouse-disk-size <storage size in GB>
+      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
+       --clickhouse-disk-size <storage_size_GB>
       ```
 
    1. To increase the storage capacity of {{ ZK }} hosts, provide the value you need in the `--zookeeper-disk-size` parameter.
@@ -217,13 +217,13 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
         ...
         clickhouse {
           resources {
-            disk_size = <storage_size_in_GB>
+            disk_size = <storage_size_GB>
             ...
           }
         }
         zookeeper {
           resources {
-            disk_size = <storage_size_in_GB>
+            disk_size = <storage_size_GB>
             ...
           }
         }
@@ -266,6 +266,7 @@ This disables user and database management through other interfaces.
 Once enabled, user and database management settings for SQL cannot be disabled.
 
 {% endnote %}
+
 
 {% list tabs %}
 
@@ -383,7 +384,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
-           --set <parameter1_name>=<value1>,...
+           --set <name_of_parameter_1>=<value_1>,...
       ```
 
       {{ mch-short-name }} runs the update cluster settings operation.
@@ -431,13 +432,13 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
             compression {
               # Data compression settings
-              method              = "<compession_method:_LZ4_or_ZSTD>"
-              min_part_size       = <minimum_size_of_a_table_data_chunk_in_a_table_in_bytes>
-              min_part_size_ratio = <size_ratio_between_the_smallest_data_chunk_size_and_the_full_table_size>
+              method              = "<compression_method>"
+              min_part_size       = <data_part_size>
+              min_part_size_ratio = <size_ratio>
             }
 
             graphite_rollup {
-              # GraphiteMergeTree engine settings for thinning and aggregation/averaging
+              # GraphiteMergeTree engine settings for decimation and aggregation/averaging
               # (rollup) of Graphite data.
               ...
             }
@@ -447,6 +448,11 @@ For more information, see [Memory management](../concepts/memory-management.md).
       ...
       }
       ```
+
+      Where:
+      * `method`: Compression method, `LZ4` or `ZSTD`.
+      * `min_part_size`: Minimum size of a table data part, bytes.
+      * `min_part_size_ratio`: Ratio between the smallest table chunk and full table size.
 
    1. Make sure the settings are correct.
 
@@ -509,16 +515,16 @@ For more information, see [Memory management](../concepts/memory-management.md).
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
          --backup-window-start <backup_start_time> \
-         --datalens-access=<true_or_false> \
-         --datatransfer-access=<true_or_false> \
-         --deletion-protection=<cluster_deletion_protection:_true_or_false> \
-         --maintenance-window type=<maintenance_type:_anytime_or_weekly>,`
-                             `day=<day_of_week_for_weekly_type>,`
-                             `hour=<hour_for_weekly_type> \
-         --metrika-access=<true_or_false> \
-         --serverless-access=<true_or_false> \
-         --yandexquery-access=<access_via_Yandex_Query:_true_or_false> \
-         --websql-access=<true_or_false>
+         --datalens-access=<access_from_{{ datalens-name }}> \
+         --datatransfer-access=<access_from_Data_Transfer> \
+         --deletion-protection=<cluster_deletion_protection> \
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour> \
+         --metrika-access=<data_import_from_AppMetrica> \
+         --serverless-access=<access_from_Cloud_Functions> \
+         --yandexquery-access=<access_via_Yandex_Query> \
+         --websql-access=<SQL_query_execution>
       ```
 
 
@@ -545,7 +551,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    
    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
+   * `--websql-access`: Enables [running SQL queries](web-sql-query.md) from the management console. The default value is `false`.
 
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
@@ -581,15 +587,22 @@ For more information, see [Memory management](../concepts/memory-management.md).
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         access {
-          data_lens  = <access_from_{{ datalens-name }}:_true_or_false>
-          metrika    = <access_from_Yandex_Metrica_and_AppMetrika:_true_or_false>
-          serverless = <access_from_Cloud_Functions:_true_or_false>
-          web_sql    = <execution_of_SQL_queries_from_management_console:_true_or_false>
-          yandex_query = <access_from_Yandex_Query:_true_or_false>
+          data_lens  = <access_from_{{ datalens-name }}>
+          metrika    = <access_from_Yandex_Metrica_and_AppMetrica>
+          serverless = <access_from_Cloud_Functions>
+          web_sql    = <SQL_query_execution_from_management_console>
+          yandex_query = <access_via_Yandex_Query>
         }
         ...
       }
       ```
+
+      Where:
+      * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
+      * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
+      * `serverless`: Access to the cluster from {{ sf-full-name }}, `true` or `false`.
+      * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
+      * `yandex_query`: Access to the cluster from {{ yq-full-name }}, `true` or `false`.
 
 
 
@@ -600,7 +613,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <cluster_deletion_protection:_true_or_false>
+        deletion_protection = <cluster_deletion_protection>
       }
       ```
 
@@ -755,7 +768,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -799,10 +812,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-         --cloud-storage-data-cache=<true_or_false> \
+         --cloud-storage-data-cache=<file_storage> \
          --cloud-storage-data-cache-max-size=<storage_size_in_bytes> \
-         --cloud-storage-move-factor=<free_space_share> \
-         --cloud-storage-prefer-not-to-merge=<true_or_false>
+         --cloud-storage-move-factor=<percentage_of_free_space> \
+         --cloud-storage-prefer-not-to-merge=<merge_of_data_parts>
       ```
 
       You can change the following settings:

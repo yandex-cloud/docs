@@ -98,9 +98,9 @@ Cluster hosts also use [special FQDNs](#auto).
 
 If you do not want to manually connect to another host in case the current one becomes unavailable, use a special FQDN. It can be in one of the following formats:
 
-* `c-<cluster ID>.rw.{{ dns-zone }}` : To connect to an available cluster host.
+* `c-<cluster_ID>.rw.{{ dns-zone }}` : To connect to an available cluster host.
 
-* `<shard name>.c-<cluster ID>.rw.{{ dns-zone }}` : To connect to an available [shard](../concepts/sharding.md) host.
+* `<shard_name>.c-<cluster_ID>.rw.{{ dns-zone }}` : To connect to an available [shard](../concepts/sharding.md) host.
 
 If the host an FQDN points to becomes unavailable, there may be a slight delay before the FQDN starts pointing to another available host.
 
@@ -152,7 +152,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Click **Download** in a new window with an invitation to download the driver files.
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
             * `ssl:true`
-            * `sslrootcert:<path to the saved SSL certificate file>`
+            * `sslrootcert:<path_to_saved_SSL_certificate_file>`
    1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
@@ -171,7 +171,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
    # Connect the DEB repository.
    RUN apt-get update && \
        apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
-       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD******** && \
        echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
        /etc/apt/sources.list.d/clickhouse.list && \
        # Install dependencies.
@@ -191,7 +191,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
    # Connect the DEB repository.
    RUN apt-get update && \
        apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
-       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD******** && \
        echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
        /etc/apt/sources.list.d/clickhouse.list && \
        # Install dependencies.
@@ -248,15 +248,15 @@ For more information, see [{#T}](web-sql-query.md).
 To connect to a cluster host from the built-in SQL editor, specify the following in the browser address bar:
 
 ```text
-https://<FQDN of any {{ CH }} host>:8443/play
+https://<FQDN_of_any_{{ CH }}_host>:8443/play
 ```
 
 You can only connect to publicly accessible cluster hosts. To learn how to get a host FQDN, see [this guide](#fqdn).
 
 To connect to a cluster by [selecting an available host automatically](#auto), use the following URL:
 
-* `https://c-<cluster ID>.rw.{{ dns-zone }}:8443/play` to connect to the available cluster host.
-* `https://<shard name>.c-<cluster ID>.rw.{{ dns-zone }}:8443/play` to connect to the available [shard](../concepts/sharding.md) host.
+* `https://c-<cluster_ID>.rw.{{ dns-zone }}:8443/play` to connect to the available cluster host.
+* `https://<shard_name>.c-<cluster_ID>.rw.{{ dns-zone }}:8443/play` to connect to the available [shard](../concepts/sharding.md) host.
 
 To make a query to the database, specify the username and password in the upper-right corner.
 

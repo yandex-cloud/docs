@@ -63,7 +63,7 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **Inserted data**: Data insertion rate (in bytes per second).
    * **Inserted data per host**: Data insertion rate on each host (in bytes per second).
    * **Inserted rows per host**: Row insertion rate on each host (in rows per second).
-   * **Max data parts per partition**: Largest number of data parts per partition across tables. The limit for this value is set in the [DBMS settings](../concepts/settings-list#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
+   * **Max data parts per partition**: Highest number of data parts per partition among all tables. The limit for this value is set in the [DBMS settings](../concepts/settings-list.md#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
    * **Max replication delay across tables**: Longest replication delay across tables. Values greater than a few seconds may indicate excessive load or replication issues.
    * **Memory usage**: Use of RAM, in bytes.
    * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed: in bytes and %).
@@ -169,14 +169,14 @@ The recommended thresholds are as follows:
 
 | Metric | Parameter | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` |
 |----------------------------------------------|:--------------------------------------------------:|:----------------------------:|:----------------------------:|
-| Maximum number of data chunks in a partition | `ch_system_async_metrics_MaxPartCountForPartition` | `250` | `150` |
+| Maximum number of data parts per partition | `ch_system_async_metrics_MaxPartCountForPartition` | `250` | `150` |
 | Number of failed queries | `ch_system_events_FailedQuery_rate` | 20% of the total number of queries | 10% of the total number of queries |
 | Storage space used | `disk.used_bytes` | 95% of the storage size | 80% of the storage size |
-| Number of healthy hosts | `is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
+| Number of healthy hosts | `is_alive` | `<host_count>: 2` | `<host_count>: 1` |
 
 To determine the threshold values for the `ch_system_events_FailedQuery_rate` metric, use `Total queries` [for the cluster](#monitoring-cluster).
 
-For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` thresholds are only set in bytes. For example, here are the recommended values for a 100 GB disk:
+For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`: `102,005,473,280` bytes (95%)
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920` bytes (80%)

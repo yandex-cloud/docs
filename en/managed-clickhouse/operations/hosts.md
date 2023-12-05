@@ -27,7 +27,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
    ```bash
    {{ yc-mdb-ch }} host list \
-     --cluster-name=<cluster name>
+     --cluster-name=<cluster_name>
    ```
 
    ```text
@@ -112,13 +112,15 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       
       ```bash
       {{ yc-mdb-ch }} host add \
-         --cluster-name=<cluster name> \
-         --host zone-id=<availability zone>,`
-               `subnet-id=<subnet ID>,`
-               `assign-public-ip=<public access to host: true or false>,`
-               `shard-name=<shard name>,`
+         --cluster-name=<cluster_name> \
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `assign-public-ip=<public_access_to_host>,`
+               `shard-name=<shard_name>,`
                `type=clickhouse
       ```
+
+      Where `assign-public-ip` indicates whether the host is reachable from the internet over a public IP: `true` or `false`.
 
 
       To copy the data schema from a random replica to the new host, set the `--copy-schema` optional parameter.
@@ -137,16 +139,18 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
    1. Add a `host` block to the {{ mch-name }} cluster description.
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         host {
           type             = "CLICKHOUSE"
-          zone             = "<availability zone>"
-          subnet_id        = "<subnet ID>"
-          assign_public_ip = <public access to host: true or false>
+          zone             = "<availability_zone>"
+          subnet_id        = "<subnet_ID>"
+          assign_public_ip = <public_access_to_host>
         }
       }
       ```
+
+      Where `assign_public_ip` indicates whether the host is reachable from the internet over a public IP: `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -204,10 +208,12 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
    To change the parameters of the host, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} host update <host name> \
-      --cluster-name=<cluster name> \
-      --assign-public-ip=<public access to host: true or false>
+   {{ yc-mdb-ch }} host update <host_name> \
+      --cluster-name=<cluster_name> \
+      --assign-public-ip=<public_access_to_host>
    ```
+
+   Where `assign-public-ip` indicates whether the host is reachable from the internet over a public IP: `true` or `false`.
 
    You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -220,15 +226,17 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
    1. In the host, use the `host` section to add or edit the `assign_public_ip` parameter.
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         host {
           ...
-          assign_public_ip = <host public access: true or false>
+          assign_public_ip = <public_access_to_host>
         }
         ...
       }
       ```
+
+      Where `assign_public_ip` indicates whether the host is reachable from the internet over a public IP: `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -287,8 +295,8 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-ch }} host delete <hostname> \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} host delete <host_name> \
+      --cluster-name=<cluster_name>
    ```
 
    You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).

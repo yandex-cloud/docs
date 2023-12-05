@@ -1,13 +1,31 @@
-title: YandexGPT
+title: YandexGPT API
 href: index.yaml
 stage: preview
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Отправить запрос в режиме чата
+        href: operations/create-chat.md
+      - name: Отправить запрос в промт-режиме
+        href: operations/create-prompt.md
+      - name: Отправить запрос к дообученной модели
+        href: operations/finetune.md
+      - name: Отправить асинхронный запрос
+        href: operations/async-request.md
+  - name: Практические руководства
+    items:
+      - name: Дообучение модели {{ yagpt-name }}
+        href: tutorials/yagpt-tuning.md
   - name: Концепции
     items:
       - name: О сервисе {{ yagpt-name }}
         href: concepts/index.md
+      - name: Модели
+        href: concepts/models.md
       - name: Токены
         href: concepts/tokens.md
       - name: Квоты и лимиты
@@ -16,50 +34,132 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC (англ.)
+      - name: API v1alpha (устревший)
         items:
-          - name: Overview
-            href: api-ref/grpc/index.md
-          - name: TextGenerationService
-            href: api-ref/grpc/llm_service.md
-          - name: TokenizerService
-            href: api-ref/grpc/TokenizerService.md
-          - name: EmbeddingsService
-            href: api-ref/grpc/EmbeddingsService.md
-          - name: TextGenerationAsyncService
-            href: api-ref/grpc/TextGenerationAsyncService.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
-      - name: REST (англ.)
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: api-ref/index.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/TextGeneration/index.md
+                  - name: chat
+                    href: api-ref/TextGeneration/chat.md
+                  - name: instruct
+                    href: api-ref/TextGeneration/instruct.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/Tokenizer/index.md
+                  - name: tokenize
+                    href: api-ref/Tokenizer/tokenize.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: api-ref/Embeddings/index.md
+                  - name: embedding
+                    href: api-ref/Embeddings/embedding.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: api-ref/TextGenerationAsync/index.md
+                  - name: instruct
+                    href: api-ref/TextGenerationAsync/instruct.md
+      - name: Foundations models API
         items:
-          - name: Overview
-            href: api-ref/index.md
-          - name: TextGeneration
+          - name: REST (англ.)
             items:
               - name: Overview
-                href: api-ref/TextGeneration/index.md
-              - name: chat
-                href: api-ref/TextGeneration/chat.md
-              - name: instruct
-                href: api-ref/TextGeneration/instruct.md
-          - name: Tokenizer
+                href: api-ref/index.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/TextGeneration/index.md
+                  - name: completion
+                    href: api-ref/TextGeneration/completion.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: api-ref/TextGenerationAsync/index.md
+                  - name: completion
+                    href: api-ref/TextGenerationAsync/completion.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/Tokenizer/index.md
+                  - name: tokenize
+                    href: api-ref/Tokenizer/tokenize.md
+                  - name: tokenizeCompletion
+                    href: api-ref/Tokenizer/tokenizeCompletion.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: api-ref/Embeddings/index.md
+                  - name: textEmbedding
+                    href: api-ref/Embeddings/textEmbedding.md
+          - name: gRPC (англ.)
             items:
               - name: Overview
-                href: api-ref/Tokenizer/index.md
-              - name: tokenize
-                href: api-ref/Tokenizer/tokenize.md
-          - name: Embeddings
-            items:
-              - name: Overview
-                href: api-ref/Embeddings/index.md
-              - name: embedding
-                href: api-ref/Embeddings/embedding.md
-          - name: TextGenerationAsync
-            items:
-              - name: Overview
-                href: api-ref/TextGenerationAsync/index.md
-              - name: instruct
-                href: api-ref/TextGenerationAsync/instruct.md
+                href: api-ref/grpc/index.md
+              - name: TextGenerationService
+                href: api-ref/grpc/llm_service.md
+              - name: TokenizerService
+                href: api-ref/grpc/TokenizerService.md
+              - name: EmbeddingsService
+                href: api-ref/grpc/EmbeddingsService.md
+              - name: TextGenerationAsyncService
+                href: api-ref/grpc/TextGenerationAsyncService.md
+              - name: OperationService
+                href: api-ref/grpc/operation_service.md
+  - name: Библиотека промтов
+    items:
+      - name: Все промты
+        href: prompts/index.md
+      - name: Контент
+        items:
+          - name: Исправление ошибок
+            href: prompts/content-fixing-errors.md
+          - name: Написание текста
+            href: prompts/content-write-text.md
+          - name: Локализация текста
+            href: prompts/content-text-localization.md
+      - name: Маркетинг
+        items:
+          - name: Генерация заголовка текста
+            href: prompts/marketing-header-generation.md
+          - name: Генерация описания товара
+            href: prompts/marketing-description-generation.md
+          - name: Генерация рекламного объявления
+            href: prompts/marketing-ad-generation.md
+          - name: Стилизация текста
+            href: prompts/marketing-text-customization.md
+      - name: HR
+        items:
+          - name: Генерация вопросов для интервью
+            href: prompts/hr-generating-questions.md
+          - name: Создание плана изучения навыка
+            href: prompts/hr-create-plan.md
+      - name: Клиентский сервис
+        items:
+          - name: Генерация ответа на отзыв
+            href: prompts/customer-service-generating-response.md
+          - name: Переписывание ответа
+            href: prompts/customer-service-rewrite-response.md
+          - name: Классификация обращений
+            href: prompts/customer-service-classification-appeals.md
+      - name: Автоматизация
+        items:
+          - name: Распознавание именованных сущностей
+            href: prompts/automation-ner.md
+          - name: Нормализация чисел и дат
+            href: prompts/automation-normalization.md
+      - name: Общекорпоративные функции
+        items:
+          - name: Краткий пересказ статьи
+            href: prompts/general-functions-summarization.md
+          - name: Создание таблицы
+            href: prompts/general-functions-create-table.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -1,12 +1,12 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/TextGenerationAsync/index.md
+sourcePath: en/_api-ref/ai/foundation_models/v1/api-ref/TextGenerationAsync/index.md
 ---
 
-# YandexGPT API, REST: TextGenerationAsync methods
+# Foundation Models API, REST: TextGenerationAsync methods
 Service for asynchronous text generation.
 
 ## Methods {#methods}
 Method | Description
 --- | ---
-[instruct](instruct.md) | RPC method for instructing the model to generate text.
+[completion](completion.md) | RPC method for generating text completions in asynchronous mode.

@@ -12,7 +12,7 @@ You can interrupt or get detailed information about any active session or query.
 
 {% note info %}
 
-The Command Center is available in clusters with {{ GP }} version {{ versions.console.latest }} or higher.
+The Command Center is available in clusters with {{ GP }} version 6.25 or higher.
 
 {% endnote %}
 

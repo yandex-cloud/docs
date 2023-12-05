@@ -2,7 +2,7 @@
 
 {{ mch-name }} lets you manage users and their individual settings in two ways:
 
-* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+* Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method to use your existing solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
 
 {% note warning %}
@@ -11,20 +11,15 @@ In a {{ mch-name }} cluster, you can only use one user management method at a ti
 
 {% endnote %}
 
-{% note warning %}
-
-In a {{ mch-name }} cluster, you can only use one user management method at a time: either using standard interfaces or via SQL queries.
-
-{% endnote %}
-
 ## Managing users via SQL {#sql-user-management}
+
 
 To enable management, activate the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option when [creating](cluster-create.md) or [reconfiguring](update.md#SQL-management) a cluster.
 
 In a cluster with user management via SQL enabled:
 
 * User management using the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
-* User management using standard {{ yandex-cloud }} interfaces (CLI, API, or management console) isn't possible.
+* You cannot enable user management using standard {{ yandex-cloud }} interfaces (CLI, API, or management console).
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
 * Users are managed under the `admin` account. You set its password when you select the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
 
@@ -37,7 +32,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
 
 - CLI
 
@@ -49,10 +44,10 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    ```bash
    {{ yc-mdb-ch }} user list
-      --cluster-name=<cluster name>
+      --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -108,12 +103,14 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    ```bash
    {{ yc-mdb-ch }} user create <username> \
-      --cluster-name=<cluster name> \
-      --password=<user password> \
-      --permissions=<list of databases to grant the user access to> \
-      --quota=<list if single-quota user settings> \
-      --settings=<list of {{ CH }} user settings>
+      --cluster-name=<cluster_name> \
+      --password=<user_password> \
+      --permissions=<DB_list> \
+      --quota=<list_of_single_quota_settings_for_user> \
+      --settings=<list_of_{{ CH }}_settings_for_user>
    ```
+
+   Where `--permissions` is a list of DBs the user must have access to.
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
@@ -124,12 +121,12 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    ```bash
    {{ yc-mdb-ch }} user create <username> \
       ...
-      --quota="<quota 0 settings>" \
-      --quota="<quota 1 settings>" \
+      --quota="<settings_of_quota_0>" \
+      --quota="<settings_of_quota_1>" \
       ...
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    See the [example of creating a user with read-only access](#example-create-readonly-user).
 
@@ -139,10 +136,10 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       For more information about how to create this file, see [Creating clusters](cluster-create.md).
 
-   1. Add a `user` section to the {{ mch-name }} cluster description:
+   1. Add a `user` block to the {{ mch-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         user {
           name     = "<username>"
@@ -158,7 +155,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -183,7 +180,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    1. Create a user:
 
       ```sql
-      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user password>';
+      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user_password>';
       ```
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
@@ -216,14 +213,14 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    To change the user's password, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} user update <username>\
-     --cluster-name=<cluster name>\
-     --password=<new password>
+   {{ yc-mdb-ch }} user update <username> \
+     --cluster-name=<cluster_name> \
+     --password=<new_password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -236,11 +233,11 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    1. Change the value of the `password` field:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         user {
           name     = "<username>"
-          password = "<new password>"
+          password = "<new_password>"
           ...
         }
       }
@@ -252,7 +249,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -290,13 +287,13 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    To change the `admin` password, run the command below:
 
    ```bash
-   {{ yc-mdb-ch }} cluster update <cluster ID or name> \
-    --admin-password <new admin account password>
+   {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
+    --admin-password <new_admin_password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    {% note tip %}
 
@@ -314,9 +311,9 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    1. Change the value of the `admin_password` field:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
-        admin_password = "<admin password>"
+        admin_password = "<admin_password>"
         ...
       }
       ```
@@ -327,7 +324,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -382,11 +379,11 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       ```bash
       {{ yc-mdb-ch }} user update <username> \
-         --cluster-name=<cluster name> \
-         --permissions=<list of databases to grant a user access to>
+         --cluster-name=<cluster_name> \
+         --permissions=<DB_list>
       ```
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       This command grants the user access rights to the databases listed.
 
@@ -396,34 +393,34 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       ```bash
       {{ yc-mdb-ch }} user update <username> \
-         --cluster-name=<cluster name> \
-         --quota=<quota 0 settings (no change)> \
-         --quota=<quota 1 settings (no change)> \
-         --quota=<quota 2 settings (changes)> \
-         --quota=<quota 3 settings (no change)> \
-         --quota=<quota 4 settings (changes)> \
-         --quota=<quota 5 settings (new quota)>
+         --cluster-name=<cluster_name> \
+         --quota=<settings_of_quota_0_(unchanged)> \
+         --quota=<settings_of_quota_1_(unchanged)> \
+         --quota=<settings_of_quota_2_(with_updates)> \
+         --quota=<settings_of_quota_3_(unchanged)> \
+         --quota=<settings_of_quota_4_(with_updates)> \
+         --quota=<settings_of_quota_5_(new_quota)>
         ...
       ```
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      This command overwrites all existing user quota settings with the new settings that you passed to the command.
-      Before running the command, make sure that you included the settings for new and changed quotas and the settings for existing quotas that haven't changed.
+      This command overwrites all existing user quota settings with the new ones you provided to the command.
+      Before running the command, make sure that you included the settings for new and changed quotas and the settings for existing quotas that have not changed.
 
       To delete one or more user quotas, exclude their settings from the list and send the updated list of `--quota` parameters to the command.
 
-      When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1000 milliseconds (a value like `1s500ms` is incorrect).
+      When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1.000 milliseconds (e.g., `1s500ms` is incorrect).
 
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below listing the changed setting using the `--settings` option:
 
       ```bash
       {{ yc-mdb-ch }} user update <username> \
-         --cluster-name=<cluster name> \
-         --settings=<list of {{ CH }} settings>
+         --cluster-name=<cluster_name> \
+         --settings=<list_of_{{ CH }}_settings>
       ```
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       The command only changes the settings that are explicitly specified in the `--settings` parameter. For example, the command with the parameter `--settings="readonly=1"` only changes the `readonly` setting and doesn't reset the values of the other settings. This is how changing {{ CH }} settings differs from changing quota settings.
 
@@ -438,17 +435,17 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    1. To configure the user's permissions to access certain databases, add the required number of `permission` sections to the cluster user description, one for each database:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         user {
           name     = "<username>"
           password = "<password>"
           permission {
-            database_name = "<database 1>"
+            database_name = "<database_1>"
           }
           ...
           permission {
-            database_name = "<database N>"
+            database_name = "<database_N>"
           }
         }
       }
@@ -461,14 +458,14 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
       When describing quotas, only the `interval_duration` field is required.
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         user {
           name     = "<username>"
           password = "<password>"
           ...
           quota {
-            interval_duration = <interval duration in milliseconds>
+            interval_duration = <interval_duration_in_milliseconds>
             ...
           }
         }
@@ -478,14 +475,14 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) add a `settings` section to its description.
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         user {
           name     = "<username>"
           password = "<password>"
           ...
           settings {
-            <individual user DBMS settings>
+            <DBMS_settings_for_individual_user>
           }
         }
       }
@@ -495,7 +492,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -522,19 +519,19 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    1. To alter the set of user roles and privileges, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
 
       ```sql
-      GRANT SELECT ON <database name>.* TO <username>;
+      GRANT SELECT ON <database_name>.* TO <username>;
       ```
 
    1. To update user [quota settings](../concepts/settings-list.md#quota-settings), use the [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user requests for a 15-month period:
 
       ```sql
-      CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
+      CREATE QUOTA <quota_name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
    1. To change a user account, use the [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
-      ALTER USER <username> SETTINGS <list of {{ CH }} settings>;
+      ALTER USER <username> SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
 {% endlist %}
@@ -558,11 +555,11 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    To remove a user, run:
 
    ```bash
-   {{ yc-mdb-ch }} user delete <username>\
-      --cluster-name <cluster name>
+   {{ yc-mdb-ch }} user delete <username> \
+      --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -576,7 +573,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -685,7 +682,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

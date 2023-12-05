@@ -29,27 +29,27 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a shard to a cluster, run the command below (the parameter list in the example is not exhaustive):
+   To add a shard to a cluster, run the command below (not all the supported parameters are listed):
 
    ```bash
-   {{ yc-mdb-ch }} shards add <new shard name> \
-      --cluster-name=<cluster name> \
-      --host zone-id=<availability zone>,`
-            `subnet-name=<subnet name>
+   {{ yc-mdb-ch }} shards add <new_shard_name> \
+      --cluster-name=<cluster_name> \
+      --host zone-id=<availability_zone>,`
+            `subnet-name=<subnet_name>
    ```
 
    Where:
 
    
-   * `<new shard name>`: Must be unique in a cluster.
+   * `<new_shard_name>`: Must be unique within the cluster.
 
       May contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
-   * `--cluster-name` is the name of a cluster.
+   * `--cluster-name`: Cluster name.
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * `--host`: Host parameters:
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-      * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
+      * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
 
 
 - {{ TF }}
@@ -66,13 +66,13 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
    1. Add a `CLICKHOUSE` type `host` block with the `shard_name` field filled in to the {{ mch-name }} cluster description or change existing hosts:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         host {
           type       = "CLICKHOUSE"
-          zone       = "<availability zone>"
-          subnet_id  = yandex_vpc_subnet.<subnet in availability zone>.id
-          shard_name = "<shard name>"
+          zone       = "<availability_zone>"
+          subnet_id  = yandex_vpc_subnet.<subnet_in_availability_zone>.id
+          shard_name = "<shard_name>"
         }
       }
       ```
@@ -81,7 +81,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -110,7 +110,7 @@ Use the copy data schema option only if the schema is the same on all cluster sh
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
 
 - CLI
 
@@ -121,10 +121,10 @@ Use the copy data schema option only if the schema is the same on all cluster sh
    To get a list of shards in a cluster, run the following command:
 
    ```bash
-   {{ yc-mdb-ch }} shards list --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} shards list --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -157,19 +157,19 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
       {{ yc-mdb-ch }} shards update --help
       ```
 
-   1. Start an operation, such as changing the shard weight:
+   1. Start an operation, e.g., changing shard weight:
 
       ```bash
-      {{ yc-mdb-ch }} shards update <shard name> \
-         --cluster-name=<cluster name> \
-         --weight=<shard weight>
+      {{ yc-mdb-ch }} shards update <shard_name> \
+         --cluster-name=<cluster_name> \
+         --weight=<shard_weight>
       ```
 
       Where:
-      * `<shard name>`: Can be requested with a [list of shards in a cluster](#list-shards).
-      * `--cluster-name` is the name of a cluster.
+      * `<shard_name>`: Can be requested with a [list of shards in the cluster](#list-shards).
+      * `--cluster-name`: Cluster name.
 
-         The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
       * `--weight`: Shard weight. The minimum value is `0`.
 
       When the operation is complete, the CLI displays information about the changed shard.
@@ -211,8 +211,8 @@ When you delete a shard, all tables and data that are saved on that shard are de
    To delete a shard from the cluster, run:
 
    ```bash
-   {{ yc-mdb-ch }} shards delete <shard name> \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} shards delete <shard_name> \
+      --cluster-name=<cluster_name>
    ```
 
    You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).

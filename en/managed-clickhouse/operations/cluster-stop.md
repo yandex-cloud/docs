@@ -19,7 +19,7 @@ You can stop and restart a {{ CH }} DB cluster, if required. You are not charged
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Select the cluster you need from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-stop }}**.
+   1. Select a cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-stop }}**.
    1. Confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI
@@ -31,10 +31,10 @@ You can stop and restart a {{ CH }} DB cluster, if required. You are not charged
    To stop a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} cluster stop <cluster name or ID>
+   {{ yc-mdb-ch }} cluster stop <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -66,10 +66,10 @@ You can restart **STOPPED** clusters.
    To start a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} cluster start <cluster name or ID>
+   {{ yc-mdb-ch }} cluster start <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
