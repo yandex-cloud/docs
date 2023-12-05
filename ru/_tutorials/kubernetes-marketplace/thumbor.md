@@ -98,6 +98,14 @@ Thumbor удобно использовать для подготовки изо
 
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+
+## Добавьте сертификат в {{ certificate-manager-name }} {#add-certificate}
+
+Выпустите и [добавьте](../../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }} сертификат Let's Encrypt® или [загрузите](../../certificate-manager/operations/import/cert-create.md) собственный сертификат.
+
+Для сертификата Let's Encrypt® пройдите [проверку прав](../../certificate-manager/operations/managed/cert-validate.md) на домен, который указан в сертификате.
+
+
 ## Установите Thumbor {#install}
 
 1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта `thumbor-sa` и сохраните ключ в файл `sa-key.json`:
@@ -238,13 +246,11 @@ Thumbor удобно использовать для подготовки изо
       --origin-group-id=<идентификатор_группы_источников> \
       --origin-protocol=https \
       --ignore-query-string \
-      --lets-encrypt-gcore-ssl-cert \
+      --cert-manager-ssl-cert-id <идентификатор_сертификата> \
       --forward-host-header
    ```
 
    Пример доменного имени ресурса: `{{ domain-name-example }}`.
-
-   Чтобы включить доступ по протоколу HTTPS, используется сертификат [Let's Encrypt®](https://letsencrypt.org/ru/).
 
    Пример результата:
 
@@ -276,7 +282,7 @@ Thumbor удобно использовать для подготовки изо
    origin_group_name: thumbor
    origin_protocol: HTTPS
    ssl_certificate:
-     type: LETS_ENCRYPT_GCORE
+     type: CM
      status: CREATING
    ```
 

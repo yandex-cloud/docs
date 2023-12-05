@@ -1,0 +1,1 @@
+The `loadtesting.externalAgent` role.

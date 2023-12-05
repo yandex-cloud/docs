@@ -15,6 +15,7 @@ To set up access to the applications running in your {{ managed-k8s-name }} clus
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md). A [security group](../../vpc/concepts/security-groups.md) for a [{{ managed-k8s-name }} node group](../concepts/index.md#node-group) must allow incoming TCP traffic on ports 10501 and 10502 from the load balancer [subnets](../../vpc/concepts/network.md#subnet) or its security group (you will need to specify the subnets and the group later to [create an Ingress controller](#create-ingress-and-apps)).
 1. [Install the {{ alb-name }} Ingress controller](../operations/applications/alb-ingress-controller.md).
+1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Check that you can connect to the {{ managed-k8s-name }} cluster using `kubectl`:
 
@@ -299,7 +300,7 @@ Command result:
       * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow outgoing TCP connections on ports 10501 and 10502 in the {{ managed-k8s-name }} node group subnet or security group.
       * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or use `auto` to obtain a new IP address automatically.
 
-         If you set `auto`, deleting the Ingress controller will also delete the IP address from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
+         If you set `auto`, deleting the Ingress controller will also delete the [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
       * `ingress.alb.yc.io/group-name`: Grouping of {{ k8s }} Ingress resources, with each group served by a separate {{ alb-name }} instance. Enter the name of the group.
 
       (Optional) Enter the advanced settings for the controller:
@@ -626,7 +627,7 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
 
 ## Make sure the {{ managed-k8s-name }} cluster applications are accessible through {{ alb-name }} {#verify-setup}
 
-1. [Add an A record](../../dns/operations/resource-record-create.md) to your domain's zone. In the **Value** field, specify the public IP address of the Ingress controller.
+1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **Value** field, specify the public IP address of the Ingress controller. If you are using ExternalDNS with a plugin for {{ dns-full-name }}, this record will be created automatically.
 1. [Configure the load balancer's security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
 1. Test {{ alb-name }}:
 

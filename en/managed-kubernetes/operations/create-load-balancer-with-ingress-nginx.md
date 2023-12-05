@@ -1,6 +1,6 @@
 # Creating a network load balancer using an NGINX Ingress controller
 
-When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingress-nginx/), you can create both [external](../../network-load-balancer/concepts/index.md) and [internal network load balancers](../../network-load-balancer/concepts/nlb-types.md).
+When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingress-nginx/), you can create an [external](../../network-load-balancer/concepts/index.md) or [internal](../../network-load-balancer/concepts/nlb-types.md) network load balancer and set up [port forwarding](#port-forwarding).
 
 ## Getting started {#before-you-begin}
 
@@ -94,3 +94,45 @@ To install an internal network load balancer:
 ## Check the result {#check-result}
 
 To make sure the required network load balancer is created, get a [list of network load balancers in the folder](../../network-load-balancer/operations/load-balancer-list.md#list).
+
+## Port forwarding {#port-forwarding}
+
+Although NGINX Ingress controllers officially support external HTTP and HTTPS traffic routing only, you can configure them to accept external TCP or UDP traffic and redirect it to internal services. To do this, install an Ingress controller using a [configuration file](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml) named `values.yaml` with traffic redirect settings and `portNamePrefix`.
+1. Create a `values.yaml` file:
+
+   ```yaml
+   <protocol:_TCP_or_UDP>: {<external_port>: "<service_namespace>/<service_name>:<internal_port>"}
+   portNamePrefix: "<prefix>"
+   ```
+
+1. Install the NGINX Ingress controller using the `values.yaml` configuration file:
+
+   ```bash
+   helm install ingress-nginx -f values.yaml ingress-nginx/ingress-nginx
+   ```
+
+> Example
+>
+> Let's say we need to set up traffic forwarding with the following parameters:
+> * Service name: `example-go`
+> * Service namespace: `default`
+> * Internal service port: `8080`
+> * External port: `9000`
+> * Port name prefix: `test`
+>
+> The `values.yaml` configuration file for this forwarding configuration:
+>
+> ```yaml
+> tcp: {9000: "default/example-go:8080"}
+> portNamePrefix: "test"
+> ```
+
+After you install the Ingress controller, the created network load balancer will have an additional listener, `test-9000-tcp`, with the forwarding settings you specified.
+
+The port name for the NGINX Ingress controller and network load balancer's listener is based on the forwarding settings: `<external_port>-<protocol>`. Due to the {{ yandex-cloud }} limitations, listener names may not start with numbers. Therefore, to ensure the settings are correct, prefix the name with `portNamePrefix`. The resulting port and listener name will be generated in `<portNamePrefix_value>-<external_port>-<protocol>` format.
+
+Due to technical restrictions, port names may contain a maximum of 15 characters and listener names may not start with numbers. Therefore, make sure that your `portNamePrefix`:
+* Starts with a letter.
+* Is no longer than 5-8 characters, depending on the external port value length.
+
+To make sure that port forwarding is configured properly, view the list of listeners in the [network load balancer details](../../network-load-balancer/operations/load-balancer-list.md#get).

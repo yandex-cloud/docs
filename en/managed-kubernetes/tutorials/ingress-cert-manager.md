@@ -32,7 +32,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The created controller will be installed behind [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
 
-To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the file named [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
+To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+
+For specific port forwarding at NGINX Ingress controller installation, follow [this guide](../operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 
 ## Install the certificate manager {#install-certs-manager}
 
@@ -182,7 +184,7 @@ If you are using [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/pro
    ...
    ```
 
-1. Host an [A record](../../dns/concepts/resource-record.md#a-a) with your DNS provider or on your own DNS server that will indicate the public IP address of the Ingress controller:
+1. Add an [A record](../../dns/concepts/resource-record.md#a-a) pointing to the Ingress controller's public IP to your DNS provider or to your own DNS server:
 
    ```text
    <your_domain> IN A <Ingress_controller_IP_address>

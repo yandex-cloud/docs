@@ -13,7 +13,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
    * `certificate-manager.certificates.downloader`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
-1. Create a [static access key](../../iam/operations/sa/create-access-key.md) for the service account in JSON format and save it to the `sa-key.json` file:
+1. [Create an authorized access key](../../iam/operations/authorized-key/create.md) for the service account in JSON format and save it to the `sa-key.json` file:
 
    ```bash
    yc iam key create \

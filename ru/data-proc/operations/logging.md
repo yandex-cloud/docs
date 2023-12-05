@@ -36,10 +36,10 @@
              container_id="<идентификатор_YARN-контейнера>" AND yarn_log_type="stderr"
              ```
 
-           * Получение записей логов сервиса YARN Resource Manager с управляющего хоста кластера:
+           * Получение записей логов сервиса YARN Resource Manager с хоста-мастера кластера:
 
              ```ini
-             hostname="<FQDN_управляющего_хоста>" AND log_type="hadoop-yarn-resourcemanager"
+             hostname="<FQDN_хоста-мастера>" AND log_type="hadoop-yarn-resourcemanager"
              ```
 
         * интересующие уровни сообщений: от `TRACE` до `FATAL`;

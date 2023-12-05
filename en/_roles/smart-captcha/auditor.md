@@ -1,0 +1,1 @@
+The `smart-captcha.auditor` role.

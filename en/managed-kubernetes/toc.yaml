@@ -47,6 +47,8 @@ items:
             href: operations/applications/falco.md
           - name: Installing Filebeat
             href: operations/applications/filebeat.md
+          - name: Installing Filebeat OSS
+            href: operations/applications/filebeat-oss.md
           - name: Installing Fluent Bit
             href: operations/applications/fluentbit.md
           - name: Installing Gateway API
@@ -73,13 +75,15 @@ items:
             href: operations/applications/node-local-dns.md
           - name: Installing Policy Reporter
             href: operations/applications/policy-reporter.md
+          - name: Installing Prometheus Operator
+            href: operations/applications/prometheus-operator.md
           - name: Installing Thumbor
             href: operations/applications/thumbor.md
           - name: Installing Velero
             href: operations/applications/velero-yc-csi.md
       - name: Network scenarios
         items:
-          - name: Granting access to an app running in a {{ k8s }} cluster
+          - name: '"Granting access to an app running in a {{ k8s }} cluster"'
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -202,6 +206,8 @@ items:
               Monitoring a cluster using {{ prometheus-name }} and {{
               grafana-name }}
             href: tutorials/prometheus-grafana-monitoring.md
+          - name: Monitoring a {{ managed-k8s-name }} cluster using Filebeat OSS
+            href: tutorials/filebeat-oss-monitoring.md
       - name: Using {{ marketplace-name }} products
         items:
           - name: Integration with Argo CD

@@ -16,9 +16,9 @@
 1. Введите новое имя. 
 1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
 
-## Изменение контактов плательщика {#change-address}
+## Изменение данных плательщика {#change-address}
 
-Контакты плательщика (например, почтовый адрес или телефон) вы можете изменить через сервис [Яндекс Баланс](https://balance.yandex.ru/):
+Через сервис [Яндекс Баланс](https://balance.yandex.ru/) вы можете изменить контакты плательщика (например, почтовый адрес или телефон) или добавить платежные реквизиты (например, расчетный счет):
 1. В [консоли управления]({{ link-console-billing }}) нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ billing-name }}**.
 1. Выберите аккаунт на странице **{{ ui-key.yacloud.billing.label_accounts }}**.
 1. Перейдите на страницу **{{ ui-key.yacloud.billing.account.switch_overview }}**.

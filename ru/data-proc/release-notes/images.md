@@ -79,7 +79,7 @@
 
 ## 2.0.45 {#2.0.45}
 
-* Исправлена ошибка с MapReduce Application History Server не на мастер-хосте кластера.
+* Исправлена ошибка с MapReduce Application History Server не на хосте-мастере кластера.
 * Разрешена конфигурация HIVE без YARN.
 * Разрешен запуск HiveServer2 только вместе с MapReduce.
 
