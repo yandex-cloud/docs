@@ -10,7 +10,7 @@
 
 To move cluster hosts between availability zones:
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone to move cluster hosts to.
 1. Add a host to your cluster:
 
    {% list tabs %}
@@ -42,8 +42,10 @@ To move cluster hosts between availability zones:
          --host type=clickhouse,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<public_access_to_host>
       ```
+
+      Where `assign-public-ip` is public access to the host: `true` or `false`.
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
 
@@ -58,12 +60,14 @@ To move cluster hosts between availability zones:
              type             = "CLICKHOUSE"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <public_access_to_host>
            }
          }
          ```
 
-         In the `zone` parameter, specify the availability zone you are moving the hosts to.
+         Where `assign_public_ip` is public access to the host: `true` or `false`.
+
+         In the `zone` parameter, specify the availability zone you want to move the hosts to.
 
       1. Make sure the settings are correct.
 
@@ -130,6 +134,6 @@ To move cluster hosts between availability zones:
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to your folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}

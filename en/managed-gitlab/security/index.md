@@ -1,7 +1,7 @@
 # Access management in {{ mgl-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
@@ -11,13 +11,17 @@ To use the service, log in to the management console with a [Yandex account](../
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 You can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Cloud roles also apply to nested folders.
 
 ## Which roles exist in the service {#roles-list}
 
 ### Service roles {#service-roles}
+
+#### gitlab.auditor {#gitlab-auditor}
+
+{% include [gitlab-auditor](../../_roles/gitlab/auditor.md) %}
 
 {% include [gitlab-viewer](../../_includes/iam/roles/gitlab-viewer.md) %}
 

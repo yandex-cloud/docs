@@ -55,11 +55,11 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
 To use {{ mch-name }} to work with data of an object in {{ objstorage-name }}, you need to [get a link](../../storage/operations/objects/link-for-download.md) to this object in the bucket.
 
-A link like `https://{{ s3-storage-host }}/<bucket name>/<object name>?X-Amz-Algorithm=...` should be changed to `https://{{ s3-storage-host }}/<bucket name>/<object name>`. To do this, delete all parameters in the query string.
+A link in the format `https://{{ s3-storage-host }}/<bucket_name>/<object_name>?X-Amz-Algorithm=...` should be changed to `https://{{ s3-storage-host }}/<bucket_name>/<object_name>`. To do this, delete all parameters in the query string.
 
 ## Examples of working with objects {#examples}
 
-[You can use object links](#get-link-to-object) like `https://{{ s3-storage-host }}/<bucket name>/<object name>` to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
+[You can use object links](#get-link-to-object) in the format `https://{{ s3-storage-host }}/<bucket_name>/<object_name>` to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
 
 The `S3` table engine is similar to [File]({{ ch.docs }}/engines/table-engines/special/file/) and [URL]({{ ch.docs }}/engines/table-engines/special/url/) engines, except that data is stored in S3-compatible storage (such as {{ objstorage-full-name }}) rather than using a file system or a remote HTTP/HTTPS server. This engine allows reading or writing data from/to storage using standard SQL queries such as `SELECT` and `INSERT`.
 
@@ -74,7 +74,7 @@ For example, if the {{ objstorage-name }} bucket has a `table.tsv` file that sto
    1. Create a table:
 
       ```sql
-      CREATE TABLE test (n Int32) ENGINE = S3('https://{{ s3-storage-host }}/<bucket name>/table.tsv', 'TSV');
+      CREATE TABLE test (n Int32) ENGINE = S3('https://{{ s3-storage-host }}/<bucket_name>/table.tsv', 'TSV');
       ```
 
    1. Run test queries to the table:
@@ -93,13 +93,13 @@ For example, if the {{ objstorage-name }} bucket has a `table.tsv` file that sto
    1. Insert data:
 
       ```sql
-      INSERT INTO FUNCTION s3('https://{{ s3-storage-host }}/<bucket name>/table.tsv', 'TSV', 'n Int32') VALUES (1);
+      INSERT INTO FUNCTION s3('https://{{ s3-storage-host }}/<bucket_name>/table.tsv', 'TSV', 'n Int32') VALUES (1);
       ```
 
    1. Run a test query:
 
       ```sql
-      SELECT * FROM s3('https://{{ s3-storage-host }}/<bucket name>/table.tsv', 'TSV', 'n Int32');
+      SELECT * FROM s3('https://{{ s3-storage-host }}/<bucket_name>/table.tsv', 'TSV', 'n Int32');
 
       ┌─n─┐
       │ 1 │

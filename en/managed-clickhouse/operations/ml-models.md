@@ -40,10 +40,10 @@ You can learn more about the `catboostEvaluate()` function in the [{{ CH }} docu
    To get a list of models in a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} ml-model list --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} ml-model list --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -71,8 +71,8 @@ You can learn more about the `catboostEvaluate()` function in the [{{ CH }} docu
    To get model details, run this command:
 
    ```bash
-   {{ yc-mdb-ch }} ml-model get <model name> \
-     --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} ml-model get <model_name> \
+     --cluster-name=<cluster_name>
    ```
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -123,13 +123,13 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
    To add a model to a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} ml-model create <model name> \
-     --cluster-name=<cluster name> \
+   {{ yc-mdb-ch }} ml-model create <model_name \
+     --cluster-name=<cluster_name> \
      --type=ML_MODEL_TYPE_CATBOOST \
-     --uri=<link to model file in {{ objstorage-full-name }}>
+     --uri=<link_to_model_file_in_Object_Storage>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -140,12 +140,12 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
    1. To the {{ mch-name }} cluster description, add the `ml_model` block with a description of the added machine learning model:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         ml_model {
-          name = "<model name>"
+          name = "<model_name>"
           type = "ML_MODEL_TYPE_CATBOOST"
-          uri  = "<link to model file in {{ objstorage-full-name }}>"
+          uri  = "<link_to_model_file_in_Object_Storage>"
         }
       }
       ```
@@ -171,7 +171,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
    * `ML_MODEL_TYPE_CATBOOST` model type in the `type` parameter.
    * Link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
 
-   The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -180,21 +180,21 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 To apply the model to data stored in a {{ CH }} cluster:
 
 1. Connect to the cluster [using the client](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
-1. Execute an SQL query like:
+1. Execute an SQL query in the format:
 
    ```
    SELECT
-       catboostEvaluate('<model file path>',
-                     <column 1 name>,
-                     <column 2 name>,
+       catboostEvaluate('<model_file_path>',
+                     <name_of_column_1>,
+                     <name_of_column_2>,
                      ...
-                     <name of column N>)
-   FROM <table name>
+                     <name_of_column_N>)
+   FROM <table_name>
    ```
 
 Specify the following arguments for the `catboostEvaluate()` function:
 
-* Path to the model file as `/var/lib/clickhouse/models/<model name>.bin`.
+* Path to the model file in the format `/var/lib/clickhouse/models/<model_name>.bin`.
 * Names of columns containing the input data.
 
 The result of the query execution will be a column with model predictions for each row of the source table.
@@ -228,9 +228,9 @@ To update the contents of a model that is already connected to the cluster:
    To change the link to the model file in the {{ objstorage-full-name }} bucket, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} ml-model update <model name> \
-     --cluster-name=<cluster name> \
-     --uri=<new link to file in {{ objstorage-full-name }}>
+   {{ yc-mdb-ch }} ml-model update <model_name> \
+     --cluster-name=<cluster_name> \
+     --uri=<new_link_to_file_in_Object_Storage>
    ```
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -244,12 +244,12 @@ To update the contents of a model that is already connected to the cluster:
    1. In the {{ mch-name }} cluster description, change the `uri` parameter value under `ml_model`:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
       ...
         ml_model {
-          name = "<model name>"
+          name = "<model_name>"
           type = "ML_MODEL_TYPE_CATBOOST"
-          uri  = "<new link to model file in {{ objstorage-full-name }}>"
+          uri  = "<new_link_to_model_file_in_Object_Storage>"
         }
       }
       ```
@@ -306,8 +306,8 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
    To disable a model, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} ml-model delete <model name> \
-     --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} ml-model delete <model_name> \
+     --cluster-name=<cluster_name>
    ```
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).

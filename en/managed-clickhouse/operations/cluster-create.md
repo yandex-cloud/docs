@@ -19,7 +19,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 * A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
 
    
-   This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. Contact [support]({{ link-console-support }}) or your account manager.
+   This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. Please contact [support]({{ link-console-support }}) or your account manager.
 
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
@@ -47,7 +47,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the {{ CH }} version from the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list to use for the {{ mch-name }} cluster:
       * For most clusters, we recommend selecting the latest LTS version.
       * If you plan to use hybrid storage in a cluster, we recommend selecting version {{ mch-ck-version }} or higher.
@@ -81,6 +81,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * If you want to manage cluster users via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** field and enter the `admin` user password. This disables user management through other interfaces.
 
          Otherwise, select **{{ ui-key.yacloud.common.disabled }}**.
+
 
       * If you want to manage databases via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** field. This disables database management through other interfaces. The field is inactive if user management via SQL is disabled.
 
@@ -152,24 +153,40 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       ```bash
       {{ yc-mdb-ch }} cluster create \
         --name <cluster_name> \
-        --environment <environment:_prestable_or_production> \
+        --environment <environment> \
         --network-name <network_name> \
-        --host type=<clickhouse_or_zookeeper>,`
+        --host type=<host_type>,`
              `zone-id=<availability_zone>,`
              `subnet-id=<subnet_ID>,`
-             `assign-public-ip=<public_access_to_host:_true_or_false> \
+             `assign-public-ip=<public_access_to_host> \
         --clickhouse-resource-preset <host_class> \
         --clickhouse-disk-type <disk_type> \
-        --clickhouse-disk-size <storage_size_in_GB> \
+        --clickhouse-disk-size <storage_size_GB> \
         --user name=<username>,password=<user_password> \
         --database name=<database_name> \
         --security-group-ids <list_of_security_group_IDs> \
-        --yandexquery-access=<access_via_Yandex_Query:_true_or_false> \
-        --deletion-protection=<cluster_deletion_protection:_true_or_false>
+        --yandexquery-access=<access_via_Yandex_Query> \
+        --deletion-protection=<cluster_deletion_protection>
       ```
 
-      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
+      You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
 
+
+
+      Where:
+
+      * `--environment`: Cluster environment, `prestable` or `production`.
+      * `--host`: Host parameters:
+         * `type`: Host type, `clickhouse` or `zookeeper`.
+         * `zone-id`: Availability zone.
+         * `assign-public-ip`: Flag enabling online access to the host by a public IP, `true` or `false`.
+
+      
+      * `--clickhouse-disk-type`: Disk type.
+      * `--yandexquery-access`: Access via {{ yq-full-name }}, `true` or `false`.
+
+
+      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -189,6 +206,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
            --admin-password "<admin_password>"
          ```
 
+
       1. To enable [SQL database management](./databases.md#sql-database-management):
 
          * Set `--enable-sql-user-management` and `--enable-sql-database-management` to `true`;
@@ -205,7 +223,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       
       1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
-      1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
+      1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
       1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
@@ -244,12 +262,16 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          {{ yc-mdb-ch }} cluster create \
             ...
             --cloud-storage=true \
-            --cloud-storage-data-cache=<true_or_false> \
+            --cloud-storage-data-cache=<file_storage> \
             --cloud-storage-data-cache-max-size=<storage_size_in_bytes> \
-            --cloud-storage-move-factor=<free_space_share> \
-            --cloud-storage-prefer-not-to-merge=<true_or_false>
+            --cloud-storage-move-factor=<percentage_of_free_space> \
+            --cloud-storage-prefer-not-to-merge=<merge_of_data_parts>
            ...
          ```
+
+         Where:
+         * `--cloud-storage-data-cache`: Store files in cluster storage, `true` or `false`.
+         * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in cluster and object storage, `true` or `false`.
 
    {% note info %}
 
@@ -301,13 +323,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         environment         = "<environment>"
         network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
         security_group_ids  = ["<list_of_security_group_IDs>"]
-        deletion_protection = <cluster_deletion_protection:_true_or_false>
+        deletion_protection = <cluster_deletion_protection>
 
         clickhouse {
           resources {
             resource_preset_id = "<host_class>"
             disk_type_id       = "<disk_type>"
-            disk_size          = <storage size in GB>
+            disk_size          = <storage_size_GB>
           }
         }
 
@@ -316,10 +338,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         }
 
         user {
-          name     = "<database username>"
+          name     = "<DB_username>"
           password = "<password>"
           permission {
-            database_name = "<name_of_the_database_where_the_user_is_created>"
+            database_name = "<name_of_DB_in_which_user_is_created>"
           }
         }
 
@@ -327,7 +349,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
           type             = "CLICKHOUSE"
           zone             = "<availability_zone>"
           subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-          assign_public_ip = <public_access_to_host:_true_or_false>
+          assign_public_ip = <public_access_to_host>
         }
       }
       ```
@@ -344,15 +366,25 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
            ...
            access {
-             data_lens  = <access_from_:_true_or_false>
-             metrika    = <access_from_Yandex_Metrica_and_AppMetrika:_true_or_false>
-             serverless = <access_from_Cloud_Functions:_true_or_false>
-             yandex_query = <access_from_Yandex_Query:_true_or_false>
-             web_sql    = <SQL_query_execution_from_the_management_console:_true_or_false>
+             data_lens  = <access_from_{{ datalens-name }}>
+             metrika    = <access_from_Yandex_Metrica_and_AppMetrica>
+             serverless = <access_from_Cloud_Functions>
+             yandex_query = <access_from_Yandex_Query>
+             web_sql    = <SQL_query_execution_from_management_console>
            }
            ...
          }
          ```
+
+
+
+      
+      Where:
+      * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
+      * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
+      * `serverless`: Access from {{ sf-name }}, `true` or `false`.
+      * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
+      * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
 
 
 
@@ -361,6 +393,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
       * {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+
 
       * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
@@ -392,7 +425,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    * Security group identifiers in the `securityGroupIds` parameter.
 
 
-   To allow [connection](connect.md) to cluster hosts from the internet, pass the `true` value in the `hostSpecs.assignPublicIp` parameter.
+   To allow [connection](connect.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
 
    Enable user and database management via SQL, if required:
    * `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).
@@ -401,9 +434,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
+
       To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
-   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
+   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
@@ -450,14 +484,14 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
-   Create a {{ mch-name }} cluster with test characteristics:
+   Create a {{ mch-name }} cluster with the following test characteristics:
 
    
-   * Named `mych`.
-   * Environment `production`.
-   * Network `default`.
-   * Security group `{{ security-group }}`.
-   * With a single {{ CH }} host of the `{{ host-class }}` class in the `b0rcctk2rvtr8efcch64` subnet and the `{{ region-id }}-a` availability zone.
+   * Name: `mych`.
+   * Environment: `production`.
+   * Network: `default`.
+   * Security group: `{{ security-group }}`.
+   * With a single {{ CH }} host of the `{{ host-class }}` class in the `b0rcctk2rvtr********` subnet and the `{{ region-id }}-a` availability zone.
    * {{ CK }}.
    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the `user1user1` password.
@@ -474,7 +508,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --environment=production \
      --network-name default \
      --clickhouse-resource-preset {{ host-class }} \
-     --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qumiqmtg12a \
+     --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qum******** \
      --version {{ versions.keeper }} \
      --embedded-keeper true \
      --clickhouse-disk-size 20 \
@@ -488,10 +522,10 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a {{ mch-name }} cluster and a network for it with test characteristics:
+   Create a {{ mch-name }} cluster and a network for it with the following test characteristics:
 
-   * Named `mych`.
-   * In the `PRESTABLE` environment.
+   * Name: `mych`.
+   * Environment: `PRESTABLE`.
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
    * A new cloud network named `cluster-net`.
@@ -535,10 +569,10 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a {{ mch-name }} cluster with test characteristics:
+   Create a {{ mch-name }} cluster with the following test characteristics:
 
-   * Named `mych`.
-   * In the `PRESTABLE` environment.
+   * Name: `mych`.
+   * Environment: `PRESTABLE`.
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
    * In a new cloud network named `cluster-net`.

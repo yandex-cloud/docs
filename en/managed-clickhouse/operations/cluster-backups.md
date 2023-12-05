@@ -44,10 +44,10 @@ Backups are created based on a random replica host. If there is no cluster host 
    1. Request the creation of a backup specifying the cluster name or ID:
 
       ```bash
-      {{ yc-mdb-ch }} cluster backup <cluster ID or name>
+      {{ yc-mdb-ch }} cluster backup <cluster_name_or_ID>
       ```
 
-      You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -81,7 +81,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
    To restore a previously deleted cluster from a backup:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -112,8 +112,8 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
       +--------------------------+---------------------+----------------------+---------------------+-------------+
       |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES |
       +--------------------------+---------------------+----------------------+---------------------+-------------+
-      | c9qnfsq7tiscc7j281h0:... | 2022-03-09 14:24:55 | c9qnfsq7tiscc7j281h0 | 2022-03-09 14:23:55 | shard2      |
-      | c9qnfsq7tiscc7j281h0:... | 2022-03-09 14:16:39 | c9qnfsq7tiscc7j281h0 | 2022-03-09 14:16:37 | shard1      |
+      | c9qnfsq7tisc********:... | 2022-03-09 14:24:55 | c9qnfsq7tisc******** | 2022-03-09 14:23:55 | shard2      |
+      | c9qnfsq7tisc********:... | 2022-03-09 14:16:39 | c9qnfsq7tisc******** | 2022-03-09 14:16:37 | shard1      |
       | ...                                                                                         |             |
       +--------------------------+---------------------+----------------------+---------------------+-------------+
       ```
@@ -123,16 +123,16 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
       
       ```bash
       {{ yc-mdb-ch }} cluster restore \
-         --backup-id=<backup ID> \
-         --name=<cluster name> \
-         --environment=<environment: PRESTABLE or PRODUCTION> \
-         --network-name=<network name> \
-         --host type=<host type: clickhouse or zookeeper>,`
-               `zone-id=<availability zone>,`
-               `subnet-id=<subnet ID> \
-         --clickhouse-disk-size=<storage size in GB> \
-         --clickhouse-disk-type=<disk type> \
-         --clickhouse-resource-preset=<host class>
+         --backup-id=<backup_ID> \
+         --name=<cluster_name> \
+         --environment=<environment> \
+         --network-name=<network_name> \
+         --host type=<host_type>,`
+               `zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID> \
+         --clickhouse-disk-size=<storage_size_GB> \
+         --clickhouse-disk-type=<disk_type> \
+         --clickhouse-resource-preset=<host_class>
       ```
 
 
@@ -143,30 +143,34 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
       * `--environment`: Environment:
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
       * `--host`: Host parameters:
 
          * `type`: Host type: `clickhouse` or `zookeeper`.
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-            * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes two or more subnets.
+            * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
 
-      * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
+      * `--resource-preset`: [Host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Disk type](../concepts/storage.md):
+
          
          * `network-hdd`
          * `network-ssd`
-                  * `local-ssd`
+
+         
+         * `local-ssd`
          * `network-ssd-nonreplicated`
+
 
 
    1. To restore the entire cluster, provide backup IDs for all cluster shards:
 
       ```bash
       {{ yc-mdb-ch }} cluster restore \
-         --backup-id=<list of IDs of backups of all shards> \
+         --backup-id=<list_of_IDs_of_backups_of_all_shards> \
          ...
       ```
 
@@ -215,8 +219,8 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
    +--------------------------+---------------------+----------------------+---------------------+-------------+
    |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES |
    +--------------------------+---------------------+----------------------+---------------------+-------------+
-   | c9qnfsq7tiscc7j281h0:... | 2022-03-09 14:24:55 | c9qnfsq7tiscc7j281h0 | 2022-03-09 14:23:55 | shard2      |
-   | c9qnfsq7tiscc7j281h0:... | 2022-03-09 14:16:39 | c9qnfsq7tiscc7j281h0 | 2022-03-09 14:16:37 | shard1      |
+   | c9qnfsq7tisc********:... | 2022-03-09 14:24:55 | c9qnfsq7tisc******** | 2022-03-09 14:23:55 | shard2      |
+   | c9qnfsq7tisc********:... | 2022-03-09 14:16:39 | c9qnfsq7tisc******** | 2022-03-09 14:16:37 | shard1      |
    | ...                                                                                         |             |
    +--------------------------+---------------------+----------------------+---------------------+-------------+
    ```
@@ -255,7 +259,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
    To get information about a {{ CH }} cluster backup, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} backup get <backup ID>
+   {{ yc-mdb-ch }} backup get <backup_ID>
    ```
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
@@ -285,11 +289,11 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
    To set a backup start time, provide the value you need in `HH:MM:SS` format in the `--backup-window-start` argument of the cluster update command:
 
    ```bash
-   {{ yc-mdb-ch }} cluster update <cluster ID or name> \
-      --backup-window-start=<backup start time>
+   {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
+      --backup-window-start=<backup_start_time>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -297,7 +301,7 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
 
    * Cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
    * New backup start time in the `configSpec.backupWindowStart` parameter.
-   * List of the updated cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.backupWindowStart`).
+   * List of cluster configuration fields to be updated in the `updateMask` parameter (in this case, `configSpec.backupWindowStart`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

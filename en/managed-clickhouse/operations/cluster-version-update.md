@@ -71,23 +71,23 @@ Make sure this does not affect your applications:
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih8iti42mh | clickhouse691 | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
+      | c9q8p8j2gaih******** | clickhouse691 | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
    1. Get information about a cluster and check the {{ CH }} version in your cluster in the `config.version` parameter:
 
       ```bash
-      {{ yc-mdb-ch }} cluster get c9q8p8j2gaih8iti42mh
-      id: c9q8p8j2gaih8iti42mh
-      folder_id: b1gqs1teo2q2a4vnmi2t
+      {{ yc-mdb-ch }} cluster get c9q8p8j2gaih********
+      id: c9q8p8j2gaih********
+      folder_id: b1gqs1teo2q2********
       created_at: "2019-04-23T12:44:17.929853Z"
       name: clickhouse691
       environment: PRODUCTION
       monitoring:
       - name: Console
           description: Console charts
-          link: {{ link-console-main }}/folders/b1gqs1teo2q2a4vnmi2t/managed-clickhouse/cluster/c9q8p8j2gaih8iti42mh?section=monitoring
+          link: {{ link-console-main }}/folders/b1gqs1teo2q2********/managed-clickhouse/cluster/c9q8p8j2gaih********?section=monitoring
       config:
           version: "19.1"
           ...
@@ -96,7 +96,7 @@ Make sure this does not affect your applications:
    1. Update the {{ CH }} version:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih8iti42mh --version 19.4
+      {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih******** --version 19.4
       ```
 
    When the update starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
@@ -110,9 +110,9 @@ Make sure this does not affect your applications:
    1. To the {{ mch-name }} cluster description, add the `version` field or change its value if it is already there:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
-        version = "<ClickHouse version>"
+        version = "<{{ CH }}_version>"
       }
       ```
 
@@ -120,7 +120,7 @@ Make sure this does not affect your applications:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

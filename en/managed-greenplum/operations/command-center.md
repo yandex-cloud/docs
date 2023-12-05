@@ -1,15 +1,15 @@
 # Monitoring and managing sessions and queries in the Command Center
 
-The [{{ GP }} Command Center](../concepts/command-center.md) offers the following functionality:
+In the [{{ GP }} Command Center](../concepts/command-center.md), you can:
 
-* [{#T}](#list)
-* [{#T}](#consumption-history)
-* [{#T}](#terminate-session)
-* [{#T}](#terminate-query)
+* [{#T}](#list).
+* [{#T}](#consumption-history).
+* [{#T}](#terminate-session).
+* [{#T}](#terminate-query).
 
 {% note info %}
 
-The Command Center is available in clusters with {{ GP }} version {{ versions.console.latest }} or higher.
+The Command Center is available in clusters with {{ GP }} version 6.25 or higher.
 
 {% endnote %}
 

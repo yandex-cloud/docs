@@ -1,13 +1,12 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/TextGeneration/index.md
+sourcePath: en/_api-ref/ai/foundation_models/v1/api-ref/TextGeneration/index.md
 ---
 
-# YandexGPT API, REST: TextGeneration methods
-Service for text generation and conversation.
+# Foundation Models API, REST: TextGeneration methods
+Service for text generation.
 
 ## Methods {#methods}
 Method | Description
 --- | ---
-[chat](chat.md) | RPC method for engaging in a chat conversation with the model.
-[instruct](instruct.md) | RPC method for instructing the model to generate text.
+[completion](completion.md) | RPC method for generating text completions.

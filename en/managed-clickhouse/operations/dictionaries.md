@@ -4,11 +4,11 @@ You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) 
 
 {{ mch-name }} supports several types of dictionary sources.
 
-* {{ CH }}.
-* HTTP(s).
-* {{ MG }}.
-* {{ MY }}.
-* {{ PG }}.
+* {{ CH }}
+* HTTP(s)
+* {{ MG }}
+* {{ MY }}
+* {{ PG }}
 
 Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the recommended method.
 
@@ -38,7 +38,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
    1. Run this command:
 
       ```bash
-      {{ yc-mdb-ch }} cluster get <cluster name>
+      {{ yc-mdb-ch }} cluster get <cluster_name>
       ```
 
    The added dictionaries are displayed in the `dictionaries:` section of command execution results.
@@ -95,8 +95,8 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
       ```bash
       {{ yc-mdb-ch }} cluster add-external-dictionary \
-         --name=<{{ CH }} cluster name> \
-         --dict-name=<dictionary name> \
+         --name=<{{ CH }}_cluster_name> \
+         --dict-name=<dictionary_name> \
          ...
       ```
 
@@ -122,13 +122,13 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
    1. Run the [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/) and specify [dictionary settings](#settings-sql):
 
       ```sql
-      CREATE DICTIONARY <dictionary name>(
-      <data columns>
+      CREATE DICTIONARY <dictionary_name>(
+      <data_columns>
       )
-      PRIMARY KEY <name of the column with keys>
-      SOURCE(<source>(<source configuration>))
-      LIFETIME(<update interval>)
-      LAYOUT(<method for storing dictionaries in memory>());
+      PRIMARY KEY <key_column_name>
+      SOURCE(<source>(<source_configuration>))
+      LIFETIME(<update_interval>)
+      LAYOUT(<how_dictionary_is_stored_in_memory>());
       ```
 
 {% endlist %}
@@ -161,8 +161,8 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
       ```bash
       {{ yc-mdb-ch }} cluster remove-external-dictionary \
-        --name <cluster name> \
-        --dict-name <dictionary name> \
+        --name <cluster_name> \
+        --dict-name <dictionary_name> \
       ```
 
 - API
@@ -172,7 +172,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 - SQL
 
    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-   1. Run the `DROP DICTIONARY <DB name>.<dictionary name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
+   1. Run the `DROP DICTIONARY <DB_name>.<dictionary_name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
 
 {% endlist %}
 
@@ -180,12 +180,12 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 ### SQL {#settings-sql}
 
-* <dictionary name>: Name of a new dictionary.
-* <data columns>: List of columns with dictionary data and data type.
-* PRIMARY KEY: Dictionary key column name.
-* SOURCE: Source and its parameters.
-* LIFETIME: Frequency of dictionary updates.
-* LAYOUT: Method for storing a dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`.
+* `<dictionary_name>`: Name of new dictionary.
+* `<data_columns>`: List of columns with dictionary data and their type.
+* `PRIMARY KEY`: Dictionary key column name.
+* `SOURCE`: Source and its parameters.
+* `LIFETIME`: Dictionary update frequency.
+* `LAYOUT`: Method for storing dictionary in memory. The supported methods are `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`.
 
 For more information about the settings, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
@@ -255,9 +255,9 @@ For more information about dictionary sources and their connection settings, see
 
 #### Layout {#console-method}
 
-* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Dictionary layouts. The supported layouts are `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Dictionary layout. The supported layouts are `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
 * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}**: Number of cache cells for the `cache` and `complex_key_cache` layouts. For more information about the cache, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Key column name. The key column must be in UInt64 data type. It is used for `flat`, `hashed`, `cache`, and `range_hashed` layouts. For more information about the keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+* **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Dictionary key column name. The key column must be in UInt64 data type. It is used for `flat`, `hashed`, `cache`, and `range_hashed` layouts. For more information about the keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
 * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: List of columns with dictionary data:
 
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}**: Column name.
@@ -265,7 +265,7 @@ For more information about dictionary sources and their connection settings, see
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}**: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}**: Hierarchical support flag.
-   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Flag that shows whether the `id` → `attribute` image is injective.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Injective `id` → `attribute` mapping flag.
 
 For more information about the column settings, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
 
@@ -356,24 +356,24 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
 
 {% endlist %}
 
-* `--structure-id`: Key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+* `--structure-id`: Dictionary key column name. The key column must be in UInt64 data type. It is used for `flat`, `hashed`, `cache`, and `range_hashed` layouts. For more information about the keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
 * `--structure-key`: List of columns with dictionary data:
 
    * `name`: Column name.
    * `type`: Type of column data.
-   * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
+   * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * `hierarchical`: Hierarchical support flag.
-   * `injective`: Flag that shows whether the `id` → `attribute` image is injective
+   * `injective`: Injective `id` → `attribute` mapping flag.
 
 * `--structure-attribute`: Description of the fields available for database queries:
 
    * `name`: Column name.
    * `type`: Type of column data.
-   * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
+   * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * `hierarchical`: Hierarchical support flag.
-   * `injective`: Flag that shows whether the `id` → `attribute` image is injective
+   * `injective`: Injective `id` → `attribute` mapping flag.
 
 * `--fixed-lifetime`: Fixed interval between dictionary updates in seconds.
 * `--lifetime-range`: Time range for {{ CH }} to randomly select the time for update. This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.
@@ -381,7 +381,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
    * `min`: Minimum interval between dictionary updates in seconds.
    * `max`: Maximum interval between dictionary updates in seconds.
 
-* `--layout-type`: Method of storing dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+* `--layout-type`: Method of storing dictionary in memory. The supported layouts are `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
 * `--layout-size-in-cells`: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
 
 ### API {#settings-api}
@@ -396,26 +396,26 @@ For more information about the settings, see the description of the [createExter
 
    Add a dictionary with test characteristics:
 
-   * `mych` cluster.
-   * `mychdict` name.
-   * `id` name of the key column.
+   * Cluster: `mych`.
+   * Name: `mychdict`.
+   * Key column name: `id`.
    * Fields available for database queries:
 
       * `id` of the `UInt64` type.
       * `field1` of the `String` type.
 
    * Fixed period between dictionary updates 300 seconds.
-   * `cache` layout.
+   * Layout: `cache`.
    * {{ PG }} source:
 
-      * `db1` database.
-      * `table` table name.
-      * `5432` connection port.
-      * `user1` name of the database user.
-      * `user1user1` password to access the database.
-      * `verify-full` mode for establishing a secure SSL TCP/IP connection to the database.
+      * Database: `db1`.
+      * Table name: `table`.
+      * Connection port: `5432`.
+      * Database user name: `user1`.
+      * Password for access to the database: `user1user1`.
+      * Mode for secure SSL TCP/IP connection to the database: `verify-full`.
 
-   * `rc1b-05vjbfhfkrycjyq8.{{ dns-zone }}` host name.
+   * Host name: `rc1b-05vjbfhf********.{{ dns-zone }}`.
 
    Run the following command:
 
@@ -436,7 +436,7 @@ For more information about the settings, see the description of the [createExter
                          `user=user1,`
                          `password=user1user1,`
                          `ssl-mode=verify-full \
-      --postgresql-source-hosts=rc1b-05vjbfhfkrycjyq8.{{ dns-zone }}
+      --postgresql-source-hosts=rc1b-05vjbfhf********.{{ dns-zone }}
    ```
 
 {% endlist %}

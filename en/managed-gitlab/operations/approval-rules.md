@@ -11,8 +11,8 @@ With {{ mgl-name }}, you can flexibly set up mandatory code review rules before 
 
 To use code review rules:
 
-1. [{#T}](#enable)
-1. [{#T}](#rules)
+1. [{#T}](#enable).
+1. [{#T}](#rules).
 1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages)).
 
 If necessary, enable [debugging mode](#debugging) and check out the [rules for handling exceptions](#exceptions).
@@ -42,7 +42,7 @@ If necessary, enable [debugging mode](#debugging) and check out the [rules for h
 
 ## Set up the code review rules {#rules}
 
-The code review rules for the repository are stored in the `APPROVALRULES` file in the root directory. The configuration is read from the `master` branch when running the instance and is automatically loaded at file update.
+The code review rules for the repository are stored in the `APPROVALRULES` file in the root directory. The configuration is read from the [default branch]({{ gl.docs }}/ee/user/project/repository/branches/default.html) when running the instance and is automatically loaded at file update.
 
 The file consists of two sections:
 
@@ -55,7 +55,7 @@ The `APPROVALRULES` file structure is as follows:
 ApprovalRules:
   - <rule_name>:
     approvers:
-        - <user_name>
+        - <name_of_the_user>
         ...
       groups:
         - <group_name>
@@ -65,19 +65,19 @@ ApprovalRules:
 BranchGroups:
   - <branch_group_name>:
       branches:
-        - <branch_name>
+        - <name_of_the_branch>
         ...
       rules:
-        - <rule_name>
+        - <name_of_the_rule>
         ...
 ```
 
 Where:
 
-* `approvers`: Name of the {{ GL }} user who can approve the merge request.
-* `groups`: Name of the {{ GL }} group whose users can approve the merge request.
-* `branches`: Name of the branch the updates of which require a review.
-* `rules`: Name of the rule that applies to the specified branches.
+* `approvers`: {{ GL }} user who can approve the merge request.
+* `groups`: {{ GL }} group whose users can approve the merge request.
+* `branches`: Branch whose updates require a review.
+* `rules`: Rule applied to the specified branches.
 
 You can use the `*` wildcard instead of user names and in branch names.
 
@@ -102,7 +102,7 @@ You can use the `*` wildcard instead of user names and in branch names.
 
 The feature is available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages).
 
-The Code Ownership settings for the repository are stored in the `CODEOWNERS` file in the root directory. The configuration is read from the `master` branch when running the instance and is automatically loaded at file update.
+The Code Ownership settings for the repository are stored in the `CODEOWNERS` file in the root directory. The configuration is read from the [default branch]({{ gl.docs }}/ee/user/project/repository/branches/default.html) when running the instance and is automatically loaded at file update.
 
 The file structure supports the [{{ GL }} syntax](https://docs.gitlab.com/ee/user/project/codeowners/reference.html), except for the use of user subgroups and email addresses as user IDs.
 

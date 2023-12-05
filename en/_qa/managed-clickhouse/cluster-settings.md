@@ -32,7 +32,7 @@ If the [User management via SQL](../../managed-clickhouse/operations/cluster-use
 * For the current user session by running this query:
 
    ```sql
-   SET max_memory_usage = <value in bytes>;
+   SET max_memory_usage = <value_in_bytes>;
    ```
 
 * For all users by default by creating a [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).
