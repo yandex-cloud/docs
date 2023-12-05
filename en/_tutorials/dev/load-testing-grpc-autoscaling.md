@@ -21,6 +21,7 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 1. Install the Ingress controller:
    1. [Create](../../application-load-balancer/tools/k8s-ingress-controller/service-account.md) a [service account](../../iam/concepts/users/service-accounts.md) for the Ingress controller.
    1. [Install](../../application-load-balancer/operations/k8s-ingress-controller-install.md) the {{ alb-name }} Ingress controller for {{ managed-k8s-name }}.
+1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
 
 ### Required paid resources {#paid-resources}
@@ -158,7 +159,7 @@ This instruction will use a gRPC service as a test target.
 
       If set to `auto`, the Ingress controller is assigned a [public IP address](../../vpc/concepts/address.md#public-addresses) automatically. Deleting the Ingress controller also deletes the IP address from the cloud.
    * `ingress.alb.yc.io/security-groups`: ID of the security group created when [preparing your cloud](#prepare-cloud). If security groups are not enabled in your cloud, delete this annotation.
-   * `secretName`: Reference to a TLS certificate from [{{ certificate-manager-full-name }}](../../certificate-manager/) in `yc-certmgr-cert-id-<certificate_ID>` format.
+   * `secretName`: Reference to a [TLS certificate](../../certificate-manager/concepts/index.md) from [{{ certificate-manager-full-name }}](../../certificate-manager/) in `yc-certmgr-cert-id-<certificate_ID>` format.
    * `hosts`, `host`: Domain name the TLS certificate corresponds to.
 
    For more information, see [Ingress fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
@@ -182,11 +183,11 @@ This instruction will use a gRPC service as a test target.
    ```
 
    Where:
-   * `<website_name>` is the domain name the TLS certificate corresponds to.
-   * `<IP address>` is the IP address of the website.
+   * `<website_name>`: Domain name the TLS certificate corresponds to.
+   * `<IP address>` : IP address of the website.
 
-   The ADDRESS column must contain an IP address. Otherwise, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` pod.
-1. In {{ dns-name }}, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a) referring to the load balancer's public IP address.
+   The ADDRESS column must contain an IP address. Otherwise, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod).
+1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} stating the load balancer's public IP. If you are using ExternalDNS with a plugin for {{ dns-name }}, this record will be created automatically.
 
 ## Configure horizontal pod autoscaling {#configure-autoscaling}
 
@@ -313,7 +314,7 @@ This instruction will use a gRPC service as a test target.
 1. Monitor the test:
 
    1. In the [management console]({{ link-console-main }}), select {{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}.
-   1. Select your test cluster.
+   1. Select your {{ managed-k8s-name }} test cluster.
    1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
    1. Monitor the change in the number of application pods as the load increases and decreases.
    1. After testing is complete, in the [management console]({{ link-console-main }}), select {{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}.

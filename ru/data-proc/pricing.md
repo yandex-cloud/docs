@@ -46,8 +46,8 @@ editable: false
     Стоимость часа использования кластера из двух подкластеров со следующими параметрами:
 
     * Первый подкластер:
-      * **Управляющий хост**: класс `b2.medium`, Intel Cascade Lake, 2 × 50% vCPU, 4 ГБ RAM.
-      * **Хранилище управляющего хоста**: 20 ГБ `network-ssd`.
+      * **Хост-мастер**: класс `b2.medium`, Intel Cascade Lake, 2 × 50% vCPU, 4 ГБ RAM.
+      * **Хранилище хоста-мастера**: 20 ГБ `network-ssd`.
 
     * Второй подкластер:
       * **Хост для хранения данных**: класс `s2.micro`, Intel Cascade Lake, 2 × 100% vCPU, 8 ГБ RAM.
@@ -65,12 +65,12 @@ editable: false
 
     * {{ sku|RUB|compute.vm.cpu.50.v2|string }} — стоимость часа использования 50% vCPU.
     * {{ sku|RUB|mdb.dataproc.v2.cpu.c50|string }} — наценка {{ dataproc-name }} за использование 50% vCPU.
-    * 2 — количество vCPU в управляющем хосте.
+    * 2 — количество vCPU в хосте-мастере.
     * {{ sku|RUB|compute.vm.ram.v2|string }} — стоимость часа использования 1 ГБ RAM.
     * {{ sku|RUB|mdb.dataproc.v2.ram|string }} — наценка {{ dataproc-name }} за использование 1 ГБ RAM.
-    * 4 — объем RAM управляющего хоста (в гигабайтах).
+    * 4 — объем RAM хоста-мастера (в гигабайтах).
     * {{ sku|RUB|nbs.network-nvme.allocated|string }} — стоимость часа использования 1 ГБ `network-ssd`.
-    * 20 — объем хранилища управляющего хоста (в гигабайтах).
+    * 20 — объем хранилища хоста-мастера (в гигабайтах).
 
     > ({{ sku|RUB|compute.vm.cpu.c100.v2|string }} + {{ sku|RUB|mdb.dataproc.v2.cpu.c100|string }}) × 2 + ({{ sku|RUB|compute.vm.ram.v2|string }} + {{ sku|RUB|mdb.dataproc.v2.ram|string }}) × 8 + {{ sku|RUB|nbs.network-hdd.allocated|string }} × 100 = 5,7500 ₽
     > 

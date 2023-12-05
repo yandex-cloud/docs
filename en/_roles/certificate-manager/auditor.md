@@ -1,0 +1,1 @@
+The `certificate-manager.auditor` role.

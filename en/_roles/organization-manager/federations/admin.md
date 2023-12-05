@@ -1,0 +1,1 @@
+The `organization-manager.federations.admin` role.

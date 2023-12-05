@@ -236,7 +236,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ```
    
       A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
-   1. Check that the signature is valid manually:
+
+   1. Check manually that the Docker image signature is correct:
    
       ```bash
       cosign verify --key cosign.pub {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
@@ -262,7 +263,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```bash
    yc iam key create \
      --service-account-name=<name_of_service_account_with_{{ roles-cr-puller }}_role> \
-     --output=authorized-key.json
+     --output authorized-key.json
    ```
 
 1. Install the [Kyverno](https://kyverno.io/docs/) app to the {{ managed-k8s-name }} cluster. You need it to create a policy for verifying Docker image signatures.

@@ -8,24 +8,13 @@ description: "В статье приведен полный справочник
 
 ## Служебные роли {#auxiliary-roles}
 
+#### marketplace.meteringAgent {#marketplace-meteringagent}
+
+{% include [marketplace.meteringAgent](../_roles/marketplace/meteringAgent.md) %}
+
 #### quota-manager.requestOperator {#quota-manager-requestoperator}
 
 {% include [quota-manager.requestOperator](../_roles/quota-manager/requestOperator.md) %}
-
-
-## Управляемые базы данных {#mdb}
-
-#### mdb.auditor {#mdb-auditor}
-
-{% include [mdb-auditor](../_roles/mdb/auditor.md) %}
-
-#### mdb.viewer {#mdb-viewer}
-
-{% include [mdb-viewer](../_roles/mdb/viewer.md) %}
-
-#### mdb.admin {#mdb-admin}
-
-{% include [mdb-admin](../_roles/mdb/admin.md) %}
 
 
 ## Сервисы искусственного интеллекта {#ai-services}
@@ -70,9 +59,17 @@ description: "В статье приведен полный справочник
 
 ## {{ alb-full-name }} {#alb-roles}
 
+#### alb.auditor {#alb-auditor}
+
+{% include [alb.auditor](../_roles/alb/auditor.md) %}
+
 #### alb.viewer {#alb-viewer}
 
 {% include [alb.viewer](../_roles/alb/viewer.md) %}
+
+#### alb.user {#alb-user}
+
+{% include [alb.user](../_roles/alb/user.md) %}
 
 #### alb.editor {#alb-editor}
 
@@ -111,6 +108,18 @@ description: "В статье приведен полный справочник
 
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
+
+#### certificate-manager.auditor {#certificate-manager-auditor}
+
+{% include [certificate-manager.auditor](../_roles/certificate-manager/auditor.md) %}
+
+#### certificate-manager.viewer {#certificate-manager-viewer}
+
+{% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
+
+#### certificate-manager.editor {#certificate-manager.editor}
+
+{% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
 
 #### certificate-manager.admin {#certificate-manager-admin}
 
@@ -279,6 +288,14 @@ description: "В статье приведен полный справочник
 
 {% include [organizationmanager-organizations-owner](../_roles/organization-manager/organizations/owner.md) %}
 
+#### organization-manager.federations.viewer {#organization-manager-federations-viewer}
+
+{% include [organization-manager.federations.viewer](../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.admin {#organization-manager-federations-admin}
+
+{% include [organization-manager.federations.admin](../_roles/organization-manager/federations/admin.md) %}
+
 #### organization-manager.osLogins.viewer {#organization-manager-osLogins-viewer}
 
 {% include [organizationmanager-oslogins-viewer](../_roles/organization-manager/osLogins/viewer.md) %}
@@ -295,6 +312,10 @@ description: "В статье приведен полный справочник
 
 
 ## {{ compute-full-name }} {#compute-roles}
+
+#### compute.auditor {#compute-auditor}
+
+{% include [compute.auditor](../_roles/compute/auditor.md) %}
 
 #### compute.viewer {#compute-viewer}
 
@@ -687,10 +708,18 @@ description: "В статье приведен полный справочник
 
 {% include [loadtesting.generatorclient](../_roles/loadtesting/generatorClient.md) %}
 
+#### loadtesting.externalAgent {#loadtesting-externalagent}
+
+{% include [loadtesting.externalagent](../_roles/loadtesting/externalAgent.md) %}
+
 Подробнее см. [{#T}](../load-testing/security/index.md).
 
 
 ## {{ lockbox-full-name }} {#lockbox-roles}
+
+#### lockbox.auditor {#lockbox-auditor}
+
+{% include [lockbox.auditor](../_roles/lockbox/auditor.md) %}
 
 #### lockbox.viewer {#lockbox-viewer}
 
@@ -709,6 +738,21 @@ description: "В статье приведен полный справочник
 {% include [lockbox.payloadViewer](../_roles/lockbox/payloadViewer.md) %}
 
 Подробнее см. [{#T}](../lockbox/security/index.md).
+
+
+## Управляемые базы данных {#mdb}
+
+#### mdb.auditor {#mdb-auditor}
+
+{% include [mdb-auditor](../_roles/mdb/auditor.md) %}
+
+#### mdb.viewer {#mdb-viewer}
+
+{% include [mdb-viewer](../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../_roles/mdb/admin.md) %}
 
 
 ## {{ maf-full-name }} {#managed-airflow-roles}
@@ -1028,6 +1072,10 @@ description: "В статье приведен полный справочник
 
 ## {{ network-load-balancer-full-name }} {#network-load-balancer-roles}
 
+#### load-balancer.auditor {#load-balancer-auditor}
+
+{% include [load-balancer.auditor](../_roles/load-balancer/auditor.md) %}
+
 #### load-balancer.viewer {#load-balancer-viewer}
 
 {% include [loadbalancer-viewer](../_roles/load-balancer/viewer.md) %}
@@ -1158,6 +1206,10 @@ description: "В статье приведен полный справочник
 
 ## {{ captcha-full-name }} {#captcha-roles}
 
+#### smart-captcha.auditor {#smart-captcha-auditor}
+
+{% include [smart-captcha.auditor](../_roles/smart-captcha/auditor.md) %}
+
 #### smart-captcha.viewer {#smart-captcha-viewer}
 
 {% include [smartcaptcha-viewer](../_roles/smart-captcha/viewer.md) %}
@@ -1255,6 +1307,10 @@ description: "В статье приведен полный справочник
 
 ## {{ vpc-full-name }} {#vpc-roles}
 
+#### vpc.auditor {#vpc-auditor}
+
+{% include [vpc.auditor](../_roles/vpc/auditor.md) %}
+
 #### vpc.viewer {#vpc-viewer}
 
 {% include [vpc-viewer](../_roles/vpc/viewer.md) %}
@@ -1267,6 +1323,10 @@ description: "В статье приведен полный справочник
 
 {% include [vpc-admin](../_roles/vpc/admin.md) %}
 
+#### vpc.bridgeAdmin {#vpc-bridge-admin}
+
+{% include [vpc.bridgeAdmin](../_roles/vpc/bridgeAdmin.md) %}
+
 #### vpc.privateAdmin {#vpc-private-admin}
 
 {% include [vpc-privateadmin](../_roles/vpc/privateAdmin.md) %}
@@ -1275,6 +1335,10 @@ description: "В статье приведен полный справочник
 
 {% include [vpc-publicadmin](../_roles/vpc/publicAdmin.md) %}
 
+#### vpc.gateways.viewer {#vpc-gw-viewer}
+
+{% include [vpc.gateways.viewer](../_roles/vpc/gateways/viewer.md) %}
+
 #### vpc.gateways.user {#vpc-gw-user}
 
 {% include [vpc-gateways-user](../_roles/vpc/gateways/user.md) %}
@@ -1282,6 +1346,10 @@ description: "В статье приведен полный справочник
 #### vpc.gateways.editor {#vpc-gw-editor}
 
 {% include [vpc-gateways-editor](../_roles/vpc/gateways/editor.md) %}
+
+#### vpc.securityGroups.user {#vpc-sg-user}
+
+{% include [vpc.securityGroups.user](../_roles/vpc/securityGroups/user.md) %}
 
 #### vpc.securityGroups.admin {#vpc-sg-admin}
 

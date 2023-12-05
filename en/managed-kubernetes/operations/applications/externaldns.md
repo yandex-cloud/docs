@@ -53,6 +53,19 @@
      externaldns ./externaldns/
    ```
 
+## Operation specifics {#features}
+
+To automatically create DNS records using [ExternalDNS with a plugin for {{ dns-full-name }}](/marketplace/products/yc/externaldns):
+* If you have an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) installed, no additional setup is required.
+* For [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) services, use the `"external-dns.alpha.kubernetes.io/hostname=<your_domain>"` annotation.
+
+   To set the TTL of a DNS record, use the `"external-dns.alpha.kubernetes.io/ttl=<TTL_in_seconds>"` annotation.
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/alb-ingress-controller-log-options.md).
+* [{#T}](../../tutorials/load-testing-grpc-autoscaling.md).
+
 ## See also {#see-also}
 
 * [ExternalDNS documentation](https://github.com/kubernetes-sigs/external-dns/).

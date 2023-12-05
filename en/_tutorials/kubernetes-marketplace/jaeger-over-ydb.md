@@ -70,7 +70,7 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
    kubectl apply -f hotrod.yaml
    ```
 
-1. Make sure that the `hotrod` pod has changed its state to `Running`:
+1. Make sure the `hotrod` pods have changed their status to `Running`:
 
    ```bash
    kubectl get pods | grep hotrod

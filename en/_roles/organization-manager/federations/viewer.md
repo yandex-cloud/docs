@@ -1,0 +1,1 @@
+The `organization-manager.federations.viewer` role.

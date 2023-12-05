@@ -1,0 +1,1 @@
+The `certificate-manager.viewer` role.

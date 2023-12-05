@@ -12,6 +12,7 @@
 
 Чтобы создать CDN-инфраструктуру:
 1. [Подготовьтесь к работе](#before-you-begin).
+1. [Добавьте сертификат в {{ certificate-manager-name }}](#add-certificate)
 1. [Создайте бакеты в {{ objstorage-name }}](#create-buckets).
 1. [Включите логирование бакета с файлами](#enable-logging).
 1. [Загрузите файл в бакет](#upload-object).
@@ -35,6 +36,12 @@
 * Плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../cdn/pricing.md)).
 * Плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 * Плата за публичные DNS-запросы и [DNS-зоны](../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../dns/) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+
+## Добавьте сертификат в {{ certificate-manager-name }} {#add-certificate}
+
+Выпустите и [добавьте](../../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }} сертификат Let's Encrypt® или [загрузите](../../certificate-manager/operations/import/cert-create.md) собственный сертификат.
+
+Для сертификата Let's Encrypt® пройдите [проверку прав](../../certificate-manager/operations/managed/cert-validate.md) на домен, который указан в сертификате.
 
 
 ## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
@@ -273,11 +280,10 @@
           * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_https }}`.
           * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
           * Выберите опцию **{{ ui-key.yacloud.cdn.field_access }}**.
-          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `Let's Encrypt®`, чтобы автоматически выпустить [сертификат](../../certificate-manager/concepts/managed-certificate.md) для доменного имени `cdn.ycprojectblue.example` после создания CDN-ресурса.
+          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.ycprojectblue.example`.
           * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. В поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя источника, `<имя_бакета_с_файлами>.{{ s3-storage-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-     Дождитесь выпуска сертификата Let's Encrypt® для доменного имени. Этот процесс может занять до 30 минут.
   1. Включите переадресацию клиентов с HTTP на HTTPS:
      1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
      1. Убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** статус сертификата изменился на `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
@@ -311,8 +317,8 @@
        --origin-bucket-source <имя_бакета_с_файлами>.{{ s3-storage-host }} \
        --origin-bucket-name <имя_бакета_с_файлами> \
        --origin-protocol https \
-       --lets-encrypt-gcore-ssl-cert \
-       --host-header <имя_бакета_с_файлами>.{{ s3-storage-host }} \
+       --cert-manager-ssl-cert-id <идентификатор_сертификата> \
+       --host-header <имя_бакета_с_файлами>.{{ s3-storage-host }}
      ```
 
      Результат:
@@ -356,7 +362,8 @@
          custom_host_header     = "<имя_бакета_с_файлами>.{{ s3-storage-host }}"
        }
        ssl_certificate {
-         type = "lets_encrypt_gcore"
+         type                   = "certificate_manager"
+         certificate_manager_id = "<идентификатор_сертификата>"
        }
      }
      ```

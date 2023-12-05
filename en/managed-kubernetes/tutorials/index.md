@@ -1,6 +1,6 @@
 # {{ managed-k8s-name }} tutorials
 
-You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
+You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
 
 ## Creating a project {#creating-project}
 
@@ -52,6 +52,7 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 ## Monitoring {#monitoring}
 
 * [{#T}](prometheus-grafana-monitoring.md)
+* [{#T}](filebeat-oss-monitoring.md)
 
 
 ## Using {{ marketplace-full-name }} products {#marketplace-tutorials}
