@@ -34,6 +34,7 @@ A set of methods for managing Redis clusters.
 | [AddShard](#AddShard) | Creates a new shard. |
 | [DeleteShard](#DeleteShard) | Deletes the specified shard. |
 | [Rebalance](#Rebalance) | Rebalances the cluster. |
+| [EnableSharding](#EnableSharding) | Enable Sharding on non sharded cluster |
 
 ## Calls ClusterService {#calls}
 
@@ -2279,6 +2280,142 @@ hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values a
 
 
 ### MaintenanceOperation {#MaintenanceOperation11}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
+
+
+## EnableSharding {#EnableSharding}
+
+Enable Sharding on non sharded cluster
+
+**rpc EnableSharding ([EnableShardingClusterRequest](#EnableShardingClusterRequest)) returns ([operation.Operation](#Operation17))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[EnableShardingClusterMetadata](#EnableShardingClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster12)<br>
+
+### EnableShardingClusterRequest {#EnableShardingClusterRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the Redis cluster to return. The maximum string length in characters is 50.
+
+
+### Operation {#Operation17}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[EnableShardingClusterMetadata](#EnableShardingClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster12)>**<br>if operation finished successfully. 
+
+
+### EnableShardingClusterMetadata {#EnableShardingClusterMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br> 
+
+
+### Cluster {#Cluster12}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the Redis cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Redis cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
+description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
+monitoring[] | **[Monitoring](#Monitoring12)**<br>Description of monitoring systems relevant to the Redis cluster. 
+config | **[ClusterConfig](#ClusterConfig12)**<br>Configuration of the Redis cluster. 
+network_id | **string**<br> 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
+sharded | **bool**<br>Redis cluster mode on/off. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
+announce_hostnames | **bool**<br>Enable FQDN instead of ip 
+
+
+### Monitoring {#Monitoring12}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Redis cluster. 
+
+
+### ClusterConfig {#ClusterConfig12}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of Redis server software. 
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
+&nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
+&nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
+&nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources13)**<br>Resources allocated to Redis hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access12)**<br>Access policy to DB 
+redis | **[config.RedisConfigSet](#RedisConfigSet)**<br>Unified configuration of a Redis cluster. 
+
+
+### Resources {#Resources13}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access12}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+
+
+### MaintenanceWindow {#MaintenanceWindow12}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation12}
 
 Field | Description
 --- | ---

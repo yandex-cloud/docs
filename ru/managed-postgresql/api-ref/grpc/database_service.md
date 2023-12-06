@@ -121,7 +121,7 @@ database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the PostgreSQL database. 1-63 characters long. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+owner | **string**<br>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a [UserService.List](./user_service#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. Value must match the regular expression ` \|[a-zA-Z_]+.UTF-8\|C `.
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` \|[a-zA-Z_]+.UTF-8\|C `.
 extensions[] | **[Extension](#Extension2)**<br>PostgreSQL extensions to be enabled for the database. 

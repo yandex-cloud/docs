@@ -31,6 +31,7 @@ Aliases:
 	- [yc managed-redis cluster remove-labels](cluster/remove-labels.md) — Remove labels from Redis cluster
 	- [yc managed-redis cluster delete](cluster/delete.md) — Delete the specified Redis cluster
 	- [yc managed-redis cluster rebalance](cluster/rebalance.md) — Rebalance the specified Redis cluster
+	- [yc managed-redis cluster enable-sharding](cluster/enable-sharding.md) — Enable sharding on specified Redis cluster
 	- [yc managed-redis cluster backup](cluster/backup.md) — Create a backup for the specified Redis cluster
 	- [yc managed-redis cluster list-backups](cluster/list-backups.md) — List available backups for the specified Redis cluster
 	- [yc managed-redis cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified Redis cluster
@@ -70,5 +71,6 @@ Aliases:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

@@ -52,7 +52,7 @@ clusterId | <p>Required. ID of the cluster to create the user in.</p> <p>To get 
 Field | Description
 --- | ---
 userSpec | **object**<br><p>Required. Configuration of the user.</p> 
-userSpec.<br>name | **string**<br><p>Required. Name of the user.</p> <p>The maximum string length in characters is 32. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userSpec.<br>name | **string**<br><p>Required. Name of the user.</p> <p>The maximum string length in characters is 32. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 userSpec.<br>password | **string**<br><p>Required. Password of the user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpec.<br>permissions[] | **object**<br><p>Set of permissions granted to the user to access specific databases. One permission per database.</p> <p>When a permission for a database is set, the user will have access to the database.</p> 
 userSpec.<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 

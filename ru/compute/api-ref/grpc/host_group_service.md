@@ -50,7 +50,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
 status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -107,7 +107,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
 status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -146,7 +146,7 @@ description | **string**<br>Description of the group. The maximum string length 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 zone_id | **string**<br>Required. Availability zone where all dedicated hosts will be allocated. The maximum string length in characters is 50.
 type_id | **string**<br>Required. ID of host type. Resources provided by each host of the group. The maximum string length in characters is 50.
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -201,7 +201,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
 status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -224,7 +224,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -279,7 +279,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
 status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -415,6 +415,8 @@ network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources}

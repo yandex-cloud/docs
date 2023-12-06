@@ -122,10 +122,6 @@ content | **string** (byte)<br><p>Bytes with data</p>
         },
         "rowCount": "string",
         "columnCount": "string",
-        "textSegments": {
-          "startIndex": "string",
-          "length": "string"
-        },
         "cells": [
           {
             "boundingBox": {
@@ -141,10 +137,12 @@ content | **string** (byte)<br><p>Bytes with data</p>
             "columnSpan": "string",
             "rowSpan": "string",
             "text": "string",
-            "textSegments": {
-              "startIndex": "string",
-              "length": "string"
-            }
+            "textSegments": [
+              {
+                "startIndex": "string",
+                "length": "string"
+              }
+            ]
           }
         ]
       }
@@ -200,9 +198,6 @@ textAnnotation.<br>tables[].<br>boundingBox.<br>vertices[].<br>x | **string** (i
 textAnnotation.<br>tables[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
 textAnnotation.<br>tables[].<br>rowCount | **string** (int64)<br><p>Number of rows in table.</p> 
 textAnnotation.<br>tables[].<br>columnCount | **string** (int64)<br><p>Number of columns in table.</p> 
-textAnnotation.<br>tables[].<br>textSegments | **object**<br><p>Table position from full_text string.</p> 
-textAnnotation.<br>tables[].<br>textSegments.<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
-textAnnotation.<br>tables[].<br>textSegments.<br>length | **string** (int64)<br><p>Text segment length.</p> 
 textAnnotation.<br>tables[].<br>cells[] | **object**<br><p>Table cells.</p> 
 textAnnotation.<br>tables[].<br>cells[].<br>boundingBox | **object**<br><p>Area on the page where the table cell is located.</p> 
 textAnnotation.<br>tables[].<br>cells[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
@@ -213,8 +208,8 @@ textAnnotation.<br>tables[].<br>cells[].<br>columnIndex | **string** (int64)<br>
 textAnnotation.<br>tables[].<br>cells[].<br>columnSpan | **string** (int64)<br><p>Column span.</p> 
 textAnnotation.<br>tables[].<br>cells[].<br>rowSpan | **string** (int64)<br><p>Row span.</p> 
 textAnnotation.<br>tables[].<br>cells[].<br>text | **string**<br><p>Text in cell.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>textSegments | **object**<br><p>Table cell position from full_text string.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>textSegments.<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
-textAnnotation.<br>tables[].<br>cells[].<br>textSegments.<br>length | **string** (int64)<br><p>Text segment length.</p> 
+textAnnotation.<br>tables[].<br>cells[].<br>textSegments[] | **object**<br><p>Table cell position from full_text string.</p> 
+textAnnotation.<br>tables[].<br>cells[].<br>textSegments[].<br>startIndex | **string** (int64)<br><p>Start character position from full_text string.</p> 
+textAnnotation.<br>tables[].<br>cells[].<br>textSegments[].<br>length | **string** (int64)<br><p>Text segment length.</p> 
 textAnnotation.<br>fullText | **string**<br><p>Full text recognized from image.</p> 
 page | **string** (int64)<br><p>Page number in PDF file.</p> 

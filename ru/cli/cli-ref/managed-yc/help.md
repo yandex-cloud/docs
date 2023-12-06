@@ -26,6 +26,7 @@ Syntax:
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--no-user-output`|Disable printing user intended output to stderr.|
 |`--profile`|<b>`string`</b><br/>Set the custom configuration file.|
 |`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|

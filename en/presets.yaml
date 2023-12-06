@@ -4361,7 +4361,12 @@ default:
         settings: Organization information
         users: Users
     yacloud_portal:
+      acl:
+        common:
+          action_via-federation: Add federated user
       common:
+        action_add: Add
+        action_change: Change
         max: Maximum
         min: Minimum
         recommended: Recommended
@@ -4405,6 +4410,7 @@ default:
           version-table_action_create: Create version
       portal:
         products: Products
+        publisher-users: Access management
         support: Support
       subAccount:
         detail:

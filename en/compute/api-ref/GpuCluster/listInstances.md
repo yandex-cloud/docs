@@ -164,7 +164,9 @@ filter | <p>A filter expression that filters resources listed in the response. C
         "placementGroupPartition": "string"
       },
       "hostGroupId": "string",
-      "hostId": "string"
+      "hostId": "string",
+      "maintenancePolicy": "string",
+      "maintenanceGracePeriod": "string"
     }
   ],
   "nextPageToken": "string"
@@ -264,4 +266,6 @@ instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string*
 instances[].<br>placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
 instances[].<br>hostGroupId | **string**<br><p>ID of the dedicated host group that the instance belongs to.</p> 
 instances[].<br>hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
+instances[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
+instances[].<br>maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/GpuCluster/listInstances#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/GpuCluster/listInstances#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

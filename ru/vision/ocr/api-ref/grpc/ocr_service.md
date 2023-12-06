@@ -125,7 +125,6 @@ Field | Description
 bounding_box | **[Polygon](#Polygon1)**<br>Area on the page where the table is located. 
 row_count | **int64**<br>Number of rows in table. 
 column_count | **int64**<br>Number of columns in table. 
-text_segments | **[TextSegments](#TextSegments1)**<br>Table position from full_text string. 
 cells[] | **[TableCell](#TableCell)**<br>Table cells. 
 
 
@@ -139,6 +138,6 @@ column_index | **int64**<br>Column index.
 column_span | **int64**<br>Column span. 
 row_span | **int64**<br>Row span. 
 text | **string**<br>Text in cell. 
-text_segments | **[TextSegments](#TextSegments1)**<br>Table cell position from full_text string. 
+text_segments[] | **[TextSegments](#TextSegments1)**<br>Table cell position from full_text string. 
 
 

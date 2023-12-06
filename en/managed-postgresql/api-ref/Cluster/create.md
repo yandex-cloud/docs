@@ -5602,7 +5602,7 @@ configSpec.<br>postgresqlConfig_16_1C.<br>logReplicationCommands | **boolean** (
 configSpec.<br>postgresqlConfig_16_1C.<br>logAutovacuumMinDuration | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 databaseSpecs[] | **object**<br><p>Required. Descriptions of databases to be created in the PostgreSQL cluster.</p> 
 databaseSpecs[].<br>name | **string**<br><p>Required. Name of the PostgreSQL database. 1-63 characters long.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-databaseSpecs[].<br>owner | **string**<br><p>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a <a href="/docs/managed-postgresql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+databaseSpecs[].<br>owner | **string**<br><p>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a <a href="/docs/managed-postgresql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 databaseSpecs[].<br>lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> <p>Value must match the regular expression ``\|[a-zA-Z_]+.UTF-8\|C``.</p> 
 databaseSpecs[].<br>lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> <p>Value must match the regular expression ``\|[a-zA-Z_]+.UTF-8\|C``.</p> 
 databaseSpecs[].<br>extensions[] | **object**<br><p>PostgreSQL extensions to be enabled for the database.</p> 
@@ -5611,7 +5611,7 @@ databaseSpecs[].<br>extensions[].<br>version | **string**<br><p>Version of the e
 databaseSpecs[].<br>templateDb | **string**<br><p>Name of the PostgreSQL database template.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 databaseSpecs[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
 userSpecs[] | **object**<br><p>Required. Descriptions of database users to be created in the PostgreSQL cluster.</p> 
-userSpecs[].<br>name | **string**<br><p>Required. Name of the PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userSpecs[].<br>name | **string**<br><p>Required. Name of the PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 userSpecs[].<br>password | **string**<br><p>Required. Password of the PostgreSQL user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpecs[].<br>permissions[] | **object**<br><p>Set of permissions to grant to the user to access specific databases.</p> 
 userSpecs[].<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 

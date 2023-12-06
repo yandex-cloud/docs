@@ -18,7 +18,7 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{use
 Parameter | Description
 --- | ---
 clusterId | <p>Required. ID of the cluster to revoke permission from the user in.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-userName | <p>Required. Name of the user to revoke permission from.</p> <p>To get this name, make a <a href="/docs/managed-mysql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userName | <p>Required. Name of the user to revoke permission from.</p> <p>To get this name, make a <a href="/docs/managed-mysql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Body parameters {#body_params}
  

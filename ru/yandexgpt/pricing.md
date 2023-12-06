@@ -12,7 +12,7 @@ editable: false
 
 {% endnote %}
 
-## Из чего складывается стоимость использования {{ yagpt-name }} {#rules}
+## Из чего складывается стоимость использования {{ yagpt-full-name }} {#rules}
 
 ### Единица тарификации {#unit}
 
@@ -20,7 +20,7 @@ editable: false
 
 ### Генерация текста {#rules-generating}
 
-Стоимость генерации текста рассчитывается из суммарного количества токенов промта и ответа и зависит от параметров запроса к {{ yagpt-name }}. Следующие параметры влияют на стоимость генерации текста:
+Стоимость генерации текста рассчитывается из суммарного количества токенов промта и ответа и зависит от параметров запроса к {{ yagpt-full-name }}. Следующие параметры влияют на стоимость генерации текста:
 
 * модель, к которой приходит запрос;
 * режим работы модели. 
@@ -37,7 +37,7 @@ editable: false
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
 
-## Примеры расчета стоимости использования {{ yagpt-name }} {#price-examples}
+## Примеры расчета стоимости использования {{ yagpt-full-name }} {#price-examples}
 
 ### Пример расчета генерации текста {#price-example-generating}
 
@@ -102,7 +102,7 @@ editable: false
 
 ## Цены {#prices}
 
-### Генерация текста в {{ yagpt-name }} {#pricing-generating}
+### Генерация текста в {{ yagpt-full-name }} {#pricing-generating}
 
 
 {% include [rub-generating.md](../_pricing/yandexgpt/rub-generating.md) %}
@@ -110,7 +110,7 @@ editable: false
 
 
 
-### Векторизация текста в {{ yagpt-name }} {#pricing-embedding}
+### Векторизация текста в {{ yagpt-full-name }} {#pricing-embedding}
 
 
 {% include [rub-embedding.md](../_pricing/yandexgpt/rub-embedding.md) %}

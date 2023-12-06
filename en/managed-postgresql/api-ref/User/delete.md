@@ -18,7 +18,7 @@ DELETE https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/use
 Parameter | Description
 --- | ---
 clusterId | <p>Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a <a href="/docs/managed-postgresql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-userName | <p>Required. Name of the user to delete. To get the name of the user, use a <a href="/docs/managed-postgresql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userName | <p>Required. Name of the user to delete. To get the name of the user, use a <a href="/docs/managed-postgresql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

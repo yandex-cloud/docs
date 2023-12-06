@@ -1,4 +1,4 @@
-В [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) можно дообучить нейросеть [{{ yagpt-full-name }}](../../yandexgpt/concepts/index.md) на своих примерах, чтобы она точнее отражала специфику ваших задач. Для этого нужно подготовить файл с парами запросов и эталонных ответов и запустить дообучение.
+В [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) можно дообучить нейросеть [{{ yagpt-name }}](../../yandexgpt/concepts/index.md) на своих примерах, чтобы она точнее отражала специфику ваших задач. Для этого нужно подготовить файл с парами запросов и эталонных ответов и запустить дообучение.
 
 {% note info %}
 
@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Сервис {{ yagpt-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Доступ к сервису предоставляется по запросу.
+Сервис {{ yagpt-full-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
@@ -45,7 +45,7 @@
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} (опционально) {#create-sa}
 
-Обращаться к дообученной модели можно через интерфейс {{ ml-platform-name }} (Playground) или через API, с помощью кода. Если вы планируете делать запросы через API, вам понадобится сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md) `{{ roles-yagpt-user }}`. Сервисный аккаунт должен иметь доступ к {{ yagpt-name }} и быть участником проекта {{ ml-platform-name }}.
+Обращаться к дообученной модели можно через интерфейс {{ ml-platform-name }} (Playground) или через API, с помощью кода. Если вы планируете делать запросы через API, вам понадобится сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md) `{{ roles-yagpt-user }}`. Сервисный аккаунт должен быть участником проекта {{ ml-platform-name }}.
 
 {% list tabs %}
 

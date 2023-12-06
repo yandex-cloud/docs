@@ -22,7 +22,7 @@ items:
         href: tutorials/yagpt-tuning.md
   - name: Концепции
     items:
-      - name: О сервисе {{ yagpt-name }}
+      - name: О сервисе {{ yagpt-full-name }}
         href: concepts/index.md
       - name: Модели
         href: concepts/models.md
@@ -34,84 +34,98 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
+      - name: Foundation models API
+        items:
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: api-ref/v1/index.md
+              - name: TextGeneration
+                items:
+                  - name: Overview
+                    href: api-ref/v1/TextGeneration/index.md
+                  - name: completion
+                    href: api-ref/v1/TextGeneration/completion.md
+              - name: TextGenerationAsync
+                items:
+                  - name: Overview
+                    href: api-ref/v1/TextGenerationAsync/index.md
+                  - name: completion
+                    href: api-ref/v1/TextGenerationAsync/completion.md
+              - name: Tokenizer
+                items:
+                  - name: Overview
+                    href: api-ref/v1/Tokenizer/index.md
+                  - name: tokenize
+                    href: api-ref/v1/Tokenizer/tokenize.md
+                  - name: tokenizeCompletion
+                    href: api-ref/v1/Tokenizer/tokenizeCompletion.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: api-ref/v1/Embeddings/index.md
+                  - name: textEmbedding
+                    href: api-ref/v1/Embeddings/textEmbedding.md
+          - name: gRPC (англ.)
+            items:
+              - name: Overview
+                href: api-ref/v1/grpc/index.md
+              - name: TextGenerationService
+                href: api-ref/v1/grpc/foundation_models_service.md
+              - name: TextGenerationAsyncService
+                href: api-ref/v1/grpc/TextGenerationAsyncService.md
+              - name: TokenizerService
+                href: api-ref/v1/grpc/TokenizerService.md
+              - name: EmbeddingsService
+                href: api-ref/v1/grpc/EmbeddingsService.md
+              - name: OperationService
+                href: api-ref/v1/grpc/operation_service.md
       - name: API v1alpha (устревший)
         items:
           - name: REST (англ.)
             items:
               - name: Overview
-                href: api-ref/index.md
+                href: api-ref/v1alpha/index.md
               - name: TextGeneration
                 items:
                   - name: Overview
-                    href: api-ref/TextGeneration/index.md
+                    href: api-ref/v1alpha/TextGeneration/index.md
                   - name: chat
-                    href: api-ref/TextGeneration/chat.md
+                    href: api-ref/v1alpha/TextGeneration/chat.md
                   - name: instruct
-                    href: api-ref/TextGeneration/instruct.md
+                    href: api-ref/v1alpha/TextGeneration/instruct.md
               - name: Tokenizer
                 items:
                   - name: Overview
-                    href: api-ref/Tokenizer/index.md
+                    href: api-ref/v1alpha/Tokenizer/index.md
                   - name: tokenize
-                    href: api-ref/Tokenizer/tokenize.md
+                    href: api-ref/v1alpha/Tokenizer/tokenize.md
               - name: Embeddings
                 items:
                   - name: Overview
-                    href: api-ref/Embeddings/index.md
+                    href: api-ref/v1alpha/Embeddings/index.md
                   - name: embedding
-                    href: api-ref/Embeddings/embedding.md
+                    href: api-ref/v1alpha/Embeddings/embedding.md
               - name: TextGenerationAsync
                 items:
                   - name: Overview
-                    href: api-ref/TextGenerationAsync/index.md
+                    href: api-ref/v1alpha/TextGenerationAsync/index.md
                   - name: instruct
-                    href: api-ref/TextGenerationAsync/instruct.md
-      - name: Foundations models API
-        items:
-          - name: REST (англ.)
-            items:
-              - name: Overview
-                href: api-ref/index.md
-              - name: TextGeneration
-                items:
-                  - name: Overview
-                    href: api-ref/TextGeneration/index.md
-                  - name: completion
-                    href: api-ref/TextGeneration/completion.md
-              - name: TextGenerationAsync
-                items:
-                  - name: Overview
-                    href: api-ref/TextGenerationAsync/index.md
-                  - name: completion
-                    href: api-ref/TextGenerationAsync/completion.md
-              - name: Tokenizer
-                items:
-                  - name: Overview
-                    href: api-ref/Tokenizer/index.md
-                  - name: tokenize
-                    href: api-ref/Tokenizer/tokenize.md
-                  - name: tokenizeCompletion
-                    href: api-ref/Tokenizer/tokenizeCompletion.md
-              - name: Embeddings
-                items:
-                  - name: Overview
-                    href: api-ref/Embeddings/index.md
-                  - name: textEmbedding
-                    href: api-ref/Embeddings/textEmbedding.md
+                    href: api-ref/v1alpha/TextGenerationAsync/instruct.md
           - name: gRPC (англ.)
             items:
               - name: Overview
-                href: api-ref/grpc/index.md
+                href: api-ref/v1alpha/grpc/index.md
               - name: TextGenerationService
-                href: api-ref/grpc/llm_service.md
+                href: api-ref/v1alpha/grpc/llm_service.md
               - name: TokenizerService
-                href: api-ref/grpc/TokenizerService.md
+                href: api-ref/v1alpha/grpc/TokenizerService.md
               - name: EmbeddingsService
-                href: api-ref/grpc/EmbeddingsService.md
+                href: api-ref/v1alpha/grpc/EmbeddingsService.md
               - name: TextGenerationAsyncService
-                href: api-ref/grpc/TextGenerationAsyncService.md
+                href: api-ref/v1alpha/grpc/TextGenerationAsyncService.md
               - name: OperationService
-                href: api-ref/grpc/operation_service.md
+                href: api-ref/v1alpha/grpc/operation_service.md
   - name: Библиотека промтов
     items:
       - name: Все промты

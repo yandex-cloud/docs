@@ -1,0 +1,49 @@
+---
+editable: false
+sourcePath: en/_api-ref/ai/foundation_models/v1/api-ref/v1/Embeddings/textEmbedding.md
+---
+
+# Foundation Models API, REST: Embeddings.textEmbedding
+RPC method for obtaining embeddings from text data.
+ 
+
+ 
+## HTTP request {#https-request}
+```
+POST https://llm.{{ api-host }}/foundationModels/v1/textEmbedding
+```
+ 
+## Body parameters {#body_params}
+ 
+```json 
+{
+  "modelUri": "string",
+  "text": "string"
+}
+```
+Request for the service to obtain text embeddings.
+ 
+Field | Description
+--- | ---
+modelUri | **string**<br><p>The identifier of the model to be used for obtaining text embeddings.</p> 
+text | **string**<br><p>The input text for which the embedding is requested.</p> 
+ 
+## Response {#responses}
+**HTTP Code: 200 - OK**
+
+```json 
+{
+  "embedding": [
+    "number"
+  ],
+  "numTokens": "string",
+  "modelVersion": "string"
+}
+```
+Response containing generated text embedding.
+ 
+Field | Description
+--- | ---
+embedding[] | **number** (double)<br><p>A repeated list of double values representing the embedding.</p> 
+numTokens | **string** (int64)<br><p>The number of tokens in the input text.</p> 
+modelVersion | **string**<br><p>Model version (changes with model releases).</p> 
