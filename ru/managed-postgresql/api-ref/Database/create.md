@@ -45,7 +45,7 @@ Field | Description
 --- | ---
 databaseSpec | **object**<br><p>Required. Configuration of the database to create.</p> 
 databaseSpec.<br>name | **string**<br><p>Required. Name of the PostgreSQL database. 1-63 characters long.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-databaseSpec.<br>owner | **string**<br><p>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a <a href="/docs/managed-postgresql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+databaseSpec.<br>owner | **string**<br><p>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a <a href="/docs/managed-postgresql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 databaseSpec.<br>lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> <p>Value must match the regular expression ``\|[a-zA-Z_]+.UTF-8\|C``.</p> 
 databaseSpec.<br>lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> <p>Value must match the regular expression ``\|[a-zA-Z_]+.UTF-8\|C``.</p> 
 databaseSpec.<br>extensions[] | **object**<br><p>PostgreSQL extensions to be enabled for the database.</p> 

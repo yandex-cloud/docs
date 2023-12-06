@@ -38,7 +38,6 @@ Syntax:
 |`--yandexquery-access`|Allow access for Yandex Query|
 |`--version`|<b>`string`</b><br/>Version of the ClickHouse server software.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
-|`--cloud-storage`|Whether to use Yandex Object Storage for storing ClickHouse data.|
 |`--cloud-storage-move-factor`|<b>`float`</b><br/>When to move data to Yandex Object Storage.|
 |`--cloud-storage-data-cache`|Whether to use cache for data on Yandex Object Storage.|
 |`--cloud-storage-data-cache-max-size`|<b>`int`</b><br/>Limit for cache for data on Yandex Object Storage.|
@@ -49,6 +48,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of labels as key-value pairs to add for the cluster being restored.|
 |`--service-account`|<b>`string`</b><br/>Service account for the ClickHouse cluster being restored.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the ClickHouse cluster.|
+|`--cloud-storage`|Whether to use Yandex Object Storage for storing ClickHouse data.|
 |`--admin-password`|<b>`string`</b><br/>Password for entity. Usage of --read-admin-password is more secure|
 |`--read-admin-password`|Read password for entity from input|
 |`--generate-admin-password`|Generate random password|
@@ -68,5 +68,6 @@ Syntax:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

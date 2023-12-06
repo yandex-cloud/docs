@@ -60,7 +60,9 @@ instanceId | <p>Required. ID of the Instance resource to update. To get the inst
   },
   "schedulingPolicy": {
     "preemptible": true
-  }
+  },
+  "maintenancePolicy": "string",
+  "maintenanceGracePeriod": "string"
 }
 ```
 
@@ -95,6 +97,8 @@ placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity
 placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
+maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
+maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> <p>Acceptable values are 1 seconds to 86400 seconds, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

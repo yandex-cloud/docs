@@ -16,6 +16,16 @@
 * Минимум — 25% от объема RAM на хосте.
 * Максимум — 85% от объема RAM на хосте при условии, что остается не менее 1-1,6 ГБ свободной памяти для выполнения запросов, мониторинга и системных процессов.
 
+#### Как отключить строгий режим Innodb? {#innodb-strict-mode}
+
+По умолчанию [строгий режим Innodb](../../managed-mysql/concepts/settings-list.md#setting-strict-mode) включен. Если отключать режим средствами {{ MY }}, возникнет ошибка:
+
+```text
+Mysql query error: (1227) Access denied; you need (at least one of) the SYSTEM_VARIABLES_ADMIN or SESSION_VARIABLES_ADMIN privilege(s) for this operation (400)
+```
+
+Чтобы отключить строгий режим, измените значение параметра `innodb_strict_mode` с помощью [интерфейсов {{ yandex-cloud }}](../../managed-mysql/operations/update.md#change-mysql-config). Также убедитесь, что в вашей конфигурации не осталось команды, отключающей строгий режим, например `$connection–>queryExecute("SET innodb_strict_mode=0");`.
+
 #### Как изменить набор символов и правила их сравнения (CHARACTER SET, COLLATE)? {#character-collate}
 
 Воспользуйтесь инструкцией в разделе [Управление базами данных](../../managed-mysql/operations/databases.md#charset-collate).

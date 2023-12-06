@@ -246,7 +246,10 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
           },
           // end of the list of possible fields`source.settings.kafkaSource.parser`
 
-        }
+        },
+        "topicNames": [
+          "string"
+        ]
       },
       "mongoSource": {
         "connection": {
@@ -470,7 +473,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
         ],
         "sharding": {
 
-          // `source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`
+          // `source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`
           "columnValueHash": {
             "columnName": "string"
           },
@@ -486,6 +489,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
             ]
           },
           "transferId": "object",
+          "roundRobin": "object",
           // end of the list of possible fields`source.settings.clickhouseTarget.sharding`
 
         },
@@ -501,7 +505,8 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
           "string"
         ],
         "saKeyContent": "string",
-        "cleanupPolicy": "string"
+        "cleanupPolicy": "string",
+        "isTableColumnOriented": true
       },
       "kafkaTarget": {
         "connection": {
@@ -848,7 +853,10 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
           },
           // end of the list of possible fields`target.settings.kafkaSource.parser`
 
-        }
+        },
+        "topicNames": [
+          "string"
+        ]
       },
       "mongoSource": {
         "connection": {
@@ -1072,7 +1080,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
         ],
         "sharding": {
 
-          // `target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`
+          // `target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`
           "columnValueHash": {
             "columnName": "string"
           },
@@ -1088,6 +1096,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
             ]
           },
           "transferId": "object",
+          "roundRobin": "object",
           // end of the list of possible fields`target.settings.clickhouseTarget.sharding`
 
         },
@@ -1103,7 +1112,8 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
           "string"
         ],
         "saKeyContent": "string",
-        "cleanupPolicy": "string"
+        "cleanupPolicy": "string",
+        "isTableColumnOriented": true
       },
       "kafkaTarget": {
         "connection": {
@@ -1330,7 +1340,7 @@ source.<br>settings.<br>kafkaSource.<br>auth.<br>sasl.<br>password.<br>raw | **s
 source.<br>settings.<br>kafkaSource.<br>auth.<br>sasl.<br>mechanism | **string**<br><p>SASL mechanism for authentication</p> 
 source.<br>settings.<br>kafkaSource.<br>auth.<br>noAuth | **object**<br>No authentication <br>`source.settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`<br>
 source.<br>settings.<br>kafkaSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-source.<br>settings.<br>kafkaSource.<br>topicName | **string**<br><p>Full source topic name</p> 
+source.<br>settings.<br>kafkaSource.<br>topicName | **string**<br><p>Full source topic name Deprecated in favor of topic names</p> 
 source.<br>settings.<br>kafkaSource.<br>transformer | **object**<br><p>Data transformation rules</p> 
 source.<br>settings.<br>kafkaSource.<br>transformer.<br>cloudFunction | **string**<br><p>Cloud function</p> 
 source.<br>settings.<br>kafkaSource.<br>transformer.<br>serviceAccountId | **string**<br><p>Service account</p> 
@@ -1365,6 +1375,7 @@ source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br
 source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`source.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 source.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
+source.<br>settings.<br>kafkaSource.<br>topicNames[] | **string**<br><p>List of topic names to read</p> 
 source.<br>settings.<br>mongoSource | **object** <br>`source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`<br>
 source.<br>settings.<br>mongoSource.<br>connection | **object**
 source.<br>settings.<br>mongoSource.<br>connection.<br>connectionOptions | **object**
@@ -1480,16 +1491,18 @@ source.<br>settings.<br>clickhouseTarget.<br>altNames[] | **object**<br><p>Alter
 source.<br>settings.<br>clickhouseTarget.<br>altNames[].<br>fromName | **string**<br><p>Source table name</p> 
 source.<br>settings.<br>clickhouseTarget.<br>altNames[].<br>toName | **string**<br><p>Target table name</p> 
 source.<br>settings.<br>clickhouseTarget.<br>sharding | **object**
-source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br>
+source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br>
 source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash.<br>columnName | **string**
-source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br>
+source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br>
 source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>columnName | **string**
 source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[] | **object**
 source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue | **object**
 source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue.<br>stringValue | **string**
 source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>shardName | **string**
-source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
-source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
+source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
+source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
+source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
+source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin.<br>roundRobin | **object** <br>`source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 source.<br>settings.<br>clickhouseTarget.<br>cleanupPolicy | **string**
 source.<br>settings.<br>ydbTarget | **object** <br>`source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`<br>
 source.<br>settings.<br>ydbTarget.<br>database | **string**<br><p>Path in YDB where to store tables</p> 
@@ -1500,6 +1513,7 @@ source.<br>settings.<br>ydbTarget.<br>subnetId | **string**<br><p>Network interf
 source.<br>settings.<br>ydbTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 source.<br>settings.<br>ydbTarget.<br>saKeyContent | **string**<br><p>SA content</p> 
 source.<br>settings.<br>ydbTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> 
+source.<br>settings.<br>ydbTarget.<br>isTableColumnOriented | **boolean** (boolean)<br><p>Should create column-oriented table (OLAP). By default it creates row-oriented (OLTP)</p> 
 source.<br>settings.<br>kafkaTarget | **object** <br>`source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`<br>
 source.<br>settings.<br>kafkaTarget.<br>connection | **object**<br><p>Connection settings</p> 
 source.<br>settings.<br>kafkaTarget.<br>connection.<br>clusterId | **string** <br>`source.settings.kafkaTarget.connection` includes only one of the fields `clusterId`, `onPremise`<br><br><p>Managed Service for Kafka cluster ID</p> 
@@ -1652,7 +1666,7 @@ target.<br>settings.<br>kafkaSource.<br>auth.<br>sasl.<br>password.<br>raw | **s
 target.<br>settings.<br>kafkaSource.<br>auth.<br>sasl.<br>mechanism | **string**<br><p>SASL mechanism for authentication</p> 
 target.<br>settings.<br>kafkaSource.<br>auth.<br>noAuth | **object**<br>No authentication <br>`target.settings.kafkaSource.auth` includes only one of the fields `sasl`, `noAuth`<br>
 target.<br>settings.<br>kafkaSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
-target.<br>settings.<br>kafkaSource.<br>topicName | **string**<br><p>Full source topic name</p> 
+target.<br>settings.<br>kafkaSource.<br>topicName | **string**<br><p>Full source topic name Deprecated in favor of topic names</p> 
 target.<br>settings.<br>kafkaSource.<br>transformer | **object**<br><p>Data transformation rules</p> 
 target.<br>settings.<br>kafkaSource.<br>transformer.<br>cloudFunction | **string**<br><p>Cloud function</p> 
 target.<br>settings.<br>kafkaSource.<br>transformer.<br>serviceAccountId | **string**<br><p>Service account</p> 
@@ -1687,6 +1701,7 @@ target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br
 target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>dataSchema.<br>jsonFields | **string** <br>`target.settings.kafkaSource.parser.tskvParser.dataSchema` includes only one of the fields `fields`, `jsonFields`<br>
 target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>nullKeysAllowed | **boolean** (boolean)<br><p>Allow null keys, if no - null keys will be putted to unparsed data</p> 
 target.<br>settings.<br>kafkaSource.<br>parser.<br>tskvParser.<br>addRestColumn | **boolean** (boolean)<br><p>Will add _rest column for all unknown fields</p> 
+target.<br>settings.<br>kafkaSource.<br>topicNames[] | **string**<br><p>List of topic names to read</p> 
 target.<br>settings.<br>mongoSource | **object** <br>`target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`<br>
 target.<br>settings.<br>mongoSource.<br>connection | **object**
 target.<br>settings.<br>mongoSource.<br>connection.<br>connectionOptions | **object**
@@ -1802,16 +1817,18 @@ target.<br>settings.<br>clickhouseTarget.<br>altNames[] | **object**<br><p>Alter
 target.<br>settings.<br>clickhouseTarget.<br>altNames[].<br>fromName | **string**<br><p>Source table name</p> 
 target.<br>settings.<br>clickhouseTarget.<br>altNames[].<br>toName | **string**<br><p>Target table name</p> 
 target.<br>settings.<br>clickhouseTarget.<br>sharding | **object**
-target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br>
+target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br>
 target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash.<br>columnName | **string**
-target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br>
+target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br>
 target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>columnName | **string**
 target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[] | **object**
 target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue | **object**
 target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue.<br>stringValue | **string**
 target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>shardName | **string**
-target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
-target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
+target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
+target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
+target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
+target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>roundRobin.<br>roundRobin | **object** <br>`target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`<br><br><p>Empty JSON object ``{}``.</p> 
 target.<br>settings.<br>clickhouseTarget.<br>cleanupPolicy | **string**
 target.<br>settings.<br>ydbTarget | **object** <br>`target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`<br>
 target.<br>settings.<br>ydbTarget.<br>database | **string**<br><p>Path in YDB where to store tables</p> 
@@ -1822,6 +1839,7 @@ target.<br>settings.<br>ydbTarget.<br>subnetId | **string**<br><p>Network interf
 target.<br>settings.<br>ydbTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 target.<br>settings.<br>ydbTarget.<br>saKeyContent | **string**<br><p>SA content</p> 
 target.<br>settings.<br>ydbTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> 
+target.<br>settings.<br>ydbTarget.<br>isTableColumnOriented | **boolean** (boolean)<br><p>Should create column-oriented table (OLAP). By default it creates row-oriented (OLTP)</p> 
 target.<br>settings.<br>kafkaTarget | **object** <br>`target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`<br>
 target.<br>settings.<br>kafkaTarget.<br>connection | **object**<br><p>Connection settings</p> 
 target.<br>settings.<br>kafkaTarget.<br>connection.<br>clusterId | **string** <br>`target.settings.kafkaTarget.connection` includes only one of the fields `clusterId`, `onPremise`<br><br><p>Managed Service for Kafka cluster ID</p> 

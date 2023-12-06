@@ -163,7 +163,9 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
         "placementGroupPartition": "string"
       },
       "hostGroupId": "string",
-      "hostId": "string"
+      "hostId": "string",
+      "maintenancePolicy": "string",
+      "maintenanceGracePeriod": "string"
     }
   ],
   "nextPageToken": "string"
@@ -263,4 +265,6 @@ instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string*
 instances[].<br>placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
 instances[].<br>hostGroupId | **string**<br><p>ID of the dedicated host group that the instance belongs to.</p> 
 instances[].<br>hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
+instances[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
+instances[].<br>maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is more than <a href="/docs/compute/api-ref/PlacementGroup/listInstances#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/PlacementGroup/listInstances#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/PlacementGroup/listInstances#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/PlacementGroup/listInstances#responses">nextPageToken</a> to continue paging through the results.</p> 

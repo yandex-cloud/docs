@@ -33,6 +33,8 @@ Syntax:
 |`--platform`|<b>`string`</b><br/>Specifies platform for the instance.|
 |`--network-settings`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Network settings for the instance.<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     Type of a network for virtual machine instance. Values: standard, software-accelerated</li> </ul>|
 |`--preemptible`|Specifies whether instance preemptible or not|
+|`--maintenance-policy`|<b>`string`</b><br/>Behaviour on maintenance events. Values: 'restart', 'migrate'|
+|`--maintenance-grace-period`|<b>`duration`</b><br/>Time between notification via metadata service and maintenance.|
 |`--placement-group-id`|<b>`string`</b><br/>Placement group to add the instance to (use an empty string to remove the instance from placement group).|
 |`--placement-group-name`|<b>`string`</b><br/>Placement group to add the instance to (use an empty string to remove the instance from placement group).|
 |`--placement-group-partition`|<b>`int`</b><br/>Specifies placement group partition for the instance.|
@@ -58,5 +60,6 @@ Syntax:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

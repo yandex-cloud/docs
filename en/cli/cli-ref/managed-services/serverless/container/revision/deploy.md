@@ -38,6 +38,7 @@ Syntax:
 |`--network-id`|<b>`string`</b><br/>Network id to be used in new revision.|
 |`--network-name`|<b>`string`</b><br/>Network name to be used in new revision.|
 |`--subnets`|<b>`value[,value]`</b><br/>Specifies the subnets for the revision. Can use subnet names or subnet ids, or both.<br/><br/>Example: `--subnets=id1,id2 --subnets=name3'.|
+|`--storage-mounts`|<b>`mount-point-path=/data,bucket=user-bucket,read-only=false`</b><br/>Storage mounts. Example: mount-point-path=/data,bucket=user-bucket,read-only=false<br/><br/>Possible property names:<br/><ul> <li><code>mount-point-path</code>:     Mount point path is used for binding the storage bucket with a directory inside the serverless container.</li> <li><code>bucket</code>:     Specifies a name of the bucket mount to.</li> <li><code>prefix</code>:     Specifies a prefix of the bucket. Leave empty to mount the entire bucket.</li> <li><code>read-only</code>:     Select to mount bucket in read only mode.</li> </ul>|
 |`--no-logging`|Disable logging from container.|
 |`--log-group-id`|<b>`string`</b><br/>Send logs to custom log group by id.|
 |`--log-group-name`|<b>`string`</b><br/>Send logs to custom log group by name.|
@@ -60,5 +61,6 @@ Syntax:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

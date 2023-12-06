@@ -39,6 +39,7 @@ Syntax:
 |`--subnet-id`|<b>`value[,value]`</b><br/>Version subnet ids.|
 |`--add-service-account`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Adds a named service account to the version. Can be used multiple times.<br/><br/>Possible property names:<br/><ul> <li><code>alias</code>:     Specifies an alias, through which the service account can be accessed.</li> <li><code>id</code>:     Service account id</li> <li><code>name</code>:     Service account name.</li> </ul>|
 |`--secret`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Version secret.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Specifies the secret name</li> <li><code>id</code>:     Specifies the secret id</li> <li><code>version-id</code>:     Specifies the secret version id. If not provided, current version of the secret will be used.</li> <li><code>key</code>:     Specifies key of the entry in the secret to use.</li> <li><code>environment-variable</code>:     Specifies environment variable name that the secret value will be loaded to.</li> </ul>|
+|`--storage-mounts`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Storage mounts. Example: mount-point=dir,bucket=user-bucket,read-only=false<br/><br/>Possible property names:<br/><ul> <li><code>mount-point</code>:     Mount point is used for creating the directory to which the bucket is mounted. It will be accessible by the path /function/storage/&lt;mount_point&gt;.</li> <li><code>bucket</code>:     Specifies a name of the bucket mount to.</li> <li><code>prefix</code>:     Specifies a prefix of the bucket. Leave empty to mount the entire bucket.</li> <li><code>read-only</code>:     Select to mount bucket in read only mode.</li> </ul>|
 |`--no-logging`|Disable logging from function.|
 |`--log-group-id`|<b>`string`</b><br/>Send logs to custom log group by id.|
 |`--log-group-name`|<b>`string`</b><br/>Send logs to custom log group by name.|
@@ -67,5 +68,6 @@ Syntax:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

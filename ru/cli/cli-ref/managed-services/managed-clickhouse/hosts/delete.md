@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/hosts/delete
 
 # yc managed-clickhouse hosts delete
 
-Remove specified hosts from the a cluster.
+Remove specified hosts from the cluster.
 
 #### Command Usage
 
@@ -36,5 +36,6 @@ Syntax:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

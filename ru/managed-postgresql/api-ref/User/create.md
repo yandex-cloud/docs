@@ -59,7 +59,7 @@ clusterId | <p>Required. ID of the PostgreSQL cluster to create a user in. To ge
 Field | Description
 --- | ---
 userSpec | **object**<br><p>Required. Properties of the user to be created.</p> 
-userSpec.<br>name | **string**<br><p>Required. Name of the PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userSpec.<br>name | **string**<br><p>Required. Name of the PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 userSpec.<br>password | **string**<br><p>Required. Password of the PostgreSQL user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpec.<br>permissions[] | **object**<br><p>Set of permissions to grant to the user to access specific databases.</p> 
 userSpec.<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 

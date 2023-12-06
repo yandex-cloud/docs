@@ -6,7 +6,7 @@
 
 ## II квартал 2023 {#q2-2023}
 
-* Доступны новые версии {{ MY }} [5.7.39](https://docs.percona.com/percona-server/5.7/release-notes/Percona-Server-5.7.39-42.html) и [8.0.30](https://docs.percona.com/percona-server/8.0/release-notes/8.0.30-22.upd.html).
+* Доступны новые версии {{ MY }} [5.7.39](https://docs.percona.com/percona-server/5.7/release-notes/release-notes_index.html) и [8.0.30](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html).
 * В версии {{ MY }} 5.7 добавлена возможность анализа запросов при помощи `query_response_time_stats`. Подробнее см. в [документации Percona](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
 * Добавлены новые глобальные разрешения для пользователей `FLUSH_OPTIMIZER_COSTS` и `SHOW_ROUTINE`.
 

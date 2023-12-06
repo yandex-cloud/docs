@@ -147,6 +147,8 @@ items:
                 href: api-ref/Cluster/deleteHosts.md
               - name: deleteShard
                 href: api-ref/Cluster/deleteShard.md
+              - name: enableSharding
+                href: api-ref/Cluster/enableSharding.md
               - name: get
                 href: api-ref/Cluster/get.md
               - name: getShard

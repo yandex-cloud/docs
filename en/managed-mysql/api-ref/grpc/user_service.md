@@ -32,7 +32,7 @@ Retrieves information about the specified user.
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster the user belongs to. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to return information about. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user_name | **string**<br>Required. Name of the user to return information about. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### User {#User}
@@ -140,7 +140,7 @@ user_spec | **[UserSpec](#UserSpec)**<br>Required. Configuration of the user.
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+name | **string**<br>Required. Name of the user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 password | **string**<br>Required. Password of the user. The string length in characters must be 8-128.
 permissions[] | **[Permission](#Permission2)**<br>Set of permissions granted to the user to access specific databases. One permission per database. <br>When a permission for a database is set, the user will have access to the database. 
 global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><li>`FLUSH_OPTIMIZER_COSTS`: Enables use of the `FLUSH OPTIMIZER_COSTS` statement.</li><li>`SHOW_ROUTINE`: Enables a user to access definitions and properties of all stored routines (stored procedures and functions), even those for which the user is not named as the routine DEFINER. This access includes: The contents of the Information Schema `ROUTINES` table. The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements. The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements. The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.</li></ul>
@@ -217,7 +217,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to update the user in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to update. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user_name | **string**<br>Required. Name of the user to update. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which settings of the user should be updated. 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
 permissions[] | **[Permission](#Permission3)**<br>A new set of permissions that should be granted to the user. 
@@ -295,7 +295,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to delete the user from. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to delete. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user_name | **string**<br>Required. Name of the user to delete. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation2}
@@ -337,7 +337,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to grant permission to the user in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to grant permission to. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user_name | **string**<br>Required. Name of the user to grant permission to. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 permission | **[Permission](#Permission4)**<br>Required. Permission that should be granted to the specified user. 
 
 
@@ -410,7 +410,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to revoke permission from the user in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to revoke permission from. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user_name | **string**<br>Required. Name of the user to revoke permission from. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 permission | **[Permission](#Permission5)**<br>Required. Permission that should be revoked from the user. 
 
 

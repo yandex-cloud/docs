@@ -244,6 +244,9 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
               },
               "collectionConfig": {
                 "blockCompressor": "string"
+              },
+              "indexConfig": {
+                "prefixCompression": true
               }
             },
             "journal": {
@@ -252,10 +255,19 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "integer"
+            "slowOpThreshold": "integer",
+            "slowOpSampleRate": "number"
           },
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
+          },
+          "setParameter": {
+            "enableFlowControl": true
           }
         },
         "resources": {
@@ -290,7 +302,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongos": {
         "config": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "resources": {
@@ -302,7 +319,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongoinfra": {
         "configMongos": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "configMongocfg": {
@@ -338,6 +360,9 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
               },
               "collectionConfig": {
                 "blockCompressor": "string"
+              },
+              "indexConfig": {
+                "prefixCompression": true
               }
             },
             "journal": {
@@ -346,10 +371,19 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "integer"
+            "slowOpThreshold": "integer",
+            "slowOpSampleRate": "number"
           },
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
+          },
+          "setParameter": {
+            "enableFlowControl": true
           }
         },
         "resources": {
@@ -384,7 +418,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongos": {
         "config": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "resources": {
@@ -396,7 +435,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongoinfra": {
         "configMongos": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "configMongocfg": {
@@ -432,6 +476,9 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
               },
               "collectionConfig": {
                 "blockCompressor": "string"
+              },
+              "indexConfig": {
+                "prefixCompression": true
               }
             },
             "journal": {
@@ -440,10 +487,19 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "integer"
+            "slowOpThreshold": "integer",
+            "slowOpSampleRate": "number"
           },
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
+          },
+          "setParameter": {
+            "enableFlowControl": true
           }
         },
         "resources": {
@@ -478,7 +534,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongos": {
         "config": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "resources": {
@@ -490,7 +551,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongoinfra": {
         "configMongos": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "configMongocfg": {
@@ -526,6 +592,9 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
               },
               "collectionConfig": {
                 "blockCompressor": "string"
+              },
+              "indexConfig": {
+                "prefixCompression": true
               }
             },
             "journal": {
@@ -534,10 +603,19 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "integer"
+            "slowOpThreshold": "integer",
+            "slowOpSampleRate": "number"
           },
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
+          },
+          "setParameter": {
+            "enableFlowControl": true
           }
         },
         "resources": {
@@ -572,7 +650,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongos": {
         "config": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "resources": {
@@ -584,7 +667,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongoinfra": {
         "configMongos": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "configMongocfg": {
@@ -620,6 +708,9 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
               },
               "collectionConfig": {
                 "blockCompressor": "string"
+              },
+              "indexConfig": {
+                "prefixCompression": true
               }
             },
             "journal": {
@@ -628,10 +719,16 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "integer"
+            "slowOpThreshold": "integer",
+            "slowOpSampleRate": "number"
           },
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           },
           "security": {
             "enableEncryption": true,
@@ -647,7 +744,8 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
             "filter": "string"
           },
           "setParameter": {
-            "auditAuthorizationSuccess": true
+            "auditAuthorizationSuccess": true,
+            "enableFlowControl": true
           }
         },
         "resources": {
@@ -682,7 +780,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongos": {
         "config": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "resources": {
@@ -694,7 +797,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongoinfra": {
         "configMongos": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "configMongocfg": {
@@ -730,6 +838,9 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
               },
               "collectionConfig": {
                 "blockCompressor": "string"
+              },
+              "indexConfig": {
+                "prefixCompression": true
               }
             },
             "journal": {
@@ -738,10 +849,16 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "integer"
+            "slowOpThreshold": "integer",
+            "slowOpSampleRate": "number"
           },
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           },
           "security": {
             "enableEncryption": true,
@@ -758,7 +875,8 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
             "runtimeConfiguration": true
           },
           "setParameter": {
-            "auditAuthorizationSuccess": true
+            "auditAuthorizationSuccess": true,
+            "enableFlowControl": true
           }
         },
         "resources": {
@@ -793,7 +911,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongos": {
         "config": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "resources": {
@@ -805,7 +928,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongoinfra": {
         "configMongos": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "configMongocfg": {
@@ -841,6 +969,9 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
               },
               "collectionConfig": {
                 "blockCompressor": "string"
+              },
+              "indexConfig": {
+                "prefixCompression": true
               }
             },
             "journal": {
@@ -849,10 +980,16 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "integer"
+            "slowOpThreshold": "integer",
+            "slowOpSampleRate": "number"
           },
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           },
           "security": {
             "enableEncryption": true,
@@ -869,7 +1006,8 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
             "runtimeConfiguration": true
           },
           "setParameter": {
-            "auditAuthorizationSuccess": true
+            "auditAuthorizationSuccess": true,
+            "enableFlowControl": true
           }
         },
         "resources": {
@@ -904,7 +1042,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongos": {
         "config": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "resources": {
@@ -916,7 +1059,12 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to update. To get th
       "mongoinfra": {
         "configMongos": {
           "net": {
-            "maxIncomingConnections": "integer"
+            "maxIncomingConnections": "integer",
+            "compression": {
+              "compressors": [
+                "string"
+              ]
+            }
           }
         },
         "configMongocfg": {
@@ -1116,13 +1264,20 @@ configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig | **object**<br><p>Collection configuration for WiredTiger.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig.<br>blockCompressor | **string**<br><p>Default type of compression to use for collection data.</p> <ul> <li>NONE: No compression.</li> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig | **object**<br><p>Index configuration for WiredTiger</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig.<br>prefixCompression | **boolean** (boolean)<br><p>Enables or disables <a href="https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression">prefix compression</a></p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>journal | **object**<br><p>Configuration of the MongoDB <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-journal">journal</a>.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>journal.<br>commitInterval | **integer** (int64)<br><p>Commit interval between journal operations, in milliseconds. Default: 100.</p> <p>Acceptable values are 1 to 500, inclusive.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>operationProfiling | **object**<br><p>``operationProfiling`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of ``slowOpThreshold``.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpSampleRate | **number** (double)<br><p>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>net | **object**<br><p>``net`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongod will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``replication`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>setParameter.<br>enableFlowControl | **boolean** (boolean)<br><p>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members <a href="https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime">majority committed</a> lag under a configurable maximum value.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1146,6 +1301,8 @@ configSpec.<br>mongodbSpec_4_2.<br>mongos | **object**<br><p>Configuration and r
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 4.2 hosts.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources | **object**<br><p>Resources allocated to each mongos host.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1154,6 +1311,8 @@ configSpec.<br>mongodbSpec_4_2.<br>mongoinfra | **object**<br><p>Configuration a
 configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 4.2 hosts.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongos.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongos.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg | **object**
 configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p>``storage`` section of mongocfg configuration.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -1177,13 +1336,20 @@ configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>storage.<br>wiredTiger.
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig | **object**<br><p>Collection configuration for WiredTiger.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig.<br>blockCompressor | **string**<br><p>Default type of compression to use for collection data.</p> <ul> <li>NONE: No compression.</li> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.4/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig | **object**<br><p>Index configuration for WiredTiger</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig.<br>prefixCompression | **boolean** (boolean)<br><p>Enables or disables <a href="https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression">prefix compression</a></p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>storage.<br>journal | **object**<br><p>Configuration of the MongoDB <a href="https://docs.mongodb.com/v4.4/reference/glossary/#term-journal">journal</a>.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>storage.<br>journal.<br>commitInterval | **integer** (int64)<br><p>Commit interval between journal operations, in milliseconds. Default: 100.</p> <p>Acceptable values are 1 to 500, inclusive.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>operationProfiling | **object**<br><p>``operationProfiling`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of ``slowOpThreshold``.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpSampleRate | **number** (double)<br><p>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>net | **object**<br><p>``net`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongod will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``replication`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>config.<br>setParameter.<br>enableFlowControl | **boolean** (boolean)<br><p>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members <a href="https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime">majority committed</a> lag under a configurable maximum value.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1207,6 +1373,8 @@ configSpec.<br>mongodbSpec_4_4.<br>mongos | **object**<br><p>Configuration and r
 configSpec.<br>mongodbSpec_4_4.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 4.4 hosts.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongos.<br>config.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongos.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongos.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongos.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_4_4.<br>mongos.<br>resources | **object**<br><p>Resources allocated to each mongos host.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1215,6 +1383,8 @@ configSpec.<br>mongodbSpec_4_4.<br>mongoinfra | **object**<br><p>Configuration a
 configSpec.<br>mongodbSpec_4_4.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 4.4 hosts.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongoinfra.<br>configMongos.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_4.<br>mongoinfra.<br>configMongos.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_4_4.<br>mongoinfra.<br>configMongocfg | **object**
 configSpec.<br>mongodbSpec_4_4.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p>``storage`` section of mongocfg configuration.</p> 
 configSpec.<br>mongodbSpec_4_4.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -1238,13 +1408,20 @@ configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig | **object**<br><p>Collection configuration for WiredTiger.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig.<br>blockCompressor | **string**<br><p>Default type of compression to use for collection data.</p> <ul> <li>NONE: No compression.</li> <li>SNAPPY: The <a href="https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v5.0/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig | **object**<br><p>Index configuration for WiredTiger</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig.<br>prefixCompression | **boolean** (boolean)<br><p>Enables or disables <a href="https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression">prefix compression</a></p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>storage.<br>journal | **object**<br><p>Configuration of the MongoDB <a href="https://docs.mongodb.com/v5.0/reference/glossary/#term-journal">journal</a>.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>storage.<br>journal.<br>commitInterval | **integer** (int64)<br><p>Commit interval between journal operations, in milliseconds. Default: 100.</p> <p>Acceptable values are 1 to 500, inclusive.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>operationProfiling | **object**<br><p>``operationProfiling`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of ``slowOpThreshold``.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpSampleRate | **number** (double)<br><p>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>net | **object**<br><p>``net`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongod will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>config.<br>setParameter.<br>enableFlowControl | **boolean** (boolean)<br><p>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members <a href="https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime">majority committed</a> lag under a configurable maximum value.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1268,6 +1445,8 @@ configSpec.<br>mongodbSpec_5_0.<br>mongos | **object**<br><p>Configuration and r
 configSpec.<br>mongodbSpec_5_0.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 5.0 hosts.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongos.<br>config.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongos.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongos.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongos.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_5_0.<br>mongos.<br>resources | **object**<br><p>Resources allocated to each mongos host.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1276,6 +1455,8 @@ configSpec.<br>mongodbSpec_5_0.<br>mongoinfra | **object**<br><p>Configuration a
 configSpec.<br>mongodbSpec_5_0.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 5.0 hosts.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongoinfra.<br>configMongos.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_5_0.<br>mongoinfra.<br>configMongos.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_5_0.<br>mongoinfra.<br>configMongocfg | **object**
 configSpec.<br>mongodbSpec_5_0.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p>``storage`` section of mongocfg configuration.</p> 
 configSpec.<br>mongodbSpec_5_0.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -1299,13 +1480,20 @@ configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig | **object**<br><p>Collection configuration for WiredTiger.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig.<br>blockCompressor | **string**<br><p>Default type of compression to use for collection data.</p> <ul> <li>NONE: No compression.</li> <li>SNAPPY: The <a href="https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v6.0/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig | **object**<br><p>Index configuration for WiredTiger</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig.<br>prefixCompression | **boolean** (boolean)<br><p>Enables or disables <a href="https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression">prefix compression</a></p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>storage.<br>journal | **object**<br><p>Configuration of the MongoDB <a href="https://docs.mongodb.com/v6.0/reference/glossary/#term-journal">journal</a>.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>storage.<br>journal.<br>commitInterval | **integer** (int64)<br><p>Commit interval between journal operations, in milliseconds. Default: 100.</p> <p>Acceptable values are 1 to 500, inclusive.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>operationProfiling | **object**<br><p>``operationProfiling`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of ``slowOpThreshold``.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpSampleRate | **number** (double)<br><p>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>net | **object**<br><p>``net`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongod will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>config.<br>setParameter.<br>enableFlowControl | **boolean** (boolean)<br><p>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members <a href="https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime">majority committed</a> lag under a configurable maximum value.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1329,6 +1517,8 @@ configSpec.<br>mongodbSpec_6_0.<br>mongos | **object**<br><p>Configuration and r
 configSpec.<br>mongodbSpec_6_0.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 6.0 hosts.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongos.<br>config.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongos.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongos.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongos.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_6_0.<br>mongos.<br>resources | **object**<br><p>Resources allocated to each mongos host.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1337,6 +1527,8 @@ configSpec.<br>mongodbSpec_6_0.<br>mongoinfra | **object**<br><p>Configuration a
 configSpec.<br>mongodbSpec_6_0.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 6.0 hosts.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongoinfra.<br>configMongos.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_6_0.<br>mongoinfra.<br>configMongos.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_6_0.<br>mongoinfra.<br>configMongocfg | **object**
 configSpec.<br>mongodbSpec_6_0.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p>``storage`` section of mongocfg configuration.</p> 
 configSpec.<br>mongodbSpec_6_0.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -1360,13 +1552,18 @@ configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>storage.<br>w
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig | **object**<br><p>Collection configuration for WiredTiger.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig.<br>blockCompressor | **string**<br><p>Default type of compression to use for collection data.</p> <ul> <li>NONE: No compression.</li> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.4/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig | **object**<br><p>Index configuration for WiredTiger</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig.<br>prefixCompression | **boolean** (boolean)<br><p>Enables or disables <a href="https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression">prefix compression</a></p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>storage.<br>journal | **object**<br><p>Configuration of the MongoDB <a href="https://docs.mongodb.com/v4.4/reference/glossary/#term-journal">journal</a>.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>storage.<br>journal.<br>commitInterval | **integer** (int64)<br><p>Commit interval between journal operations, in milliseconds. Default: 100.</p> <p>Acceptable values are 1 to 500, inclusive.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>operationProfiling | **object**<br><p>``operationProfiling`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of ``slowOpThreshold``.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpSampleRate | **number** (double)<br><p>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>net | **object**<br><p>``net`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongod will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security | **object**<br><p>``security`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>enableEncryption | **boolean** (boolean)<br><p>If encryption at rest should be enabled or not</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>kmip | **object**<br><p>``kmip`` section of mongod security config</p> 
@@ -1379,6 +1576,7 @@ configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>auditLog | **
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>setParameter.<br>enableFlowControl | **boolean** (boolean)<br><p>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members <a href="https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime">majority committed</a> lag under a configurable maximum value.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1402,6 +1600,8 @@ configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos | **object**<br><p>Configura
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 4.4 hosts.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos.<br>config.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos.<br>resources | **object**<br><p>Resources allocated to each mongos host.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1410,6 +1610,8 @@ configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra | **object**<br><p>Confi
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 4.4 hosts.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra.<br>configMongocfg | **object**
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p>``storage`` section of mongocfg configuration.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -1433,13 +1635,18 @@ configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>storage.<br>w
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig | **object**<br><p>Collection configuration for WiredTiger.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig.<br>blockCompressor | **string**<br><p>Default type of compression to use for collection data.</p> <ul> <li>NONE: No compression.</li> <li>SNAPPY: The <a href="https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v5.0/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig | **object**<br><p>Index configuration for WiredTiger</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig.<br>prefixCompression | **boolean** (boolean)<br><p>Enables or disables <a href="https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression">prefix compression</a></p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>storage.<br>journal | **object**<br><p>Configuration of the MongoDB <a href="https://docs.mongodb.com/v5.0/reference/glossary/#term-journal">journal</a>.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>storage.<br>journal.<br>commitInterval | **integer** (int64)<br><p>Commit interval between journal operations, in milliseconds. Default: 100.</p> <p>Acceptable values are 1 to 500, inclusive.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>operationProfiling | **object**<br><p>``operationProfiling`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of ``slowOpThreshold``.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpSampleRate | **number** (double)<br><p>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>net | **object**<br><p>``net`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongod will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security | **object**<br><p>``security`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>enableEncryption | **boolean** (boolean)<br><p>If encryption at rest should be enabled or not</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>kmip | **object**<br><p>``kmip`` section of mongod security config</p> 
@@ -1453,6 +1660,7 @@ configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>auditLog.<br>
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>setParameter.<br>enableFlowControl | **boolean** (boolean)<br><p>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members <a href="https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime">majority committed</a> lag under a configurable maximum value.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1476,6 +1684,8 @@ configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos | **object**<br><p>Configura
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 5.0 hosts.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos.<br>config.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos.<br>resources | **object**<br><p>Resources allocated to each mongos host.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1484,6 +1694,8 @@ configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra | **object**<br><p>Confi
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 5.0 hosts.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra.<br>configMongocfg | **object**
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p>``storage`` section of mongocfg configuration.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -1507,13 +1719,18 @@ configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>storage.<br>w
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>The maximum size of the internal cache that WiredTiger will use for all data.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig | **object**<br><p>Collection configuration for WiredTiger.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig.<br>blockCompressor | **string**<br><p>Default type of compression to use for collection data.</p> <ul> <li>NONE: No compression.</li> <li>SNAPPY: The <a href="https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v6.0/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig | **object**<br><p>Index configuration for WiredTiger</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>indexConfig.<br>prefixCompression | **boolean** (boolean)<br><p>Enables or disables <a href="https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression">prefix compression</a></p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>storage.<br>journal | **object**<br><p>Configuration of the MongoDB <a href="https://docs.mongodb.com/v6.0/reference/glossary/#term-journal">journal</a>.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>storage.<br>journal.<br>commitInterval | **integer** (int64)<br><p>Commit interval between journal operations, in milliseconds. Default: 100.</p> <p>Acceptable values are 1 to 500, inclusive.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>operationProfiling | **object**<br><p>``operationProfiling`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Mode which specifies operations that should be profiled.</p> <ul> <li>OFF: The profiler is off and does not collect any data.</li> <li>SLOW_OP: The profiler collects data for operations that take longer than the value of ``slowOpThreshold``.</li> <li>ALL: The profiler collects data for all operations.</li> </ul> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>The slow operation time threshold, in milliseconds. Operations that run for longer than this threshold are considered slow, and are processed by the profiler running in the SLOW_OP mode.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpSampleRate | **number** (double)<br><p>The fraction of slow operations that should be profiled or logged. operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>net | **object**<br><p>``net`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongod will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>security | **object**<br><p>``security`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>security.<br>enableEncryption | **boolean** (boolean)<br><p>If encryption at rest should be enabled or not</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>security.<br>kmip | **object**<br><p>``kmip`` section of mongod security config</p> 
@@ -1527,6 +1744,7 @@ configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>auditLog.<br>
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>config.<br>setParameter.<br>enableFlowControl | **boolean** (boolean)<br><p>Enables or disables the mechanism that controls the rate at which the primary applies its writes with the goal of keeping the secondary members <a href="https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime">majority committed</a> lag under a configurable maximum value.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1550,6 +1768,8 @@ configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos | **object**<br><p>Configura
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos.<br>config | **object**<br><p>Configuration for mongos 6.0 hosts.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos.<br>config.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos.<br>config.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos.<br>config.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos.<br>resources | **object**<br><p>Resources allocated to each mongos host.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1558,6 +1778,8 @@ configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra | **object**<br><p>Confi
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra.<br>configMongos | **object**<br><p>Configuration for mongoinfra 6.0 hosts.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra.<br>configMongos.<br>net | **object**<br><p>Network settings for mongos.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>The maximum number of simultaneous connections that mongos will accept.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>compression | **object**<br><p>Compression settings</p> 
+configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra.<br>configMongos.<br>net.<br>compression.<br>compressors[] | **string**<br><p>Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:</p> <ul> <li>other members of the deployment if the instance is part of a replica set or a sharded cluster</li> <li>mongosh</li> <li>drivers that support the OP_COMPRESSED message format. MongoDB supports the following compressors:</li> </ul> <p>The number of elements must be in the range 0-3.</p> <ul> <li>SNAPPY: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy">Snappy</a> compression.</li> <li>ZLIB: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib">zlib</a> compression.</li> <li>ZSTD: The <a href="https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd">zstd</a> compression.</li> </ul> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra.<br>configMongocfg | **object**
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra.<br>configMongocfg.<br>storage | **object**<br><p>``storage`` section of mongocfg configuration.</p> 
 configSpec.<br>mongodbSpec_6_0Enterprise.<br>mongoinfra.<br>configMongocfg.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 

@@ -20,6 +20,9 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Disk name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--destination-zone-id`|<b>`string`</b><br/>The zone to relocate to.|
+|`--disk-placement-group-id`|<b>`string`</b><br/>Placement group to move the disk to.|
+|`--disk-placement-group-name`|<b>`string`</b><br/>Placement group to move the disk to.|
+|`--disk-placement-group-partition`|<b>`int`</b><br/>Placement group partition. Used when a placement group is created with the partition strategy.|
 
 #### Global Flags
 
@@ -36,5 +39,6 @@ Syntax:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

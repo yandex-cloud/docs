@@ -60,7 +60,7 @@ To improve the quality of generated responses, {{ yagpt-name }} logs user prompt
 
       {% include [ai-before-beginning](../_includes/yandexgpt/token-limits.md) %}
 
-   1. Use the [instruct](./api-ref/TextGeneration/instruct.md) method to send a request to the neural network in the following command:
+   1. Use the `instruct` method to send a request to the neural network in the following command:
 
       ```bash
       export FOLDER_ID=<folder_ID>

@@ -684,6 +684,7 @@ Method | Description
 [delete](delete.md) | Deletes the specified Redis cluster.
 [deleteHosts](deleteHosts.md) | Deletes the specified hosts for a cluster.
 [deleteShard](deleteShard.md) | Deletes the specified shard.
+[enableSharding](enableSharding.md) | Enable Sharding on non sharded cluster
 [get](get.md) | Returns the specified Redis cluster.
 [getShard](getShard.md) | Returns the specified shard.
 [list](list.md) | Retrieves the list of Redis clusters that belong to the specified folder.
