@@ -68,6 +68,9 @@ Syntax:
 |`--rewrite-flag`|<b>`string`</b><br/>Defines flag for the Rewrite option. Possible values:<br/>last — stops processing of the current set of ngx_http_rewrite_module directives and starts a search<br/>for a new location matching changed URI.<br/>break — stops processing of the current set of the Rewrite option.<br/>redirect — returns a temporary redirect with the 302 code; It is used when a replacement string<br/>does not start with "http://", "https://", or "$scheme".<br/>permanent — returns a permanent redirect with the 301 code.<br/>Mutually exclusive with --clear-rewrite|
 |`--rewrite-body`|<b>`string`</b><br/>The pattern for Rewrite. At least one group should be specified.<br/>For Example: /rewrite_from/(.*) /rewrite_to/$1|
 |`--clear-rewrite`|Clear rewrite option.<br/>Mutually exclusive with --rewrite-flag|
+|`--secure-key`|<b>`string`</b><br/>A key generated on clients side that will be used for URL signing.|
+|`--enable-ip-url-signing`|The type of the URL signing with secure key and IP address. The URL could be available for all IP addresses or for the only one IP.<br/>Enable this option to give access only for specified IP address.|
+|`--clear-secure-key`|Clear secure key option.<br/>Mutually exclusive with --secure-key|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
@@ -85,5 +88,6 @@ Syntax:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

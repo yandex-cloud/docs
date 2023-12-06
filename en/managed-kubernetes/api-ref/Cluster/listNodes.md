@@ -94,7 +94,7 @@ nodes[].<br>spec.<br>resources.<br>cores | **string** (int64)<br><p>Number of co
 nodes[].<br>spec.<br>resources.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 nodes[].<br>spec.<br>resources.<br>gpus | **string** (int64)<br><p>Number of GPUs available to the node.</p> <p>The minimum value is 0.</p> 
 nodes[].<br>spec.<br>disk | **object**<br><p>Node group specified disk.</p> 
-nodes[].<br>spec.<br>disk.<br>diskTypeId | **string**<br><p>ID of the disk type.</p> <p>Value must match the regular expression ``\|network-ssd\|network-hdd\|network-ssd-nonreplicated``.</p> 
+nodes[].<br>spec.<br>disk.<br>diskTypeId | **string**<br><p>ID of the disk type.</p> <p>Value must match the regular expression ``\|network-ssd\|network-hdd\|network-ssd-nonreplicated\|network-ssd-io-m3``.</p> 
 nodes[].<br>spec.<br>disk.<br>diskSize | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> <p>Acceptable values are 0 to 4398046511104, inclusive.</p> 
 nodes[].<br>cloudStatus | **object**<br><p>Cloud instance status. Not available in ``MISSING`` status.</p> <p>Cloud instance info</p> 
 nodes[].<br>cloudStatus.<br>id | **string**<br><p>Compute instance id</p> 

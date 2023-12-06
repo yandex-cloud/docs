@@ -160,7 +160,9 @@ view | <p>Defines which information about the Instance resource should be return
     "placementGroupPartition": "string"
   },
   "hostGroupId": "string",
-  "hostId": "string"
+  "hostId": "string",
+  "maintenancePolicy": "string",
+  "maintenanceGracePeriod": "string"
 }
 ```
 An Instance resource. For more information, see [Instances](/docs/compute/concepts/vm).
@@ -256,3 +258,5 @@ placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity
 placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
 hostGroupId | **string**<br><p>ID of the dedicated host group that the instance belongs to.</p> 
 hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
+maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
+maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> 

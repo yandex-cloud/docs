@@ -41,7 +41,7 @@ description | **string**<br><p>Description of the group.</p> <p>The maximum stri
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 zoneId | **string**<br><p>Required. Availability zone where all dedicated hosts will be allocated.</p> <p>The maximum string length in characters is 50.</p> 
 typeId | **string**<br><p>Required. ID of host type. Resources provided by each host of the group.</p> <p>The maximum string length in characters is 50.</p> 
-maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
+maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
 scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
 scalePolicy.<br>fixedScale | **object**
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)

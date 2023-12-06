@@ -21,7 +21,7 @@ description: "Следуя данной инструкции, вы научит�
      "completionOptions": {
        "stream": false,
        "temperature": 0.1,
-       "maxTokens": "5000"
+       "maxTokens": "2000"
      },
      "messages": [
        {

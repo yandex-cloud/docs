@@ -138,7 +138,9 @@ A set of methods for managing Instance resources.
     "placementGroupPartition": "string"
   },
   "hostGroupId": "string",
-  "hostId": "string"
+  "hostId": "string",
+  "maintenancePolicy": "string",
+  "maintenanceGracePeriod": "string"
 }
 ```
  
@@ -233,6 +235,8 @@ placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity
 placementPolicy.<br>placementGroupPartition | **string** (int64)<br><p>Placement group partition</p> 
 hostGroupId | **string**<br><p>ID of the dedicated host group that the instance belongs to.</p> 
 hostId | **string**<br><p>ID of the dedicated host that the instance belongs to.</p> 
+maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
+maintenanceGracePeriod | **string**<br><p>Time between notification via metadata service and maintenance</p> 
 
 ## Methods {#methods}
 Method | Description

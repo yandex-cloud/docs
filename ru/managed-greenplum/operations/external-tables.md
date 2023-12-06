@@ -2,14 +2,6 @@
 
 {{ GP }} позволяет работать с данными в источниках, внешних по отношению к кластеру {{ mgp-name }}. Для этого используются _внешние таблицы_ — специальные объекты в базе данных {{ GP }}, которые ссылаются на таблицы, бакеты или файлы внешних источников. Доступ к [данным во внешних СУБД](#pxf) осуществляется с помощью протокола _PXF_, а к [файлам на внешних файловых серверах](#gpfdist) — с помощью утилиты _GPFDIST_.
 
-{% note info %}
-
-
-Для подключения к внешним источникам необходимо [настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой расположен кластер {{ mgp-name }}.
-
-
-{% endnote %}
-
 С помощью внешних таблиц вы можете:
 
 * выполнять запросы к внешним источникам данных;
@@ -22,6 +14,17 @@
 Для обеспечения безопасности в {{ mgp-name }} недоступно создание [внешних веб-таблиц]({{ gp.docs.pivotal }}/6-19/admin_guide/external/g-creating-and-using-web-external-tables.html), использующих shell-скрипты.
 
 {% endnote %}
+
+## Перед началом работы {#before-you-begin}
+
+В подсети кластера {{ mgp-name }}:
+
+
+1. [Настройте NAT-шлюз и привяжите таблицу маршрутизации](../../vpc/operations/create-nat-gateway.md).
+1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
+
+
+Без этих настроек внешние источники будут недоступны для кластера.
 
 ## Подключение к внешним СУБД {#pxf}
 
@@ -75,11 +78,9 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
 - {{ CH }}
 
-    1. [Создайте кластер {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-create.md) с настройками:
-
-        * Имя пользователя — `chuser`.
-
-    1. [Подключитесь к БД {{ CH }}](../../managed-clickhouse/operations/connect#connection-string) с помощью утилиты `clickhouse-client`.
+    1. [Создайте кластер {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-create.md) с именем пользователя `chuser`.
+    1. В подсети кластера [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
+    1. [Подключитесь к БД {{ CH }}](../../managed-clickhouse/operations/connect.md#connection-string) с помощью утилиты `clickhouse-client`.
     1. Создайте тестовую таблицу и наполните ее данными:
 
         ```sql
@@ -132,7 +133,8 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * Имя пользователя — `mysqluser`.
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-    1. [Подключитесь к БД {{ MY }}](../../managed-mysql/operations/connect#connection-string) с помощью утилиты `mysql`.
+    1. В подсети кластера [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
+    1. [Подключитесь к БД {{ MY }}](../../managed-mysql/operations/connect.md#connection-string) с помощью утилиты `mysql`.
     1. Создайте тестовую таблицу и наполните ее данными:
 
         ```sql
@@ -178,6 +180,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * Имя пользователя — `pguser`;
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
+    1. В подсети кластера [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
     1. [Подключитесь к БД {{ PG }}](../../managed-postgresql/operations/connect.md#bash) с помощью утилиты `psql`.
     1. Создайте тестовую таблицу и наполните ее данными:
 
@@ -218,6 +221,8 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         ```
 
 - {{ objstorage-name }}
+
+    1. В подсети кластера [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
     1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом.
 

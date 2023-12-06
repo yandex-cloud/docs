@@ -212,6 +212,7 @@ default:
   kms-name: Key Management Service
   kms-short-name: KMS
   lang: ru
+  license-manager: License Manager
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.cloud.yandex.ru/logout
@@ -693,7 +694,7 @@ default:
   ya-360: Яндекс 360 для бизнеса
   yagpt-full-name: YandexGPT API
   yagpt-max-tokens: 8000
-  yagpt-name: YandexGPT API
+  yagpt-name: YandexGPT
   yandex-360: Яндекс 360
   yandex-cloud: Yandex Cloud
   yc-compute: yc compute
@@ -4365,7 +4366,12 @@ default:
         settings: Об организации
         users: Пользователи
     yacloud_portal:
+      acl:
+        common:
+          action_via-federation: Добавить федеративного пользователя
       common:
+        action_add: Добавить
+        action_change: Изменить
         max: Максимум
         min: Минимум
         recommended: Рекомендуемое значение
@@ -4409,6 +4415,7 @@ default:
           version-table_action_create: Создать версию
       portal:
         products: Продукты
+        publisher-users: Управление доступом
         support: Поддержка
       subAccount:
         detail:

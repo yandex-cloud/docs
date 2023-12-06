@@ -78,6 +78,8 @@ network_settings | **[NetworkSettings](#NetworkSettings)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources}
@@ -260,6 +262,8 @@ network_settings | **[NetworkSettings](#NetworkSettings1)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy1)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources1}
@@ -420,8 +424,10 @@ hostname | **string**<br>Host name for the instance. This field is used to gener
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings2)**<br>Network settings. 
-gpu_settings | **[GpuSettings](#GpuSettings2)**<br>GPU settings. 
 placement_policy | **[PlacementPolicy](#PlacementPolicy2)**<br>Placement policy configuration. 
+gpu_settings | **[GpuSettings](#GpuSettings2)**<br>GPU settings. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance Acceptable values are 1s to 24h, inclusive.
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -547,13 +553,6 @@ Field | Description
 type | enum **Type**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### GpuSettings {#GpuSettings2}
-
-Field | Description
---- | ---
-gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
-
-
 ### PlacementPolicy {#PlacementPolicy2}
 
 Field | Description
@@ -570,6 +569,13 @@ Field | Description
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
 op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
+
+
+### GpuSettings {#GpuSettings2}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
 
 
 ### Operation {#Operation}
@@ -624,6 +630,8 @@ network_settings | **[NetworkSettings](#NetworkSettings3)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources2}
@@ -730,6 +738,8 @@ service_account_id | **string**<br>ID of the service account to use for [authent
 network_settings | **[NetworkSettings](#NetworkSettings3)**<br>Network settings. 
 placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement policy configuration. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance Acceptable values are 1s to 24h, inclusive.
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -836,6 +846,8 @@ network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources3}
@@ -1033,6 +1045,8 @@ network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources4}
@@ -1291,6 +1305,8 @@ network_settings | **[NetworkSettings](#NetworkSettings5)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources5}
@@ -1565,6 +1581,8 @@ network_settings | **[NetworkSettings](#NetworkSettings6)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources6}
@@ -1766,6 +1784,8 @@ network_settings | **[NetworkSettings](#NetworkSettings7)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources7}
@@ -1974,6 +1994,8 @@ network_settings | **[NetworkSettings](#NetworkSettings8)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources8}
@@ -2175,6 +2197,8 @@ network_settings | **[NetworkSettings](#NetworkSettings9)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources9}
@@ -2394,6 +2418,8 @@ network_settings | **[NetworkSettings](#NetworkSettings10)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources10}
@@ -2593,6 +2619,8 @@ network_settings | **[NetworkSettings](#NetworkSettings11)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources11}
@@ -2825,6 +2853,8 @@ network_settings | **[NetworkSettings](#NetworkSettings12)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources12}
@@ -3064,6 +3094,8 @@ network_settings | **[NetworkSettings](#NetworkSettings13)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy13)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources13}
@@ -3321,6 +3353,8 @@ network_settings | **[NetworkSettings](#NetworkSettings14)**<br>Network Settings
 placement_policy | **[PlacementPolicy](#PlacementPolicy14)**<br>Placement policy configuration. 
 host_group_id | **string**<br>ID of the dedicated host group that the instance belongs to. 
 host_id | **string**<br>ID of the dedicated host that the instance belongs to. 
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instance to move it to another host during maintenance</li><li>`MIGRATE`: Use live migration to move instance to another host during maintenance</li></ul>
+maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time between notification via metadata service and maintenance 
 
 
 ### Resources {#Resources14}

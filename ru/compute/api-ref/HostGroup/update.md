@@ -43,7 +43,7 @@ updateMask | **string**<br><p>Field mask that specifies which fields of the Host
 name | **string**<br><p>Name of the group.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Description of the group.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>The existing set of ``labels`` is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
-maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
+maintenancePolicy | **string**<br><p>Behaviour on maintenance events</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
 scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
 scalePolicy.<br>fixedScale | **object**
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)

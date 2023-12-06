@@ -127,6 +127,9 @@ container_audio_type | enum **ContainerAudioType**<br> <ul><li>`WAV`: Audio bit 
 Field | Description
 --- | ---
 audio_chunk | **[AudioChunk](#AudioChunk)**<br>Part of synthesized audio. 
+text_chunk | **[TextChunk](#TextChunk)**<br>Part of synthesized text. 
+start_ms | **int64**<br>Start time of the audio chunk in milliseconds. 
+length_ms | **int64**<br>Length of the audio chunk in milliseconds. 
 
 
 ### AudioChunk {#AudioChunk}
@@ -134,5 +137,12 @@ audio_chunk | **[AudioChunk](#AudioChunk)**<br>Part of synthesized audio.
 Field | Description
 --- | ---
 data | **bytes**<br>Sequence of bytes of the synthesized audio in format specified in output_audio_spec. 
+
+
+### TextChunk {#TextChunk}
+
+Field | Description
+--- | ---
+text | **string**<br>Synthesized text. 
 
 

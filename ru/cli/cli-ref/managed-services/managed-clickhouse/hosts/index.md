@@ -22,7 +22,8 @@ Aliases:
 - [yc managed-clickhouse hosts list](list.md) — List hosts for a ClickHouse cluster.
 - [yc managed-clickhouse hosts add](add.md) — Add new hosts to the cluster in specified availability zones.
 - [yc managed-clickhouse hosts update](update.md) — Update the specified hosts
-- [yc managed-clickhouse hosts delete](delete.md) — Remove specified hosts from the a cluster.
+- [yc managed-clickhouse hosts delete](delete.md) — Remove specified hosts from the cluster.
+- [yc managed-clickhouse hosts restart](restart.md) — Restart specified hosts of the cluster.
 
 #### Global Flags
 
@@ -39,5 +40,6 @@ Aliases:
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--impersonate-service-account-id`|<b>`string`</b><br/>Set the ID of the service account to impersonate.|
+|`--no-browser`|Disable opening browser for authentication.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

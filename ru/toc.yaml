@@ -141,7 +141,7 @@ items:
     href: ydb/index.yaml
   - name: Query
     href: query/index.yaml
-  - name: YandexGPT
+  - name: YandexGPT API
     href: yandexgpt/index.yaml
   - name: Консоль управления
     href: console/index.yaml

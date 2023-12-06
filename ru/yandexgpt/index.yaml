@@ -3,13 +3,20 @@ description:
   - >-
     <em>YandexGPT API является частью сервиса Yandex Foundation Models и
     находится на <a href="/docs/overview/concepts/launch-stages">стадии
-    Preview</a>.</em>.
+    Preview</a>.</em>
   - >-
     YandexGPT API — это API генеративной модели Яндекса. Yandex Cloud
     предоставляет доступ к нейросети, которая позволит вам использовать
     возможности генеративных языковых моделей в ваших бизнес-приложениях и
     веб-сервисах. Сервис будет полезен всем, кто ищет способы ускорить развитие
     бизнеса с технологиями машинного обучения.
+  - >-
+    Сервис тарифицируется в соответствии со <a
+    href="https://yandex.ru/legal/cloud_specialterms/?lang=ru#index__section_fk5_d4c_cgb">Специальными
+    условиями использования</a>. Правила использования сервиса определены в
+    документе <a href
+    ="https://yandex.ru/legal/cloud_terms_yandex_foundation_models">Условия
+    использования сервиса Yandex Foundation Models</a>.
 meta:
   title: YandexGPT API
   description: >-

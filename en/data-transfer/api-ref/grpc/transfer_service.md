@@ -334,9 +334,10 @@ Field | Description
 connection | **[KafkaConnectionOptions](#KafkaConnectionOptions)**<br>Connection settings 
 auth | **[KafkaAuth](#KafkaAuth)**<br>Authentication settings 
 security_groups[] | **string**<br>Security groups 
-topic_name | **string**<br>Full source topic name 
+topic_name | **string**<br>Full source topic name Deprecated in favor of topic names 
 transformer | **[DataTransformationOptions](#DataTransformationOptions)**<br>Data transformation rules 
 parser | **[Parser](#Parser)**<br>Data parsing rules 
+topic_names[] | **string**<br>List of topic names to read 
 
 
 ### KafkaConnectionOptions {#KafkaConnectionOptions}
@@ -598,10 +599,11 @@ to_name | **string**<br>Target table name
 
 Field | Description
 --- | ---
-sharding | **oneof:** `column_value_hash`, `custom_mapping` or `transfer_id`<br>
+sharding | **oneof:** `column_value_hash`, `custom_mapping`, `transfer_id` or `round_robin`<br>
 &nbsp;&nbsp;column_value_hash | **[ColumnValueHash](#ColumnValueHash)**<br> 
 &nbsp;&nbsp;custom_mapping | **[ColumnValueMapping](#ColumnValueMapping)**<br> 
 &nbsp;&nbsp;transfer_id | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
+&nbsp;&nbsp;round_robin | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
 
 
 ### ColumnValueHash {#ColumnValueHash}
@@ -647,6 +649,7 @@ subnet_id | **string**<br>Network interface for endpoint. If none will assume pu
 security_groups[] | **string**<br>Security groups 
 sa_key_content | **string**<br>SA content 
 cleanup_policy | enum **YdbCleanupPolicy**<br>Cleanup policy 
+is_table_column_oriented | **bool**<br>Should create column-oriented table (OLAP). By default it creates row-oriented (OLTP) 
 
 
 ### KafkaTarget {#KafkaTarget}
@@ -929,9 +932,10 @@ Field | Description
 connection | **[KafkaConnectionOptions](#KafkaConnectionOptions1)**<br>Connection settings 
 auth | **[KafkaAuth](#KafkaAuth1)**<br>Authentication settings 
 security_groups[] | **string**<br>Security groups 
-topic_name | **string**<br>Full source topic name 
+topic_name | **string**<br>Full source topic name Deprecated in favor of topic names 
 transformer | **[DataTransformationOptions](#DataTransformationOptions1)**<br>Data transformation rules 
 parser | **[Parser](#Parser1)**<br>Data parsing rules 
+topic_names[] | **string**<br>List of topic names to read 
 
 
 ### KafkaConnectionOptions {#KafkaConnectionOptions1}
@@ -1193,10 +1197,11 @@ to_name | **string**<br>Target table name
 
 Field | Description
 --- | ---
-sharding | **oneof:** `column_value_hash`, `custom_mapping` or `transfer_id`<br>
+sharding | **oneof:** `column_value_hash`, `custom_mapping`, `transfer_id` or `round_robin`<br>
 &nbsp;&nbsp;column_value_hash | **[ColumnValueHash](#ColumnValueHash1)**<br> 
 &nbsp;&nbsp;custom_mapping | **[ColumnValueMapping](#ColumnValueMapping1)**<br> 
 &nbsp;&nbsp;transfer_id | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
+&nbsp;&nbsp;round_robin | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
 
 
 ### ColumnValueHash {#ColumnValueHash1}
@@ -1242,6 +1247,7 @@ subnet_id | **string**<br>Network interface for endpoint. If none will assume pu
 security_groups[] | **string**<br>Security groups 
 sa_key_content | **string**<br>SA content 
 cleanup_policy | enum **YdbCleanupPolicy**<br>Cleanup policy 
+is_table_column_oriented | **bool**<br>Should create column-oriented table (OLAP). By default it creates row-oriented (OLTP) 
 
 
 ### KafkaTarget {#KafkaTarget1}

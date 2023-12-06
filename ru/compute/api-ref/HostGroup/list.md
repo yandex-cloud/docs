@@ -64,7 +64,7 @@ hostGroups[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pair
 hostGroups[].<br>zoneId | **string**<br><p>Availability zone where all dedicated hosts are allocated.</p> 
 hostGroups[].<br>status | **string**<br><p>Status of the group.</p> 
 hostGroups[].<br>typeId | **string**<br><p>ID of host type. Resources provided by each host of the group.</p> 
-hostGroups[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
+hostGroups[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instance to move it to another host during maintenance</li> <li>MIGRATE: Use live migration to move instance to another host during maintenance</li> </ul> 
 hostGroups[].<br>scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
 hostGroups[].<br>scalePolicy.<br>fixedScale | **object**
 hostGroups[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)
