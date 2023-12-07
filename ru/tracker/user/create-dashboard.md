@@ -4,23 +4,23 @@
 
 Чтобы создать дашборд:
 
-1. На панели слева нажмите ![](../../_assets/tracker/svg/dashboards.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-head.dashboards }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-dashboard }}**.
+1. На панели слева нажмите ![](../../_assets/tracker/svg/dashboards.svg)&nbsp;**Дашборды** → **Создать дашборд**.
 
-1. Введите название дашборда и нажмите **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.create-btn }}**.
+1. Введите название дашборда и нажмите **Создать**.
 
-1. В правом верхнем углу нажмите **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.edit-button }}** и из списка **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.create-zone }}** по одному выбирайте и настраивайте виджеты. В {{ tracker-name }} доступны виджеты:
+1. В правом верхнем углу нажмите **Редактировать** и из списка **Добавить виджет** по одному выбирайте и настраивайте виджеты. В {{ tracker-name }} доступны виджеты:
 
-    - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.filter-title }}](widgets.md#tasks)
-    - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.note-title }}](widgets.md#note)
-    - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.table-title }}](widgets.md#summary-table)
-    - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.table-sum-title }}](widgets.md#summary-table-with-totals)
-    - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.time-since-title }}](widgets.md#events)
-    - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.issues-title }}](widgets.md#issues-stat)
-    - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.created-vs-resolved-title }}](widgets.md#created-and-resolved)
+    - [Задачи](widgets.md#tasks)
+    - [Заметка](widgets.md#note)
+    - [Сводная таблица](widgets.md#summary-table)
+    - [Сводная таблица с суммой значений](widgets.md#summary-table-with-totals)
+    - [График событий](widgets.md#events)
+    - [Статистика по задачам](widgets.md#issues-stat)
+    - [График «Создано/Решено»](widgets.md#created-and-resolved)
 
     Виджеты позволяют просматривать аналитику по задачам. Задачи для виджетов отбираются с помощью [языка запросов](query-filter.md) или [фильтра](create-filter.md). Фильтр можно выбрать из списка преднастроенных и своих фильтров, а также задать вручную прямо на странице создания виджета.
 
-1. Расположите виджеты в удобном порядке, подгоните размеры и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.save-btn }}**.
+1. Расположите виджеты в удобном порядке, подгоните размеры и нажмите кнопку **Сохранить**.
 
 
 ### Следующий шаг

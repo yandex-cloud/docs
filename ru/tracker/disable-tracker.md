@@ -21,7 +21,7 @@
 
 Чтобы прекратить использование платных возможностей {{ tracker-full-name }}, отзовите у сотрудников организации полный доступ в {{ tracker-name }}. Если полный доступ есть не более чем у 5 пользователей, использование {{ tracker-name }} не тарифицируется. Подробнее читайте в разделе [{#T}](pricing.md).
 
-1. На панели слева {{ tracker-name }} нажмите **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. На панели слева {{ tracker-name }} нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. Убедитесь, что настройка **Полный доступ для новых пользователей** отключена.
 

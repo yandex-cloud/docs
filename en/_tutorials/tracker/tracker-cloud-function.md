@@ -55,7 +55,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Get an organization ID to access the API {#get-tracker-id}
 
 1. Go to [{{ tracker-name }}](https://tracker.yandex.ru/). Click **Logging in to Yandex Tracker**.
-1. In the right-hand panel, click **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}**.
+1. In the right-hand panel, click **Admin**.
 1. Under **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.access-and-payment }}**, click **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
 1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}**, copy and save your organization ID. You will need it to create a function.
 
@@ -87,19 +87,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Create a queue
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-queue }}**.
-1. Select a queue template, e.g., **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **Queues** → **New queue**.
+1. Select a queue template, e.g., **Basic development model**.
 1. Enter a name, e.g., `Function Test`.
-1. Click **{{ ui-key.startrek.blocks-desktop_queue-new-presets.create }}**.
+1. Click **Create**.
 
 ### Create a trigger
 
 1. In the top-right corner of the queue page, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. In the left-hand panel, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. In the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** field, enter a trigger name, e.g., `timeupdater`.
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}**, select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Time spent**.
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}**, select **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**.
-1. In the form that opens, in the **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-url }}** field, enter:
+1. In the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
+1. In the **Name** field, enter a trigger name, e.g., `timeupdater`.
+1. Under **Trigger conditions**, select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Time spent**.
+1. Under **Actions**, select **HTTP request**.
+1. In the form that opens, in the **URL** field, enter:
    ```
    	https://functions.yandexcloud.net/<function_ID>?id=not_var{{issue.key}}
    ```
@@ -108,19 +108,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```
    	https://functions.yandexcloud.net/d4e94uav31086c******?id=not_var{{issue.key}}
    ```
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+1. Click **Create**.
 
 ## Test out automatic data updates {#test-updates}
 
 ### Create issues
 
 1. Create a parent issue whose total time spent across all sub-issues will be calculated:
-   1. On the `Function Test` queue page, click **{{ ui-key.startrek.blocks-desktop_guide.ticket--main--action_new--title }}**.
-   1. In the form that opens, in the **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** field, enter an issue name, e.g., `Parent Task`.
-   1. Click **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.create }}**.
+   1. On the `Function Test` queue page, click **Create issue**.
+   1. In the form that opens, in the **Issue name** field, enter an issue name, e.g., `Parent Task`.
+   1. Click **Create**.
 1. Create sub-issues:
    1. In the top-right corner of the `Parent Task` issue page, in the **{{ ui-key.startrek.ui_components_IssueMenu.title }}** menu, select **{{ ui-key.startrek.ui_components_IssueMenu.create-subissue }}**.
-   1. In the form that opens, in the **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** field, enter a sub-issue name, e.g., `Subtask-1`.
+   1. In the form that opens, in the **Issue name** field, enter a sub-issue name, e.g., `Subtask-1`.
    1. In the same way, create another sub-issue or multiple sub-issues named `Subtask-2`, `Subtask-3`, etc.
 
 ### Enter time spent values for the sub-issues

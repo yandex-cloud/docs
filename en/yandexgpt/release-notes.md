@@ -1,3 +1,8 @@
+---
+title: "Revision history for {{ yagpt-full-name }} image analysis service"
+description: "This page presents the revision history for {{ yagpt-full-name }} image analysis service"
+---
+
 # {{ yagpt-full-name }} releases
 
 ## Current version {#current}

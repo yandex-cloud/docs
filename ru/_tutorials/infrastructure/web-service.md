@@ -1,9 +1,11 @@
 # Архитектура и защита базового интернет-сервиса
 
-Сценарий описывает построение инфраструктуры базового интернет-сервиса с несколькими виртуальными машинами. Доступ к ВМ будет ограничен с помощью групп безопасности. Нагрузка по серверам с веб-приложениями будет распределяться сетевым балансировщиком.  
+Вы развернете и настроите инфраструктуру базового интернет-сервиса с несколькими виртуальными машинами. Доступ к ВМ будет ограничен с помощью групп безопасности. Нагрузка по серверам с веб-приложениями будет распределяться сетевым балансировщиком.  
 
 Чтобы создать инфраструктуру для интернет-сервиса:
 
+1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте сетевую инфраструктуру](#prepare-network).
 1. [Зарезервируйте два статических публичных IP-адреса](#reserve-ips).
 1. [Создайте ВМ для сервиса во всех зонах доступности](#create-vms).
 1. [Создайте IPSec-инстанс для удаленного доступа](#create-ipsec-instance).
@@ -21,8 +23,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Создайте виртуальную сеть с подсетями `subnet-a`, `subnet-b` и `subnet-c` в соответствующих зонах доступности.
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -32,6 +32,14 @@
 * плата за использование публичных статических IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
 
+
+## Подготовьте сетевую инфраструктуру {#prepare-network}
+
+Перед тем, как создавать ВМ:
+
+1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и откройте каталог, в котором будете выполнять операции.
+
+1. Выберите сервис **{{ vpc-name }}** и создайте [облачную сеть](../../vpc/operations/network-create.md) с [подсетями](../../vpc/operations/subnet-create.md) `subnet-a`, `subnet-b` и `subnet-c` в зонах доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-c` соответственно.
 
 ## Зарезервируйте два статических публичных IP-адреса {#reserve-ips}
 
@@ -96,7 +104,7 @@
 
 - Консоль управления 
 
-    1. В [консоли управления]({{ link-console-main }}) откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется настроить маршрутизацию.
+    1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется настроить маршрутизацию.
     1. Выберите сеть, в которой требуется создать таблицу маршрутизации.
     1. Откройте вкладку **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
     1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -117,7 +125,7 @@
 - Консоль управления 
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется настроить маршрутизацию.
-    1. Выберите сеть, в которой находятся подсети, которым нужно назначить таблицу маршрутизации.
+    1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**
     1. В строке нужной подсети нажмите ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
     1. В открывшемся окне в поле **Таблица маршрутизации** выберите созданную ранее таблицу.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -227,7 +235,7 @@
 {% list tabs %}
 
 - Консоль управления
-    
+
     Чтобы создать сетевой балансировщик:
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** в каталоге, где требуется создать балансировщик.
     1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
@@ -239,10 +247,12 @@
     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** нажмите ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**. В открывшемся окне:
        1. Задайте имя целевой группы: `web-tg`.
        1. Выберите виртуальные машины `web-node-a`, `web-node-b` и `web-node-c`.
-       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-    1. Выберите созданную целевую группу из списка.
+       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Выберите созданную целевую группу из списка и в настройках измените протокол проверки состояния балансировщика на `TCP`:
+       1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
+       1. В открывшемся окне в поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите **{{ ui-key.yacloud.common.label_tcp }}** и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-    
+
 {% endlist %}
 
 ## Проверьте работоспособность инфраструктуры {#test}
@@ -259,12 +269,13 @@
 1. Снова выполните на вашем компьютере команду `curl <Публичный_IP-адрес_сетевого_балансировщика>`. Убедитесь, что в качестве ответа вернулся HTML-код стартовой страницы Drupal.
 1. Удалите тестовую группу.
 
-##  Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутые ресурсы, удалите созданные [виртуальные машины](../../compute/operations/vm-control/vm-delete.md) и [балансировщик](../../network-load-balancer/operations/load-balancer-delete.md): 
+Чтобы остановить работу инфраструктуры и перестать платить за развернутые ресурсы, удалите созданные [виртуальные машины](../../compute/operations/vm-control/vm-delete.md) и [балансировщик](../../network-load-balancer/operations/load-balancer-delete.md):
+
 * `vpn`;
-* `web-node-a`; 
-* `web-node-b`; 
+* `web-node-a`;
+* `web-node-b`;
 * `web-node-c`;
 * `web-service-lb`.
 

@@ -16,7 +16,7 @@
 
 ## Базовый учет времени {#limited-spent-time}
 
-В полях задачи в категории **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** отображается запланированное и затраченное на задачу время.
+В полях задачи в категории **Учёт времени** отображается запланированное и затраченное на задачу время.
 
 Перед тем как вы начнете работать над задачей, рекомендуем указать время, которое вы планируете затратить на ее решение. По окончании работы вы сможете сравнить предварительную оценку с затраченным временем.
 
@@ -28,7 +28,7 @@
 
     * Если в поле **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}** указано время, то значение в поле **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}** не будет уменьшаться сразу. Это будет происходить только после того, как вы затратите больше времени, чем указано в поле **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}**.
 
-* **{{ ui-key.startrek.blocks-desktop_i-ticket-subscription.worklogs }}** — время, которое в итоге было затрачено на решение задачи. Если было добавлено [несколько записей о затраченном времени](#add-limited-time-spent), в этом поле отобразится итоговая сумма.
+* **Затрачено времени** — время, которое в итоге было затрачено на решение задачи. Если было добавлено [несколько записей о затраченном времени](#add-limited-time-spent), в этом поле отобразится итоговая сумма.
 
 ### Указать затраченное время {#add-limited-time-spent}
 
@@ -70,9 +70,9 @@
 
 ### Просмотреть затраченное время {#show-time-spent}
 
-Затраченное на задачу время отображается в блоке **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** на странице просмотра задачи на панели справа или в [Отчете по затратам времени](../manager/statistics.md#section_uxt_3ft_xz).
+Затраченное на задачу время отображается в блоке **Учёт времени** на странице просмотра задачи на панели справа или в [Отчете по затратам времени](../manager/statistics.md#section_uxt_3ft_xz).
 
-Если в задаче не отображается блок **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}**, добавьте его:
+Если в задаче не отображается блок **Учёт времени**, добавьте его:
 
 1. Нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}** на панели справа.
 
@@ -98,9 +98,9 @@
 1. В поле **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-working-calendar }}** выберите один из доступных вариантов.
 1. Нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}**.
 
-После этого в задачах очереди появится новый раздел **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**. В него будут перенесены все данные полей задачи из категории **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}**.
+После этого в задачах очереди появится новый раздел **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**. В него будут перенесены все данные полей задачи из категории **Учёт времени**.
 
-Чтобы перейти обратно на базовый учет времени, в настройках очереди отключите опцию **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}**. Данные из раздела **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** будут перенесены в поля категории **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}**.
+Чтобы перейти обратно на базовый учет времени, в настройках очереди отключите опцию **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}**. Данные из раздела **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** будут перенесены в поля категории **Учёт времени**.
 
 ### Указать затраченное время {#add-extended-time-spent}
 

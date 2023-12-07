@@ -17,9 +17,9 @@ To set up a form for issue creation:
 
    1. Specify the queue and other issue parameters.
 
-   1. Use the **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form.fill-desc }}** field to add answers to the questions included in your form.
+   1. Use the **Issue description** field to add answers to the questions included in your form.
 
-   1. If you want to save a specific answer in your issue parameters, add an issue field, click **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-variables }}** → **Answer** and choose the appropriate question.
+   1. If you want to save a specific answer in your issue parameters, add an issue field, click **Variables** → **Answer** and choose the appropriate question.
 
       You can also [create](../user/create-param.md) a new field if the one you need isn't available in the issue parameters.
 
@@ -33,7 +33,7 @@ To set up a form for issue creation:
    By default, all users can fill out the form. You can only allow users from your organization to fill out the form.
 
 
-1. [Publish](../../forms/publish.md) the form. Your form will be accessible via the link specified in the **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--uri }}** field.
+1. [Publish](../../forms/publish.md) the form. Your form will be accessible via the link specified in the **URL** field.
 
 Once the form is published, you can [embed it into a wiki page](../../forms/publish.md#section_xvx_g2c_tbb), [place it on your website](../../forms/publish.md#section_c21_gdb_42b), or add it to the [issue creation page](../manager/attach-form.md) in the {{ tracker-name }} interface.
 

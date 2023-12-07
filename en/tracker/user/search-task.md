@@ -9,7 +9,7 @@ If you know the name of an issue or its key, you can search for it using the sea
 
 * Use the [query language](query-filter.md).
 
-   Open the [**{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** page]({{ link-tracker }}issues) and click ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_PageIssues_FilterInputTypeSwitch.query-language }}** in the top-right corner.
+   Open the [**{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** page]({{ link-tracker }}issues) and click ![](../../_assets/tracker/svg/query-language.svg) **Query language** in the top-right corner.
 
    Enter your query in the query string. Use the following parameters in the query:
 

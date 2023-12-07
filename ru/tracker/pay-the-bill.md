@@ -39,7 +39,7 @@
 
 * Чтобы сохранить доступ в {{ tracker-name }}, оплатите задолженность до 15 числа текущего месяца.
 
-* Если задолженность не оплачена вовремя, {{ tracker-name }} перейдет в режим [<q>{{ ui-key.startrek.components_Licenses.department-access-title--readOnly }}</q>](access.md#readonly). В этом случае, чтобы вернуть полный доступ к сервису, в течение 45 дней пополните баланс до положительного значения. Таким образом, потребуется оплатить задолженность за предыдущий период, а также предварительную сумму платежа за текущий месяц.
+* Если задолженность не оплачена вовремя, {{ tracker-name }} перейдет в режим [<q>Только чтение</q>](access.md#readonly). В этом случае, чтобы вернуть полный доступ к сервису, в течение 45 дней пополните баланс до положительного значения. Таким образом, потребуется оплатить задолженность за предыдущий период, а также предварительную сумму платежа за текущий месяц.
 
 * Если задолженность не оплачена в течение 2 месяцев, платежный аккаунт будет заблокирован навсегда. В этом случае, чтобы продолжить использование {{ tracker-name }}, обратитесь в техническую поддержку, чтобы привязать к {{ tracker-name }} новый платежный аккаунт.
 
@@ -48,7 +48,7 @@
 
 Чтобы проверить баланс вашего платежного аккаунта:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
 1. На странице **{{ ui-key.yacloud.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
 
@@ -56,7 +56,7 @@
 
 ## Пополнить счет картой {#card}
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
 1. На странице **{{ ui-key.yacloud.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
 
@@ -66,7 +66,7 @@
 
 ## Пополнить счет банковским переводом {#transfer}
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
 1. На странице **{{ ui-key.yacloud.billing.accounts.label_title }}** выберите ваш платежный аккаунт.  
 
@@ -88,7 +88,7 @@
   
 - Физические лица
 
-  1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+  1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
   1. На странице **{{ ui-key.yacloud.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
 

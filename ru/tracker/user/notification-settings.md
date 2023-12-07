@@ -32,8 +32,8 @@ description: "По умолчанию {{ tracker-name }} отправляет в
 
 1. Перейдите по ссылке [{{ link-tracker }} settings]({{ link-settings }}).
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-settings.letters-sender-display-style-title }}** выберите нужный вариант.
+1. В блоке **Имя отправителя в письмах** выберите нужный вариант.
 
-1. Включите или отключите опцию **{{ ui-key.startrek.blocks-desktop_b-page-settings.event-type-in-subject }}**.
+1. Включите или отключите опцию **Показывать тип события в уведомлениях**.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.
+1. Нажмите кнопку **Сохранить**.

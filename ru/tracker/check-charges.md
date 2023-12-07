@@ -7,7 +7,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы посмотреть детализацию услуг:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+1. На верхней панели {{ tracker-name }} нажмите ![](../_assets/tracker/tracker-burger.png) → **Биллинг**.
 
 1. На странице **{{ ui-key.yacloud.billing.switch_accounts }}** выберите ваш платежный аккаунт.  
 

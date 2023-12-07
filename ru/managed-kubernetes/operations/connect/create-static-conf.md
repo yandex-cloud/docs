@@ -5,6 +5,7 @@
 Также с помощью статического файла конфигурации можно настроить доступ к нескольким кластерам {{ managed-k8s-name }}. Между описанными в конфигурациях кластерами {{ managed-k8s-name }} можно быстро переключаться с помощью команды `kubectl config use-context`. Подробнее о настройке доступа к нескольким кластерам {{ managed-k8s-name }} читайте в [документации {{ k8s }}](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
 Чтобы создать файл конфигурации:
+* [Получите уникальный идентификатор кластера](#k8s-id).
 * [Подготовьте сертификат кластера {{ managed-k8s-name }}](#prepare-cert).
 * [Создайте объект ServiceAccount](#create-sa).
 * [Подготовьте токен объекта ServiceAccount](#prepare-token).
@@ -12,6 +13,13 @@
 * [Проверьте результат](#check-result).
 
 Для выполнения bash-команд вам понадобится парсер JSON-файлов — [jq](https://stedolan.github.io/jq/download/).
+
+## Перед началом работы {#before-you-begin}
+
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
+1. [Создайте кластер {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) любой подходящей конфигурации.
+1. [Создайте группу узлов](../node-group/node-group-create.md) любой подходящей конфигурации.
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](index.md#kubectl-connect). Учетные данные добавьте в конфигурационный файл `test.kubeconfig` с помощью флага `--kubeconfig=test.kubeconfig`.
 
 ## Получите уникальный идентификатор кластера {#k8s-id}
 
@@ -108,7 +116,7 @@
 
    {% list tabs %}
 
-   - Версия кластера {{ managed-k8s-name }} 1.24 и выше
+   - Версия {{ k8s }} 1.24 и выше
 
      ```yaml
      apiVersion: v1
@@ -140,7 +148,7 @@
          kubernetes.io/service-account.name: "admin-user"
      ```
 
-   - Версия кластера {{ managed-k8s-name }} 1.23 и ниже
+   - Версия {{ k8s }} 1.23 и ниже
 
      ```yaml
      apiVersion: v1
@@ -197,12 +205,12 @@
 
   1. Получите токен объекта `ServiceAccount`. Кавычки из содержимого уберутся автоматически:
 
-    ```shell script
-    $SECRET = kubectl -n kube-system get secret -o json | `
-      ConvertFrom-Json | `
-      Select-Object -ExpandProperty items | `
-      Where-Object { $_.metadata.name -like "*admin-user*" }
-    ```
+     ```shell script
+     $SECRET = kubectl -n kube-system get secret -o json | `
+       ConvertFrom-Json | `
+       Select-Object -ExpandProperty items | `
+       Where-Object { $_.metadata.name -like "*admin-user*" }
+     ```
 
   1. Раскодируйте токен из формата Base64:
 
@@ -258,7 +266,7 @@
 
 {% endlist %}
 
-## Создайте и заполните файл конфигурации {#create-conf-file}
+## Дополните файл конфигурации {#create-conf-file}
 
 1. Добавьте сведения о кластере {{ managed-k8s-name }} в файл конфигурации.
 
@@ -276,6 +284,8 @@
      ```
 
    - PowerShell
+
+     Выполните команду:
 
      ```bash
      kubectl config set-cluster sa-test2 `

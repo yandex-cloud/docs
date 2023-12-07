@@ -16,7 +16,7 @@ We recommend using the advanced method for tracking time, as it has more flexibl
 
 ## Basic time tracking {#limited-spent-time}
 
-The **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** category of issue fields shows the time planned for and spent on the issue.
+The **Time spent** category of issue fields shows the time planned for and spent on the issue.
 
 Before getting started with an issue, we recommend that you specify the time you're planning to spend on it. When the work is complete, you can compare your preliminary evaluation with the actually spent time.
 
@@ -28,7 +28,7 @@ Before getting started with an issue, we recommend that you specify the time you
 
    * If the **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}** field shows time, the value in the **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}** field will not decrease immediately. It will only decrease after you spend more time than specified in the **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}** field.
 
-* **{{ ui-key.startrek.blocks-desktop_i-ticket-subscription.worklogs }}**: Total time spent on resolving the issue. If you [logged time multiple times](#add-limited-time-spent), this field will show the total value.
+* **Time spent**: Total time spent on resolving the issue. If you [logged time multiple times](#add-limited-time-spent), this field will show the total value.
 
 ### Registering time spent {#add-limited-time-spent}
 
@@ -70,9 +70,9 @@ Any user can register their spent time, not only the issue's assignee. The [Time
 
 ### View time spent {#show-time-spent}
 
-You can see how much time was spent on an issue in the right-hand panel on the issue page, under **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}**, or in the [Time spent report](../manager/statistics.md#section_uxt_3ft_xz).
+You can see how much time was spent on an issue in the right-hand panel on the issue page, under **Time spent**, or in the [Time spent report](../manager/statistics.md#section_uxt_3ft_xz).
 
-If the issue does not have the **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** section, add it as follows:
+If the issue does not have the **Time spent** section, add it as follows:
 
 1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}** in the right-hand panel.
 
@@ -98,9 +98,9 @@ To enable advanced time tracking for queue issues:
 1. In **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-working-calendar }}**, choose one of the options.
 1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}**.
 
-As a result, a new section called **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** will appear in the queue issues. All data of the **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** issue fields will be transferred to this section.
+As a result, a new section called **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** will appear in the queue issues. All data of the **Time spent** issue fields will be transferred to this section.
 
-To switch back to basic time tracking, disable **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** in the queue settings. Data from the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be transferred to the fields of the **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** category.
+To switch back to basic time tracking, disable **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** in the queue settings. Data from the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be transferred to the fields of the **Time spent** category.
 
 ### Registering time spent {#add-extended-time-spent}
 

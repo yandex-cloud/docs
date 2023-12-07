@@ -7,7 +7,7 @@ You can create issues in any of the available [queues](../queue-intro.md). Selec
 
 To create an issue:
 
-1. Click ![](../../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_m-head.new-issue }}** in the left panel.
+1. Click ![](../../_assets/tracker/svg/icon-add.svg) **Create issue** in the left panel.
 
 1. In the upper-left corner of the page, choose the queue to create your issue in.
 
@@ -25,13 +25,13 @@ To create an issue:
 
 1. To add files or images to the issue, click **{{ ui-key.startrek.ui_components_AttachmentsManager.attach }}**.
 
-1. To add a list of steps for resolving the issue, click **{{ ui-key.startrek.ui_components_IssueChecklist.add-checklist }}**.
+1. To add a list of steps for resolving the issue, click **Add checklist**.
 
 1. In the right panel, specify:
 
-   * Key issue parameters: <q>{{ ui-key.startrek.components_FormCreateIssue.field--type }}</q>, <q>{{ ui-key.startrek.components_FormCreateIssue.field--priority }}</q>, <q>{{ ui-key.startrek.components_FormCreateIssue.field--dueDate }}</q>, <q>{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--project }}</q>, and <q>{{ ui-key.startrek.components_FormCreateIssue.field--tags }}</q>.
+   * Key issue parameters: <q>Type</q>, <q>Priority</q>, <q>Deadline</q>, <q>Project</q>, and <q>Tags</q>.
 
-   * List of users relevant to the issue: Enter names or usernames in the <q>{{ ui-key.startrek.components_FormCreateIssue.field--assignee }}</q> and <q>{{ ui-key.startrek.components_FormCreateIssue.field--followers }}</q> fields or click **{{ ui-key.startrek.blocks-desktop_i-autocomplete-control.assign-me }}** to add yourself.
+   * List of users relevant to the issue: Enter names or usernames in the <q>Assignee</q> and <q>Followers</q> fields or click **Me** to add yourself.
 
       You can also leave the values at defaults to come back to them later.
 

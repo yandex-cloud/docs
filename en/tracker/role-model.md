@@ -17,7 +17,7 @@ User rights in {{ tracker-name }} are classified into two types:
 * Global level of access to {{ tracker-name }}:
    * [Administrator](#admin).
    * [Employee with full access](access.md#set).
-   * [Employee with the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> permission](access.md#readonly).
+   * [Employee with the <q>Read</q> permission](access.md#readonly).
 
 * Rights of access to individual elements of the {{ tracker-name }} structure:
    * [Queue issues](manager/queue-access.md). The rights to create, view, and edit issues can be set up by the queue owner or another user permitted by the owner to edit the [queue settings](manager/edit-queue-general.md).
@@ -88,13 +88,13 @@ Actions available to employees:
 * Using [issue boards](user/agile.md) and [dashboards](user/dashboard.md).
 * Setting up the [interface](user/personal.md) and [notifications](user/notifications.md).
 
-#### Employees with the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> permission {#read-only}
+#### Employees with the <q>Read</q> permission {#read-only}
 
-Employees working in <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> mode can use the features related to viewing issues in {{ tracker-name }}. You do not pay for the use of the service by such users.
+Employees working in <q>Read</q> mode can use the features related to viewing issues in {{ tracker-name }}. You do not pay for the use of the service by such users.
 
-If the [administrator](#admin) has the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> access to {{ tracker-name }}, they can edit access rights for their account themselves.
+If the [administrator](#admin) has the <q>Read</q> access to {{ tracker-name }}, they can edit access rights for their account themselves.
 
-Actions available in <q>{{ ui-key.startrek.components_Licenses.department-access-title--readOnly }}</q> mode:
+Actions available in <q>Read only</q> mode:
 
 * View issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
 * Search for issues using the [filter builder](user/create-filter.md) and [query language](user/query-filter.md).

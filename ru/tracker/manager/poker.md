@@ -24,9 +24,9 @@
 
 1. Нажмите кнопку **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.show-estimates }}**. Под именами участников планирования появятся значения оценок, которые они выбрали. 
 
-    Итоговая оценка будет [автоматически рассчитана](#section_calc) и сохранена в поле **{{ ui-key.startrek.components_Poker.mark-title }}**. При необходимости вы можете изменить это значение.
+    Итоговая оценка будет [автоматически рассчитана](#section_calc) и сохранена в поле **Оценка**. При необходимости вы можете изменить это значение.
 
-1. Чтобы завершить оценку задачи, нажмите **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.apply-estimate }}**. Значение из поля **{{ ui-key.startrek.components_Poker.mark-title }}** будет скопировано в поле задачи **Story Points**, задача будет скрыта со страницы покера.
+1. Чтобы завершить оценку задачи, нажмите **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.apply-estimate }}**. Значение из поля **Оценка** будет скопировано в поле задачи **Story Points**, задача будет скрыта со страницы покера.
 
 ## Настроить шкалу оценки {#section_scale}
 

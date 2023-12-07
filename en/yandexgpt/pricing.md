@@ -2,9 +2,9 @@
 editable: false
 ---
 
-# {{ yagpt-full-name }} pricing
+# {{ yagpt-full-name }} pricing policy
 
-{{ yagpt-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and it is charged according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb).
+{{ yagpt-full-name }} is at the [Preview stage](../overview/concepts/launch-stages.md) and is part of {{ foundation-models-full-name }}. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
 
 {% note warning %}
 
@@ -12,7 +12,7 @@ This pricing will become effective on December 6, 2023.
 
 {% endnote %}
 
-## What is included in {{ yagpt-name }} cost {#rules}
+## What is included in the {{ yagpt-name }} cost {#rules}
 
 ### Pricing unit {#unit}
 
@@ -36,6 +36,68 @@ The cost of providing text as vectors, i.e., getting text embeddings, depends on
 ### Internal server errors {#error-request}
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
+
+## Examples of {{ yagpt-name }} usage cost calculation {#price-examples}
+
+### Calculating text generation cost {#price-example-generating}
+
+> In this example, we will calculate the cost of using {{ yagpt-name }} for text generation with the following parameters:
+> * Number of prompt tokens: 20.
+> * Number of response tokens: 32.
+> * Model: {{ yagpt-name }} Lite.
+> * Model working mode: Synchronous.
+>
+> The cost is calculated as follows:
+>
+> (20 + 32) × 1.0 × ($0.0032/1000) = $0.000166
+>
+> Total: $0.000166.
+
+Where:
+* 20: Number of prompt tokens.
+* 32: Number of response tokens.
+* 1.0: Multiplier for using the {{ yagpt-name }} Lite model in synchronous mode.
+* $0.0032: Cost per 1,000 tokens.
+* $0.0032/1000: Cost per token.
+
+
+> Here is another example, where we will calculate the cost of using {{ yagpt-name }} for text generation with the following parameters:
+> * Number of prompt tokens: 115.
+> * Number of response tokens: 1,500.
+> * Model: {{ yagpt-name }}.
+> * Model working mode: Asynchronous.
+>
+> The cost is calculated as follows:
+>
+> (115 + 1500) × 2.5 = 4037.5 = 4038.0 (rounding up to the integer)
+> 4038.0 × ($0.0032/1000) = $0.012922
+>
+> Total: $0.012922.
+
+Where:
+* 115: Number of prompt tokens.
+* 1500: Number of response tokens.
+* 2.5: Multiplier for using the {{ yagpt-name }} model in asynchronous mode.
+* 4038.0: Total number of billing units.
+* $0.0032: Cost per 1,000 tokens.
+* $0.0032/1000: Cost per token.
+
+### Calculating text vectorization cost {#price-example-embedding}
+
+> In this example, we will calculate the cost of using {{ yagpt-name }} for text vectorization with the following parameters:
+> * Number of tokens in the request: 2,000.
+>
+> The cost is calculated as follows:
+>
+> 2000 × 1.0 × ($0.00008/1000) = $0.00016
+>
+> Total: $0.00016.
+
+Where:
+* 2000: Number of tokens in the request.
+* 1.0: Multiplier for using text vectorization.
+* $0.00008: Cost per 1,000 tokens.
+* $0.00008/1000: Cost per token.
 
 
 ## Pricing {#prices}

@@ -6,7 +6,7 @@
 
 Чтобы перейти к диаграмме Ганта:
 
-1. На [панели слева]({{ link-tracker }}) выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects) и откройте страницу портфеля.
+1. На [панели слева]({{ link-tracker }}) выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**Проекты** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects) и откройте страницу портфеля.
 
 1. Выберите вкладку **{{ ui-key.startrek.ui_components_filter-pane_ViewModeSwitch.mode-gantt }}**.
    * Слева от диаграммы отображается список портфелей и проектов. Чтобы открыть список вложенных элементов, нажмите на значок ![](../../_assets/tracker/svg/arrow.svg) рядом с его названием. Задачи отобразятся в виде иерархического списка.
@@ -38,7 +38,7 @@
 
 {% note info %}
 
-Если кнопка ![](../../_assets/tracker/svg/pick-user.svg) не отображается на полосе портфеля или проекта, перейдите в ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** и в разделе **{{ ui-key.startrek.ui_components_Gantt.task-bar }}** отметьте пункт **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}**.
+Если кнопка ![](../../_assets/tracker/svg/pick-user.svg) не отображается на полосе портфеля или проекта, перейдите в ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** и в разделе **Полоса задачи** отметьте пункт **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}**.
 
 {% endnote %}
 

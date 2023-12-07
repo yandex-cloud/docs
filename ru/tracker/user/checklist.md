@@ -6,7 +6,7 @@
 
 1. Откройте страницу задачи.
 
-1. Нажмите кнопку ![](../../_assets/tracker/svg/checklist.svg) **{{ ui-key.startrek.ui_components_IssueChecklist.add-checklist }}**.
+1. Нажмите кнопку ![](../../_assets/tracker/svg/checklist.svg) **Добавить чеклист**.
 
 1. Введите название первого пункта списка. 
 

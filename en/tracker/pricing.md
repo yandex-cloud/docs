@@ -11,7 +11,7 @@ You don't have to pay anything for {{ tracker-name }} if you only have a small t
 
 {% endnote %}
 
-By default, all company employees can use {{ tracker-full-name }} for free in [<q>{{ ui-key.startrek.components_Licenses.group-access-title--readOnly }}</q>](access.md#readonly) mode. Grant [full access](access.md) to {{ tracker-name }} so that your employees can use all of its features.
+By default, all company employees can use {{ tracker-full-name }} for free in [<q>Read only</q>](access.md#readonly) mode. Grant [full access](access.md) to {{ tracker-name }} so that your employees can use all of its features.
 
 The cost of using {{ tracker-name }} is based on the number of users with [full access to the service](access.md). The monthly fee [is debited from the billing account](pay-the-bill.md#charge) linked to {{ tracker-name }}.
 
@@ -33,7 +33,7 @@ If you want to provide access to {{ tracker-name }} for more than 500 users, [co
 
 {% endnote %}
 
-To check your billing account balance or view your payment history, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}** on the top panel in {{ tracker-name }}.
+To check your billing account balance or view your payment history, click ![](../_assets/tracker/tracker-burger.png) → **Billing** on the top panel in {{ tracker-name }}.
 
 ## Cost calculation {#sec_calculate}
 

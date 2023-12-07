@@ -26,7 +26,7 @@
 
 Чтобы просмотреть рабочие процессы очереди:
 
-1. На панели {{ tracker-name }} слева нажмите {{ ui-key.startrek.blocks-desktop_m-head.menu-queues }} и перейдите на страницу очереди.
+1. На панели {{ tracker-name }} слева нажмите Очереди и перейдите на страницу очереди.
 
 1. В верхнем правом углу нажмите ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 

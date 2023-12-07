@@ -5,12 +5,12 @@ For each role in {{ tracker-name }}, you can configure a list of events you want
 ## Configuring event lists {#section_iqn_y55_xgb}
 
 
-1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **{{ ui-key.startrek.blocks-desktop_b-head.manage-subscriptions }}**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
+1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 1. Select a role and configure the list of events you want to be notified about via email or in [update reports](notification-digest.md):
    - To add an event, click ![](../../_assets/tracker/button-plus.png).
    - To delete an event, click ![](../../_assets/tracker/small-x.png).
-   - To delete all notifications for the current role, click **{{ ui-key.startrek.blocks-desktop_b-page-subscriptions-roles.reset }}**.
+   - To delete all notifications for the current role, click **Delete notifications**.
 
    {% note info %}
 
@@ -35,8 +35,8 @@ Other roles that have been set up in your organization can also be available in 
 To add roles and set up notifications for them:
 
 
-1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **{{ ui-key.startrek.blocks-desktop_b-head.manage-subscriptions }}**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
+1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
-1. At the bottom of the page, click **{{ ui-key.startrek.blocks-desktop_b-page-subscriptions-roles.add-role }}**, then select a role. To delete a role, click ![](../../_assets/tracker/remove-task-type.png) next to the role name.
+1. At the bottom of the page, click **Add role**, then select a role. To delete a role, click ![](../../_assets/tracker/remove-task-type.png) next to the role name.
 
 1. [Configure the list of events](notification-settings.md#section_iqn_y55_xgb) you want to be notified about for the role.

@@ -6,7 +6,7 @@ If your team leverages [Agile development methodology]({{ link-wiki-agile-en }})
 ![](../_assets/tracker/agile-board-c.png)
 
 
-If you selected the <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--scrum-development-preset }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--kanban-development-preset }}</q> template when [creating a queue](dev-process-create-queue.md), an issue board with the queue's name is also created automatically. All issues from your queue will be shown on the board.
+If you selected the <q>Basic development model</q>, <q>Scrum</q>, or <q>Kanban</q> template when [creating a queue](dev-process-create-queue.md), an issue board with the queue's name is also created automatically. All issues from your queue will be shown on the board.
 
 You can also [create multiple issue boards](manager/create-agile-board.md). This can be useful if you have multiple work groups or issue types:
 
@@ -14,7 +14,7 @@ You can also [create multiple issue boards](manager/create-agile-board.md). This
 
 1. Select the [board type](#board_types).
 
-1. Under **{{ ui-key.startrek.blocks-desktop_agile-form-modal.label-board-mode }}**, enable the **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-mode-filter }}** option and set the filters so that only issues with certain parameters are displayed.
+1. Under **Add issues**, enable the **automatic** option and set the filters so that only issues with certain parameters are displayed.
 
    For example, you can set up filters in such a way so that all issues from your queue are displayed on the board, or only issues with certain [components](manager/components.md) or assignees are displayed, and so on.
 
@@ -24,9 +24,9 @@ You can also [create multiple issue boards](manager/create-agile-board.md). This
 
 {{ tracker-name }} has multiple board types:
 
-- <q>{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}</q> boards have the least features and display the team's issues and their statuses.
+- <q>Basic</q> boards have the least features and display the team's issues and their statuses.
 
-- <q>{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--kanban }}</q> boards are similar to basic boards, but all issues with the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-status-open }}** status are automatically moved to the [**{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.open }}**](manager/agile.md#dlen_backlog) column.
+- <q>Kanban</q> boards are similar to basic boards, but all issues with the **Open** status are automatically moved to the [**{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.open }}**](manager/agile.md#dlen_backlog) column.
 
 - <q>{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.name }}</q> boards display issue statuses and provide [sprint](manager/agile.md#dlen_sprint) management tools, [issue estimation](manager/planning-poker.md), and [burndown charts](manager/agile.md#dlen_burndown).
 
@@ -40,7 +40,7 @@ The <q>{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.name }}</q> boa
 
    To [schedule a sprint in {{ tracker-name }}](manager/create-agile-sprint.md) :
 
-   - Click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.sprints }}** in the upper-right corner of the issue board.
+   - Click **Sprints** in the upper-right corner of the issue board.
 
    - [Create a sprint](manager/create-agile-sprint.md#create_sprint) and set its start and end dates.
 
@@ -54,7 +54,7 @@ To show the issues from a specific sprint on the board, select the sprint at the
 
    You can [use planning poker in {{ tracker-name }}](manager/planning-poker.md):
 
-   - To [estimate your issues](manager/planning-poker.md#section_estimate), ask your team members to go to the poker page. To do this, they need to click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.poker }}** in the upper-right corner of the issue board.
+   - To [estimate your issues](manager/planning-poker.md#section_estimate), ask your team members to go to the poker page. To do this, they need to click **Poker** in the upper-right corner of the issue board.
 
    - You can also [set the issue estimation scale](manager/planning-poker.md#section_scale) and [specify rules for calculating the final score](manager/planning-poker.md#section_calc) in the board settings.
 
@@ -64,7 +64,7 @@ To show the issues from a specific sprint on the board, select the sprint at the
 
    The chart's vertical axis shows the total workload left in [Story Points](manager/agile.md#dlen_sp), while the horizontal axis shows time. An ideal burnout chart should be close to a straight line: it should start at a point with a maximum scope of work (the total of all the issues in the sprint) on day 1 of the sprint and end at zero on the last day of the sprint.
 
-   To [view the burndown chart in {{ tracker-name }}](manager/burndown.md), click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.reports }}** in the upper-right corner of the issue board.
+   To [view the burndown chart in {{ tracker-name }}](manager/burndown.md), click **Burn down chart** in the upper-right corner of the issue board.
 
 ### Issue breakdown
 

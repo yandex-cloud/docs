@@ -10,17 +10,17 @@
 
 1. В поле с выпадающим списком выберите один из вариантов:
 
-    * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-favorite }}** – задачи, которые вы [добавили в избранное](favourites.md#task-fav).
+    * **Избранные задачи** – задачи, которые вы [добавили в избранное](favourites.md#task-fav).
 
-    * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-my-issues }}** – задачи, для которых вы являетесь автором, исполнителем или наблюдателем.
+    * **Все мои задачи** – задачи, для которых вы являетесь автором, исполнителем или наблюдателем.
 
-    * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-author }}** – задачи, для которых вы являетесь автором.
+    * **Я автор** – задачи, для которых вы являетесь автором.
 
-    * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-assignee }}** – задачи, в которых вы назначены исполнителем.
+    * **Я исполнитель** – задачи, в которых вы назначены исполнителем.
 
-    * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-follower }}** – задачи, на обновления которых вы [подписались](subscribe.md#section_xt5_xrv_jz).
+    * **Я наблюдатель** – задачи, на обновления которых вы [подписались](subscribe.md#section_xt5_xrv_jz).
 
-    * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-waiting }}** – задачи, в которых вас [призвали в комментарии](comments.md#call-comment).
+    * **Ждут ответа** – задачи, в которых вас [призвали в комментарии](comments.md#call-comment).
 
     * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_deadline }}** – задачи, для которых вы являетесь автором, исполнителем или наблюдателем и в которых:
             
@@ -33,12 +33,12 @@
     * Для поиска задач в списке используйте строку поиска **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.search-input-placeholder }}** или [добавьте условия поиска](#add-condition).
 
 
-    * Чтобы сгруппировать задачи по определенному параметру, справа от строки поиска нажмите ![](../../_assets/tracker/svg/group.svg) **{{ ui-key.startrek.blocks-desktop_issues-table.group-by--null }}** и выберите параметр.
+    * Чтобы сгруппировать задачи по определенному параметру, справа от строки поиска нажмите ![](../../_assets/tracker/svg/group.svg) **Без группировки** и выберите параметр.
 
 
     * Чтобы сохранить список задач, в верхнем правом углу нажмите ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** и выберите формат файла для загрузки или скопируйте список в буфер обмена.
 
-    * Чтобы свернуть панель со списком фильтров, в верхнем правом углу страницы нажмите ![](../../_assets/tracker/svg/icon-parameters.svg) **{{ ui-key.startrek.ui_components_PageIssues_FilterInputTypeSwitch.parameters }}**. 
+    * Чтобы свернуть панель со списком фильтров, в верхнем правом углу страницы нажмите ![](../../_assets/tracker/svg/icon-parameters.svg) **Параметры**. 
 
 ## Фильтрация по параметрам {#quick-filters}
 
@@ -96,7 +96,7 @@
 
 1. Добавьте в строку условия с помощью [языка запросов](query-filter.md).
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_issues-filter.action--apply-query }}**. 
+1. Нажмите кнопку **Применить**. 
 
 В списке останутся только задачи, параметры которых удовлетворяют заданному условию.
 
@@ -104,8 +104,8 @@
 
 Чтобы сохранить условия поиска задач в виде фильтра:
 
-1. На панели под списком задач нажмите кнопку ![](../../_assets/tracker/svg/save-filter.svg) **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.action_submit }}**.
+1. На панели под списком задач нажмите кнопку ![](../../_assets/tracker/svg/save-filter.svg) **Сохранить**.
 
 1. Задайте имя и категорию фильтра. 
 
-Ваши сохраненные фильтры доступны в поле выбора **{{ ui-key.startrek.ui_components_FilterEditorPane.all-issues-filter-title }}** в разделе **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
+Ваши сохраненные фильтры доступны в поле выбора **Все задачи** в разделе **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.

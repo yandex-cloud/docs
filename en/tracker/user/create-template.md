@@ -3,18 +3,18 @@
 To create a template for an issue or comment:
 
 1. Select the desired option:
-   - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-issues }}]({{ link-settings }}/templates/issues) to edit issue templates.
-   - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-comments }}]({{ link-settings }}/templates/comments) to edit comment templates.
+   - [Issues]({{ link-settings }}/templates/issues) to edit issue templates.
+   - [Comments]({{ link-settings }}/templates/comments) to edit comment templates.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.create-template }}**.
+1. Tap **Create template**.
 
 1. Enter the template name and description.
 
-1. If you want the template to only be used in a specific queue, specify the queue in the **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.edit-form-label-queue }}** field.
+1. If you want the template to only be used in a specific queue, specify the queue in the **Queue binding** field.
 
 1. Fill in the template parameters the same way as when creating a [new issue](create-ticket.md) or [comment](comments.md).
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.
+1. Tap **Save**.
 
 The new template will be available on the [template page]({{ link-tracker-templates }}).
 

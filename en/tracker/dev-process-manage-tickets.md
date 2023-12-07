@@ -4,7 +4,7 @@ There are several ways to structure issues in {{ tracker-name }}. You can use th
 
 ### Issue types
 
-Your queue may include multiple [issue types](manager/add-ticket-type.md) with different pipelines. For instance, the <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}</q> queue template includes the following issue types by default: <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--release }}</q>, and [<q>Milestone</q>](manager/milestones.md).
+Your queue may include multiple [issue types](manager/add-ticket-type.md) with different pipelines. For instance, the <q>Basic development model</q> queue template includes the following issue types by default: <q>Issue</q>, <q>Improvement</q>, <q>Error</q>, <q>Release</q>, and [<q>Milestone</q>](manager/milestones.md).
 
 You can also add new issue types and [set up a dedicated workflow](manager/add-workflow.md) for them if needed, such as setting up their possible statuses and status transition rules.
 

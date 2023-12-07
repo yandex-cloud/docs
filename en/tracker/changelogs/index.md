@@ -21,7 +21,7 @@ To learn how to activate auto time calculation and how it works, see [{#T}](../m
 
 {{ tracker-name }} users can now view a queue's [workflow](../manager/workflow.md) in issues. If authorized to [view queue issues](../manager/queue-access.md#acces-types), the user will now see a set of statuses inside an issue. The user will also be able to view transitions, but only those they have access to within the workflow configuration.
 
-To view the workflow on the issue page, click ![](../../_assets/tracker/svg/arrow.svg) → **View workflow** in the right-hand panel in the **{{ ui-key.startrek.blocks-desktop_b-ticket-fields.status }}** field.
+To view the workflow on the issue page, click ![](../../_assets/tracker/svg/arrow.svg) → **View workflow** in the right-hand panel in the **Status** field.
 
 ### List of statuses in the workflow editor {#list-workflow}
 

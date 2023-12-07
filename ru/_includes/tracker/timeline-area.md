@@ -1,6 +1,6 @@
 На диаграмме можно настроить логику сдвигов зависимых задач и родительских задач, а также отображение связей.
 
-Над временной шкалой справа нажмите ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** и в блоке **{{ ui-key.startrek.ui_components_Gantt.task-bar }}** выберите настройку:
+Над временной шкалой справа нажмите ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** и в блоке **Полоса задачи** выберите настройку:
 
 * Чтобы задачи со связью <q>Блокирующая — зависимая</q> соединялись стрелкой на диаграмме, отметьте пункт **{{ ui-key.startrek.ui_components_Gantt.show-links }}**. 
 

@@ -28,7 +28,7 @@ To create a sub-issue:
 
 1. Open the issue to create a sub-issue for.
 
-1. In the top-right corner, tap ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_IssueLinks.empty-list-button }}**.
+1. In the top-right corner, tap ![](../../_assets/horizontal-ellipsis.svg) and select **Create sub-issue**.
 
 1. Fill in the fields the same way as when [creating a new issue](./create-ticket.md).
 
@@ -52,4 +52,4 @@ To remove an issue's link:
 
 1. Click the **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}** tab.
 
-1. Next to the linked issue, tap ![](../../_assets/horizontal-ellipsis.svg)and select **{{ ui-key.startrek.blocks-desktop_b-form-related-issues.remove-link }}**.
+1. Next to the linked issue, tap ![](../../_assets/horizontal-ellipsis.svg)and select **Remove link**.

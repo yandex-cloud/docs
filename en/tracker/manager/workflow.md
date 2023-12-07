@@ -21,7 +21,7 @@ Workflows are stored in queue settings, so they can only be accessed by the queu
 
 To view the queue workflows:
 
-1. In the {{ tracker-name }} panel on the left, click {{ ui-key.startrek.blocks-desktop_m-head.menu-queues }} and go to the queue page.
+1. In the {{ tracker-name }} panel on the left, click Queues and go to the queue page.
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 

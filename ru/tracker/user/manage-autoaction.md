@@ -4,7 +4,7 @@
 
 1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. На панели слева выберите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.title }}**.
+1. На панели слева выберите **Автоматизация** → **Автодействия**.
 
 1. Выполните действия: 
     - Чтобы изменить настройки автодействия, наведите на него указатель и нажмите значок ![](../../_assets/tracker/icon-edit.png).

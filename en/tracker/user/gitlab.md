@@ -29,7 +29,7 @@ Private repositories can only be accessed by users logged in to GitLab (**Intern
 
 1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-1. Choose GitLab in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
+1. Choose GitLab in the **Platform** field.
 
 1. Get an OAuth token for your repository on GitHub:
 
@@ -59,9 +59,9 @@ Private repositories can only be accessed by users logged in to GitLab (**Intern
 
 1. Enter the repository address in the `https://gitlab.com/<repository owner login>/<repository name>` format and specify the access token.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+1. Click **Connect**.
 
-1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
 
 {% include [commits](../../_includes/tracker/add_commits.md) %}
 

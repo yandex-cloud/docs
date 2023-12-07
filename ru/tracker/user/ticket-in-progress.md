@@ -1,6 +1,6 @@
 # Как работать с задачей
 
-Чтобы открыть список ваших задач, в меню слева выберите ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** → **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-my-issues }}** или перейдите по [ссылке]({{ link-tracker }}issues/my-issues). Чтобы начать работать с задачей, перейдите на ее страницу.
+Чтобы открыть список ваших задач, в меню слева выберите ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** → **Все мои задачи** или перейдите по [ссылке]({{ link-tracker }}issues/my-issues). Чтобы начать работать с задачей, перейдите на ее страницу.
 
 
 ## Принять задачу в работу {#section_qpp_5rn_jz}

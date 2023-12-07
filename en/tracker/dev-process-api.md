@@ -18,7 +18,7 @@ You can use the {{ tracker-name }} API to update issue statuses automatically ba
 
 1. The intermediate service receives the HTTP request, determines the event type (whether the pool request was accepted or rejected), and retrieves the issue key from the comment left for the pool request.
 
-1. The intermediate service then sends an issue status change request to the {{ tracker-name }} API. The request URL must include the issue key and the status key. You can find the status key in the {{ tracker-name }} settings, the [**{{ ui-key.startrek.blocks-desktop_page-admin.tab-title--statuses }}**]({{ link-tracker-statuses }}) tab.
+1. The intermediate service then sends an issue status change request to the {{ tracker-name }} API. The request URL must include the issue key and the status key. You can find the status key in the {{ tracker-name }} settings, the [**Issue statuses**]({{ link-tracker-statuses }}) tab.
 
    The request format is described in the [API reference](concepts/issues/new-transition.md).
 
@@ -36,7 +36,7 @@ You can use the same script to include a link to the deployed test bench in the 
 
 1. When developing a new product feature, create a separate branch in the repository that must have the [issue key](user/create-ticket.md#key) specified in its name. This issue key is needed to send requests to the {{ tracker-name }} API.
 
-1. Once the script has deployed the test bench, it sends a request to the {{ tracker-name }} API, adding the bench address to the <q>Bench link</q> issue field. The request URL must include the issue key and the request body must include the key and the new field value. You can find the field key in the {{ tracker-name }} settings, the [**{{ ui-key.startrek.blocks-desktop_page-admin.tab-title--fields }}**]({{ link-admin-fields }}) tab.
+1. Once the script has deployed the test bench, it sends a request to the {{ tracker-name }} API, adding the bench address to the <q>Bench link</q> issue field. The request URL must include the issue key and the request body must include the key and the new field value. You can find the field key in the {{ tracker-name }} settings, the [**Fields**]({{ link-admin-fields }}) tab.
 
    The request format is described in the [API reference](concepts/issues/patch-issue.md).
 

@@ -4,13 +4,13 @@
 Для этого:
 
 
-1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **{{ ui-key.startrek.blocks-desktop_b-head.manage-subscriptions }}**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
+1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
 
 1. Напротив названия очереди, компонента или версии выберите роль, для которой требуется настроить список событий. 
 
     {% note tip %}
 
-    Если на вкладке **{{ ui-key.startrek.blocks-desktop_b-subscriptions-header.subscriptions }}** нет очередей, компонентов или версий, [подпишитесь на уведомления](subscribe.md#section_xt5_xrv_jz).
+    Если на вкладке **Подписки** нет очередей, компонентов или версий, [подпишитесь на уведомления](subscribe.md#section_xt5_xrv_jz).
 
     {% endnote %}
 

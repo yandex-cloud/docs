@@ -1,6 +1,6 @@
 # Slack
 
-Suppose that you need to automatically send notifications to the messenger whenever an issue changes its status. You might need it to see when your releases are ready for testing. To do this, [create a trigger](user/trigger.md) that keeps track of issue statuses like <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--release }}</q> and sends an HTTP request when the issue status changes to <q>{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}</q>.
+Suppose that you need to automatically send notifications to the messenger whenever an issue changes its status. You might need it to see when your releases are ready for testing. To do this, [create a trigger](user/trigger.md) that keeps track of issue statuses like <q>Release</q> and sends an HTTP request when the issue status changes to <q>{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}</q>.
 
 If you want to transmit {{ tracker-name }} notifications to team chats, set up an external app in Slack and create a trigger that will send messages to Slack via HTTP requests.
 
@@ -36,21 +36,21 @@ If you want to transmit {{ tracker-name }} notifications to team chats, set up a
 
 1. Log in to {{ tracker-name }}. You must have administrator privileges for the queue that you'll configure the trigger for.
 
-1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](user/create-trigger.md).
+1. Go to **Triggers** in the queue settings and click [**Create trigger**](user/create-trigger.md).
 
 1. Name the trigger, for example, <q>Slack notifications</q>.
 
-1. Configure trigger conditions so that the trigger is fired when the status of a **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--release }}** issue changes to **{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.ready.for.test }}**:
+1. Configure trigger conditions so that the trigger is fired when the status of a **Release** issue changes to **{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.ready.for.test }}**:
 
-   1. Select **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
+   1. Select **Conditions to be met** → **All**.
 
-   1. Add the condition: **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.table-head--type }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--release }}**.
+   1. Add the condition: **Type** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Release**.
 
-   1. Add the condition: **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.content-header--status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.ready.for.test }}**.
+   1. Add the condition: **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.ready.for.test }}**.
 
    ![](../_assets/tracker/slack-trigger-example.png)
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_add-action }}** and select **{{ ui-key.startrek.blocks-desktop_trigger-action.title_webhook }}**.
+1. Click **Add new action** and select **Webhook**.
 
 1. Set up the request:
    - Method: **POST**.
@@ -71,6 +71,6 @@ If you want to transmit {{ tracker-name }} notifications to team chats, set up a
 
 1. Save your trigger.
 
-To test the trigger in action, change the issue status from **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--release }}** to **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}**. The trigger sends a message to the group chat with the link to the issue and the following text: <q>Time to test the issue TEST-123: Configure triggers</q>.
+To test the trigger in action, change the issue status from **Release** to **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}**. The trigger sends a message to the group chat with the link to the issue and the following text: <q>Time to test the issue TEST-123: Configure triggers</q>.
 
 

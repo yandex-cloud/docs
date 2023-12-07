@@ -14,23 +14,23 @@ When an auto action is triggered, only the first 100 issues that meet the specif
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. In the left-hand panel, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.title }}** and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.button-create }}**.
+1. In the left-hand panel, select **Automation** → **Auto actions** and click **Create auto action**.
 
-1. Select the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--update }}** type.
+1. Select the **Update issues** type.
 
 1. Set the name for the auto action.
 
 1. Set the interval of automatic update of issues in hours or days.
 
 1. To select the issues that the auto action will apply to, set up the filter parameters using one of the methods:
-   - Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-condition }}**, choose your issue's field, and specify its value.
+   - Click **Add condition**, choose your issue's field, and specify its value.
 
       You can add multiple conditions if needed. The auto action will trigger if all the conditions hold at the same time.
-   - Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.filter-type--query }}** and set a condition using the [query language](query-filter.md).
+   - Click **Query** and set a condition using the [query language](query-filter.md).
 
 1. Set one or several actions on the issue.
 
-   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--transition }}**
+   - **Change issue status**
 
       Set a new issue status. The available statuses depend on the [workflow](../manager/workflow-status-edit.md) settings.
 
@@ -45,25 +45,25 @@ When an auto action is triggered, only the first 100 issues that meet the specif
 
       {% endnote %}
 
-   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--field }}**
+   - **Update fields**
 
       To change values in one or more fields, select the fields and [set their new values](set-action.md#section_mod_fields).
 
-   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--comment }}**
+   - **Add comment**
 
       Write the comment text that will be added to an issue.
 
-      You can insert [values of issue fields](vars.md) into the comment text. To do this, click **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}**.
+      You can insert [values of issue fields](vars.md) into the comment text. To do this, click **Add variable**.
 
-   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--formula }}**
+   - **Calculate value**
 
       You can [set up a special field](set-action.md#section_calc_field) whose values are calculated automatically based on values entered in other fields.
 
-   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**
+   - **HTTP request**
 
       You can [send HTTP request](set-action.md#create-http) each time an auto action is triggered.
 
-1. To save an auto action, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+1. To save an auto action, click **Create**.
 
 ## Auto update example {#autoaction_example}
 
@@ -73,13 +73,13 @@ Let's set up a daily auto update to invite the assignee to comment if the deadl
 
 1. Go to the settings of the queue where you want to create an automatic deadline reminder.
 
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.title }}**, click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.button-create }}**](create-autoaction.md#section_eh1_zlr_kgb).
+1. Under **Auto actions**, click [**Create auto action**](create-autoaction.md#section_eh1_zlr_kgb).
 
-1. Select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--update }}** and name the auto action.
+1. Select **Update issues** and name the auto action.
 
 1. Set up the update period of once a day.
 
-1. Set up the condition so that the auto action is triggered on non-resolved issues (without a resolution) if the deadline is in 3 days or less. To do this, go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.label_filter }}**, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.filter-type--query }}**, and set a condition using the [query language](query-filter.md):
+1. Set up the condition so that the auto action is triggered on non-resolved issues (without a resolution) if the deadline is in 3 days or less. To do this, go to **Filter settings**, select **Query**, and set a condition using the [query language](query-filter.md):
 
     ```
     Resolution: empty() AND Deadline: <= today() + 3d
@@ -89,11 +89,11 @@ Let's set up a daily auto update to invite the assignee to comment if the deadl
 
 1. Set up the auto action — Inviting the issue assignee to comment:
 
-   1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-action }}** and select **{{ ui-key.startrek-backend.types.types.trigger.action.create.comment }}**.
+   1. Click **Add new action** and select **{{ ui-key.startrek-backend.types.types.trigger.action.create.comment }}**.
 
-   1. In the field saying **{{ ui-key.startrek.blocks-desktop_trigger-action.createcomment--invite-from-field }}**, click ![](../../_assets/tracker/summon.png) and enter **Assignee**.
+   1. In the field saying **Invite users from a field**, click ![](../../_assets/tracker/summon.png) and enter **Assignee**.
 
-   1. Write the text of your comment. You can add issue fields to your comment by clicking **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}**.
+   1. Write the text of your comment. You can add issue fields to your comment by clicking **Add variable**.
 
    ![](../../_assets/tracker/autoaction-example-action.png)
 

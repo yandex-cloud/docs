@@ -55,7 +55,7 @@
 ## Получите ID организации для доступа к API {#get-tracker-id}
 
 1. Перейдите в [{{ tracker-name }}](https://tracker.yandex.ru/). Нажмите кнопку **Войти в Tracker**.
-1. На правой панели нажмите кнопку **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}**.
+1. На правой панели нажмите кнопку **Администрирование**.
 1. В разделе **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.access-and-payment }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
 1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}** скопируйте и сохраните идентификатор организации — он понадобится при создании функции.
 
@@ -87,19 +87,19 @@
 
 ### Создайте очередь
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-queue }}**.
-1. Выберите шаблон очереди, например **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Создать очередь**.
+1. Выберите шаблон очереди, например **Базовая разработка**.
 1. Задайте имя, например `Function Test`.
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_queue-new-presets.create }}**.
+1. Нажмите кнопку **Создать**.
 
 ### Создайте триггер
 
 1. На странице очереди в правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. На панели слева выберите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. В поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** введите название триггера, например `timeupdater`.
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}** выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Затрачено времени**.
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}** выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**.
-1. В открывшейся форме в поле **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-url }}** введите:
+1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
+1. В поле **Название** введите название триггера, например `timeupdater`.
+1. В блоке **Условия срабатывания** выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Затрачено времени**.
+1. В блоке **Действия триггера** выберите **HTTP-запрос**.
+1. В открывшейся форме в поле **Адрес** введите:
 	```
 	https://functions.yandexcloud.net/<идентификатор_функции>?id=not_var{{issue.key}}
 	```
@@ -108,19 +108,19 @@
 	```
 	https://functions.yandexcloud.net/d4e94uav31086c******?id=not_var{{issue.key}}
 	```
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+1. Нажмите кнопку **Создать**.
 
 ## Протестируйте автоматическое обновление данных {#test-updates}
 
 ### Создайте задачи
 
 1. Создайте родительскую задачу, для которой будет суммироваться затраченное время подзадач:
-	1. На странице очереди `Function Test` нажмите кнопку **{{ ui-key.startrek.blocks-desktop_guide.ticket--main--action_new--title }}**. 
-	1. В открывшейся форме в поле **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** введите название задачи, например `Parent Task`.
-	1. Нажмите кнопку **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.create }}**.
+	1. На странице очереди `Function Test` нажмите кнопку **Создать задачу**. 
+	1. В открывшейся форме в поле **Название задачи** введите название задачи, например `Parent Task`.
+	1. Нажмите кнопку **Создать**.
 1. Создайте подзадачи:
 	1. На странице задачи `Parent Task` в правом верхнем углу в меню **{{ ui-key.startrek.ui_components_IssueMenu.title }}** выберите **{{ ui-key.startrek.ui_components_IssueMenu.create-subissue }}**.
-	1. В открывшейся форме в поле **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** введите название подзадачи, например `Subtask-1`.
+	1. В открывшейся форме в поле **Название задачи** введите название подзадачи, например `Subtask-1`.
 	1. Аналогичным образом создайте еще одну или несколько подзадач с названиями `Subtask-2`, `Subtask-3` и т. д.
 
 ### Внесите данные о затраченном времени в подзадачах

@@ -12,7 +12,7 @@ To select a different color scheme:
      This option allows you to set issue colors right on the chart.
 
      1. Select **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}**.
-     1. Click **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**.
+     1. Click **Apply**.
 
      Select an issue from the list to the left of the chart and click ![](../../_assets/horizontal-ellipsis.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.issue-action-menu-title }}**. This will open a palette where you can set the issue color.
 
@@ -25,13 +25,13 @@ To select a different color scheme:
 
      1. Select **{{ ui-key.startrek.ui_components_Gantt.color-type-by-parameter }}**.
      1. Specify the parameter whose values you want to set colors for.
-     1. Click **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**.
+     1. Click **Apply**.
 
    - Monochrome
 
      All issue bars on the chart will be blue.
 
      1. Select **{{ ui-key.startrek.ui_components_Gantt.color-type-monochrome }}**.
-     1. Click **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**.
+     1. Click **Apply**.
 
    {% endlist %}

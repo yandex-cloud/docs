@@ -2,7 +2,7 @@
 
 An epic is an issue type that allows you to group issues that share the same subject. Epics can include issues from different queues and sprints.
 
-Epics are especially effective with **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}** boards to help you [plan your team's workload](create-agile-sprint.md#section_sjg_111_2gb). You can distribute issues of an epic between different sprints. This way you can predict effort and deadlines.
+Epics are especially effective with **Scrum** boards to help you [plan your team's workload](create-agile-sprint.md#section_sjg_111_2gb). You can distribute issues of an epic between different sprints. This way you can predict effort and deadlines.
 
 {% note warning %}
 
@@ -12,9 +12,9 @@ An issue can belong to only one epic.
 
 #### Filtering issues by epic
 
-1. In the {{ tracker-name }} top panel, click **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** and select your board.
+1. In the {{ tracker-name }} top panel, click **Boards** and select your board.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.sprints }}** in the top-right corner of the page.
+1. Click **Sprints** in the top-right corner of the page.
 
 1. In the left part of the page, select grouping issues by epics.
 
@@ -34,7 +34,7 @@ An issue can belong to only one epic.
 
 1. Specify the queue, name, and owner for the epic.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-agile-sprints.create-epic }}**.
+1. Click **Create epic**.
 
 #### Adding an issue to the epic
 
@@ -42,7 +42,7 @@ On the sprint page, drag an issue from the backlog or any sprint to the epic car
 
 You can also add issues to epics using [links](../user/ticket-links.md):
 
-1. On the issue page, click **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_CreateIssueLinkButton.add-relation }}**.
+1. On the issue page, click **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **Add link**.
 
 1. Select the **{{ ui-key.startrek-backend.fields.issue.links.relationship.has.epic }}** link type.
 
@@ -52,14 +52,14 @@ You can also add issues to epics using [links](../user/ticket-links.md):
 
 1. Expand the epic card by clicking the arrow to the left of its name.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_epic-card.create-subtask }}** at the bottom.
+1. Click **Create sub-issue** at the bottom.
 
-1. Fill in the issue fields and click **{{ ui-key.startrek.blocks-desktop_agile-create-issue.create }}**. The new issue will be added to the epic.
+1. Fill in the issue fields and click **Create**. The new issue will be added to the epic.
 
 #### Removing an issue from an epic
 
 You can remove an issue from an epic on the sprint page or the issue page.
 
-- Open the sprint page on the board and drag your issue to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-sprints.without-epics }}** card.
+- Open the sprint page on the board and drag your issue to the **Without epics** card.
 
-- Open the issue page, hover over the epic's field in the **{{ ui-key.startrek.ui_components_IssueLinks.links-group-title--relates }}** section, and click ![](../../_assets/tracker/delete-agile-status.png).
+- Open the issue page, hover over the epic's field in the **Related** section, and click ![](../../_assets/tracker/delete-agile-status.png).

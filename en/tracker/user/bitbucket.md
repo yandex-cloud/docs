@@ -10,7 +10,7 @@ To connect your repository on [Bitbucket](https://bitbucket.org) to {{ tracker-n
 
 1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-1. Choose Bitbucket in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
+1. Choose Bitbucket in the **Platform** field.
 
 1. Create a {{ tracker-name }} password in Bitbucket. {{ tracker-name }} will use this password to connect to your repositories.
    - Log in to Bitbucket.
@@ -33,9 +33,9 @@ To connect your repository on [Bitbucket](https://bitbucket.org) to {{ tracker-n
 
 1. Enter the password you used when linking {{ tracker-name }} to Bitbucket. You cannot use your Bitbucket password for this purpose.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+1. Click **Connect**.
 
-1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
 
 {% include [commits](../../_includes/tracker/add_commits.md) %}
 

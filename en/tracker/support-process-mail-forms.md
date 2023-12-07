@@ -25,9 +25,9 @@ It is convenient to use forms to collect requests, if you expect certain data fr
 
    1. Specify the queue and other issue parameters.
 
-   1. Use the **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form.fill-desc }}** field to add answers to the questions included in your form.
+   1. Use the **Issue description** field to add answers to the questions included in your form.
 
-   1. If you want to save a specific answer in your issue parameters, add an issue field, click **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-variables }}** → **Answer**, and choose the corresponding question.
+   1. If you want to save a specific answer in your issue parameters, add an issue field, click **Variables** → **Answer**, and choose the corresponding question.
 
    1. Save your integration settings.
 

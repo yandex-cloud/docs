@@ -22,7 +22,7 @@ You can configure automated actions to be performed by {{ tracker-name }} during
 
 To add an auto action:
 
-1. In the transition settings, open the **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.settings-functions }}** section and click **{{ ui-key.startrek.ui_components_workflow-functions_WorkflowFunctionMenu.menu-title }}**.
+1. In the transition settings, open the **Automation** section and click **{{ ui-key.startrek.ui_components_workflow-functions_WorkflowFunctionMenu.menu-title }}**.
 
 1. Select the automations you need from the list and configure them. If there is no suitable automation, set up a [trigger](../user/trigger.md).
 
@@ -55,7 +55,7 @@ You can set up conditions under which a transition will be active:
 
 To add transition conditions:
 
-1. In the transition settings, open the **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.settings-conditions }}** section and click **{{ ui-key.startrek.ui_components_workflow-conditions_ConditionsMenu.add-condition }}**.
+1. In the transition settings, open the **Transition conditions** section and click **{{ ui-key.startrek.ui_components_workflow-conditions_ConditionsMenu.add-condition }}**.
 
 1. Select the appropriate conditions from the list and configure them. To set a group of conditions using **AND** and **OR** operators, click **{{ ui-key.startrek.ui_components_workflow-conditions_WorkflowGroupCondition.add-conditions-group }}**.
 
@@ -65,22 +65,22 @@ The transition screen is a pop-up window that you can use to suggest the user t
 
 To add the transition screen:
 
-1. In the transition settings, open the **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.settings-screen }}** section and enable **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEditPageScreen.enable-transition-screen }}**.
+1. In the transition settings, open the **Transition screen** section and enable **Enable transition screen**.
 
 1. Customize the transition screen:
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-title--label-ru }}**: Text in the pop-up window title.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-title--label-en }}**: Text in the pop-up window title in the English interface.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-elements-title }}**: Select the fields that users can update on the transition screen. Set the default field values if required. To make a field required, select the box to the right of it.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.worklogs-enable }}**: Enable the option to add the time registration form to the transition screen.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.linking-enable }}**: Enable the option to add the form for adding links with other issues to the transition screen.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.comment-enable }}**: Enable the option to add a comment field to the transition screen.
+   * **Screen title**: Text in the pop-up window title.
+   * **Screen title**: Text in the pop-up window title in the English interface.
+   * **Fields on transition screen**: Select the fields that users can update on the transition screen. Set the default field values if required. To make a field required, select the box to the right of it.
+   * **Form for time spent**: Enable the option to add the time registration form to the transition screen.
+   * **Adding links on transition screen**: Enable the option to add the form for adding links with other issues to the transition screen.
+   * **Form for comments**: Enable the option to add a comment field to the transition screen.
 
 ### Copying transition settings {#copy-transition-settings}
 
 You can apply the settings of a transition to other transitions. To do this:
 
 1. In the transition settings, click ![](../../_assets/tracker/svg/actions.svg).
-1. Click ![](../../_assets/tracker/svg/copy-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.action-export-settings }}** or ![](../../_assets/tracker/svg/paste-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.action-import-settings }}**.
+1. Click ![](../../_assets/tracker/svg/copy-transition.svg) **Copy settings from this transition to another** or ![](../../_assets/tracker/svg/paste-transition.svg) **Paste settings from another transition**.
 1. In the list, select a transition to insert or copy the settings to.
 
 ## Adding a transition between statuses {#add-action}
@@ -93,7 +93,7 @@ To add a transition between statuses added to a workflow:
 
 1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click the name of the workflow you need. The workflow visual editor will open.
 
-1. In the top panel of the workflow visual editor, click **Add transition**. Fill in the **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-from-status }}** and **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-to-status}}** fields with the appropriate values from the lists. To add a transition for statuses that a workflow does not contain yet, [add them](./workflow-status-edit.md#add-status) first.
+1. In the top panel of the workflow visual editor, click **Add transition**. Fill in the **Source status** and **New status** fields with the appropriate values from the lists. To add a transition for statuses that a workflow does not contain yet, [add them](./workflow-status-edit.md#add-status) first.
 
 1. Fill out the fields below:
    * **Name**: **Initial status** name will be substituted automatically. You can edit it if needed.

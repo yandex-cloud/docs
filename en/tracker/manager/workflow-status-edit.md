@@ -43,9 +43,9 @@ Issues with the <q>Completed</q> and <q>Canceled</q> statuses are considered clo
 
 ### Status update after adding a comment {#change-with-comment}
 
-The **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.settings-comment }}** setting allows updating the status after adding a comment to an issue. It is useful in linear processes, e.g., for the support team.
+The **Changing the status when commenting** setting allows updating the status after adding a comment to an issue. It is useful in linear processes, e.g., for the support team.
 
-1. Open the settings of the status to make a transition from when a comment is added to the issue and click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.settings-comment }}**.
+1. Open the settings of the status to make a transition from when a comment is added to the issue and click **Changing the status when commenting**.
 
 1. Select the target status from the list that the issue should change to after adding a comment. The list contains transitions for the status you are setting up, which have been added to the workflow diagram. Sample transitions in the list include:
    * To the previous status: Issue will switch back to its previous status.
@@ -53,9 +53,9 @@ The **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.sett
    * <q>Need information</q> transition: Issue will be switched to the <q>Paused</q> status.
    * <q>Reopen</q> transition: Issue will be switched to the <q>Initial</q> status.
 
-1. If necessary, enable the **{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.revert-assignee }}** and **{{ ui-key.startrek.blocks-desktop_workflow-editor--step_tab_actions-on-comment.on-assignee-comment-only }}** options.
+1. If necessary, enable the **Set assignee from previous status** and **Only if comment was left by assignee** options.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.button--submit }}**.
+1. Click **Save**.
 
 ### Transitions between statuses {#add-action}
 
@@ -63,30 +63,30 @@ For a workflow to run properly, make sure to set up [transitions](./workflow-act
 
 To set up a status transition:
 
-1. Go to **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.transitions-title }}** in the status settings and click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.add-transition }}**.
-   The **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-from-status }}** field will show the source status. Fill in the **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-to-status}}** field with the target status that you can choose from the list. The list contains statuses which have been added to the workflow diagram.
+1. Go to **Transitions** in the status settings and click **Add**.
+   The **Source status** field will show the source status. Fill in the **New status** field with the target status that you can choose from the list. The list contains statuses which have been added to the workflow diagram.
 
-1. **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-name-ru-title }}**: This field is for the name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name will be used for the transition in the editor. By default, the name matches the new status in the transition; however, you can edit it. The **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-name-en-title }}** value is provided automatically.
+1. **Name**: This field is for the name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name will be used for the transition in the editor. By default, the name matches the new status in the transition; however, you can edit it. The **Name in English** value is provided automatically.
 
 1. Select the appropriate workflow and click ![](../../_assets/tracker/button-edit.png).
 
-1. Select the initial status in the **{{ ui-key.startrek.blocks-desktop_workflow-editor.sidebar-title }}** panel.
+1. Select the initial status in the **Statuses and transitions** panel.
 
-1. Go to the **{{ ui-key.startrek.blocks-desktop_workflow-editor--step.tab-title--create-action }}** tab.
+1. Go to the **Add transition** tab.
 
 1. You can configure the following for transitions:
    * [Automation](./workflow-action-edit.md#automatization): Auto actions to be performed during a transition.
    * [Transition conditions](./workflow-action-edit.md#conditions): Conditions under which a transition will be available.
    * [Transition screen](./workflow-action-edit.md#screen): Pop-up window where the user must fill in the respective fields to update the issue parameters.
 
-For convenience, there is a special transition type named **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}**. For example, if you need to add a status to a workflow, which is achievable from any other status, you will not need to manually set up these transitions for each status in the diagram. Just enable **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}** and the diagram will show a meta transition for this status.
+For convenience, there is a special transition type named **Allow transitions from any status**. For example, if you need to add a status to a workflow, which is achievable from any other status, you will not need to manually set up these transitions for each status in the diagram. Just enable **Allow transitions from any status** and the diagram will show a meta transition for this status.
 
 ### Copying transitions {#copy-transitions}
 
 You can apply transitions of one status to other statuses. To do this:
 
 1. In the status settings, click ![](../../_assets/tracker/svg/actions.svg).
-1. Click ![](../../_assets/tracker/svg/copy-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-export-transitions }}** or ![](../../_assets/tracker/svg/paste-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-import-transitions }}**.
+1. Click ![](../../_assets/tracker/svg/copy-transition.svg) **Copy transitions from this status to another** or ![](../../_assets/tracker/svg/paste-transition.svg) **Paste transitions from another status**.
 1. In the list, select a status to insert or copy the transitions to.
 
 ## Creating a status {#create-status}
@@ -101,16 +101,16 @@ To create a new status:
 
 1. Make sure you are authorized in {{ tracker-full-name }} as an [administrator](../role-model.md).
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_b-page-queue.cp }}** → **Issue statuses**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Configure** → **Issue statuses**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_page-admin-tab.create--statuses }}**.
+1. Click **Create a status**.
 
 1. Fill out the fields below:
    * **Name**: Enter a status name in Russian.
    * **Name in English**: Will be generated automatically based on the Russian name.
    * **Key**: Will be generated automatically based on the Russian name.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form__labels.submit }}**.
+1. Click **Create**.
 
 You can also create a status on the workflows page. The created status will be immediately added to the current queue's workflow. However, you can also use it in other queues.
 
@@ -129,7 +129,7 @@ You can also create a status on the workflows page. The created status will be i
 
 1. Select the appropriate status type from the list.
 
-1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_OrgAdminEntityForm.create }}**.
+1. Click **Create**.
 
 ## Adding a status to a workflow {#add-status}
 
@@ -165,4 +165,4 @@ To delete a status from a workflow:
 
 1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab. In the editor, open the workflow to delete the status from.
 
-1. Click the status to be deleted and then press **Delete** on the keyboard or go to the status settings and click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-remove }}**.
+1. Click the status to be deleted and then press **Delete** on the keyboard or go to the status settings and click ![](../../_assets/tracker/svg/actions.svg) → **Remove from workflow**.

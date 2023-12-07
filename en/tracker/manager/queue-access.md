@@ -9,7 +9,7 @@ The queue owner can configure access to the queue. The owner can also delegate t
 
 Access can be restricted in the queue settings. To open settings:
 
-1. In the left panel, click **{{ ui-key.startrek.blocks-desktop_m-head.menu-queues }}** and select the queue from the list.
+1. In the left panel, click **Queues** and select the queue from the list.
 
 1. Click **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** → **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-permissions }}**. If you do not see the **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** button, it means you have no rights to configure the queue. If you need these rights, contact the queue owner.
 
@@ -35,10 +35,10 @@ Some users always have access to the queue, and you cannot restrict their access
 
 Queue access is configured using the following rights:
 
-* `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--grant }}`: View and edit queue settings. This right does not include access to queue tasks and, therefore, does not overlap with other rights.
-* `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}`: View tasks, leave comments, edit the description and any task fields.
-* `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}`: Create, view, and edit tasks.
-* `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}`: View queue tasks and leave comments.
+* `Queue settings`: View and edit queue settings. This right does not include access to queue tasks and, therefore, does not overlap with other rights.
+* `Edit issues`: View tasks, leave comments, edit the description and any task fields.
+* `Create issues`: Create, view, and edit tasks.
+* `View issues`: View queue tasks and leave comments.
 
 The set of rights changes depending on the [access rights setup tool](#set-access).
 
@@ -73,7 +73,7 @@ To select queue participants:
 
 ### Roles in tasks {#task-role}
 
-Under **Roles in tasks**, you can modify the rights of task participants. These rights will be granted in addition to those configured under **Main queue participants** section. Two [accesses](#access-types) are valid for task participants: `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}` and `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}`.
+Under **Roles in tasks**, you can modify the rights of task participants. These rights will be granted in addition to those configured under **Main queue participants** section. Two [accesses](#access-types) are valid for task participants: `View issues` and `Edit issues`.
 
 To modify accesses for a task role:
 
@@ -89,7 +89,7 @@ To modify accesses for a task role:
 
 You can set up access to different [components](components.md) of the queue. This way, you can set different settings for the queue issues without components or issues with components. Access rules for a component prevail over queue-level access rules, but do not override [denied access](#prohibit).
 
-Three [accesses](#access-types) are valid: `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}`, `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}`, and `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}`. Components do not allow reconfiguring the rights to edit queue settings.
+Three [accesses](#access-types) are valid: `Edit issues`, `Create issues`, and `View issues`. Components do not allow reconfiguring the rights to edit queue settings.
 
 To configure access to a component:
 

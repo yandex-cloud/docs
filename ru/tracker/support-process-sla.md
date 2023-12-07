@@ -10,19 +10,19 @@
 
 Чтобы измерить время первого ответа службы поддержки, настройте таймер, который запускается при создании задачи и останавливается, когда сотрудник отправляет со страницы задачи комментарий или письмо.
 
-1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.add-sla }}**](manager/sla.md).
+1. Перейдите в настройки очереди и в разделе **SLA** нажмите кнопку [**Создать правило**](manager/sla.md).
 
 1. Задайте имя правила и выберите [график работы](manager/schedule.md) — таймер будет отсчитывать время только в рабочие часы.
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}** для всех задач очереди задайте: 
+1. В блоке **Сроки выполнения задач** для всех задач очереди задайте: 
 
-    - В поле **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--max }}** — максимальное допустимое время первого ответа. Например, чтобы указать 2 часа 30 минут, введите `2h 30m`.
+    - В поле **Время на выполнение** — максимальное допустимое время первого ответа. Например, чтобы указать 2 часа 30 минут, введите `2h 30m`.
 
     - В поле **Время до предупреждения** — время, по истечении которого нужно отправлять уведомления на почту.
 
     {% note info %}
 
-    Чтобы настроить разное допустимое время ответа для отдельных групп задач, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--new }}** и задайте параметры для группировки задач.
+    Чтобы настроить разное допустимое время ответа для отдельных групп задач, нажмите кнопку **Создать новый фильтр** и задайте параметры для группировки задач.
 
     {% endnote %}
 
@@ -30,9 +30,9 @@
 
 1. Настройте условия запуска и остановки таймера:
 
-    1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--start }}** добавьте условие **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}**.
+    1. В блоке **Старт** добавьте условие **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}**.
 
-    1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--stop }}** добавьте условие **{{ ui-key.startrek-backend.messages.sla.team.commented.timer.trigger.condition.type }}**.
+    1. В блоке **Стоп** добавьте условие **{{ ui-key.startrek-backend.messages.sla.team.commented.timer.trigger.condition.type }}**.
 
     ![](../_assets/tracker/support-sla-timer.png)
 
@@ -46,19 +46,19 @@
 
 Чтобы измерить общее время обработки обращения, настройте таймер, который запускается при создании задачи и останавливается, когда задача переходит в статус <q>{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}</q> или <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>. Чтобы исключить из времени обработки ожидание информации от пользователя, можно ставить таймер на паузу, пока задача находится в статусе <q>{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}</q>.
 
-1. Перейдите в настройки очереди и в разделе **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** нажмите кнопку [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.add-sla }}**](manager/sla.md).
+1. Перейдите в настройки очереди и в разделе **SLA** нажмите кнопку [**Создать правило**](manager/sla.md).
 
 1. Задайте имя правила и выберите [график работы](manager/schedule.md) — таймер будет отсчитывать время только в рабочие часы.
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}** для всех задач очереди задайте: 
+1. В блоке **Сроки выполнения задач** для всех задач очереди задайте: 
 
-    - В поле **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--max }}** — максимальное допустимое время решения задачи. Например, чтобы указать 8 рабочих часов, введите `8h`.
+    - В поле **Время на выполнение** — максимальное допустимое время решения задачи. Например, чтобы указать 8 рабочих часов, введите `8h`.
 
     - В поле **Время до предупреждения** — время, по истечении которого нужно отправлять уведомления на почту. Например, чтобы указать 6 рабочих часов, введите `6h`.
 
     {% note info %}
 
-    Чтобы настроить разное допустимое время решения для отдельных групп задач, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--new }}** и задайте параметры для группировки задач.
+    Чтобы настроить разное допустимое время решения для отдельных групп задач, нажмите кнопку **Создать новый фильтр** и задайте параметры для группировки задач.
 
     {% endnote %}
 
@@ -66,17 +66,17 @@
 
 1. Настройте условия запуска и остановки таймера:
 
-    1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--start }}** добавьте условие **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}**.
+    1. В блоке **Старт** добавьте условие **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}**.
 
-    1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-pause }}** добавьте условие **{{ ui-key.startrek-backend.messages.sla.issue.on.status.timer.trigger.condition.type }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
+    1. В блоке **Пауза** добавьте условие **{{ ui-key.startrek-backend.messages.sla.issue.on.status.timer.trigger.condition.type }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
 
-    1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--stop }}** добавьте условие **{{ ui-key.startrek-backend.messages.sla.status.changed.timer.trigger.condition.type }}** и выберите статусы **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}** и **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+    1. В блоке **Стоп** добавьте условие **{{ ui-key.startrek-backend.messages.sla.status.changed.timer.trigger.condition.type }}** и выберите статусы **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}** и **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
     ![](../_assets/tracker/support-sla-timer-total.png)
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.excesses--title }}** настройте отправку уведомлений о превышении сроков:
+1. В блоке **Оповещения** настройте отправку уведомлений о превышении сроков:
 
-    - Если в блоке **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}** вы указали время отправки предупреждения, для отправки уведомлений через заданное время в поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.notification-condition-min }}** выберите **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}** и укажите имя или логин сотрудника.
+    - Если в блоке **Сроки выполнения задач** вы указали время отправки предупреждения, для отправки уведомлений через заданное время в поле **Предупреждение** выберите **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}** и укажите имя или логин сотрудника.
 
     - Чтобы ответственный сотрудник получал уведомление по почте, если превышено допустимое время решения задачи, в поле **Срыв сроков** выберите **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}** и укажите имя или логин сотрудника.
 

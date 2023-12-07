@@ -14,8 +14,8 @@ Deleting a template is an irreversible operation. If you plan to use this templa
 To delete a template of an issue or comment:
 
 1. Select the desired option:
-   - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-issues }}]({{ link-settings }}/templates/issues) to edit issue templates.
-   - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-comments }}]({{ link-settings }}/templates/comments) to edit comment templates.
+   - [Issues]({{ link-settings }}/templates/issues) to edit issue templates.
+   - [Comments]({{ link-settings }}/templates/comments) to edit comment templates.
 
 1. You can filter out the templates you don't need by clicking ![](../../_assets/tracker/queue-filter.png).
 
@@ -28,8 +28,8 @@ If you're not going to use a template anytime soon, you can disable it. Disable
 To disable a template:
 
 1. Select the desired option:
-   - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-issues }}]({{ link-settings }}/templates/issues) to edit issue templates.
-   - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-comments }}]({{ link-settings }}/templates/comments) to edit comment templates.
+   - [Issues]({{ link-settings }}/templates/issues) to edit issue templates.
+   - [Comments]({{ link-settings }}/templates/comments) to edit comment templates.
 
 1. You can filter out the templates you don't need by clicking ![](../../_assets/tracker/queue-filter.png).
 

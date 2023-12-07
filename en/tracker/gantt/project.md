@@ -6,7 +6,7 @@ Gantt charts for {{ tracker-name }} projects show issues within the associated p
 
 To go to the Gantt chart:
 
-1. In the [left-hand panel]({{ link-tracker }}), select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects/list) and open the project page.
+1. In the [left-hand panel]({{ link-tracker }}), select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** or follow the [direct link]({{ link-tracker }}pages/projects/list) and open the project page.
 
 1. {% include [go-to-gantt](../../_includes/tracker/go-to-gantt.md) %}
 
@@ -78,4 +78,4 @@ In the menu, you have the following actions available:
 * ![](../../_assets/tracker/svg/move-down.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-down }}** (for manual sorting only).
 * ![](../../_assets/tracker/svg/convert.svg) **Convert to a [milestone](../manager/milestones.md) or issue**.
 * ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_projects_hooks.delete-from-project }}**.
-* ![](../../_assets/tracker/svg/gantt-palette.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.choose-color }}** (only when the **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}** setting is enabled).
+* ![](../../_assets/tracker/svg/gantt-palette.svg) **Choose color** (only when the **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}** setting is enabled).

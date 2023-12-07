@@ -59,21 +59,21 @@
 
 ### Шаг 3. Настройте внешний вид списка задач
 
-- Чтобы отобразить или скрыть параметры задач, справа над списком нажмите ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}**, выберите параметры и нажмите кнопку **{{ ui-key.startrek.ui_components_FilterFieldsSelect.applyChanges }}**.
+- Чтобы отобразить или скрыть параметры задач, справа над списком нажмите ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}**, выберите параметры и нажмите кнопку **Применить**.
 
-- Чтобы сгруппировать задачи по определенному параметру, над списком нажмите ![](../../_assets/tracker/svg/group.svg) **{{ ui-key.startrek.blocks-desktop_issues-table.group-by--null }}** и выберите параметр.
+- Чтобы сгруппировать задачи по определенному параметру, над списком нажмите ![](../../_assets/tracker/svg/group.svg) **Без группировки** и выберите параметр.
 
-- Чтобы свернуть панель со списком фильтров, в верхнем правом углу нажмите ![](../../_assets/tracker/svg/icon-parameters.svg) **{{ ui-key.startrek.ui_components_PageIssues_FilterInputTypeSwitch.parameters }}**. 
+- Чтобы свернуть панель со списком фильтров, в верхнем правом углу нажмите ![](../../_assets/tracker/svg/icon-parameters.svg) **Параметры**. 
 
 ### Шаг 4. Сохраните фильтр
 
 Если вам часто приходится пользоваться одним и тем же фильтром, сохраните его. Ваши сохраненные фильтры доступны в поле выбора **{{ ui-key.startrek.ui_components_filter-pane.all-issues-filter-title }}** в разделе **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
 
-1. Над списком задач нажмите кнопку **{{ ui-key.startrek.blocks-desktop_issues-filter-save-modal.action_submit }}**.
+1. Над списком задач нажмите кнопку **Сохранить**.
 
 1. Задайте название фильтра и выберите категорию для сохранения.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.change-category-form--change }}**.
+1. Нажмите кнопку **Сохранить**.
 
 Чтобы сохранить список задач, найденных с помощью фильтра, в правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** и выберите формат файла для загрузки или скопируйте список в буфер обмена.
 
@@ -85,11 +85,11 @@
 
 1. [Измените условия поиска задач](#set-conditions) с помощью быстрых фильтров, параметров или языка запросов.
 
-1. Над списком задач нажмите кнопку **{{ ui-key.startrek.blocks-desktop_issues-filter-save-modal.action_submit }}**:
+1. Над списком задач нажмите кнопку **Сохранить**:
 
     * Чтобы сохранить фильтр под текущим именем, нажмите кнопку **{{ ui-key.startrek.ui_components_filter-pane.action-title-save }}**.
 
-    * Чтобы сохранить фильтр под другим именем, нажмите кнопку **{{ ui-key.startrek.ui_components_filter-pane.action-title-save-as }}**. Затем задайте имя фильтра, выберите категорю и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.action_submit }}**.
+    * Чтобы сохранить фильтр под другим именем, нажмите кнопку **{{ ui-key.startrek.ui_components_filter-pane.action-title-save-as }}**. Затем задайте имя фильтра, выберите категорю и нажмите кнопку **Сохранить**.
 
 
 #### Удалить фильтр
@@ -98,6 +98,6 @@
 
 1. Удалите фильтр одним из спообов:
 
-    * Справа от названия фильтра нажмите значок ![](../../_assets/tracker/svg/icon-filter-delete.svg) **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.filter-remove-confirm-submit }}**. 
+    * Справа от названия фильтра нажмите значок ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Удалить**. 
 
-    * В верхнем правом углу страницы нажмите значок ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.title }}** и выберите ![](../../_assets/tracker/svg/icon-filter-delete.svg) **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.filter-remove-confirm-submit }}**.
+    * В верхнем правом углу страницы нажмите значок ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.title }}** и выберите ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Удалить**.

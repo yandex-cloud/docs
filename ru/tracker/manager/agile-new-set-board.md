@@ -30,7 +30,7 @@
 
 1. Откройте страницу доски.
 
-1. В крайней левой колонке нажмите значок ![](../../_assets/tracker/svg/add-task.svg) и выберите **{{ ui-key.startrek.ui_components_CreateIssuePopup.existing-issue }}**.
+1. В крайней левой колонке нажмите значок ![](../../_assets/tracker/svg/add-task.svg) и выберите **Существующая задача**.
 
 1. Начните вводить ключ или название задачи и выберите подходящий вариант из списка. 
 
@@ -87,7 +87,7 @@
 
 1. Откройте страницу доски.
 
-1. Вверху колонки нажмите значок ![](../../_assets/tracker/svg/actions.svg) и затем выберите ![](../../_assets/tracker/svg/icon-note.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-agile-board.add-note }}**.
+1. Вверху колонки нажмите значок ![](../../_assets/tracker/svg/actions.svg) и затем выберите ![](../../_assets/tracker/svg/icon-note.svg)&nbsp;**Добавить заметку**.
 
 1. Введите текст заметки. При необходимости отформатируйте текст с помощью кнопок на панели.
 
@@ -99,7 +99,7 @@
 
 Чтобы у вас всегда был быстрый доступ к доске, добавьте ее в избранное. Для этого перейдите на страницу доски и на верхней панели страницы нажмите значок ![](../../_assets/tracker/svg/favourites.svg) справа от названия доски. 
 
-Чтобы найти избранные доски, на панели слева выберите ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** и отфильтруйте список досок по значению **{{ ui-key.startrek.ui_components_BoardsPanel.favourites }}**.
+Чтобы найти избранные доски, на панели слева выберите ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** и отфильтруйте список досок по значению **Избранные**.
 
 ## Отобразить задачи спринта {#sprint-tasks}
 

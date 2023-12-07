@@ -10,17 +10,17 @@
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **Компоненты**.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-components.action--add }}**.
+1. Нажмите кнопку **Создать компонент**.
 
-1. Введите **{{ ui-key.startrek.blocks-desktop_b-form-new-component.name }}** компонента.
+1. Введите **Название** компонента.
 
 1. При необходимости выберите ответственного и заполните описание компонента.
 
-1. Выберите опцию **{{ ui-key.startrek.blocks-desktop_b-form-new-component.task-assignee }}**, если вы хотите, чтобы новые задачи с этим компонентом автоматически назначались на ответственного.
+1. Выберите опцию **Назначать исполнителем по умолчанию**, если вы хотите, чтобы новые задачи с этим компонентом автоматически назначались на ответственного.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**.
+1. Нажмите кнопку **Создать**.
 
 ## Изменить компонент {#edit-component}
 
@@ -28,13 +28,13 @@
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **Компоненты**.
 
 1. Наведите курсор на компонент.
 
-1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--edit }}**.
+1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **Редактировать**.
 
-1. Внесите изменения и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-update }}**.
+1. Внесите изменения и нажмите кнопку **Сохранить**.
 
 ## Подписаться на компонент {#subscribe-component}
 
@@ -42,11 +42,11 @@
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **Компоненты**.
 
 1. Наведите курсор на компонент.
 
-1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--subscribe }}**.
+1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **Подписаться на задачи с этим компонентом**.
 
 Если вы все сделали правильно, рядом с названием компонента появится значок ![](../../_assets/tracker/subscribtion.png)
 
@@ -56,7 +56,7 @@
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **Компоненты**.
 
 1. Нажмите на название компонента.
 
@@ -66,10 +66,10 @@
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/components.svg) **Компоненты**.
 
 1. Наведите курсор на компонент.
 
-1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--delete }}**.
+1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **Удалить**.
 
 1. Подтвердите удаление.

@@ -32,8 +32,8 @@ You can choose how to display usernames and event types in notification messages
 
 1. Click the link [{{ link-tracker }} settings]({{ link-settings }}).
 
-1. Select the desired option under **{{ ui-key.startrek.blocks-desktop_b-page-settings.letters-sender-display-style-title }}**.
+1. Select the desired option under **Sender's name in emails**.
 
-1. Enable or disable **{{ ui-key.startrek.blocks-desktop_b-page-settings.event-type-in-subject }}**.
+1. Enable or disable **Show event type in notifications**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.
+1. Click **Save**.

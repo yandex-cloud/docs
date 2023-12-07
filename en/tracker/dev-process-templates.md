@@ -14,7 +14,7 @@ To create an issue template for your queue and allow team members to use it:
 
 1. Fill out the fields of the template and save it. The field values that you enter will automatically populate the issues created from the template.
 
-1. To configure template access, click **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.item-actions-permissions }}** next to the template and add the desired groups or users.
+1. To configure template access, click **Access control** next to the template and add the desired groups or users.
 
 1. To make sure that your team members can use your template to create issues:
 

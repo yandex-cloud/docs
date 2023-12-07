@@ -8,7 +8,9 @@
 
 ## Перед началом работы {#before-begin}
 
-Чтобы воспользоваться примерами запроса к API, установите [cURL](https://curl.haxx.se).
+Для работы из консоли управления подготовительные действия не требуются.
+
+Чтобы воспользоваться примерами запроса через API, установите [cURL](https://curl.haxx.se). 
 
 {% include notitle [ai-before-beginning](../_includes/yandexgpt/ai-before-beginning.md) %}
 

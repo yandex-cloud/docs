@@ -9,7 +9,7 @@
 В {{ tracker-name }} вы можете [создать](manager/create-queue.md) и [настроить](manager/edit-queue-general.md) очередь вручную или же воспользоваться средствами [автоматизации](automation.md). Для создания очереди, преднастроенной на конкретную специфику рабочего процесса, рекомендуем воспользоваться [шаблонами рабочих процессов](manager/create-work-process.md):
 
 
-1. На стартовой странице [**{{ ui-key.startrek.blocks-desktop_b-head.my-page }}**](https://tracker.yandex.ru/pages/my), на виджете **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}**, нажмите кнопку **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}**.
+1. На стартовой странице [**Моя страница**](https://tracker.yandex.ru/pages/my), на виджете **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}**, нажмите кнопку **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}**.
 1. Выберите **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-standard }}** и нажмите кнопку **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
 1. Укажите параметры очереди:
     * Название очереди задач;
@@ -30,11 +30,11 @@
 
 Самый быстрый способ создать задачу — сделать это прямо на доске. При этом вам нужно будет придумать только название задачи, все остальные параметры вы сможете настроить позже.
 
-1. Чтобы создать новую задачу, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_guide.ticket--main--action_new--title }}**. 
+1. Чтобы создать новую задачу, нажмите кнопку **Создать задачу**. 
 
-1. В открывшемся диалоге в поле **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** введите название задачи. Лучше, если название будет емким, чтобы задачу легко можно было найти в списке, например: <q>Найти ответ на главный вопрос жизни, вселенной и всего остального</q>.
+1. В открывшемся диалоге в поле **Название задачи** введите название задачи. Лучше, если название будет емким, чтобы задачу легко можно было найти в списке, например: <q>Найти ответ на главный вопрос жизни, вселенной и всего остального</q>.
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.create }}** или клавишу **Enter**.
+1. Нажмите кнопку **Создать** или клавишу **Enter**.
 
 Новая задача появится на доске, на странице очереди и на [главной странице {{ tracker-name }}]({{ link-tracker }}) в списке ваших задач.
 
@@ -42,7 +42,7 @@
 
 Чтобы сразу задать все нужные параметры задачи, воспользуйтесь полной формой.
 
-1. Нажмите кнопку ![](../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}** на панели слева.
+1. Нажмите кнопку ![](../_assets/tracker/svg/icon-add.svg) **Создать задачу** на панели слева.
 
 1. В левом верхнем углу страницы выберите очередь, в которой будет создана задача, например, <q>QUEUE</q>.
 
@@ -54,16 +54,16 @@
 
 1. Вам будет предложено заполнить стандартную форму с преднастроенным списком параметров.
 
-   1. В поле **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** введите название задачи. Лучше, если название будет емким, чтобы задачу легко можно было найти в списке, например: <q>Найти ответ на главный вопрос жизни, вселенной и всего остального</q>.
+   1. В поле **Название задачи** введите название задачи. Лучше, если название будет емким, чтобы задачу легко можно было найти в списке, например: <q>Найти ответ на главный вопрос жизни, вселенной и всего остального</q>.
 
    1. При желании дайте описание задачи. Для этого кликните по плейсхолдеру `{{ ui-key.startrek.ui_components_PageCreateIssue.description-placeholder }}` и опишите задачу в открывшемся текстовом редакторе.
 
    1. Если нужно, загрузите файлы, кликнув на кнопку **{{ ui-key.startrek.ui_components_AttachmentsManager.attach }}**. 
 
-   1. Также вы можете добавить чекпоинты в **{{ ui-key.startrek.components_Checklist.header-title }}**, кликнув на кнопку **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** и заполнив открывшуюся форму.
+   1. Также вы можете добавить чекпоинты в **Чеклист**, кликнув на кнопку **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** и заполнив открывшуюся форму.
 
    1. На панели справа внесите необходимые данные по задаче, например:
-      * в поле **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** укажите себя как исполнителя, нажав кнопку **{{ ui-key.startrek.blocks-desktop_i-typed-field.assign-to-me }}**;
+      * в поле **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** укажите себя как исполнителя, нажав кнопку **Назначить меня**;
       * в поле **{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}** задайте произвольный дедлайн.
 
    1. При необходимости, измените список отображаемых полей задачи. Для этого кликните на кнопку **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}** и выберите нужные параметры.

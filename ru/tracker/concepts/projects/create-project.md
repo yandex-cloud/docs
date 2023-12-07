@@ -5,6 +5,8 @@ sourcePath: ru/tracker/api-ref/concepts/projects/create-project.md
 
 Запрос позволяет создать [проект](../../manager/project-new.md).
 
+Вы также можете использовать новый расширенный API [создания сущности](../entities/create-entity.md), представляющий унифицированный метод создания проектов и портфелей.
+
 ## Формат запроса {#query}
 
 Перед выполнением запроса [получите доступ к API](../access.md).

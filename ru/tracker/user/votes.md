@@ -19,7 +19,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы найти задачи, за которые вы голосовали, воспользуйтесь [языком запросов](query-filter.md):
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.blocks-desktop_b-head.filters }}** и в нижней части окна нажмите **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/tasks.svg) **Задачи** и в нижней части окна нажмите **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}**.
 
 1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.startrek.ui_components_page-issues_touch.query-language }}**.
 

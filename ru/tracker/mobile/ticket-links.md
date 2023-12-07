@@ -28,7 +28,7 @@
 
 1. Откройте задачу, к которой вы хотите создать подзадачу.
 
-1. В правом верхнем углу экрана нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_IssueLinks.empty-list-button }}**.
+1. В правом верхнем углу экрана нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **Создать подзадачу**.
 
 1. Заполните поля так же, как при [создании новой задачи](./create-ticket.md).
 
@@ -52,4 +52,4 @@
 
 1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}**.
 
-1. Напротив связанной задачи нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.blocks-desktop_b-form-related-issues.remove-link }}**.
+1. Напротив связанной задачи нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить связь**.

@@ -30,7 +30,7 @@ You can add no more than 2000 issues per board.
 
 1. Open the board page.
 
-1. In the leftmost column, click ![](../../_assets/tracker/svg/add-task.svg) and select **{{ ui-key.startrek.ui_components_CreateIssuePopup.existing-issue }}**.
+1. In the leftmost column, click ![](../../_assets/tracker/svg/add-task.svg) and select **Existing issue**.
 
 1. Start typing the issue's key or name, then pick the option you need from the list.
 
@@ -87,7 +87,7 @@ To add a note to a column:
 
 1. Open the board page.
 
-1. At the top of the column, click ![](../../_assets/tracker/svg/actions.svg), then select ![](../../_assets/tracker/svg/icon-note.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-agile-board.add-note }}**.
+1. At the top of the column, click ![](../../_assets/tracker/svg/actions.svg), then select ![](../../_assets/tracker/svg/icon-note.svg)&nbsp;**Add note**.
 
 1. Enter the text of your note. Use buttons on the panel to format the text if needed.
 
@@ -99,7 +99,7 @@ You can only add one note per column. It will be shown to all users at the top o
 
 To always have quick access to the board, add it to favorites. To do this, go to the board's page, then, on the top panel of the page, click ![](../../_assets/tracker/svg/favourites.svg) to the right of the board name.
 
-To find your favorite boards, select ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel and filter the boards by the **{{ ui-key.startrek.ui_components_BoardsPanel.favourites }}** value.
+To find your favorite boards, select ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel and filter the boards by the **Favorites** value.
 
 ## Show the sprint issues {#sprint-tasks}
 
