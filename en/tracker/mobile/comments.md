@@ -16,13 +16,13 @@ You can use the comments section to specify a key for a different issue so that 
 
 ## Replying to comments {#answer-comment}
 
-1. Tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-answer }}**. The comment you are replying to will be quoted in the response.
+1. Tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Respond**. The comment you are replying to will be quoted in the response.
 
 1. Make your changes and tap ![](../../_assets/tracker/send.png).
 
 ## Editing comments {#edit-comment}
 
-1. Tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-edit }}**.
+1. Tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Edit**.
 
 1. Make your changes and tap ![](../../_assets/tracker/send.png).
 
@@ -68,11 +68,11 @@ The attached files are displayed below the comment.
 
 ## Sharing a comment {#share-comment}
 
-To copy a link to a comment, tap ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-copy-link }}**.
+To copy a link to a comment, tap ![](../../_assets/horizontal-ellipsis.svg) and select **Copy link**.
 
 ## Deleting a comment {#delete-comment}
 
-To delete a comment, tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-delete }}**.
+To delete a comment, tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Remove**.
 
 
 ## Creating an issue based on a comment {#create-task}
@@ -81,8 +81,8 @@ If, while having a discussion with your teammates, you decided to create a new i
 
 1. Click the comment the new issue will be based on.
 
-1. Click **{{ ui-key.startrek.ui_components_IssueComments.create-issue }}** and choose the link type.
+1. Click **Create issue from comment** and choose the link type.
 
 1. Fill in the fields the same way as when [creating a regular issue](create-ticket.md#create-task).
 
-1. Click **{{ ui-key.startrek.ui_components_IssueListsPanel.create }}**.
+1. Click **Create**.

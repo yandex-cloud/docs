@@ -27,7 +27,7 @@ The [issue details](../user/create-param.md#default-fields) are shown in the **{
 
 {% note info %}
 
-If you do not see the required parameters, go to the web version and add them in the panel on the right by tapping ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.blocks-desktop_fields-switcher.switcher-title }}**.
+If you do not see the required parameters, go to the web version and add them in the panel on the right by tapping ![](../../_assets/tracker/task-params-btn.png) **Choose fields**.
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ To change an issue's status, open the drop-down list under the issue title and s
 
 ## Configuring how issues are displayed {#edit-display}
 
-You can manage your issues in {{ tracker-name }} more easily by customizing the appearance of the issue page, including the interface language, user and date display, and comment order. To do this, go to the web interface and open [**{{ ui-key.startrek.blocks-desktop_m-head.my-settings }}**](../user/personal.md).
+You can manage your issues in {{ tracker-name }} more easily by customizing the appearance of the issue page, including the interface language, user and date display, and comment order. To do this, go to the web interface and open [**Personal settings**](../user/personal.md).
 
 ## Other issue actions
 

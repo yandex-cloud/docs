@@ -1,85 +1,78 @@
+---
+title: "Как подключиться к виртуальной машине через OS Login"
+description: "Следуя данной инструкции, вы сможете подключиться к виртуальной машине через OS Login."
+---
+
 # Подключиться к виртуальной машине через OS Login
 
 {% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
 
 [OS Login](../../../organization/concepts/os-login.md) используется для предоставления пользователям доступа к ВМ по SSH c помощью {{ iam-short-name }}. Для доступа к ВМ, которая поддерживает OS Login на уровне операционной системы, [назначьте](../../../iam/operations/roles/grant.md) пользователю роль `compute.osLogin` или `compute.osAdminLogin`.
 
-{% note info %}
+К ВМ с включенным доступом через OS Login нельзя подключиться с помощью [пары SSH-ключей](./ssh.md#creating-ssh-keys).
 
-Вы не сможете подключиться к ВМ с включенным доступом через OS Login с помощью [пары SSH-ключей](./ssh.md#creating-ssh-keys). При этом рекомендуется в любом случае указывать SSH-ключи при создании ВМ: так вы сможете [подключиться к ВМ по SSH](./ssh.md#vm-connect), если отключите для нее доступ через OS Login.
-
-{% endnote %}
+## Перед началом работы {#before-you-begin}
 
 1. Включите [доступ через OS Login](../../../organization/operations/os-login-access.md) на уровне организации.
-1. Подготовьте OS Login на виртуальной машине:
+1. При необходимости [создайте](./os-login-create-vm.md) новую виртуальную машину с поддержкой OS Login или [настройте](./enable-os-login.md) доступ через OS Login для существующей ВМ.
 
-   {% list tabs %}
+## Подключиться к ВМ через OS Login c помощью CLI {#connect-via-cli}
 
-   - Использовать образ с поддержкой OS Login
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
-     [Создайте ВМ из подготовленного образа](../../../compute/operations/images-with-pre-installed-software/create.md) с поддержкой доступа через OS Login. Такие образы доступны в [{{ marketplace-full-name }}](/marketplace) и содержат `OS Login` в названии. При создании ВМ включите опцию **Доступ через OS Login** или установите в [метаданных](../../concepts/vm-metadata.md) параметр `enable-oslogin` в значение `true`.
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   - Установить самостоятельно
+1. Посмотрите описание команды CLI для подключения к ВМ:
 
-     Вы можете установить агента OS Login самостоятельно, если вам не подходит образ из [{{ marketplace-name }}](/marketplace) с предустановленным агентом OS Login, например:
+    ```bash
+    yc compute ssh --help
+    ```
 
-     * вы используете собственный образ не на основе образов из {{ marketplace-name }};
-     * виртуальная машина уже развернута и вам необходимо установить на нее агента OS Login.
+1. Получите список всех ВМ в каталоге по умолчанию:
 
-     Чтобы установить агента OS Login:
+    ```bash
+    yc compute instance list
+    ```
 
-     1. [Скачайте](https://storage.yandexcloud.net/mk8s/binaries/google_guest_agent-20230601.00.linux-amd64.tar.gz) последнюю версию исполняемого файла или соберите его из [исходного кода на Github](https://github.com/yandex-cloud/yandex-cloud-guest-agent).
+    Результат:
 
-        {% note info %}
+    ```text
+    +----------------------+-----------------+---------------+---------+----------------------+
+    |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
+    +----------------------+-----------------+---------------+---------+----------------------+
+    | fhm0b28lgf********** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+    | fhm9gk85nj********** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+    +----------------------+-----------------+---------------+---------+----------------------+
+    ```
 
-        При скачивании файла проверьте его хэш-сумму: `33f526d1b52e24b38b2e2836a67ea32f0ecdd23e90aeb2a7bee12bd52637716a`.
+1. Подключитесь к ВМ, указав ее имя. Команда для подключения зависит от версии ОС Linux, установленной на виртуальной машине:
 
-        {% endnote %}
+   * **Debian, Ubuntu 20.04+**
 
-     1. Запустите исполняемый файл и убедитесь, что компоненты установились корректно.
-     1. [Создайте ВМ из собственного образа](../../../compute/operations/vm-create/create-from-user-image.md). При создании ВМ включите опцию **Доступ через OS Login** или установите в [метаданных](../../concepts/vm-metadata.md) параметр `enable-oslogin` в значение `true`.
+      ```bash
+      yc compute ssh \
+          --name <имя_ВМ>
+      ```
 
-     При возникновении проблем обратитесь в [техническую поддержку]({{ link-console-support }}).
+      При подключении через OS Login вместо имени ВМ можно указать ее идентификатор:
 
-   {% endlist %}
+      ```bash
+      yc compute ssh \
+          --id <идентификатор_ВМ>
+      ```
 
-1. Подключитесь к ВМ:
+   * **CentOS 7, Ubuntu 18.04**
 
-   {% list tabs %}
+      ```bash
+      yc compute ssh \
+          --name <имя_ВМ> \
+          -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
+      ```
 
-   - CLI
+      При подключении через OS Login вместо имени ВМ можно указать ее идентификатор:
 
-     {% include [cli-install](../../../_includes/cli-install.md) %}
-
-     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-     1. Посмотрите описание команды CLI для подключения к ВМ:
-
-        ```bash
-        yc compute ssh --help
-        ```
-
-     1. Получите список всех ВМ в каталоге по умолчанию:
-
-        ```bash
-        yc compute instance list
-        ```
-
-        Результат:
-
-        ```text
-        +----------------------+-----------------+---------------+---------+----------------------+
-        |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-        +----------------------+-----------------+---------------+---------+----------------------+
-        | fhm0b28lgf********** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
-        | fhm9gk85nj********** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
-        +----------------------+-----------------+---------------+---------+----------------------+
-        ```
-
-     1. Подключитесь к ВМ:
-
-        ```bash
-        yc compute ssh --name <имя_ВМ>
-        ```
-
-   {% endlist %}
+      ```bash
+      yc compute ssh \
+          --id <идентификатор_ВМ> \
+          -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
+      ```

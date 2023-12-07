@@ -20,7 +20,7 @@ To set up reminder:
 
    A reminder can only have one recipient. If you want to remind several users about the issue, create a reminder for each of them.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_issue-reminder.save-btn }}**. On the issue page, you will see the ![](../../_assets/tracker/svg/reminder.svg) icon with the reminder count.
+1. Click **Save**. On the issue page, you will see the ![](../../_assets/tracker/svg/reminder.svg) icon with the reminder count.
 
 {{ tracker-name }} will send an email to the user at the time specified, and a pop-up reminder will appear on the issue page.
 
@@ -42,4 +42,4 @@ To add an entry about working on the issue or arrange a meeting with issue par
 
 1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.create-calendar-event }}** → **{{ ui-key.startrek.ui_components_IssueMenu.calendar-event-me }}**.
 
-1. Enter information about the event in the calendar. If needed, add the meeting participants, then click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**.
+1. Enter information about the event in the calendar. If needed, add the meeting participants, then click **Create**.

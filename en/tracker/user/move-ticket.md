@@ -19,7 +19,7 @@ To move a issue:
 
 1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.move-issue }}**.
 
-1. Specify the queue to which you want to move the issue, then click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-update }}**.
+1. Specify the queue to which you want to move the issue, then click **Save**.
 
 To move multiple issues to another queue, use [bulk operations](../manager/bulk-change.md#change-queue).
 

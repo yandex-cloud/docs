@@ -14,13 +14,13 @@ To create a queue for a development team:
 
 1. [Create a queue of issues.](manager/create-queue.md) Select a queue [template](manager/workflows.md) with statuses and issue types that are best suited to your workflow:
 
-   - <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}</q>: This template contains issue types and statuses that are most commonly used when developing programs and apps. A [simple issue board](#board_types) is created when you select this template.
+   - <q>Basic development model</q>: This template contains issue types and statuses that are most commonly used when developing programs and apps. A [simple issue board](#board_types) is created when you select this template.
 
-   - <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--outsource-development-preset }}</q>: This template provides an issue type called <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}</q> and a status that lets you coordinate approval of your performance with the client.
+   - <q>Software development as a service</q>: This template provides an issue type called <q>Project</q> and a status that lets you coordinate approval of your performance with the client.
 
-   - <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--scrum-development-preset }}</q>: This template is suitable for teams that work with [Scrum]({{ link-wiki-scrum }}). A [<q>Scrum</q> issue board](manager/agile.md#sec_boards.md) is created when you select this template.
+   - <q>Scrum</q>: This template is suitable for teams that work with [Scrum]({{ link-wiki-scrum }}). A [<q>Scrum</q> issue board](manager/agile.md#sec_boards.md) is created when you select this template.
 
-   - <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--kanban-development-preset }}</q>: This template is suitable for teams that work with [Kanban]({{ link-wiki-kanban }}). A [simple <q>Kanban</q> issue board](manager/agile.md#sec_boards.md) is created when you select this template.
+   - <q>Kanban</q>: This template is suitable for teams that work with [Kanban]({{ link-wiki-kanban }}). A [simple <q>Kanban</q> issue board](manager/agile.md#sec_boards.md) is created when you select this template.
 
    {% note info %}
 

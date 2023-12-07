@@ -18,9 +18,9 @@ To create an issue:
    {% endnote %}
 
 
-1. Enter a name for the issue and tap **{{ ui-key.startrek.components_QueueAdminAutoactions_CreateTicketForm.actions-create }}**.
+1. Enter a name for the issue and tap **Create issue**.
 
-1. A window with the new issue opens. The **{{ ui-key.startrek.components_FormCreateIssue.field--type }}**, **{{ ui-key.startrek.components_FormCreateIssue.field--priority }}**, **{{ ui-key.startrek.blocks-desktop_b-ticket-fields.status }}**, and **{{ ui-key.startrek-backend.fields.issue.author-key-value }}** fields are filled in automatically. Each queue can have its own [set of types and statuses](../manager/add-ticket-type.md).
+1. A window with the new issue opens. The **Type**, **Priority**, **Status**, and **{{ ui-key.startrek-backend.fields.issue.author-key-value }}** fields are filled in automatically. Each queue can have its own [set of types and statuses](../manager/add-ticket-type.md).
 
 1. [Edit](edit-ticket.md) the issue details:
 

@@ -37,7 +37,7 @@ To set up the interface theme and how the issues will be opened on the page:
 
 ## Setting the user display type {#sec_display}
 
-By default, the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}**, and **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}** fields display the first and last name of the users. If you want to display their usernames or profile pictures instead, change the user display mode.
+By default, the **Reporter**, **Assignee**, and **Followers** fields display the first and last name of the users. If you want to display their usernames or profile pictures instead, change the user display mode.
 
 {% cut "Screenshot" %}
 
@@ -49,8 +49,8 @@ To change the method of display:
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-settings.users-display-format }}**, choose the display method you prefer:
-   - Select **{{ ui-key.startrek.blocks-desktop_b-page-settings.prefer-login }}** to show usernames instead of real names in system fields within issues.
+1. Under **User display**, choose the display method you prefer:
+   - Select **Display login instead of name** to show usernames instead of real names in system fields within issues.
 
       {% cut "Screenshot" %}
 
@@ -58,7 +58,7 @@ To change the method of display:
 
       {% endcut %}
 
-   - Select **{{ ui-key.startrek.blocks-desktop_b-page-settings.prefer-icons-in-lists }}** to show only avatars in user list fields. This setting does not affect the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}** and **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}** fields.
+   - Select **Show avatars instead of names** to show only avatars in user list fields. This setting does not affect the **Reporter** and **Assignee** fields.
 
       {% cut "Screenshot" %}
 
@@ -76,7 +76,7 @@ To change the display format for such parameters:
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Select a format under **{{ ui-key.startrek.blocks-desktop_b-page-settings.date-format }}**.
+1. Select a format under **Date format**.
 
 1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -104,7 +104,7 @@ By default, issue comments are sorted from oldest to newest. You can change the 
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-and-history }}**, enable the **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-new-on-top }}** option.
+1. Under **Message order in issues**, enable the **Newest first** option.
 
 1. Click **{{ ui-key.yacloud.common.save }}**.
 

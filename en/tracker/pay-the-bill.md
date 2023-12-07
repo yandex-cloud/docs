@@ -39,7 +39,7 @@ Arrears appear on the billing account if the balance was negative at the end of 
 
 * To keep access to {{ tracker-name }}, pay off the arrears by the 15th of the current month.
 
-* If the arrears are not paid in time, {{ tracker-name }} will switch to [<q>{{ ui-key.startrek.components_Licenses.department-access-title--readOnly }}</q>](access.md#readonly) mode. In this case, to regain full access to the service, top up your balance to a positive value within 45 days. This requires paying off the previous period's arrears and pre-paying for the current month.
+* If the arrears are not paid in time, {{ tracker-name }} will switch to [<q>Read only</q>](access.md#readonly) mode. In this case, to regain full access to the service, top up your balance to a positive value within 45 days. This requires paying off the previous period's arrears and pre-paying for the current month.
 
 * If the arrears are not paid within two months, the billing account will be permanently suspended. In this case, to continue using {{ tracker-name }}, contact technical support to link a new billing account to {{ tracker-name }}.
 
@@ -48,7 +48,7 @@ Arrears appear on the billing account if the balance was negative at the end of 
 
 To check your account balance:
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
 1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
 
@@ -56,7 +56,7 @@ To check your account balance:
 
 ## Top up your account with a bank card {#card}
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
 1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
 
@@ -66,7 +66,7 @@ To check your account balance:
 
 ## Top up your account via bank transfer {#transfer}
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
 1. Select your billing account on the **{{ ui-key.yacloud.billing.accounts.label_title }}** page.
 
@@ -88,7 +88,7 @@ You can view the full history of payments to your billing account on the **{{ ui
 
 - Individuals
 
-   1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+   1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
    1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
 

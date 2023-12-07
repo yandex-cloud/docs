@@ -4,23 +4,23 @@ You can add several dashboards, each with its set of widgets and switch between 
 
 To create a dashboard:
 
-1. In the left-hand panel, click ![](../../_assets/tracker/svg/dashboards.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-head.dashboards }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-dashboard }}**.
+1. In the left-hand panel, click ![](../../_assets/tracker/svg/dashboards.svg)&nbsp;**Dashboards** → **New dashboard**.
 
-1. Enter a name for the dashboard and click **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.create-btn }}**.
+1. Enter a name for the dashboard and click **Create**.
 
-1. In the top-right corner, click **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.edit-button }}** and select widgets one by one from the **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.create-zone }}** list to configure them. The following widgets are available in {{ tracker-name }}:
+1. In the top-right corner, click **Edit** and select widgets one by one from the **Add widget** list to configure them. The following widgets are available in {{ tracker-name }}:
 
-   - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.filter-title }}](widgets.md#tasks)
-   - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.note-title }}](widgets.md#note)
-   - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.table-title }}](widgets.md#summary-table)
-   - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.table-sum-title }}](widgets.md#summary-table-with-totals)
-   - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.time-since-title }}](widgets.md#events)
-   - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.issues-title }}](widgets.md#issues-stat)
-   - [{{ ui-key.startrek.blocks-desktop_dashboard-create-zone.created-vs-resolved-title }}](widgets.md#created-and-resolved)
+   - [Issues](widgets.md#tasks)
+   - [Note Widget](widgets.md#note)
+   - [Summary table](widgets.md#summary-table)
+   - [Summary table with totaled values](widgets.md#summary-table-with-totals)
+   - [Events](widgets.md#events)
+   - [Issue Statistics](widgets.md#issues-stat)
+   - [Created vs. Resolved Graph](widgets.md#created-and-resolved)
 
    Widgets let you view issue analytics. Issues are selected for widgets using a [query language](query-filter.md) or [filter](create-filter.md). You can select a filter from the list of preset and custom filters or set it manually right on the widget creation page.
 
-1. Arrange the widgets however you like, set their sizes, and click **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.save-btn }}**.
+1. Arrange the widgets however you like, set their sizes, and click **Save**.
 
 
 ### The next step

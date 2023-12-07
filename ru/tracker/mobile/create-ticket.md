@@ -19,9 +19,9 @@
 		
 	
 
-1. Введите название задачи и нажмите кнопку **{{ ui-key.startrek.components_QueueAdminAutoactions_CreateTicketForm.actions-create }}**.
+1. Введите название задачи и нажмите кнопку **Создать задачу**.
 
-1. Откроется окно с новой задачей. Параметры **{{ ui-key.startrek.components_FormCreateIssue.field--type }}**, **{{ ui-key.startrek.components_FormCreateIssue.field--priority }}**, **{{ ui-key.startrek.blocks-desktop_b-ticket-fields.status }}** и **{{ ui-key.startrek-backend.fields.issue.author-key-value }}** заполняются автоматически. У каждой очереди может быть свой [набор типов и статусов](../manager/add-ticket-type.md).
+1. Откроется окно с новой задачей. Параметры **Тип**, **Приоритет**, **Статус** и **{{ ui-key.startrek-backend.fields.issue.author-key-value }}** заполняются автоматически. У каждой очереди может быть свой [набор типов и статусов](../manager/add-ticket-type.md).
 
 1. [Отредактируйте](edit-ticket.md) информацию о задаче:
         

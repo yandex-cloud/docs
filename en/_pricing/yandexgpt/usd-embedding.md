@@ -9,4 +9,4 @@
 
 | Model parameters | Multiplier | Cost per 1,000 tokens, </br> without VAT |
 |---------------------------------------|------------|-----------------------------------------|
-| Text embeddings | 1.0 | $0.00008 |
+| Embeddings | 1.0 | $0.00008 |

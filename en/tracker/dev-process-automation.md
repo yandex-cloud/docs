@@ -12,7 +12,7 @@ For example, the tester should start testing a new product feature once the deve
 
 - Trigger conditions: The issue status has changed to <q>{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.ready.for.test }}</q>.
 
-- Trigger action: Specify the tester in the <q>{{ ui-key.startrek.components_FormCreateIssue.field--assignee }}</q> field.
+- Trigger action: Specify the tester in the <q>Assignee</q> field.
 
 ![](../_assets/tracker/trigger-example-status.png)
 
@@ -22,17 +22,17 @@ Let's take another example, when one developer focuses on the server part of you
 
 1. Set up a trigger for server part errors:
 
-   - Trigger conditions: The value in the <q>{{ ui-key.startrek.components_FormCreateIssue.field--components }}</q> field changed to <q>Server</q>.
+   - Trigger conditions: The value in the <q>Components</q> field changed to <q>Server</q>.
 
-   - Trigger action: Specify the server side developer in the <q>{{ ui-key.startrek.components_FormCreateIssue.field--assignee }}</q> field.
+   - Trigger action: Specify the server side developer in the <q>Assignee</q> field.
 
    ![](../_assets/tracker/dev-process-trigger-component.png)
 
 1. Set up a similar trigger for errors in the client part:
 
-   - Trigger conditions: The value in the <q>{{ ui-key.startrek.components_FormCreateIssue.field--components }}</q> field changed to <q>Client</q>.
+   - Trigger conditions: The value in the <q>Components</q> field changed to <q>Client</q>.
 
-   - Trigger action: Specify the client side developer in the <q>{{ ui-key.startrek.components_FormCreateIssue.field--assignee }}</q> field.
+   - Trigger action: Specify the client side developer in the <q>Assignee</q> field.
 
 For a detailed example of how to set up a trigger, see [{#T}](manager/trigger-examples.md#assign_ticket).
 
@@ -40,9 +40,9 @@ For a detailed example of how to set up a trigger, see [{#T}](manager/trigger-ex
 
 To make sure that your assignees adhere to deadlines, you can send them reminders using automatic actions. An automatic action triggers automatically and updates the parameters of issues that meet your criteria.
 
-Say, for example, that you need to check all issues in your queue once a day. If the issue is not solved and the date specified in the <q>{{ ui-key.startrek.components_FormCreateIssue.field--dueDate }}</q> field is less than 3 days away, the issue must be updated with a comment and the assignee must be invited. For this, set up the following automatic action:
+Say, for example, that you need to check all issues in your queue once a day. If the issue is not solved and the date specified in the <q>Deadline</q> field is less than 3 days away, the issue must be updated with a comment and the assignee must be invited. For this, set up the following automatic action:
 
-- Auto action type: **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--update }}**.
+- Auto action type: **Update issues**.
 
 - Frequency: Once per day.
 
@@ -54,7 +54,7 @@ Say, for example, that you need to check all issues in your queue once a day. If
 
    ![](../_assets/tracker/autoaction-example-condition.png)
 
-- Issue action: Send a comment and invite the user specified in the <q>{{ ui-key.startrek.components_FormCreateIssue.field--assignee }}</q> field.
+- Issue action: Send a comment and invite the user specified in the <q>Assignee</q> field.
 
 For a detailed example of how to set up auto actions, see [{#T}](user/create-autoaction.md#autoaction_example).
 
@@ -64,7 +64,7 @@ If you need to create issues by a template from time to time, you can use action
 
 For this, set up the following automatic action:
 
-- Auto action type: **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--create }}**.
+- Auto action type: **Create issues**.
 
 - Frequency: Once a week on Fridays.
 

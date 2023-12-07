@@ -22,28 +22,28 @@
 
 1. В правом верхнем углу страницы нажмите ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--fields }}**.
+1. Перейдите на вкладку **Поля очереди**.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.button--create-field }}**.
+1. Нажмите кнопку **Создать поле**.
 
-1. Выберите тип поля и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--next }}**.
+1. Выберите тип поля и нажмите кнопку **Продолжить**.
 
 1. Задайте параметры нового поля:
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--category }}**. Все поля в {{ tracker-name }} сгруппированы по категориям. Выберите категорию, которая лучше всего подходит для нового поля.
+    * **Категория**. Все поля в {{ tracker-name }} сгруппированы по категориям. Выберите категорию, которая лучше всего подходит для нового поля.
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name }}**. Старайтесь давать полям короткие и емкие названия.
+    * **Название**. Старайтесь давать полям короткие и емкие названия.
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name-eng }}**. Это название видно в английском интерфейсе {{ tracker-name }}.
+    * **Название на английском**. Это название видно в английском интерфейсе {{ tracker-name }}.
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--number-type }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-number }}</q>).
+    * **Тип чисел** (только для полей типа <q>Число</q>).
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--options }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q>) — укажите возможные значения и их порядок.
+    * **Значения списка** (только для полей типа <q>Выпадающий список</q>) — укажите возможные значения и их порядок.
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--option-list }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q>).
+    * **Количество значений в списке** (только для полей типа <q>Выпадающий список</q>).
     
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--users-count }}** (только для полей типа <q>выбор сотрудников</q>).
+    * **Количество сотрудников** (только для полей типа <q>выбор сотрудников</q>).
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--create }}**.
+1. Нажмите кнопку **Создать**.
 
 ## Редактировать локальное поле {#edit-local-field}
 

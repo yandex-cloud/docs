@@ -28,11 +28,11 @@ In {{ tracker-name }}, agile tools are grouped on issue boards.
 
 Managing issue boards in {{ tracker-name }} is similar to [working with a regular sticker board](#dlen_board). Use boards of different types to plan and track your Agile workflow:
 
-- **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}** boards allow you to arrange issues in columns based on their status.
+- **Basic** boards allow you to arrange issues in columns based on their status.
 
-- **{{ ui-key.startrek.blocks-desktop_onboarding-form.template-1 }}** boards allow you to display statuses and offer [sprint](#dlen_sprint) management tools, [issue estimation](planning-poker.md), and [burn down charts](#dlen_burndown).
+- **Scrum** boards allow you to display statuses and offer [sprint](#dlen_sprint) management tools, [issue estimation](planning-poker.md), and [burn down charts](#dlen_burndown).
 
-- **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--kanban }}** boards are similar to basic boards, but all issues with the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-status-open }}** status are automatically moved to the [**{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssue.backlog-default-column }}**](#dlen_backlog) column.
+- **Kanban** boards are similar to basic boards, but all issues with the **Open** status are automatically moved to the [**{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssue.backlog-default-column }}**](#dlen_backlog) column.
 
 For more information about working with an issue boards:
 

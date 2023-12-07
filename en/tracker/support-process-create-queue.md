@@ -6,9 +6,9 @@
 1. [Add users to {{ tracker-name }}](add-users.md).
 
 
-1. [Create a queue](manager/create-queue.md) using the <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--basic-support-preset }}</q> or the <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--tiered-support-preset }}</q> template.
+1. [Create a queue](manager/create-queue.md) using the <q>Basic support</q> or the <q>Multi-tiered support</q> template.
 
-   These [templates](manager/workflows.md) already include preset issue types and statuses that can be helpful for managing user requests. The <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--tiered-support-preset }}</q> template includes issue statuses like <q>Support line 1</q> and <q>Support line 2</q>.
+   These [templates](manager/workflows.md) already include preset issue types and statuses that can be helpful for managing user requests. The <q>Multi-tiered support</q> template includes issue statuses like <q>Support line 1</q> and <q>Support line 2</q>.
 
 1. Add your support staff to the [queue team](manager/queue-team.md).
 

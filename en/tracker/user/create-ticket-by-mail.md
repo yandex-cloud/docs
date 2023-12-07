@@ -16,7 +16,7 @@ To create an issue via email, send a message with the issue description to the [
 
    {% endnote %}
 
-1. Enter the issue name in the **{{ ui-key.startrek.blocks-desktop_issue-reply-form.email-subject }}** field.
+1. Enter the issue name in the **Subject** field.
 
 1. Describe the issue in the email body.
 

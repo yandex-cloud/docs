@@ -25,7 +25,7 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. На панели слева нажмите **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. Для сотрудников, которые будут работать с задачами, в столбце **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.title_access }}** выберите **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_full-access }}**. 
 
@@ -49,17 +49,17 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. На панели слева нажмите **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
-1. В правом верхнем углу страницы выберите опцию **{{ ui-key.startrek.components_Licenses.default-full-access-label }}**:
+1. В правом верхнем углу страницы выберите опцию **Полный доступ для всех новых пользователей**:
 
-   - Если вы уже привязали к {{ tracker-name }} платежный аккаунт, в открывшемся окне нажмите кнопку **{{ ui-key.startrek.components_LicensesDefaultFullAccessModal.button-submit--toEnable }}**.
+   - Если вы уже привязали к {{ tracker-name }} платежный аккаунт, в открывшемся окне нажмите кнопку **Включить**.
 
    - Если платежный аккаунт не привязан, нажмите **Перейти к биллингу** и создайте новый платежный аккаунт или подключите существующий в {{ yandex-cloud }}. Подробнее в разделе [Настроить платежный аккаунт](billing-account.md).
 
 {% note info %}
 
-При включении или выключении опции **{{ ui-key.startrek.components_Licenses.default-full-access-label }}** права доступа существующих пользователей не изменятся.
+При включении или выключении опции **Полный доступ для всех новых пользователей** права доступа существующих пользователей не изменятся.
 
 {% endnote %}
 
@@ -67,7 +67,7 @@
 
 Если вы работаете через организацию {{ yandex-360 }} для бизнеса, вы можете создать группы сотрудников и настраивать доступ на группу. Подробнее о создании группы [в документации Яндекс 360 для бизнеса](https://yandex.ru/support/business/projects.html). Для настройки полного доступа для группы пользователей необходимо [подключить платежный аккаунт](billing-account.md).
 
-Чтобы настроить доступ для группы пользователей, откройте **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** и выберите нужный уровень доступа для каждой группы.
+Чтобы настроить доступ для группы пользователей, откройте **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** и выберите нужный уровень доступа для каждой группы.
 
 {% note warning %}
 

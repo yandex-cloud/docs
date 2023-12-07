@@ -12,11 +12,11 @@ To distribute requests between the support tiers and determine which tier is cu
 
 ## Using statuses
 
-You can assign an issue status for each support tier. For example, the [<q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--tiered-support-preset }}</q>](manager/workflows.md#section_sup_lines) queue template includes issue statuses like <q>Support line 1</q> and <q>Support line 2</q>. If you need to set up a third support line, [configure an additional status](manager/workflow.md).
+You can assign an issue status for each support tier. For example, the [<q>Multi-tiered support</q>](manager/workflows.md#section_sup_lines) queue template includes issue statuses like <q>Support line 1</q> and <q>Support line 2</q>. If you need to set up a third support line, [configure an additional status](manager/workflow.md).
 
 ## Using issue fields
 
-Sometimes it may be more convenient to [create a new issue field](user/create-param.md#section_pxn_fp4_xgb). Let's say you [receive user requests via forms](#form) and you want them to be automatically distributed between your two support lines based on the subject of the request. When you create an issue from a form, you cannot assign it a status that corresponds to any of the support lines, because all new issues automatically have the <q>{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-status-open }}</q> status. However, you can assign values to issue fields provided the request has a specific subject. You can then automatically change issue statuses based on the value in that issue field.
+Sometimes it may be more convenient to [create a new issue field](user/create-param.md#section_pxn_fp4_xgb). Let's say you [receive user requests via forms](#form) and you want them to be automatically distributed between your two support lines based on the subject of the request. When you create an issue from a form, you cannot assign it a status that corresponds to any of the support lines, because all new issues automatically have the <q>Open</q> status. However, you can assign values to issue fields provided the request has a specific subject. You can then automatically change issue statuses based on the value in that issue field.
 
 To do this in {{ tracker-name }}:
 
@@ -25,13 +25,13 @@ To do this in {{ tracker-name }}:
 
 Go to the {{ tracker-name }} settings and [create a new field](user/create-param.md#section_pxn_fp4_xgb) with the following parameters:
 
-- Field type: **{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}**.
+- Field type: **Dropdown list**.
 
 - Category: **{{ ui-key.startrek-backend.fields.issue.fields.system }}**.
 
 - Name: <q>Line</q>. Use any English name and key you like, for example, Line.
 
-- List item count: **{{ ui-key.startrek.blocks-desktop_field-create-form.value--one }}**.
+- List item count: **Single item**.
 
 - Values in the list: 1, 2 (for two-tiered support).
 
@@ -56,7 +56,7 @@ Go to the {{ tracker-name }} settings and [create a new field](user/create-param
 
       ![](../_assets/tracker/support-form-fields.png)
 
-   1. If you want to assign the issue to the employee responsible for the specified support line, specify their username in the **{{ ui-key.startrek.components_FormCreateIssue.field--assignee }}** field.
+   1. If you want to assign the issue to the employee responsible for the specified support line, specify their username in the **Assignee** field.
 
    1. Save your integration settings.
 
@@ -68,11 +68,11 @@ Go to the {{ tracker-name }} settings and [create a new field](user/create-param
 
 In the support team queue, create two triggers that will be fired if the **Line** field value changes and will update issue statuses:
 
-1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](user/create-trigger.md).
+1. Go to **Triggers** in the queue settings and click [**Create trigger**](user/create-trigger.md).
 
 1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **Line** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **1**.
 
-1. Add the action **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--transition }}** → **Support line 1**.
+1. Add the action **Change issue status** → **Support line 1**.
 
 1. Save your trigger.
 

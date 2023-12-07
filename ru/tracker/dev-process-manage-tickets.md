@@ -4,7 +4,7 @@
 
 ### Типы задач
 
-В очереди можно использовать несколько [типов задач](manager/add-ticket-type.md) с разными рабочими процессами. Например, в шаблоне очереди <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}</q> по умолчанию заданы типы <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--release }}</q> и [<q>Веха</q>](manager/milestones.md).
+В очереди можно использовать несколько [типов задач](manager/add-ticket-type.md) с разными рабочими процессами. Например, в шаблоне очереди <q>Базовая разработка</q> по умолчанию заданы типы <q>Задача</q>, <q>Улучшение</q>, <q>Ошибка</q>, <q>Релиз</q> и [<q>Веха</q>](manager/milestones.md).
 
 Если требуется, вы можете добавить в очередь новые типы задач и [настроить для них отдельный воркфлоу](manager/add-workflow.md) — набор статусов и правила перехода между ними.
 

@@ -33,7 +33,7 @@ To make sure that the added users can create and edit issues, you need to [set u
 
 ## How to grant or revoke full access in {{ tracker-name }} {#full-access}
 
-You can [manage user access](access.md#set) in the {{ tracker-name }} interface under <q>{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-users-licenses }}</q>.
+You can [manage user access](access.md#set) in the {{ tracker-name }} interface under <q>Manage users</q>.
 
 Note that the total cost of using the service depends on the maximum number of users that had full access to {{ tracker-name }} during a given month. That is why we recommend first to [revoke access](disable-tracker.md) from the users that no longer need it and then to grant access to [new users](add-users.md).
 
@@ -44,7 +44,7 @@ We will help you select a proper partner for {{ tracker-name }} implementation. 
 
 ## How to delete an issue {#section_z1d_r1l_nbb}
 
-You cannot delete an issue, but you can close it with an appropriate resolution. For example, duplicate issues can be closed with the <q>{{ ui-key.startrek.blocks-desktop_b-table-related-issues.relation-is-duplicated-by }}</q> resolution, while issues created by mistake can be closed with the <q>{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusTypeSelector.status-canceled-name }}</q> resolution. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
+You cannot delete an issue, but you can close it with an appropriate resolution. For example, duplicate issues can be closed with the <q>Duplicates</q> resolution, while issues created by mistake can be closed with the <q>Canceled</q> resolution. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
 
 
 {% note tip %}
@@ -61,9 +61,9 @@ To delete a queue:
 
 1. Open the [queue page](user/queue.md).
 
-1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}**.
+1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **Admin**.
 
-1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.title }}** tab.
+1. Go to the **Basic settings** tab.
 
 1. Click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
 
@@ -109,9 +109,9 @@ If you need a simple issue list, replace your widget with an [issue list widget]
 
 1. Create a new [<q>Issues</q> widget](user/widgets#section_ll1_zdp_pz).
 
-1. Fill in the **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-filter }}** field in the same manner as in your previous widget.
+1. Fill in the **Filter** field in the same manner as in your previous widget.
 
-1. In the **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-fields }}** field, select the issue parameters to be shown in the table.
+1. In the **Columns** field, select the issue parameters to be shown in the table.
 
 1. Fill in the remaining fields and save the new widget.
 
@@ -127,11 +127,11 @@ If you add keywords to issue names to use them for grouping issues in widgets, w
 
 1. In your existing issues, move the data to the new field by an [automatic action](user/create-autoaction):
 
-   1. Select the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--update }}** type.
+   1. Select the **Update issues** type.
 
-   1. Under **{{ ui-key.startrek.blocks-desktop_filter-edit-modal.filter--title }}**, click **{{ ui-key.startrek.blocks-desktop_issues-filter.action--add-field }}**, select **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--issue }}**, and specify the issue name (the keyword used for grouping in the widget).
+   1. Under **Filter settings**, click **Add filter**, select **Issue**, and specify the issue name (the keyword used for grouping in the widget).
 
-   1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-action }}** and select **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--field }}**. Then select the previously created field and paste the issue name to it.
+   1. Click **Add new action** and select **Update fields**. Then select the previously created field and paste the issue name to it.
 
    1. Create similar automatic actions for every possible keyword.
 

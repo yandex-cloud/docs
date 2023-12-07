@@ -7,12 +7,12 @@
 Чтобы дата окончания испытательного срока выставлялась автоматически, создайте триггер на событие создания задачи:
 
 1. На странице очереди сотрудников `Employment Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. На панели слева выберите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. В поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** введите название триггера, например `probation_setup`.
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}** выберите **{{ ui-key.startrek-backend.fields.issue.fields.system }}**  → **{{ ui-key.startrek-backend.fields.issue.type-key-value }}**.
+1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
+1. В поле **Название** введите название триггера, например `probation_setup`.
+1. В блоке **Условия срабатывания** выберите **{{ ui-key.startrek-backend.fields.issue.fields.system }}**  → **{{ ui-key.startrek-backend.fields.issue.type-key-value }}**.
 1. В появившемся поле выберите опцию **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}**, а в новом поле рядом выберите опцию **Испытательный срок** (тип задачи, созданный на предыдущем этапе).
-1. Добавьте еще одно условие: в блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}** выберите **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** и в появившемся поле выберите опцию **{{ ui-key.startrek-backend.events.event.IssueCreated }}**.
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}** в поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_add-action }}** выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--formula }}**.
+1. Добавьте еще одно условие: в блоке **Условия срабатывания** выберите **Событие** и в появившемся поле выберите опцию **{{ ui-key.startrek-backend.events.event.IssueCreated }}**.
+1. В блоке **Действия триггера** в поле **Добавить действие** выберите **Вычислить значение**.
 1. В появившемся поле введите формулу:
 	```
 	now()+3M
@@ -22,17 +22,17 @@
 
 Чтобы не упустить из внимания важные моменты в процессе введения нового сотрудника в рабочий режим, добавьте в действия триггера создание чеклиста:
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}** в поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_add-action }}** выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--checklist }}**.
+1. В блоке **Действия триггера** в поле **Добавить действие** выберите **Создать чеклист**.
 1. В появившейся форме нажмите кнопку **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** и введите описание первого пункта, например `Назначить куратора`.
 1. Аналогично добавьте еще пункты в чеклист.
-1. Чтобы сохранить триггер, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+1. Чтобы сохранить триггер, нажмите кнопку **Создать**.
 
 ## Настройте автоматическое изменение статуса задачи
 
 Чтобы перевести задачу в следующий статус по факту заполнения чеклиста, создайте новый триггер:
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. В поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** введите название триггера, например `probation_checklist`.
+1. Нажмите кнопку **Создать триггер**.
+1. В поле **Название** введите название триггера, например `probation_checklist`.
 1. В качестве условий срабатывания триггера выберите **{{ ui-key.startrek-backend.messages.trigger.condition.field.checklist }}** и **{{ ui-key.startrek-backend.fields.issue.type-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Испытательный срок**.
 1. В качестве действия триггера выберите **{{ ui-key.startrek-backend.types.types.trigger.action.transition }}** и укажите статус, например **В работе**.
 
@@ -51,7 +51,7 @@
 1. Измените статус на **В работу**.
 1. Убедитесь, что в очереди появились все необходимые подзадачи.
 1. Зайдите в подзадачу типа `Испытательный срок` и убедитесь, что:
-	* в поле **{{ ui-key.startrek.blocks-desktop_st-gantt-issue-update-modal.label.due-date }}** указана дата через три месяца;
+	* в поле **Дедлайн** указана дата через три месяца;
 	* присутствует блок **{{ ui-key.startrek-backend.fields.issue.checklistItems }}** с необходимыми пунктами.
 1. Активируйте все пункты чеклиста и перезагрузите страницу. Убедитесь, что статус задачи изменился.
 

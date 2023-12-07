@@ -76,7 +76,7 @@ description: "Следуя данной инструкции, вы научит�
 
    ```bash
    curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-     https://operation.{{ api-host }}/operations/<ID_операции>
+     https://llm.api.cloud.yandex.net/operations/<ID_операции>
    ```
 
    Пример результата:

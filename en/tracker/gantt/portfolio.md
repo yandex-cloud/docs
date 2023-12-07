@@ -6,7 +6,7 @@ Gantt charts for {{ tracker-name }} project portfolios show nested portfolios an
 
 To go to the Gantt chart:
 
-1. In the [left-hand panel]({{ link-tracker }}), select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects) and open the portfolio page.
+1. In the [left-hand panel]({{ link-tracker }}), select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** or follow the [direct link]({{ link-tracker }}pages/projects) and open the portfolio page.
 
 1. Select the **{{ ui-key.startrek.ui_components_filter-pane_ViewModeSwitch.mode-gantt }}** tab.
    * The portfolio and project list is displayed to the left of the chart. To open the list of nested items, click ![](../../_assets/tracker/svg/arrow.svg) next to its name. The issues are displayed as a hierarchical list.
@@ -38,7 +38,7 @@ On a Gantt chart for portfolios, you can assign or change an employee in charge 
 
 {% note info %}
 
-If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the portfolio or project bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select the **{{ ui-key.startrek.ui_components_Gantt.task-bar }}** item under **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}**.
+If you do not see the ![](../../_assets/tracker/svg/pick-user.svg) button on the portfolio or project bar, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select the **Issue bar** item under **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}**.
 
 {% endnote %}
 

@@ -9,9 +9,9 @@
 1. В поле **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-working-calendar }}** выберите один из доступных вариантов.
 1. Нажмите **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}**.
 
-После этого в задачах очереди появится новый раздел **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**. В него будут перенесены все данные полей задачи из категории **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}**.
+После этого в задачах очереди появится новый раздел **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**. В него будут перенесены все данные полей задачи из категории **Учёт времени**.
 
-Если вы отключите опцию **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}**, данные из раздела **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** будут перенесены обратно в поля категории **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}**.
+Если вы отключите опцию **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}**, данные из раздела **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** будут перенесены обратно в поля категории **Учёт времени**.
 
 ## Разрешить исполнителю редактировать время {#assignee-edit}
 

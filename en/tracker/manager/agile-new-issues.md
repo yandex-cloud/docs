@@ -18,7 +18,7 @@ By default, the issue card displays the values of such fields as the key, name, 
 
 1. To highlight certain tags or issue components with colors:
 
-   1. Set up the card to show the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-tags }}** or the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-components }}** field.
+   1. Set up the card to show the **Tags** or the **Components** field.
 
    2. On the issue card, click the name of the tag or component and select its color.
 
@@ -82,13 +82,13 @@ To create a filter on the board:
 
    1. Click ![](../../_assets/tracker/svg/settings.svg) in the filters panel or click ![](../../_assets/horizontal-ellipsis.svg) in the top-right corner of the page and select **{{ ui-key.startrek.ui_components_agile_common_QuickFilterPopup.filters-manage }}**.
 
-   1. Select the filters to be shown on the board and click **{{ ui-key.startrek.blocks-desktop_issues-filter.action--apply-query }}**.
+   1. Select the filters to be shown on the board and click **Apply**.
 
 1. To edit or delete a saved filter, in the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_agile_common_QuickFilterPopup.filters-manage }}**. After that, next to the filter name, click ![](../../_assets/tracker/svg/settings.svg).
 
 ## Grouping issues {#group}
 
-To group issues on a [board](agile-new.md) or in a [backlog](backlog.md) based on a parameter, click ![](../../_assets/tracker/svg/group.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_issues-table.group-by--null }}** at the top of the board and select the grouping parameter from the list. All issues that have the same value of the selected parameter will be combined into groups.
+To group issues on a [board](agile-new.md) or in a [backlog](backlog.md) based on a parameter, click ![](../../_assets/tracker/svg/group.svg)&nbsp;**Not grouped** at the top of the board and select the grouping parameter from the list. All issues that have the same value of the selected parameter will be combined into groups.
 
 To reorder issues in the group, click ![](../../_assets/tracker/svg/set-order.svg) **Change order** and reorder the parameters as needed.
 
@@ -100,7 +100,7 @@ You can set the maximum number of issues per group:
 
 1. Click **Save**.
 
-You can also add issues with preset parameters to a group. To do this, click **{{ ui-key.startrek.blocks-desktop_b-agile-board.create-issue--title }}** under the list of issues in the group. This sets a value in a new or existing issue's field to group issues by. For example, <q>Assignee</q> or <q>Deadline</q>.
+You can also add issues with preset parameters to a group. To do this, click **Add issue** under the list of issues in the group. This sets a value in a new or existing issue's field to group issues by. For example, <q>Assignee</q> or <q>Deadline</q>.
 
 Restrictions:
 * When grouping issues by queue, you can only create a new issue.

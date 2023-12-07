@@ -11,7 +11,7 @@ description: "Из статьи вы узнаете, как создать до�
 
 Чтобы создать простую доску:
 
-1. На панели слева нажмите **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **{{ ui-key.startrek.blocks-desktop_page-agile-boards.create }}**.
+1. На панели слева нажмите **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **Создать доску**.
 
 1. Выберите тип доски **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** и нажмите **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. Будет создана доска с названием <q>Новая доска</q>. Это поле на доске доступно для редактирования, так что вы сможете его скорректировать и изменить название.
 
@@ -25,7 +25,7 @@ description: "Из статьи вы узнаете, как создать до�
 
 Чтобы создать доску с бэклогом и спринтами:
 
-1. На панели слева нажмите **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **{{ ui-key.startrek.blocks-desktop_page-agile-boards.create }}**.
+1. На панели слева нажмите **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **Создать доску**.
 
 1. Выберите тип доски **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** и нажмите **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. Будет создана доска с названием <q>Новая доска</q>. Это поле на доске доступно для редактирования, так что вы сможете его скорректировать и изменить название.
 

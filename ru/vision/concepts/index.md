@@ -61,6 +61,12 @@ _Возможности_ — это различные типы анализа, 
 
 Если в процессе какого-то из анализов произошла ошибка, она будет возвращена вместо соответствующего результата. [Подробнее об обработке ошибок](../api-ref/errors-handling.md).
 
+{% note info %}
+
+API {{ vision-name }} не поддерживает [ресурсо-ориентированный подход](../../api-design-guide/concepts/general.md#resource-oriented-design), так как не оперирует ресурсами {{ yandex-cloud }}. Запросы API {{ vision-name }} [не идемпотентны](../../api-design-guide/concepts/idempotency.md).
+
+{% endnote %}
+
 #### Что дальше {#what-is-next}
 
 * [Как работает распознавание текста](ocr/index.md)

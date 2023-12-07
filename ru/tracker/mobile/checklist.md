@@ -6,7 +6,7 @@
 
 1. Откройте страницу задачи.
 
-1. Нажмите кнопку ![](../../_assets/tracker/checklist-create.png) **{{ ui-key.startrek.ui_components_IssueChecklist.add-checklist }}**.
+1. Нажмите кнопку ![](../../_assets/tracker/checklist-create.png) **Добавить чеклист**.
 
 1. Введите название первого пункта списка и нажмите клавишу ввода на клавиатуре телефона. 
 

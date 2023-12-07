@@ -10,7 +10,7 @@
 
 1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите Bitbucket.
+1. В поле **Платформа** выберите Bitbucket.
 
 1. Создайте для {{ tracker-name }} пароль на Bitbucket. С помощью этого пароля {{ tracker-name }} сможет подключаться к вашим репозиториям.
     - Авторизуйтесь на Bitbucket.
@@ -33,9 +33,9 @@
 
 1. Вставьте пароль, который вы создали для доступа {{ tracker-name }} к Bitbucket. Ваш личный пароль от Bitbucket для этого не подойдет.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+1. Нажмите кнопку **Подключить**.
 
-1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **Подключен**.
 
 {% include [commits](../../_includes/tracker/add_commits.md) %}
 

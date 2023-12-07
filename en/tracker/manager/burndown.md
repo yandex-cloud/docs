@@ -7,7 +7,7 @@ description: "Use this guide to view the burndown chart."
 
 {% note warning %}
 
-You can only use burn down charts on **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}** boards.
+You can only use burn down charts on **Scrum** boards.
 
 {% endnote %}
 
@@ -17,8 +17,8 @@ The chart's vertical axis shows the total workload left in [Story Points](agile.
 
 To view the chart:
 
-1. Choose a board from the **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** menu in the top panel.
+1. Choose a board from the **Boards** menu in the top panel.
 
-1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.reports }}** tab.
+1. Go to the **Burn down chart** tab.
 
 1. From the drop-down list, select the sprint whose issues you want to add to the chart.

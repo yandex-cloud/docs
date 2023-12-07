@@ -15,13 +15,13 @@ To connect your repository on [GitHub](https://github.com) to {{ tracker-name }}
 
    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-   1. Choose GitHub in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
+   1. Choose GitHub in the **Platform** field.
 
-   1. Enter the public repository address in the `https://github.com/<repository_owner_login>/<repository_name>` format. Leave the **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** field blank.
+   1. Enter the public repository address in the `https://github.com/<repository_owner_login>/<repository_name>` format. Leave the **Token** field blank.
 
-   1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+   1. Click **Connect**.
 
-   1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+   1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
 
 - Private repository
 
@@ -29,7 +29,7 @@ To connect your repository on [GitHub](https://github.com) to {{ tracker-name }}
 
    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-   1. Choose GitHub in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
+   1. Choose GitHub in the **Platform** field.
 
    1. Get an OAuth token for your repository on GitHub:
 
@@ -57,9 +57,9 @@ To connect your repository on [GitHub](https://github.com) to {{ tracker-name }}
 
    1. Enter the repository address in the `https://github.com/<repository_owner_login>/<repository_name>` format and specify the access token.
 
-   1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+   1. Click **Connect**.
 
-   1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+   1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
 
 {% endlist %}
 

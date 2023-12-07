@@ -4,7 +4,7 @@
 
 ## Создайте очередь для новых сотрудников
 
-1. [Создайте очередь](manager/create-queue.md) с помощью шаблона <q>{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--hr-preset }}</q>. 
+1. [Создайте очередь](manager/create-queue.md) с помощью шаблона <q>Кадровые процессы</q>. 
 1. В качестве имени укажите, например, `Employment Queue`.
 1. Если нужно, настройте [рабочий процесс](manager/workflows.md#section_hr) или создайте [новый](manager/add-workflow.md).
 1. Для рабочего процесса укажите тип задачи, например `Новые сотрудники`. Сохраните ключ типа задачи, он понадобится при создании триггеров.
@@ -15,15 +15,15 @@
 Для различных процедур, связанных с оформлением и введением сотрудника в рабочий режим, создайте отдельные типы задач. Например, для выдачи доступов и оборудования создайте тип задачи <q>Доступы и оборудование</q>:
 
 1. На странице очереди новых сотрудников `Employment Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. На панели слева выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-types }}**.
-1. Дождитесь загрузки страницы и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.add-issue-type }}**.
+1. На панели слева выберите **Типы задач**.
+1. Дождитесь загрузки страницы и нажмите кнопку **Добавить тип задачи**.
 1. В появившейся форме:
-   * в поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_events.issue-types-config--title--type }}** введите название нового типа, например, `Доступы и оборудование` и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.add-issue-type }}**. В появившейся форме создания типа задачи скопируйте и сохраните ключ задачи;
-   * в поле  **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_events.issue-types-config--title--workflow }}** выберите подходящий рабочий процесс, например, `Quick Start`;
-   * в поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_events.issue-types-config--title--resolutions }}** выберите нужные резолюции, например, `{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}`.
+   * в поле **Тип задачи** введите название нового типа, например, `Доступы и оборудование` и нажмите кнопку **Добавить тип задачи**. В появившейся форме создания типа задачи скопируйте и сохраните ключ задачи;
+   * в поле  **Воркфлоу** выберите подходящий рабочий процесс, например, `Quick Start`;
+   * в поле **Резолюции** выберите нужные резолюции, например, `{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}`.
 
 Аналогично добавьте еще нужные вам типы задач, например `Оформление документов`, `Испытательный срок` и т. д.
-Чтобы сохранить новые типы, нажмите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.save }}**.
+Чтобы сохранить новые типы, нажмите **Сохранить**.
 
 {% note info %}
 
@@ -38,23 +38,23 @@
 Для автоматизации копирования задачи из очереди кандидатов `Candidates Queue` в очередь сотрудников `Employment Queue` создайте триггер, срабатывающий на переход статуса задачи кандидата в состояние "Принят":
 
 1. На странице очереди кандидатов `Candidates Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. На панели слева выберите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. В поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** введите название триггера, например `employ_candidate`.
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}** выберите **{{ui-key.startrek-backend.fields.issue.fields.system }}**  → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
+1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
+1. В поле **Название** введите название триггера, например `employ_candidate`.
+1. В блоке **Условия срабатывания** выберите **{{ui-key.startrek-backend.fields.issue.fields.system }}**  → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
 1. В появившемся поле **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldChangedCondition }}** выберите опцию **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}**, а в новом поле рядом выберите опцию **Принят** (статус, который вы создали в рабочем процессе очереди кандидатов).
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}** выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**.
-1. В открывшейся форме укажите параметры запроса. В поле **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** укажите параметры создаваемой подзадачи. Для подстановки значений из исходной задачи используйте [переменные](user/vars.md):
+1. В блоке **Действия триггера** выберите **HTTP-запрос**.
+1. В открывшейся форме укажите параметры запроса. В поле **Тело запроса** укажите параметры создаваемой подзадачи. Для подстановки значений из исходной задачи используйте [переменные](user/vars.md):
 
     #|
     || **Поле** | **Содержание** ||
-    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-method }} | {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-method--post }} ||
-    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-url }} | `{{ host }}/{{ ver }}/issues` ||
-    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-auth }} | {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-auth--oauth }} ||
-    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token }} | <OAuth_токен> (см. [Руководство по получению токена](concepts/access.md#section_about_OAuth)) ||
-    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token-header }} | Authorization ||
-    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token-type }} | OAuth ||
-    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-content-type }} | application/json ||
-    || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }} |
+    || Метод | POST ||
+    || Адрес | `{{ host }}/{{ ver }}/issues` ||
+    || Способ авторизации | OAuth 2.0 ||
+    || Токен | <OAuth_токен> (см. [Руководство по получению токена](concepts/access.md#section_about_OAuth)) ||
+    || Заголовок авторизации | Authorization ||
+    || Тип токена | OAuth ||
+    || Тип содержимого | application/json ||
+    || Тело запроса |
     >```
     >{
     >    "queue":"<ключ_очереди_Employment_Queue>",
@@ -75,7 +75,7 @@
 
     {% endnote %}
 
-1. Чтобы сохранить триггер, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.  
+1. Чтобы сохранить триггер, нажмите кнопку **Создать**.  
 
 
 ## Настройте триггер в очереди сотрудников
@@ -85,14 +85,14 @@
 ### Создайте триггер 
 
 1. На странице очереди сотрудников `Employment Queue` в правом верхнем углу нажмите ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. На панели слева выберите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. В поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** введите название триггера, например `start_employment`.
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}** выберите **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
+1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
+1. В поле **Название** введите название триггера, например `start_employment`.
+1. В блоке **Условия срабатывания** выберите **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
 1. В появившемся поле **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldChangedCondition }}** выберите опцию **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}**, а в новом поле рядом выберите опцию **В работе** (статус, который вы создали в рабочем процессе очереди кандидатов).
-1. Добавьте еще одно условие: в блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}** выберите **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.type-key-value }}**.
+1. Добавьте еще одно условие: в блоке **Условия срабатывания** выберите **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.type-key-value }}**.
 1. В появившемся поле **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldChangedCondition }}** выберите опцию **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}**, а в новом поле рядом выберите опцию **Новые сотрудники**.
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}** в поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_add-action }}** выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**.
-1. В открывшейся форме укажите параметры запроса так же, как было сделано выше. В поле **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** измените описание (`description`) и ключ типа задачи (`type`), например: 
+1. В блоке **Действия триггера** в поле **Добавить действие** выберите **HTTP-запрос**.
+1. В открывшейся форме укажите параметры запроса так же, как было сделано выше. В поле **Тело запроса** измените описание (`description`) и ключ типа задачи (`type`), например: 
 
 ```
 {
@@ -108,8 +108,8 @@
 
 Для автоматического создания других подзадач добавьте соответствующие действия в триггер:
 
-1. Внизу в поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_add-action }}** выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**.
-1. Заполните форму так же, как было сделано выше. В поле **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** измените описание и ключ типа задачи, например:
+1. Внизу в поле **Добавить действие** выберите **HTTP-запрос**.
+1. Заполните форму так же, как было сделано выше. В поле **Тело запроса** измените описание и ключ типа задачи, например:
 
 ```
 {
@@ -121,7 +121,7 @@
 }
 ```
 1. Аналогично добавьте действия для прочих задач.
-1. Чтобы сохранить триггер, нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.  
+1. Чтобы сохранить триггер, нажмите кнопку **Создать**.  
 
 ## Проверьте действие триггеров
 

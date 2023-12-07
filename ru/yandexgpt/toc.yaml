@@ -32,6 +32,8 @@ items:
         href: concepts/limits.md
   - name: Справочник API
     items:
+      - name: Обзор
+        href: concepts/api.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: Foundation models API
@@ -80,7 +82,7 @@ items:
                 href: api-ref/v1/grpc/EmbeddingsService.md
               - name: OperationService
                 href: api-ref/v1/grpc/operation_service.md
-      - name: API v1alpha (устревший)
+      - name: API v1alpha (устаревший)
         items:
           - name: REST (англ.)
             items:

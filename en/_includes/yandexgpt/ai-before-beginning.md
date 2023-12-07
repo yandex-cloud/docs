@@ -1,4 +1,4 @@
-# Authentication in the {{ yagpt-name }} API
+# Authentication with the {{ yagpt-name }} API
 
 To work with the {{ yagpt-name }} API, you need to get authenticated using your:
 
@@ -7,7 +7,7 @@ To work with the {{ yagpt-name }} API, you need to get authenticated using your:
 - Yandex account
 
    1. [Get an IAM token](../../iam/operations/iam-token/create.md).
-   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) that your account has the `{{ roles-yagpt-user }}` role or higher for.
+   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yagpt-user }}` or higher role.
    1. When accessing {{ yagpt-name }} via the API, provide the received parameters in each request:
 
       * Specify the IAM token in the `Authorization` header.
@@ -21,7 +21,7 @@ To work with the {{ yagpt-name }} API, you need to get authenticated using your:
 - Federated account
 
    1. [Get an IAM token](../../iam/operations/iam-token/create-for-federation.md).
-   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) that your account has the `{{ roles-yagpt-user }}` role or higher for.
+   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yagpt-user }}` or higher role.
    1. When accessing {{ yagpt-name }} via the API, provide the received parameters in each request:
 
       * Specify the IAM token in the `Authorization` header.
@@ -56,6 +56,6 @@ To work with the {{ yagpt-name }} API, you need to get authenticated using your:
          Authorization: Api-Key <API key>
          ```
 
-   Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder where the service account was created.
+   Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder in which the service account was created.
 
 {% endlist %}

@@ -2,25 +2,25 @@
 
 To create a board:
 
-1. In the {{ tracker-name }} top panel, select **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-agile-board }}**.
+1. In the {{ tracker-name }} top panel, select **Boards** → **New board**.
 
 1. Select the board type.
 
-   - **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}** boards allow you to arrange issues in columns based on their status.
+   - **Basic** boards allow you to arrange issues in columns based on their status.
 
         This board is a good choice if you're new to Agile tools and want to test them out.
 
         {% note info %}
 
-        To create a board with the new interface, enable **{{ ui-key.startrek.blocks-desktop_agile-form-modal.new-board-ad-control }}**. On how to work with the new board version, see [{#T}](agile-new.md).
+        To create a board with the new interface, enable **Try new boards**. On how to work with the new board version, see [{#T}](agile-new.md).
 
         {% endnote %}
 
-   - **{{ ui-key.startrek.blocks-desktop_onboarding-form.template-1 }}** boards allow you to display statuses and offer [sprint](agile.md#dlen_sprint) management tools, [issue estimation](planning-poker.md), and [burn down charts](agile.md#dlen_burndown).
+   - **Scrum** boards allow you to display statuses and offer [sprint](agile.md#dlen_sprint) management tools, [issue estimation](planning-poker.md), and [burn down charts](agile.md#dlen_burndown).
 
         Select this board if you are using the Scrum methodology.
 
-   - **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--kanban }}** boards are similar to basic boards, but all issues with the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-status-open }}** status are automatically moved to the [**{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssue.backlog-default-column }}**](agile.md#dlen_backlog) column.
+   - **Kanban** boards are similar to basic boards, but all issues with the **Open** status are automatically moved to the [**{{ ui-key.startrek.ui_components_agile_backlog_BacklogIssue.backlog-default-column }}**](agile.md#dlen_backlog) column.
 
         Select this board if your team deals with a massive flow of issues (for example, to support customers).
 
@@ -46,6 +46,6 @@ To create a board:
 
 1. Specify the queue where the issues will be created. This way, you can quickly create issues in this queue directly from the board page.
 
-1. Click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. The new board appears in the **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** menu in the {{ tracker-name }} top panel.
+1. Click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. The new board appears in the **Boards** menu in the {{ tracker-name }} top panel.
 
 1. You can also [customize the columns and appearance of the issue card](edit-agile-board.md) if needed.

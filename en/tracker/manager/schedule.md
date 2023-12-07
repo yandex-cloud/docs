@@ -15,7 +15,7 @@ Work schedules allow you to set up the timeframe for when the [SLA rule](sla.md)
 
 {% note info %}
 
-In the **{{ ui-key.startrek.blocks-desktop_calendar-editor--working-time-select.option--daily24x7 }}** system schedule, holidays are considered non-working days, and the SLA timer is idle on these days.
+In the **Round the clock** system schedule, holidays are considered non-working days, and the SLA timer is idle on these days.
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ In the **{{ ui-key.startrek.blocks-desktop_calendar-editor--working-time-select.
 
 1. Select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-calendars }}**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendars.create-calendar }}**.
+1. Click **Create schedule**.
 
 1. Click the ![](../../_assets/tracker/icon-edit.png) icon and name the schedule. Click ![](../../_assets/tracker/approve-checkmark.png) to save the name.
 
@@ -36,15 +36,15 @@ In the **{{ ui-key.startrek.blocks-desktop_calendar-editor--working-time-select.
 
 1. Set a schedule.
 
-1. Select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendar-editor.holidays-title }}** that will be different from the default schedule. To do this, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendar-editor.no-holidays-title }}** and set the following parameters:
+1. Select **Holidays and transferred holiday days** that will be different from the default schedule. To do this, click **Manage exceptions** and set the following parameters:
 
    - Select the country to choose the occupational calendar of your region.
 
    - Add **SLA exceptions** if your work schedule differs from the official calendar.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendar-editor.action-save }}**.
+1. Click **Save**.
 
-You can view the schedule you created in the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendars.custom-calendars }}** section. Other users will not be able to view or use your schedule.
+You can view the schedule you created in the **My schedules** section. Other users will not be able to view or use your schedule.
 
 ## Editing work schedules {#section_vkm_flh_x2b}
 
@@ -54,10 +54,10 @@ You can view the schedule you created in the **{{ ui-key.startrek.blocks-desktop
 
 1. Select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-calendars }}**.
 
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendars.custom-calendars }}**, click the name of the schedule you need.
+1. Under **My schedules**, click the name of the schedule you need.
 
-1. Click ![](../../_assets/tracker/svg/icon-edit1.svg) **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendars.edit-button }}**.
+1. Click ![](../../_assets/tracker/svg/icon-edit1.svg) **Edit**.
 
-1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendar-editor.action-save }}**.
+1. Make your changes and click **Save**.
 
 

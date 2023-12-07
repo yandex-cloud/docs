@@ -18,7 +18,7 @@ To change the issue status:
 
 1. After the operation is complete, in the bottom-right corner, you'll see a notification with the number of issues with changed status.
 
-   To see a list of issues that cannot be changed to the selected status, click **{{ ui-key.startrek.blocks-desktop_guide.ticket--buttons--workflow_buttons--content-link }}** in the notification.
+   To see a list of issues that cannot be changed to the selected status, click **More** in the notification.
 
 ## Move an issues to another queue {#change-queue}
 
@@ -36,7 +36,7 @@ To edit the issue queue:
 
 1. When the operation is complete, in the bottom-right corner, you'll see a notification with the number of issues moved to another queue.
 
-   To see a list of issues that cannot be moved, click **{{ ui-key.startrek.blocks-desktop_guide.ticket--buttons--workflow_buttons--content-link }}** in the notification. The issues that are in the selected queue already, cannot be moved.
+   To see a list of issues that cannot be moved, click **More** in the notification. The issues that are in the selected queue already, cannot be moved.
 
 Once moved to another queue, the issues are assigned new keys. Links to the issue using the old key remain valid. When following such a link, the issue automatically opens in the new queue. However, you won't be able to find the issue by the old key using a [filter](../manager/quick-filters.md) or a [query](../user/query-filter#query-format.md).
 
@@ -52,9 +52,9 @@ To add a link to multiple issues at once:
 
 1. Click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-link }}** under the list of issues, select the [link type](../user/links.md), and create the link:
 
-   * To create an issue, click the **{{ ui-key.startrek.ui_components_CreateIssuePopup.new-issue }}** tab. Give your issue a name and press **Enter**.
+   * To create an issue, click the **New issue** tab. Give your issue a name and press **Enter**.
 
-   * If the issue already exists, click **{{ ui-key.startrek.ui_components_CreateIssuePopup.existing-issue }}**, specify the issue key or name, and select the issue from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
+   * If the issue already exists, click **Existing issue**, specify the issue key or name, and select the issue from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
 
 ## Adding issues to a board or project {#add-project-board}
 
@@ -84,11 +84,11 @@ To edit issue parameters:
 
 1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list and select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.edit-parameters }}**.
 
-1. Select relevant parameters. If the fields you need are not in the list, click **{{ ui-key.startrek.ui_components_BulkChangeParametersDialog.add-parameter }}**.
+1. Select relevant parameters. If the fields you need are not in the list, click **Edit parameters list**.
 
 1. Set the values.
 
-   Some fields may contain a list of values (for example, <q>{{ ui-key.startrek.components_FormCreateIssue.field--followers }}</q>, <q>{{ ui-key.startrek-backend.messages.workflow.field.maillists }}</q>, or <q>{{ ui-key.startrek.components_FormCreateIssue.field--tags }}</q>). New values are added to the end of the list by default. To overwrite a field, select **{{ ui-key.startrek.ui_components_BulkChangeParametersDialog.clear-previous-value }}**.
+   Some fields may contain a list of values (for example, <q>Followers</q>, <q>{{ ui-key.startrek-backend.messages.workflow.field.maillists }}</q>, or <q>Tags</q>). New values are added to the end of the list by default. To overwrite a field, select **Delete value**.
 
 1. Click **{{ ui-key.startrek.ui_components_BulkSuggestPopup.apply }}**.
 

@@ -5,6 +5,8 @@ sourcePath: ru/tracker/api-ref/concepts/projects/delete-project.md
 
 Запрос позволяет удалить [проект](../../manager/project-new.md).
 
+Вы также можете использовать новый расширенный API [удаления сущности](../entities/delete-entity.md), представляющий унифицированный метод удаления проектов и портфелей.
+
 ## Формат запроса {#query}
 
 Перед выполнением запроса [получите доступ к API](../access.md).

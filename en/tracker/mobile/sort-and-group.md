@@ -10,7 +10,7 @@ You can sort and group your issues using different parameters.
 
 1. Select the sort parameter and the sort order: descending or ascending.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**. Issues in the list will be sorted in this order.
+1. Tap **Apply**. Issues in the list will be sorted in this order.
 
 ## Grouping issues {#group}
 
@@ -20,4 +20,4 @@ You can sort and group your issues using different parameters.
 
 1. Select the parameter to group your issues by.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**. Issues in the list will be grouped by the specified parameter.
+1. Tap **Apply**. Issues in the list will be grouped by the specified parameter.

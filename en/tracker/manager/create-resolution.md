@@ -30,16 +30,16 @@ To create a resolution:
 
 1. Make sure you are authorized in {{ tracker-full-name }} as an [administrator](../role-model.md).
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_b-page-queue.cp }}** → **{{ ui-key.startrek.blocks-desktop_page-admin.tab-title--resolutions }}**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Configure** → **Resolutions**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_page-admin-tab.create--resolutions }}**.
+1. Click **Create resolution**.
 
 1. Fill out the fields below:
    * **Name**: Enter a name for a new resolution in Russian.
    * **Name in English**: Will be generated automatically from the Russian name.
    * **Key**: Will be generated automatically based on the Russian name.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form__labels.submit }}**.
+1. Click **Create**.
 
 You can also create a resolution on the workflows page. The new resolution will be created within a workflow in the queue.
 
@@ -56,7 +56,7 @@ You can also create a resolution on the workflows page. The new resolution will 
    * **Name in English**: Will be generated automatically from the Russian name.
    * **Key**: Will be generated automatically based on the Russian name.
 
-1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_OrgAdminEntityForm.create }}**.
+1. Click **Create**.
 
 ## Removing a resolution from a queue {#delete-resolution}
 

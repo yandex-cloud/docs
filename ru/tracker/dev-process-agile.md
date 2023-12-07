@@ -6,7 +6,7 @@
 ![](../_assets/tracker/agile-board-c.png)
 
 
-Если [при создании очереди](dev-process-create-queue.md) вы выбрали шаблоны <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--development-preset }}</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--scrum-development-preset }}</q> или <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--kanban-development-preset }}</q>, автоматически будет создана доска задач с таким же названием, как у очереди. На доске будут отображаться все задачи вашей очереди.
+Если [при создании очереди](dev-process-create-queue.md) вы выбрали шаблоны <q>Базовая разработка</q>, <q>Скрам</q> или <q>Канбан</q>, автоматически будет создана доска задач с таким же названием, как у очереди. На доске будут отображаться все задачи вашей очереди.
 
 Вы можете [создать несколько досок задач](manager/create-agile-board.md), например для разных рабочих групп или для задач разного типа:
 
@@ -14,7 +14,7 @@
 
 1. Выберите [тип доски](#board_types).
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_agile-form-modal.label-board-mode }}** включите опцию **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-mode-filter }}** и задайте условия фильтра, чтобы отображать на доске задачи с определенными параметрами.
+1. В блоке **Добавить задачи** включите опцию **автоматически** и задайте условия фильтра, чтобы отображать на доске задачи с определенными параметрами.
 
     Например, вы можете настроить фильтр, чтобы на доску попадали все задачи из вашей очереди, задачи с указанными [компонентами](manager/components.md), задачи указанных сотрудников и так далее.
 
@@ -24,9 +24,9 @@
 
 В {{ tracker-name }} можно использовать несколько типов досок:
 
-- <q>{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}</q> — доска с минимальными возможностями, отображает задачи команды и их статус.
+- <q>Простая</q> — доска с минимальными возможностями, отображает задачи команды и их статус.
 
-- <q>{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--kanban }}</q> — похожа на простую доску, но все задачи в статусе **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-status-open }}** автоматически попадают в колонку [**{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.open }}**](manager/agile.md#dlen_backlog).
+- <q>Канбан</q> — похожа на простую доску, но все задачи в статусе **Открыт** автоматически попадают в колонку [**{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.open }}**](manager/agile.md#dlen_backlog).
 
 - <q>{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.name }}</q> — помимо отображения статусов задач, позволяет управлять [спринтами](manager/agile.md#dlen_sprint), [оценивать задачи](manager/planning-poker.md) и смотреть [диаграмму сгорания задач](manager/agile.md#dlen_burndown).
 
@@ -40,7 +40,7 @@
 
 Чтобы [запланировать спринт в {{ tracker-name }}](manager/create-agile-sprint.md):
 
-- На доске задач в правом верхнем углу нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.sprints }}**.
+- На доске задач в правом верхнем углу нажмите кнопку **Спринты**.
 
 - [Создайте спринт](manager/create-agile-sprint.md#create_sprint) и задайте даты его начала и конца.
 
@@ -54,7 +54,7 @@
 
 Вы можете [использовать покер планирования в {{ tracker-name }}](manager/planning-poker.md):
 
-- Чтобы [провести оценку](manager/planning-poker.md#section_estimate), попросите участников команды перейти на страницу покера. Для этого на доске задач в правом верхнем углу нужно нажать кнопку **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.poker }}**.
+- Чтобы [провести оценку](manager/planning-poker.md#section_estimate), попросите участников команды перейти на страницу покера. Для этого на доске задач в правом верхнем углу нужно нажать кнопку **Покер**.
 
 - В настройках доски можно [настроить шкалу оценки задач](manager/planning-poker.md#section_scale) и [правила вычисления итоговой оценки](manager/planning-poker.md#section_calc). 
 
@@ -64,7 +64,7 @@
 
 На диаграмме по вертикальной оси отмечен суммарный объем оставшейся работы в единицах [Story Point](manager/agile.md#dlen_sp), по горизонтальной оси отмечено время. Идеальная диаграмма сгорания должна быть близка к прямой линии, которая начинается в точке с максимальным объемом работы (общий объем задач в спринте) в первый день спринта и заканчивается в нулевой точке в последний день спринта.
 
-Чтобы [посмотреть диаграмму сгорания в {{ tracker-name }}](manager/burndown.md), на доске задач в правом верхнем углу нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.reports }}**.
+Чтобы [посмотреть диаграмму сгорания в {{ tracker-name }}](manager/burndown.md), на доске задач в правом верхнем углу нажмите кнопку **Диаграмма сгорания задач**.
 
 ### Декомпозиция задач
 

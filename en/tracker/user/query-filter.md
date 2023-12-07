@@ -27,7 +27,7 @@ To set up a filter using a query language:
 
 1. Click ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}** in the top-right corner.
 
-1. Enter a query and click **{{ ui-key.startrek.blocks-desktop_issues-filter.action--apply-query }}**.
+1. Enter a query and click **Apply**.
 
 General request format:
 
@@ -110,7 +110,7 @@ parameter1: "value1" AND (parameter2: "value2" OR parameter3: "value3")
 
 ## Searching by text {#query-text}
 
-In addition to searching by parameters, you can use regular text search. To do this, enter text in the query field and click **{{ ui-key.startrek.blocks-desktop_issues-filter.action--apply-query }}**.
+In addition to searching by parameters, you can use regular text search. To do this, enter text in the query field and click **Apply**.
 
 All the textual fields of the issue are searchable: name, description, and comments.
 
@@ -447,7 +447,7 @@ Parameter | Value | Description
 ```"Followers" ``` | Names or usernames | Searching for issues with specific followers.<br/>For example:<br/>```"Followers": user3370@, "Alice Little" ```
 ```"Has Epic" ``` | Issue keys | Searching for issues that refer to specific epics.<br/>For example:<br/>``` "Has Epic": TASK-123 ```
 ```"Have Links To Queue" ``` | Name or key of the queue | Searching for issues with links of any type (parent, sub-issue, related, duplicate, and so on) with issues from specified queues.<br/>For example:<br/>``` "Have Links To Queue": TEST ```
-```"History" ``` | Text string | Searching for issues whose history includes the words from a specified phrase or their word forms.<br/>This filter only searches the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-summary }}** and **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form.fill-desc }}** field values.<br/>For example:<br/>```"History": "easy as pie" ```
+```"History" ``` | Text string | Searching for issues whose history includes the words from a specified phrase or their word forms.<br/>This filter only searches the **Issue name** and **Issue description** field values.<br/>For example:<br/>```"History": "easy as pie" ```
 ```"In Epics Of Queue" ``` | Name or key of the queue | Searching for issues related to epics from specific queues.<br/>For example:<br/>``` "In Epics Of Queue": TEST ```
 ```"Is Dependent By" ``` | Issue keys | Searching for issues that block specific issues.<br/>For example:<br/>``` "Is Dependent By": "TASK-123", "TASK-321" ```
 ```"Is Duplicated By" ``` | Issue keys | Searching for issues that are duplicated by specific issues.<br/>For example:<br/>``` "Is Duplicated By": "TASK-123", "TASK-321" ```
@@ -469,8 +469,8 @@ Parameter | Value | Description
 ```"Queue" ``` | Name or key of the queue | Searching for issues from specific queues.<br/>For example:<br/>```"Queue": TEST ```
 ```"Queue Owner" ``` | Names or usernames | Searching for issues from queues with specific owners.<br/>For example:<br/>```"Queue Owner": user3370@, "Alice Little" ```
 ```"Related" ``` | Names or usernames | Searching for issues with specific reporters, assignees, or followers.<br/>For example:<br/>```"Related": user3370@, "Alice Little" ```
-```"Related To Queue" ``` | Name or key of the queue | Searching for issues linked to issues from specific queues (<q>{{ ui-key.startrek.blocks_touch_b-related-issues.type-relates }}</q> link type).<br/>For example:<br/>``` "Related To Queue": Testing ```
-```"Relates" ``` | Issue keys | Searching for issues linked to specific issues (<q>{{ ui-key.startrek.blocks_touch_b-related-issues.type-relates }}</q> link type).<br/>For example:<br/>```"Relates": "TASK-123", "TASK-321" ```
+```"Related To Queue" ``` | Name or key of the queue | Searching for issues linked to issues from specific queues (<q>Related</q> link type).<br/>For example:<br/>``` "Related To Queue": Testing ```
+```"Relates" ``` | Issue keys | Searching for issues linked to specific issues (<q>Related</q> link type).<br/>For example:<br/>```"Relates": "TASK-123", "TASK-321" ```
 ```"Resolved" ``` | Date or date interval | Searching for issues that were closed (resolved) on a specific date or during a specific date range.<br/>For example:<br/>```"Resolved": 2017-01-01..2017-01-30 ```
 ```"Resolver" ``` | Names or usernames | Searching for issues that were closed (resolved) by a specific users.<br/>For example:<br/>```"Resolver": user3370@, "Alice Little" ```
 ```"Sprint" ``` | IDs or names of scripts | Searching for issues from specific sprints.<br/>For example:<br/>```Sprint: "TrackerSprint32" ```

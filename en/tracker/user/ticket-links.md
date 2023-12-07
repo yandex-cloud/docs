@@ -16,13 +16,13 @@ Issue links are created automatically when an issue key is entered into the issu
 
 Create links with other issues:
 
-1. Under the issue description, click **{{ ui-key.startrek.ui_components_CreateIssueLinkButton.add-relation }}**.
+1. Under the issue description, click **Add link**.
 
 1. Select a relevant [link type](links.md) and create a link:
 
-   * To create an issue, click the **{{ ui-key.startrek.ui_components_CreateIssuePopup.new-issue }}** tab. Give your issue a name and press **Enter**.
+   * To create an issue, click the **New issue** tab. Give your issue a name and press **Enter**.
 
-   * If the issue already exists, click **{{ ui-key.startrek.ui_components_CreateIssuePopup.existing-issue }}**, specify the issue key or name, and select the issue from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
+   * If the issue already exists, click **Existing issue**, specify the issue key or name, and select the issue from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
 
 To add a link to multiple issues, use [bulk operations](../manager/bulk-change.md#add-links).
 
@@ -46,7 +46,7 @@ To change an issue's [link type](links.md):
 
 1. Open the page of one of the two linked issues.
 
-1. In the **{{ ui-key.startrek.ui_components_IssueLinks.links-group-title--relates }}** list under the issue description, select the link whose type you want to change.
+1. In the **Related** list under the issue description, select the link whose type you want to change.
 
 1. Next to the linked issue, tap ![](../../_assets/horizontal-ellipsis.svg) → **Change link type** and choose a new type.
 
@@ -56,9 +56,9 @@ To remove an issue's link:
 
 1. Open the page of one of the two linked issues.
 
-1. In the **{{ ui-key.startrek.ui_components_IssueLinks.links-group-title--relates }}** list under the issue description, select the link you want to remove.
+1. In the **Related** list under the issue description, select the link you want to remove.
 
-1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.blocks_touch_b-related-issues.delete }}**.
+1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete link**.
 
 ## Creating a sub-issue from an issue {#make-subtask}
 
@@ -68,7 +68,7 @@ You can make your issue a part of a larger (parent) issue:
 
 1. Specify the key or name of the parent issue, then select it from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
 
-1. Click **{{ ui-key.startrek.components_FormButtons.update }}**.
+1. Click **Save**.
 
 ## Changing the parent issue {#edit-parent-task}
 
@@ -78,7 +78,7 @@ You can make your issue a part of a larger (parent) issue:
 
 1. Specify the key or name of the new parent issue, then select it from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
 
-1. Click **{{ ui-key.startrek.components_FormButtons.update }}**.
+1. Click **Save**.
 
 ## Removing the link to a parent issue {#delete-parent-task}
 
@@ -86,9 +86,9 @@ To remove the link to a parent issue:
 
 1. Open the parent issue page.
 
-1. In the **{{ ui-key.startrek.ui_components_IssueLinks.links-group-title--relates }}** list under the issue description, select the sub-issue the link to which you want to remove.
+1. In the **Related** list under the issue description, select the sub-issue the link to which you want to remove.
 
-1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.blocks_touch_b-related-issues.delete }}**.
+1. Next to the linked issue, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete link**.
 
 ## Linking a commit to an issue {#section_commit}
 

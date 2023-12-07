@@ -14,15 +14,15 @@
 
 1. Откройте страницу очереди.
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **Версии**.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page.btnAdd }}**.
+1. Нажмите кнопку **Создать версию**.
 
-1. Введите **{{ ui-key.startrek.blocks-desktop_b-page_type_versions.name }}** версии.
+1. Введите **Название** версии.
 
 1. При необходимости укажите даты начала и завершения и заполните описание версии. Эти поля носят информационный характер.
 
-1. Нажмите кнопку **{{ ui-key.startrek.components_FormButtons.create }}**.
+1. Нажмите кнопку **Создать**.
 
 ## Изменить версию {#edit-version}
 
@@ -30,13 +30,13 @@
 
 1. Откройте страницу очереди.
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **Версии**.
 
 1. Наведите курсор на версию.
 
-1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page.actionEdit }}**.
+1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **Редактировать**.
 
-1. Внесите изменения и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page.btnUpdate }}**.
+1. Внесите изменения и нажмите кнопку **Сохранить**.
 
 ## Статусы версий {#version-statuses}
 
@@ -48,7 +48,7 @@
 
 - **Архивированная** — поддержка этой версии прекращена.
 
-По умолчанию на вкладке **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}** отображаются только открытые версии. Вы можете изменить режим отображения с помощью быстрых фильтров над списком версий.
+По умолчанию на вкладке **Версии** отображаются только открытые версии. Вы можете изменить режим отображения с помощью быстрых фильтров над списком версий.
 
 Не забывайте изменять статусы версий на актуальные, чтобы вы и ваши коллеги всегда были в курсе состояния версий.
 
@@ -56,7 +56,7 @@
 
 1. Откройте страницу очереди.
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **Версии**.
 
 1. Наведите курсор на версию.
 
@@ -68,11 +68,11 @@
 
 1. Откройте [страницу очереди](../user/queue.md).
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **Версии**.
 
 1. Наведите курсор на версию.
 
-1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page.actionFollow }}**.
+1. Выберите ![](../../_assets/tracker/svg/settings-old.svg) → **Подписаться**.
 
 Если вы все сделали правильно, рядом с номером версии появится значок ![](../../_assets/tracker/subscribtion.png)
 
@@ -82,6 +82,6 @@
 
 1. Откройте страницу очереди.
 
-1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. В правом верхнем углу страницы выберите ![](../../_assets/horizontal-ellipsis.svg) **Действия над очередью** → ![](../../_assets/tracker/svg/versions.svg) **Версии**.
 
 1. Нажмите на номер версии.

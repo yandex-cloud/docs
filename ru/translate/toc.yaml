@@ -31,6 +31,8 @@ items:
         href: concepts/glossary-supported-pairs.md
   - name: Справочник API
     items:
+      - name: Обзор
+        href: concepts/api.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: gRPC

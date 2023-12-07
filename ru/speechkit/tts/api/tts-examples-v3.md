@@ -9,19 +9,13 @@
 
 Преобразование и запись результата выполняются с помощью пакетов `grpcio-tools` и `pydub` и утилиты [FFmpeg](https://ffmpeg.org/).
 
-Аутентификация происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об аутентификации в API {{ speechkit-name }} см. [{#T}](../../concepts/auth.md).
+Аутентификация происходит от имени сервисного аккаунта с помощью [API-ключа](../../../iam/concepts/authorization/api-key.md) или [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об аутентификации в API {{ speechkit-name }} см. [{#T}](../../concepts/auth.md).
 
 Чтобы реализовать пример:
 
-1. Клонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
-
-    ```bash
-    git clone https://github.com/yandex-cloud/cloudapi
-    ```
-
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт для работы с API {{ speechkit-short-name }}.
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-speechkit-tts }}` или выше на каталог, в котором он был создан.
-1. [Получите](../../../iam/operations/iam-token/create-for-sa.md) IAM-токен для сервисного аккаунта.
+1. Получите [API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/api-key/create.md) для сервисного аккаунта.
 1. Создайте клиентское приложение:
 
     {% list tabs %}
@@ -31,13 +25,17 @@
       1. Установите пакеты `grpcio-tools` и `pydub` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
           ```bash
-          pip install grpcio-tools
+          pip install grpcio-tools && \
           pip install pydub
           ```
 
-          Пакет `grpcio-tools` нужен для генерации кода интерфейса клиента API v3 синтеза.
+          Пакет `grpcio-tools` нужен для генерации кода интерфейса клиента API v3 синтеза. Пакет `pydub` нужен для обработки полученных аудиофайлов.
 
-          Пакет `pydub` нужен для обработки полученных аудиофайлов.
+      1. Клонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
+
+          ```bash
+          git clone https://github.com/yandex-cloud/cloudapi
+          ```
 
       1. [Скачайте](https://www.ffmpeg.org/download.html) утилиту FFmpeg для корректной работы пакета `pydub`. Добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`. Для этого выполните команду:
 
@@ -97,6 +95,7 @@
 
               # Отправьте данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
+
               # Параметры для авторизации с IAM-токеном
                   ('authorization', f'Bearer {iam_token}'),
               # Параметры для авторизации с API-ключом от имени сервисного аккаунта
@@ -122,7 +121,7 @@
               parser.add_argument('--output', required=True, help='Output file')
               args = parser.parse_args()
 
-              audio = synthesize(args.token, args.text)
+              audio = synthesize(args.key, args.text)
               with open(args.output, 'wb') as fp:
                   audio.export(fp, format='wav')
           ```
@@ -130,21 +129,68 @@
       1. Выполните созданный в предыдущем пункте файл:
 
           ```bash
-          export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
+          export API_KEY=<API-ключ_сервисного_аккаунта>
           export TEXT='Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!'
           python output/test.py \
-            --token ${IAM_TOKEN} \
+            --key ${API_KEY} \
             --output speech.wav \
             --text ${TEXT}
           ```
 
           Где:
 
-          * `IAM_TOKEN` — [IAM-токен сервисного аккаунта](../../../iam/concepts/authorization/iam-token.md).
+          * `API_KEY` — [API-ключ сервисного аккаунта](../../../iam/concepts/authorization/api-key.md).
           * `TEXT` — текст в [TTS-разметке](../markup/tts-markup.md), который нужно синтезировать.
           * `--output` — имя файла для записи аудио.
 
           В результате в папке `cloudapi` будет создан файл `speech.wav` с синтезированной речью.
+
+    - Java
+
+      1. Установите зависимости:
+
+          ```bash
+          sudo apt update && sudo apt install --yes default-jdk maven
+          ```
+
+      1. Склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-speechkit-tts-java) с конфигурацией для приложения на Java:
+
+          ```bash
+          git clone https://github.com/yandex-cloud-examples/yc-speechkit-tts-java
+          ```
+
+      1. Перейдите в папку репозитория:
+
+          ```bash
+          cd yc-speechkit-tts-java
+          ```
+
+      1. Скомпилируйте проект в этой папке:
+
+          ```bash
+          mvn clean install
+          ```
+
+      1. Перейдите в созданную папку `target`:
+
+          ```bash
+          cd target
+          ```
+
+      1. Задайте [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта и текст, который надо синтезировать:
+
+          ```bash
+          export API_KEY=<API-ключ> && \
+          export TEXT='Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!'
+          ```
+
+      1. Запустите Java-скрипт для синтеза речи:
+
+          ```bash
+          java -cp speechkit_examples-1.0-SNAPSHOT.jar yandex.cloud.speechkit.examples.TtsV3Client ${TEXT}
+          ```
+
+          В результате в папке `target` появится аудиофайл `result.wav`. В него записана речь из переменной окружения `TEXT`.
 
     {% endlist %}
 

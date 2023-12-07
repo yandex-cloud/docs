@@ -2,7 +2,7 @@
 
 To view service usage details:
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
 1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
 

@@ -53,8 +53,8 @@ QA engineer | User assigned to test the issue.
 {{ ui-key.startrek-backend.fields.issue.storyPoints }} | Issue complexity in Story Points. For more information, see [Basic concepts of agile development](../manager/agile.md#dlen_sp).
 {{ ui-key.startrek-backend.fields.issue.sprint }} | Name of the [sprint](../manager/create-agile-sprint.md) the issue belongs to.
 **{{ ui-key.startrek-backend.fields.issue.fields.email }}** |
-{{ ui-key.startrek-backend.fields.issue.emailTo }} | Full list of recipients the user specified in the **{{ ui-key.startrek.ui_components_IssueCommentEditor.transport-to }}** field when sending the email.
-{{ ui-key.startrek-backend.fields.issue.emailCc }} | Email address the user specified in the **{{ ui-key.startrek.ui_components_IssueCommentEditor.transport-copy }}** field when sending the email.
+{{ ui-key.startrek-backend.fields.issue.emailTo }} | Full list of recipients the user specified in the **To** field when sending the email.
+{{ ui-key.startrek-backend.fields.issue.emailCc }} | Email address the user specified in the **Cc** field when sending the email.
 {{ ui-key.startrek-backend.fields.issue.emailFrom }} | Email address of the sender.
 {{ ui-key.startrek-backend.fields.issue.emailCreatedBy }} | Email address that received the email from which the issue was generated.
 **{{ ui-key.startrek-backend.fields.issue.fields.sla }}** |
@@ -89,30 +89,30 @@ To add a new issue field (parameter):
 
 1. Make sure you are authorized as an [administrator](../role-model.md).
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ tracker-name }} settings**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Admin** → **{{ tracker-name }} settings**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_page-admin.tab-title--fields }}** tab.
+1. Click the **Fields** tab.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.button--create-field }}**.
+1. Click **Create field**.
 
-1. Select the field type and click **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--next }}**.
+1. Select the field type and click **Next**.
 
 1. Set parameters for a new field:
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--category }}**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
+   * **Category**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name }}**. Try to give short and concise names to your fields.
+   * **Name in Russian**. Try to give short and concise names to your fields.
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name-eng }}**. This name is shown in the English interface of {{ tracker-name }}.
+   * **Name in English**. This name is shown in the English interface of {{ tracker-name }}.
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--number-type }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-number }}</q> type).
+   * **Type of number** (only for fields with the <q>Number</q> type).
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--options }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q> type): Enter the possible values and their order.
+   * **List items** (only for fields with the <q>Dropdown list</q> type): Enter the possible values and their order.
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--option-list }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q> type).
+   * **Item selection** (only for fields with the <q>Dropdown list</q> type).
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--users-count }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-user }}</q> type).
+   * **Number of employees** (only for fields with the <q>User list</q> type).
 
-1. Click **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--create }}**.
+1. Click **Create**.
 
 
 

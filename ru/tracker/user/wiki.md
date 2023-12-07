@@ -19,7 +19,7 @@
 
 1. Откройте страницу очереди.
 
-1. В левом верхнем углу страницы выберите ![](../../_assets/tracker/icon-settings2.png) → **{{ ui-key.startrek.blocks-desktop_wiki-widget-copy-url.title }}**.
+1. В левом верхнем углу страницы выберите ![](../../_assets/tracker/icon-settings2.png) → **Получить код для Вики**.
 
 1. Скопируйте код.
 

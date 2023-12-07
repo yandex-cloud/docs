@@ -10,7 +10,7 @@
 
    1. Select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-aliases }}**.
 
-   1. Click **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesEmptyList.action-configure-mail }}**.
+   1. Click **Configure mail**.
 
    1. Set up the mailbox for receiving messages:
 
@@ -60,8 +60,8 @@
    1. Click **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.save-button }}**. The queue's email address will get running within an hour after creation.
 
    1. Enable sending issue comments as emails:
-      1. In the queue settings, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--main }}**.
-      1. Click **{{ ui-key.startrek.blocks-desktop_b-queue-form.advanced-settings-show }}** and enable **{{ ui-key.startrek.blocks-desktop_b-queue-form.mail-checkbox }}** under **{{ ui-key.startrek.blocks-desktop_b-queue-form.mail }}**.
+      1. In the queue settings, select **Basic settings**.
+      1. Click **Show advanced settings** and enable **Allow emails to be sent externally** under **Sending mails**.
 
    {% note tip %}
 
@@ -79,7 +79,7 @@
 
    1. Check whether your organization has an [email domain]({{ support-business-domain }}) in {{ ya-360 }}. Otherwise, click **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesStateList.action-domain }}** to open {{ ya-360 }} and create a domain. If you already have a email domain set up in another service, you can create a subdomain for it and [connect it to {{ ya-360 }}]({{ support-business-domain }}).
 
-   1. Click **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesEmptyList.action-configure-mail }}**.
+   1. Click **Configure mail**.
 
    1. Set up a mailbox for receiving and sending messages.
       1. In the **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-address }}** field, specify a new email address to be used only for the queue.
@@ -89,7 +89,7 @@
 
    1. Set up signatures for the sent emails. Make sure to specify the **{{ ui-key.startrek.ui_components_page-queue-admin_Signature.alias-title }}**, as you will need it to distinguish signatures in the common list. Your email recipients will see the nickname instead of the sender name. Check that everything is up and running by sending a test email.
 
-   1. Click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**. The queue's email address will get running within an hour after creation.
+   1. Click **Create**. The queue's email address will get running within an hour after creation.
 
    {% note tip %}
 

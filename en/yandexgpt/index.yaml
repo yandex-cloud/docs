@@ -1,18 +1,23 @@
-title: YandexGPT
+title: YandexGPT API
 description:
   - >-
-    <em>YandexGPT is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a>. Access to
-    the service is granted on request</em>.
-  - "YandexGPT is a Yandex Cloud service allowing you to\_use generative language models in your business applications and web services. This service will be useful for everyone who\_seeks the ways to streamline\_their business\_with machine learning."
+    <em>The YandexGPT API is a part of the Yandex Foundation Models service and
+    is currently at the <a href="/docs/overview/concepts/launch-stages">Preview
+    stage</a></em>.
+  - >-
+    YandexGPT API is the API of the Yandex generative model. YandexGPT provides
+    access to a neural network allowing you to use generative language models in
+    your business applications and web services. This service will be useful for
+    everyone who seeks the ways to streamline their business with machine
+    learning.
 meta:
-  title: YandexGPT
+  title: YandexGPT API
   description: >-
-    YandexGPT is a Yandex Cloud service allowing you to use generative language
-    models in your business applications and web services.
+    YandexGPT API is a Yandex Cloud service allowing you to use generative
+    language models in your business applications and web services.
 links:
   - title: Getting started
-    description: Send your first request to YandexGPT
+    description: Send your first request to YandexGPT API
     href: quickstart
   - title: Concepts
     description: Learn more about the concepts of the service
