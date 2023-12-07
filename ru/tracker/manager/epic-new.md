@@ -14,9 +14,9 @@
 
 ## Создать эпик на доске {#create-epic}
 
-1. На доске нажмите кнопку ![](../../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_m-head.new-issue }}**.
-1. Перейдите на страницу полной формы создания задачи. Для этого нажмите ![](../../_assets/tracker/svg/open-full.svg) (**{{ ui-key.startrek.ui_components_create-issue-popup_CreateIssuePageLink.open-create-form }}**).
-1. Заполните все необходимые поля задачи. В поле **{{ ui-key.startrek.components_FormCreateIssue.field--type }}** укажите `{{ ui-key.startrek-backend.fields.issue.epic }}`. 
+1. На доске нажмите кнопку ![](../../_assets/tracker/svg/icon-add.svg) **Создать задачу**.
+1. Перейдите на страницу полной формы создания задачи. Для этого нажмите ![](../../_assets/tracker/svg/open-full.svg) (**Открыть полную форму**).
+1. Заполните все необходимые поля задачи. В поле **Тип** укажите `{{ ui-key.startrek-backend.fields.issue.epic }}`. 
 1. Нажмите кнопку **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
 
 ## Добавить задачу в эпик {#add-to-epic}
@@ -25,7 +25,7 @@
 
 ### Добавить со страницы эпика {#add-from-epic}
 
-1. На странице эпика в блоке **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}** нажмите **{{ ui-key.startrek.ui_components_CreateIssueLinkButton.add-relation }}**.
+1. На странице эпика в блоке **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}** нажмите **Добавить связь**.
 
 1. Выберите тип связи **{{ ui-key.startrek-backend.fields.issue.links.relationship.has.epic }}**.
 
@@ -33,7 +33,7 @@
 
 ### Добавить со страницы задачи {#add-from-task}
 
-1. На странице задачи в блоке **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}** нажмите **{{ ui-key.startrek.ui_components_CreateIssueLinkButton.add-relation }}**.
+1. На странице задачи в блоке **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}** нажмите **Добавить связь**.
 
 1. Выберите тип связи **{{ ui-key.startrek-backend.fields.issue.epic }}**.
 
@@ -48,7 +48,7 @@
 
 ## Создать новую задачу в эпике {#create-in-epic}
 
-1. На странице эпика в блоке **{{ ui-key.startrek.blocks-desktop_b-related-issues__title.is_epic_of }}** нажмите ![](../../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_calendar-editor--overrides-modal.add-button }}**.
+1. На странице эпика в блоке **Задачи эпика** нажмите ![](../../_assets/tracker/svg/icon-add.svg) **Добавить**.
 1. Заполните необходимые поля и сохраните задачу.
 
 ## Удалить задачу из эпика {#remove-from-epic}

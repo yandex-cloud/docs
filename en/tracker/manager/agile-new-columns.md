@@ -42,7 +42,7 @@ You can change the column's parameters and its position on the board.
 
 * To reposition the column on the board, drag it around the board.
 
-* To edit the note with the text shown under the column name, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.blocks-desktop_b-agile-board.edit-note }}**.
+* To edit the note with the text shown under the column name, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **Edit note**.
 
 ### Deleting a column {#delete-status-cols}
 
@@ -80,7 +80,7 @@ You can change the column's parameters and its position on the board.
 
 * To reposition the column on the board, drag it around the board.
 
-* To edit the note with the text shown under the column name, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.blocks-desktop_b-agile-board.edit-note }}**.
+* To edit the note with the text shown under the column name, hover over the column, then click ![](../../_assets/tracker/svg/actions.svg) → ![](../../_assets/tracker/svg/icon-note.svg) **Edit note**.
 
 ### Deleting a column {#delete-user-cols}
 

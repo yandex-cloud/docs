@@ -22,28 +22,28 @@ By default, [only the queue owner](manager/queue-access.md) can configure a queu
 
 1. In the top-right corner of the page, click ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--fields }}** tab.
+1. Click the **Queue fields** tab.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.button--create-field }}**.
+1. Click **Create field**.
 
-1. Select the field type and click **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--next }}**.
+1. Select the field type and click **Next**.
 
 1. Set parameters for a new field:
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--category }}**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
+   * **Category**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name }}**. Try to give short and concise names to your fields.
+   * **Name in Russian**. Try to give short and concise names to your fields.
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name-eng }}**. This name is shown in the English interface of {{ tracker-name }}.
+   * **Name in English**. This name is shown in the English interface of {{ tracker-name }}.
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--number-type }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-number }}</q> type).
+   * **Type of number** (only for fields with the <q>Number</q> type).
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--options }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q> type): Enter the possible values and their order.
+   * **List items** (only for fields with the <q>Dropdown list</q> type): Enter the possible values and their order.
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--option-list }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q> type).
+   * **Item selection** (only for fields with the <q>Dropdown list</q> type).
 
-   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--users-count }}** (only for fields with the <q>user list</q> type).
+   * **Number of employees** (only for fields with the <q>user list</q> type).
 
-1. Click **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--create }}**.
+1. Click **Create**.
 
 ## Edit a local queue field {#edit-local-field}
 

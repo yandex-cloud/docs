@@ -14,15 +14,15 @@ To create a new version:
 
 1. Open the queue page.
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **Versions**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page.btnAdd }}**.
+1. Click **Create version**.
 
-1. Enter the version **{{ ui-key.startrek.blocks-desktop_b-page_type_versions.name }}**.
+1. Enter the version **Name**.
 
 1. If you need it, specify the start and end dates and add the version description. These fields are informative.
 
-1. Click **{{ ui-key.startrek.components_FormButtons.create }}**.
+1. Click **Create**.
 
 ## Switching versions {#edit-version}
 
@@ -30,13 +30,13 @@ To change the existing version:
 
 1. Open the queue page.
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **Versions**.
 
 1. Hover the cursor over the version.
 
-1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page.actionEdit }}**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **Edit**.
 
-1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_b-page.btnUpdate }}**.
+1. Make your changes and click **Save**.
 
 ## Version statuses {#version-statuses}
 
@@ -48,7 +48,7 @@ An any version can have one of the following statuses:
 
 - **Archived**: This version is no longer supported.
 
-By default, the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}** tab only shows open versions. You can change the display mode by using quick filters on the version list.
+By default, the **Versions** tab only shows open versions. You can change the display mode by using quick filters on the version list.
 
 Make sure to update your version statuses so that you and your colleagues always have the current picture.
 
@@ -56,7 +56,7 @@ To change a version's status:
 
 1. Open the queue page.
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **Versions**.
 
 1. Hover the cursor over the version.
 
@@ -68,11 +68,11 @@ If you want to get notified about changes in issues linked to a specific version
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **Versions**.
 
 1. Hover the cursor over the version.
 
-1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page.actionFollow }}**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **Subscribe**.
 
 If you did everything right, you'll see the following icon next to the version number: ![](../../_assets/tracker/subscribtion.png)
 
@@ -82,6 +82,6 @@ You can view a list of issues that belong to a specific version:
 
 1. Open the queue page.
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **Versions**.
 
 1. Click the version number.

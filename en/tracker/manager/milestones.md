@@ -4,7 +4,7 @@ Milestones indicate certain events in a project's timeline. With milestones, you
 
 A milestone has no start and end dates, as it indicates the deadline of a key event in the project timeline.
 
-Project milestones in {{ tracker-name }} are displayed in the **{{ ui-key.startrek.ui_components_projects_HeaderTabs.description-tab }}** tab under the project description. They are sorted by deadline, starting from the closest one.
+Project milestones in {{ tracker-name }} are displayed in the **About the project** tab under the project description. They are sorted by deadline, starting from the closest one.
 
 On the [project Gantt chart](../gantt/project.md), milestones are shown as a diamond.
 
@@ -18,11 +18,11 @@ To add the <q>Milestone</q> issue type to your queue, follow this [guide](add-ti
 
 There are several ways to add a milestone to a project:
 
-* Open the **{{ ui-key.startrek.ui_components_projects_HeaderTabs.description-tab }}** tab and click **Add** in the **Milestones** section.
+* Open the **About the project** tab and click **Add** in the **Milestones** section.
 
-* In the **{{ ui-key.startrek.ui_components_projects_HeaderTabs.issues-tab }}** tab, click **Add milestone**.
+* In the **Issue list** tab, click **Add milestone**.
 
-* In the **{{ ui-key.startrek.ui_components_projects_HeaderTabs.gantt-tab }}** tab, click **Add milestone** at the bottom of the issue list.
+* In the **Gantt chart** tab, click **Add milestone** at the bottom of the issue list.
 
 The add milestone window will show a list of queues whose workflow has the <q>Milestone</q> issue type added. If there are none, you can click the respective button in this window to add <q>Milestones</q> to the queues where you have administrator privileges. To do this, start typing the queue key and select a queue from the list. If you do not have queue setup permissions, contact the administrator.
 

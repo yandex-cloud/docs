@@ -41,7 +41,7 @@ When you select this template, the following items are created automatically:
 
 ## Creating a workflow based on a template {#create-from-template}
 
-1. On the [**{{ ui-key.startrek.blocks-desktop_b-head.my-page }}**](https://tracker.yandex.ru/pages/my) homepage, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
+1. On the [**My page**](https://tracker.yandex.ru/pages/my) homepage, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
 1. Select the template you need and click **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
 1. Specify the queue parameters:
    * Issue queue name

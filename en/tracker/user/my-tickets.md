@@ -4,7 +4,7 @@ To find issues you're working on:
 
 1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**.
 
-1. To find issues in which you are reporter, assignee, or follower, select the **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-my-issues }}** filter.
+1. To find issues in which you are reporter, assignee, or follower, select the **All my issues** filter.
 
 1. If you cannot see all relevant issues, expand the list:
 
@@ -19,15 +19,15 @@ To search for issues in the list, use [filtering by parameters](#q-filters) or [
 Use filters to narrow down your issue list and display only those issues that match the selected parameters. The filter by parameters buttons are above the issue list:
 
 * To use standard filters, click the filter name in the list located in the bottom-left corner of the page:
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-favorite }}**.
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-my-issues }}**.
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-author }}**.
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-assignee }}**.
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-follower }}**.
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-waiting }}**.
+   * **Favorite issues**.
+   * **All my issues**.
+   * **Created by me**.
+   * **Assigned to me**.
+   * **Followed by me**.
+   * **Waiting for response**.
    * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset-deadline }}**.
 
-* To filter issues by their [resolution](../manager/create-resolution.md), click **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--resolution }}** and select relevant values from the list.
+* To filter issues by their [resolution](../manager/create-resolution.md), click **Resolution** and select relevant values from the list.
 
 * To use [advanced search parameters](./default-filters.md#add-condition), click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
 
@@ -51,6 +51,6 @@ Issue display settings are only available in the {{ tracker-name }} web interfac
 
 You can set up the display of issues in the list or save the list to a file:
 
-* If you want to hide or display certain issue parameters, click ![](../../_assets/tracker/svg/settings.svg), select the parameters, and click **{{ ui-key.startrek.ui_components_TrackerSelect.applyChanges }}**.
-* To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **{{ ui-key.startrek.blocks-desktop_b-filter.no-group }}** above the list and select the parameter.
+* If you want to hide or display certain issue parameters, click ![](../../_assets/tracker/svg/settings.svg), select the parameters, and click **Apply**.
+* To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **Not grouped** above the list and select the parameter.
 * To save an issue list, at the top right of the page, click ![](../../_assets/tracker/svg/export.svg) and select the format of the file to download or simply copy the list to the clipboard.

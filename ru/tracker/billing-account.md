@@ -16,7 +16,7 @@
 
 Чтобы привязать платежный аккаунт:
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
-1. Перейдите в раздел **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**. На странице отображаются все ваши платежные аккаунты из {{ yandex-cloud }}.
+1. Перейдите в раздел **Администрирование** → **Биллинг**. На странице отображаются все ваши платежные аккаунты из {{ yandex-cloud }}.
 1. Рядом с нужным аккаунтом нажмите **{{ ui-key.startrek.ui_components_page-admin_BillingAccountList.bind }}**.
 
 {% note warning  %}
@@ -29,7 +29,7 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. Перейдите в раздел **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}** и нажмите **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
+1. Перейдите в раздел **Администрирование** → **Биллинг** и нажмите **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
 
 1. Выберите страну, резидентом которой является плательщик.
 
@@ -81,7 +81,7 @@
 
 ## Редактировать платежный аккаунт {#edit}
 
-1. Чтобы открыть раздел для редактирования платежного аккаунта, перейдите [по ссылке](http://billing.cloud.yandex.ru/) в раздел **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}** {{ yandex-cloud }}. На странице список всех ваших платежных аккаунтов.
+1. Чтобы открыть раздел для редактирования платежного аккаунта, перейдите [по ссылке](http://billing.cloud.yandex.ru/) в раздел **Биллинг** {{ yandex-cloud }}. На странице список всех ваших платежных аккаунтов.
 
 1. Выберите платежный аккаунт, который хотите отредактировать.
 
@@ -102,7 +102,7 @@
 ## Заменить платежный аккаунт {#change}
 
 Замена платежного аккаунта организации возможна только один раз в месяц. Чтобы заменить платежный аккаунт:
-1. Перейдите в раздел **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**. На странице отображается платежный аккаунт, привязанный к {{ tracker-name }}.
+1. Перейдите в раздел **Администрирование** → **Биллинг**. На странице отображается платежный аккаунт, привязанный к {{ tracker-name }}.
 2. Перейдите по ссылке **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.rebind-account }}** в верхнем правом углу. Выберите платежный аккаунт, на который хотите заменить текущий, или нажмите **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**. 
    Если вы решили создать новый аккаунт, воспользуйтесь [инструкцией](#create).
 

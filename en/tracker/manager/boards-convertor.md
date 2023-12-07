@@ -26,7 +26,7 @@ When migrating the board, the following is retained:
 * <q>{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_author }}</q> and <q>{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_assignee }}</q> filters
 * Filter for adding issues
 
-The board type is also retained during migration: **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}** and **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--kanban }}** (both have the same functionality) boards are converted into basic boards, while **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}** boards become boards with a backlog and sprints.
+The board type is also retained during migration: **Basic** and **Kanban** (both have the same functionality) boards are converted into basic boards, while **Scrum** boards become boards with a backlog and sprints.
 
 When migrating the board, the following is not retained:
 
@@ -42,17 +42,17 @@ When migrating the board, the following is not retained:
 
 ## Migration steps {#how-to-migrate}
 
-The **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}** button is available to all board users. Any user can perform migration and changes will be visible to all board users.
+The **Update your board** button is available to all board users. Any user can perform migration and changes will be visible to all board users.
 
 {% note info %}
 
-If you cannot see the **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}** button in your board's top panel, it means that your board has already switched to these technologies.
+If you cannot see the **Update your board** button in your board's top panel, it means that your board has already switched to these technologies.
 
 {% endnote %}
 
 To perform migration:
 
-1. In the top panel, click **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}**. Your board is verified for whether it can be migrated and the migration window opens.
+1. In the top panel, click **Update your board**. Your board is verified for whether it can be migrated and the migration window opens.
 
 1. Review the migration window:
    * If there are errors, follow the recommendations on how to fix them and try again.
@@ -64,7 +64,7 @@ If, after switching to our new technologies, you decide that they do not suit yo
 
 {% note warning %}
 
-If you enable a backlog on your **basic** board after migration, it will be converted into a **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}** board.
+If you enable a backlog on your **basic** board after migration, it will be converted into a **Scrum** board.
 
 {% endnote %}
 

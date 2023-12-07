@@ -31,7 +31,7 @@ You can add or create an issue from any queue that you have access to.
 
 To add a single issue:
 
-1. Decide where to add an issue (to the backlog or sprint) and click **+ {{ ui-key.startrek.blocks-desktop_b-agile-board.create-issue--title }}** in the appropriate section.
+1. Decide where to add an issue (to the backlog or sprint) and click **+ Add issue** in the appropriate section.
 1. Select an existing issue or create a new one right on the board.
 
 To add a group of issues, such as all issues from a queue with a certain assignee, use issue auto-import:

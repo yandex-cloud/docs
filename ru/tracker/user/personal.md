@@ -37,7 +37,7 @@
 
 ## Настроить отображение пользователей {#sec_display}
 
-По умолчанию в полях **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}** и **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}** отображаются имена и фамилии пользователей. Чтобы на странице задачи вместо имен и фамилий отображались логины или портреты, измените способ отображения пользователей.
+По умолчанию в полях **Автор**, **Исполнитель** и **Наблюдатели** отображаются имена и фамилии пользователей. Чтобы на странице задачи вместо имен и фамилий отображались логины или портреты, измените способ отображения пользователей.
 
 {% cut "Скриншот" %}
 
@@ -49,8 +49,8 @@
 
 1. Перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-settings.users-display-format }}** выберите удобный для вас способ:
-    - Выберите **{{ ui-key.startrek.blocks-desktop_b-page-settings.prefer-login }}**, чтобы в системных полях задачи вместо имен и фамилий отображались логины.
+1. В блоке **Отображение пользователей** выберите удобный для вас способ:
+    - Выберите **Показывать логин вместо имени**, чтобы в системных полях задачи вместо имен и фамилий отображались логины.
 
         {% cut "Скриншот" %}
 
@@ -58,7 +58,7 @@
 
         {% endcut %}
 
-    - Выберите **{{ ui-key.startrek.blocks-desktop_b-page-settings.prefer-icons-in-lists }}**, чтобы в полях со списком пользователей отображались только аватары. Настройка не влияет на поля **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}** и **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}**.	
+    - Выберите **Включить режим портретов для списков пользователей**, чтобы в полях со списком пользователей отображались только аватары. Настройка не влияет на поля **Автор** и **Исполнитель**.	
 
         {% cut "Скриншот" %}
 
@@ -76,7 +76,7 @@
 
 1. Перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-settings.date-format }}** выберите нужный формат.
+1. В блоке **Формат дат** выберите нужный формат.
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -104,7 +104,7 @@
 
 1. Перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
 
-1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-and-history }}** включите опцию **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-new-on-top }}**.
+1. В блоке **Порядок сообщений в задаче** включите опцию **Сначала новые**.
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

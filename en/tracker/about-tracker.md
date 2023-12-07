@@ -69,7 +69,7 @@ You can use {{ tracker-name }} to group issues by the following criteria:
    For example, using components, you can [classify requests to technical support](support-process-group.md).
 - [Versions](manager/versions.md) help you group issues within the same queue based on the product version they belong to.
    For example, to schedule a bug fix for a specific product release, you can specify the product's version in the **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field.
-- A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-tags }}** parameter](user/edit-ticket.md#edit-fields).
+- A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
 
 
 ## Planning your workload {#in-order}

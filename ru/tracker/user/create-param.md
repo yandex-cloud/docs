@@ -58,8 +58,8 @@ QA-инженер | Пользователь, который назначен т
 {{ ui-key.startrek-backend.fields.issue.storyPoints }} | Трудоемкость задачи в баллах Story Points. Подробнее читайте в разделе [Основные понятия гибкой разработки](../manager/agile.md#dlen_sp).
 {{ ui-key.startrek-backend.fields.issue.sprint }} | Название [спринта](../manager/create-agile-sprint.md), к которому относится задача.
 **{{ ui-key.startrek-backend.fields.issue.fields.email }}** | 
-{{ ui-key.startrek-backend.fields.issue.emailTo }} | Список всех адресов электронной почты, которые пользователь указал в поле **{{ ui-key.startrek.ui_components_IssueCommentEditor.transport-to }}** при отправке письма.
-{{ ui-key.startrek-backend.fields.issue.emailCc }} | Адрес электронной почты, который пользователь указал в поле **{{ ui-key.startrek.ui_components_IssueCommentEditor.transport-copy }}** при отправке письма.
+{{ ui-key.startrek-backend.fields.issue.emailTo }} | Список всех адресов электронной почты, которые пользователь указал в поле **Кому** при отправке письма.
+{{ ui-key.startrek-backend.fields.issue.emailCc }} | Адрес электронной почты, который пользователь указал в поле **Копия** при отправке письма.
 {{ ui-key.startrek-backend.fields.issue.emailFrom }} | Адрес электронной почты отправителя письма.
 {{ ui-key.startrek-backend.fields.issue.emailCreatedBy }} | Адрес электронной почты, на который было отправлено письмо для создания задачи.
 **{{ ui-key.startrek-backend.fields.issue.fields.sla }}** | 
@@ -94,30 +94,30 @@ QA-инженер | Пользователь, который назначен т
 
 1. Убедитесь, что вы авторизованы как [администратор](../role-model.md).
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **Настройка {{ tracker-name }}**.
+1. На панели слева выберите ![](../../_assets/tracker/svg/admin.svg) **Администрирование** → **Настройка {{ tracker-name }}**.
 
-1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_page-admin.tab-title--fields }}**.
+1. Перейдите на вкладку **Поля**.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.button--create-field }}**.
+1. Нажмите кнопку **Создать поле**.
 
-1. Выберите тип поля и нажмите кнопку **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--next }}**.
+1. Выберите тип поля и нажмите кнопку **Продолжить**.
 
 1. Задайте параметры нового поля:
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--category }}**. Все поля в {{ tracker-name }} сгруппированы по категориям. Выберите категорию, которая лучше всего подходит для нового поля.
+    * **Категория**. Все поля в {{ tracker-name }} сгруппированы по категориям. Выберите категорию, которая лучше всего подходит для нового поля.
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name }}**. Старайтесь давать полям короткие и емкие названия.
+    * **Название**. Старайтесь давать полям короткие и емкие названия.
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name-eng }}**. Это название видно в английском интерфейсе {{ tracker-name }}.
+    * **Название на английском**. Это название видно в английском интерфейсе {{ tracker-name }}.
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--number-type }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-number }}</q>).
+    * **Тип чисел** (только для полей типа <q>Число</q>).
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--options }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q>) — укажите возможные значения и их порядок.
+    * **Значения списка** (только для полей типа <q>Выпадающий список</q>) — укажите возможные значения и их порядок.
 
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--option-list }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q>).
+    * **Количество значений в списке** (только для полей типа <q>Выпадающий список</q>).
     
-    * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--users-count }}** (только для полей типа <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-user }}</q>).
+    * **Количество сотрудников** (только для полей типа <q>Список сотрудников</q>).
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--create }}**.
+1. Нажмите кнопку **Создать**.
 
 
 

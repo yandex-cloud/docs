@@ -81,7 +81,7 @@ Link
 :   Link included in an issue that refers to another issue and shows the hierarchy between the two, e.g., when an issue is a sub-issue of another one, or completing an issue depends on the result of another issue. You can read more about issue linking [here](user/links.md).
 
 Sprint {#sprint-definition}
-:   In [Agile methodologies](#agile), a sprint is an iterative project cycle that usually lasts from one to four weeks. {{ tracker-name }} allows you to [use sprints](manager/create-agile-sprint.md) on <q>{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}</q> boards.
+:   In [Agile methodologies](#agile), a sprint is an iterative project cycle that usually lasts from one to four weeks. {{ tracker-name }} allows you to [use sprints](manager/create-agile-sprint.md) on <q>Scrum</q> boards.
 
 Status
 :   Issue attribute that reflects the current state of the issue completion process, e.g., <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>, <q>{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}</q>, or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>.
@@ -92,7 +92,7 @@ Tag
 :   Type of a label one can add to any issue. Tags are useful for grouping issues by any attribute and then searching for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}** parameter](user/edit-ticket.md#edit-fields).
 
 Issue type
-:   {{ tracker-name }} issues come in various types, for example: <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
+:   {{ tracker-name }} issues come in various types, for example: <q>New feature</q>, <q>Error</q>, or <q>Improvement</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
 
 ## F {#rus-f}
 
@@ -125,7 +125,7 @@ SLA
 :   In {{ tracker-name }}, an SLA is a [set of rules](manager/sla.md) that defines timeframes for processing issues in queues. For example, you can set the time within which the assignee has to respond to the issue, answer the requestor's comment, or complete the issue. [Learn more about SLAs.](sla-head.md)
 
 Story
-:   In [Agile methodologies](#agile), a <q>User Story</q> is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the {{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }} issue type that can be used to [group any issues](user/links.md) by theme.
+:   In [Agile methodologies](#agile), a <q>User Story</q> is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the Story issue type that can be used to [group any issues](user/links.md) by theme.
 
 Story Point
 :   Relative rating that describes the effort needed to complete an issue. The Story Point unit is not usually measured in terms of man-hours. [The team rates issues collectively](manager/planning-poker.md) by comparing them to a simple task.

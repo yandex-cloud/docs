@@ -36,29 +36,29 @@ Make sure that the queue for creating issues in is specified in the [board setti
 
 1. Enter the issuer name and select its type.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_agile-create-issue.create }}**.
+1. Click **Create**.
 
 The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#board-settings). To see the issue, update the board page.
 
 #### Creating an issue in a sprint
 
-1. In the top-right corner, click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.sprints }}**.
+1. In the top-right corner, click **Sprints**.
 
 1. Select the sprint where you want to create an issue.
 
 1. Enter the issuer name in the field under the sprint's issue list.
 
-1. Select the issue type and click **{{ ui-key.startrek.blocks-desktop_agile-create-issue.create }}**.
+1. Select the issue type and click **Create**.
 
 The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#board-settings). To see the issue, update the board page.
 
 #### Creating an issue in the backlog
 
-1. In the top-right corner, click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.sprints }}**.
+1. In the top-right corner, click **Sprints**.
 
 1. Enter the issuer name in the field under the backlog's issue list.
 
-1. Select the issue type and click **{{ ui-key.startrek.blocks-desktop_agile-create-issue.create }}**.
+1. Select the issue type and click **Create**.
 
 The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#board-settings). To see the issue, update the board page.
 
@@ -76,7 +76,7 @@ You can add issues with specific settings to your board automatically using [boa
 
 1. Open the issue page.
 
-1. Click the **{{ ui-key.startrek-backend.fields.issue.boards }}** field header in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.boards }}** field, add it by clicking **{{ ui-key.startrek.blocks-desktop_b-ticket-sidebar.action--select-fields }}**.
+1. Click the **{{ ui-key.startrek-backend.fields.issue.boards }}** field header in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.boards }}** field, add it by clicking **Select fields**.
 
 1. Start typing the board name in the **{{ ui-key.startrek-backend.fields.issue.boards }}** field and pick the option you need from the list that appears.
 
@@ -86,7 +86,7 @@ The issue will be placed on the board you've picked.
 
 1. Open the issue page.
 
-1. Under **{{ ui-key.startrek-backend.fields.issue.fields.agile }}** in the right-hand panel, click the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field header. If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **{{ ui-key.startrek.blocks-desktop_b-ticket-sidebar.action--select-fields }}**.
+1. Under **{{ ui-key.startrek-backend.fields.issue.fields.agile }}** in the right-hand panel, click the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field header. If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **Select fields**.
 
 1. Start typing the sprint's name in the field and pick the option you need from the list that appears. The board field is populated automatically.
 
@@ -98,13 +98,13 @@ To add multiple issues to the board at once, use the [bulk change](../manager/bu
 
 1. Select the issues you need using [filters](create-filter.md).
 
-1. Choose the issues you want to add to the board and click **{{ ui-key.startrek.blocks-desktop_b-bulk-change.edit-fields }}**.
+1. Choose the issues you want to add to the board and click **Edit fields**.
 
-1. To add an issue to a backlog, start typing the backlog name in the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field and pick the option you need from the list that appears. If you do not see the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field, add it by clicking **{{ ui-key.startrek.blocks-desktop_b-ticket-sidebar.action--select-fields }}**.
+1. To add an issue to a backlog, start typing the backlog name in the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field and pick the option you need from the list that appears. If you do not see the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field, add it by clicking **Select fields**.
 
 1. To add an issue to a sprint, start typing the sprint name in the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field and pick the option you need from the list that appears. The board field is populated automatically.
 
-   If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **{{ ui-key.startrek.blocks-desktop_b-ticket-sidebar.action--select-fields }}**.
+   If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **Select fields**.
 
 1. Click **{{ ui-key.startrek.ui_components_TransitionScreen.screen-next-button }}** and wait until your issues are processed.
 
@@ -132,7 +132,7 @@ To add a note to a column:
 
 1. Open the board page.
 
-1. Select ![](../../_assets/tracker/icon-dots.png) → **{{ ui-key.startrek.blocks-desktop_b-agile-board.add-note }}** at the top of the column.
+1. Select ![](../../_assets/tracker/icon-dots.png) → **Add note** at the top of the column.
 
 1. Enter the text of your note. To format the text, use [YFM markup](markup.md).
 
@@ -147,9 +147,9 @@ If there are too many issues on the board, you can always hide some of them usin
 
 * By sprint. On the top panel, select the issues that you want to view.
 
-* By resolution. In the top panel, expand the **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--resolution }}** menu and specify the resolutions you want to display on the board.
+* By resolution. In the top panel, expand the **Resolution** menu and specify the resolutions you want to display on the board.
 
-* By status. In the top panel, expand the **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--status }}** menu and specify the statuses you want to display on the board.
+* By status. In the top panel, expand the **Status** menu and specify the statuses you want to display on the board.
 
 * The issue's key or name. Start typing the text in the field on the top panel. Only the issues whose key or name includes this text will remain on the board.
 
@@ -161,10 +161,10 @@ You can switch the board to a full-screen mode. The full-screen mode shows the i
 
 * To switch to fullscreen mode, open the board page and click ![](../../_assets/tracker/fullscreen-agile.png) next to the board's name.
 
-* To set the board's update period, in full-screen mode, select one of the following values for the **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.auto-refresh-text }}** field in the bottom-right corner of the page: **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.auto-refresh-period }}**, **Every 3 minutes**, **Every 5 minutes**, or **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.auto-refresh-off }}**.
+* To set the board's update period, in full-screen mode, select one of the following values for the **Auto-update** field in the bottom-right corner of the page: **Every minute**, **Every 3 minutes**, **Every 5 minutes**, or **Disabled**.
 
-* To exit fullscreen mode, click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.full-screen-off }}** in the bottom-right corner of the page.
+* To exit fullscreen mode, click **Leave full screen** in the bottom-right corner of the page.
 
 ## Adding boards to Favorites {#board-fav}
 
-To always have quick access to the board, add it to favorites. Just go to a board's page and click ![](../../_assets/tracker/add-to-favorites.png) to the right of the board name. You can find your favorite boards in the **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** menu on the {{ tracker-name }} top panel.
+To always have quick access to the board, add it to favorites. Just go to a board's page and click ![](../../_assets/tracker/add-to-favorites.png) to the right of the board name. You can find your favorite boards in the **Boards** menu on the {{ tracker-name }} top panel.

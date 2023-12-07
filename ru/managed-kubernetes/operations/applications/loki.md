@@ -11,13 +11,22 @@
 Чтобы начать работу с Loki:
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролями](../../../iam/concepts/access-control/roles.md) `storage.uploader` и `storage.viewer`. Он необходим для доступа к [{{ objstorage-full-name }}](../../../storage/).
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
+1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
 
-   ```bash
-   yc iam access-key create \
-     --service-account-name=<имя_сервисного_аккаунта> \
-     --format=json > sa-key.json
-   ```
+    * Если установка Loki будет выполняться с помощью [{{ marketplace-full-name }}](#marketplace-install), создайте статический ключ в формате JSON и сохраните его в файл `sa-key.json`:
+
+        ```bash
+        yc iam access-key create \
+           --service-account-name=<имя_сервисного_аккаунта> \
+           --format=json > sa-key.json
+        ```
+
+    * Если установка Loki будет выполняться с помощью [Helm-чарта](#helm-install), выполните команду и сохраните полученные идентификатор ключа (`key_id`) и секретный ключ (`secret`):
+
+        ```bash
+        yc iam access-key create \
+           --service-account-name=<имя_сервисного_аккаунта>
+        ```
 
 1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 
@@ -46,18 +55,19 @@
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Loki выполните команду:
 
-   ```bash
-   export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_loki.helmChart.tag }} \
-     --untar && \
-   helm install \
-     --namespace <пространство_имен> \
-     --create-namespace \
-     --set storageConfig.aws.bucketnames=<имя_бакета_Object_Storage> \
-     --set-file serviceaccountawskeyvalue=<путь_к_файлу_со_статическим_ключом_сервисного_аккаунта> \
-     loki ./loki/
-   ```
+    ```bash
+    export HELM_EXPERIMENTAL_OCI=1 && \
+    helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \
+      --version {{ mkt-k8s-key.yc_loki.helmChart.tag }} \
+      --untar && \
+    helm install \
+      --namespace <пространство_имен> \
+      --create-namespace \
+      --set loki-distributed.loki.storageConfig.aws.bucketnames=<имя_бакета_Object_Storage> \
+      --set loki-distributed.serviceaccountawskeyvalue_generated.accessKeyID=<идентификатор_ключа_сервисного_аккаунта> \
+      --set loki-distributed.serviceaccountawskeyvalue_generated.secretAccessKey=<секретный_ключ_сервисного_аккаунта> \
+      loki ./loki/
+    ```
 
 ## См. также {#see-also}
 

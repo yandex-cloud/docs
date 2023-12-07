@@ -6,7 +6,7 @@ Starting April 17, 2023, the free {{ ya-360 }} version will be running with cert
 
 The [changes]({{ link-ya-360-notfree }}) will affect all {{ tracker-name }} users with a free-of-charge organization in {{ ya-360 }}.
 
-To see what organizations your {{ tracker-name }} is linked to, click ![](../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs) in the left-hand panel. To check if you pay for an organization in {{ ya-360 }}, click **{{ ui-key.startrek.ui_components_page-admin_OrgMainInfoPane.org-manage-button }}** in the section with the appropriate organization and go to **Payment and service plan**.
+To see what organizations your {{ tracker-name }} is linked to, click ![](../_assets/tracker/svg/admin.svg) **Admin** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs) in the left-hand panel. To check if you pay for an organization in {{ ya-360 }}, click **{{ ui-key.startrek.ui_components_page-admin_OrgMainInfoPane.org-manage-button }}** in the section with the appropriate organization and go to **Payment and service plan**.
 
 {% cut "Why do I have an organization in {{ ya-360 }} if I only had {{ org-full-name }} set up?" %}
 

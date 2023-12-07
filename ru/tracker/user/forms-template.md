@@ -22,7 +22,7 @@
 
 Чтобы создать форму для задач:
 
-1. На панели слева нажмите кнопку ![](../../_assets/tracker/svg/create-task.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}**.
+1. На панели слева нажмите кнопку ![](../../_assets/tracker/svg/create-task.svg) **Создать задачу**.
 
 1. В поле вверху страницы выберите очередь.
 
@@ -75,13 +75,13 @@
     
     * [Отправлять HTTP-запрос](../../forms/send-request.md).
 
-1. Нажмите **{{ ui-key.startrek.components_FormButtons.update }}**.
+1. Нажмите **Сохранить**.
 
 ## Управлять формами {#manage-template}
 
 Управление формами доступно [администратору {{ tracker-name }}](../role-model.md#admin),  владельцу очереди и пользователям, которые имеют [доступ](../manager/queue-access.md) к изменению настроек очереди.
 
-Чтобы перейти к формам очереди, на панели слева нажмите кнопку ![](../../_assets/tracker/svg/create-task.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}**.
+Чтобы перейти к формам очереди, на панели слева нажмите кнопку ![](../../_assets/tracker/svg/create-task.svg) **Создать задачу**.
 
 ### Настроить страницу создания задачи {#new-task-page}
 

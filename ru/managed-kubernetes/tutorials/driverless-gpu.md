@@ -33,7 +33,6 @@
     helm install \
       --namespace gpu-operator \
       --create-namespace \
-      --set toolkit.enabled=false \
       --set driver.version=<версия_драйвера> \
       gpu-operator nvidia/gpu-operator
     ```

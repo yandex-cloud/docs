@@ -103,8 +103,14 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Подключиться к ВМ через PowerShell
             href: operations/vm-connect/powershell.md
-          - name: Подключиться к ВМ через OS Login
-            href: operations/vm-connect/os-login.md
+          - name: OS Login
+            items:
+              - name: Создать ВМ с OS Login
+                href: operations/vm-connect/os-login-create-vm.md
+              - name: Настроить OS Login на существующей ВМ
+                href: operations/vm-connect/enable-os-login.md
+              - name: Подключиться к ВМ через OS Login
+                href: operations/vm-connect/os-login.md
           - name: Работа с {{ yandex-cloud }} изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md
           - name: Установить NVIDIA-драйверы

@@ -18,7 +18,7 @@ If you want to get notified about changes in a specific issue, subscribe to it.
 
 1. Open the issue page.
 
-1. In the **{{ ui-key.startrek-backend.fields.issue.followers }}** field on the right-hand panel, click **{{ ui-key.startrek.components_IssueFieldView.me-multiple }}**. If you do not see the **{{ ui-key.startrek-backend.fields.issue.followers }}** field, add it by clicking ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}**.
+1. In the **{{ ui-key.startrek-backend.fields.issue.followers }}** field on the right-hand panel, click **Add me**. If you do not see the **{{ ui-key.startrek-backend.fields.issue.followers }}** field, add it by clicking ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}**.
 
 
 If you followed the steps correctly, your name will be added to the Followers field. Now you will get emails with notifications about any changes in this issue.
@@ -50,11 +50,11 @@ To subscribe to a component:
 
 1. Open the [queue page](queue.md).
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/actions.svg), then click ![](../../_assets/tracker/svg/components.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-page-agile-sprints.components }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/actions.svg), then click ![](../../_assets/tracker/svg/components.svg)&nbsp;**Components**.
 
 1. Hover the cursor over the component.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--subscribe }}**.
+1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe to issues with this component**.
 
 If you did everything right, you'll see the following icon next to the component name: ![](../../_assets/tracker/subscribtion.png)
 
@@ -66,11 +66,11 @@ To track issues related to a specific version, subscribe to it:
 
 1. Open the [queue page](queue.md).
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/actions.svg), then click ![](../../_assets/tracker/svg/versions.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-page-agile-sprints.versions }}**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/actions.svg), then click ![](../../_assets/tracker/svg/versions.svg)&nbsp;**Versions**.
 
 1. Hover the cursor over the version.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_b-page-goals.subscribe }}**.
+1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 
 If you did everything right, you'll see the following icon next to the version number: ![](../../_assets/tracker/subscribtion.png)
 
@@ -83,16 +83,16 @@ By default, you won't get notified about your own actions on issues. To get noti
 
 1. Click the link [{{link-tracker}}settings]({{ link-settings }}).
 
-1. Enable **{{ ui-key.startrek.blocks-desktop_b-page-settings.receive-own-events }}**.
+1. Enable **Receive updates with my own actions**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.
+1. Click **Save**.
 
 ## Notifications about invitations to comment {#notif_call_comments}
 
 When you are invited to comment on an issue, you'll get notified about this both in your mailbox and via the {{ tracker-name }} [notification center](notifications.md#notif_center).
 
 To disable sending notifications:
-1. In the left-hand panel, click ![](../../_assets/tracker/svg/bell_2.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-subscriptions-header.roles }}** to open the notification center.
-1. In the top-right corner of the notification center, click ![](../../_assets/vertical-ellipsis.svg) → **{{ ui-key.startrek.blocks-desktop_guide.common--header--settings--title }}**.
-1. Clear the checkbox next to **{{ ui-key.startrek.blocks-desktop_guide.ticket--tabs--invites--title }}**.
+1. In the left-hand panel, click ![](../../_assets/tracker/svg/bell_2.svg)&nbsp;**Notifications** to open the notification center.
+1. In the top-right corner of the notification center, click ![](../../_assets/vertical-ellipsis.svg) → **Settings**.
+1. Clear the checkbox next to **Invitation to comments**.
 

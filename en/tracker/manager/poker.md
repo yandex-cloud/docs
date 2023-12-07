@@ -24,9 +24,9 @@ Planning Poker is enabled by default on boards with a **Backlog and sprints**. I
 
 1. Tap **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.show-estimates }}**. The scores chosen by the other users appear under their names.
 
-   The final score will be [calculated automatically](#section_calc) and then saved in the **{{ ui-key.startrek.components_Poker.mark-title }}** field. You can change this value if needed.
+   The final score will be [calculated automatically](#section_calc) and then saved in the **Estimate** field. You can change this value if needed.
 
-1. Click **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.apply-estimate }}** to finalize the score. The score value from the **{{ ui-key.startrek.components_Poker.mark-title }}** field is copied to the **Story Points** field in the issue, and the issue disappears from the poker page.
+1. Click **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.apply-estimate }}** to finalize the score. The score value from the **Estimate** field is copied to the **Story Points** field in the issue, and the issue disappears from the poker page.
 
 ## Configuring the estimation scale {#section_scale}
 

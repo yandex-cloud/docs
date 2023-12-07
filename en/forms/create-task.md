@@ -82,17 +82,17 @@ If issues aren't created in {{ tracker-short-name }} or if they're created incor
 
 ### Error in the Reporter, Assignee, and Follower fields
 
-The error may be caused by invalid data being sent from the form to the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}**, or **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}** issue field. Fill in these fields in the following way:
+The error may be caused by invalid data being sent from the form to the **Reporter**, **Assignee**, or **Followers** issue field. Fill in these fields in the following way:
 
 - To add an employee manually, enter a username like `smith`.
 
-- To enter multiple usernames in the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}** field, separate them with commas (for example, `smith,johnson`).
+- To enter multiple usernames in the **Followers** field, separate them with commas (for example, `smith,johnson`).
 
 - To add the employee who's specified in a response to the <q>People</q>,, insert a **Response ID** [variable](vars.md) in the field. If you use a **Response to prompt** variable, integration won't work.
 
 - To add an employee specified in a response to the <q>Drop-down list</q> or <q>Multiple answers</q> prompt, set usernames (e.g., `smith`) as response options and use the **Response to prompt** [variable](vars.md).
 
-If there is an error in the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}** field even though the field is populated correctly, make sure the user filling the form is [authorized to create issues in the specified {{ tracker-short-name }} queue](#access).
+If there is an error in the **Reporter** field even though the field is populated correctly, make sure the user filling the form is [authorized to create issues in the specified {{ tracker-short-name }} queue](#access).
 
 ### Error: No rights to add issues to queue {#access}
 

@@ -6,7 +6,7 @@ To group issues by subject, use the following components:
 
 1. In the support team queue, [create components](manager/components.md) that correspond to request types.
 
-   You can make an employee responsible for a particular component and select **{{ ui-key.startrek.blocks-desktop_b-form-new-component.task-assignee }}** so that they are automatically assigned any issue that contains a component they are responsible for.
+   You can make an employee responsible for a particular component and select **Assign to issues by default** so that they are automatically assigned any issue that contains a component they are responsible for.
 
 1. If you don't want users to be able to view or edit issues containing specific components, [configure access rights for components](manager/queue-access.md#access-components).
 

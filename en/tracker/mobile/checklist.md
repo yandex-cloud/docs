@@ -6,7 +6,7 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 1. Open the issue page.
 
-1. Tap ![](../../_assets/tracker/checklist-create.png) **{{ ui-key.startrek.ui_components_IssueChecklist.add-checklist }}**.
+1. Tap ![](../../_assets/tracker/checklist-create.png) **Add checklist**.
 
 1. Name the first item in the list and press Enter on the phone keyboard.
 

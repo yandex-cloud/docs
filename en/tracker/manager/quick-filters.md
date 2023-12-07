@@ -31,7 +31,7 @@ Set up the fields visible to you in the issue list to see only those parameters 
 
 1. Select the parameters that you want to see in the issue list.
 
-1. Click **{{ ui-key.startrek.ui_components_FieldsSelect.applyChanges }}**.
+1. Click **Apply**.
 
 The changes are applied immediately: you don't need to refresh the page.
 

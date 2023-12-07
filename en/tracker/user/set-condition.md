@@ -4,16 +4,16 @@
 
 To specify issue updates that will fire the trigger, set a condition:
 
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}**, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-condition }}** and select one from the list.
+1. Under **Trigger conditions**, click **Add condition** and select one from the list.
 
    | Condition type | Description |
    ----- | -----
-   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }} | The trigger is fired when the specified event occurs. For example, when creating an issue, making any issue changes, or editing the fields that are used for [calculating values with formulas](set-action.md#section_calc_field). |
-   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--checklist }} | The trigger is fired when all [checklist](checklist.md) items in an issue are completed. |
-   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--comment }} | The trigger is fired if a comment contains a specific text fragment. |
-   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--comment-author }} | The trigger is fired if a comment is added by the specified user. |
-   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--comment-type }} | The trigger is fired: <ul><li>**{{ ui-key.startrek-backend.messages.trigger.condition.type.CommentMessage.Internal }}**: If a comment is made using the {{ tracker-name }} interface.</li><li>**{{ ui-key.startrek-backend.messages.trigger.condition.type.CommentMessage.External }}**: If a comment is created via email.</li></ul> |
-   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--links }} | The trigger is fired if issue links are changed. |
+   | Event | The trigger is fired when the specified event occurs. For example, when creating an issue, making any issue changes, or editing the fields that are used for [calculating values with formulas](set-action.md#section_calc_field). |
+   | Checklist | The trigger is fired when all [checklist](checklist.md) items in an issue are completed. |
+   | Comment text | The trigger is fired if a comment contains a specific text fragment. |
+   | Comment author | The trigger is fired if a comment is added by the specified user. |
+   | Comment type | The trigger is fired: <ul><li>**{{ ui-key.startrek-backend.messages.trigger.condition.type.CommentMessage.Internal }}**: If a comment is made using the {{ tracker-name }} interface.</li><li>**{{ ui-key.startrek-backend.messages.trigger.condition.type.CommentMessage.External }}**: If a comment is created via email.</li></ul> |
+   | Action with link | The trigger is fired if issue links are changed. |
    | Issue fields | The trigger is fired if changes are made to a field that belongs to any of the following field groups: **{{ ui-key.startrek-backend.fields.issue.fields.system }}**, **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}**, **{{ ui-key.startrek-backend.fields.issue.fields.agile }}**, or **{{ ui-key.startrek-backend.fields.issue.fields.email }}**. |
 
 1. Choose an event or [comparison operation](#section_cdn_d4j_wfb) depending on the condition type.
@@ -22,7 +22,7 @@ To specify issue updates that will fire the trigger, set a condition:
 
    ![image](../../_assets/tracker/boolean.png)
 
-1. Add multiple conditions to the trigger if needed. By default, the trigger fires if all conditions are met at the same time. If you want your trigger to fire as soon as at least one of the conditions is met, click **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--or_short }}**.
+1. Add multiple conditions to the trigger if needed. By default, the trigger fires if all conditions are met at the same time. If you want your trigger to fire as soon as at least one of the conditions is met, click **Any**.
 
    You can add a group of conditions (two or more) that will match the logical AND or logical OR.
 

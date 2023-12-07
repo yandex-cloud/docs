@@ -4,7 +4,7 @@ To create a project portfolio:
 
 1. Go to any page that a portfolio can be created from:
 
-   * In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** and click **Create** → **Portfolio**.
+   * In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** and click **Create** → **Portfolio**.
    * In the [list of portfolios and projects](my-projects.md) of the **Structure** tab, click **Create portfolio** under the list.
    * In the [list of portfolios and projects](my-projects.md) of the **List** tab, click **Create portfolio** under the list.
 
@@ -15,10 +15,10 @@ To create a project portfolio:
    * Portfolio description: What you are working on and what goals you want to achieve.
    * Attachments: Working materials of the portfolio.
    * Checklist: List of milestones or goals of the portfolio.
-   * **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--status }}**: Specify the current stage of the portfolio.
-   * **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--startDate }}** or **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--endDate }}**.
-   * **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--lead }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--clients }}**, and **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--teamUsers }}**: Start typing the name or username of the employee and select a relevant option from the list.
-   * **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--tags }}**: Add or select the tags that would make it easier to find the portfolio.
+   * **Status**: Specify the current stage of the portfolio.
+   * **Start date** or **End date**.
+   * **Responsible**, **Clients**, and **Participants**: Start typing the name or username of the employee and select a relevant option from the list.
+   * **Tags**: Add or select the tags that would make it easier to find the portfolio.
 
 ## Linking portfolios and projects {#add-portfolios-projects}
 
@@ -52,12 +52,12 @@ To create a project portfolio:
 
 {% note alert %}
 
-A portfolio can be deleted by its author or the user specified in the **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--lead }}** field.
+A portfolio can be deleted by its author or the user specified in the **Responsible** field.
 
 {% endnote %}
 
 To delete a portfolio:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects) and open the portfolio page.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** or follow the [direct link]({{ link-tracker }}pages/projects) and open the portfolio page.
 
 1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_portfolios_PortfolioMenu.remove-portfolio }}**.

@@ -25,7 +25,7 @@
 
   1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-  1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/add-user.svg) **{{ ui-key.startrek.blocks-desktop_b-head.add-user }}**.
+  1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/add-user.svg) **Добавить пользователя**.
 
   1. В появившемся окне перечислите через запятую почтовые адреса сотрудников (например, `{{ example-account }}`) и нажмите кнопку **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. Каждый пользователь получит письмо с предложением вступить в организацию.
   
@@ -67,7 +67,7 @@
 
   1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-  1. На панели слева нажмите **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
+  1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
 
   1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. Откроется страница сервиса {{ org-full-name }}.
 
@@ -89,13 +89,13 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. На панели слева нажмите **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
+1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
 
 1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_OrganizationSmallPane.add-org-button }}**. Откроется окно с вашими организациями. Вы можете создать новую организацию или перейти в существующую.
 
    {% note info %}
 
-   Если к вашей организации не подключен почтовый домен, в сервисе [{{ ya-360 }}]({{ link-ya-360 }}) нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesEmptyList.action-configure-mail }}** и добавьте домен. Подробнее читайте в [Справке сервиса]({{ support-business-domain }}). 
+   Если к вашей организации не подключен почтовый домен, в сервисе [{{ ya-360 }}]({{ link-ya-360 }}) нажмите **Настроить почту** и добавьте домен. Подробнее читайте в [Справке сервиса]({{ support-business-domain }}). 
 
    {% endnote %}
 

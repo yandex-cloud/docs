@@ -16,13 +16,13 @@
 
 ## Ответить на комментарий {#answer-comment}
 
-1. Нажмите ![](../../_assets/horizontal-ellipsis.svg) напротив комментария и выберите **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-answer }}**. Комментарий, на который вы отвечаете, будет добавлен в ответ в виде цитаты. 
+1. Нажмите ![](../../_assets/horizontal-ellipsis.svg) напротив комментария и выберите **Ответить**. Комментарий, на который вы отвечаете, будет добавлен в ответ в виде цитаты. 
 
 1. Внесите изменения и нажмите кнопку ![](../../_assets/tracker/send.png).
 
 ## Отредактировать комментарий {#edit-comment}
 
-1. Нажмите ![](../../_assets/horizontal-ellipsis.svg) напротив комментария и выберите **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-edit }}**.
+1. Нажмите ![](../../_assets/horizontal-ellipsis.svg) напротив комментария и выберите **Редактировать**.
 
 1. Внесите изменения и нажмите кнопку ![](../../_assets/tracker/send.png).
 
@@ -68,11 +68,11 @@
 
 ## Поделиться комментарием {#share-comment}
     
-Чтобы скопировать ссылку на комментарий, напротив него нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-copy-link }}**.
+Чтобы скопировать ссылку на комментарий, напротив него нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) и выберите **Скопировать ссылку**.
 
 ## Удалить комментарий {#delete-comment}
 
-Чтобы удалить комментарий, нажмите ![](../../_assets/horizontal-ellipsis.svg) напротив комментария и выберите **{{ ui-key.startrek.ui_components_IssueComments.comment-action-item-delete }}**.
+Чтобы удалить комментарий, нажмите ![](../../_assets/horizontal-ellipsis.svg) напротив комментария и выберите **Удалить**.
 
 
 ## Создать задачу на основе комментария {#create-task}
@@ -81,10 +81,10 @@
 
 1. Нажмите на комментарий, на основе которого будет создана задача.
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_IssueComments.create-issue }}** и выберите тип связи.
+1. Нажмите кнопку **Создать задачу из комментария** и выберите тип связи.
 
 1. Заполните поля так же, как при обычном [создании задачи](create-ticket.md#create-task).
 
-1. Нажмите кнопку **{{ ui-key.startrek.ui_components_IssueListsPanel.create }}**.
+1. Нажмите кнопку **Создать**.
 
 

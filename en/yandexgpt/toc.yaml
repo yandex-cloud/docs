@@ -1,13 +1,31 @@
-title: YandexGPT
+title: YandexGPT API
 href: index.yaml
 stage: preview
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Sending requests in chat mode
+        href: operations/create-chat.md
+      - name: Sending requests in prompt mode
+        href: operations/create-prompt.md
+      - name: Sending requests to fine-tuned models
+        href: operations/finetune.md
+      - name: Sending an asynchronous request
+        href: operations/async-request.md
+  - name: Tutorials
+    items:
+      - name: Retraining a {{ yagpt-name }} model
+        href: tutorials/yagpt-tuning.md
   - name: Concepts
     items:
       - name: About {{ yagpt-name }}
         href: concepts/index.md
+      - name: Models
+        href: concepts/models.md
       - name: Tokens
         href: concepts/tokens.md
       - name: Quotas and limits

@@ -15,13 +15,13 @@
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %} 
 
-    1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите GitHub.
+    1. В поле **Платформа** выберите GitHub.
 
-    1. Укажите адрес публичного репозитория в формате `https://github.com/<логин_владельца_репозитория>/<имя_репозитория>`. Поле **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** оставьте пустым.
+    1. Укажите адрес публичного репозитория в формате `https://github.com/<логин_владельца_репозитория>/<имя_репозитория>`. Поле **Токен** оставьте пустым.
 
-    1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+    1. Нажмите кнопку **Подключить**.
 
-    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **Подключен**.
 
 - Закрытый репозиторий
 
@@ -29,7 +29,7 @@
 
     1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-    1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите GitHub.
+    1. В поле **Платформа** выберите GitHub.
 
     1. Получите на GitHub OAuth-токен для своего репозитория:
 
@@ -57,9 +57,9 @@
 
     1. Укажите адрес репозитория в формате `https://github.com/<логин_владельца_репозитория>/<имя_репозитория>` и токен для подключения.
 
-    1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+    1. Нажмите кнопку **Подключить**.
 
-    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **Подключен**.
 
 {% endlist %}
 

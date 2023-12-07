@@ -6,7 +6,7 @@ When using macros, triggers, and auto actions, you can insert values from the is
 
 1. Create a [macro](../manager/create-macroses.md), [trigger](trigger.md) or [auto action](autoactions.md).
 
-1. Click **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}** in the action block of the trigger or auto action. In the case of a macro, add a variable to the message section.
+1. Click **Add variable** in the action block of the trigger or auto action. In the case of a macro, add a variable to the message section.
 
 1. Choose the field from the list. When the action is executed, the field value will replace the variable in the text. You can also insert issue parameters that are missing in the variable list. For this, [enter](#variable-type) the variable name into the text.
 

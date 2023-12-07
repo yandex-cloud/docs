@@ -13,13 +13,13 @@ The user who created the queue becomes its owner. The owner either configures th
 
 To create a new queue:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-queue }}**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **New queue**.
 
 1. Select queue template Depending on the issue types and statuses, templates belong to one of the categories:
 
-   * **{{ ui-key.startrek.blocks-desktop_queue-new-presets.category--development }}**: For issues related to software development and testing.
-   * **{{ ui-key.startrek.blocks-desktop_queue-new-presets.category--support }}**: For issues related to tech support, HR, and document approval.
-   * **{{ ui-key.startrek.blocks-desktop_queue-new-presets.category--business }}**: For service projects and production issues.
+   * **Development**: For issues related to software development and testing.
+   * **Working with people and documents**: For issues related to tech support, HR, and document approval.
+   * **Creating products and services**: For service projects and production issues.
 
    For more information about templates and their settings, see [{#T}](workflows.md).
 
@@ -37,7 +37,7 @@ To create a new queue:
 
    {% endnote %}
 
-1. Click **{{ ui-key.startrek.blocks-desktop_queue-new-presets.create }}**. Your new queue will appear in the **{{ ui-key.startrek.blocks-desktop_m-head.menu-queues }}** menu in the {{ tracker-name }} top panel.
+1. Click **Create**. Your new queue will appear in the **Queues** menu in the {{ tracker-name }} top panel.
 
 1. You can [change issue types and statuses](workflow.md) in the queue and configure its parameters if needed.
 
@@ -56,9 +56,9 @@ You can use the queue key in order to:
 
 If you want to use the settings of an existing queue, copy the queue:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-queue }}**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **New queue**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_queue-new-presets.copy-title }}**.
+1. Click **Copy queue**.
 
 1. Enter the name of the new queue.
 
@@ -74,7 +74,7 @@ If you want to use the settings of an existing queue, copy the queue:
 
 1. Enter the key or name of the source queue.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_queue-new-presets.create }}**. Your new queue will appear in the **{{ ui-key.startrek.blocks-desktop_m-head.menu-queues }}** menu in the {{ tracker-name }} top panel.
+1. Click **Create**. Your new queue will appear in the **Queues** menu in the {{ tracker-name }} top panel.
 
 1. You can [change issue types and statuses](workflow.md) in the queue and configure its parameters if needed.
 
@@ -82,9 +82,9 @@ If you want to use the settings of an existing queue, copy the queue:
 
 If none of the preset queue types fit your issues, you can set all parameters for your new queue manually:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **{{ ui-key.startrek.blocks-desktop_b-head.new-queue }}**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **New queue**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset-title--custom-queue }}**.
+1. Click **Configure the queue manually**.
 
 1. Enter a [key for the queue](#key). A key can only include Latin characters without spaces or special characters.
 
@@ -96,7 +96,7 @@ If none of the preset queue types fit your issues, you can set all parameters fo
 
    {% endnote %}
 
-1. Enter the description of the queue. The description is displayed on the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_description }}** tab on the queue page.
+1. Enter the description of the queue. The description is displayed on the **Description** tab on the queue page.
 
 1. Assign the owner for the queue. The owner can change the queue settings.
 
@@ -112,9 +112,9 @@ If none of the preset queue types fit your issues, you can set all parameters fo
 
    * The type and priority of issues by default.
 
-   * **{{ ui-key.startrek.blocks-desktop_b-queue-form.required-fields }}**: Issue fields that are always displayed on the issue page, regardless of [user settings](../user/edit-ticket.md#edit-fields).
+   * **Required fields for the queue**: Issue fields that are always displayed on the issue page, regardless of [user settings](../user/edit-ticket.md#edit-fields).
 
 
-   * **Show "Commits" tab**: Show or hide the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab on the queue and issue pages. The tab shows all commits linked to issues.
+   * **Show "Commits" tab**: Show or hide the **Commits** tab on the queue and issue pages. The tab shows all commits linked to issues.
 
 1. Set up [advanced issue management features](queue-advanced.md): for example, create projects and components or enable automation for routine actions with issues.

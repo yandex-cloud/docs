@@ -15,7 +15,7 @@ Depends on — Blocker to {#blocker}
 :   Use this link type if a certain issue can only be worked on after another issue is completed. For instance, a new app feature that can only enter development once the interface has been designed.
 
 Duplicated by
-:  Use this link type to group issues that describe the same task. For example, you should use this link if there are multiple <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q> issues describing the same problem.
+:  Use this link type to group issues that describe the same task. For example, you should use this link if there are multiple <q>Error</q> issues describing the same problem.
 
 Epic for — Sub-epic
 :   Use this link type to decompose issues if [you're working with Scrum](../manager/create-agile-sprint.md#section_vj5_4f5_zfb).

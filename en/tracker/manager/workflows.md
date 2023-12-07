@@ -8,7 +8,7 @@ A queue template with an easy-to-use workflow and a great choice for new {{ trac
 
 A [simple issue board](agile.md#sec_boards) is created when you select this template.
 
-The workflow includes one issue type: **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
+The workflow includes one issue type: **Issue**.
 
 Issues can have the following statuses:
 
@@ -35,10 +35,10 @@ A [simple issue board](agile.md#sec_boards) is created when you select this temp
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--release }}**.
+- **Issue**.
+- **Improvement**.
+- **Error**.
+- **Release**.
 
 Issues can have the following statuses:
 
@@ -71,10 +71,10 @@ This queue template is optimized for developing applications for external custo
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
+- **Issue**
+- **Improvement**
+- **Error**
+- **Project**
 
 Issues can have the following statuses:
 
@@ -106,10 +106,10 @@ A [<q>Scrum</q> issue board](agile.md#sec_boards) is automatically created when 
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--epic }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }}**
+- **Issue**
+- **Error**
+- **Epic**
+- **Story**
 
 Issues can have the following statuses:
 
@@ -142,10 +142,10 @@ A [<q>Kanban</q> issue board](agile.md#sec_boards) is created when you select th
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--epic }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }}**
+- **Issue**
+- **Error**
+- **Epic**
+- **Story**
 
 Issues can have the following statuses:
 
@@ -177,8 +177,8 @@ This queue template is good for the organizations that provide services to compa
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
+- **Issue**
+- **Project**
 
 Issues can have the following statuses:
 
@@ -207,8 +207,8 @@ This queue template is good for the companies and departments that produce tangi
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
+- **Issue**
+- **Project**
 
 Issues can have the following statuses:
 
@@ -237,8 +237,8 @@ A [simple issue board](agile.md#sec_boards) is created when you select this temp
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
+- **Issue**
+- **Project**
 
 Issues can have the following statuses:
 
@@ -262,7 +262,7 @@ When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}*
 
 This queue template is designed for the document approval process.
 
-The workflow includes one issue type: **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
+The workflow includes one issue type: **Issue**.
 
 Issues can have the following statuses:
 
@@ -290,11 +290,11 @@ This queue template is designed for the HR department issues.
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--absence }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--mission }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--changes }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--documents }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--request }}**
+- **Leave**
+- **Business trip**
+- **Changes**
+- **Documents**
+- **Query**
 
 Issues can have the following statuses:
 
@@ -322,8 +322,8 @@ This queue template is designed for the recruitment process.
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--vacancy }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--candidate }}**
+- **Vacancy**
+- **Candidate**
 
 Issues can have the following statuses:
 - **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**
@@ -350,17 +350,17 @@ This queue template is designed for setting the corporate or departmental goals 
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
+- **Issue**
+- **Project**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek.lib_goals-info.status--NEW }}**
-- **{{ ui-key.startrek.lib_goals-info.status--PLANNED }}**
-- **{{ ui-key.startrek.lib_goals-info.status--RISK }}**
-- **{{ ui-key.startrek.lib_goals-info.status--CANCELLED }}**
-- **{{ ui-key.startrek.lib_goals-info.status--REACHED }}**
-- **{{ ui-key.startrek.lib_goals-info.status--BLOCKED }}**
+- **New**
+- **As planned**
+- **At risk**
+- **Canceled**
+- **Achieved**
+- **Blocked**
 
 Possible transitions between statuses:
 

@@ -4,7 +4,7 @@
 
 ## Создайте очередь для кандидатов
 
-1. [Создайте очередь](manager/create-queue.md) с помощью шаблона <q>{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--recruitment-preset }}</q>. 
+1. [Создайте очередь](manager/create-queue.md) с помощью шаблона <q>Подбор персонала</q>. 
 1. В качестве имени укажите, например, `Candidates Queue`.
 1. Настройте [рабочий процесс](manager/workflows.md#section_hire) или создайте [новый](manager/add-workflow.md).
 1. Добавьте в рабочий процесс завершающие статусы **Принят** и **Не принят**.
@@ -14,7 +14,7 @@
 
 ### Создайте форму 
 
-1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}**.
+1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/icon-add.svg) **Создать задачу**.
 1. В блоке **{{ ui-key.startrek.ui_components_PageCreateIssue.try-yandex-forms }}** нажмите кнопку **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**.
 1. Создайте новую форму:
 	* Укажите название `Кандидат`;

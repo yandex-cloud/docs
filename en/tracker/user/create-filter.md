@@ -58,21 +58,21 @@ There are several ways to set the filter conditions:
 
 ### Step 3. Set up the layout for the issue list
 
-- If you want to hide or display certain issue parameters, to the right above the list, click ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}**, select the parameters, and click **{{ ui-key.startrek.ui_components_FilterFieldsSelect.applyChanges }}**.
+- If you want to hide or display certain issue parameters, to the right above the list, click ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}**, select the parameters, and click **Apply**.
 
-- To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **{{ ui-key.startrek.blocks-desktop_issues-table.group-by--null }}** above the list and select the parameter.
+- To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **Not grouped** above the list and select the parameter.
 
-- To collapse the panel with the filter list, in the top-right corner, click ![](../../_assets/tracker/svg/icon-parameters.svg) **{{ ui-key.startrek.ui_components_PageIssues_FilterInputTypeSwitch.parameters }}**.
+- To collapse the panel with the filter list, in the top-right corner, click ![](../../_assets/tracker/svg/icon-parameters.svg) **Parameters**.
 
 ### Step 4. Save filters
 
 If you often use a filter, save it. Your saved filters will be available in the **{{ ui-key.startrek.ui_components_filter-pane.all-issues-filter-title }}** checkbox under **{{ ui-key.startrek-backend.messages.user.named.request.folder.my }}**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_issues-filter-save-modal.action_submit }}** above the issue list.
+1. Click **Save** above the issue list.
 
 1. Set the filter name and select a category to save it with.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.change-category-form--change }}**.
+1. Click **Save**.
 
 To save a filtered issue list, in the top-right corner, click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.menu-item-export }}** and select the download file format or simply copy the list to the clipboard.
 
@@ -84,11 +84,11 @@ To save a filtered issue list, in the top-right corner, click ![](../../_assets/
 
 1. [Change the issue search criteria](#set-conditions) using quick filters, parameters, or the query language.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_issues-filter-save-modal.action_submit }}** above the issue list:
+1. Click **Save** above the issue list:
 
    * To save the filter with the current name, click **{{ ui-key.startrek.ui_components_filter-pane.action-title-save }}**.
 
-   * To save the filter under a different name, click **{{ ui-key.startrek.ui_components_filter-pane.action-title-save-as }}**. Then enter the filter name, select the category, and click **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.action_submit }}**.
+   * To save the filter under a different name, click **{{ ui-key.startrek.ui_components_filter-pane.action-title-save-as }}**. Then enter the filter name, select the category, and click **Save**.
 
 
 #### Removing filters
@@ -97,6 +97,6 @@ To save a filtered issue list, in the top-right corner, click ![](../../_assets/
 
 1. Delete your filter using one of the methods:
 
-   * To the right of the filter name, click ![](../../_assets/tracker/svg/icon-filter-delete.svg) **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.filter-remove-confirm-submit }}**.
+   * To the right of the filter name, click ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Delete**.
 
-   * In the top-right corner of the page, click ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.title }}**, then select ![](../../_assets/tracker/svg/icon-filter-delete.svg) **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.filter-remove-confirm-submit }}**.
+   * In the top-right corner of the page, click ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_FilterExportMenu.title }}**, then select ![](../../_assets/tracker/svg/icon-filter-delete.svg) **Delete**.

@@ -22,7 +22,7 @@ The embedded form builder supports only the main types of questions and integra
 
 To create a form for your issues:
 
-1. In the left-hand panel, click ![](../../_assets/tracker/svg/create-task.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}**.
+1. In the left-hand panel, click ![](../../_assets/tracker/svg/create-task.svg) **New issue**.
 
 1. Select a queue in the field located at the top of the page.
 
@@ -75,13 +75,13 @@ To create a form for your issues:
 
    * [Send HTTP request](../../forms/send-request.md).
 
-1. Click **{{ ui-key.startrek.components_FormButtons.update }}**.
+1. Click **Save**.
 
 ## Manage forms {#manage-template}
 
 Form management is available to the [{{ tracker-name }} administrator](../role-model.md#admin), queue owner, and users who have [access](../manager/queue-access.md) to editing the queue settings.
 
-To go to the queue forms, click ![](../../_assets/tracker/svg/create-task.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}** in the panel on the left.
+To go to the queue forms, click ![](../../_assets/tracker/svg/create-task.svg) **New issue** in the panel on the left.
 
 ### Set up the issue creation page {#new-task-page}
 

@@ -1,4 +1,4 @@
-Above the timeline on the right, click ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select a setting in **{{ ui-key.startrek.ui_components_Gantt.task-bar }}**:
+Above the timeline on the right, click ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** and select a setting in **Issue bar**:
 
 * To show the issue name on the issue bar, select the **{{ ui-key.startrek.ui_components_Gantt.show-issue-title }}** item.
 

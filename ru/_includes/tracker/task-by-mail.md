@@ -10,7 +10,7 @@
 
    1. Выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-aliases }}**.
 
-   1. Нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesEmptyList.action-configure-mail }}**.
+   1. Нажмите **Настроить почту**.
   
    1. Настройте почтовый ящик для получения писем:
 
@@ -60,8 +60,8 @@
    1. Нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.save-button }}**. Почтовый адрес, который вы создали для очереди, заработает в течение часа после создания.
 
    1. Включите отправку комментариев в виде писем из задачи:
-      1. В настройках очереди выберите раздел **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--main }}**. 
-      1. Нажмите **{{ ui-key.startrek.blocks-desktop_b-queue-form.advanced-settings-show }}** и в блоке **{{ ui-key.startrek.blocks-desktop_b-queue-form.mail }}** активируйте опцию **{{ ui-key.startrek.blocks-desktop_b-queue-form.mail-checkbox }}**.
+      1. В настройках очереди выберите раздел **Основные параметры**. 
+      1. Нажмите **Показать расширенные настройки** и в блоке **Отправка писем** активируйте опцию **Разрешить отправку писем наружу**.
 
   {% note tip %}
 
@@ -79,7 +79,7 @@
    
   1. Проверьте, настроен ли у вашей организации в {{ ya-360 }} [почтовый домен]({{ support-business-domain }}). Если нет, нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesStateList.action-domain }}** — откроется {{ ya-360 }}, и вы сможете создать домен. Если у вас уже настроен почтовый домен в другом сервисе, вы можете создать для него поддомен и [подключить в {{ ya-360 }}]({{ support-business-domain }}).
   
-  1. Нажмите **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesEmptyList.action-configure-mail }}**.
+  1. Нажмите **Настроить почту**.
   
   1. Настройте почтовый ящик для получения и отправки писем:
      1. В поле **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-address }}** укажите новый почтовый адрес, который будет использоваться только для очереди.
@@ -89,7 +89,7 @@
   
   1. Настройте подписи для отправляемых писем. Обязательно укажите **{{ ui-key.startrek.ui_components_page-queue-admin_Signature.alias-title }}** — по нему вы сможете различать подписи в общем списке. Получатели письма увидят псевдоним вместо имени отправителя письма. Проверьте, что все работает: отправьте тестовое письмо.
 
-  1. Нажмите **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**. Почтовый адрес, который вы создали для очереди, заработает в течение часа после создания.
+  1. Нажмите **Создать**. Почтовый адрес, который вы создали для очереди, заработает в течение часа после создания.
 
   {% note tip %}
 

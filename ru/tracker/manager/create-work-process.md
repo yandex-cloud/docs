@@ -41,7 +41,7 @@
 
 ## Создать рабочий процесс из шаблона {#create-from-template}
 
-1. На стартовой [**{{ ui-key.startrek.blocks-desktop_b-head.my-page }}**](https://tracker.yandex.ru/pages/my), на виджете **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}**, нажмите кнопку **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}**.
+1. На стартовой [**Моя страница**](https://tracker.yandex.ru/pages/my), на виджете **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}**, нажмите кнопку **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}**.
 1. Выберите шаблон и нажмите кнопку **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
 1. Укажите параметры очереди:
     * Название очереди задач;

@@ -6,7 +6,7 @@
 
 Чтобы перейти к диаграмме Ганта:
 
-1. Перейдите на [страницу проектов]({{ link-tracker }}pages/projects) или на [панели слева]({{ link-tracker }}) выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** и нажмите **Полный список моих проектов**.
+1. Перейдите на [страницу проектов]({{ link-tracker }}pages/projects) или на [панели слева]({{ link-tracker }}) выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**Проекты** и нажмите **Полный список моих проектов**.
 
 1. Выберите вкладку **{{ ui-key.startrek.ui_components_filter-pane_ViewModeSwitch.mode-gantt }}**.
    * Слева от диаграммы отображается список проектов. Чтобы открыть список задач проекта, нажмите на значок ![](../../_assets/tracker/svg/arrow.svg) рядом с его названием. Задачи отобразятся в виде иерархического списка.
@@ -34,7 +34,7 @@
 
 {% note info %}
 
-Если кнопка ![](../../_assets/tracker/svg/pick-user.svg) не отображается на полосе проекта, перейдите в ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** и в разделе **{{ ui-key.startrek.ui_components_Gantt.task-bar }}** отметьте пункт **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}**.
+Если кнопка ![](../../_assets/tracker/svg/pick-user.svg) не отображается на полосе проекта, перейдите в ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** и в разделе **Полоса задачи** отметьте пункт **{{ ui-key.startrek.ui_components_Gantt.show-issue-assignee }}**.
 
 {% endnote %}
 
@@ -58,4 +58,4 @@
 
 * Чтобы настроить порядок отображения в списке, нажмите ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**{{ ui-key.startrek.ui_components_SortButton.default-title }}**, укажите параметр и нажмите ![](../../_assets/tracker/svg/new-first.svg). В этом случае ручное перемещение задач станет недоступно.
 
-* Чтобы отфильтровать список проектов, используйте конструктор фильтров. Для этого на панели ![](../../_assets/tracker/svg/filter.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-page-issues.page-title }}** в разделе **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-projects }}** выберите параметры и укажите значения, по которым будет сформирован список проектов. Кроме того, в разделе **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-issues }}** вы можете настроить дополнительный фильтр по задачам внутри проектов.
+* Чтобы отфильтровать список проектов, используйте конструктор фильтров. Для этого на панели ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Фильтры** в разделе **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-projects }}** выберите параметры и укажите значения, по которым будет сформирован список проектов. Кроме того, в разделе **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-issues }}** вы можете настроить дополнительный фильтр по задачам внутри проектов.

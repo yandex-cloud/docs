@@ -19,7 +19,7 @@ The log includes records about the changes in queue settings. Each record includ
 
 1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--events }}** tab.
+1. Go to the **Changelog** tab.
 
 ## Filtering entries {#filter-records}
 
@@ -33,10 +33,10 @@ To find a record in the log, use filters:
 1. **By change type**
     View changes in settings belonging to a certain type.
 
-1. **{{ ui-key.startrek.blocks-desktop_b-filter.by-components }}**
+1. **By component**
     View changes in components: creation, deletion, parameter changes, etc.
 
-1. **{{ ui-key.startrek.blocks-desktop_b-file-list_sort_yes.date }}**
+1. **By date**
     Find changes over a period. You can select an interval or set only the start or end date in a range.
 
 1. **Reset filters**

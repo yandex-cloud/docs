@@ -18,7 +18,7 @@ In {{ wiki-full-name }}, you can insert a list of issues from any queue page:
 
 1. Open the queue page.
 
-1. In the upper-left corner of the page, select ![](../../_assets/tracker/icon-settings2.png) → **{{ ui-key.startrek.blocks-desktop_wiki-widget-copy-url.title }}**.
+1. In the upper-left corner of the page, select ![](../../_assets/tracker/icon-settings2.png) → **Get the Wiki code**.
 
 1. Copy the code.
 

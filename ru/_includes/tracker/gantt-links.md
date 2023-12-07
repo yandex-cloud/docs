@@ -16,4 +16,4 @@
 
    {% endnote %}
 
-* Чтобы удалить связь между задачами, нажмите на стрелку связи, затем нажмите ![](../../_assets/tracker/svg/del-link.svg) **{{ ui-key.startrek.blocks_touch_b-related-issues.delete }}**.
+* Чтобы удалить связь между задачами, нажмите на стрелку связи, затем нажмите ![](../../_assets/tracker/svg/del-link.svg) **Удалить связь**.

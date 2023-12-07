@@ -4,7 +4,7 @@ To manage the workflows for official employment and onboarding of new employees,
 
 ## Create a queue for new employees
 
-1. [Create a queue](manager/create-queue.md) using the <q>{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--hr-preset }}</q> template.
+1. [Create a queue](manager/create-queue.md) using the <q>HR processes</q> template.
 1. Give it a name, e.g., `Employment Queue`.
 1. Set up a [workflow](manager/workflows.md#section_hr) or create a [new](manager/add-workflow.md) one if needed.
 1. Specify an issue type, e.g., `New employees`, for the workflow. Save the issue type key. You will need it when creating triggers.
@@ -15,15 +15,15 @@ To manage the workflows for official employment and onboarding of new employees,
 Create separate issue types for various procedures related to employment and onboarding of new employees. For example, to grant access permissions and provide equipment, create an issue type named <q>Access permissions and equipment</q>:
 
 1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. In the left-hand panel, select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-types }}**.
-1. Wait for the page to load and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.add-issue-type }}**.
+1. In the left-hand panel, select **Issue types**.
+1. Wait for the page to load and click **Add issue type**.
 1. In the form that appears:
-   * Enter a name for the new type, such as `Access permissions and equipment`, in the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_events.issue-types-config--title--type }}** field and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.add-issue-type }}**. In the issue type creation form that opens, copy and save the issue key.
-   * In the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_events.issue-types-config--title--workflow }}** field, select a suitable workflow, e.g., `Quick Start`.
-   * In the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_events.issue-types-config--title--resolutions }}** field, select the appropriate resolutions, such as `{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}`.
+   * Enter a name for the new type, such as `Access permissions and equipment`, in the **Issue type** field and click **Add issue type**. In the issue type creation form that opens, copy and save the issue key.
+   * In the **Workflow** field, select a suitable workflow, e.g., `Quick Start`.
+   * In the **Resolutions** field, select the appropriate resolutions, such as `{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}`.
 
 Repeat the steps to add other issue types you need, for example, `Completion of documents`, `Probation period`, etc.
-To save the new types, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.save }}**.
+To save the new types, click **Save**.
 
 {% note info %}
 
@@ -38,24 +38,24 @@ Make sure the issue types are unique.
 To automate replication of issues from the `Candidates Queue` to the `Employment Queue`, create a trigger that will fire when the candidate issue status changes to Hired:
 
 1. In the top-right corner of the `Candidates Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. In the left-hand panel, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. In the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** field, enter a trigger name, e.g., `employ_candidate`.
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}**, select **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
+1. In the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
+1. In the **Name** field, enter a trigger name, e.g., `employ_candidate`.
+1. Under **Trigger conditions**, select **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
 1. In the **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldChangedCondition }}** field that appears, select **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** and then, in a new field next to it, select **Hired** (the status you created in the Candidates Queue workflow).
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}**, select **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**.
-1. In the form that opens, enter the request parameters. In the **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** field, set the parameters of a new sub-issue.
+1. Under **Actions**, select **HTTP request**.
+1. In the form that opens, enter the request parameters. In the **Request body** field, set the parameters of a new sub-issue.
     To substitute the values from the original issue, use [variables](user/vars.md):
 
    #|
    || **Field** | **Content** ||
-   || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-method }} | {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-method--post }} ||
-   || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-url }} | `{{ host }}/{{ ver }}/issues` ||
-   || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-auth }} | {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-auth--oauth }} ||
-   || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token }} | <OAuth_token> (see [How to get a token](concepts/access.md#section_about_OAuth)) ||
-   || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token-header }} | Authorization ||
-   || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-token-type }} | OAuth ||
-   || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-content-type }} | application/json ||
-   || {{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }} |
+   || Method | POST ||
+   || URL | `{{ host }}/{{ ver }}/issues` ||
+   || Auth type | OAuth 2.0 ||
+   || Token | <OAuth_token> (see [How to get a token](concepts/access.md#section_about_OAuth)) ||
+   || Auth header | Authorization ||
+   || Token type | OAuth ||
+   || Content type | application/json ||
+   || Request body |
    >```
    >{
    >   "queue":"<Employment_Queue_key>",
@@ -76,7 +76,7 @@ To automate replication of issues from the `Candidates Queue` to the `Employment
 
    {% endnote %}
 
-1. To save the trigger, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+1. To save the trigger, click **Create**.
 
 
 ## Set up a trigger in the Employment Queue
@@ -86,14 +86,14 @@ Once the candidate issue is copied to the `Employment Queue`, you need to create
 ### Create a trigger
 
 1. In the top-right corner of the `Employment Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. In the left-hand panel, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. In the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** field, enter a trigger name, e.g., `start_employment`.
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}**, select **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
+1. In the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
+1. In the **Name** field, enter a trigger name, e.g., `start_employment`.
+1. Under **Trigger conditions**, select **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
 1. In the **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldChangedCondition }}** field that appears, select **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** and then, in a new field next to it, select **In progress** (the status you created in the Candidates Queue workflow).
-1. Add another condition by selecting **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.type-key-value }}** under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}**.
+1. Add another condition by selecting **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.type-key-value }}** under **Trigger conditions**.
 1. In the **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldChangedCondition }}** field that appears, select **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** and then, in a new field next to it, select **New employees**.
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}**, select **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}** in the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_add-action }}** field.
-1. In the form that opens, enter the request parameters as you did earlier. In the **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** field, update the issue `type`, `description` and key, such as:
+1. Under **Actions**, select **HTTP request** in the **Add new action** field.
+1. In the form that opens, enter the request parameters as you did earlier. In the **Request body** field, update the issue `type`, `description` and key, such as:
 
 ```
 {
@@ -109,8 +109,8 @@ Once the candidate issue is copied to the `Employment Queue`, you need to create
 
 To automatically create other sub-issues, add the appropriate actions to the trigger:
 
-1. In the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_add-action }}** field at the bottom, select **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**.
-1. Fill out the form as you did earlier. In the **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** field, update the issue type description and key, such as:
+1. In the **Add new action** field at the bottom, select **HTTP request**.
+1. Fill out the form as you did earlier. In the **Request body** field, update the issue type description and key, such as:
 
 ```
 {
@@ -122,7 +122,7 @@ To automatically create other sub-issues, add the appropriate actions to the tri
 }
 ```
 1. Repeat the steps to add actions for other issues.
-1. To save the trigger, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+1. To save the trigger, click **Create**.
 
 ## Test the triggers
 

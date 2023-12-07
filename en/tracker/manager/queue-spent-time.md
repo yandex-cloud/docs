@@ -9,9 +9,9 @@ To do this:
 1. In **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-working-calendar }}**, choose one of the options.
 1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.save }}**.
 
-As a result, a new section called **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** will appear in the queue issues. All data of the **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** issue fields will be transferred to this section.
+As a result, a new section called **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** will appear in the queue issues. All data of the **Time spent** issue fields will be transferred to this section.
 
-If you disable the **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** option, data from the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be moved back to the fields of the **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** category.
+If you disable the **{{ ui-key.startrek.ui_components_queue-admin-tab-timetracking_TimetackingForm.field-track-time-in-issues }}** option, data from the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}** section will be moved back to the fields of the **Time spent** category.
 
 ## Granting the permission to edit time to the assignee {#assignee-edit}
 

@@ -14,7 +14,7 @@
      С помощью этой опции вы сможете назначать цвета для задач прямо на диаграмме.
 
      1. Выберите **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}**.
-     1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**.
+     1. Нажмите кнопку **Применить**.
 
      В списке слева от диаграммы выберите задачу и нажмите кнопку ![](../../_assets/horizontal-ellipsis.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.issue-action-menu-title }}**. Откроется палитра, из которой вы сможете назначить задаче цвет.
 
@@ -26,13 +26,13 @@
 
      1. Выберите **{{ ui-key.startrek.ui_components_Gantt.color-type-by-parameter }}**. 
      1. Укажите параметр, значениям которого вы будете назначать цвет.
-     1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**.
+     1. Нажмите кнопку **Применить**.
   
    - Однотонный
 
      Полосы всех задач на диаграмме будут отображаться в голубом цвете.
 
      1. Выберите **{{ ui-key.startrek.ui_components_Gantt.color-type-monochrome }}**.
-     1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**.
+     1. Нажмите кнопку **Применить**.
 
    {% endlist %}

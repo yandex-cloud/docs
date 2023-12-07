@@ -19,7 +19,7 @@ To vote for an issue, click ![](../../_assets/tracker/svg/vote.svg) in the upper
 
 To find issues that you have voted for, use the [query language](query-filter.md):
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.blocks-desktop_b-head.filters }}**, then, at the bottom of the window, click **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/tasks.svg) **Issues**, then, at the bottom of the window, click **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}**.
 
 1. Click **{{ ui-key.startrek.ui_components_page-issues_touch.query-language }}** in the top-right corner of the page.
 

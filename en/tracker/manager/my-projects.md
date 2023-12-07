@@ -2,17 +2,17 @@
 
 Open the list of all portfolios and projects available to you:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects**.
 
 1. Select a filter to find your projects:
 
-   * **{{ ui-key.startrek.ui_components_projects_list_FilterPane.preset-mine }}** for all portfolios and projects where you are the author, user responsible for the portfolio or project, participant, or customer.
+   * **My projects** for all portfolios and projects where you are the author, user responsible for the portfolio or project, participant, or customer.
 
-   * **{{ ui-key.startrek.ui_components_projects_list_FilterPane.preset-author }}**, **{{ ui-key.startrek.ui_components_projects_list_FilterPane.preset-responsible }}**, **{{ ui-key.startrek.ui_components_projects_list_FilterPane.preset-participant }}**, or **{{ ui-key.startrek.ui_components_projects_list_FilterPane.preset-client }}** for the portfolios and projects where you have the respective role.
+   * **I'm author**, **I'm responsible**, **I'm a participant**, or **I'm a client** for the portfolios and projects where you have the respective role.
 
-   * **{{ ui-key.startrek.ui_components_projects_list_FilterPane.preset-favorite }}** for the portfolios and projects you added to your <q>{{ ui-key.startrek.blocks-desktop_b-filter.favorite }}</q>.
+   * **Favorites** for the portfolios and projects you added to your <q>Favorite</q>.
 
-   * **{{ ui-key.startrek.blocks-desktop_b-head.menu-group--recent }}** for the portfolios and projects you opened most recently.
+   * **Viewed recently** for the portfolios and projects you opened most recently.
 
 1. If you cannot see all relevant portfolios and projects, expand the list.
 
@@ -27,7 +27,7 @@ On the [portfolios and projects page]({{ link-tracker }}pages/projects), you can
 
 You can use filters to perform a search in any of these tabs:
 
-* To find a portfolio or project by name, enter it in the **{{ ui-key.startrek.ui_components_projects_list_FilterPane.search-placeholder }}** field. If your current tab is **Structure**, you will automatically switch to the **List** tab.
+* To find a portfolio or project by name, enter it in the **Search** field. If your current tab is **Structure**, you will automatically switch to the **List** tab.
 
 * To select a search parameter by a portfolio or project field, click its name above the list. To select advanced search parameters, click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_filter-pane_FieldsSelectButton.add-filter-field-button-title }}** and select a field.
 

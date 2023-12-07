@@ -10,7 +10,7 @@ By default, any user has read access to any dashboard.
 
 {% note tip %}
 
-If someone shares a dashboard with you, add it to Favorites so that you can always find it easily. To do this, click ![](../../_assets/tracker/svg/favourites.svg) to the right of the dashboard name. Your favorite dashboards are available in the **{{ ui-key.startrek.blocks-desktop_m-head.menu-dashboards }}** menu on the {{ tracker-name }} top panel.
+If someone shares a dashboard with you, add it to Favorites so that you can always find it easily. To do this, click ![](../../_assets/tracker/svg/favourites.svg) to the right of the dashboard name. Your favorite dashboards are available in the **Dashboards** menu on the {{ tracker-name }} top panel.
 
 {% endnote %}
 
@@ -27,8 +27,8 @@ To change the dashboard owner:
 
 1. Open the dashboard page.
 
-1. To the left of the dashboard name, select ![](../../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.access-control }}**.
+1. To the left of the dashboard name, select ![](../../_assets/tracker/icon-settings.png) → **Edit access control**.
 
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-dashboard.change-owner }}**, enter a new owner's name.
+1. Under **Change owner**, enter a new owner's name.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_roles-table.apply }}**.
+1. Click **Apply**.

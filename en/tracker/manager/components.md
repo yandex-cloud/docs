@@ -10,17 +10,17 @@ To create a new queue component:
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **Components**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-components.action--add }}**.
+1. Click **Create component**.
 
-1. Enter the component **{{ ui-key.startrek.blocks-desktop_b-form-new-component.name }}**.
+1. Enter the component **Name**.
 
 1. Select a responsible person if needed and fill out the component description.
 
-1. Select **{{ ui-key.startrek.blocks-desktop_b-form-new-component.task-assignee }}** if you want new issues with this component to be automatically assigned to the component owner.
+1. Select **Assign to issues by default** if you want new issues with this component to be automatically assigned to the component owner.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**.
+1. Click **Create**.
 
 ## Editing a component {#edit-component}
 
@@ -28,13 +28,13 @@ To change an existing component of the queue:
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **Components**.
 
 1. Hover the cursor over the component.
 
-1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--edit }}**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **Edit**.
 
-1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-update }}**.
+1. Make your changes and click **Save**.
 
 ## Subscribing to a component {#subscribe-component}
 
@@ -42,11 +42,11 @@ If you want to get notified about changes in issues linked to a specific compone
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **Components**.
 
 1. Hover the cursor over the component.
 
-1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--subscribe }}**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **Subscribe to issues with this component**.
 
 If you did everything right, you'll see the following icon next to the component name: ![](../../_assets/tracker/subscribtion.png)
 
@@ -56,7 +56,7 @@ You can view a list of issues linked to a specific component:
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **Components**.
 
 1. Tap the component name.
 
@@ -66,10 +66,10 @@ To delete a queue component:
 
 1. Open the [queue page](../user/queue.md).
 
-1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **Components**.
 
 1. Hover the cursor over the component.
 
-1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--delete }}**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **Remove**.
 
 1. Confirm the deletion.

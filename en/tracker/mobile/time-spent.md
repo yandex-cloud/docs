@@ -6,6 +6,6 @@ To edit your issue estimate, tap ![](../../_assets/tracker/mobile-edit-param.png
 
 {% note info %}
 
-If the **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.standard-info-section-time }}** section is missing, go to the web interface and add the **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** and **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}** fields in the right-hand panel by clicking ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.blocks-desktop_b-ticket-sidebar.action--select-fields }}**.
+If the **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.standard-info-section-time }}** section is missing, go to the web interface and add the **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** and **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}** fields in the right-hand panel by clicking ![](../../_assets/tracker/task-params-btn.png) **Select fields**.
 
 {% endnote %}

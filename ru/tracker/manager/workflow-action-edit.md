@@ -22,7 +22,7 @@
 
 Чтобы добавить автоматическое действие:
 
-1. В настройках перехода откройте раздел **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.settings-functions }}** и нажмите **{{ ui-key.startrek.ui_components_workflow-functions_WorkflowFunctionMenu.menu-title }}**.
+1. В настройках перехода откройте раздел **Автоматизация** и нажмите **{{ ui-key.startrek.ui_components_workflow-functions_WorkflowFunctionMenu.menu-title }}**.
 
 1. Выберите из списка необходимые автоматизации и настройте их. Если подходящей автоматизации не нашлось, настройте [триггер](../user/trigger.md).
 
@@ -55,7 +55,7 @@
 
 Чтобы добавить условия перехода:
 
-1. В настройках перехода откройте раздел **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.settings-conditions }}** и нажмите **{{ ui-key.startrek.ui_components_workflow-conditions_ConditionsMenu.add-condition }}**.
+1. В настройках перехода откройте раздел **Условия перехода** и нажмите **{{ ui-key.startrek.ui_components_workflow-conditions_ConditionsMenu.add-condition }}**.
 
 1. Выберите из списка подходящие условия и настройте их. Чтобы настроить группу условий с помощью операций **И** и **ИЛИ**, нажмите **{{ ui-key.startrek.ui_components_workflow-conditions_WorkflowGroupCondition.add-conditions-group }}**.
 
@@ -65,22 +65,22 @@
 
 Чтобы добавить экран перехода:
 
-1. В настройках перехода откройте раздел **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.settings-screen }}** и активируйте опцию **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEditPageScreen.enable-transition-screen }}**.
+1. В настройках перехода откройте раздел **Экран перехода** и активируйте опцию **Включить экран перехода**.
 
 1. Настройте экран перехода:
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-title--label-ru }}** — текст в заголовке всплывающего окна.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-title--label-en }}** — текст в заголовке всплывающего окна в английском интерфейсе.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-elements-title }}** — выберите поля, которые можно будет настроить на экране перехода. При необходимости задайте для полей значения по умолчанию. Чтобы сделать поле обязательным для заполнения, поставьте отметку справа от поля.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.worklogs-enable }}** — включите опцию, чтобы на экране перехода появилась форма учета времени.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.linking-enable }}** — включите опцию, чтобы на экране перехода появилась форма добавления связей с другим и задачами.
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.comment-enable }}** — включите опцию, чтобы на экране перехода появилось поле для комментария.
+   * **Название экрана** — текст в заголовке всплывающего окна.
+   * **Название экрана на английском языке** — текст в заголовке всплывающего окна в английском интерфейсе.
+   * **Поля на экране перехода** — выберите поля, которые можно будет настроить на экране перехода. При необходимости задайте для полей значения по умолчанию. Чтобы сделать поле обязательным для заполнения, поставьте отметку справа от поля.
+   * **Форма учёта времени** — включите опцию, чтобы на экране перехода появилась форма учета времени.
+   * **Добавление связей на экране перехода** — включите опцию, чтобы на экране перехода появилась форма добавления связей с другим и задачами.
+   * **Форма для комментария** — включите опцию, чтобы на экране перехода появилось поле для комментария.
 
 ### Копирование настроек перехода {#copy-transition-settings}
 
 Вы можете применять настройки одного перехода для других переходов. Для этого:
 
 1. В настройках перехода нажмите ![](../../_assets/tracker/svg/actions.svg).
-1. Нажмите ![](../../_assets/tracker/svg/copy-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.action-export-settings }}** или ![](../../_assets/tracker/svg/paste-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.action-import-settings }}**.
+1. Нажмите ![](../../_assets/tracker/svg/copy-transition.svg) **Скопировать настройки в другой переход** или ![](../../_assets/tracker/svg/paste-transition.svg) **Вставить настройки из другого перехода**.
 1. Выберите из списка переход для вставки или копирования настроек.
 
 ## Добавить переход между статусами {#add-action}
@@ -93,7 +93,7 @@
 
 1. Перейдите на вкладку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** и нажмите на название рабочего процесса. Откроется визуальный редактор рабочих процессов.
 
-1. На верхней панели визуального редактора процессов нажмите **Добавить переход**. Заполните поля **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-from-status }}** и **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.field-to-status}}** значениями из списков. Если вы хотите добавить переход для статусов, которых еще нет в рабочем процессе, сначала [добавьте их](./workflow-status-edit.md#add-status).
+1. На верхней панели визуального редактора процессов нажмите **Добавить переход**. Заполните поля **Исходный статус** и **Новый статус** значениями из списков. Если вы хотите добавить переход для статусов, которых еще нет в рабочем процессе, сначала [добавьте их](./workflow-status-edit.md#add-status).
 
 1. Заполните поля:
    * **Название** — будет автоматически подставлено название **Исходного статуса**. При необходимости вы можете его исправить.

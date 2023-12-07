@@ -7,10 +7,10 @@ To view all issues in the queue, open its page:
 1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
 1. Select a filter to show the list of queues:
-   * **{{ ui-key.startrek.blocks-desktop_m-head.group-title--owned--queues }}**.
+   * **My Queues**.
    * **Owned by me**
-   * **{{ ui-key.startrek.blocks-desktop_m-head.filters-favorite }}**.
-   * **{{ ui-key.startrek.blocks-desktop_m-head.group-title--recent }}**.
+   * **Favorites**.
+   * **Recently viewed**.
 
 1. If you cannot see all relevant queues, expand the list:
 
@@ -34,7 +34,7 @@ To open the list of your favorite queues:
 
 1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
-1. In the list on the right, select the **{{ ui-key.startrek.blocks-desktop_m-head.filters-favorite }}** filter.
+1. In the list on the right, select the **Favorites** filter.
 
 
 ## Saving a list to a file {#save-file}

@@ -6,7 +6,7 @@
 
 {% note warning %}
 
-Покер планирования доступен только на досках типа **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}**.
+Покер планирования доступен только на досках типа **Скрам**.
 
 {% endnote %}
 
@@ -14,21 +14,21 @@
 
 1. Чтобы перейти на страницу покера, откройте вашу доску и в правом верхнем углу страницы нажмите кнопку **{{ ui-key.startrek.ui_components_agile_poker_PokerButton.poker }}**.
 
-1. Попросите других участников планирования перейти на страницу покера. Все пользователи, которые зашли на страницу, будут отображены в блоке **{{ ui-key.startrek.components_Poker.users-section-title }}**.
+1. Попросите других участников планирования перейти на страницу покера. Все пользователи, которые зашли на страницу, будут отображены в блоке **Команда**.
 
 1. Чтобы добавить задачу в список на оценку, на левой панели в поле поиска введите ключ или название задачи.
 
-1. Чтобы выбрать задачу для оценки, на левой панели на карточке задачи нажмите кнопку **{{ ui-key.startrek.components_Poker.estimate }}**. 
+1. Чтобы выбрать задачу для оценки, на левой панели на карточке задачи нажмите кнопку **Оценить**. 
 
 1. На правой панели нажмите кнопку с оценкой, которую вы хотите выставить выбранной задаче.
 
-1. Дождитесь, пока остальные участники планирования выставят свои оценки. В блоке **{{ ui-key.startrek.components_Poker.users-section-title }}** под именами участников появятся значки ![](../../_assets/tracker/estimate-done.png).
+1. Дождитесь, пока остальные участники планирования выставят свои оценки. В блоке **Команда** под именами участников появятся значки ![](../../_assets/tracker/estimate-done.png).
 
 1. Нажмите кнопку **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.show-estimates }}**. Под именами участников планирования появятся значения оценок, которые они выбрали. 
 
-    Итоговая оценка будет [автоматически рассчитана](#section_calc) и сохранена в поле **{{ ui-key.startrek.components_Poker.mark-title }}**. При необходимости вы можете изменить это значение.
+    Итоговая оценка будет [автоматически рассчитана](#section_calc) и сохранена в поле **Оценка**. При необходимости вы можете изменить это значение.
 
-1. Чтобы завершить оценку задачи, нажмите кнопку **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.apply-estimate }}**. Значение из поля **{{ ui-key.startrek.components_Poker.mark-title }}** будет скопировано в поле задачи **{{ ui-key.startrek-backend.fields.issue.storyPoints }}**, задача будет скрыта со страницы покера.
+1. Чтобы завершить оценку задачи, нажмите кнопку **{{ ui-key.startrek.ui_components_agile_poker_PokerIssueForm.apply-estimate }}**. Значение из поля **Оценка** будет скопировано в поле задачи **{{ ui-key.startrek-backend.fields.issue.storyPoints }}**, задача будет скрыта со страницы покера.
 
 ## Настроить шкалу оценки {#section_scale}
 
@@ -36,13 +36,13 @@
 
 1. Откройте вашу доску и в правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/edit-agile.png).
 
-1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.title }}**.
+1. Перейдите на вкладку **Покер**.
 
 1. Чтобы добавить число в шкалу оценки, введите его в поле **Добавить оценку**.
 
 1. Чтобы удалить число из шкалы оценки, рядом с числом нажмите значок ![](../../_assets/tracker/delete-agile-status.png).
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.action-save }}**.
+1. Нажмите кнопку **Сохранить**.
 
 ## Настроить расчет итоговой оценки {#section_calc}
 
@@ -50,8 +50,8 @@
 
 1. Откройте вашу доску и в правом верхнем углу страницы нажмите кнопку ![](../../_assets/tracker/edit-agile.png).
 
-1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.title }}**.
+1. Перейдите на вкладку **Покер**.
 
 1. В поле **{{ ui-key.startrek.ui_components_agile_settings_PokerSettings.aggregation-function-field-label }}** выберите функцию расчета. По умолчанию задано **{{ ui-key.startrek-backend.messages.boards.poker.aggregate.function.maximum.double }}**.
 
-1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.action-save }}**.
+1. Нажмите кнопку **Сохранить**.

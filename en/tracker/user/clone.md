@@ -16,7 +16,7 @@ To clone an issue:
 
 1. Select the queue to create your cloned issue in.
 
-1. To save the issue parameters, enable **{{ ui-key.startrek.blocks-desktop_form-clone.clone-all-fields }}**. If some parameters are missing from the target queue (such as versions or components), they remain empty.
+1. To save the issue parameters, enable **Copy issue fields**. If some parameters are missing from the target queue (such as versions or components), they remain empty.
 
    {% note warning %}
 
@@ -24,8 +24,8 @@ To clone an issue:
 
    {% endnote %}
 
-1. To establish a link between the issue and its clone, enable **{{ ui-key.startrek.blocks-desktop_form-clone.link-with-original }}**.
+1. To establish a link between the issue and its clone, enable **Link the cloned issue**.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_form-clone.submit-button }}**.
+1. Click **Clone**.
 
 You can open the issue's clone from the notification bar in the bottom-right corner of the page.

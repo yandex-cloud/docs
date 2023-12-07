@@ -6,12 +6,22 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
-      - name: Загрузка данных
-        href: operations/data/upload-data.md
-      - name: Работа с диалогами
-        href: operations/data/manage-dialogs.md
-      - name: Работа с отчетами
-        href: operations/data/manage-reports.md
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Работа с данными
+        items:
+          - name: Загрузка данных
+            href: operations/data/upload-data.md
+          - name: Работа с диалогами
+            href: operations/data/manage-dialogs.md
+          - name: Работа с отчетами
+            href: operations/data/manage-reports.md
+      - name: Управление пространством
+        items:
+          - name: Создать пространство
+            href: operations/space/create.md
+          - name: Удалить пространство
+            href: operations/space/delete.md
   - name: Концепции
     items:
       - name: Диалоги в {{ speechsense-name }}

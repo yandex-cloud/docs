@@ -6,7 +6,7 @@
 
 Чтобы перейти к диаграмме Ганта:
 
-1. На [панели слева]({{ link-tracker }}) выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects/list) и откройте страницу проекта.
+1. На [панели слева]({{ link-tracker }}) выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**Проекты** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects/list) и откройте страницу проекта.
 
 1. {% include [go-to-gantt](../../_includes/tracker/go-to-gantt.md) %}
 
@@ -78,4 +78,4 @@
 * ![](../../_assets/tracker/svg/move-down.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-down }}** (только при ручной сортировке);
 * ![](../../_assets/tracker/svg/convert.svg) **Преобразовать в [веху](../manager/milestones.md) или задачу**.
 * ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_projects_hooks.delete-from-project }}**;
-* ![](../../_assets/tracker/svg/gantt-palette.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.choose-color }}** (только при настройке цвета **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}**).
+* ![](../../_assets/tracker/svg/gantt-palette.svg) **Выбрать цвет** (только при настройке цвета **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}**).

@@ -6,7 +6,7 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 1. Open the issue page.
 
-1. Click ![](../../_assets/tracker/svg/checklist.svg) **{{ ui-key.startrek.ui_components_IssueChecklist.add-checklist }}**.
+1. Click ![](../../_assets/tracker/svg/checklist.svg) **Add checklist**.
 
 1. Name the first item in the list.
 

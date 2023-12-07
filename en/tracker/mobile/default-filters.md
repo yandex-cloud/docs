@@ -8,17 +8,17 @@ Find your issues using preset system filters.
 
 1. In the top-left corner, tap **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.all-issues-filter-title }}** and select one of the options:
 
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-favorite }}**: Issues you [added to Favorites](../user/favourites.md#task-fav).
+   * **Favorite issues**: Issues you [added to Favorites](../user/favourites.md#task-fav).
 
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-my-issues }}**: Issues in which you are the reporter, assignee, or follower.
+   * **All my issues**: Issues in which you are the reporter, assignee, or follower.
 
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-author }}**: Issues you created.
+   * **Created by me**: Issues you created.
 
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-assignee }}**: Issues in which you are the assignee.
+   * **Assigned to me**: Issues in which you are the assignee.
 
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-follower }}**: Issues you are [subscribed](../user/subscribe.md#section_xt5_xrv_jz) to.
+   * **Followed by me**: Issues you are [subscribed](../user/subscribe.md#section_xt5_xrv_jz) to.
 
-   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-waiting }}**: Issues you were [invited to comment](comments.md#call-comment) on.
+   * **Waiting for response**: Issues you were [invited to comment](comments.md#call-comment) on.
 
    * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_deadline }}**: Issues in which you are the reporter, assignee, or follower and where:
 
@@ -37,13 +37,13 @@ To find issues by the parameters that can't be set using the system filters, add
 
 1. In the top-right corner, tap ![](../../_assets/tracker/svg/gantt-settings-button.svg).
 
-1. Select an issue parameter, set its value, and tap **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**.
+1. Select an issue parameter, set its value, and tap **Apply**.
 
    Any issues that don't meet your criteria are filtered out of the list.
 
 
 1. If you need to refine the search conditions, add more parameters.
 
-1. To reset the search parameters, tap **{{ ui-key.startrek.blocks-desktop_issues-filter.action--reset }}** in the top-right corner of the **{{ ui-key.startrek.blocks-desktop_b-page-issues.page-title }}** page.
+1. To reset the search parameters, tap **Reset** in the top-right corner of the **Filters** page.
 
 {% endlist %}

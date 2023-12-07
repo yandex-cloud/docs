@@ -8,7 +8,7 @@
 
 При выборе этого шаблона автоматически создается [простая доска задач](agile.md#sec_boards).
 
-Воркфлоу включает один тип задач: **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
+Воркфлоу включает один тип задач: **Задача**.
 
 Задачи могут иметь статусы:
 
@@ -35,10 +35,10 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--release }}**.
+- **Задача**;
+- **Улучшение**;
+- **Ошибка**;
+- **Релиз**.
 
 Задачи могут иметь статусы:
 
@@ -71,10 +71,10 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **Задача**;
+- **Улучшение**;
+- **Ошибка**;
+- **Проект**.
 
 Задачи могут иметь статусы:
 
@@ -106,10 +106,10 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--epic }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }}**.
+- **Задача**;
+- **Ошибка**;
+- **Эпик**;
+- **Story**.
 
 Задачи могут иметь статусы:
 
@@ -142,10 +142,10 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--epic }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }}**.
+- **Задача**;
+- **Ошибка**;
+- **Эпик**;
+- **Story**.
 
 Задачи могут иметь статусы:
 
@@ -177,8 +177,8 @@
 
 Воркфлоу включает типы задач: 
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **Задача**;
+- **Проект**.
 
 Задачи могут иметь статусы: 
 
@@ -207,8 +207,8 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **Задача**;
+- **Проект**.
 
 Задачи могут иметь статусы:
 
@@ -237,8 +237,8 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **Задача**;
+- **Проект**.
 
 Задачи могут иметь статусы:
 
@@ -262,7 +262,7 @@
 
 Этот шаблон очереди предназначен для процесса согласования документов.
 
-Воркфлоу включает один тип задач: **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
+Воркфлоу включает один тип задач: **Задача**.
 
 Задачи могут иметь статусы:
 
@@ -290,11 +290,11 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--absence }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--mission }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--changes }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--documents }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--request }}**.
+- **Отсутствие**;
+- **Командировка**;
+- **Изменения**;
+- **Документы**;
+- **Запрос**.
 
 Задачи могут иметь статусы:
 
@@ -322,8 +322,8 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--vacancy }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--candidate }}**.
+- **Вакансия**;
+- **Кандидат**.
 
 Задачи могут иметь статусы: 
 - **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**;
@@ -350,17 +350,17 @@
 
 Воркфлоу включает типы задач:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**;
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **Задача**;
+- **Проект**.
 
 Задачи могут иметь статусы:
 
-- **{{ ui-key.startrek.lib_goals-info.status--NEW }}**;
-- **{{ ui-key.startrek.lib_goals-info.status--PLANNED }}**;
-- **{{ ui-key.startrek.lib_goals-info.status--RISK }}**;
-- **{{ ui-key.startrek.lib_goals-info.status--CANCELLED }}**;
-- **{{ ui-key.startrek.lib_goals-info.status--REACHED }}**;
-- **{{ ui-key.startrek.lib_goals-info.status--BLOCKED }}**.
+- **Новая**;
+- **По плану**;
+- **Есть риски**;
+- **Отменена**;
+- **Достигнута**;
+- **Заблокирована**.
 
 Возможные переходы между статусами:
 

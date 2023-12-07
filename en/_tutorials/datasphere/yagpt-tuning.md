@@ -8,7 +8,7 @@ Foundation model retraining is at the [Preview](../../overview/concepts/launch-s
 
 {% note info %}
 
-{{ yagpt-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to the service is granted on request.
+{{ yagpt-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. 
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -150,24 +150,24 @@ File content example:
 
 - API
 
-    Code to access the model:
+   Code to access the model:
 
-    ```python
-    import requests
-    req = {
-    	      "model": "general",
-    	      "instruction_uri" : "ds://<ID_of_retrained_model>",
-    	      "request_text": "<text_of_request>",
-    	      "generation_options": {
-    	      "max_tokens": 1000,
-    	      "temperature": 0.1
-    	      }
-    }
-    headers = {'Authorization': 'Bearer ' + '<IAM_token>'}
-    res = requests.post("https://llm.api.cloud.yandex.net/llm/v1alpha/instruct",
-          headers=headers, json=req)
-    print(res.json())
-    ```
+   ```python
+   import requests
+   req = {
+   	    "model": "general",
+   	    "instruction_uri" : "ds://<ID_of_retrained_model>",
+   	    "request_text": "<text_of_request>",
+   	    "generation_options": {
+   	    "max_tokens": 1000,
+   	    "temperature": 0.1
+   	    }
+   }
+   headers = {'Authorization': 'Bearer ' + '<IAM_token>'}
+   res = requests.post("https://llm.api.cloud.yandex.net/llm/v1alpha/instruct",
+         headers=headers, json=req)
+   print(res.json())
+   ```
 
     Where:
 

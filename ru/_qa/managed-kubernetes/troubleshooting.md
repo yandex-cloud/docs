@@ -231,6 +231,32 @@ kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 
 {% include [assign-public-ip-addresses](../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
+#### Ошибка при подключении к кластеру с помощью `kubectl` {#connect-to-cluster}
+
+Текст ошибки:
+
+```text
+ERROR: cluster has empty endpoint
+```
+
+Ошибка возникает, если [подключаться к кластеру](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) без публичного IP-адреса, а учетные данные для `kubectl` получить для публичного IP-адреса с помощью команды:
+
+```bash
+{{ yc-k8s }} cluster \
+   get-credentials <имя_или_идентификатор_кластера> \
+   --external
+```
+
+Для подключения к внутреннему IP-адресу кластера с ВМ, находящейся в той же сети, получите учетные данные для `kubectl` с помощью команды:
+
+```bash
+{{ yc-k8s }} cluster \
+   get-credentials <имя_или_идентификатор_кластера> \
+   --internal
+```
+
+Если вам нужно подключиться не с ВМ, [пересоздайте кластер и предоставьте](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) ему публичный IP-адрес.
+
 #### Ошибки при подключении к узлу по SSH {#node-connect}
 
 Тексты ошибок:

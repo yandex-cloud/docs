@@ -14,9 +14,9 @@ You can only create an epic in a queue that has epic as an issue type.
 
 ## Creating an epic on a board {#create-epic}
 
-1. On the board, click ![](../../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_m-head.new-issue }}**.
-1. Go to the page with the full issue creation form. To do this, click ![](../../_assets/tracker/svg/open-full.svg) (**{{ ui-key.startrek.ui_components_create-issue-popup_CreateIssuePageLink.open-create-form }}**).
-1. Fill in all the required issue fields. In the **{{ ui-key.startrek.components_FormCreateIssue.field--type }}** field, specify `{{ ui-key.startrek-backend.fields.issue.epic }}`.
+1. On the board, click ![](../../_assets/tracker/svg/icon-add.svg) **Create issue**.
+1. Go to the page with the full issue creation form. To do this, click ![](../../_assets/tracker/svg/open-full.svg) (**Open full form**).
+1. Fill in all the required issue fields. In the **Type** field, specify `{{ ui-key.startrek-backend.fields.issue.epic }}`.
 1. Click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
 
 ## Adding an issue to an epic {#add-to-epic}
@@ -25,7 +25,7 @@ You can add an issue to an epic via a [link](../user/ticket-links.md) either fro
 
 ### Adding an issue from the epic page {#add-from-epic}
 
-1. On the epic page under **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}**, click **{{ ui-key.startrek.ui_components_CreateIssueLinkButton.add-relation }}**.
+1. On the epic page under **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}**, click **Add link**.
 
 1. Select the **{{ ui-key.startrek-backend.fields.issue.links.relationship.has.epic }}** link type.
 
@@ -33,7 +33,7 @@ You can add an issue to an epic via a [link](../user/ticket-links.md) either fro
 
 ### Adding an issue from the issue page {#add-from-task}
 
-1. On the issue page under **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}**, click **{{ ui-key.startrek.ui_components_CreateIssueLinkButton.add-relation }}**.
+1. On the issue page under **{{ ui-key.startrek.ui_components_issue-links_InternalLinksCollapse.relations }}**, click **Add link**.
 
 1. Select the **{{ ui-key.startrek-backend.fields.issue.epic }}** link type.
 
@@ -48,7 +48,7 @@ An issue can belong to only one epic.
 
 ## Creating a new issue in an epic {#create-in-epic}
 
-1. On the epic page under **{{ ui-key.startrek.blocks-desktop_b-related-issues__title.is_epic_of }}**, click ![](../../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_calendar-editor--overrides-modal.add-button }}**.
+1. On the epic page under **Epic issues**, click ![](../../_assets/tracker/svg/icon-add.svg) **Add**.
 1. Fill in the required fields and save the issue.
 
 ## Removing an issue from an epic {#remove-from-epic}

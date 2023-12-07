@@ -11,8 +11,8 @@
   Чтобы изменить ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите на имя нужной ВМ.
+  1. Нажмите кнопку ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Измените параметры ВМ, например, переименуйте машину, отредактировав поле **{{ ui-key.yacloud.compute.instances.create.field_name }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
@@ -156,3 +156,49 @@
 ### Удалить SSH-ключи из метаданных {#delete-keys-from-metadata}
 
 {% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
+
+### Включить доступ через OS Login {#enable-oslogin-access}
+
+Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) через [OS Login](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите на имя нужной ВМ.
+  1. Нажмите кнопку ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
+  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для обновления параметров ВМ:
+
+     ```bash
+     yc compute instance update --help
+     ```
+
+  1. Получите список ВМ в каталоге по умолчанию:
+
+     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
+
+  1. Включите доступ через OS Login:
+
+     ```bash
+     yc compute instance update first-instance \
+       --metadata enable-oslogin=true
+     ```
+
+- API
+
+  Передайте в поле `metadata` пару `enable-oslogin=true` в методе REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или в вызове gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
+
+{% endlist %}

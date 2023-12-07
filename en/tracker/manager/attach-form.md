@@ -25,7 +25,7 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 
 1. Set up [integration with {{ tracker-name }}](../../forms/create-task.md) for the form.
 
-1. [Publish](../../forms/publish.md#section_link) the form and copy the link to it from the **{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-uri }}** field.
+1. [Publish](../../forms/publish.md#section_link) the form and copy the link to it from the **Link** field.
 
 ## Step 2. Connect your form to the queue {#section_xxj_fll_1gb}
 
@@ -35,11 +35,11 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--forms }}**, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_forms.add-btn }}**.
+1. Under **Forms integration**, click **Add form**.
 
 1. Add a link to the form.
 
 1. Add a name and description for the form. Users will see them in the form selection window when creating an issue.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_form-editor.create-btn }}**.
+1. Click **Create**.
 

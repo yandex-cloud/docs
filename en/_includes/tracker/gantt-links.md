@@ -16,4 +16,4 @@ Links between issues are shown as arrows from the dependent to the blocking issu
 
    {% endnote %}
 
-* To delete a link between issues, click the link arrow and then click ![](../../_assets/tracker/svg/del-link.svg) **{{ ui-key.startrek.blocks_touch_b-related-issues.delete }}**.
+* To delete a link between issues, click the link arrow and then click ![](../../_assets/tracker/svg/del-link.svg) **Delete link**.

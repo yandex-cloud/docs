@@ -9,7 +9,7 @@
 
 * Используйте [язык запросов](query-filter.md).
 
-  Откройте [страницу **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**]({{ link-tracker }}issues) и в правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_PageIssues_FilterInputTypeSwitch.query-language }}**.
+  Откройте [страницу **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**]({{ link-tracker }}issues) и в правом верхнем углу нажмите кнопку ![](../../_assets/tracker/svg/query-language.svg) **Язык запросов**.
 
   Введите запрос в строку запроса. В запросе используйте параметры:
 

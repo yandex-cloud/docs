@@ -33,7 +33,7 @@
 
 ## Как можно выдать или отозвать полный доступ в {{ tracker-name }} {#full-access}
 
-[Управлять доступом пользователей](access.md#set) можно в интерфейсе {{ tracker-name }} в разделе <q>{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-users-licenses }}</q>. 
+[Управлять доступом пользователей](access.md#set) можно в интерфейсе {{ tracker-name }} в разделе <q>Управление пользователями</q>. 
 
 Обратите внимание, что сумма платежей за использование сервиса зависит от максимального количества пользователей, у которых был полный доступ в {{ tracker-name }} в течение месяца. Поэтому советуем сначала [отключать доступ](disable-tracker.md) для пользователей, которым он больше не нужен, а затем давать доступ [новым пользователям](add-users.md).
 
@@ -44,7 +44,7 @@
 
 ## Как удалить задачу {#section_z1d_r1l_nbb}
 
-Удалить задачу нельзя, но вы можете закрыть ее с подходящей резолюцией. Например, повторяющиеся задачи можно закрыть с резолюцией <q>{{ ui-key.startrek.blocks-desktop_b-table-related-issues.relation-is-duplicated-by }}</q>, а созданные по ошибке с резолюцией <q>{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusTypeSelector.status-canceled-name }}</q>. Подробнее о задачах читайте в разделе [Как работать с задачей](user/ticket-in-progress.md).
+Удалить задачу нельзя, но вы можете закрыть ее с подходящей резолюцией. Например, повторяющиеся задачи можно закрыть с резолюцией <q>Дубликат</q>, а созданные по ошибке с резолюцией <q>Отменен</q>. Подробнее о задачах читайте в разделе [Как работать с задачей](user/ticket-in-progress.md).
 
 
 {% note tip %}
@@ -61,9 +61,9 @@
 
 1. Откройте [страницу очереди](user/queue.md).
 
-1. Слева от имени очереди выберите ![](../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}**. 
+1. Слева от имени очереди выберите ![](../_assets/tracker/icon-settings.png) → **Администрирование**. 
 
-1. Перейдите на вкладку **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.title }}**.
+1. Перейдите на вкладку **Основные параметры**.
 
 1. Нажмите кнопку **{{ ui-key.startrek.ui_components_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
 
@@ -109,9 +109,9 @@
 
 1. Создайте новый [виджет <q>Задачи</q>](user/widgets#section_ll1_zdp_pz).
 
-1. Поле **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-filter }}** заполните так же, как в вашем прежнем виджете. 
+1. Поле **Фильтр** заполните так же, как в вашем прежнем виджете. 
 
-1. В поле **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-fields }}** выберите параметры задачи, которые нужно отобразить в таблице.
+1. В поле **Столбцы** выберите параметры задачи, которые нужно отобразить в таблице.
 
 1. Заполните остальные поля и сохраните новый виджет.
 
@@ -127,11 +127,11 @@
 
 1. В существующих задачах перенесите данные в новое поле с помощью [автодействия](user/create-autoaction):
 
-   1. Выберите тип **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--update }}**.
+   1. Выберите тип **Обновление задач**.
 
-   1. В разделе **{{ ui-key.startrek.blocks-desktop_filter-edit-modal.filter--title }}** нажмите **{{ ui-key.startrek.blocks-desktop_issues-filter.action--add-field }}**, выберите **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--issue }}** и укажите название задачи (ключевую фразу, которая используется для группировки в виджете).
+   1. В разделе **Параметры фильтра** нажмите **Добавить условие**, выберите **Задача** и укажите название задачи (ключевую фразу, которая используется для группировки в виджете).
 
-   1. Нажмите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-action }}** и выберите **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--field }}**. Затем выберите созданное ранее поле и скопируйте в него название задачи.
+   1. Нажмите **Добавить действие** и выберите **Изменить значения в полях**. Затем выберите созданное ранее поле и скопируйте в него название задачи.
 
    1. Создайте аналогичные автодействия для всех возможных ключевых фраз.
 

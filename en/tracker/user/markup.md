@@ -69,13 +69,13 @@ To add a link:
 
 1. Enter the link's URL. If you have not selected a text fragment, enter the text to be displayed as a link.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
+1. Click **Save**.
 
 To change or delete a link:
 
 1. Click on the link.
 
-1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
+1. Make your changes and click **Save**.
 
 ## Embedded content {#content}
 
@@ -112,7 +112,7 @@ To insert an image using a link:
 
    * Specify the image size.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
+1. Click **Save**.
 
 The image will be uploaded to the description or comment and show up in a list of attached files under the issue description.
 
@@ -122,7 +122,7 @@ To add a file to a description or comment to an issue, in the toolbar, click ![]
 
 * If the file is stored on your device, select the tab **Upload from device**, then click **Upload** to open the file manager.
 
-* If your file is stored on the file hosting, select the **Add by link** tab. Paste a link to the file and enter the file name, then click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
+* If your file is stored on the file hosting, select the **Add by link** tab. Paste a link to the file and enter the file name, then click **Save**.
 
 The file will be uploaded to the description or comment and show up in a list of attached files under the issue description.
 
@@ -134,11 +134,11 @@ To embed an object or media file from an external source in your issue descripti
 
 1. On the toolbar, click ![](../../_assets/tracker/text-edit/iframe.svg):
 
-   * In the **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--uri }}** field, paste the resource URL.
+   * In the **URL** field, paste the resource URL.
 
    * Specify the frame size.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
+1. Click **Save**.
 
 ## Tables {#tables-wysiwyg}
 

@@ -7,10 +7,10 @@
 1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
 1. Выберите фильтр для отображения списка очередей:
-    * **{{ ui-key.startrek.blocks-desktop_m-head.group-title--owned--queues }}**.
+    * **Мои очереди**.
     * **Я владелец**.
-    * **{{ ui-key.startrek.blocks-desktop_m-head.filters-favorite }}**.
-    * **{{ ui-key.startrek.blocks-desktop_m-head.group-title--recent }}**.
+    * **Избранные**.
+    * **Недавно просмотренные**.
 
 1. Если отобразились не все нужные очереди, откройте полный список:
 
@@ -34,7 +34,7 @@
 
 1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
-1. В списке справа выберите фильтр **{{ ui-key.startrek.blocks-desktop_m-head.filters-favorite }}**.
+1. В списке справа выберите фильтр **Избранные**.
 
 
 ## Сохранить список в файл {#save-file}

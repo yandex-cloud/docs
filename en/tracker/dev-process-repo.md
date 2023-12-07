@@ -24,7 +24,7 @@ To connect a repository:
 
    For more information about the connection parameters, see [{#T}](user/add-repository.md).
 
-1. To display related commits on the issue page, go to [your queue settings](manager/edit-queue-general.md#integration) and enable **{{ ui-key.startrek.blocks-desktop_b-queue-form.commits }}**.
+1. To display related commits on the issue page, go to [your queue settings](manager/edit-queue-general.md#integration) and enable **Show "Сommits" tab**.
 
 To link a commit to an issue in {{ tracker-name }}, specify your [issue key](user/create-ticket.md#key) in a comment under the commit.
 
