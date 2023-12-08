@@ -81,7 +81,7 @@
     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](cli-install.md) %}
 
@@ -490,7 +490,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   Выполните следующую команду:
 
@@ -688,7 +688,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Создайте HTTP-роутер `canary-router`:
 
@@ -897,7 +897,7 @@
      1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `canary-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Получите идентификаторы подсетей сети `canary-network`:
 
@@ -1147,7 +1147,7 @@
      1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Если CDN-провайдер ещё не активирован, выполните команду:
       
@@ -1364,7 +1364,7 @@
 
      1. Аналогично создайте в той же зоне CNAME-запись для `cdn-staging.yandexcloud.example`. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn-staging`.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
@@ -1483,7 +1483,7 @@
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1574,7 +1574,7 @@
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1640,7 +1640,7 @@
      1. Аналогично для бэкенда `canary-backend-green` установите вес 20 вместо 0.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
      1. Для бэкенда `canary-backend-blue` установите вес 80 вместо 100:
 
@@ -1766,7 +1766,7 @@
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1832,7 +1832,7 @@
      1. Аналогично для бэкенда `canary-backend-green` установите вес 0 вместо 100.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
      1. Для бэкенда `canary-backend-blue` установите вес 100 вместо 0:
 

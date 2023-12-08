@@ -16,9 +16,9 @@ Under one Yandex account, all payers must be either residents of Russia or Kazak
 
 New customers are entitled to a trial period. The [trial period](../concepts/trial-period.md) allows you to discover the features of the cloud infrastructure for free with some limitations. To fully use the resources, you need to switch to the paid version after your trial period ends.
 
-{% list tabs %}
+{% list tabs group=customers %}
 
-- Individuals
+- Individuals {#individuals}
 
    To create a billing account:
 
@@ -63,7 +63,7 @@ New customers are entitled to a trial period. The [trial period](../concepts/tri
 
    1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
 
-- Business, individual entrepreneur, or non-resident of Russia or Kazakhstan
+- Business, individual entrepreneur, or non-resident of Russia or Kazakhstan {#businesses-entrepreneurs}
 
    To create a billing account:
 

@@ -28,7 +28,7 @@ To top up your personal account:
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
-Payment is processed in real time and completed within 15 minutes.
+Your payment will be processed in real time and completed within 15 minutes.
 
 ## Businesses and individual entrepreneurs {#legal-entities}
 
@@ -39,9 +39,9 @@ To top up your personal account:
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Select a payment method:
 
-{% list tabs %}
+{% list tabs group=payments %}
 
-- Bank transfer
+- Bank transfer {#transfer}
 
    Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 
@@ -58,12 +58,12 @@ To top up your personal account:
 
    {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
-- Bank card
+- Bank card {#card}
 
    Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
 
    {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
-   Payment is processed in real time and completed within 15 minutes.
+   Your payment will be processed in real time and completed within 15 minutes.
 
 {% endlist %}

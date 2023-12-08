@@ -1,3 +1,8 @@
+---
+title: "How to view service usage details in {{ billing-name }}"
+description: "Follow this guide to view service usage details."
+---
+
 # View service usage details
 
 You can view charts and tables with information about {{ yandex-cloud }} service usage. To do this:
@@ -17,9 +22,9 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=details %}
 
-- For clouds
+- For clouds {#clouds}
 
    You can view usage details for one or more clouds. The selected clouds have a mark next to their name. By default, all the linked clouds are marked. To only view usage details for some of them, in the **{{ ui-key.yacloud.billing.accounts.column_cloud }}** list, deselect the clouds you need no information about. To exclude {{ datalens-full-name }}, {{ tracker-full-name }}, or {{ ml-platform-name }} usage info from details, deselect **Consumption outside cloud** at the bottom of the cloud list. To get details for selected clouds by specific product or label, click **{{ ui-key.yacloud.billing.account.detail.filter_label_all-filters }}** and specify the products and labels to include in the report.
 
@@ -29,19 +34,19 @@ By default, usage details show the cost of consumed resources. Details in consum
 
    {% endnote %}
 
-- For folders
+- For folders {#folders}
 
    You can view usage details for one or more folders. The selected folders have a mark next to their name. By default, all the folders of the selected cloud are marked. To only view usage details for some of them, in the **{{ ui-key.yacloud.billing.account.detail.filter_label-folders-unfill }}** list, deselect the folders you need no information about. To get details for selected folders by specific product or label, click **{{ ui-key.yacloud.billing.account.detail.filter_label_all-filters }}** and specify the products and labels to include in the report.
 
-- For services
+- For services {#services}
 
    You can view usage details for one or more services in different clouds. You can also view usage details for one or more services in different folders of the selected cloud. By default, all services in all clouds are selected. The selected elements have a mark next to their name. To only view usage details for some of them, in the **{{ ui-key.yacloud.billing.account.detail.label_service }}**, **{{ ui-key.yacloud.billing.account.detail.filter_label-folders-unfill }}**, or **{{ ui-key.yacloud.billing.accounts.column_cloud }}** list, deselect the elements you need no information about. To get details for selected services by specific cloud, folder, or label, click **{{ ui-key.yacloud.billing.account.detail.filter_label_all-filters }}** and specify the objects to include in the report.
 
-- For products
+- For products {#products}
 
    You can view usage details for one or more products in different clouds. You can also view usage details for one or more products in different folders of the selected cloud. By default, all products in all clouds are selected. The selected elements have a mark next to their name. To only view usage details for some of them, click **{{ ui-key.yacloud.billing.account.detail.label_product }}** and deselect the products and services you need no information about. Click **{{ ui-key.yacloud.billing.account.overview.button_bind-card-apply }}**. To get details for selected products by specific cloud, folder, or label, click **{{ ui-key.yacloud.billing.account.detail.filter_label_all-filters }}** and specify the objects to include in the report.
 
-- For labels
+- For labels {#labels}
 
    You can view usage details for [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to a resource and then specify the label name in the **Label key** list. If there are details for the selected label in the cloud, you will see information in the chart and the table below it with all the values corresponding to the selected label.
    You can also view details by a specific value of the label you select for one or more products in different folders of the selected cloud:

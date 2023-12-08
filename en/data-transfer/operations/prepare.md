@@ -1,3 +1,8 @@
+---
+title: "How to prepare for the transfer"
+description: "In this tutorial, you will learn how to prepare for the transfer."
+---
+
 # Preparing for the transfer
 
 ## Preparing a source {#source}
@@ -55,7 +60,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
         --add \
         --allow-principal User:username \
         --operation Read \
-        --group <transfer_id>
+        --group <transfer_ID>
       ```
 
    1. (Optional) To use username and password authorization, configure [SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
@@ -936,10 +941,10 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
 - {{ mmg-name }}
 
-   1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) with the same name as the source database.
+   1. [Create a database](../../managed-mongodb/operations/databases.md#add-db).
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
    1. To shard the migrated collections in the {{ mmg-full-name }} target cluster:
-      1. Use this [guide](../../managed-mongodb/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
+      1. Use [this guide](../../managed-mongodb/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
 
          {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 
@@ -1004,7 +1009,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
          });
          ```
 
-   1. Connect to the cluster and create a target database with the same name as the source database:
+   1. Connect to the cluster and create a target database:
 
       ```javascript
       use <database_name>

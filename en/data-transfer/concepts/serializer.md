@@ -1,3 +1,7 @@
+---
+title: "Serialization in {{ data-transfer-full-name }}"
+---
+
 # Serialization
 
 Serialization is the conversion of data objects to a bit sequence when transferring data to targets that work with <q>raw</q> data. These targets include:
@@ -140,7 +144,7 @@ Automatic selection of serialization settings depending on the source type.
    The possible values include:
 
    * `numeric`: Approximate conversion to microseconds.
-   * `string`: Precise conversion based on a string template like `P<years>Y<months>M<days>DT<hours>H<minutes>M<seconds>S`.
+   * `string`: Precise conversion based on the string template: `P<years>Y<months>M<days>DT<hours>H<minutes>M<seconds>S`.
 
    The default value is `numeric`.
 

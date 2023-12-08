@@ -45,7 +45,7 @@
      1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `storage.uploader`, `storage.viewer` и `{{ roles-lockbox-payloadviewer }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
     
-   - CLI
+   - {{ yandex-cloud }} CLI
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -184,7 +184,7 @@
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Выполните команду:
 
@@ -282,7 +282,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   Чтобы создать секрет, выполните команду:
 
@@ -504,7 +504,7 @@
       
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Создайте функцию `copy-function`:
 
@@ -696,7 +696,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   Выполните команду:
 

@@ -124,6 +124,7 @@ default:
   dt-copy-regular: Периодическое
   dt-copy-regular-incremental: Периодическое инкрементальное
   dt-copy-snapshot: Однократное
+  dt-mg-version: 3.6
   dt-status-copy: '**Копируется**'
   dt-status-created: '**Создан**'
   dt-status-creation: '**Создается**'

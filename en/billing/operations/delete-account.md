@@ -1,4 +1,9 @@
-# Delete a billing account
+---
+title: "How to delete a billing account in {{ billing-name }}"
+description: "Follow this guide to delete a billing account."
+---
+
+# Deleting a billing account
 
 To delete a {{ yandex-cloud }} billing account you no longer need:
 
@@ -8,4 +13,4 @@ To delete a {{ yandex-cloud }} billing account you no longer need:
 
 Please note that this operation cannot be undone.
 
-See also [how to link a cloud to a different billing account](pin-cloud.md).
+For more information, refer to [how to link a cloud to a different billing account](pin-cloud.md).

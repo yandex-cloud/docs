@@ -1,10 +1,7 @@
 # Monitoring transfer status
 
-Transfer status details are available in the management console. You can view them in the **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab on the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
-
-Diagnostic information about the transfer status is presented as charts.
-
-
+Transfer status details are available in the management console.
+Detailed diagnostic information is presented as charts. You can view them in the **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you will receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
 
 
@@ -102,7 +99,7 @@ Alert triggering means that the source base generated no replicated {{ data-tran
 
 Possible causes:
 
-* The source base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a source base failure.
+* The source base is not available over the network for {{ data-transfer-name }}, e.g., due to revoked accesses or a source base failure.
 * The source base has no data to replicate.
 
 Alert parameters:
@@ -130,11 +127,11 @@ Alert parameters:
 
 When an alert is triggered, it means that the target database recorded no replicated {{ data-transfer-name }} events during the evaluation window.
 
-Possible causes:
+Possible causes include:
 
-* The source or target base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a source/target base failure.
+* The source or target base is not available over the network for {{ data-transfer-name }}, e.g., due to revoked accesses or a source/target base failure.
 * The source base has no data to replicate.
-* The data from the source database cannot be replicated to the target one, for example, due to the target data type limitations in the target database.
+* The data from the source database cannot be replicated to the target one, e.g., due to the target data type limitations in the target database.
 
 Alert parameters:
 
@@ -162,9 +159,9 @@ Alert triggering means that the time difference between execution of the operati
 
 Possible causes:
 
-* The target database is not available over the network for {{ data-transfer-name }}, for example, due to revoked accesses or a target database failure.
+* The target database is not available over the network for {{ data-transfer-name }}, e.g., due to revoked accesses or a target database failure.
 * Not enough resources for replication. For example, the load on the source database exceeds the capacity of the VM instance the {{ data-transfer-name }} replication is running on.
-* The data from the source database cannot be replicated to the target one, for example, due to the target data type limitations in the target database.
+* The data from the source database cannot be replicated to the target one, e.g., due to the target data type limitations in the target database.
 
 Alert parameters:
 
@@ -189,7 +186,7 @@ Alert triggering means that no bytes of data were read from the source during th
 
 Possible causes:
 
-* The source base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a source base failure.
+* The source base is not available over the network for {{ data-transfer-name }}, e.g., due to revoked accesses or a source base failure.
 * The source base has no data to replicate.
 
 Alert parameters:
@@ -212,4 +209,4 @@ Alert parameters:
 
 ## Specifics of working with alerts {#alert-specifics}
 
-* To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if alert [{#T}](#source-change-items) is triggered, and alert[{#T}](#target-change-items) is not triggered, the problem is probably not on the source.
+* To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if the [{#T}](#source-change-items) alert is fired, and the [{#T}](#target-change-items) alert is not fired, the problem is probably not on the source.

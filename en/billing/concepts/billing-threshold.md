@@ -1,6 +1,11 @@
+---
+title: "Billing threshold in {{ billing-name }}"
+description: "A billing threshold is a negative personal account balance. The billing threshold is how post-payment is implemented in {{ yandex-cloud }}."
+---
+
 # Billing threshold
 
-The billing threshold is a negative [personal account balance](../concepts/personal-account.md#balance). The billing threshold is the implementation of a postpaid usage model for {{ yandex-cloud }}. In other words, this is the limit after which {{ yandex-cloud }} can:
+A billing threshold is a negative [personal account balance](../concepts/personal-account.md#balance). The billing threshold is how post-payment is implemented in {{ yandex-cloud }}. In other words, this is the limit after which {{ yandex-cloud }} can:
 * Require that you settle your arrears before the reporting period.
 * Suspend your use of resources.
 

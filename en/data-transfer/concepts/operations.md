@@ -1,9 +1,14 @@
+---
+title: "Operations on transfers in {{ data-transfer-full-name }}"
+description: "An operation is an action performed on a transfer that can be initiated by users, the transfer itself, or {{ yandex-cloud }} administrators."
+---
+
 # Operations on transfers
 
 An operation is an action performed on a transfer that can be initiated by:
-* Users, for example, when activating or deactivating a transfer.
-* The transfer itself, for instance, in the event of an error in the transfer.
-* {{ yandex-cloud }} administrators, for example, when upgrading the transfer version.
+* Users, e.g., when activating or deactivating a transfer.
+* Transfer itself, e.g., in the event of an error in the transfer.
+* {{ yandex-cloud }} administrators, e.g., when upgrading the transfer version.
 
 The history of transfer operations is available on the operations page.
 
