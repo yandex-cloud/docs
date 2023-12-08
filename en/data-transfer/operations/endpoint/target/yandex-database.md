@@ -1,4 +1,9 @@
-# Configuring {{ ydb-name }} target endpoints
+---
+title: "How to configure a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}."
+---
+
+# Configuring a {{ ydb-name }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

@@ -72,7 +72,7 @@
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию `{{ ui-key.yacloud.vpc.networks.create.field_is-default }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -436,7 +436,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   Выполните следующую команду:
 
@@ -617,7 +617,7 @@
 
   1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Создайте HTTP-роутер `example-router`:
   
@@ -767,7 +767,7 @@
   1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `example-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Получите идентификаторы подсетей сети `example-network`:
   
@@ -1007,7 +1007,7 @@
      1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Если CDN-провайдер ещё не активирован, выполните команду:
 
@@ -1216,7 +1216,7 @@
         1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `cl-....edgecdn.ru`.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
    
      1. Если у вас нет публичной зоны DNS, создайте ее:
      

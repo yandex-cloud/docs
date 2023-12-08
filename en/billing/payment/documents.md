@@ -4,9 +4,9 @@
 If, during the reporting period, you have used your funds to pay for {{ yandex-cloud }} services, then, depending on your tax residence, the reporting documents will be sent to you within seven business days after the end of the reporting period.
 Soft and hard copies of a document are identical. To prepare your financial reports on time, you can use the number, amount, and date of the report from the email received.
 
-{% list tabs %}
+{% list tabs group=residents %}
 
-- Residents of Russia
+- Residents of Russia {#russia}
 
    Russian residents can:
    * Receive documents by way of [electronic document management](../concepts/edo.md) (EDM).
@@ -23,17 +23,17 @@ Soft and hard copies of a document are identical. To prepare your financial repo
 
    You can download copies of documents or request original documents and a reconciliation report in your [Yandex Balance](https://balance.yandex.ru) account.
 
-- Residents of Kazakhstan
+- Residents of Kazakhstan {#kazakhstan}
 
-   1. If you have used your personal account funds during the reporting period, a copy of the acceptance certificate will be sent to the email address specified in the payer's card in [Yandex Balance](../concepts/reporting-period.md) within seven (7) business days after the end of the [reporting period](https://balance.yandex.ru). You can [download the acceptance certificate](../operations/download-reporting-docs.md) yourself in the management console.
+   1. If you have used your personal account funds during the reporting period, a copy of the acceptance certificate will be sent to the email address specified in the payer's card in [Yandex Balance](../concepts/reporting-period.md) within seven (7) business days after the end of the [reporting period](https://balance.yandex.com). You can [download the acceptance certificate](../operations/download-reporting-docs.md) yourself in the management console.
    1. By courier service within a month following the reporting period, with all signatures and stamps, to the mailing address specified at the account registration.
    1. Electronic tax invoices (e-invoices) are forwarded to the Information System for Collection and Processing of E-invoices within 15 calendar days of the sale date.
    1. On the first day of each month, a [payment invoice](../concepts/bill.md) is sent to the customer's [contact email address]({{ link-console-main }}/settings). It includes the total amount due.
 
-- Non-residents of Russia or Kazakhstan
+- Non-residents of Russia and Kazakhstan {#nonresidents}
 
    1. If your account has arrears, {{ yandex-cloud }} sends payment details with the total amount due and service usage details for the reporting period to your [contact email address]({{ link-console-main }}/settings) on the first day of each month.
-   1. Within seven (7) business days after the end of the reporting period, {{ yandex-cloud }} sends an invoice and an electronic report for the amount of monthly consumption to the email address specified in [Yandex Balance](https://balance.yandex.ru).
+   1. Within seven (7) business days after the end of the reporting period, {{ yandex-cloud }} sends an invoice and an electronic report for the amount of monthly consumption to the email address specified in [Yandex Balance](https://balance.yandex.com).
 
    **Reconciliation reports**
    Reports are generated upon [request to the technical support]({{ link-console-support }}/create-ticket).

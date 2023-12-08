@@ -1,7 +1,7 @@
 
-{% list tabs %}
+{% list tabs group=residents %}
 
-- Residents of Russia
+- Residents of Russia {#russia}
 
    | Name | Description |
    --- | ---
@@ -15,7 +15,7 @@
    | Total amount payable | Total amount for all lines of the payment invoice, including VAT, in rubles |
    | Due and payable | Total amount for all lines of the payment invoice, including VAT, in rubles |
 
-- Residents of Kazakhstan
+- Residents of Kazakhstan {#kazakhstan}
 
    | Name | Description |
    --- | ---
@@ -29,7 +29,7 @@
    | Total amount payable | Total amount for all lines of the payment invoice, including VAT, in tenge |
    | Due and payable | Total amount for all lines of the payment invoice, including VAT, in tenge |
 
-- Non-residents of Russia or Kazakhstan
+- Non-residents of Russia and Kazakhstan {#nonresidents}
 
    | Name | Description |
    --- | ---

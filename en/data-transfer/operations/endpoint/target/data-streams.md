@@ -1,8 +1,13 @@
-# Configuring target endpoints {{ yds-full-name }}
+---
+title: "How to configure a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}."
+---
+
+# Configuring a {{ yds-full-name }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* Stream [connection settings](#general-settings) in {{ yds-full-name }} and [serialization settings](#serializer). These are mandatory parameters.
+* Stream [connection settings](#general-settings) in {{ yds-full-name }} and [serialization settings](#serializer). These are required parameters.
 * [Additional settings](#additional-settings).
 
 ## Basic settings {#general-settings}

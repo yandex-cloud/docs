@@ -33,15 +33,15 @@ To go to the list of billing accounts:
 
 ## Billing account types {#ba-types}
 
-{% list tabs %}
+{% list tabs group=accounts %}
 
-- Individual account
+- Individual account {#individual}
 
    * It is intended for residents of Russia or Kazakhstan.
    * Resources are paid for using a [bank card](../payment/payment-methods-individual.md).
    * Funds for the resources consumed are debited automatically. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
 
-- Business account
+- Business account {#business}
 
    * It is intended for residents and non-residents of Russia or Kazakhstan.
    * Consumed resources are paid for by bank transfer from the [business's bank account](../payment/payment-methods-business.md) or a [bank card](../payment/payment-methods-card-business.md).

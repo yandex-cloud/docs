@@ -18,13 +18,13 @@ A service [report](../concepts/act.md) and an invoice are generated at the end o
 
 ## Taxes and fees {#nds}
 
-{% list tabs %}
+{% list tabs group=residents %}
 
-- Residents of Russia or Kazakhstan
+- Residents of Russia or Kazakhstan {#residents}
 
    {% include [nds-only-res](../_includes/nds-only-res.md) %}
 
-- Non-residents of Russia and Kazakhstan
+- Non-residents of Russia and Kazakhstan {#nonresidents}
 
    An invoice is not issued to non-residents of Russia and Kazakhstan
 

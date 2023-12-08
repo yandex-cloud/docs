@@ -3,17 +3,17 @@
 The currency depends on the agreement and the country of residence:
 
 
-{% list tabs %}
+{% list tabs group=residents %}
 
-- Residents of Russia
+- Residents of Russia {#russia}
 
    Residents of Russia may top up their personal accounts and pay for consumed resources in rubles (₽), regardless of their legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
-- Residents of Kazakhstan
+- Residents of Kazakhstan {#kazakhstan}
 
    Residents of Kazakhstan may top up their personal accounts and pay for consumed resources in tenge (₸), regardless of their legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
-- Non-residents of Russia or Kazakhstan
+- Non-residents of Russia and Kazakhstan {#nonresidents}
 
    Non-residents of Russia and Kazakhstan must top up their personal accounts and pay for consumed resources in US dollars ($) only.
 

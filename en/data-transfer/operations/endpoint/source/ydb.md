@@ -1,4 +1,9 @@
-# Configuring source endpoints {{ ydb-name }}
+---
+title: "How to configure a {{ ydb-full-name }} source endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up a {{ ydb-full-name }} source endpoint when creating or updating it in {{ data-transfer-full-name }}."
+---
+
+# Configuring a {{ ydb-name }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 * {{ ydb-full-name }} DB connection settings. These are required parameters.

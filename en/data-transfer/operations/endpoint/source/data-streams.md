@@ -1,4 +1,9 @@
-# Configuring source endpoints {{ yds-full-name }}
+---
+title: "How to configure a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}"
+description: "Follow this guide to configure a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}."
+---
+
+# Configuring a {{ yds-full-name }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

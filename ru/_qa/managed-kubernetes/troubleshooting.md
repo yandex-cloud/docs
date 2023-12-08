@@ -255,7 +255,7 @@ ERROR: cluster has empty endpoint
    --internal
 ```
 
-Если вам нужно подключиться не с ВМ, [пересоздайте кластер и предоставьте](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) ему публичный IP-адрес.
+Если вам нужно подключиться к кластеру из интернета, [пересоздайте кластер и предоставьте](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) ему публичный IP-адрес.
 
 #### Ошибки при подключении к узлу по SSH {#node-connect}
 

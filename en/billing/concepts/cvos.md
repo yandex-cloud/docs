@@ -63,17 +63,17 @@ See details of using and paying for your CVoS below.
 
 The amount charged for the CVoS is determined using the following formulas:
 
-{% list tabs %}
+{% list tabs group=charges %}
 
-- Amount charged per hour
+- Amount charged per hour {#hour}
 
    ![image](../../_assets/billing/cud-hour-amount.svg)
 
-- Amount charged per day
+- Amount charged per day {#day}
 
    ![image](../../_assets/billing/cud-day-amount.svg)
 
-- Amount charged per month
+- Amount charged per month {#month}
 
    ![image](../../_assets/billing/cud-month-amount.svg)
 

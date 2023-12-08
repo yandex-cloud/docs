@@ -16,6 +16,26 @@
 
   Ресурсы будут остановлены, каталог перейдет в статус ожидания удаления `PENDING_DELETION`. Удаление каталога, находящегося в статусе `PENDING_DELETION`, можно отменить. Для этого нажмите на значок ![***](../../../_assets/console-icons/ellipsis.svg) справа от каталога и выберите пункт **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
+- CLI
+  
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  1. Посмотрите описание команды удаления каталога:
+    
+      ```bash
+      yc resource-manager folder delete --help
+      ```
+
+  1. {% include [get-folder-id-or-name](../../../_includes/resource-manager/get-folder-id-or-name.md) %}
+
+  1. Удалите каталог:
+    
+      ```bash
+      yc resource-manager folder delete <идентификатор_каталога>
+      ```
+      
+      Чтобы отобразить информацию о выполняемой операции, не дожидаясь ее завершения, установите флаг `--async`.
+
 - API
 
   Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../api-ref/Folder/delete.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete).
