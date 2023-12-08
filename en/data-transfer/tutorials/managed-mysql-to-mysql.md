@@ -1,16 +1,21 @@
-# Migration to a third-party {{ MY }} cluster
+---
+title: "How to migrate to a third-party {{ MY }} cluster using {{ data-transfer-full-name }}"
+description: "Follow this guide to migrate to a third-party {{ MY }} cluster."
+---
+
+# Migrating to a third-party {{ MY }} cluster
 
 To migrate a database deployed in a {{ mmy-full-name }} cluster to a third-party {{ MY }} cluster:
 
 1. Transfer data.
 1. Disable data writes to the source database.
-1. Switch over the load to a third-party cluster.
+1. Transfer the load to a third-party cluster.
 
-Migration across versions is supported. For example, you can move databases from {{ MY }} 5.7 to 8. The {{ MY }} major version on a third-party cluster must be equal to or higher than the version in the {{ mmy-full-name }} cluster.
+Migration across versions is supported. For example, you can move databases from {{ MY }} 5.7 to 8. The {{ MY }} major version on a third-party cluster must be the same or higher than the version in the {{ mmy-full-name }} cluster.
 
 ## Getting started {#before-you-begin}
 
-Create a {{ MY }} cluster with any suitable configuration. In this case:
+Create a {{ MY }} cluster with any suitable configuration. In which case:
 
 * The {{ MY }} version must be the same or higher than the version in the source cluster.
 

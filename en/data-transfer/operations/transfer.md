@@ -1,3 +1,8 @@
+---
+title: "How to manage transfers in {{ data-transfer-full-name }}"
+description: "Follow this guide to manage a transfer."
+---
+
 # Managing transfer process
 
 You can:

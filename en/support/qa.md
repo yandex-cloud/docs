@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ yandex-cloud }} technical support"
+description: "This page presents questions and answers about {{ yandex-cloud }} technical support."
+---
+
 # Questions and answers about {{ yandex-cloud }} technical support
 
 #### How do I contact technical support? {#support-channels}

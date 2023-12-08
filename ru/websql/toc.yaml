@@ -10,9 +10,9 @@ items:
         href: operations/index.md
       - name: Подключение к базе данных
         href: operations/connect.md
-      - name: Выполнение SQL-запросов
+      - name: Выполнение запросов
         href: operations/query-executor.md
-      - name: Работа с шаблонами запросов
+      - name: Работа с сохраненными запросами
         href: operations/templates.md
       - name: Просмотр истории запросов
         href: operations/history.md

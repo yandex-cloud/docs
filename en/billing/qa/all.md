@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ backup-full-name }}"
+description: "This page provides answers to questions about {{ backup-name }}."
+---
+
 # All questions about {{ billing-name }}
 
 ## General questions about the service
@@ -20,6 +25,6 @@
 
 {% include notitle [trial-commercial](../../_qa/billing/trial-commercial.md) %}
 
-## Questions about working with non-residents of Russia or Kazakhstan
+## Questions about working with non-residents of Russia and Kazakhstan
 
 {% include notitle [non-resident](../../_qa/billing/non-resident.md) %}

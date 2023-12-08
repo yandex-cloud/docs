@@ -1,8 +1,13 @@
-# What tasks is {{ data-transfer-full-name }} used for?
+---
+title: "What tasks {{ data-transfer-full-name }} is used for"
+description: "In this tutorial, you will learn about {{ data-transfer-full-name }} use cases."
+---
+
+# What tasks {{ data-transfer-full-name }} is used for
 
 ## Testing {{ yandex-cloud }} {#testing}
 
-{{ data-transfer-name }} lets you test working with [{{ mmg-full-name }}](../../managed-mongodb/), [{{ mmy-full-name }}](../../managed-mysql/), and [{{ mpg-full-name }}](../../managed-postgresql/) on real data.
+{{ data-transfer-name }} allows you to test working with [{{ mmg-full-name }}](../../managed-mongodb/), [{{ mmy-full-name }}](../../managed-mysql/), and [{{ mpg-full-name }}](../../managed-postgresql/) on real data.
 
 For example, using {{ data-transfer-name }}, you can connect copies of databases hosted in these services to your application. {{ data-transfer-name }} will keep these copies up-to-date.
 
@@ -20,7 +25,7 @@ For example, using {{ data-transfer-name }}, you can connect copies of databases
 
 If a stable version of your product is based in {{ yandex-cloud }}, using {{ data-transfer-name }}, you can maintain an up-to-date copy for developers in local databases. Also, {{ data-transfer-name }} allows you to maintain an up-to-date copy of the data in the {{ yandex-cloud }} environment if the stable version is based locally.
 
-At the same time, the main database won't be under extra load.
+At the same time, the main database will not be overloaded.
 
 ## Splitting and merging databases {#separation}
 

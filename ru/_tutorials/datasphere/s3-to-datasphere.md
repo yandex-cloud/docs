@@ -91,7 +91,7 @@
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ. После закрытия диалога значение ключа будет недоступно.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   1. Создайте ключ доступа для сервисного аккаунта `datasphere-sa`:
 

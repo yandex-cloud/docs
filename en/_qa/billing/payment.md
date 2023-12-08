@@ -25,19 +25,19 @@ The minimum payment amount is $1.
 
 #### In which currency can I pay for {{ yandex-cloud }}? {#currency}
 
-{% list tabs %}
+{% list tabs group=residents %}
 
-- Residents of Russia
+- Residents of Russia {#russia}
 
    You must pay for {{ yandex-cloud }} resources in rubles (₽), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
 
-- Residents of Kazakhstan
+- Residents of Kazakhstan {#kazakhstan}
 
    You must pay for {{ yandex-cloud }} resources in tenge (₸), regardless of your legal status ([billing account type](../../billing/concepts/billing-account.md#ba-types)).
 
-- Non-residents of Russia or Kazakhstan
+- Non-residents of Russia and Kazakhstan {#nonresidents}
 
-   You must pay for {{ yandex-cloud }} resources in US dollars ($), regardless of the country you live in.
+   You can pay for {{ yandex-cloud }} resources only in US dollars ($), whatever your country of residence.
 
 {% endlist %}
 

@@ -1,4 +1,9 @@
-# Activate a promo code
+---
+title: "How to activate a promo code in {{ billing-name }}"
+description: "Follow this guide to activate a promo code."
+---
+
+# Activating a promo code
 
 Yandex regularly runs marketing campaigns with [promo codes](../concepts/promo-code.md) offered to users. If you received a promo code, activate it:
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.

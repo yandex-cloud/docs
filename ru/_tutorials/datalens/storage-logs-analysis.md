@@ -156,7 +156,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

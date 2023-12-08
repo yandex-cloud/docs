@@ -1,3 +1,8 @@
+---
+title: "How to create a new billing account in {{ billing-name }}"
+description: "Follow this guide to create a new billing account."
+---
+
 # Create a new billing account
 
 Cloud members can create one or more [billing accounts](../concepts/billing-account.md). To do this:
@@ -18,9 +23,9 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
 1. Fill in the form:
 
-   {% list tabs %}
+   {% list tabs group=customers %}
 
-   - Individuals
+   - Individuals {#individuals}
 
       Enter your full name and link a bank card:
 
@@ -32,7 +37,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
       {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-   - Businesses and individual entrepreneurs
+   - Businesses and individual entrepreneurs {#businesses}
 
       7.1. Select a payment method (bank card or bank transfer):
       - **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**.
