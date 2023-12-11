@@ -1,3 +1,8 @@
+---
+title: "How to edit or delete a board in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to edit or delete a board in {{ tracker-name }}."
+---
+
 # Editing or deleting a board
 
 ## Editing a board {#board-settings}
@@ -9,7 +14,7 @@
 1. Configure general board settings:
 
    | Parameter | Description |
-   -------- | --------
+   | -------- | -------- |
    | **Name** | Board name. |
    | **Allow changing the order of issues** | If the option is enabled, the order of issues on the board can be changed by dragging issues. |
    | **Queue for creating issues** | Queue key You can create issues in this queue directly from the board page. |
@@ -44,7 +49,7 @@ You can customize the appearance of issue cards so that only relevant issue sett
 
 By default, the issue card displays the values of required fields: key, name, assignee, and some others. To set up the display of additional fields on the issue card:
 
-1. In the upper-right corner of the board page, click ![](../../_assets/tracker/edit-agile.png).
+1. In the top-right corner of the board page, click ![](../../_assets/tracker/edit-agile.png).
 
 1. Go to the **Card view** tab.
 
@@ -64,7 +69,7 @@ By default, the issue card displays the values of required fields: key, name, as
 
 To make the issues with certain tags or components stand out on the board, highlight tags and components in colors.
 
-1. In the upper-right corner of the board page, click ![](../../_assets/tracker/edit-agile.png).
+1. In the top-right corner of the board page, click ![](../../_assets/tracker/edit-agile.png).
 
 1. Go to the **Card view** tab.
 

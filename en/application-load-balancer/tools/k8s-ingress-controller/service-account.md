@@ -1,6 +1,11 @@
-# A service account for {{ alb-name }} tools for {{ managed-k8s-name }}
+---
+title: "Service account for {{ alb-full-name }} tools for {{ managed-k8s-full-name }}"
+description: "In this tutorial, you will learn which roles a service account requires to use {{ alb-name }} tools for {{ managed-k8s-name }}."
+---
 
-{{ alb-name }} tools for {{ managed-k8s-name }}, such as [Ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), deploy the infrastructure on behalf of a [service account](../../../iam/concepts/users/service-accounts.md). This account requires the following permissions:
+# Service account for {{ alb-name }} tools for {{ managed-k8s-name }}
+
+The {{ alb-name }} tools for {{ managed-k8s-name }}, i.e., [Ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), deploy the infrastructure on behalf of a [service account](../../../iam/concepts/users/service-accounts.md). This account requires the following permissions:
 
 
 {% list tabs %}

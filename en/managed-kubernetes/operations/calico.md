@@ -1,3 +1,8 @@
+---
+title: "How to set up the Calico network policy controller in {{ managed-k8s-full-name }}"
+description: "Follow this guide to set up the Calico network policy controller."
+---
+
 # Configuring the Calico network policy controller
 
 [Calico](https://www.projectcalico.org/) is an open-source plugin for {{ k8s }} that can be used to manage {{ k8s }} network policies. Calico extends the standard features of {{ k8s }} [network policies](../concepts/network-policy.md), which enables you to:

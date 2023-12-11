@@ -3,7 +3,7 @@ title: "How to update a {{ managed-k8s-name }} cluster"
 description: "Follow this guide to update a {{ managed-k8s-name }} cluster."
 ---
 
-# Editing {{ managed-k8s-name }} clusters
+# Updating {{ managed-k8s-name }} clusters
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
 
@@ -70,12 +70,13 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
         --service-account-name <resource_service_account_name> \
         --node-service-account-id <{{ managed-k8s-name }}_node_service_account_ID> \
         --security-group-ids <list_of_security_group_IDs> \
-        --master-logging enabled=<log_sending>,`
+        --master-logging enabled=<log_sending:_true_or_false>,`
             `log-group-id=<log_group_ID>,`
             `folder-id=<folder_ID>,`
-            `kube-apiserver-enabled=<kube-apiserver_log_sending>,`
-            `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending>,`
-            `events-enabled=<{{ k8s }}_event_sending>
+            `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
+            `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
+            `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
+            `audit-enabled=<audit_event_sending:_true_or_false>
       ```
 
       Where:
@@ -177,7 +178,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster label
 
   {% note warning %}
 
-  The existing set of `labels` is completely replaced by the set transmitted.
+  The existing set of `labels` is completely overwritten by the transmitted set.
 
   {% endnote %}
 

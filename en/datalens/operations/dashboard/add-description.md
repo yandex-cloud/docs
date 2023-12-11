@@ -1,3 +1,8 @@
+---
+title: "How to add a dashboard description in {{ datalens-full-name }}"
+description: "Follow this guide to add a description to a dashboard."
+---
+
 # Adding a description to a dashboard
 
 To add a dashboard description:
@@ -12,6 +17,6 @@ To add a dashboard description:
 1. Enter the description and click **Save**.
 1. In the top-right corner, click **Save**.
 
-As a result, all users will see the ![image](../../../_assets/datalens/info.svg) icon in the upper-right corner of the dashboard. Clicking it opens the **Dashboard info** window with the description.
+As a result, all users will see the ![image](../../../_assets/datalens/info.svg) icon in the top-right corner of the dashboard. Clicking it opens the **Dashboard info** window with the description.
 
 To remove the dashboard description, save an empty description in the **Dashboard info** window. As a result, the ![image](../../../_assets/datalens/info.svg) icon is no longer displayed to any user.

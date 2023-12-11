@@ -1,3 +1,8 @@
+---
+title: "How to work with text layout in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn about using text layout in {{ wiki-name }}."
+---
+
 # Text formatting
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

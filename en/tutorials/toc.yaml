@@ -1,7 +1,7 @@
 title: Tutorials
 href: index.yaml
 items:
-  - name: Web service
+  - name: Security
     items:
       - name: All tutorials
         href: web/index.md
@@ -9,6 +9,10 @@ items:
         href: web/alb-with-ddos-protection.md
       - name: Terminating TLS connections
         href: web/tls-termination.md
+      - name: Transferring logs from a VM instance to {{ cloud-logging-name }}
+        href: infrastructure-management/vm-fluent-bit-logging.md
+      - name: Writing load balancer logs to {{ PG }}
+        href: infrastructure-management/logging.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -37,7 +41,7 @@ items:
         href: archive/ha-regional-glusterfs.md
       - name: Deploying the GlusterFS parallel file system in high performance mode
         href: archive/ha-regional-glusterfs-high-performance.md
-  - name: Developers
+  - name: Development and testing
     items:
       - name: All tutorials
         href: dev/index.md
@@ -65,6 +69,10 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Load testing using multiple agents
         href: testing/loadtesting-multiply.md
+      - name: Migrating load testing results from OverLoad
+        href: testing/loadtesting-overload-migration.md
+      - name: Running external agents for load testing
+        href: testing/loadtesting-external-agent.md
   - name: Basic infrastructure
     items:
       - name: All tutorials
@@ -95,6 +103,10 @@ items:
             href: infrastructure-management/autoscale-monitoring.md
           - name: Updating an instance group under load
             href: infrastructure-management/updating-under-load.md
+          - name: >-
+              Creating a trigger for budgets that invokes a function to stop VM
+              instances
+            href: infrastructure-management/serverless-trigger-budget-vm.md
       - name: Tools
         items:
           - name: Getting started with {{ TF }}
@@ -107,6 +119,10 @@ items:
               Building a VM image with a set of infrastructure tools using
               Packer
             href: infrastructure-management/packer-custom-image.md
+          - name: Locking {{ TF }} states using {{ ydb-name }}
+            href: infrastructure-management/terraform-state-lock.md
+          - name: Using {{ yandex-cloud }} modules in {{ TF }}
+            href: infrastructure-management/terraform-modules.md
       - name: Network
         items:
           - name: Configuring clock synchronization using NTP
@@ -144,6 +160,10 @@ items:
               Configuring {{ dns-name }} for access to managed database clusters
               from other cloud networks
             href: dataplatform/mdb-dns-peering.md
+          - name: Integrating {{ dns-name }} and an enterprise DNS service
+            href: infrastructure-management/dns-integration.md
+          - name: Creating an ACME resolver webhook for responses to DNS01 checks
+            href: infrastructure-management/cert-manager-webhook.md
   - name: Application solutions
     items:
       - name: All tutorials
@@ -192,34 +212,6 @@ items:
             href: web/prefetch.md
           - name: Creating an SAP program in {{ yandex-cloud }}
             href: infrastructure-management/sap.md
-  - name: Test environment
-    items:
-      - name: All tutorials
-        href: testing/index.md
-      - name: Migrating load testing results from OverLoad
-        href: testing/loadtesting-overload-migration.md
-      - name: Running external agents for load testing
-        href: testing/loadtesting-external-agent.md
-  - name: Performing infrastructure management
-    items:
-      - name: All tutorials
-        href: infrastructure-management/index.md
-      - name: Locking {{ TF }} states using {{ ydb-name }}
-        href: infrastructure-management/terraform-state-lock.md
-      - name: Using {{ yandex-cloud }} modules in {{ TF }}
-        href: infrastructure-management/terraform-modules.md
-      - name: Transferring logs from a VM instance to {{ cloud-logging-name }}
-        href: infrastructure-management/vm-fluent-bit-logging.md
-      - name: Integrating {{ dns-name }} and an enterprise DNS service
-        href: infrastructure-management/dns-integration.md
-      - name: Creating an ACME resolver webhook for responses to DNS01 checks
-        href: infrastructure-management/cert-manager-webhook.md
-      - name: Writing load balancer logs to {{ PG }}
-        href: infrastructure-management/logging.md
-      - name: >-
-          Creating a trigger for budgets that invokes a function to stop VM
-          instances
-        href: infrastructure-management/serverless-trigger-budget-vm.md
   - name: Building a data platform
     items:
       - name: All tutorials

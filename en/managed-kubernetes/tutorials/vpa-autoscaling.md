@@ -1,3 +1,8 @@
+---
+title: "How to set up automatic pod resource management using {{ k8s-vpa }} in {{ managed-k8s-full-name }}"
+description: "Follow this guide to configure the automatic management of pod resources with {{ k8s-vpa }}:"
+---
+
 # Vertical application scaling in a cluster
 
 {{ managed-k8s-name }} supports several types of autoscaling. In this article you will learn how to configure the automatic management of [pod](../concepts/index.md#pod) resources with [{{ k8s-vpa }}](../concepts/autoscale.md#vpa):

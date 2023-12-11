@@ -1,4 +1,9 @@
-# Adding charts to dashboards
+---
+title: "How to add a chart to a dashboard in {{ datalens-full-name }}"
+description: "Follow this guide to add a chart to a dashboard."
+---
+
+# Adding a chart to a dashboard
 
 To add a chart to a dashboard:
 

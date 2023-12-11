@@ -1,3 +1,8 @@
+---
+title: "How to create a dataset field in {{ datalens-full-name }}"
+description: "Follow this guide to create a field in a dataset."
+---
+
 # Creating a field
 
 To create a field in a dataset:

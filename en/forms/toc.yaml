@@ -136,6 +136,8 @@ items:
             href: blocks-ref/test-multiple.md
           - name: Number
             href: blocks-ref/test-number.md
+      - name: Tracker
+        href: blocks-ref/tracker.md
       - name: File
         href: blocks-ref/file.md
       - name: Integer

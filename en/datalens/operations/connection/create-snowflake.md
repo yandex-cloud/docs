@@ -1,3 +1,8 @@
+---
+title: "How to create a Snowflake connection in {{ datalens-full-name }}"
+description: "Follow this guide to create a Snowflake connection."
+---
+
 # Creating a Snowflake connection
 
 To create a Snowflake connection:
@@ -45,4 +50,4 @@ To create a Snowflake connection:
    * **User role**: [Role of the user](https://docs.snowflake.com/en/sql-reference/sql/create-role#create-role) who has rights to access the database you are connecting to.
 
 1. Check the connection and click **Create connection**.
-1. Enter the name for the connection and click **Create**.
+1. Enter a name for the connection and click **Create**.

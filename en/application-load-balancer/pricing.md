@@ -1,10 +1,12 @@
 ---
+title: "{{ alb-full-name }} pricing policy"
+description: "This article describes the {{ alb-name }} pricing policy."
 editable: false
 ---
 
 # {{ alb-full-name }} pricing
 
-## What goes into the cost of using {{ alb-name }} {#rules}
+## What is included in the {{ alb-name }} cost {#rules}
 
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer.
 

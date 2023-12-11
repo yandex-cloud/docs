@@ -1,3 +1,8 @@
+---
+title: "How to add parameters in dashboard chart settings in {{ datalens-full-name }}"
+description: "Follow this guide to add parameters in dashboard chart settings."
+---
+
 # Adding parameters in dashboard chart settings
 
 To set a parameter:

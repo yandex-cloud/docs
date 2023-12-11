@@ -11,7 +11,7 @@ description: "Follow this guide to update a desktop group."
 
    1. In the [management console]({{ link-console-main }}), select the folder where the desktop group is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-   1. Next to the group to update, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Next to the group to update, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Select an OS [image](../../concepts/images.md).
 
       {% note warning %}

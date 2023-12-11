@@ -1,6 +1,11 @@
-# Getting log group ID of L7 load balancer
+---
+title: "How to get a log group ID for an L7 load balancer in {{ alb-full-name }}"
+description: "Follow this guide to get the ID of a log group for an L7 balancer."
+---
 
-To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) where L7 load balancer [logs](../concepts/application-load-balancer.md#logging) are sent:
+# Getting a log group ID for an L7 load balancer
+
+To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) to which the L7 load balancer sends its [logs](../concepts/application-load-balancer.md#logging):
 
 {% list tabs %}
 

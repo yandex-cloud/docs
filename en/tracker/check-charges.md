@@ -1,3 +1,8 @@
+---
+title: "Viewing service usage details in {{ tracker-full-name }}"
+description: "Follow this guide to view service usage details."
+---
+
 # Viewing service usage details
 
 To view service usage details:
@@ -8,6 +13,6 @@ To view service usage details:
 
 1. In the left-hand panel, select **{{ ui-key.yacloud.billing.account.switch_detail }}**.
 
-The page shows the cost of the paid {{ tracker-name }} features over the past 30 days, as well as the current amount due.
+The page shows the cost of the paid {{ tracker-name }} features over the past 30 days and the current amount due.
 
 Read more about pricing {{ tracker-name }} in [{#T}](pricing.md#sec_calculate).

@@ -98,10 +98,10 @@ Create two buckets: one will store files and the other will store request logs f
    Before you start, obtain [static access keys](../../iam/operations/sa/create-access-key.md), i.e., a [secret key and key ID](../../iam/concepts/authorization/access-key.md) used for authentication in {{ objstorage-name }}.
    1. In the configuration file, describe the bucket parameters:
       * `access_key`: ID of the static access key
-      * `secret_key`: Value of the secret access key
-      * `bucket`: Name of the bucket you are creating
+      * `secret_key`: Value of the secret access key.
+      * `bucket`: Name of the bucket you are creating.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       ```hcl
@@ -130,7 +130,7 @@ Create two buckets: one will store files and the other will store request logs f
 
    1. Make sure that the configuration files are correct:
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -231,7 +231,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 
@@ -256,7 +256,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
    1. If the CDN provider is not activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
    1. Create a CDN resource:
-      1. In the ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+      1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
       1. Set up the main parameters of the CDN resource as follows:
          * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`
          * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`
@@ -279,15 +279,15 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
       Wait until the Let's Encrypt® certificate is issued for the domain name. This may take up to 30 minutes.
    1. Enable a client redirect from HTTP to HTTPS:
-      1. In the ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the previously created resource.
+      1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the previously created resource.
       1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_section-additional }}** changes to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-      1. At the top right, click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Enable [caching](../../cdn/concepts/caching.md) on CDN servers for the resource:
-      1. In the ![image](../../_assets/cdn/cdn-res.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the previously created resource.
+      1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the previously created resource.
       1. Go to **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
-      1. At the top right, click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -370,7 +370,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. This is a test step. No resources are created. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
       1. If the configuration does not contain any errors, run this command:
 
@@ -532,7 +532,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
    1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
    1. In the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field, specify the path to the file stored in the origin, omitting the domain name:
 
       ```text
@@ -580,7 +580,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket with the logs.
       1. Click the name of the object corresponding to the `ycgame-update-v1.1.exe` download time.
-      1. Click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
 
    - AWS CLI
 

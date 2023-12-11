@@ -1,3 +1,8 @@
+---
+title: "How to create a calculated field in a dataset in {{ datalens-full-name }}"
+description: "Follow this guide to create a calculated field in a dataset."
+---
+
 # Creating a calculated field
 
 To create a calculated field in a dataset:

@@ -1,3 +1,8 @@
+---
+title: "What S3 API methods can be used to manage a {{ objstorage-full-name }} CORS bucket configuration"
+description: "In this tutorial, you will learn what S3 API methods can be used to manage a CORS bucket configuration."
+---
+
 # All CORS methods
 
 | Method | Description |

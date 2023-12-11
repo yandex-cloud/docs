@@ -1,3 +1,8 @@
+---
+title: "How to search for information in {{ wiki-full-name }}"
+description: "Follow this guide to search for information in {{ wiki-full-name }}."
+---
+
 # Searching by {{ wiki-name }}
 
 To perform a search by text on {{ wiki-name }} pages:

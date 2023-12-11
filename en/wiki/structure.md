@@ -1,3 +1,8 @@
+---
+title: "{{ wiki-full-name }} structure"
+description: "In this tutorial, you will learn about the page structure in {{ wiki-name }}."
+---
+
 # Structure of {{ wiki-full-name }}
 
 ## Page tree {#structure}
@@ -18,9 +23,9 @@
 
 1. **{{ wiki-host-name }}/page/subpage/...** : Pages of the second and lower levels.
 
-Each page has one or more _authors_ that are users who manage access to the page. Page authors are indicated under the title.
+Each page has one or more _authors_, i.e., users managing access to the page. Page authors are stated under the title.
 
-## Clusters {#clusters}
+## Partitions {#clusters}
 
 {{ wiki-name }} pages form _clusters_:
 

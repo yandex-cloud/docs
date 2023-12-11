@@ -1,3 +1,8 @@
+---
+title: "What S3 API methods can be used to manage {{ objstorage-full-name }}"
+description: "In this tutorial, you will learn about the S3 API methods you can use to manage {{ objstorage-full-name }}."
+---
+
 # All services and methods
 
 {{ objstorage-name }} HTTP API provides the following services:
@@ -49,6 +54,7 @@
 ----- | -----
 | [upload](object/upload.md) | Uploads an object to {{ objstorage-name }}. |
 | [get](object/get.md) | Retrieves an object from {{ objstorage-name }}. |
+| [patch](object/patch.md) | [Partially modifies](../../concepts/object-patch.md) an object. |
 | [copy](object/copy.md) | Copies an object stored in {{ objstorage-name }}. |
 | [getObjectMeta](object/getobjectmeta.md) | Retrieves object metadata. |
 | [delete](object/delete.md) | Deletes an object. |

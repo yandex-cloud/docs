@@ -1,4 +1,6 @@
 ---
+title: "Quotas and limits in {{ sws-full-name }}"
+description: "{{ sws-full-name }} has quotas and limits. For more information about the service restrictions, read this article."
 editable: false
 ---
 

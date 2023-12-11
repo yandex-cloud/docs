@@ -1,8 +1,13 @@
-# Viewing the history of issue changes
+---
+title: "How to view issue change history in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn about viewing issue change history in {{ tracker-name }}."
+---
+
+# Viewing issue change history
 
 ## Viewing the history of changes {#show-history}
 
-Any changes to an issue are saved in the **History**. To view the history of issue changes:
+Any changes to an issue are saved in the **History**. To view issue change history:
 
 1. Open the issue page.
 
@@ -15,7 +20,7 @@ The change history saves:
 * Names of change authors.
 * Date and time when the changes were made.
 
-##  Sorting entries {#change-order}
+## Sorting entries {#change-order}
 
 Entries in the change history are ordered chronologically by default.
 

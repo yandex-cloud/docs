@@ -50,7 +50,7 @@ To view the statistics:
 
       If `*` is the value selected in the field, the dashboard will display aggregate statistics for all resources of the relevant type, such as all HTTP routers.
 
-   1. Select the time period for which you wish to view statistics.
-   1. If you need to configure the dashboard to autoupdate, click ![](../../_assets/monitoring/autorefresh.svg).
+   1. Select the time period to view the statistics for.
+   1. If you need to configure the dashboard to autoupdate, click ![](../../_assets/console-icons/arrow-rotate-right.svg).
 
 {% endlist %}

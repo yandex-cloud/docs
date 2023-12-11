@@ -1,4 +1,9 @@
-# Deleting L7 load balancer
+---
+title: "How to delete an L7 load balancer in {{ alb-full-name }}"
+description: "Follow this guide to delete an L7 load balancer."
+---
+
+# Deleting an L7 load balancer
 
 To delete an L7 load balancer:
 
@@ -8,7 +13,7 @@ To delete an L7 load balancer:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.delete }}**.
 
       To do this with multiple load balancers, select the load balancers to delete in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -60,7 +65,7 @@ To delete an L7 load balancer:
         }
 
         listener {
-          name = "<my-listener>"
+          name = "<listener_name>"
           endpoint {
             address {
               external_ipv4_address {

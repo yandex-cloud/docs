@@ -1,3 +1,8 @@
+---
+title: "How to create a project in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to create a project in {{ tracker-name }}."
+---
+
 # How to create a project
 
 ## Creating a project {#create-project}

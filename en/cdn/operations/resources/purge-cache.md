@@ -1,3 +1,8 @@
+---
+title: "How to purge the resource cache in {{ cdn-full-name }}"
+description: "Follow this guide to purge the resource cache."
+---
+
 # Purging the resource cache
 
 To [purge the cache](../../concepts/caching.md) of the resource:
@@ -14,7 +19,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/basket.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
    1. Select the type of cache purging:
 

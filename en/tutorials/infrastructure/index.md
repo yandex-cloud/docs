@@ -1,3 +1,8 @@
+---
+title: "Use cases for core infrastructure management systems in {{ yandex-cloud }}"
+description: "Various use cases for core infrastructure management systems in {{ yandex-cloud }}."
+---
+
 # Tutorials for working with basic infrastructure management systems
 
 * [Architecture and protection of a basic internet service](../routing/web-service.md)
@@ -12,6 +17,7 @@
 * [Scheduled scaling of instance groups](../infrastructure-management/vm-scale-scheduled.md)
 * [Auto-scaling an instance group when processing messages from a queue in {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Updating an instance group under load](../infrastructure-management/updating-under-load.md)
+* [Creating a trigger for budgets to invoke the {{ sf-full-name }} function to stop the VM](../infrastructure-management/serverless-trigger-budget-vm.md)
 
 ## Tools {#tools}
 
@@ -19,6 +25,8 @@
 * [Uploading {{ TF }} statuses to {{ objstorage-full-name }}](../infrastructure-management/terraform-state-storage.md)
 * [Getting started with Packer](../infrastructure-management/packer-quickstart.md)
 * [Building a VM image with a set of infrastructure tools using Packer](../infrastructure-management/packer-custom-image.md)
+* [Locking {{ TF }} states using {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
+* [Using {{ yandex-cloud }} modules in {{ TF }}](../infrastructure-management/terraform-modules.md)
 
 ## Network {#routing}
 
@@ -39,3 +47,5 @@
 * [Configuring a local caching DNS resolver](../infrastructure-management/local-dns-cache.md)
 * [Migrating DNS zones from {{ yandex-360 }} to {{ dns-full-name }}](../infrastructure-management/connect-migration.md)
 * [{#T}](../dataplatform/mdb-dns-peering.md)
+* [{#T}](../infrastructure-management/dns-integration.md)
+* [Creating an ACME resolver webhook for responses to DNS01 checks](../infrastructure-management/cert-manager-webhook.md)

@@ -1,3 +1,8 @@
+---
+title: "What request headers exist in the {{ objstorage-full-name }} S3 API"
+description: "In this tutorial, you will learn about the request headers existing in the S3 API."
+---
+
 # Common request headers
 
 | Header | Description |

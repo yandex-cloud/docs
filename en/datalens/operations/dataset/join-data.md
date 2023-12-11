@@ -1,3 +1,8 @@
+---
+title: "How to combine data from multiple tables in {{ datalens-full-name }}"
+description: "Follow this guide to combine data from multiple tables."
+---
+
 # Combining data from multiple tables
 
 When multiple source tables are available, you can combine their data:

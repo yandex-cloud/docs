@@ -1,3 +1,8 @@
+---
+title: "Storage class in {{ objstorage-full-name }}"
+description: "{{ objstorage-name }} allows you to store objects in storages of various classes depending on your requirements for storage duration and frequency of operations with objects. The service offers standard, cold, and ice storage."
+---
+
 # Storage class
 
 {{ objstorage-name }} allows you to store objects in storages of various _classes_ depending on your requirements for storage duration and frequency of object operations. The classes to choose from are:

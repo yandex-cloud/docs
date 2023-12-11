@@ -1,6 +1,11 @@
+---
+title: "How to create an issue or comment template in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to create an issue or comment template."
+---
+
 # Creating a template
 
-To create a template for an issue or comment:
+To create an issue or comment template:
 
 1. Select the desired option:
    - [Issues]({{ link-settings }}/templates/issues) to edit issue templates.

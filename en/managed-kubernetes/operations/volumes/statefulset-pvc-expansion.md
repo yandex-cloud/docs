@@ -1,3 +1,8 @@
+---
+title: "How to increase the size of a volume for the StatefulSet controller in {{ managed-k8s-full-name }}"
+description: "Follow this guide to increase the size of a volume for the StatefulSet controller."
+---
+
 # Expanding a StatefulSet controller volume
 
 To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet controller without shutting down the service:

@@ -53,4 +53,7 @@ items:
             href: api-ref/stt/v3/grpc/stt_service.md
   - name: Релизы {{ sk-hybrid-name }}
     href: release-notes.md
+  - name: Документация Яндекс Спичкит Гибрид ({{ sk-hybrid-full-name }})
+    href: docs.md
+    hidden: true
 base: ru/speechkit-hybrid

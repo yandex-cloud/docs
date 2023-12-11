@@ -1,3 +1,8 @@
+---
+title: "How to configure CORS for responses to clients in {{ cdn-full-name }}"
+description: "Follow this guide to configure CORS when responding to clients."
+---
+
 # Configuring CORS when responding to clients
 
 To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [resource](../../concepts/resource.md):
@@ -14,7 +19,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**:
 

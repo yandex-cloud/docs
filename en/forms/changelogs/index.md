@@ -1,3 +1,8 @@
+---
+title: "{{ forms-full-name }} revision history for October 2023"
+description: "See below the {{ forms-full-name }} revision history for October 2023."
+---
+
 # {{ forms-full-name }} revision history for October 2023
 
 * [Enhanced integration with {{ sf-full-name }}](#integration-with-functions)

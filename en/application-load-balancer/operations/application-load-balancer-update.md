@@ -1,4 +1,9 @@
-# Editing L7 load balancer
+---
+title: "How to edit an L7 load balancer in {{ alb-full-name }}"
+description: "Follow this guide to edit an L7 load balancer."
+---
+
+# Editing an L7 load balancer
 
 To update the parameters of an L7 load balancer:
 
@@ -9,7 +14,7 @@ To update the parameters of an L7 load balancer:
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Click the name of the load balancer you need.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the load balancer settings.
    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, change the parameters of the appropriate listeners.
    1. (Optional) Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
@@ -316,8 +321,8 @@ To delete a listener for your L7 load balancer:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.edit }}**.
-   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the listener name and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the listener name and select **{{ ui-key.yacloud.common.delete }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI

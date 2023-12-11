@@ -1,3 +1,8 @@
+---
+title: "How to edit the basic settings of a resource in {{ cdn-full-name }}"
+description: "Follow this guide to update the basic resource settings."
+---
+
 # Editing the basic settings of a resource
 
 To edit the basic settings of a [resource](../../concepts/resource.md):
@@ -12,7 +17,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
    1. Click the resource name.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Edit the resource settings.
 

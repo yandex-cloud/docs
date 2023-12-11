@@ -22,7 +22,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter a name and description for the VM. The naming requirements are as follows:
 

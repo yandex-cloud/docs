@@ -1,3 +1,8 @@
+---
+title: "How to create a connection to a file in {{ datalens-full-name }}"
+description: "Follow this guide to create a connection to a file."
+---
+
 # Creating a connection to a file
 
 To create a connection to a file:
@@ -40,6 +45,6 @@ To create a connection to a file:
 
 1. Repeat steps 4 and 5 to add files.
 1. Click **Create connection**.
-1. Enter the connection name and click **Create**. The connection will appear in the list.
+1. Enter a connection name and click **Create**. The connection will appear in the list.
 
 You can add, rename, and delete files in the connection.

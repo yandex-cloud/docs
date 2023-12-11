@@ -1,4 +1,9 @@
-# {{ alb-name }} practical guidelines
+---
+title: "{{ alb-full-name }} use cases"
+description: "Various {{ alb-full-name }} use cases in {{ yandex-cloud }}"
+---
+
+# {{ alb-name }} tutorials
 
 * [{#T}](virtual-hosting.md)
 * [{#T}](alb-with-ddos-protection.md)

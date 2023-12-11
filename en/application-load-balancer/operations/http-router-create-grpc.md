@@ -1,4 +1,9 @@
-# Creating HTTP router for gRPC traffic 
+---
+title: "How to create an HTTP router for gRPC traffic in {{ alb-full-name }}"
+description: "Follow this guide to create an HTTP router for gRPC traffic."
+---
+
+# Creating an HTTP router for gRPC traffic
 
 To create an [HTTP router](../concepts/http-router.md) and add a [route](../concepts/http-router.md#routes) to it:
 
@@ -38,7 +43,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
                * `auto`: Automatically rewrite the header to the target VM address.
 
             * (Optional) In the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
-            * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time without data transmission.
+            * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time with zero data transmission.
 
          * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
 

@@ -1,6 +1,11 @@
-# {{ alb-name }} Ingress controller operating principles
+---
+title: "{{ alb-full-name }} Ingress controller operation principles"
+description: "Learn about the operation principles of an {{ alb-name }} Ingress controller and relationships between {{ alb-name }} and {{ k8s }} resources."
+---
 
-A [{{ alb-name }} Ingress controller for {{ managed-k8s-name }}](index.md) owns two [pods](../../../managed-kubernetes/concepts/index.md#pod):
+# {{ alb-name }} Ingress controller operation principles
+
+An [{{ alb-name }} Ingress controller for {{ managed-k8s-name }}](index.md) owns two [pods](../../../managed-kubernetes/concepts/index.md#pod):
 
 * The primary `yc-alb-ingress-controller-*` pod handles {{ alb-name }} resource creation and updates. You can track communication with resources through this pod's logs.
 * A [status check](../../concepts/backend-group.md#health-checks) pod called `yc-alb-ingress-controller-hc-*` deploys containers on backend nodes to accept test requests on TCP port 10501.
@@ -67,7 +72,7 @@ IDs of resources of an {{ alb-name }} load balancer deployed in the `Ingress` co
   1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster whose `Ingress` configuration was used to create a load balancer.
-  1. On the {{ managed-k8s-name }} cluster page, go to the ![custom-resources.svg](../../../_assets/custom-resources.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}** tab.
+  1. On the {{ managed-k8s-name }} cluster page, go to the ![shapes-3](../../../_assets/console-icons/shapes-3.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}** tab.
   1. Select `ingressgroupstatuses.alb.yc.io` and open the **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}** tab.
   1. Select a resource with the `Ingress` resource group name specified in the `ingress.alb.yc.io/group-name` annotation and go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
 

@@ -15,7 +15,7 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **Applications available for installation**, select [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Kyverno. Make sure it contains no applications or objects; otherwise, Kyverno will not run properly.
@@ -72,7 +72,7 @@ If you no longer need the Kyverno application, delete it:
 - Using {{ marketplace-name }}
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Click the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+   1. Click the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
    1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, in the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) line, click {{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }} ![image](../../../_assets/marketplace/three_dots.png =22x13) and then click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
    1. [Connect to the cluster](../connect/index.md#kubectl-connect) using kubectl.
    1. [Clear the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), or else the cluster will not run properly.

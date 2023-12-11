@@ -123,6 +123,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/application-load-balancer/index.md
+  - name: Справочник Terraform
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -257,9 +261,13 @@ items:
                 href: api-ref/VirtualHost/update.md
               - name: updateRoute
                 href: api-ref/VirtualHost/updateRoute.md
-  - name: Справочник метрик
+  - name: Метрики {{ monitoring-name }}
     href: metrics.md
-  - name: Справочники инструментов для {{ managed-k8s-name }}
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
+  - name: Логи L7-балансировщика
+    href: logs-ref.md
+  - name: Справочник инструментов для {{ managed-k8s-name }}
     items:
       - name: Обзор
         href: k8s-ref/index.md
@@ -277,8 +285,6 @@ items:
             href: k8s-ref/http-route.md
       - name: Service
         href: k8s-ref/service.md
-  - name: Справочник логов
-    href: logs-ref.md
   - name: Обучающие курсы
     href: training.md
 base: ru/application-load-balancer

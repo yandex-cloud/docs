@@ -1,3 +1,8 @@
+---
+title: "Source code formatting in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn about the methods of formatting a source code snippet in your text."
+---
+
 # Source code formatting
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

@@ -1,4 +1,9 @@
-# Switching a board to our new technologies
+---
+title: "Migrating a board to our new technologies in {{ tracker-full-name }}"
+description: "Follow this guide to migrate a board to our new technologies."
+---
+
+# Migrating a board to our new technologies
 
 Switching boards to [our new technologies](agile-new.md) allows you to add new features for effective issue planning:
 

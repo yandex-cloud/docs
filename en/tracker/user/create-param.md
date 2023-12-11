@@ -1,4 +1,9 @@
-# Adding issue fields
+---
+title: "How to add an issue field in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to add an issue field in {{ tracker-name }}. The fields can be global or local. You can use preset fields or create custom ones."
+---
+
+# Adding an issue field
 
 ## Standard issue fields {#default-fields}
 
@@ -8,7 +13,7 @@ If you can't find a relevant parameter among them, you can [create a new field i
 
 | Issue field | Description |
 ----- | -----
-**{{ ui-key.startrek-backend.fields.issue.fields.system }}**  
+**{{ ui-key.startrek-backend.fields.issue.fields.system }}**
 QA engineer | User assigned to test the issue.
 {{ ui-key.startrek-backend.fields.issue.author-key-value }} | User who created the issue.
 {{ ui-key.startrek-backend.fields.issue.possibleSpam }} | Spam flag for issues created through services with [integration](../manager/queue-mail.md).
@@ -70,7 +75,7 @@ For more information about creating and using local fields, see [{#T}](../local-
 
 {% note alert %}
 
-Local fields are temporarily not supported in certain cases. They will be implemented later. For more information, see [Local field constraints](../local-fields.md#restrictions).
+Local fields are temporarily not supported in certain cases. Such support will be implemented later. For more information, see [Local field constraints](../local-fields.md#restrictions).
 
 {% endnote %}
 

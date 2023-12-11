@@ -1,3 +1,8 @@
+---
+title: "How to configure HTTP headers of requests and responses in {{ cdn-full-name }}"
+description: "Follow this guide to configure request and response HTTP headers."
+---
+
 # Configuring HTTP headers of requests and responses
 
 To configure, for your resource, the HTTP headers of requests and responses:
@@ -20,7 +25,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-request-headers }}**:
 

@@ -1,4 +1,9 @@
-# Network in {{ managed-k8s-name }}
+---
+title: "Network in {{ managed-k8s-full-name }}"
+description: "When creating a {{ k8s }} cluster, you can create a network and subnet for the master host, a range of IP addresses for your pods and services, and the node subnet mask."
+---
+
+# Networking in {{ managed-k8s-name }}
 
 When [creating a {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md), you can configure the:
 * [Network and subnet](../../vpc/concepts/network.md#network) for the [master](./index.md#master).
@@ -27,19 +32,19 @@ You can also:
 * Only 50% of the possible subnet range is available for pods, nodes, and services. This limitation is due to the specifics of [{{ vpc-name }}](../../vpc/) and ensures the availability of an unused IP range for cluster service distribution.
 
 The following subnet ranges are available for the pods, nodes, and services of such clusters:
-* `10.0.0.0/8`.
-* `172.16.0.0/12`.
-* `192.168.0.0/16`.
+* `10.0.0.0/8`
+* `172.16.0.0/12`
+* `192.168.0.0/16`
 
 The node subnet mask and the subnet size for the pods determines the maximum number of nodes in the cluster and the maximum number of pods per node.
 
 In addition, {{ k8s }} has a [standard limit](https://kubernetes.io/docs/setup/best-practices/cluster-large/) of 110 pods per node.
 
 For clusters in [tunnel mode](network-policy.md#cilium), the following subnet ranges are available:
-* `10.0.0.0/8`.
-* `172.16.0.0/12`.
-* `192.168.0.0/16`.
-* `100.64.0.0/10`.
+* `10.0.0.0/8`
+* `172.16.0.0/12`
+* `192.168.0.0/16`
+* `100.64.0.0/10`
 
 {% note info %}
 

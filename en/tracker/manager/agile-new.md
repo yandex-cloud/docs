@@ -1,3 +1,7 @@
+---
+title: "Issue boards in {{ tracker-full-name }}"
+---
+
 # Issue boards
 
 Issue boards are a tool that helps you track and manage your issues in a streamlined manner. There are two types of boards in {{ tracker-name }}:

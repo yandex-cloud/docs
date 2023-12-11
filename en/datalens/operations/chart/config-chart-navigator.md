@@ -1,3 +1,8 @@
+---
+title: "How to configure the navigator in {{ datalens-full-name }}"
+description: "Follow this guide to set up the navigator."
+---
+
 # Configuring the navigator
 
 You can configure the navigator if the following conditions are met:

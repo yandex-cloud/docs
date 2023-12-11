@@ -1,4 +1,9 @@
-# Customizing the appearance of form
+---
+title: "How to customize a form's appearance in {{ forms-full-name }}"
+description: "In this tutorial, you will learn how to customize the appearance of a form in {{ forms-full-name }}."
+---
+
+# Customizing the appearance of a form
 
 ## Customize the theme {#section_sgz_my3_j3b}
 

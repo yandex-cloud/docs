@@ -1,3 +1,8 @@
+---
+title: "How to embed a list of pages in a {{ wiki-full-name }} page"
+description: "Follow this guide to embed a list of pages in a page."
+---
+
 # Page lists
 
 {% include [actions-alert](../../_includes/wiki/actions-alert.md) %}

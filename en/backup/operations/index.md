@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ backup-full-name }}"
+description: "This page provides a list of step-by-step guides for {{ backup-name }}."
+---
+
 # Step-by-step guides for {{ backup-name }}
 
 ## Managing VMs in {{ backup-name }} {#connect-vm}

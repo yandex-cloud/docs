@@ -10,7 +10,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the list of load balancers, select the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the list of load balancers, select the one you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
       1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
@@ -127,7 +127,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the list of load balancers, select the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the list of load balancers, select the one you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
       1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
@@ -210,12 +210,12 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
       ```
 
       Where `log_options` are parameters for writing [logs](../logs-ref.md) to {{ cloud-logging-name }}:
-        * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
-        * `discard_rule`: [Rule for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
-           * `http_codes`: HTTP status codes.
-           * `http_code_intervals`: Classes of HTTP status codes.
-           * `grpc_codes`: gRPC codes.
-           * `discard_percent`: Percentage of logs to discard.
+      * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
+      * `discard_rule`: [Rule for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
+         * `http_codes`: HTTP status codes.
+         * `http_code_intervals`: Classes of HTTP status codes.
+         * `grpc_codes`: gRPC codes.
+         * `discard_percent`: Percentage of logs to discard.
 
          You can set multiple rules.
    1. Apply the changes:
@@ -242,7 +242,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the list of load balancers, select the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the list of load balancers, select the one you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
    1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, disable the **{{ ui-key.yacloud.alb.label_log-requests }}** option.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

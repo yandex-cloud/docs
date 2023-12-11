@@ -1,3 +1,8 @@
+---
+title: "How to share your dashboard with colleagues in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to share your dashboard with colleagues."
+---
+
 # Shared access to dashboards
 
 You can share your dashboard with your colleagues:

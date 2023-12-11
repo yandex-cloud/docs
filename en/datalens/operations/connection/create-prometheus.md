@@ -1,3 +1,8 @@
+---
+title: "How to create a {{ prometheus-name }} connection in {{ datalens-full-name }}"
+description: "Follow this guide to create a {{ prometheus-name }} connection."
+---
+
 # Creating a {{ prometheus-name }} connection
 
 To create a {{ prometheus-name }} connection:
@@ -11,7 +16,7 @@ To create a {{ prometheus-name }} connection:
 
 
 1. Click **Create connection**.
-1. Select source **{{ prometheus-name }}**.
+1. Select the **{{ prometheus-name }}** source.
 1. Specify the connection parameters:
 
    * **Hostname**: Specify the path to the {{ prometheus-name }} host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
@@ -22,6 +27,6 @@ To create a {{ prometheus-name }} connection:
    * **HTTPS**: Enable the secure connection option if your server supports HTTPS.
 
 1. Click **Create connection**.
-1. Enter a connection name and click **Create**.
+1. Enter a name for the connection and click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}

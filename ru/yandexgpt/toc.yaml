@@ -16,6 +16,8 @@ items:
         href: operations/finetune.md
       - name: Отправить асинхронный запрос
         href: operations/async-request.md
+      - name: Отключить логирование запросов
+        href: operations/disable-logging.md
   - name: Практические руководства
     items:
       - name: Дообучение модели {{ yagpt-name }}

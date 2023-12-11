@@ -1,8 +1,13 @@
+---
+title: "How to log in to {{ wiki-full-name }}"
+description: "Follow this guide to log in to {{ wiki-full-name }}."
+---
+
 # Logging in to {{ wiki-full-name }}
 
 To work with a corporate knowledge base in {{ wiki-full-name }}, log in to your account:
 
-1. Go to the {{ wiki-name }} homepage: [{{ link-wiki }}]({{ link-wiki }}).
+1. Go to the {{ wiki-name }} home page: [{{ link-wiki }}]({{ link-wiki }}).
 
 1. Log in to the account you use to work in the organization:
 

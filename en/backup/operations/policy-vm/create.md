@@ -11,7 +11,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a backup policy.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-   1. Go to the ![policies](../../../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+   1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
    1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
    1. On the policy creation page:
 

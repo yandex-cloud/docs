@@ -19,8 +19,8 @@ To delete a backend group:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend group name and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backend group name and select **{{ ui-key.yacloud.common.delete }}**.
 
       To do this with multiple groups, select the groups to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

@@ -1,3 +1,8 @@
+---
+title: "How to migrate to {{ tracker-full-name }} from other services"
+description: "Follow this guide to migrate to {{ tracker-full-name }} from other services."
+---
+
 # Migrating to {{ tracker-name }} from other services
 
 If you manage your issues and projects with a certain service and want to change it to {{ tracker-full-name }}, you can migrate the data about your projects and issues to {{ tracker-name }}:

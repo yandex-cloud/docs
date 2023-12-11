@@ -1,3 +1,8 @@
+---
+title: "How to stop and restart an L7 load balancer in {{ alb-full-name }}"
+description: "In this tutorial, you will learn how to stop and restart an L7 load balancer in {{ alb-name }}."
+---
+
 # Stopping and restarting an L7 load balancer
 
 ## Stopping a load balancer {#stop}
@@ -14,7 +19,7 @@ To stop an L7 load balancer:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.stop }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.stop }}**.
 
       To apply this action to multiple load balancers, select the appropriate load balancers in the list, click **{{ ui-key.yacloud.common.stop }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.stop }}** in the window that opens.
 
@@ -111,7 +116,7 @@ To start a load balancer:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.start }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.start }}**.
 
       To apply this action to multiple load balancers, select the appropriate load balancers in the list, click **{{ ui-key.yacloud.common.start }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.start }}** in the window that opens.
 

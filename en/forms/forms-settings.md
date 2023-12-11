@@ -1,4 +1,9 @@
-# Manage forms
+---
+title: "How to manage forms in {{ forms-full-name }}"
+description: "In this tutorial, you will learn how to manage forms in {{ forms-full-name }}."
+---
+
+# Managing forms
 
 ## Edit a form {#edit}
 

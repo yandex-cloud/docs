@@ -13,13 +13,13 @@ To calculate the cost of using {{ objstorage-name }}, use [our calculator]({{ li
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
-## What goes into the cost of using {{ objstorage-short-name }} {#rules}
+## What is included in the {{ objstorage-short-name }} cost {#rules}
 
 The {{ objstorage-name }} usage cost is based on:
 
 * [Storage class](concepts/storage-class.md)
 * Amount of storage used by your data
-* Number of operations on your data
+* Number of operations with your data
 * Amount of outgoing traffic
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
@@ -37,7 +37,7 @@ Storage usage is measured in GB per month. The volume of the data stored during 
 Data operations are billed according to the following policy:
 * The minimum billing unit for PUT, POST, and PATCH operations is 10.
 * The minimum billing unit for GET, HEAD, and OPTIONS operations is 100.
-* You are not charged for deleting data (the DELETE operation).
+* You are not charged for deleting data (DELETE operation).
 
 ## Pricing {#prices}
 
@@ -74,7 +74,7 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 
 
-^3^ The minimum billable period of ice storage is 12 months (except storage until September 1, 2022). If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
+^3^ The minimum billable period for ice storage is 12 months (except for storage prior to September 1, 2022). If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
 
 
 
@@ -113,7 +113,7 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 Data operations that result in an error are charged only in the following cases:
 
 * Error code 403 for GET, HEAD, and OPTIONS operations.
-* Error code 404 for PUT, POST, PATCH, GET, HEAD, and OPTIONS operations.
+* Error code 404 for PUT, POST, GET, HEAD, OPTIONS, and PATCH operations.
 
 Prices for standard storage are applied when calculating costs.
 
@@ -126,7 +126,7 @@ The first 10,000 PUT, POST, and PATCH operations and the first 100,000 GET, HEAD
 
 
 > For example, if the monthly cost of 10,000 GET operations in standard storage is $0.003129 and the amount of GET operations per month is 24,500, the total monthly cost of data operations will be:
-> ((24500 − 10000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705
+> ((24,500 − 10,000) / 10,000) × $0.003129 = (14,500 / 10,000) × $0.003129 = $0.00453705
 
 
 
@@ -145,7 +145,7 @@ The minimum billing unit is 1 MB. The billing period is a calendar month.
 
 
 
-The first 100 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
+The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are free of charge.
 
 
 

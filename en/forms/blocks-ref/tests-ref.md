@@ -1,6 +1,11 @@
+---
+title: "{{ forms-full-name }} tests and quizzes"
+description: "In this tutorial, you will learn which blocks of prompts are in the **Tests and quizzes** category."
+---
+
 # Tests and quizzes
 
-The **Tests and quizzes** category has blocks of prompts for designing tests:
+The **Tests and quizzes** category contains blocks of prompts for tests:
 
 - [{#T}](test-single.md)
 - [{#T}](test-multiple.md)

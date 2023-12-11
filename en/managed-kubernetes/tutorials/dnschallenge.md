@@ -1,3 +1,8 @@
+---
+title: "How to add an option to run DNS Challenge when issuing Let's Encrypt® certificates in {{ managed-k8s-full-name }}"
+description: "Follow this guide to add an option to run DNS Challenge when issuing Let's Encrypt® certificates."
+---
+
 # Checking DNS Challenge for Let's Encrypt® certificates
 
 To add an option to run DNS Challenge when issuing [Let's Encrypt® certificates](../../certificate-manager/concepts/managed-certificate.md):

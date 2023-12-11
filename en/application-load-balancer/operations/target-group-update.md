@@ -1,4 +1,4 @@
-# Editing target group
+# Editing a target group
 
 You can add or remove instances from a target group.
 
@@ -12,7 +12,7 @@ To add a VM to a target group:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
    1. Click the name of the group.
    1. Click **{{ ui-key.yacloud.alb.button_add-targets }}**.
    1. Select a VM from the list or add the target manually:
@@ -158,7 +158,7 @@ To add a VM to a target group:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      You can verify that the target group has been updated in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+      You can check the target group update in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb target-group get --name <target_group_name>
@@ -180,9 +180,9 @@ To remove a VM from a target group:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
    1. Click the name of the group.
-   1. To the right of the VM, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. To the right of the VM, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
@@ -266,7 +266,7 @@ To remove a VM from a target group:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      You can verify that the target group has been updated in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+      You can check the target group update in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb target-group get --name <target_group_name>

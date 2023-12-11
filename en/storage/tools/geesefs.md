@@ -31,6 +31,16 @@ In addition to the basic functions of the POSIX standards (`open`, `read`, `writ
 * Directory renames.
 * `readdir`: Reads of directory metadata.
 
+### Partial updating and appending of objects data {#patch}
+
+GeeseFS supports [partial updating and appending of objects data](../concepts/object-patch.md) to {{ objstorage-name }} buckets.
+
+To enable partial object updates, use the `--enable-patch` option.
+
+To learn more, see the GeeseFS repository on GitHub:
+* [Partial object updates](https://github.com/yandex-cloud/geesefs#partial-object-updates-patch): Description of partial updating and appending of objects data.
+* [Concurrent Updates](https://github.com/yandex-cloud/geesefs#concurrent-patch): Description of how an object can be partially updated by multiple concurrent requests.
+
 ### Limitations {#restrictions}
 
 GeeseFS does not support the following:

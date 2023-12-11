@@ -32,7 +32,7 @@
 
 В кластер {{ mkf-name }} уже интегрирован реестр схем формата данных {{ mkf-msr }}. Реестр разворачивается на каждом хосте-брокере кластера и доступен по протоколу HTTPS на порту 443.
 
-Для работы с реестром предоставляется JSON REST [API](../../glossary/rest-api.md), полностью совместимое с [API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/api.html). Для выполнения запросов необходима [авторизация](#msr-auth).
+В качестве реализации {{ mkf-msr }} используется приложение с открытым исходным кодом [Karapace](https://github.com/Aiven-Open/karapace). [API](../../glossary/rest-api.md) Karapace совместимо с [API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/api.html) за исключением небольших расхождений. Для выполнения запросов необходима [авторизация](#msr-auth).
 
 Сведения о схемах помещаются в [служебный топик](./topics.md#service-topics) `__schema_registry`. В этот топик нельзя писать данные стандартными средствами.
 

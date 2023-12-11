@@ -1,3 +1,8 @@
+---
+title: "How to create a board in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to create a board in {{ tracker-name }}."
+---
+
 # Creating a board in {{ tracker-name }}
 
 ## Creating a basic board {#basic}

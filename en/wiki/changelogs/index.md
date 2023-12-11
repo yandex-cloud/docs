@@ -1,3 +1,8 @@
+---
+title: "{{ wiki-full-name }} revision history for October 2023"
+description: "See below the {{ wiki-full-name }} revision history for October 2023."
+---
+
 # {{ wiki-full-name }} revision history for October 2023
 
 * [Change history for a dynamic table](#changelog-grid)

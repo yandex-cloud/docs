@@ -101,7 +101,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
       * Click **Add variable**.
 1. Create the CI script's configuration file:
    1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
-   1. Click ![image](../../_assets/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
+   1. Click ![image](../../_assets/console-icons/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
    1. Name the file as `.gitlab-ci.yml`. Add the steps to build and push a Docker image and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
 
       {% list tabs %}
@@ -274,7 +274,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
             {% endcut %}
 
-        Replace `<{{ GLA }}_name>` with the agent name in {{ mgl-name }}.
+        Replace `<GitLab_Agent_name>` with the agent name in {{ mgl-name }}.
 
       {% endlist %}
 
