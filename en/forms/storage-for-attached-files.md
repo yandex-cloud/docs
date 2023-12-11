@@ -1,4 +1,9 @@
-# Save attached files from responses to the storage
+---
+title: "How to save attached files from responses in {{ forms-full-name }} to a storage"
+description: "Follow this guide to save attached files from responses to a storage."
+---
+
+# Saving attached files from responses to a storage
 
 If your form allows users to attach [files](blocks-ref/file.md) in their responses, you can set up these files to be saved to an external storage, e.g., {{ objstorage-full-name }} [buckets](../storage/concepts/bucket.md) or  namespaces on Yandex Disk. This way, you can:
 

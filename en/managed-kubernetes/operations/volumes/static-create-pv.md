@@ -1,3 +1,8 @@
+---
+title: "How to create a pod with a statically provisioned volume in {{ managed-k8s-full-name }}"
+description: "Follow this guide to create a pod with a statically provisioned volume."
+---
+
 # Static volume provisioning
 
 Create a [pod](../../concepts/index.md#pod) with a statically provisioned [volume](../../concepts/volume.md):

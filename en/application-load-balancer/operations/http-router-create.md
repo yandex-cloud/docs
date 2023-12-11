@@ -1,3 +1,8 @@
+---
+title: "How to create an HTTP router for HTTP traffic in {{ alb-full-name }}"
+description: "Follow this guide to create an HTTP router for HTTP traffic."
+---
+
 # Creating an HTTP router for HTTP traffic
 
 To create an [HTTP router](../concepts/http-router.md) and add a [route](../concepts/http-router.md#routes) to it:
@@ -8,7 +13,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
    1. In the [management console]({{ link-console-main }}), select the folder to create an HTTP router in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
    1. Enter the router name.
    1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
@@ -41,7 +46,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
             * `rewrite`: Rewrite the header to the specified value.
             * `auto`: Automatically rewrite the header to the target VM address.
          * (Optional) In the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
-         * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time without data transmission.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time with zero data transmission.
          * (Optional) In the **{{ ui-key.yacloud.alb.label_upgrade-types }}** field, list the protocols the backend group can switch to within a TCP connection on the client's request.
          * (Optional) Select **{{ ui-key.yacloud.alb.label_web-socket }}** if you want to use the WebSocket protocol.
 

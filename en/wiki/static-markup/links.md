@@ -1,3 +1,8 @@
+---
+title: "How to format links in {{ wiki-full-name }}"
+description: "Follow this guide to format links in {{ wiki-full-name }}."
+---
+
 # Links
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ cdn-full-name }}"
+description: "This page provides a list of step-by-step guides for {{ cdn-name }}."
+---
+
 # Step-by-step guides for {{ cdn-name }}
 
 ## Resources {#resources}

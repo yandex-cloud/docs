@@ -1,4 +1,9 @@
-# Adding a message displayed if an access error occurs
+---
+title: "How to add a message to be displayed in the event of a dashboard permission error in {{ datalens-full-name }}"
+description: "Follow this guide to add a message to be displayed if a dashboard permission error occurs."
+---
+
+# Adding an access error message
 
 To add a message to be displayed in the event of a dashboard permission error:
 
@@ -19,8 +24,8 @@ To add a message to be displayed in the event of a dashboard permission error:
    {% endnote %}
 
 1. In the **Settings** window, click **Save**.
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
-Now, if the user has no dashboard view permission, they'll see the saved message.
+Now, if the user has no dashboard view permission, they will see the saved message.
 
 To delete a message for a permission request, save an empty message in the **Access error message** window.

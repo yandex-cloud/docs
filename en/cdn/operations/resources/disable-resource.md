@@ -1,3 +1,8 @@
+---
+title: "How to disable resources in {{ cdn-full-name }}"
+description: "Follow this guide to disable a resource."
+---
+
 # Disabling a resource
 
 You can stop a resource by disabling end-user access to the content. To do this:
@@ -12,7 +17,7 @@ You can stop a resource by disabling end-user access to the content. To do this:
 
    1. Click the resource name.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, disable the **{{ ui-key.yacloud.cdn.label_access }}** option.
 

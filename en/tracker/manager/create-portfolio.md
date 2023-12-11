@@ -1,3 +1,8 @@
+---
+title: "How to create a portfolio in {{ tracker-full-name }}"
+description: "Follow this guide to create a portfolio."
+---
+
 # Creating a portfolio
 
 To create a project portfolio:

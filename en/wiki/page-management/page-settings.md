@@ -1,3 +1,8 @@
+---
+title: "Actions with pages in {{ wiki-full-name }}"
+description: "Follow this guide to perform various actions with pages."
+---
+
 # Actions with {{ wiki-name }} pages
 
 To open the menu of actions that can be performed with a {{ wiki-name }} page:

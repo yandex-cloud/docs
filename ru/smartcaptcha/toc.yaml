@@ -57,6 +57,4 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Обратная связь
-    href: feedback.md
 base: ru/smartcaptcha

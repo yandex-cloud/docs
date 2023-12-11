@@ -311,6 +311,8 @@ items:
             href: user/widgets.md
           - name: Как изменить дашборд
             href: user/edit-dashboard.md
+          - name: Как скопировать дашборд
+            href: user/copy-dashboard.md
           - name: Общий доступ к дашборду
             href: user/share-dashboard.md
           - name: Как сделать дашборд стартовой страницей

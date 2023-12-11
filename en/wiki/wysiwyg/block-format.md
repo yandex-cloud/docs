@@ -1,3 +1,8 @@
+---
+title: "How to format a text block in {{ wiki-full-name }}"
+description: "Follow this guide to format a text block in {{ wiki-full-name }}."
+---
+
 # Block formatting
 
 To add a quote, note, cut, formatted block, or block section, select one or more paragraphs and use the following toolbar buttons or keyboard shortcuts:

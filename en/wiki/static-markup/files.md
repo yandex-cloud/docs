@@ -1,3 +1,8 @@
+---
+title: "How to use images and files in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn how to use images and files in {{ wiki-name }}."
+---
+
 # Images and files
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

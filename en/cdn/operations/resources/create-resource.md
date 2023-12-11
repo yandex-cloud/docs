@@ -1,3 +1,8 @@
+---
+title: "How to create resources in {{ cdn-full-name }}"
+description: "Follow this guide to create a resource."
+---
+
 # Creating a resource
 
 To create a [resource](../../concepts/resource.md):
@@ -6,7 +11,7 @@ To create a [resource](../../concepts/resource.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create a resource in.
+   1. In the [management console]({{ link-console-main }}), select a folder in which to create a resource.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 

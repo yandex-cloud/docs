@@ -1,3 +1,8 @@
+---
+title: "How to create a dataset in {{ datalens-full-name }}"
+description: "Follow this guide to create a dataset."
+---
+
 # Creating a dataset
 
 To create a dataset:

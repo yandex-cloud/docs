@@ -1,9 +1,15 @@
+---
+title: "What S3 API methods can be used to manage objects in a {{ objstorage-full-name }} bucket"
+description: "In this tutorial, you will learn about S3 API methods that can be used to manage objects in a bucket."
+---
+
 # All Object methods
 
 | Method | Description |
 ----- | -----
 | [upload](object/upload.md) | Uploads an object to {{ objstorage-name }}. |
 | [get](object/get.md) | Retrieves an object from {{ objstorage-name }}. |
+| [patch](object/patch.md) | [Partially modifies](../../concepts/object-patch.md) an object. |
 | [copy](object/copy.md) | Copies an object stored in {{ objstorage-name }}. |
 | [getObjectMeta](object/getobjectmeta.md) | Retrieves object metadata. |
 | [delete](object/delete.md) | Deletes an object. |

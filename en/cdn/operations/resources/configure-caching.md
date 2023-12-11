@@ -1,3 +1,8 @@
+---
+title: "How to configure resource caching in {{ cdn-full-name }}"
+description: "Follow this guide to configure resource caching."
+---
+
 # Configuring resource caching
 
 To configure the [caching](../../concepts/caching.md) parameters of a [resource](../../concepts/resource.md):
@@ -14,7 +19,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Select and configure the caching options:
 

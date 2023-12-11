@@ -1,3 +1,8 @@
+---
+title: "How links work between {{ tracker-full-name }} and {{ GL }}"
+description: "In this tutorial, you will learn how links work between between {{ tracker-name }} and {{ GL }}."
+---
+
 # {{ GL }}
 
 ## Setting up a link {#relation}

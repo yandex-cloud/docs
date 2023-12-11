@@ -161,7 +161,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of `example-network` and its subnets: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`:
 
@@ -197,13 +197,13 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -278,13 +278,13 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -367,13 +367,13 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
       1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using this command:
+         1. Run a check using this command:
 
             ```bash
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -403,7 +403,7 @@ To create security groups:
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `example-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `example-network`.
@@ -532,13 +532,13 @@ To create security groups:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -566,7 +566,7 @@ To create security groups:
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. At the top right, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-bg`.
    1. In the **{{ ui-key.yacloud.alb.label_backend-type }}** field, select `{{ ui-key.yacloud.alb.label_proto-http }}` as the [backend group type](../../application-load-balancer/concepts/backend-group.md#group-types).
@@ -577,7 +577,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the previously created bucket.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   If you are going to complete the next steps in {{ TF }}, copy the ID of the `example-bg` backend group from the ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
+   If you are going to complete the next steps in {{ TF }}, copy the ID of the `example-bg` backend group from the ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
 
 - API
 
@@ -593,7 +593,7 @@ To create security groups:
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-router`.
    1. Create the `example-vh` virtual host:
@@ -605,7 +605,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-route`.
       1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify the path `/`.
       1. In the **{{ ui-key.yacloud.alb.label_http-methods }}** list, select `GET`.
-      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, leave `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, keep `{{ ui-key.yacloud.alb.label_route-action-route }}`.
       1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `example-bg`.
 
    1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
@@ -709,13 +709,13 @@ To create security groups:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -932,13 +932,13 @@ To create security groups:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -964,7 +964,7 @@ To create security groups:
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. If the CDN provider hasn't been activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
+   1. If the CDN provider is not activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
    1. Create a CDN resource:
 
       1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
@@ -978,7 +978,7 @@ To create security groups:
 
             {% note alert %}
 
-            The first domain name `cdn.yandexcloud.example` will become the primary one, and you won't be able to edit it after you create a CDN resource.
+            The `cdn.yandexcloud.example` domain name will become the primary one, and you will not be able to edit it after you create a CDN resource.
 
             {% endnote %}
 
@@ -998,13 +998,13 @@ To create security groups:
 
       1. Select the previously created resource.
       1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** changes to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-      1. At the top right, click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
-   1. If the CDN provider hasn't been activated yet, run the command:
+   1. If the CDN provider is not activated yet, run the command:
 
       ```bash
       yc cdn provider activate --folder-id <folder_ID> --type gcore
@@ -1068,7 +1068,7 @@ To create security groups:
 
 - {{ TF }}
 
-   1. Add parameters of CDN resources to the configuration file:
+   1. Add parameters of the CDN resources to the configuration file:
       ```hcl
       ...
 
@@ -1105,13 +1105,13 @@ To create security groups:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1184,9 +1184,9 @@ To configure DNS:
    cdn CNAME cl-****edgecdn.ru
    ```
 
-   If you use {{ dns-name }}, follow these instructions to configure the record:
+   If you use {{ dns-name }}, follow this guide to configure the record:
 
-   {% cut "Instructions for configuring DNS records for {{ dns-name }}" %}
+   {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
 
    {% list tabs %}
 
@@ -1270,13 +1270,13 @@ To configure DNS:
       1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using this command:
+         1. Run a check using this command:
 
             ```bash
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 

@@ -1,3 +1,8 @@
+---
+title: "How to use shared templates in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to use shared templates."
+---
+
 # Using shared templates
 
 To be sure that other users can use your template:

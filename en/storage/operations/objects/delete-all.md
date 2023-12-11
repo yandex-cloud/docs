@@ -1,3 +1,8 @@
+---
+title: "Deleting all objects from a {{ objstorage-full-name }} bucket"
+description: "Follow this guide to delete all objects."
+---
+
 # Deleting all objects in a bucket
 
 To clear a bucket and not [pay](../../pricing.md) for storage:

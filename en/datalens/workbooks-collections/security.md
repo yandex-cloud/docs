@@ -1,3 +1,8 @@
+---
+title: "Setting up access in {{ datalens-full-name }} workbooks and collections"
+description: "You can grant users or user groups permissions to each workbook and collection. Permissions determine what you can do with a workbook or collection."
+---
+
 # Setting up access in workbooks and collections {{ datalens-short-name }}
 
 You can grant users or [user groups](../../iam/operations/groups/create.md) permissions to each workbook and collection. [Permissions](../security/roles.md#workbooks-collections-roles) determine what you can do with a workbook or collection. Permissions are inherited as follows:

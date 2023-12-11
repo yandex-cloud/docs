@@ -1,40 +1,48 @@
+---
+title: "Payments in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn which users will be billed for {{ tracker-name }} and how to use its paid features."
+---
+
 # Payments in {{ tracker-name }}
 
 ## Do I have to pay for {{ tracker-name }}? {#have-to-pay}
 
-Smaller teams can use {{ tracker-name }} for free provided that no more than 5 users are allowed to create and edit issues. All team members will be able to view issues for free.
+Small teams can use {{ tracker-name }} absolutely free of charge, if no more than five employees will create or edit issues. However, viewing issues will be free for any number of users.
 
-If you want to grant [full access to {{ tracker-name }}](access.md) to 6 or more employees, you will need to make monthly payments for using the service.
+[Full access to {{ tracker-name }}](access.md) for six or more employees comes at a monthly fee.
 
-## How do I use {{ tracker-name }} paid features? {#set-up-payment}
+## How to use paid features in {{ tracker-name }}? {#set-up-payment}
 
-If you wish to grant [full access](access.md) to issue management to 6 or more employees, you will need to pay for {{ tracker-name }}.
+If you need [full access](access.md) to issue management for 6 or more employees, you will have to pay to use {{ tracker-name }}.
 
-To gain access to paid features, [create a billing account](billing-account.md#create), top up your balance, and [link the billing account to {{ tracker-name }}](billing-account.md#bind).
+To enjoy the service's paid features, [create a billing account](billing-account.md#create), add money to it, and [link the account to {{ tracker-name }}](billing-account.md#bind).
 
-Funds will only be debited if you grant full access to {{ tracker-name }} to 6 or more employees. There are no additional payments required.
+The account will be debited only when you connect six or more users with full access to {{ tracker-name }}, with no additional fees charged.
 
-## Can I test {{ tracker-name }} for free with a larger team? {#testing}
+## Can I try {{ tracker-name }} in a large team for free? {#testing}
 
-If you team has no more than 5 users with access to issue creating and editing, you can use {{ tracker-name }} for free.
+If there are not more than five users to create or edit issues on your team, you can use {{ tracker-name }} for free.
 
-If you wish to grant [full access to {{ tracker-name }}](access.md) to 6 or more users, you will have to pay for the service. But you will receive a starter grant of RUB 3000, which you can use to get familiar with the service.
+For six or more users, a fee will be charged for [full access to {{ tracker-name }}](access.md). But for a start, you will get an initial grant of 3,000 rubles you will be able to spend on getting to know the service.
 
-If you wish to manage a pilot integration project in {{ tracker-name }} with over 500 users, [fill in the form]({{ link-500-users }}) to receive individual terms of service.
+If you contemplate a pilot {{ tracker-name }} deployment project for more than 500 users, [fill out the form]({{ link-500-users }}) to get a customized offer.
 
-## Can I receive any extra bills when using {{ tracker-name }}? {#additional-payments}
+## Will I be charged any additional fees for using {{ tracker-name }}? {#additional-payments}
 
-No, our [pricing{{ tracker-name }}](pricing.md) is very transparent. Your payment is determined by the maximum number of users granted [full access to {{ tracker-name }}](access.md) within a month.
+No, [the {{ tracker-name }} pricing model](pricing.md) is absolutely transparent. Your payment depends on the number of users with [full access to {{ tracker-name }}](access.md). If the number of users with full access increases during a month, the payment amount for this month will increase as well.
 
-## How are payments for {{ tracker-name }} carried out? {#paying}
+## How do I pay for {{ tracker-name }}? {#paying}
 
-{{ tracker-name }} uses a post-payment system. On the first day of each month, a payment for the previous month is debited from your [billing account](access.md#billing). Your payment amount is determined by the maximum number of users granted [full access to {{ tracker-name }}](access.md) within a month.
+The fees for using {{ tracker-name }} will be debited from your [billing account](billing-account.md): To pay for the services in a timely manner, we recommend maintaining a [positive account balance](pay-the-bill.md#balance).
 
-## How do I contact the sales department? {#contact-form}
+The payment amount depends on the number of users with [full access to {{ tracker-name }}](access.md) and may grow during the month if the number of such users increases. The month's final fee will be stated in a report issued on the first day of the next month. If your billing account is at a deficit at that point, the unpaid amount will turn into arrears.
 
-Send a message using the [form]({{ link-500-users }}).
+For more information, see [{#T}](pay-the-bill.md).
 
-## I still have some questions. Who do I contact? {#other-questions}
+## How do I contact sales? {#contact-form}
 
-{{ tracker-name }} users can ask questions on the [technical support page]({{ link-tracker-support }}). You can also join the discussion in our Telegram community: [https://t.me/yandextracker](https://t.me/yandextracker).
+Send us a request using the [form]({{ link-500-users }}).
 
+## I still have questions. Who do I ask them to? {#other-questions}
+
+{{ tracker-name }} users can ask their questions on the [technical support page]({{ link-tracker-support }}). You can also discuss your topics of interest in our Telegram community: [https://t.me/yandextracker](https://t.me/yandextracker).

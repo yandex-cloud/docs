@@ -1,3 +1,8 @@
+---
+title: "Volumes in {{ managed-k8s-full-name }}"
+description: "Volumes are stores that enable shared access to objects from different containers deployed in one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to."
+---
+
 # Volumes
 
 You can store application data in the containers where the applications are running, but this may cause issues:

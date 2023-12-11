@@ -1,3 +1,8 @@
+---
+title: "How to enable file compression in {{ cdn-full-name }}"
+description: "Follow this guide to enable file compression."
+---
+
 # Enabling file compression
 
 To enable [compression](../../concepts/compression.md) of [resource](../../concepts/resource.md) files:
@@ -20,7 +25,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. In the **{{ ui-key.yacloud.cdn.label_resource-content-gzip-on }}** field, enable the **{{ ui-key.yacloud.cdn.label_resource-content-compress-true }}** option.
 

@@ -371,7 +371,7 @@ The user can create a budget if they have the `editor` role. To get notification
       * `--subnet-name`: Name of the selected subnet.
       * `--nat-ip-version`: Public IP.
       * `image-family`: [Family of images](../../compute/concepts/image#family). This option allows you to install the latest version of the operating system from the specified family.
-      * `--ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key. [How to create an SSH key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      * `--ssh-key`: Path to the public SSH key. The `yc-user` user will be automatically created on the VM for this key. [How to create an SSH key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
       Result:
       ```

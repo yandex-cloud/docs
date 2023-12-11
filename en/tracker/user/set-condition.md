@@ -1,3 +1,8 @@
+---
+title: "How to set up a trigger condition in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to set up a trigger condition in {{ tracker-name }}."
+---
+
 # Setting trigger conditions
 
 ## Adding a condition {#section_set_condition}

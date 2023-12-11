@@ -1,3 +1,8 @@
+---
+title: "How to work with text formatting in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn how to use text formatting in {{ wiki-name }}."
+---
+
 # Formatting text
 
 ## Line formatting {#format-wysiwyg}

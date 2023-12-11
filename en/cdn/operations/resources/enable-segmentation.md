@@ -1,3 +1,8 @@
+---
+title: "How to enable file segmentation in {{ cdn-full-name }}"
+description: "Follow this guide to enable file segmentation."
+---
+
 # Enabling file segmentation
 
 To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts/resource.md) files:
@@ -14,7 +19,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. At the top right, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. At the top right, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. In the **{{ ui-key.yacloud.cdn.label_resource-content-slice }}** field, enable the **{{ ui-key.yacloud.cdn.label_resource-content-optimize-true }}** option.
 

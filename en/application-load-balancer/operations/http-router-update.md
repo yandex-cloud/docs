@@ -1,6 +1,11 @@
-# Change HTTP router parameters
+---
+title: "How to update HTTP router parameters in {{ alb-full-name }}"
+description: "Follow this guide to update parameters of an HTTP router."
+---
 
-To change the HTTP router parameters:
+# Updating HTTP router parameters
+
+To update the HTTP router parameters:
 
 {% list tabs %}
 
@@ -8,7 +13,7 @@ To change the HTTP router parameters:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. Click the router name.
    1. Click **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the router, virtual host, or route settings.
@@ -151,7 +156,7 @@ To add a new route to an HTTP router's virtual host:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. Click the router name.
    1. Click **{{ ui-key.yacloud.common.edit }}**.
    1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
@@ -605,7 +610,7 @@ To change the order of HTTP router routes:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. Click the router name.
    1. Click **{{ ui-key.yacloud.common.edit }}**.
    1. Click **{{ ui-key.yacloud.alb.button_routes-sort }}**.

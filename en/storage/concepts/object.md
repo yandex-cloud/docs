@@ -10,9 +10,11 @@ Along with the object, {{ objstorage-name }} stores [user](#user-meta) and [syst
 
 {{ objstorage-name }} supports the following operations with objects:
 
-- Uploading an object to a storage.
-- Downloading an object from a storage.
-- Copying an object within a storage, e.g., from one bucket to another.
+* Uploading an object to a storage.
+* Downloading an object from a storage.
+* Copying an object within a storage, e.g., from one bucket to another.
+* Deleting an object.
+* [Partial object update](object-patch.md) in a storage.
 
 You can also combine these operations using the [tools](../tools/index.md).
 

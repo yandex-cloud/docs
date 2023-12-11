@@ -1,3 +1,8 @@
+---
+title: "How to create an image from a {{ compute-full-name }} VM in {{ cloud-desktop-full-name }}"
+description: "This guide describes how you can create an image from a VM."
+---
+
 # Creating an image from a {{ compute-name }} VM
 
 To create a {{ cloud-desktop-name }} [custom image](../../concepts/images.md#custom-images) from a {{ compute-name }} [VM](../../../compute/concepts/vm.md):
@@ -12,7 +17,7 @@ To create a {{ cloud-desktop-name }} [custom image](../../concepts/images.md#cus
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create an image.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-      1. In the left-hand panel, select ![image](../../../_assets/cloud-desktop/images.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
+      1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
       1. Click **{{ ui-key.yacloud.vdi.button_add-image }}**.
       1. In the **{{ ui-key.yacloud.vdi.label_image-source }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.
       1. In the **{{ ui-key.yacloud.vdi.label_image }}** field, select the previously created image.

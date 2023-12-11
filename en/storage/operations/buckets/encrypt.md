@@ -1,3 +1,8 @@
+---
+title: "How to encrypt objects in a {{ objstorage-full-name }} bucket"
+description: "Follow this guide to encrypt objects in a bucket."
+---
+
 # Bucket encryption
 
 In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ kms-short-name }} keys](../../../kms/concepts/key.md):
@@ -88,7 +93,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

@@ -1,3 +1,8 @@
+---
+title: "How to create an AppMetrica connection in {{ datalens-full-name }}"
+description: "Follow this guide to create an AppMetrica connection."
+---
+
 # Creating an AppMetrica connection
 
 To create an AppMetrica connection:
@@ -21,11 +26,11 @@ To create an AppMetrica connection:
       {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
 
 
-1. Leave the option **Automatically create a dashboard, charts, and a dataset on the connection** enabled if you need a folder with a standard set of datasets and charts and a ready-made dashboard.
+1. Leave the **Automatically create a dashboard, charts, and a dataset on the connection** option enabled if you need a folder with a standard set of datasets and charts and a ready-made dashboard.
 
 
 1. Click **Create connection**.
-1. Enter the name for the connection and click **Create**.
+1. Enter a name for the connection and click **Create**.
 
 {% include [datalens-appmetrica-note](../../../_includes/datalens/datalens-appmetrica-note.md) %}
 

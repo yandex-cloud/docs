@@ -212,7 +212,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -303,7 +303,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -428,7 +428,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -457,7 +457,7 @@ To create security groups:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. In the left-hand panel, select ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `canary-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `canary-network`.
@@ -591,7 +591,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -621,7 +621,7 @@ To create security groups:
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the left-hand panel, select ![image](../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+      1. In the left-hand panel, select ![image](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
       1. At the top right, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-bg-production`.
       1. Create a backend named `canary-backend-blue`:
@@ -640,7 +640,7 @@ To create security groups:
 
    1. In a similar way, create a backend group named `canary-bg-staging`. For the `canary-backend-blue` backend, set the weight to `0`; for `canary-backend-green`, set the weight to `100`.
 
-   If you are going to complete the next steps in {{ TF }}, copy the IDs of the `canary-bg-production` and `canary-bg-staging` backend groups from the ![image](../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
+   If you are going to complete the next steps in {{ TF }}, copy the IDs of the `canary-bg-production` and `canary-bg-staging` backend groups from the ![image](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
 
 - API
 
@@ -656,7 +656,7 @@ To create security groups:
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. In the left-hand panel, select ![image](../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
    1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-router`.
    1. Create a virtual host named `canary-vh-production`:
@@ -845,7 +845,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1068,7 +1068,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1130,7 +1130,7 @@ To create security groups:
 
       1. Select the previously created resource.
       1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** changes to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-      1. At the top right, click ![image](../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. At the top right, click ![image](../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -1138,7 +1138,7 @@ To create security groups:
 
       1. Select the previously created resource.
       1. Go to **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
-      1. At the top right, click ![image](../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. At the top right, click ![image](../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -1256,7 +1256,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1432,7 +1432,7 @@ To configure DNS:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -1623,11 +1623,11 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the left-hand panel, select ![image](../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+      1. In the left-hand panel, select ![image](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
       1. Select `canary-bg-production`.
       1. For the `canary-backend-blue` backend, set the weight to 80 instead of 100:
 
-         1. In the **{{ ui-key.yacloud.alb.label_backends }}** section, find `canary-backend-blue`, click ![image](../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+         1. In the **{{ ui-key.yacloud.alb.label_backends }}** section, find `canary-backend-blue`, click ![image](../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
          1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `80`.
          1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -1815,11 +1815,11 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the left-hand panel, select ![image](../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+      1. In the left-hand panel, select ![image](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
       1. Select `canary-bg-production`.
       1. For the `canary-backend-blue` backend, set the weight to 100 instead of 0:
 
-         1. In the **{{ ui-key.yacloud.alb.label_backends }}** section, find `canary-backend-blue`, click ![image](../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+         1. In the **{{ ui-key.yacloud.alb.label_backends }}** section, find `canary-backend-blue`, click ![image](../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
          1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, enter `100`.
          1. Click **{{ ui-key.yacloud.common.save }}**.
 

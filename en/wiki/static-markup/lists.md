@@ -1,3 +1,8 @@
+---
+title: "How to work with lists in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn how to use lists in {{ wiki-name }}."
+---
+
 # Lists
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
@@ -151,7 +156,7 @@ A to-do list (checklist) is a numbered or bulleted list where you can mark compl
 
     {% endcut %}
 
-- B ulleted list
+- Bulleted list
 
     ```
     + List item

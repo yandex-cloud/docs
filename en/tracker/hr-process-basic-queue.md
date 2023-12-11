@@ -1,4 +1,9 @@
-# Creating an HR queue
+---
+title: "How to create an HR management queue in {{ tracker-full-name }}"
+description: "Follow this guide to create an HR management queue."
+---
+
+# Creating an HR management queue
 
 To enable the HR department employees to plan and track general HR tasks, create a queue and invite them to it:
 

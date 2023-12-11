@@ -1,3 +1,8 @@
+---
+title: "How to create a form in {{ forms-full-name }}"
+description: "Follow this guide to create a form."
+---
+
 # How to create the first form
 
 Learn your way around {{ forms-full-name }} by creating a simple form:
@@ -56,7 +61,7 @@ To allow users to fill out the form, you need to publish it:
 
 To get a table with user responses to form prompts:
 
-1. Click the **{{ ui-key.forms.common.blocks_correct-answers.title }}** tab.
+1. Go to the **{{ ui-key.forms.common.blocks_correct-answers.title }}** tab.
 
 1. In the **Download responses** list, select **All**.
 

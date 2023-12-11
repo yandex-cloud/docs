@@ -1,3 +1,8 @@
+---
+title: "How to add a user to {{ datalens-full-name }}"
+description: "Follow this guide to add a user to {{ datalens-full-name }}."
+---
+
 # Adding users to {{ datalens-short-name }}
 
 There are a few ways to add a user to {{ datalens-short-name }}:

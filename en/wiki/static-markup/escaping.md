@@ -1,3 +1,8 @@
+---
+title: "Escaping characters in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn about the methods of escaping characters in your text."
+---
+
 # Escaping characters
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

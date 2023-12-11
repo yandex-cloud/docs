@@ -125,6 +125,8 @@ items:
         href: concepts/versioning.md
       - name: Object lock
         href: concepts/object-lock.md
+      - name: Partial object updates
+        href: concepts/object-patch.md
       - name: Encryption
         href: concepts/encryption.md
       - name: Object lifecycles
@@ -265,6 +267,8 @@ items:
                     href: s3/api-ref/object/upload.md
                   - name: get
                     href: s3/api-ref/object/get.md
+                  - name: patch
+                    href: s3/api-ref/object/patch.md
                   - name: copy
                     href: s3/api-ref/object/copy.md
                   - name: getObjectMeta

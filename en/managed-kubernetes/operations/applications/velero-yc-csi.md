@@ -35,12 +35,12 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
      --format=json > sa-key.json
    ```
 
-1. [Create a {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
+1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **Applications available for installation**, select [Velero](/marketplace/products/yc/velero-yc-csi) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Create a [namespace](../../concepts/index.md#namespace) called `velero`. The application uses it by default.

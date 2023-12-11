@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ objstorage-full-name }}"
+description: "This page presents questions and answers about {{ objstorage-name }}."
+---
+
 # Questions and answers about {{ objstorage-name }}
 
 #### What is {{ objstorage-full-name }}? {#qa-what-is}

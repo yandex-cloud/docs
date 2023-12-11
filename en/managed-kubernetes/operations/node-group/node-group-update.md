@@ -172,8 +172,8 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
 - Management console
 
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click the name of the desired VM.
-  1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
+  1. Click the name of the required VM.
+  1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
   1. Specify the appropriate settings and click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
 - CLI
@@ -283,7 +283,7 @@ You can perform the following actions with the {{ managed-k8s-name }} node group
 
   {% note warning %}
 
-  The existing set of `labels` is completely replaced by the set transmitted.
+  The existing set of `labels` is completely overwritten by the transmitted set.
 
   {% endnote %}
 

@@ -1,7 +1,12 @@
-# Tools available on boards with a backlog and sprints
+---
+title: "Tools on boards with backlog and sprints in {{ tracker-full-name }}"
+description: "Boards with backlog and sprints feature the following: backlog, sprints, planning poker, and burndown chart."
+---
 
-Boards with a **Backlog and sprints** provide special tools:
+# Tools on boards with backlog and sprints
+
+Boards with **Backlog and sprints** feature these special tools:
 * [Backlog](backlog.md)
 * [Sprints](create-agile-sprint.md)
 * [Planning poker](poker.md)
-* [Burn down chart](burndown-diagram.md)
+* [Burndown chart](burndown-diagram.md)

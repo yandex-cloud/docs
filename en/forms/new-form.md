@@ -1,4 +1,9 @@
-# Create a form
+---
+title: "How to create forms in {{ forms-full-name }}"
+description: "In this tutorial, you will learn how to create forms in {{ forms-full-name }}."
+---
+
+# Creating a form
 
 ## Create a form {#create-form}
 
@@ -51,7 +56,7 @@ To create a new form based on an existing one, copy the form and edit it:
 
 {{ forms-full-name }} has several templates for popular form types. To create a form based on a template:
 
-1. Go to the [{{ forms-full-name }} homepage]({{ link-forms-admin }}).
+1. Go to the [{{ forms-full-name }} home page]({{ link-forms-admin }}).
 
 1. Select one of the templates:
 

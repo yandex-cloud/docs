@@ -1,3 +1,8 @@
+---
+title: "GET parameters in {{ forms-full-name }}"
+description: "You can use GET parameters to add attributes to a form. GET parameters allow you to automatically fill in the fields of the form that you publish using a link or embed in a page using an iframe."
+---
+
 # GET parameters
 
 You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-url}}). GET parameters allow you to automatically fill in the fields of the form that you publish using a link or [embed in a page using an iframe](publish.md#publlish-site):
@@ -10,7 +15,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question ID>=<response text>
       ```
-      If there are multiple words in the response text, replace the spaces with a `+` sign, e.g.:
+      If there are multiple words in the response text, replace the spaces with a `+` sign. For example:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_short_text_1685088=Planet+Earth
       ```
@@ -18,7 +23,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question ID>=<response ID>
       ```
-      E.g.:
+      For example:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_choices_1685184=1958524
       ```
@@ -26,7 +31,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question id>=YYYY-MM-DD
       ```
-      E.g.:
+      For example:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_date_1685200=2020-01-27
       ```
@@ -34,7 +39,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question id>=True
       ```
-      E.g.:
+      For example:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_boolean_1685199=True
       ```
@@ -47,7 +52,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question ID>[<X criterion ID>]=<X response ID>&<question ID>[<Y criterion ID>]=<Y response ID>
       ```
-      E.g.:
+      For example:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_choices_1686274=231035_231038
       ```

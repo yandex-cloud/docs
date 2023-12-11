@@ -1,3 +1,8 @@
+---
+title: "How to connect to a {{ k8s }} cluster node in {{ managed-k8s-full-name }}"
+description: "Follow this guide to connect to the node over SSH."
+---
+
 # Connecting to a node over SSH
 
 To connect to a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) [node](../concepts/index.md#node-group) over SSH:
@@ -148,7 +153,7 @@ To connect, specify the {{ managed-k8s-name }} node [public IP address](../../vp
 - Management console
 
   1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section in the folder where you created your {{ managed-k8s-name }} cluster.
-  1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Click the instance group with the name that matches the {{ managed-k8s-name }} node group ID.
   1. In the window that opens, go to the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
   1. Click the VM that you want to find the public address for.
@@ -209,7 +214,7 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the st
   ssh <username>@<public_IP_address_of_node>
   ```
 
-  When connecting to the {{ managed-k8s-name }} node for the first time, you might see an unknown host warning:
+  If connecting to the {{ managed-k8s-name }} node for the first time, you may get an unknown host warning:
 
   ```bash
   The authenticity of host '130.193.40.101 (130.193.40.101)' cannot be established.

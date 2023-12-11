@@ -1,3 +1,8 @@
+---
+title: "How to set up a trigger action in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to set up a trigger action."
+---
+
 # Configuring trigger actions
 
 Configure one or more actions under **Actions** by clicking **Add new action**.

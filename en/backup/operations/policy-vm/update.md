@@ -1,6 +1,6 @@
 ---
-title: "Updating a backup policy"
-description: "In this tutorial, you will learn how to update a backup policy in **{{ backup-name }}**."
+title: "How to update a backup policy in {{ backup-full-name }}"
+description: "In this tutorial, you will learn how to update a backup policy in {{ backup-name }}."
 ---
 
 # Updating a backup policy
@@ -13,8 +13,8 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to change the policy.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-   1. Go to the ![policies](../../../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
-   1. Next to the appropriate policy, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+   1. Next to the appropriate policy, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the policy parameters:
 
       {% include [policy-options](../../../_includes/backup/policy-options.md) %}
@@ -43,7 +43,7 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
       The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) VM backups every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
-      See [Full backup policy specification](../../concepts/policy.md#specification).
+      For more information, refer to [Full backup policy specification](../../concepts/policy.md#specification).
 
    1. Get the ID of the backup policy to update:
 
@@ -218,12 +218,12 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 
    1. In the [management console]({{ link-console-main }}), select the folder where the policy is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-   1. Go to the ![policies](../../../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+   1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
    1. Select the policy for which to update the list of VMs.
    1. Update the list of VMs:
 
-      * To add a new VM, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** under **{{ ui-key.yacloud.backup.label_linked-instances }}**. In the window that opens, select the VM to link to the policy and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
-      * To remove a VM, under **{{ ui-key.yacloud.backup.label_linked-instances }}**, click ![options](../../../_assets/options.svg) next to the VM to be unlinked from the policy and select **{{ ui-key.yacloud.backup.action_detach-instance }}**.
+      * To add a new VM, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** under **{{ ui-key.yacloud.backup.label_linked-instances }}**. In the window that opens, select the VM to link to the policy and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
+      * To remove a VM, under **{{ ui-key.yacloud.backup.label_linked-instances }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM to be unlinked from the policy and select **{{ ui-key.yacloud.backup.action_detach-instance }}**.
 
 - CLI
 

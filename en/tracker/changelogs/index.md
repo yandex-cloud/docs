@@ -1,3 +1,8 @@
+---
+title: "{{ tracker-full-name }} revision history for October 2023"
+description: "See below the {{ tracker-full-name }} revision history for October 2023."
+---
+
 # {{ tracker-full-name }} revision history for October 2023
 
 * [Updates](#top-news)
@@ -13,7 +18,7 @@ To do this, click ![](../../_assets/tracker/svg/add-task.svg) **Add** below the 
 
 ### Automatic calculation of time spent on an issue {#calculate-time}
 
-[Advanced time tracking](../user/time-spent.md#extended-spent-time) mode now allows you to automatically calculate the time spent on an issue. The time calculation covers the span from when the issue was assigned until it was closed, the employee's schedule considered.
+[Advanced time tracking](../user/time-spent.md#extended-spent-time) now allows you to automatically calculate the time spent on an issue. The time calculation covers the span from when the issue was assigned until it was closed, the employee's schedule considered.
 
 To learn how to activate auto time calculation and how it works, see [{#T}](../manager/queue-spent-time.md).
 

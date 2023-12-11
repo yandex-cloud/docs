@@ -1,3 +1,8 @@
+---
+title: "Enabling public access to operations with a {{ objstorage-full-name }} bucket"
+description: "Follow this guide to enable public access to operations with a bucket."
+---
+
 # Enabling public access for bucket operations
 
 By default, buckets are created with restricted [access](../../concepts/bucket.md#bucket-access). You can use the management console to enable public access:
@@ -120,7 +125,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

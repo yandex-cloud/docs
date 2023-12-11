@@ -17,7 +17,7 @@ Make sure the [desktop](../../concepts/desktops-and-groups.md) you want to creat
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an image.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/cloud-desktop/images.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
    1. Click **{{ ui-key.yacloud.vdi.button_add-image }}**.
    1. In the **{{ ui-key.yacloud.vdi.label_image-source }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_vdi }}`.
    1. In the **{{ ui-key.yacloud.vdi.label_desktop }}** field, select the desktop to create the image from.

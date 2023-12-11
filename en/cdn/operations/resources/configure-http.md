@@ -1,3 +1,8 @@
+---
+title: "How to configure HTTP methods in {{ cdn-full-name }}"
+description: "Follow this guide to configure HTTP methods."
+---
+
 # Configuring HTTP methods
 
 To configure, for the resource, the allowed HTTP methods of requests from clients:
@@ -14,7 +19,7 @@ To configure, for the resource, the allowed HTTP methods of requests from client
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-http-methods }}**, select **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** from the drop-down list.
 

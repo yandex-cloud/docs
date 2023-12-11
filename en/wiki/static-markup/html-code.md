@@ -1,3 +1,8 @@
+---
+title: "HTML elements available in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn which HTML elements are available in {{ wiki-name }}."
+---
+
 # HTML elements
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

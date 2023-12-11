@@ -1,3 +1,8 @@
+---
+title: "What response headers exist in the {{ objstorage-full-name }} S3 API"
+description: "In this tutorial, you will learn about the response headers existing in the S3 API."
+---
+
 # Common response headers
 
 Apart from [standard HTTP headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields), Yandex {{ objstorage-name }} uses additional headers that can be present in responses.

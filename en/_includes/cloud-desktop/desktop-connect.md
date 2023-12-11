@@ -38,7 +38,7 @@
       ```
 
    1. Start Remmina.
-   1. In the top menu, click ![image](../../_assets/cloud-desktop/lines-3h.svg) and select **Import**. Run the downloaded RDP file and click **Import**.
+   1. In the top menu, click ![image](../../_assets/console-icons/bars.svg) and select **Import**. Run the downloaded RDP file and click **Import**.
    1. Right-click the added desktop and select **Edit**.
    1. In the **Remote Connection Profile** window, set up the connection:
 

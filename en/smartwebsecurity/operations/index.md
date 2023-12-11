@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ sws-full-name }}"
+description: "This page provides a list of step-by-step guides for {{ sws-name }}."
+---
+
 # Step-by-step guides for {{ sws-name }}
 
 ## Managing security profiles {#profiles}

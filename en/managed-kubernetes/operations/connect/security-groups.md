@@ -1,6 +1,11 @@
+---
+title: "How to create security groups for a {{ k8s }} cluster in {{ managed-k8s-full-name }}"
+description: "Follow this guide to set up security groups."
+---
+
 # Configuring security groups
 
-[Security groups](../../../vpc/concepts/security-groups.md) follow the "All traffic that is not allowed is prohibited" principle. For a cluster to run, you need to [create rules](../../../vpc/operations/security-group-add-rule.md) in its security groups to allow:
+[Security groups](../../../vpc/concepts/security-groups.md) follow the _All traffic that is not allowed is prohibited_ principle. For a cluster to run, you need to [create rules](../../../vpc/operations/security-group-add-rule.md) in its security groups to allow:
 * [Service traffic within the cluster](#rules-internal).
 * [Connections to services from the internet](#rules-nodes).
 * [Connections to nodes over SSH](#rules-nodes-ssh).
@@ -81,7 +86,7 @@ To access the nodes via SSH, create a rule for incoming traffic and **apply it t
   * `10.0.0.0/8`
   * `192.168.0.0/16`
   * `172.16.0.0/12`
-  * `85.32.32.22/32`.
+  * `85.32.32.22/32`
 
 ## Creating rules to access the {{ k8s }} API {#rules-master}
 

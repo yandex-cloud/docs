@@ -1,3 +1,8 @@
+---
+title: "How to insert tables in pages in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn about inserting tables in pages in {{ wiki-name }}."
+---
+
 # Inserting a table
 
 ## Inserting static tables {#simple-table}
