@@ -1,3 +1,8 @@
+---
+title: "Access management in the {{ datalens-full-name }} data visualization and analysis service"
+description: "This section describes the roles required to perform this or that action, the resources for which you can assign a role, and the roles existing in the service."
+---
+
 # {{ datalens-short-name }} roles
 
 There are two types of roles in {{ datalens-short-name }}:

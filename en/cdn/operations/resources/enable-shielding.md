@@ -1,3 +1,8 @@
+---
+title: "How to enable origin shielding in {{ cdn-full-name }}"
+description: "Follow this guide to enable origin shielding."
+---
+
 # Enabling origin shielding
 
 To enable [origin shielding](../../concepts/origins-shielding.md) for a [resource](../../concepts/resource.md):

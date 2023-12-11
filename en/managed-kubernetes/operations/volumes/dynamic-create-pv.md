@@ -1,3 +1,8 @@
+---
+title: "How to create a pod with a dynamically provisioned volume in {{ managed-k8s-full-name }}"
+description: "Follow this guide to create a pod with a dynamically provisioned volume."
+---
+
 # Dynamic volume provisioning
 
 Create a [pod](../../concepts/index.md#pod) with a dynamically provisioned [volume](../../concepts/volume.md):

@@ -1,3 +1,7 @@
+---
+title: "{{ forms-full-name }} support"
+---
+
 # {{ forms-name }} support
 
 If you did not find an answer to your question about {{ forms-full-name }} in the documentation, please contact technical support:

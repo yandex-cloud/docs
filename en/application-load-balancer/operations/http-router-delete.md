@@ -19,7 +19,7 @@ To delete an HTTP router:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. Select the router and click ![image](../../_assets/horizontal-ellipsis.svg).
+   1. Select the router and click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
 
       To do this with multiple HTTP routers, select the routers to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.

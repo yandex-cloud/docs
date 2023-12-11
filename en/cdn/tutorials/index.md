@@ -1,3 +1,8 @@
+---
+title: "{{ cdn-full-name }} use cases"
+description: "Various {{ cdn-full-name }} use cases in {{ yandex-cloud }}"
+---
+
 # {{ cdn-name }} tutorials
 
 * [{#T}](prefetch.md)

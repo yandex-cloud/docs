@@ -1,3 +1,8 @@
+---
+title: "How to edit a dynamic table in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn how to edit a dynamic table in {{ wiki-name }}."
+---
+
 # Editing a dynamic table
 
 ## General settings {#general-settings}
@@ -169,9 +174,9 @@ To filter a table:
    1. Select ![](../_assets/wiki/svg/link.svg) **Copy embed code**.
 
    1. In the window that opens, select the options from among the following:
-      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.read_only }}**
-      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.show_line_nums }}**
-      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.can_sort }}**
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.read_only }}**.
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.show_line_nums }}**.
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.can_sort }}**.
       * **Wysiwyg markdown**
 
    1. Click **Copy code**

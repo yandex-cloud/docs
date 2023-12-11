@@ -613,6 +613,7 @@ default:
   sf-name: Cloud Functions
   sf-short-name: Cloud Functions
   sf-url: functions.yandexcloud.net
+  sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
@@ -3105,6 +3106,9 @@ default:
         external-relations: Связи с внешними приложениями
       ui_components_issue-links_InternalLinksCollapse:
         relations: Связанные задачи
+      ui_components_issue-templates_Select:
+        manage-templates: Управление шаблонами
+        select-template: Применить шаблон
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Создать подзадачу
       ui_components_IssueBulkActionPanel:
@@ -4305,6 +4309,7 @@ default:
             switch_auto: Автоматически
             switch_list: Список
           resources:
+            field_advanced: Дополнительно
             field_core-fraction: Гарантированная доля vCPU
             field_cores: vCPU
             field_gpus: GPU
@@ -4393,6 +4398,7 @@ default:
           field_instance: ВМ
         disk-form:
           field_size: Размер
+          field_source: Наполнение
           field_type: Тип
         disks:
           button_action-attach: Присоединить
@@ -4429,6 +4435,7 @@ default:
           button_create: Создать группу
           create:
             button_create: Создать
+            button_create-account: Создать аккаунт
             button_edit: Сохранить
             button_instance_empty-create: Задать
             field_alb-pre-checks-timeout: Время ожидания трафика
@@ -4542,7 +4549,9 @@ default:
             button_create: Добавить
             field_additional: Дополнительно
             field_auto-delete: Удалять вместе с ВМ
+            field_boot-type: Назначение диска
             field_source: Наполнение
+            value_boot-disk: Загрузочный
             value_network-hdd: HDD
             value_network-ssd: SSD
             value_network-ssd-io-m3: SSD IO
@@ -4586,6 +4595,7 @@ default:
             image_value_marketplace: Cloud Marketplace
             image_value_os-products: Операционные системы
             label_add-disk: Добавить диск
+            label_add-net: Добавить сеть
             label_backup: Резервное копирование
             label_network: Сеть
             section_access: Доступ
@@ -4605,6 +4615,7 @@ default:
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
+            value_network-ssd: SSD
           label_title: Виртуальные машины
           popup-confirm_button_delete: Удалить
           popup-confirm_button_gr-stop: Остановить
@@ -5838,7 +5849,7 @@ default:
             field_suffix: Суффикс ключа объекта
             field_tag: Тег Docker-образа
             field_type: Тип
-            field_ymq-cutoff: Время ожидания
+            field_ymq-cutoff: Время ожидания, с
             label_any-budget: Все бюджеты
             label_billing-budget: Бюджет
             label_cloud-logs: Cloud Logs

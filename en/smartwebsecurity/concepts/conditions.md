@@ -1,3 +1,8 @@
+---
+title: "Conditions in {{ sws-full-name }}"
+description: "You can set up conditions for your security rules. For more information, read this article."
+---
+
 # Conditions
 
 You can set the following rule [conditions](rules.md):
@@ -8,7 +13,7 @@ You can set the following rule [conditions](rules.md):
 * Matches or falls within the range
 * Mismatches or lies outside the range
 * IP belongs to the region
-* IP does not belong to region
+* IP does not belong to the region
 |
 * IP address
 * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)

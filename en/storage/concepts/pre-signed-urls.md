@@ -1,3 +1,8 @@
+---
+title: "Pre-signed URLs in {{ objstorage-full-name }}"
+description: "Using pre-signed URLs, web users can download, upload, or create an object in an {{ objstorage-name }} bucket:"
+---
+
 # Pre-signed URLs
 
 Using pre-signed URLs, web users can perform various operations in {{ objstorage-name }}, such as:

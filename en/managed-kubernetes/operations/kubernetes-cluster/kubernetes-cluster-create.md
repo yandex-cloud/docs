@@ -128,9 +128,10 @@ To create a {{ managed-k8s-name }} cluster:
         --master-logging enabled=<log_sending>,`
           `log-group-id=<log_group_ID>,`
           `folder-id=<folder_ID>,`
-          `kube-apiserver-enabled=<kube-apiserver_log_sending>,`
-          `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending>,`
-          `events-enabled=<{{ k8s }}_event_sending>
+          `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
+          `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
+          `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
+          `audit-enabled=<audit_event_sending:_true_or_false>
       ```
 
       Where:

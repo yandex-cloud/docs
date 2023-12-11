@@ -13,9 +13,9 @@ description: "In this article, you will learn how to link a {{ compute-name }} V
 
    1. In the [management console]({{ link-console-main }}), select a folder in which to link a VM to a backup policy.
    1. In the list of services, select **{{ backup-name }}**.
-   1. Go to the ![policies](../../../_assets/backup/policies.svg) **Backup policies** tab.
+   1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **Backup policies** tab.
    1. Select the policy to link the VM to.
-   1. Under **Virtual machines**, click ![image](../../../_assets/plus-sign.svg) **Attach VM**.
+   1. Under **Virtual machines**, click ![image](../../../_assets/console-icons/plus.svg) **Attach VM**.
 
 - CLI
 
@@ -62,9 +62,9 @@ description: "In this article, you will learn how to link a {{ compute-name }} V
 
   1. In the [management console]({{ link-console-main }}), select a folder in which to unlink a VM from a backup policy.
   1. In the list of services, select **{{ backup-name }}**.
-  1. Go to the ![policies](../../../_assets/backup/policies.svg) **Backup policies** tab.
+  1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **Backup policies** tab.
   1. Select the policy to unlink the VM from.
-  1. Under **Virtual machines**, click ![options](../../../_assets/options.svg) next to the VM to be unlinked from the policy and select **Detach from policy**.
+  1. Under **Virtual machines**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM to be unlinked from the policy and select **Detach from policy**.
 
 - CLI
 

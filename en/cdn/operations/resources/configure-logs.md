@@ -52,7 +52,7 @@ To edit export parameters:
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Enter the required parameters and click **{{ ui-key.yacloud.common.save }}**.
 

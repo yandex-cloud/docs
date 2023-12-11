@@ -15,7 +15,7 @@ To create a [target group](../concepts/target-group.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your target group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
    1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
    1. Enter a name and description for the target group.
    1. Under **{{ ui-key.yacloud.alb.label_targets }}**, select a VM from the list or add the target manually:

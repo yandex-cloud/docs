@@ -1,3 +1,8 @@
+---
+title: "How to connect to a {{ k8s }} cluster in {{ managed-k8s-full-name }}"
+description: "Follow this guide to connect to a {{ k8s }} cluster in {{ managed-k8s-name }}."
+---
+
 # Connection method overview
 
 You can connect to a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) using the following methods:

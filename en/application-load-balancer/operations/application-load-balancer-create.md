@@ -1,4 +1,9 @@
-# Creating L7 load balancer
+---
+title: "How to create an L7 load balancer in {{ alb-full-name }}"
+description: "Follow this guide to create an L7 load balancer."
+---
+
+# Creating an L7 load balancer
 
 To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
@@ -42,7 +47,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
       1. (Optional) Enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set the **{{ ui-key.yacloud.alb.label_port }}** to `80` and the **{{ ui-key.yacloud.common.type }}** to:
          * `{{ ui-key.yacloud.alb.label_address-auto }}`.
          * `{{ ui-key.yacloud.alb.label_address-list }}`: Select an address from the drop-down list of the field that appears on the right.
-      1. (optional) Enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
+      1. (Optional) Enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
       1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, select the listener type: `{{ ui-key.yacloud.alb.label_listener-type-http }}` or `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
 
          For `{{ ui-key.yacloud.alb.label_listener-type-http }}`, select:
@@ -332,7 +337,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

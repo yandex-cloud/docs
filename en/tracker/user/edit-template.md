@@ -1,3 +1,8 @@
+---
+title: "How to update a template in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to update a template in {{ tracker-name }}."
+---
+
 # Editing a template
 
 ## Editing a template {#section_xwm_41t_zz}

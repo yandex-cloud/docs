@@ -1,3 +1,8 @@
+---
+title: "Setting up hosting in {{ objstorage-full-name }}"
+description: "Follow this guide to set up hosting."
+---
+
 # Hosting setup
 
 {{ objstorage-name }} buckets support:
@@ -136,7 +141,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

@@ -1,7 +1,12 @@
+---
+title: "{{ alb-full-name }} tool reference for {{ managed-k8s-full-name }}"
+description: "This page contains a reference of {{ alb-name }} tools for {{ managed-k8s-name }}."
+---
+
 # {{ alb-name }} tool reference for {{ managed-k8s-name }}
 
 
-{{ alb-name }} provides tools for deploying L7 load balancers in {{ managed-k8s-full-name }} clusters: [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md). The reference describes {{ k8s }} resource configurations used by the Ingress controller and Gateway API to deploy an infrastructure.
+{{ alb-name }} provides tools for deploying L7 load balancers in {{ managed-k8s-full-name }} clusters: [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md). This reference describes {{ k8s }} resource configurations used by the Ingress controller and Gateway API to deploy an infrastructure.
 
 
 

@@ -19,9 +19,9 @@ description: "Step-by-step guide for editing a backend group."
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-   1. Click the name of the group you need.
-   1. Click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. Click the name of the group.
+   1. Click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the group parameters:
 
       * **{{ ui-key.yacloud.common.name }}** and **{{ ui-key.yc-ui-datasphere.common.description }}** backend groups.
@@ -169,9 +169,9 @@ description: "Step-by-step guide for editing a backend group."
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-   1. Click the name of the group you need.
-   1. Click ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. Click the name of the group.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
    1. In the window that opens, set the backend settings:
 
       {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
@@ -251,7 +251,7 @@ description: "Step-by-step guide for editing a backend group."
       * `unhealthy-threshold`: Unhealthy threshold.
       * `timeout`: Timeout.
       * `interval`: Interval.
-      * `service-name`: Name of the gRPC service to be checked. If no service is specified, the backend's general health is checked.
+      * `service-name`: Name of the gRPC service to be checked. If no service is specified, the backend general health is checked.
 
    Result:
 
@@ -388,9 +388,9 @@ description: "Step-by-step guide for editing a backend group."
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. Click the name of the group.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, set the backend settings. For more information about the settings, see [above](#add-backend).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -473,7 +473,7 @@ description: "Step-by-step guide for editing a backend group."
          * `unhealthy-threshold`: Unhealthy threshold.
          * `timeout`: Timeout.
          * `interval`: Interval.
-         * `service-name`: Name of the gRPC service to be checked. If no service is specified, the backend's general health is checked.
+         * `service-name`: Name of the gRPC service to be checked. If no service is specified, the backend general health is checked.
 
       Result:
 
@@ -611,9 +611,9 @@ To remove a backend from a group:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. Click the name of the group.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

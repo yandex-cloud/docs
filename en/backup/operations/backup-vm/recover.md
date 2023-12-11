@@ -17,8 +17,8 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-   1. Go to the ![backups](../../../_assets/backup/backups.svg) **{{ ui-key.yacloud.backup.label_backups }}** tab.
-   1. Next to the backup to restore the VM from, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}**.
+   1. Go to the ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** tab.
+   1. Next to the backup to restore the VM from, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}**.
    1. In the **{{ ui-key.yacloud.backup.field_recover-to-vm }}** field, select the VM you created the backup from. In the list, this VM is marked as `({{ ui-key.yacloud.backup.context_current-vm }})`.
    1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 

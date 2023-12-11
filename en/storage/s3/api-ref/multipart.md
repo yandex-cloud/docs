@@ -1,4 +1,9 @@
-# General procedure for multipart upload
+---
+title: "General procedure for a multipart upload of objects to a {{ objstorage-full-name }} bucket"
+description: "In this tutorial, you will learn about the steps for a multipart upload of objects to a bucket."
+---
+
+# General procedure for a multipart upload
 
 Multipart upload lets you save objects to {{ objstorage-name }} in parts. This can be useful when uploading or copying large objects. We recommend using multipart upload for objects that are at least 100 MB.
 

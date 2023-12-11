@@ -1,6 +1,11 @@
-# Viewing the pages you edited
+---
+title: "How to view pages edited by me in {{ wiki-full-name }}"
+description: "Follow this guide to view pages edited by you."
+---
 
-To view a list of pages you edited, go to **Created and edited**:
+# Viewing pages edited by me
+
+To view a list of all pages edited by you, go to **Created and edited**:
 
 1. In the {{ wiki-name }} panel on the left, click ![](../_assets/wiki/svg/edited-icon.svg) **Created and edited**.
 

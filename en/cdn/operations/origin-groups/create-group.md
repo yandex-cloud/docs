@@ -1,3 +1,8 @@
+---
+title: "How to create an origin group in {{ cdn-full-name }}"
+description: "Follow this guide to create an origin group."
+---
+
 # Creating an origin group
 
 To create an [origin group](../../concepts/origins.md):
@@ -6,9 +11,9 @@ To create an [origin group](../../concepts/origins.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create a resource group in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
    1. Click **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
    1. Enter a name for the group.
    1. Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
@@ -70,7 +75,7 @@ To create an [origin group](../../concepts/origins.md):
 
    1. Describe the properties of the `yandex_cdn_origin_group` resource in the configuration file:
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       ```

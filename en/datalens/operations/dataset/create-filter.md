@@ -1,3 +1,8 @@
+---
+title: "How to create a default filter for new charts in {{ datalens-full-name }}"
+description: "Follow this guide to create a default filter for new charts."
+---
+
 # Creating a default filter for new charts
 
 To create a default filter:

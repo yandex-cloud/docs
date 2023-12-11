@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ managed-k8s-full-name }}"
+description: "This page provides answers to questions about {{ managed-k8s-name }}."
+---
+
 # Questions and answers about {{ managed-k8s-name }}
 
 ## General questions {#general}
@@ -23,3 +28,7 @@
 ## Logs {#logs}
 
 {% include notitle [logs](../../_qa/managed-kubernetes/logs.md) %}
+
+## Troubleshooting {#troubleshooting}
+
+{% include notitle [troubleshooting](../../_qa/managed-kubernetes/troubleshooting.md) %}

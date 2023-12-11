@@ -35,7 +35,6 @@
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}**, который используется для подключения к хранилищу. 
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** — выберите из списка [секрет](../../concepts/secrets.md), содержащий секретную часть статического ключа доступа, или создайте новый секрет.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}** — режим доступа к объектному хранилищу: **{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** или **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**.
-   * **{{ ui-key.yc-ui-datasphere.common.backend }}** — режим бэкенда: **{{ ui-key.yc-ui-datasphere.common.default }}**, **{{ ui-key.yc-ui-datasphere.new-s3-page.backend-geesefs }}** или **{{ ui-key.yc-ui-datasphere.new-s3-page.backend-s3fs }}**.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Подключить хранилище S3 к проекту {#mount}

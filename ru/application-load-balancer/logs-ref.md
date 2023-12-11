@@ -1,10 +1,10 @@
-# Справочник логов {{ alb-name }}
+# Справочник логов {{ alb-full-name }}
 
 В этом разделе описаны поля логов, поставляемых L7-балансировщиком. 
 
 Логи поставляются в формате JSON. Одна запись в логах соответствует одному запросу клиента к балансировщику. 
 
-Подробнее читайте в разделе [Логирование](concepts/application-load-balancer.md#logging).
+Подробнее читайте в разделе [Логирование](./concepts/application-load-balancer.md#logging).
 
 Поле | Описание
 ---- | ----
@@ -15,7 +15,7 @@
 `request_uri` | Путь запроса. Например, `/api/v1/foo`.
 `http_status` | Код ответа (состояния) HTTP.
 `http_version` | Версия протокола HTTP, например `HTTP/2`.
-`rewritten_request_uri` | Путь запроса после замены, настроенной в [маршруте](concepts/http-router.md#routes) HTTP-роутера. Например, `/api/backend/v1/foo`
+`rewritten_request_uri` | Путь запроса после замены, настроенной в [маршруте](./concepts/http-router.md#routes) HTTP-роутера. Например, `/api/backend/v1/foo`
 `request_content_type` | Значение HTTP-заголовка `Content-Type` в запросе клиента — тип запрошенного контента.
 `request_id` | Значение HTTP-заголовка `X-Request-ID` в запросе клиента.
 `user_agent` | Значение HTTP-заголовка `User-Agent` — идентификационная строка клиентского приложения.
@@ -23,19 +23,19 @@
 `response_content_type` | Значение HTTP-заголовка `Content-Type` в ответе балансировщика — тип запрошенного контента.
 `client_ip` | IP-адрес клиента.
 `client_port` | Клиентский порт TCP-соединения между клиентом и балансировщиком.
-`backend_ip` | Внутренний IP-адрес эндпоинта [бэкенда](concepts/backend-group.md) — виртуальной машины из [целевой группы](concepts/target-group.md) или [бакета {{ objstorage-name }}](../storage/concepts/bucket.md).
+`backend_ip` | Внутренний IP-адрес эндпоинта [бэкенда](./concepts/backend-group.md) — виртуальной машины из [целевой группы](./concepts/target-group.md) или [бакета {{ objstorage-name }}](../storage/concepts/bucket.md).
 `backend_port` | Порт, по которому балансировщик обращается к бэкенду.
 `load_balancer_id` | Идентификатор балансировщика.
-`http_router_id` | Идентификатор [HTTP-роутера](concepts/http-router.md).
-`virtual_host_name` | Имя [виртуального хоста](concepts/http-router.md#virtual-host).
-`route_name` | Имя [маршрута](concepts/http-router.md#routes).
-`backend_group_id` | Идентификатор [группы бэкендов](concepts/backend-group.md).
+`http_router_id` | Идентификатор [HTTP-роутера](./concepts/http-router.md).
+`virtual_host_name` | Имя [виртуального хоста](./concepts/http-router.md#virtual-host).
+`route_name` | Имя [маршрута](./concepts/http-router.md#routes).
+`backend_group_id` | Идентификатор [группы бэкендов](./concepts/backend-group.md).
 `backend_name` | Имя бэкенда.
 `request_headers_bytes` | Размер заголовков запроса в байтах.
 `request_body_bytes` | Размер тела запроса в байтах.
 `response_headers_bytes` | Размер заголовков ответа в байтах.
 `response_body_bytes` | Размер тела ответа в байтах.
-`error_details` | Ошибка, возникшая при обработке запроса балансировщиком. Возможные значения: <ul><li>`no_healthy_backend` — нет здоровых бэкендов. Подробнее см. в разделе [Проверки состояния](concepts/backend-group.md#health-checks).</li><li>`backend_request_timeout` — превышен таймаут запроса к бэкенду, указанный в настройках маршрута.</li><li>`balancer_reset` — соединение между клиентом и балансировщиком было сброшено.</li><li>`backend_connection_closed_before_data_sent_to_client` — соединение между балансировщиком  и бэкендом было сброшено.</li><li>`failed_to_connect_to_backend` — балансировщику не удалось соединиться с бэкендом.</li><li>`backend_connection_terminated` — бэкенд закрыл соединение с балансировщиком.</li><li>`no_route` — запрос клиента не соответствует ни одному из маршрутов, настроенных в HTTP-роутерах балансировщика.</li><li>`client_disconnected` — клиент закрыл соединение с балансировщиком.</li><li>`backend_stream_idle_timeout` — превышен таймаут простоя, указанный в настройках маршрута: соединение между балансировщиком и бэкендом слишком долго простаивало без передачи данных.</li><li>`backend_retry_limit_exceeded` — балансировщик превысил лимит попыток соединения с бэкендом.</li><li>`client_protocol_error` — ошибка протокола клиента.</li></ul>
+`error_details` | Ошибка, возникшая при обработке запроса балансировщиком. Возможные значения: <ul><li>`no_healthy_backend` — нет здоровых бэкендов. Подробнее см. в разделе [Проверки состояния](./concepts/backend-group.md#health-checks).</li><li>`backend_request_timeout` — превышен таймаут запроса к бэкенду, указанный в настройках маршрута.</li><li>`balancer_reset` — соединение между клиентом и балансировщиком было сброшено.</li><li>`backend_connection_closed_before_data_sent_to_client` — соединение между балансировщиком  и бэкендом было сброшено.</li><li>`failed_to_connect_to_backend` — балансировщику не удалось соединиться с бэкендом.</li><li>`backend_connection_terminated` — бэкенд закрыл соединение с балансировщиком.</li><li>`no_route` — запрос клиента не соответствует ни одному из маршрутов, настроенных в HTTP-роутерах балансировщика.</li><li>`client_disconnected` — клиент закрыл соединение с балансировщиком.</li><li>`backend_stream_idle_timeout` — превышен таймаут простоя, указанный в настройках маршрута: соединение между балансировщиком и бэкендом слишком долго простаивало без передачи данных.</li><li>`backend_retry_limit_exceeded` — балансировщик превысил лимит попыток соединения с бэкендом.</li><li>`client_protocol_error` — ошибка протокола клиента.</li></ul>
 `tls_version` | Версия протокола TLS, например `TLSv1.3`.
 `cipher_suite` | Набор шифров, использованный при TLS-шифровании соединения между клиентом и балансировщиком.
 `sni_hostname` | Доменное имя, которое клиент отправил балансировщику с помощью расширения TLS Server Name Indication (SNI).

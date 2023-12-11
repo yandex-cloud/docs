@@ -1,3 +1,8 @@
+---
+title: "How to create a bookmark on a page in {{ wiki-full-name }}"
+description: "Follow this guide to create a bookmark on a page."
+---
+
 # Bookmarks on pages
 
 {% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
@@ -30,7 +35,7 @@ or
 
 | Parameter | Description |
 --- | ---
-| `href` | Required parameter. Contains the anchor name. Do not use spaces in the anchor name. |
+| `href` | This is a required parameter. Contains the anchor name. Do not use spaces in the anchor name. |
 | `title` | Contains the anchor heading. |
 | `text` | Contains the anchor text. Shown on the page. |
 

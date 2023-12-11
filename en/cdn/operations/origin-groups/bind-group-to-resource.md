@@ -8,7 +8,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create a resource in.
+   1. In the [management console]({{ link-console-main }}), select a folder in which to create a resource.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
@@ -141,7 +141,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
    1. Describe the resource parameters in the `yandex_cdn_resource` configuration file.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       ```
@@ -190,7 +190,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
    1. Click the resource name.
 
-   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Select an origin group.
 

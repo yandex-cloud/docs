@@ -1,7 +1,10 @@
 ---
+title: "General request format in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn about the general format of {{ api-name }} requests, their methods and headings, as well as the format of request body, text, and variables."
 sourcePath: en/tracker/api-ref/common-format.md
 ---
-# Generic request format
+
+# General request format
 
 General {{ api-name }} request format:
 
@@ -45,7 +48,7 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 
 - `X-Org-ID: <organization ID>` or `X-Cloud-Org-ID: <organization ID>`
 
-   If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header, if only {{ ya-360 }} or both organization types, use `X-Org-ID`. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+   If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
 
 ## Request body format {#body}
@@ -98,7 +101,7 @@ The request body includes a JSON object with the IDs of updated fields and their
 ## Text formats and variables {#text-format}
 
 When making requests for the creation or update of [comments](concepts/issues/add-comment.md), [macros](post-macros.md), [triggers](concepts/queues/create-trigger.md), and [auto actions](concepts/queues/create-autoaction.md), use the following formatting for the message text:
-* To format the text, use the [markup {{ yfm }}](user/markup.md).
+* To format the text, use the [{{ yfm }} markup](user/markup.md).
 * To add a line break, use ``\n``.
 * To add values from the issue fields, use [variables](user/vars.md#variable-type).
 
@@ -108,7 +111,7 @@ If you request a list of objects, and the number of rows in the response exceeds
 
 With the paginated output, the request results are calculated each time a new page is returned. So if changes occur in the request results when viewing a certain page, this may affect the output of the following pages. For example, the request found 11 issues, 10 of which are displayed. While viewing the results of the first page, one of the issues was changed and no longer meets the requirements of the search query. In this case, when requesting the second page with the results, an empty array is returned, since the remaining 10 issues are on the first page.
 
-For paginated result output, use the following parameters in your request:
+For paginated results, use these parameters in the request:
 
 - **perPage (optional)**
 

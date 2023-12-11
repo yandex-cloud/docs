@@ -1,3 +1,8 @@
+---
+title: "How to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone"
+description: "Follow this guide to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone."
+---
+
 # Integrating into a corporate DNS zone
 
 To integrate a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) into a private corporate DNS [zone](../../dns/concepts/dns-zone.md):
@@ -9,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/). IP connectivity between the {{ managed-k8s-name }} cluster [nodes](../concepts/index.md#node-group) and the DNS servers is required.
+In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). IP connectivity between the {{ managed-k8s-name }} cluster [nodes](../concepts/index.md#node-group) and the DNS servers is required.
 1. Create {{ managed-k8s-name }} resources:
 
    {% list tabs %}

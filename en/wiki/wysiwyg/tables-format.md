@@ -1,3 +1,8 @@
+---
+title: "How to use tables and tables of contents in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn how to use tables and tables of contents in {{ wiki-name }}."
+---
+
 # Tables and tables of contents
 
 ## Static table {#tables-wysiwyg}

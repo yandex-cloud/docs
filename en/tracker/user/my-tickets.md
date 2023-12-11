@@ -1,3 +1,8 @@
+---
+title: "How to view a list of my issues in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn how to view a list of your issues."
+---
+
 # My issues
 
 To find issues you're working on:
@@ -8,7 +13,7 @@ To find issues you're working on:
 
 1. If you cannot see all relevant issues, expand the list:
 
-   * In the left-hand panel at the bottom of the page, click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.filter-items-link }}** or follow the [direct link]({{ link-tracker }}issues/my-issues).
+   * In the left-hand panel at the bottom of the page, click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.filter-items-link }}** or [follow the direct link]({{ link-tracker }}issues/my-issues).
 
    * To open all issues available to you in {{ tracker-name }}, at the bottom of the window, click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.all-items-link }}** or follow the [direct link]({{ link-tracker }}issues).
 

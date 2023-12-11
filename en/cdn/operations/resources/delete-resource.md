@@ -12,7 +12,7 @@ description: "Follow this guide to delete a resource."
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
    1. Click the resource name.
-   1. In the top-right corner, click ![image](../../../_assets/basket.svg) **{{ ui-key.yacloud.common.delete }}** and then click **{{ ui-key.yacloud.common.delete }}** in the window that opens.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** and then click **{{ ui-key.yacloud.common.delete }}** in the window that opens.
 
 - CLI
 

@@ -1,3 +1,8 @@
+---
+title: "{{ datalens-full-name }} workbooks and collections"
+description: "In this tutorial, you will learn what workbooks and collections are, what specifics they have, and how to get started with them."
+---
+
 # Workbooks and collections {{ datalens-short-name }}
 
 

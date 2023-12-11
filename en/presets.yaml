@@ -3101,6 +3101,9 @@ default:
         external-relations: Links to external applications
       ui_components_issue-links_InternalLinksCollapse:
         relations: Related issues
+      ui_components_issue-templates_Select:
+        manage-templates: Manage templates
+        select-template: Apply template
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Create sub-issue
       ui_components_IssueBulkActionPanel:
@@ -4299,6 +4302,7 @@ default:
             switch_auto: Auto
             switch_list: List
           resources:
+            field_advanced: Additional
             field_core-fraction: Guaranteed vCPU performance
             field_cores: vCPU
             field_gpus: GPU
@@ -4387,6 +4391,7 @@ default:
           field_instance: VM
         disk-form:
           field_size: Size
+          field_source: Contents
           field_type: Type
         disks:
           button_action-attach: Attach
@@ -4423,6 +4428,7 @@ default:
           button_create: Create group
           create:
             button_create: Create
+            button_create-account: Create account
             button_edit: Save
             button_instance_empty-create: Define
             field_alb-pre-checks-timeout: Traffic timeout
@@ -4536,7 +4542,9 @@ default:
             button_create: Add
             field_additional: Advanced
             field_auto-delete: Delete with the VM
+            field_boot-type: Disk designation
             field_source: Contents
+            value_boot-disk: Boot
             value_network-hdd: HDD
             value_network-ssd: SSD
             value_network-ssd-io-m3: SSD IO
@@ -4578,6 +4586,7 @@ default:
             image_value_marketplace: Cloud Marketplace
             image_value_os-products: Operating systems
             label_add-disk: Add disk
+            label_add-net: Add network
             label_backup: Backups
             label_network: Network
             section_access: Access
@@ -4597,6 +4606,7 @@ default:
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
+            value_network-ssd: SSD
           label_title: Virtual machines
           popup-confirm_button_delete: Delete
           popup-confirm_button_gr-stop: Stop
@@ -5830,7 +5840,7 @@ default:
             field_suffix: Object key suffix
             field_tag: Docker image tag
             field_type: Type
-            field_ymq-cutoff: Waiting time
+            field_ymq-cutoff: Waiting time, s
             label_any-budget: Any budget
             label_billing-budget: Budget
             label_cloud-logs: Cloud Logs

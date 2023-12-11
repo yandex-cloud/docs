@@ -1,3 +1,8 @@
+---
+title: "Examples of using triggers in {{ tracker-full-name }}"
+description: "In this tutorial, you will learn about using triggers in {{ tracker-name }}."
+---
+
 # Trigger use cases in {{ tracker-name }}
 
 Here are some examples of how triggers work in {{ tracker-name }}:
@@ -85,7 +90,7 @@ Having completed the issue, the employee might forget to specify some important
 
    1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
 
-   1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** → **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldIsEmpty }}**.
+   1. Add the condition: **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** → **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldIsEmpty }}**.
 
 1. Set the actions for the trigger:
 
@@ -258,7 +263,7 @@ Set up a trigger that, whenever an issue created from a form, will notify the us
 
    1. Add the condition **Event** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
 
-   1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameNotEmpty }}**.
+   1. Add the condition: **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameNotEmpty }}**.
 
    ![](../../_assets/tracker/trigger-example-form-condition.png)
 
@@ -339,9 +344,9 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
 1. Click **Create** to save the trigger.
 
-#### Step 3. Add yndx-forms-cnt-robot@ to the queue
+#### Step 3. Add the yndx-forms-cnt-robot@ robot to the queue
 
-To ensure the form is inserted correctly, provide access to the queue for the yndx-forms-cnt-robot@ robot. To learn more about setting up access, see [Setting access rights for queues](queue-access.md).
+To correctly insert the form, grant the yndx-forms-cnt-robot@ robot access to the queue. To learn more about setting up access, see [Setting access rights for queues](queue-access.md).
 
 
 When the issue is closed, the robot will create a comment with a form and summon the assignee.

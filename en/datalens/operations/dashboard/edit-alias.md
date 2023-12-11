@@ -1,3 +1,8 @@
+---
+title: "How to delete an alias field in {{ datalens-full-name }}"
+description: "Follow this guide to delete a field from an alias."
+---
+
 # Deleting an alias field
 
 To delete a field from an alias:

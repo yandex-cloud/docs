@@ -7,7 +7,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и не тарифицируется.
+Функциональность доступна для кластеров с версией {{ GP }} 6.25 и выше. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и не тарифицируется.
 
 {% endnote %}
 

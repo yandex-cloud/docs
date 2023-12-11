@@ -1,3 +1,8 @@
+---
+title: "How to create a board in {{ tracker-full-name }}"
+description: "Follow this guide to create a board."
+---
+
 # Creating a board in {{ tracker-name }}
 
 To create a board:
@@ -26,7 +31,7 @@ To create a board:
 
    {% note alert %}
 
-   You won't be able to change the board type after creating it.
+   You will not be able to change board type after you create a board.
 
    {% endnote %}
 
@@ -38,11 +43,11 @@ To create a board:
 
    {% note info %}
 
-   You can't specify a filter with local fields when creating a board. You can do this later, on the [editing page](edit-agile-board.md#board-settings), using the [query language](../user/query-filter.md).
+   You cannot specify a filter with local fields when creating a board. You can do this later, on the [editing page](edit-agile-board.md#board-settings), using the [query language](../user/query-filter.md).
 
    {% endnote %}
 
-   If you don't enable the option **Add issues automatically**, you'll have to [add issues manually](../user/agile.md#add-tasks) to the board.
+   If you do not enable the **Add issues automatically** option, you will have to [add issues to the board manually](../user/agile.md#add-tasks).
 
 1. Specify the queue where the issues will be created. This way, you can quickly create issues in this queue directly from the board page.
 

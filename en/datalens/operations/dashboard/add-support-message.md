@@ -1,3 +1,8 @@
+---
+title: "How to add information to a message displayed when contacting support in {{ datalens-full-name }}"
+description: "Follow this guide to add information to a message displayed when contacting support."
+---
+
 # Adding a message displayed when contacting support
 
 To add information to a message displayed when contacting support:
@@ -19,7 +24,7 @@ To add information to a message displayed when contacting support:
    {% endnote %}
 
 1. In the **Settings** window, click **Save**.
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
 In this case, if the user clicks ![image](../../../_assets/datalens/question.svg) in the bottom left corner and selects **Create request**, they will see an additional message in the **Information** window.
 

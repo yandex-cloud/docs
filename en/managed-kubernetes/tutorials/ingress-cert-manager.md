@@ -1,3 +1,8 @@
+---
+title: "How to create an NGINX Ingress controller and protect it with a Let's Encrypt® certificate in {{ managed-k8s-full-name }}"
+description: "Follow this guide to create an NGINX Ingress controller and protect it with a Let's Encrypt® certificate."
+---
+
 # Installing an NGINX Ingress controller with a Let's Encrypt® certificate manager
 
 To use [{{ k8s }}](https://kubernetes.io) to create an [NGINX Ingress controller](https://kubernetes.github.io/ingress-nginx/) and protect it with a certificate, follow these steps:

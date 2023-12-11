@@ -99,14 +99,14 @@ To create a {{ managed-k8s-name }} node group:
 1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Select the {{ managed-k8s-name }} cluster to create a node group for.
-1. On the {{ managed-k8s-name }} cluster page, click the ![nodes-management.svg](../_assets/nodes-management.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+1. On the {{ managed-k8s-name }} cluster page, click the ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
 1. Enter a name and description for the {{ managed-k8s-name }} node group.
 1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select a {{ k8s }} version for {{ managed-k8s-name }} nodes.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**, select its type:
    * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`, to keep the number of nodes in the {{ managed-k8s-name }} group constant. Specify the number of nodes in the {{ managed-k8s-name }} group.
    * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`, to control the number of nodes in the {{ managed-k8s-name }} group via [{{ managed-k8s-name }} cluster autoscaling](concepts/autoscale.md#ca).
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [instances](../compute/concepts/vm.md) by which you can exceed or reduce the size of the {{ managed-k8s-name }} group.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [instances](../compute/concepts/vm.md) by which you can exceed or decrease the size of the {{ managed-k8s-name }} group.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Choose a [platform](../compute/concepts/vm-platforms.md).
    * Specify the required number of vCPUs, [guaranteed vCPU performance](../compute/concepts/performance-levels.md), and the amount of RAM.

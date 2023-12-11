@@ -1,3 +1,8 @@
+---
+title: "What S3 API methods can be used to manage bucket access policies in {{ objstorage-full-name }}"
+description: "In this tutorial, you will learn about S3 API methods that can be used to manage bucket access policies."
+---
+
 # All access policy methods
 
 | Method | Description |

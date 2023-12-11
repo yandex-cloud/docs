@@ -1,4 +1,9 @@
-# Response reference
+---
+title: "{{ forms-full-name }} prompt reference"
+description: "In this tutorial, you will learn which blocks of prompts you can use in {{ forms-name }}."
+---
+
+# Prompt reference
 
 This section provides detailed descriptions of prompt blocks and their parameters:
 
@@ -28,7 +33,7 @@ This section provides detailed descriptions of prompt blocks and their parameter
 - [People](people.md)
 
 
-- [Several options](multiple.md)
+- [Multiple answers](multiple.md)
 
 - [One answer](radiobutton.md)
 

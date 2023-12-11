@@ -58,9 +58,9 @@
 
 {% include [create-agent](../../_includes/load-testing/create-agent.md) %}
 
-## Подготовьте сценарий нагрузочного тестирования {#test-sceanrio}
+## Подготовьте сценарий нагрузочного тестирования {#test-scenario}
 
-Cоздайте сценарий нагрузочного тестирования в UI JMeter и сохраните его в файл с расширением `.jmx`. Подробнее см. в [документации JMeter](https://jmeter.apache.org/usermanual/index.html)
+Создайте сценарий нагрузочного тестирования в UI JMeter и сохраните его в файл с расширением `.jmx`. Подробнее см. в [документации JMeter](https://jmeter.apache.org/usermanual/index.html)
 
 {% cut "Пример сценария JMeter" %}
 
@@ -138,7 +138,7 @@ Cоздайте сценарий нагрузочного тестировани
 1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**. 
 1. В поле **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите агент `agent-008`.
-1. В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и выберите файл со сценарием, созданный [ранее](#test-sceanrio).
+1. В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и выберите файл со сценарием, созданный [ранее](#test-scenario).
 1. В блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
 
     1. В поле **{{ ui-key.yacloud.load-testing.field_load-generator }}** выберите `JMETER`.

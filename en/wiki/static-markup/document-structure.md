@@ -1,3 +1,8 @@
+---
+title: "Page structure elements in {{ wiki-full-name }}"
+description: "In this tutorial, you will learn about page structure elements in {{ wiki-name }}."
+---
+
 # Page structure
 
 {% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}

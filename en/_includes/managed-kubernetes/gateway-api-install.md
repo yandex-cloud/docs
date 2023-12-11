@@ -16,7 +16,7 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
    * `certificate-manager.admin`: To use [certificates](../../certificate-manager/concepts/index.md#types) registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group) in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
-1. Create a [static key](../../iam/operations/sa/create-access-key.md) and save it to a file named `sa-key.json`:
+1. Create an [authorized key](../../iam/operations/authorized-key/create.md) and save it to a file named `key.json`:
 
    ```bash
    yc iam key create \
@@ -28,7 +28,7 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../_assets/marketplace.svg) tab.
+1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**![Marketplace](../../_assets/console-icons/shopping-cart.svg) tab.
 1. Under **Applications available for installation**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.

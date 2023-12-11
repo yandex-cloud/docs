@@ -12,7 +12,7 @@ In this block, the user can enter response options that are loaded from a [dynam
 
 {% note warning %}
 
- Data from the [{{ wiki-name }} dynamic table](../../wiki/create-grid.md) is updated every 30 minutes. Therefore, response options may be loaded with a delay.
+Data from the [{{ wiki-name }} dynamic table](../../wiki/create-grid.md) is updated every 30 minutes. Therefore, response options may be loaded with a delay.
 
 {% endnote %}
 
@@ -53,7 +53,7 @@ To filter response options:
 
 1. Add a block with filtering to the form and specify a link to the created table in the **Settings** section.
 
-1. Turn on **Filter responses**.
+1. Enable **Filter responses**.
 
 1. In the **Select a question to filter** list, specify the {{ wiki-name }} block with the parent table.
 
@@ -70,7 +70,7 @@ The table of responses for the {{ wiki-name }} block must use a special format. 
 1. Add multiple rows to the table. In the `name` column cells, enter response options that must be available in the {{ wiki-name }} block.
 
 
-1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
+1. Make sure the service account `yndx-wiki-cnt-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
 
 
 1. Specify a link to the table in the {{ wiki-name }} block settings.
@@ -92,7 +92,7 @@ To create a table with response filtering:
    ![](../../_assets/forms/table_filter_parent.png)
 
 
-1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
+1. Make sure the service account `yndx-wiki-cnt-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
 
 
 1. Specify a link to the table in the {{ wiki-name }} block settings and [enable response filtering](#dlentry_filter).

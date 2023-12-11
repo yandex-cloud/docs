@@ -1,6 +1,11 @@
-# Preloading files to CDN servers
+---
+title: "How to prefetch files to CDN servers in {{ cdn-full-name }}"
+description: "Use this guide to prefetch files to CDN servers."
+---
 
-To [pre-load content](../../concepts/caching.md#prefetch) from [origins](../../concepts/origins.md) to CDN servers:
+# Prefetching files to CDN servers
+
+To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../concepts/origins.md) to CDN servers:
 
 {% list tabs %}
 
@@ -14,7 +19,7 @@ To [pre-load content](../../concepts/caching.md#prefetch) from [origins](../../c
 
    1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. In the top-right corner, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+   1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
    1. Enter the file names in the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field.
 
@@ -79,7 +84,7 @@ To [pre-load content](../../concepts/caching.md#prefetch) from [origins](../../c
         status: READY
       ```
 
-   1. Specify the paths to the files you would like to preload as a comma-separated list with no spaces:
+   1. Specify the paths to the files you would like to prefetch as a comma-separated list with no spaces:
 
       ```bash
       yc cdn cache prefetch --resource-id <resource ID> \

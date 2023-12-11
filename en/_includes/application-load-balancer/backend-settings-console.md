@@ -40,7 +40,7 @@
 
    * **{{ ui-key.yacloud.alb.label_timeout }}**: Response timeout.
    * **{{ ui-key.yacloud.alb.label_interval }}**: Interval for sending check requests.
-   * **{{ ui-key.yacloud.alb.label_healthy }}**: Number of consecutive successful checks at which the endpoint is considered healthy. Ii is ignored when the load balancer has just started: one health check is enough.
+   * **{{ ui-key.yacloud.alb.label_healthy }}**: Number of consecutive successful checks at which the endpoint is considered healthy. It is ignored when the load balancer has just started: one health check is enough.
    * **{{ ui-key.yacloud.alb.label_unhealthy }}**: Number of consecutive failed checks after which the endpoint is considered unhealthy. It is ignored if the backend has responded with the `503 Service Unavailable` HTTP status code once: it is immediately considered unhealthy.
    * **{{ ui-key.yacloud.alb.label_port }}**.
    * **{{ ui-key.yacloud.common.type }}**: Protocol to use for health checks: `{{ ui-key.yacloud.alb.label_hc-type-http }}`, `{{ ui-key.yacloud.alb.label_hc-type-grpc }}`, or `{{ ui-key.yacloud.alb.label_hc-type-stream }}`. The check type may be the same as the backend group type. Also specify:

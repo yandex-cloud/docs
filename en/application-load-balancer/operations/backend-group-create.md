@@ -1,4 +1,9 @@
-# Creating backend group
+---
+title: "How to create a backend group in {{ alb-full-name }}"
+description: "Follow this guide to create a backend group."
+---
+
+# Creating a backend group
 
 To create a [backend group](../concepts/backend-group.md):
 
@@ -8,7 +13,7 @@ To create a [backend group](../concepts/backend-group.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your backend group in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
    1. Enter a name for the backend group.
    1. Select the [backend group type](../concepts/backend-group.md#group-types):
@@ -147,7 +152,7 @@ To create a [backend group](../concepts/backend-group.md):
          * `unhealthy-threshold`: Unhealthy threshold.
          * `timeout`: Timeout.
          * `interval`: Interval.
-         * `service-name`: Name of the gRPC service to be checked. If no service is specified, the backend's general health is checked.
+         * `service-name`: Name of the gRPC service to be checked. If no service is specified, the backend general health is checked.
 
       Result:
 
@@ -278,7 +283,7 @@ To create a [backend group](../concepts/backend-group.md):
 
       * `yandex_alb_backend_group` specifies the backend group parameters:
       * `name`: Backend group name.
-      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
+      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity). This is an optional parameter.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 

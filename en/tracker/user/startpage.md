@@ -1,3 +1,8 @@
+---
+title: "{{ tracker-full-name }} homepage"
+description: "Learn how to customize the {{ tracker-name }} homepage for your needs."
+---
+
 # Start page
 
 
