@@ -336,9 +336,9 @@
 
 Добавьте сервер в Terminal Server License Servers, группу безопасности Active Directory, и зарегистрируйте его как точку подключения пользователей к сервису лицензирования (service connection point, SCP):
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows Server
+- Windows Server {#windows}
 
   1. Нажмите **Start**.
   1. В поле поиска введите `Remote Desktop Licensing Manager`.

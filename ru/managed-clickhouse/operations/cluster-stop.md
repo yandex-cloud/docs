@@ -78,3 +78,5 @@ description: "При необходимости вы можете останов
     Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

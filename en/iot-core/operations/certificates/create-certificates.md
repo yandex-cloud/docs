@@ -1,6 +1,13 @@
-# Create a certificate
+---
+title: "How to create a certificate in {{ iot-full-name }}"
+description: "Follow this guide to create a certificate in {{ iot-full-name }}."
+---
 
-For devices to interact, you need X.509 certificates. If don't have one, you can create a certificate, for example, with [OpenSSL](https://www.openssl.org):
+# Creating a certificate
+
+For devices to interact, you need X.509 certificates. If you do not have a certificate, you can create one, e.g., with [OpenSSL](https://www.openssl.org).
+
+To create a certificate, install OpenSSL and run the following command from the command line:
 
 ```
 openssl req -x509 \
@@ -21,4 +28,3 @@ Where:
 * `-nodes`: This flag is set when no public key encryption is required.
 * `-days`: Certificate validity period in days.
 * `-subj`: Request object.
-

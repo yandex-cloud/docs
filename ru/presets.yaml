@@ -58,7 +58,7 @@ default:
   certificate-manager-full-name: Yandex Certificate Manager
   certificate-manager-name: Certificate Manager
   certificate-manager-short-name: Certificate Manager
-  CH: ClickHouse
+  CH: ClickHouse®
   ch-domain: clickhouse.com
   ch:
     docs: https://clickhouse.com/docs/ru
@@ -67,7 +67,7 @@ default:
   cic-pbc-subnet-client: 178.210.118.46
   cic-pbc-subnet-cloud: 178.210.118.47
   cic-pbc-svc1-ip: 213.180.193.243/32
-  CK: ClickHouse Keeper
+  CK: ClickHouse® Keeper
   cloud-apps-full-name: Yandex Cloud Apps
   cloud-apps-name: Cloud Apps
   cloud-desktop-full-name: Yandex Cloud Desktop
@@ -305,9 +305,9 @@ default:
   mch-backup-retention: 7
   mch-ck-version: 22.8
   mch-dedup-retention: 30
-  mch-full-name: Yandex Managed Service for ClickHouse
-  mch-name: Managed Service for ClickHouse
-  mch-short-name: Managed Service for ClickHouse
+  mch-full-name: Yandex Managed Service for ClickHouse®
+  mch-name: Managed Service for ClickHouse®
+  mch-short-name: Managed Service for ClickHouse®
   mdb-host: mdb.cloud.yandex.net
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
@@ -4397,9 +4397,11 @@ default:
           field_auto-delete: Автоматическое удаление
           field_instance: ВМ
         disk-form:
+          field_name: Имя
           field_size: Размер
           field_source: Наполнение
           field_type: Тип
+          value_source-none: Пустой
         disks:
           button_action-attach: Присоединить
           button_action-delete: Удалить
@@ -4551,6 +4553,7 @@ default:
             field_auto-delete: Удалять вместе с ВМ
             field_boot-type: Назначение диска
             field_source: Наполнение
+            label_title: Добавление дополнительного диска
             value_boot-disk: Загрузочный
             value_network-hdd: HDD
             value_network-ssd: SSD
@@ -6012,6 +6015,7 @@ default:
             button_save: Сохранить
             class_value_cold: Холодное
             class_value_standard: Стандартное
+            field_access: Доступ к бакету
             field_access-config-read: Доступ на чтение настроек
             field_access-list: Доступ к списку объектов
             field_access-read: Доступ на чтение объектов

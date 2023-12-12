@@ -40,8 +40,8 @@
       +-----------+------------+---------------------------------------+
       | 10.1.2.1  | IPV4       | vpc.virtualGateway:                   |
       | 10.1.2.2  | IPV4       | vpc.virtualDns:                       |
-      | 10.1.2.3  | IPV4       | compute.instance:epdf6lfsaki9p76hj7rf |
-      | 10.1.2.15 | IPV4       | compute.instance:epdb2hmhj935jhjk98gd |
+      | 10.1.2.3  | IPV4       | compute.instance:epdf6lfsaki9******** |
+      | 10.1.2.15 | IPV4       | compute.instance:epdb2hmhj935******** |
       | 10.1.2.28 | IPV4       | managedKubernetes.cluster:            |
       +-----------+------------+---------------------------------------+
       ```

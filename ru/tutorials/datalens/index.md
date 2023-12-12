@@ -22,3 +22,5 @@ description: "На странице представлен список прак
 * [Визуализация географических данных с помощью API Яндекс Геокодера](data-from-ch-geocoder.md)
 
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

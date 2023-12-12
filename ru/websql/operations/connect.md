@@ -89,3 +89,5 @@
 
 1. Нажмите **Настройки** (![image](../../_assets/console-icons/gear.svg)) в левом нижнем углу.
 1. В общих настройках выключите опцию **Показывать демо-соединения**.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

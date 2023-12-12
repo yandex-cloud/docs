@@ -1,12 +1,12 @@
-title: Yandex Managed Service for ClickHouse
+title: Yandex Managed Service for ClickHouse®
 description:
   - >-
-    Сервис Managed Service for ClickHouse помогает разворачивать и поддерживать
-    кластеры серверов <a href="https://clickhouse.com">ClickHouse</a> в
-    инфраструктуре Yandex Cloud. ClickHouse — это высокопроизводительная
+    Сервис Managed Service for ClickHouse® помогает разворачивать и поддерживать
+    кластеры серверов <a href="https://clickhouse.com">ClickHouse®</a> в
+    инфраструктуре Yandex Cloud. ClickHouse® — это высокопроизводительная
     колоночная СУБД с открытым исходным кодом.
   - >-
-    Managed Service for ClickHouse позволяет: <ul> <li>Создавать системы, в
+    Managed Service for ClickHouse® позволяет: <ul> <li>Создавать системы, в
     которых требуется обработка и хранение большого объема данных.</li>
     <li>Обрабатывать транзакции в реальном времени <a
     href="/docs/glossary/oltp">(OLTP)</a>.</li> <li>Обрабатывать аналитические
@@ -18,8 +18,8 @@ description:
     Взаимодействие с сервисом осуществляется с помощью консоли управления,
     интерфейса командной строки Yandex Cloud (CLI), API или <a
     href="https://clickhouse.com/docs/ru/interfaces/http">HTTP-интерфейса</a>.
-    Managed Service for ClickHouse позволяет визуализировать структуру данных на
-    вашем ClickHouse-кластере и отправлять SQL-запросы к базам из <a
+    Managed Service for ClickHouse® позволяет визуализировать структуру данных
+    на вашем ClickHouse®-кластере и отправлять SQL-запросы к базам из <a
     href="/docs/managed-clickhouse/operations/web-sql-query">консоли
     управления</a> Yandex Cloud.
   - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\"> защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Генеральный регламент о защите данных (GDPR).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
@@ -28,11 +28,14 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
     обслуживания Yandex Managed Databases</a>.
+  - >-
+    <em>ClickHouse<sup>®</sup> является зарегистрированным товарным знаком <a
+    href = "https://clickhouse.com" target = "_blank">ClickHouse, Inc.</a></em>
 meta:
-  title: Yandex Managed Service for ClickHouse
+  title: Yandex Managed Service for ClickHouse®
   description: >-
-    Сервис Managed Service for ClickHouse помогает разворачивать и поддерживать
-    кластеры серверов ClickHouse в инфраструктуре Yandex Cloud.
+    Сервис Managed Service for ClickHouse® помогает разворачивать и поддерживать
+    кластеры серверов ClickHouse® в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ mrd-full-name }}®"
+description: "This page provides a list of step-by-step guides for {{ mrd-name }}®."
+---
+
 # Step-by-step guides for {{ mrd-name }}^®^
 
 ## Clusters

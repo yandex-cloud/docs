@@ -1,10 +1,15 @@
+---
+title: "How to get information about lifecycle policies in {{ container-registry-full-name }}"
+description: "Follow this guide to get information about lifecycle policies."
+---
+
 # Getting information about lifecycle policies
 
 Find out how to get:
-* [A list of lifecycle policies in a repository or registry](#lifecycle-policy-list).
+* [List of lifecycle policies in a repository or registry](#lifecycle-policy-list).
 * [Details about a lifecycle policy](#lifecycle-policy-get).
 
-## Retrieving a list of lifecycle policies in a repository or registry {#lifecycle-policy-list}
+## Getting a list of lifecycle policies in a repository or registry {#lifecycle-policy-list}
 
 {% list tabs %}
 

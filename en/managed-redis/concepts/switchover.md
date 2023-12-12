@@ -1,3 +1,8 @@
+---
+title: "Fault tolerance management in {{ mrd-full-name }}"
+description: "We use {{ RD }} Sentinel to ensure fault tolerance in a non-sharded cluster. In sharded clusters, we use a quorum of master hosts along with Gossip-based fault detection."
+---
+
 # Managing fault tolerance
 
 To ensure {{ RD }} fault tolerance:

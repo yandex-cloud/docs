@@ -1,3 +1,8 @@
+---
+title: "Network and DB clusters in {{ mmg-full-name }}"
+description: "In this tutorial, you will learn about the basic network interface settings for a {{ MG }} cluster."
+---
+
 # Network and DB clusters in {{ mmg-name }}
 
 

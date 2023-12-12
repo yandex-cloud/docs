@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. Правой кнопкой мыши нажмите на загруженный RDP-файл и выберите **Изменить** (в Windows 11 выберите **Показать дополнительные параметры** → **Изменить**).
   1. В окне **Подключение к удаленному рабочему столу** на вкладке **Общие** включите опцию **Разрешить мне сохранять учетные данные** и нажмите кнопку **Подключить**.
@@ -9,7 +9,7 @@
   
   Чтобы повторно подключиться к рабочему столу, запустите сохраненный RDP-файл.
 
-- macOS
+- macOS {#macos}
 
   1. Установите и запустите [Microsoft Remote Desktop](https://itunes.apple.com/ru/app/microsoft-remote-desktop/id1295203466) — бесплатный официальный RDP-клиент для macOS.
   1. Откройте меню **Connections** и нажмите **Import from RDP file**.
@@ -27,7 +27,7 @@
 
   * [Начало работы с удаленным рабочим столом в macOS]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
 
-- Linux
+- Linux {#linux}
 
   1. Установите [Remmina](https://remmina.org) — бесплатный RDP-клиент для Linux, в терминале выполните команды:
 

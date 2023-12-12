@@ -1,3 +1,8 @@
+---
+title: "Filter expression language in {{ cloud-logging-full-name }}"
+description: "You can filter log group records using the language of filter expressions. With the filter expression language, you can search records by one or more parameters and use comparison operations and boolean operators in your filters."
+---
+
 # Filter expression language
 
 You can filter log group records using the language of filter expressions. With the filter expression language, you can:

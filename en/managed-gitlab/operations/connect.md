@@ -1,3 +1,8 @@
+---
+title: "How to connect to a {{ mgl-full-name }} instance"
+description: "In this tutorial, you will learn about connecting to a {{ mgl-name }} instance."
+---
+
 # Connecting to {{ mgl-name }} instances
 
 ## Configuring security groups {#configuring-security-groups}
@@ -40,4 +45,4 @@ To connect to [{{ container-registry-full-name }}](../../container-registry/).
 
 1. Set the administrator password. For this, follow the link sent to your administrator's mailbox that you specified when registering the instance.
 1. Open the link to the instance's web interface in your browser. You can find it in the email you received in your administrator's mailbox and in the [instance details](instance/instance-list.md#get).
-1. Log in using the administrator's username and password.
+1. Log in using the administrator username and password.

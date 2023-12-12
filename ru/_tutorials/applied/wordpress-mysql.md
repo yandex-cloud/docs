@@ -119,9 +119,9 @@
    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
 1. Установите Nginx, менеджер процессов PHP-FPM и дополнительные пакеты:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Debian/Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
      ```bash
      sudo apt-get update
@@ -129,7 +129,7 @@
      sudo systemctl enable nginx
      ```
 
-   - CentOS
+   - CentOS {#centos}
 
      ```bash
      sudo yum -y install epel-release
@@ -145,9 +145,9 @@
 
 1. Задайте настройки веб-сервера в конфигурационных файлах Nginx:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Debian/Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
      1. Вы можете отредактировать файл с помощью редактора `nano`:
 
@@ -194,7 +194,7 @@
         sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
         ```
 
-   - CentOS
+   - CentOS {#centos}
 
      Вы можете отредактировать файлы `nginx.conf` и `wordpress.conf` с помощью редактора `nano`:
      1. Откройте файл `nginx.conf`:
@@ -280,9 +280,9 @@
 
 1. Загрузите и распакуйте последнюю версию WordPress:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Debian/Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
      ```bash
      wget https://wordpress.org/latest.tar.gz
@@ -292,7 +292,7 @@
      sudo chown -R www-data:www-data /var/www/wordpress
      ```
 
-   - CentOS
+   - CentOS {#centos}
 
      ```bash
      curl https://wordpress.org/latest.tar.gz --output latest.tar.gz
@@ -322,15 +322,15 @@
    Сохраните вывод команды — полученные ключи будут нужны на следующем шаге.
 1. Добавьте ключи безопасности в конфигурационный файл WordPress `wp-config.php`. Вы можете отредактировать файл с помощью редактора `nano`:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Debian/Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
      ```bash
      sudo nano /var/www/wordpress/wp-config.php
      ```
 
-   - CentOS
+   - CentOS {#centos}
 
      ```bash
      sudo nano /usr/share/nginx/wordpress/wp-config.php
@@ -408,16 +408,16 @@
 
 3. Перезапустите Nginx и PHP-FPM:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Debian/Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
      ```bash
      sudo systemctl restart nginx.service
      sudo systemctl restart php7.4-fpm.service
      ```
 
-   - CentOS
+   - CentOS {#centos}
 
      ```bash
      sudo systemctl restart nginx.service

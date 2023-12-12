@@ -1,3 +1,8 @@
+---
+title: "{{ mmy-full-name }} use cases"
+description: "Various {{ mmy-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ mmy-name }} tutorials
 
 * [{#T}](profiling-mmy.md)

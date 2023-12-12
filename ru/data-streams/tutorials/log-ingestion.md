@@ -46,3 +46,5 @@
 
     Пример настройки поставки данных из {{ yds-short-name }} приведен в [практическом руководстве по сохранению данных в {{ CH }}](send-to-clickhouse.md).
 1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

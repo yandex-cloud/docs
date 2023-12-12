@@ -1,4 +1,6 @@
 ---
+title: "Quotas and limits in {{ mgp-full-name }}"
+description: "{{ mpg-full-name }} has quotas and limits. For more information about the service restrictions, read this article."
 editable: false
 ---
 

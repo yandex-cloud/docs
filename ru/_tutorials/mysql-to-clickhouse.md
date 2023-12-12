@@ -127,7 +127,7 @@
 
     1. [Создайте эндпоинт для приемника](../data-transfer/operations/endpoint/index.md#create):
 
-        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ CH }}`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}`.
         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
 
             Выберите кластер-приемник из списка и укажите настройки подключения к нему.

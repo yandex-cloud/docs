@@ -34,7 +34,7 @@
 
 1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
 
-1. Убедитесь, что в выбранном каталоге есть сеть с подсетью, к которой можно подключить виртуальную машину. Для этого на странице каталога выберите сервис **{{ vpc-short-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть доступные подсети. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
+1. Убедитесь, что в выбранном каталоге есть сеть с подсетью, к которой можно подключить виртуальную машину. Для этого на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть доступные подсети. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
 
 
 ## Создайте виртуальную машину для файлового сервера {#create-vm}
@@ -45,40 +45,40 @@
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 
-  1. В поле **Имя** введите имя виртуальной машины — `fileserver-tutorial`.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя виртуальной машины — `fileserver-tutorial`.
 
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
 
-  1. В блоке **Диски** нажмите **Добавить диск**. В окне **Добавление диска** укажите параметры диска для хранения данных:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** нажмите **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**. В окне **{{ ui-key.yacloud.compute.instances.create-disk.label_title }}** укажите параметры диска для хранения данных:
 
-     * **Имя** — `fileserver-tutorial-disk`;
-     * **Тип диска** — SSD;
-     * **Размер** — 100 ГБ;
-     * **Наполнение** — Пустой.
+     * **{{ ui-key.yacloud.compute.disk-form.field_name }}** — `fileserver-tutorial-disk`;
+     * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`;
+     * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`;
+     * **{{ ui-key.yacloud.compute.disk-form.field_source }}** — `{{ ui-key.yacloud.compute.disk-form.value_source-none }}`.
 
-     Нажмите **Добавить**.
+     Нажмите **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
-  1. В блоке **Вычислительные ресурсы**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../compute/concepts/vm-platforms.md).
      * Укажите необходимое количество vCPU и объем RAM.
 
      Рекомендованные значения для файлового сервера:
-     * **Гарантированная доля vCPU** — 100%.
-     * **vCPU** — 8 или больше.
-     * **RAM** — 56 ГБ или больше.
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `8` или больше.
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `56 {{ ui-key.yacloud.common.units.label_gigabyte }}` или больше.
 
-  1. В блоке **Сетевые настройки** выберите, к какой подсети будет подключена виртуальная машина при создании.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети будет подключена виртуальная машина при создании.
 
   1. Укажите данные для доступа на виртуальную машину:
 
-      * В поле **Логин** введите имя пользователя.
-      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ TF }}
 
@@ -93,16 +93,16 @@
 ## Настройте Samba и NFS {#setup-samba-nfs}
 
 После того как виртуальная машина `fileserver-tutorial` перейдет в статус `RUNNING`, выполните:
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
 
       Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
 1. Скачайте и установите Samba:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Ubuntu
+   - Ubuntu {#ubuntu}
 
      ```bash
      sudo apt-get update
@@ -201,9 +201,9 @@
 
 1. Создайте на виртуальной машине `fileserver-tutorial` директорию `remote` и файл test.txt:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Ubuntu
+   - Ubuntu {#ubuntu}
      ```bash
      sudo mkdir /имя_папки/remote
      sudo setfacl -m u:<имя_вашего_пользователя>:xw /имя_папки/remote
@@ -213,9 +213,9 @@
 
 1. Подключите по NFS сетевой диск к вашему компьютеру и проверьте доступность тестового файла:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux/macOS
+   - Linux/macOS {#linux-macos}
 
       Если необходимо, установите утилиту для работы с сетевыми дисками:
 
@@ -237,7 +237,7 @@
 
       В результате в указанной точке монтирования должны быть доступны тестовая директория и файл.
 
-   - Windows
+   - Windows {#windows}
 
      1. Запустите утилиту **cmd.exe**. Для этого нажмите сочетание клавиш **Windows** + **R** и выполните команду `cmd`.
      1. В командной строке выполните команду:

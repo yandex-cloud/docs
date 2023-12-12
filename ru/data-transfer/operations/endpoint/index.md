@@ -314,3 +314,5 @@
 {% endlist %}
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

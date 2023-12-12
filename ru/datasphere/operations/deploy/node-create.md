@@ -1,6 +1,6 @@
-# Создать ноду с кодом на Python
+# Создать ноду
 
-Вы можете развернуть отдельную ячейку ноутбука или стороннего [Docker-образа](../../../container-registry/concepts/docker-image.md) в виде самостоятельного сервиса, используя [ноды](../../concepts/resource-model.md#resources).
+Вы можете развернуть отдельную ячейку ноутбука или сторонний [Docker-образ](../../../container-registry/concepts/docker-image.md) в виде самостоятельного сервиса, используя [ноды](../../concepts/resource-model.md#resources).
 
 {% note warning %}
 

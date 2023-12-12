@@ -50,25 +50,20 @@
 
 ## Установите CloudBerry Desktop Backup {#install-cloudberry}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. [Установите](https://dotnet.microsoft.com/en-us/download) Microsoft .NET Framework.
   1. [Установите](https://www.msp360.com/cloudberry-backup/download/cbbbm/) CloudBerry Backup. Для загрузки введите необходимые реквизиты и нажмите кнопку **Download**.
   1. Запустите CloudBerry Backup и выберите опцию **Use Home Edition (free)**. Нажмите кнопку **Next**.
   1. Нажмите кнопку **Start Free Trial**.
 
-- macOS
+- Linux/macOS {#linux-macos}
 
-  1. [Установите](https://www.msp360.com/cloudberry-backup/download/cbbmac/) CloudBerry Backup. Для загрузки введите необходимые реквизиты и нажмите кнопку **Download**.
-  1. Запустите CloudBerry Backup и выберите опцию **Use Home Edition (free)**. Нажмите кнопку **Next**.
-  1. Введите адрес электронной почты и нажмите кнопку **Finish**.
-  1. В открывшемся окне нажмите кнопку **OK**.
-
-- Linux
-
-  1. [Установите](https://www.msp360.com/cloudberry-backup/download/cbbub1214/) CloudBerry Backup. Для загрузки введите необходимые реквизиты и нажмите кнопку **Download**.
+  1. Установите CloudBerry Backup. Для загрузки введите необходимые реквизиты и нажмите кнопку **Download**.  
+       [Установить для macOS](https://www.msp360.com/cloudberry-backup/download/cbbmac/).  
+       [Установить для Linux](https://www.msp360.com/cloudberry-backup/download/cbbub1214/).
   1. Запустите CloudBerry Backup и выберите опцию **Use Home Edition (free)**. Нажмите кнопку **Next**.
   1. Введите адрес электронной почты и нажмите кнопку **Finish**.
   1. В открывшемся окне нажмите кнопку **OK**.
@@ -77,9 +72,9 @@
 
 ## Настройте CloudBerry Backup {#configure-cloudberry}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. Запустите CloudBerry Backup.
   1. Откройте главное меню, нажав на логотип CloudBerry Backup в левом верхнем углу.
@@ -112,7 +107,7 @@
   1. Проверьте план и нажмите кнопку **Next**.
   1. Нажмите кнопку **Finish**.
 
-- macOS/Linux
+- Linux/macOS {#linux-macos}
 
   1. Запустите CloudBerry Backup.
   1. Нажмите кнопку **Backup files**.
@@ -143,9 +138,9 @@
 
 ## Протестируйте резервное копирование {#test-backup}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. Откройте вкладку **Backup plans**.
   1. Для ручного запуска резервного копирования, напротив плана `cloud-backup-plan` нажмите ![запуск копирования](../../_assets/tutorials/arrow-button.png =12x12). 
@@ -154,7 +149,7 @@
   1. В списке бакетов выберите бакет с резервными копиями.
   1. Убедитесь, что все нужные файлы были скопированы.
 
-- macOS/Linux
+- Linux/macOS {#linux-macos}
 
   1. Откройте вкладку **Backup plans**.
   1. Для ручного запуска резервного копирования напротив плана `cloud-backup-plan` нажмите кнопку **Start**.

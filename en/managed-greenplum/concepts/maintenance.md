@@ -1,3 +1,8 @@
+---
+title: "Maintenance in {{ mgp-full-name }}"
+description: "Maintenance in {{ mgp-name }} means automatic installation of ClickHouse updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
+---
+
 # Maintenance in {{ mgp-name }}
 
 There are two classes of maintenance operations in {{ mgp-name }}:

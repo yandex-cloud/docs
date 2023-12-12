@@ -162,13 +162,13 @@
         # Создание Spark-сессии
         spark = SparkSession.builder.appName("ClickhouseDataproc").getOrCreate()
 
-        # Указание порта и параметров кластера ClickHouse
+        # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
         jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.mdb.yandexcloud.net"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-        # Перенос таблицы persons из ClickHouse в DataFrame
+        # Перенос таблицы persons из {{ CH }} в DataFrame
         df = spark.read.format("jdbc") \
         .option("url", jdbcUrl) \
         .option("user","user1") \
@@ -223,13 +223,13 @@
                                     ('Mary', 34),
                                     ('Dmitry', 42)], schema)
 
-        # Указание порта и параметров кластера ClickHouse
+        # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
         jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.mdb.yandexcloud.net"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-        # Перенос DataFrame в ClickHouse
+        # Перенос DataFrame в {{ CH }}
         df.write.format("jdbc") \
         .mode("error") \
         .option("url", jdbcUrl) \

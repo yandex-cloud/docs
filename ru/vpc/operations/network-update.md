@@ -27,8 +27,8 @@
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
-      | enpavfmgapumnl7cqin8 | test-network-1 |
-      | enplom7a98s1t0lhass8 | default        |
+      | enpavfmgapum******** | test-network-1 |
+      | enplom7a98s1******** | default        |
       +----------------------+----------------+
       ```
 
@@ -36,13 +36,13 @@
   1. Измените параметры облачной сети, указав ее имя:
 
       ```
-      yc vpc network update enpavfmgapumnl7cqin8 --new-name test-network-renamed
+      yc vpc network update enpavfmgapum******** --new-name test-network-renamed
       ```
 
       Результат:
       ```
-      id: enpavfmgapumnl7cqin8
-      folder_id: b1g6ci08ma55klukmdjs
+      id: enpavfmgapum********
+      folder_id: b1g6ci08ma55********
       created_at: "2018-10-23T14:05:32Z"
       name: test-network-renamed
       description: My first network
@@ -54,7 +54,7 @@
 
       ```
       yc vpc network update \
-        --id enpavfmgapumnl7cqin8 \
+        --id enpavfmgapum******** \
         --new-name test-network-renamed \
         --labels new_label=test_label
       ```
@@ -120,7 +120,7 @@
      Проверить изменение облачной сети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc vpc network get <имя облачной сети>
+     yc vpc network get <имя_сети>
      ```
 
 - API
@@ -163,8 +163,8 @@
 
   Результат:
   ```
-  id: enpavfmgapumnl7cqin8
-  folder_id: b1g6ci08ma55klukmdjs
+  id: enpavfmgapum********
+  folder_id: b1g6ci08ma55********
   created_at: "2018-10-23T14:05:32Z"
   name: test-network-renamed
   description: My first network

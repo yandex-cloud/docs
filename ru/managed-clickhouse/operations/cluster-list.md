@@ -106,3 +106,5 @@ description: "Вы можете запросить детальную инфор
   Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

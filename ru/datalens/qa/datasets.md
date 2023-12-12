@@ -19,3 +19,6 @@
 {% include [qa-materialization-error](../../_qa/datalens/where-is-materialization.md) %}
 
 
+
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

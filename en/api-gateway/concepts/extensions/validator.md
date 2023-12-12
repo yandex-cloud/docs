@@ -1,3 +1,8 @@
+---
+title: "Data validation in {{ api-gw-full-name }}"
+description: "In this tutorial, you will learn about {{ api-gw-name }} extensions that allow you to define a validator for schemas described in an API gateway's specification."
+---
+
 # Data validation
 
 The `x-yc-apigateway-validators` and `x-yc-apigateway-validator` extensions allow you to define a validator for the following schemas described in the API gateway specification within an [operation](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#operation-object):
@@ -25,7 +30,7 @@ The table below lists the `ValidatorObject` parameters.
 
 * `Any`: Ignores missing or additional response headers and only validates the header types listed in the specification.
 * `Superset`: Checks that the headers listed in the specification are included in the list of response headers.
-* `Subset`: Checks that response headers are included in the list of headers from the specification.
+* `Subset`: Checks that response headers are included in the list of headers in the specification.
 * `Exact`: Checks that the list of response headers is exactly the same as the list of headers in the specification.
 
 ## X-yc-apigateway-validators extension {#validators}

@@ -1,3 +1,8 @@
+---
+title: "How to change {{ KF }} cluster settings in {{ mkf-full-name }}"
+description: "Follow this guide to change {{ KF }} cluster settings."
+---
+
 # Changing {{ KF }} cluster settings
 
 After creating a {{ mkf-name }} cluster, you can:
@@ -109,7 +114,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Broker host class in the `configSpec.kafka.resources.resourcePresetId` parameter.
    * Number of broker hosts in the `configSpec.brokersCount` parameter.
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -192,7 +197,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * {{ ZK }} host class in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -393,7 +398,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
    - Public access settings in the `configSpec.assignPublicIp` parameter.
-   - List of settings to update in the `updateMask` parameter.
+   - List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -621,7 +626,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
       * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`;
       * `configSpec.kafka.kafkaConfig_3` if you are using {{ KF }} version `3.x`.
 
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

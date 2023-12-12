@@ -85,3 +85,5 @@ description: "Из статьи вы узнаете, как создать пл�
 
 
 {% include [start](../_includes/quickstart-qa-whats-next.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -1,3 +1,8 @@
+---
+title: "How to add data to a {{ CH }} cluster in {{ mch-full-name }}"
+description: "Follow this guide to add data to your {{ CH }} cluster."
+---
+
 # Adding data to {{ CH }}
 
 For regular data inserts into tables, use an `INSERT INTO` statement:
@@ -12,7 +17,7 @@ For more information about the `INSERT INTO` statement, see the [{{ CH }} docume
 
 ## Inserting data from a file {#file-insert}
 
-To insert local file data into a table, use an `INSERT INTO` statement, e.g.:
+To insert local file data into a table, use an `INSERT INTO` statement, such as:
 
 ```sql
 INSERT INTO db_name.table_name FROM INFILE '<full_file_path>'
@@ -25,7 +30,7 @@ For a list of supported data formats, see the [{{ CH }} documentation]({{ ch.doc
 
 ## Inserting data through buffering {#buffer-insert}
 
-When you insert data into {{ CH }}, a part of computing resources is used for performing housekeeping operations. Each time you run an `INSERT` query, {{ CH }} creates a separate data part in storage. In addition to table rows, a part like that will contain auxiliary metadata files. Next, {{ CH }} joins data parts in the background. The more join queries are required, the more resources will be used.
+When you insert data into {{ CH }}, a part of computing resources is used for performing housekeeping operations. Each time you run an `INSERT` query, {{ CH }} creates a separate data part in storage. In addition to table rows, parts like this contain auxiliary files with metadata. Next, {{ CH }} joins data parts in the background. The more join queries are required, the more resources will be used.
 
 As a result, the load on the cluster from one thousand queries to insert a single row will exceed that from a single query to insert one thousand rows. Therefore, we recommend inserting data into tables in large chunks from 1,000 to 100,000 rows.
 

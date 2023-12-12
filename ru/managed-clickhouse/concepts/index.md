@@ -41,3 +41,5 @@ description: "Основная сущность, которой оперируе
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

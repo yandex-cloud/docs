@@ -1,3 +1,8 @@
+---
+title: "Resource groups in {{ mgp-full-name }}"
+description: "In this tutorial, you will learn what resource groups are, what parameters they have, and how memory is allocated between them."
+---
+
 # Resource groups
 
 By using resource groups, the users with the `mdb_admin` role can set quotas for the following resources allocated for query processing:
@@ -9,7 +14,7 @@ By using resource groups, the users with the `mdb_admin` role can set quotas for
 A resource group can include multiple [roles](cluster-users.md) that share its quotas.
 
 
-{{ GP }} gets a transaction query from the user and matches its required resources with the unused quotas in the resource group. If the quotas are enough, it immediately runs the query. If the quotas are not enough, the query waits until other queries complete and release resources. The query queue follows the _first in, first out_ (FIFO) principle.
+{{ GP }} gets a transaction query from the user and matches its resource requirements with the unused quotas in the resource group. If the quotas are sufficient, the query execution begins immediately. If not, the query waits for other queries to be completed and to free up the resources. Queries are queued based on the _first in, first out_ (FIFO) principle.
 
 ## Resource group parameters {#parameters}
 

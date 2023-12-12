@@ -295,3 +295,5 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ CH }}.
 
 {% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

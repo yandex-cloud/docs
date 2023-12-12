@@ -40,38 +40,38 @@
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
-  1. В поле **Имя** введите имя виртуальной машины: `sftp-server`.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя виртуальной машины: `sftp-server`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
-  1. В блоке **Выбор образа/загрузочного диска**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-     1. Перейдите на вкладку **{{ marketplace-name }}**.
-     1. Нажмите кнопку **Посмотреть больше**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
      1. В списке публичных образов найдите и выберите [CentOS 7](/marketplace/products/yc/centos-7).
 
-  1. В блоке **Вычислительные ресурсы** выберите следующую конфигурацию:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите следующую конфигурацию:
 
-     * **Платформа** — Intel Cascade Lake.
-     * **Гарантированная доля vCPU** — 20%.
-     * **vCPU** — 2.
-     * **RAM** — 2 ГБ.
+     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Cascade Lake`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-  1. В блоке **Сетевые настройки** выберите сеть и подсеть, к которым нужно подключить виртуальную машину. Если нужной сети или подсети еще нет, вы можете создать их на странице создания виртуальной машины.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите сеть и подсеть, к которым нужно подключить виртуальную машину. Если нужной сети или подсети еще нет, вы можете создать их на странице создания виртуальной машины.
   
-  1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}. Чтобы внешний IP-адрес не изменялся после остановки виртуальной машины, [сделайте его статическим](../../vpc/operations/set-static-ip.md).
+  1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}. Чтобы внешний IP-адрес не изменялся после остановки виртуальной машины, [сделайте его статическим](../../vpc/operations/set-static-ip.md).
   
   1. Укажите данные для доступа к виртуальной машине:
 
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
        
      {% note alert %}
      
-     IP-адрес и имя хоста (FQDN) для подключения к машине будут назначены ей при создании. Если вы выбрали вариант **Без адреса** в поле **Публичный адрес**, вы не сможете обращаться к виртуальной машине из интернета.
+     IP-адрес и имя хоста (FQDN) для подключения к машине будут назначены ей при создании. Если вы выбрали вариант **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, вы не сможете обращаться к виртуальной машине из интернета.
     
      {% endnote %}
   
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   
 {% endlist %}
 

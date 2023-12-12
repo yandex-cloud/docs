@@ -258,6 +258,7 @@ Method | Description
 [removeOneToOneNat](removeOneToOneNat.md) | Removes One-to-one NAT from the network interface.
 [restart](restart.md) | Restarts the running instance.
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the instance.
+[simulateMaintenanceEvent](simulateMaintenanceEvent.md) | 
 [start](start.md) | Starts the stopped instance.
 [stop](stop.md) | Stops the running instance.
 [update](update.md) | Updates the specified instance.

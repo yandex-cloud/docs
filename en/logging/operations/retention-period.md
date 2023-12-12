@@ -13,7 +13,7 @@ description: "Follow this guide to update a log group."
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. In the line with the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
-   1. Edit the log group parameters.
+   1. Edit log group parameters.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
@@ -118,7 +118,7 @@ description: "Follow this guide to update a log group."
    
    **Sample request**
 
-   The example below uses the `grpcurl` utility. To use the example, [authenticate](../api-ref/authentication.md) in the API and clone the [cloudapi](https://github.com/yandex-cloud/cloudapi) repository.
+   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
    In the example, the record retention period is updated.
 

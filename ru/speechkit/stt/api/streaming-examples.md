@@ -137,7 +137,7 @@
      1. Задайте [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md):
 
         ```bash
-        export FOLDER_ID=<идентификатор каталога>
+        export FOLDER_ID=<идентификатор_каталога>
         ```
 
      1. Задайте [IAM-токен](../../../iam/concepts/authorization/iam-token.md):
@@ -278,7 +278,7 @@
      1. Задайте [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md):
 
         ```bash
-        export FOLDER_ID=<идентификатор каталога>
+        export FOLDER_ID=<идентификатор_каталога>
         ```
 
      1. Задайте [IAM-токен](../../../iam/concepts/authorization/iam-token.md):

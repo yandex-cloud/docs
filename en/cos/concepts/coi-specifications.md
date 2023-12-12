@@ -1,3 +1,8 @@
+---
+title: "Docker container specifications in {{ cos-full-name }}"
+description: "You can describe a Docker container's launch configuration using the COI or Docker Compose specification."
+---
+
 # Docker container specifications
 
 There are two ways to describe a Docker container's launch configuration:

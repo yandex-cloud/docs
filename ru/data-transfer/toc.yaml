@@ -25,7 +25,7 @@ items:
                 href: operations/endpoint/source/aws-cloudtrail.md
               - name: BigQuery
                 href: operations/endpoint/source/bigquery.md
-              - name: ClickHouse
+              - name: ClickHouse®
                 href: operations/endpoint/source/clickhouse.md
               - name: Elasticsearch
                 href: operations/endpoint/source/elasticsearch.md
@@ -59,7 +59,7 @@ items:
             items:
               - name: Apache Kafka®
                 href: operations/endpoint/target/kafka.md
-              - name: ClickHouse
+              - name: ClickHouse®
                 href: operations/endpoint/target/clickhouse.md
               - name: Elasticsearch
                 href: operations/endpoint/target/elasticsearch.md

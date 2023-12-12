@@ -88,3 +88,5 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

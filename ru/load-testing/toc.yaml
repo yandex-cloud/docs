@@ -78,6 +78,68 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API (англ.)
+    items:
+      - name: gRPC
+        items:
+          - name: Overview
+            href: user/api-ref/grpc/index.md
+          - name: AgentService
+            href: user/api-ref/grpc/agent_service.md
+          - name: ConfigService
+            href: user/api-ref/grpc/config_service.md
+          - name: ReportService
+            href: user/api-ref/grpc/report_service.md
+          - name: TestService
+            href: user/api-ref/grpc/test_service.md
+          - name: OperationService
+            href: user/api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: user/api-ref/index.md
+          - name: Agent
+            items:
+              - name: Overview
+                href: user/api-ref/Agent/index.md
+              - name: create
+                href: user/api-ref/Agent/create.md
+              - name: delete
+                href: user/api-ref/Agent/delete.md
+              - name: get
+                href: user/api-ref/Agent/get.md
+              - name: list
+                href: user/api-ref/Agent/list.md
+          - name: Config
+            items:
+              - name: Overview
+                href: user/api-ref/Config/index.md
+              - name: create
+                href: user/api-ref/Config/create.md
+              - name: get
+                href: user/api-ref/Config/get.md
+              - name: list
+                href: user/api-ref/Config/list.md
+          - name: Report
+            items:
+              - name: Overview
+                href: user/api-ref/Report/index.md
+              - name: getTable
+                href: user/api-ref/Report/getTable.md
+          - name: Test
+            items:
+              - name: Overview
+                href: user/api-ref/Test/index.md
+              - name: create
+                href: user/api-ref/Test/create.md
+              - name: delete
+                href: user/api-ref/Test/delete.md
+              - name: get
+                href: user/api-ref/Test/get.md
+              - name: list
+                href: user/api-ref/Test/list.md
+              - name: stop
+                href: user/api-ref/Test/stop.md
   - name: Обучающие курсы
     href: training.md
 base: ru/load-testing

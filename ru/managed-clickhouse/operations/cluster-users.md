@@ -707,3 +707,5 @@ description: "Из статьи вы узнаете, как управлять �
       ```
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

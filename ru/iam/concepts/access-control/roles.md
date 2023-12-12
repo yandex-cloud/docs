@@ -717,3 +717,5 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-ai-editor](../../../_includes/roles-ai-editor.md) %}
 
 {% include [roles-ai-admin](../../../_includes/roles-ai-admin.md) %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

@@ -1,3 +1,8 @@
+---
+title: "How to create a repository in {{ container-registry-full-name }}"
+description: "Follow this guide to create a repository."
+---
+
 # Creating a repository
 
 To create a [repository](../../concepts/repository.md):
@@ -10,7 +15,7 @@ To create a [repository](../../concepts/repository.md):
   1. Describe the properties of the `yandex_container_repository` resource in a configuration file:
      * `name`: Repository name as `<registry id>/<Docker image name>`. You can retrieve the [registry](../../concepts/registry.md) ID from the [folder registry list](../registry/registry-list.md#registry-list).
 
-     > Example of the configuration file structure:
+     > Here is an example of the configuration file structure:
      >
      > ```
      > resource "yandex_container_repository" "my-repository" {

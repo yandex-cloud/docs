@@ -133,9 +133,9 @@ description: "Следуя данному руководству, вы смож�
 
 Чтобы получить идентификатор последнего образа для создания ВМ, выполните:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (Bash)
+- Linux (Bash) {#linux}
 
   ```bash
   IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image \
@@ -143,7 +143,7 @@ description: "Следуя данному руководству, вы смож�
     --format=json | jq -r .id)
   ```
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows}
 
   ```shell script
   $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image `

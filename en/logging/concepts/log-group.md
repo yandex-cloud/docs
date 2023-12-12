@@ -1,3 +1,8 @@
+---
+title: "Log groups in {{ cloud-logging-full-name }}"
+description: "A log group is a way of grouping logs of services and custom messages."
+---
+
 # Log group in {{ cloud-logging-name }}
 
 A _log group_ is a way of grouping logs of services and custom messages. There are two types of groups:

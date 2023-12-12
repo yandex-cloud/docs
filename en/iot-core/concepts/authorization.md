@@ -1,3 +1,8 @@
+---
+title: "Authentication in {{ iot-full-name }}"
+description: "You can authenticate with X.509 certificates, your username and password, or using both methods."
+---
+
 # Authentication
 
 There are two authentication methods:

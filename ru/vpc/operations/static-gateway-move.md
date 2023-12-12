@@ -50,7 +50,7 @@ description: "Следуя данной инструкции, вы сможет�
       +----------------------+----------+-------------+
       |          ID          |   NAME   | DESCRIPTION |
       +----------------------+----------+-------------+
-      | enckq19qqsr54b727dct | router-1 |             |
+      | enckq19qqsr5******** | router-1 |             |
       +----------------------+----------+-------------+
       ```
 
@@ -65,9 +65,9 @@ description: "Следуя данной инструкции, вы сможет�
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
       +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk10aurd2c3 | default                |        | ACTIVE |
-      | b1chgf288nvg541tgu73 | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh690at5bm7 | my-folder-2            |        | ACTIVE |
+      | b1cs8ie21pk1******** | default                |        | ACTIVE |
+      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
       +----------------------+------------------------+--------+--------+
       ```
 
@@ -84,8 +84,8 @@ description: "Следуя данной инструкции, вы сможет�
 
      Результат:
      ```text
-     id: enckq19qqsr54b727dct
-     folder_id: b1chgf288nvg541tgu73
+     id: enckq19qqsr5********
+     folder_id: b1chgf288nvg********
      created_at: "2022-10-06T10:14:04Z"
      name: router-1
      shared_egress_gateway: {}
@@ -117,9 +117,9 @@ description: "Следуя данной инструкции, вы сможет�
 - CLI
 
   ```bash
-  yc vpc gateway move enckq19qqsr54b727dct \
-    --folder-id b1chgf288nvg541tgu73 \
-    --destination-folder-id b1cs8ie21pk10aurd2c3
+  yc vpc gateway move enckq19qqsr5******** \
+    --folder-id b1chgf288nvg******** \
+    --destination-folder-id b1cs8ie21pk1********
   ```
 
 {% endlist %}

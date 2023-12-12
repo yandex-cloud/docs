@@ -1,3 +1,8 @@
+---
+title: "{{ mpg-full-name }} use cases"
+description: "Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ mpg-name }} tutorials
 
 * [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](./1c-postgresql.md)

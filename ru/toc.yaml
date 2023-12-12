@@ -67,7 +67,7 @@ items:
     href: managed-airflow/index.yaml
   - name: Managed Service for Apache Kafka®
     href: managed-kafka/index.yaml
-  - name: Managed Service for ClickHouse
+  - name: Managed Service for ClickHouse®
     href: managed-clickhouse/index.yaml
   - name: Managed Service for Elasticsearch
     href: managed-elasticsearch/index.yaml

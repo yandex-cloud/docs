@@ -1,6 +1,11 @@
+---
+title: "How to connect to a sharded {{ MG }} cluster"
+description: "In this tutorial, you will learn how to connect to a sharded {{ MG }} cluster."
+---
+
 # Connecting to a sharded {{ MG }} cluster
 
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 

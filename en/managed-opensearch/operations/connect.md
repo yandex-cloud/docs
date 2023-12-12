@@ -1,6 +1,6 @@
 ---
-title: "Connecting to {{ OS }} clusters"
-description: "You can connect to {{ OS }} cluster hosts with the DATA role from the internet if you set up public access to the desired host and from {{ yandex-cloud }} VMs located in the same virtual network."
+title: "Connecting to an {{ OS }} cluster in {{ mos-full-name }}"
+description: "You can connect to {{ OS }} cluster hosts with the DATA role from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network."
 keywords:
   - connecting OpenSearch clusters
   - OpenSearch cluster
@@ -120,7 +120,7 @@ You can connect to {{ OS }} Dashboards:
 
       {% note warning %}
 
-      This configuration file example uses a self-signed `snakeoil` certificate from the `ssl-cert` package. It's not safe to use this certificate in a real cluster. Instead of the self-signed certificate, specify the path to your public and private SSL certificate keys in the `ssl_certificate` and `ssl_certificate_key` directives.
+      This configuration file example uses a self-signed `snakeoil` certificate from the `ssl-cert` package. It is not safe to use this certificate in a real cluster. Instead of the self-signed certificate, specify the path to your public and private SSL certificate keys in the `ssl_certificate` and `ssl_certificate_key` directives.
 
       {% endnote %}
 

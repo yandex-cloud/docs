@@ -1,3 +1,8 @@
+---
+title: "What function environments in {{ sf-full-name }} include"
+description: "In this tutorial, you will learn what a function environment in {{ sf-name }} includes."
+---
+
 # Environment
 
 ## Environment variables {#env}

@@ -1,6 +1,6 @@
 ---
-title: "Managing MongoDB users"
-description: "In this article you will learn how to add and remove users, as well as manage their individual settings in the MongoDB database management service."
+title: "{{ MG }} user management in {{ mmg-full-name }}"
+description: "In this article, you will learn how to add and remove users and manage their individual settings in the {{ MG }} database management service."
 ---
 
 # Managing {{ MG }} users
@@ -29,7 +29,7 @@ You can add and delete users as well as manage their individual settings and dat
      --cluster-name <cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -89,7 +89,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
-      You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -182,7 +182,7 @@ You can add and delete users as well as manage their individual settings and dat
    1. Specify the user properties in the update command:
       ```
       {{ yc-mdb-mg }} user update <username> \
-       --cluster-name <cluster_name> \
+        --cluster-name <cluster_name> \
         --password <user_password> \
         --permission database=<DB_name>,role=<role>,role=<other_role>,... \
         --permission database=<other_DB_name>,role=<role>,...
@@ -301,7 +301,7 @@ You can add and delete users as well as manage their individual settings and dat
       --cluster-name <cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -328,7 +328,7 @@ You can add and delete users as well as manage their individual settings and dat
    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The name of the user to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-users).
+   * Username to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-users).
 
 {% endlist %}
 

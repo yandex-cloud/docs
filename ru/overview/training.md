@@ -14,3 +14,5 @@
 * {% include [training-managed-clickhouse](../_includes/training/training-mch.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

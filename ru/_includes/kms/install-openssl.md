@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
   Выполните команду:
   
@@ -8,7 +8,7 @@
   sudo apt-get install openssl
   ```
 
-- Windows
+- Windows {#windows}
 
   Воспользуйтесь пакетным менеджером [Chocolatey](https://chocolatey.org/install). От имени администратора выполните команду в терминале PowerShell:
 

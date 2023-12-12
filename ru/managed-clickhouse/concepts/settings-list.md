@@ -54,3 +54,5 @@
 [Пользовательские настройки]({{ ch.docs }}/operations/settings/#custom_settings) можно переопределять, как переменные, в [профиле настроек]({{ ch.docs }}/operations/access-rights/#settings-profiles-management), сессии или запросе. Работа с профилями настроек доступна, если для кластера включено [управление пользователями через SQL](../operations/cluster-users.md#sql-user-management).
 
 Название пользовательской настройки в {{ mch-name }} должно начинаться с предопределенного префикса `custom_`. Префикс фиксированный — пользователь не может его менять.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

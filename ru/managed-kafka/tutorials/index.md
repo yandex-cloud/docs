@@ -34,3 +34,5 @@
 * [Из {{ MY }} в {{ KF }} с помощью Debezium](cdc/debezium-mmy.md)
 * [Из {{ KF }} в {{ CH }}](send-data-to-mch.md)
 * [Из {{ KF }} в ksqlDB](use-ksqldb-with-mkf.md)
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

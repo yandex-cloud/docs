@@ -1,5 +1,5 @@
 ---
-title: "How to change settings for a {{ MY }} cluster"
+title: "How to change {{ MY }} cluster settings in {{ mmy-full-name }}"
 description: "In this tutorial, you will learn how to change settings for a {{ MY }} cluster."
 ---
 
@@ -27,7 +27,7 @@ After creating a cluster, you can:
 * [{#T}](#change-sg-set).
 
 
-To move a cluster to a different availability zone, follow this [guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
 ## Changing the host class {#change-resource-preset}
 

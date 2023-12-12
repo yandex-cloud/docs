@@ -14,3 +14,5 @@ editable: false
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
 {% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

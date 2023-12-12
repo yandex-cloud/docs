@@ -20,3 +20,5 @@
 ## Перенос данных {#data-transfer}
 
 {% include notitle [Data migration MCH](../../_tutorials/datatransfer/managed-clickhouse.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

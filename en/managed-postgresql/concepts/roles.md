@@ -1,3 +1,8 @@
+---
+title: "Assigning {{ PG }} roles in {{ mpg-full-name }}"
+description: "With {{ mpg-name }}, you cannot access predefined roles, including the superuser role. Instead, this service provides you with special roles you can assign via the CLI or {{ yandex-cloud }} API."
+---
+
 # Assigning {{ PG }} roles
 
 With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/docs/current/predefined-roles.html) roles, including the superuser role. Instead, this service provides you with the following special roles:

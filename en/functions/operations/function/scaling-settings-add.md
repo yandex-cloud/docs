@@ -1,3 +1,8 @@
+---
+title: "How to set up function scaling in {{ sf-full-name }}"
+description: "Follow this guide to configure function scaling settings."
+---
+
 # Adding function scaling settings
 
 You can set the following:

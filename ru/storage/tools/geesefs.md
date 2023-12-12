@@ -76,9 +76,9 @@
 
 ## Установка {#installation}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
   1. Установите утилиты для работы FUSE. Например:
   
@@ -102,7 +102,7 @@
      sudo cp geesefs-linux-amd64 /usr/bin/geesefs
      ```
 
-- macOS
+- macOS {#macos}
 
   1. Установите пакет [macFUSE](https://osxfuse.github.io/). Подробнее см. в [инструкции по установке](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) в репозитории macFUSE на GitHub.
   1. Скачайте и установите GeeseFS:
@@ -115,7 +115,7 @@
      sudo cp geesefs-mac-$platform /usr/bin/geesefs
      ```
 
-- Windows
+- Windows {#windows}
 
   1. [Скачайте](https://winfsp.dev/rel/) и установите WinFSP.
   1. [Скачайте](https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-win-x64.exe) файл `geesefs-win-x64.exe`.
@@ -129,9 +129,9 @@
 
 GeeseFS использует [статический ключ доступа](../../iam/concepts/authorization/access-key.md) к {{ objstorage-name }}. Он задается несколькими способами:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux/MacOS
+- Linux/macOS {#linux-macos}
 
   * С помощью [файла](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) `credentials`, который нужно поместить в директорию `~/.aws/`:
 
@@ -162,7 +162,7 @@ GeeseFS использует [статический ключ доступа](..
 
   {% endnote %}
 
-- Windows
+- Windows {#windows}
 
   * С помощью [файла](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) `credentials`, который нужно поместить в папку `users/<текущий_пользователь>/.aws/`:
 
@@ -204,9 +204,9 @@ GeeseFS использует [статический ключ доступа](..
 
 * Для автоматического монтирования бакета при запуске системы:
 
-  {% list tabs %}
+  {% list tabs group=operating_system %}
   
-  - Linux/MacOS
+  - Linux/macOS {#linux-macos}
   
     1. Добавьте в файл `/etc/fuse.conf` строку:
 
@@ -226,7 +226,7 @@ GeeseFS использует [статический ключ доступа](..
 
     {% endnote %}
 
-  - Windows
+  - Windows {#windows}
   
     Создайте службу Windows, которая будет запускаться вместе с ОС:
     

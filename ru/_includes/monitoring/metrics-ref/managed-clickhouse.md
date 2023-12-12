@@ -94,7 +94,7 @@ shard | Идентификатор шарда
 
 ### Метрики сервиса {#managed-clickhouse-metrics}
 ##### Метрики системных событий {#managed-clickhouse-system-events-metrics}
-Нативные метрики Clickhouse из таблицы [system.events]({{ ch.docs }}/operations/system-tables/events). 
+Нативные метрики {{ CH }} из таблицы [system.events]({{ ch.docs }}/operations/system-tables/events). 
 По каждой метрике считается прирост `inc` и скорость изменения `rate` за единицу времени.
 
 | Имя<br/>Тип| 
@@ -285,7 +285,7 @@ shard | Идентификатор шарда
 | `ch_system_events_ZooKeeperWatchResponse_rate`<br/>`DGAUGE` | 
 
 ##### Метрики текущих событий {#managed-clickhouse-system-metrics}
-Нативные метрики Clickhouse из таблицы [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/).
+Нативные метрики {{ CH }} из таблицы [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/).
 
 | Имя<br/>Тип| 
 | ----- | 
@@ -372,7 +372,7 @@ shard | Идентификатор шарда
 | `ch_system_metrics_ZooKeeperWatch`<br/>`DGAUGE` | 
 
 ##### Метрики очереди запросов {#managed-clickhouse-query-log-metrics}
-Нативные метрики Clickhouse из таблицы [system.query_log]({{ ch.docs }}/operations/system-tables/query_log).
+Нативные метрики {{ CH }} из таблицы [system.query_log]({{ ch.docs }}/operations/system-tables/query_log).
 По каждой метрике считается прирост за единицу времени (секунда).
 
 | Имя<br/>Тип| 
@@ -412,7 +412,7 @@ shard | Идентификатор шарда
 ##### Системные метрики {#managed-clickhouse-config-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого ClickHouse отправляет исключение `Too many parts ....` Задается в [настройках](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). Имеет смысл [анализировать](../../../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
+| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого {{ CH }} отправляет исключение `Too many parts ....` Задается в [настройках](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). Имеет смысл [анализировать](../../../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, байты | Размер партиций на локальных дисках. |
 | `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, штуки | Максимальное число кусков данных в разделе. | 
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, секунды | Максимальное время задержки репликации. | 

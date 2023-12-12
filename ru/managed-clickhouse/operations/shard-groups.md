@@ -287,3 +287,5 @@
   * Имя группы шардов в параметре `shardGroupName`. Чтобы узнать имя, [получите список групп шардов](#list-shard-groups) в кластере.
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

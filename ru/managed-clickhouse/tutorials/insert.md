@@ -412,3 +412,5 @@ pip3 install protobuf varint pycapnp
      ```
      
    {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

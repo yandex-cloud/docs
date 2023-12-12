@@ -53,3 +53,5 @@ description: "Из статьи вы узнаете, как создать пл�
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% include [start](../_includes/quickstart-qa-whats-next.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

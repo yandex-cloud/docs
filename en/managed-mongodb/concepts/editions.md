@@ -1,3 +1,8 @@
+---
+title: "{{ MG }} editions in {{ mmg-full-name }}"
+description: "In this tutorial, you will learn about {{ MG }} editions available to {{ yandex-cloud }} users."
+---
+
 # {{ MG }} editions
 
 Some features provided in {{ mmg-name }} depend on the {{ MG }} edition:

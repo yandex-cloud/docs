@@ -59,12 +59,12 @@
      
      Результат:
        
-     ```
-     id: enptrcle5q3d3ktd33hj
-     folder_id: b1g9hv2loamqfnbul7d9
+     ```text
+     id: enptrcle5q3d********
+     folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:25:03Z"
      name: usergate-network
-     default_security_group_id: enpbsnnop4akg7ng70ll
+     default_security_group_id: enpbsnnop4ak********
      ```
      
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
@@ -80,12 +80,12 @@
    
      Результат:
     
-     ``` 
-     id: e9bnnssj8sc8mjhat9qk
-     folder_id: b1g9hv2loamqfnbul7d9
+     ```text
+     id: e9bnnssj8sc8********
+     folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:27:00Z"
      name: usergate-subnet-{{ region-id }}-a
-     network_id: enptrcle5q3d3ktd33hj
+     network_id: enptrcle5q3d********
      zone_id: {{ region-id }}-a
      v4_cidr_blocks:
      - 10.1.0.0/16
@@ -97,7 +97,7 @@
 
   1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсети `usergate-subnet-{{ region-id }}-a`:
 
-     ```
+     ```hcl
      resource "yandex_vpc_network" "usergate-network" {
        name = "usergate-network"
      }
@@ -192,29 +192,29 @@
   
   Результат:
   
-  ```
-  id: enpu0e0nrqdnvk10r3lp
-  folder_id: b1g86q4m5vej8lkljme5
+  ```text
+  id: enpu0e0nrqdn********
+  folder_id: b1g86q4m5vej********
   created_at: "2022-06-29T09:38:40Z"
   name: usergate-sg
-  network_id: enp3srbi9u49pjvcejnb
+  network_id: enp3srbi9u49********
   status: ACTIVE
   rules:
-  - id: enpdp9d0pingp28d04kn
+  - id: enpdp9d0ping********
     direction: EGRESS
     protocol_name: ANY
     protocol_number: "-1"
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enps2r5ru3s11mdark60
+  - id: enps2r5ru3s1********
     direction: INGRESS
     protocol_name: ICMP
     protocol_number: "1"
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpgonbui61ah7ifdc9i
+  - id: enpgonbui61a********
     direction: INGRESS
     ports:
       from_port: "3389"
@@ -224,7 +224,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpbg1jh11hvp9tu1mq9
+  - id: enpbg1jh11hv********
     direction: INGRESS
     ports:
       from_port: "22"
@@ -234,7 +234,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpgdavevku7583jo3ah
+  - id: enpgdavevku7********
     direction: INGRESS
     ports:
       from_port: "8001"
@@ -244,7 +244,7 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enp335ibig9kq7qvcg7q
+  - id: enp335ibig9k********
     direction: INGRESS
     ports:
       from_port: "8090"
@@ -360,8 +360,8 @@
   Результат:
 
   ```bash
-  id: e9b6un9gkso6stdh6b3p
-  folder_id: b1g7gvsi89m34pipa3ke
+  id: e9b6un9gkso6********
+  folder_id: b1g7gvsi89m3********
   created_at: "2022-06-08T17:52:42Z"
   external_ipv4_address:
     address: 178.154.253.52
@@ -436,14 +436,14 @@
        --zone {{ region-id }}-a \
        --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности_usergate-sg> \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
-       --ssh-key <путь к открытой части SSH-ключа> \
+       --ssh-key <путь_к_открытой_части_SSH-ключа> \
      ```
 
      Результат:
 
      ```bash
-     id: fhm2na1siftpfhrfc03l
-     folder_id: b1g86q4m5vej8lkljme5
+     id: fhm2na1siftp********
+     folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
      name: usergate-proxy
      zone_id: {{ region-id }}-a
@@ -455,19 +455,19 @@
      status: RUNNING
      boot_disk:
        mode: READ_WRITE
-       device_name: fhmiq60rni2tqvjdiq3l
+       device_name: fhmiq60rni2t********
        auto_delete: true
-       disk_id: fhmiq60rni2tqvjdiq3l
+       disk_id: fhmiq60rni2t********
      network_interfaces:
      - index: "0"
        mac_address: d0:0d:2b:a8:3c:93
-       subnet_id: e9bqlr188as7rgsgh4kn
+       subnet_id: e9bqlr188as7********
        primary_v4_address:
          address: 10.1.0.27
          one_to_one_nat:
            address: 51.250.72.1
            ip_version: IPV4
-     fqdn: fhm2na1siftpfhrfc03l.auto.internal
+     fqdn: fhm2na1siftp********.auto.internal
      scheduling_policy: {}
      network_settings:
        type: STANDARD
@@ -539,7 +539,7 @@
 
 ## Настройте UserGate NGFW через веб-консоль администратора {#admin-console}
 
-Для настройки шлюза перейдите в веб-консоль администратора UserGate NGFW по адресу `https://<публичный_адрес_ВМ>:8001` и авторизуйтесь с данными по умолчанию: логин — `Admin`, пароль — `utm`.
+Для настройки шлюза перейдите в веб-консоль администратора UserGate NGFW по адресу `https://<публичный_IP-адрес_ВМ>:8001` и авторизуйтесь с данными по умолчанию: логин — `Admin`, пароль — `utm`.
 
 После авторизации вам будет предложено изменить пароль по умолчанию и провести обновление ОС.
 

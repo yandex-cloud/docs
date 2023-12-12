@@ -1,4 +1,9 @@
-# Communicating with an API gateway using the WebSocket protocol
+---
+title: "Working with an API gateway using WebSocket in {{ api-gw-full-name }}"
+description: "In this tutorial, you will learn how to with an API gateway using the WebSocket protocol in {{ api-gw-name }}."
+---
+
+# Working with an API gateway using the WebSocket protocol
 
 To connect to an API gateway via the WebSocket protocol:
 

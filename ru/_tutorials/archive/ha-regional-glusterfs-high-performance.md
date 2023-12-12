@@ -31,7 +31,7 @@
 
 ## Настройте профиль CLI {#setup-profile}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизируйтесь от имени пользователя.
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
    
    {% list tabs %}
@@ -79,7 +79,7 @@
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `sa-glusterfs` в списке и нажмите значок ![image](../../_assets/options.svg).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `admin`.
+      1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
 
    - CLI
 

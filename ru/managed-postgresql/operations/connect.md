@@ -341,3 +341,5 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ PG }}.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

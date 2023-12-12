@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ mmy-full-name }}®"
+description: "This page provides answers to questions about {{ mmy-short-name }}®."
+---
+
 # Questions and answers about {{ mmy-short-name }}®
 
 ## General questions {#general}

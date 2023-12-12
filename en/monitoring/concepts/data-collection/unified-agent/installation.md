@@ -1,4 +1,9 @@
-# Installation and startup {{ unified-agent-full-name }}
+---
+title: "How to install and start up {{ unified-agent-full-name }}"
+description: "In this tutorial, you will learn about installing and starting up {{ unified-agent-full-name }}."
+---
+
+# {{ unified-agent-full-name }} installation and startup
 
 ## List of supported operating systems {#supported-os}
 
@@ -93,12 +98,12 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
   ```
 
-   Supported values for the `ubuntu_name` parameter:
-   * `ubuntu-14.04-trusty`;
-   * `ubuntu-16.04-xenial`;
-   * `ubuntu-18.04-bionic`;
-   * `ubuntu-20.04-focal`;
-   * `ubuntu-22.04-jammy` since version `23.03.02`.
+  Supported values for the `ubuntu_name` parameter:
+  * `ubuntu-14.04-trusty`
+  * `ubuntu-16.04-xenial`
+  * `ubuntu-18.04-bionic`
+  * `ubuntu-20.04-focal`
+  * `ubuntu-22.04-jammy` since version `23.03.02`
 
   To find out all the available versions of the agent, run this command:
   ```(bash)
@@ -187,6 +192,6 @@ If you install {{ unified-agent-short-name }} using Docker, you can configure th
 
 #### What's next {#what-is-next}
 
-- Read about [{{ unified-agent-short-name }} concepts](./index.md)
-- [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md)
-- [Read the {{ unified-agent-short-name }} operating instructions](./best-practices.md)
+- Read about [{{ unified-agent-short-name }} concepts](./index.md).
+- [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md).
+- [Read the {{ unified-agent-short-name }} operating guidelines](./best-practices.md).

@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ mmg-full-name }}"
+description: "This page provides a list of step-by-step guides for {{ mmg-name }}."
+---
+
 # Step-by-step guides for {{ mmg-name }}
 
 ## Clusters

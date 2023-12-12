@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ cos-full-name }}"
+description: "This page provides answers to questions about {{ cos-name }}."
+---
+
 # Questions and answers about {{ cos-name }}
 
 #### How do I perform auto updates based on immutable tags? {#auto-update}

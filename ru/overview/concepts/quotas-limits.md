@@ -359,3 +359,5 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 {% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

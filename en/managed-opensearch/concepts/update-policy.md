@@ -1,6 +1,11 @@
+---
+title: "What versioning policies {{ mos-full-name }} supports"
+description: "In this tutorial, you will learn about versioning policies supported by {{ mos-name }}."
+---
+
 # {{ OS }} versioning policy
 
-## Version support policy for {#versioning-policy}
+## Version support policy {#versioning-policy}
 
 {{ mos-name }} works only with manufacturer-supported {{ OS }} versions. For information about the EOL (end of life) for individual versions, see the vendor's [maintenance tables](https://opensearch.org/releases.html).
 

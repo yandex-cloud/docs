@@ -36,23 +36,23 @@
       +----------------------+------+---------------+----------+------+
       |          ID          | NAME |    ADDRESS    | RESERVED | USED |
       +----------------------+------+---------------+----------+------+
-      | e2l46k8conff8n6ru1jl |      | 84.201.177.41 | true     | true |
+      | e2l46k8conff******** |      | 84.201.177.41 | true     | true |
       +----------------------+------+---------------+----------+------+
       ```
 
-      Значение `true` параметра RESERVED для IP-адреса с ID `e2l46k8conff8n6ru1jl` показывает, что этот адрес статический.
+      Значение `true` параметра RESERVED для IP-адреса с ID `e2l46k8conff********` показывает, что этот адрес статический.
 
    1. Сделайте адрес динамическим, используя ключ `--reserved=false` и ID адреса:
 
       ```bash
-      yc vpc address update --reserved=false e2l46k8conff8n6ru1jl
+      yc vpc address update --reserved=false e2l46k8conff********
       ```
 
       Результат:
 
       ```bash
-      id: e2l46k8conff8n6ru1jl
-      folder_id: b1g7gvsi89m34pipa3ke
+      id: e2l46k8conff********
+      folder_id: b1g7gvsi89m3********
       created_at: "2021-01-14T09:36:46Z"
       external_ipv4_address:
         address: 84.201.177.41

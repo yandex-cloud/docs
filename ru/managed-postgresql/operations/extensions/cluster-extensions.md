@@ -218,3 +218,5 @@
 Требует включения расширения `pgstattuple`.
 
 Для использования утилиты необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

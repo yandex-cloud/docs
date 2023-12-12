@@ -1,3 +1,8 @@
+---
+title: "How to get started with {{ mkf-full-name }}"
+description: "Follow this guide to create and set up an {{ KF }} cluster."
+---
+
 # Getting started with {{ mkf-name }}
 
 To get started with the service:

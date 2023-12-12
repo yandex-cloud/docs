@@ -111,7 +111,7 @@
      private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Ваш приватный RSA-ключ. 
      datalens_key_version, partner_key_version = '1', '1' # Версии ключей.
      
-     data = json.dumps({'db_name': 'db_name_123'}) # JSON с БД пользователя в кластере ClickHouse.
+     data = json.dumps({'db_name': 'db_name_123'}) # JSON с БД пользователя в кластере {{ CH }}.
      
      public_key_datalens = serialization.load_pem_public_key(public_key_datalens_pem.encode())
      private_key_partner = serialization.load_pem_private_key(
@@ -151,3 +151,5 @@
 #### См. также
 
 * [{#T}](../../concepts/marketplace.md)
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

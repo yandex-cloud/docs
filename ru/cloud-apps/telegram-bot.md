@@ -40,9 +40,9 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
 1. На странице **Обзор**, в разделе **Ресурсы приложения**, найдите API-шлюз, перейдите на его страницу и скопируйте ссылку на служебный домен.
 1. Чтобы настроить связь между функцией и Telegram-ботом, выполните запрос. Вместо `<токен бота>` укажите токен Telegram-бота, вместо `<домен API-шлюза>` — ссылку на служебный домен API-шлюза.
 
-    {% list tabs %}
+    {% list tabs group=operating_system %}
 
-    - Linux, macOS
+    - Linux/macOS {#linux-macos}
 
         ```bash
         curl \
@@ -50,7 +50,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
           --url https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo
         ```
 
-    - Windows (cmd)
+    - Windows (cmd) {#windows-cmd}
 
         ```bash
         curl ^
@@ -58,7 +58,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
           --url "https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo"
         ```
 
-    - Windows (PowerShell)
+    - Windows (PowerShell) {#windows-powershell}
 
         ```powershell
         curl.exe `

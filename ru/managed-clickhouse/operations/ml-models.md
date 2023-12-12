@@ -435,3 +435,5 @@
         FROM ml_test_table
         LIMIT 10;
         ```
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -1,3 +1,8 @@
+---
+title: "How to use the uuid-cb extension in {{ mgp-full-name }}"
+description: "Follow this guide to use the uuid-cb extension in {{ mgp-name }}."
+---
+
 # Using uuid-cb in {{ mgp-name }}
 
 The `uuid-cb` extension exports functions for generating and validating unique IDs in compliance with the Russian Central Bank requirements:

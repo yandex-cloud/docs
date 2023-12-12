@@ -119,9 +119,9 @@
 
 Список ключей, которые обрабатываются в публичных образах {{ yandex-cloud }}, зависит от операционной системы.
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
   * `serial-port-enable` — флаг, включающий доступ к [серийной консоли](../operations/serial-console/index.md). `1` — включить, `0` (по умолчанию) — выключить.
   * `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [cloud-init](https://cloud-init.io), запущенным на ВМ.
@@ -141,7 +141,7 @@
 
   * `ssh-keys` — ключ для доставки SSH-ключа на ВМ Linux через {{ TF }}. Указывается в формате `<имя_пользователя>:<содержимое_SSH-ключа>`, например `user:ssh-ed25519 AAC4NzaC1... user@example.com`. Если указать несколько ключей, будет использован только первый из них.
 
-- Windows
+- Windows {#windows}
 
   `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [Cloudbase-Init](https://cloudbase.it/cloudbase-init/). Этот агент поддерживает различные [форматы данных](https://cloudbase-init.readthedocs.io/en/latest/userdata.html), например PowerShell-скрипт, задающий пароль администратора:
 

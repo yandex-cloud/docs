@@ -52,9 +52,9 @@ keywords:
 
 ## Настройте синхронизацию {#setup-ntp}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (systemd)
+- Linux (systemd) {#linux-systemd}
 
   На ВМ с ОС на основе Linux должен быть включен DHCP-клиент с опцией `42` (`Network Time Protocol Servers`). DHCP-клиент автоматически применяет список серверов для синхронизации времени, который получает от DHCP-сервера. В образах {{ compute-name }} ОС уже настроены нужным образом.
 
@@ -92,7 +92,7 @@ keywords:
       sudo systemctl restart systemd-timesyncd
       ```
 
-- Linux (ntpd)
+- Linux (ntpd) {#linux-ntpd}
 
   На ВМ с ОС на основе Linux должен быть включен DHCP-клиент с опцией `42` (`Network Time Protocol Servers`). DHCP-клиент автоматически применяет список серверов для синхронизации времени, который получает от DHCP-сервера. В образах {{ compute-name }} ОС уже настроены нужным образом.
 
@@ -143,7 +143,7 @@ keywords:
       sudo service ntp restart
       ```
 
-- Windows Server
+- Windows Server {#windows}
 
   Чтобы настроить синхронизацию времени:
   1. [Подключитесь](../../compute/operations/vm-connect/rdp.md) к ВМ по RDP.
@@ -205,9 +205,9 @@ keywords:
 
 ## Проверьте синхронизацию {#check-ntp}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (systemd)
+- Linux (systemd) {#linux-systemd}
 
   Выполните команду:
 
@@ -224,7 +224,7 @@ keywords:
   ...
   ```
 
-- Linux (ntpd)
+- Linux (ntpd) {#linux-ntpd}
 
   Выполните команду:
 
@@ -246,7 +246,7 @@ keywords:
 
 
 
-- Windows Server
+- Windows Server {#windows}
 
   Выполните команду, указав имя ВМ:
 

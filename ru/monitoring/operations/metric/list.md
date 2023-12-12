@@ -55,3 +55,5 @@ curl -H "Content-Type: application/json" \
 
 * `resource_id` – идентификатор ресурса.
 * `metrics` – список метрик.
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

@@ -1,3 +1,8 @@
+---
+title: "How to connect to a database in a {{ CH }} cluster in {{ mch-full-name }}"
+description: "Follow this guide to connect to a database in a {{ CH }} cluster."
+---
+
 # Connecting to a database in a {{ CH }} cluster
 
 You can connect to {{ mch-short-name }} cluster hosts:
@@ -152,7 +157,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Click **Download** in a new window with an invitation to download the driver files.
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
             * `ssl:true`
-            * `sslrootcert:<path_to_saved_SSL_certificate_file>`
+            * `sslrootcert:<path_to_SSL_certificate_file_saved>`
    1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

@@ -39,7 +39,7 @@ description: "Следуя данной инструкции, вы сможет�
   yc vpc security-group create \
     --name test-sg-cli \
     --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
-    --network-id c645mh47vscba1d64tbs
+    --network-id c645mh47vscb********
   ```
 
   Где:
@@ -75,15 +75,15 @@ description: "Следуя данной инструкции, вы сможет�
      
      ```
      provider "yandex" {
-       token     = "<OAuth или статический ключ сервисного аккаунта>"
-       folder_id = "<идентификатор каталога>"
+       token     = "<OAuth_или_статический_ключ_сервисного_аккаунта>"
+       folder_id = "<идентификатор_каталога>"
        zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id  = "<Идентификатор сети>"
+       network_id  = "<идентификатор_сети>"
 
        ingress {
          protocol       = "TCP"

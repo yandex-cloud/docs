@@ -34,9 +34,9 @@
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
   1. Посмотрите описание команды CLI для создания ВМ:
 

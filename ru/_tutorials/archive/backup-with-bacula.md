@@ -45,11 +45,11 @@ Bacula состоит из нескольких компонентов:
 - Консоль управления
 
   1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
-  1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
-  1. В поле **Имя** введите имя бакета.
-  1. В поле **Доступ к бакету** выберите **Ограниченный**.
-  1. В поле **Класс хранилища** выберите **Холодное**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** введите имя бакета.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -71,29 +71,29 @@ Bacula состоит из нескольких компонентов:
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) на странице каталога нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ: `bacula-vm`.
+  1. В [консоли управления]({{ link-console-main }}) на странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ: `bacula-vm`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
-  1. В блоке **Вычислительные ресурсы** выберите параметры:
-      * **Платформа** — Intel Cascade Lake.
-      * **Гарантированная доля vCPU** — 20%.
-      * **vCPU** — 2.
-      * **RAM** — 2 ГБ.
-  1. В блоке **Сетевые настройки** выберите сеть и подсеть, к которым нужно подключить ВМ. Если сети нет, создайте ее:
-      1. Выберите пункт ![image](../../_assets/plus-sign.svg) **Создать сеть**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите параметры:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Cascade Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если сети нет, создайте ее:
+      1. Выберите пункт ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**.
       1. В открывшемся окне укажите имя сети и каталог, в котором она будет создана.
-      1. (Опционально) Для автоматического создания подсетей выберите опцию **Создать подсети**.
-      1. Нажмите кнопку **Создать**.
+      1. (Опционально) Для автоматического создания подсетей выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
-          У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав пункт ![image](../../_assets/plus-sign.svg) **Добавить подсеть**.
-  1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+          У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав пункт ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+  1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
   1. Укажите данные для доступа на ВМ:
-      * В поле **Логин** введите имя пользователя.
-      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
         Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Дождитесь перехода ВМ в статус `RUNNING`.
 
 {% endlist %}
@@ -309,7 +309,7 @@ Bacula состоит из нескольких компонентов:
         sudo ls -la /tmp/bacula | grep test.test 
         ```
 
-    1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ objstorage-short-name }}** и убедитесь, что файл `test.test` появился в бакете.
+    1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и убедитесь, что файл `test.test` появился в бакете.
     1. Удалите тестовый файл:
 
         ```bash
@@ -647,7 +647,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ objstorage-short-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Откройте бакет.
   1. Убедитесь, что внутри находится объект `MyVolume`.
 

@@ -18,9 +18,9 @@ export PATH=$PATH:/path/to/terraform
 ### С сайта Hashicorp {#from-hashicorp-site}
 
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   Используйте один из способов:
 
@@ -31,11 +31,11 @@ export PATH=$PATH:/path/to/terraform
      choco install terraform
      ```
 
-- Linux
+- Linux {#linux}
 
   [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
-- macOS
+- macOS {#macos}
 
   Используйте один из способов:
 

@@ -1,3 +1,8 @@
+---
+title: "How to authenticate when invoking a private function via HTTPS in {{ sf-full-name }}"
+description: "Follow this guide to get authenticated when invoking a private function via HTTPS."
+---
+
 # Authenticating when invoking a private function via HTTPS
 
 To invoke a private function via HTTPS, you must authenticate. To do this, get:

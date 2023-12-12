@@ -326,3 +326,5 @@
   * Имя или массив имен удаляемых хостов в параметре `hostNames`.
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
