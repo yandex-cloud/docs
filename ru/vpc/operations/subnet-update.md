@@ -38,7 +38,7 @@
       |          ID          |         NAME          |         ...          |
       +----------------------+-----------------------+----------------------+
       ...
-      | e2l2prrbkbimvjuuhht2 |     test-subnet-1     |         ...          |
+      | e2l2prrbkbim******** |     test-subnet-1     |         ...          |
       ...
       +----------------------+-----------------------+----------------------+
       ```
@@ -47,7 +47,7 @@
   1. Измените параметры подсети, например:
 
       ```
-      yc vpc subnet update e2l2prrbkbimvjuuhht2 \
+      yc vpc subnet update e2l2prrbkbim******** \
         --new-name test-subnet-renamed \
         --labels new_label=test_label
       ```
@@ -55,14 +55,14 @@
       Результат:
 
       ```
-      id: e2l2prrbkbimvjuuhht2
-      folder_id: b1g6ci08ma55klukmdjs
+      id: e2l2prrbkbim********
+      folder_id: b1g6ci08ma55********
       created_at: "2018-10-24T13:54:10Z"
       name: test-subnet-renamed
       description: My test subnet
       labels:
         new_label: test_label
-      network_id: enplom7a98s1t0lhass8
+      network_id: enplom7a98s1********
       zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 192.168.0.0/24
@@ -121,7 +121,7 @@
      Проверить изменение подсети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc vpc subnet get <имя подсети>
+     yc vpc subnet get <имя_подсети>
      ```
 
 - API
@@ -167,14 +167,14 @@
   Результат:
 
   ```
-  id: e2l2prrbkbimvjuuhht2
-  folder_id: b1g6ci08ma55klukmdjs
+  id: e2l2prrbkbim********
+  folder_id: b1g6ci08ma55********
   created_at: "2018-10-24T13:54:10Z"
   name: test-subnet-renamed
   description: My test subnet
   labels:
     new_label: test_label
-  network_id: enplom7a98s1t0lhass8
+  network_id: enplom7a98s1********
   zone_id: {{ region-id }}-a
   v4_cidr_blocks:
   - 192.168.0.0/24
@@ -184,7 +184,7 @@
 
   ```
   yc vpc network update \
-    --id enpavfmgapumnl7cqin8 \
+    --id enpavfmgapum******** \
     --new-name test-network-renamed \
     --labels new_label=test_label
   ```

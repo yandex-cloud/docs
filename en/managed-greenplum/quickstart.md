@@ -1,3 +1,8 @@
+---
+title: "How to get started with {{ mgp-full-name }}"
+description: "Follow this guide to create and set up a {{ GP }} cluster."
+---
+
 # Getting started with {{ mgp-short-name }}
 
 To get started with the service:
@@ -38,7 +43,7 @@ To get started with the service:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mgp-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mgp-short-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}
 

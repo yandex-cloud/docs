@@ -127,3 +127,6 @@ keywords:
 ### Начните знакомство с {{ yandex-cloud }} {#start}
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
+
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

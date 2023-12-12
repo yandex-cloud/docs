@@ -55,3 +55,5 @@
 * Доступна новая версия {{ CH }} 22.3 LTS ([список изменений](https://github.com/ClickHouse/ClickHouse/blob/master/CHANGELOG.md)).
 * Добавлена возможность восстановления шардированного кластера из резервной копии целиком. {{ tag-cli }} {{ tag-api }}
 * Добавлена возможность изменения настройки публичного доступа для хоста. {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

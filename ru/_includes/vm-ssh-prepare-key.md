@@ -4,9 +4,9 @@
 
 Чтобы создать пару ключей:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux/MacOS
+- Linux/macOS {#linux-macos}
 
   1. Откройте терминал.
   1. Создайте новый ключ с помощью команды `ssh-keygen`:
@@ -19,7 +19,7 @@
 
      Открытый ключ будет сохранен в файле `<имя_ключа>.pub`.
 
-- Windows 10
+- Windows 10 {#windows}
 
   Если у вас еще не установлен [OpenSSH](https://ru.wikipedia.org/wiki/OpenSSH), установите его по [инструкции](https://learn.microsoft.com/ru-ru/windows-server/administration/openssh/openssh_install_firstuse).
 
@@ -36,7 +36,7 @@
 
      Открытый ключ будет сохранен в файле с названием `<имя_ключа>.pub`.
 
-- Windows 7/8
+- Windows 7/8 {#windows7-8}
 
   Создание ключей для Windows будет выполняться с помощью приложения PuTTY.
   1. [Скачайте](https://www.putty.org) и установите PuTTY.

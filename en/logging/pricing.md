@@ -1,10 +1,12 @@
 ---
+title: "{{ cloud-logging-full-name }} pricing policy"
+description: "This article describes the {{ cloud-logging-name }} pricing policy."
 editable: false
 ---
 
-# Pricing for {{ cloud-logging-name }}
+# {{ cloud-logging-name }} pricing
 
-## What goes into the cost of using {{ cloud-logging-name }} {#rules}
+## What is included in the {{ cloud-logging-name }} cost {#rules}
 
 {{ cloud-logging-name }} charges you for the amount of data written and the time the data is stored.
 

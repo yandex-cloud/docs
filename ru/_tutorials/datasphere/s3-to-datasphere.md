@@ -36,9 +36,9 @@
 
 ### Подготовьте рабочее окружение {#environment-prepare}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. Скачайте и установите [дистрибутив winfsp](https://winfsp.dev/rel/) с сайта производителя.
    1. Скачайте с сайта производителя [архив с утилитами sysinternals suite](https://docs.microsoft.com/en-us/sysinternals/downloads/) и распакуйте его в свою рабочую директорию на локальном компьютере.

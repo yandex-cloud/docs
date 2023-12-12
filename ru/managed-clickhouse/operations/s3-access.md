@@ -112,3 +112,5 @@ description: "Следуя данной инструкции, вы сможет�
      ```
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

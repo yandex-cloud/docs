@@ -6,7 +6,7 @@ You can invoke a function:
 * [Using a trigger](#trigger).
 * [Using the {{ api-gw-full-name }} extension](#extension).
 
-Each method has a specific data structure for function requests and responses. Learn more about how to [invoke a function](../operations/function/function-invoke.md).
+Each method has its own data structure for function requests and responses. You can invoke a specific function [version](function.md#version) using a [tag](function.md#tag). Learn more about how to [invoke a function](../operations/function/function-invoke.md).
 
 ## Invoking a function using HTTPS {#http}
 
@@ -41,11 +41,11 @@ JSON query structure:
 
 Where:
 
-- `httpMethod`: The HTTP method name, such as DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
-- `headers`: A dictionary of strings with HTTP request headers and their values. If the same header is passed multiple times, the dictionary contains the last value passed.
-- `multiValueHeaders`: A dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary, but if any header is repeated multiple times, its list contains all the passed values for this header. If the header is passed only once, it's included in this dictionary and the list for it will contain a single value.
-- `queryStringParameters`: A dictionary with query parameters. If the same parameter is set multiple times, the dictionary contains the last specified value.
-- `multiValueQueryStringParameters`: A dictionary with a list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
+- `httpMethod`: HTTP method name, such as DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
+- `headers`: Dictionary of strings with HTTP request headers and their values. If the same header is provided multiple times, the dictionary contains the last provided value.
+- `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary, but if any header is repeated multiple times, its list contains all the provided values for this header. If the header is provided only once, it is included in this dictionary and the list for it will contain a single value.
+- `queryStringParameters`: Dictionary with query parameters. If the same parameter is set multiple times, the dictionary contains the last specified value.
+- `multiValueQueryStringParameters`: Dictionary with a list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
 - `requestContext` contains the following structure:
 
    ```
@@ -245,7 +245,7 @@ The specific contents of these fields depend on the programming language and you
 
 #### Error in the event the response has an invalid JSON structure {#uncorrect-json}
 
-If the response structure of your function doesn't match the description given in [Response data structure](#response), {{ sf-name }} returns the result with a 502 error code and the following response:
+If the response structure of your function does not match the description given in [Response data structure](#response), {{ sf-name }} returns the result with a 502 error code and the following response:
 
 ```
 {
@@ -276,7 +276,7 @@ If the error occurs in a user-defined function, the `X-Function-Error: true` hea
 
 ### Filtering message headers {#headers}
 
-Your function receives and passes the contents of HTTP headers as JSON fields (see the description [above](#http)). Some request and response headers are removed or renamed as described below.
+Your function receives and transmits the contents of HTTP headers as JSON fields (see the description [above](#http)). Some request and response headers are removed or renamed as described below.
 
 {% list tabs %}
 
@@ -324,7 +324,7 @@ Your function receives and passes the contents of HTTP headers as JSON fields (s
 
 ### IP address of the request source {#ip}
 
-If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, the specified IP addresses and the IP address of the client that invoked the function are passed in this header. If not, it only passes the IP address of the client that invoked the function.
+If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, the specified IP addresses and the IP address of the client that invoked the function are provided in this header. If not, it only passes the IP address of the client that invoked the function.
 
 ## Invoking a function using the {{ yandex-cloud }} CLI {#cli}
 
@@ -350,9 +350,9 @@ Flags:
 
 Detailed description of how to transfer data using different flags and arguments:
 
-- If a flag or argument is omitted, an empty string is passed.
+- If a flag or argument is omitted, an empty string is provided.
 
-- `-d, --data`: Data is passed as an argument.
+- `-d, --data`: Data is provided as an argument.
 
    ```
    yc serverless function invoke <function ID> -d '{"queryStringParameters": {"parameter_name": "parameter_value"}}'
@@ -380,11 +380,11 @@ Detailed description of how to transfer data using different flags and arguments
 
 ## Invoking a function using a trigger {#trigger}
 
-When invoking a function using a trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the function. The request source IP is passed in the same way as when [invoking a function using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
+When invoking a function using a trigger, the JSON description of a trigger event is provided in the body of an HTTP request to the function. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
 
 
 
 ## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
 
-When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In this case, the `Host` header specifies the host on which the user accessed the API gateway rather than the function's host. The request source IP is passed in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
+When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In this case, the `Host` header specifies the host on which the user accessed the API gateway rather than the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
 

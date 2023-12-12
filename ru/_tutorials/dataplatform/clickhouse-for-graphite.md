@@ -142,7 +142,7 @@
 1. Если вы используете группы безопасности для облачной сети, [настройте их](../../managed-clickhouse/operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md). 
-1. Запустите ClickHouse CLI со следующими параметрами: вместо `<FQDN_хоста>`, `<имя_БД>`, `<имя_пользователя_БД>` и `<пароль_пользователя_БД>` укажите ранее сохраненные параметры.
+1. Запустите {{ CH }} CLI со следующими параметрами: вместо `<FQDN_хоста>`, `<имя_БД>`, `<имя_пользователя_БД>` и `<пароль_пользователя_БД>` укажите ранее сохраненные параметры.
 
     ```bash
     clickhouse-client --host <FQDN_хоста> \
@@ -157,9 +157,9 @@
 
 {% list tabs %}
 
-- ClickHouse CLI
+- {{ CH }} CLI
 
-  В интерфейсе ClickHouse CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/). В качестве параметра передайте имя секции `rollup`, описанной ранее:
+  В интерфейсе {{ CH }} CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/). В качестве параметра передайте имя секции `rollup`, описанной ранее:
 
     ```sql
     CREATE TABLE GraphiteTable

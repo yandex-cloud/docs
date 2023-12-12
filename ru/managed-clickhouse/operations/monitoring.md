@@ -88,7 +88,7 @@ description: "Из статьи вы узнаете, как осуществля
 - {{ ui-key.yacloud.clickhouse.title_zookeeper }}
 
   * **Average latency per ZooKeeper host** — средняя задержка ответа, для каждого хоста ZooKeeper.
-  * **Average transaction time per ClickHouse host** — среднее время транзакции, для каждого хоста ClickHouse. Характеризует время, затрачиваемое ClickHouse на обращения к ZooKeeper.
+  * **Average transaction time per {{ CH }} host** — среднее время транзакции, для каждого хоста {{ CH }}. Характеризует время, затрачиваемое {{ CH }} на обращения к ZooKeeper.
   * **Connections per ZooKeeper host** — количество подключений, для каждого хоста ZooKeeper.
   * **CPU cores usage** — количество занятых процессорных ядер.
   * **CPU cores usage per host** — количество занятых процессорных ядер, для каждого хоста.
@@ -113,7 +113,7 @@ description: "Из статьи вы узнаете, как осуществля
   * **Network usage per host** — скорость обмена данными по сети, для каждого хоста (байт/с).
   * **Outstanding requests per ZooKeeper host** — количество запросов, находящихся в обработке, для каждого хоста ZooKeeper.
   * **Transactions** — количество транзакций в секунду.
-  * **Transactions per ClickHouse host** — количество транзакций в секунду, для каждого хоста ClickHouse.
+  * **Transactions per {{ CH }} host** — количество транзакций в секунду, для каждого хоста {{ CH }}.
   * **Watches** — количество объектов Watch.
   * **Znodes** — количество объектов Znode.
 
@@ -207,3 +207,5 @@ description: "Из статьи вы узнаете, как осуществля
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

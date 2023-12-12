@@ -71,3 +71,5 @@
 Если у вас много метрик, увеличьте таймаут на сбор данных (`scrape_timeout`) до 60s.
 
 {% endnote %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

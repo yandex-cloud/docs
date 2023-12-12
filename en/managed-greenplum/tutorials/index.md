@@ -1,3 +1,8 @@
+---
+title: "{{ mgp-full-name }} use cases"
+description: "Various {{ mgp-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ mgp-name }} tutorials
 
 * [{#T}](./data-migration.md)

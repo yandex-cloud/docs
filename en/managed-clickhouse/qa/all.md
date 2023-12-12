@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ mch-full-name }}"
+description: "This page provides answers to questions about {{ mch-short-name }}."
+---
+
 # Questions and answers about {{ mch-short-name }}
 
 ## General questions {#general}
@@ -12,7 +17,7 @@
 
 {% include notitle [connection](../../_qa/managed-clickhouse/connection.md) %}
 
-## Editing {#cluster-update} clusters
+## Updating {#cluster-update} clusters
 
 {% include notitle [cluster-update](../../_qa/managed-clickhouse/cluster-update.md) %}
 

@@ -65,15 +65,15 @@ StreamingResponse(
 ...,
   classifier_update=RecognitionClassifierUpdate(
     window_type=RecognitionClassifierUpdate.LAST_UTTERANCE,
-    start_time_ms=<начало фразы>,
-    end_time_ms=<конец фразы>,
+    start_time_ms=<начало_фразы>,
+    end_time_ms=<конец_фразы>,
     classifier_result=RecognitionClassifierResult(
       classifier="insult",
       highlights=[
         PhraseHighlight(
           text="дураки",
-          start_time_ms=<время начала слова>,
-          end_time_ms=<время конца слова>
+          start_time_ms=<время_начала_слова>,
+          end_time_ms=<время_конца_слова>
         )
       ],
       labels=[] 

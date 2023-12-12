@@ -1,3 +1,8 @@
+---
+title: "Testing message delivery in {{ iot-full-name }}"
+description: "Follow this guide to test message delivery to the MQTT server."
+---
+
 # Testing message delivery
 
 When sending a message, it is useful to make sure it has been delivered. Messages may fail to reach the MQTT server, e.g., if a [message is sent](../operations/publish.md):
@@ -138,9 +143,9 @@ To make sure a sent message has been delivered, subscribe your registry to a dev
 
 To use two clients to work with the same topic:
 
-1. [{#T}](#subscribe)
-1. [{#T}](#publish)
-1. [{#T}](#check)
+1. [{#T}](#subscribe).
+1. [{#T}](#publish).
+1. [{#T}](#check).
 
 ### Subscribe your registry to the device's permanent topic {#subscribe}
 
@@ -339,7 +344,7 @@ Result example:
 
 ### Make sure the registry has received the message from the device {#check}
 
-If the message is delivered, the subscribe to device command outputs the result. Example:
+If the message is delivered, the subscribe to device command outputs the result. For example:
 
 {% list tabs %}
 

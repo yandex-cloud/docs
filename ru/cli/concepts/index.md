@@ -40,9 +40,9 @@ CLI может отправлять запросы к {{ yandex-cloud }} чер�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux, macOS
+- Linux/macOS {#linux-macos}
 
     Чтобы создать переменную окружения `HTTPS_PROXY`, выполните команду:
 
@@ -56,7 +56,7 @@ CLI может отправлять запросы к {{ yandex-cloud }} чер�
     unset HTTPS_PROXY
     ```
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows-powershell}
 
     Чтобы создать переменную окружения `HTTPS_PROXY`, выполните команду:
 
@@ -70,7 +70,7 @@ CLI может отправлять запросы к {{ yandex-cloud }} чер�
     $Env:HTTPS_PROXY = ""
     ```
 
-- Windows (cmd)
+- Windows (cmd) {#windows-cmd}
 
     Чтобы создать переменную окружения `HTTPS_PROXY`, выполните команду:
 

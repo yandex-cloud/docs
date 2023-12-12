@@ -5,13 +5,15 @@ description: "With {{ sf-name }}, you can run applications written in the PHP pr
 
 # Developing in PHP. Overview
 
-With {{ sf-name }}, you can run applications written in the [PHP](https://www.php.net/) programming language. The service provides [runtime environments](../../concepts/runtime/index.md) with the following versions:
+With {{ sf-name }}, you can run applications written in the [PHP](https://www.php.net/) programming language.
 
-| Name | PHP version | Operating <br>system | Preloaded |
-|----|----|----|----|
-| php74 | 7.4.28 | Ubuntu 18.04 | No |
-| php8 | 8.0.25 | Ubuntu 18.04 | No |
-| php82 | 8.2.11 | Ubuntu 22.04 LTS | No |
+{% include [runtime-introduction](../../../_includes/functions/runtime-introduction.md) %}
+
+| Name | PHP version | Operating <br>system | Preloaded | Supported by the service |
+|----|----|----|----|----|
+| php74 | 7.4.28 | Ubuntu 18.04 | No | No |
+| php8 | 8.0.25 | Ubuntu 18.04 | No | No |
+| php82 | 8.2.11 | Ubuntu 22.04 LTS | No | Yes |
 
 When creating a new [function version](../../concepts/function.md#version), {{ sf-name }} will automatically install all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 

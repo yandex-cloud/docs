@@ -1,3 +1,8 @@
+---
+title: "How to change {{ CH }} cluster settings in {{ mch-full-name }}"
+description: "Follow this guide to change {{ CH }} cluster settings."
+---
+
 # Changing {{ CH }} cluster settings
 
 After creating a cluster, you can:
@@ -438,7 +443,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
             }
 
             graphite_rollup {
-              # GraphiteMergeTree engine settings for decimation and aggregation/averaging
+              # GraphiteMergeTree engine settings for thinning and aggregation/averaging
               # (rollup) of Graphite data.
               ...
             }
@@ -451,7 +456,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       Where:
       * `method`: Compression method, `LZ4` or `ZSTD`.
-      * `min_part_size`: Minimum size of a table data part, bytes.
+      * `min_part_size`: Minimum size of a data part in a table, bytes.
       * `min_part_size_ratio`: Ratio between the smallest table chunk and full table size.
 
    1. Make sure the settings are correct.
@@ -551,7 +556,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    
    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-   * `--websql-access`: Enables [running SQL queries](web-sql-query.md) from the management console. The default value is `false`.
+   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
 
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
@@ -815,7 +820,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
          --cloud-storage-data-cache=<file_storage> \
          --cloud-storage-data-cache-max-size=<storage_size_in_bytes> \
          --cloud-storage-move-factor=<percentage_of_free_space> \
-         --cloud-storage-prefer-not-to-merge=<merge_of_data_parts>
+         --cloud-storage-prefer-not-to-merge=<data_part_merges>
       ```
 
       You can change the following settings:

@@ -45,7 +45,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
 
    Where:
-   * `--name`: Name of the log group.
+   * `--name`: Log group name.
    * `--retention-period`: Log group record retention period. This is an optional parameter.
 
       {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
@@ -84,7 +84,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Name of the log group. This is an optional parameter. The name format is as follows:
+      * `name`: Log group name. This is an optional parameter. The name format is as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -146,5 +146,49 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 - API
 
    To create a log group, use the [create](../api-ref/LogGroup/create.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create) gRPC API call.
+
+   **Sample request**
+
+   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
+
+   Create the `payload.json` file:
+
+   ```json
+   {
+      "folder_id": "<folder_ID>",
+      "name": "new-group",
+      "description": "Description of a log group created using grpcurl",
+      "labels": {
+        "compute": "instance-logging"
+      }
+   }
+   ```
+
+   Run the following query:
+
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \
+     -d @ \
+     -import-path ~/cloudapi/ \
+     -import-path ~/cloudapi/third_party/googleapis/ \
+     -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
+   logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Create < payload.json
+   ```
+
+   Response:
+
+   ```text
+   {
+     "id": "e23nitus5cg9********",
+     "description": "Create log group",
+     "createdAt": "2023-11-23T14:54:23.077532292Z",
+     "createdBy": "ajeugsk5ubk6********",
+     "modifiedAt": "2023-11-23T14:54:23.077532292Z",
+     "metadata": {
+       "@type": "type.googleapis.com/yandex.cloud.logging.v1.CreateLogGroupMetadata",
+       "logGroupId": "e23pjn86385t********"
+     }
+   }
+   ```
 
 {% endlist %}

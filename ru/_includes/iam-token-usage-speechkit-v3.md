@@ -17,5 +17,5 @@
 
    ```
    Authorization: Bearer <IAM-токен> 
-   x-folder-id <идентификатор каталога>
+   x-folder-id <идентификатор_каталога>
    ```

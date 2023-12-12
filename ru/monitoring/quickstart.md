@@ -56,3 +56,5 @@
 1. Введите имя дашборда и нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 В результате вы создали дашборд с виджетами, которые отображают состояние ресурсов из разных сервисов {{ yandex-cloud }}.
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

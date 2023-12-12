@@ -30,7 +30,7 @@
       ```python
       import requests
       url = 'https://{host}:8443/?database={db}&query={query}'.format(
-              host='<FQDN_хоста_ClickHouse>',
+              host='<FQDN_хоста_{{ CH }}>',
               db='<имя_БД>',
               query='SELECT version()')
       auth = {
@@ -54,7 +54,7 @@
       ```python
       %pip install clickhouse-driver
       from clickhouse_driver import Client
-      client = Client(host='<FQDN_хоста_ClickHouse>',
+      client = Client(host='<FQDN_хоста_{{ CH }}>',
                       user='<имя_пользователя_БД>',
                       password='<пароль_пользователя_БД>',
                       database='<имя_БД>',
@@ -69,3 +69,5 @@
       ```
 
     {% endlist %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

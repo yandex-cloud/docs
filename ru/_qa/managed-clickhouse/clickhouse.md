@@ -48,7 +48,7 @@
 
 При создании кластера {{ CH }} из 2 и более хостов {{ mch-short-name }} автоматически создает кластер из 3 хостов {{ ZK }} для управления репликацией и отказоустойчивостью, если не включена поддержка {{ CK }}. Эти хосты учитываются в расчете использованной [квоты ресурсов]({{ link-console-quotas }}) в облаке и в расчете стоимости кластера. По умолчанию хосты {{ ZK }} создаются с минимальным [классом хостов](../../managed-clickhouse/concepts/instance-types.md).
 
-Подробнее об использовании {{ ZK }} см. [документацию ClickHouse]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+Подробнее об использовании {{ ZK }} см. [документацию {{ CH }}]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
 
 #### Как происходит удаление данных по TTL в {{ CH }}? {#how-ttl-data-processing-works}
 

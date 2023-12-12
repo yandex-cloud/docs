@@ -1,3 +1,8 @@
+---
+title: "Network and DB clusters in {{ mkf-full-name }}"
+description: "In this tutorial, you will learn about the basic network interface settings for an {{ KF }} cluster."
+---
+
 # Networking in {{ mkf-name }}
 
 

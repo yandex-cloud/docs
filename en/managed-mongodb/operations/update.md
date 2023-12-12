@@ -1,3 +1,8 @@
+---
+title: "How to change {{ MG }} cluster settings in {{ mmg-full-name }}"
+description: "Follow this guide to change {{ MG }} cluster settings."
+---
+
 # Changing {{ MG }} cluster settings
 
 After creating a cluster, you can:
@@ -16,7 +21,7 @@ After creating a cluster, you can:
 - [{#T}](#change-sg-set).
 
 
-To move a cluster to a different availability zone, follow this [guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
 ## Changing the host class {#change-resource-preset}
 
@@ -138,7 +143,7 @@ To move a cluster to a different availability zone, follow this [guide](host-mig
 
       To retrieve a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

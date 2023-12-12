@@ -43,16 +43,16 @@ A new version of a function is created when secrets are transmitted. You cannot 
      --entrypoint index.main \
      --memory 128m \
      --execution-timeout 5s \
-     --source-version-id vfdsde*************** \
-     --service-account-id bfbtfc************** \
-     --secret environment-variable=KEY,id=fc3q4a**************,version-id=fc3gvv**************,key=key-id
+     --source-version-id vfdsdeqa1s2d3******** \
+     --service-account-id bfbtfcp0o9i8******** \
+     --secret environment-variable=KEY,id=fc3q4aq3w5e6********,version-id=fc3gvvz4x5c6********,key=key-id
    ```
 
    Where:
 
    * `--function-name`: Function name.
    * `--runtime`: Runtime environment.
-   * `--entrypoint`: Entry point specified in the <function file name>.<handler name> format.
+   * `--entrypoint`: Entry point specified in the `<function_file_name>`.`<handler_name>` format.
    * `--memory`: Amount of RAM.
    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
    * `--source-version-id`: ID of the function version to copy the code of.
@@ -83,14 +83,14 @@ A new version of a function is created when secrets are transmitted. You cannot 
         secrets {
           id                   = "<secret_ID>"
           version_id           = "<secret_version_ID>"
-          key                  = "<secret1_key>"
-          environment_variable = "<environment_variable1_name>"
+          key                  = "<secret_1_key>"
+          environment_variable = "<environment_variable_1_name>"
         }
         secrets {
           id                   = "<secret_ID>"
           version_id           = "<secret_version_ID>"
-          key                  = "<secret2_key>"
-          environment_variable = "<environment_variable2_name>"
+          key                  = "<secret_2_key>"
+          environment_variable = "<environment_variable_2_name>"
         }
 
         content {

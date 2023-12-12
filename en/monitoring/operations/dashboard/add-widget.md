@@ -1,3 +1,8 @@
+---
+title: "How to add widgets to dashboards in {{ monitoring-full-name }}"
+description: "In this tutorial, you will learn how to add a widget to a dashboard in {{ monitoring-name }}."
+---
+
 # Adding widgets to a dashboard
 
 ## New chart {#new}

@@ -1,6 +1,11 @@
-# Database management in {{ mch-name }}
+---
+title: "How to manage {{ CH }} cluster databases in {{ mch-full-name }}"
+description: "Follow this guide to manage {{ CH }} cluster databases."
+---
 
-{{ mch-name }} lets you manage cluster databases two ways:
+# Managing databases in {{ mch-name }}
+
+{{ mch-name }} provides two ways for you to manage cluster databases:
 
 * Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.

@@ -1,3 +1,8 @@
+---
+title: "How to connect to a {{ dataproc-full-name }} cluster"
+description: "Follow this guide to connect to a {{ dataproc-name }} cluster."
+---
+
 # Connecting to {{ dataproc-name }} clusters
 
 After creating a {{ dataproc-name }} cluster, you can connect to hosts of subclusters:
@@ -41,16 +46,16 @@ Rule settings depend on the connection method you select:
 
          * For outgoing traffic:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Address range of the subnet in which the cluster hosts are located. If subclusters are in different subnets, create this rule for each subnet.
 
       1. [Configure security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Address range of the subnet in which the cluster hosts are located.
 
 - UI Proxy
@@ -73,16 +78,16 @@ Rule settings depend on the connection method you select:
 
    * For outgoing traffic:
 
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Address range of the subnet in which the subcluster host is located.
 
 - Connecting with port forwarding
 
    When using [port forwarding](../operations/connect-interfaces.md#routing), [add](../../vpc/operations/security-group-add-rule.md) rules to the intermediate VM security group that allow incoming and outgoing traffic via the required components' ports:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `<component port>`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `<component port>`.
 
       Port numbers for {{ dataproc-name }} components are shown in the table:
 
@@ -159,7 +164,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
    This command was run using /usr/lib/hadoop/hadoop-common-2.8.5.jar
    ```
 
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
@@ -174,7 +179,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
 
          {% note info %}
 
-         Select the data source depending on the {{ dataproc-name }} component you're connecting to:
+         Select the data source depending on the {{ dataproc-name }} component you are connecting to:
 
          * Hive: Select **Apache Hive**.
          * HBase: Select **Apache Phoenix**.
@@ -224,7 +229,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
          * (Optional) To connect via an intermediate VM, enable the **Use SSH tunnel** setting and specify the following parameters to configure it:
             * **Host/IP**: Public IP address of the VM to connect to.
             * **Username**: Username for connecting to the VM.
-   1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}

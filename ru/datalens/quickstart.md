@@ -128,3 +128,5 @@
 * Изучите [руководства](tutorials/index.md) с примерами использования сервиса.
 * Ознакомьтесь с [концепциями сервиса](./concepts/index.md).
 * Посмотрите [пример готового дашборда](https://datalens.yandex/9fms9uae7ip02).
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

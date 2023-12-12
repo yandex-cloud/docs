@@ -1,3 +1,8 @@
+---
+title: "{{ coi }} use cases in {{ cos-full-name }}"
+description: "Various use cases for {{ coi }} in {{ yandex-cloud }}."
+---
+
 # All tutorials
 
 * [{#T}](vm-create.md)

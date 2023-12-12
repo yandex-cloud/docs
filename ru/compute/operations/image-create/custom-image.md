@@ -56,9 +56,9 @@
 
    {% cut "Как проверить модули ядра" %}
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - CentOS, Fedora
+   - CentOS/Fedora {#centos}
 
      Выполните следующую команду:
 
@@ -83,7 +83,7 @@
 
        После каждой из команд на экране должны появиться строки с файлами `virtio_net.ko.xz`, `virtio_blk.ko.xz`, `virtio_pci.ko.xz` и `virtiofs.ko.xz`.
 
-   - Debian, Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
      Выполните следующую команду:
 
@@ -133,9 +133,9 @@
 
 1. Выполните следующие команды:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - CentOS, Fedora
+   - CentOS/Fedora {#centos}
 
      ```sh
      sudo stty -F /dev/ttyS0 9600 # Устанавливает рекомендуемую скорость терминала ttyS0 — 9600 бод.
@@ -144,7 +144,7 @@
      sudo systemctl enable getty@ttyS0 # Указывает, что getty нужно запускать при каждом включении ОС.
      ```
 
-   - Debian, Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
      ```sh
      sudo stty -F /dev/ttyS0 9600 # Устанавливает рекомендуемую скорость терминала ttyS0 — 9600 бод.

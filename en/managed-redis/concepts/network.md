@@ -1,3 +1,8 @@
+---
+title: "Network and DB clusters in {{ mrd-full-name }}"
+description: "In this tutorial, you will learn about the basic network interface settings for a {{ RD }} cluster."
+---
+
 # {{ mrd-short-name }} network and DB clusters
 
 

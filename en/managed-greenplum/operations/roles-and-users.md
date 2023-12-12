@@ -1,3 +1,8 @@
+---
+title: "Managing roles and users in a {{ GP }} cluster in {{ mgp-full-name }}"
+description: "In this tutorial, you will learn how to manage database access rights, as well as view, create, set up, and delete roles."
+---
+
 # Managing roles and users
 
 {{ GP }} manages database access rights using two types of roles:

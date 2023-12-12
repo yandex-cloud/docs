@@ -39,3 +39,6 @@ _Подключение_ содержит информацию о парамет
 ## Управление доступом {#access-management}
 
 Вы можете настроить права доступа к подключению. Подробнее в разделе [{#T}](../security/index.md).
+
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

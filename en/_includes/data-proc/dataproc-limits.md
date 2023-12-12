@@ -10,4 +10,4 @@ VMs that make up {{ dataproc-name }} service clusters utilize your {{ compute-fu
 | Maximum host configuration | s3-c96-m576 (96 vCPU Intel Ice Lake, 576 GB RAM) |
 | Maximum number of hosts per subcluster | 32 |
 | Maximum storage capacity per host on network HDDs (`network-hdd`) or SSDs (`network-ssd`) | 4096 GB |
-| Maximum storage capacity per host on non-replicated network drives (`network-ssd-nonreplicated`) | 262 074 GB |
+| Maximum storage capacity per host on non-replicated network drives (`network-ssd-nonreplicated`) | 262074 GB |

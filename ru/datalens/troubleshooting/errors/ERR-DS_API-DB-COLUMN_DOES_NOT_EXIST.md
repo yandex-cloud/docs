@@ -29,3 +29,5 @@
    ```
 
 * При построении датасета в SQL-подзапросе неявно указаны выбираемые поля (`SELECT * FROM`). Чтобы избежать ошибки, явно перечислите нужные поля в секции `SELECT`.
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

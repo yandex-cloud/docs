@@ -1,6 +1,6 @@
 ---
-title: "SQL queries in {{ mpg-name }}"
-description: "{{ mpg-name }} lets you visualize the data structure in your {{ PG }} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the management console, open the cluster page you need, and go to the SQL tab."
+title: "SQL queries in {{ mpg-full-name }}"
+description: "{{ mpg-name }} allows you to visualize the data structure in your {{ PG }} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the management console, open the cluster page you need, and go to the SQL tab."
 ---
 
 # SQL queries in the management console

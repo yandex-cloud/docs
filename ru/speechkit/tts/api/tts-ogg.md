@@ -22,7 +22,7 @@
   > Я могу превратить любой текст в речь.
   > Теперь и в+ы — можете!
   EOM
-  export FOLDER_ID=<идентификатор каталога>
+  export FOLDER_ID=<идентификатор_каталога>
   export IAM_TOKEN=<IAM-токен>
   curl -X POST \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -143,7 +143,7 @@
   1. Выполните созданный файл:
 
      ```bash
-     export FOLDER_ID=<идентификатор каталога>
+     export FOLDER_ID=<идентификатор_каталога>
      export IAM_TOKEN=<IAM-токен>
      python test.py 
        --token ${IAM_TOKEN} \
@@ -169,7 +169,7 @@
   <?php
 
   $token = '<IAM-токен>'; # Укажите IAM-токен.
-  $folderId = "<идентификатор каталога>"; # Укажите идентификатор каталога.
+  $folderId = "<идентификатор_каталога>"; # Укажите идентификатор каталога.
 
   $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
   $headers = ['Authorization: Bearer ' . $token];

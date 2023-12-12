@@ -1,3 +1,8 @@
+---
+title: "How do I get started with Yandex Cloud Console"
+description: "Follow this guide to set up the management console."
+---
+
 # How do I get started with Yandex Cloud Console?
 
 To get started with the management console:

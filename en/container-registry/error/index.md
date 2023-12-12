@@ -1,3 +1,8 @@
+---
+title: "Troubleshooting in {{ container-registry-full-name }}"
+description: "This page describes common errors and ways to fix them."
+---
+
 # Troubleshooting in {{ container-registry-name }}
 
 The most common errors and how to resolve them are listed below:

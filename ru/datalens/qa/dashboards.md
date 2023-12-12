@@ -21,3 +21,6 @@
 {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
 
+
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

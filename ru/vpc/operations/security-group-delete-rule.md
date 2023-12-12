@@ -33,26 +33,26 @@ description: "Следуя данной инструкции, вы сможет�
      +----------------------+---------------------------------+------------------------------------+----------------------+
      |          ID          |              NAME               |          DESCRIPTION               |      NETWORK-ID      |
      +----------------------+---------------------------------+------------------------------------+----------------------+
-     | enp9bmjge93bvnlb4061 | default-sg-enp509crtqufsu9m9kbr | Default security group for network | enp509crtqufsuhm9kbr |
-     | enp9rs9u4h6juk9rq3k5 | sg-1                            |                                    | enp509crtqufsuhm9kbr |
-     | enp9d8m73d1cgh2rm179 | sg-2                            |                                    | enp509crtqufsuhm9kbr |
+     | enp9bmjge93b******** | default-sg-enp509crtquf******** | Default security group for network | enp509crtquf******** |
+     | enp9rs9u4h6j******** | sg-1                            |                                    | enp509crtquf******** |
+     | enp9d8m73d1c******** | sg-2                            |                                    | enp509crtquf******** |
      +----------------------+---------------------------------+------------------------------------+----------------------+
      ```
   1. Получите список правил в группе безопасности, указав ее имя или идентификатор:
 
      ```
-     yc vpc security-groups get <имя или идентификатор группы>
+     yc vpc security-groups get <имя_или_идентификатор_группы>
      ```
      Результат:
      ```
-     id: enp8rs9i4h6juk9rl3k5
-     folder_id: b1gaus8l79li5979eabd
+     id: enp8rs9i4h6j********
+     folder_id: b1gaus8l79li********
      created_at: "2022-06-24T15:46:31Z"
      name: sg-1
-     network_id: enp559cr9qufsuhm9kbr
+     network_id: enp559cr9quf********
      status: ACTIVE
      rules:
-       - id: enpbbmv8icie959gcm84
+       - id: enpbbmv8ici********
          description: SSH
          direction: INGRESS
          ports:
@@ -69,16 +69,16 @@ description: "Следуя данной инструкции, вы сможет�
   1. Чтобы удалить правило, укажите в команде его идентификатор:
 
      ```
-     yc vpc security-group update-rules <имя или идентификатор группы> --delete-rule-id <идентификатор правила>
+     yc vpc security-group update-rules <имя_или_идентификатор_группы> --delete-rule-id <идентификатор_правила>
      ```
      Результат:
      ```
      done (12s)
-     id: enp8rs9i4h6juk9rq3k5
-     folder_id: b1gaus8l79li5n96eabd
+     id: enp8rs9i4h6j********
+     folder_id: b1gaus8l79li********
      created_at: "2022-06-24T15:46:31Z"
      name: sg-1
-     network_id: enp559cr9qufsuhm9kbr
+     network_id: enp559cr9quf********
      status: ACTIVE
      rules:
      ...
@@ -156,7 +156,7 @@ description: "Следуя данной инструкции, вы сможет�
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc vpc security-group get <имя группы безопасности>
+     yc vpc security-group get <имя_группы_безопасности>
      ```
 
 - API

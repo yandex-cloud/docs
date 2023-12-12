@@ -47,3 +47,5 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [datalens-multidataset-chart-example](../../../_includes/datalens/datalens-multidataset-chart-example.md) %}
 
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

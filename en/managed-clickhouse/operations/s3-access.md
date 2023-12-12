@@ -1,6 +1,11 @@
+---
+title: "How to set up access to {{ objstorage-full-name }} from a {{ CH }} cluster in {{ mch-full-name }}"
+description: "Follow this guide to set up access to {{ objstorage-full-name }} from your {{ CH }} cluster."
+---
+
 # Configuring access to {{ objstorage-name }} from a {{ CH }} cluster
 
-{{ mch-name }} lets you use {{ objstorage-full-name }} to:
+{{ mch-name }} supports using {{ objstorage-full-name }} to:
 * Enable [ML models](ml-models.md), [data format schemas](format-schemas.md), and your [own geobase](geobase.md).
 * Process data that is stored in object storage if this data is represented in any of the [supported {{ CH }} formats]({{ ch.docs }}/interfaces/formats/).
 
@@ -55,11 +60,11 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
 To use {{ mch-name }} to work with data of an object in {{ objstorage-name }}, you need to [get a link](../../storage/operations/objects/link-for-download.md) to this object in the bucket.
 
-A link in the format `https://{{ s3-storage-host }}/<bucket_name>/<object_name>?X-Amz-Algorithm=...` should be changed to `https://{{ s3-storage-host }}/<bucket_name>/<object_name>`. To do this, delete all parameters in the query string.
+A link like `https://{{ s3-storage-host }}/<bucket_name>/<object_name>?X-Amz-Algorithm=...` should be changed to `https://{{ s3-storage-host }}/<bucket_name>/<object_name>`. To do this, delete all parameters in the query string.
 
 ## Examples of working with objects {#examples}
 
-[You can use object links](#get-link-to-object) in the format `https://{{ s3-storage-host }}/<bucket_name>/<object_name>` to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
+[You can use object links](#get-link-to-object) in `https://{{ s3-storage-host }}/<bucket_name>/<object_name>` format to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
 
 The `S3` table engine is similar to [File]({{ ch.docs }}/engines/table-engines/special/file/) and [URL]({{ ch.docs }}/engines/table-engines/special/url/) engines, except that data is stored in S3-compatible storage (such as {{ objstorage-full-name }}) rather than using a file system or a remote HTTP/HTTPS server. This engine allows reading or writing data from/to storage using standard SQL queries such as `SELECT` and `INSERT`.
 

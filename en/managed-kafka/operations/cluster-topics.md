@@ -1,3 +1,8 @@
+---
+title: "How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}"
+description: "Follow this guide to manage topics and partitions."
+---
+
 # Working with topics and partitions
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions (which can be used separately or combined):
@@ -183,10 +188,10 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - API
 
    To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/topic_service.md#Update) gRPC API call and provide the following in the request:
-   * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
-   * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
-   * List of settings to update in the `updateMask` parameter.
+   * ID of the cluster where the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
+   * New [topic settings](../concepts/settings-list.md#topic-settings) values in the `topicSpec` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

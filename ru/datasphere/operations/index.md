@@ -28,7 +28,6 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/restrictions.md)
 * [{#T}](projects/delete.md)
 * [{#T}](projects/delete-user.md)
-* [{#T}](projects/remote-connect.md)
 
 ## Работа в ноутбуке {#notebook}
 
@@ -43,6 +42,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](user-images-cell.md)
 * [{#T}](projects/templates.md)
+* [{#T}](projects/remote-connect.md)
 
 ## Работа с ресурсами {#resources}
 
@@ -51,16 +51,16 @@ description: "Страница содержит все инструкции дл
 * [{#T}](data-proc-template.md)
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
+* [{#T}](data/s3-connectors.md)
+* [{#T}](data/models.md)
 
 ## Подключение к источникам данных {#connections-to-data-sources}
 
-* [{#T}](data/s3-connectors.md)
 * [{#T}](data/connect-to-s3.md)
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
 * [{#T}](data/connect-to-ya-disk.md)
 * [{#T}](data/connect-to-google-drive.md)
-* [{#T}](data/connect-to-ydb.md)
 
 ## Развертывание эксплуатации моделей {#deploy}
 
@@ -75,7 +75,11 @@ description: "Страница содержит все инструкции дл
 
 ## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
 
-* [Поделиться секретом](data/secrets.md#share)
+* [{#T}](data/dataset.md#share)
+* [{#T}](data/s3-connectors.md#share)
+* [{#T}](data/secrets.md#share)
+* [{#T}](user-images.md#share)
+* [{#T}](data-proc-template.md#share)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
 * [{#T}](projects/open-in-datasphere.md)

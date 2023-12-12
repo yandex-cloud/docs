@@ -91,6 +91,8 @@ items:
         href: testing/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: testing/loadtesting-external-agent.md
+      - name: Нагрузочный тест с помощью JMeter
+        href: testing/loadtesting-jmeter.md
   - name: Базовая инфраструктура
     items:
       - name: Все руководства

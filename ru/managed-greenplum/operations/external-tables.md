@@ -383,3 +383,5 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
     ```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

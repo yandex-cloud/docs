@@ -1,3 +1,8 @@
+---
+title: "Authentication in {{ container-registry-full-name }}"
+description: "Before you start using {{ container-registry-name }}, you need to authenticate for the corresponding interface."
+---
+
 # Authentication in {{ container-registry-name }}
 
 Before you start using {{ container-registry-name }}, you need to authenticate for the corresponding interface:
@@ -22,7 +27,7 @@ You can authenticate:
 * As a service account:
   * [Using authorized keys](#sa-json) (unlimited lifetime).
   * [Using an {{ iam-name }} token](#sa-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
-  * [Using a secret of the service account](#k8s-secret) of the [external {{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or external[ node group](../../managed-kubernetes/concepts/index.md#node-group) managed by {{ managed-k8s-name }}.
+  * [Using a secret of the service account](#k8s-secret) of the [external {{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or external [node group](../../managed-kubernetes/concepts/index.md#node-group) managed by {{ managed-k8s-name }}.
 * [Using a Docker credential helper credential store](#cred-helper).
 
 The authentication command looks like this:
@@ -89,7 +94,7 @@ Your programs can get access to {{ yandex-cloud }} resources using service accou
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
-1. Get and save authorized keys for your service account in the `key.json` file:
+1. Get authorized keys for your service account and save them to the `key.json` file:
 
    ```bash
    yc iam key create --service-account-name default-sa -o key.json
@@ -156,7 +161,7 @@ For a node placed in [{{ compute-full-name }}](../../compute/) to pass authentic
 {{ k8s }} resources can get access to {{ container-registry-name }} objects using [{{ k8s }} secrets](../../managed-kubernetes/concepts/encryption.md) created based on keys of [service accounts](../../iam/concepts/users/service-accounts.md).
 
 To prepare this secret:
-1. Get and save an [authorized key](../../iam/concepts/users/service-accounts.md#sa-key) for your service account in the `key.json` file:
+1. Get an [authorized key](../../iam/concepts/users/service-accounts.md#sa-key) for your service account and save it to the `key.json` file:
 
    ```bash
    yc iam key create --service-account-name <service_account_name> -o key.json
@@ -239,7 +244,7 @@ For more information, see the [{{ k8s }} documentation](https://kubernetes.io/do
 
 The Docker Engine can keep user credentials in an external credentials store. This is more secure than storing credentials in the Docker configuration file. To use a credential store, you need external [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers) software.
 
-The {{ yandex-cloud }} CLI uses `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and lets you use private {{ yandex-cloud }} registries without running the `docker login` command. This authentication method supports operations on behalf of a user and service account.
+The {{ yandex-cloud }} CLI uses `docker-credential-yc` as a Docker credential helper for {{ yandex-cloud }}. It stores user credentials and allows you to use private {{ yandex-cloud }} registries without running the `docker login` command. This authentication method supports operations on behalf of a user and service account.
 
 ### Configuring a credential helper {#ch-setting}
 

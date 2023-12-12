@@ -1,3 +1,8 @@
+---
+title: "Managing replication slots in {{ mpg-full-name }}"
+description: "Follow this guide to create and set up a replication slot."
+---
+
 # Managing replication slots
 
 {{ mpg-name }} clusters can contain physical and logical replication slots:

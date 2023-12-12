@@ -1,3 +1,8 @@
+---
+title: "{{ mrd-full-name }} use cases"
+description: "Various {{ mrd-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ mrd-name }} tutorials
 
 * [{#T}](./redis-as-php-sessions-storage.md)

@@ -1,3 +1,8 @@
+---
+title: "How to use Sqoop in {{ dataproc-full-name }}"
+description: "This guide describes how to use Sqoop."
+---
+
 # How to use Sqoop
 
 [Sqoop](https://sqoop.apache.org/) is used to import databases to the {{ dataproc-name }} cluster from external sources. The section includes:
@@ -60,7 +65,7 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
 - {{ MY }}
 
-   [Connect](./connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data, then run the command:
+   [Connect](./connect.md) over SSH to the {{ dataproc-name }} subcluster host that stores the data and run this command:
 
    ```bash
    MYSQL_VER="8.0.25" && \
@@ -90,7 +95,7 @@ To import the data to the {{ objstorage-name }} bucket:
 1. [Create connect strings](#jdbc-url-getting) for JDBC.
 1. [Connect](connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
 1. [Install drivers](#driver-installation) for Sqoop if they are not installed.
-1. Run the command:
+1. Run this command:
 
    ```bash
    sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
@@ -123,7 +128,7 @@ To import the data to the HDFS directory:
 1. [Create connect strings](#jdbc-url-getting) for JDBC.
 1. [Connect](connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
 1. [Install drivers](#driver-installation) for Sqoop if they are not installed.
-1. Run the command:
+1. Run this command:
 
    ```bash
    sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
@@ -163,7 +168,7 @@ To import the data to the Hive table:
    hive -e "CREATE DATABASE <Hive database name>;"
    ```
 
-1. Run the command:
+1. Run this command:
 
    ```bash
    sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
@@ -199,7 +204,7 @@ To import data to Apache HBase:
 1. [Create connect strings](#jdbc-url-getting) for JDBC.
 1. [Connect](connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
 1. [Install drivers](#driver-installation) for Sqoop if they are not installed.
-1. Run the command:
+1. Run this command:
 
    ```bash
    sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \

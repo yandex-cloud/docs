@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ mgl-full-name }}"
+description: "This page provides answers to questions about {{ mgl-name }}."
+---
+
 # General questions about {{ mgl-name }}
 
 #### Can I integrate {{ GL }} authentication providers? {#auth-provider}

@@ -112,3 +112,5 @@
 ##### См. также
 
 * [Посмотреть детализацию для облака](check-charges.md)
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -1,6 +1,11 @@
+---
+title: "Configuring data output from a Docker container to a serial port in {{ cos-full-name }}"
+description: "This guide describes how to create a VM from a {{ coi }} and set up a redirect of the application output stream to the VM's serial port."
+---
+
 # Configuring data output from a Docker container to a serial port
 
-To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/concepts/image.md) such as a [{{ coi }}](../concepts/index.md) and set up a redirect of the application output stream to the VM's [serial port](../../compute/operations/serial-console/index.md#configuration):
+To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/concepts/image.md), such as a [{{ coi }}](../concepts/index.md), and set up a redirect of the application output stream to the VM's [serial port](../../compute/operations/serial-console/index.md#configuration):
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a VM specification file](#prepare-specification-vm).
 1. [Create a Docker container specification file](#prepare-specification-docker).
@@ -179,10 +184,9 @@ Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.fo
 ## Check the result {#check-result}
 
 To check the result of configuring data output from the Docker container to the serial port:
-
 1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Click the name of the `coi-vm-with-sp` VM.
-1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
+1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select `COM2`. In a few minutes, the screen will display `Hello world!`.
 
 For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).
 

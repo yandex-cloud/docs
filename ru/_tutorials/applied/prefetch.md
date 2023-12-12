@@ -441,6 +441,8 @@
    cdn CNAME cl-********.edgecdn.ru.
    ```
 
+   {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
+
    Если вы пользуетесь {{ dns-name }}, настройте запись по следующей инструкции:
 
    {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}

@@ -1,8 +1,13 @@
+---
+title: "How to update a registry in {{ container-registry-full-name }}"
+description: "Follow this guide to update a registry."
+---
+
 # Updating a registry
 
 Find out how to change:
-* [A registry's name](#update-name).
-* [A registry's label](#update-label).
+* [Registry name](#update-name).
+* [Registry label](#update-label).
 * [Access for IP addresses](#access-ip).
 
 To access a [registry](../../concepts/registry.md), use its ID or name. For information about how to get the registry ID or name, see [{#T}](registry-list.md).

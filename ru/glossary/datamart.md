@@ -118,3 +118,5 @@ Data Mart или витрина данных — база данных, пред
 
 * [Пример загрузки данных из {{ metrika }} в витрину](../data-transfer/tutorials/metrika-to-clickhouse.md)
 
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

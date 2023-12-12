@@ -1,13 +1,13 @@
 ---
 title: "{{ dataproc-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage does not depend on the host class."
+description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage size does not depend on the host class."
 ---
 
 # {{ dataproc-name }} host classes
 
 The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
-The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 

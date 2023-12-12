@@ -44,9 +44,9 @@
       +----------------------+-----------+
       |          ID          |   NAME    |
       +----------------------+-----------+
-      | encb4ubvmief09h6qg5e | default   |
-      | enc39op1vq9m8tjr3udp | network-1 |
-      | enc772aa2rgqiqq67ehu | network-2 |
+      | encb4ubvmief******** | default   |
+      | enc39op1vq9m******** | network-1 |
+      | enc772aa2rgq******** | network-2 |
       +----------------------+-----------+
       ```
 
@@ -61,9 +61,9 @@
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
       +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk10aurd2c3 | default                |        | ACTIVE |
-      | b1chgf288nvg541tgu73 | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh690at5bm7 | my-folder-2            |        | ACTIVE |
+      | b1cs8ie21pk1******** | default                |        | ACTIVE |
+      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
       +----------------------+------------------------+--------+--------+
       ```
 
@@ -79,13 +79,15 @@
      Если сеть находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью опции `--folder-name` или `--folder-id`.
 
      Результат:
+
      ```text
-     id: enc39op1vq9m8tjr3udp
-      folder_id: b1chgf288nvg541tgu73
+     id: enc39op1vq9m********
+      folder_id: b1chgf288nvg********
       created_at: "2022-10-06T14:54:48Z"
       name: network-1
-      default_security_group_id: enc2ta63h3q2jsri70ll
+      default_security_group_id: enc2ta63h3q2********
      ```
+
      Подробнее о команде `yc vpc network move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/move.md).
 
 - API
@@ -128,9 +130,9 @@
 - CLI
 
   ```bash
-  yc vpc network move enc39op1vq9m8tjr3udp \
-    --folder-id b1chgf288nvg541tgu73 \
-    --destination-folder-id b1cs8ie21pk10aurd2c3
+  yc vpc network move enc39op1vq9m******** \
+    --folder-id b1chgf288nvg******** \
+    --destination-folder-id b1cs8ie21pk1********
   ```
 
 {% endlist %}

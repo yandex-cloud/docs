@@ -1,7 +1,12 @@
-# Getting information about available Docker images
+---
+title: "How to get information about existing Docker images in {{ container-registry-full-name }}"
+description: "Follow this guide to get information about existing Docker images."
+---
+
+# Getting information about existing Docker images
 
 Find out how to get:
-* [A list of Docker images in a registry](#docker-image-list).
+* [List of Docker images in a registry](#docker-image-list).
 * [Detailed information about a Docker image](#docker-image-get).
 
 ## Getting a list of Docker images in a registry {#docker-image-list}

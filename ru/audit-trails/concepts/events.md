@@ -887,3 +887,5 @@
 `UpdateBinding` | Изменение привязки к данным
 `UpdateConnection` | Изменение соединения
 `UpdateQuery` | Изменение запроса
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

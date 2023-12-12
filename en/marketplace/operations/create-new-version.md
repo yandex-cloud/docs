@@ -1,3 +1,8 @@
+---
+title: "Creating a new product version in {{ marketplace-full-name }}"
+description: "Follow this guide to create a new product version."
+---
+
 # Creating a new product version
 
 In the **{{ ui-key.yacloud_portal.marketplace_v2.product.tab_versions }}** tab, click **{{ ui-key.yacloud_portal.marketplace_v2.version.version-table_action_create }}**. Fill out the form with the required information:

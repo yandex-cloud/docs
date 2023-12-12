@@ -1,3 +1,8 @@
+---
+title: "How to work with {{ maf-full-name }}"
+description: "In this article, you will learn how to work with {{ maf-full-name }} in {{ yandex-cloud }}."
+---
+
 # Step-by-step guides for {{ maf-name }}
 
 * [{#T}](cluster-create.md)

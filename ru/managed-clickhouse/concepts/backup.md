@@ -5,9 +5,9 @@ keywords:
   - бекап
   - backup
   - резервное копирование
-  - резервное копирование ClickHouse
-  - backup ClickHouse
-  - ClickHouse
+  - резервное копирование {{ CH }}
+  - backup {{ CH }}
+  - {{ CH }}
 ---
 
 # Резервные копии в {{ mch-name }}
@@ -62,3 +62,5 @@ keywords:
 ## Проверка восстановления из резервной копии {#capabilities}
 
 Для проверки возможностей резервного копирования [восстановите кластер из резервной копии](../operations/cluster-backups.md) и проверьте целостность ваших данных.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

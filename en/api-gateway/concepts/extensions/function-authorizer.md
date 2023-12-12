@@ -1,10 +1,15 @@
+---
+title: "X-yc-apigateway-authorizer:function extension for {{ api-gw-full-name }}"
+description: "On this page, you will learn what the x-yc-apigateway-authorizer:function extension is used for and what its specification includes. We will also give you a sample function invoked using this extension."
+---
+
 # x-yc-apigateway-authorizer:function extension
 
 The `x-yc-apigateway-authorizer:function` extension is used inside the [securityScheme](https://swagger.io/docs/specification/authentication/) component schemes with the following types:
 
-* [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/).
-* [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/).
-* [API Key](https://swagger.io/docs/specification/authentication/api-keys/).
+* [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/)
+* [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/)
+* [API Key](https://swagger.io/docs/specification/authentication/api-keys/)
 
 To authorize an HTTP request, {{ api-gw-short-name }} calls the function specified in the extension. Find out more about the [request](#request) and the [response](#response) structures.
 
@@ -12,7 +17,7 @@ To authorize an HTTP request, {{ api-gw-short-name }} calls the function specifi
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Option | Type | Description |
+| Parameter | Type | Description |
 ----|----|----
 | `function_id` | `string` | ID of the [function](../../../functions/concepts/function.md). |
 | `tag` | `string` | This is an optional parameter. [Tag of the function version](../../../functions/concepts/function.md#tag). Default value: `$latest`.<br>Parameters are substituted in `tag`. |
@@ -173,6 +178,6 @@ If the authorization was successful and another user function is invoked, the au
 
 ## Possible errors {#errors}
 
-* `401 Unauthorized`: A client failed to send the authorization data defined by the scheme in the HTTP request (for example, the `Authorization` header for a scheme with the [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/) type).
+* `401 Unauthorized`: Client failed to send the authorization data defined by the scheme in the HTTP request (e.g., the `Authorization` header for a scheme with the [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/) type).
 * `403 Forbidden`: {{ api-gw-short-name }} did not make a successful function call (`"isAuthorized": false`).
 * `500 Internal Server Error`: {{ api-gw-short-name }} could not invoke the function or received a function response with an incorrect structure.

@@ -47,21 +47,21 @@
 
 1. Перезапустите сервер {{ grafana-name }}:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux
+   - Linux {#linux}
 
      ```bash
      sudo systemctl restart grafana-server
      ```
 
-   - Windows
+   - Windows {#windows}
 
      1. Нажмите сочетание клавиш **Win+R**.
      1. В открывшемся окне введите `services.msc` и нажмите кнопку **ОК**.
      1. Нажмите правой кнопкой мыши строку со службой `Grafana` и выберите **Перезапустить**.
 
-   - macOS
+   - macOS {#macos}
 
      ```bash
      brew services restart grafana

@@ -127,3 +127,5 @@ New SQL | [{{ ydb-name }}](../ydb/)
 * [Корпоративное хранилище данных](/solutions/data-warehouse)
 * [Автоматизация колл‑центров в облаке](/solutions/call-center)
 * [Анализ потока изменений Debezium](/docs/query/tutorials/debezium)
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

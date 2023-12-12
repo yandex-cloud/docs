@@ -51,7 +51,8 @@ userName | <p>Required. Name of the PostgreSQL User resource to return. To get t
   "grants": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "userPasswordEncryption": "string"
 }
 ```
 A PostgreSQL User resource. For more information, see
@@ -80,3 +81,4 @@ settings.<br>statementTimeout | **integer** (int64)<br><p>The maximum time (in m
 login | **boolean** (boolean)<br><p>This flag defines whether the user can login to a PostgreSQL database.</p> <p>Default value: ``true`` (login is allowed).</p> 
 grants[] | **string**<br><p>A set of roles and privileges that are granted to the user.</p> <p>For more information, see <a href="/docs/managed-postgresql/operations/grant">the documentation</a>.</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the user</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
+userPasswordEncryption | **string**<br><p>Password-based authentication method for user. Possible values are ``USER_PASSWORD_ENCRYPTION_MD5`` or ``USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256``. The default is ``password_encryption`` setting for cluster.</p> 

@@ -153,3 +153,5 @@
 * Ознакомьтесь с [практическими руководствами по работе с сервисом](tutorials/index.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

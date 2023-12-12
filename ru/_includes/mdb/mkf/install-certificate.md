@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (Bash) и macOS (Zsh)
+- Linux (Bash)/macOS (Zsh) {#linux-macos}
 
    ```bash
    mkdir -p {{ crt-local-dir }} && \
@@ -11,7 +11,7 @@
 
    Сертификат будет сохранен в файле `{{ crt-local-dir }}{{ crt-local-file }}`.
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows}
 
    ```powershell
    mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}

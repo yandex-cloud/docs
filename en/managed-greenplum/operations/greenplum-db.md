@@ -1,3 +1,8 @@
+---
+title: "How to use auxiliary utilities in {{ mgp-full-name }}"
+description: "This guide describes how to use auxiliary utilities."
+---
+
 # Auxiliary utilities
 
 Greenplum Database 6 features [some useful utilities](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/client_tool_guides-tools-ref.html) for working with {{ GP }} databases. In particular:
@@ -6,7 +11,7 @@ Greenplum Database 6 features [some useful utilities](https://docs.vmware.com/en
 * [gpload](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/gpload.html): Utility to run jobs described in a YAML control file.
 * [psql](https://gpdb.docs.pivotal.io/6-9/utility_guide/ref/psql.html): Command line interface for working with {{ GP }}.
 
-To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04:
+To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04 or Ubuntu 20.04:
 
 1. Download deb packages required to install Greenplum Database 6 from a {{ objstorage-full-name }} bucket using the script below:
 

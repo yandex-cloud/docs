@@ -15,9 +15,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 1. Скачайте deb-пакеты, необходимые для установки Greenplum Database 6, из бакета {{ objstorage-full-name }} при помощи скрипта:
 
-    {% list tabs %}
+    {% list tabs group=operating_system %}
 
-    - Ubuntu 22.04
+    - Ubuntu 22.04 {#ubuntu2204}
 
         ```bash
         curl {{ s3-storage-host }}/greenplum-jammy-packages/install.sh | sudo bash
@@ -25,7 +25,7 @@ description: "Следуя данной инструкции, вы сможет�
 
         Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://{{ s3-storage-host }}/greenplum-jammy-packages/install.sh).
 
-    - Ubuntu 20.04
+    - Ubuntu 20.04 {#ubuntu2004}
 
         ```bash
         curl {{ s3-storage-host }}/greenplum-focal-packages/install.sh | sudo bash

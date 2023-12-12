@@ -6,3 +6,5 @@
 
 - `clickhouse-client`;
 - клиенты, которые используют {{ CH }} HTTP API и поддерживают SSL.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

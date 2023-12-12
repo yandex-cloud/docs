@@ -99,7 +99,7 @@
           import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
           def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
-              template = "<шаблонная фраза с разметкой>"
+              template = "<шаблонная_фраза_с_разметкой>"
               # Пример шаблона: 'Напоминаем, что завтра в {time}, ваш ребенок записан на процедуру {procedure}.'
               request = tts_pb2.UtteranceSynthesisRequest(
                   output_audio_spec=tts_pb2.AudioFormatOptions(
@@ -140,7 +140,7 @@
                                       # Количество элементов tts_pb2.TextVariable() в списке определяется количеством переменных в шаблоне.
                                       tts_pb2.TextVariable(
                                           variable_name = "<имя_переменной_в_template>",
-                                          variable_value = "<текст переменной части фразы в звуковом файле шаблона>"
+                                          variable_value = "<текст_переменной_части_фразы_в_звуковом_файле_шаблона>"
                                       )
                                   ]
                               ),

@@ -1,3 +1,8 @@
+---
+title: "How to change {{ PG }} cluster settings in {{ mpg-full-name }}"
+description: "In this tutorial, you will learn how to change settings for a {{ PG }} cluster."
+---
+
 # Changing {{ PG }} cluster settings
 
 After creating a cluster, you can:
@@ -556,7 +561,7 @@ To switch the master:
 
 After the cluster is moved, it will continue using the cloud network from the source folder. If you want to host the cluster in a different cloud network, use the [restore from a backup](./cluster-backups.md) feature and specify the required network for the cluster backup.
 
-To move a cluster to a different availability zone, follow this [guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
 
 ## Changing security groups {#change-sg-set}

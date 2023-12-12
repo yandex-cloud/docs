@@ -103,3 +103,5 @@ SELECT * FROM clickhouse_mdb_connection.`<db>.<table>`
 |`FixedString`|`STRING`|Нулевые байты `FixedString` переносятся в `STRING` без изменений|
 
 Остальные типы данных не поддерживаются.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

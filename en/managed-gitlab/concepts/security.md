@@ -1,3 +1,8 @@
+---
+title: "Security in {{ mgl-full-name }}"
+description: "In this tutorial, you will learn about security measures available in {{ mgl-name }}."
+---
+
 # Security in {{ mgl-name }}
 
 ## Detecting vulnerabilities in CI/CD {#vulnerability-detection}

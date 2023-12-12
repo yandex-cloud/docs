@@ -13,3 +13,5 @@
 Оставшаяся память резервируется для операционной системы и вспомогательных служб: мониторинг, резервное копирование и т. д.
 
 Изменить значение настройки **Max server memory usage** можно только вместе с [классом хоста](./instance-types.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

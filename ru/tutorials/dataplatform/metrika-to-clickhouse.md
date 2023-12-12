@@ -6,3 +6,5 @@ description: "С помощью сервиса {{ data-transfer-name }} вы м�
 # Асинхронная репликация данных из {{ metrika }} в {{ CH }} с помощью {{ data-transfer-full-name }}
 
 {% include notitle [article-body](../../_tutorials/metrika-to-clickhouse.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

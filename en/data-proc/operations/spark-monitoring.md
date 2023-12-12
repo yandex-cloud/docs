@@ -1,14 +1,19 @@
+---
+title: "How to monitor the state of Spark applications in {{ dataproc-full-name }}"
+description: "Follow this guide to monitor the state of Spark applications."
+---
+
 # Monitoring the state of Spark applications
 
 To evaluate the performance of Spark applications in a {{ dataproc-name }} cluster, you can check the following:
 
-* [Application list](#list).
-* [Application logs](#logs).
-* [Application queue](#queue).
-* [Application details](#info).
-* [Resources allocated to the application](#resources).
-* [Persisted RDDs](#tables).
-* [List of SQL queries and their execution plans](#sql).
+* [Application list](#list)
+* [Application logs](#logs)
+* [Application queue](#queue)
+* [Application details](#info)
+* [Resources allocated to the application](#resources)
+* [Persisted RDDs](#tables)
+* [List of SQL queries and their execution plans](#sql)
 
 {% note info %}
 
@@ -20,7 +25,7 @@ Make sure the cluster has the [component web interfaces](../concepts/interfaces.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
+1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `YARN Resource Manager Web UI`.
 
 It shows information about all running and completed applications.
 

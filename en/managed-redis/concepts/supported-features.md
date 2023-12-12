@@ -1,3 +1,8 @@
+---
+title: "Commands available in {{ mrd-full-name }}"
+description: "This page provides a list of Redis commands which cannot be run in a {{ RD }} cluster."
+---
+
 # Supported {{ mrd-name }} commands
 
 {{ mrd-name }} allows you to run [any {{ RD }} commands](https://redis.io/commands), except the following:

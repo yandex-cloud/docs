@@ -293,3 +293,5 @@ clickhouse-copier \
 ## Удалите созданные ресурсы {#clear-out}
 
 Если созданные ресурсы вам больше не нужны, [удалите кластер {{ mch-full-name }}](../operations/cluster-delete.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

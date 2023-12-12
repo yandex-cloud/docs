@@ -484,6 +484,7 @@ settings | **[UserSettings](#UserSettings)**<br>PostgreSQL settings for the user
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
 deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
+user_password_encryption | enum **UserPasswordEncryption**<br>Password-based authentication method for user. Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` password_encryption `` setting for cluster. 
 
 
 ### Permission {#Permission}

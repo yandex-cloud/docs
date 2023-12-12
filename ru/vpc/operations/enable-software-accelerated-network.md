@@ -60,8 +60,8 @@
           Результат:
 
           ```text
-          id: fhm0b28lgfp4tkoa3jl6
-          folder_id: b1gbnv36zqf5kr4mhjyu
+          id: fhm0b28lgfp4********
+          folder_id: b1gbnv36zqf5********
           created_at: "2023-05-24T09:28:11Z"
           name: first-instance
           zone_id: {{ region-id }}-a

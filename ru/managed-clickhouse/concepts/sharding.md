@@ -58,3 +58,5 @@
     * В кластерах с шардами из одного хоста нужно [включить отказоустойчивость с помощью {{ ZK}}](../operations/zk-hosts.md#add-zk), и только потом добавлять хосты в шард.
 
     Подробнее о репликации, {{ CK }} и {{ ZK }} см. в разделе [Репликация](replication.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

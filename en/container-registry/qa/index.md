@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ container-registry-full-name }}"
+description: "This page presents questions and answers about {{ container-registry-name }}."
+---
+
 # Questions and answers about {{ container-registry-name }}
 
 #### Why is the `latest` tag missing or why is it assigned to a Docker image that was not the last one pushed? {#latest}

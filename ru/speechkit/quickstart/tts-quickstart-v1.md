@@ -10,7 +10,7 @@ read -r -d '' TEXT << EOM
 > Я могу превратить любой текст в речь.
 > Теперь и в+ы — можете!
 EOM
-export FOLDER_ID=<идентификатор каталога>
+export FOLDER_ID=<идентификатор_каталога>
 export IAM_TOKEN=<IAM-токен>
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \

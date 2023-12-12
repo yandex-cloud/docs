@@ -7,15 +7,15 @@
 
 1. Если раньше у вас был настроен провайдер из реестра Hashicorp, сохраните его настройки:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux и macOS
+   - Linux/macOS {#linux-macos}
 
      ```bash
      mv ~/.terraformrc ~/.terraformrc.old
      ```
 
-   - Windows
+   - Windows {#windows}
 
      ```powershell
      mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
@@ -25,9 +25,9 @@
 
 1. Укажите источник, из которого будет устанавливаться провайдер.
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux и macOS
+   - Linux/macOS {#linux-macos}
 
      Откройте файл конфигурации {{ TF }} CLI:
 
@@ -35,7 +35,7 @@
      nano ~/.terraformrc
      ```
 
-   - Windows
+   - Windows {#windows}
 
      Откройте файл конфигурации {{ TF }} CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
 

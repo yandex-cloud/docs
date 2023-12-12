@@ -1,3 +1,7 @@
+---
+title: "Go function invocation context in {{ sf-full-name }}"
+---
+
 # Go function invocation context
 
 _Invocation context_ is an object that is optionally accepted by the [request handler](handler.md). It is a `context.Context` type object and provides an interface for getting more information about Go function version properties:

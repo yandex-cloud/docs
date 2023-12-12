@@ -20,7 +20,7 @@
   Чтобы изменить группу безопасности, выполните команду:
 
   ```
-  yc vpc security-group update <идентификатор группы> --new-name test-sg-renamed
+  yc vpc security-group update <идентификатор_группы> --new-name test-sg-renamed
   ```
 
 - {{ TF }}
@@ -80,7 +80,7 @@
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc vpc security-group get <имя группы безопасности>
+     yc vpc security-group get <имя_группы_безопасности>
      ```
 
 - API

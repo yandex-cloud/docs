@@ -51,3 +51,6 @@
    * [Инспектор чартов](./chart/inspector.md) — инструмент {{ datalens-short-name }}, позволяющий диагностировать проблемы в загрузке данных и их рендеринге в браузере.
    * [Кеширование](caching.md) часто запрашиваемых данных источника для быстрого доступа к ним.
 
+
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

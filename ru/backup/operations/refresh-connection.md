@@ -6,9 +6,9 @@
 
 1. Перезапустите подключение к {{ backup-name }} на неактуальной ВМ:
 
-    {% list tabs %}
+    {% list tabs group=operating_system %}
 
-    - Linux
+    - Linux {#linux}
 
       1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по SSH.
       1. Установите на ВМ утилиты [jq](https://jqlang.github.io/jq/), [awk](http://awklang.org/), [curl](https://curl.se/) и [uuidgen](https://uuidgen.org/):
@@ -41,7 +41,7 @@
           Finished     
           ```
 
-    - Windows
+    - Windows {#windows}
 
       1. [Подключитесь](../../compute/operations/vm-connect/rdp.md) к ВМ по RDP.
       1. Запустите Windows PowerShell.

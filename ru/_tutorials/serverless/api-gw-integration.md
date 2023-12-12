@@ -35,15 +35,15 @@
 
 ## Настройте окружение {#setup-environment}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. [Установите утилиту WSL](https://docs.microsoft.com/ru-ru/windows/wsl/install) для использования окружения Linux.
   1. Запустите подсистему Linux (по умолчанию — Ubuntu).
   1. Настройте окружение так, как описано в инструкции для операционной системы Linux.
 
-- Linux
+- Linux {#linux}
 
   {% note info %}
 
@@ -103,7 +103,7 @@
   1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль {{ yandex-cloud }} CLI с базовыми параметрами.
   1. [Настройте](../../ydb/docapi/tools/aws-setup.md) AWS CLI.
 
-- macOS
+- macOS {#macos}
 
   1. Последовательно установите следующие утилиты с помощью команд в терминале:
      * [Homebrew](https://brew.sh):

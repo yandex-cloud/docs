@@ -81,9 +81,9 @@ description: "Следуя данной инструкции, вы сможет�
       ```text
       {
           "done": false,
-          "id": "e03sup6d5h1qr574ht99",
+          "id": "e03sup6d5h1q********",
           "createdAt": "2019-04-21T22:49:29Z",
-          "createdBy": "ajes08feato88ehbbhqq",
+          "createdBy": "ajes08feato8********",
           "modifiedAt": "2019-04-21T22:49:29Z"
       }
       ```
@@ -95,7 +95,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       ```bash
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-          https://operation.{{ api-host }}/operations/<ID_операции_распознавания>
+          https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
       ```
 
       Пример результата:
@@ -117,9 +117,9 @@ description: "Следуя данной инструкции, вы сможет�
          }
         ]
        },
-       "id": "e03sup6d5h1qr574ht99",
+       "id": "e03sup6d5h1q********",
        "createdAt": "2019-04-21T22:49:29Z",
-       "createdBy": "ajes08feato88ehbbhqq",
+       "createdBy": "ajes08feato8********",
        "modifiedAt": "2019-04-21T22:49:36Z"
       }
       ```

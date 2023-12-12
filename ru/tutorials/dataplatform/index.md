@@ -123,3 +123,5 @@ description: "На странице представлен список прак
 * [{#T}](data-proc-init-actions-geesefs.md)
 * [{#T}](data-proc-and-airflow.md)
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -1,3 +1,8 @@
+---
+title: "{{ dataproc-full-name }} use cases"
+description: "Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # All tutorials
 
 * [{#T}](./configure-network.md).

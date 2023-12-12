@@ -1,3 +1,8 @@
+---
+title: "How to perform diagnostics and troubleshooting of Spark application performance issues in {{ dataproc-full-name }}"
+description: "Follow this guide to perform diagnostics and troubleshooting of Spark application performance issues."
+---
+
 # Diagnostics and troubleshooting of Spark application performance issues
 
 If your Spark applications are slow:

@@ -1,3 +1,8 @@
+---
+title: "How to scan Docker images for vulnerabilities in {{ container-registry-full-name }}"
+description: "This guide describes how you can scan a Docker image for vulnerabilities."
+---
+
 # Scanning Docker images for vulnerabilities
 
 You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts/docker-image.md) uploaded to a [registry](../concepts/registry.md) for vulnerabilities. You can do this:

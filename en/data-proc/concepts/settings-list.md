@@ -1,6 +1,11 @@
+---
+title: "Component properties in {{ dataproc-full-name }}"
+description: "In this tutorial, you will learn what cluster component properties are, how they are stored, and what settings they have."
+---
+
 # Component properties
 
-Properties of cluster components, jobs, and environments are stored in the following format:
+The properties of cluster components, jobs, and environments are stored in the following format:
 
 ```text
 <key>:<value>
@@ -12,7 +17,7 @@ The key can either be a simple string or contain a prefix indicating that it bel
 <key prefix>:<key body>:<value>
 ```
 
-For example:
+Here is an example:
 
 ```text
 hdfs:dfs.replication : 2
@@ -22,7 +27,7 @@ spark:spark.driver.cores : 1
 
 ## Updating component properties {#change-properties}
 
-You can update the component properties:
+You can update the component properties in the following ways:
 
 * At the cluster level when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md) it. The properties provided this way apply to any new cluster jobs by default.
 * At the level of an individual [job](./jobs.md) when [creating](../operations/jobs.md) it. The properties provided this way only apply to this job and override the cluster-level properties set for it.
@@ -51,20 +56,20 @@ The available properties are listed in the official documentation for the compon
 
 Settings for running jobs are specified in special properties:
 
-* `dataproc:version`: Version of the `dataproc-agent` that runs jobs, sends the property of a cluster state, and proxies the UI. Used for debugging. Default value: `latest`.
-* `dataproc:max-concurrent-jobs`: Number of concurrent jobs. Default value: `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
-* `dataproc:min-free-memory-to-enqueue-new-job`: Minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
-* `dataproc:job-memory-footprint`: Memory size to run the job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
-* `dataproc:spark_executors_per_vm`: Maximum number of containers per computing host when running [Spark jobs](./spark-sql.md). Default values:
+* `dataproc:version`: Version of the `dataproc-agent` that runs jobs, sends the property of a cluster state, and proxies the UI. This poperty is used for debugging. Its default value is `latest`.
+* `dataproc:max-concurrent-jobs`: Number of concurrent jobs. The default value is `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
+* `dataproc:min-free-memory-to-enqueue-new-job`: Minimum size of free memory to run a job, in bytes. The default value is `1073741824` (1 GB).
+* `dataproc:job-memory-footprint`: Memory size to run a job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. The default value is `536870912` (512 MB).
+* `dataproc:spark_executors_per_vm`: Maximum number of containers per computing host when running [Spark jobs](./spark-sql.md). The default values are:
 
-   * `1` for [lightweight clusters](./index.md#light-weight-clusters).
-   * `2` for clusters with HDFS.
+   * `1`: For [lightweight clusters](./index.md#light-weight-clusters).
+   * `2`: For clusters with HDFS.
 
-* `dataproc:spark_driver_memory_fraction`: Computing host memory fraction reserved for the driver when running [Spark jobs](./spark-sql.md). The default value is `0.25`.
+* `dataproc:spark_driver_memory_fraction`: Computing host memory fraction reserved for the driver when running [Spark jobs](./spark-sql.md). By default, it is set to `0.25`.
 
 ## JVM settings for Spark applications set in {{ dataproc-name }} by default {#jvm-settings-for-spark}
 
-In general cases, the following default settings are applied on the {{ dataproc-name }} clusters to improve JVM performance:
+Generally, the following default settings are applied on the {{ dataproc-name }} clusters to improve JVM performance:
 
 * **spark.driver.extraJavaOptions**:
    * `-XX:+UseConcMarkSweepGC`
@@ -84,7 +89,7 @@ In general cases, the following default settings are applied on the {{ dataproc
 
 {% note info %}
 
-Changing the cluster properties `spark:spark.driver.defaultJavaOptions` or `spark:spark.executor.defaultJavaOptions` for values conflicting with `extraJavaOptions` settings may result in cluster configuration errors.
+Changing the `spark:spark.driver.defaultJavaOptions` or `spark:spark.executor.defaultJavaOptions` cluster properties for values conflicting with `extraJavaOptions` settings may result in cluster configuration errors.
 
 {% endnote %}
 
@@ -94,8 +99,8 @@ The following settings are available for Apache Spark:
 
 | Configuration | Default value | Description |
 |:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| `fs.s3a.access.key` | — | [Static key](../../iam/concepts/authorization/access-key.md) ID |
-| `fs.s3a.secret.key` | — | Secret key |
+| `fs.s3a.access.key` | N/A | [Static key](../../iam/concepts/authorization/access-key.md) ID |
+| `fs.s3a.secret.key` | N/A | Secret key |
 | `fs.s3a.endpoint` | `{{ s3-storage-host }}` | Endpoint to connect to {{ objstorage-name }} |
 | `fs.s3a.signing-algorithm` | Empty value | Signature algorithm |
 | `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Identity provider |
@@ -104,7 +109,7 @@ For more information, see the [Apache Hadoop documentation](https://hadoop.apach
 
 ## Installing Python packages {#python-packages-install}
 
-To install additional Python packages, you can use the conda or pip package managers. Pass the package name in the cluster properties as follows:
+To install additional Python packages, you can use the conda or pip package managers. Provide the package name in the cluster properties as follows:
 
 | Package manager | Key | Value | Example |
 |:------------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
@@ -118,5 +123,5 @@ You can use [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sq
 To enable it, set `dataproc:hive.thrift.impl : spark`, and the server will be available on TCP port `10000`. The default value is `dataproc:hive.thrift.impl : hive`. It causes Apache HiveServer2 to launch on TCP port `10000` if the Hive service is being used.
 
 
-The functionality is available starting with [image version 2.0.48](../release-notes/images.md#2.0.48).
+This feature is available starting with [image version 2.0.48](../release-notes/images.md#2.0.48).
 
