@@ -15,7 +15,7 @@ items:
             href: operations/community/add-user.md
           - name: Управление метками сообщества
             href: operations/community/manage-community-labels.md
-          - name: Управление конфигурациями сообщества
+          - name: Управление ограничениями сообщества
             href: operations/community/manage-community-config.md
           - name: Добавить ссылку для сообщества
             href: operations/community/link-channel.md
@@ -101,11 +101,9 @@ items:
             href: operations/data/connect-to-ya-disk.md
           - name: Подключение к Google Drive
             href: operations/data/connect-to-google-drive.md
-          - name: Подключение к базе данных {{ ydb-name }}
-            href: operations/data/connect-to-ydb.md
       - name: Развертывание эксплуатации моделей
         items:
-          - name: Создать ноду с кодом на Python
+          - name: Создать ноду
             href: operations/deploy/node-create.md
           - name: Изменить ноду
             href: operations/deploy/node-update.md

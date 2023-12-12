@@ -1,11 +1,16 @@
+---
+title: "How to subscribe a device or registry to receive messages using Mosquitto in {{ iot-full-name }}"
+description: "Follow this guide to subscribe a device or registry to receive messages using Mosquitto."
+---
+
 # Subscribing a device or registry to receive messages using Mosquitto
 
 You can subscribe:
 
-- A registry to device events using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
-- A registry to device events using the permanent `$devices/<device ID>/state` or `$registries/<registry ID>/state` topics.
-- A device to registry commands using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
-- A device to registry commands using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
+- Registry to device events using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
+- Registry to device events using the permanent `$devices/<device ID>/state` or `$registries/<registry ID>/state` topics.
+- Device to registry commands using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
+- Device to registry commands using the permanent `$devices/<device ID>/config` or `$registries/<registry ID>/config` topics.
 
 To learn about messaging, see [{#T}](mosquitto-publish.md).
 

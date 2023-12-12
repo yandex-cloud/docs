@@ -63,3 +63,5 @@ description: "Из статьи вы узнаете, как удалить кл�
 {% endlist %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

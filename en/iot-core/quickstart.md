@@ -1,5 +1,5 @@
 ---
-title: "Getting started with {{ iot-name }} device registries"
+title: "Getting started with {{ iot-full-name }} device registries"
 description: "To get started with {{ iot-name }}, create an X.509 certificate, registry, and device. Then, set up message exchange between the registry and the device."
 ---
 
@@ -165,8 +165,8 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
       Where:
 
-      * `--registry-name`: Name of the registry that the device is part of
-      * `--name`: Device name
+      * `--registry-name`: Name of the registry that the device is part of.
+      * `--name`: Device name.
 
       Result:
 

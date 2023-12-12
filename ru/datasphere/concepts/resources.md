@@ -14,5 +14,8 @@
 * [Датасеты](dataset.md)
 * [Коннекторы S3](s3-connector.md)
 * [Ноды и алиасы](deploy/index.md#python-nodes)
+* [Шаблоны Data Proc](data-proc-template.md)
+* [Модели](models/index.md)
+* [Дообученные фундаментальные модели](models/tuned-models.md)
 
 Подробнее о ресурсной модели {{ ml-platform-name }} см. [{#T}](resource-model.md).

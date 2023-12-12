@@ -102,3 +102,5 @@ db.<имя_коллекции>.createIndex(<свойства_индекса>)
 ## Oracle {#oracle}
 
 Источник игнорирует `VIEW` и `MATERIALIZED VIEW` в трансферах любого типа.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

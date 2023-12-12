@@ -5,3 +5,5 @@ _Лимиты_ — технические ограничения, обуслов
 В сервисе {{ websql-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/websql-limits.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -5,8 +5,10 @@
 Получить пароль можно в [выводе последовательного порта](../../compute/operations/vm-info/get-serial-port-output) или в серийной консоли. Пароль отобразится в строке:
 
 ```
-To login please use the "openvpn" account with <пароль от пользователя `openvpn`> password.
+To login please use the "openvpn" account with <пароль> password.
 ```
+
+Где `<пароль>` — пароль от пользователя `openvpn`.
 
 Для первого входа в административную панель используйте логин `openvpn` и полученный пароль.
 

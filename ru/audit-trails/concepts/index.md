@@ -102,3 +102,5 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 {% include [error-note](../../_includes/audit-trails/error-note.md) %}
 
 {% endnote %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

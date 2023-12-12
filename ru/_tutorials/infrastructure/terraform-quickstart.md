@@ -110,13 +110,13 @@ resource "yandex_compute_instance" "vm-1" {
 
 ### Создайте пользователей {#users}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
   {% include [terraform-vm-user-linux](../../_tutorials/terraform-vm-user-linux.md) %}
 
-- Windows
+- Windows {#windows}
 
   {% include [terraform-vm-user-windows](../../_tutorials/terraform-vm-user-windows.md) %}
 

@@ -1,3 +1,8 @@
+---
+title: "How to manage {{ KF }} cluster users in {{ mkf-full-name }}"
+description: "Follow this guide to manage {{ KF }} cluster users."
+---
+
 # Managing Apache Kafka® users
 
 Users in {{ KF }}:
@@ -120,7 +125,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
       * Username in the `name` parameter.
       * User password in the `password` parameter.
       * Topic permissions (one or more `permissions` parameters, one for each topic):
-         * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](cluster-topics.md#list-topics).
+         * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](cluster-topics.md#list-topics).
          * Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
    To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster, provide the following values under `permission` in the `userSpec` parameter:
@@ -424,7 +429,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To revoke access permissions to certain topics, pass an updated list of `--permission` parameters:
+   To revoke access permissions to certain topics, provide an updated list of `--permission` parameters:
 
    ```bash
    {{ yc-mdb-kf }} user update <username> \
@@ -512,7 +517,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
 ## Importing users to {{ TF }} {#import-account}
 
-Using import, you can transfer current cluster users under {{ TF }} control.
+Using import, you can bring the existing cluster users under {{ TF }} management.
 
 {% list tabs %}
 
@@ -536,7 +541,7 @@ Using import, you can transfer current cluster users under {{ TF }} control.
 
 ## Deleting a user {#delete-account}
 
-If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. Assign this role to another user before deleting it.
+If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. To avoid this, assign this role to another user before deleting the admin user.
 
 {% list tabs %}
 
@@ -583,7 +588,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 
    To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/user_service.md#Delete) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The name of the user to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
+   * Username to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
 
 
 {% endlist %}

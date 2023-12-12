@@ -20,3 +20,5 @@ description: "Различные сценарии использования {{ 
 * [Поставка данных из {{ mkf-name }} с помощью {{ data-transfer-full-name }}](mkf-to-mch-migration.md)
 
 О миграции хостов кластера {{ mch-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

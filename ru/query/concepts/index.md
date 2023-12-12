@@ -48,3 +48,5 @@
 
 ### {{ datalens-full-name }}
 С помощью {{ yq-full-name }} можно выполнять визуализацию данных, хранящихся в {{ objstorage-full-name }}.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

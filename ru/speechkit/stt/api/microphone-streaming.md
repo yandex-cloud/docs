@@ -50,7 +50,7 @@
    1. Перейдите в папку с репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
       ```bash
-      cd <путь к папке cloudapi> && \
+      cd <путь_к_папке_cloudapi> && \
       mkdir output && \
       python -m grpc_tools.protoc -I . -I third_party/googleapis \
          --python_out=output \

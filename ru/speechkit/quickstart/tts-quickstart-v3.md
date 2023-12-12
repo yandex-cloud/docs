@@ -52,7 +52,7 @@
 1. Выполните команды:
 
    ```bash
-   export FOLDER_ID=<идентификатор каталога>
+   export FOLDER_ID=<идентификатор_каталога>
    export IAM_TOKEN=<IAM-токен>
    jq . -c tts_req.json | \
    grpcurl -H "authorization: Bearer ${IAM_TOKEN}" \

@@ -1,3 +1,8 @@
+---
+title: "How to build and manage R function dependencies in {{ sf-full-name }}"
+description: "In this tutorial, you will learn how to build and manage R function dependencies in {{ sf-name }}."
+---
+
 # Building and managing R function dependencies
 
 ## Pre-installed packages {#pre-inst-pack}

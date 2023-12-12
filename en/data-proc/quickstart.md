@@ -1,3 +1,8 @@
+---
+title: "How to get started with {{ dataproc-full-name }}"
+description: "Follow this guide to create and set up a {{ dataproc-name }} cluster."
+---
+
 # Getting started with {{ dataproc-name }}
 
 To get started with the service:

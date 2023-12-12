@@ -1376,3 +1376,5 @@ description: "В статье приведен полный справочник
 #### wiki.admin {#wiki-admin}
 
 {% include [wiki-admin](../_roles/wiki/admin.md) %}
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

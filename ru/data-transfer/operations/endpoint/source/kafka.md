@@ -8,7 +8,7 @@ description: "Из статьи вы узнаете, как задать нас�
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
 * Настройки подключения к [кластеру {{ mkf-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
-* [Дополнительные параметры](#additional-settings).
+* [Расширенные настройки](#additional-settings).
 
 ## Кластер {{ mkf-name }} {#managed-service}
 
@@ -42,20 +42,20 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% endlist %}
 
-## Дополнительные параметры {#additional-settings}
+## Расширенные настройки {#additional-settings}
+
 
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
+
 
 {% list tabs %}
 
 - Консоль управления
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**:
 
-        Правила, по которым входящий поток обрабатывается с помощью функции {{ sf-name }}:
-
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}** — выберите одну из функций, созданных в сервисе [{{ sf-full-name }}](../../../../functions/).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}** — выберите одну из функций, созданных в сервисе {{ sf-name }}.
 
             
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.service_account_id.title }}** — выберите или [создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будет запускаться функция обработки.

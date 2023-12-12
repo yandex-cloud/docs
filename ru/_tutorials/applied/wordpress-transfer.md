@@ -107,9 +107,9 @@
 
 ### Установите редактор nano {#install-nano}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   Выполните команду:
 
@@ -123,9 +123,9 @@
 
 ### Установите phpMyAdmin {#install-phpmyadmin}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   1. Выполните команды:
 
@@ -182,9 +182,9 @@
 
 Настройте дополнительный пароль для входа в панель `phpMyAdmin`. Чтобы включить возможность использования настроек доступа в `.htaccess`, отредактируйте файл `phpmyadmin.conf`.
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   1. Выполните команду:
 
@@ -243,9 +243,9 @@
 
 ## Импортируйте БД {#import-db}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   1. Откройте файл конфигурации WordPress вашего веб-сайта. Для этого распакуйте архив и в корневой папке откройте файл `wp-config.php`. Найдите значения параметров `DB_USER`, `DB_NAME`, `DB_PASSWORD`:
 
@@ -303,9 +303,9 @@
 
 Все основные действия по переносу БД выполнены. Чтобы не подвергать `phpMyAdmin` атакам извне, отключите утилиту:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   ```bash
   sudo a2disconf phpmyadmin.conf && sudo /etc/init.d/apache2 restart
@@ -327,9 +327,9 @@
 1. Нажмите **Подключиться** и введите кодовую фразу, которую сформировали в начале работы. Вы подключитесь к ВМ.
 1. Найдите папку `/var/www/html` на ВМ и скопируйте в нее файл бэкапа. Файл index.html копировать не нужно.
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Ubuntu
+   - Ubuntu {#ubuntu}
 
      По умолчанию для этой папки заданы права 755. Чтобы скопировать файл архива сайта с жесткого диска в папку `html`, измените права на папку:
 
@@ -392,9 +392,9 @@
 
 ### Установите клиент Let’s Encrypt {#install-client}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   1. Введите в терминал команду:
 
@@ -421,9 +421,9 @@
 
 ### Получите SSL-сертификат {#get-ssl}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   1. Введите команду:
 
@@ -441,9 +441,9 @@
 
 Сертификат выдается на 90 дней. Необходимо регулярно обновлять его. Настройте расписание обновления с помощью `cron`:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   1. Введите в терминале команду:
 
@@ -468,9 +468,9 @@
 
 Если файла нет, создайте его.
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   1. Введите в терминале команду:
 
@@ -499,9 +499,9 @@
 
 Чтобы включить поддержку `.htaccess`:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Ubuntu
+- Ubuntu {#ubuntu}
 
   1. Введите команду:
 

@@ -27,3 +27,5 @@
 * [Выполняйте SQL-запросы](operations/query-executor.md).
 * [Создавайте шаблоны запросов](operations/templates.md).
 * [Просматривайте историю запросов](operations/history.md).
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

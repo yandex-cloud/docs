@@ -1,5 +1,5 @@
 ---
-title: "Getting started with {{ mmy-full-name }}"
+title: "Getting started with {{ mpg-full-name }}"
 description: "In this tutorial, you will learn how to create a {{ PG }} cluster and connect to it."
 ---
 
@@ -51,8 +51,6 @@ To get started with the service:
 
 
 1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
-
-   {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
 1. To connect to the DB server, get an SSL certificate:

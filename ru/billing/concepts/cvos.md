@@ -102,3 +102,5 @@
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)
 * [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
 * [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos)
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

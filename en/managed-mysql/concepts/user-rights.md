@@ -1,3 +1,8 @@
+---
+title: "{{ MY }} user permissions in {{ mmy-full-name }}"
+description: "{{ MY }} manages user permissions for a cluster host, individual database, and an individual database object. The user permissions and settings that apply in a {{ mmy-name }} cluster are common to all cluster hosts."
+---
+
 # User permissions
 
 {{ MY }} manages user permissions at three levels:

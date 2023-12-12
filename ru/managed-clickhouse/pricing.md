@@ -214,3 +214,5 @@ editable: false
 
 
 
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -1,0 +1,1 @@
+The example below uses the `grpcurl` utility. To use the example, [authenticate](../../logging/api-ref/authentication.md) in the API and clone the [cloudapi](https://github.com/yandex-cloud/cloudapi) repository.

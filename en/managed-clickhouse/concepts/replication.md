@@ -1,3 +1,8 @@
+---
+title: "Replication in {{ mch-full-name }}"
+description: "In this tutorial, you will learn how cluster host replication works in {{ mch-full-name }}."
+---
+
 # Replication in {{ mch-name }}
 
 With {{ mch-name }}, you can use one of the following tools to manage replication and query distribution:

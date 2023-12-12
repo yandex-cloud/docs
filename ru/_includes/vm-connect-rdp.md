@@ -9,9 +9,9 @@
 
 Для подключения к ВМ:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. Нажмите **Пуск**.
   1. В поле поиска введите **Подключение к удаленному рабочему столу** и выберите соответствующий пункт.
@@ -28,7 +28,7 @@
 
   * [Подключение к удаленному рабочему столу](https://support.microsoft.com/ru-ru/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection).
 
-- macOS
+- macOS {#macos}
 
   1. Установите и запустите [Microsoft Remote Desktop](https://itunes.apple.com/ru/app/microsoft-remote-desktop/id1295203466) (бесплатный официальный RDP-клиент для Mac).
   1. Нажмите ![image](../_assets/plus.svg) → **Add PC**.
@@ -44,7 +44,7 @@
 
   * [Начало работы с удаленного рабочего стола в Mac]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 
-- Linux
+- Linux {#linux}
 
   1. Установите Remmina (бесплатный RDP-клиент для Linux) с помощью команд:
 

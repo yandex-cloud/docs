@@ -31,15 +31,15 @@
 
 ## Настройте окружение {#setup-environment}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. [Установите утилиту WSL](https://docs.microsoft.com/ru-ru/windows/wsl/install) для использования окружения Linux.
   1. Запустите подсистему Linux (по умолчанию — Ubuntu).
   1. Настройте окружение так, как описано в инструкции для операционной системы Linux.
 
-- Linux
+- Linux {#linux}
 
   {% note info %}
 
@@ -120,7 +120,7 @@
      docker run hello-world
      ```
 
-- macOS
+- macOS {#macos}
 
   1. Последовательно установите следующие утилиты с помощью команд в терминале:
      * [Homebrew](https://brew.sh):

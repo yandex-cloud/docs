@@ -1,3 +1,8 @@
+---
+title: "Getting started with {{ mrd-full-name }}"
+description: "In this tutorial, you will learn how to create a {{ RD }} cluster and connect to it."
+---
+
 # Getting started with {{ mrd-name }}
 
 To get started with the service:

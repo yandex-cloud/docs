@@ -39,7 +39,7 @@
       +----------------------+---------+-------------+----------------------+
       |          ID          |  NAME   | DESCRIPTION |      NETWORK-ID      |
       +----------------------+---------+-------------+----------------------+
-      | enp8c7ia88i8lm60ah1s | table-1 |             | encb4ubvmief09h6qg5e |
+      | enp8c7ia88i8******** | table-1 |             | encb4ubvmief******** |
       +----------------------+---------+-------------+----------------------+
       ```
 
@@ -54,9 +54,9 @@
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
       +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk10aurd2c3 | default                |        | ACTIVE |
-      | b1chgf288nvg541tgu73 | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh690at5bm7 | my-folder-2            |        | ACTIVE |
+      | b1cs8ie21pk1******** | default                |        | ACTIVE |
+      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
       +----------------------+------------------------+--------+--------+
       ```
 
@@ -73,11 +73,11 @@
 
      Результат:
      ```text
-     id: enp8c7ia88i8lm60ah1s
-     folder_id: b1chgf288nvg541tgu73
+     id: enp8c7ia88i8********
+     folder_id: b1chgf288nvg********
      created_at: "2022-10-10T05:55:39Z"
      name: table-1
-     network_id: encb4ubvmief09h6qg5e
+     network_id: encb4ubvmief********
      ```
      Подробнее о команде `yc vpc route-table move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/route-table/move.md).
 

@@ -1,3 +1,8 @@
+---
+title: "Maintenance in {{ mmg-full-name }}"
+description: "Maintenance in {{ mmg-name }} means automatic installation of updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
+---
+
 # Maintenance in {{ mmg-name }}
 
 Maintenance means:
@@ -10,10 +15,10 @@ Changing a major DBMS version is not part of maintenance. For more information a
 
 ## Maintenance window {#maintenance-window}
 
-You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/update.md):
+You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md):
 
-* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (default): Maintenance is possible at any time.
-* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time when the cluster is least loaded.
+* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (default): Maintenance can be performed at any time.
+* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time window when the cluster is least loaded.
 
 ## Maintenance procedure {#maintenance-order}
 
@@ -41,5 +46,5 @@ In sharded clusters, maintenance is run as follows:
    1. Secondary replicas undergo maintenance one by one. The hosts are queued randomly. A secondary replica becomes unavailable while it is being restarted during maintenance.
    1. Then, the primary replica undergoes maintenance. If it is restarted and becomes unavailable, one of the secondary replicas will take its role. A single-host shard will be unavailable during its maintenance.
 
-1. The hosts with the `MONGOINFRA` role for standard sharding or `MONGOS` for advanced sharding undergo maintenance one by one. For hosts with the `MONGOINFRA` role, the MongoS service undergoes maintenance. The hosts are queued randomly. If a host needs to be restarted during maintenance, it becomes unavailable while it is being restarted.
+1. The hosts with the `MONGOINFRA` role for standard sharding or `MONGOS` for advanced sharding undergo maintenance one by one. For hosts with the `MONGOINFRA` role, the MongoS service undergoes maintenance. The hosts are queued randomly. If a host needs to be restarted during maintenance, it becomes unavailable while being restarted.
 1. The load balancer resumes its operation.

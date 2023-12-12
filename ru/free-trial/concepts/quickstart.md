@@ -36,3 +36,4 @@ description: "Пробный период — это разовое ознако
 * [Обзор платформы {{ yandex-cloud }}](../../overview/index.yaml)
 * [Документация {{ yandex-cloud }}](/docs)
 
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

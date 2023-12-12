@@ -1,3 +1,8 @@
+---
+title: "How to get information about existing registries in {{ container-registry-full-name }}"
+description: "Follow this guide to get information about existing registries."
+---
+
 # Getting information about existing registries
 
 Find out how to get:

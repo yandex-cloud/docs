@@ -111,7 +111,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
    
    **Sample request**
 
-   The example below uses the `grpcurl` utility. To use the example, [authenticate](../api-ref/authentication.md) in the API and clone the [cloudapi](https://github.com/yandex-cloud/cloudapi) repository.
+   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
    Run the following query:
 

@@ -1,6 +1,6 @@
 ---
-title: "Managing PostgreSQL users"
-description: "In this article you will learn how to add and remove users, as well as manage their individual settings in the PostgreSQL database management service."
+title: "Managing {{ PG }} cluster users in {{ mpg-full-name }}"
+description: "In this tutorial, you will learn how to add and remove users, as well as manage their individual settings in the {{ PG }} database management service."
 ---
 
 # Managing {{ PG }} users
@@ -35,7 +35,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
         --cluster-name <cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - API
 
@@ -97,7 +97,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
    To customize the DBMS for the user, use the parameters described in [User settings](../concepts/settings-list.md#dbms-user-settings).
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 
@@ -188,7 +188,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
    {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 
@@ -302,7 +302,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       You can change the connection limit for the user via the `--conn-limit` parameter.
 
-      The cluster name can be requested with a [list of clusters in the folder](#list-clusters).
+      You can request the cluster name with a [list of clusters in the folder](#list-clusters).
 
 - {{ TF }}
 

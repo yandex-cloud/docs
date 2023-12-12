@@ -37,15 +37,17 @@ description: "Следуя данной инструкции, вы сможет�
       ```bash
       yc vpc security-group list
       ```
+
       Результат:
+
       ```text
       +----------------------+---------------------------------+------------------------------------+----------------------+
       |          ID          |              NAME               |          DESCRIPTION               |      NETWORK-ID      |
       +----------------------+---------------------------------+------------------------------------+----------------------+
-      | enc2ta63h3q2jsri70ll | default-sg-enc39op1vq9m8tjr3udp | Default security group for network | enc39op1vq9m8tjr3udp |
-      | enc612keceq8u2ioa2h6 | default-sg-encb4ubvmief09h6qg5e | Default security group for network | encb4ubvmief09h6qg5e |
-      | encnn4l7b3lpm0095epd | default-sg-enc772aa2rgqiqq67ehu | Default security group for network | enc772aa2rgqiqq67ehu |
-      | encemkpqg8fhu8em3uc0 | my-sg-1                         | Custom security group              | encb4ubvmief09h6qg5e |
+      | enc2ta63h3q2******** | default-sg-enc39op1vq9m******** | Default security group for network | enc39op1vq9m******** |
+      | enc612keceq8******** | default-sg-encb4ubvmief******** | Default security group for network | encb4ubvmief******** |
+      | encnn4l7b3lp******** | default-sg-enc772aa2rgq******** | Default security group for network | enc772aa2rgq******** |
+      | encemkpqg8fh******** | my-sg-1                         | Custom security group              | encb4ubvmief******** |
       +----------------------+---------------------------------+------------------------------------+----------------------+
       ```
 
@@ -56,13 +58,14 @@ description: "Следуя данной инструкции, вы сможет�
       ```
 
       Результат:
+
       ```text
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
       +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk10aurd2c3 | default                |        | ACTIVE |
-      | b1chgf288nvg541tgu73 | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh690at5bm7 | my-folder-2            |        | ACTIVE |
+      | b1cs8ie21pk1******** | default                |        | ACTIVE |
+      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
       +----------------------+------------------------+--------+--------+
       ```
 
@@ -73,19 +76,22 @@ description: "Следуя данной инструкции, вы сможет�
        --destination-folder-name <имя_каталога_назначения> \
        --destination-folder-id <идентификатор_каталога_назначения>
      ```
+
      Используйте либо параметр `--destination-folder-name`, либо `--destination-folder-id`.
 
      Если группа безопасности находится не в текущем каталоге (каталоге по умолчанию), укажите исходный каталог с помощью опции `--folder-name` или `--folder-id`.
 
      Результат:
+
      ```text
-     id: encemkpqg8fhu8em3uc0
-     folder_id: b1chgf288nvg541tgu73
+     id: encemkpqg8fh********
+     folder_id: b1chgf288nvg********
      created_at: "2022-10-10T13:24:59Z"
      name: my-sg-1
-     network_id: encb4ubvmief09h6qg5e
+     network_id: encb4ubvmief********
      status: ACTIVE
      ```
+
      Подробнее о команде `yc vpc security-group move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/move.md).
 
 - API
@@ -128,9 +134,9 @@ description: "Следуя данной инструкции, вы сможет�
 - CLI
 
   ```bash
-  yc vpc security-group move encemkpqg8fhu8em3uc0 \
-    --folder-id b1chgf288nvg541tgu73 \
-    --destination-folder-id b1cs8ie21pk10aurd2c3
+  yc vpc security-group move encemkpqg8fh******** \
+    --folder-id b1chgf288nvg******** \
+    --destination-folder-id b1cs8ie21pk1********
   ```
 
 {% endlist %}

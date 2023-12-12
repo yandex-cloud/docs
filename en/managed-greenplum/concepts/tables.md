@@ -1,3 +1,8 @@
+---
+title: "Types of data storage in a {{ GP }} cluster in {{ mgp-full-name }}"
+description: "{{ GP }} enables you to use two types of table data storage: without clustered indexes and append-optimized."
+---
+
 # Types of data storage in {{ GP }}
 
 {{ GP }} enables you to use two [types of table data storage]({{ gp.docs.pivotal }}/6-16/admin_guide/ddl/ddl-storage.html):

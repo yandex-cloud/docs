@@ -19,3 +19,6 @@
 {% include [google-sheets-error](../../_qa/datalens/google-sheets-error.md) %}
 
 
+
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

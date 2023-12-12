@@ -67,9 +67,9 @@ description: "Следуя данному руководству, вы науч�
 ```json
 {
  "done": false,
- "id": "e03sup**********ht8g",
+ "id": "e03sup6d5h1q********",
  "createdAt": "2019-04-21T22:49:29Z",
- "createdBy": "ajes08**********bhqq",
+ "createdBy": "ajes08feato8********",
  "modifiedAt": "2019-04-21T22:49:29Z"
 }
 ```
@@ -129,9 +129,9 @@ operationId | Идентификатор операции, полученный 
    ...
   ]
  },
- "id": "e03sup**********ht8g",
+ "id": "e03sup6d5h1q********",
  "createdAt": "2019-04-21T22:49:29Z",
- "createdBy": "ajes08**********bhqq",
+ "createdBy": "ajes08feato8********",
  "modifiedAt": "2019-04-21T22:49:36Z"
 }
 ```

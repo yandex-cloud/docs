@@ -38,3 +38,5 @@
 ## Контейнерная разработка {#containerization}
 
 * [{{ managed-k8s-full-name }}](../managed-kubernetes/changelog.md)
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

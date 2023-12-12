@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ mgl-full-name }}"
+description: "This page provides a list of step-by-step guides for {{ mgl-name }}."
+---
+
 # Step-by-step guides for {{ mgl-name }}
 
 ## Managing a {{ GL }} instance {#gl-instance}

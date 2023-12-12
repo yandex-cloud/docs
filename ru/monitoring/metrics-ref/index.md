@@ -47,3 +47,5 @@ editable: false
 
 
 {% include [monitoring.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

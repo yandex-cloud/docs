@@ -105,3 +105,5 @@ description: "Шардирование или шардинг — это деле
    * [{{ mch-name }}](../managed-clickhouse/);
 
    * [{{ mgp-name }}](../managed-greenplum/).
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

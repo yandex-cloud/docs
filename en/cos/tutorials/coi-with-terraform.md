@@ -4,7 +4,9 @@ To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/v
 
 ## Getting started {#before-begin}
 
-{% include [terraform-install](../../_includes/terraform-install.md) %} In our example, we use a configuration file named `example.tf`, which is located in the `~/cloud-terraform` directory.
+{% include [terraform-install](../../_includes/terraform-install.md) %}
+
+In our example, we use a configuration file named `example.tf`, which is located in the `~/cloud-terraform` directory.
 
 ## Creating and running a VM from a {{ coi }} {#creating-vm}
 
@@ -164,7 +166,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
         external_ip = <public IP address>
         ```
 
-        The required resources will be created in the folder. Once created, the VM is assigned an IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
+        The required resources will be created in the folder. When created, the VM is assigned an IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
   1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 
@@ -384,7 +386,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
         ]
         ```
 
-        The required resources will be created in the folder. When creating each VM, it's assigned a public IP address and [hostname](../../vpc/concepts/address.md#fqdn) (FQDN).
+        The required resources will be created in the folder. When created, each VM is assigned a public IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
   1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 

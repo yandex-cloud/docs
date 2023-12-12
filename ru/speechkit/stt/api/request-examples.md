@@ -20,7 +20,7 @@
   Отправьте [запрос](../request.md) на преобразование речи в текст: 
 
     ```httpget
-    POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={<идентификатор каталога>} HTTP/1.1
+    POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={<идентификатор_каталога>} HTTP/1.1
     Host: stt.{{ api-host }}
     Authorization: Bearer <IAM-токен>
 
@@ -39,7 +39,7 @@
   Отправьте [запрос](../request.md) на преобразование речи в текст:
 
     ```bash
-    export FOLDER_ID=<идентификатор каталога>
+    export FOLDER_ID=<идентификатор_каталога>
     export IAM_TOKEN=<IAM-токен>
     curl -X POST \
          -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -62,7 +62,7 @@
     import urllib.request
     import json
 
-    FOLDER_ID = "<идентификатор каталога>" # Идентификатор каталога
+    FOLDER_ID = "<идентификатор_каталога>" # Идентификатор каталога
     IAM_TOKEN = "<IAM-токен>" # IAM-токен
 
     with open("speech.ogg", "rb") as f:
@@ -101,7 +101,7 @@
     <?php
 
     $token = '<IAM-токен>'; # IAM-токен
-    $folderId = "<идентификатор каталога>"; # Идентификатор каталога
+    $folderId = "<идентификатор_каталога>"; # Идентификатор каталога
     $audioFileName = "speech.ogg";
 
     $file = fopen($audioFileName, 'rb');

@@ -5,16 +5,16 @@ Terraform можно скачать с официального сайта [Hash
 
 ## Установка Terraform для Windows, Linux и macOS с сайта HashiCorp {#terraform-install-on-dif-os}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
-    * Скачайте Terraform с [официального сайта] (https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
-    * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду: `choco install terraform`.
-- Linux
+- Linux {#linux}
     * Скачайте дистрибутив [Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
-- macOS
+- macOS {#macos}
     * Скачайте [дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
     * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду: `brew install terraform`.
+- Windows {#windows}
+    * Скачайте Terraform с [официального сайта](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
+    * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду: `choco install terraform`.
 
 {% endlist %}
 
@@ -25,8 +25,8 @@ Terraform можно скачать с официального сайта [Hash
 
 Terraform самостоятельно скачает и устанавит провайдер с заданного пользователем url в блоке `provider_installation`, который должен быть расположен в файле `~/.terraformrc`.
 
-{% list tabs %}
-- Linux и macOS
+{% list tabs group=operating_system %}
+- Linux/macOS {#linux}
     1. Откройте файл конфигурации Terraform CLI `~/.terraformrc` в любом удобном для вас текстовом редакторе.
     2. Добавьте в него следующий блок:
         ```tf
@@ -40,7 +40,7 @@ Terraform самостоятельно скачает и устанавит пр
             }
         }
         ```
-- Windows
+- Windows {#windows}
     1. Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя. 
     2. Добавьте в него следующий блок:    
         ```tf

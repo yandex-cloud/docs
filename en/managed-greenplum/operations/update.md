@@ -1,3 +1,8 @@
+---
+title: "How to change {{ GP }} cluster settings in {{ mgp-full-name }}"
+description: "Follow this guide to change {{ GP }} cluster settings."
+---
+
 # Changing {{ GP }} cluster settings
 
 After creating a cluster, you can:
@@ -254,8 +259,8 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
       * `start.hours`: Start hour of the `VACUUM` operation in UTC. Valid values: from `0` to `23`, with `19` by default.
       * `start.minutes`: Start minute of the `VACUUM` operation in UTC. Valid values: from `0` to `59`, with `0` by default.
-      * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. The default value is `36,000`. As soon as this period expires, `VACUUM` will be forced to terminate.
-      * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36,000`. As soon as this period expires, the operation will be forced to terminate.
+      * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. The default value is `36,000`. Once this period expires, `VACUUM` will be forced to terminate.
+      * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36,000`. Once this period expires, the operation will be forced to terminate.
 
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

@@ -108,7 +108,7 @@
          )
 
          pattern_based_synthesis_model = model_repository.synthesis_model()
-         pattern_based_synthesis_model.voice = '<идентификатор голоса>'
+         pattern_based_synthesis_model.voice = '<идентификатор_голоса>'
 
          # Синтез речи и создание аудио с результатом.
          result = pattern_based_synthesis_model.synthesize_template(text_template, audio_template, raw_format=False)

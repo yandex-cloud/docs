@@ -1,6 +1,11 @@
-# {{ CH }} version upgrade
+---
+title: "How to update a {{ CH }} cluster version in {{ mch-full-name }}"
+description: "Follow this guide to update a {{ CH }} cluster version."
+---
 
-You can change the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy), but you can't switch:
+# Updating the {{ CH }} version
+
+You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy), but you cannot switch:
 
 * From version 22.0 and higher to a version lower than 22.0.
 * To a version lower than {{ mch-ck-version }} if the cluster was created with {{ CK }} support.

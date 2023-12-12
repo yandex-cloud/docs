@@ -1,4 +1,9 @@
-# Creating an {{ mgl-name }} instance
+---
+title: "How to create a {{ mgl-full-name }} instance"
+description: "In this tutorial, you will learn how to create a {{ mgl-name }} instance."
+---
+
+# Creating a {{ mgl-name }} instance
 
 ## How to create a {{ GL }} instance {#create}
 

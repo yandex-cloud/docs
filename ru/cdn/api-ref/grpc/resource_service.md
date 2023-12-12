@@ -73,7 +73,8 @@ static_request_headers | **[StringsMapOption](#StringsMapOption)**<br>Set up cus
 custom_server_name | **[StringOption](#StringOption)**<br>Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Read-only. 
 ignore_cookie | **[BoolOption](#BoolOption)**<br>Using [BoolOption](#BoolOption) for ignoring cookie. 
 rewrite | **[RewriteOption](#RewriteOption)**<br>Changing or redirecting query paths. 
-secure_key | **[SecureKeyOption](#SecureKeyOption)**<br>Secure token to protect contect and limit access by IP addresses and time limits 
+secure_key | **[SecureKeyOption](#SecureKeyOption)**<br>Secure token to protect contect and limit access by IP addresses and time limits. 
+ip_address_acl | **[IPAddresACL](#IPAddresACL)**<br>Manage the state of the IP access policy option. The option controls access to content from the specified IP addresses. 
 
 
 ### BoolOption {#BoolOption}
@@ -207,6 +208,15 @@ key | **string**<br>The key for the URL signing.
 type | enum **SecureKeyURLType**<br>The type of the URL signing. The URL could be available for all IP addresses or for the only one IP. <ul><li>`ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.</li><li>`DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses.</li></ul>
 
 
+### IPAddresACL {#IPAddresACL}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource. 
+policy_type | enum **PolicyType**<br>The policy type. One of allow or deny value. <ul><li>`POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.</li><li>`POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field.</li></ul>
+excepted_values | **[StringsListOption](#StringsListOption)**<br>The list of IP addresses to be allowed or denied. 
+
+
 ### SSLCertificate {#SSLCertificate}
 
 Field | Description
@@ -296,7 +306,8 @@ static_request_headers | **[StringsMapOption](#StringsMapOption1)**<br>Set up cu
 custom_server_name | **[StringOption](#StringOption1)**<br>Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Read-only. 
 ignore_cookie | **[BoolOption](#BoolOption1)**<br>Using [BoolOption](#BoolOption1) for ignoring cookie. 
 rewrite | **[RewriteOption](#RewriteOption1)**<br>Changing or redirecting query paths. 
-secure_key | **[SecureKeyOption](#SecureKeyOption1)**<br>Secure token to protect contect and limit access by IP addresses and time limits 
+secure_key | **[SecureKeyOption](#SecureKeyOption1)**<br>Secure token to protect contect and limit access by IP addresses and time limits. 
+ip_address_acl | **[IPAddresACL](#IPAddresACL1)**<br>Manage the state of the IP access policy option. The option controls access to content from the specified IP addresses. 
 
 
 ### BoolOption {#BoolOption1}
@@ -430,6 +441,15 @@ key | **string**<br>The key for the URL signing.
 type | enum **SecureKeyURLType**<br>The type of the URL signing. The URL could be available for all IP addresses or for the only one IP. <ul><li>`ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.</li><li>`DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses.</li></ul>
 
 
+### IPAddresACL {#IPAddresACL1}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource. 
+policy_type | enum **PolicyType**<br>The policy type. One of allow or deny value. <ul><li>`POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.</li><li>`POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field.</li></ul>
+excepted_values | **[StringsListOption](#StringsListOption1)**<br>The list of IP addresses to be allowed or denied. 
+
+
 ### SSLCertificate {#SSLCertificate1}
 
 Field | Description
@@ -556,7 +576,8 @@ static_request_headers | **[StringsMapOption](#StringsMapOption2)**<br>Set up cu
 custom_server_name | **[StringOption](#StringOption2)**<br>Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Read-only. 
 ignore_cookie | **[BoolOption](#BoolOption2)**<br>Using [BoolOption](#BoolOption2) for ignoring cookie. 
 rewrite | **[RewriteOption](#RewriteOption2)**<br>Changing or redirecting query paths. 
-secure_key | **[SecureKeyOption](#SecureKeyOption2)**<br>Secure token to protect contect and limit access by IP addresses and time limits 
+secure_key | **[SecureKeyOption](#SecureKeyOption2)**<br>Secure token to protect contect and limit access by IP addresses and time limits. 
+ip_address_acl | **[IPAddresACL](#IPAddresACL2)**<br>Manage the state of the IP access policy option. The option controls access to content from the specified IP addresses. 
 
 
 ### BoolOption {#BoolOption2}
@@ -688,6 +709,15 @@ Field | Description
 enabled | **bool**<br>True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource. 
 key | **string**<br>The key for the URL signing. 
 type | enum **SecureKeyURLType**<br>The type of the URL signing. The URL could be available for all IP addresses or for the only one IP. <ul><li>`ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.</li><li>`DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses.</li></ul>
+
+
+### IPAddresACL {#IPAddresACL2}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource. 
+policy_type | enum **PolicyType**<br>The policy type. One of allow or deny value. <ul><li>`POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.</li><li>`POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field.</li></ul>
+excepted_values | **[StringsListOption](#StringsListOption2)**<br>The list of IP addresses to be allowed or denied. 
 
 
 ### SSLTargetCertificate {#SSLTargetCertificate}
@@ -826,7 +856,8 @@ static_request_headers | **[StringsMapOption](#StringsMapOption3)**<br>Set up cu
 custom_server_name | **[StringOption](#StringOption3)**<br>Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Read-only. 
 ignore_cookie | **[BoolOption](#BoolOption3)**<br>Using [BoolOption](#BoolOption3) for ignoring cookie. 
 rewrite | **[RewriteOption](#RewriteOption3)**<br>Changing or redirecting query paths. 
-secure_key | **[SecureKeyOption](#SecureKeyOption3)**<br>Secure token to protect contect and limit access by IP addresses and time limits 
+secure_key | **[SecureKeyOption](#SecureKeyOption3)**<br>Secure token to protect contect and limit access by IP addresses and time limits. 
+ip_address_acl | **[IPAddresACL](#IPAddresACL3)**<br>Manage the state of the IP access policy option. The option controls access to content from the specified IP addresses. 
 
 
 ### BoolOption {#BoolOption3}
@@ -958,6 +989,15 @@ Field | Description
 enabled | **bool**<br>True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource. 
 key | **string**<br>The key for the URL signing. 
 type | enum **SecureKeyURLType**<br>The type of the URL signing. The URL could be available for all IP addresses or for the only one IP. <ul><li>`ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.</li><li>`DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses.</li></ul>
+
+
+### IPAddresACL {#IPAddresACL3}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource. 
+policy_type | enum **PolicyType**<br>The policy type. One of allow or deny value. <ul><li>`POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.</li><li>`POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field.</li></ul>
+excepted_values | **[StringsListOption](#StringsListOption3)**<br>The list of IP addresses to be allowed or denied. 
 
 
 ### SSLTargetCertificate {#SSLTargetCertificate1}

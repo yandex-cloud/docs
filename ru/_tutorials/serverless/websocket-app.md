@@ -39,15 +39,15 @@
 
 ## Подготовьте окружение {#prepare}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. [Установите утилиту WSL](https://docs.microsoft.com/ru-ru/windows/wsl/install) для использования окружения Linux.
   1. Запустите подсистему Linux (по умолчанию — Ubuntu).
   1. Далее настройте окружение так, как описано в этой инструкции для операционной системы Linux.
 
-- Linux
+- Linux {#linux}
 
   {% note info %}
 
@@ -113,7 +113,7 @@
 
   1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль {{ yandex-cloud }} CLI с базовыми параметрами.
 
-- MacOS
+- macOS {#macos}
 
   1. Последовательно установите следующие утилиты с помощью команд в терминале:
      * [Homebrew](https://brew.sh):

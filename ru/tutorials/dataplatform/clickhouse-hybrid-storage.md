@@ -6,3 +6,5 @@ description: "Гибридное хранилище позволяет хран�
 # Использование гибридного хранилища в {{ mch-full-name }}
 
 {% include notitle [clickhouse-hybrid-storage](../../_tutorials/dataplatform/clickhouse-hybrid-storage.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

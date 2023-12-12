@@ -1,9 +1,14 @@
+---
+title: "Access management in {{ mos-full-name }}"
+description: "Access management in {{ OS }}, the database creation and management service. This section describes which resources you can assign a role for, what roles exist in the service, and which roles are required for particular actions."
+---
+
 # Managing access to {{ mos-name }}
 
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
@@ -11,7 +16,7 @@ To use the service, log in to the management console with a [Yandex account](../
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 

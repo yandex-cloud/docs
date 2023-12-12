@@ -197,20 +197,20 @@
         # Чтение данных из Parquet-файла
         parquetFile = spark.read.parquet("s3a://<имя выходного бакета>/parquet/*.parquet")
 
-        # Указание порта и параметров кластера ClickHouse
+        # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
         jdbcHostname = "c-<идентификатор кластера>.rw.mdb.yandexcloud.net"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-        # Перенос таблицы из Parquet-файла в ClickHouse-таблицу с именем measurements
+        # Перенос таблицы из Parquet-файла в {{ CH }}-таблицу с именем measurements
         parquetFile.write.format("jdbc") \
         .mode("error") \
         .option("url", jdbcUrl) \
         .option("dbtable", "measurements") \
         .option("createTableOptions", "ENGINE = MergeTree() ORDER BY vehicle_id") \
         .option("user","user1") \
-        .option("password","<пароль пользователя ClickHouse>") \
+        .option("password","<пароль пользователя {{ CH }}>") \
         .save()
         ```
         {% endcut %}

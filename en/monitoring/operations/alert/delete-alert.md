@@ -1,3 +1,8 @@
+---
+title: "How to delete alerts in {{ monitoring-full-name }}"
+description: "Follow this guide to delete an alert."
+---
+
 # Deleting alerts
 
 To delete an alert:

@@ -1,3 +1,8 @@
+---
+title: "How to delete a cluster in {{ mpg-full-name }}"
+description: "In this tutorial, you will learn how to delete a cluster in {{ mgp-name }}."
+---
+
 # Deleting {{ GP }} clusters
 
 ## Before deleting a cluster {#before-you-delete}
@@ -25,7 +30,7 @@
    {{ yc-mdb-gp }} cluster delete <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

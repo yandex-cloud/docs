@@ -1,3 +1,8 @@
+---
+title: "Replication in {{ mpg-full-name }}"
+description: "In this tutorial, you will learn how cluster host replication works in {{ mpg-full-name }}."
+---
+
 # Replication in {{ mpg-name }}
 
 {{ mpg-name }} clusters use _quorum-based synchronous replication_:

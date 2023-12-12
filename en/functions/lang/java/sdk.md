@@ -1,9 +1,14 @@
+---
+title: "Using the SDK for Java functions in {{ sf-full-name }}. Overview"
+description: "You can manage Java functions in {{ sf-name }} using the SDK."
+---
+
 # Using the SDK for Java functions
 
 The runtime environment does not have a pre-installed library for working with the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk). The availability of library modules depends on the language version:
 
-* `java-sdk-functions`: Only for Java 11.
-* `java-sdk-serverless`: Java 17 or higher.
+* `java-sdk-functions`: Only for Java 11
+* `java-sdk-serverless`: Java 17 or higher
 
 Other modules are available for any version of Java.
 

@@ -1,5 +1,5 @@
 ---
-title: "Managing {{ OS }} host groups"
+title: "Managing {{ OS }} host groups in {{ mos-full-name }}"
 description: "You can get a list of {{ OS }} cluster hosts and add, edit, or delete cluster host groups."
 keywords:
   - Managing OpenSearch host groups
@@ -139,7 +139,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
    To delete a group of `Dashboards` hosts, use the [deleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteDashboardsNodeGroup](../api-ref/grpc/cluster_service.md#DeleteDashboardsNodeGroup) gRPC API call.
 
-   Pass the following in the request:
+   Provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter.
 

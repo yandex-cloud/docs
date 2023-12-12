@@ -47,3 +47,5 @@ description: "На странице представлен список поша
 * [{#T}](monitoring.md)
 * [{#T}](datalens-connect.md)
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

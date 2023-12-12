@@ -1,3 +1,8 @@
+---
+title: "How to get information about existing repositories in {{ container-registry-full-name }}"
+description: "In this tutorial, you will learn how to get information about existing repositories in {{ container-registry-full-name }}."
+---
+
 # Getting information about existing repositories
 
 ## Getting a list of repositories in a registry {#repository-list}

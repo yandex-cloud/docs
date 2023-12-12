@@ -246,3 +246,5 @@ mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 Подключиться к {{ MY }}-хостам в публичном доступе можно только с использованием SSL-сертификата.
 
 {% include [mmy-connection-strings](../../_includes/mdb/mmy/code-examples.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

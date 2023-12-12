@@ -50,14 +50,14 @@
 
 ## Установите Duplicati {#install-duplicati}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
   1. [Установите](https://dotnet.microsoft.com/en-us/download) Microsoft .NET Framework версии 4.6.2 или выше.
   1. [Установите](https://www.duplicati.com/download) Duplicati.
 
-- Linux/macOS
+- Linux/macOS {#linux-macos}
 
   1. [Установите](https://www.mono-project.com/download/stable/) фреймворк Mono.
   1. [Установите](https://www.duplicati.com/download) Duplicati.

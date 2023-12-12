@@ -1,3 +1,8 @@
+---
+title: "{{ mch-full-name }} use cases"
+description: "Various {{ mch-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ mch-name }} tutorials
 
 * [Adding data to the database](insert.md)

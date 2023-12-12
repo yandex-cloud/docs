@@ -44,3 +44,5 @@
 Можно разместить оба чарта на дашборде, чтобы сопоставить изменения продаж по годам в абсолютных величинах и в процентах.
 
 ![image](../../_assets/datalens/solution-y-to-y/sales-dashboard.png)
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -14,3 +14,4 @@
 * [Нагрузочное тестирование с нескольких агентов](../testing/loadtesting-multiply.md)
 * [Миграция результатов нагрузочного тестирования из OverLoad](../testing/loadtesting-overload-migration.md)
 * [Запуск внешних агентов для нагрузочного тестирования](../testing/loadtesting-external-agent.md)
+* [Нагрузочный тест с помощью JMeter](../testing/loadtesting-jmeter.md)

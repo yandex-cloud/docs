@@ -274,7 +274,9 @@ items:
       - name: Поддержка UEFI и загрузка с дисков, размеченных в формате GPT
         href: >-
           compute/known-issues/uefi-support-and-booting-from-disks-with-gpt-layout.md
-      - name: Устранение ошибки Not enough resources при запуске виртуальной машины
+      - name: >-
+          Устранение ошибки «Not enough resources при запуске виртуальной
+          машины»
         href: compute/known-issues/not-enough-resources.md
       - name: Восстановление доступа к ВМ с утерянным SSH-ключом
         href: compute/known-issues/restore-access-to-vm.md
@@ -283,10 +285,10 @@ items:
       - name: Не увеличился размер загрузочного диска
         href: compute/known-issues/disk-volume-did-not-increase.md
       - name: >-
-          Виртуальная машина выключается операцией "Instance guest stop
-          processing"
+          Виртуальная машина выключается операцией «Instance guest stop
+          processing»
         href: compute/known-issues/instance-guest-stop-processing.md
-      - name: Устранение ошибки WARNING REMOTE HOST IDENTIFICATION HAS CHANGED
+      - name: Устранение ошибки «WARNING REMOTE HOST IDENTIFICATION HAS CHANGED»
         href: compute/known-issues/warning-remote-host-identification-has-changed.md
       - name: Устранение поломки нереплицируемого диска
         href: compute/known-issues/non-replicated-disk-broke-down.md
@@ -294,6 +296,9 @@ items:
         href: compute/known-issues/kosmos-vm-connection-issues.md
       - name: Устранение проблем со сбросом пароля для ВМ на базе образа Kosmos
         href: compute/known-issues/kosmos-vm-password-reseting-issue.md
+      - name: Устранение ошибки «The limit on maximum number of cores has exceeded»
+        href: >-
+          compute/known-issues/the-limit-of-maximum-number-of-cores-has-exceeded.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
@@ -659,6 +664,14 @@ items:
           Устранение ошибки 0/10 nodes are available - node(s) had untolerated
           taint
         href: managed-kubernetes/known-issues/untolerated-taints-issue.md
+      - name: Как выяснить размер эфемерного хранилища узла {{ managed-k8s-name }}
+        href: managed-kubernetes/how-to/finding-out-ephemeral-storage-size.md
+      - name: Кластер слишком долго находится в состоянии «Starting»
+        href: managed-kubernetes/known-issues/cluster-stuck-in-starting-state.md
+      - name: Поды кластера слишком долго находияся в состоянии «Pending»
+        href: managed-kubernetes/known-issues/pods-stuck-in-pending-state.md
+      - name: Устранение проблем с работой HPA в {{ managed-k8s-name }}
+        href: managed-kubernetes/known-issues/hpa-and-metrics-server-issues.md
       - name: Примеры конфигураций и сценариев {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/index.md
         hidden: true
@@ -682,6 +695,12 @@ items:
           Как настроить автоматическое удаление старых образов с узлов {{
           managed-k8s-name }}
         href: managed-kubernetes/how-to/configuring-automatic-image-deletion.md
+      - name: Как узнать внешний IP-адрес узла {{ managed-k8s-name }}
+        href: managed-kubernetes/how-to/finding-out-node-external-ip.md
+      - name: >-
+          Использование сертификатов из {{ certificate-manager-name }} в
+          балансировщиках нагрузки или в {{ managed-k8s-name }}
+        href: managed-kubernetes/how-to/uploading-cert-from-yc-certmgr-to-k8s.md
   - name: '{{ mgl-name }}'
     items:
       - name: Все решения для {{ mgl-name }}
@@ -727,8 +746,12 @@ items:
         href: network-load-balancer/how-to/index.md
         hidden: true
       - name: >-
+          Устранение проблем с доступом к подам {{ managed-k8s-name }} через {{
+          network-load-balancer-name }}
+        href: network-load-balancer/known-issues/cannot-access-mk8s-pods.md
+      - name: >-
           Устранение ошибки Permission denied to create UDP listener in folder
-          при создании NLB-балансировщика
+          при создании {{ network-load-balancer-name }}
         href: >-
           network-load-balancer/known-issues/permission-denied-to-create-udp-listener-in-folder.md
   - name: Legal
@@ -1051,6 +1074,8 @@ items:
       - name: Решения для известных проблем c Tracker
         href: tracker/known-issues/index.md
         hidden: true
+      - name: Недоступно редактирование воркфлоу
+        href: tracker/known-issues/unable-to-modify-workflow.md
       - name: Примеры конфигураций и сценариев Tracker
         href: tracker/how-to/index.md
         hidden: true
@@ -1058,8 +1083,16 @@ items:
         href: tracker/how-to/activating-tracker-after-inactivity.md
       - name: Отключение или удаление Трекера
         href: tracker/how-to/deactivating-tracker.md
-      - name: Как удалить задачу из очереди
-        href: tracker/how-to/removing-task-from-queue.md
+      - name: Восстановление Трекера после удаления
+        href: tracker/how-to/restoring-tracker.md
+      - name: Как использовать новые доски задач
+        href: tracker/how-to/using-new-task-boards.md
+      - name: Редактирование клонированных воркфлоу
+        href: tracker/how-to/modifying-cloned-worfklows.md
+      - name: Ограничение доступа к очередям
+        href: tracker/how-to/limiting-queue-access.md
+      - name: Как подключить и использовать платный Трекер
+        href: tracker/how-to/using-paid-version.md
   - name: Partner
     items:
       - name: Все решения для Partner

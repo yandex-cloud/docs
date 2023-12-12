@@ -8,7 +8,7 @@
 Отправьте [запрос](../stt/request.md) на распознавание речи:
 
 ```bash
-export FOLDER_ID=<идентификатор каталога>
+export FOLDER_ID=<идентификатор_каталога>
 export IAM_TOKEN=<IAM-токен>
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \

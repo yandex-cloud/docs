@@ -28,3 +28,5 @@ noIndex: true
 Подробнее о настройках см. в [документации сервиса]({{ link-yandex }}/support/metrica/index.html).
 
 См. [практическое руководство](../../../tutorials/metrika-to-clickhouse.md) по переносу данных из счетчика {{ metrika }} в кластер {{ CH }}.
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

@@ -1,3 +1,8 @@
+---
+title: "How to run performance diagnostics in {{ mpg-full-name }}"
+description: "Follow this guide to run performance diagnostics."
+---
+
 # Performance diagnostics
 
 For performance diagnostics, a {{ mgp-name }} cluster uses a dedicated `gpperfmon` database in which query statistics and system states are stored. The `gpperfmon` database can be accessed by:

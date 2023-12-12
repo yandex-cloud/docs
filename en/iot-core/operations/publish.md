@@ -1,7 +1,12 @@
+---
+title: "How to send messages to {{ iot-full-name }} resources"
+description: "Follow this guide to send messages to {{ iot-full-name }} resources."
+---
+
 # Sending messages
 
 The service provides two resource management models:
-* When using a broker, you can send and receive messages in random topics that don't start with `$`.
+* When using a broker, you can send and receive messages in random topics that do not start with `$`.
 * When registries and devices are used, the selection of topics is limited.
 
 For more information about the differences between brokers and device registries, see [{#T}](../concepts/index.md).

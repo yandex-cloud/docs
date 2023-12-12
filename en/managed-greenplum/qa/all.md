@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ mgp-full-name }}"
+description: "This page provides answers to questions about {{ mgp-short-name }}."
+---
+
 # Questions and answers about {{ mgp-short-name }}
 
 ## General questions {#general}
@@ -12,7 +17,7 @@
 
 {% include notitle [backup](../../_qa/managed-greenplum/backup.md) %}
 
-## Editing clusters {#update}
+## Updating clusters {#update}
 
 {% include notitle [update](../../_qa/managed-greenplum/update.md) %}
 

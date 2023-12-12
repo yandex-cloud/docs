@@ -58,3 +58,5 @@ description: "Видеозаписи конференций и вебинаро�
 * Базы данных в облаках.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=xyMN1EA9p5Y).
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -29,6 +29,7 @@ A set of methods for managing Instance resources.
 | [ListOperations](#ListOperations) | Lists operations for the specified instance. |
 | [Move](#Move) | Moves the specified instance to another folder of the same cloud. |
 | [Relocate](#Relocate) | Moves the specified instance to another availability zone <br>Running instance will be restarted during this operation. |
+| [SimulateMaintenanceEvent](#SimulateMaintenanceEvent) |  |
 | [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the instance. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the instance. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the instance. |
@@ -3483,6 +3484,46 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
+## SimulateMaintenanceEvent {#SimulateMaintenanceEvent}
+
+
+
+**rpc SimulateMaintenanceEvent ([SimulateInstanceMaintenanceEventRequest](#SimulateInstanceMaintenanceEventRequest)) returns ([operation.Operation](#Operation17))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SimulateInstanceMaintenanceEventMetadata](#SimulateInstanceMaintenanceEventMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### SimulateInstanceMaintenanceEventRequest {#SimulateInstanceMaintenanceEventRequest}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>Required.  The maximum string length in characters is 50.
+
+
+### Operation {#Operation17}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SimulateInstanceMaintenanceEventMetadata](#SimulateInstanceMaintenanceEventMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### SimulateInstanceMaintenanceEventMetadata {#SimulateInstanceMaintenanceEventMetadata}
+
+Field | Description
+--- | ---
+instance_id | **string**<br> 
+
+
 ## ListAccessBindings {#ListAccessBindings}
 
 Lists access bindings for the instance.
@@ -3526,7 +3567,7 @@ type | **string**<br>Required. Type of the subject. <br>It can contain one of th
 
 Sets access bindings for the instance.
 
-**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation17))**
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation18))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
@@ -3556,7 +3597,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation17}
+### Operation {#Operation18}
 
 Field | Description
 --- | ---
@@ -3583,7 +3624,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 Updates access bindings for the instance.
 
-**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation18))**
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation19))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
@@ -3621,7 +3662,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation18}
+### Operation {#Operation19}
 
 Field | Description
 --- | ---

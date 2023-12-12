@@ -8,22 +8,18 @@ description: "With {{ sf-name }}, you can run applications written in Python. Th
 With {{ sf-name }}, you can run applications written in [Python](https://python.org/).
 
 
-The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
+{% include [runtime-introduction](../../../_includes/functions/runtime-introduction.md) %}
 
-| Name | Python version | Operating <br>system | Preloaded |
-|----|----|----|----|
-| python37 | 3.7.13 | Ubuntu 18.04 | No |
-| python38 | 3.8.13 | Ubuntu 18.04 | No |
-| python39 | 3.9.11 | Ubuntu 18.04 | No |
-| python311 | 3.11.0 | Ubuntu 18.04 | Yes |
-| python312 | 3.12.0 | Ubuntu 22.04 LTS | Yes |
+| Name | Python version | Operating <br>system | Preloaded | Supported by the service |
+|----|----|----|----|----|
+| python37 | 3.7.13 | Ubuntu 18.04 | No | No |
+| python38 | 3.8.13 | Ubuntu 18.04 | No | No |
+| python39 | 3.9.11 | Ubuntu 18.04 | No | No |
+| python311 | 3.11.0 | Ubuntu 18.04 | Yes | No |
+| python312 | 3.12.0 | Ubuntu 22.04 LTS | Yes | Yes |
 
 
-{% note info %}
-
-Function behavior in preloaded and normal runtime environments may differ. Review the features of function behavior in [{#T}](../../concepts/runtime/preload-runtime.md).
-
-{% endnote %}
+{% include [note-preload-runtime](../../../_includes/functions/note-preload-runtime.md) %}
 
 
 By default, the `python37` and `python38` runtime environments have a built-in SDK library to handle the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md). You can install the SDK library in other versions of the runtime by specifying a dependency in `requirements.txt`.

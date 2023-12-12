@@ -17,9 +17,9 @@ description: "Следуя данной инструкции, вы сможет�
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по SSH.
 1. Выполните команды:
 
-    {% list tabs %}
+    {% list tabs group=operating_system %}
 
-    - Ubuntu
+    - Ubuntu {#ubuntu}
 
       ```bash
       sudo apt update && \
@@ -34,7 +34,7 @@ description: "Следуя данной инструкции, вы сможет�
       Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
       ```
 
-    - CentOS
+    - CentOS {#centos}
 
       ```bash
       sudo yum install epel-release -y && \

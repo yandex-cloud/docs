@@ -1,3 +1,8 @@
+---
+title: "Configuring access to {{ objstorage-full-name }} from an {{ OS }} cluster"
+description: "In this tutorial, you will learn how to set up access to {{ objstorage-name }} storage to use it as an {{ OS }} snapshot repository."
+---
+
 # Configuring access to {{ objstorage-name }} from an {{ OS }} cluster
 
 

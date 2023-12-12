@@ -115,3 +115,5 @@ CREATE VIEW ... (
 Также следует включать эту опцию для подзапросов raw-sql, которые используются как источник данных в датасете.
 
 Чтобы избежать ошибок при работе с представлениями в {{ datalens-short-name }}, содержащими секцию JOIN, создайте заново все представления с настройкой `join_use_nulls = 1`. Пустые ячейки при этом заполнятся значениями `NULL`, а тип соответствующих полей преобразуется в [Nullable]({{ ch.docs }}/sql-reference/data-types/nullable/#data_type-nullable).
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

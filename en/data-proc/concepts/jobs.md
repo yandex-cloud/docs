@@ -1,38 +1,38 @@
 # Jobs in {{ dataproc-name }}
 
-In a {{ dataproc-name }} cluster, you can create and execute jobs. This allows you to regularly upload a dataset from [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), use them in calculations, and generate analytics.
+In a {{ dataproc-name }} cluster, you can create and run jobs. This allows you to regularly upload datasets from [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), use them in calculations, and generate analytics.
 
 The following job types are supported:
 
-* [Hive](https://cwiki.apache.org/confluence/display/HIVE#Home-HiveDocumentation).
-* [MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html).
-* [PySpark](https://spark.apache.org/docs/latest/api/python/index.html).
-* [Spark](https://spark.apache.org/docs/latest/).
+* [Hive](https://cwiki.apache.org/confluence/display/HIVE#Home-HiveDocumentation)
+* [MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
+* [PySpark](https://spark.apache.org/docs/latest/api/python/index.html)
+* [Spark](https://spark.apache.org/docs/latest/)
 
 When creating a job, specify:
 
 * _Arguments_: Values used by the job's main executable file.
-* _Properties_: The <q>key:value</q> pairs configuring [image components](./environment.md).
+* _Properties_: The <q>key:value</q> pairs that configure [image components](./environment.md).
 
-For placing and [starting a job](../operations/jobs.md):
+To create and [start jobs](../operations/jobs.md), you can:
 
-* Use the {{ yandex-cloud }} interfaces. For more information, see [basic examples](../tutorials/job-overview.md#jobs-basic-tutorials) of working with jobs.
+* Use the {{ yandex-cloud }} interfaces. For more information, see [basic examples](../tutorials/job-overview.md#jobs-basic-tutorials) for working with jobs.
 
 
 * Connect directly to the cluster node. For more information, see the example in [{#T}](../tutorials/remote-run-job.md).
 
 
-For successful job execution:
+To successfully run a job:
 
-* Grant access to the necessary {{ objstorage-name }} buckets for the cluster service account.
+* Grant access to the required {{ objstorage-name }} buckets for the cluster service account.
 
-   It's recommended to use at least two buckets:
-   * A bucket with read-only rights for storing source data and files necessary to run the job.
-   * A bucket with read and write rights for storing job execution results. Specify it when creating a cluster.
+   We recommend using at least two buckets:
+   * One with read-only permissions for storing the source data and files required to run the job.
+   * Another one with read and write permissions for storing job run results. Specify it when creating a cluster.
 
-* When creating a job, pass all the files necessary for its operation.
+* When creating a job, provide all files required for it.
 
-If there are enough computing resources in the cluster, several created jobs are executed in parallel. Otherwise, a job queue is formed.
+If there are enough computing resources in the cluster, the jobs you created will be running concurrently; otherwise, a job queue will be formed.
 
 
 ## Job logs {#logs}

@@ -32,3 +32,5 @@ description: "На странице представлены вопросы и �
 ## Мониторинг и логи {#monitoring}
 
 {% include notitle [monitoring](../../_qa/managed-clickhouse/monitoring.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

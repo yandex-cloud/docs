@@ -52,22 +52,22 @@
 
 Если группа безопасности доступна, [добавьте](../../vpc/operations/security-group-add-rule.md) в нее следующие правила:
 
-Направление<br>трафика | Описание | Диапазон<br>портов | Протокол | Тип<br>источника | Источник/Назначение
+Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
 --- | --- | --- | --- | --- | ---
-Входящий | http | 80 | TCP | CIDR | 0.0.0.0/0
-Входящий | https | 443 | TCP | CIDR | 0.0.0.0/0
-Входящий | https | 4443 | TCP | CIDR | 0.0.0.0/0
-Входящий | vmware | 902 | TCP | CIDR | 0.0.0.0/0
-Входящий | vmware | 902 | UDP | CIDR | 0.0.0.0/0
-Входящий | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0
-Входящий | udp | 12201 | UDP | CIDR | 0.0.0.0/0
-Входящий | tcp | 15000 | TCP | CIDR | 0.0.0.0/0
-Исходящий | http | 80 | TCP | CIDR | 0.0.0.0/0
-Исходящий | https | 443 | TCP | CIDR | 0.0.0.0/0
-Исходящий | vmware | 902 | TCP | CIDR | 0.0.0.0/0
-Исходящий | vmware | 902 | UDP | CIDR | 0.0.0.0/0
-Исходящий | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0
-Исходящий | udp | 12201 | UDP | CIDR | 0.0.0.0/0
+Входящий | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `https` | `4443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `tcp` | `15000` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 Сохраните идентификатор группы безопасности. Он понадобится при создании ВМ с Hystax Acura.
 
@@ -80,35 +80,34 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Нажмите кнопку **Создать ВМ**.
-  1. В блоке **Базовые параметры**:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
      * Введите имя `hystax-acura-vm` и описание ВМ.
      * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 
-   1. В блоке **Выбор образа/загрузочного диска**:
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Перейдите на вкладку **{{ marketplace-name }}**.
-      * Нажмите кнопку **Посмотреть больше**.
-      * В списке публичных образов выберите [Hystax Acura Live Cloud Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **Использовать**.
+      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+      * В списке публичных образов выберите [Hystax Acura Live Cloud Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-   1. В блоке **Диски** укажите размер диска 200 ГБ.
+   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** укажите размер диска `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-      1. В блоке **Файловые хранилища** оставьте значения по умолчанию.
-  1. В блоке **Вычислительные ресурсы** укажите:
-     * vCPU — 8.
-     * RAM — 16 ГБ.
-  1. В блоке **Сетевые настройки**:
-     * Выберите в списке облачную сеть и [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку **Добавить подсеть** и создайте ее.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите:
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `8`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+     * Выберите в списке облачную сеть и [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** и создайте ее.
 
-       Для этого в открывшемся окне выберите каталог, укажите имя подсети, выберите зону доступности и укажите CIDR. Затем нажмите кнопку **Создать**.
-     * Если доступен список **Группы безопасности**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
-  1. В блоке **Доступ** укажите данные для доступа на ВМ:
+       Для этого в открывшемся окне выберите каталог, укажите имя подсети, выберите зону доступности и укажите CIDR. Затем нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+     * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
      * Выберите сервисный аккаунт `hystax-acura-account`, созданный ранее.
-     * В поле **Логин** введите имя пользователя для доступа через [SSH](../../glossary/ssh-keygen.md), например, `yc-user`.
-     * В поле **SSH-ключ** вставьте [открытый ключ SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя для доступа через [SSH](../../glossary/ssh-keygen.md), например, `yc-user`.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте [открытый ключ SSH](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI
 
@@ -212,9 +211,9 @@ Hystax Acura автоматически проверит доступ к ваш�
    Нажмите кнопку **Next**.
 1. Скачайте и установите агент на ваши ВМ, которые предстоит мигрировать:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - VMware
+   - VMware {#vmware}
 
      1. Выберите **New VMware vSphere** и заполните поля:
         * **Platform Name** — имя платформы.
@@ -227,13 +226,13 @@ Hystax Acura автоматически проверит доступ к ваш�
      1. Разверните загруженный OVA-файл с агентом на ВМ в вашем кластере.
      1. Запустите машины с агентом.
 
-   - Windows
+   - Windows {#windows}
 
      1. Нажмите **Next**.
      1. Нажмите кнопку **Download Agent** и дождитесь окончания загрузки агента.
      1. Распакуйте архив и установите агент из файла `hwragent.msi` на ВМ, которые требуется мигрировать.
 
-   - Linux
+   - Linux {#linux}
 
      1. Выберите тип дистрибутива Linux:
         * **CentOS/RHEL (.rpm package)** — CentOS или ОС на базе Red Hat.

@@ -1,5 +1,5 @@
 ---
-title: "Getting started with {{ iot-name }} brokers"
+title: "Getting started with {{ iot-full-name }} brokers"
 description: "To start working with {{ iot-name }}, create an X.509 certificate and a broker. Then, set up message exchange."
 ---
 
@@ -33,13 +33,13 @@ openssl req -x509 \
 
 Where:
 
-* `-x509`: Certificate type, X.509
-* `-newkey`: Encryption algorithm
+* `-x509`: Certificate type, X.509.
+* `-newkey`: Encryption algorithm.
 * `-keyout`: File with the private key of the certificate.
 * `-out`: File with the public key of the certificate.
 * `-nodes`: This flag is set when no public key encryption is required.
-* `-days`: Certificate validity period in days
-* `-subj`: Request object
+* `-days`: Certificate validity period in days.
+* `-subj`: Request object.
 
 ## Create a broker {#create-broker}
 

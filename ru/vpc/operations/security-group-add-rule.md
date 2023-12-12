@@ -60,28 +60,28 @@ description: "Добавлять правила можно через консо
      +----------------------+---------------------------------+------------------------------------+----------------------+
      |          ID          |              NAME               |          DESCRIPTION               |      NETWORK-ID      |
      +----------------------+---------------------------------+------------------------------------+----------------------+
-     | enp9bmjge93bvnlb4061 | default-sg-enp509crtqufsuhm9kbr | Default security group for network | enp509crtqufsuhm9kbr |
-     | enp9rs9u4h6juk9rq3k5 | sg-1                            |                                    | enp509crtqufsuhm9kbr |
-     | enp9d8m73d1cgh2rm179 | sg-2                            |                                    | enp509crtqufsuhm9kbr |
+     | enp9bmjge93b******** | default-sg-enp509crtquf******** | Default security group for network | enp509crtquf******** |
+     | enp9rs9u4h6j******** | sg-1                            |                                    | enp509crtquf******** |
+     | enp9d8m73d1c******** | sg-2                            |                                    | enp509crtquf******** |
      +----------------------+---------------------------------+------------------------------------+----------------------+
      ```
 
   1. Добавьте правило с помощью команды `update-rules` и параметра `--add-rule`:
 
      ```
-     yc vpc security-group update-rules <имя или идентификатор группы> --add-rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24,10.10.0.0/24]"
+     yc vpc security-group update-rules <имя_или_идентификатор_группы> --add-rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24,10.10.0.0/24]"
      ```
      Результат:
      ```
      done (12s)
-     id: enp9rs9i4h9juk9rq3k5
-     folder_id: b1gau98l79li5n96eabd
+     id: enp9rs9i4h9j********
+     folder_id: b1gau98l79li********
      created_at: "2022-06-24T15:46:31Z"
      name: sg-1
-     network_id: enp559cr9q9fsuhm9kbr
+     network_id: enp559cr9q9f********
      status: ACTIVE
      rules:
-       - id: enp68o6cdi872ftdu4vp
+       - id: enp68o6cdi87********
          direction: INGRESS
          ports:
            from_port: "443"
@@ -179,7 +179,7 @@ description: "Добавлять правила можно через консо
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc vpc security-group get <имя группы безопасности>
+     yc vpc security-group get <имя_группы_безопасности>
      ```
 
   ### Добавить новое правило с помощью ресурса yandex_vpc_security_group_rule {#add-rule-with-yandex-vpc-security-group-rule}
@@ -206,9 +206,9 @@ description: "Добавлять правила можно через консо
      ```hcl
      ...
      resource "yandex_vpc_security_group_rule" "rule1" {
-       security_group_binding = <идентификатор группы безопасности>
+       security_group_binding = <идентификатор_группы_безопасности>
        direction              = "ingress"
-       description            = "<описание правила>"
+       description            = "<описание_правила>"
        v4_cidr_blocks         = ["10.0.1.0/24", "10.0.2.0/24"]
        port                   = 8080
        protocol               = "TCP"
@@ -259,7 +259,7 @@ description: "Добавлять правила можно через консо
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc vpc security-group get <имя группы безопасности>
+     yc vpc security-group get <имя_группы_безопасности>
      ```
 
 - API

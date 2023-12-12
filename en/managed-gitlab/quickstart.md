@@ -1,3 +1,8 @@
+---
+title: "How to get started with {{ mgl-full-name }}"
+description: "Follow this guide to create and set up a {{ GL }} cluster."
+---
+
 # Getting started with {{ mgl-name }}
 
 To get started with the service:

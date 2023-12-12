@@ -1,3 +1,8 @@
+---
+title: "{{ api-gw-full-name }} use cases"
+description: "Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}"
+---
+
 # {{ api-gw-name }} tutorials
 
 * [{#T}](java-servlet-todo-list.md)

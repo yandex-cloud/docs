@@ -1,3 +1,8 @@
+---
+title: "What performance analysis tools are available in {{ MG }}"
+description: "In this tutorial, you will learn about performance analysis tools available in {{ MG }}."
+---
+
 # Performance analysis tools
 
 ## Built-in diagnostic utilities {#monitoring-tools}

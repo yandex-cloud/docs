@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ mmy-full-name }}®"
+description: "This page provides a list of step-by-step guides for {{ mmy-name }}®."
+---
+
 # Step-by-step guides for {{ mmy-name }}®
 
 ## Clusters

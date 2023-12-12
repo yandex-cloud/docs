@@ -27,10 +27,10 @@
 #### Как генерировать IAM-токен {#iam-token}
 
 Для генерации [IAM-токена](../../iam/operations/iam-token/create.md) необходимо отправить запрос с вашим OAuth-токеном в формате:
-`"yandexPassportOauthToken":"<OAuth-token>"`. Если вы используете cURL, выполните команду:
+`"yandexPassportOauthToken":"<OAuth-токен>"`. Если вы используете cURL, выполните команду:
 
 ```bash
-curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
+curl -d "{\"yandexPassportOauthToken\":\"<OAuth-токен>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
 ```
 
 Воспользуйтесь рекомендациями и примерами, приведенными на вкладке **API** инструкции: [Получение IAM-токена](../../iam/operations/iam-token/create.md).

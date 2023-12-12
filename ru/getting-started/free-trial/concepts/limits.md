@@ -108,3 +108,7 @@ editable: false
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../../_includes/vision-limits.md) %}
+
+
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

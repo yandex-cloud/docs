@@ -10,7 +10,7 @@ description: "При создании датасета {{ datalens-short-name }}
 
 Ниже приведена таблица соответствий типов баз данных и внутренних типов {{ datalens-short-name }}.
 
-DataLens | ClickHouse | PostgreSQL | MySQL | MS SQL |
+DataLens | {{ CH }} | PostgreSQL | MySQL | MS SQL |
 ----- | ----- | ----- | ----- | ----- |
 **Логический** | boolean | boolean | bit | bit |
 **Дата** | date | date | date | date |
@@ -25,3 +25,5 @@ DataLens | ClickHouse | PostgreSQL | MySQL | MS SQL |
 **Массив строк** | Array(string) | Array(char)<br/>Array(varchar)<br/>Array(text) | Не поддерживается | Не поддерживается |
 
 <sup>*</sup> Возможна потеря точности при конвертации данных.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

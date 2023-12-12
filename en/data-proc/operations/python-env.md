@@ -1,3 +1,8 @@
+---
+title: "How to set up and use Python virtual environments in {{ dataproc-full-name }}"
+description: "Follow this guide to set up and use Python virtual environments."
+---
+
 # Setting up and using Python virtual environments
 
 When using PySpark, it is often required to install or update Python packages in {{ dataproc-name }} clusters. In this case, changing the primary Python environment in a cluster may turn out too time-consuming and unpractical. As an alternative, you can use isolated virtual environments when running each job:

@@ -1,3 +1,8 @@
+---
+title: "How to connect to a non-sharded {{ RD }} cluster in {{ mrd-full-name }}"
+description: "Follow this guide to connect to a non-sharded {{ RD }} cluster."
+---
+
 # Connecting to a non-sharded {{ RD }} cluster
 
 You can connect to a non-sharded Redis cluster:
@@ -32,7 +37,7 @@ If, when the [master host is changed automatically](../../concepts/replication.m
 
 ### Current master {#fqdn-master}
 
-Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` in a non-sharded cluster always points to the current master host. The cluster ID can be requested with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` in a non-sharded cluster always points to the current master host. You can request the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 

@@ -99,6 +99,7 @@ description: "Следуя данной инструкции, вы сможет�
     cdn CNAME cl-.....6bb.edgecdn.ru.
     ```
 
+    {% include [note-dns-aname](../_includes/cdn/note-dns-aname.md) %}
 
 ## Проверьте работу CDN {#check-cdn-working}
 

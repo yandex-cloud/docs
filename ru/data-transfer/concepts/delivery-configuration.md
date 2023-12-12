@@ -32,3 +32,5 @@
 Для фоновой очистки дублей в базе данных приемника {{ CH }} можно использовать [движок ReplacingMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replacingmergetree), который выполняет дедупликацию по ключу сортировки во время слияния кусков данных. Этот движок, однако, не гарантирует отсутствие дублей на приемнике в каждый момент времени.
 
 {% endnote %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

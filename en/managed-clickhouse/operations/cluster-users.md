@@ -1,6 +1,11 @@
+---
+title: "Managing {{ CH }} cluster users in {{ mch-full-name }}"
+description: "In this tutorial, you will learn how to manage {{ mch-name }} cluster users."
+---
+
 # Managing {{ CH }} users
 
-{{ mch-name }} lets you manage users and their individual settings in two ways:
+{{ mch-name }} provides two ways for you to manage users and their individual settings:
 
 * Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Select this method to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method to use your existing solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
@@ -106,7 +111,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       --cluster-name=<cluster_name> \
       --password=<user_password> \
       --permissions=<DB_list> \
-      --quota=<list_of_single_quota_settings_for_user> \
+      --quota=<list_of_settings_per_quota_for_user> \
       --settings=<list_of_{{ CH }}_settings_for_user>
    ```
 
@@ -288,7 +293,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    ```bash
    {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-    --admin-password <new_admin_password>
+    --admin-password <new_password_of_admin_user>
    ```
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -313,7 +318,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
-        admin_password = "<admin_password>"
+        admin_password = "<admin_user_password>"
         ...
       }
       ```

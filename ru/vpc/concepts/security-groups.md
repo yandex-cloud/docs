@@ -293,3 +293,5 @@ resource yandex_vpc_security_group vm_group_sg {
 ## Пошаговые инструкции по работе с группами безопасности {#security-group-howto}
 
 [Примеры работы с группами безопасности](../../vpc/operations/index.md#security-groups) в {{ yandex-cloud }}.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

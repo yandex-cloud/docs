@@ -1,3 +1,8 @@
+---
+title: "Troubleshooting {{ coi }} issues in {{ cos-full-name }}"
+description: "This guide describes how you can fix issues with a {{ coi }}."
+---
+
 # Troubleshooting
 
 To view Docker image startup logs, use the command:
@@ -36,7 +41,7 @@ Sep 28 08:00:33 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
 {"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://{{ registry }}/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
 ```
 
-**How to fix it:** Check if there is access to {{ container-registry-name }} by running this command: `nc -vz {{ registry }} 443`. If there is no access, [configure a NAT instance](../../tutorials/routing/nat-instance.md) or assign a public IP address to the VMs with {{ coi }}. You can also [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet the VMs are being created in.
+**How to fix it:** Check if there is access to {{ container-registry-name }} by running this command: `nc -vz {{ registry }} 443`. If there is no access, [configure a NAT instance](../../tutorials/routing/nat-instance.md) or assign a public IP address to the VMs with {{ coi }}. You can also [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet the VMs are being created in.
 
 ## No service account is linked to the VM to enable access to {{ container-registry-name }} {#sa-for-registry}
 
