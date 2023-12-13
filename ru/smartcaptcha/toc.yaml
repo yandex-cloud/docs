@@ -35,6 +35,8 @@ items:
     items:
       - name: Валидация пользователя
         href: concepts/validation.md
+      - name: Валидация домена
+        href: concepts/domain-validation.md
       - name: Типы заданий
         href: concepts/tasks.md
       - name: Методы подключения виджета

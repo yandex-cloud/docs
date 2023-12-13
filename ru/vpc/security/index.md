@@ -27,8 +27,6 @@ description: "Управление доступом в сервисе облач
 
 ### Сервисные роли {#service-roles}
 
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * {% include [vpc.auditor](../../_includes/iam/roles/short-descriptions/vpc.auditor.md) %}
 * {% include [vpc.viewer](../../_includes/iam/roles/short-descriptions/vpc.viewer.md) %}
 * {% include [vpc.user](../../_includes/iam/roles/short-descriptions/vpc.user.md) %}

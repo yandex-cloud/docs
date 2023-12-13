@@ -632,7 +632,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-[Шифрование секретов в {{ TF }} для передачи на ВМ с {{ coi }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI).
+[Шифрование секретов в {{ TF }} для передачи на ВМ с {{ coi }}](https://github.com/yandex-cloud-examples/yc-encrypt-coi-secrets).
 
 Другие рекомендации по безопасному использованию {{ TF }} см. в статье [Безопасная конфигурация: {{ TF }}](../../../security/domains/secure-config.md).
 

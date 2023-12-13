@@ -9,6 +9,8 @@ description: "Управление доступом в сервисе API-шлю
 
 Чтобы разрешить доступ к ресурсам сервиса {{ api-gw-name }} (API-шлюзам), назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md) нужные роли из приведенного ниже списка. На данный момент роль может быть [назначена](../../iam/operations/roles/grant.md) на родительский ресурс (каталог или облако) и на организацию.
 
+Назначать роли на ресурс могут те, у кого есть роль `admin`, `resource-manager.clouds.owner` или `organization-manager.organizations.owner` на этот ресурс.
+
 {% note info %}
 
 Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
@@ -36,8 +38,6 @@ description: "Управление доступом в сервисе API-шлю
 {% include [api-gateway-websocket-writer](../../_includes/roles-api-gateway-websocket-writer.md) %}
 
 {% include [api-gateway-admin](../../_includes/roles-api-gateway-admin.md) %}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

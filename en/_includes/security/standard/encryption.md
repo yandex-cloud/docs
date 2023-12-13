@@ -632,7 +632,7 @@ Delete the secret data from env and [use](../../../functions/operations/function
 
 **Guides and solutions to use:**
 
-[Encrypting secrets in {{ TF }} to transfer them to a VM from a {{ coi }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI).
+[Encrypting secrets in {{ TF }} to transfer them to a VM from a {{ coi }}](https://github.com/yandex-cloud-examples/yc-encrypt-coi-secrets).
 
 For other recommendations on how to use {{ TF }} safely, see [Secure configuration: {{ TF }}](../../../security/domains/secure-config.md).
 

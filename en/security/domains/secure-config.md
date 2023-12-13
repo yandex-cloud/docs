@@ -117,7 +117,7 @@ Bucket policies are used for additional data protection, for example, to restric
 With ACLs, you can grant access to an object bypassing {{ iam-name }} verification and bucket policies. We recommend setting strict ACLs for buckets.
 
 
-![](../../_assets/overview/solution-library-icon.svg) [Example of a secure {{ objstorage-name }} configuration: {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
+![](../../_assets/overview/solution-library-icon.svg) [Example of a secure {{ objstorage-name }} configuration: {{ TF }}](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket)
 
 
 ### Deletion protection and version backups {#versioning}

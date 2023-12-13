@@ -19,8 +19,6 @@
 
 ### Сервисные роли {#service-roles}
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
 {% include [logging-roles-viewer](../../_includes/roles-logging-viewer.md) %}
 
 {% include [logging-roles-editor](../../_includes/roles-logging-editor.md) %}

@@ -7,9 +7,11 @@
     * `resource-manager.admin`;
     * `resource-manager.editor`;
     * `resource-manager.viewer`;
+    * `resource-manager.auditor`;
     * `admin`;
     * `editor`;
-    * `viewer`.
+    * `viewer`;
+    * `auditor`.
 
 * На облаке:
 
@@ -25,8 +27,8 @@
 >
 >Роль | На ресурс | Разрешает
 >--- | --- | ---
->`vpc.admin` | Организация | Управлять сетями, маршрутами, IP-адресами и другими ресурсами {{ vpc-name }} через CLI, API и {{ TF }} во всех облаках организации
->`resource-manager.clouds.member` | Все облака организации | Работать с {{ vpc-name }} в консоли управления, видеть общую информацию об облаках
+>`vpc.admin` | Организация | Управлять сетями, маршрутами, IP-адресами и другими ресурсами сервиса {{ vpc-name }} через CLI, API и {{ TF }} во всех облаках организации
+>`resource-manager.clouds.member` | Все облака организации | Работать с ресурсами сервиса {{ vpc-name }} в консоли управления, видеть общую информацию об облаках
 
 {% note info %}
 

@@ -28,28 +28,6 @@
     --subject system:allAuthenticatedUsers
   ```
 
-- API
-
-    1. Сформируйте тело запроса, например в файле `body.json`. В `roleId` назначьте роль `viewer`. В свойстве `subject` укажите тип `system` и идентификатор `allAuthenticatedUsers`:
-
-        **body.json:**
-        ```json
-        {
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "viewer",
-                "subject": {
-                    "id": "allAuthenticatedUsers",
-                    "type": "system"
-                    }
-                }
-            }]
-        }
-        ```
-
-    1. {% include [grant-role-folder-via-curl-step](grant-role-folder-via-curl-step.md) %}
-
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -123,5 +101,27 @@
      ```
      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
+
+- API
+
+    1. Сформируйте тело запроса, например в файле `body.json`. В `roleId` назначьте роль `viewer`. В свойстве `subject` укажите тип `system` и идентификатор `allAuthenticatedUsers`:
+
+        **body.json:**
+        ```json
+        {
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "viewer",
+                "subject": {
+                    "id": "allAuthenticatedUsers",
+                    "type": "system"
+                    }
+                }
+            }]
+        }
+        ```
+
+    1. {% include [grant-role-folder-via-curl-step](grant-role-folder-via-curl-step.md) %}
 
 {% endlist %}

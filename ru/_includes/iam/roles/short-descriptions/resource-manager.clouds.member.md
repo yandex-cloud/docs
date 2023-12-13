@@ -1,1 +1,0 @@
-[`resource-manager.clouds.member`](../../../../iam/concepts/access-control/roles.md#member) — необходима для доступа к ресурсам в облаке, которое не принадлежит организации, всем, кроме [владельцев облака](../../../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../../../iam/concepts/users/service-accounts.md).

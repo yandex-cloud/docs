@@ -9,6 +9,8 @@ description: "Управление доступом в сервисе речев
 
 Список операций, доступных пользователю {{ speechsense-name }}, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md). Подробнее об управлении доступом в {{ yandex-cloud }} см. раздел [{#T}](../../iam/concepts/access-control/index.md).
 
+Назначать роли на ресурс могут те, у кого есть роль `admin`, `resource-manager.clouds.owner` или `organization-manager.organizations.owner` на этот ресурс.
+
 ## На какие ресурсы можно назначить роль {#resources}
 
 Роль можно назначить на пространство или проект. Роли, назначенные на пространство, действуют и на вложенные проекты и ресурсы.
