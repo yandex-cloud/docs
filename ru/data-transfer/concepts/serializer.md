@@ -163,7 +163,10 @@ Text string
 
 * **key.converter.schema.registry.url** и **value.converter.schema.registry.url** — определяют, добавлять ли описание схемы в каждое сообщение для ключей и значений при использовании конвертера `io.confluent.connect.json.JsonSchemaConverter`.
 
-    Значение по умолчанию — `true`.
+    Возможные значения: 
+
+    * пустая строка (значение по умолчанию) — не добавлять описание схемы;
+    * строковое значение URL, определяющее путь к сервису реестра схем. 
 
 * **key.converter.basic.auth.user.info** и **value.converter.basic.auth.user.info** — имя пользователя и пароль для авторизации в Confluent Schema Registry для ключей и значений при использовании конвертера `io.confluent.connect.json.JsonSchemaConverter`.
 

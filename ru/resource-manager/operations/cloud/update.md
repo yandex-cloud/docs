@@ -14,10 +14,6 @@
 
   1. Нажмите **{{ ui-key.yacloud.iam.cloud.edit.popup-edit-cloud_button_save }}**.
 
-- API
-
-  Чтобы переименовать облако, воспользуйтесь методом REST API [update](../../api-ref/Cloud/update.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update).
-  
 - {{ TF }}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -73,5 +69,9 @@
       ```bash
       yc resource-manager cloud list
       ```
+
+- API
+
+  Чтобы переименовать облако, воспользуйтесь методом REST API [update](../../api-ref/Cloud/update.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update).
 
 {% endlist %}

@@ -14,4 +14,11 @@ description: "Страница содержит все инструкции дл
 ## Управление пространством {#space}
 
 * [{#T}](space/create.md)
+* [{#T}](space/add-user-to-space.md)
 * [{#T}](space/delete.md)
+* [{#T}](space/delete-user-from-space.md)
+
+## Управление проектом {#project}
+
+* [{#T}](project/add-user-to-project.md)
+* [{#T}](project/delete-user-from-project.md)

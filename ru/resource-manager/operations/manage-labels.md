@@ -38,7 +38,7 @@
   Добавить метку виртуальной машине:
 
   > ```
-  > yc compute instance add-labels cl123g4dridnn5cna6df-yduv --labels project=test
+  > yc compute instance add-labels cl123g4dridnn5cn****-**** --labels project=test
   > ```
   >
   > Результат:
@@ -48,7 +48,7 @@
   > id: fhm1pr2bu3p4********
   > folder_id: b1g23ga45mev********
   > created_at: "2020-08-07T11:29:18Z"
-  > name: cl123g4dridnn5cna6df-yduv
+  > name: cl123g4dridnn5cn****-****
   > labels:
   >   project: test
   > zone_id: {{ region-id }}-a

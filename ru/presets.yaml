@@ -202,9 +202,9 @@ default:
   k8s-decomission-timeout: 7 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.24, 1.25, 1.26, 1.27, 1.28
-  k8s-versions-regular: 1.24, 1.25, 1.26, 1.27
-  k8s-versions-stable: 1.24, 1.25, 1.26, 1.27
+  k8s-versions-rapid: 1.25, 1.26, 1.27, 1.28
+  k8s-versions-regular: 1.25, 1.26, 1.27, 1.28
+  k8s-versions-stable: 1.25, 1.26, 1.27
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -500,6 +500,7 @@ default:
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
+  roles-speechsense-editor: Editor
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
   roles-vision-user: ai.vision.user
@@ -5944,6 +5945,7 @@ default:
         label_client-key: Ключ клиента
         label_complexity: Сложность
         label_main-challenge: Основное задание
+        label_no-hostname-check: Отключить проверку домена
         label_section-customization: Настройка внешнего вида
         label_section-style: Внешний вид
         label_server-key: Ключ сервера

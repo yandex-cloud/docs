@@ -32,7 +32,7 @@
       +----------------------+-----------+--------+--------+
       |          ID          |   NAME    | LABELS | STATUS |
       +----------------------+-----------+--------+--------+
-      | b1gd129pp9ha0vnvf5g7 | my-folder |        | ACTIVE |
+      | b1gd129pp9ha******** | my-folder |        | ACTIVE |
       +----------------------+-----------+--------+--------+
       ```
 
@@ -66,7 +66,7 @@
       Результат:
 
       ```bash
-      id: gfei8n54hmfhuk5nogse
+      id: gfei8n54hmfh********
       yandex_passport_user_account:
         login: test-user
         default_email: test-user@yandex.ru
@@ -77,68 +77,9 @@
       ```bash
       yc resource-manager folder add-access-binding my-folder \
         --role editor \
-        --subject userAccount:gfei8n54hmfhuk5nogse
+        --subject userAccount:gfei8n54hmfh********
       ```
 
-- API
-
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
-
-  1. Узнайте ID каталога с помощью метода REST API [list](../../api-ref/Folder/list.md):
-      ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
-      ```
-
-      Результат:
-
-      ```json
-      {
-       "folders": [
-        {
-         "id": "b1g66mft1vopnevbn57j",
-         "cloudId": "b1gd129pp9ha0vnvf5g7",
-         "createdAt": "2018-10-17T12:44:31Z",
-         "name": "my-folder",
-         "status": "ACTIVE"
-        }
-       ]
-      }
-      ```
-  2. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
-      ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
-      ```
-
-      Результат:
-
-      ```json
-      {
-       "id": "gfei8n54hmfhuk5nogse",
-       "yandexPassportUserAccount": {
-        "login": "test-user",
-        "defaultEmail": "test-user@yandex.ru"
-       }
-      }
-      ```
-  3. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
-
-      ```bash
-      curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-TOKEN>" \
-        -d '{
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "editor",
-                "subject": {
-                    "id": "gfei8n54hmfhuk5nogse",
-                    "type": "userAccount"
-        }}}]}' \
-        https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
-      ```
 
 - {{ TF }}
 
@@ -164,9 +105,9 @@
        {% endnote %}
 
      * `member` — пользователь, которому будет присвоена роль. Обязательный параметр. Может иметь одно из следующих значений:
-       * `userAccount:<ID пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
-       * `serviceAccount:<ID сервисного аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-       * `federatedUser:<ID пользовательского аккаунта>` — [ID пользовательского аккаунта](../../../organization/operations/users-get.md).
+       * `userAccount:<идентификатор_пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
+       * `serviceAccount:<идентификатор_сервисного_аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
+       * `federatedUser:<идентификатор_пользовательского_аккаунта>` — [ID пользовательского аккаунта](../../../organization/operations/users-get.md).
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
@@ -174,7 +115,7 @@
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор каталога>"
+       folder_id = "<идентификатор_каталога>"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -218,8 +159,69 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
+
+- API
+
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
+
+  1. Узнайте ID каталога с помощью метода REST API [list](../../api-ref/Folder/list.md):
+      ```bash
+      curl -H "Authorization: Bearer <IAM-токен>" \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
+      ```
+
+      Результат:
+
+      ```json
+      {
+       "folders": [
+        {
+         "id": "b1g66mft1vop********",
+         "cloudId": "b1gd129pp9ha********",
+         "createdAt": "2018-10-17T12:44:31Z",
+         "name": "my-folder",
+         "status": "ACTIVE"
+        }
+       ]
+      }
+      ```
+  2. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+      ```bash
+      curl -H "Authorization: Bearer <IAM-токен>" \
+        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+      ```
+
+      Результат:
+
+      ```json
+      {
+       "id": "gfei8n54hmfh********",
+       "yandexPassportUserAccount": {
+        "login": "test-user",
+        "defaultEmail": "test-user@yandex.ru"
+       }
+      }
+      ```
+  3. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+
+      ```bash
+      curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-токен>" \
+        -d '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfh********",
+                    "type": "userAccount"
+        }}}]}' \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+      ```
+
 
 {% endlist %}
 
@@ -251,62 +253,10 @@
   2. Например, назначьте роль нескольким пользователям:
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
-        --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
+        --access-binding role=viewer,subject=userAccount:helj89sfj80a********
       ```
 
-- API
-
-  Назначьте одному пользователю роль `editor`, а другому `viewer`:
-
-  ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-TOKEN>" \
-    -d '{
-    "accessBindingDeltas": [{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "editor",
-            "subject": {
-                "id": "gfei8n54hmfhuk5nogse",
-                "type": "userAccount"
-            }
-        }
-    },{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "viewer",
-            "subject": {
-                "id": "helj89sfj80aj24nugsz",
-                "type": "userAccount"
-    }}}]}' \
-    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
-  ```
-
-  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызова gRPC API [FolderService/SetAccessBindings](../../api-ref/grpc/folder_service.md#SetAccessBindings).
-
-  {% note alert %}
-
-  Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
-
-  {% endnote %}
-
-
-  ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-TOKEN>" \
-    -d '{
-    "accessBindings": [{
-        "roleId": "editor",
-        "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
-    },{
-        "roleId": "viewer",
-        "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
-    }]}' \
-    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
-  ```
 
 - {{ TF }}
 
@@ -331,7 +281,7 @@
 
        {% endnote %}
 
-     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<ID пользователя>`, где `<ID пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
+     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<идентификатор_пользователя>`, где `<идентификатор_пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
@@ -339,7 +289,7 @@
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор каталога>"
+       folder_id = "<идентификатор_каталога>"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -388,8 +338,62 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
+
+- API
+
+  Назначьте одному пользователю роль `editor`, а другому `viewer`:
+
+  ```bash
+  curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+    "accessBindingDeltas": [{
+        "action": "ADD",
+        "accessBinding": {
+            "roleId": "editor",
+            "subject": {
+                "id": "gfei8n54hmfh********",
+                "type": "userAccount"
+            }
+        }
+    },{
+        "action": "ADD",
+        "accessBinding": {
+            "roleId": "viewer",
+            "subject": {
+                "id": "helj89sfj80a********",
+                "type": "userAccount"
+    }}}]}' \
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+  ```
+
+  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызова gRPC API [FolderService/SetAccessBindings](../../api-ref/grpc/folder_service.md#SetAccessBindings).
+
+  {% note alert %}
+
+  Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
+
+  {% endnote %}
+
+
+  ```bash
+  curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+    "accessBindings": [{
+        "roleId": "editor",
+        "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
+    },{
+        "roleId": "viewer",
+        "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
+    }]}' \
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
+  ```
+
 
 {% endlist %}
 
@@ -407,10 +411,6 @@
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [grant-role-for-sa-to-folder-via-cli](../../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md) %}
-
-- API
-
-  {% include [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
 - {{ TF }}
 
@@ -435,20 +435,20 @@
 
        {% endnote %}
 
-     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `serviceAccount:<ID сервисного аккаунта>`, где `<ID сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md). Вы можете перечислить несколько сервисных аккаунтов. Обязательный параметр.
+     * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `serviceAccount:<идентификатор_сервисного_аккаунта>`, где `<идентификатор_сервисного_аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md). Вы можете перечислить несколько сервисных аккаунтов. Обязательный параметр.
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор каталога>"
+       folder_id = "<идентификатор_каталога>"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
        role      = "editor"
-       member   = "serviceAccount:<идентификатор сервисного аккаунта>"
+       member   = "serviceAccount:<идентификатор_сервисного_аккаунта>"
      }
      ...
      ```
@@ -485,8 +485,12 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
+
+- API
+
+  {% include [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
 {% endlist %}
 
@@ -508,24 +512,23 @@
   1. Назначьте роль с помощью команды:
 
       ```bash
-      yc resource-manager folder add-access-binding <folder-name>|<folder-id> \
-          --role <role-id> \
-          --subject federatedUser:<federated-user-id>
+      yc resource-manager folder add-access-binding <имя_или_идентификатор_каталога> \
+          --role <идентификатор_роли> \
+          --subject federatedUser:<идентификатор_пользователя>
       ```
 
       Где:
 
-      * `<folder-name>` — имя каталога. Вы можете указать каталог по имени или идентификатору.
-      * `<folder-id>` — идентификатор каталога.
-      * `<role-id>` — идентификатор роли, например `editor`.
-      * `<federated-user-id>` — идентификатор аккаунта пользователя, которому назначается роль.
+      * `<имя_или_идентификатор_каталога>` — имя или идентификатор каталога.
+      * `--role` — идентификатор роли, например `editor`.
+      * `--subject` — идентификатор аккаунта пользователя, которому назначается роль.
 
-      Например, назначьте федеративному пользователю с идентификатором `aje6o61dvog2h6g9a33s` роль `editor` на каталог `my-folder`:
+      Например, назначьте федеративному пользователю с идентификатором `aje6o61dvog2********` роль `editor` на каталог `my-folder`:
 
       ```bash
       yc resource-manager folder add-access-binding my-folder \
           --role editor \
-          --subject federatedUser:aje6o61dvog2h6g9a33s
+          --subject federatedUser:aje6o61dvog2********
       ```
 
 {% endlist %}

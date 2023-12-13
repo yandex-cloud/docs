@@ -24,8 +24,6 @@ description: "Управление доступом в сервисе сетев
 
 ### Сервисные роли {#service-roles}
 
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * {% include [load-balancer.auditor](../../_includes/iam/roles/short-descriptions/load-balancer.auditor.md) %}
 * {% include [load-balancer.viewer](../../_includes/iam/roles/short-descriptions/load-balancer.viewer.md) %}
 * {% include [load-balancer.privateAdmin](../../_includes/iam/roles/short-descriptions/load-balancer.privateAdmin.md) %}

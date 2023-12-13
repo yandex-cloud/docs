@@ -22,10 +22,6 @@ description: "Управление доступом облачного MQTT-се
 
 ### Сервисные роли {#service-roles}
 
-{% include [resource-manager.clouds.member](../../_includes/roles-resource-manager-clouds-member.md) %}
-
-{% include [resource-manager.clouds.owner](../../_includes/roles-resource-manager-clouds-owner.md) %}
-
 {% include [iot-editor](../../_includes/roles-iot-editor.md) %}
 
 {% include [iot-viewer](../../_includes/roles-iot-viewer.md) %}

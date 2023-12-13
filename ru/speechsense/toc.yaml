@@ -20,8 +20,18 @@ items:
         items:
           - name: Создать пространство
             href: operations/space/create.md
+          - name: Добавить пользователя в пространство
+            href: operations/space/add-user-to-space.md
           - name: Удалить пространство
             href: operations/space/delete.md
+          - name: Удалить пользователя из пространства
+            href: operations/space/delete-user-from-space.md
+      - name: Управление проектом
+        items:
+          - name: Добавить пользователя в проект
+            href: operations/project/add-user-to-project.md
+          - name: Удалить пользователя из проекта
+            href: operations/project/delete-user-from-project.md
   - name: Концепции
     items:
       - name: Диалоги в {{ speechsense-name }}

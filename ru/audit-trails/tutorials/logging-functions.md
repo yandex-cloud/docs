@@ -25,7 +25,7 @@
 * Группы безопасности: удаление правила.
 * {{ lockbox-name }}: удаление назначенных прав на секрет.
 
-{% include [Yc-solution-library-for-security](../../_includes/security-solution-library.md) %}
+{% include [Yc-security-solutions-library](../../_includes/security-solution-library.md) %}
 
 Решение содержит исходные коды Python-функции и скрипта {{ TF }}, который выполняет настройку всех компонентов {{ yandex-cloud }}, необходимых для выполнение процедуры.  
 

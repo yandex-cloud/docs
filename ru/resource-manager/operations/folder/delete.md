@@ -36,10 +36,6 @@
       
       Чтобы отобразить информацию о выполняемой операции, не дожидаясь ее завершения, установите флаг `--async`.
 
-- API
-
-  Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../api-ref/Folder/delete.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete).
-
 - {{ TF }}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -96,6 +92,10 @@
      ```
      yc resource-manager folder list
      ```
+
+- API
+
+  Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../api-ref/Folder/delete.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete).
 
 {% endlist %}
 

@@ -31,8 +31,6 @@ description: "Управление доступом в сервисе для п�
 * {% include [certificate-manager.editor](../../_includes/iam/roles/short-descriptions/certificate-manager.editor.md) %}
 * {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
 * {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

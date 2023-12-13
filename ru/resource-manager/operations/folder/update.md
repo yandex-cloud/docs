@@ -34,10 +34,6 @@
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-- API
-
-  Чтобы изменить каталог, воспользуйтесь методом REST API [update](../../api-ref/Folder/update.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Update](../../api-ref/grpc/folder_service.md#Update).
-
 - {{ TF }}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -90,8 +86,12 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc resource-manager folder list-operations <имя_каталога>|<ID_каталога>
+     yc resource-manager folder list-operations <имя_или_идентификатор_каталога>
      ```
+
+- API
+
+  Чтобы изменить каталог, воспользуйтесь методом REST API [update](../../api-ref/Folder/update.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Update](../../api-ref/grpc/folder_service.md#Update).
 
 {% endlist %}
 

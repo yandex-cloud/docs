@@ -38,10 +38,6 @@ _Каталог_  — это пространство, в котором соз�
             --description "my first folder with description"
           ```
 
-- API
-
-  Чтобы создать каталог, воспользуйтесь методом REST API [create](../../api-ref/Folder/create.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../api-ref/grpc/folder_service.md#Create).
-
 - {{ TF }}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -59,9 +55,9 @@ _Каталог_  — это пространство, в котором соз�
 
      ```hcl
      resource "yandex_resourcemanager_folder" "folder1" {
-       cloud_id    = "<идентификатор облака>"
-       name        = "<имя создаваемого каталога>"
-       description = "<описание каталога>"
+       cloud_id    = "<идентификатор_облака>"
+       name        = "<имя_создаваемого_каталога>"
+       description = "<описание_каталога>"
      }
      ```
 
@@ -106,5 +102,9 @@ _Каталог_  — это пространство, в котором соз�
      ```
      yc resource-manager cloud list
      ```
+
+- API
+
+  Чтобы создать каталог, воспользуйтесь методом REST API [create](../../api-ref/Folder/create.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../api-ref/grpc/folder_service.md#Create).
 
 {% endlist %}
