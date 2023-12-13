@@ -51,5 +51,5 @@ json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" a
 
 Ознакомьтесь с примерами событий в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
 
-{% include [Yc-solution-library-for-security](../../_includes/security-solution-library.md) %}
+{% include [Yc-security-solutions-library](../../_includes/security-solution-library.md) %}
 

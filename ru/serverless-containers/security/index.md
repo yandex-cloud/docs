@@ -29,8 +29,6 @@
 
 {% include [serverless-containers-roles-admin](../../_includes/roles-serverless-containers-admin.md) %}
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

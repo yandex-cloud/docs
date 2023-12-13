@@ -32,14 +32,6 @@ description: "Управление доступом в сервисе, пред�
 
 {% include notitle [roles-backup-viewer](../../_includes/roles-backup-viewer.md) %}
 
-#### {{ roles-cloud-member }} {#resmgr-clouds-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-#### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
-
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

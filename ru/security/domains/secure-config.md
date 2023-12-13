@@ -117,7 +117,7 @@
 ACL позволяет предоставить доступ к объекту в обход проверок {{ iam-name }} и политик доступа. Рекомендуем установить строгие ACL на бакеты.
 
 
-![](../../_assets/overview/solution-library-icon.svg) [Пример безопасной конфигурации {{ objstorage-name }}: {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
+![](../../_assets/overview/solution-library-icon.svg) [Пример безопасной конфигурации {{ objstorage-name }}: {{ TF }}](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket)
 
 
 ### Защита от удаления и резервирование версий {#versioning}

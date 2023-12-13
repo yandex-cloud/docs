@@ -34,13 +34,6 @@ description: "Управление доступом в веб-инструмен
 
 {% include [gitlab-admin](../../_includes/iam/roles/gitlab-admin.md) %}
 
-#### {{ roles-cloud-member }} {#member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-#### {{ roles-cloud-owner }} {#owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

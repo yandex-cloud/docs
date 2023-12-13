@@ -33,8 +33,6 @@ description: "Управление доступом в сервисе для х�
 * {% include [lockbox-viewer](../../_includes/iam/roles/short-descriptions/lockbox-viewer.md) %}
 * {% include [lockbox-auditor](../../_includes/iam/roles/short-descriptions/lockbox-auditor.md) %}
 * {% include [lockbox-payloadviewer](../../_includes/iam/roles/short-descriptions/lockbox-payloadViewer.md) %}
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

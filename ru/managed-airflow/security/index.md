@@ -45,14 +45,6 @@ description: "Управление доступом в сервисе созда
 
 Включает в себя роль `{{ roles-editor }}`.
 
-### {{ roles-cloud-member }} {#member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
-
 ## Что дальше {#whats-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).

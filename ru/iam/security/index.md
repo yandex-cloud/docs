@@ -48,13 +48,6 @@ description: "Управление доступом в сервисе идент
 
 {% include [roles-iam-admin](../../_includes/roles-iam-admin.md) %}
 
-#### {{ roles-cloud-owner }} {#cloud-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
-
-#### {{ roles-cloud-member }} {#cloud-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

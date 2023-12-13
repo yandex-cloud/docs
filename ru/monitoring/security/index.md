@@ -12,6 +12,8 @@ description: "Управление доступом в сервисе монит
 
 На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
 
+Назначать роли на ресурс могут те, у кого есть роль `admin`, `resource-manager.clouds.owner` или `organization-manager.organizations.owner` на этот ресурс.
+
 {% note info %}
 
 Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
@@ -29,8 +31,6 @@ description: "Управление доступом в сервисе монит
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ monitoring-full-name }}.
 
 ### Сервисные роли {#service-roles}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 #### {{ roles-monitoring-viewer }} {#monitoring-viewer}
 

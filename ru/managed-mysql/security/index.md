@@ -44,13 +44,6 @@ description: "Управление доступом в сервисе по со�
 
 {% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
 
-#### {{ roles-cloud-member }} {#member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-#### {{ roles-cloud-owner }} {#owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

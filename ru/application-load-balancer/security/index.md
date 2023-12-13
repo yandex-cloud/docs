@@ -24,8 +24,6 @@ description: "Управление доступом в сервисе для р�
 
 ### Сервисные роли {#service-roles}
 
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * {% include [alb.auditor](../../_includes/iam/roles/short-descriptions/alb.auditor.md) %}
 * {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
 * {% include [alb.user](../../_includes/iam/roles/short-descriptions/alb.user.md) %}

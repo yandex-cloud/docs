@@ -42,14 +42,6 @@ description: "Управление доступом в сервисе по пе�
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
-### {{ roles-cloud-member }} {#member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
-
 ## Какие роли необходимы {#required-roles}
 
 Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `editor` или выше на каталог, в котором создаются проекты. Роль `viewer` позволит только просматривать список проектов и содержимое файлов, которые были загружены.

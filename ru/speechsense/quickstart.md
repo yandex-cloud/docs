@@ -58,7 +58,8 @@
 
 Для загрузки данных в {{ speechsense-name }} используется [gRPC API](api-ref/grpc/index.md). 
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и добавьте его в пространство с [ролью](../iam/concepts/access-control/roles.md) `speech-sense.data.editor`. Это позволит сервисному аккаунту загружать данные в созданное подключение. Подробнее о ролях, действующих в сервисе, см. раздел [{#T}](security/index.md).
+1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с ролью `speech-sense.data.editor`. Это позволит сервисному аккаунту загружать данные в созданное подключение. Подробнее о ролях, действующих в сервисе, см. раздел [{#T}](security/index.md).
+1. [Добавьте сервисный аккаунт в пространство](operations/space/add-user-to-space.md) с ролью `{{ roles-speechsense-editor }}`.
 1. [Создайте API-ключ](../iam/operations/api-key/create.md) или [IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API. [Подробнее об аутентификации в API {{ speechsense-name }}](api-ref/authentication.md).
 1. [Загрузите данные](operations/data/upload-data.md) с помощью Python-скрипта отправки данных. Вы можете передавать аудио целиком в одном сообщении или аудиофрагментами. 
 

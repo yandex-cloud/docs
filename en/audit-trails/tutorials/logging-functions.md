@@ -25,7 +25,7 @@ Compensating actions on {{ yandex-cloud }} resources:
 * Security groups: Delete the rule.
 * {{ lockbox-name }}: Disable assigned access to the secret.
 
-{% include [Yc-solution-library-for-security](../../_includes/security-solution-library.md) %}
+{% include [Yc-security-solutions-library](../../_includes/security-solution-library.md) %}
 
 A solution contains the source codes of a Python function and a {{ TF }} script that configures all the {{ yandex-cloud }} components required to complete the procedure.
 

@@ -201,9 +201,9 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.24, 1.25, 1.26, 1.27, 1.28
-  k8s-versions-regular: 1.24, 1.25, 1.26, 1.27
-  k8s-versions-stable: 1.24, 1.25, 1.26, 1.27
+  k8s-versions-rapid: 1.25, 1.26, 1.27, 1.28
+  k8s-versions-regular: 1.25, 1.26, 1.27, 1.28
+  k8s-versions-stable: 1.25, 1.26, 1.27
   k8s-vpa: Vertical Pod Autoscaler
   KF: Apache Kafka®
   KFC: Kafka Connect
@@ -5935,6 +5935,7 @@ default:
         label_client-key: Client key
         label_complexity: Complexity
         label_main-challenge: Main challenge
+        label_no-hostname-check: Disable domain check
         label_section-customization: Сustomize style
         label_section-style: Style
         label_server-key: Server key

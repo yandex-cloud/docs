@@ -26,26 +26,6 @@
     --subject system:allAuthenticatedUsers
   ```
 
-- API
-
-  Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
-
-  ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-      "accessBindingDeltas": [{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "viewer",
-              "subject": {
-                  "id": "allAuthenticatedUsers",
-                  "type": "system"
-      }}}]}' \
-      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
-  ```
-
 - {{ TF }}
 
   1. Назначьте роль `viewer` системной группе `allAuthenticatedUsers`: 
@@ -91,5 +71,25 @@
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
       После этого будут назначены права доступа к облаку.
+
+- API
+
+  Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
+
+  ```bash
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-токен>" \
+      -d '{
+      "accessBindingDeltas": [{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "viewer",
+              "subject": {
+                  "id": "allAuthenticatedUsers",
+                  "type": "system"
+      }}}]}' \
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+  ```
 
 {% endlist %}
