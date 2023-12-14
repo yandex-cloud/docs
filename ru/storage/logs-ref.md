@@ -32,7 +32,7 @@
 `timestamp` | String | Дата и время операции с бакетом, в формате `ГГГГ-ММ-ДДTЧЧ:ММ:ССZ`.
 `user_agent` | String | Клиентское приложение (User Agent), которое выполнило запрос.
 `version_id` | String | Версия объекта.
-`vhost` | String | Виртуальный хост запроса.<br>Возможные значения:<br>– `{{ s3-storage-host }}`.<br>– `<имя бакета>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<имя бакета>.{{ s3-web-host }}`.
+`vhost` | String | Виртуальный хост запроса.<br>Возможные значения:<br>– `{{ s3-storage-host }}`.<br>– `<имя_бакета>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<имя_бакета>.{{ s3-web-host }}`.
 
 ## Методы запроса к бакету {#bucket-methods}
 

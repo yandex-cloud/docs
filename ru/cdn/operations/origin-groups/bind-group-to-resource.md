@@ -44,7 +44,7 @@
 
      ```
      - id: "90209"
-       folder_id: b1g86q4m5vej8lkljme5
+       folder_id: b1g86q4m5vej********
        name: test-group-1
        use_next: true
        origins:
@@ -58,7 +58,7 @@
          source: www.example1.com
          enabled: true
      - id: "90208"
-       folder_id: b1g86q4m5vej8lkljme5
+       folder_id: b1g86q4m5vej********
        name: test-group
        use_next: true
        origins:
@@ -76,21 +76,21 @@
   1. Создайте ресурс с подключенной группой источников:
 
      ```
-     yc cdn resource create --cname <доменное имя ресурса> \
-       --origin-group-id <идентификатор группы источников> \
+     yc cdn resource create --cname <доменное_имя_ресурса> \
+       --origin-group-id <идентификатор_группы_источников> \
        --origin-protocol https
      ```
 
      Где:
 
-     * `origin-group-id` — идентификатор группы источников.
-     * `origin-protocol` — протокол для источников.
+     * `--origin-group-id` — идентификатор группы источников.
+     * `--origin-protocol` — протокол для источников.
 
      Результат:
 
      ```
-     id: bc855oumelrqw3ceywih
-     folder_id: b1g86q4m5vej8lkljme5
+     id: bc855oumelrq********
+     folder_id: b1g86q4m5vej********
      cname: res1.example.com
      created_at: "2022-01-15T15:13:42.827643Z"
      updated_at: "2022-01-15T15:13:42.827671Z"
@@ -146,17 +146,17 @@
      
      ```
      provider "yandex" {
-       token     = "<OAuth>"
-       cloud_id  = "<идентификатор облака>"
-       folder_id = "<идентификатор каталога>"
-       zone      = "<зона доступности по умолчанию>"
+       token     = "<OAuth-токен>"
+       cloud_id  = "<идентификатор_облака>"
+       folder_id = "<идентификатор_каталога>"
+       zone      = "<зона_доступности_по_умолчанию>"
      }
 
      resource "yandex_cdn_resource" "my_resource" {
-       cname = "<доменное имя ресурса>"
+       cname = "<доменное_имя_ресурса>"
        active = true
        origin_protocol = "https"
-	    origin_group_id = <идентификатор группы источников>
+	    origin_group_id = <идентификатор_группы_источников>
      }
      ```
 
@@ -219,8 +219,8 @@
      Результат:
 
      ```
-     - id: bc82xll34xuc4kymnpqq
-       folder_id: b1g86q4m5vej8lkljme5
+     - id: bc82xll34xuc********
+       folder_id: b1g86q4m5vej********
        cname: res1.example.com
        created_at: "2022-01-21T08:17:48.850086Z"
        updated_at: "2022-01-21T08:17:48.850125Z"
@@ -273,7 +273,7 @@
 
      ```
      - id: "90209"
-       folder_id: b1g86q4m5vej8lkljme5
+       folder_id: b1g86q4m5vej********
        name: test-group-1
        use_next: true
        origins:
@@ -287,7 +287,7 @@
          source: www.example1.com
          enabled: true
      - id: "90208"
-       folder_id: b1g86q4m5vej8lkljme5
+       folder_id: b1g86q4m5vej********
        name: test-group
        use_next: true
        origins:
@@ -306,15 +306,15 @@
 
      ```
      yc cdn resource update \
-       --id <идентификатор ресурса> \
-       --origin-group-id <идентификатор группы источников>
+       --id <идентификатор_ресурса> \
+       --origin-group-id <идентификатор_группы_источников>
      ```
 
      Результат:
 
      ```
-     id: bc8krsk72icwnvyvs6c3
-     folder_id: b1g86q4m5vej8lkljme5
+     id: bc8krsk72icw********
+     folder_id: b1g86q4m5vej********
      cname: res2.example.com
      created_at: "2022-01-15T15:29:19.103653Z"
      updated_at: "2022-01-15T15:33:22.819916Z"

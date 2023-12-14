@@ -1,4 +1,6 @@
 ---
+title: "Setting up AWS tools in {{ ydb-full-name }}"
+description: "This page describes the AWS tools you can use to access the database via the Document API in the AWS DynamoDB compatibility mode."
 sourcePath: overlay/quickstart/document-api/aws-setup.md
 ---
 # Setting up AWS tools

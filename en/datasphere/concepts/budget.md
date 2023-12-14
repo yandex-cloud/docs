@@ -1,3 +1,8 @@
+---
+title: "How to manage your computing costs in {{ ml-platform-full-name }}"
+description: "In this tutorial, you will learn how to control your spending in {{ ml-platform-name }} and what consumption thresholds the service has."
+---
+
 # Cost management
 
 You can manage your computing costs in a few ways:

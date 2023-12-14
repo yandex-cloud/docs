@@ -1,12 +1,14 @@
 ---
+title: "{{ kms-full-name }} pricing policy"
+description: "This article describes the {{ kms-name }} pricing policy."
 editable: false
 ---
 
-# Pricing for {{ kms-name }}
+# {{ kms-name }} pricing
 
 The cost of {{ kms-name }} usage is based on:
 
-* The number of active key versions used: versions with the `Active` and `Scheduled For Destruction` statuses.
+* Number of active key versions: versions with the `Active` and `Scheduled For Destruction` statuses.
 
    {% note alert %}
 
@@ -14,7 +16,7 @@ The cost of {{ kms-name }} usage is based on:
 
    {% endnote %}
 
-* The number of cryptographic operations performed ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
+* Number of performed cryptographic operations ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
 ## Pricing {#prices}
 

@@ -48,4 +48,10 @@ editable: false
 
 {% include [monitoring.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
 
+## Сервис {{ objstorage-full-name }} {#storage}
+
+{% include [storage.md](../../_includes/monitoring/metrics-ref/storage.md) %}
+
+Подробнее о сервисе в документации [{{ objstorage-name }}](../../storage/).
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

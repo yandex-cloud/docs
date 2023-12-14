@@ -114,7 +114,7 @@ cloud-instance-type: g2.1
 1. Секция `cloud-instance-type` определяет тип используемой [конфигурации вычислительных ресурсов](configurations.md), на которой будет выполняться задание.
 
 
-
 #### См. также {#see-also}
 
-[{#T}](../operations/projects/work-with-jobs.md)
+* [{#T}](../operations/projects/work-with-jobs.md)
+* [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий.

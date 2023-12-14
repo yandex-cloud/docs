@@ -5,7 +5,7 @@
 ## Creating secrets {#create}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret.
 
@@ -19,9 +19,9 @@
 Only a community admin can share a secret in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Select the appropriate secret from the list.
-1. Click the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
+1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the secret in.
 
 ## Invoking a secret in a project cell {#call}
@@ -50,8 +50,8 @@ Once you create a secret, you can use it in project cells as an environment vari
 ## Copying secrets {#copy}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. In the list of secrets, choose the one you want to copy to your project, click ![options](../../../_assets/options.svg), and select **{{ ui-key.yc-ui-datasphere.common.clone }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. In the list of secrets, choose the one you want to copy to your project, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yc-ui-datasphere.common.clone }}**.
 1. Edit the name and contents of the secret to copy.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. This will display the created secret's info page.
 
@@ -60,8 +60,8 @@ Once you create a secret, you can use it in project cells as an environment vari
 ## Updating secrets {#change}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. In the list of secrets, choose the one you want to update, click ![options](../../../_assets/options.svg), and select **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. In the list of secrets, choose the one you want to update, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Update the secret: edit its name and contents.
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
@@ -70,8 +70,8 @@ Once you create a secret, you can use it in project cells as an environment vari
 ## Deleting secrets {#delete}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. In the list of secrets, choose the one you want to delete, click ![options](../../../_assets/options.svg), and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. In the list of secrets, choose the one you want to delete, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the secret has been deleted.

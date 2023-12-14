@@ -1,3 +1,8 @@
+---
+title: "Voice list for {{ speechkit-full-name }}"
+description: "In this tutorial, you will learn about voices available in {{ speechkit-name }}."
+---
+
 # List of voices
 
 This section provides a list of voices available in the service and their characteristics:

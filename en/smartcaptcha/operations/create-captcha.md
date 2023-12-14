@@ -1,3 +1,8 @@
+---
+title: "How to create a CAPTCHA in {{ captcha-full-name }}"
+description: "Follow this guide to create a CAPTCHA."
+---
+
 # Creating a CAPTCHA
 
 {{ captcha-name }} lets you create a CAPTCHA of multiple levels of complexity. You can:

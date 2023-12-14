@@ -4,7 +4,7 @@
 
 In this tutorial, you will, using a [node built from a Docker image](../../datasphere/concepts/deploy/index.md#docker-node), deploy an object detection service based on [NVIDIA Triton Inference Server](https://github.com/triton-inference-server).
 
-1. [Prepare the infrastructure](#infra).
+1. [Prepare your infrastructure](#infra).
 1. [Prepare a Docker image for the service deployment](#docker).
 1. [Deploy the service in {{ ml-platform-name }}](#deploy).
 1. [Run a health check for the service you deployed](#check-node).
@@ -44,7 +44,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -217,7 +217,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 ## Deploy the service in {{ ml-platform-name }} {#deploy}
 
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Select a community with a billing account linked.
 1. [Create a project](../../datasphere/operations/projects/create.md) named `Node from Docker`.
 1. [In the project settings](../../datasphere/operations/projects/update.md), specify:
@@ -225,7 +225,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-datasphere`.
 1. [Create a secret](../../datasphere/operations/data/secrets.md) named `iam-secret` including an IAM token of your user account.
 1. Create a secret named `key-for-sa` storing the complete authorized key for the `sa-for-datasphere` service account.
-1. Create a node. To do this, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**. Specify the basic node parameters:
+1. Create a node. To do this, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**. Specify the basic node parameters:
    * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.common.docker }}**.
    * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: `triton`.
    * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the {{ container-registry-name }} image. You can obtain it in the management console or CLI by running the `yc container registry list` command.

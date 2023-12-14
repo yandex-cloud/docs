@@ -66,12 +66,12 @@ You can link a customer's cloud to a partner subaccount on the partner portal or
 
    To link a cloud on the customer side:
 
-   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/main-menu.svg) **All services**.
-   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **All services**.
+   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
    1. Select an account from the list.
    1. Go to the **Account data** page.
    1. Under **Clouds**, click **Link cloud**.
-   1. Select a cloud from the list.
+   1. Select the cloud from the list.
    1. Click **Link** and the added cloud will appear on the list.
    1. If you transferred a cloud, pay any outstanding charges on the old account.
 
@@ -84,7 +84,7 @@ You can link a customer's cloud to a partner subaccount on the partner portal or
    To link a cloud using the customer billing account:
 
    1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID to which your partner account in {{ yandex-cloud }} is linked.
-   1. In the left-hand panel, select ![icon](../../_assets/partner/dashboard.svg) **Dashboard**.
+   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
    1. Select the customer's account from the list and click it.
    1. In the window that opens, click **Create cloud**. You will be redirected to the customer's billing account page in {{ billing-name }}.
    1. Under **Clouds**, click **Link cloud**.

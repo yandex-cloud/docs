@@ -5,7 +5,7 @@ description: "Follow this guide to combine data from multiple tables."
 
 # Combining data from multiple tables
 
-When multiple source tables are available, you can combine their data:
+When [multiple source tables](../../concepts/dataset/settings.md#multi-table) are available, you can combine their data:
 
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}

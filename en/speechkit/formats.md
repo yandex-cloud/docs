@@ -1,6 +1,11 @@
+---
+title: "Audio formats supported by {{ speechkit-full-name }}"
+description: "{{ speechkit-name }} recognizes and synthesizes audio in LPCM, OggOpus, and MP3 formats."
+---
+
 # Supported audio formats
 
-{{ speechkit-name }} enables you to recognize and synthesize the following audio formats:
+{{ speechkit-name }} allows you to recognize and synthesize the following audio formats:
 * LPCM
 * OggOpus
 * MP3

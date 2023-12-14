@@ -113,7 +113,7 @@
      
      ```hcl
      provider "yandex" {
-       token     = "<OAuth>"
+       token     = "<OAuth-токен>"
        cloud_id  = "<идентификатор_облака>"
        folder_id = "<идентификатор_каталога>"
        zone      = "{{ region-id }}-a"
@@ -165,6 +165,38 @@
 
 {% list tabs %}
 
+- AWS CLI
+
+  1. Создайте файл с настройками логирования в формате JSON. Например:
+
+      ```json
+      {
+        "LoggingEnabled": {
+            "TargetBucket": "<имя_бакета_с_логами>",
+            "TargetPrefix": "<префикс_ключа>"
+        }
+      }
+      ```
+
+      Где:
+
+      * `TargetBucket` — имя целевого бакета, в который будут записываться логи.
+      * `TargetPrefix` — [префикс ключа](../../storage/concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
+  
+  1. Включите логирование в бакете:
+
+      ```bash
+      aws s3api put-bucket-logging \
+        --bucket <имя_бакета_с_файлами> \
+        --endpoint-url https://{{ s3-storage-host }} \
+        --bucket-logging-status file://<путь_к_файлу_настроек>
+      ```
+
+      Где:
+
+      * `--bucket` — имя исходного бакета, для которого нужно включить логирование действий.
+      * `--bucket-logging-status` — путь к файлу с настройками логирования.
+
 - API
 
   Используйте метод API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) для бакета с файлами. Тело HTTP-запроса:
@@ -172,12 +204,16 @@
   ```xml
   <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
     <LoggingEnabled>
-      <TargetBucket>имя_бакета_с_логами</TargetBucket>
+      <TargetBucket>имя бакета с логами</TargetBucket>
+      <TargetPrefix>префикс ключа</TargetPrefix>
     </LoggingEnabled>
   </BucketLoggingStatus>
   ```
 
-  Где `TargetBucket` — имя бакета, в который будут записываться логи.
+  Где:
+
+   * `TargetBucket` — имя бакета, в который будут записываться логи.
+   * `TargetPrefix` – [префикс ключа](../../storage/concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
 {% endlist %}
 
@@ -207,7 +243,7 @@
   Результат:
 
   ```text
-  upload: <путь к файлу ycgame-update-v1.1.exe> to s3://<имя_бакета_с_файлами>/ycgame-update-v1.1.exe
+  upload: <путь_к_файлу_ycgame-update-v1.1.exe> to s3://<имя_бакета_с_файлами>/ycgame-update-v1.1.exe
   ```
 
 - {{ TF }}
@@ -224,9 +260,9 @@
      resource "yandex_storage_object" "patch-v1-1" {
        access_key = "<идентификатор_статического_ключа>"
        secret_key = "<секретный_ключ>"
-       bucket = "<имя_бакета_с_файлами>"
-       key    = "ycgame-update-v1.1.exe"
-       source = "<путь_к_файлу>/ycgame-update-v1.1.exe"
+       bucket     = "<имя_бакета_с_файлами>"
+       key        = "ycgame-update-v1.1.exe"
+       source     = "<путь_к_файлу>/ycgame-update-v1.1.exe"
      }
      ```
 
@@ -336,7 +372,7 @@
   1. Включите переадресацию клиентов для ресурса:
 
      ```bash
-     yc cdn resource update <ID_ресурса> --redirect-http-to-https
+     yc cdn resource update <идентификатор_ресурса> --redirect-http-to-https
      ```
 
 - {{ TF }}
@@ -508,16 +544,16 @@
         Результат:
 
         ```text
-        +----------------------------+------+-------+----------------------------+
-        |            NAME            | TTL  | TYPE  |            DATA            |
-        +----------------------------+------+-------+----------------------------+
-        | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}. |
-        |                            |      |       | ns2.{{ dns-ns-host-sld }}. |
-        | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}. |
+        +----------------------------+------+-------+------------------------------+
+        |            NAME            | TTL  | TYPE  |             DATA             |
+        +----------------------------+------+-------+------------------------------+
+        | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.         |
+        |                            |      |       | ns2.{{ dns-ns-host-sld }}.         |
+        | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.         |
         |                            |      |       | {{ dns-mx-host }}. 1 10800 |
-        |                            |      |       | 900 604800 86400           |
-        | cdn.ycprojectblue.example. |  600 | CNAME | cl-********.edgecdn.ru.    |
-        +----------------------------+------+-------+----------------------------+
+        |                            |      |       | 900 604800 86400             |
+        | cdn.ycprojectblue.example. |  600 | CNAME | cl-********.edgecdn.ru.      |
+        +----------------------------+------+-------+------------------------------+
         ```
 
         В списке должна быть запись с именем `cdn.ycprojectblue.example.`

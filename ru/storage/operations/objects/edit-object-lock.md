@@ -26,7 +26,7 @@
        --bucket <имя_бакета> \
        --key <ключ_объекта> \
        --version-id <идентификатор_версии> \
-       --retention Mode=<тип_блокировки>,RetainUntilDate="<дата_и_время_окончания_временной_блокировки>" \
+       --retention Mode=<тип_блокировки>,RetainUntilDate="<дата_и_время>" \
        --bypass-governance-retention
      ```
 

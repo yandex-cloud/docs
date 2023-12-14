@@ -1,26 +1,26 @@
-# A list of resources that roles can be assigned for
+---
+title: "List of resources that you can assign roles for in {{ iam-full-name }}"
+description: "In this tutorial, you will learn for which {{ yandex-cloud }} resources you can assign roles."
+---
 
-Resources you can [assign](../../operations/roles/grant.md) roles to, [view](../../operations/roles/get-assigned-roles.md) roles for, and [revoke](../../operations/roles/revoke.md) roles to:
+# List of resources that you can assign roles for
+
+Resources for which you can [assign](../../operations/roles/grant.md), [review](../../operations/roles/get-assigned-roles.md), and [revoke](../../operations/roles/revoke.md) roles:
 
 **{{ resmgr-name }}:**
-
 * [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud)
-* [Folders](../../../resource-manager/concepts/resources-hierarchy.md#folder)
+* [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder)
 
 **{{ iam-name }}:**
-
-* [Service accounts](../users/service-accounts.md)
+* [Service account](../users/service-accounts.md)
 
 **{{ certificate-manager-name }}:**
-
-* [Certificates](../../../certificate-manager/concepts/index.md)
+* [Certificate](../../../certificate-manager/concepts/index.md)
 
 **{{ container-registry-name }}:**
-
-* [Registries](../../../container-registry/concepts/registry.md)
-* [Repositories](../../../container-registry/concepts/repository.md)
+* [Registry](../../../container-registry/concepts/registry.md)
+* [Repository](../../../container-registry/concepts/repository.md)
 
 
 **{{ sf-name }}:**
-
-* [Functions](../../../functions/concepts/function.md)
+* [Function](../../../functions/concepts/function.md)

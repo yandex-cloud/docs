@@ -1,3 +1,8 @@
+---
+title: "Encoding a file in Base64 in {{ vision-full-name }}"
+description: "Follow this guide to deliver an image file to the {{ vision-short-name }} API."
+---
+
 # Encoding a file as Base64
 
 The {{ vision-short-name }} API and OCR API support images in [Base64](https://en.wikipedia.org/wiki/Base64) format. Encode your image or PDF file as `Base64`:

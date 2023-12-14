@@ -1,3 +1,8 @@
+---
+title: "How to search for {{ yandex-cloud }} events in {{ objstorage-full-name }}"
+description: "In this guide, you will learn how to search for {{ yandex-cloud }} events in {{ objstorage-name }}."
+---
+
 # Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
 
 ## Getting started {#before-you-begin}

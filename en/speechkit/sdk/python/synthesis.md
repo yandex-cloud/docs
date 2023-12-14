@@ -1,3 +1,8 @@
+---
+title: "Speech synthesis using the Python SDK in {{ speechkit-full-name }}"
+description: "Follow this guide to test speech synthesis using the Python SDK in {{ sf-full-name }}."
+---
+
 # Speech synthesis using the Python SDK
 
 Below is an example of speech synthesis from text in [TTS markup](../../tts/markup/tts-markup.md) into a [WAV](https://en.wikipedia.org/wiki/WAV) file using the [{{ speechkit-name }} Python SDK](index.md). This example uses the following parameters:

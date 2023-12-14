@@ -44,8 +44,8 @@ description: "Следуя данной инструкции, вы сможет�
       Результат:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -85,7 +85,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Отключите доступ конечных пользователей к контенту, используя флаг `--active` со значением `false`:
 
       ```bash
-      yc cdn resource update <идентификатор ресурса> --active false
+      yc cdn resource update <идентификатор_ресурса> --active false
       ```
 
       Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).    

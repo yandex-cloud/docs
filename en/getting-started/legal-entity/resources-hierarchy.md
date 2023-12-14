@@ -1,6 +1,6 @@
 # Configure your cloud
 
-When a user registers with {{ yandex-cloud }}, a _cloud_ is created for the user. The cloud is a separate workspace with this user as the owner. The `default` folder and `default`network will be created in the cloud.
+When a user registers with {{ yandex-cloud }}, a _cloud_ is created for the user. The cloud is a separate workspace with this user as the owner. The `default` folder and `default` network will be created in the cloud.
 
 The owner can create new folders and resources in this cloud, and manage access rights to them.
 
@@ -14,7 +14,7 @@ The owner can create new folders and resources in this cloud, and manage access 
 
 - CLI
 
-   1. View the description of the create folder command:
+   1. See a description of the create folder command:
 
       ```
       yc resource-manager folder create --help
@@ -56,13 +56,13 @@ The management console only allows you to change the name of a folder. To change
 - Management console
 
    1. On the [home page]({{ link-console-main }}) of the management console, select the folder. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../../resource-manager/operations/cloud/switch-cloud.md).
-   1. Click ![image](../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
    1. Enter a new name for the folder.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
 - CLI
 
-   1. View the description of the update folder command:
+   1. See the description of the update folder command:
 
       ```
       yc resource-manager folder update --help
@@ -126,16 +126,16 @@ The management console only allows you to change the name of a folder. To change
 
 {% list tabs %}
 
-- Management console {#console}
+- Management console
 
    1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
    1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-   1. Select a folder in the **{{ ui-key.yacloud.iam.users.label_folders-roles }}** section and click ![image](../../_assets/plus-sign.svg).
+   1. Select a folder in the **{{ ui-key.yacloud.iam.users.label_folders-roles }}** section and click ![image](../../_assets/console-icons/plus.svg).
    1. Select a role from the list.
 
 - CLI
 
-   1. View the description of the command to assign a role for a folder:
+   1. See the description of the command to assign a role for a folder:
 
       ```
       yc resource-manager folder add-access-binding --help

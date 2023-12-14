@@ -20,7 +20,7 @@ Only users with Yandex accounts can create organizations. [Federated users](../.
 
 1. [Log in to the account]({{ link-passport-login }}) of the user to create a new organization under.
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. In the left-hand panel, click ![plus](../../_assets/plus.svg) or ![plus](../../_assets/plus.svg) **{{ ui-key.yacloud_org.pages.create }}**.
+1. In the left-hand panel, click ![plus](../../_assets/console-icons/plus.svg) or ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.pages.create }}**.
 1. In the window that opens, enter a name and description for the organization.
 1. Click **{{ ui-key.yacloud_org.page.context.action.create }}**.
 
@@ -33,7 +33,7 @@ Once the organization is created, you become its owner and can manage it.
 
    Alternatively, you can select an organization or federation belonging to a different Yandex account you previously logged in to. To do this, click the account name in **Login history**.
 
-   If the account you need is not on the list, log in to that account by clicking ![image](../../_assets/plus-sign.svg).
+   If the account you need is not on the list, log in to that account by clicking ![image](../../_assets/console-icons/plus.svg).
 
 The name of the selected organization is displayed in the top-left corner of the service window.
 

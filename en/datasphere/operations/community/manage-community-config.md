@@ -12,7 +12,7 @@ You can limit {{ ml-platform-name }} resources and features available across you
 {% endnote %}
 
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. In the left-hand panel, select ![community-panel](../../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. In the left-hand panel, select ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Select the community to set up the {{ ml-platform-name }} functionality in.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.restrictions }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.restrictions.project-mode }}**:

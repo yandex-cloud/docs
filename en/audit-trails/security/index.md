@@ -1,13 +1,18 @@
-# Access management in {{ at-name }}
+---
+title: "Access management in {{ at-full-name }}"
+description: "Access management in the {{ at-name }} service for managing trails. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
+---
+
+# Access management {{ at-name }}
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include notitle [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for clouds or folders also apply to the trails in them.
 

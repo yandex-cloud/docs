@@ -1,3 +1,8 @@
+---
+title: "How to send requests to nodes in {{ ml-platform-full-name }}"
+description: "Follow this guide to send a request to a node."
+---
+
 # Sending requests to nodes
 
 Send a test request to a [node](../../concepts/deploy/index.md#node) from the {{ ml-platform-name }} interface:

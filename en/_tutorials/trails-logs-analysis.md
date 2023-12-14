@@ -1,6 +1,6 @@
 # Uploading audit logs to {{ mch-name }} and data visualization in {{ datalens-name }}
 
-Upload configuration-level (Control Plane) [audit logs](../audit-trails/concepts/format.md) from a folder to [{{ mch-full-name }}](../managed-clickhouse/) and analyze the resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
+Upload management event (Control Plane) [audit logs](../audit-trails/concepts/format.md) from a folder to [{{ mch-full-name }}](../managed-clickhouse/) and analyze the resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail](#create-trail).
@@ -33,7 +33,7 @@ The infrastructure support cost includes:
   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter the service account name: `sa-trail-logs`.
-  1. Click ![](../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `audit-trails.viewer` and `yds.editor` [roles](../iam/concepts/access-control/roles.md).
+  1. Click ![](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `audit-trails.viewer` and `yds.editor` [roles](../iam/concepts/access-control/roles.md).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
@@ -63,8 +63,13 @@ The infrastructure support cost includes:
      ```bash
      yc resource-manager folder add-access-binding <folder_name> \
        --role audit-trails.viewer \
-       --subject serviceAccount:<sa-trail-logs_service_account_ID>
+       --subject serviceAccount:<service_account_ID>
      ```
+
+      Where:
+
+      * `--role`: Role being assigned.
+      * `--subject`: ID of the `sa-trail-logs` service account.
 
      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
   1. Assign the service account the `yds.editor` role:
@@ -72,8 +77,13 @@ The infrastructure support cost includes:
      ```bash
      yc resource-manager folder add-access-binding <folder_name> \
        --role yds.editor \
-       --subject serviceAccount:<sa-trail-logs_service_account_ID>
+       --subject serviceAccount:<service_account_ID>
      ```
+
+      Where:
+
+      * `--role`: Role being assigned.
+      * `--subject`: ID of the `sa-trail-logs` service account.
 
 - {{ TF }}
 
@@ -89,15 +99,20 @@ The infrastructure support cost includes:
       resource "yandex_resourcemanager_folder_iam_member" "sa-role-audit-viewer" {
         folder_id   = "<folder_ID>"
         role        = "audit-trails.viewer"
-        member      = "serviceAccount:<sa-trail-logs_service_account_ID>"
+        member      = "serviceAccount:<service_account_ID>"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "sa-role-yds-editor" {
         folder_id   = "<folder_ID>"
         role        = "yds.editor"
-        member      = "serviceAccount:<sa-trail-logs_service_account_ID>"
+        member      = "serviceAccount:<service_account_ID>"
       }
       ```
+
+      Where:
+
+      * `role`: Role being assigned.
+      * `member`: ID of the `sa-trail-logs` service account.
 
      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
   1. Make sure the configuration files are valid.
@@ -157,17 +172,17 @@ The infrastructure support cost includes:
          "accessBinding": {
            "roleId": "audit-trails.viewer",
            "subject": {
-             "id": "<sa-trail-logs_service_account_ID>",
+             "id": "<service_account_ID>",
              "type": "serviceAccount"
              }
            }
-         }
+         },
          {
           "action": "ADD",
           "accessBinding": {
             "roleId": "yds.writer",
             "subject": {
-              "id": "<sa-trail-logs_service_account_ID>",
+              "id": "<service_account_ID>",
               "type": "serviceAccount"
               }
             }
@@ -175,6 +190,11 @@ The infrastructure support cost includes:
        ]
       }
       ```
+
+      Where:
+
+      * `roleId`: Role being assigned.
+      * `id`: ID of the `sa-trail-logs` service account.
 
   1. Assign roles to the service account:
 
@@ -201,7 +221,7 @@ The infrastructure support cost includes:
      1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter the cluster name: `trail-logs`.
      1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select the `burstable` [VM](../compute/concepts/vm.md) type and the `b2.medium` [host type](../managed-clickhouse/concepts/instance-types.md).
      1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, enter `trail_data` for DB name, `user` for username, and the password. Remember the database name.
-     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../_assets/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../_assets/console-icons/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
      1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
         * Access from {{ datalens-name }}
         * Access from management console
@@ -318,7 +338,7 @@ A data stream is used to upload audit logs.
   1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**: `stream-db`.
   1. In the **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** field, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-  1. Return to the stream creation page. Click ![image](../_assets/data-streams/update-db.svg) and select the created DB from the list.
+  1. Return to the stream creation page. Click ![image](../_assets/console-icons/arrow-rotate-right.svg) and select the created DB from the list.
   1. Enter the data stream name: `trail-logs-stream`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -328,7 +348,7 @@ A data stream is used to upload audit logs.
 
 ## Create a trail {#create-trail}
 
-A [trail](../audit-trails/concepts/trail.md) will be uploading configuration-level [audit logs](../audit-trails/concepts/format.md) for all the resources in your folder to a {{ yds-name }} stream.
+A [trail](../audit-trails/concepts/trail.md) will be uploading management event [audit logs](../audit-trails/concepts/format.md) for all the resources in your folder to a {{ yds-name }} stream.
 
 {% list tabs %}
 
@@ -358,7 +378,7 @@ To create a [transfer](../data-transfer/concepts/index.md#transfer), you need to
 - Management console
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. In the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
   1. Enter the endpoint name: `source-logs-stream`.
@@ -405,7 +425,7 @@ To create transfer, you need to specify the target endpoint with {{ CH }} databa
 - Management console
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. In the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
   1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
   1. Enter the endpoint name: `target-logs-ch`.
@@ -428,13 +448,13 @@ Using transfer, data is migrated between the source service (a stream) and the t
 - Management console
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-  1. In the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Enter the transfer name: `logs-transfer`.
   1. Select the endpoint for the source: `source-logs-stream`.
   1. Select the endpoint for the target: `target-logs-ch`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Click ![ellipsis](../_assets/horizontal-ellipsis.svg) next to the name of the transfer and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+  1. Click ![ellipsis](../_assets/console-icons/ellipsis.svg) next to the name of the transfer and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
   1. Wait until the transfer status changes to `{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}`.
 
 - CLI
@@ -443,10 +463,15 @@ Using transfer, data is migrated between the source service (a stream) and the t
 
   ```bash
   yc datatransfer transfer create --name logs-transfer
-    --source-id <source-logs-stream_source_endpoint_ID>
-    --target-id <target-logs-ch_target_endpoint_ID>
+    --source-id <source_endpoint_ID>
+    --target-id <target_endpoint_ID>
     --type increment-only
   ```
+
+  Where:
+
+  * `--source-id`: ID of the `source-logs-stream` source endpoint.
+  * `--target-id`: ID of the `target-logs-ch` target endpoint.
 
   For more information about the `yc datatransfer transfer create` command, see the [CLI reference](../cli/cli-ref/managed-services/datatransfer/transfer/create.md).
 
@@ -458,11 +483,16 @@ Using transfer, data is migrated between the source service (a stream) and the t
      resource "yandex_datatransfer_transfer" "transfer" {
        folder_id   = "<folder_ID>"
        name        = "logs-transfer"
-       source_id   = "<source-logs-stream_source_endpoint_ID>"
-       target_id   = "<target-logs-ch_target_endpoint_ID>"
+       source_id   = "<source_endpoint_ID>"
+       target_id   = "<target_endpoint_ID>"
        type        = "INCREMENT_ONLY"
      }
      ```
+
+     Where:
+
+     * `source_id`: ID of the `source-logs-stream` source endpoint.
+     * `target_id`: ID of the `target-logs-ch` target endpoint.
 
      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-dt-transfer }}).
   1. Make sure the configuration files are valid.

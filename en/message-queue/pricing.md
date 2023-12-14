@@ -1,8 +1,10 @@
 ---
+title: "{{ message-queue-full-name }} pricing policy"
+description: "This article describes the {{ message-queue-name }} pricing policy."
 editable: false
 ---
 
-# Pricing for {{ message-queue-name }}
+# {{ message-queue-name }} pricing
 
 ## What goes into the cost of using Yandex Message Queue {#rules}
 

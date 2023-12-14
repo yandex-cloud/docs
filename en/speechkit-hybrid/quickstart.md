@@ -1,3 +1,8 @@
+---
+title: "How to get started with {{ sk-hybrid-name }}"
+description: "Follow this guide to create and set up your speech synthesis and recognition applications and load testing utilities."
+---
+
 # Getting started with {{ sk-hybrid-name }}
 
 {{ sk-hybrid-name }} provides the following {{ speechkit-full-name }} applications for speech synthesis and recognition:

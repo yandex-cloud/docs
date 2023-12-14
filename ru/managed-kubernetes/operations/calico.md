@@ -34,10 +34,10 @@ description: "Следуя данной инструкции, вы сможет�
 
    - С помощью {{ TF }}
 
-    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
      1. Скачайте в ту же рабочую директорию файл конфигурации [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf). В файле описаны:
         * [Сеть](../../vpc/operations/network-create.md).
@@ -69,6 +69,7 @@ description: "Следуя данной инструкции, вы сможет�
    {% endlist %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. [Создайте пространство имен](kubernetes-cluster/kubernetes-cluster-namespace-create.md) `policy-test` в кластере {{ managed-k8s-name }}.
 
 ## Создайте сервис nginx {#create-pod}

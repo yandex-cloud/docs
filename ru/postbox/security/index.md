@@ -1,0 +1,40 @@
+---
+title: "Управление доступом в {{ postbox-full-name }}"
+description: "Управление доступом в сервисе для отправки транзакционных почтовых сообщений {{ postbox-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ postbox-full-name }}, назначьте пользователю нужные роли из приведенного списка."
+---
+
+# Управление доступом в {{ postbox-full-name }}
+
+Пользователь {{ yandex-cloud }} может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей все операции ему запрещены.
+
+Чтобы разрешить доступ к ресурсам сервиса {{ postbox-name }}, назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md) нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
+
+{% note info %}
+
+Подробнее о наследовании ролей читайте в разделе [Наследование прав доступа](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-name }}.
+
+{% endnote %}
+
+## Какие роли действуют в сервисе {#roles-list}
+
+Для управления правами доступа в {{ postbox-name }} можно использовать как сервисные, так и примитивные роли.
+
+### Сервисные роли {#service-roles}
+
+{% include [roles-postbox-sender](../../_includes/roles-postbox-sender.md) %}
+
+{% include [roles-postbox-auditor](../../_includes/roles-postbox-auditor.md) %}
+
+{% include [roles-postbox-viewer](../../_includes/roles-postbox-viewer.md) %}
+
+{% include [roles-postbox-editor](../../_includes/roles-postbox-editor.md) %}
+
+{% include [roles-postbox-admin](../../_includes/roles-postbox-admin.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+## См. также {#see-also}
+
+[Структура ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md)

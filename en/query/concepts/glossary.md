@@ -1,4 +1,9 @@
-# Terms and definitions {{ yq-name }}
+---
+title: "Which terms and definitions are used in {{ yq-full-name }}"
+description: "In this tutorial, you will learn about the terms and definitions used in {{ yq-name }}."
+---
+
+# Terms and definitions in {{ yq-name }}
 
 ## Connection {#connection}
 

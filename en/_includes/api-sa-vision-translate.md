@@ -22,7 +22,7 @@ To set up authorization on behalf of a service account:
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. In the **Service accounts** tab, click **Create service account**.
-   1. Enter a name for the service account, such as `sa-api`.
+   1. Enter a name for the service account, e.g., `sa-api`.
 
       The name format requirements are as follows:
 
@@ -42,7 +42,7 @@ To set up authorization on behalf of a service account:
    yc iam service-account create --name sa-api
    ```
 
-   Where `name` is the name of the service account in the format:
+   Where `name` is the name of the service account in the following format:
 
    {% include [name-format](./name-format.md) %}
 
@@ -88,7 +88,7 @@ To set up authorization on behalf of a service account:
 
    1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
    1. Go to **Access rights**.
-   1. Find the `sa-api` service account in the list and click ![image](../_assets/options.svg).
+   1. Find the `sa-api` service account in the list and click ![image](../_assets/console-icons/ellipsis.svg).
    1. Click **Edit roles**.
    1. Click **Add role** in the dialog box that opens and select the `ai.translate.user` role for {{ translate-full-name }} or the `ai.vision.user` role for {{ vision-full-name }}.
    1. Click **Save**.
@@ -156,7 +156,7 @@ To set up authorization on behalf of a service account:
       yc iam api-key create --help
       ```
 
-   1. Select a service account, such as `sa-api`.
+   1. Select a service account, e.g., `sa-api`.
 
       ```bash
       yc iam service-account list

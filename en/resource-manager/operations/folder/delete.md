@@ -8,13 +8,13 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
 
-   1. Click ![image](../../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
 
    1. Specify folder deletion delay: the time period after which the folder will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default folder deletion delay is 7 days.
 
    1. Click **{{ ui-key.yacloud.common.delete }}**.
 
-   The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To cancel, click ![***](../../../_assets/options.svg) to the right of the folder and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
+   The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To cancel, click ![***](../../../_assets/console-icons/ellipsis.svg) to the right of the folder and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
 - API
 

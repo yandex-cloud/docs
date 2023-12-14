@@ -1,3 +1,8 @@
+---
+title: "How to update data in a {{ ydb-full-name }} table"
+description: "Follow this guide to update data in a table."
+---
+
 # Updating data
 
 To update the data in the `series` table:
@@ -6,7 +11,7 @@ To update the data in the `series` table:
 
 - AWS CLI
 
-   Run the command by replacing `https://your-database-endpoint` the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
+   Run the command by replacing `https://your-database-endpoint` with the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
 
    {% note warning %}
 

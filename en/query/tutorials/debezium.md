@@ -1,3 +1,8 @@
+---
+title: "Processing CDC Debezium streams in {{ yq-full-name }}"
+description: "Follow this guide to process CDC Debezium streams."
+---
+
 # Processing CDC Debezium streams
 
 [Debezium](https://debezium.io) is a change data capture service for streaming DB changes to other systems for processing. You can use {{ yds-full-name }} to capture these changes and {{ yq-full-name }} to process them. You can do the following with processed data:
@@ -37,11 +42,11 @@ To implement this use case:
       aws configure
       ```
 
-    1. Enter the following one by one:
+   1. Enter the following one by one:
 
-      * `AWS Access Key ID [None]:`: [ID of the service account's access key](../../iam/concepts/authorization/access-key.md).
+      * `AWS Access Key ID [None]:`: Service account [key ID](../../iam/concepts/authorization/access-key.md).
       * `AWS Secret Access Key [None]:`: [Secret access key](../../iam/concepts/authorization/access-key.md) of the service account.
-      * `Default region name [None]:`: The `{{ region-id }}` availability zone.
+      * `Default region name [None]:`: `{{ region-id }}` availability zone.
 
 ## Set up Debezium Server {#debezium-server}
 

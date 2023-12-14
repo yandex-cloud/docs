@@ -15,7 +15,7 @@ To search for dialogs, you can use [filters](#filters-dialogs) and the [search b
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select the appropriate project.
-1. On the **Dialogs** tab, click ![image](../../../_assets/plus-sign.svg) **Add filter**.
+1. On the **Dialogs** tab, click ![image](../../../_assets/console-icons/plus.svg) **Add filter**.
 1. Select the required filter and enter its value.
 1. Click **Apply**.
 
@@ -57,7 +57,7 @@ Follow these steps:
 1. Go to the space you need and select the appropriate project.
 1. In the **Dialogs** tab, enter `good service` in the search bar.
 1. To the right of the search bar, select the **Customer** channel from the drop-down list.
-1. Click ![image](../../../_assets/plus-sign.svg) **Add filter**.
+1. Click ![image](../../../_assets/console-icons/plus.svg) **Add filter**.
 1. In the **Shared metadata** group, select the **Start date** filter. As the filter value, specify the `10/11/2023 - 16/11/2023` date range.
 1. Click **Apply**.
 

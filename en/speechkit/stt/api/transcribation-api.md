@@ -1,24 +1,23 @@
+---
+title: "Asynchronous recognition API in {{ speechkit-full-name }}"
+description: "Follow this guide to learn how to use the asynchronous recognition API."
+---
+
 # Asynchronous Recognition API
 
-## How to use the asynchronous recognition API {#how-to-use}
+You will need the following to use the API:
 
-1. [Create a service account](../../../iam/operations/sa/create.md).
-1. [Assign it the following roles](../../../iam/operations/sa/assign-role-for-sa.md):
+* [{{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md) to which you will upload your audio file for recognition.
+* [Service account](../../../iam/operations/sa/create.md) with the `{{ roles-speechkit-stt }}` and `storage.uploader` roles needed for accessing {{ speechkit-name }} and {{ objstorage-name }}.
+* [IAM token](../../../iam/operations/iam-token/create-for-sa.md) or [API key](../../../iam/operations/api-key/create.md) for authorization.
 
-   * `{{ roles-speechkit-stt }}` for speech recognition.
-   * `storage.uploader` for uploading audio files to a [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md).
-   * (Optional) `storage.configurer`, `kms.keys.encrypter`, and `kms.keys.decrypter` for bucket object encryption and decryption. These roles are only required if you use [encryption in {{ objstorage-name }}](../../../storage/concepts/encryption.md).
+For more information on getting started, see [{#T}](../transcribation.md#async-recognition).
 
-1. Get an [IAM token](../../../iam/operations/iam-token/create-for-sa.md) or [API key](../../../iam/operations/api-key/create.md) for your service account. You will need them for authorization in the API. Provide them in every request as HTTP headers:
+{% note warning %}
 
-   * `Authorization: Bearer <IAM token>` to authorize using an IAM token.
-   * `Authorization: Api-Key <API key>` to authorize using an API key.
+Please note that you can only recognize audio files asynchronously under a service account. Do not use any [other accounts in {{ yandex-cloud }}](../../../iam/concepts/index.md#accounts) for that.
 
-1. [Create a {{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md).
-1. [Upload an audio file to the bucket](../../../storage/operations/objects/upload.md).
-1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded file. Use this link in the [body of your speech recognition request](#sendfile-params).
-
-   The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
+{% endnote %}
 
 ## Sending a file for recognition {#sendfile}
 
@@ -83,7 +82,7 @@ Monitor the recognition results using the obtained ID. The number of result moni
 
 {% note warning %}
 
-Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. You can then request the recognition results using the obtained ID.
+Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. You can then request the recognition results using the received ID.
 
 {% endnote %}
 

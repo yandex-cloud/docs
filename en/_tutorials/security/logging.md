@@ -316,7 +316,7 @@ To create a backend group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
    1. Enter a **{{ ui-key.yacloud.common.name }}** for the backend group: `alb-logging-bg`.
    1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
    1. Enter a **{{ ui-key.yacloud.common.name }}** for the backend: `alb-logging-backend`.
@@ -340,7 +340,7 @@ To create an HTTP router:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
    1. Enter a **{{ ui-key.yacloud.common.name }}** for the HTTP router: `alb-logging-router`.
    1. Click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
    1. Enter a **{{ ui-key.yacloud.common.name }}** for the virtual host: `alb-logging-host`.
@@ -484,7 +484,7 @@ To create a function:
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
       1. Select the `alb-logging-cluster` cluster.
-      1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the required DB row.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row.
       1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
       1. On the **Shell** tab, find a sample connection string.
       1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **{{ ui-key.yacloud.common.value }}** field of the function environment variables.
@@ -507,7 +507,7 @@ To create a trigger:
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
@@ -604,7 +604,7 @@ To shut down the load balancer and stop paying for the created resources:
 1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the `alb-logging-router` HTTP router.
 1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the `alb-logging-bg` backend group.
 1. [Delete](../../compute/operations/instance-groups/delete.md) the `alb-logging-ig` instance group.
-1. [Delete](../../functions/operations/trigger/trigger-delete.md) the trigger `alb-logging-trigger`.
-1. [Delete](../../functions/operations/function/function-delete.md) the function `alb-logging-function`.
-1. [Delete](../../managed-postgresql/operations/cluster-delete.md) the cluster `alb-logging-cluster`.
+1. [Delete](../../functions/operations/trigger/trigger-delete.md) the `alb-logging-trigger` trigger.
+1. [Delete](../../functions/operations/function/function-delete.md) the `alb-logging-function` function.
+1. [Delete](../../managed-postgresql/operations/cluster-delete.md) the `alb-logging-cluster` cluster.
 1. [Delete](../../logging/operations/delete-group.md) the `alb-logging-group` log group.

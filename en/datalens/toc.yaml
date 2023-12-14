@@ -69,6 +69,10 @@ items:
       - name: Visualizing data using Heat Maps
         hidden: true
         href: tutorials/data-on-heat-map-dashboard.md
+      - name: >-
+          Geocoding with the Yandex Maps API for data visualization in {{
+          datalens-short-name }}
+        href: tutorials/data-from-ch-geocoder.md
   - name: Connection
     items:
       - name: Overview
@@ -713,7 +717,7 @@ items:
             href: operations/dashboard/add-title.md
           - name: Creating an alias
             href: operations/dashboard/create-alias.md
-          - name: Deleting an alias field
+          - name: Deleting an alias
             href: operations/dashboard/edit-alias.md
           - name: Managing dashboard access
             href: operations/dashboard/manage-access.md
@@ -846,6 +850,9 @@ items:
       - name: Field title conflicts with another field
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FIELD-TITLE-CONFLICT.md
+      - name: File check failed
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-UNSUPPORTED_DOCUMENT.md
       - name: Incompatible dimensions
         hidden: true
         href: >-

@@ -50,8 +50,8 @@ description: "Следуя данной инструкции, вы сможет�
       Результат:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -91,8 +91,8 @@ description: "Следуя данной инструкции, вы сможет�
   1. Измените настройки ресурса:
 
       ```bash
-      yc cdn resource update <идентификатор ресурса> \
-        <флаг> <новое значение>
+      yc cdn resource update <идентификатор_ресурса> \
+        <флаг> <новое_значение>
       ```
 
       Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
@@ -113,7 +113,7 @@ description: "Следуя данной инструкции, вы сможет�
          active              = false
          origin_protocol     = "https"
          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-         origin_group_id     = "<идентификатор группы источников>"
+         origin_group_id     = "<идентификатор_группы_источников>"
          ...
          options {
            edge_cache_settings = "345600"
@@ -177,7 +177,7 @@ description: "Следуя данной инструкции, вы сможет�
   Измените протокол для источников с HTTP на HTTPS и выберите сертификат Let's Encrypt®, [добавленный](../../../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }}, или [загруженный](../../../certificate-manager/operations/import/cert-create.md) собственный сертификат:
 
     ```bash
-    yc cdn resource update someidkfjqjfl325fw \
+    yc cdn resource update s0me1dkfjq******** \
       --origin-protocol HTTPS \
       --cert-manager-ssl-cert-id <идентификатор_сертификата>
     ```
@@ -185,7 +185,7 @@ description: "Следуя данной инструкции, вы сможет�
   Результат:
 
     ```bash
-    id: someidkfjqjfl325fw
+    id: s0me1dkfjq********
 
     ...
 

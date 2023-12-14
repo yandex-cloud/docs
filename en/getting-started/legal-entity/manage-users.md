@@ -8,9 +8,9 @@ If your employees have Yandex accounts, e.g., `login@yandex.ru`, they can use th
 
 To add employee accounts to the organization, follow these steps:
 
-1. [Log in]({{ link-passport-login }}) to the organization administrator account.
+1. [Log in]({{ link-passport-login }}) as the organization administrator.
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. In the left-hand panel, select [Users](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/organization/icon-users.svg).
+1. In the left-hand panel, select [Users](https://org.cloud.yandex.ru/users) ![icon-users](../../_assets/console-icons/person.svg).
 1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
 
@@ -22,7 +22,7 @@ To access the organization's enabled services, invited users simply need to log 
 
 ## Add federated users {#add-user-sso}
 
-To add federated users, you need to know the user Name IDs returned by the Identity Provider (IdP) server together with the authentication successful response. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
+To add federated users, you need to know the user Name IDs returned by the Identity Provider (IdP) server together with the authentication successful response. This is usually the user's primary email address. If you do not know what the server returns as the name ID, contact the administrator who configured authentication for your federation.
 
 To add federation users to an organization:
 
@@ -74,7 +74,7 @@ To add federation users to an organization:
 
    1. Select a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
    1. [Get the user ID](../../organization/operations/users-get.md).
-   1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+   1. Create a request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
    **body.json:**
    ```json

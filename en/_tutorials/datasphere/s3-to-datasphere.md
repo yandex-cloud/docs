@@ -53,7 +53,7 @@ The cost of training a model based on data from {{ objstorage-name }} includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -69,7 +69,7 @@ To access a bucket in {{ objstorage-name }}, you need a [service account](../../
 
    1. In the [management console]({{ link-console-main }}), go to `data-folder`.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, such as `datasphere-sa`.
+   1. Enter a name for the service account, e.g., `datasphere-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `storage.editor` role to the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -86,7 +86,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Select the `datasphere-sa` service account.
-   1. In the top panel, click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
+   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
@@ -166,7 +166,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. Create resources:
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -247,7 +247,7 @@ To connect to your bucket from {{ ml-platform-name }}, you need an S3 connector:
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}** used to connect to storage.
    * In the **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** field, click **{{ ui-key.yc-ui-datasphere.common.create }}**. In the window that opens, enter the secret name and the secret key being used to connect to storage.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once activated, the bucket is available in the {{ jlab }}Lab interface in the list on the **S3 Mounts** ![S3 Mounts](../../_assets/datasphere/bucket.svg) tab, and you can view it as a file system.
+1. Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activate }}**. Once activated, the bucket is available in the {{ jlab }}Lab interface in the list on the **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg) tab, and you can view it as a file system.
 
 ## Train the model {#train-model}
 
@@ -283,7 +283,7 @@ In the `diabetes_catboost.ipynb` notebook, you will connect to the `diabetes_dat
    data.head()
    ```
 
-   To get the `diabetes_data.csv` file path, open the **S3 Mounts** ![S3 Mounts](../../_assets/datasphere/bucket.svg) tab, right-click the file, and select **Copy path**.
+   To get the `diabetes_data.csv` file path, open the **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg) tab, right-click the file, and select **Copy path**.
 
 1. Separate training factors from the target variable:
 

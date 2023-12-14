@@ -1,4 +1,6 @@
 ---
+title: "How to create a table in {{ ydb-full-name }}"
+description: "Follow this guide to create a table."
 sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 ---
 # Creating a table in the AWS SDK

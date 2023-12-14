@@ -3,7 +3,7 @@
 | Type of limit | Value |
 --- | ---
 | Number of [projects](../datasphere/concepts/project.md) per [community](../datasphere/concepts/community.md) | 50 |
-| Total [dataset](../datasphere/concepts/dataset.md) size per community | 1024 GB |
+| Total [dataset](../datasphere/concepts/dataset.md) size per community | 1,024 GB |
 | Number of datasets per community | 10 |
 | Number of Docker images per community | 3 |
 | Project [storage](../datasphere/concepts/project.md#storage) size ([can be increased per project](../datasphere/operations/projects/storage-resize.md)) | 10 GB |
@@ -30,8 +30,8 @@
 | Number of datasets concurrently connected to a project | 3 |
 | Maximum pinned [checkpoints](../datasphere/concepts/checkpoints.md) per project | 10 |
 | Maximum non-pinned checkpoints per project | 10 |
-| Maximum project storage size | 4096 GB |
-| Maximum dataset size | 4096 GB |
+| Maximum project storage size | 4,096 GB |
+| Maximum dataset size | 4,096 GB |
 | Maximum data size per job | 10 GB |
 | Maximum log size per job | 100 MB |
 | Maximum result size per job | 1 GB |

@@ -35,26 +35,22 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
         * If your metadata includes additional information you want to save and analyze, add it to the appropriate section. Provide the parameter key (must match the key in the metadata file), specify a type, and enter a display name to use in the system. The supported additional parameters are `Date`, `String`, `Number`, `Logical`, and `JSON`.
     1. Click **Create connection**.
 
-        {% cut "Example of metadata.json" %}
+    {% cut "Example of metadata.json" %}
 
-        ```json
-        {
-	    "direction_outgoung": 0,
-	    "client_id": "456",
-	    "client_name": "John Doe",
-	    "date": "2023-09-29T09:08:38.958Z",
-	    "date_to": "2023-09-29T09:15:07.897Z",
-	    "knowledge_id": [
-	    165572,
-	    163362
-	    ],
-	    "language": "RU",
-	    "operator_id": "123",
-	    "operator_name": "Jane Smith"
-        }
-        ```
+    ```json
+    {
+       "direction_outgoung": "true",
+       "client_id": "456",
+       "client_name": "John Doe",
+       "date": "2023-09-29T09:08:38.958Z",
+       "date_to": "2023-09-29T09:15:07.897Z",
+       "language": "RU",
+       "operator_id": "123",
+       "operator_name": "Jane Smith"
+    }
+    ```
 
-        {% endcut %}
+    {% endcut %}
 
 1. Create a project: on the space page, click **Create project**, enter a project name, and add a connection to the project. You can select up to two connection metadata-based filtering rules for each connection. With filters, you can ensure that only the dialogs you need are added to the project. Once you are done adding connections and configuring filters, click **Create project**.
 

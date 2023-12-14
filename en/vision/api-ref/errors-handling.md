@@ -1,6 +1,11 @@
-# Handling errors in Yandex Vision
+---
+title: "Handling errors in {{ vision-short-name }}"
+description: "{{ vision-short-name }} returns request errors, file processing errors, and analysis errors for specific type of analysis."
+---
 
-The Yandex Vision service returns errors for three levels:
+# Handling errors in {{ vision-short-name }}
+
+{{ vision-short-name }} returns errors for these three levels:
 
 * [Request errors](#request-error).
 * [File processing errors](#file-error).
@@ -34,10 +39,10 @@ An error that occurs if the service failed to process some of the files received
 
 If a file processing error occurs, the gRPC error code is always `3`, and the error cause is specified in the `message`. Here are some examples:
 
-* The image cannot be decoded.
-* The image is too big.
-* The image resolution is too large.
-* Error converting file to JPEG.
+* Image cannot be decoded.
+* Image too big.
+* Image resolution too high.
+* Error converting to JPEG.
 
 ## Analysis errors {#feature-error}
 
@@ -69,4 +74,4 @@ Possible errors:
 ---- | ----
 | 3 | Invalid request parameters. For example, the configuration specifies an incorrect number of languages. |
 | 8 | The [limit](../concepts/limits.md) for the given feature has been exceeded. |
-| 13 | Internal server error. This error means that the operation cannot be performed due to a server-side technical problem. For example, due to insufficient computing resources. |
+| 13 | Internal server error. This error means that the operation cannot be performed due to a server-side technical problem, e.g., due to insufficient computing resources. |

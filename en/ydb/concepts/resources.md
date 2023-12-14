@@ -1,3 +1,9 @@
+---
+title: "Terms and definitions for {{ ydb-full-name }}"
+description: "This page defines terms and definitions for {{ ydb-name }}."
+sourcePath: overlay/public_talks.md
+---
+
 # Terms and definitions for {{ ydb-name }}
 
 ## Database {#database}
@@ -23,7 +29,7 @@ For reliable and stable performance, a database needs multiple slots. A database
 
 {% endnote %}
 
-The following VM configurations are available in {{ ydb-name }}:
+In {{ ydb-name }}, the following VM configurations are available:
 
 
 | Platform | Configuration name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |

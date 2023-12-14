@@ -1,6 +1,6 @@
 ---
 title: "How to create a Google Sheets connection"
-description: "This guide describes how you can create a Google Sheets connection."
+description: "Follow this guide to create a Google Sheets connection."
 ---
 
 # Creating a Google Sheets connection
@@ -78,6 +78,12 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 6\. Drag the cell down to fill all the empty cells in the column with the entered value.
 7\. Click the filter icon again and click **Select all**.
 8\. Repeat all the steps starting with Step 3 for the other columns in the spreadsheet.
+
+{% endcut %}
+
+{% cut 'Steps to follow in case of the "Document is not supported" error' %}
+
+{% include [err-file-unsupported_document](../../../_includes/datalens/err-file-unsupported_document.md) %}
 
 {% endcut %}
 

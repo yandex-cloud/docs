@@ -230,7 +230,7 @@ warp get \
     Результат:
 
     ```bash
-    download: s3://<имя-бакета>/s3_test_file.txt to ./s3_test_file.txt
+    download: s3://<имя_бакета>/s3_test_file.txt to ./s3_test_file.txt
     ```
 
 1. Дополнительно можете выполнить несколько команд для проверки работы {{ objstorage-name }}. Имя бакета будет получено из переменной среды на тестовой ВМ.
@@ -245,7 +245,7 @@ warp get \
     Результат:
 
     ```text
-    upload: ./s3_test_file.txt to s3://<имя-бакета>/textfile.txt
+    upload: ./s3_test_file.txt to s3://<имя_бакета>/textfile.txt
     ```
 
     Получите список объектов в бакете:
@@ -272,7 +272,7 @@ warp get \
     Результат:
 
     ```text
-    delete: s3://<имя-бакета>/textfile.txt
+    delete: s3://<имя_бакета>/textfile.txt
     ```
 
 ## Удалите созданные ресурсы {#clear-out}

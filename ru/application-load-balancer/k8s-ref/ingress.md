@@ -76,7 +76,7 @@ metadata:
   Список [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, в которых [расположен балансировщик](../concepts/application-load-balancer.md#lb-location). Идентификаторы подсетей перечисляются через запятую, например:
 
   ```
-  ingress.alb.yc.io/subnets: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
+  ingress.alb.yc.io/subnets: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
   ```
 
   Поле обязательно хотя бы для одного из `Ingress`, объединенных в группу (аннотация `ingress.alb.yc.io/group-name`) для создания одного балансировщика. В балансировщике используются все подсети, указанные в соответствующих `Ingress`.
@@ -88,7 +88,7 @@ metadata:
   Список [групп безопасности](../../vpc/concepts/security-groups.md) {{ vpc-name }} для балансировщика. Идентификаторы групп перечисляются через запятую, например:
 
   ```
-  ingress.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
+  ingress.alb.yc.io/security-groups: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
   ```
 
   В балансировщике, созданном по группе из нескольких `Ingress` (аннотация `ingress.alb.yc.io/group-name`), используются все группы безопасности, указанные в этих `Ingress`.
@@ -188,7 +188,7 @@ metadata:
   > ...
   > spec:
   >   rules:
-  >     - host: <доменное имя>
+  >     - host: <доменное_имя>
   >       http:
   >         paths:
   >           - path: /api/
@@ -318,7 +318,7 @@ rules:
   
   * `secretName` (`string`, обязательное)
 
-    Указание на TLS-сертификат из {{ certificate-manager-full-name }} в формате `yc-certmgr-cert-id-<идентификатор сертификата>`. Под этим именем в {{ managed-k8s-name }} доступен [секрет](https://kubernetes.io/docs/concepts/configuration/secret/) с сертификатом.
+    Указание на TLS-сертификат из {{ certificate-manager-full-name }} в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`. Под этим именем в {{ managed-k8s-name }} доступен [секрет](https://kubernetes.io/docs/concepts/configuration/secret/) с сертификатом.
 
     В {{ certificate-manager-name }} можно [выпустить сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный сертификат](../../certificate-manager/operations/import/cert-create.md).
 

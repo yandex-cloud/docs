@@ -496,6 +496,7 @@ default:
   roles-search-api-executor: search-api.executor
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
+  roles-speechsense-data-editor: Data editor
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
   roles-vision-user: ai.vision.user
@@ -4093,8 +4094,8 @@ default:
         value_do-not-use: Don't use
         value_host-header-custom: Custom
         value_host-header-default: Primary domain name
-        value_host-header-resend: Forward
-        value_protocol-match: HTTP and HTTPS
+        value_host-header-resend: Match client
+        value_protocol-match: Match client
         value_query-type-group-origin: From origin group
         value_query-type-one-origin: From one origin
         value_redirect-http-to-https: HTTP to HTTPS
@@ -5000,8 +5001,6 @@ default:
         users:
           button_tune-role: Configure roles
           label_folders-roles: Roles for folders
-          label_user-listing-allowed-admins-title: Administrators
-          label_user-listing-allowed-everybody-title: All users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device

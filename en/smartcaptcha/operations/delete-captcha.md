@@ -9,7 +9,7 @@ In this section, you'll learn how to delete a CAPTCHA.
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
-   1. Select a CAPTCHA and click ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
+   1. Select a CAPTCHA and click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
 {% endlist %}

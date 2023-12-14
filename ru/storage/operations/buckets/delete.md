@@ -91,7 +91,7 @@ description: "Следуя данной инструкции, вы сможет�
     ```bash
     aws s3api list-buckets \
       --endpoint-url=https://{{ s3-storage-host }} \
-      --query '<запрос_в_формате_JMESPath>' \
+      --query '<запрос>' \
       --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
     ```
 
@@ -111,7 +111,7 @@ description: "Следуя данной инструкции, вы сможет�
     ```powershell
     Foreach($x in (aws s3api list-buckets `
       --endpoint-url=https://{{ s3-storage-host }} `
-      --query '<запрос_в_формате_JMESPath>' `
+      --query '<запрос>' `
       --output text)) `
       {aws s3api delete-bucket `
       --endpoint-url=https://{{ s3-storage-host }} `

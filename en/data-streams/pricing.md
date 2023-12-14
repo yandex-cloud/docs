@@ -1,11 +1,17 @@
-# Pricing for {{ yds-full-name }}
+---
+title: "{{ yds-full-name }} pricing policy"
+description: "This article describes the {{ yds-name }} pricing policy."
+editable: false
+---
+
+# {{ yds-full-name }} pricing
 
 {{ yds-name }} supports two pricing modes:
 
 * [Based on allocated resources](#rules): You pay a fixed hourly rate for the established throughput limit and message retention period and additionally for the number of units of actually written data.
 * [On-demand](#on-demand): You pay for data writes and reads performed, the amount of data read/written, and the size of storage actually used for messages with a valid retention period.
 
-Pricing mode is set for each data stream individually. By default, streams in {{ yds-name }} are created with pricing based on allocated resources.
+The pricing mode is set for each data stream individually. By default, streams in {{ yds-name }} are created with pricing based on allocated resources.
 
 ## Pricing based on allocated resources {#rules}
 

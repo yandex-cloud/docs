@@ -10,14 +10,14 @@ description: "Описан общий вид XML-структуры конфиг
 ```
 <AccessControlPolicy>
   <Owner>
-    <ID>8caede4d8w78r43d14f2e7fagrbf45c78ejc7c6cdeag4ba89s</ID>
+    <ID>8caede4d8w78r43d14f2e7fagrbf45c78ejc7c6cde********</ID>
     <DisplayName>CustomersName@amazon.com</DisplayName>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			xsi:type="CanonicalUser">
-        <ID>8caede4d8w78r43d14f2e7fagrbf45c78ejc7c6cdeag4ba89s</ID>
+        <ID>8caede4d8w78r43d14f2e7fagrbf45c78ejc7c6cde********</ID>
         <DisplayName>YandexCloudUserName</DisplayName>
       </Grantee>
       <Permission>WRITE</Permission>

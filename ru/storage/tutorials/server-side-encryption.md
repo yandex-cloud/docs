@@ -59,8 +59,8 @@
       
       ```
       locals {
-        cloud_id    = "<идентификатор облака>"
-        folder_id   = "<идентификатор каталога>"
+        cloud_id    = "<идентификатор_облака>"
+        folder_id   = "<идентификатор_каталога>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
@@ -195,9 +195,9 @@
 
   Где:
 
-  * `name` — имя ключа.
-  * `default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
-  * `rotation-period` — период ротации ключа. Чтобы создать ключ без автоматической ротации, не указывайте параметр `rotation-period`.
+  * `--name` — имя ключа.
+  * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
+  * `--rotation-period` — период ротации ключа. Чтобы создать ключ без автоматической ротации, не указывайте параметр `--rotation-period`.
 
   Вместе с ключом создается его первая версия. Она указана в поле `primary_version`.
 
@@ -208,8 +208,8 @@
       
       ```
       locals {
-        cloud_id    = "<идентификатор облака>"
-        folder_id   = "<идентификатор каталога>"
+        cloud_id    = "<идентификатор_облака>"
+        folder_id   = "<идентификатор_каталога>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
@@ -330,8 +330,8 @@
       
       ```
       locals {
-        cloud_id    = "<идентификатор облака>"
-        folder_id   = "<идентификатор каталога>"
+        cloud_id    = "<идентификатор_облака>"
+        folder_id   = "<идентификатор_каталога>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
@@ -447,7 +447,7 @@
 	    {
 		  "ApplyServerSideEncryptionByDefault": {
 		    "SSEAlgorithm": "aws:kms",
-		    "KMSMasterKeyID": "<идентификатор ключа KMS>"
+		    "KMSMasterKeyID": "<идентификатор_ключа_KMS>"
 		  },
 		  "BucketKeyEnabled": true
 		}
@@ -487,8 +487,8 @@
       
       ```
       locals {
-        cloud_id    = "<идентификатор облака>"
-        folder_id   = "<идентификатор каталога>"
+        cloud_id    = "<идентификатор_облака>"
+        folder_id   = "<идентификатор_каталога>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 

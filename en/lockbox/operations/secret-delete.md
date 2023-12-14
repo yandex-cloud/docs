@@ -1,3 +1,8 @@
+---
+title: "How to delete a secret in {{ lockbox-full-name }}"
+description: "Follow this guide to delete a secret."
+---
+
 # Deleting secrets
 
 To delete a secret:
@@ -8,8 +13,8 @@ To delete a secret:
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-   1. In the left menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the required secret.
+   1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the required secret.
    1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -28,7 +33,7 @@ To delete a secret:
    1. Request a list of secrets:
 
       ```bash
-      yc lockbox secret list --cloud-id <cloud ID> --folder-name <folder name>
+      yc lockbox secret list --cloud-id <cloud_ID> --folder-name <folder_name>
       ```
 
       Result:
@@ -37,22 +42,22 @@ To delete a secret:
       +----------------------+------------------+------------+---------------------+----------------------+--------+
       |          ID          |       NAME       | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
       +----------------------+------------------+------------+---------------------+----------------------+--------+
-      | e6q942hj2r5ni36j09ul | <secret 1 name>  |            | 2021-11-09 13:07:12 | e2r9pdm39tn2hg2koasn | ACTIVE |
-      | e4qkyo469mu2det6pvku | <secret 2 name>  |            | 2021-12-09 06:50:37 | e6fpq386othpq93s4t8m | ACTIVE |
+      | e6q942hj2r5n******** | <secret_1_name>  |            | 2021-11-09 13:07:12 | e2r9pdm39tn2******** | ACTIVE |
+      | e4qkyo469mu2******** | <secret_2_name>  |            | 2021-12-09 06:50:37 | e6fpq386othp******** | ACTIVE |
       +----------------------+------------------+------------+---------------------+----------------------+--------+
       ```
 
    1. To delete a secret, run the command:
 
       ```bash
-      yc lockbox secret delete --id e4qkyo469mu2det6pvku
+      yc lockbox secret delete --id e4qkyo469mu2********
       ```
 
       Result:
 
       ```text
-      id: e4qkyo469mu2det6pvku
-      folder_id: b1ulgko2th573evfdh3a
+      id: e4qkyo469mu2********
+      folder_id: b1ulgko2th57********
       created_at: "2021-11-08T17:13:48.393Z"
       ...
         status: ACTIVE
@@ -63,7 +68,7 @@ To delete a secret:
    1. Make sure the secret is not in the list:
 
       ```bash
-      yc lockbox secret list --cloud-id <cloud ID> --folder-name <folder name>
+      yc lockbox secret list --cloud-id <cloud_ID> --folder-name <folder_name>
       ```
 
       Result:
@@ -72,7 +77,7 @@ To delete a secret:
       +----------------------+-----------------+------------+---------------------+----------------------+--------+
       |          ID          |      NAME       | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
       +----------------------+-----------------+------------+---------------------+----------------------+--------+
-      | e6q942hj2r5ni36j09ul | <secret 1 name> |            | 2021-11-09 13:07:12 | e2r9pdm39tn2hg2koasn | ACTIVE |
+      | e6q942hj2r5n******** | <secret_1_name> |            | 2021-11-09 13:07:12 | e2r9pdm39tn2******** | ACTIVE |
       +----------------------+-----------------+------------+---------------------+----------------------+--------+
       ```
 
@@ -89,8 +94,8 @@ To delete a secret:
       resource "yandex_lockbox_secret" "my_secret" {
         name                = "My secret"
         description         = "test secret from tf"
-        folder_id           = "b1gmitvfx321d3kr4mhjmo"
-        kms_key_id          = "abjp8q2fjfg0sedaqfkl0"
+        folder_id           = "b1gmitvfx321d3********"
+        kms_key_id          = "abjp8q2fjfg0s********"
         deletion_protection = true
         labels              = {
           tf-label    = "tf-label-value",

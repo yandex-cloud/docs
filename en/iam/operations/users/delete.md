@@ -1,3 +1,8 @@
+---
+title: "How to delete a user from a cloud in {{ iam-full-name }}"
+description: "Follow this guide to delete a user from your cloud."
+---
+
 # Deleting a user from the cloud
 
 The fastest way to prevent a user from accessing cloud resources is to remove them from the [organization](../../../organization/):

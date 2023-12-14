@@ -1,3 +1,8 @@
+---
+title: "Asynchronous LPCM audio file recognition in {{ speechkit-full-name }}"
+description: "Follow this guide to use asynchronous LPCM audio file recognition."
+---
+
 # Asynchronously recognizing audio files in LPCM format
 
 Below is an example of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md). This example uses the following parameters:

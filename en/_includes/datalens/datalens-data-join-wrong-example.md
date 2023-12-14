@@ -18,13 +18,15 @@ There is a field in the dataset (chart) called `ShopID` which takes string value
 
 4\. We will create a link between the selector and the `Sample: Sales trends` chart using an alias. It is not possible to create a link based on the store name since it is not included in the `Sample CH Sales` dataset used to build the chart.
 
+
 ![image](../../_assets/datalens/concepts/SampleSelectorShopName.png)
 
 Therefore, we will create the link using the `ShopID` field.
 
 ![image](../../_assets/datalens/concepts/SampleSelectorShopID.png)
 
-As a result, the values picked by the selector do not have any effect on chart visualization  because the widgets are linked through the `ShopID` field, and the selector picks its values from the `ShopName` field.
+
+As a result, the values picked by the selector do not have any effect on chart visualization because the widgets are linked through the `ShopID` field, and the selector picks its values from the `ShopName` field.
 
 {% note warning %}
 

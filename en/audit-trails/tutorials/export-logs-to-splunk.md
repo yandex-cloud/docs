@@ -167,8 +167,8 @@ The infrastructure support cost includes:
       Where:
 
       * `role`: Role being assigned.
-      * `id`: ID of the KMS key.
-      * `service-account-id`: ID of your service account.
+      * `id`: KMS key ID.
+      * `service-account-id`: Service account ID.
 
 {% endlist %}
 
@@ -194,7 +194,7 @@ To create the trail, make sure you have the following roles:
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Name of the [bucket](../../storage/operations/buckets/create.md) to which you want to upload audit logs.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
@@ -244,7 +244,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
       1. The default gateway type is `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Create a route table:
-      1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+      1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
       1. Click **{{ ui-key.yacloud.common.create }}** to [add](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
       1. In the window that opens, select `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}` in the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field.
@@ -252,8 +252,8 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
       1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
       1. Click **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**.
    1. Link the route table to the subnet where you want to deploy the intermediate VM, to forward its traffic via the NAT gateway:
-      1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-      1. In the required subnet row, click ![image](../../_assets/options.svg).
+      1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+      1. In the required subnet row, click ![image](../../_assets/console-icons/ellipsis.svg).
       1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
       1. In the window that opens, select the created table from the list.
       1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -274,7 +274,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
       ```
 
    1. Create a subfolder in `/yc-export-auditlogs-to-splunk/terraform/` and go there.
-   1. Create a configuration file that calls the `yc-splunk-trail` module:
+   1. Create a configuration file to invoke the `yc-splunk-trail` module:
 
       ```
       module "yc-splunk-trail" {

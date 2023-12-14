@@ -1,3 +1,8 @@
+---
+title: "How to create a message queue in {{ message-queue-full-name }}"
+description: "Follow this guide to create a message queue."
+---
+
 # Creating a new message queue
 
 Message queues in {{ message-queue-name }} enable [messaging](../concepts/message.md) between components of distributed applications. Messages can be sent to queues using the [API](../api-ref/index.md) or other supported [tools](../instruments/index.md).

@@ -1,6 +1,6 @@
 ---
 title: "How to delete a domain"
-description: "This guide describes how you can delete a domain."
+description: "Follow this guide to delete a domain."
 ---
 
 # Deleting a domain
@@ -17,7 +17,7 @@ To delete a [domain](../../concepts/domains/index.md):
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Go to the **{{ ui-key.yacloud.certificate-manager.label_domains }}** tab.
    1. Find the domain to be deleted in the list.
-   1. Click ![image](../../../_assets/options.svg).
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 

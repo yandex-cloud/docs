@@ -1,3 +1,8 @@
+---
+title: "Audio file streaming recognition using API v3 in {{ speechkit-full-name }}"
+description: "Follow this guide to use streaming recognition of your audio files in API v3."
+---
+
 # Audio file streaming recognition using API v3
 
 Below, we provide an example of synchronous recognition of speech from an audio file using the {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md). The example uses the following parameters:
@@ -105,7 +110,7 @@ To implement an example from this section:
       # with an API key.
       # def run(api_key, audio_file_name):
       def run(iam_token, audio_file_name):
-          # Establish a server connection.
+          # Install a server connection.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
           stub = stt_service_pb2_grpc.RecognizerStub(channel)
@@ -114,7 +119,7 @@ To implement an example from this section:
           it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
           # Parameters for authorization with an IAM token
               ('authorization', f'Bearer {iam_token}'),
-          # Parameters for authorization as a service account with an API key
+          # Parameters for authorization with an API key as a service account
           #   ('authorization', f'Api-Key {api_key}'),
           ))
 

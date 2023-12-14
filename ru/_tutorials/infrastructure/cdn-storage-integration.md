@@ -781,9 +781,9 @@
      +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
      |          ID          |               NAME               |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |     RANGE     |
      +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
-     | e9bnnssj8sc8******** | example-subnet-{{ region-id }}-c | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-c | [10.1.0.0/16] |
-     | e2lghukd9iqo******** | example-subnet-{{ region-id }}-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-b | [10.2.0.0/16] |
-     | b0c3pte4o2kn******** | example-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.3.0.0/16] |
+     | e9bnnssj8sc8******** |   example-subnet-{{ region-id }}-c   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-c   | [10.1.0.0/16] |
+     | e2lghukd9iqo******** |   example-subnet-{{ region-id }}-b   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-b   | [10.2.0.0/16] |
+     | b0c3pte4o2kn******** |   example-subnet-{{ region-id }}-a   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-a   | [10.3.0.0/16] |
      +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
      ```
      
@@ -798,7 +798,7 @@
      Результат:
      
      ```
-     id: enpd133ngcnrgc8475cc
+     id: enpd133ngcnr********
      ```
      
      Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
@@ -1068,7 +1068,7 @@
   1. Включите переадресацию клиентов для ресурса:
 
      ```bash
-     yc cdn resource update <ID_ресурса> --redirect-http-to-https
+     yc cdn resource update <идентификатор_ресурса> --redirect-http-to-https
      ```
 
 - {{ TF }}
@@ -1179,7 +1179,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
-     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `cl-....edgecdn.ru`.
+     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `cl-********.edgecdn.ru`.
 
    {% endlist %}
 
@@ -1187,7 +1187,7 @@
 1. Создайте или измените CNAME-запись для `cdn.yandexcloud.example` так, чтобы она указывала на скопированное доменное имя:
 
    ```
-   cdn CNAME cl-****edgecdn.ru
+   cdn CNAME cl-********.edgecdn.ru
    ```
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
@@ -1215,7 +1215,7 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`.
         1. В поле **{{ ui-key.yacloud.common.type }}** укажите `CNAME`.
-        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `cl-....edgecdn.ru`.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `cl-********.edgecdn.ru`.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - {{ yandex-cloud }} CLI
@@ -1242,12 +1242,12 @@
         
         Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
         
-     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-****edgecdn.ru`:
+     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-********.edgecdn.ru`:
      
         ```bash
         yc dns zone add-records \
           --name example-dns-zone \
-          --record "cdn CNAME cl-****edgecdn.ru" \
+          --record "cdn CNAME cl-********.edgecdn.ru" \
         ```
 
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
@@ -1269,7 +1269,7 @@
           zone_id = ${yandex_dns_zone.example-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<скопированное_значение_вида_cl-****edgecdn.ru>"]
+          data    = ["<скопированное_значение_вида_cl-********.edgecdn.ru>"]
         }
         ```
 
@@ -1299,7 +1299,7 @@
    - API
     
      1. Создайте DNS-зону `example-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../../dns/api-ref/DnsZone/create.md).
-     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-****edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-********.edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
         
    {% endlist %}
    

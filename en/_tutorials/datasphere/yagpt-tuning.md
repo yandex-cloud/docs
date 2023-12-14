@@ -8,7 +8,7 @@ Foundation model retraining is at the [Preview](../../overview/concepts/launch-s
 
 {% note info %}
 
-{{ yagpt-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. 
+{{ yagpt-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 

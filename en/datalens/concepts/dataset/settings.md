@@ -5,7 +5,7 @@ A dataset works with sources in direct access mode: {{ datalens-short-name }} ex
 
 ## Connecting multiple tables {#multi-table}
 
-If multiple tables are available from a data source, you can merge them using the JOIN operator.
+If multiple tables are available from a data source, you can [merge](../../operations/dataset/join-data.md) them using the JOIN operator.
 When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table.
 
 You can use the following types of JOIN operators:
@@ -21,12 +21,13 @@ In a dataset, you can [create](../../operations/dataset/create-filter.md) a defa
 
 {% note info %}
 
-- You can create a filter for an individual chart in the chart settings.
-- Default filters are not applied to data in the dataset preview area.
+* You can create a filter for an individual chart in the chart settings.
+* Default filters are not applied to data in the dataset preview area.
 
 {% endnote %}
 
 Default filters for new charts will enable you:
+
 * To reduce the amount of data requested from a source when building a chart.
 * To add customized filters to new charts created from data in the same dataset.
 
@@ -42,12 +43,14 @@ You can also set data permissions at the row level (_Row-level security_ aka _RL
 
 You can define a dataset data source using ad-hoc SQL queries over database connections. When a data source is accessed, a query code executes as a subquery. For more information about using SQL queries in a dataset, see [{#T}](../../operations/dataset/add-data.md).
 When using SQL queries in datasets, we recommend:
+
 * Restricting the user specified in the connection to `read-only` access.
 * Assigning users that should not have ad-hoc query privileges `Execute` access to the connection and the associated datasets.
 
 You can enable or disable the use of subqueries as a source when [creating](../connection.md) or editing a connection.
 
 #### See also {#see-also}
-- [{#T}](../../operations/dataset/create.md)
-- [{#T}](../calculations/index.md)
-- [{#T}](../calculations/index.md#how-to-create-calculated-field)
+
+* [{#T}](../../operations/dataset/create.md)
+* [{#T}](../calculations/index.md)
+* [{#T}](../calculations/index.md#how-to-create-calculated-field)

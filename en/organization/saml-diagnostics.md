@@ -1,3 +1,8 @@
+---
+title: "Possible errors when using SAML federations in {{ org-full-name }}"
+description: "In this tutorial, you will learn about possible errors related to SAML federations."
+---
+
 # Troubleshooting errors in SAML 2.0 federations
 
 ## Error when creating a new user {#automatic-user-creation}

@@ -68,9 +68,9 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
 
 1. Set up user group mapping in the federation settings:
 
-   1. [Log in to an account]({{ link-passport-login }}) that belongs to an organization administrator or owner.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-   1. In the left-hand panel, select ![icon-federation](../../_assets/organization/icon-federation.svg) [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
+   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
    1. Select a federation and open the **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}** tab.
    1. Enable **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
    1. Click **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** and configure mapping:

@@ -10,7 +10,7 @@ Before you effect a suspension, check with the customer if they are going to con
 - Partner portal
 
   1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID to which your partner account in {{ yandex-cloud }} is linked. If you have no access, it means the account you use to log in has no partner status assigned.
-  1. In the left-hand panel, select ![icon](../../_assets/partner/dashboard.svg) **Dashboard**.
+  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
   1. Select the customer's account from the list and click it.
   1. Go to the **Overview** tab and click **Stop services**.
   1. In the window that opens, click **Stop services**. The subaccount will get the `Suspended` status.

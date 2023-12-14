@@ -7,7 +7,7 @@ To update a folder name or description, use the management console, CLI, API, or
 - Management console
 
    1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
-   1. Click ![image](../../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
    1. Enter a new name and description for the folder.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 

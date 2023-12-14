@@ -17,7 +17,10 @@ description: "Следуя данной инструкции, вы сможет�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
   1. Нажмите **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}** и укажите:
-      * **{{ ui-key.yacloud.common.name }}** — имя создаваемой капчи.
+      * **{{ ui-key.yacloud.common.name }}** — имя создаваемой капчи. Требования к имени:
+
+        {% include [name-format](../../_includes/smartcaptcha/name-format.md) %}
+
       * **{{ ui-key.yacloud.smartcaptcha.label_main-challenge }}** — тип [основного задания](../concepts/tasks.md#main-task), которое предлагается решить пользователю.
       * **{{ ui-key.yacloud.smartcaptcha.label_additional-challenge }}** — тип [дополнительного задания](../concepts/tasks.md#additional-task), которое предлагается решить пользователю.
       * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}** — сложность задания, которое увидит пользователь:

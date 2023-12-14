@@ -105,19 +105,19 @@
         }
 
         resource "yandex_resourcemanager_folder_iam_member" "uploader" {
-          folder_id = "<идентификатор каталога>"
+          folder_id = "<идентификатор_каталога>"
           role      = "storage.uploader"
           member    = "serviceAccount:${yandex_iam_service_account.s3-copy-fn id}"
         }
 
         resource "yandex_resourcemanager_folder_iam_member" "viewer" {
-          folder_id = "<идентификатор каталога>"
+          folder_id = "<идентификатор_каталога>"
           role      = "storage.viewer"
           member    = "serviceAccount:${yandex_iam_service_account.s3-copy-fn id}"
         }
 
         resource "yandex_resourcemanager_folder_iam_member" "payloadViewer" {
-          folder_id = "<идентификатор каталога>"
+          folder_id = "<идентификатор_каталога>"
           role      = "lockbox.payloadViewer"
           member    = "serviceAccount:${yandex_iam_service_account.s3-copy-fn id}"
         }

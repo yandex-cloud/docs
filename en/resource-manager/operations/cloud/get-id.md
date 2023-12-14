@@ -11,14 +11,14 @@ description: "In this tutorial, you will learn how to get a cloud ID in {{ yande
 
    1. Go to the [management console]({{ link-console-main }}) and [select](switch-cloud.md) the appropriate cloud. On the page that opens, the cloud ID is shown on top, next to the cloud name, and in the **{{ ui-key.yacloud.common.id }}** line of the **{{ ui-key.yacloud.iam.cloud.switch_overview }}** tab.
 
-   1. To copy the ID, hover over it and click ![image](../../../_assets/copy.svg).
+   1. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
 
 - CLI
 
    If you know the name of the cloud, pass it as a parameter in the `get` command:
 
    ```
-   yc resource-manager cloud get <cloud name>
+   yc resource-manager cloud get <cloud_name>
    ```
    Result:
 

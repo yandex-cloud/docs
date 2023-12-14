@@ -1,3 +1,8 @@
+---
+title: "Terms and definitions in {{ yds-full-name }}"
+description: "In this article, you can find the terms and definitions for {{ yds-name }}."
+---
+
 # Terms and definitions in {{ yds-name }}
 
 ## Data stream {#stream-concepts}

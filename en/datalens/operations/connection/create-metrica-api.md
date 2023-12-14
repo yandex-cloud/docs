@@ -5,6 +5,10 @@ description: "Follow this guide to create a Yandex Metrica connection."
 
 # Creating a Metrica connection
 
+
+{% include [datalens-metrica-pro-note](../../../_includes/datalens/datalens-metrica-pro-note.md) %}
+
+
 To create a Yandex Metrica connection:
 
 
