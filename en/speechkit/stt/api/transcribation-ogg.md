@@ -1,3 +1,8 @@
+---
+title: "Asynchronous OggOpus audio file recognition in {{ speechkit-full-name }}"
+description: "Follow this guide for asynchronous OggOpus audio file recognition."
+---
+
 # Asynchronously recognizing audio files in OggOpus format
 
 Here are examples of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md). These examples use the following parameters:
@@ -85,7 +90,7 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
       Save the recognition operation `id` that you received in the response.
 
-   1. Wait a while for the recognition to complete. It takes about 10 seconds to recognize one minute of an audio file.
+   1. Wait for the recognition to complete. It takes about 10 seconds to recognize one minute of an audio file.
    1. Send a request to [get information about the operation](../../../api-design-guide/concepts/operation.md#monitoring):
 
       ```bash

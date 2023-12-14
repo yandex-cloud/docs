@@ -73,7 +73,7 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin`](../managed-opensearch/operations/cluster-users.md).
 
-1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
+1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
 1. [Activate](../data-transfer/operations/transfer.md#activate) your transfer.
 
 ## Check the result {#check-result}
@@ -91,7 +91,7 @@ Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
     1. In the **Index pattern name** field, specify `audit-trails*` and click **Next step**.
     1. In **Time field**, select `application_usage_daily.timestamp` and click **Create index pattern**.
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Discover**.
 1. The dashboard that opens should contain data from {{ at-name }} in [Elastic Common Schema]({{ links.es.docs }}/ecs/current/ecs-reference.html) format.
 
@@ -118,7 +118,7 @@ To use Security Content:
     ```
 
 1. Connect to the target cluster using [{{ OS }} Dashboards](../managed-opensearch/operations/connect.md#dashboards).
-1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. Under **Management**, select **Stack Management**.
 1. Go to **Saved Objects** and import files from the `yc-export-auditlogs-to-opensearch/update-opensearch-scheme/content-for-transfer/` folder:
 
@@ -130,7 +130,7 @@ To use Security Content:
 
 Use the ready-made `Audit-trails-dashboard`:
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Dashboard**.
 1. Select `Audit-trails-dashboard` in the dashboard list.
 
@@ -140,7 +140,7 @@ Use the ready-made `Audit-trails-dashboard`:
 
 Run a ready-to-use query to view security events that can be selected using filters.
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Discover**.
 1. In the **Open** tab, select the `Search:Yandexcloud: Yandexcloud: Interesting fields` query.
 
@@ -150,7 +150,7 @@ Run a ready-to-use query to view security events that can be selected using filt
 
 Use code samples for the `monitor` and `trigger` entities when setting up [alerts]({{ os.docs }}/monitoring-plugins/alerting/index/):
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Plugins**, select **Alerting**.
 1. Copy the sample file contents and paste them into the creation window:
 
@@ -170,7 +170,7 @@ If you no longer need the resources you created, delete them:
 1. [Delete the transfer](../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. [Delete the {{ mos-name }} cluster](../managed-opensearch/operations/cluster-delete.md).
-1. [Delete the database{{ ydb-name }}](../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the {{ ydb-name }} database](../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the created service accounts](../iam/operations/sa/delete.md).
 1. Delete the [{{ at-name }} trail](../audit-trails/concepts/trail.md).
 

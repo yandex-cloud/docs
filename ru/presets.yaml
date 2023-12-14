@@ -5010,8 +5010,6 @@ default:
         users:
           button_tune-role: Настроить роли
           label_folders-roles: Роли в каталогах
-          label_user-listing-allowed-admins-title: Администраторам
-          label_user-listing-allowed-everybody-title: Всем пользователям
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство

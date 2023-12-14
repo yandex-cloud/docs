@@ -1,8 +1,10 @@
 ---
+title: "{{ lockbox-full-name }} pricing policy"
+description: "This article describes the {{ lockbox-name }} pricing policy."
 editable: false
 ---
 
-# Pricing for {{ lockbox-name }}
+# {{ lockbox-name }} pricing
 
 The cost of {{ lockbox-name }} usage is based on:
 

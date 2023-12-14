@@ -1,6 +1,6 @@
 # Classification of images in video frames
 
-{{ ml-platform-full-name }} lets you build machine learning (ML) models using the {{ jlab }} Notebook interface.
+{{ ml-platform-full-name }} allows you to build machine learning (ML) models using the {{ jlab }} Notebook interface.
 
 This tutorial solves the problem of binary image classification. You may have to deal with it when recognizing vehicle types based on CCTV camera images. It is assumed that the CCTV system captures images from cameras when detecting motion and saves them to a bucket in {{ objstorage-full-name }}.
 
@@ -45,7 +45,7 @@ Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [n
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -112,8 +112,8 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
    Link the route table to a subnet to route traffic from it via the NAT gateway:
 
-   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. In the required subnet row, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -130,11 +130,11 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. On the bucket creation page:
-      1. Enter bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
 
          {% note warning %}
 
-         Do not use buckets with dots in their names for connection.
+         Do not use buckets with periods in their names for connection.
 
          {% endnote %}
 
@@ -153,8 +153,8 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 ### Edit the project settings {#change-settings}
 
 1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
-1. Click the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
-1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Specify the parameters:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-project`.
@@ -169,7 +169,7 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 Create [secrets](../../datasphere/concepts/secrets.md) to store the ID and secret part of the static access key:
 
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** on the project page, click ![secret](../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** on the project page, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret. Name the secret with the static key ID as `token` and the secret with the secret part as `key_value`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter a value to be stored in encrypted form.

@@ -1,4 +1,9 @@
-# Set up a secure network configuration
+---
+title: "How to set up a secure network configuration in {{ yandex-cloud }}"
+description: "In this tutorial, you will learn how to set up a secure network configuration in {{ yandex-cloud }}."
+---
+
+# Setting up a secure network configuration
 
 ## Reserve two static public IP addresses {#reserve-ips}
 
@@ -53,7 +58,7 @@ To provide secure access to your resources, create an IPSec instance.
 
 ## Configure VPN routing {#vpn-routing}
 
-Configure routing between the remote network and your IPSec instance.  In the example, we'll use the subnet `192.168.0.0/24`.
+Configure routing between the remote network and your IPSec instance. In the example, we will use the `192.168.0.0/24` subnet.
 
 ### Create a route table {#create-route-table}
 
@@ -65,7 +70,7 @@ Create a route table and add [static routes](../../vpc/concepts/static-routes.md
 
    1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section in the folder where you want to configure routing.
    1. Select the network to create the route table in.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Enter the route table name: `vpn-route`.
    1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
@@ -85,7 +90,7 @@ To use static routes, link the route table to a subnet. To do this:
 
    1. In [the management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to configure routing.
    1. Select the network with the subnets to assign the route table to.
-   1. In the required subnet row, click ![image](../../_assets/options.svg).
+   1. In the required subnet row, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -106,7 +111,7 @@ For a VPN to work properly, allow receiving and transmitting traffic to UDP port
 - Management console
 
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to create a security group.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Enter the security group name: `vpn-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network that the security group will refer to.
@@ -178,7 +183,7 @@ For the security group rules to take effect, assign the groups to the VM network
 
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Select the `vpn` VM.
-   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
    1. In the window that opens, select the `vpn-sg` security group in the **{{ ui-key.yacloud.compute.instance.edit-network-interface.field_security-groups-ids }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Repeat the steps and assign the `web-service-sg` security group to the `web-node-a`, `web-node-b`, and `web-node-c` VMs.

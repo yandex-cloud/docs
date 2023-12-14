@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about the {{ yandex-cloud }} partner program"
+description: "This page provides answers to questions about the {{ yandex-cloud }} partner program."
+---
+
 # Questions and answers about the {{ yandex-cloud }} partner program
 
 ## General questions {#general}

@@ -43,7 +43,7 @@
       yc alb load-balancer logging <имя_балансировщика> \
         --enable
         --log-group-id <идентификатор_лог-группы> \
-        --discard codes=[<HTTP-код>,<Класс_HTTP-кода>,<gRPC-код>],percent=<доля_отбрасываемых_логов>
+        --discard codes=[<HTTP-код>,<класс_HTTP-кода>,<gRPC-код>],percent=<доля_отбрасываемых_логов>
       ```
 
       Где:
@@ -159,7 +159,7 @@
       ```bash
       yc alb load-balancer logging <имя_балансировщика> \
         --log-group-id <идентификатор_лог-группы> \
-        --discard codes=[<HTTP-код>,<Класс_HTTP-кода>,<gRPC-код>],percent=<доля_отбрасываемых_логов>
+        --discard codes=[<HTTP-код>,<класс_HTTP-кода>,<gRPC-код>],percent=<доля_отбрасываемых_логов>
       ```
 
       Где:

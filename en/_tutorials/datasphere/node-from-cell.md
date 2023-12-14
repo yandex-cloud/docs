@@ -5,7 +5,7 @@ In {{ ml-platform-name }}, you can both train a model and [deploy](../../datasph
 In this example, you will train a model for classifying clothing items from the [Keras](https://keras.io/about/) library and then complete all steps required to publish a service by creating a [node](../../datasphere/concepts/resource-model.md#resources) and an [alias](../../datasphere/concepts/resource-model.md#resources).
 
 To create a microservice based on a trained model:
-1. [Prepare the infrastructure](#infra).
+1. [Prepare your infrastructure](#infra).
 1. [Prepare a model](#get-model).
 1. [Create a checkpoint](#checkpoint).
 1. [Create a node](#create-node).
@@ -41,7 +41,7 @@ Create a folder to store logs of your service.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -78,7 +78,7 @@ In this example, we will use the basic [c1.4 configuration](../../datasphere/con
 
 {% endnote %}
 
-In this example, you will use an image classification model based on [fully connected layers](https://en.wikipedia.org/wiki/Convolutional_neural_network#Fully_connected_layers). The model returns ten probability values that show how confident the network is about the input image matching a certain class.
+In this example, you will use an image classification model based on [fully connected layers](https://en.wikipedia.org/wiki/Convolutional_neural_network#Fully_connected_layers). The model returns 10 probability values that show how confident the network is about the input image matching a certain class.
 
 1. Import the required libraries to the project. To do this, copy and paste the code into the appropriate cell by selecting **Run → Run Selected Cells** or pressing **Shift** + **Enter**. Wait for the operation to complete.
 
@@ -246,15 +246,15 @@ In this example, you will use an image classification model based on [fully conn
 
 1. To create a node:
    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the node parameters:
-      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**.
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name, e.g., `classifier-node`.
       * In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** field, select the checkpoint named `checkpoint-for-node`.
-      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../_assets/plus-sign.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
          * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `encoded_images`.
          * **Type**: `{{ ui-key.yc-ui-datasphere.node-page.type.list }}`.
-      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, click ![Add](../../_assets/plus-sign.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, click ![Add](../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
          * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `labels`.
          * **Type**: `{{ ui-key.yc-ui-datasphere.node-page.type.list }}`.
       * Under **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}**, select `{{ ui-key.yc-ui-datasphere.common.default }} Python 3.8`.
@@ -366,7 +366,7 @@ You can distribute the load across nodes and update the deployed services on the
 
 To create an alias:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.common.alias }}**.
+1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.common.alias }}**.
 1. Specify the alias parameters:
    * In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, specify `fashion`.
    * In the **{{ ui-key.yc-ui-datasphere.common.prefix }}** field, select an available alias prefix.

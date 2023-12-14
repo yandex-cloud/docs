@@ -2,7 +2,7 @@ default:
   locale: ru
   api-name: Yandex Tracker API
   api-short-name: Tracker API
-  host: https://api.tracker.yandex.net
+  host: api.tracker.yandex.net
   ver: v2
   org-id: 'X-Org-ID или X-Cloud-Org-ID: <идентификатор организации>'
   link-connect: https://connect.yandex.ru/

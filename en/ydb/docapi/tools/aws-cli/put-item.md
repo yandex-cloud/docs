@@ -1,3 +1,8 @@
+---
+title: "How to add data to a {{ ydb-full-name }} table"
+description: "Follow this guide to add data to a table."
+---
+
 # Adding data to a table
 
 To add two records to the `series` table:

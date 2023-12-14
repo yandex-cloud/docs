@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# {{ yagpt-full-name }} pricing policy
+# {{ yagpt-full-name }} pricing
 
 {{ yagpt-full-name }} is at the [Preview stage](../overview/concepts/launch-stages.md) and is part of {{ foundation-models-full-name }}. The service is at the Preview stage and is billed according to the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb). You can find {{ yagpt-full-name }} usage details in {{ billing-name }} as {{ foundation-models-full-name }} resource usage.
 
@@ -12,7 +12,7 @@ This pricing will become effective on December 6, 2023.
 
 {% endnote %}
 
-## What is included in the {{ yagpt-name }} cost {#rules}
+## What is included in {{ yagpt-full-name }} cost {#rules}
 
 ### Pricing unit {#unit}
 

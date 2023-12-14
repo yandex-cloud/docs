@@ -7,7 +7,7 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the appropriate cloud in the list on the left.
-   1. Click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, enter a new cloud name. The naming requirements are as follows:
 
       {% include [name-format.md](../../../_includes/name-format.md) %}

@@ -76,6 +76,8 @@ items:
             href: get-params.md
           - name: Getting IDs for questions and responses
             href: question-id.md
+          - name: Configuring pre-filling of a hidden field
+            href: hidden-query.md
   - name: Getting responses
     href: answers.md
   - name: Managing forms

@@ -8,7 +8,7 @@ description: "Follow this guide to add a user to a community."
 {% include [include](../../../_includes/datasphere/organization-users.md) %}
 
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. In the left-hand panel, select ![community-panel](../../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. In the left-hand panel, select ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Select the community to add users to.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.members }}** tab and click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
 1. Select one or more users from the list and click **{{ ui-key.yc-ui-datasphere.common.add }}**.

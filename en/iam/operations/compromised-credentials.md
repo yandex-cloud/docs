@@ -1,3 +1,8 @@
+---
+title: "Handling secrets that are available in the public domain in {{ yandex-cloud }}"
+description: "In this tutorial, you will learn what you should do if your secrets leaked to the public domain."
+---
+
 # Handling secrets that are available in the public domain
 
 {{ yandex-cloud }} automatically [scans the public domain for secrets](../../security/operations/search-secrets.md). Keep track of how secrets are used to ensure the safety of your data and infrastructure. If your secrets are compromised:

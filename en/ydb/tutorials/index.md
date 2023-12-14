@@ -1,3 +1,8 @@
+---
+title: "{{ ydb-full-name }} use cases"
+description: "Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ ydb-name }} tutorials
 
 * [{#T}](java-servlet-todo-list.md)

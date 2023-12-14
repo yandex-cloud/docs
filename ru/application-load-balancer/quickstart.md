@@ -20,7 +20,7 @@
 1. Убедитесь, что веб-сервер возвращает список папок из каталога. В терминале вашего компьютера выполните:
 
     ```bash
-    curl -v <публичный IP-адрес тестовой ВМ>
+    curl -v <публичный_IP-адрес_тестовой_ВМ>
     ```
 
 ## Создайте целевую группу {#create-target-group}
@@ -49,7 +49,7 @@
 
   ```bash
   yc alb target-group create test-target-group \
-    --target subnet-name=<имя подсети ВМ>,ip-address=<внутренний IP-адрес ВМ>
+    --target subnet-name=<имя_подсети_ВМ>,ip-address=<внутренний_IP-адрес_ВМ>
   ```
 
 {% endlist %}
@@ -96,7 +96,7 @@
         --name backend-1 \
         --port 80 \
         --target-group-name test-target-group \
-        --target-group-id <ID целевой группы> \
+        --target-group-id <идентификатор_целевой_группы> \
         --http-healthcheck healthy-threshold=2,unhealthy-threshold=2,timeout=1s,interval=3s,path=/
       ```
 
@@ -180,10 +180,10 @@
 
       ```bash
       yc alb load-balancer create test-load-balancer \
-        --network-name <имя сети> \
-        --location subnet-name=<имя подсети в зоне {{ region-id }}-a>,zone={{ region-id }}-a \
-        --location subnet-name=<имя подсети в зоне {{ region-id }}-b>,zone={{ region-id }}-b \
-        --location subnet-name=<имя подсети в зоне {{ region-id }}-c>,zone={{ region-id }}-c
+        --network-name <имя_сети> \
+        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-a>,zone={{ region-id }}-a \
+        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-b>,zone={{ region-id }}-b \
+        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-c>,zone={{ region-id }}-c
       ```
 
   1. Добавьте обработчик:
@@ -191,7 +191,7 @@
       ```bash
       yc alb load-balancer add-listener test-load-balancer \
         --listener-name test-listener \
-        --http-router-id <ID HTTP-роутера> \
+        --http-router-id <идентификатор_HTTP-роутера> \
         --external-ipv4-endpoint port=80
       ```
 
@@ -202,7 +202,7 @@
 В терминале выполните следующую команду:
 
 ```bash
-curl -v <публичный IP-адрес балансировщика>:80
+curl -v <публичный_IP-адрес_балансировщика>:80
 ```
 
 В ответ должен вернуться HTTP-ответ с кодом `200` и список папок из каталога тестовой ВМ в HTML-разметке.

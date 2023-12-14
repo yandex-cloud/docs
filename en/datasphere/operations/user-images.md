@@ -27,22 +27,22 @@ You can configure the environment to run your code using [Docker images](../conc
         && ln -s /usr/bin/python3 /usr/local/bin/python3
       ```
 
-1. (Optional) Under **{{ ui-key.yc-ui-datasphere.docker.credentials-switcher-label }}** enter your Docker Hub account username and password.
+1. (Optional) Under **{{ ui-key.yc-ui-datasphere.docker.credentials-switcher-label }}**, enter your Docker Hub account username and password.
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.build }}**.
 
    This will create a Docker image with TensorFlow packages for the use of the GPU in computations.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 
 {% include [Docker hub limits](../../_includes/datasphere/dockerhub-limits.md) %}
 
 ## Applying a Docker image to a project {#set}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Click ![Options](../../_assets/options.svg) next to the desired image and select ![Apply](../../_assets/datasphere/apply.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Click ![Options](../../_assets/console-icons/ellipsis.svg) next to the desired image and select ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 1. Open the project in {{ jlab }}Lab and wait for it to load.
 1. Open the notebook tab and check that the custom image environment is available in your project. For example, for the TensorFlow image, create and run a cell with the following code:
 
@@ -60,8 +60,8 @@ You can configure the environment to run your code using [Docker images](../conc
    ```
 To return to the default environment:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/datasphere/docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Click ![Options](../../_assets/options.svg) next to the default image and select ![Apply](../../_assets/datasphere/apply.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Click ![Options](../../_assets/console-icons/ellipsis.svg) next to the default image and select ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 
 {% note warning %}
 
@@ -76,17 +76,17 @@ Only a community admin can share a Docker image in the community.
 To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../datasphere/security/index.md).
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/datasphere/docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
-1. Select the desired image from the list.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/console-icons/logo-docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Select the image from the list.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the Docker image in.
 
 ## Deleting a Docker image {#delete}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/datasphere/docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/console-icons/logo-docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. In the list of Docker images, select the one you want to delete.
-1. Click ![options](../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the resource has been deleted.

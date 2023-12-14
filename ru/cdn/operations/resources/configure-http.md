@@ -46,8 +46,8 @@ description: "Следуя данной инструкции, вы сможет�
       Результат:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -87,8 +87,8 @@ description: "Следуя данной инструкции, вы сможет�
   1. Укажите разрешенные HTTP-методы запросов от клиентов, используя флаг `--allowed-http-methods`:
 
       ```bash
-      yc cdn resource update <идентификатор ресурса> \
-        --allowed-http-methods <разрешенные методы>
+      yc cdn resource update <идентификатор_ресурса> \
+        --allowed-http-methods <разрешенные_методы>
       ```
 
       Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
@@ -111,10 +111,10 @@ description: "Следуя данной инструкции, вы сможет�
       }
 
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<идентификатор облака>"
-        folder_id = "<идентификатор каталога>"
-        zone      = "<зона доступности>"
+        token     = "<OAuth-токен>"
+        cloud_id  = "<идентификатор_облака>"
+        folder_id = "<идентификатор_каталога>"
+        zone      = "<зона_доступности>"
       }
 
       resource "yandex_cdn_resource" "my_resource" {
@@ -194,13 +194,13 @@ description: "Следуя данной инструкции, вы сможет�
   Добавьте ресурсу разрешенный метод GET:
 
     ```bash
-    yc cdn resource update someidkfjqjfl325fw --allowed-http-methods GET
+    yc cdn resource update s0me1dkfjq******** --allowed-http-methods GET
     ```
   
   Результат:
 
     ```bash
-    id: someidkfjqjfl325fw
+    id: s0me1dkfjq********
 
     ...
 

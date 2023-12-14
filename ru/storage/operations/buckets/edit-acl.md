@@ -67,7 +67,7 @@ description: "Для управления доступом к бакету {{ ob
 
        ```bash
        yc storage bucket update --name <имя_бакета> \
-         --grants grant-type=<тип_получателя_разрешения>,grantee-id=<ID_получателя>,permission=<тип_разрешения>
+         --grants grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>
        ```
      
        Где:
@@ -75,7 +75,7 @@ description: "Для управления доступом к бакету {{ ob
          * `grant-type-account` — пользователь или сервисный аккаунт;
          * `grant-type-all-authenticated-users` — [системная группа](../../concepts/acl.md#system-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
          * `grant-type-all-users` — системная группа всех пользователей интернета.
-       * `grantee-id` — ID пользователя или сервисного аккаунта, которому нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
+       * `grantee-id` — идентификатор пользователя или сервисного аккаунта, которому нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
        * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types). 
 
        Чтобы настроить несколько разрешений, укажите параметр `--grants` несколько раз.
@@ -108,11 +108,11 @@ description: "Для управления доступом к бакету {{ ob
 
      ```
      resource "yandex_storage_bucket" "test" {
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
-       bucket = "<имя бакета>"
+       access_key = "<идентификатор_статического_ключа>"
+       secret_key = "<секретный_ключ>"
+       bucket = "<имя_бакета>"
        grant {
-         id          = "<идентификатор пользователя>"
+         id          = "<идентификатор_пользователя>"
          type        = "CanonicalUser"
          permissions = ["FULL_CONTROL"]
        }

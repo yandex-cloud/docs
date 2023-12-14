@@ -127,7 +127,7 @@ items:
             href: operations/projects/publication.md
           - name: Exporting a project
             href: operations/projects/export.md
-          - name: Sharing a notebook in {{ ml-platform-name }}
+          - name: Opening a notebook in {{ ml-platform-name }}
             href: operations/projects/open-in-datasphere.md
       - name: Migrating to new version
         href: operations/migration.md
@@ -181,6 +181,8 @@ items:
             href: concepts/s3-connector.md
           - name: Models
             href: concepts/models/index.md
+          - name: Fine-tuned foundation models
+            href: concepts/models/tuned-models.md
       - name: Deploying models
         href: concepts/deploy/index.md
       - name: Foundation models

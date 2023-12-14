@@ -1,3 +1,8 @@
+---
+title: "{{ sk-hybrid-name }} settings"
+description: "In this tutorial, you will learn how to set up {{ sk-hybrid-name }} components."
+---
+
 # {{ sk-hybrid-name }} service settings
 
 To configure [service components](architecture.md), provide each setting in the respective environment variable in the `--env` parameter of a component's Docker container run command:
@@ -15,11 +20,11 @@ If you run containers using the `docker compose` command, add or edit service sp
 | **Component** | **Environment variable** | **Setting description** |
 |:---------------|:-----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | All | `LOGGING_LEVEL` | [Logging level](operations/logging.md). The default value is `INFO`. |
-| Envoy | `UPSTREAM_ASR_PROXY_PORT` | Port for handling incoming requests for the STT server. The default value is `8080`. |
-| Envoy | `UPSTREAM_TTS_PROXY_PORT` | Port for handling incoming requests for the TTS server. The default value is `9080`. |
-| License server | `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` | Speech recognition service registration port. The default value is `8087`. |
-| License server | `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT` | Speech synthesis service registration port. The default value is `9087`. |
-| License server | `PROMETHEUS_PORT` | Prometheus port for [service metric delivery](monitoring.md). The default value is `8003`. |
+| Envoy | `UPSTREAM_ASR_PROXY_PORT` | Port for handling incoming requests for the STT server. By default, it is set to `8080`. |
+| Envoy | `UPSTREAM_TTS_PROXY_PORT` | Port for handling incoming requests for the TTS server. By default, it is set to `9080`. |
+| License server | `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` | Speech recognition service registration port. By default, it is set to `8087`. |
+| License server | `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT` | Speech synthesis service registration port. By default, it is set to `9087`. |
+| License server | `PROMETHEUS_PORT` | Prometheus port for [service metric delivery](monitoring.md). By default, it is set to `8003`. |
 | STT/TTS server | `SERVICE_PORT` | Port for making requests to speech/text processing services |
 | STT server | `LICENSE_SERVICE_ENDPOINTS` | FQDN License server and the service registration server specified in the `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` setting in `<FQDN License server>:<port>` format |
 | TTS server | `LICENSE_SERVICE_ENDPOINTS` | FQDN License server and the service registration server specified in the `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT` setting in `<FQDN License server>:<port>` format |

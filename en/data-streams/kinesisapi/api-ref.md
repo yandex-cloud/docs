@@ -1,3 +1,8 @@
+---
+title: "All HTTP API methods in {{ yds-full-name }}"
+description: "See below what methods you can use in the {{ yds-full-name }} HTTP API."
+---
+
 # All methods
 
 The {{ yds-full-name }} HTTP API compatible with the [Amazon Kinesis Data Streams API](https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html) provides the following methods:

@@ -1,12 +1,12 @@
-# Activating {{ tracker-full-name }}
+# Enabling {{ tracker-full-name }}
 
-If you aren't using {{ tracker-full-name }} to manage issues in your company, you can connect it. To work in {{ tracker-name }}, you'll need a [{{ yandex-cloud }} organization](../organization/). If you already have an organization, connect {{ tracker-name }} to it. If you have no organization, you can create it when connecting {{ tracker-name }}.
+If you are not using {{ tracker-full-name }} to manage issues in your company, you can enable it. To use {{ tracker-name }}, you need a [{{ yandex-cloud }}](../organization/) or [{{ yandex-360 }}](https://yandex.com/support/business/) organization. If you already have an organization, enable {{ tracker-name }} in it. If you have no organization, you can create it when enabling {{ tracker-name }}.
 
 {% note warning %}
 
-Only the users that have an account on Yandex can connect {{ tracker-name }}.
+To enable {{ tracker-name }} for your organization, you need to have [administrator](role-model.md#admin) privileges.
 
-If the administrator of your organization already connected {{ tracker-name }}, to start working with issues, [log in to the service](user/login.md).
+If {{ tracker-name }} is already enabled for your organization, to start working with your issues, [log in to the service](user/login.md).
 
 {% endnote %}
 
@@ -14,11 +14,11 @@ If the administrator of your organization already connected {{ tracker-name }}, 
 
 1. Go to the [page{{ tracker-name }}]({{ link-tracker-promo }}) and click **Try for free**.
 
-1. If you are an administrator in one or more {{ yandex-cloud }} organizations, select the organization for which you want to connect {{ tracker-name }}, then click **Log in**.
+1. If you are an administrator in one or more {{ yandex-cloud }} organizations, select the organization for which you want to enable {{ tracker-name }}, then click **Log in**.
 
-   If you don't have a {{ yandex-cloud }} organization or want to create a new one, enter the name of the organization, add its description, then click **Create**.
+   If you do not have a {{ yandex-cloud }} organization or want to create a new one, enter the name of the organization, add its description, then click **Create**.
 
-   {{ tracker-full-name }} will be connected for the selected or created organization automatically. For more information about managing organizations, see the [{{ org-full-name }}](../organization/) documentation.
+   {{ tracker-full-name }} will be enabled for the selected or created organization automatically. For more information about managing organizations, see the [{{ org-full-name }}](../organization/) documentation.
 
 ## Getting started with {{ tracker-name }} {#setup}
 

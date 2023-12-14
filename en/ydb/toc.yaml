@@ -169,7 +169,7 @@ items:
                 href: docapi/api-ref/actions/updateTimeToLive.md
       - name: Common errors when working with the Document API
         href: docapi/common-errors.md
-  - name: '{{ yandex-cloud }} API for {{ ydb-name }} reference'
+  - name: '{{ yandex-cloud }} API Reference: {{ ydb-name }}'
     items:
       - name: Overview
         href: api-ref/overview.md

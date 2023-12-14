@@ -85,7 +85,7 @@ i.e., `00:00:00.000`, and smaller units cast to the current time.
 
 This parameter is used to set a time interval in `__interval_<start>_<end>` format, where `<start>`/`<end>` are [relative dates](#relativedate) or [ISO dates](https://ru.wikipedia.org/wiki/ISO_8601).
 
-For example, if the current time is `2020-03-24T23:30:39.874Z`, then:
+E.g., if the current time is `2020-03-24T23:30:39.874Z`, then:
 * `__interval_2019-03-11T09:35:48_2019-12-28T09:35:48`: From `2019-03-11T09:35:48` to `2019-12-28T09:35:48`
 * `__interval_2019-01-17T09:35:48___relative_+0d`: From `2019-01-17T09:35:48` until today (`2020-03-24T23:59:59.999Z`)
 * `__interval___relative_-2w_sM___relative_+1d`: Two weeks ago or more (`2020-03-10T00:00:00.000Z`) cast to the start of the month (`2020-03-01T00:00:00.000Z`) until tomorrow (`2020-03-25T23:59:59.999Z`)

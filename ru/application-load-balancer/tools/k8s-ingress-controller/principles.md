@@ -28,10 +28,12 @@ description: "Узнайте, как работает Ingress-контролле
     spec:
       tls:
         - hosts:
-            - <доменное имя>
-          secretName: yc-certmgr-cert-id-<идентификатор сертификата из {{ certificate-manager-name }}>
+            - <доменное_имя>
+          secretName: yc-certmgr-cert-id-<идентификатор_сертификата>
     ```
     
+    Где `secretName` — идентификатор сертификата из {{ certificate-manager-full-name }}.
+
     В этом случае для балансировщика будут созданы обработчики двух видов: одни будут принимать HTTPS-трафик на порте 443, а другие — перенаправлять запросы с HTTP (порт 80) на HTTPS с кодом состояния `301 Moved Permanently`. При этом правила распределения трафика для тех же доменных имен, явно указанные в других `Ingress`, без поля `spec.tls`, будут иметь приоритет над перенаправлением с HTTP на HTTPS.
   
     {% include [k8s-ingress-controller-secret-name](../../../_includes/application-load-balancer/k8s-ingress-controller-secret-name.md) %}

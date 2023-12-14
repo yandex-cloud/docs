@@ -35,8 +35,8 @@ description: "Следуя данной инструкции, вы сможет�
      Результат:
 
      ```bash
-     id: someidkfjqjfl325fw
-     folder_id: somefolder7p3l5eobbd
+     id: s0me1dkfjq********
+     folder_id: s0mef01der7p********
      cname: testexample.com
      ...
      ssl_certificate:
@@ -47,7 +47,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Удалите ресурс:
 
      ```bash
-     yc cdn resource delete <идентификатор ресурса>
+     yc cdn resource delete <идентификатор_ресурса>
      ```
 
      Подробнее о команде `yc cdn resource delete`  см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/delete.md).

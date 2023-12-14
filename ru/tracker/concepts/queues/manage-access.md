@@ -174,39 +174,39 @@ remove | Отозвать разрешение. | Массив элементо�
    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
    ```json
    {
-       "self": "https://api.tracker.yandex.net/v2/queues/TESTQUEUE/permissions",
+       "self": "https://{{ host }}/v2/queues/TESTQUEUE/permissions",
        "version": 11,
        "create": {
-           "self": "https://api.tracker.yandex.net/v2/queues/TESTQUEUE/permissions/create",
+           "self": "https://{{ host }}/v2/queues/TESTQUEUE/permissions/create",
            "users": [
-                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://{{ host }}/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
            ],
            "roles": [
-               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Автор" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
+               { "self": "https://{{ host }}/v2/roles/author", "id": "author", "display": "Автор" },
+               { "self": "https://{{ host }}/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
+               { "self": "https://{{ host }}/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
            ]
        },
        "write": {
-           "self": "https://api.tracker.yandex.net/v2/queues/TESTQUEUE/permissions/write",
+           "self": "https://{{ host }}/v2/queues/TESTQUEUE/permissions/write",
            "users": [
-                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://{{ host }}/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
            ],
            "roles": [
-               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Автор" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
+               { "self": "https://{{ host }}/v2/roles/author", "id": "author", "display": "Автор" },
+               { "self": "https://{{ host }}/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
+               { "self": "https://{{ host }}/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
            ]
        },
        "grant": {
-           "self": "https://api.tracker.yandex.net/v2/queues/TESTQUEUE/permissions/grant",
+           "self": "https://{{ host }}/v2/queues/TESTQUEUE/permissions/grant",
            "users": [
-                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://{{ host }}/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
            ],
            "roles": [
-               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Автор" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
+               { "self": "https://{{ host }}/v2/roles/author", "id": "author", "display": "Автор" },
+               { "self": "https://{{ host }}/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
+               { "self": "https://{{ host }}/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
            ]
        }
    }

@@ -9,10 +9,10 @@ For example, allow any authenticated user to view folder information:
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-   1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.subject.select }}**.
+   1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.subject.select }}**.
    1. Go to the **{{ ui-key.yacloud_org.common.resource-acl.label_groups }}** section.
    1. Select the `All authenticated users` group.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**.
    1. Select the `resource-manager.viewer` role.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 

@@ -67,7 +67,7 @@ Check the stream specified in the [trail settings](../concepts/trail.md#trail-se
 
 [Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database status is `Running`. Start the database, if required. You can do this via the [management console]({{ link-console-main }}):
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-1. Click ![image](../../_assets/options.svg) to the right of the database name and select **{{ ui-key.yacloud.common.start }}**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the database name and select **{{ ui-key.yacloud.common.start }}**.
 
 ### DATABASE_NOT_FOUND {#database-not-found}
 

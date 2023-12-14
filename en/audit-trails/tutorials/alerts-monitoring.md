@@ -45,7 +45,7 @@ The alert will send a notification that the trail is being deactivated.
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `deactivating-trail-alert`.
-1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/console-icons/plus.svg) and specify:
    1. `service = Audit Trails`
    1. `name = trail.status`
    1. `status != ACTIVE`
@@ -69,7 +69,7 @@ The **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** parameter 
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `stopping-logs-alert`.
-1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/console-icons/plus.svg) and specify:
    1. `service = Audit Trails`
    1. `name = trail.delivered_events_count`
    1. `trail = <trail_name>`
@@ -91,7 +91,7 @@ The alert will send a notification that the number of trails in a cloud has chan
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `number-trails-alert`.
-1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/console-icons/plus.svg) and specify:
    1. `service = Audit Trails`
    1. `name = quota.trails_count.usage`
 1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
@@ -111,7 +111,7 @@ The alert will send a notification that the number of trails used per cloud cons
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `trail-quota-alert`.
-1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/console-icons/plus.svg) and specify:
    1. `service = Audit Trails`
    1. `name = quota.trails_count.usage`
 1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
@@ -131,7 +131,7 @@ The alert will send a notification that an unauthorized request has been sent to
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `unauthorized-access-alert`.
-1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/console-icons/plus.svg) and specify:
    1. `service = Audit Trails`
    1. `name = trail.unauthorized_events_count`
 1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:

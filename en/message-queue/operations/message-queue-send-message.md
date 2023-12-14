@@ -1,3 +1,8 @@
+---
+title: "How to send messages in {{ message-queue-full-name }}"
+description: "Follow this guide to send messages."
+---
+
 # Sending messages
 
 Messages are sent through [message queues](../concepts/queue.md) in {{ message-queue-name }} and may contain plain text in the message body. Consumers get messages and delete them from the queue after receiving and processing them.

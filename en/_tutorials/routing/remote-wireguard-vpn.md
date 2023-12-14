@@ -56,7 +56,7 @@ The infrastructure support costs include:
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, such as `sa-firezone`.
+      1. Enter a name for the service account, e.g., `sa-firezone`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI
@@ -88,8 +88,8 @@ The infrastructure support costs include:
    - Management console
 
       1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
-      1. Click the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Find the `sa-firezone` service account in the list and click ![image](../../_assets/options.svg).
+      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Find the `sa-firezone` service account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click **Add role** in the dialog box that opens and select the `admin` role.
 
@@ -118,8 +118,8 @@ The infrastructure support costs include:
          --output key.json
          ```
          Where:
-         * `service-account-id`: ID of your service account.
-         * `folder-id`: ID of the folder where the service account was created.
+         * `service-account-id`: Service account ID.
+         * `folder-id`: ID of the folder the service account was created in.
          * `output`: Name of the file with the authorized key.
 
          Result:

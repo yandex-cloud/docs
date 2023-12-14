@@ -39,7 +39,7 @@ When you create the first billing account linked to your user account, you are a
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
       * If you do not activate the trial period at this stage, your account will be created as a paid account. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
 
-- Legal entities, individual entrepreneurs, or non-residents of Russia and Kazakhstan
+- Legal entities, individual entrepreneurs, or non-residents of Russia and Kazakhstan {#businesses-entrepreneurs}
 
    * Select a payment method: **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}** or **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**. You can [change your payment method](../billing/operations/change-payment-method.md) any time after creating a billing account.
    * Enter the legal information of your organization and your contact details.

@@ -4,7 +4,7 @@ Along with the interface, {{ ml-platform-name }} has a new [resource model](../c
 
 ## Transferring projects and data automatically {#auto}
 
-You can automatically migrate your projects, the interpreter state, the project resources, and all data from the previous {{ ml-platform-name }} version to the new one using the project transfer tool. To do this, select ![transfer](../../_assets/datasphere/transfer.svg) **{{ ui-key.yc-ui-datasphere.transferring.title }}** in the left-hand menu and follow the prompts in the interface.
+You can automatically migrate your projects, the interpreter state, the project resources, and all data from the previous {{ ml-platform-name }} version to the new one using the project transfer tool. To do this, select ![transfer](../../_assets/console-icons/folder-arrow-right.svg) **{{ ui-key.yc-ui-datasphere.transferring.title }}** in the left-hand menu and follow the prompts in the interface.
 
 {% note warning %}
 
@@ -76,10 +76,10 @@ You can also save all the files of the old project as a ZIP archive:
       1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the created service account a [role](../../storage/security/index.md) that allows data reads and writes.
       1. [Create an access key](../../iam/operations/sa/create-access-key.md) for the service account.
    1. Create a secret:
-      1. Go to the ![Secrets](../../_assets/datasphere/jupyterlab/secret.svg) tab and click ![plus](../../_assets/datasphere/jupyterlab/add.svg).
+      1. Go to the ![Secrets](../../_assets/console-icons/shield-check.svg) tab and click ![plus](../../_assets/datasphere/jupyterlab/add.svg).
       1. In the dialog box, fill in the fields below:
          * **Name**: Key ID.
-         * **Content**: Secret key in the format `<ID of the static key>:<secret part of the static key>`.
+         * **Content**: Secret key in `<ID of the static key>:<secret part of the static key>` format.
          * **Scope**: Select `project`.
       1. Click **Save**.
       1. To make the secret available, restart the system kernel. To do this, select **Kernel ⟶ Restart kernel** from the {{ ml-platform-name }} interface menu.
@@ -122,9 +122,9 @@ To migrate the old project's interpreter state to the new version using a checkp
 
          If you already executed the open project's code, the **Checkpoints** list will contain the checkpoints created earlier.
       1. Run the code in a notebook cell or group of cells and wait for it to execute.
-   * In [auto](../concepts/save-state.md#auto-save) state saving mode: in the upper-right corner of the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab, click ![plus-sign](../../_assets/plus-sign.svg) or use the **Cmd** + **K** or **Ctrl** + **K** hotkeys.
+   * In [auto](../concepts/save-state.md#auto-save) state saving mode: in the top-right corner of the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab, click ![plus-sign](../../_assets/console-icons/plus.svg) or use the **Cmd** + **K** or **Ctrl** + **K** hotkeys.
 
-   This creates a checkpoint that appears at the top of the **Checkpoints** list.
+   A new checkpoint will appear at the top of the **Checkpoints** list.
 1. Save the checkpoint:
    1. Open the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** panel.
    1. Select the desired checkpoint from the **Checkpoints** list and click **Pin**.

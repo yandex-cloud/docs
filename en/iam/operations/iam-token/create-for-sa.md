@@ -1,3 +1,8 @@
+---
+title: "How to get an IAM token for a service account in {{ iam-full-name }}"
+description: "Follow this guide to get an IAM token for a service account."
+---
+
 # Getting an IAM token for a service account
 
 There are multiple ways to get an [IAM token](../../concepts/authorization/iam-token.md) for the [service account](../../concepts/users/service-accounts.md):

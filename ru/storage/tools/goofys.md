@@ -22,11 +22,11 @@
 1. Для разового монтирования бакета выполните команду вида:
 
     ```
-    goofys --endpoint=https://{{ s3-storage-host }} <имя бакета> <точка монтирования>
+    goofys --endpoint=https://{{ s3-storage-host }} <имя_бакета> <точка_монтирования>
     ```
 
 Чтобы настроить монтирование бакета при запуске системы, добавьте в файл `/etc/fstab` строку вида:
 
 ```
-goofys#<имя бакета>  <точка монтирования>  fuse  _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=https://{{ s3-storage-host }}  0  0
+goofys#<имя_бакета>  <точка_монтирования>  fuse  _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=https://{{ s3-storage-host }}  0  0
 ```

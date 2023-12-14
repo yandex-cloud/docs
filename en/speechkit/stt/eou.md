@@ -1,3 +1,8 @@
+---
+title: "Detecting the end of utterance in {{ speechkit-full-name }}"
+description: "Follow this guide to detect the end of an utterance."
+---
+
 # Detecting the end of utterance
 
 EOU (<q>End-of-Utterance</q>) is a flag that indicates where an utterance ends during [streaming recognition](streaming.md). Under streaming recognition, the {{ speechkit-short-name }} server returns the results of recognizing parts of an utterance rather than the entire utterance:
@@ -20,9 +25,7 @@ You can also detect the EOU on your own based on data from {{ speechkit-short-na
 
 {{ speechkit-short-name }} will use it as a pointer to EOU and return a complete utterance in response.
 
-
 You can also detect the EOU using the {{ speechkit-name }} Python SDK. For examples, see the following sections:
 
 * [{#T}](../sdk/python/templates-bvp-bvss.md)
 * [{#T}](../sdk/python/templates-bvcc.md)
-

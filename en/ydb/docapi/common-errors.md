@@ -1,4 +1,6 @@
 ---
+title: "Common errors when working with the Document API in {{ ydb-full-name }}"
+description: "This page describes the list of errors that are common to all Document API methods."
 sourcePath: overlay/docapi/api-ref/common-errors.md
 ---
 # Common errors when working with the Document API

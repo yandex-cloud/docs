@@ -1,3 +1,8 @@
+---
+title: "{{ captcha-full-name }} use cases"
+description: "Various {{ captcha-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ captcha-full-name }} tutorials
 
 * [{#T}](mobile-app/website.md)

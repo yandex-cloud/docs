@@ -1,4 +1,6 @@
 ---
+title: "How to read a record from a {{ ydb-full-name }} table"
+description: "Follow this guide to read a record from a table."
 sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
 ---
 # Reading a record
@@ -429,8 +431,8 @@ To read a record from the `Series` table:
       def get_item_from_table(dynamodb_client, table_item)
         result = dynamodb_client.get_item(table_item)
         puts "#{result.item['title']} (#{result.item['series_id'].to_i}):"
-        puts " Release date: #{result.item['info']['release_date']}"
-        puts " Series info: #{result.item['info']['series_info']}"
+        puts "  Release date: #{result.item['info']['release_date']}"
+        puts "  Series info: #{result.item['info']['series_info']}"
       rescue StandardError => e
         puts "Error retrieving series '#{table_item[:key][:title]} " \
               "(#{table_item[:key][:series_id]})': #{e.message}"

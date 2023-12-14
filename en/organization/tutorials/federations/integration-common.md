@@ -32,7 +32,7 @@ To create a federation:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
    1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
@@ -238,7 +238,7 @@ To add a certificate to a federation:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -402,9 +402,9 @@ When setting up the message:
 
 ## Configure user attribute mapping {#claims-mapping}
 
-After a user authenticates, the identity provider's server forwards to {{ yandex-cloud }} an SAML message with information about successful authentication and user attributes, such as ID, name, email address, and so on.
+After a user authenticates, the identity provider's server forwards to {{ yandex-cloud }} a SAML message with information about successful authentication and user attributes, such as ID, name, email address, etc.
 
-To correctly pass user information to {{ org-full-name }}, map SAML message attributes to the user's personal information stored on the identity provider's server.
+To correctly transmit user information to {{ org-full-name }}, map SAML message attributes to the user's personal information stored on the identity provider's server.
 
 User data | Comment | SAML message elements
 --------- | ------- | ---------------------
@@ -495,9 +495,9 @@ To add federation users to an organization:
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/console-icons/person.svg).
 
-   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
+   1. In the top-right corner, click ![icon-users](../../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
 
    1. Select the identity federation to add users from.
 

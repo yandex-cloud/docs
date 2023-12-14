@@ -1,3 +1,8 @@
+---
+title: "How to get started with {{ captcha-full-name }}"
+description: "Follow this guide to create and set up a CAPTCHA."
+---
+
 # Getting started with {{ captcha-full-name }}
 
 To get started with the service:

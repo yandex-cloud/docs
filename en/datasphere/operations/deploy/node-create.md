@@ -26,10 +26,10 @@ If your project uses packages and libraries that are not included in the [list o
    1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}**.
    1. In the list, choose the last added checkpoint named `Cell run` and make sure it contains the appropriate node.
    1. In the top-right corner, click ![Pin](../../../_assets/datasphere/pin.svg) **{{ ui-key.yc-ui-datasphere.common.pin }}**.
-   1. In the window that appears, enter the checkpoint name and click **{{ ui-key.yc-ui-datasphere.common.pin }}**.
+   1. In the pop-up window, enter the checkpoint name and click **{{ ui-key.yc-ui-datasphere.common.pin }}**.
 1. Create a node:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the basic node parameters:
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Resource that a node is based on (**{{ ui-key.yc-ui-datasphere.common.cell }}** or **{{ ui-key.yc-ui-datasphere.common.docker }}**).
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name.
@@ -41,7 +41,7 @@ If your project uses packages and libraries that are not included in the [list o
       - Cell
 
          * In the **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}** field, select the previously created checkpoint.
-         * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** and **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, set the names and types of input and output variables for automatic API generation. You can add variables by clicking ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}**.
+         * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** and **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, set the names and types of input and output variables for automatic API generation. You can add variables by clicking ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}**.
          * (Optional) If a [nonstandard environment](node-customization.md) is used for running a cell code, select **{{ ui-key.yc-ui-datasphere.new-node.user-custom }}** under **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}** and specify:
             * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
             * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry.
@@ -50,7 +50,7 @@ If your project uses packages and libraries that are not included in the [list o
 
          * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the image in {{container-registry-name}}. Click **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** and specify:
             * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
-            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry. For details, see [{#T}](node-customization.md).
+            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry. For more information, refer to [{#T}](node-customization.md).
          * Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
             * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select the node connection protocol: **HTTP** (**HTTP/2**) or **gRPC**.
             * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}**: Specify the port for connecting to the node.
@@ -73,7 +73,7 @@ If your project uses packages and libraries that are not included in the [list o
 
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder to create new resources in.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
-   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
    1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 To view all created nodes:
@@ -125,18 +125,18 @@ Let's look at an example of creating an API endpoint that takes a number range a
    1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}**.
    1. In the list, choose the last added checkpoint named `Cell run` and make sure it contains the appropriate node.
    1. In the top-right corner, click ![Pin](../../../_assets/datasphere/pin.svg) **{{ ui-key.yc-ui-datasphere.common.pin }}**.
-   1. In the window that appears, enter a name for the checkpoint, such as `randomizer-checkpoint`, and click **{{ ui-key.yc-ui-datasphere.common.pin }}**.
+   1. In the pop-up window, enter a name for the checkpoint, such as `randomizer-checkpoint`, and click **{{ ui-key.yc-ui-datasphere.common.pin }}**.
 1. Create a node:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the window that opens, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the node parameters:
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**.
-      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name like `randomizer-node`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name, e.g., `randomizer-node`.
       * In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** field, select the checkpoint named `randomizer-checkpoint`.
-      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
          * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `input_data`.
          * **{{ ui-key.yc-ui-datasphere.common.type }}**: `{{ ui-key.yc-ui-datasphere.node-page.type.dict }}`.
-      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, click ![Add](../../../_assets/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
          * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `output_data`.
          * **{{ ui-key.yc-ui-datasphere.common.type }}**: `{{ ui-key.yc-ui-datasphere.node-page.type.dict }}`.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select your folder.
@@ -187,7 +187,7 @@ Let's look at an example of creating an API endpoint that takes a number range a
    }
    ```
 
-   For details, see [{#T}](node-api.md).
+   For more information, see [{#T}](node-api.md).
 1. Edit the `left_bound` and the `right_bound` request parameters. Send several API requests and make sure that random numbers from the specified range are returned.
 
 #### See also {#see-also}

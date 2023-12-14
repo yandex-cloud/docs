@@ -1,8 +1,9 @@
 ---
-title: "Secret versions management in {{ lockbox-full-name }}"
+title: "How to manage secret versions in {{ lockbox-full-name }}"
+description: "Follow this guide to manage secret versions."
 ---
 
-# Secret version control
+# Managing secret versions
 
 Secret version control enables you to:
 
@@ -52,12 +53,12 @@ Secret version control enables you to:
       resource "yandex_lockbox_secret_version" "my_version" {
         secret_id = "<secret_ID>"
         entries {
-          key        = "<secret1_key>"
-          text_value = "<secret1_value>"
+          key        = "<secret_1_key>"
+          text_value = "<secret_1_value>"
         }
         entries {
-          key        = "<secret2_key>"
-          text_value = "secret2_value>"
+          key        = "<secret_2_key>"
+          text_value = "secret_2_value>"
         }
       }
       ```
@@ -116,7 +117,7 @@ Secret version control enables you to:
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click the name of the secret you need.
-   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the appropriate version.
+   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the appropriate version.
    1. Select **{{ ui-key.yacloud.lockbox.button_action-open-version-add-dialog }}**.
    1. Edit or add the following parameters:
       * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
@@ -131,7 +132,7 @@ Secret version control enables you to:
 
 {% endlist %}
 
-## Rolling back to a version {#backup}
+## Changing the current version {#backup}
 
 {% list tabs %}
 
@@ -140,13 +141,13 @@ Secret version control enables you to:
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click the name of the secret you need.
-   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the appropriate version.
+   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the appropriate version.
    1. Select **{{ ui-key.yacloud.lockbox.field_make-version-current }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_action-make-version-current }}**.
 
 - API
 
-   To roll back to an existing version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
+   To change the current version, use the [addVersion](../api-ref/Secret/addVersion.md) REST API method for the [Secret](../api-ref/Secret/index.md) resource or the [SecretService/AddVersion](../api-ref/grpc/secret_service.md#AddVersion) gRPC API call and specify the required version.
 
 {% endlist %}
 
@@ -159,7 +160,7 @@ Secret version control enables you to:
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click the name of the secret you need.
-   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the appropriate version.
+   1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the appropriate version.
    1. Select **{{ ui-key.yacloud.lockbox.button_action-schedule-for-destruction }}**.
    1. Enter the destruction pending period.
    1. Click **{{ ui-key.yacloud.lockbox.forms.button_schedule-destruction }}**.

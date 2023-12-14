@@ -81,9 +81,9 @@ To create a VM with several network interfaces, [have technical support]({{ link
 ## Required paid resources {#paid-resources}
 
 The cost of the infrastructure includes:
-* A fee for VM computing resources, disks, and images (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for computing resources, disks, and VM images (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* A fee for a public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Prepare the environment {#environment-preparing}
@@ -199,7 +199,7 @@ Create the `segment1-rt`, `segment2-rt`, and `segment3-rt` route tables:
    1. In the [management console]({{ link-console-main }}), go to `vipnet-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
    1. Choose the `vipnet-network` cloud network.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
+   1. On the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **Route tables**.
    1. Click **Create**.
    1. Set the **name**: `segment1-rt`.
    1. Click **Add route** and specify:
@@ -222,8 +222,8 @@ Link the route tables to the subnets:
    1. In the [management console]({{ link-console-main }}), go to `vipnet-folder`.
    1. In the list of services, select **{{ vpc-name }}**.
    1. Choose the `vipnet-network` cloud network.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
-   1. Select the `segment1-subnet` subnet and click ![image](../../_assets/options.svg) → **Link routing table**.
+   1. On the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **Route tables**.
+   1. Select the `segment1-subnet` subnet and click ![image](../../_assets/console-icons/ellipsis.svg) → **Link routing table**.
    1. Select the `segment1-rt` table.
    1. Click **Link**.
 
@@ -572,7 +572,7 @@ The tutorial uses the demo versions of the keys.
 
    1. In the [management console]({{ link-console-main }}), select `example_folder`.
    1. Select **{{ compute-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/compute/image-pic.svg) **Images**.
+   1. On the left-hand panel, select ![image](../../_assets/console-icons/layers.svg) **Images**.
    1. Click **Upload image**.
    1. Specify the image name: `vipnet-va-disk1`.
    1. Insert the link to the first disk image in {{ objstorage-name }}.
@@ -631,7 +631,7 @@ The tutorial uses the demo versions of the keys.
 
       Where:
       * `name`: VM name.
-      * `hostname`: The VM's host name.
+      * `hostname`: VM host's name.
       * `zone`: Availability zone that corresponds to the selected subnet for the VM.
       * `create-boot-disk`: Boot disk parameters.
       * `create-disk`: Parameters of an additional disk.
@@ -732,4 +732,4 @@ The tutorial uses the demo versions of the keys.
 To stop paying for the resources you created:
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the VM with ViPNet Coordinator VA.
 * [Delete](../../compute/operations/image-control/delete.md) the disk images.
-* [Delete](../../storage/operations/buckets/delete.md) the respective bucket.
+* [Delete](../../storage/operations/buckets/delete.md) the bucket.

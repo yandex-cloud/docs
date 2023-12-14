@@ -7,7 +7,7 @@ You can use [reports in {{ speechsense-name }}](../../concepts/reports.md) to an
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select the appropriate project.
 1. Go to the **Reports** tab.
-1. Click **Create report** and then ![image](../../../_assets/plus-sign.svg) **Add parameter**.
+1. Click **Create report** and then ![image](../../../_assets/console-icons/plus.svg) **Add parameter**.
 1. Set up the parameter:
 
    1. In the **Assessment parameters** field, select the appropriate parameter and specify a value or a range of values for it.
@@ -22,8 +22,8 @@ You can use [reports in {{ speechsense-name }}](../../concepts/reports.md) to an
 
       The report is generated as a chart and table. The **Report parameter name** field value is used to label the parameter in the chart legend and the table column. By default, this value is the same as that of the **Assessment parameters** field.
 
-1. To add more parameters, click ![image](../../../_assets/plus-sign.svg) **Add parameter**.
-1. Use the ![image](../../../_assets/plus-sign.svg) **Add filter** button to set filters to be used to select dialogs for the report. For more information on how to filter dialogs in a more practical way, see [{#T}](../../concepts/reports.md#filters).
+1. To add more parameters, click ![image](../../../_assets/console-icons/plus.svg) **Add parameter**.
+1. Use the ![image](../../../_assets/console-icons/plus.svg) **Add filter** button to set filters to be used to select dialogs for the report. For more information on how to filter dialogs in a more practical way, see [{#T}](../../concepts/reports.md#filters).
 1. Select the connection to which you uploaded the required conversation recordings.
 1. Specify how to group the report data. For example, you can group by product, operator, or customer. Different grouping settings produce different data cross-sections.
 1. Click **Create report**.

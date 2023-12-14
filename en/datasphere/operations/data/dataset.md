@@ -188,17 +188,17 @@ Once initialized, the dataset becomes enabled in the project and available at th
 To enable a dataset:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
-1. In the line with the appropriate dataset, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.activate}}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
+1. In the line with the appropriate dataset, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.activate}}**.
 
 ## Viewing a list of datasets available in the project {#list}
 
-On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Next, go to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Next, go to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Sharing a dataset {#share}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. Select the appropriate dataset from the list.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the dataset in.
@@ -213,5 +213,5 @@ You can delete a dataset only if it is:
 
 To delete a dataset:
 
-1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
-1. In the line with the appropriate dataset, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. In the line with the appropriate dataset, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.

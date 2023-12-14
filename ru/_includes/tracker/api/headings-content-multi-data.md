@@ -3,7 +3,7 @@
 - **Host**
         Адрес узла, предоставляющего API:
     ```
-    https://api.tracker.yandex.net
+    https://{{ host }}
     ```
 
 - **Authorization**

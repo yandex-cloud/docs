@@ -1,9 +1,14 @@
+---
+title: "Selecting data from all columns in {{ yq-full-name }}"
+description: "Follow this guide to select data from all columns."
+---
+
 # Selecting data from all columns
 
 To select data from all columns, use the SELECT statement:
 
 ```sql
-SELECT  --  Data selection operator.
+SELECT  -- Data selection operator.
     *   -- Select all columns.
 FROM
     bindings.`tutorial-analytics`

@@ -154,9 +154,11 @@
   yc vpc security-group create \
     --name ddos-sg-vms \
     --rule "direction=ingress,port=22,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=80,protocol=tcp,security-group-id=<идентификатор группы безопасности ddos-sg-balancer>" \
+    --rule "direction=ingress,port=80,protocol=tcp,security-group-id=<идентификатор_группы_безопасности>" \
     --network-name ddos-network
   ```
+
+  Где `security-group-id` — идентификатор группы безопасности `ddos-sg-balancer`.
 
   Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
@@ -216,9 +218,9 @@
 
   1. Получите идентификаторы ресурсов, необходимые для создания группы ВМ, с помощью команд:
 
-     * [yc iam service-account get <имя сервисного аккаунта>](../../cli/cli-ref/managed-services/iam/service-account/get.md) — для сервисного аккаунта;
+     * [yc iam service-account get <имя_сервисного_аккаунта>](../../cli/cli-ref/managed-services/iam/service-account/get.md) — для сервисного аккаунта;
      * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md) — для сети `ddos-network`;
-     * [yc vpc subnet get <имя подсети>](../../cli/cli-ref/managed-services/vpc/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-c`;
+     * [yc vpc subnet get <имя_подсети>](../../cli/cli-ref/managed-services/vpc/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-c`;
      * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md) — для образа загрузочного диска;
      * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/managed-services/vpc/security-group/get.md) — для группы безопасности `ddos-sg-vms`.
 
@@ -227,7 +229,7 @@
 
      ```yaml
      name: ddos-group
-     service_account_id: <идентификатор сервисного аккаунта>
+     service_account_id: <идентификатор_сервисного_аккаунта>
      description: "DDoS alb scenario"
      instance_template:
          platform_id: standard-v3
@@ -238,18 +240,18 @@
          boot_disk_spec:
              mode: READ_WRITE
              disk_spec:
-                 image_id: <идентификатор образа>
+                 image_id: <идентификатор_образа>
                  type_id: network-hdd
                  size: 3g
          network_interface_specs:
-             - network_id: <идентификатор облачной сети>
+             - network_id: <идентификатор_облачной_сети>
                subnet_ids:
-                 - <идентификатор подсети в зоне {{ region-id }}-a>
-                 - <идентификатор подсети в зоне {{ region-id }}-b>
-                 - <идентификатор подсети в зоне {{ region-id }}-c>
+                 - <идентификатор_подсети_в_зоне_{{ region-id }}-a>
+                 - <идентификатор_подсети_в_зоне_{{ region-id }}-b>
+                 - <идентификатор_подсети_в_зоне_{{ region-id }}-c>
                primary_v4_address_spec: {}
                security_group_ids:
-                 - <идентификатор группы безопасности ddos-sg-vms>
+                 - <идентификатор_группы_безопасности>
      deploy_policy:
          max_unavailable: 1
          max_expansion: 0
@@ -266,6 +268,8 @@
              name: tg-ddos
      ```
 
+     Где `security_group_ids` — идентификатор группы безопасности `ddos-sg-vms`.
+
   1. Создайте группу виртуальных машин в каталоге по умолчанию:
 
      ```bash
@@ -277,8 +281,8 @@
 
      ```bash
      done (25s)
-     id: cl1qjhlcdofg6rujs29d
-     folder_id: b1g86q4m5vej8lkljme5
+     id: cl1qjhlcdofg********
+     folder_id: b1g86q4m5vej********
      created_at: "2021-08-30T19:25:02.031Z"
      name: ddos-group
      description: DDoS scenario
@@ -293,16 +297,16 @@
          disk_spec:
            type_id: network-hdd
            size: "3221225472"
-           image_id: fd8r6kq84o7be9tm50ms
+           image_id: fd8r6kq84o7b********
        network_interface_specs:
-       - network_id: enp3srbi9u49pjvcejnb
+       - network_id: enp3srbi9u49********
          subnet_ids:
-         - e9b17pi15695qc0mngl2
-         - e2lt87g1rligsso4ketj
-         - b0c7kl8riq244aq2mfc1
+         - e9b17pi15695********
+         - e2lt87g1rlig********
+         - b0c7kl8riq24********
          primary_v4_address_spec: {}
          security_group_ids:
-         - enpi08rif04dcugga5e3
+         - enpi08rif04d********
        scheduling_policy: {}
      scale_policy:
        fixed_scale:
@@ -319,13 +323,13 @@
      load_balancer_state: {}
      managed_instances_state:
        target_size: "2"
-     service_account_id: aje2stn6id9k43qk7n7l
+     service_account_id: aje2stn6id9k********
      status: ACTIVE
      application_load_balancer_spec:
        target_group_spec:
          name: first-target-group
      application_load_balancer_state:
-       target_group_id: ds78imh0ds2eluau7ojp
+       target_group_id: ds78imh0ds2e********
      ```
 
      Подробнее о команде `yc compute instance-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
@@ -401,9 +405,9 @@
      Результат:
 
      ```bash
-     id: a5dg2cv4ngne8575fb1p
+     id: a5dg2cv4ngne********
      name: ddos-backend-group
-     folder_id: aoerb349v3h4bupphtaf
+     folder_id: aoerb349v3h4********
      created_at: "2021-08-08T20:46:21.688940670Z"
      ```
 
@@ -417,7 +421,7 @@
        --name backend-1 \
        --weight 1 \
        --port 80 \
-       --target-group-id=<идентификатор целевой группы> \
+       --target-group-id=<идентификатор_целевой_группы> \
        --http-healthcheck timeout=1s,interval=1s,port=80,path=/
      ```
 
@@ -439,9 +443,9 @@
 
      ```bash
      done (21s)
-     id: ds7fea2pggr2e2vlncd5
+     id: ds7fea2pggr2********
      name: ddos-backend-group
-     folder_id: b1g86q4m5vej8lkljme5
+     folder_id: b1g86q4m5vej********
      http:
      backends:
      - name: backend-1
@@ -449,7 +453,7 @@
        port: "80"
        target_groups:
          target_group_ids:
-         - ds78ate00f8e7c0p1rem
+         - ds78ate00f8e********
        healthchecks:
        - timeout: 1s
          interval: 1s
@@ -505,9 +509,9 @@
      Результат:
 
      ```bash
-     id: a5dcsselagj4o2v4a6e7
+     id: a5dcsselagj4********
      name: ddos-router
-     folder_id: aoerb349v3h4bupphtaf
+     folder_id: aoerb349v3h4********
      created_at: "2021-08-08T21:04:59.438292069Z"
      ```
 
@@ -546,7 +550,7 @@
             path:
               prefix_match: /
           route:
-            backend_group_id: ds7fea2pggr2e2vlncd5
+            backend_group_id: ds7fea2pggr2********
             timeout: 60s
      ```
 
@@ -601,8 +605,8 @@
       ```bash
       yc alb load-balancer add-listener ddos-protect-alb \
         --listener-name ddos-listener \
-        --http-router-id <идентификатор HTTP-роутера> \
-        --external-ipv4-endpoint port=80, address=<IP-адрес с защитой от DDoS>
+        --http-router-id <идентификатор_HTTP-роутера> \
+        --external-ipv4-endpoint port=80, address=<IP-адрес_с_защитой_от_DDoS>
       ```
 
       Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
@@ -618,7 +622,7 @@
 Проверьте доступность сервиса на хосте `alb-with-ddos.com`. Для этого выполните команду:
 
 ```bash
-curl -H "Host: alb-with-ddos.com" http://<IP-адрес L7-балансировщика>
+curl -H "Host: alb-with-ddos.com" http://<IP-адрес_балансировщика>
 ```
 
 Результат:

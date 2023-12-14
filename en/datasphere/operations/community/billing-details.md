@@ -1,3 +1,8 @@
+---
+title: "How to view service usage details in {{ ml-platform-full-name }}"
+description: "In this tutorial, you will learn how to view your spending details in {{ ml-platform-name }}."
+---
+
 # Viewing service usage details {{ ml-platform-name }}
 
 You can get your usage data in {{ ml-platform-name }} itemized down to a project by building a dashboard in [{{ datalens-full-name }}](../../../datalens/). To do this:
@@ -7,7 +12,7 @@ You can get your usage data in {{ ml-platform-name }} itemized down to a project
 1. Enter a name for the connection and click **Create**.
 1. Open **{{ yandex-cloud }} Billing Dashboard** and go to **Labels**.
 1. Select:
-   * **Usage date**: The dates of interest.
+   * **Usage date**: Dates of interest.
    * **Billing account name**: One or more payment accounts.
    * **Cloud name (ID)**: Leave this field empty.
    * **Label key**: Labels for viewing statistics; you can set multiple values at the same time:

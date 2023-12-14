@@ -1,3 +1,8 @@
+---
+title: "How to read data from a {{ ydb-full-name }} table"
+description: "Follow this guide to read data from a table."
+---
+
 # Reading data from a table
 
 To read data from the `series` table:
@@ -6,7 +11,7 @@ To read data from the `series` table:
 
 * AWS CLI
 
-   Run the command by replacing `https://your-database-endpoint` the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
+   Run the command by replacing `https://your-database-endpoint` with the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
 
    {% note warning %}
 

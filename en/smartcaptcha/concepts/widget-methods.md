@@ -1,11 +1,16 @@
+---
+title: "{{ captcha-full-name }} widget installation methods"
+description: "You can use the automatic or advanced method to connect the {{ captcha-name }} widget. Depending on the connection method, different widget parameter transmission methods are used."
+---
+
 # Widget installation methods {{ captcha-full-name }}
 
 There are two methods to connect a {{ captcha-name }} widget:
 
-* Automatic.
-* Advanced.
+* Automatic
+* Advanced
 
-Depending on the connection method, the method of transmitting parameters for the widget differs.
+Depending on the connection method, different widget parameter transmission methods are used.
 
 ## Automatic connection method {#common-method}
 
@@ -37,11 +42,11 @@ Example of a container with parameters for rendering a widget:
 
 Where:
 
-| Data attribute  | Value                                                                        | Default value               |
+| Data attribute | Value | Default value |
 | --------------- | ---------------------------------------------------------------------------- | --------------------------- |
-| `data-sitekey`  | `string`                                                                     | None                        |
-| `data-hl`       | `'ru'` \| `'en'` \| `'be'` \| `'kk'` \| `'tt'` \| `'uk'` \| `'uz'` \| `'tr'` | `window.navigator.language` |
-| `data-callback` | `string`                                                                     | None                        |
+| `data-sitekey` | `string` | None |
+| `data-hl` | `'ru'` \| `'en'` \| `'be'` \| `'kk'` \| `'tt'` \| `'uk'` \| `'uz'` \| `'tr'` | `window.navigator.language` |
+| `data-callback` | `string` | None |
 
 {% cut "Example of embedding the widget" %}
 
@@ -221,13 +226,13 @@ Where:
 
    Event descriptions:
 
-   | Event               | When it occurs                 | Handler signature         |
+   | Event | When it occurs | Handler signature |
    | ------------------- | -------------------------------| ------------------------- |
-   | `challenge-visible` | Opening the task pop-up window | `() => void`              |
-   | `challenge-hidden`  | Closing the task pop-up window | `() => void`              |
-   | `network-error`     | A network error occurred       | `() => void`              |
-   | `success`           | Successful user validation     | `(token: string) => void` |
-   | `token-expired`     | Invalidated verification token | `() => void`              |
+   | `challenge-visible` | Opening the task pop-up window | `() => void` |
+   | `challenge-hidden` | Closing the task pop-up window | `() => void` |
+   | `network-error` | A network error occurred | `() => void` |
+   | `success` | Successful user validation | `(token: string) => void` |
+   | `token-expired` | Invalidated verification token | `() => void` |
 
 * `callback`: Listener function:
 

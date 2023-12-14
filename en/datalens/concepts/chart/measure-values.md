@@ -30,7 +30,7 @@ Let's use the graph to show monthly sales during a year.
 
 ![image](../../../_assets/datalens/concepts/measure-values-1.png)
 
-Add another axis, Y, to show the profit.
+Now let's add a second Y axis to show the profit.
 
 ![image](../../../_assets/datalens/concepts/measure-values-2.png)
 
@@ -56,5 +56,5 @@ To label each column with its measure name, add `Measure Values` to the **Labels
 
 The following restrictions apply to the `Measure Names` and `Measure Values` fields:
 
-* You can't use `Measure Names` and `Measure Values` to filter your chart.
-* You can use `Measure Names` and `Measure Values` to sort data only in the [{#T}](../../visualization-ref/area-chart.md) and [{#T}](../../visualization-ref/normalized-area-chart.md) charts.
+* You cannot use `Measure Names` and `Measure Values` to filter your chart.
+* You can use `Measure Values` to sort data only in the [{#T}](../../visualization-ref/area-chart.md) and [{#T}](../../visualization-ref/normalized-area-chart.md) charts after you add `Measure Names` to the **Colors** section.

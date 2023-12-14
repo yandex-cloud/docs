@@ -51,13 +51,13 @@
 
       ```yaml
       done (1s)
-      id: a5d751meibht4ev26...
+      id: a5d751meibht********
       name: <имя_целевой_группы>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       targets:
       ...
         - ip_address: <внутренний_IP-адрес_ВМ>
-          subnet_id: fo2tgfikh3hergif2...
+          subnet_id: fo2tgfikh3he********
       created_at: "2021-02-11T11:16:27.770674538Z"
       ```
 
@@ -77,7 +77,7 @@
       done (1s)
       id: a5d751meibht4ev26...
       name: <имя_целевой_группы>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       targets:
       ...
         - ip_address: <частный_IPv4-адрес_ресурса>
@@ -122,7 +122,7 @@
       * `name` — имя целевой группы.
       * `target` — параметры целевого ресурса:
         * `subnet_id` — идентификатор подсети, в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list`.
-        * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор подсети>`.
+        * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор_подсети>`.
 
       Также вы можете добавить в целевую группу ресурсы, которые размещены вне {{ vpc-name }}, например в вашем ЦОД, подключенном к {{ yandex-cloud }} через [{{ interconnect-name }}](../../interconnect/index.yaml):
       
@@ -208,9 +208,9 @@
       Результат:
 
       ```yaml
-      id: ds7urm6dn6cm48ba7...
+      id: ds7urm6dn6cm********
       name: <имя_целевой_группы>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       created_at: "2023-06-10T13:14:55.239094324Z"
       ```
 
@@ -225,9 +225,9 @@
       Результат:
 
       ```yaml
-      id: ds7urm6dn6cm48ba7...
+      id: ds7urm6dn6cm********
       name: <имя_целевой_группы>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       created_at: "2023-06-10T13:14:55.239094324Z"
       ``` 
 

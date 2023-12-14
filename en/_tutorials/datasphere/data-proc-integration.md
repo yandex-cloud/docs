@@ -34,7 +34,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
    1. Select the **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** option. This will create a [network](../../vpc/concepts/network.md#network) with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
@@ -50,14 +50,14 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 - Management console
 
    1. In the `data-folder` folder, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/gateways.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and set the gateway parameters:
-      * Enter the gateway name, for example `nat-for-cluster`.
+      * Enter the gateway name, e.g., `nat-for-cluster`.
       * Gateway **{{ ui-key.yacloud.vpc.gateways.field_type }}**: **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
       * Click **{{ ui-key.yacloud.common.save }}**.
-   1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and specify the route table parameters:
-      1. Enter the name, for example `route-table`.
+      1. Enter the name, e.g., `route-table`.
       1. Select the `data-network` network.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
          * In the window that opens, select **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** in the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field.
@@ -67,8 +67,8 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
    Next, link the route table to a subnet to route traffic from it via the NAT gateway:
 
-   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. In the line with the subnet you need, click ![image](../../_assets/options.svg).
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. In the line with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -120,7 +120,7 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 ### Edit the project settings {#change-settings}
 
 1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
-1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Specify the parameters:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-data-proc`.
@@ -261,7 +261,7 @@ To learn more about running computations in the {{ dataproc-name }} clusters in
 
 {% note warning %}
 
-Using the cluster deployed in {{ dataproc-name }}, you manage its lifecycle on your own. The cluster will run, and you will be [charged](../../data-proc/pricing.md) for it until you shut it down.
+As a user of a cluster deployed in {{ dataproc-name }}, you manage its lifecycle yourself. The cluster will run, and you will be [charged](../../data-proc/pricing.md) for it until you shut it down.
 
 {% endnote %}
 

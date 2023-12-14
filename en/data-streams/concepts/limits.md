@@ -1,3 +1,8 @@
+---
+title: "Quotas and limits in {{ yds-full-name }}"
+description: "{{ yds-full-name }} has quotas and limits. For more information about the service restrictions, read this article."
+---
+
 # Quotas and limits in {{ yds-name }}
 
 {{ yds-full-name }} has the following limits:

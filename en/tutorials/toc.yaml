@@ -226,7 +226,7 @@ items:
         href: dataplatform/data-transfer-mkf.md
       - name: >-
           Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
-          data-transfer-name }}
+          data-transfer-name }}"
         href: dataplatform/data-transfer-mmy.md
       - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/debezium-mmy.md
@@ -398,9 +398,9 @@ items:
       - name: >-
           Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
-        href: dataplatform/data-transfer-mpg.md
+        href: dataplatform/./data-transfer-mpg.md
       - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/debezium-mpg.md
+        href: dataplatform/./debezium-mpg.md
       - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mpg.md
       - name: >-
@@ -503,6 +503,8 @@ items:
         href: datalens/storage-logs-analysis.md
       - name: Visualizing data from {{ tracker-name }} in {{ datalens-name }}
         href: datalens/data-from-tracker.md
+      - name: Visualizing geographic data with the Yandex Geocoder API
+        href: datalens/data-from-ch-geocoder.md
   - name: Serverless technologies
     items:
       - name: All tutorials

@@ -8,9 +8,9 @@ To change the name or description of a group:
 
    1. Go to [{{org-full-name}}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg).
+   1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg).
 
-   1. Select a group from the list and click ![image](../../_assets/options.svg) next to the group name.
+   1. Select a group from the list and click ![image](../../_assets/console-icons/ellipsis.svg) next to the group name.
 
    1. Click **{{ ui-key.yacloud_org.entity.group.action_edit }}** and enter a new group name or description.
 

@@ -12,13 +12,14 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 
   * [Visualizing data from a CSV file](data-from-csv-visualization.md)
   * [Creating and publishing a chart with a map of Moscow from a CSV file](data-from-csv-to-public-visualization.md)
-  * [Analyzing a retail chain sales from a {{ CH }} database](data-from-ch-visualization.md)
+  * [Analyzing a retail chain's sales from a {{ CH }} database](data-from-ch-visualization.md)
   * [Visualizing data from CHYT](data-from-ch-over-yt.md)
 
 * Working with geodata
   
   * [Analyzing public data on road accidents in Russia](data-from-csv-geo-visualization.md)
   * [Analyzing sales and locations of pizzerias based on data from {{ CH }} databases and Marketplace](data-from-ch-to-geolayers-visualization.md)
+  * [{#T}](data-from-ch-geocoder.md)
 
 * Service analytics
 

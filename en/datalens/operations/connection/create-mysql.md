@@ -34,6 +34,13 @@ To create a {{ MY }} connection:
 
    - Select in a folder
 
+      {% note info %}
+
+      Only the current organization's databases are available.
+      To connect to a database from a different organization, use the **Specify manually** connection type and make sure the database has [public access](../../../managed-mysql/concepts/network.md#public-access-to-host) enabled.
+
+      {% endnote %}
+
       Specify the connection parameters for the {{ MY }} DB available in {{ yandex-cloud }}:
 
       - **Cluster**: Specify a cluster from the list of available {{ MY }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
@@ -56,6 +63,13 @@ To create a {{ MY }} connection:
       - **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually
+
+      {% note info %}
+
+      You can only use managed databases with [public access](../../../managed-mysql/concepts/network.md#public-access-to-host) enabled.
+      To connect to a managed database without public access, use the **Select in folder** connection type.
+
+      {% endnote %}
 
       Specify the connection parameters for the external {{ MY }} database:
 

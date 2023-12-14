@@ -1,3 +1,8 @@
+---
+title: "How to update Let's Encrypt certificates in {{ certificate-manager-full-name }}"
+description: "Follow this guide to update a Let's Encrypt certificate."
+---
+
 # Editing a Let's Encrypt certificate
 
 After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.md) and adding it to {{ certificate-manager-name }}, you can change its name or description. To edit a certificate:

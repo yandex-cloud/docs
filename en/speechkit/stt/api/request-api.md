@@ -1,3 +1,8 @@
+---
+title: "Synchronous recognition API in {{ speechkit-full-name }}"
+description: "Follow this guide to use the synchronous recognition API."
+---
+
 # Synchronous Recognition API
 
 With [Synchronous Recognition API](../request.md), you can transcribe prepared audio files with the following characteristics:

@@ -55,9 +55,9 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-acl](../../_assets/organization/acl.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-acl](../../_assets/console-icons/shield.svg).
 
-   1. If the respective user has at least one role, select it from the list or use the search bar at the top of the page. In the line with the user name, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+   1. If the respective user has at least one role, select it from the list or use the search bar at the top of the page. In the line with the user name, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
       If the user is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and select the appropriate user from the list or use the search bar.
 
@@ -150,7 +150,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
          * `serviceAccount:{service_account_id}`: Service account ID.
          * `federatedUser:{federated_user_id}`: Federated user ID.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -202,13 +202,13 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-users](../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-users](../../_assets/console-icons/person.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 
-   1. In the right-hand column, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+   1. In the right-hand column, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-   1. Click ![cross](../../_assets/cross.svg) next to a role to delete it.
+   1. Click ![cross](../../_assets/console-icons/xmark.svg) next to a role to delete it.
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

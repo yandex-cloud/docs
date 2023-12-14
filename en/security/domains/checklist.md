@@ -1,3 +1,8 @@
+---
+title: "{{ yandex-cloud }} security checklist"
+description: "In this tutorial, you will learn about the security checklist used for {{ yandex-cloud }}."
+---
+
 # Security checklist
 
 ## Network security {#network-security}

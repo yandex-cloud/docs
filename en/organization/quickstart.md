@@ -28,7 +28,7 @@ If your employees have Yandex accounts (for example, `{{login-example}}`), they 
 
 To connect employees with Yandex accounts:
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/console-icons/person.svg).
 
 1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 
@@ -47,7 +47,7 @@ An identity federation is a technology that allows you to implement a Single Sig
 
 To configure your identity federation, follow these steps:
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{link-org-federations}}) ![icon-federation](../_assets/console-icons/vector-square.svg).
 
 1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 

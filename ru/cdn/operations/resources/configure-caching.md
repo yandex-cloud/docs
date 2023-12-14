@@ -62,8 +62,8 @@ description: "Следуя данной инструкции, вы сможет�
      Результат:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -103,9 +103,9 @@ description: "Следуя данной инструкции, вы сможет�
   1. Чтобы изменить время жизни кеша, выполните:
     
       ```bash
-      yc cdn resource update <идентификатор ресурса> \
-        --cache-expiration-time <время в секундах> \
-        --browser-cache-expiration-time <время в секундах> \
+      yc cdn resource update <идентификатор_ресурса> \
+        --cache-expiration-time <время> \
+        --browser-cache-expiration-time <время> \
         --ignore-cookie true \
         --ignore-query-string
       ```
@@ -137,10 +137,10 @@ description: "Следуя данной инструкции, вы сможет�
       }
 
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<идентификатор облака>"
-        folder_id = "<идентификатор каталога>"
-        zone      = "<зона доступности>"
+        token     = "<OAuth-токен>"
+        cloud_id  = "<идентификатор_облака>"
+        folder_id = "<идентификатор_каталога>"
+        zone      = "<зона_доступности>"
       }
 
       resource "yandex_cdn_resource" "my_resource" {
