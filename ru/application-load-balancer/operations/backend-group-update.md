@@ -61,7 +61,7 @@ description: "Пошаговая инструкция по изменению г
        --new-name <новое_имя_группы_бэкендов> \
        --description <описание_группы_бэкендов> \
        --labels key=value[,<ключ>=<значение_метки>] \
-       --connection-affinity source-ip=<true_или_false>
+       --connection-affinity source-ip=<режим_привязки_сессий_по_IP-адресу>
      ```
 
      Где:
@@ -72,7 +72,7 @@ description: "Пошаговая инструкция по изменению г
 
      * `--description` — описание группы бэкендов. Необязательный параметр.
      * `--labels key=value` — список меток в формате `ключ=значение`. Необязательный параметр.
-     * `--connection-affinity source-ip=<true_или_false>` — режим [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) по IP-адресу (`source-ip`). Необязательный параметр. Также доступны режимы `--cookie-affinity` (по cookie) и `--header-affinity` (по HTTP-заголовку). Может быть указан только один из режимов. Если группа бэкендов [типа Stream](../concepts/backend-group#group-types), то режим привязки может быть только `--connection-affinity`.
+     * `--connection-affinity` — режим [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) по IP-адресу (`source-ip`). Может принимать значения `true` или `false`. Необязательный параметр. Также доступны режимы `--cookie-affinity` (по cookie) и `--header-affinity` (по HTTP-заголовку). Может быть указан только один из режимов. Если группа бэкендов [типа Stream](../concepts/backend-group#group-types), то режим привязки может быть только `--connection-affinity`.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -127,7 +127,7 @@ description: "Пошаговая инструкция по изменению г
        }
        session_affinity {
          connection {
-           source_ip = <true_или_false>
+           source_ip = <режим_привязки_сессий_по_IP-адресу>
          }
        }
      ...
@@ -142,7 +142,7 @@ description: "Пошаговая инструкция по изменению г
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
        
-       * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
+       * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Может принимать значения `true` или `false`. Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:

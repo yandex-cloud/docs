@@ -1,3 +1,8 @@
+---
+title: "How to upload a data schema to {{ yq-full-name }}"
+description: "Follow this guide to upload a data schema."
+---
+
 # Uploading a data schema
 
 To simplify repetitive actions related to data schema setup and [data binding](../concepts/glossary.md#binding), you can prepare a file with data schemas and upload it. For this, follow these steps:

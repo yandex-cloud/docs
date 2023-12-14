@@ -55,23 +55,23 @@ To create an {{ objstorage-name }} [bucket](../storage/concepts/bucket.md) to st
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Select an [availability zone](../overview/concepts/geo-scope.md) to place the VM in.
+   1. Select an [availability zone](../overview/concepts/geo-scope.md) to place your VM in.
    1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
    1. Under **Disks and file storages**, select the parameters:
       * **Type**: SSD.
       * **Size**: 19 GB.
    1. Under **Computing resources**, select:
-      * **Platform**: Intel Cascade Lake.
+      * **Platform**: Intel Cascade Lake
       * **Guaranteed vCPU share**: 20%
-      * **vCPU**: 2.
-      * **RAM**: 2 GB.
+      * **vCPU**: 2
+      * **RAM**: 2 GB
    1. Under **Network settings**, select the network and subnet to connect the VM to. If there are no networks available, create one:
-      1. Select ![image](../_assets/plus-sign.svg) **Create network**.
+      1. Select ![image](../_assets/console-icons/plus.svg) **Create network**.
       1. In the window that opens, enter the network name and specify the folder to host the network.
-      1. (optional) To automatically create subnets, select the **Create subnets** option.
+      1. (Optional) To automatically create subnets, select the **Create subnets** option.
       1. Click **Create**.
 
-         Each network must have at least one [subnet](../vpc/concepts/network.md#subnet). If there is no subnet available, create one by selecting ![image](../_assets/plus-sign.svg)**Add subnet**.
+         Each network must have at least one [subnet](../vpc/concepts/network.md#subnet). If there is no subnet available, create one by selecting ![image](../_assets/console-icons/plus.svg)**Add subnet**.
    1. In the **Public address** field, keep **Auto** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you [reserved](../vpc/operations/get-static-ip.md) one in advance.
    1. Enter the VM access information:
       * Enter the username in the **Login** field.
@@ -145,7 +145,7 @@ To create an {{ objstorage-name }} [bucket](../storage/concepts/bucket.md) to st
    1. Assign the `editor` [role](../iam/concepts/access-control/roles.md#editor) to the service account.
 
       ```bash
-      yc resource-manager folder add-access-binding <folder_id> \
+      yc resource-manager folder add-access-binding <folder_ID> \
         --role editor \
         --subject serviceAccount:<service_account_ID>
       ```
@@ -456,6 +456,6 @@ To implement the script:
 
 To stop paying for the resources you created:
 1. [Delete](../storage/operations/objects/delete-all.md) all the objects from the bucket.
-1. [Delete](../storage/operations/buckets/delete.md) the respective bucket.
+1. [Delete](../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../compute/operations/vm-control/vm-delete.md) the VM.
 1. [Delete](../vpc/operations/address-delete.md) the static public IP if you reserved one.

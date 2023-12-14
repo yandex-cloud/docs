@@ -1,3 +1,8 @@
+---
+title: "Deprecation of the {{ region-id }}-c availability zone in {{ yandex-cloud }}"
+description: "{{ yandex-cloud }} plans to gradually deprecate the {{ region-id }}-c availability zone. Starting April 2022, quotas apply on the number of zonal resources, and new zonal features are no longer available for this zone."
+---
+
 # Deprecation of the {{ region-id }}-c availability zone
 
 {{ yandex-cloud }} plans to gradually deprecate the `{{ region-id }}-c` [availability zone](geo-scope.md). Starting April 2022, its operation is limited:

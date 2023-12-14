@@ -76,7 +76,7 @@ The cost of the infrastructure deployment includes:
       {% endnote %}
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, keep the value of `10 {{ ui-key.yacloud.mdb.forms.label_max-size-units }}`.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../../_assets/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../../_assets/console-icons/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, disable user management via SQL, enter the username, password, and database name (e.g., `metrica_data`).
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
@@ -89,9 +89,9 @@ The cost of the infrastructure deployment includes:
 ### 1.2. Connect {{ ml-platform-short-name }} {#datasphere-connection}
 
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datasphere/communities.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Select the community to create a project in.
-1. On the community page, click ![image](../../_assets/datasphere/create-project.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
+1. On the community page, click ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
 1. In the window that opens, enter a name and description (optional) for the project. The naming requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
@@ -161,7 +161,7 @@ Skip this section if you are using your own tag data.
 ### 2.4. {{ CH }}. Get the cluster IP address {#getting-ch-cluster-host}
 
 1. In the [management console]({{ link-console-main }}), go to the created {{ CH }} cluster. Wait until the cluster status changes to `Alive`. Then open the cluster by clicking it.
-1. Select ![hosts](../../_assets/datalens/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** from the list on the left.
+1. Select ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** from the list on the left.
 1. On the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_overview }}** tab, copy the host name.
 
 ### 2.5. {{ ml-platform-short-name }}. Upload the data to {{ CH }} {#uploading-data-counter-to-ch}
@@ -180,7 +180,7 @@ Skip this section if you are using your own tag data.
 ### 3.1. Connect to {{ datalens-short-name }} {#datalens-connection}
 
 1. In the [management console]({{ link-console-main }}), open the page of the {{ CH }} cluster you created.
-1. On the left side of the window, select ![datalens](../../_assets/datalens/chart.svg) **{{ datalens-short-name }}**.
+1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
 1. Click **Create connection**.
 
 ### 3.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
@@ -199,7 +199,7 @@ Skip this section if you are using your own tag data.
 1. In the top-right corner, click **Create dataset**.
 1. Select the `metrica_data.hits` table as a source. To do this, drag the table from the list on the left to the editing area.
 1. Open the **Fields** tab.
-1. In the top-right corner, click ![plus](../../_assets/datalens/plus.svg) **Add field**.
+1. In the top-right corner, click ![plus](../../_assets/console-icons/plus.svg) **Add field**.
 1. To calculate the number of hits, create a calculated field: name it `Hits`, enter `1` in the workspace, and click **Create**.
 1. For the `Hits` field, select the **Amount** value in the **Aggregation** column.
 1. Rename the `Browser` field to `Browser`.
@@ -219,7 +219,7 @@ Skip this section if you are using your own tag data.
 
 ### 3.5. Create a pivot table chart {#creating-pivot-table}
 
-1. In the top-right corner, click ![save-button](../../_assets/datalens/save-button.svg) → **Save as copy**.
+1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 1. For the chart copy, enter `ch_metrica_data_hits_table` as the new name and click **Save**.
 1. Select **Pivot table** as the new chart type.
 1. Add or drag the following fields to the chart area:
@@ -231,8 +231,8 @@ Skip this section if you are using your own tag data.
 
 ### 4.1. Create a dashboard {#creating-dashboard}
 
-1. In the left-hand panel, select ![dashboards](../../_assets/datalens/dashboard-0523.svg) **Dashboards** and click **Create dashboard**.
-1. Add the first chart to the dashboard. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**:
+1. In the left-hand panel, select ![dashboards](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and click **Create dashboard**.
+1. Add the first chart to the dashboard. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Chart**:
    1. From the **Chart** drop-down list, select `ch_metrica_data_hits_area`.
    1. In the **Name** field, enter **Hits by browser** as the chart name and click **Add**.
 1. Similarly, add the `ch_metrica_data_hits_table` chart named **Hits by browser for period**.
@@ -246,7 +246,7 @@ Skip this section if you are using your own tag data.
 
 ### 4.2. Set up a dashboard {#configuring-dashboard}
 
-1. Add filtering to select a specific browser. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**.
+1. Add filtering to select a specific browser. To do this, in the top-right corner, click **Add** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Chart**.
 1. You can add the selector to a field from any dataset. From the **Dataset** list, select the `ch_metrica_data_hits` dataset you created.
 1. In the **Field** list, select `Browser`.
 1. Enable the **Multiple choice** option.
@@ -280,7 +280,7 @@ Skip this section if you are using your own tag data.
 Create a new dataset based on the new table and the connection to {{ CH }}:
 
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) home page (or click ![datalens-console](../../_assets/datalens-console.svg) **DataLens** in the left-hand panel) and click **Create dataset**.
-1. Go to the **Connections** section and click ![image](../../_assets/plus-sign.svg) **Add**.
+1. Go to the **Connections** section and click ![image](../../_assets/console-icons/plus.svg) **Add**.
 1. From the list of connections, select the connection name that you created in Step [3.2](#creation-datalens-connection-to-ch).
 1. Drag the new `metrica_data.funnels_by_bro` table to the editing area.
 1. Open the **Fields** tab:
@@ -305,7 +305,7 @@ Create a chart based on the `ch_metrica_data_funnels_by_bro` dataset:
 
 1. Go to the created dashboard from the [dashboards]({{ link-datalens-main }}/dashboards) page.
 1. Add a new chart. In the top-right corner, click **Edit**:
-   1. Click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**.
+   1. Click **Add** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Chart**.
    1. From the **Chart** drop-down list, select the `ch_metrica_data_funnels_by_bro_table` chart.
    1. In the **Name** field, enter `Funnels by browser` as the chart name and click **Add**.
 1. Place the new chart to the right of the existing two. Stretch the chart so that it matches the others vertically and reaches the right border of the page.
@@ -321,7 +321,7 @@ Configure relationships so that the selector affects the new chart from another 
 1. Select the link type: **Outgoing link**.
 1. From each list, select the fields for the `Browser` link. Click **Add**.
 1. Click **Save**.
-1. In the top-left corner, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Rename**.
+1. In the top-left corner, click ![image](../../_assets/console-icons/ellipsis.svg) → **Rename**.
 1. Enter `Supermarket.ru — funnel and cohort analysis` as the name. Click **Done**.
 
 ## 6. Perform cohort analysis {#cohorts}
@@ -338,7 +338,7 @@ In {{ CH }}, the `metrica_data.retention_users` table will be created with all t
 Create a new dataset based on the new table and the connection to {{ CH }}:
 
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) home page and click **Create dataset**.
-1. In the **Connections** section, click **Create dataset** and then click ![image](../../_assets/plus-sign.svg) **Add**.
+1. In the **Connections** section, click **Create dataset** and then click ![image](../../_assets/console-icons/plus.svg) **Add**.
 1. From the list, select the [connection](#creation-datalens-connection-to-ch) you created.
 1. Drag the new `metrica_data.retention_users` table to the workspace to connect to it.
 1. Open the **Fields** tab and create a calculated field named `week_num`, which is equal to `([date]-[min_date])/7`.
@@ -364,11 +364,11 @@ Filter out incomplete weeks of June 29, 2020 and September 28, 2020:
       * Start date: `June 06, 2020`
       * End date: `September 27, 2020`
    1. Click **Apply filter**.
-1. Format the numbers in the values of the `week_num` field by removing the decimal places. To do this, in the **Rows** section, in the `week_num` field, click the ![image](../../_assets/datalens/mesh.svg) icon. In the window that opens, set the following configuration:
+1. Format the numbers in the values of the `week_num` field by removing the decimal places. To do this, in the **Rows** section, in the `week_num` field, click the ![image](../../_assets/console-icons/frame.svg) icon. In the window that opens, set the following configuration:
    1. Set the **Decimal place** measure to `0`.
    1. Set the **Show delimiter** measure to `Hide`.
    1. Click **Apply**.
-1. To color the table, add the `Visits` field to the **Colors** section and click the ![gear](../../_assets/datalens/gear.svg) icon. In the window that opens, configure the colors:
+1. To color the table, add the `Visits` field to the **Colors** section and click the ![gear](../../_assets/console-icons/gear.svg) icon. In the window that opens, configure the colors:
    1. Select **Gradient type**: `3 point`.
    1. Select **Color**: `Orange-Violet-Blue`.
    1. Enable **Set threshold values** and specify the values: `100`, `1000`, and `5000`.
@@ -380,24 +380,24 @@ Filter out incomplete weeks of June 29, 2020 and September 28, 2020:
 
 Create a chart with retention based on the `ch_metrica_data_users_visits_cohorts_abs` chart. You can open the chart from the dashboard or find it in the [chart list]({{ link-datalens-main }}/widgets).
 
-1. In the top-right corner, click ![save-button](../../_assets/datalens/save-button.svg) → **Save as copy**.
+1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 1. Enter `ch_metrica_data_users_visits_cohorts_rel` as the name of the chart and click **Save**.
 1. Create a calculated field to calculate the retention rate relative to the first week:
-   1. On the left side of the screen, click ![image](../../_assets/plus-sign.svg) above the list of dataset fields and select **Field**.
+   1. On the left side of the screen, click ![image](../../_assets/console-icons/plus.svg) above the list of dataset fields and select **Field**.
    1. Name the field `Visits from the first week`.
    1. Paste the following formula: `SUM([Visits])/RMAX(SUM([Visits]) among [week_num])`.
    1. Click **Create**.
 1. Drag the `Visits from the first week` field to the **Measures** section.
 1. Drag the `Visits from the first week` field to the **Colors** section in place of the `Visits` field.
-1. Select the format for `Visits from the first week`. To do this, click the ![image](../../_assets/datalens/mesh.svg) icon under **Measures** in the `Visits from the first week` field. In the window that opens, set the following configuration:
+1. Select the format for `Visits from the first week`. To do this, click the ![image](../../_assets/console-icons/frame.svg) icon under **Measures** in the `Visits from the first week` field. In the window that opens, set the following configuration:
    1. Set **Format** to `Percent`.
    1. Click **Apply**.
-1. Edit the threshold values for the measure colors. Under **Colors**, click the ![gear](../../_assets/datalens/gear.svg) icon. In the window that opens, enable **Set threshold values**, then specify the threshold values of `0.01`, `0.025`, and `0.1` and click **Apply**.
+1. Edit the threshold values for the measure colors. Under **Colors**, click the ![gear](../../_assets/console-icons/gear.svg) icon. In the window that opens, enable **Set threshold values**, then specify the threshold values of `0.01`, `0.025`, and `0.1` and click **Apply**.
 1. Click **Save**.
 
 ### 6.5. {{ datalens-short-name }}. Add charts to a new dashboard tab {#adding-charts-to-dashboard-tab}
 
-1. In the left-hand panel, click ![dashboards](../../_assets/datalens/dashboard-0523.svg) **Dashboards** and open the dashboard.
+1. In the left-hand panel, click ![dashboards](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and open the dashboard.
 1. Click **Edit** → **Tabs**.
 1. Rename the existing tab `Overview + Funnels`.
 1. Add a new tab and name it `Cohorts`. Click **Save**.
@@ -416,10 +416,10 @@ Now you have a chart with two switchable tabs.
 
 Create a new chart based on the `ch_metrica_data_users_visits_cohorts_abs` chart. You can open the chart from the dashboard or find it in the [chart list]({{ link-datalens-main }}/widgets).
 
-1. In the top-right corner, click ![image](../../_assets/datalens/save-button.svg) → **Save as copy**.
+1. In the top-right corner, click ![image](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 1. Enter `ch_metrica_data_users_revenue_cohorts_abs` as the chart name and click **Save**.
 1. Drag the `Revenue` field to the **Measures** and **Colors** sections on top of the `Visits` field.
-1. In the `Revenue` section, click the ![image](../../_assets/datalens/mesh.svg) icon. Change the field formatting:
+1. In the `Revenue` section, click the ![image](../../_assets/console-icons/frame.svg) icon. Change the field formatting:
    1. Select `1` decimal place.
    1. Select the `Millions, M` scale.
    1. Change the color thresholds for the new field to `500000`, `1500000`, and `10000000`.
@@ -427,7 +427,7 @@ Create a new chart based on the `ch_metrica_data_users_visits_cohorts_abs` chart
 
 Create another chart based on the `ch_metrica_data_users_visits_cohorts_rel` chart:
 
-1. In the top-right corner, click ![image](../../_assets/datalens/save-button.svg) → **Save as copy**.
+1. In the top-right corner, click ![image](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 1. Enter `ch_metrica_data_users_revenue_cohorts_rel` as the name of the chart and click **Save**.
 1. Change the `Visits from the first week` field:
    1. Rename the field `Revenue from the first week`.
@@ -440,10 +440,10 @@ Create another chart based on the `ch_metrica_data_users_visits_cohorts_rel` cha
 Add charts with cohort visualization to the dashboard:
 
 1. Click **Edit**.
-1. Click **Add** ![save-button](../../_assets/datalens/save-button.svg) → **Chart**.
+1. Click **Add** ![save-button](../../_assets/console-icons/chevron-down.svg) → **Chart**.
 1. Select `ch_metrica_data_users_revenue_cohorts_abs` from the chart list.
 1. Enter `Revenue by cohort (absolute)` as the name.
-1. Use the ![plus](../../_assets/datalens/plus.svg) **Add** button to create a new tab:
+1. Use the ![plus](../../_assets/console-icons/plus.svg) **Add** button to create a new tab:
    1. In the new tab, select `ch_metrica_data_users_revenue_cohorts_rel` from the chart list.
    1. Enter `Revenue by cohort (relative)` as the name.
    1. In the top-right corner, click **Save**.

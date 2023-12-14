@@ -35,7 +35,7 @@ You can't join data from different sources at the level of a single dataset.
 
 #### Adding tables {#ui-join}
 
-You can combine data through the dataset creation interface by dragging tables to the workspace and configuring links between them via the [JOIN operator](dataset/data-model.md#source). For an example of combining data by adding tables, see the [use case](../../tutorials/datalens/data-from-ch-visualization.md#step2).
+You can [combine data](../operations/dataset/join-data.md) through the dataset creation interface by dragging tables to the workspace and configuring links between them via the [JOIN operator](dataset/data-model.md#source). For an example of combining data by adding tables, see the [use case](../../tutorials/datalens/data-from-ch-visualization.md#step2).
 
 #### SQL query {#sql-join}
 

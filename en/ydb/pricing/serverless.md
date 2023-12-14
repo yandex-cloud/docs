@@ -2,6 +2,8 @@
 
 
 
+{% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -88,11 +90,11 @@ Actual (on-demand) consumption of RUs per month will be:
 
 Where:
 * 128: Cost of request for 1 MB of data.
-* 1024 × 10: Amount of data copied, in MB.
+* 1,024 × 10: Amount of data copied, in MB.
 
-The number of RUs used (1310720) [exceeds 1000000](#prices), so the cost of creating a backup will be $0.171040 for 1000000 RU.
+The number of RUs used (1,310,720) [exceeds 1,000,000](#prices), so the cost of creating a backup will be $0.171040 for 1,000,000 RUs.
 
-> (1310720 RU - 1000000 RU) / 1000000 × $0.171040 = $0.0531455488
+> (1,310,720 RU - 1,000,000 RU) / 1,000,000 × $0.171040 = $0.0531455488
 >
 > Total: $0.053146 is the cost of creating a backup of 10 GB of data.
 

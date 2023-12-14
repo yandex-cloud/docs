@@ -25,7 +25,7 @@
 
 Ресурс 
 
-: Бакет, объект в бакете (`<имя бакета>/some/key`) или префикс (`<имя бакета>/some/path/*`), в том числе пустой префикс для обозначения всех объектов в бакете (`<имя бакета>/*`). В правиле можно указать несколько ресурсов.
+: Бакет, объект в бакете (`<имя_бакета>/some/key`) или префикс (`<имя_бакета>/some/path/*`), в том числе пустой префикс для обозначения всех объектов в бакете (`<имя_бакета>/*`). В правиле можно указать несколько ресурсов.
 
   {% note info %}
   
@@ -33,7 +33,7 @@
 
   {% endnote %}
 
-  Если вы описываете политику в формате JSON, у ресурса должен быть префикс `arn:aws:s3:::`, например `arn:aws:s3:::<имя бакета>`.
+  Если вы описываете политику в формате JSON, у ресурса должен быть префикс `arn:aws:s3:::`, например `arn:aws:s3:::<имя_бакета>`.
 
   Если имя ресурса содержит символ `?`, `*` или `$`, поставьте перед таким символом знак `$`, а сам символ заключите в фигурные скобки `{}`. Например, имени бакета `my?bucket` будет соответствовать запись `my${?}bucket`.
 
@@ -55,7 +55,7 @@
 
 ## Доступ к бакету через консоль управления {#console-access}
 
-Если для бакета настроена политика доступа, то по умолчанию доступ к бакету через консоль управления {{ yandex-cloud }} запрещен. Чтобы разрешить доступ к бакету, нужно добавить в секцию `Statement` политики доступа правило, разрешающее любые запросы к ресурсам `<имя бакета>/*` и `<имя бакета>` через консоль управления.
+Если для бакета настроена политика доступа, то по умолчанию доступ к бакету через консоль управления {{ yandex-cloud }} запрещен. Чтобы разрешить доступ к бакету, нужно добавить в секцию `Statement` политики доступа правило, разрешающее любые запросы к ресурсам `<имя_бакета>/*` и `<имя_бакета>` через консоль управления.
 
 Пример правила для конкретного пользователя {{ yandex-cloud }}:
 
@@ -64,12 +64,12 @@
 {
   "Effect": "Allow",
   "Principal": {
-    "CanonicalUser": "<идентификатор пользователя>"
+    "CanonicalUser": "<идентификатор_пользователя>"
   },
   "Action": "*",
   "Resource": [
-    "arn:aws:s3:::<имя бакета>/*",
-    "arn:aws:s3:::<имя бакета>"
+    "arn:aws:s3:::<имя_бакета>/*",
+    "arn:aws:s3:::<имя_бакета>"
   ],
   "Condition": {
     "StringLike": {
@@ -99,7 +99,7 @@
         "Effect": "Allow",
         "Principal": "*",
         "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::<имя бакета>/*",
+        "Resource": "arn:aws:s3:::<имя_бакета>/*",
         "Condition": {
           "Bool": {
             "aws:SecureTransport": "true"
@@ -120,7 +120,7 @@
         "Effect": "Allow",
         "Principal": "*",
         "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::<имя бакета>/*",
+        "Resource": "arn:aws:s3:::<имя_бакета>/*",
         "Condition": {
           "IpAddress": {
             "aws:SourceIp": "100.101.102.128/30"
@@ -141,13 +141,13 @@
         "Effect": "Allow",
         "Principal": "*",
         "Action": "*",
-        "Resource": "arn:aws:s3:::<имя бакета>/*"
+        "Resource": "arn:aws:s3:::<имя_бакета>/*"
       },
       {
         "Effect": "Deny",
         "Principal": "*",
         "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::<имя бакета>/*",
+        "Resource": "arn:aws:s3:::<имя_бакета>/*",
         "Condition": {
           "IpAddress": {
             "aws:SourceIp": "100.101.102.103"
@@ -168,19 +168,19 @@
         "Sid":"User1PermissionsResource",
         "Effect":"Allow",
         "Principal": {
-          "CanonicalUser": "<идентификатор пользователя>"
+          "CanonicalUser": "<идентификатор_пользователя>"
         },
         "Action": "*",
-        "Resource":["arn:aws:s3:::<имя бакета>/user1path/*"]
+        "Resource":["arn:aws:s3:::<имя_бакета>/user1path/*"]
       },
       {
         "Sid":"User1PermissionsPrefix",
         "Effect":"Allow",
         "Principal": {
-            "CanonicalUser": "<идентификатор пользователя>"
+            "CanonicalUser": "<идентификатор_пользователя>"
         },
         "Action": "s3:ListBucket",
-        "Resource":["arn:aws:s3:::<имя бакета>"],
+        "Resource":["arn:aws:s3:::<имя_бакета>"],
         "Condition": {
           "StringLike": {
             "s3:prefix": "user1path/*"
@@ -191,19 +191,19 @@
         "Sid":"User2PermissionsResource",
         "Effect":"Allow",
         "Principal": {
-          "CanonicalUser": "<идентификатор пользователя>"
+          "CanonicalUser": "<идентификатор_пользователя>"
         },
         "Action": "*",
-        "Resource":["arn:aws:s3:::<имя бакета>/user2path/*"]
+        "Resource":["arn:aws:s3:::<имя_бакета>/user2path/*"]
       },
       {
         "Sid":"User2PermissionsPrefix",
         "Effect":"Allow",
         "Principal": {
-          "CanonicalUser": "<идентификатор пользователя>"
+          "CanonicalUser": "<идентификатор_пользователя>"
         },
         "Action": "s3:ListBucket",
-        "Resource":["arn:aws:s3:::<имя бакета>"],
+        "Resource":["arn:aws:s3:::<имя_бакета>"],
         "Condition": {
           "StringLike": {
             "s3:prefix": "user2path/*"
@@ -225,7 +225,7 @@
         "Effect": "Allow",
         "Principal": "*",
         "Action": "*",
-        "Resource": ["arn:aws:s3:::<имя бакета>/${aws:userid}/*"]
+        "Resource": ["arn:aws:s3:::<имя_бакета>/${aws:userid}/*"]
       }
     ]
   }

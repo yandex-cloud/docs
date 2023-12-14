@@ -63,7 +63,7 @@ description: "Из статьи вы узнаете, как скачать об�
       aws s3api list-objects \
           --endpoint-url https://{{ s3-storage-host }} \
           --bucket <имя_бакета> \
-          --query '<запрос_в_формате_JMESPath>' \
+          --query '<запрос>' \
           --output text | xargs -I {} aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key {} <локальный_путь>{}
       ```
 
@@ -90,7 +90,7 @@ description: "Из статьи вы узнаете, как скачать об�
       Foreach($x in (aws s3api list-objects `
         --endpoint-url https://{{ s3-storage-host }} `
         --bucket <имя_бакета> `
-        --query '<запрос_в_формате_JMESPath>' `
+        --query '<запрос>' `
         --output text)) `
         {aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key $x <локальный_путь>$x}
       ```

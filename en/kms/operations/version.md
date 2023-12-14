@@ -12,9 +12,9 @@ To make a version primary:
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-   1. In the left-hand panel, select ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
    1. Click the desired key in the list to open its attribute page.
-   1. In the line of the appropriate version, click ![menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
+   1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
 
 - CLI
 
@@ -70,9 +70,9 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-   1. In the left-hand panel, select ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
    1. Click the desired key in the list to open its attribute page.
-   1. In the line of the appropriate version, click ![menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
+   1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
 
    The version will change its status to `Scheduled for destruction`, and the **{{ ui-key.yacloud.kms.symmetric-key.overview.column_version-destroy }}** column will show the date the destruction is scheduled for.
 
@@ -124,9 +124,9 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-   1. In the left-hand panel, select ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
    1. Click the desired key in the list to open its attribute page.
-   1. In the line of the appropriate version, click ![menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
+   1. In the line of the appropriate version, click ![menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
 
    The version reverts to the `ACTIVE` status.
 

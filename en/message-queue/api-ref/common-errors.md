@@ -1,3 +1,8 @@
+---
+title: "Potential errors when using the {{ message-queue-full-name }} API"
+description: "In this tutorial, you will learn about the potential errors when using the {{ message-queue-name }} API."
+---
+
 # Common errors
 
 | HTTP | Error code | Description |

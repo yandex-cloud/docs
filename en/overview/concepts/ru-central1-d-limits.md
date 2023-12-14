@@ -12,14 +12,10 @@ For {{ data-transfer-name }} to run properly, make sure the data source or targe
 
 For more information, refer to the [recommendations](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md) in the service documentation.
 
-## {{ managed-k8s-name }} {#managed-k8s}
-
-In the `{{ region-id }}-d` availability zone, you can create clusters and nodes only using CLI and Terraform. Right now you cannot select the `{{ region-id }}-d` availability zone in the management console to create a new cluster.
-
 ## {{ cloud-desktop-name }} {#cloud-desktop}
 
-There is no support yet for creating desktops in the `{{ region-id }}-d` availability zone.
+Creating desktops in the `{{ region-id }}-d` availability zone is not yet supported.
 
 ## {{ ydb-name }} {#managed-ydb}
 
-There is no support yet for creating databases in Dedicated mode in the `{{ region-id }}-d` availability zone.
+As of now, you cannot create databases in Dedicated mode in the `{{ region-id }}-d` availability zone.

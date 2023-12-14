@@ -36,7 +36,7 @@ The guide in this checklist item will help you set up operations with logs and a
    yc logging group create --name=group --retention-period=1h
    ```
 
-   * `--name`: Name of the log group.
+   * `--name`: Log group name.
    * `--retention-period`: Log group record retention period. This is an optional parameter. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
 
    Result:

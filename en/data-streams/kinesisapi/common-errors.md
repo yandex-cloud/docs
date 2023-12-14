@@ -1,3 +1,8 @@
+---
+title: "Common errors when making requests to the {{ ydb-full-name }} API"
+description: "See below what errors may occur when making API requests."
+---
+
 # Common errors
 
 In case of an error, the corresponding HTTP response code and data in JSON format are returned:
@@ -21,7 +26,7 @@ HTTP/1.1 400 Bad Request
 x-amzn-RequestId: <RequestId>
 Content-Type: application/x-amz-json-1.1
 Content-Length: <PayloadSizeBytes>
-Date: <Date> 
+Date: <Date>
 {
   "__type":"ResourceInUseException",
   "message":"Stream whatever under account 177492702984 already exists."
@@ -42,7 +47,7 @@ Errors that are common to all {{ yds-name }} methods:
 | `InvalidQueryParameter` | Invalid query string format. | 400 |
 | `MalformedQueryString` | Syntax error in a query string. | 404 |
 | `MissingAction` | Missing query method or required parameter. | 400 |
-| `MissingAuthenticationToken` | The query must contain a valid access key ID or a certificate X. 509. | 403 |
+| `MissingAuthenticationToken` | The query must contain a valid access key ID or an X.509 certificate. | 403 |
 | `MissingParameter` | Required parameter missing. | 400 |
 | `NotAuthorized` | No permission to perform this action. | 400 |
 | `OptInRequired` | The specified access key is not subscribed to this service. | 403 |

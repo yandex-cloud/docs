@@ -18,14 +18,14 @@
 
    ```
    [default]
-     aws_access_key_id = <id>
-     aws_secret_access_key = <secretKey>
+     aws_access_key_id = <идентификатор_ключа>
+     aws_secret_access_key = <секретный_ключ>
    ```
 
 1. Если вы используете образ LAMP из {{ marketplace-name }}, добавьте в конфигурационный файл Apache `httpd.conf` (для Debian и Ubuntu — `apache2.conf`) переменную окружения `HOME` с указанием на домашний каталог:
 
    ```
-   SetEnv HOME <домашний каталог>
+   SetEnv HOME <домашний_каталог>
    ```
    
    Подробнее о расположении и названии конфигурационного файла Apache для разных ОС см. на [Apache HTTP Server Wiki](https://cwiki.apache.org/confluence/display/HTTPD/DistrosDefaultLayout).

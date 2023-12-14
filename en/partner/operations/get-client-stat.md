@@ -11,9 +11,9 @@ You can view details of how customers use services:
 
    To view charts and tables with information about {{ yandex-cloud }} service usage:
 
-   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/main-menu.svg) **All services**.
-   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. Click the appropriate account name and select ![image](../../_assets/billing/detalization.svg) **Usage details**.
+   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **All services**.
+   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. Click the appropriate account name and select ![image](../../_assets/console-icons/layout-cells-large.svg) **Usage details**.
 
    For more information about the settings of the **Usage details** page, see the [{{ billing-name }} documentation](../../billing/operations/check-charges.md).
 
@@ -24,7 +24,7 @@ You can view details of how customers use services:
    * **Dashboard** section
 
       1. In the left-hand panel, select ![icon](../../_assets/partner/dashboard.svg) **Dashboard**.
-      1. Select the customer's account from the list and click it.
+      1. Select the appropriate customer account from the list and click it.
       1. Go to the **Service usage** tab.
 
    * **Rewards** section

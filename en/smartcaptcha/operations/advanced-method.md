@@ -1,3 +1,8 @@
+---
+title: "How to add a {{ captcha-full-name }} widget using the advanced method"
+description: "Follow this guide to add a {{ captcha-name }} widget using the advanced method."
+---
+
 # Add a {{ captcha-name }} widget using the advanced method
 
 You control how the widget loads using the `window.smartCaptcha` [object](../concepts/widget-methods.md#methods). The `onloadFunction` callback function is used for this in the instructions:

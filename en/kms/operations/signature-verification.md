@@ -1,6 +1,6 @@
 ---
 title: "How to create a digital signature"
-description: "This guide describes how you can create a digital signature."
+description: "Follow this guide to create a digital signature."
 ---
 
 # Digital signature and its verification based on data hash
@@ -43,7 +43,7 @@ A signature based on a private key is used for messages of up to 32 KB.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the line with the appropriate key pair, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the digital signature public key.
 
     - CLI
@@ -155,7 +155,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the line with the appropriate key pair, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the line with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the signature public key.
 
     - CLI

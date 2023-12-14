@@ -1,11 +1,16 @@
-# Change project settings
+---
+title: "How to change project settings in {{ ml-platform-full-name }}"
+description: "Follow this guide to update your project settings."
+---
+
+# Changing project settings
 
 On the project editing page, you can change the project name and description, set consumption limits, and configure integration with other {{ yandex-cloud }} services:
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
-1. To change the project name or description, click ![pencil](../../../_assets/pencil-line.svg) next to its current name. In the window that opens, specify **{{ ui-key.yc-ui-datasphere.edit-project-page.name }}** and, if required, the project **{{ ui-key.yc-ui-datasphere.edit-project-page.description }}** and click **{{ ui-key.yc-ui-datasphere.common.save }}**.
+1. To change the project name or description, click ![pencil](../../../_assets/console-icons/pencil-to-line.svg) next to its current name. In the window that opens, specify **{{ ui-key.yc-ui-datasphere.edit-project-page.name }}** and, if required, the project **{{ ui-key.yc-ui-datasphere.edit-project-page.description }}** and click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 1. To change other settings, go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
-1. Click **![pencil](../../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}** in the relevant settings section.
+1. Click **![pencil](../../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}** in the relevant settings section.
 
    * Under **{{ ui-key.yc-ui-datasphere.common.general }}**, select the [project operating mode](../../concepts/project.md#mode) in the **{{ ui-key.yc-ui-datasphere.edit-project-page.default-mode }}** field:
       * `{{ ui-key.yc-ui-datasphere.common.serverless }}`: The project will start in the [{{ ds }} mode](../../concepts/project.md#serverless) and automatically allocate computing resources.

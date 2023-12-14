@@ -48,7 +48,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
    1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
@@ -233,7 +233,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
          * `encrypted_assertions`: Sign authentication requests.
             If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -282,7 +282,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 - Management console
 
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -443,9 +443,9 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/console-icons/person.svg).
 
-   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
+   1. In the top-right corner, click ![icon-users](../../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
 
    1. Select the identity federation to add users from.
 

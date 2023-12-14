@@ -145,17 +145,17 @@ items:
         href: stt/api/transcribation-ogg.md
       - name: Regular asynchronous recognition of audio files, API v2
         href: stt/api/batch-transcribation.md
-      - name: Speech synthesis in API v3
+      - name: Speech synthesis in the API v3
         href: tts/api/tts-examples-v3.md
       - name: Pattern-based speech synthesis
         href: tts/api/tts-templates.md
       - name: Brand Voice Call Center pattern-based speech synthesis
         href: tts/api/tts-templates-bvcc.md
-      - name: "Speech synthesis in WAV format using API\_v1"
+      - name: "Speech synthesis in WAV format, API\_v1"
         href: tts/api/tts-wav.md
-      - name: "Speech synthesis in OggOpus format using API\_v1"
+      - name: "Speech synthesis in OggOpus format, API\_v1"
         href: tts/api/tts-ogg.md
-      - name: "Speech synthesis from SSML text using API\_v1"
+      - name: "Speech synthesis from SSML text, API\_v1"
         href: tts/api/tts-ssml.md
   - name: Supported audio formats
     href: formats.md

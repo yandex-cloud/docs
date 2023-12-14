@@ -93,7 +93,7 @@
          # Для авторизации с IAM-токеном передавайте заголовок
          #  ('authorization', f'Bearer {iam_token}'),
          ))
-         
+
          # Вывести идентификатор диалога
          print(f'Dialog ID: {response.talk_id}')
 

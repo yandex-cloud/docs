@@ -1,4 +1,9 @@
-# Step-by-step instructions for {{ yds-name }}
+---
+title: "{{ yds-full-name }} use cases"
+description: "Various {{ yds-full-name }} use cases in {{ yandex-cloud }}."
+---
+
+# Step-by-step guides for {{ yds-name }}
 
 * [Managing streams](manage-streams.md)
 

@@ -1,3 +1,8 @@
+---
+title: "How to create authorized keys in {{ iam-full-name }}"
+description: "Follow this guide to create authorized keys."
+---
+
 # Creating authorized keys
 
 To create an [authorized key](../../concepts/authorization/key.md):
@@ -92,7 +97,7 @@ To create an [authorized key](../../concepts/authorization/key.md):
       * `key_algorithm`: Key generation algorithm. This is an optional parameter. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
       * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```
       resource "yandex_iam_service_account_key" "sa-auth-key" {

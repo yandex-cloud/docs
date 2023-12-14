@@ -122,9 +122,9 @@
      
      ```hcl
      provider "yandex" {
-       cloud_id  = "<идентификатор облака>"
-       folder_id = "<идентификатор каталога>"
-       zone      = "<зона доступности>"
+       cloud_id  = "<идентификатор_облака>"
+       folder_id = "<идентификатор_каталога>"
+       zone      = "<зона_доступности>"
        token     = "<OAuth-токен>"
        }
 
@@ -132,8 +132,8 @@
        bucket = "s3-website-test.hashicorp.com"
        acl    = "public-read"
 
-       access_key = "<идентификатор ключа>"
-       secret_key = "<секретный ключ>"
+       access_key = "<идентификатор_ключа>"
+       secret_key = "<секретный_ключ>"
 
        cors_rule {
          allowed_headers = ["*"]

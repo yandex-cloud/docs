@@ -1,3 +1,8 @@
+---
+title: "How to create or update parameters of a serverless database in {{ ydb-full-name }}"
+description: "Use this tutorial to create or update parameters of a serverless database."
+---
+
 # Creating and editing parameters of a serverless database
 
 Open the configuration file in your project (it should already include a [provider initialization section](./configure.md)) and add the following code to it:

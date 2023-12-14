@@ -109,7 +109,7 @@
       aws s3api list-objects \
         --endpoint-url https://{{ s3-storage-host }} \
         --bucket <имя_бакета> \
-        --query '<запрос_в_формате_JMESPath>' \
+        --query '<запрос>' \
         --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key {}
       ```
 
@@ -133,7 +133,7 @@
       Foreach($x in (aws s3api list-objects `
         --endpoint-url https://{{ s3-storage-host }} `
         --bucket <имя_бакета> `
-        --query '<запрос_в_формате_JMESPath>' `
+        --query '<запрос>' `
         --output text)) `
         {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key $x}
       ```
@@ -251,7 +251,7 @@
      {
        ...
        "ObjectLockMode": "<тип_временной_блокировки>",
-       "ObjectLockRetainUntilDate": "<дата_и_время_окончания_временной_блокировки>",
+       "ObjectLockRetainUntilDate": "<дата_и_время>",
        "ObjectLockLegalHoldStatus": "<статус_бессрочной_блокировки>",
        ...
      }

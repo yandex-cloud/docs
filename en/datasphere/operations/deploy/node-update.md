@@ -1,9 +1,14 @@
+---
+title: "How to update a node in {{ ml-platform-full-name }}"
+description: "Follow this guide to update a node."
+---
+
 # Updating a node
 
 To update a [node](../../concepts/deploy/index.md#node):
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
-1. In the line with the appropriate node, click ![Options](../../../_assets/options.svg) and select ![Edit](../../../_assets/datasphere/edit.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. In the line with the appropriate node, click ![Options](../../../_assets/console-icons/ellipsis.svg) and select ![Edit](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Edit the node parameters:
    * Node name.
    * Node description.

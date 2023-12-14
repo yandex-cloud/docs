@@ -255,7 +255,7 @@ Thumbor удобно использовать для подготовки изо
    Пример результата:
 
    ```text
-   id: bc855oumelrqw3ceywih
+   id: bc855oumelrq********
    folder_id: {{ folder-id-example }}
    cname: {{ domain-name-example }}
    created_at: "2022-01-15T15:13:42.827643Z"

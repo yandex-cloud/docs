@@ -15,6 +15,8 @@ By default, all company employees can use {{ tracker-full-name }} for free in [<
 
 The cost of using {{ tracker-name }} is based on the number of users with [full access to the service](access.md). The monthly fee [is debited from the billing account](pay-the-bill.md#charge) linked to {{ tracker-name }}.
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
 You can find the FAQ for payments in [{#T}](payment.md).
 
 ## Pricing {#sec_price}

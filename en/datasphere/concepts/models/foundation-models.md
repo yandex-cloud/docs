@@ -30,4 +30,10 @@ To retrain the {{ yagpt-name }} model using the Fine-tuning method, prepare a JS
 
 The file may contain up to 10,000 questions and responses. The maximum size of a query is 4,000 characters and that of a reference response is 2,000 characters.
 
-In the {{ ml-platform-name }} interface, create a new retrained foundation model, enter instructions for the model, set the retraining rate, and upload your data. It takes some time to retrain the model.
+In the {{ ml-platform-name }} interface, create a new fine-tuned foundation model, enter instructions for the model, set the tuning rate, and upload your data. It takes some time to tune the model.
+
+## Requests to a fine-tuned model {#requests}
+
+You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or the API from {{ ml-platform-name }} and other applications. In Playground, requests are made on behalf of a user with the model access flag set. You can send requests through Playground to the original or fine-tuned model to compare the results.
+
+To make API requests, add a user account or service account you are going to use to submit requests to the list of {{ ml-platform-name }} project members. Make sure the account has the `ai.languageModels.user` role and its cloud has access to {{ yagpt-name }}.

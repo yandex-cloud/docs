@@ -1,6 +1,11 @@
+---
+title: "Envelope encryption in {{ kms-full-name }}"
+description: "Encryption using the encrypt method is limited by the maximum size of data to be encrypted (32 KB). As your data volumes increase, {{ kms-short-name }} experiences an increased workload. This results in decreased performance of the encrypt and decrypt methods. Envelope encryption is mainly implemented on the client side and helps avoid these issues."
+---
+
 # Envelope encryption
 
-Encryption employing the [encrypt](../api-ref/SymmetricCrypto/encrypt) method is limited by the maximum size of encryption data (32 KB). Larger data volumes cause a number of problems:
+Encryption using the [encrypt](../api-ref/SymmetricCrypto/encrypt) method is limited by the maximum size of data to be encrypted (32 KB). Larger data volumes cause a number of problems:
 * Increased load on {{ kms-short-name }} caused by encryption and decryption operations.
 * Reduced encryption and decryption performance if using the encrypt and decrypt methods with larger encryption data volumes.
 
@@ -11,8 +16,8 @@ Envelope encryption is mainly implemented on the client side and helps avoid the
 ## Description of the encryption process {#encrypt}
 
 Unlike <q>direct</q> encryption, where a {{ kms-short-name }} key acts as a data encryption key, envelope encryption involves two types of keys:
-* A data encryption key (DEK).
-* A key encryption key (KEK).
+* Data encryption key (DEK).
+* Key encryption key (KEK).
 
 Encryption is preformed as follows:
 1. The client generates a DEK and locally encrypts data with it.

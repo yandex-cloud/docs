@@ -1,3 +1,8 @@
+---
+title: "Synchronous speech recognition using the {{ speechkit-full-name }} Python SDK "
+description: "Follow this guide to test synchronous speech recognition using the {{ speechkit-name }} Python SDK."
+---
+
 # Synchronous speech recognition using the Python SDK
 
 Below, we provide an example of synchronous speech recognition from an audio file using the [{{ speechkit-name }} Python SDK](index.md). This example uses the following parameters:

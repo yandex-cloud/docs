@@ -12,7 +12,7 @@ You can choose between these two types of main tasks in {{ captcha-name }}:
 
   {% cut "Checkbox" %}
 
-  ![image](../../_assets/smartcaptcha/checkbox-task.gif =370x105)
+  ![image](../../_assets/smartcaptcha/checkbox-task.gif)
 
   {% endcut %}
 
@@ -26,7 +26,7 @@ You can choose between these two types of main tasks in {{ captcha-name }}:
 
   {% cut "Slider" %}
 
-  ![image](../../_assets/smartcaptcha/slider-task.gif =370x127)
+  ![image](../../_assets/smartcaptcha/slider-task.gif =370x93)
 
   {% endcut %}
 
@@ -36,15 +36,15 @@ If the service considers the result of the main task suspicious, it offers to th
 
 There are several types of additional tasks in {{ captcha-name }}:
 
-* ![image](../../_assets/smartcaptcha/text.svg) **Text recognition**: The user is shown a distorted text in an image and should enter it into a special field.
+* ![image](../../_assets/console-icons/text.svg) **Text recognition**: The user has to type a distorted text from the picture into a special field.
 
   {% cut "Text recognition" %}
 
-  ![image](../../_assets/smartcaptcha/text-task.gif =370x427)
+  ![image](../../_assets/smartcaptcha/text-task.gif =370x401)
 
   {% endcut %}
 
-* ![image](../../_assets/smartcaptcha/silhouette.svg) **Silhouettes**: An image includes several icons, and the user should select them in a specified order.
+* ![image](../../_assets/console-icons/picture.svg) **Silhouettes**: The user has to mark several icons from the picture in a particular order.
 
   {% note info %}
 
@@ -54,11 +54,11 @@ There are several types of additional tasks in {{ captcha-name }}:
 
   {% cut "Silhouettes" %}
 
-  ![image](../../_assets/smartcaptcha/silhouette-task.gif =370x393)
+  ![image](../../_assets/smartcaptcha/silhouette-task.gif)
 
   {% endcut %}
 
-* ![image](../../_assets/smartcaptcha/kaleidoscope.svg) **Kaleidoscope**: The user should build a picture from parts by moving them using a slider. To solve the task, the user should move the slider to a position where the image parts are arranged in the correct order.
+* ![image](../../_assets/console-icons/layout-cells-large.svg) **Kaleidoscope**: The user has to build a picture from individual parts by shuffling them using a slider. To complete the task, the user has to move the slider to a position in which the image parts are arranged correctly.
 
   {% note info %}
 

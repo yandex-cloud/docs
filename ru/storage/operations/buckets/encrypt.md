@@ -45,24 +45,24 @@ description: "Следуя данной инструкции, вы сможет�
      
      ```
      provider "yandex" {
-       cloud_id                 = "<идентификатор облака>"
-       folder_id                = "<идентификатор каталога>"
+       cloud_id                 = "<идентификатор_облака>"
+       folder_id                = "<идентификатор_каталога>"
        zone                     = "{{ region-id }}-a"
        service_account_key_file = "key.json"
        }
 
 
      resource "yandex_kms_symmetric_key" "key-a" {
-       name              = "<имя ключа>"
-       description       = "<описание ключа>"
+       name              = "<имя_ключа>"
+       description       = "<описание_ключа>"
        default_algorithm = "AES_128"
        rotation_period   = "8760h" // 1 год
      }
 
      resource "yandex_storage_bucket" "test" {
-       bucket     = "<имя бакета>"
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
+       bucket     = "<имя_бакета>"
+       access_key = "<идентификатор_статического_ключа>"
+       secret_key = "<секретный_ключ>"
        server_side_encryption_configuration {
          rule {
            apply_server_side_encryption_by_default {

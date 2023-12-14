@@ -28,9 +28,9 @@ To improve the quality of generated responses, {{ yagpt-name }} logs user prompt
    1. In the list of services, select **{{ yagpt-name }}**.
    1. In the left-hand panel, select ![image](../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
    1. Describe the request context under **{{ ui-key.yacloud.yagpt.label_instruction-text }}**.
-   1. Describe your request to the model under **{{ ui-key.yacloud.yagpt.label_request-text }}**.
-   1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` that determines the versatility of the model's response. With a higher value, you get less deterministic request result.
-   1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The answer will be shown on the right part of the screen.
+   1. Describe your request to the neural network under **{{ ui-key.yacloud.yagpt.label_request-text }}**.
+   1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a positive number that determines the versatility of the neural network's response. The higher is the value, the less deterministic is the request result.
+   1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The answer will be shown on the right part of the screen.
 
 - API
 

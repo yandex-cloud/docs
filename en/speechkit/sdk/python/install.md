@@ -1,3 +1,8 @@
+---
+title: "Installing the Python SDK {{ speechkit-full-name }}"
+description: "Follow this guide to install the {{ speechkit-name }} Python SDK."
+---
+
 # Installing the Python SDK {{ speechkit-name }}
 
 To use the [Python SDK](index.md), the `yandex-speechkit` package is required. Install it using the [pip](https://pip.pypa.io/en/stable/) package manager:

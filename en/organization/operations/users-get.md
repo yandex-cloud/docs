@@ -1,4 +1,9 @@
-# Get the user's ID or email
+---
+title: "How to get an ID or email of a user in {{ org-full-name }}"
+description: "Follow this guide to get an ID or email of a user."
+---
+
+# Getting the user ID or email
 
 You can get the following information about an organization's registered users:
 * ID

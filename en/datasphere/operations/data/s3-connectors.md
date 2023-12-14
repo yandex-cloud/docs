@@ -1,4 +1,4 @@
-# Connecting to S3 storage
+# Connecting to an S3 storage
 
 On your project page in the {{ ml-platform-name }} interface, you can manage your connection to an S3 object storage by using the **{{ ui-key.yc-ui-datasphere.resources.s3 }}** resource.
 
@@ -57,7 +57,7 @@ You can attach the S3 storage to your project again when needed.
 ## Sharing an S3 connector {#share}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/bucket.svg) **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Select your S3 connector in the list.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community you want to share the S3 connector with.
@@ -67,8 +67,8 @@ You can attach the S3 storage to your project again when needed.
 You can only delete a [deactivated](#unmount) connector, unavailable to the community.
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. In the list of S3 connectors, select the one you want to delete. Click ![options](../../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/bucket.svg)**{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
+1. In the list of S3 connectors, select the one you want to delete. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 You will see a message saying that the secret has been deleted.

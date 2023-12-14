@@ -1,3 +1,8 @@
+---
+title: "How to update a secret in {{ lockbox-full-name }}"
+description: "Follow this guide to update a secret."
+---
+
 # Updating secrets
 
 To update a secret:
@@ -8,8 +13,8 @@ To update a secret:
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-   1. In the left menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the required secret.
+   1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the required secret.
    1. In the menu that opens, select **{{ ui-key.yacloud.common.edit }}**.
    1. Update the name and description of the secret. If necessary, select **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -28,22 +33,22 @@ To update a secret:
    1. Run the command, specifying the secret name or ID:
       ```bash
       yc lockbox secret update \
-        --id <secret ID> \
-        --new-name <new secret name> \
-        --description <new secret description>
+        --id <secret_ID> \
+        --new-name <new_secret_name> \
+        --description <new_secret_description>
       ```
 
       Result:
       ```
-      id: e6q2ig0u9b97tk2d251j
-      folder_id: b1gyggt2th593evcld2a
+      id: e6q2ig0u9b97********
+      folder_id: b1gyggt2th59********
       created_at: "2021-11-08T19:23:00.383Z"
-      name: <new secret name>
-      description: <new secret description>
+      name: <new_secret_name>
+      description: <new_secret_description>
       status: ACTIVE
       current_version:
-        id: e6q8ma3b6pd1kckgtaib
-        secret_id: e6q2ug0o9b24tk2d941j
+        id: e6q8ma3b6pd1********
+        secret_id: e6q2ug0o9b24********
         created_at: "2021-11-08T19:23:00.383Z"
         status: ACTIVE
         payload_entry_keys:
@@ -63,8 +68,8 @@ To update a secret:
       resource "yandex_lockbox_secret" "my_secret" {
         name                = "My secret"
         description         = "test secret from tf"
-        folder_id           = "b1gmitvfx321d3kr4mhjmo"
-        kms_key_id          = "abjp8q2fjfg0sedaqfkl0"
+        folder_id           = "b1gmitvfx321d3********"
+        kms_key_id          = "abjp8q2fjfg0s********"
         deletion_protection = true
         labels              = {
           tf-label    = "tf-label-value",

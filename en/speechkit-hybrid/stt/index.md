@@ -1,6 +1,11 @@
+---
+title: "How to get started with speech recognition in {{ speechkit-full-name }}"
+description: "In this tutorial, you will learn how to get started with speech recognition in {{ speechkit-name }}."
+---
+
 # Speech recognition
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. Install [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) on your server.
 

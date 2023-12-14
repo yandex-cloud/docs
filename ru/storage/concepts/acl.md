@@ -136,7 +136,7 @@ ACL | Описание
 
   ```bash
   yc resource-manager folder list-access-bindings \
-    --id b1g7gvsi89m34qmcm4ke
+    --id b1g7gvsi89m3********
   ```
 
   Результат:
@@ -156,7 +156,7 @@ ACL | Описание
 
   ```bash
   yc resource-manager folder remove-access-binding \
-    --id b1g7gvsi89m34qmcm4ke \
+    --id b1g7gvsi89m3******** \
     --role viewer \
     --allAuthenticatedUsers
   ```
@@ -165,7 +165,7 @@ ACL | Описание
 
   ```bash
   yc resource-manager folder remove-access-binding \
-    --id b1g7gvsi89m34qmcm4ke \
+    --id b1g7gvsi89m3******** \
     --role viewer \
     --allUsers
   ```

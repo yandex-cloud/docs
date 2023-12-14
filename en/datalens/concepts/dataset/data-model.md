@@ -18,7 +18,7 @@ There is a limit on displaying the first 1,000 tables from a source in a dataset
 {% endnote %}
 
 If there are multiple tables in the source, you can join them with a [JOIN](https://en.wikipedia.org/wiki/Join_(SQL)).
-When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table.
+When the tables are [joined](../data-join.md), a link is created between them. When you create a link, you specify the fields from the source table and merged table.
 
 Tables are linked automatically by the first match in the field name and field data type.
 

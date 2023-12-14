@@ -1,3 +1,8 @@
+---
+title: "How to receive and delete messages in {{ message-queue-full-name }}"
+description: "Follow this guide to receive and delete messages."
+---
+
 # Receiving and deleting messages
 
 Messages queued in {{ message-queue-name }} are received by consumers, i.e., components of distributed applications. After messages are received and processed, they should be deleted from the queue.
@@ -19,7 +24,7 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
       Where:
 
       * `--queue-url`: URL of the queue to receive the message from.
-      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
 
       Result:
 
@@ -64,7 +69,7 @@ Messages queued in {{ message-queue-name }} are received by consumers, i.e., com
        Where:
 
        * `--queue-url`: URL of the queue to delete the message from.
-       * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value
+       * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
        * `--receipt-handle`: Previously saved message receipt ID (`ReceiptHandle`).
 
 {% endlist %}

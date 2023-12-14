@@ -16,7 +16,7 @@
 
    {% endcut %}
 
-{% include [target-backet-note](../../../_includes/storage/target-bucket-note.md) %}
+   {% include [target-backet-note](../../../_includes/storage/target-bucket-note.md) %}
 
 1. Включите механизм логирования в исходном бакете, который вы хотите отслеживать.
 
@@ -40,7 +40,7 @@
          Где:
 
          * `TargetBucket` — имя целевого бакета, в который будут записываться логи.
-         * `TargetPrefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами. Например, `logs/`
+         * `TargetPrefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например, `logs/`.
      
      1. Включите логирование в бакете:
 
@@ -48,7 +48,7 @@
          aws s3api put-bucket-logging \
            --bucket <имя_исходного_бакета> \
            --endpoint-url https://{{ s3-storage-host }} \
-           --bucket-logging-status file://<путь к файлу настроек>
+           --bucket-logging-status file://<путь_к_файлу_настроек>
          ```
 
          Где:
@@ -92,13 +92,13 @@
         * `access_key` — идентификатор статического ключа доступа.
         * `secret_key` — значение секретного ключа доступа.
         * `target_bucket` — указание на бакет для хранения логов.
-        * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами. Например `logs/`.
+        * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
 
 
-     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+        {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
@@ -112,15 +112,15 @@
      <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
        <LoggingEnabled>
          <TargetBucket>имя целевого бакета</TargetBucket>
-         <TargetPrefix>logs/</TargetPrefix>
+         <TargetPrefix>префикс ключа</TargetPrefix>
        </LoggingEnabled>
      </BucketLoggingStatus>
      ```
 
      Где:
 
-     * `<TargetBucket>` – имя целевого бакета;
-     * `<TargetPrefix>` – [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами. Например, `logs/`. Необязательный параметр.
+     * `TargetBucket` – имя целевого бакета;
+     * `TargetPrefix` – [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
    {% endlist %}
 
@@ -134,25 +134,25 @@
 
    Чтобы получить настройки логирования с помощью [AWS CLI](../../tools/aws-cli.md):
 
-   1. Выполните команду:
+   Выполните команду:
 
-      ```bash
-      aws s3api get-bucket-logging \
-        --bucket <имя_бакета> \
-        --output json \
-        --endpoint-url https://{{ s3-storage-host }}
-      ```
+   ```bash
+   aws s3api get-bucket-logging \
+     --bucket <имя_бакета> \
+     --output json \
+     --endpoint-url https://{{ s3-storage-host }}
+   ```
 
-      Результат:
+   Результат:
 
-      ```json
-      {
-         "LoggingEnabled": {
-            "TargetBucket": "<имя_бакета>",
-            "TargetPrefix": "<префикс_ключа>"
-         }
-      }
-      ```
+   ```json
+   {
+       "LoggingEnabled": {
+         "TargetBucket": "<имя_бакета>",
+         "TargetPrefix": "<префикс_ключа>"
+       }
+   }
+   ```
 
 - API
 
@@ -207,35 +207,35 @@
 
   1. Откройте файл конфигураций {{ TF }} и удалите блок `logging` во фрагменте с описанием бакета.
 
-     {% cut "Пример описания бакета в конфигурации {{ TF }}" %}
+      {% cut "Пример описания бакета в конфигурации {{ TF }}" %}
 
-     ```hcl
-     ...
-     resource "yandex_storage_bucket" "log_bucket" {
-       access_key = "<идентификатор_статического_ключа>"
-       secret_key = "<секретный_ключ>"
-       bucket     = "<имя_бакета_для_хранения_логов>"
-     }
+      ```hcl
+      ...
+      resource "yandex_storage_bucket" "log_bucket" {
+        access_key = "<идентификатор_статического_ключа>"
+        secret_key = "<секретный_ключ>"
+        bucket     = "<имя_бакета_для_хранения_логов>"
+      }
 
-     resource "yandex_storage_bucket" "bucket" {
-       access_key = "<идентификатор_статического_ключа>"
-       secret_key = "<секретный_ключ>"
-       bucket     = "<имя_исходного_бакета>"
-       acl        = "private"
+      resource "yandex_storage_bucket" "bucket" {
+        access_key = "<идентификатор_статического_ключа>"
+        secret_key = "<секретный_ключ>"
+        bucket     = "<имя_исходного_бакета>"
+        acl        = "private"
 
-       logging {
-         target_bucket = yandex_storage_bucket.log_bucket.id
-         target_prefix = "log/"
-       }
-     }
-     ...
-     ```
+        logging {
+          target_bucket = yandex_storage_bucket.log_bucket.id
+          target_prefix = "log/"
+        }
+      }
+      ...
+      ```
 
-     {% endcut %}
+      {% endcut %}
 
   {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+  Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API
 

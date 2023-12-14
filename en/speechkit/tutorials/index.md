@@ -1,3 +1,8 @@
+---
+title: "Tutorials for {{ speechkit-full-name }}"
+description: "This page gives a list of tutorials for {{ speechkit-name }}."
+---
+
 # {{ speechkit-name }} tutorials
 
 ## Speech recognition {#stt}

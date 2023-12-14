@@ -2,12 +2,12 @@
 
 {% list tabs %}
 
-- {{ org-name }}
+- Management console
 
    1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg).
-   1. In the top-right corner, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
+   1. In the top-right corner, click ![icon-users](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
    1. Select the identity federation to add users from.
    1. List the name IDs of users, separating them with line breaks.
    1. Click **Add**. This will give the users access to the organization.

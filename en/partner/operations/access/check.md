@@ -1,3 +1,8 @@
+---
+title: "How to verify access permissions to a customer's cloud from the partner console"
+description: "Follow this guide to verify access permissions to a customer's cloud from the partner console."
+---
+
 # Verifying access permissions to a customer's cloud from the partner console
 
 To verify access to a customer's cloud:

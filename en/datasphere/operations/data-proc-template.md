@@ -19,7 +19,7 @@
 
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
-1. Click ![options](../../_assets/options.svg) next to the appropriate template and select **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. Click ![options](../../_assets/console-icons/ellipsis.svg) next to the appropriate template and select **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 
 A cluster based on the activated {{ dataproc-name }} template is created when you run your project in the IDE.
 
@@ -37,7 +37,7 @@ You can only change the name of an existing template. To change the configuratio
 
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
-1. Select the relevant template in the list, click ![options](../../_assets/options.svg), and select **{{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Select the relevant template in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Edit the name and click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 ## Deleting a {{ dataproc-name }} template {#delete}
@@ -45,5 +45,5 @@ You can only change the name of an existing template. To change the configuratio
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. In the list, select the template to delete.
-1. Click ![options](../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.

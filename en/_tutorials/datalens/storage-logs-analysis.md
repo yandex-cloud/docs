@@ -1,6 +1,6 @@
 # Analyzing {{ objstorage-short-name }} logs in {{ datalens-short-name }}
 
-For the {{ objstorage-full-name }} bucket you can enable [logging of actions](../../storage/concepts/server-logs.md). The logs store information about operations with a [bucket](../../storage/concepts/bucket.md) and the [objects](../../storage/concepts/object.md) in it. Analysis of bucket logs can be useful, for example, if you want to understand what caused a sharp increase in load or get the overall picture of traffic distribution.
+For the {{ objstorage-full-name }} bucket you can enable [action logging](../../storage/concepts/server-logs.md). The logs store information about operations with a [bucket](../../storage/concepts/bucket.md) and the [objects](../../storage/concepts/object.md) in it. Analysis of bucket logs can be useful, for example, if you want to understand what caused a sharp increase in load or get the overall picture of traffic distribution.
 
 You can create visualizations for your analysis using [{{ datalens-full-name }}](../../datalens/). You must transfer previously saved logs to the {{ CH }} database, which will be used as a source for {{ datalens-short-name }}.
 
@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost includes:
 
 * Fee for data storage in {{ objstorage-short-name }}, operations with data, and outgoing traffic (see [{{ objstorage-short-name }} pricing](../../storage/pricing.md)).
-* Fees for continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for a continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 
 
 ## Create a bucket for storing logs {#create-bucket}
@@ -113,6 +113,8 @@ The cost includes:
        --bucket-logging-status file://log-config.json
      ```
 
+      Where `--bucket` is the name of the bucket you need action logging enabled for.
+
 - API
 
   Use the REST API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) method.
@@ -134,9 +136,9 @@ The cost includes:
 
      1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify `s3-logs` in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field.
 
-     1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select **burstable** in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** field.
+     1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select `burstable` in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** field.
 
-     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/edit.svg) and enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
      1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -246,7 +248,7 @@ The cost includes:
 
 {% endlist %}
 
-After creating the cluster, you'll be automatically redirected to the **{{ ui-key.yacloud.clickhouse.switch_list }}** page.
+After creating the cluster, you will be automatically redirected to the **{{ ui-key.yacloud.clickhouse.switch_list }}** page.
 
 Wait for the cluster status to change to `Alive`.
 
@@ -256,9 +258,9 @@ Wait for the cluster status to change to `Alive`.
 
 - Management console
 
-  1. Select the cluster `s3-logs`.
-  1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Select the `s3-logs` cluster.
+  1. Go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
   1. In the **Date time input format** field, select `best_effort`.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
@@ -275,8 +277,8 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 
 - Management console
 
-  1. Select the cluster `s3-logs`.
-  1. Click the **{{ ui-key.yacloud.mysql.cluster.switch_explore }}** tab.
+  1. Select the `s3-logs` cluster.
+  1. Go to the **{{ ui-key.yacloud.mysql.cluster.switch_explore }}** tab.
   1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password.
   1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
   1. In the window on the right, write an SQL query:
@@ -289,7 +291,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
         bytes_send Int64,           -- Size of response in bytes.
         handler String,             -- Request method in REST.<HTTP method>.<subject> format.
         http_referer String,        -- URL of request source.
-        ip String,                  -- User's IP address.
+        ip String,                  -- User IP address.
         method String,              -- HTTP request method.
         object_key String,          -- Object's key in URL encoded format.
         protocol String,            -- Version of data transfer protocol.
@@ -336,7 +338,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 - Management console
 
   1. Select the `s3-logs` cluster.
-  1. Click the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
   1. Fill in the connection settings:
 
@@ -356,7 +358,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 1. Click **Create dataset**.
 1. In the created dataset, move the `s3_data.s3logs` table to the workspace.
 1. Go to the **Fields** tab.
-1. Click ![image](../../_assets/plus-sign.svg) **Add field**.
+1. Click ![image](../../_assets/console-icons/plus.svg) **Add field**.
 1. Create a calculated field with the file type:
 
    * Field name: `object_type`.
@@ -374,7 +376,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 To visualize the number of requests to a bucket using different methods, create a pie chart:
 
 1. For the visualization type, select `Pie chart`.
-1. Drag the `method` field from the **Dimension** section to the **Color** section.
+1. Drag the `method` field from the **Dimensions** section to the **Colors** section.
 1. Drag the `request_id` field from the **Dimensions** section to the **Measures** section.
 1. In the top-right corner, click **Save**.
 1. In the window that opens, enter the name of the chart: `S3 - Method pie` and click **Save**.
@@ -389,7 +391,7 @@ To visualize the number of requests ratio by object type, create a bar chart:
    1. Click **Save as**.
    1. In the window that opens, enter the name of the new chart: `S3 - Object type bars` and click **Save**.
 
-1. For the visualization type, choose **Bar chart**. The `method` and `request_id` fields will automatically appear in the **X** and **Y** sections, respectively.
+1. Select the **Bar chart** visualization type. The `method` and `request_id` fields will automatically appear in the **X** and **Y** sections, respectively.
 1. Delete the `method` field from the **X** section and drag the `object_type` field there.
 1. In the top-right corner, click **Save**.
 
@@ -401,7 +403,7 @@ To visualize the distribution of outgoing traffic by day, create a bar chart:
 
    1. In the top-right corner, click the down arrow next to the **Save** button.
    1. Click **Save as**.
-   1. In the window that opens, enter the name of the new chart: `S3 - Traffic generated by days` and click **Save**.
+   1. In the window that opens, enter the name of the new chart: `S3 - Traffic generated by days`, and click **Save**.
 
 1. Drag the `object_type` field from the **X** section to the **Filters** section.
 1. In the window that opens, select the types of objects to display in the chart and click **Apply filters**.
@@ -414,14 +416,14 @@ To visualize the distribution of outgoing traffic by day, create a bar chart:
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
 1. Enter `S3 Logs Analysis` as the dashboard name and click **Create**.
-1. In the top-right corner, click **Add** and select **Chart**.
+1. In the top-right corner, click **Add** and select `Chart`.
 1. In the **Chart** chart, click **Select** and select the `S3 - Method pie` chart from the list.
 1. Click **Add**. The chart will be displayed on the dashboard.
 1. Repeat the previous steps for the `S3 - Object type bars` and `S3 - Traffic generated by days` charts.
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
 * [Delete the cluster](../../managed-clickhouse/operations/cluster-delete.md) named `s3-logs`.

@@ -1,6 +1,11 @@
-# {{ sk-hybrid-name }} service architecture
+---
+title: "{{ sk-hybrid-name }} architecture"
+description: "In this tutorial, you will learn about the {{ sk-hybrid-name }} components."
+---
 
-The {{ sk-hybrid-name }} service includes the following components:
+# {{ sk-hybrid-name }} architecture
+
+{{ sk-hybrid-name }} comprises the following components:
 
 * **[Envoy](https://www.envoyproxy.io/docs)**: Routing server that receives incoming gRPC requests and determines the {{ sk-hybrid-name }} components to handle them.
 * **License server**: Envoy dynamic configuration server for accounting Yubikey licenses or providing data required to pay for resources.

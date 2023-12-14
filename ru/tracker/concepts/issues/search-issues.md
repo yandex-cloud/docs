@@ -253,8 +253,8 @@ order | Направление и поле сортировки задач (то
     - `Link` — ссылки на первую и следующую страницы результатов:  
 
        ```
-       Link: <https://api.tracker.yandex.net/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollType=sorted&scrollTTLMillis=10000&perScroll=2000>; rel="first"
-       Link: <https://api.tracker.yandex.net/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollTTLMillis=10000&scrollId=6554d4cbbda0de18********&scrollToken=dummy-token-you-dont-have-to-specify-it>; rel="next"
+       Link: <https://{{ host }}/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollType=sorted&scrollTTLMillis=10000&perScroll=2000>; rel="first"
+       Link: <https://{{ host }}/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollTTLMillis=10000&scrollId=6554d4cbbda0de18********&scrollToken=dummy-token-you-dont-have-to-specify-it>; rel="next"
        ```
 
        Используйте ссылку из заголовка с параметром `rel="next"` для получения следующей страницы результатов.

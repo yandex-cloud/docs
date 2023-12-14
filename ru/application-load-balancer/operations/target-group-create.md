@@ -57,16 +57,16 @@ description: "Для создания целевой группы {{ alb-full-na
       Результат:
 
       ```yaml
-      id: a5d751meibht4ev26...
+      id: a5d751meibht********
       name: <имя_целевой_группы>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       targets:
       - ip_address: <внутренний_IP-адрес_ВМ_1>
-        subnet_id: fo2tgfikh3hergif2...
+        subnet_id: fo2tgfikh3he********
       - ip_address: <внутренний_IP-адрес_ВМ_2>
-        subnet_id: fo2tgfikh3hergif2...
+        subnet_id: fo2tgfikh3he********
       - ip_address: <внутренний_IP-адрес_ВМ_3>
-        subnet_id: fo2tgfikh3hergif2...
+        subnet_id: fo2tgfikh3he********
       created_at: "2021-02-11T11:16:27.770674538Z
       ```
 
@@ -85,9 +85,9 @@ description: "Для создания целевой группы {{ alb-full-na
       Результат:
 
       ```yaml
-      id: ds7s2dld2usr59qbu...
+      id: ds7s2dld2usr********
       name: <имя_целевой_группы>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       targets:
         - ip_address: <частный_IPv4-адрес_ресурса_1>
           private_ipv4_address: true

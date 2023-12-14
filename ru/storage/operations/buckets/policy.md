@@ -62,7 +62,7 @@
          "Effect": "Allow",
          "Principal": "*",
          "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::<имя бакета>/*",
+         "Resource": "arn:aws:s3:::<имя_бакета>/*",
          "Condition": {
            "Bool": {
              "aws:SecureTransport": "true"
@@ -118,7 +118,7 @@
          "Effect": "Allow",
          "Principal": "*",
          "Action": "s3:GetObject",
-         "Resource": "arn:aws:s3:::<имя бакета>/*",
+         "Resource": "arn:aws:s3:::<имя_бакета>/*",
          "Condition": {
            "Bool": {
              "aws:SecureTransport": "true"
@@ -133,7 +133,7 @@
 
      ```bash
      aws --endpoint https://{{ s3-storage-host }} s3api put-bucket-policy \
-       --bucket <имя бакета> \
+       --bucket <имя_бакета> \
        --policy file://policy.json
      ```
 
@@ -233,7 +233,7 @@
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} s3api get-bucket-policy \
-    --bucket <имя бакета> \
+    --bucket <имя_бакета> \
     --output text
   ```
 
@@ -241,7 +241,7 @@
 
   ```json
   {
-    "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::<имя бакета>/*\",\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"true\"}}}}"
+    "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::<имя_бакета>/*\",\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"true\"}}}}"
   }
   ```
 
@@ -276,7 +276,7 @@
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \
-    --bucket <имя бакета>
+    --bucket <имя_бакета>
   ```
 
 - {{ TF }}

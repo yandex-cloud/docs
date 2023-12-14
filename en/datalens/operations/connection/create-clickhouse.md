@@ -1,6 +1,6 @@
 ---
 title: "How to create a {{ CH }} connection"
-description: "This guide describes how you can create a {{ CH }} connection."
+description: "Follow this guide to create a {{ CH }} connection."
 ---
 
 # Creating a {{ CH }} connection
@@ -34,6 +34,13 @@ To create a {{ CH }} connection:
 
    - Select in a folder
 
+      {% note info %}
+
+      Only the current organization's databases are available.
+      To connect to a database from a different organization, use the **Specify manually** connection type and make sure the database has [public access](../../../managed-clickhouse/concepts/network.md#public-access-to-a-host) enabled.
+
+      {% endnote %}
+
       Specify the connection parameters for the {{ CH }} DB available in {{ yandex-cloud }}:
 
       * **Cluster**: Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
@@ -58,6 +65,13 @@ To create a {{ CH }} connection:
       * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually
+
+      {% note info %}
+
+      You can only use managed databases with [public access](../../../managed-clickhouse/concepts/network.md#public-access-to-a-host) enabled.
+      To connect to a managed database without public access, use the **Select in folder** connection type.
+
+      {% endnote %}
 
       Specify the connection parameters for the external {{ CH }} database:
 

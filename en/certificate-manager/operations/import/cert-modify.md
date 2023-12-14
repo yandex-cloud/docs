@@ -1,3 +1,8 @@
+---
+title: "How to edit custom certificates in {{ certificate-manager-full-name }}"
+description: "Follow this guide to edit a custom certificate."
+---
+
 # Editing a custom certificate
 
 After adding a [custom certificate](../../concepts/imported-certificate.md) to {{ certificate-manager-name }}, you can change its name or description. To edit a certificate:

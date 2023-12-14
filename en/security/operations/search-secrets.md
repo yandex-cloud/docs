@@ -1,4 +1,9 @@
-# Detecting {{ yandex-cloud }} secrets in public sources
+---
+title: "Scanning for {{ yandex-cloud }} secrets in public sources"
+description: "Follow this guide to check your repositories."
+---
+
+# Scanning for {{ yandex-cloud }} secrets in public sources
 
 {{ yandex-cloud }} scans public sources for the following types of secrets:
 

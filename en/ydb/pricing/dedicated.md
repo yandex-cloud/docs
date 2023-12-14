@@ -8,15 +8,17 @@ editable: false
 
 
 
+{% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
-## What goes into the cost of using {{ ydb-name }} {#rules}
+## What is included in {{ ydb-name }} cost {#rules}
 
 When using {{ ydb-name }} in dedicated mode, you pay for the following:
-* The type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
+* Type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
 * [Computing resources](../concepts/resources.md#resource-presets) allocated to the DB.
 
 Other consumed resources to be additionally paid for:
@@ -33,7 +35,7 @@ The minimum billing unit is one hour (for example, the cost of 1.5 hours of oper
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 * Storage allocated for DB storage groups.
 * Space used by on-demand DB backups saved in {{ objstorage-name }}.
 
@@ -54,7 +56,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% note info %}
 
-You currently can't order storage or web traffic this way.
+Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

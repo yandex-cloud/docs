@@ -35,9 +35,23 @@ To invite a user to an organization:
 
   You can also invite users in {{ org-full-name }}. For more information, see the [documentation](../organization/operations/add-account.md).
 
+  The administrator can [grant user permissions](../organization/operations/roles.md) only after the user accepts the invitation. To make sure the user gets the appropriate permissions or joins a [group](../organization/concepts/groups.md) immediately after accepting the invitation, you can add them to the {{ org-full-name }} group. To do this:
+
+  1. [Send an invitation](../_includes/organization/add-user.md#useraccount) to {{ org-full-name }}.
+
+  1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../_assets/console-icons/persons.svg) and click the line with the group name.
+
+  1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
+
+  1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
+
+  1. In the **{{ ui-key.yacloud_org.component.subject-select-dialog.title_dialog }}** window, select a user from the **Invitee accounts** list or search by user.
+
+  1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+
 - {{ ya-360 }}
 
-  Users can be added to an organization only in [{{ ya-360 }}]((https://admin.yandex.ru/)). Do that on the organization management page. For more information about adding users to {{ ya-360 }}, see the [documentation](https://yandex.com/support/business/users.html#add-users).
+  Users can be added to an organization only in [{{ ya-360 }}]({{ link-ya-360 }}). Do that on the organization management page. For more information about adding users to {{ ya-360 }}, see the [documentation](https://yandex.com/support/business/users.html#add-users).
 
 {% endlist %}
 

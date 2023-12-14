@@ -63,7 +63,7 @@ expand |  Дополнительные поля, которые будут вк�
             "longId" : "5fa15a24ac894475dd14ff07",
             "text": "Комментарий **номер один.**",
             "textHtml": "<p>Комментарий <strong>номер один.</strong></p>\n",
-            "attachments": [{ "self": "https://api.tracker.yandex.net/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
+            "attachments": [{ "self": "https://{{ host }}/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
             "createdBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
                 "id": "<id сотрудника>",

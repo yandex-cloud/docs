@@ -1,27 +1,28 @@
 ---
-title: "{{ wiki-full-name }} revision history for October 2023"
-description: "See below the {{ wiki-full-name }} revision history for October 2023."
+title: "{{ wiki-full-name }} revision history for November 2023"
+description: "See below the {{ wiki-full-name }} revision history for November 2023."
 ---
 
-# {{ wiki-full-name }} revision history for October 2023
+# {{ wiki-full-name }} revision history for November 2023
 
-* [Change history for a dynamic table](#changelog-grid)
-* [Importing data from a file to a dynamic table](#import-grid)
-* [Split mode in the new editor](#split-mode)
+* [Support for {{ yql-short-name }} in code blocks](#yql-in-block-code)
+* [Highlight.js plugin for code highlighting](#highlight-in-block-code)
+* [Opening a link in edit mode](#link-in-editor)
+* [New toolbar layout](#new-view-toolbar)
 
-## Change history for a dynamic table {#changelog-grid}
+## Support for {{ yql-short-name }} in code blocks {#yql-in-block-code}
 
-You can now view the [change history for a dynamic table](../history.md#grid).
+We added support for {{ yql-short-name }} in [code blocks](../formatter.md) in the code editor and view mode.
 
-## Importing data from a file to a dynamic table {#import-grid}
+## Highlight.js plugin for code highlighting {#highlight-in-block-code}
 
-Added support for CSV and TXT file [import to a dynamic table](../import-page.md#dynamic-table). You can set the file parameters in the import preview window to ensure they are displayed correctly in the dynamic table.
+The [highlight.js](https://github.com/highlightjs/highlight.js) plugin is now used for [code syntax highlighting](../static-markup/highlight.md). This enables code block syntax highlighting for YAML, Protobuf, Swift, PHP, Bash, 1C, Kotlin, Golang, Groovy, and VB_NET.
 
-## Split mode in the new editor {#split-mode}
+## Opening a link in edit mode {#link-in-editor}
 
-Added support for split mode in the new editor for the Markdown markup: you can edit text on the left and see how the page will look like after the markup applies on the right. To start using split mode:
+You can now open a link in edit mode. To open a link, click ![](../../_assets/console-icons/arrow-up-right-from-square.svg) in the edit window.
 
-1. In the top-right corner, click **Edit**.
-1. To the right of the toolbar, click ![](../../_assets/wiki/svg/wysiwyg/show.svg).
-1. Enable **Split mode**.
 
+## New toolbar {#new-view-toolbar}
+
+Updated the toolbar to access all [formatting elements](../wysiwyg/). To use formatting elements, click ![](../../_assets/wiki/svg/actions-icon.svg) on the toolbar and select the one you need from the list of suggested elements.
