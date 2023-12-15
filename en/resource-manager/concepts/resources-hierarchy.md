@@ -87,7 +87,7 @@ Resource access rights are inherited:
 >
 > The `{{ roles-admin }}` role for the `robots` folder allows the user to manage all the resources in the folder, including the `Alice` and `Bob` service accounts.
 
-For certain resources, you cannot assign a role directly. In this case, a role is assigned for a folder, cloud, or organization. For example, you cannot currently assign a role for a VM. If a user makes an attempt to read information about a VM, {{ iam-name }} checks the user's access rights to the folder this VM belongs to. If the folder access rights are missing, {{ iam-name }} checks the cloud and organization access rights.
+For certain resources, you cannot assign a role directly. In this case, a role is assigned for a folder, cloud, or organization. If the folder access rights are missing, {{ iam-name }} checks the cloud and organization access rights.
 
 #### See also {#see-also}
 

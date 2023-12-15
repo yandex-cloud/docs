@@ -1,20 +1,20 @@
 ---
 title: "Access management in {{ certificate-manager-full-name }}"
-description: "Access management in {{ certificate-manager-full-name }}, a service for issuing and updating TLS certificates from Let's Encrypt and for uploading custom certificates. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ certificate-manager-full-name }}, a service for issuing and updating TLS certificates from Let's Encrypt and for uploading custom certificates. This section describes which resources you can assign a role for, what roles exist in the service, and which roles are required for particular actions."
 ---
 
 # Access management in {{ certificate-manager-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#choosing-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources can be assigned a role {#resources}
+## Which resources you can assign a role for {#resources}
 
-You can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or a [certificate](../concepts/index). These roles also apply to nested resources.
+You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [certificate](../concepts/index.md). These roles also apply to nested resources.
 
 ## Which roles exist in the service {#roles-list}
 
@@ -26,6 +26,9 @@ You can assign a role to a [cloud](../../resource-manager/concepts/resources-hie
 
 Active roles in the service:
 
+* {% include [certificate-manager.auditor](../../_includes/iam/roles/short-descriptions/certificate-manager.auditor.md) %}
+* {% include [certificate-manager.viewer](../../_includes/iam/roles/short-descriptions/certificate-manager.viewer.md) %}
+* {% include [certificate-manager.editor](../../_includes/iam/roles/short-descriptions/certificate-manager.editor.md) %}
 * {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
 * {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
 * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}

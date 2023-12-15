@@ -2,13 +2,13 @@
 
   {% list tabs %}
 
-  * Консоль управления
+  - Консоль управления
 
       1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
       1. Выберите поток-приемник из списка и перейдите в раздел ![image](../../_assets/console-icons/bars.svg) **{{ ui-key.yacloud.data-streams.label_data-introspection }}**.
       1. Убедитесь, что в сегменте `shard-000000` появились сообщения, содержащие строки таблицы из источника. Чтобы рассмотреть сообщения подробнее, нажмите на значок ![image](../../_assets/console-icons/eye.svg).
 
-  * AWS
+  - AWS
 
       1. [Установите AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
       1. [Настройте окружение](../../data-streams/quickstart/index.md) для {{ yds-name }}.

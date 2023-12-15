@@ -21,9 +21,9 @@ To link a cloud or transfer an existing one:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 
-  1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
   1. Select an account from the list.
 
@@ -31,7 +31,7 @@ To link a cloud or transfer an existing one:
 
   1. Under **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**, click **{{ ui-key.yacloud.billing.account.dashboard-resources.button_bind-cloud }}**.
 
-  1. Select a cloud from the list.
+  1. Select the cloud from the list.
 
   1. Click **{{ ui-key.yacloud.billing.account.bind-cloud.button_bind }}** and the added cloud will appear on the list.
 

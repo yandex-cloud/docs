@@ -53,6 +53,10 @@ items:
             href: tutorials/federations/integration-keycloak.md
           - name: Authentication using a SAML-compatible identity federation
             href: tutorials/federations/integration-common.md
+          - name: Mapping user groups
+            items:
+              - name: Mapping user groups in Keycloak
+                href: tutorials/federations/group-mapping/keycloak.md
   - name: Concepts
     items:
       - name: Clouds and services

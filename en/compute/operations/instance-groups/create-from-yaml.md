@@ -1,3 +1,8 @@
+---
+title: "How to create an instance group in {{ compute-full-name }} based on a YAML specification"
+description: "Follow this guide to create an instance group based on a YAML specification."
+---
+
 # Create an instance group based on the specification in YAML format
 
 To create an [instance group](../../concepts/instance-groups/index.md) based on the [specification](../../concepts/instance-groups/specification.md) in YAML format:

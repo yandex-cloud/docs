@@ -1,8 +1,10 @@
 # URIPOST
 
-A type of payload used for describing HTTP `POST` requests. Used in Pandora and Phantom load generators.
+Type of test data used for describing HTTP `POST` requests. Used in Pandora and Phantom load generators.
 
-Test data starts with request headers in square brackets. Next, the size of the request body in bytes and the request URI separated by a space are specified on a new line. For example:
+The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).
+
+Test data starts with request headers in square brackets. Next, the request body size in bytes and the request URI separated by a space are specified on a new line. For example:
 
 ```
 [Host: example.com]

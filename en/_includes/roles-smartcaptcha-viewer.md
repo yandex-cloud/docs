@@ -5,3 +5,5 @@ The `smart-captcha.viewer` role includes the following permissions:
 * Viewing CAPTCHA access rights.
 
 You can assign a role to an organization, cloud, or folder.
+
+It includes the permissions of the `smart-captcha.auditor` role.

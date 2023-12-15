@@ -239,7 +239,7 @@
       yc resource-manager folder add-access-binding \
       --id <идентификатор_каталога> \
       --role storage.viewer \
-      --service-account-id <идентификатор_сервисного_аккаунта>  
+      --service-account-id <идентификатор_сервисного_аккаунта>
       ```
 
       Где:

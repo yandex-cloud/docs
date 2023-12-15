@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ alb-full-name }}"
-description: "Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for termination of TLS encryption. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for termination of TLS encryption. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ alb-name }}
@@ -26,7 +26,9 @@ In this section, you will learn:
 
 * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
 * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* {% include [alb.auditor](../../_includes/iam/roles/short-descriptions/alb.auditor.md) %}
 * {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
+* {% include [alb.user](../../_includes/iam/roles/short-descriptions/alb.user.md) %}
 * {% include [alb.editor](../../_includes/iam/roles/short-descriptions/alb.editor.md) %}
 * {% include [alb.admin](../../_includes/iam/roles/short-descriptions/alb.admin.md) %}
 

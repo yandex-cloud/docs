@@ -123,10 +123,12 @@ The environment variable values prevail over those from the configuration file.
    ...
    seal "yandexcloudkms" {
      kms_key_id               = "<KMS_key_ID>"
-     service_account_key_file = "<path_to_JSON_file_with_authorized_key>"
+     service_account_key_file = "<path_to_JSON_file>"
    }
    ...
    ```
+
+   Where `service_account_key_file` is the path to the JSON file with the authorized key.
 
 - Yandex or federated account
 

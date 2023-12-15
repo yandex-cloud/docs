@@ -45,6 +45,8 @@ To create an instance group with a network load balancer:
 
          * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
 
+         * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
+
       * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
          {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
@@ -97,12 +99,12 @@ To create an instance group with a network load balancer:
       yc vpc network list
       ```
 
-      If there are not any, [create one](../../../vpc/operations/network-create.md).
+      If there are none, [create a network](../../../vpc/operations/network-create.md).
    1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
-   1. Create a YAML file with any name (for example, `specification.yaml`).
+   1. Create a YAML file with any name, e.g., `specification.yaml`.
    1. In the created file, indicate the following:
       * General information about the instance group:
 

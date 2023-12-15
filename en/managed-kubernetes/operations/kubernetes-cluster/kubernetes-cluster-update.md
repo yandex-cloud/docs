@@ -147,7 +147,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster label
 
 - CLI
 
-  Add a {{ managed-k8s-name }} cluster label:
+  Run this command:
 
   ```bash
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
@@ -174,7 +174,11 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster label
 
 - CLI
 
-  Edit a {{ managed-k8s-name }} cluster label:
+  Run this command:
+
+  ```bash
+  yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
+  ```
 
   {% note warning %}
 
@@ -207,7 +211,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster label
 
 - CLI
 
-  Delete a {{ managed-k8s-name }} cluster label:
+  Run this command:
 
   ```bash
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label

@@ -7,12 +7,12 @@ description: "This section describes what resources you can assign a role for an
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 You can assign a role to an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned to an organization, cloud, or folder also apply to the CAPTCHAS in them.
 
@@ -25,9 +25,10 @@ The list below shows all roles that are considered when verifying access rights 
 | Role | Permissions |
 ----- | -----
 | `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
-| `smart-captcha.viewer` | Enables you to view CAPTCHA information. |
-| `smart-captcha.editor` | Enables you to manage CAPTCHAS (create, change, or delete them). Includes all access rights of the `smart-captcha.viewer` role. |
-| `smart-captcha.admin` | Enables you to manage CAPTCHAS and access to them. Includes all access rights of the `smart-captcha.editor` role. |
+| `smart-captcha.auditor` | Enables you to view CAPTCHA information and permissions. |
+| `smart-captcha.viewer` | Enables you to view CAPTCHA information and permissions. It includes all access rights of the `smart-captcha.auditor` role. |
+| `smart-captcha.editor` | Enables you to manage CAPTCHAS (create, change, or delete them). It includes all access rights of the `smart-captcha.viewer` role. |
+| `smart-captcha.admin` | Enables you to manage CAPTCHAS and access to them. It includes all access rights of the `smart-captcha.editor` role. |
 
 ### Primitive roles {#primitive-roles}
 

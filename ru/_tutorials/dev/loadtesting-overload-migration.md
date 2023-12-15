@@ -18,7 +18,7 @@
 
 {% note info %}
 
-Минимальная роль в каталоге, необходимая для переноса результатов нагрузочного тестирования из OverLoad, — `loadtesting.loadTester`. Подробнее см. [описание роли](../../load-testing/security/#roles-list).
+Минимальная роль в каталоге, необходимая для переноса результатов нагрузочного тестирования из OverLoad, — `loadtesting.loadTester`. Подробнее см. [описание роли](../../load-testing/security/index.md#roles-list).
 
 {% endnote %}
 

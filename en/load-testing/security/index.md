@@ -26,6 +26,7 @@ In this section, you will learn:
 * `loadtesting.admin`: At the moment, the service does not include an administrative function, so the role has the same permissions as `loadtesting.editor`.
 * `loadtesting.loadTester`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables running and stopping load tests, and loading test data.
 * `loadtesting.generatorClient`: Allows starting VMs, running tests on agents, and uploading the output to the repository (assigned to a service account that is used to create VMs with agents).
+* `loadtesting.externalAgent` allows registering agents created outside {{ load-testing-name }}, create, update, and run tests, as well as transfer their results to {{ load-testing-name }}.
 
 ### Primitive roles {#primitive-roles}
 

@@ -1,10 +1,15 @@
+---
+title: "YAML specification of an instance group in {{ compute-full-name }}"
+description: "This tutorial describes an instance group specification in YAML format."
+---
+
 # Specification of an instance group in YAML format
 
 You can create or edit an instance group based on the specification in the [YAML](https://en.wikipedia.org/wiki/YAML) format. The specification describes:
 
 * Basic attributes and settings of the group: name, description, [labels](../../../resource-manager/concepts/labels.md), [service account](../../../iam/concepts/users/service-accounts.md), and deletion protection.
 * [VM instance template](instance-template.md) and [variables](variables-in-the-template.md) used in it.
-* Policies for [allocation](policies/allocation-policy.md), [deployment](policies/deploy-policy.md), and [scaling](policies/scale-policy.md).
+* Policies for VM instance [allocation](policies/allocation-policy.md), [deployment](policies/deploy-policy.md), [scaling](policies/scale-policy.md), and [recovery](policies/healing-policy.md).
 * Settings for balancing the traffic between VM instances using [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) or [{{ alb-full-name }}](../../../application-load-balancer/).
 
 {% note info %}
@@ -40,6 +45,8 @@ instance_template:
     primary_v4_address_spec:
       one_to_one_nat_spec:
         ip_version: IPV4
+  network_settings:
+    type: STANDARD
   scheduling_policy: {}
   placement_policy:
     placement_group_id: rmppvhrgm77g********
@@ -64,6 +71,9 @@ deploy_policy:
   max_unavailable: 1
   startup_duration: 0s
   strategy: OPPORTUNISTIC
+  minimal_action: RESTART
+auto_healing_policy:
+  auto_healing_action: RESTART
 allocation_policy:
   zones:
   - zone_id: {{ region-id }}-b
@@ -88,6 +98,7 @@ Some first-level fields and their nested fields are also described in the follow
 * [{#T}](policies/allocation-policy.md) (the `allocation_policy` field).
 * [{#T}](policies/deploy-policy.md) (the `deploy_policy` field).
 * [{#T}](policies/scale-policy.md) (the `scale_policy` field).
+* [{#T}](policies/healing-policy.md) (the `auto_healing_policy` field).
 * [{#T}](autohealing.md) (the `health_checks_spec` field).
 * [{#T}](balancers.md) (the `load_balancer_spec` and `application_load_balancer_spec` fields).
 

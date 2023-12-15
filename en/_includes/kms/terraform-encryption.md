@@ -4,7 +4,7 @@ To encrypt data:
 
    ```hcl
    resource "yandex_kms_secret_ciphertext" "password" {
-     key_id      = "<key ID>"
+     key_id      = "<key_ID>"
      aad_context = "additional authenticated data"
      plaintext   = "strong password"
    }

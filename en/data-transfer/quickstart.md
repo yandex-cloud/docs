@@ -17,7 +17,7 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
 
       {% include [cli-install](../_includes/cli-install.md) %}
 
-      1. See a description of the create folder command:
+      1. View the description of the create folder command:
 
          ```bash
          yc resource-manager folder create --help
@@ -96,7 +96,7 @@ Prepare the target for receiving the data:
 ## Creating an endpoint for the source {#source}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. In the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 1. Click **Create endpoint**.
 1. Make sure that the **Direction** field is set to `Source`.
 1. Enter a name for the endpoint.
@@ -109,7 +109,7 @@ For more information, see [{#T}](operations/endpoint/index.md).
 ## Creating an endpoint for the target {#target}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. In the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+1. In the left-hand panel, select ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 1. Click **Create endpoint**.
 1. Make sure that the **Direction** field is set to `Target`.
 1. Enter a name for the endpoint.
@@ -122,7 +122,7 @@ For more information, see [{#T}](./operations/endpoint/index.md).
 ## Create a transfer {#create-transfer}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. On the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **Transfers**.
+1. On the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Transfers**.
 1. Click **Create transfer**.
 1. Select the endpoint for the source and the endpoint for the target.
 1. Enter a name for the transfer.
@@ -139,8 +139,8 @@ For more information, see [Types of transfers](./concepts/transfer-lifecycle.md#
 ## Activate the transfer {#activate}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. On the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **Transfers**.
-1. Click ![ellipsis](../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Activate**.
+1. On the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Transfers**.
+1. Click ![ellipsis](../_assets/console-icons/ellipsis.svg) next to the name of the desired transfer and select **Activate**.
 
 The data transfer process will begin.
 

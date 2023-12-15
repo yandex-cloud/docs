@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ vpc-full-name }}"
+description: "This page presents questions and answers about {{ vpc-name }}."
+---
+
 # Questions and answers about {{ vpc-name }}
 
 #### What is {{ vpc-short-name }}? {#what-is-vpc}

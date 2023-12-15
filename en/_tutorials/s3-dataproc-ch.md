@@ -17,27 +17,27 @@ Prepare the infrastructure:
    1. [Create a service account](../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent` role.
    1. {% include [basic-before-buckets](../_includes/data-proc/tutorials/basic-before-buckets.md) %}
    1. [Create a cloud network](../vpc/operations/network-create.md) named `dataproc-network`.
-   1. [Create a subnet](../vpc/operations/subnet-create.md) in any availability zone in the `dataproc-network`.
+   1. [Create a subnet](../vpc/operations/subnet-create.md) in any availability zone in `dataproc-network`.
    1. [Set up a NAT gateway](../vpc/operations/create-nat-gateway.md) for the subnet you created.
    1. In `dataproc-network`, [create a security group](../vpc/operations/security-group-create.md) named `dataproc-sg` and add the following rules to it:
 
       * One rule for inbound and another one for outbound service traffic:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` `Any`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** / **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` `Self`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** / **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`)
 
       * Rule for outgoing HTTPS traffic:
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** : `{{ port-https }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
       * Rule for outgoing TCP traffic on port {{ port-mch-http }} to access {{ CH }}:
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** : `{{ port-mch-http }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mch-http }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
@@ -48,10 +48,10 @@ Prepare the infrastructure:
          * `SPARK`
          * `YARN`
          * `HDFS`
-      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** is enabled.
 
    1. [Create a {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../managed-clickhouse/concepts/instance-types.md) with the following settings:
@@ -62,8 +62,11 @@ Prepare the infrastructure:
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [s3-dataproc-ch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/s3-dataproc-ch.tf) configuration file to the same working directory.
 
       This file describes:
@@ -86,7 +89,6 @@ Prepare the infrastructure:
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../data-proc/operations/connect.md#data-proc-ssh).
       * `ch_password`: {{ CH }} user password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -250,7 +252,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 * Using {{ TF }}
 
    1. [Delete the objects](../storage/operations/objects/delete.md) from the buckets.
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `s3-dataproc-ch.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

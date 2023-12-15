@@ -1,3 +1,8 @@
+---
+title: "How to create a VM from a public image in {{ compute-full-name }}"
+description: "Follow this guide to create a VM from a public image." 
+---
+
 # Creating a VM from a public image
 
 To create a [VM](../../concepts/vm.md):
@@ -215,7 +220,7 @@ To create a [VM](../../concepts/vm.md):
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 

@@ -58,7 +58,7 @@ You must deploy any loads requiring this functionality on {{ managed-k8s-name }}
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: yandex.cloud/node-group-id # Node labels for nodes located in {{ yandex-cloud }}.
+          - key: yandex.cloud/node-group-id # {{ k8s }}-node labels for nodes located in {{ yandex-cloud }}.
             operator: Exists
 ...
 ```

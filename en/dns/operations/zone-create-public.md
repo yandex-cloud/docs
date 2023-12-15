@@ -1,3 +1,8 @@
+---
+title: "How to create a public zone in {{ dns-full-name }}"
+description: "Follow this guide to create a public DNS zone."
+---
+
 # Creating a public DNS zone
 
 To create a public [DNS zone](../concepts/dns-zone.md):
@@ -59,7 +64,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
          * `labels`: Set of DNS zone labels. This is an optional parameter.
-         * `public`: Zone visibility (public or internal). This is an optional parameter.
+         * `public`: Zone visibility (public or private). This is an optional parameter.
 
       1. DNS record parameters:
 
@@ -107,7 +112,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
       {% note alert %}
 
-      You will be charged for all the resources created with {{ TF }}. Check the plan carefully.
+      You will be charged for all the resources created with {{ TF }}. Check the pricing plan carefully.
 
       {% endnote %}
 

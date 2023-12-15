@@ -1,8 +1,13 @@
-# Interrupting and starting a disk snapshot schedule
+---
+title: "How to disable and enable a disk snapshot schedule in {{ compute-full-name }}"
+description: "Follow this guide to disable and enable a disk snapshot schedule in {{ compute-name }}."
+---
 
-## Interrupting a schedule {#stop-schedule}
+# Disabling and enabling a disk snapshot schedule
 
-To interrupt automatic [scheduled](../../concepts/snapshot.md) creation of [disk snapshots](../../concepts/snapshot-schedule.md):
+## Disabling a schedule {#stop-schedule}
+
+To disable an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](../../concepts/snapshot-schedule.md):
 
 {% list tabs %}
 
@@ -11,9 +16,9 @@ To interrupt automatic [scheduled](../../concepts/snapshot.md) creation of [disk
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-   1. Click the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-   1. Next to the schedule you wish to interrupt, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.stop }}**.
-   1. Confirm the schedule stop.
+   1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+   1. Next to the schedule you want to disable, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+   1. Confirm disabling the schedule.
 
 - CLI
 
@@ -69,7 +74,7 @@ To interrupt automatic [scheduled](../../concepts/snapshot.md) creation of [disk
         snapshot_spec: {}
       ```
 
-   1. Stop the selected schedule:
+   1. Disable the selected schedule:
 
       ```bash
       yc compute snapshot-schedule disable <name_or_ID_of_the_schedule>
@@ -96,13 +101,13 @@ To interrupt automatic [scheduled](../../concepts/snapshot.md) creation of [disk
 
 {% endlist %}
 
-The schedule [status](../../concepts/snapshot-schedule.md#statuses) changes to `INACTIVE`– disk snapshots won't be created or deleted.
+The schedule [status](../../concepts/snapshot-schedule.md#statuses) will change to `INACTIVE`: disk snapshots will not be created or deleted.
 
-All snapshot creation and deletion operations that started prior to interrupting the schedule will be completed.
+All snapshot creation and deletion operations that started prior to disabling the schedule will be completed.
 
-## Starting a schedule {#start-schedule}
+## Enabling a schedule {#start-schedule}
 
-To start automatic scheduled creation of disk snapshots:
+To enable an automatic disk snapshot schedule:
 
 {% list tabs %}
 
@@ -112,7 +117,7 @@ To start automatic scheduled creation of disk snapshots:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
    1. Click the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-   1. Next to the schedule you wish to start, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.start }}**.
+   1. Next to the schedule you want to enable, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.start }}**.
 
 - CLI
 
@@ -168,7 +173,7 @@ To start automatic scheduled creation of disk snapshots:
         snapshot_spec: {}
       ```
 
-   1. Start the selected schedule:
+   1. Enable the selected schedule:
 
       ```bash
       yc compute snapshot-schedule enable <name_or_ID_of_the_schedule>

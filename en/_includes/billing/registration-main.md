@@ -1,5 +1,5 @@
 Log in using Yandex ID and go to the management console. Confirm the creation of your first cloud and go on to create your [billing account](../../billing/concepts/billing-account.md):
-1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
 1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, click **{{ ui-key.yacloud.billing.accounts.button_create }}**. Fill in your information:
    * Select the payer country.
    * Specify the name of the billing account to be displayed in the list of billing accounts.

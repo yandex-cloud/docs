@@ -23,8 +23,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Using {{ TF }}
 
-     1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
-     1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+     1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+
      1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
@@ -60,7 +63,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a Kyverno policy {#kyverno-policies}
 
 1. Install the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) application by following this [guide](../../operations/applications/kyverno.md).
-1. Create a policy that will require that all [pods](../../concepts/index.md#pod) have the `app.kubernetes.io/name` [label](../../../resource-manager/concepts/labels.md).
+1. Create a policy that will require that all [pods](../../concepts/index.md#pod) have the `app.kubernetes.io/name` [{{ k8s }} label](../../../resource-manager/concepts/labels.md).
    1. Save the specification for `ClusterPolicy` creation in a YAML file named `policy.yaml`:
 
       ```yaml
@@ -101,7 +104,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Test Kyverno & Kyverno Policies {#check-apps}
 
-* Create a pod with no `app.kubernetes.io/name` label:
+* Create a pod with no `app.kubernetes.io/name` {{ k8s }} label:
 
    ```bash
    kubectl run nginx --image nginx
@@ -119,7 +122,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
        Rule check-for-labels failed at path /metadata/labels/app.kubernetes.io/name/'
    ```
 
-* Create a pod with the `app.kubernetes.io/name` label:
+* Create a pod with the `app.kubernetes.io/name` {{ k8s }} label:
 
    ```bash
    kubectl run nginx --image nginx --labels app.kubernetes.io/name=nginx

@@ -1,6 +1,11 @@
+---
+title: "How to create a disk snapshot schedule in {{ compute-full-name }}"
+description: "Follow this guide to schedule a disk snapshot's creation in {{ compute-name }}."
+---
+
 # Creating a disk snapshot schedule
 
-## Configuring automatic scheduled creation of disk snapshots {#set-schedule}
+## Configuring an automatic disk snapshot schedule {#set-schedule}
 
 To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation of [disk snapshots](../../concepts/snapshot.md):
 

@@ -12,3 +12,5 @@ The `compute.viewer` role is able to retrieve information on the following resou
 * [Availability zones](../overview/concepts/geo-scope.md).
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
+
+It includes the permissions of the `compute.auditor` role.

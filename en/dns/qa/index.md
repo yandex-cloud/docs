@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{ dns-full-name }}"
+description: "This pages provides answers to questions about {{ dns-name }}."
+---
+
 # General questions about {{ dns-name }}
 
 #### Why am I being charged for {{ dns-name }} if there are no DNS zones in my cloud? {#dns-fee-without-usage}

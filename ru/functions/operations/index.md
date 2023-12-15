@@ -53,6 +53,7 @@ description: "Из статьи вы узнаете как работать с {
 * [Посмотреть графики мониторинга](function/function-monitoring.md)
 * [Посмотреть логи](function/function-logs.md)
 * [Записать логи в журнал выполнения](function/logs-write.md)
+* [{#T}](function/migration.md)
 * [{#T}](function/function-delete.md)
 
 

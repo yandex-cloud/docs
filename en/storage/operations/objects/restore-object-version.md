@@ -17,7 +17,7 @@ You can only restore object versions if a bucket supports [versioning](../../con
    1. In the [management console]({{ link-console-main }}), select the folder where the object is located.
    1. Select **{{ objstorage-name }}**.
    1. In the list of buckets, click the row with the appropriate bucket.
-   1. In the list of objects, click ![options](../../../_assets/options.svg) in the row with the appropriate object and select **{{ ui-key.yacloud.storage.file.button_version-history }}**.
+   1. In the list of objects, click ![options](../../../_assets/console-icons/ellipsis.svg) in the row with the appropriate object and select **{{ ui-key.yacloud.storage.file.button_version-history }}**.
    1. In the list of versions, click **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the appropriate version. This restores the selected version and displays it as the current one.
 
 - AWS CLI

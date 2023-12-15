@@ -29,6 +29,8 @@ items:
             href: operations/subnet-update.md
           - name: Перенести подсеть между каталогами
             href: operations/subnet-move.md
+          - name: Перенести подсеть в другую зону доступности
+            href: operations/subnet-relocate.md
           - name: Посмотреть список используемых адресов
             href: operations/subnet-used-addresses.md
       - name: IP-адрес

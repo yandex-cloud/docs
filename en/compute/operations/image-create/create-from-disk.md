@@ -1,3 +1,7 @@
+---
+title: "How to create an image from a disk in {{ compute-full-name }}"
+description: "Follow this guide to create an image from a disk."
+---
 
 # Creating an image from a disk
 
@@ -88,7 +92,7 @@ To create an image from a disk:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

@@ -1,3 +1,8 @@
+---
+title: "Trunks in {{ interconnect-full-name }}"
+description: "In this article, you will learn what a trunk is used for and which parameters it has."
+---
+
 # Trunk
 
 Trunks are mainly used for:
@@ -124,7 +129,7 @@ In this setup option, a 802.1Q trunk is set up over a direct physical connection
 
 
 
-This method is used when the client does not have their own equipment at the point of presence. In this case:
+This method is used when the client does not have their own equipment at the point of presence. In which case:
 
 * The 802.1Q trunk is set up at the point of presence through a telecom provider that provides L2 transit.
 * The 802.1Q trunk is set up between the client equipment and the {{ yandex-cloud }} equipment.
@@ -138,7 +143,7 @@ This method is used when the client does not have their own equipment at the poi
 
 
 
-This method is used when the client does not have their own equipment at the point of presence. In this case:
+This method is used when the client does not have their own equipment at the point of presence. In which case:
 
 * The 802.1Q trunk is set up at the point of presence through a telecom provider.
 * The 802.1Q trunk is set up between the telecom provider's equipment at the point of presence and the {{ yandex-cloud }} equipment.

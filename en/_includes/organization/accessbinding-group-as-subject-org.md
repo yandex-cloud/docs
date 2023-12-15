@@ -1,5 +1,21 @@
 {% list tabs %}
 
+- {{ org-name }}
+
+   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
+
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+
+   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
+
+   1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+
+   1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the required group or search by group name.
+
+   1. Click **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select a role in the organization. You can assign multiple roles.
+
+   1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI
 
 {% include [cli-install](../cli-install.md) %}

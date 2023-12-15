@@ -1,3 +1,8 @@
+---
+title: "How to create a resource record in {{ dns-full-name }}"
+description: "Follow this guide to create a resource record."
+---
+
 # Creating a resource record
 
 To create a [resource record](../concepts/resource-record.md) in a DNS zone:
@@ -102,7 +107,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
       {% note alert %}
 
-      You will be charged for all the resources created with {{ TF }}. Check the plan carefully.
+      You will be charged for all the resources created with {{ TF }}. Check the pricing plan carefully.
 
       {% endnote %}
 

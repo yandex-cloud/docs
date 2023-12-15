@@ -1,3 +1,8 @@
+---
+title: "How to import an image from another cloud or folder in {{ compute-full-name }}"
+description: "Follow this guide to import an image from another cloud or folder."
+---
+
 # Importing an image from another cloud or folder
 
 1. Make sure you have the following roles for the cloud or folder hosting the required image:

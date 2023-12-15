@@ -7,7 +7,7 @@ description: "Follow this guide to add a domain."
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 
-To add a [domain](../../concepts/index.md):
+To add a [domain](../../concepts/domains/index.md) to be used in {{ yandex-cloud }} services:
 
 {% list tabs %}
 
@@ -19,7 +19,7 @@ To add a [domain](../../concepts/index.md):
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. In the window that opens, enter the domain name in the **{{ ui-key.yacloud.certificate-manager.domain.form.field_domain }}** field.
    1. (Optional) In the **{{ ui-key.yacloud.common.description }}** field, enter a description for the domain.
-   1. In the **{{ ui-key.yacloud.certificate-manager.domain.form.field_certificate }}** field, select a certificate from the list of verified [Let's Encrypt® certificates](../../concepts/managed-certificate.md) with the appropriate domain name.
+   1. (Optional) In the **{{ ui-key.yacloud.certificate-manager.domain.form.field_certificate }}** field, select a certificate from the list of verified [Let's Encrypt® certificates](../../concepts/managed-certificate.md) with the appropriate domain name. You can [add](../managed/cert-create.md) a certificate for the domain you created later.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
    A new domain will appear in the list of domains.

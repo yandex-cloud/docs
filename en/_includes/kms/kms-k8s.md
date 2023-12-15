@@ -7,7 +7,7 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
 - Management console
 
    Specify a key when creating a {{ k8s }} cluster:
-   1. In the [management console]({{ link-console-main }}), select the folder to create your cluster in {{ k8s }}.
+   1. In the [management console]({{ link-console-main }}), select the folder to create your {{ k8s }} cluster in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
    1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** field, enter the required key or [create a new one](../../kms/operations/key.md#create).
@@ -27,7 +27,7 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
       ```bash
       {{ yc-k8s }} cluster create \
          ...
-         --kms-key-id <encryption key ID> \
+         --kms-key-id <key_ID> \
          ...
       ```
 
@@ -36,7 +36,7 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
       ```bash
       {{ yc-k8s }} cluster create \
          ...
-         --kms-key-name <encryption key name> \
+         --kms-key-name <key_name> \
          ...
       ```
 
@@ -51,15 +51,15 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   Specify a key when [creating a cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ k8s }}:
+   Specify a key when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ k8s }} cluster:
 
    1. Add a `kms_provider` block to the cluster description:
 
       ```hcl
-      resource "yandex_kubernetes_cluster" "<cluster name>" {
+      resource "yandex_kubernetes_cluster" "<cluster_name>" {
         ...
         kms_provider {
-          key_id = "<encryption key ID>"
+          key_id = "<key_id>"
         }
       }
       ```

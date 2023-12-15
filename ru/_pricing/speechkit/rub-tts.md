@@ -1,4 +1,4 @@
 | Услуга | Цена за единицу тарификации,<br/>вкл. НДС |
 | ----- | ----- |
-| Синтез с использованием [API v1](../../{{ speechkit-slug }}/tts/request.md), за 1 млн символов | {{ sku|RUB|ai.speech.tts_gpu|string }} |
-| Синтез с использованием [API v3](../../{{ speechkit-slug }}/tts-v3/api-ref/grpc/index.md), за запрос | {{ sku|RUB|ai.speech.tts.dialogue_platform|string }}  |
+| Синтез с использованием [API v1](../../{{ speechkit-slug }}/tts/request.md), за 1 млн символов | {{ sku|RUB|speechkit.tts_gpu.v1|string }} |
+| Синтез с использованием [API v3](../../{{ speechkit-slug }}/tts-v3/api-ref/grpc/index.md), за запрос | {{ sku|RUB|speechkit.tts.dialogue_platform.v1|string }}  |

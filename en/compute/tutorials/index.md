@@ -1,3 +1,8 @@
+---
+title: "{{ compute-full-name }} use cases"
+description: "Various {{ compute-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ compute-name }} tutorials
 
 * [{#T}](ntp.md)

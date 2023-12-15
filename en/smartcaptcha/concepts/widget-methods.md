@@ -1,6 +1,6 @@
 ---
 title: "{{ captcha-full-name }} widget installation methods"
-description: "You can use the automatic or advanced method to connect the {{ captcha-name }} widget. Depending on the connection method, different widget parameter transmission methods are used."
+description: "You can use the automatic or advanced method to install the {{ captcha-name }} widget. Depending on the connection method, the method of transmitting parameters for the widget differs."
 ---
 
 # Widget installation methods {{ captcha-full-name }}
@@ -35,8 +35,8 @@ Example of a container with parameters for rendering a widget:
 ```html
 <div
   class="smart-captcha"
-  data-sitekey="<Client_part_key>"
-  data-hl="<Language>"
+  data-sitekey="<client_part_key>"
+  data-hl="<language>"
 ></div>
 ```
 
@@ -74,7 +74,7 @@ Where:
       <div
         id="captcha-container"
         class="smart-captcha"
-        data-sitekey="<Client_key>"
+        data-sitekey="<client_part_key>"
         data-hl="en"
         data-callback="callback"
       ></div>
@@ -109,8 +109,8 @@ After loading the JS script, an access to the `window.smartCaptcha` object is sh
       const container = document.getElementById('<container_ID>');
 
       const widgetId = window.smartCaptcha.render(container, {
-        sitekey: '<Client_part_key>',
-        hl: '<Language>',
+        sitekey: '<client_part_key>',
+        hl: '<language>',
       });
     }
   }
@@ -302,7 +302,7 @@ Usage example:
     }
 
     window.smartCaptcha.render('captcha-container', {
-      sitekey: '<Client_key>',
+      sitekey: '<client_part_key>',
       callback: callback,
     });
   }

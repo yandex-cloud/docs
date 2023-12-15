@@ -15,7 +15,7 @@ To support your own domain:
    - {{ dns-full-name }}
 
       1. In the [management console]({{ link-console-main }}), go to the bucket you want to use your own domain for.
-      1. Go to ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
       1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
 
          {% note info %}

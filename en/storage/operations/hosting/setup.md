@@ -19,7 +19,7 @@ description: "Follow this guide to set up hosting."
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure hosting for.
    1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-   1. Go to ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
    1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
       * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website homepage.
       * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to be displayed in the event of 4xx errors. By default, {{ objstorage-name }} returns its own page.
@@ -169,7 +169,7 @@ description: "Follow this guide to set up hosting."
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure redirection for.
    1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-   1. Go to ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
    1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
       * Domain name of the host to act as the redirect target for all requests to the bucket.
       * (Optional) Protocol if the specified host accepts requests only over a specific protocol.
@@ -312,7 +312,7 @@ description: "Follow this guide to set up hosting."
 
    1. In the [management console]({{ link-console-main }}), go to the bucket you wish to configure conditional request redirects for.
    1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
-   1. Go to ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+   1. Go to ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
    1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**, click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
    1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}**, specify at least one condition for redirects:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} should have responded with to a request without a redirect.

@@ -11,13 +11,13 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
    1. Select the account you want to get details for.
-   1. In the left-hand panel, select ![image](../../_assets/billing/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}** and click **{{ ui-key.yacloud.billing.account.detail.button_move-to-datalens }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}** and click **{{ ui-key.yacloud.billing.account.detail.button_move-to-datalens }}**.
    1. Click **Create connection**.
    1. In the window that opens, specify the connection name and click **Create**.
    1. Select **{{ yandex-cloud }} Billing Dashboard** in the list.
    1. Go to the **Resources** tab.
    1. In the **Usage date** field, select the period in question. Dates are set as a range from 0:00 to 23:59 (UTC+3).
-   1. Click ![options-grey](../../_assets/options-grey.svg) next to the **Resource total cost** chart and select **Edit**.
+   1. Click ![options-grey](../../_assets/console-icons/ellipsis.svg) next to the **Resource total cost** chart and select **Edit**.
    1. In the editor that opens:
       1. Under **Columns**, delete the **Cost** and **Credit** columns.
       1. Under **Filters**, select the **Resouce ID** filter and configure it:

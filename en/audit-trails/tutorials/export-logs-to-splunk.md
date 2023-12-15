@@ -136,9 +136,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: ID of the folder from which audit logs will be collected.
-      * `service-account-id`: ID of your service account.
+      * `--role`: Role being assigned.
+      * `--id`: ID of the folder from which audit logs will be collected.
+      * `--service-account-id`: Service account ID.
 
    1. Assign the [storage.uploader](../../storage/security/#storage-uploader) role to the folder to host the trail:
 
@@ -151,9 +151,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: ID of the folder to host the trail.
-      * `service-account-id`: ID of your service account.
+      * `--role`: Role being assigned.
+      * `--id`: ID of the folder to host the trail.
+      * `--service-account-id`: Service account ID.
 
    1. Assign the [kms.keys.encrypterDecrypter](../../kms/security/#service) role to the encryption key:
 
@@ -166,9 +166,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: KMS key ID.
-      * `service-account-id`: Service account ID.
+      * `--role`: Role being assigned.
+      * `--id`: ID of the KMS key
+      * `--service-account-id`: Service account ID.
 
 {% endlist %}
 
@@ -267,7 +267,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
 - {{ TF }}
 
    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk) from the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library)
+   1. Clone a [repository](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk) from [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library):
 
       ```
       git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk.git
@@ -292,7 +292,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following this
 
       * `folder_id`: Folder ID.
       * `splunk_token`: Event Collector token retrieved from Splunk.
-      * `splunk_server`: Address of your Splunk server as https://<host_name_or_address>.
+      * `splunk_server`: Address of your Splunk server as `https://<host_name_or_address>`.
       * `bucket_name`: Bucket name.
       * `bucket_folder`: Name of the root folder in the bucket.
       * `sa_id`: Service account ID.

@@ -1,0 +1,1 @@
+[Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). You can add them to environment variables or specify them later in the provider configuration file.

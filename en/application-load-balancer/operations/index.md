@@ -8,12 +8,14 @@ description: "Step-by-step guide for using {{ alb-full-name }} in {{ yandex-clou
 ## Target groups {#target-group-operations}
 
 * [{#T}](target-group-create.md)
+* [{#T}](target-group-get.md)
 * [{#T}](target-group-update.md)
 * [{#T}](target-group-delete.md)
 
 ## Backend groups {#backend-group-operations}
 
 * [{#T}](backend-group-create.md)
+* [{#T}](backend-group-get.md)
 * [{#T}](backend-group-update.md)
 * [{#T}](backend-group-delete.md)
 
@@ -21,6 +23,7 @@ description: "Step-by-step guide for using {{ alb-full-name }} in {{ yandex-clou
 
 * [{#T}](http-router-create.md)
 * [{#T}](http-router-create-grpc.md)
+* [{#T}](http-router-get.md)
 * [{#T}](http-router-update.md)
 * [{#T}](http-router-delete.md)
 
@@ -28,6 +31,7 @@ description: "Step-by-step guide for using {{ alb-full-name }} in {{ yandex-clou
 
 * [{#T}](application-load-balancer-create.md)
 * [{#T}](application-load-balancer-update.md)
+* [{#T}](application-load-balancer-get.md)
 * [{#T}](application-load-balancer-get-stats.md)
 * [{#T}](application-load-balancer-get-logs.md)
 * [{#T}](application-load-balancer-manage-logs.md)

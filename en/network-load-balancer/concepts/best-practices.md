@@ -1,3 +1,8 @@
+---
+title: "Recommendations for using {{ network-load-balancer-full-name }}"
+description: "This page provides recommendations for using {{ network-load-balancer-name }}."
+---
+
 # Recommendations for use
 
 ### Use different availability zones {#place-resources-in-different-zones}

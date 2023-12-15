@@ -10,8 +10,9 @@ Types of actions:
 
 Filters for grouping objects:
 
-* Object key prefix.
+* Object key prefix. You cannot use it together with filtering by tag.
 * Minimum or maximum object size, using the management console, the [S3 API](../s3/index.md), or [tools](../tools/index.md) that support it.
+* Object [tag](./tags.md#object-tags): Using the [S3 API](../s3/index.md) or [tools](../tools/index.md) supporting it. You cannot use it together with filtering by key prefix.
 
 If you are using the S3 API, specify a lifecycle configuration in the [XML format](../s3/api-ref/lifecycles/xml-config.md). For various tools with S3 API support, other configuration formats may be required. The AWS CLI, for example, uses the JSON format.
 

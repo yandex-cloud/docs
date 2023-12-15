@@ -1,3 +1,8 @@
+---
+title: "How to delete a public zone in {{ dns-full-name }}"
+description: "Follow this guide to delete a public DNS zone."
+---
+
 # Deleting a DNS zone
 
 To delete a [DNS zone](../concepts/dns-zone.md):

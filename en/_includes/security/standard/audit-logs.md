@@ -18,7 +18,7 @@ For more information about {{ k8s }} events, see [Collecting, monitoring, and an
 
 #### 5.1 {{ at-full-name }} is enabled at the organization level {#audit-trails}
 
-The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../../audit-trails/concepts/index.md). The service lets you collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. See the [instructions](../../../audit-trails/quickstart.md) on how to start collecting logs, as well as the [format](../../../audit-trails/concepts/format.md) and [reference](../../../audit-trails/concepts/events.md) of events.
+The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For more information, refer to [this guide](../../../audit-trails/quickstart.md) on how to start collecting logs. You can also learn more about the [event format](../../../audit-trails/concepts/format.md) or check out the [event reference](../../../audit-trails/concepts/events.md).
 
  To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../../monitoring/).  It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
 

@@ -1,3 +1,8 @@
+---
+title: "How to delete a resource record in {{ dns-full-name }}"
+description: "Follow this guide to delete a resource record."
+---
+
 # Deleting a resource record
 
 To delete a [resource record](../concepts/resource-record.md):

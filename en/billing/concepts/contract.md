@@ -39,4 +39,4 @@ You can learn more about the terms of the agreement in [Yandex Legal documents](
 
 ## Agreement number {#id}
 
-You can find the agreement number in the management console on the ![image](../../_assets/billing/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
+You can find the agreement number in the management console on the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}** page.

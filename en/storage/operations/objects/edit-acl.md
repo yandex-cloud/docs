@@ -14,9 +14,9 @@ To control access to an object in an {{ objstorage-name }} bucket, you can use a
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the bucket name.
-   1. To edit an ACL, click ![image](../../../_assets/horizontal-ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
+   1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-      You can also click the object name, click ![image](../../../_assets/horizontal-ellipsis.svg) on the resulting page, and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
+      You can also click the object name, click ![image](../../../_assets/console-icons/ellipsis.svg) on the resulting page, and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
 
    1. In the **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
 

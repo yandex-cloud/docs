@@ -77,7 +77,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
    * To be able to edit [unsafe kernel parameters](../../managed-kubernetes/concepts/index.md#node-group) on the {{ managed-k8s-name }} group nodes, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-sysctl }}**. To enter the name of each kernel parameter, create a separate field.
    * To set up [taint policies for {{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#taints-tolerations), click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-taint }}**. Enter the key, value, and effect of each taint policy in a separate set of fields.
-   * To set up [{{ managed-k8s-name }} node labels](../../managed-kubernetes/concepts/index.md#node-labels) for the node group, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Enter the key and value of each label in a separate set of fields.
+   * To set up [{{ k8s }} labels](../../managed-kubernetes/concepts/index.md#node-labels) for group nodes, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Enter the key and value of each {{ k8s }} label in a separate set of fields.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
 Creating a group of {{ managed-k8s-name }} nodes may take a few minutes depending on the number of nodes.

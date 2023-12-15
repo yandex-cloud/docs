@@ -1,4 +1,4 @@
-# Migrating databases from a third-party {{ PG }} cluster to {{ mpg-name }}
+# Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}
 
 There are three ways to migrate data from a third-party _source cluster_ to a {{ mpg-name }} _target cluster_:
 
@@ -63,8 +63,11 @@ Create the required resources:
 
 * Using Terraform
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-migration-pgsql-mpg.tf) configuration file to the same working directory.
 
       This file describes:
@@ -82,7 +85,7 @@ Create the required resources:
 
          * `target_mysql_version`: {{ PG }} version, must be the same as or higher than the version in the source cluster.
          * `target_user` and `target_password`: Database owner username and password.
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -262,7 +265,7 @@ To complete synchronization of the source cluster and the target cluster:
    DROP SUBSCRIPTION s_data_migration;
    ```
 
-1. Switch over the load to the target cluster.
+1. Transfer the load to the target cluster.
 
 ### Delete the resources you created {#clear-out-logical}
 
@@ -277,7 +280,7 @@ Delete the resources you no longer need to avoid paying for them:
 * Using {{ TF }}
 
    1. In the terminal window, switch to the directory containing the infrastructure plan.
-   1. Delete the configuration file `data-migration-pgsql-mpg.tf`.
+   1. Delete the `data-migration-pgsql-mpg.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -346,8 +349,11 @@ Create the required resources:
 
 * Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-restore-pgsql-mpg.tf) configuration file to the same working directory.
 
       This file describes:
@@ -375,7 +381,6 @@ Create the required resources:
          * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
          * `vm_username` and `vm_public_key`: Username and absolute path to a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -504,14 +509,14 @@ Delete the resources you no longer need to avoid paying for them:
 
 * Manually
 
-   * [Delete a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+   * [Delete the {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
    * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 * Using {{ TF }}
 
    1. In the terminal window, switch to the directory containing the infrastructure plan.
-   1. Delete the configuration file `data-restore-pgsql-mpg.tf`.
+   1. Delete the `data-restore-pgsql-mpg.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

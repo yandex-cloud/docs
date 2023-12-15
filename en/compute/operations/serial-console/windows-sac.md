@@ -1,3 +1,8 @@
+---
+title: "How to start your terminal in the Windows serial console (SAC) in {{ compute-full-name }}"
+description: "Follow this guide to start your terminal in the Windows serial console (SAC)."
+---
+
 # Starting your terminal in the Windows serial console (SAC)
 
 To connect to the serial console and start the terminal:

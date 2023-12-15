@@ -6,20 +6,20 @@ The sequence of user actions depends on the type of update.
 
 ## Renaming a billing account {#change-name}
 
-You can rename your billing account both on the management console homepage and in the {{ billing-name }} service:
+You can rename your billing account both on the management console home page and in the {{ billing-name }} service:
 1. Open the [management console]({{ link-console-main }}){{ yandex-cloud }}.
-1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
-1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}** at the top next to the account name.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}** at the top next to the account name.
 1. Enter a new name.
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
 
 ## Changing payer contact information {#change-address}
 
 You can change the payer's contact information (for example, mailing address or phone number) in [Yandex Balance](https://balance.yandex.ru/):
-1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
+1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-info.company_label_edit_ru }}**. <br/>This redirects you to [Yandex Balance](https://balance.yandex.ru/).

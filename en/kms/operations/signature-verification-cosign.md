@@ -98,8 +98,8 @@ cosign verify-blob \
 ```
 
 Where:
-* `<key_pair_ID>`: Signature key pair ID obtained earlier.
-* `<digital_signature_value>`: Digital signature value obtained in the previous step.
+* `--key`: Signature key pair ID obtained earlier.
+* `--signature`: Digital signature value obtained in the previous step.
 * `<path_to_file>`: Path to the local file whose signature you want to verify.
 
 Result:

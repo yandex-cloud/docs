@@ -1,5 +1,7 @@
 # Connecting to a VM's serial console via SSH
 
+{% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
+
 After [enabling access](./index.md), you can connect to the serial console to interact with the [VM](../../concepts/vm.md). Before connecting to the serial console, carefully read the [{#T}](#security) section.
 
 ## Security {#security}
@@ -52,7 +54,7 @@ Example with `yc-user` and the VM with the ID `fhm0b28lgfp4tkoa3jl6`:
 ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.yc-user@{{ serial-ssh-host }}
 ```
 
-The `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md).
+The `yc-user` user is generated automatically when creating the VM. For more information, see [{#T}](../vm-create/create-linux-vm.md).
 
 ### Troubleshooting {#troubleshooting}
 

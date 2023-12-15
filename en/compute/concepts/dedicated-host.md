@@ -1,3 +1,7 @@
+---
+title: "Dedicated hosts in {{ compute-full-name }}"
+---
+
 # Dedicated hosts
 
 A _dedicated host_ is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}. VMs on dedicated hosts have all features of regular VMs; additionally, they are physically isolated from other users' VMs. You can also distinguish your VMs used for different projects:
@@ -41,7 +45,7 @@ Current type: Intel<sup>®</sup> Ice Lake platform
 You can only create hosts of this type in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 
-{% cut "Archived types: Intel Cascade Lake" %}
+{% cut "Archived types: Intel Cascade Lake platform" %}
 
 {% note alert %}
 

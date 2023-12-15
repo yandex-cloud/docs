@@ -1,3 +1,8 @@
+---
+title: "What statuses a VM in {{ compute-full-name }} may have"
+description: "In this tutorial, you will learn what statuses a VM in {{ compute-name }} may have."
+---
+
 # VM statuses
 
 ## List of statuses {#list-of-statuses}

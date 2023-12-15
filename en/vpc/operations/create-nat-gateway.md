@@ -1,3 +1,8 @@
+---
+title: "How to create and set up a NAT gateway in {{ vpc-full-name }}"
+description: "Follow this guide to create and set up a NAT gateway."
+---
+
 # Setting up a NAT gateway
 
 To create and set up a NAT gateway:

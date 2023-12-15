@@ -20,16 +20,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the created topic.
 
-      1. [Create a target {{ mgp-full-name }} cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) with any appropriate configuration, using the admin username `user` and with hosts located in the public domain.
+      1. [Create a target {{ mgp-full-name }} cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) with any appropriate configuration, using the admin username (`user`) and with hosts located in the public domain.
 
-      1. Make sure that the cluster's security groups have been set up correctly and allow connecting to them:
+      1. Make sure that the cluster security groups have been set up correctly and allow connecting to them:
          * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
          * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
    * Using {{ TF }}
 
-      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
       1. Download the [kafka-greenplum.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-greenplum.tf) configuration file to the same working directory.
 
          This file describes:
@@ -41,7 +44,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * Transfer.
 
       1. In the `kafka-greenplum.tf` file, specify the passwords for the {{ KF }} and {{ GP }} users.
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash

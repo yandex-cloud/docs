@@ -757,14 +757,6 @@ default:
     mt:
       detect|string: "492,2000\_₽"
       translate|string: "492,2000\_₽"
-    speech:
-      stt_long_running_deferred:
-        v1|string: "0,0025\_₽"
-      stt_long_running|string: "0,0100\_₽"
-      stt|string: "0,1600\_₽"
-      tts_gpu|string: "1\_320,0000\_₽"
-      tts:
-        dialogue_platform|string: "0,1600\_₽"
     vision:
       text_detection|int|string: "130\_₽"
   sku|RUB|alb:
@@ -1316,7 +1308,7 @@ default:
       day:
         v1|int|string: "480\_₽"
       night:
-        v1|int|string: "360\_₽"
+        v1|int|string: Не тарифицируется
   sku|RUB|serverless:
     containers:
       compute:
@@ -1344,6 +1336,18 @@ default:
         v1|pricingRate:
           1|string: "16,0000\_₽"
         v1|string: Не тарифицируется
+  sku|RUB|speechkit:
+    stt_long_running_deferred:
+      v1|string: "0,0025\_₽"
+    stt_long_running:
+      v1|string: "0,0100\_₽"
+    stt:
+      v1|string: "0,1600\_₽"
+    tts_gpu:
+      v1|string: "1\_320,0000\_₽"
+    tts:
+      dialogue_platform:
+        v1|string: "0,1600\_₽"
   sku|RUB|storage:
     api:
       get:
@@ -1652,14 +1656,6 @@ default:
     mt:
       detect|string: "3,937600\_$"
       translate|string: "3,937600\_$"
-    speech:
-      stt_long_running_deferred:
-        v1|string: "0,000032\_$"
-      stt_long_running|string: "0,000128\_$"
-      stt|string: "0,001280\_$"
-      tts_gpu|string: "10,560000\_$"
-      tts:
-        dialogue_platform|string: "0,001280\_$"
     vision:
       text_detection|string: "1,040000\_$"
   sku|USD|alb:
@@ -2169,7 +2165,7 @@ default:
       day:
         v1|string: "3,840000\_$"
       night:
-        v1|string: "2,880000\_$"
+        v1|string: Не тарифицируется
   sku|USD|serverless:
     containers:
       compute:
@@ -2197,6 +2193,18 @@ default:
         v1|pricingRate:
           1|string: "0,128000\_$"
         v1|string: Не тарифицируется
+  sku|USD|speechkit:
+    stt_long_running_deferred:
+      v1|string: "0,000020\_$"
+    stt_long_running:
+      v1|string: "0,000080\_$"
+    stt:
+      v1|string: "0,001280\_$"
+    tts_gpu:
+      v1|string: "10,560000\_$"
+    tts:
+      dialogue_platform:
+        v1|string: "0,001280\_$"
   sku|USD|storage:
     api:
       get:
@@ -3945,7 +3953,7 @@ default:
             column_service: Сервис
             column_unit: Ед. потребления
             filter_label_all-filters: Фильтры
-            filter_label-folders-unfill: Каталоги
+            filter_label-folders: 'Каталоги:'
             label_from: От
             label_product: Продукты
             label_service: Сервисы
@@ -3953,6 +3961,7 @@ default:
             label_total: Итого
             tab_product: По продуктам
             value_cost: Потребление
+            value_folders: Каталогам
           exports:
             button_open-yandex-query: Обработать в YQ
             field_bucket: Бакет
@@ -5137,6 +5146,7 @@ default:
           label_node-groups: Группы узлов
           label_nodes: Узлы
         workloads:
+          label_pods: Поды
           label_tab-logs: Логи
           label_tab-yaml: YAML
       kafka:

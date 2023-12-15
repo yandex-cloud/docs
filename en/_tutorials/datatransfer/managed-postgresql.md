@@ -38,15 +38,18 @@
 
    * Using {{ TF }}
 
-      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
       1. Download the [data-transfer-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-transfer-pgsql-mpg.tf) configuration file to the same working directory.
 
          This file describes:
 
          * [Network](../../vpc/concepts/network.md#network).
          * [Subnet](../../vpc/concepts/network.md#subnet).
-         * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
+         * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
          * {{ mpg-name }} target cluster.
          * Source endpoint.
          * Target endpoint.
@@ -61,7 +64,6 @@
             * `target_mysql_version`: {{ PG }} version, must be the same as or higher than the version in the source cluster.
             * `target_user` and `target_password`: Database owner username and password.
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -87,7 +89,7 @@
 
    For more information about transfer statuses, see [Transfer lifecycle](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Switch over the load to the target cluster.
+1. Transfer the load to the target cluster.
 1. Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
    {% list tabs %}
@@ -114,6 +116,6 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         All the resources described in the configuration file `data-transfer-pgsql-mpg.tf` will be deleted.
+         All the resources described in the `data-transfer-pgsql-mpg.tf` configuration file will be deleted.
 
    {% endlist %}

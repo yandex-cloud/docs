@@ -1,3 +1,8 @@
+---
+title: "How to create an image from another custom image in {{ compute-full-name }}"
+description: "Follow this guide to create an image from another custom image."
+---
+
 # Creating an image from another custom image
 
 To create an image from another user image:
@@ -87,7 +92,7 @@ To create an image from another user image:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

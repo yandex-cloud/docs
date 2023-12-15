@@ -32,9 +32,9 @@ Follow this guide to create a new trail that will upload audit logs of your orga
 
          Where:
 
-         * `role`: Role being assigned.
-         * `id`: ID of the folder to host the trail.
-         * `service-account-id`: ID of your service account.
+         * `--role`: Role being assigned.
+         * `--id`: ID of the folder to host the trail.
+         * `--service-account-id`: Service account ID.
 
       * Assign the [`audit-trails.viewer`](./security/index.md#roles-list) role for the organization whose audit logs will be collected:
 
@@ -47,9 +47,9 @@ Follow this guide to create a new trail that will upload audit logs of your orga
 
          Where:
 
-         * `role`: Role being assigned.
-         * `id`: ID of the cloud from which audit logs will be collected.
-         * `service-account-id`: ID of your service account.
+         * `--role`: Role being assigned.
+         * `--id`: ID of the organization whose audit logs will be collected.
+         * `--service-account-id`: Service account ID.
 
    {% endlist %}
 
@@ -61,7 +61,7 @@ Follow this guide to create a new trail that will upload audit logs of your orga
 
 ## Creating a trail {#the-trail-creation}
 
-To create the first trail in {{ at-name }} and start the process of configuration-level audit log management:
+To create the first trail in {{ at-name }} and start the process of management event audit log management:
 
 {% list tabs %}
 
@@ -98,7 +98,7 @@ To create the first trail in {{ at-name }} and start the process of configuratio
 
 When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./concepts/events.md) that occurred to the organization resources during that period to one or more files. If no events occurred during the period, no files are generated.
 
-Make sure that the audit log file is in the bucket that was specified when creating the trail.
+Make sure that the audit log file is in the bucket specified when creating the trail.
 
 ### Viewing audit log files {#watch-log-file}
 

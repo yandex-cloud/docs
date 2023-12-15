@@ -37,8 +37,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MYSQL }}`
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-MYSQL }}`.
+         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
             Select a target cluster from the list and specify its connection settings.
 
@@ -54,21 +54,25 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Using {{ TF }}
 
       1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
-      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
       1. Download the [data-transfer-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-transfer-mysql-mmy.tf) configuration file to the same working directory.
 
          This file describes:
 
          * [Network](../../vpc/concepts/network.md#network).
          * [Subnet](../../vpc/concepts/network.md#subnet).
-         * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
+         * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
          * {{ mmy-name }} target cluster.
          * Source endpoint.
          * Target endpoint.
          * Transfer.
 
-      1. Specify in the file `data-transfer-mysql-mmy.tf`:
+      1. Specify in the `data-transfer-mysql-mmy.tf` file:
 
          * [Source endpoint parameters](../../data-transfer/operations/endpoint/source/mysql.md#on-premise).
          * Target cluster parameters also used as [target endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
@@ -78,7 +82,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_db_name`: Database name.
             * `target_user` and `target_password`: Database owner username and password.
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -100,7 +103,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Complete the data transfer {#finish-transfer}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
+1. Switch the source cluster to <q>read-only</q> mode and transfer the load to the target cluster.
 1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
@@ -114,7 +117,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 * Manually
 
-   * [Delete a {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+   * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
    * [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
    * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 

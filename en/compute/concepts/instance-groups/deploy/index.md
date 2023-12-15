@@ -1,3 +1,8 @@
+---
+title: "Updating an instance group in {{ compute-full-name }}"
+description: "An instance group is updated in two steps: first, its instances are allocated across availability zones and then the deployment algorithm is run."
+---
+
 # Updating instance groups
 
 Creating and updating instances in a group is done in two steps:

@@ -93,6 +93,8 @@ items:
                 href: operations/logs.md
               - name: Записать логи
                 href: operations/logs-write.md
+          - name: Миграция в зону {{ region-id }}-d
+            href: operations/migration.md
           - name: Удалить контейнер
             href: operations/delete.md
       - name: Получение информации о триггере

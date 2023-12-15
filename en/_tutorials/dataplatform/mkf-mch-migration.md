@@ -38,14 +38,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [data-transfer-mkf-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mch.tf) to the same working directory.
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+   1. Download the [data-transfer-mkf-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mch.tf) configuration file to the same working directory.
 
       This file describes:
 
-      * [Network](../../vpc/concepts/network.md#network)
-      * [Subnet](../../vpc/concepts/network.md#subnet)
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
       * [security group](../../vpc/concepts/security-groups.md) and rules required to connect to the clusters from the internet.
       * A source {{ mkf-name }} cluster with a description of a topic and two users on whose behalf the producer and consumer will connect to the topic.
       * {{ mch-name }} target cluster.
@@ -62,10 +65,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * The {{ mch-name }} target cluster parameters that will also be used as the [target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
-         * `target_db_name`: {{ mch-name }} database name
-         * `target_user` and `target_password`: Database owner username and password
+         * `target_db_name`: {{ mch-name }} database name.
+         * `target_user` and `target_password`: Database owner username and password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -129,7 +131,7 @@ Suppose that your {{ KF }} topic receives data from car sensors. This data will 
 
 ```json
 {
-    "device_id":"iv9a94th6rztooxh5ur2",
+    "device_id":"iv9a94th6rzt********",
     "datetime":"2020-06-05 17:27:00",
     "latitude":"55.70329032",
     "longitude":"37.65472196",
@@ -149,7 +151,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
    ```json
    {
-       "device_id": "iv9a94th6rztooxh5ur2",
+       "device_id": "iv9a94th6rzt********",
        "datetime": "2020-06-05 17:27:00",
        "latitude": 55.70329032,
        "longitude": 37.65472196,
@@ -161,7 +163,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
    }
 
    {
-       "device_id": "rhibbh3y08qmz3sdbrbu",
+       "device_id": "rhibbh3y08qm********",
        "datetime": "2020-06-06 09:49:54",
        "latitude": 55.71294467,
        "longitude": 37.66542005,
@@ -173,7 +175,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
    }
 
    {
-       "device_id": "iv9a94th6rztooxh5ur2",
+       "device_id": "iv9a94th6rzt********",
        "datetime": "2020-06-07 15:00:10",
        "latitude": 55.70985913,
        "longitude": 37.62141918,
@@ -191,13 +193,13 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <FQDN broker host>:9091 \
-      -t <topic name> \
+      -b <broker_host_FQDN>:9091 \
+      -t <topic_name> \
       -k key \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
-      -X sasl.username="<producer username>" \
-      -X sasl.password="<user password for the producer>" \
+      -X sasl.username="<username_for_the_producer>" \
+      -X sasl.password="<user_password_for_the_producer>" \
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
    ```
 
@@ -205,22 +207,22 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter the consumer username
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the consumer password
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter the consumer username.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the consumer password.
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster.
 
       * (Optional) : **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
-      
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`
+
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
             Create and upload the `json_schema.json` file in JSON format:
@@ -277,8 +279,8 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
    * Manually
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
-      
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}`
+
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}`.
          * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**:
@@ -329,20 +331,20 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
    1. Run the following query:
 
       ```sql
-      SELECT * FROM <{{ CH }} database name>.<{{ KF }} topic name>
+      SELECT * FROM <{{ CH }}_database_name>.<Apache_Kafka_topic_name>
       ```
 
 1. Change values in the `sample.json` file and send data from it to the {{ mkf-name }} topic:
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <opic name>:9091 \
-      -t <topic name> \
+      -b <broker_host_FQDN>:9091 \
+      -t <topic_name> \
       -k key \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
-      -X sasl.username="<producer username>" \
-      -X sasl.password="<user password for the producer>" \
+      -X sasl.username="<username_for_the_producer>" \
+      -X sasl.password="<user_password_for_the_producer>" \
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
    ```
 
@@ -353,14 +355,14 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
    1. Run the following query:
 
       ```sql
-      SELECT * FROM <{{ CH }} database name>.<{{ KF }} topic name>
+      SELECT * FROM <{{ CH }}_database_name>.<Apache_Kafka_topic_name>
       ```
 
 ## Delete the resources you created {#clear-out}
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

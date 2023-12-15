@@ -13,9 +13,9 @@ Limitations when moving a VM:
 * In [{{ monitoring-full-name }}](../../../monitoring/), metrics are not movable. The metrics in the previous folder stay there and new metrics will already be created in the new folder.
 * You can move VMs only within a single cloud.
 
-## Moving a VM {#change-folder}
+## Moving a VM {#relocate-vm}
 
-To change a VM's folder:
+### Updating a VM's folder {#change-folder}
 
 {% list tabs %}
 
@@ -37,8 +37,8 @@ To change a VM's folder:
       +----------------------+-----------------+---------------+---------+----------------------+
       |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
       +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4tkoa3jl6 | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7gcoji2f8s | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+      | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
       ```
 
@@ -54,8 +54,8 @@ To change a VM's folder:
       +----------------------+--------------------+------------------+--------+
       |          ID          |        NAME        |      LABELS      | STATUS |
       +----------------------+--------------------+------------------+--------+
-      | b1gd129pp9ha0vnvf5g7 | my-folder          |                  | ACTIVE |
-      | b1g66mft1vopnevbn57j | default            |                  | ACTIVE |
+      | b1gd129pp9ha******** | my-folder          |                  | ACTIVE |
+      | b1g66mft1vop******** | default            |                  | ACTIVE |
       +----------------------+--------------------+------------------+--------+
       ```
 
@@ -67,13 +67,13 @@ To change a VM's folder:
 
    1. Move the VM to another folder with the following parameters:
 
-      * In `id`, enter the ID of the VM, for example, `fhm0b28lgfp4tkoa3jl6`.
-      * In `destination-folder-id`, enter the ID of the destination folder, for example, `b1gd129pp9ha0vnvf5g7`.
+      * In `id`, enter the ID of the VM, e.g., `fhm0b28lgfp4********`.
+      * In `destination-folder-id`, enter the ID of the destination folder, e.g., `b1gd129pp9ha********`.
 
       ```bash
       yc compute instance move \
-        --id fhm0b28lgfp4tkoa3jl6 \
-        --destination-folder-id b1gd129pp9ha0vnvf5g7
+        --id fhm0b28lgfp4******** \
+        --destination-folder-id b1gd129pp9ha********
       ```
 
       For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/move.md).
@@ -82,38 +82,172 @@ To change a VM's folder:
 
    Use the [move](../../api-ref/Instance/move.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move) gRPC API call.
 
-   Below is a sample Bash script for the REST API that can be run from Linux environments. It also uses the [move](../../api-ref/Disk/move.md) method for the [Disk](../../api-ref/Disk/index.md) resource (if you do not move the boot disk, it will remain in the source folder).
+   **Example**
 
-   [Authentication in the Compute Cloud API](../../api-ref/authentication.md) is based on an [IAM token](../../../iam/operations/iam-token/create.md). You can get it via an [OAuth token](https://yandex.ru/dev/id/doc/ru/access) for your Yandex ID account.
+   Below is a sample Bash script for Linux OS.
 
-   Make sure to install the following in your Linux environment:
-   * curl to get an OAuth token and make HTTP POST requests.
-   * jq to fetch an OAuth token from the JSON output of the script's first command.
-
+   To use the example, [authenticate](../../api-ref/authentication.md) in the API and install [cURL](https://curl.haxx.se).
 
    You can move a VM without stopping it.
 
-   > [!NOTE]
-   > A moved VM remains connected to the Virtual Private Cloud subnet in the source folder. You can disconnect your VM from this subnet in the network interface settings on the VM page.
+   1. Create a script file:
 
-   ```#!/bin/bash
+      ```bash
+      sudo touch <filename>
+      ```
 
-   # Set the IAM_TOKEN variable. The variable (in brackets) contains a command that receives an IAM token and fetches it from the JSON output (jq). Replace "Oauth_Token" with the OAuth token of your Yandex ID account.
-   IAM_TOKEN=$(curl -d "{\"yandexPassportOauthToken\":\"OAuth_Token\"}" "https://iam.api.cloud.yandex.net/iam/v1/tokens" | jq -r '.iamToken')
+   1. Open the file to write the script to:
 
-   instanceId='ID_of_VM_to_move'
-   bootDiskId='ID_of_this_VM's_boot_disk'
-   destinationFolderId='ID_of_VM_target_folder'
+      ```bash
+      sudo nano <filename>
+      ```
 
-   # VM move command:
-   curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/instances/{${instanceId}}:move" \
-   -H "Authorization: Bearer ${IAM_TOKEN}" \
-   -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+   1. Place the script in the file:
 
-   # Boot disk move command:
-   curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/disks/{${bootDiskId}}:move" \
-   -H "Authorization: Bearer ${IAM_TOKEN}" \
-   -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'```
+      ```bash
+      #!/bin/bash
 
-   
+      # Creating variables
+
+      export IAM_TOKEN=`yc iam create-token`
+
+      instanceId='<VM_ID>'
+      bootDiskId='<VM_boot_disk_ID>'
+      destinationFolderId='<folder_ID>'
+
+      # Moving the VM
+
+      curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/instances/{${instanceId}}:move" \
+      -H "Authorization: Bearer ${IAM_TOKEN}" \
+      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+
+      # Moving the boot disk
+
+      curl -X POST "https://compute.api.cloud.yandex.net/compute/v1/disks/{${bootDiskId}}:move" \
+      -H "Authorization: Bearer ${IAM_TOKEN}" \
+      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+      ```
+
+      Where:
+
+      * `IAM_TOKEN`: IAM token used for authentication in the API.
+      * `instanceId`: ID of the VM to move.
+      * `bootDiskId`: ID of the boot disk of the VM being moved.
+      * `destinationFolderId`: ID of the folder to move the VM to.
+
+   1. Make the file executable:
+
+      ```bash
+      chmod +x <filename>
+      ```
+
+   1. Run the script:
+
+      ```bash
+      ./<filename>
+      ```
+
+{% endlist %}
+
+### Updating a VM's subnet {#change-subnet}
+
+A moved VM remains connected to the [subnet](../../../vpc/concepts/network.md#subnet) in the source folder. To move your VM to a subnet in the destination folder:
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you moved the VM.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Click the VM name.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
+   1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+   1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a new subnet and click **{{ ui-key.yacloud.common.save }}**.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
+
+- CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. Stop the VM:
+
+      ```bash
+      yc compute instance stop fhm0b28lgfp4********
+      ```
+
+   1. View a description of the update subnet CLI command:
+
+      ```bash
+      yc compute instance update-network-interface --help
+      ```
+
+   1. Run this command:
+
+      ```bash
+      yc compute instance update-network-interface fhm0b28lgfp4******** \
+        --subnet-id e2lfibapq818******** \
+        --ipv4-address auto \
+        --network-interface-index 0 \
+        --security-group-id enpi8m85mj14********
+      ```
+
+      Where:
+
+      * `--subnet-id`: Subnet in the destination folder.
+      * `--ipv4-address`: VM internal IP.
+      * `--network-interface-index`: VM's network interface index.
+      * `--security-group-id`: ID of the security group to be assigned to the VM.
+
+      Result:
+
+      ```text
+      done (9s)
+      id: epdk82knf9rj********
+      folder_id: b1gd73mbrli7********
+      created_at: "2023-11-16T06:09:46Z"
+      name: oslogigor1
+      zone_id: ru-central1-b
+      platform_id: standard-v3
+      resources:
+        memory: "2147483648"
+        cores: "2"
+        core_fraction: "100"
+      status: STOPPED
+      metadata_options:
+        gce_http_endpoint: ENABLED
+        aws_v1_http_endpoint: ENABLED
+        gce_http_token: ENABLED
+        aws_v1_http_token: DISABLED
+      boot_disk:
+        mode: READ_WRITE
+        device_name: epdophaf2gh9********
+        auto_delete: true
+        disk_id: epdophaf2gh9********
+      network_interfaces:
+        - index: "0"
+          mac_address: d0:0d:14:40:a9:77
+          subnet_id: e2lfibapq818********
+          primary_v4_address:
+          address: 10.129.0.22
+      gpu_settings: {}
+      fqdn: relocated-vm.ru-central1.internal
+      scheduling_policy: {}
+      network_settings:
+      type: STANDARD
+      placement_policy: {}
+      ```
+
+   1. Run the VM:
+
+      ```bash
+      yc compute instance start fhm0b28lgfp4********
+      ```
+
+- API
+
+   Use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/instance_service.md#UpdateNetworkInterface) gRPC API call.
+
 {% endlist %}
