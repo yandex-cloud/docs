@@ -1,3 +1,8 @@
+---
+title: "How to configure disk snapshot schedules in {{ compute-full-name }}"
+description: "Follow this guide to to configure disk snapshot schedules."
+---
+
 # Configuring disk snapshot schedules
 
 For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [snapshot](../../concepts/snapshot.md) creation:
@@ -78,7 +83,7 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       ```bash
       yc compute snapshot-schedule list-disks <name_or_ID_of_the_schedule>
       ```
-      For details, see [more info](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/list-disks.md).
+      See [more info](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/list-disks.md).
 
    1. Get the name or ID of the schedule:
 

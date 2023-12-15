@@ -43,10 +43,10 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
        --container-runtime <container_runtime_environment> \
        --preemptible \
        --public-ip \
-       --template-labels <resource_labels> \
+       --template-labels <node_group_cloud_labels> \
        --version <{{ k8s }}_version_on_group_nodes> \
        --node-name <node_name_template> \
-       --node-taints <taint_labels>
+       --node-taints <taint_policies>
      ```
 
      Where:
@@ -80,13 +80,13 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
      * `--container-runtime`: [Container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
      * `--preemptible`: Flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip`: Flag you set if the {{ managed-k8s-name }} node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels`: [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format for VMs representing {{ managed-k8s-name }} group nodes. You can specify multiple labels separated by commas.
+     * `--template-labels`: [Node group cloud labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format. You can specify multiple labels separated by commas.
      * `--version`: {{ k8s }} version on {{ managed-k8s-name }} group nodes.
      * `--node-name`: Name template for {{ managed-k8s-name }} nodes. The name is unique if the template contains at least one of the following variables:
 
        {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-     * `--node-taints`: {{ k8s }} [taint policy](../../concepts/index.md#taints-tolerations) labels. You can specify multiple labels.
+     * `--node-taints`: {{ k8s }} [taint policies](../../concepts/index.md#taints-tolerations). You can specify multiple policies.
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
@@ -104,7 +104,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
   1. To specify a [placement group](../../../compute/concepts/placement-groups.md) for {{ managed-k8s-name }} nodes:
      1. Retrieve a list of placement groups using the `yc compute placement-group list` command.
-     1. Provide a placement group name or ID in the `--placement group` parameter when creating a {{ managed-k8s-name }} node group:
+     1. Provide a placement group name or ID in the `--placement group` flag when creating a {{ managed-k8s-name }} node group:
 
         ```bash
         {{ yc-k8s }} node-group create \
@@ -120,7 +120,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
      * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID as `cluster_id`.
      * {{ managed-k8s-name }} node [platform](../../../compute/concepts/vm-platforms.md).
      * [Container runtime environment](../../concepts/index.md#config) setting in the `container_runtime` parameter.
-     * [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing {{ managed-k8s-name }} group nodes, under `nodeTemplate.labels`.
+     * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` section.
      * Scaling settings under `scale_policy`.
 
      Here is an example of the configuration file structure:
@@ -166,7 +166,8 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
 
        * `container_runtime`:
          * `type`: [Container runtime environment](../../concepts/index.md#config) (`docker` or `containerd`).
-       * `labels`: [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing {{ managed-k8s-name }} group nodes. You can specify multiple labels separated by commas.
+
+       * `labels`: [Node group cloud labels](../../../resource-manager/concepts/labels.md). You can specify multiple labels separated by commas.
        * `scale_policy`: Scaling settings.
 
      {% note warning %}
@@ -226,7 +227,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ manag
       {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
   * [Container runtime environment](../../concepts/index.md#config) in the `nodeTemplate.containerRuntimeSettings.type` parameter.
-  * [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing {{ managed-k8s-name }} group nodes, in the `nodeTemplate.labels` parameter.
+  * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` parameter.
   * [Scaling settings](../../concepts/autoscale.md#ca) as `scalePolicy`.
   * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
   * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.

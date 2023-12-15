@@ -17,7 +17,7 @@ You can only delete empty buckets. In the management console, information about 
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a bucket from.
    1. Select **{{ objstorage-name }}**. This opens a page with a list of buckets.
-   1. To delete a single bucket, click ![image](../../../_assets/horizontal-ellipsis.svg) to the left of the bucket name and select **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
+   1. To delete a single bucket, click ![image](../../../_assets/console-icons/ellipsis.svg) to the left of the bucket name and select **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
    {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}

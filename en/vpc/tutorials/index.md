@@ -1,3 +1,8 @@
+---
+title: "{{ vpc-full-name }} use cases"
+description: "Various {{ vpc-full-name }} use cases in {{ yandex-cloud }}."
+---
+
 # {{ vpc-name }} tutorials
 
 * [Architecture and protection of a basic internet service](web-service.md)

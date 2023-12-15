@@ -1,4 +1,4 @@
-# Migrating databases from a third-party {{ RD }} cluster to {{ mrd-full-name }}
+# Migrating a database from a third-party {{ RD }} cluster to {{ mrd-full-name }}
 
 For data migration, {{ RD }} uses a _logical dump_: this is a file with a sequence of commands to restore the state of databases in the cluster. There are several ways to create a dump. The following example will use [redis-dump-go](https://github.com/yannh/redis-dump-go/).
 
@@ -48,9 +48,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-      1. Download the configuration file for the appropriate cluster type to the same working directory:
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+   1. Download the configuration file for the appropriate cluster type to the same working directory:
 
          * [redis-cluster-non-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-non-sharded.tf): For an unsharded cluster.
          * [redis-cluster-sharded.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-migration/redis-cluster-sharded.tf): For a [sharded](../../managed-redis/concepts/sharding.md) cluster.
@@ -63,8 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * {{ mrd-name }} cluster with public internet access.
          * (Optional) Virtual machine with public internet access.
 
-
-      1. Specify the following in the configuration file:
+   1. Specify the following in the configuration file:
 
          * Password to access the {{ mrd-name }} cluster.
          * (Optional) Virtual machine parameters:
@@ -72,8 +74,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * Public virtual machine [image](../../compute/operations/images-with-pre-installed-software/get-list) ID, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
             * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
-      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -81,7 +82,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Create the required infrastructure:
+   1. Create the required infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -107,7 +108,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Connect to the source cluster and create a logical dump {#create-dump}
 
 1. Connect to the source cluster's master host via SSH.
-1. Download the archive with the `redis-dump-go` utility from the [project page](https://github.com/yannh/redis-dump-go/releases). In the following examples, we'll use version `0.5.1`.
+1. Download the archive with the `redis-dump-go` utility from the [project page](https://github.com/yannh/redis-dump-go/releases). The examples below use version `0.5.1`.
 
    ```bash
    wget https://github.com/yannh/redis-dump-go/releases/download/v0.5.1/redis-dump-go_0.5.1_linux_amd64.tar.gz

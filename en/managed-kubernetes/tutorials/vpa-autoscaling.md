@@ -25,6 +25,15 @@ description: "Follow this guide to configure the automatic management of pod res
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+1. Install {{ k8s-vpa }} from the following [repository](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
+
+   ```bash
+   cd /tmp && \
+     git clone https://github.com/kubernetes/autoscaler.git && \
+     cd autoscaler/vertical-pod-autoscaler/hack && \
+     ./vpa-up.sh
+   ```
+
 ## Create {{ k8s-vpa }} and a test application {#create-vpa-workload}
 
 1. Create a file called `app.yaml` with the `nginx` test application and load balancer settings:
@@ -121,14 +130,7 @@ description: "Follow this guide to configure the automatic management of pod res
    vpa-recommender-67********-jqvgt           1/1  Running  0  44h
    vpa-updater-64********-xqsts               1/1  Running  0  44h
    nginx-6c********-62j7w                     1/1  Running  0  42h
-   nginx-6c********-6t4nz                     1/1  Running  0  42h
    ```
-
-   {% note info %}
-
-   For {{ k8s-vpa }} to run properly, a minimum of two `nginx` pods are required.
-
-   {% endnote %}
 
 ## Test {{ k8s-vpa }} {#test-vpa}
 

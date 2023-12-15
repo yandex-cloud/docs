@@ -1,6 +1,6 @@
 ---
-title: "How to edit an L7 load balancer in {{ alb-full-name }}"
-description: "Follow this guide to edit an L7 load balancer."
+title: "How to update an L7 load balancer in {{ alb-full-name }}"
+description: "Follow this guide to update an L7 load balancer."
 ---
 
 # Editing an L7 load balancer
@@ -15,9 +15,15 @@ To update the parameters of an L7 load balancer:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Click the name of the load balancer you need.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-   1. Edit the load balancer settings.
-   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, change the parameters of the appropriate listeners.
-   1. (Optional) Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+   1. Edit the required load balancer settings:
+
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, update the [security groups](../concepts/application-load-balancer.md#security-groups):
+
+         {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
+
+      1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
+
+      1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
       1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
       1. Edit the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
@@ -28,6 +34,9 @@ To update the parameters of an L7 load balancer:
          * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the percentage of logs to discard.
 
          To add another rule, click **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
+
+      1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, change the parameters of the appropriate listeners.
+
    1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
@@ -42,11 +51,14 @@ To update the parameters of an L7 load balancer:
       yc alb load-balancer update --help
       ```
 
-   1. Run the command, indicating the new load balancer parameters:
+   1. Run the command, indicating the new load balancer parameters. For example, link [security groups](../concepts/application-load-balancer.md#security-groups) to the load balancer:
 
       ```bash
-      yc alb load-balancer update <load_balancer_name> --new-name <new_load_balancer_name>
+      yc alb load-balancer update <load_balancer_name> \
+        --security-group-id <list_of_security_group_IDs>
       ```
+
+      Where `--security-group-id` is a new list of one to five comma-separated [security group](../concepts/application-load-balancer.md#security-groups) IDs. If you omit this parameter, any traffic will be allowed for the load balancer.
 
       Result:
 
@@ -78,6 +90,9 @@ To update the parameters of an L7 load balancer:
         - zone_id: {{ region-id }}-c
           subnet_id: fo2ap2nrhjk9********
       log_group_id: eolul9ap0bv0********
+      security_group_ids:
+        - enpulh2tbrep********
+        - enpg05a3ck35********
       created_at: "2021-04-26T12:12:13.624832586Z"
       ```
 
@@ -237,6 +252,7 @@ To update the parameters of an L7 load balancer:
           location {
             zone_id   = "{{ region-id }}-a"
             subnet_id = yandex_vpc_subnet.test-subnet.id
+            security_group_ids = ["<list_of_security_group_IDs>"]
           }
         }
 

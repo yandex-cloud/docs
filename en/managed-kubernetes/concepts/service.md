@@ -6,7 +6,7 @@ A _service_ is a [{{ k8s }} API object (Service)](https://kubernetes.io/docs/ref
 
 If you use a service, you get a permanent IP address that exists throughout the service lifecycle, even if pods change their IP addresses. It also provides load balancing. Clients send requests to a single IP address, and their requests are balanced between the pods belonging to the service.
 
-The set of pods belonging to the service is defined by a selector. The selector is defined by the user when creating the pod and allows them to filter the list of resources based on labels (key-value pairs assigned to the resource). The pod belongs to the service if it has all the labels specified in the selector.
+The set of pods belonging to the service is defined by a selector. The selector is configured by the user when creating the pod and allows filtering the list of resources based on labels (key-value pairs assigned to the resource). The pod belongs to the service if it has all the {{ k8s }} labels specified in the selector.
 
 Depending on your task, you can use [different types](#type) of services.
 

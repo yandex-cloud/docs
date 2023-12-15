@@ -1,3 +1,8 @@
+---
+title: "How to make incremental updates in {{ compute-full-name }}"
+description: "Follow this guide to start your terminal in the Windows serial console (SAC)."
+---
+
 # Incremental update
 
 You might need to update your service incrementally, undeploying no more than *N* instances at a time:

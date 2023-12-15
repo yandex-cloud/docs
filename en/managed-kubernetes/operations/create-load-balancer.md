@@ -153,7 +153,7 @@ When you create a service with the `LoadBalancer` type, {{ yandex-cloud }} contr
        name: plaintext
        # Container port the application listens on.
        targetPort: 8080
-     # Selector labels used in a pod template when creating a Deployment object.
+     # Selector {{ k8s }} labels used in a pod template when creating a Deployment object.
      selector:
        app: hello
      type: LoadBalancer
@@ -261,7 +261,7 @@ spec:
     name: plaintext
     # Container port the application listens on.
     targetPort: 8080
-  # Selector labels used in a pod template when creating a Deployment object.
+  # Selector {{ k8s }} labels used in a pod template when creating a Deployment object.
   selector:
     app: hello
 ```

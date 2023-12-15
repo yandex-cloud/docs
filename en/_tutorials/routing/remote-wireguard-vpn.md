@@ -118,6 +118,7 @@ The infrastructure support costs include:
          --output key.json
          ```
          Where:
+
          * `service-account-id`: Service account ID.
          * `folder-id`: ID of the folder the service account was created in.
          * `output`: Name of the file with the authorized key.
@@ -160,7 +161,8 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 
 ## Deploy Firezone and Keycloak {#deploy-firezone}
 
-1. On your workstation, clone the `yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone` [repository](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone) from the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) and go to the `yc-remote-acess-vpn-with-wireguard-firezone` script directory:
+1. On your workstation, clone the `yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone` [repository](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone) from [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) and go to the `yc-remote-acess-vpn-with-wireguard-firezone` script directory:
+
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone.git
 

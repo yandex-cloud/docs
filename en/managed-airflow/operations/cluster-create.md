@@ -91,8 +91,9 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
       If required, you can set version restrictions for the installed packages, for example:
 
       ```text
-      scikit-learn>1.0.0
-      kafkacat=1.2.0-2
+      pandas==2.0.2
+      scikit-learn>=1.0.0
+      clickhouse-driver~=0.2.0
       ```
 
       The package name format and version are defined by the install command: `pip install` for pip packages.

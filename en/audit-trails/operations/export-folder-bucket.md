@@ -1,6 +1,6 @@
 # Uploading folder audit logs to {{ objstorage-name }}
 
-Follow this guide to create a new [trail](../concepts/trail.md) that will upload configuration-level (Control Plane) audit logs of all resources and, optionally, service-level (Data Plane) audit logs of selected services of an individual folder to an {{ objstorage-name }} bucket.
+Follow this guide to create a new [trail](../concepts/trail.md) that will upload management event (Control Plane) audit logs of all resources and, optionally, data event (Data Plane) audit logs of selected services of an individual folder to an {{ objstorage-name }} bucket.
 
 {% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
@@ -21,7 +21,7 @@ To collect folder audit logs:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * Assign the [`audit-trails.viewer`](../security/index.md#roles-list) role for the folder whose resources audit logs will be collected from:
+      * Assign the [`audit-trails.viewer`](../security/index.md#roles-list) role for the folder from whose resources the audit logs will be collected:
 
          ```
          yc resource-manager folder add-access-binding \
@@ -31,9 +31,9 @@ To collect folder audit logs:
          ```
 
          Where:
-         * `role`: Role being assigned.
-         * `id`: ID of the folder from which audit logs will be collected.
-         * `service-account-id`: ID of your service account.
+         * `--role`: Role being assigned.
+         * `--id`: ID of the folder from which audit logs will be collected.
+         * `--service-account-id`: Service account ID.
 
       * Assign the [`storage.uploader`](../../storage/security/index.md#storage-uploader) role for the folder to host the trail:
 
@@ -45,9 +45,9 @@ To collect folder audit logs:
          ```
 
          Where:
-         * `role`: Role being assigned.
-         * `id`: ID of the folder to host the trail.
-         * `service-account-id`: ID of your service account.
+         * `--role`: Role being assigned.
+         * `--id`: ID of the folder to host the trail.
+         * `--service-account-id`: Service account ID.
 
    {% endlist %}
 
@@ -78,7 +78,7 @@ To create the first trail in {{ at-name }} and start the audit log management pr
 
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Name of the [bucket](../../storage/operations/buckets/create.md) to which you want to upload audit logs.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
 

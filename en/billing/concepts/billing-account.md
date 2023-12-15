@@ -25,8 +25,8 @@ To go to the list of billing accounts:
 - Management console
 
    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 
 {% endlist %}
 
@@ -53,9 +53,9 @@ To go to the list of billing accounts:
 
 ## Effective term {#dates}
 
-Billing accounts do not expire.
+Billing accounts have no validity period specified.
 
-However, if {{ yandex-cloud }} services are suspended for non-payment, and you have not paid the outstanding amount within 30 days of the suspension, all your data, including the billing account, will be permanently locked and deleted.
+However, if {{ yandex-cloud }} services are suspended due to arrears and you fail to pay the outstanding amount within 60 days of suspension, all your data, including the billing account, will be permanently blocked and deleted.
 
 You can [delete a billing account](../operations/delete-account.md) if you no longer plan to use {{ yandex-cloud }} services.
 

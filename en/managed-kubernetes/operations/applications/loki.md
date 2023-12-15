@@ -1,12 +1,14 @@
 # Installing Loki
 
-[Loki](https://grafana.com/oss/loki/) is a horizontally scalable, highly available, multi-tenant log aggregation and storage system. It doesn't index the contents of logs, but rather a set of labels for each log stream.
+[Loki](https://grafana.com/oss/loki/) is a horizontally scalable, highly available, multi-tenant log aggregation and storage system. It indexes a set of labels for each log stream rather than the contents of logs.
 
 ## Getting started {#before-you-begin}
 
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+To get started with Loki:
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` and `storage.viewer` [roles](../../../iam/concepts/access-control/roles.md). You need it to access [{{ objstorage-full-name }}](../../../storage/).
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:

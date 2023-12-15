@@ -1,4 +1,6 @@
 ---
+title: "{{ dns-full-name }} pricing policy"
+description: "This article describes the {{ dns-name }} pricing policy."
 editable: false
 ---
 
@@ -29,7 +31,7 @@ You will not be billed for:
 * Queries to [private](concepts/dns-zone.md#private-zones) and [service](concepts/dns-zone.md#service-zones) zones.
 
 **Starting December 6, 2021, the following is provided free of charge**:
-* The first one million (1000000) recursive queries from VMs each month.
+* The first one million (1,000,000) recursive queries from VMs each month.
 
    Once you have used up this free amount, you will be charged at the published rate.
 
@@ -43,7 +45,7 @@ For example, the cost of 50 thousand authoritative queries to your public DNS zo
 
 > 
 > 
-> (50000 / 1000000) × $0.256410 = 0.05 × $0.256410 = $0.0128205
+> (50,000 / 1,000,000) × $0.256410 = 0.05 × $0.256410 = $0.0128205
 >
 > Total: $0.0128205
 
@@ -51,7 +53,7 @@ For example, the cost of 50 thousand authoritative queries to your public DNS zo
 
 Where:
 
-* (50000 / 1000000) is the number of millions of executed queries.
+* (50,000 / 1,000,000) is the number of millions of executed queries.
 * $0.256410 is the cost per 1 million queries per month.
 
 For example, the cost of 1.2 million recursive queries for external names executed from December 6 to December 31, from your VMs per month will be:

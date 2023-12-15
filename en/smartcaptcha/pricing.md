@@ -6,7 +6,9 @@ editable: false
 
 # {{ captcha-full-name }} pricing
 
-## What is included in the {{ captcha-full-name }} cost {#rules}
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+## What is included in {{ captcha-full-name }} cost {#rules}
 
 You are charged for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://smartcaptcha.yandexcloud.net/validate`. You are only charged for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. These requests must meet the following conditions:
 

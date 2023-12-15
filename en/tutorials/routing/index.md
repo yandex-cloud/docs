@@ -1,3 +1,8 @@
+---
+title: "Use cases for network infrastructure in {{ yandex-cloud }}"
+description: "Various use cases for network infrastructure in {{ yandex-cloud }}."
+---
+
 # Tutorials for working with network infrastructure in {{ yandex-cloud }}
 
 * [Setting up networking between resources in different folders](multi-folder-vpc.md)

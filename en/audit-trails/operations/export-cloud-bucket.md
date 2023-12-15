@@ -1,6 +1,6 @@
 # Uploading cloud audit logs to {{ objstorage-name }}
 
-Follow this guide to create a new [trail](../concepts/trail.md) that will upload configuration-level (Control Plane) audit logs of all resources and, optionally, service-level (Data Plane) audit logs of selected services of an individual cloud to an {{ objstorage-name }} bucket.
+Follow this guide to create a new [trail](../concepts/trail.md) that will upload management event (Control Plane) audit logs of all resources and, optionally, data event (Data Plane) audit logs of selected services of an individual cloud to an {{ objstorage-name }} bucket.
 
 {% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
@@ -31,9 +31,9 @@ To collect audit logs of an individual cloud:
          ```
 
          Where:
-         * `role`: Role being assigned.
-         * `id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
-         * `service-account-id`: ID of your service account.
+         * `--role`: Role being assigned.
+         * `--id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
+         * `--service-account-id`: Service account ID.
 
       * Assign the [`storage.uploader` role](../../storage/security/index.md#storage-uploader) to the folder that will host the trail:
 
@@ -45,9 +45,9 @@ To collect audit logs of an individual cloud:
          ```
 
          Where:
-         * `role`: Role being assigned.
-         * `id`: ID of the folder to host the trail.
-         * `service-account-id`: ID of your service account.
+         * `--role`: Role being assigned.
+         * `--id`: ID of the folder to host the trail.
+         * `--service-account-id`: Service account ID.
 
    {% endlist %}
 
@@ -78,7 +78,7 @@ To create the first trail in {{ at-name }} and start the audit log management pr
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
 

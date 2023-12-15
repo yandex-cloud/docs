@@ -19,7 +19,12 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
    1. Enter the load balancer name.
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network whose subnets will host the load balancer nodes, as well as the [appropriate security groups](../concepts/application-load-balancer.md#security-groups). If there is no appropriate field, all incoming and outgoing traffic will be allowed for the load balancer.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
+
+      1. Network whose subnets will host the load balancer nodes.
+      1. Suitable [security groups](../concepts/application-load-balancer.md#security-groups):
+
+         {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
 
    1. (Optional) Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
 
@@ -76,16 +81,22 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
       yc alb load-balancer create --help
       ```
 
-   1. Run the following command, specifying the network and subnets that will host the load balancer's nodes and the [appropriate security groups](../concepts/application-load-balancer.md#security-groups):
+   1. Run this command:
 
       ```bash
       yc alb load-balancer create <load_balancer_name> \
         --network-name <network_name> \
-        --security-group-id <security_group_ID>
+        --security-group-id <list_of_security_group_IDs> \
         --location subnet-name=<subnet_name>,zone=<availability_zone>
       ```
 
-      You can use the `--location` option multiple times to specify different availability zones and subnets.
+      Where:
+
+      * `<load_balancer_name>`: Name of the new load balancer.
+      * `--network-name`: Name of the network in which the load balancer is created.
+      * `--security-group-id` (optional): List of one to five comma-separated [security group](../concepts/application-load-balancer.md#security-groups) IDs.
+         If you omit this parameter, any traffic will be allowed for the load balancer.
+      * `--location`: Subnet and availability zone. You can repeat the option multiple times to specify different availability zones and subnets.
 
       Result:
 
@@ -107,6 +118,9 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         - zone_id: {{ region-id }}-c
           subnet_id: fo2ap2nrhjk9********
       log_group_id: eolul9ap0bv0********
+      security_group_ids:
+        - enpulh2tbrep********
+        - enpg05a3ck35********
       created_at: "2021-04-26T12:12:13.624832586Z"
       ```
 
@@ -264,7 +278,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
       resource "yandex_alb_load_balancer" "test-balancer" {
         name        = "<name_of_L7_load_balancer>"
         network_id  = "<network_ID>"
-        security_group_ids = ["<security_group_ID>"]
+        security_group_ids = ["<list_of_security_group_IDs>"]
 
         allocation_policy {
           location {
@@ -307,7 +321,9 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `network_id`: Network ID.
+      * `network_id`: ID of the network in which the load balancer is created.
+      * `security_group_ids` (optional): List of one to five comma-separated [security group](../concepts/application-load-balancer.md#security-groups) IDs.
+         If you omit this parameter, any traffic will be allowed for the load balancer.
       * `allocation_policy`: Description of the L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zone and subnet IDs.
       * `listener`: Description of the L7 load balancer's [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) parameters:
          * `name`: Name of the listener. The name format is as follows:

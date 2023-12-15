@@ -1,3 +1,8 @@
+---
+title: "How to get a list of disk images in {{ compute-full-name }}"
+description: "Follow this guide to get a list of disk images."
+---
+
 # Getting a list of disk images
 
 To get a list of disk images:

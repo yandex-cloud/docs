@@ -29,7 +29,7 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
        }
 
        window.smartCaptcha.render('captcha-container', {
-         sitekey: '<Key_for_the_client_part>',
+         sitekey: '<client_part_key>',
          invisible: true, // Make captcha invisible
          callback: callback,
        });
@@ -104,7 +104,7 @@ You can hide the shield by the `hideShield` parameter of the `render` [method](.
        }
 
        widgetId = window.smartCaptcha.render('captcha-container', {
-         sitekey: '<Key_for_the_client_part>',
+         sitekey: '<client_part_key>',
          invisible: true, // Make captcha invisible
          callback: callback,
        });

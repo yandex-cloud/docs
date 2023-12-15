@@ -1,3 +1,8 @@
+---
+title: "What actions upon triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API"
+description: "In this tutorial, you will learn what actions upon triggering the {{ objstorage-full-name }} bucket access policy can be set up in the S3 API."
+---
+
 # Actions
 
 | Action | Description |

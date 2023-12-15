@@ -219,7 +219,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   1. Select **{{ objstorage-name }}**.
   1. Select a bucket from the list.
   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab in the left-hand menu.
-  1. Click ![image](../../../_assets/cross.svg) next to the appropriate label.
+  1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the appropriate label.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - AWS CLI

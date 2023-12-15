@@ -18,6 +18,11 @@ When connecting a client infrastructure via {{ interconnect-full-name }}, it is 
 * You can use {{ interconnect-name }} and a [NAT gateway](../../vpc/operations/create-nat-gateway.md) simultaneously if client routers do not announce the default `0.0.0.0/0` route over BGP to {{ yandex-cloud }}. If the client routers do announce the default `0.0.0.0/0` route over BGP to {{ yandex-cloud }}, you cannot use a [NAT gateway](../../vpc/operations/create-nat-gateway.md).
 * Currently, {{ yandex-cloud }} does not support distribution of outgoing traffic from cloud subnets to the client infrastructure based on the [BGP community](https://linkmeup.gitbook.io/sdsm/8.1.-ibgp/3.-atributy-bgp/4.-community/0.-teoriya) method.
 
+{% note alert %}
+
+You cannot use identical prefixes in {{ vpc-short-name }} route tables and client router announcements at the same time.
+
+{% endnote %}
 
 
 ## Even traffic distribution (Active-Active) {#cic-routing-aa}

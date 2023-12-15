@@ -22,11 +22,14 @@ To connect to cluster nodes, follow the instructions in [{#T}](../node-connect-s
 ## Connecting to a cluster {#kubectl-connect}
 
 When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}](../../../iam/concepts/authorization/index.md) and is granted access based on the [assigned role](../../security/index.md#yc-api). To log in, you must install the [{{ yandex-cloud }} command-line interface (CLI)](../../../cli/quickstart.md).
-1. [Install `kubectl`]({{ k8s-docs }}/tasks/tools/#kubectl).
 
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
-1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+To connect to a cluster:
+
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
 
 1. Add credentials to the `kubectl` configuration file:
    * To connect to the cluster's private IP address from a VM located on the same network:

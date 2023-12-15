@@ -145,15 +145,15 @@ items:
             href: tutorials/mkf-to-mes.md
           - name: '{{ KF }} в {{ MG }}'
             href: tutorials/mkf-to-mmg.md
-          - name: '{{ KF }}  в {{ MY }}'
+          - name: '{{ KF }} в {{ MY }}'
             href: tutorials/mkf-to-mmy.md
-          - name: '{{ KF }}  в {{ OS }}'
+          - name: '{{ KF }} в {{ OS }}'
             href: tutorials/mkf-to-mos.md
-          - name: '{{ KF }}  в {{ ydb-short-name }}'
+          - name: '{{ KF }} в {{ ydb-short-name }}'
             href: tutorials/mkf-to-ydb.md
-          - name: '{{ KF }}  в {{ DS }}'
+          - name: '{{ KF }} в {{ DS }}'
             href: tutorials/mkf-to-yds.md
-          - name: '{{ DS }}  в {{ CH }}'
+          - name: '{{ DS }} в {{ CH }}'
             href: tutorials/yds-to-clickhouse.md
           - name: '{{ DS }} в {{ objstorage-name }}'
             href: tutorials/yds-to-objstorage.md

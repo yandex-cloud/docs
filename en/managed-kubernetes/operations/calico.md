@@ -34,8 +34,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Using {{ TF }}
 
-     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-     1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
      1. Download the [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. The file describes:
         * [Network](../../vpc/operations/network-create.md).
         * Subnet.
@@ -228,7 +231,7 @@ Allow access to the nginx web server using network policies. Network policies wi
 
    {% note info %}
 
-   Network policies will allow traffic from pods [labeled](../concepts/index.md#node-labels) `run: access` to pods labeled `app: nginx`. Labels are automatically added by kubectl based on the resource name.
+   Network policies will allow traffic from pods with the `run: access` [{{ k8s }} label](../concepts/index.md#node-labels) to pods with the `app: nginx` {{ k8s }} label. Labels are automatically added by kubectl based on the resource name.
 
    {% endnote %}
 
@@ -282,7 +285,7 @@ Allow access to the nginx web server using network policies. Network policies wi
 
 ### Check the network isolation functionality for other pods {#check-isolation}
 
-The created `access-nginx` network policies allow connections for pods with the `run: access` label.
+The created `access-nginx` network policies allow connections for pods with the `run: access` {{ k8s }} label.
 1. Create a pod with no `run: access` label:
 
    ```bash

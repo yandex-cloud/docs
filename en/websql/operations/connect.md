@@ -2,7 +2,7 @@
 
 {% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
-You can use the **Connection manager** (![image](../../_assets/websql/connections.svg)) panel to:
+You can use the **Connection manager** (![image](../../_assets/console-icons/folder-tree.svg)) panel to:
 
 * Add connections to [databases](#connect-db) or [database clusters](#connect-cluster).
 * [Check connection settings](#change-connection-settings).
@@ -46,7 +46,7 @@ To refresh an active connection:
 1. Select an active connection.
 1. Click **...** to the right of the connection name and choose **Refresh connection**.
 
-To refresh all active connections, click ![image](../../_assets/websql/refresh.svg) in the top-right corner of the **Connection manager** panel.
+To refresh all active connections, click ![image](../../_assets/console-icons/arrows-rotate-right.svg) in the top-right corner of the **Connection manager** panel.
 
 To re-establish inactive connections:
 

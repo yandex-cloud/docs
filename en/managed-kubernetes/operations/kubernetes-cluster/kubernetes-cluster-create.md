@@ -4,8 +4,6 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
 ## Getting started {#before-you-begin}
 
-To create a {{ managed-k8s-name }} cluster:
-
 {% list tabs %}
 
 - Management console
@@ -17,7 +15,7 @@ To create a {{ managed-k8s-name }} cluster:
 
 
   1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
-  1. Make sure that the [account](../../../iam/concepts/index.md#accounts) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../concepts/index.md#required-roles).
+  1. Make sure that the [account](../../../iam/concepts/index.md#accounts) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
   1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
@@ -238,22 +236,26 @@ To create a {{ managed-k8s-name }} cluster:
 
 - {{ TF }}
 
-    Let's assume we need to create a {{ managed-k8s-name }} cluster and a network for it with the following specifications:
+   Create a {{ managed-k8s-name }} cluster and a network for it with the following test characteristics:
+
     * Name: `k8s-zonal`.
     * Version: `1.22`.
     * [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) ID: `{{ tf-cloud-id }}`.
     * [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID: `{{ tf-folder-id }}`.
-    * New network: `mynet`.
-    * New subnet: `mysubnet`; [availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`. The `mysubnet` subnet has the `10.1.0.0/16` range.
-    * New service account: `myaccount` with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer` role permissions.
-    * [{{ kms-full-name }} encryption key](../../concepts/encryption.md): `kms-key`.
-    * New [security group](../../../vpc/concepts/security-groups.md): `k8s-public-services`, allowing [connections to services from the internet](../connect/security-groups.md#rules-nodes).
+    * Network: `mynet`.
+    * Subnet: `mysubnet` Its network settings are as follows:
 
-    To do this, install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
+      * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
+      * Range: `10.1.0.0/16`
 
-    {% cut "Configuration file for the {{ managed-k8s-name }} cluster:" %}
+   * Service account: `myaccount`.
+   * Service account permissions: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer`.
+   * [{{ kms-full-name }} encryption key](../../concepts/encryption.md): `kms-key`.
+   * [Security group](../../../vpc/concepts/security-groups.md): `k8s-public-services`. It contains [rules for connecting to services from the internet](../connect/security-groups.md#rules-nodes).
 
-    
+   Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
+
+   
     ```hcl
     locals {
       cloud_id    = "{{ tf-cloud-id }}"
@@ -394,8 +396,6 @@ To create a {{ managed-k8s-name }} cluster:
 
 
 
-   {% endcut %}
-
 {% endlist %}
 
 ### Creating a regional {{ managed-k8s-name }} cluster {#example-regional-cluster}
@@ -404,22 +404,34 @@ To create a {{ managed-k8s-name }} cluster:
 
 - {{ TF }}
 
-   Let's assume we need to create a {{ managed-k8s-name }} cluster and a network for it with the following specifications:
+   Create a {{ managed-k8s-name }} cluster and a network for it with the following test characteristics:
+
    * Name: `k8s-regional`.
-   * Version: `1.22`.
+   * Version: 1.22.
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
-   * In the new `mynet` network with new subnets:
-      * `mysubnet-a` in the {{ region-id }}-a availability zone with a range of `10.5.0.0/16`.
-      * `mysubnet-b` in the {{ region-id }}-b availability zone with a range of `10.6.0.0/16`.
-      * `mysubnet-c` in the {{ region-id }}-c availability zone with a range of `10.7.0.0/16`.
-   * With the new `myaccount` service account that has the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer` role permissions.
+   * Network: `mynet`.
+   * Subnet: `mysubnet-a`. Its network settings are as follows:
+
+      * Availability zone: `{{ region-id }}-a`
+      * Range: `10.5.0.0/16`
+
+   * Subnet: `mysubnet-b` Its network settings are as follows:
+
+      * Availability zone: `{{ region-id }}-b`
+      * Range: `10.6.0.0/16`
+
+   * Subnet: `mysubnet-c` Its network settings are as follows:
+
+      * Availability zone: `{{ region-id }}-c`
+      * Range: `10.7.0.0/16`
+
+   * Service account: `myaccount`.
+   * Service account permissions: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer`.
    * {{ kms-name }} encryption key: `kms-key`.
-   * New security group: `k8s-main-sg` containing [rules for service traffic](../connect/security-groups.md#rules-internal).
+   * Security group: `k8s-main-sg`. It contains [rules for service traffic](../connect/security-groups.md#rules-internal).
 
-   To do this, install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
-
-   {% cut "Configuration file for the {{ managed-k8s-name }} cluster:" %}
+   Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
 
    
    ```hcl
@@ -584,7 +596,5 @@ To create a {{ managed-k8s-name }} cluster:
    ```
 
 
-
-   {% endcut %}
 
 {% endlist %}

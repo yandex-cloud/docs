@@ -1,3 +1,8 @@
+---
+title: "Standard {{ yandex-cloud }} API methods"
+description: "On this page, you will learn which HTTP methods correspond to standard {{ yandex-cloud }} API methods and how you can use them."
+---
+
 # Standard methods
 
 Below, you can find a list of standard API methods and the respective HTTP methods:

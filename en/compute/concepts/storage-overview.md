@@ -1,3 +1,8 @@
+---
+title: "Disks and file storage in {{ compute-full-name }}"
+description: "In this tutorial, you will learn what disks and file storage are."
+---
+
 # Disks and file storage
 
 To work with data, you can attach the following {{ compute-name }} resources to [VMs](vm.md):

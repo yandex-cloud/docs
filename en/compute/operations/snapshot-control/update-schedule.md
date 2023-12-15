@@ -1,3 +1,8 @@
+---
+title: "How to change a disk snapshot schedule in {{ compute-full-name }}"
+description: "Follow this guide to change a disk snapshot schedule in {{ compute-name }}."
+---
+
 # Changing a disk snapshot schedule
 
 ## Changing basic settings {#update-basic-parameters}
@@ -14,7 +19,7 @@ To change basic settings of a snapshot schedule:
    1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
    1. Next to the schedule you want to change, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Configure snapshot schedule parameters:
-      * **{{ ui-key.yacloud.common.name }}**. The requirements are as follows:
+      * **{{ ui-key.yacloud.common.name }}**. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -23,7 +28,7 @@ To change basic settings of a snapshot schedule:
       * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_start-at }}** field, set the start date for your schedule.
       * Select the policy for snapshot retention:
          * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}**: All created scheduled snapshots are kept.
-         * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Set the number of the last snapshots to retain or the number of days for which the snapshots to be retained are created. Other snapshots created by this schedule are deleted automatically.
+         * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Set the number of the last snapshots to retain or the number of days for which the snapshots to be retained are created. Other snapshots created on this schedule will be deleted automatically.
 
          {% note info %}
 
@@ -161,7 +166,7 @@ To change basic settings of a snapshot schedule:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can verify that the schedule has been updated and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+   You can check the schedule update and its new configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc compute snapshot-schedule get <schedule_name>

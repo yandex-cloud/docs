@@ -50,7 +50,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
    ```
    yc kms symmetric-crypto decrypt \
-     --id abj76v82ficsmn446ri7 \
+     --id abj76v82fics******** \
      --ciphertext-file ciphertext-file \
      --plaintext-file decrypted-file
    ```

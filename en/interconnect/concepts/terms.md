@@ -1,4 +1,9 @@
-# Terminology {{ interconnect-name }}
+---
+title: "{{ interconnect-full-name }} terminology"
+description: "You can find the key {{ interconnect-full-name }} terms below."
+---
+
+# {{ interconnect-name }} terminology 
 
 * **CIC**: Abbreviated name for the {{ interconnect-full-name }} service.
 * **POPs**: [Points of presence](./pops.md), i.e., Commercial communication hubs hosting third-party network equipment, including the {{ yandex-cloud }} equipment.

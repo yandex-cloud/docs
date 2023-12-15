@@ -5,8 +5,7 @@ editable: false
 # {{ compute-name }} pricing
 
 
-To calculate the cost of using {{ compute-name }}, use [our calculator]({{ link-cloud-calculator }}) or see the prices in this section.
-
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 
 
@@ -174,7 +173,7 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
@@ -203,7 +202,7 @@ The price with a CVoS is only available for regular VMs.
 
 {% note info %}
 
-GPU clusters will be [publicly available](../overview/concepts/launch-stages.md) and chargeable starting September 1, 2023.
+GPU clusters will be [publicly available](../overview/concepts/launch-stages.md) and billable starting September 1, 2023.
 
 {% endnote %}
 

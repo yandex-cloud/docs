@@ -1,12 +1,18 @@
-# Migrating data between {{ mkf-full-name }} clusters using {{ data-transfer-full-name }}
+# Migrating data between {{ KF }} clusters using {{ data-transfer-full-name }}
 
-You can transfer your data from {{ KF }} topics between one {{ mkf-name }} cluster and another in real time. Migration across versions is also supported. For example, you can move topics from {{ KF }} ver. 2.8 to ver. 3.1.
+You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and another in real time. Migration across versions is also supported. For example, you can move topics from {{ KF }} ver. 2.8 to ver. 3.1.
 
 This method of data migration enables you to:
 
 * Set up topic replication in the management console interface or in {{ TF }}.
 * Track the migration process using the [transfer monitoring](../../data-transfer/operations/monitoring.md).
-* Go without creating an intermediate VM or granting online access to your {{ mkf-name }} target cluster.
+* Go without creating an intermediate VM or granting online access to your target cluster.
+
+{% note info %}
+
+This tutorial describes a scenario for migrating data from one {{ mkf-name }} cluster to another.
+
+{% endnote %}
 
 To migrate data:
 
@@ -30,8 +36,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Using {{ TF }}
 
-      1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
       1. Download the [data-transfer-mkf-mkf.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mkf.tf) configuration file to the same working directory.
 
          This file describes:
@@ -39,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [Network](../../vpc/concepts/network.md#network).
          * [Subnet](../../vpc/concepts/network.md#subnet).
          * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
-         * A source {{ mkf-name }} cluster with public internet access.
+         * {{ mkf-name }} source cluster with public internet access.
          * {{ mkf-name }} target cluster.
          * {{ KF }} topic.
          * Transfer.
@@ -52,14 +61,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_kf_version`: {{ KF }} version in the target cluster.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before the [source and target endpoints are created manually](#prepare-transfer).
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -73,7 +81,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```json
    {
-       "device_id":"iv9a94th6rztooxh5ur2",
+       "device_id":"iv9a94th6rzt********",
        "datetime":"2020-06-05 17:27:00",
        "latitude":"55.70329032",
        "longitude":"37.65472196",
@@ -131,7 +139,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a {{ dt-type-repl }} type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-repl }} type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -148,7 +156,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -167,7 +175,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ```json
       {
-          "device_id": "iv9a94th6rztooxh5ur2",
+          "device_id": "iv9a94th6rzt********",
           "datetime": "2020-06-05 17:27:00",
           "latitude": 55.70329032,
           "longitude": 37.65472196,
@@ -179,7 +187,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       }
 
       {
-          "device_id": "rhibbh3y08qmz3sdbrbu",
+          "device_id": "rhibbh3y08qm********",
           "datetime": "2020-06-06 09:49:54",
           "latitude": 55.71294467,
           "longitude": 37.66542005,
@@ -191,7 +199,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       }
 
       {
-          "device_id": "iv9a94th6rztooxh5ur2",
+          "device_id": "iv9a94th6rzt********",
           "datetime": "2020-06-07 15:00:10",
           "latitude": 55.70985913,
           "longitude": 37.62141918,
@@ -207,13 +215,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ```bash
       jq -rc . sample.json | kafkacat -P \
-         -b <broker FQDN in the source cluster>:9091 \
+         -b <source_cluster_broker_FQDN>:9091 \
          -t sensors \
          -k key \
          -X security.protocol=SASL_SSL \
          -X sasl.mechanisms=SCRAM-SHA-512 \
-         -X sasl.username="<username in the source cluster>" \
-         -X sasl.password="<user password in the source cluster>" \
+         -X sasl.username="<username_in_the_source_cluster>" \
+         -X sasl.password="<user_password_in_the_source_cluster>" \
          -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
       ```
 
@@ -223,12 +231,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ```bash
       kafkacat -C \
-               -b <broker FQDN in the target cluster>:9091 \
+               -b <target_cluster_broker_FQDN>:9091 \
                -t measurements \
                -X security.protocol=SASL_SSL \
                -X sasl.mechanisms=SCRAM-SHA-512 \
-               -X sasl.username="<username in the target cluster>" \
-               -X sasl.password="<user password in the target cluster>" \
+               -X sasl.username="<username_in_the_target_cluster>" \
+               -X sasl.password="<user_password_in_the_target_cluster>" \
                -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
       ```
 
@@ -236,7 +244,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
@@ -263,9 +271,9 @@ Delete the other resources, depending on the method used to create them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

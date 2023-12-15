@@ -37,9 +37,9 @@ description: "Follow this guide to grant encryption key access rights."
          ```
 
          Where:
-         * `id`: Key ID.
-         * `user-account-id`: [User ID](../../iam/operations/users/get.md).
-         * `role`: [Role](../security/index.md#roles-list) being assigned.
+         * `--id`: Key ID.
+         * `--user-account-id`: [User ID](../../iam/operations/users/get.md).
+         * `--role`: [Role](../security/index.md#roles-list) being assigned.
 
       * To a [service account](../../iam/concepts/users/service-accounts.md):
 
@@ -51,9 +51,9 @@ description: "Follow this guide to grant encryption key access rights."
          ```
 
          Where:
-         * `id`: Key ID.
-         * `service-account-id`: [ID of your service account](../../iam/operations/sa/get-id.md).
-         * `role`: [Role](../security/index.md#roles-list) being assigned.
+         * `--id`: Key ID.
+         * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
+         * `--role`: [Role](../security/index.md#roles-list) being assigned.
 
 {% endlist %}
 

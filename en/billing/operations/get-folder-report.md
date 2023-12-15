@@ -4,7 +4,7 @@ You can get a CSV file with your general or per-resource spending details.
 
 ## Getting started {#before-you-begin}
 
-1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create a folder](../../resource-manager/operations/folder/create.md). In the folder name, specify the name of the project or client that is going to use this folder.
+1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md). In the folder name, specify the project or client to use the folder.
 
 1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}. {{ yandex-cloud }} will save detail files to this bucket. You can save details in multiple buckets.
 
@@ -26,8 +26,8 @@ You can get a CSV file with your general or per-resource spending details.
 - Management console
 
    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
    1. Select the account you want to get details for.
    1. In the left-hand panel, select **{{ ui-key.yacloud.billing.account.switch_exports }}**.
    1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
@@ -65,10 +65,10 @@ The table contains the following columns:
 * `billing_account_id`: [Billing account](../concepts/billing-account) ID.
 * `billing_account_name`: Name of the billing account.
 * `cloud_id`: ID of the [cloud](../../resource-manager/concepts/resources-hierarchy#cloud) that details are provided for.
-* `cloud_name`: Name of the cloud.
-* `folder_id`: ID of the folder.
-* `folder_name`: Name of the folder at the time of exporting details. This field value may be empty if you deleted the folder before exporting the details.
-* `resource_id`: Resource ID, resource name, or subscription ID. The value of this field may be empty if the use of the service refers to the entire folder or it doesn't contain any resources. Correlation between services and `resource_id` column values:
+* `cloud_name`: Cloud name.
+* `folder_id`: Folder ID.
+* `folder_name`: Name of the folder at the time of exporting details. This field may be empty if you deleted the folder before exporting the details.
+* `resource_id`: Resource ID, resource name, or subscription ID. This field may be empty if the use of the service refers to the entire folder or it does not contain any resources. Correlation between services and `resource_id` column values:
    * {{ compute-name }} and {{ marketplace-name }}: ID of the VM, disk snapshot, disk image, or other resource installed using {{ marketplace-name }}.
    * {{ objstorage-name }}: Bucket name.
    * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.

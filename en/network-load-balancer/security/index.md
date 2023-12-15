@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ network-load-balancer-full-name }}"
-description: "Access management in {{ network-load-balancer-full-name }}, a network balancer system. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in the {{ network-load-balancer-full-name }} network balancer service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ network-load-balancer-name }}
@@ -26,6 +26,7 @@ In this section, you will learn:
 
 * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
 * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* {% include [load-balancer.auditor](../../_includes/iam/roles/short-descriptions/load-balancer.auditor.md) %}
 * {% include [load-balancer.viewer](../../_includes/iam/roles/short-descriptions/load-balancer.viewer.md) %}
 * {% include [load-balancer.privateAdmin](../../_includes/iam/roles/short-descriptions/load-balancer.privateAdmin.md) %}
 * {% include [load-balancer.admin](../../_includes/iam/roles/short-descriptions/load-balancer.admin.md) %}

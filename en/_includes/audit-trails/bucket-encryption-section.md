@@ -9,11 +9,11 @@ To store logs in encrypted form:
    ```bash
    yc kms symmetric-key add-access-binding \
        --role kms.keys.encrypterDecrypter \
-       --id <encryption_key_ID> \
+       --id <key_ID> \
        --service-account-id <service_account_ID>
    ```
 
    Where:
-   * `role`: Role being assigned.
-   * `id`: ID of the encryption key.
-   * `service-account-id`: ID of your service account.
+   * `--role`: Role being assigned.
+   * `--id`: Encryption key ID.
+   * `--service-account-id`: Service account ID.

@@ -1,3 +1,8 @@
+---
+title: "How to use network load balancers in {{ network-load-balancer-full-name }}"
+description: "In this tutorial, you will learn about using a network load balancer in {{ network-load-balancer-name }}."
+---
+
 # Network load balancer use cases
 
 ## Virtual machines {#nlb-vm}

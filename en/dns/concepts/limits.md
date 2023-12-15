@@ -1,5 +1,5 @@
 ---
-title: "Quotas and limits in {{ dns-name }}"
+title: "Quotas and limits in {{ dns-full-name }}"
 description: "{{ dns-name }} has limits and quotas for the number of zones per cloud, the number of record sets per cloud, and the number of record sets per zone. For more information about the service restrictions, read this article."
 
 editable: false

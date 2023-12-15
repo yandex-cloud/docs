@@ -23,10 +23,7 @@ To create a key:
 
 - CLI
 
-   Run the command with the following parameters:
-   * `name`: Key name.
-   * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
-   * `rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `rotation-period` parameter.
+   Run this command:
 
    ```bash
    yc kms symmetric-key create \
@@ -34,6 +31,12 @@ To create a key:
      --default-algorithm aes-256 \
      --rotation-period 24h
    ```
+
+   Where:
+
+   * `--name`: Key name.
+   * `--default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
+   * `--rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
 
    The key is created along with its first version. It is specified in the `primary_version` field.
 
@@ -69,11 +72,7 @@ To edit a key:
 
 - CLI
 
-   Run the command with the following parameters:
-   * `name`: Key name. If there are multiple keys with the same name in the folder, use the key ID.
-   * `new-name`: New key name.
-   * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
-   * `rotation-period`: Key rotation period. To disable automatic rotation for an updated key, do not specify the `rotation-period` parameter.
+   Run this command:
 
    ```bash
    yc kms symmetric-key update \
@@ -82,6 +81,13 @@ To edit a key:
      --default-algorithm aes-128 \
      --rotation-period 48h
    ```
+
+   Where:
+
+   * `--name`: Key name. If there are multiple keys with the same name in the folder, use the key ID.
+   * `--new-name`: New key name.
+   * `--default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
+   * `--rotation-period`: Key rotation period. To disable automatic rotation for an updated key, do not specify the `--rotation-period` parameter.
 
 - API
 
@@ -136,7 +142,7 @@ To edit a key:
       You can check the key update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
-      yc kms symmetric-key get <key name>
+      yc kms symmetric-key get <key_name>
       ```
 
 {% endlist %}

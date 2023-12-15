@@ -1,4 +1,6 @@
 ---
+title: "Quotas and limits in {{ interconnect-full-name }}"
+description: "In this article, you will learn what quotas and limits are used in {{ interconnect-name }}."
 editable: false
 ---
 

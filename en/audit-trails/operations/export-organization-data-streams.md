@@ -1,6 +1,6 @@
 # Uploading organization audit logs to {{ yds-name }}
 
-Follow this guide to create a new [trail](../concepts/trail.md) that will upload configuration-level (Control Plane) audit logs of all resources and, optionally, service-level (Data Plane) audit logs of selected services of an organization to a {{ yds-name }} stream.
+Follow this guide to create a new [trail](../concepts/trail.md) that will upload management event (Control Plane) audit logs of all resources and, optionally, data event (Data Plane) audit logs of selected services of an organization to a {{ yds-name }} stream.
 
 
 ## Prepare the environment {#before-you-begin}
@@ -29,9 +29,9 @@ To export organization audit logs:
          ```
 
          Where:
-         * `role`: Role being assigned.
-         * `id`: ID of the organization from whose resources the audit logs will be collected.
-         * `service-account-id`: ID of your service account.
+         * `--role`: Role being assigned.
+         * `--id`: ID of the organization from whose resources audit logs will be collected.
+         * `--service-account-id`: Service account ID.
 
       * `yds.writer` for the folder to host the trail:
 
@@ -43,9 +43,9 @@ To export organization audit logs:
          ```
 
          Where:
-         * `role`: Role being assigned.
-         * `id`: ID of the folder to host the trail.
-         * `service-account-id`: ID of your service account.
+         * `--role`: Role being assigned.
+         * `--id`: ID of the folder to host the trail.
+         * `--service-account-id`: Service account ID.
 
    {% endlist %}
 
@@ -74,7 +74,7 @@ To create a trail that exports organization audit logs:
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
       * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select the data stream. You can also create a new data stream by clicking **{{ ui-key.yacloud.common.create-new }}** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) the data stream settings.
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the data stream.

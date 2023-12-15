@@ -16,9 +16,11 @@ The {{ GL }} Agent enables you to:
 
 ## Getting started {#before-you-begin}
 
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+To install the {{ GL }} Agent:
 
 1. [Create a {{ mgl-name }} instance](../../../managed-gitlab/operations/instance/instance-create.md) or a standalone instance.
 1. Create an agent configuration file in the repository:

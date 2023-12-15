@@ -1,3 +1,8 @@
+---
+title: "How to update a resource record in {{ dns-full-name }}"
+description: "Follow this guide to update a resource record."
+---
+
 # Updating a resource record
 
 You can update the value of a [resource record](../concepts/resource-record.md). To update a record:

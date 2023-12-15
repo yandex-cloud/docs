@@ -205,6 +205,7 @@ default:
   k8s-versions-regular: 1.25, 1.26, 1.27, 1.28
   k8s-versions-stable: 1.25, 1.26, 1.27
   k8s-vpa: Vertical Pod Autoscaler
+  keycloak: Keycloak
   KF: Apache Kafka®
   KFC: Kafka Connect
   kms-full-name: Yandex Key Management Service
@@ -752,14 +753,6 @@ default:
     mt:
       detect|string: ₽492.2000
       translate|string: ₽492.2000
-    speech:
-      stt_long_running_deferred:
-        v1|string: ₽0.0025
-      stt_long_running|string: ₽0.0100
-      stt|string: ₽0.1600
-      tts_gpu|string: ₽1320.0000
-      tts:
-        dialogue_platform|string: ₽0.1600
     vision:
       text_detection|int|string: ₽130
   sku|RUB|alb:
@@ -1311,7 +1304,7 @@ default:
       day:
         v1|int|string: ₽480
       night:
-        v1|int|string: ₽360
+        v1|int|string: Free
   sku|RUB|serverless:
     containers:
       compute:
@@ -1339,6 +1332,18 @@ default:
         v1|pricingRate:
           1|string: ₽16.0000
         v1|string: Free
+  sku|RUB|speechkit:
+    stt_long_running_deferred:
+      v1|string: ₽0.0025
+    stt_long_running:
+      v1|string: ₽0.0100
+    stt:
+      v1|string: ₽0.1600
+    tts_gpu:
+      v1|string: ₽1320.0000
+    tts:
+      dialogue_platform:
+        v1|string: ₽0.1600
   sku|RUB|storage:
     api:
       get:
@@ -1647,14 +1652,6 @@ default:
     mt:
       detect|string: $3.937600
       translate|string: $3.937600
-    speech:
-      stt_long_running_deferred:
-        v1|string: $0.000032
-      stt_long_running|string: $0.000128
-      stt|string: $0.001280
-      tts_gpu|string: $10.560000
-      tts:
-        dialogue_platform|string: $0.001280
     vision:
       text_detection|string: $1.040000
   sku|USD|alb:
@@ -2164,7 +2161,7 @@ default:
       day:
         v1|string: $3.840000
       night:
-        v1|string: $2.880000
+        v1|string: Free
   sku|USD|serverless:
     containers:
       compute:
@@ -2192,6 +2189,18 @@ default:
         v1|pricingRate:
           1|string: $0.128000
         v1|string: Free
+  sku|USD|speechkit:
+    stt_long_running_deferred:
+      v1|string: $0.000020
+    stt_long_running:
+      v1|string: $0.000080
+    stt:
+      v1|string: $0.001280
+    tts_gpu:
+      v1|string: $10.560000
+    tts:
+      dialogue_platform:
+        v1|string: $0.001280
   sku|USD|storage:
     api:
       get:
@@ -3938,7 +3947,7 @@ default:
             column_service: Service
             column_unit: Unit
             filter_label_all-filters: Filters
-            filter_label-folders-unfill: ''
+            filter_label-folders: 'Folders:'
             label_from: From
             label_product: Products
             label_service: Services
@@ -3946,6 +3955,7 @@ default:
             label_total: Total
             tab_product: By product
             value_cost: Consumption
+            value_folders: Folders
           exports:
             button_open-yandex-query: Process in YQ
             field_bucket: Bucket
@@ -5128,6 +5138,7 @@ default:
           label_node-groups: Node group
           label_nodes: Nodes
         workloads:
+          label_pods: Pods
           label_tab-logs: Logs
           label_tab-yaml: YAML
       kafka:

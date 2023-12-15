@@ -9,10 +9,10 @@ description: "Follow this guide to purchase a committed volume of services (CVoS
 
 ## To purchase a committed volume of services (CVoS) {#enable}
 
-1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Make sure your billing account consumption type is `{{ ui-key.yacloud.billing.account.overview.usage-type_label_paid }}`. For more information about activating the paid version, see [{#T}](activate-commercial.md).
 1. Make sure the user managing the billing account has the `billing.accounts.owner`, `editor`, or `admin` role. For more information about roles, see [{#T}](../security/index.md).
-1. Go to the ![image](../../_assets/billing/sack.svg) **{{ ui-key.yacloud.billing.account.switch_offers }}** page.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/sack.svg) **{{ ui-key.yacloud.billing.account.switch_offers }}**.
 1. Review the offers:
    1. Select a service and click the section with the new offer.
    1. Choose a platform.

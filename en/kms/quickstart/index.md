@@ -49,7 +49,7 @@ Come up with a secret text, for example <q>The launch is scheduled for Marchembe
 
       ```
       yc kms symmetric-crypto encrypt \
-       --id <key ID> \
+       --id <key_ID> \
        --plaintext-file plaintext.txt \
        --ciphertext-file ciphertext
       ```
@@ -70,7 +70,7 @@ Decrypt the `ciphertext` binary file from the previous step.
 
    ```
    yc kms symmetric-crypto decrypt \
-   --id <key ID> \
+   --id <key_ID> \
    --ciphertext-file ciphertext \
    --plaintext-file decrypted.txt
    ```

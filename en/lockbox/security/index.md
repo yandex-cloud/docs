@@ -1,18 +1,18 @@
 ---
 title: "Access management in {{ lockbox-full-name }}"
-description: "Access management in {{ lockbox-full-name }}, a secret storage system. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ lockbox-full-name }}, a secret storage system. This section describes which resources you can assign a role for, what roles exist in the service, and which roles are required for particular actions."
 ---
 
 # Access management in {{ lockbox-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#choosing-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or secret. These roles also apply to nested resources.
 
@@ -31,6 +31,7 @@ Active roles in the service:
 * {% include [lockbox-admin](../../_includes/iam/roles/short-descriptions/lockbox-admin.md) %}
 * {% include [lockbox-editor](../../_includes/iam/roles/short-descriptions/lockbox-editor.md) %}
 * {% include [lockbox-viewer](../../_includes/iam/roles/short-descriptions/lockbox-viewer.md) %}
+* {% include [lockbox-auditor](../../_includes/iam/roles/short-descriptions/lockbox-auditor.md) %}
 * {% include [lockbox-payloadviewer](../../_includes/iam/roles/short-descriptions/lockbox-payloadViewer.md) %}
 * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
 * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}

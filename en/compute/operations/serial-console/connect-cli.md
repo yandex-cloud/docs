@@ -28,7 +28,7 @@ To connect to the serial console, use the CLI.
 
    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
 1. Connect to the Linux serial console:
 
    ```bash
@@ -47,11 +47,13 @@ To connect to the serial console, use the CLI.
 
    Where:
    * `instance-name`: Required parameter. VM name.
-   * `user`: Optional parameter. Username. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md).
+   * `user`: Optional parameter. Username. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when creating the VM. For more information, see [{#T}](../vm-create/create-linux-vm.md).
    * `port`: Optional parameter. Port number to connect to the serial console.
       * The default value is 1. You don't need to specify this parameter to connect to the Linux serial console.
       * When connecting to the Windows serial console (SAC), pass the value 2.
    * `ssh-key`: Optional parameter. Path to the private key for SSH access to the Linux VM to be added to the [metadata](../../concepts/vm-metadata.md). If this parameter is omitted, the `yc_serialssh_key` SSH key is generated.
+
+      {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
 ### Troubleshooting {#troubleshooting}
 

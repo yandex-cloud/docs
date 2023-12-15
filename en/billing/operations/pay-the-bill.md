@@ -20,7 +20,7 @@ A billing cycle runs automatically for [individuals](../payment/billing-cycle-in
 ## Individuals {#individuals}
 
 To top up your personal account:
-1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
+1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select a billing account.
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
@@ -34,7 +34,7 @@ Your payment will be processed in real time and completed within 15 minutes.
 
 
 To top up your personal account:
-1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
+1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select a billing account.
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Select a payment method:
@@ -49,7 +49,7 @@ To top up your personal account:
 
    Before paying, please make sure the following is correct in your payment order:
    * Payment amount.
-   * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Kazakhstan), and Iron Hive doo Beograd (Serbia) (for non-residents of Russia and Kazakhstan).
+   * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Kazakhstan), and Iron Hive doo Beograd (Serbia) for non-residents of Russia and Kazakhstan.
    * Your company or individual entrepreneur TIN.
    * [Personal account number](../concepts/personal-account.md#id) in the payment details.
    * [Contract number](../concepts/contract.md) in the payment details.

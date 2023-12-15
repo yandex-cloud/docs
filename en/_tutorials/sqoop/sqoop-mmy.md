@@ -38,8 +38,11 @@ You can create other resources manually or using {{ TF }}.
 
 ### Using {{ TF }} {#create-terraform}
 
-1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
 1. Download the [clusters-mysql-data-proc-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqoop/clusters-mysql-data-proc-and-vm.tf) configuration file and save it to the same working directory.
 
    This file describes:
@@ -67,7 +70,6 @@ You can create other resources manually or using {{ TF }}.
 
       For an SSH connection to the hosts of {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
 1. Make sure the {{ TF }} configuration files are correct using this command:
 
    ```bash

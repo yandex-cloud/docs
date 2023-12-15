@@ -18,12 +18,7 @@ If you generate a new {{ iam-short-name }} token, the previous one continues to 
 
 If a token is created using cookies (for example, under [federated authentication](../../../cli/operations/authentication/federated-user.md)), its lifetime is limited to that of the cookies. If the cookies are revoked (for example, when the user logs out), all the tokens generated for the cookies are canceled.
 
-Recommendations for managing the lifetime of a token:
-
-* Don't use a token for more than 10% of its lifetime. For instance, if your token is valid for {{ iam-token-lifetime }}, request a new one in about an hour.
-* It is not a good practice to request a new token too often. Don't request a new token for each operation.
-
-The {{ iam-short-name }} API may return the same token in response to different requests if it's still a long time before it expires.
+The {{ iam-short-name }} API may return the same token in response to different requests if it is still a long time before it expires.
 
 ## Services that support this authentication method {#supported-services}
 

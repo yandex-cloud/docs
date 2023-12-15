@@ -40,20 +40,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Using {{ TF }}
 
-      1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
       1. Download the [data-transfer-mkf-mmg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mmg.tf) configuration file to the same working directory.
 
          This file describes:
 
-         * [Network](../../vpc/concepts/network.md#network)
-         * [Subnet](../../vpc/concepts/network.md#subnet)
+         * [Network](../../vpc/concepts/network.md#network).
+         * [Subnet](../../vpc/concepts/network.md#subnet).
          * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mkf-name }} and {{ mmg-name }} clusters.
-         * {{ mkf-name }} source cluster
+         * {{ mkf-name }} source cluster.
          * {{ KF }} topic named `sensors`.
          * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the `sensors` topic.
          * {{ mmg-name }} target cluster with the `db1` database and the `mmg-user` user.
-         * Transfer
+         * Transfer.
 
       1. In the `data-transfer-mkf-mmg.tf` file, specify the variables:
 
@@ -63,7 +66,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_user_password`: Password of `mmg-user` in the target cluster.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -106,7 +108,7 @@ Create a local `sample.json` file with the following test data:
 
 ```json
 {
-    "device_id": "iv9a94th6rztooxh5ur2",
+    "device_id": "iv9a94th6rzt********",
     "datetime": "2020-06-05 17:27:00",
     "latitude": 55.70329032,
     "longitude": 37.65472196,
@@ -117,7 +119,7 @@ Create a local `sample.json` file with the following test data:
     "fuel_level": null
 }
 {
-    "device_id": "rhibbh3y08qmz3sdbrbu",
+    "device_id": "rhibbh3y08qm********",
     "datetime": "2020-06-06 09:49:54",
     "latitude": 55.71294467,
     "longitude": 37.66542005,
@@ -128,7 +130,7 @@ Create a local `sample.json` file with the following test data:
     "fuel_level": 32
 }
 {
-    "device_id": "iv9a94th6rztooxh5ur2",
+    "device_id": "iv9a94th6rzt********",
     "datetime": "2020-06-07 15:00:10",
     "latitude": 55.70985913,
     "longitude": 37.62141918,
@@ -154,7 +156,7 @@ Create a local `sample.json` file with the following test data:
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}`.
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: `mkf-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the user password.
@@ -164,7 +166,7 @@ Create a local `sample.json` file with the following test data:
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `JSON`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
             Insert the data schema in JSON format:
 
@@ -273,13 +275,13 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <FQDN of the broker host>:9091 \
+      -b <broker_host_FQDN>:9091 \
       -t sensors \
       -k key \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username="mkf-user" \
-      -X sasl.password="<user password in the source cluster>" \
+      -X sasl.password="<user_password_in_the_source_cluster>" \
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
@@ -287,7 +289,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 1. Check that the `sensors` collection in the {{ mmg-name }} cluster contains the sent data:
 
-   1. [Connect to the cluster {{ mmg-name }}](../../managed-mongodb/operations/connect/index.md)
+   1. [Connect to the {{ mmg-name }} cluster](../../managed-mongodb/operations/connect/index.md).
 
    1. Get the contents of the `sensors` collection using the query below:
 
@@ -299,7 +301,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

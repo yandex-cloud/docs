@@ -1,10 +1,12 @@
-# Managing {{ managed-k8s-name }} cluster node labels
+# Managing {{ k8s }} node labels
 
 You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ managed-k8s-name }} nodes in a [node group](../../concepts/index.md#node-group) at the same time. To do this, specify a set of labels using the `node_labels` parameter when [creating a {{ managed-k8s-name }} node group](../../operations/node-group/node-group-create.md).
+
 1. Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
    You can use an existing {{ managed-k8s-name }} cluster or [create a new one](../kubernetes-cluster/kubernetes-cluster-create.md).
-1. Create a {{ managed-k8s-name }} node group with labels.
+
+1. Create a node group with {{ k8s }} labels.
 
    {% list tabs %}
 
@@ -154,7 +156,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
 
    {% endlist %}
 
-1. Get information about the created group of labeled {{ managed-k8s-name }} nodes:
+1. Get information about the created node group with {{ k8s }} labels:
 
    {% list tabs %}
 

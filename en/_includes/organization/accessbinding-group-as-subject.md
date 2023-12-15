@@ -1,20 +1,18 @@
 {% list tabs %}
 
-- Management console
+- {{ org-name }}
 
-   1. Select the cloud or folder.
+   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
 
-   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
 
-   1. In the **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** window, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+   1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
    1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the required group or search by group name.
 
-   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
-
-   1. Select a role in the cloud or folder.
+   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select a role in the cloud or folder. You can assign multiple roles.
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -54,7 +52,7 @@
 
    1. Select a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
 
-   1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `group` type and group ID in the `subject` property:
+   1. Create a request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `group` type and group ID in the `subject` property:
 
       **body.json:**
       ```json

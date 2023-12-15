@@ -1,3 +1,8 @@
+---
+title: "Resource records in {{ dns-full-name }}"
+description: "A resource record is the main unit of information in a DNS. Using resource records, you determine where to route queries that come to specific domain names."
+---
+
 # Resource records
 
 A resource record is the main unit of information in a DNS. Using resource records, you determine where to route queries that come to specific domain names. Resource records have the following parameters:
@@ -158,10 +163,10 @@ For more information about PTR records, see [RFC-1035](https://www.ietf.org/rfc/
 
 It consists of the following parts:
 
-* `MNAME`: The domain name of the server that handles the zone. Default: 0.
+* `MNAME`: Domain name of the server that handles the zone. The default value is:
    * `ns.internal.` for private zones.
    * `ns1.{{ dns-ns-host-sld }}.` for public zones.
-* `RNAME`: The domain name of the mail server that handles the zone. Default value: `{{ dns-mx-host }}.`.
+* `RNAME`: Domain name of the mail server that handles the zone. The default value is `{{ dns-mx-host }}.`.
 * `SERIAL`: An unsigned 32-bit integer that points to the number of a zone copy. When synchronizing data between DNS servers, the value in the `SERIAL` field is checked. The larger it is, the more recent the data. The default value is `1`.
 
    {% note warning %}

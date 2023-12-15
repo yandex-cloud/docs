@@ -1,3 +1,8 @@
+---
+title: "How to create a private DNS zone in {{ dns-full-name }}"
+description: "Follow this guide to create a private DNS zone."
+---
+
 # Creating an internal DNS zone
 
 To create an internal [DNS zone](../concepts/dns-zone.md):
@@ -114,7 +119,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
 
       {% note alert %}
 
-      You will be charged for all the resources created with {{ TF }}. Check the plan carefully.
+      You will be charged for all the resources created with {{ TF }}. Check the pricing plan carefully.
 
       {% endnote %}
 

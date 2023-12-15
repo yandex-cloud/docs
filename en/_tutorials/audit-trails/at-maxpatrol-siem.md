@@ -80,8 +80,14 @@ Assign your `maxpatrol-sa` service account the `audit-trails.viewer` and the `yd
       yc organization-manager organization add-access-binding \
       --role audit-trails.viewer \
       --id <organization_ID> \
-      --service-account-id <maxpatrol-sa_service_account_ID>
+      --service-account-id <service_account_ID>
       ```
+
+      Where:
+
+      * `--role`: Role being assigned.
+      * `--id`: ID of the organization the service account belongs to.
+      * `--service-account-id`: ID of the `maxpatrol-sa` service account.
 
       Result:
 
@@ -96,8 +102,13 @@ Assign your `maxpatrol-sa` service account the `audit-trails.viewer` and the `yd
       ```bash
       yc resource-manager folder add-access-binding example-folder \
         --role yds.editor \
-        --subject serviceAccount:<maxpatrol-sa_service_account_ID>
+        --subject serviceAccount:<service_account_ID>
       ```
+
+      Where:
+
+      * `--role`: Role being assigned.
+      * `--subject`: ID of the `maxpatrol-sa` service account.
 
       Result:
 
@@ -187,9 +198,9 @@ The database is required for the `{{ yds-name }}` data stream.
       ```
 
       Where:
-      * `name`: Database name.
-      * `serverless`: Serverless type.
-      * `folder-name`: Folder name.
+      * `--name`: Database name.
+      * `--serverless`: Serverless type.
+      * `--folder-name`: Folder name.
 
       Result:
 
@@ -238,7 +249,7 @@ This is the data stream the trail will upload organization resource logs to.
 
 ## Create a trail {#create-trail}
 
-The trail will collect the configuration-level (Control Plane) audit logs for all of your organization's resources and [upload](../../audit-trails/operations/export-organization-data-streams.md) them to the `maxpatrol-stream` data stream.
+The trail will collect the management event (Control Plane) audit logs for all of your organization's resources and [upload](../../audit-trails/operations/export-organization-data-streams.md) them to the `maxpatrol-stream` data stream.
 
 {% list tabs %}
 
@@ -296,10 +307,10 @@ Create and run a data collection job with the {{ yds-full-name }} profile:
       * **Account**: `static-key-id`.
       * **Access upgrade account**: `static-key-private`.
    1. **Script runtime parameters**:
-      * **database**: <maxpatrol-db_DB_ID>.
-      * **folder**: <cloud_ID_in_example-folder>.
-      * **region_name**: {{ region-id }}.
-      * **stream_name**: <maxpatrol-stream_name>.
+      * **database**: `<maxpatrol-db_database_ID>`
+      * **folder**: `<cloud_ID_for_example-folder>`
+      * **region_name**: `{{ region-id }}`
+      * **stream_name**: `<maxpatrol-stream_name>`
    1. On the **Data collection objectives** panel:
       1. Select the **Enable** tab.
       1. In the **Network addresses** field, enter `yandex-cloud`.

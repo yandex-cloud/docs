@@ -29,18 +29,21 @@ Prepare the infrastructure:
 
 * Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [data-transfer-ydb-yds.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-ydb-yds.tf) configuration file to the same working directory.
 
       This file describes:
 
-      * [Network](../../vpc/concepts/network.md#network)
-      * [Subnet](../../vpc/concepts/network.md#subnet)
-      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to the {{ ydb-name }} database
-      * {{ ydb-name }} source database
-      * {{ ydb-name }} database for the target stream
-      * Transfer
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
+      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to the {{ ydb-name }} database.
+      * {{ ydb-name }} source database.
+      * {{ ydb-name }} database for the target stream.
+      * Transfer.
 
    1. In the `data-transfer-ydb-yds.tf` file, specify the variables:
 
@@ -48,7 +51,6 @@ Prepare the infrastructure:
       * `target_db_name`: {{ ydb-name }} database name for the target stream.
       * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [create endpoints](#prepare-transfer).
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

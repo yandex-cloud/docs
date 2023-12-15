@@ -121,7 +121,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       {
         "Rules": [
           {
-            "ID": "DeleteOldBackups",
+            "ID": "DeleteOldTaggedBackups",
             "Filter": {
               "Prefix": "backup/"
             },
@@ -134,12 +134,18 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       }
       ```
 
-      Possible configuration parameters:
+      The possible configuration parameters include:
       * `ID`: Unique rule ID, which must be 255 characters or less. This is an optional parameter.
       * `Filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
-         * `Prefix`: Key prefix. The rule applies to objects with the specified key prefix. This is an optional parameter.
+         * `Prefix`: Key prefix. The rule applies to objects with the specified key prefix. This is an optional parameter. It cannot be used with the `Tag` filter.
+
          * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
          * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
+         * `Tag`: Object's [tag](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It cannot be used with the `Prefix` filter. It is delivered as a record that contains two pairs of values, for example:
+
+            ```json
+            "Tag": {"Key":"sample-key", "Value":"sample-value"}
+            ```
 
          If no object filter is set, the rule applies to all objects in the bucket.
       * `Status`: Rule status. This is a required parameter. The possible values include:
@@ -296,7 +302,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:

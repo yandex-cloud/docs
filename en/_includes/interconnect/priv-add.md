@@ -27,8 +27,6 @@ ipv4_peering:
   peer_bgp_asn: 65001
   #cloud_bgp_asn: {{ cic-bgp-asn }}
 vpc:
-  cloud_id: b1g8dn6s3v2eiid9dbci
-  folder_id: b1g28j9359gic3p2gca2
   vpc_net_id: enpdffqsg8r221d7vjq5
   vpc_subnets:
     {{ region-id }}-a: [10.60.192.0/21]
@@ -44,9 +42,9 @@ Where:
 * `peer_ip`: IP address of the point-to-point (peering) subnet on the customer's equipment. This value is selected by the customer.
 * `cloud_ip`: IP address of the point-to-point (peering) subnet on the {{ yandex-cloud }} equipment. This value is selected by the customer.
 * `peer_bgp_asn`: [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) on the customer's equipment in ASPlain format. This value is selected by the customer.
-* `cloud_id`, `folder_id`, `vpc_net_id`: IDs for the location of the {{ vpc-full-name }} network with resources this private connection can connect to.
+* `vpc_net_id`: ID of the {{ vpc-full-name }} network for a private connection.
 * `vpc_subnets`: List of IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). The resources in these subnets will only be accessible via this private connection. These prefixes will be announced over BGP by the {{ yandex-cloud }} equipment in the direction towards the customer's equipment.
-
+* `folder_id` (optional): By default, private connection monitoring metrics will be saved to the folder specified when creating a trunk. If required, you can explicitly specify the folder to save private connection monitoring metrics to.
 
 ### Support team's response to the customer's request {#priv-ticket-resp}
 

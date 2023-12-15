@@ -83,8 +83,8 @@ The table below provides a list of operations available to each role.
 A user who is granted the `billing.accounts.admin` role can add any {{ yandex-cloud }} user or service account to the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}** list. To do this:
 
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
 1. Click **{{ ui-key.yacloud.billing.account.users.button_add }}**.
@@ -97,11 +97,11 @@ The user or service account is assigned the `billing.accounts.member` role and a
 
 Users with the `billing.accounts.admin` role can grant access to the billing account to any user or service account on the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}** list. To do this:
 
-1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
+1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
 1. Find the user or service account in the list.
-1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_tune-role }}**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_tune-role }}**.
 1. Click **{{ ui-key.yacloud.billing.account.users.popup-tune-role_add-button }}**.
 1. Select a role from the list. The role is assigned without expiration.
 
@@ -109,12 +109,12 @@ Users with the `billing.accounts.admin` role can grant access to the billing acc
 
 A user with the `billing.accounts.admin` role can revoke roles from users or service accounts on the list at any time. To do this:
 
-1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
+1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
 1. Find the user or service account in the list.
-1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_tune-role }}**.
-1. Click ![image](../../_assets/cross.svg) next to the role to be invoked. The role is revoked.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_tune-role }}**.
+1. Click ![image](../../_assets/console-icons/xmark.svg) next to the role to be invoked. The role is revoked.
 
 
 {% note info %}
@@ -125,9 +125,9 @@ If the `billing.accounts.member` role is revoked from a user, they will not be a
 
 ## Deleting users {#delete-user}
 
-1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
+1. In the top-left corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 1. Go to the **{{ ui-key.yacloud.billing.account.switch_users }}** page.
 1. Find the user or service account in the list.
-1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_remove-user }}**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.billing.account.users.button_remove-user }}**.
 1. This deletes the user from the list of the billing account users.

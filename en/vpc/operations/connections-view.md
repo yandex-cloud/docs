@@ -1,3 +1,8 @@
+---
+title: "How to view a chart of network connections in {{ vpc-full-name }}"
+description: "Follow this guide to view a chart of network connections."
+---
+
 # Chart of network connections
 
 To view the chart of your VM or cluster network connections:

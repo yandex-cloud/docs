@@ -4,7 +4,7 @@
 
 In the query history, you can see all the requests executed within the connection session. You can view and repeat your previously executed requests:
 
-1. Go to the **Query history** section (![image](../../_assets/websql/history.svg)). Successful queries are marked with ![image](../../_assets/websql/success.svg), failed queries are marked with ![image](../../_assets/websql/failed.svg).
+1. Go to the **Query history** section (![image](../../_assets/console-icons/clock-arrow-rotate-left.svg)). Successful queries are marked with ![image](../../_assets/websql/success.svg), failed queries are marked with ![image](../../_assets/websql/failed.svg).
 1. Select a query: it will show up in the data panel.
 1. Click **Execute** to repeat this query.
 

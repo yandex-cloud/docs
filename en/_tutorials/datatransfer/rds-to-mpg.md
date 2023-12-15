@@ -50,12 +50,14 @@ Prepare the infrastructure:
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+
    1. Set up the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). The AWS provider for {{ TF }} uses the AWS CLI configuration to access the service.
-   1. Download a [provider configuration file](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf) and save it to a separate working directory.
+   1. [Configure the {{ TF }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf) and save it to a separate working directory.
    1. Edit the `provider.tf` file:
 
-      * [Set the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) for the `yandex` provider.
+      * [Set the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) for the `yandex` provider. If you did not add the authentication credentials to environment variables, specify them in the configuration file.
       * Add the `aws` provider to the `required_providers` section:
 
          ```hcl

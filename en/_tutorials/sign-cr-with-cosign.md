@@ -25,8 +25,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install](../_includes/terraform-install.md) %}
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/k8s-validate-cr-image.tf) configuration file to the same working directory.
 
       This file describes:
@@ -44,7 +47,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ managed-k8s-name }} cluster CIDR.
       * Name of the cluster service account.
       * Name of the {{ container-registry-name }} registry.
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -204,53 +206,57 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Install Cosign](https://docs.sigstore.dev/cosign/installation).
    1. Generate a key pair using Cosign:
-   
+
       ```bash
       cosign generate-key-pair
       ```
-   
+
       Set a private key's password and enter it twice.
-   
+
       Result:
-   
+
       ```bash
       Enter password for private key:
       Enter password for private key again:
       Private key written to cosign.key
       Public key written to cosign.pub
       ```
-   
+
    1. Sign the Docker image in the {{ container-registry-name }} registry:
-   
+
       ```bash
-      cosign sign --key cosign.key {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
+      cosign sign \
+          --key cosign.key \
+          {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
       ```
-   
+
       The signed image will be used when [checking results](#check-result).
-   
+
       Enter the password for the private key. Result:
-   
+
       ```bash
       Enter password for private key:
       Pushing signature to: {{ registry }}/<registry_ID>/<Docker_image_name>
       ```
-   
+
       A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
 
    1. Check manually that the Docker image signature is correct:
-   
+
       ```bash
-      cosign verify --key cosign.pub {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
+      cosign verify \
+          --key cosign.pub \
+          {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
       ```
-   
+
       Result:
-   
+
       ```bash
       Verification for {{ registry }}/<registry_ID>/<Docker_image_name>:<tag> --
       The following checks were performed on each of these signatures:
       - The cosign claims were validated
       - The signatures were verified against the specified public key
-   
+
       [{"critical":{"identity":{"docker-reference":"{{ registry }}/<registry_ID>/<Docker_image_name>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
       ```
 
@@ -262,9 +268,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```bash
    yc iam key create \
-     --service-account-name=<name_of_service_account_with_{{ roles-cr-puller }}_role> \
+     --service-account-name=<service_account_name> \
      --output authorized-key.json
    ```
+
+   Where `--service-account-name` is the name of the service account with the {{ roles-cr-puller }} role.
 
 1. Install the [Kyverno](https://kyverno.io/docs/) app to the {{ managed-k8s-name }} cluster. You need it to create a policy for verifying Docker image signatures.
    1. Add the `kyverno` repository:

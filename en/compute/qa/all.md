@@ -1,3 +1,8 @@
+---
+title: "Questions and answers about {{compute-full-name }}"
+description: "This page provides answers to questions about {{ compute-name }}."
+---
+
 # Questions and answers about {{ compute-name }}
 
 ## General questions {#general}

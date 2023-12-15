@@ -12,7 +12,7 @@ The transfer type you select depends on data changes on the source endpoint, req
 
 ### Copy {#copy}
 
-The _{{ dt-type-copy }}_ transfer is designed for transferring the state of the source database to the target without keeping it up-to-date. Changes that occurred on the source after the transfer is completed will not be transferred. This type of transfers can be useful when there is no writing load on the source or there is no need to keep the target database up-to-date, for example, [when deploying test environments](./use-cases.md#testing).
+The _{{ dt-type-copy }}_ transfer is designed for transferring the state of the source database to the target without keeping it up-to-date. Changes occurring on the source after the transfer is completed will not be transferred. This type of transfer can prove useful when there is no writing load on the source or no need to keep the target database up-to-date, e.g., [when deploying test environments](./use-cases.md#testing).
 
 When the transfer is ready, its status automatically switches to {{ dt-status-copy }}. It is maintained until all data in the source is transferred to the target. Then the transfer is automatically deactivated and switches its status to {{ dt-status-finished }}.
 
@@ -56,11 +56,11 @@ The current transfer status determines available actions with transfers. For mor
 
 * {{ dt-status-creation }}: Assigned to a transfer after [activation](../operations/transfer.md#activate).
 
-   At this time, the service checks the connection to the source and target and creates the resources necessary for the transfer. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be available, for example, creating replication slots, copying a data schema, and so on.
+   At this time, the service checks the connection to the source and target and creates the resources necessary for the transfer. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be available, e.g., creating replication slots, copying a data schema, and so on.
 
 * {{ dt-status-stopping }}: Assigned to the transfer after [deactivation](../operations/transfer.md#deactivate).
 
-   At this time, the service performs the actions necessary to properly disconnect from the source and target. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be performed, for example, closing replication slots, transferring triggers, stored procedures, and functions, creating indexes in the target database, and so on.
+   At this time, the service performs the actions necessary to properly disconnect from the source and target. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be performed, e.g., closing replication slots, transferring triggers, stored procedures, and functions, creating indexes in the target database, and so on.
 
 * {{ dt-status-stopped }}: Assigned to the transfer after [deactivation](../operations/transfer.md#deactivate) is complete.
 

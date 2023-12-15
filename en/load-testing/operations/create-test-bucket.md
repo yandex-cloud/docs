@@ -1,3 +1,8 @@
+---
+title: "How to create a test with data from a bucket in {{ load-testing-full-name }}"
+description: "Follow this guide to create a test with data from a bucket."
+---
+
 # Creating a test with data from a bucket
 
 You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [bucket](../../storage/concepts/bucket.md) to {{ load-testing-name }}. This method allows you to:

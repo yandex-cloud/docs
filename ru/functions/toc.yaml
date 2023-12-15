@@ -119,6 +119,8 @@ items:
                 href: operations/function/function-logs.md
               - name: Записать логи
                 href: operations/function/logs-write.md
+          - name: Миграция в зону {{ region-id }}-d
+            href: operations/function/migration.md
           - name: Удалить функцию
             href: operations/function/function-delete.md
       - name: Получение информации о триггере

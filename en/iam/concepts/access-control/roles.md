@@ -50,7 +50,11 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 ## {{ alb-full-name }} {#alb-roles}
 
+{% include [roles-alb-auditor](../../../_includes/roles-alb-auditor.md) %}
+
 {% include [roles-alb-viewer](../../../_includes/roles-alb-viewer.md) %}
+
+{% include [roles-alb-user](../../../_includes/roles-alb-user.md) %}
 
 {% include [roles-alb-editor](../../../_includes/roles-alb-editor.md) %}
 
@@ -85,6 +89,12 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 {% include [billing-partners-editor](../../../_includes/iam/roles/billing-partners-editor.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
+
+{% include [roles-certificate-manager-auditor](../../../_includes/roles-certificate-manager-auditor.md) %}
+
+{% include [roles-certificate-manager-viewer](../../../_includes/roles-certificate-manager-viewer.md) %}
+
+{% include [roles-certificate-manager-editor](../../../_includes/roles-certificate-manager-editor.md) %}
 
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
 
@@ -160,11 +170,17 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [organization-manager-groups-memberAdmin](../../../_includes/roles-organization-manager-groups-memberAdmin.md) %}
 
+{% include [roles-organization-manager-federations-viewer](../../../_includes/roles-organization-manager-federations-viewer.md) %}
+
+{% include [roles-organization-manager-federations-admin](../../../_includes/roles-organization-manager-federations-admin.md) %}
+
 {% include [organization-manager-oslogins-admin](../../../_includes/roles-organization-manager-oslogins-admin.md) %}
 
 {% include [organization-manager-oslogins-viewer](../../../_includes/roles-organization-manager-oslogins-viewer.md) %}
 
 ## {{ compute-full-name }} {#compute-roles}
+
+{% include [roles-compute-auditor](../../../_includes/roles-compute-auditor.md) %}
 
 {% include [roles-compute-viewer](../../../_includes/roles-compute-viewer.md) %}
 
@@ -354,6 +370,8 @@ In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-com
 
 {% include [load-testing-generatorClient](../../../_includes/roles-load-testing-generatorClient.md) %}
 
+{% include [load-testing-externalAgent](../../../_includes/roles-load-testing-externalAgent.md) %}
+
 ## {{ lockbox-full-name }} {#lockbox-roles}
 
 {% include [lockbox-admin](../../../_includes/roles-lockbox-admin.md) %}
@@ -361,6 +379,8 @@ In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-com
 {% include [lockbox-editor](../../../_includes/roles-lockbox-editor.md) %}
 
 {% include [lockbox-viewer](../../../_includes/roles-lockbox-viewer.md) %}
+
+{% include [roles-lockbox-auditor](../../../_includes/roles-lockbox-auditor.md) %}
 
 {% include [lockbox-payloadViewer](../../../_includes/roles-lockbox-payloadViewer.md) %}
 
@@ -538,6 +558,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 ## {{ network-load-balancer-full-name }} {#load-balancer-roles}
 
+{% include [roles-lb-auditor](../../../_includes/roles-lb-auditor.md) %}
+
 {% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
 
 {% include [roles-lb-private-admin](../../../_includes/roles-lb-private-admin.md) %}
@@ -595,6 +617,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 ## {{ captcha-full-name }} {#smartcaptcha-roles}
 
+{% include [roles-smart-captcha-auditor](../../../_includes/roles-smart-captcha-auditor.md) %}
+
 {% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
 
 {% include [smartcaptcha-editor](../../../_includes/roles-smartcaptcha-editor.md) %}
@@ -644,17 +668,25 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 ## {{ vpc-full-name }} {#vpc-roles}
 
+{% include [roles-vpc-auditor](../../../_includes/roles-vpc-auditor.md) %}
+
 {% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
 
 {% include [roles-vpc-user](../../../_includes/roles-vpc-user.md) %}
+
+{% include [roles-vpc-bridge-admin](../../../_includes/roles-vpc-bridge-admin.md) %}
 
 {% include [roles-vpc-private-admin](../../../_includes/roles-vpc-private-admin.md) %}
 
 {% include [roles-vpc-public-admin](../../../_includes/roles-vpc-public-admin.md) %}
 
+{% include [roles-vpc-gw-viewer](../../../_includes/roles-vpc-gw-viewer.md) %}
+
 {% include [roles-vpc-gw-editor](../../../_includes/roles-vpc-gw-editor.md) %}
 
 {% include [roles-vpc-gw-user](../../../_includes/roles-vpc-gw-user.md) %}
+
+{% include [roles-vpc-sg-user](../../../_includes/roles-vpc-sg-user.md) %}
 
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 

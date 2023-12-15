@@ -19,6 +19,7 @@ description: "На странице представлен список поша
 - [{#T}](subnet-delete.md)
 - [{#T}](subnet-update.md)
 - [{#T}](subnet-move.md)
+- [{#T}](subnet-relocate.md)
 - [{#T}](subnet-used-addresses.md)
 
 ## Адреса {#addresses}

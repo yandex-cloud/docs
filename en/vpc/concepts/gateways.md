@@ -1,3 +1,8 @@
+---
+title: "Gateways in {{ vpc-full-name }}"
+description: "In this tutorial, you will learn about gateways used in {{ vpc-full-name }}."
+---
+
 # Gateways
 
 ## NAT gateway {#nat-gateway}

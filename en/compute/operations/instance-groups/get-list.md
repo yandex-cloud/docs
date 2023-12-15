@@ -1,3 +1,8 @@
+---
+title: "How to get a list of instance groups in {{ compute-full-name }}"
+description: "Follow this guide to get a list of instance groups."
+---
+
 # Get a list of instance groups
 
 To get a list of instance groups:

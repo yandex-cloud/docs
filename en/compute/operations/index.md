@@ -88,6 +88,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/disk-encrypt.md)
+* [{#T}](disk-control/get-info.md)
 * [{#T}](disk-control/delete.md)
 
 ## Disk snapshots {#snapshots}
@@ -105,6 +106,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/add-disk.md)
+* [{#T}](disk-placement-groups/get-info.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
 
 
@@ -129,6 +131,7 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](filesystem/attach-to-vm.md)
 * [{#T}](filesystem/detach-from-vm.md)
 * [{#T}](filesystem/update.md)
+* [{#T}](filesystem/get-info.md)
 * [{#T}](filesystem/delete.md)
 
 

@@ -42,7 +42,11 @@ This way, SAN ensures that there is no competition between user and service load
 
 The [cost](../../compute/pricing.md#software-accelerated-network) of additional hardware resources depends on the [platform](../../compute/concepts/vm-platforms.md) and the number of VM cores.
 
-To enable a software-accelerated network, [update the settings](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) of the existing VM or select the **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** option [when creating a new VM](../../compute/operations/vm-create/create-linux-vm.md).
+To enable a software-accelerated network:
+
+* Select the **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** option when [creating a new VM](../../compute/operations/vm-create/create-linux-vm.md) or [reconfigure](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) an existing VM.
+
+* Enable the **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** option in the basic VM configuration when [creating an instance group](../../compute/operations/instance-groups/create-fixed-group.md) or set the `network_settings.type` key to `SOFTWARE_ACCELERATED` in the [YAML specification](../../compute/concepts/instance-groups/specification.md).
 
 ## Recommendations for using a software-accelerated network {#use-cases}
 

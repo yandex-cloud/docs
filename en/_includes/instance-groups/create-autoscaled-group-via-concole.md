@@ -27,6 +27,8 @@
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
       * Enter the required number of vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.
       * {% include [include](specify-preemptible-vm.md) %}
+
+      * (Optional) Enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       {% include [network-settings-group](../../_includes/compute/network-settings-group.md) %}

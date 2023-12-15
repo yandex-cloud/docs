@@ -1,3 +1,8 @@
+---
+title: "How to update an instance group in {{ compute-full-name }} based on a YAML specification"
+description: "Follow this guide to update an instance group based on a YAML specification."
+---
+
 # Editing an instance group based on the specification in YAML format
 
 To update an [instance group](../../concepts/instance-groups/index.md) based on the [specification](../../concepts/instance-groups/specification.md) in YAML format:
@@ -10,9 +15,9 @@ To update an [instance group](../../concepts/instance-groups/index.md) based on 
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   Run the command below by specifying the instance group name or ID and the YAML specification file path:
+   Run the command below, specifying the instance group name or ID and the YAML specification file path:
 
-   ```
+   ```bash
    {{ yc-compute-ig }} update <instance_group_name>|<instance_group_ID> --file specification.yaml
    ```
 

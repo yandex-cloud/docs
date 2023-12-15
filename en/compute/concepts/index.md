@@ -1,3 +1,8 @@
+---
+title: "Resource relationships in {{ compute-full-name }}"
+description: "This tutorial describes relationships between {{ compute-short-name }} resources, resource types, and relationships with other {{ yandex-cloud }} services."
+---
+
 # Resource relationships in {{ compute-full-name }}
 
 All resources in {{ compute-short-name }} break down into three types:

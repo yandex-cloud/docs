@@ -136,7 +136,7 @@ To synchronize the order information from the MySQL database of the website with
    * Under **Target**, select the `magento-report-dest` endpoint.
    * Under **Transfer type**, select `Copy and replicate`.
    * Click **Create**.
-   * Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the transfer description and select **Activate**.
+   * Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the line with the transfer description and select **Activate**.
 
    As a result, the initial synchronization of data schemas and other information is performed and, in the future, the data will be automatically synchronized when changes appear in the source database. For the synchronization status and error messages, see **Logs**.
 
@@ -163,7 +163,7 @@ To synchronize the order information from the MySQL database of the website with
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the `magento` VM.
 * [Delete](../../managed-mysql/operations/cluster-delete.md) the `ya-sample-cloud-mysql` cluster.

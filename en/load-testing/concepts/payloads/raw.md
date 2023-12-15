@@ -1,6 +1,8 @@
 # RAW
 
-A type of payload for the Pandora load generator. Similar to the [PHANTOM](phantom.md) data type.
+Type of test data for the Pandora load generator. Similar to the [PHANTOM](phantom.md) data type
+
+The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).
 
 Data format:
 
