@@ -201,13 +201,11 @@ If the action was run by a {{ yandex-cloud }} infrastructure service or a suppor
 Depending on the [destination object](./trail.md#target) (a bucket or log group), the message used by {{ at-name }} to transmit audit logs has a different structure and content:
 * If the destination object is a bucket, the message is a file containing an array of [JSON objects](./format.md#scheme) of the audit log.
 * If the destination object is a log group, the message includes a single JSON object of the audit log.
-
-
 ### Audit log file in a bucket {#log-file-name}
 
 Below is the template for the full name of an audit log file in a bucket:
 
-`<object prefix>/<trail ID>/<year>/<month>/<file_name.json>`
+`<object_prefix>/<trail_ID>/<year>/<month>/<file_name.json>`
 
 
 ### Log group entry {#logging-group-name}

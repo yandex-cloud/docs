@@ -8,7 +8,7 @@
 
 To work with {{ websql-full-name }}, use:
 
-* _Control panel_ is the far-left panel with icons for **Connection manager** ![image](../../_assets/websql/connections.svg), **Saved queries** ![image](../../_assets/websql/template.svg), and **Query history** ![image](../../_assets/websql/history.svg).
+* _Control panel_ is the far-left panel with icons for **Connection manager** ![image](../../_assets/console-icons/folder-tree.svg), **Saved queries** ![image](../../_assets/console-icons/floppy-disk.svg), and **Query history** ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg).
 * _Connection manager_ is a panel for viewing existing and adding new database connections.
 * _Data panel_ is the far-right panel where you can build SQL queries and view the results of their execution and the connection settings.
 

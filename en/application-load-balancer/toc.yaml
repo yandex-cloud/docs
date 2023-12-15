@@ -11,47 +11,55 @@ items:
         items:
           - name: Creating target group
             href: operations/target-group-create.md
-          - name: Editing target group
+          - name: Getting information about a target group
+            href: operations/target-group-get.md
+          - name: Editing a target group
             href: operations/target-group-update.md
-          - name: Deleting target group
+          - name: Deleting a target group
             href: operations/target-group-delete.md
       - name: Backend groups
         items:
-          - name: Creating backend group
+          - name: Creating a backend group
             href: operations/backend-group-create.md
-          - name: Editing backend group
+          - name: Getting information about a backend group
+            href: operations/backend-group-get.md
+          - name: Editing a backend group
             href: operations/backend-group-update.md
-          - name: Deleting backend group
+          - name: Deleting a backend group
             href: operations/backend-group-delete.md
       - name: HTTP routers
         items:
-          - name: Creating HTTP router for HTTP traffic
+          - name: Creating an HTTP router for HTTP traffic
             href: operations/http-router-create.md
-          - name: Creating HTTP router for gRPC traffic
+          - name: Creating an HTTP router for gRPC traffic
             href: operations/http-router-create-grpc.md
-          - name: Editing HTTP router
+          - name: Getting information about an HTTP router
+            href: operations/http-router-get.md
+          - name: Editing an HTTP router
             href: operations/http-router-update.md
-          - name: Deleting HTTP router
+          - name: Deleting an HTTP router
             href: operations/http-router-delete.md
       - name: L7 load balancers
         items:
-          - name: Creating L7 load balancer
+          - name: Creating an L7 load balancer
             href: operations/application-load-balancer-create.md
-          - name: Editing L7 load balancer
+          - name: Editing an L7 load balancer
             href: operations/application-load-balancer-update.md
+          - name: Getting information about an L7 load balancer
+            href: operations/application-load-balancer-get.md
           - name: Viewing L7 load balancer statistics
             href: operations/application-load-balancer-get-stats.md
           - name: Viewing L7 load balancer logs
             href: operations/application-load-balancer-get-logs.md
           - name: Setting up L7 load balancer logging
             href: operations/application-load-balancer-manage-logs.md
-          - name: Getting log group ID of L7 load balancer
+          - name: Getting log group ID of an L7 load balancer
             href: operations/application-load-balancer-get-log-group-id.md
           - name: Stopping and restarting an L7 load balancer
             href: operations/application-load-balancer-stop-and-start.md
           - name: Moving a VM to a target group in a new availability zone
             href: operations/application-load-balancer-relocate.md
-          - name: Deleting L7 load balancer
+          - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
       - name: Tools for {{ managed-k8s-name }}
         items:
@@ -69,7 +77,7 @@ items:
         href: tutorials/virtual-hosting.md
       - name: Creating a load balancer with DDoS protection
         href: tutorials/alb-with-ddos-protection.md
-      - name: Integrating L7 load balancer with CDN and Object Storage
+      - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/l7-bluegreen-deploy.md

@@ -5,8 +5,7 @@ editable: false
 # {{ objstorage-name }} pricing
 
 
-To calculate the cost of using {{ objstorage-name }}, use [our calculator]({{ link-cloud-calculator }}) or see the prices in this section.
-
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 
 

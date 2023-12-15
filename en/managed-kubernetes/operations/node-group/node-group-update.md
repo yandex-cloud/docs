@@ -78,7 +78,7 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-  * `--template-labels`: Update [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format for VMs representing the {{ managed-k8s-name }} group nodes. You can specify multiple labels separated by commas.
+  * `--template-labels`: Update [node group cloud labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format. You can specify multiple labels separated by commas.
   * `--latest-revision`: Get all available updates for current [master {{ managed-k8s-name }}](../../concepts/index.md#master) version.
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
@@ -117,7 +117,7 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
 
        Where `type` is container runtime environment type: `docker` or `containerd`.
 
-     * To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the {{ managed-k8s-name }} group nodes, add an `instance_template.labels` section:
+     * To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), add the `instance_template.labels` section:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -155,7 +155,7 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
 
   To change the [container runtime environment](../../concepts/index.md#config), provide the `docker` or the `containerd` value in the `nodeTemplate.containerRuntimeSettings.type` parameter.
 
-  To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the {{ managed-k8s-name }} group nodes, provide their values in the `nodeTemplate.labels` parameter.
+  To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), provide their values in the `nodeTemplate.labels` parameter.
 
   To update the {{ managed-k8s-name }} node name template, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
@@ -189,7 +189,7 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
      {{ yc-k8s }} node-group update --help
      ```
 
-  1. Run the {{ managed-k8s-name }} node group update command with the `--network-interface` parameter provided:
+  1. Run the node group update command with the `--network-interface` flag set:
 
      ```bash
      {{ yc-k8s }} node-group update <node_group_ID_or_name> \
@@ -215,7 +215,7 @@ If you assigned public IP addresses to the cluster nodes and then configured the
 
 ## Managing node group labels {#manage-label}
 
-You can perform the following actions with the {{ managed-k8s-name }} node group [labels](../../../resource-manager/concepts/labels.md):
+You can perform the following actions with [cloud labels](../../../resource-manager/concepts/labels.md) of {{ managed-k8s-name }} node groups:
 * [Add](#add-label)
 * [Edit](#update-label)
 * [Delete](#remove-label)
@@ -279,7 +279,7 @@ You can perform the following actions with the {{ managed-k8s-name }} node group
 
 - CLI
 
-  Change the label for the {{ managed-k8s-name }} node group:
+  Update a cloud label of a {{ managed-k8s-name }} node group:
 
   {% note warning %}
 

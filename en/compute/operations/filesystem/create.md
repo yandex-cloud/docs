@@ -1,3 +1,8 @@
+---
+title: "How to create file storage in {{ compute-full-name }}"
+description: "Follow this guide to create file storage."
+---
+
 # Creating file storage
 
 To create file [storage](../../concepts/filesystem.md):

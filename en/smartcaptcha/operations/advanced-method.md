@@ -19,12 +19,10 @@ You control how the widget loads using the `window.smartCaptcha` [object](../con
 1. Add an empty container where you want to install your widget, to the page:
 
    ```html
-   <div id="<container_id>"></div>
+   <div id="<container_ID>"></div>
    ```
 
-   Where:
-
-   `<container_id>`: Arbitrary ID.
+   Where `--id` is an ad-hoc ID.
 
 1. Add the code of the callback function to the page:
 
@@ -32,7 +30,7 @@ You control how the widget loads using the `window.smartCaptcha` [object](../con
    <script>
        function onloadFunction() {
        if (window.smartCaptcha) {
-           const container = document.getElementById('<container_id>');
+           const container = document.getElementById('<container_ID>');
 
            const widgetId = window.smartCaptcha.render(container, {
                 sitekey: '<client_key>',
@@ -45,8 +43,8 @@ You control how the widget loads using the `window.smartCaptcha` [object](../con
 
    Where:
 
-   * `<client_key>`: [Client-side key](../concepts/keys.md).
-   * `<language>`: Widget and task [language](../concepts/widget-methods.md#render).
+   * `sitekey`: [Client-side key](../concepts/keys.md).
+   * `hl`: Widget and task [language](../concepts/widget-methods.md#render).
 
    Add a check for existence of the `window.smartCaptcha` object to avoid an error when the function is called before the JS script loading is complete.
 

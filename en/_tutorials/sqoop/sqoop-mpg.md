@@ -14,7 +14,7 @@ You can create other resources manually or using {{ TF }}.
 
 ### Manually {#create-manual}
 
-1. [Create an {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable [configuration](../../managed-postgresql/concepts/instance-types.md) with the following settings:
+1. [Create a {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable [configuration](../../managed-postgresql/concepts/instance-types.md) with the following settings:
 
    * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
    * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
@@ -38,8 +38,11 @@ You can create other resources manually or using {{ TF }}.
 
 ### Using {{ TF }} {#create-terraform}
 
-1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
 1. Download the [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqoop/clusters-postgresql-data-proc-and-vm.tf) configuration file and save it to the same working directory.
 
    This file describes:
@@ -49,7 +52,7 @@ You can create other resources manually or using {{ TF }}.
    * [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md).
    * {{ mpg-name }} cluster.
    * {{ dataproc-name }} cluster.
-   * A virtual machine with public internet access.
+   * Virtual machine with public internet access.
 
 1. Specify the infrastructure parameters in the `clusters-postgresql-data-proc-and-vm.tf` configuration file under `locals`:
 
@@ -67,7 +70,6 @@ You can create other resources manually or using {{ TF }}.
 
       For an SSH connection to the hosts of {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
 1. Make sure the {{ TF }} configuration files are correct using this command:
 
    ```bash
@@ -117,12 +119,12 @@ You can create other resources manually or using {{ TF }}.
 
 ## Importing the database {#import}
 
-To enable [database parallelism](https://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html#_controlling_parallelism), Sqoop lets you split imported data not only by the primary key but also other table columns. In the example, the data is split by the `age` column.
+To enable [database parallelism](https://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html#_controlling_parallelism), Sqoop allows you to split imported data not only by the primary key but also other table columns. In the example, the data is split by the `age` column.
 
 Let's assume that:
 
 {% include [Shared settings](./shared-properties.md) %}
-* {{ mpg-name }} cluster ID: `c9qgcd6lplrs********`.
+* {{ mpg-name }} cluster ID: `c9qgcd6lplrs********`
 
 {% list tabs %}
 

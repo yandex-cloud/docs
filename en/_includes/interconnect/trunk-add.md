@@ -39,14 +39,13 @@ Request text:
 Set up a new Cloud Interconnect connection (trunk)
 with the following parameters:
 
-client: My Business Ltd.
-cloud-id: b1g8dn6s3v2eiid9dbci
+client: My Company Ltd
 folder-id: b1g28j9359gic3p2gca2
 point of presence: M9
 transceiver type: 10GBASE-LR
 traffic package: 250mbps
 
-We will provide information for setting up a private connection later in a separate ticket.
+We will provide the details for setting up a private connection later in a separate ticket.
 ```
 
 
@@ -56,8 +55,7 @@ We will provide information for setting up a private connection later in a separ
 Where:
 
 * `client`: Company name.
-* `cloud-id`: [ID of the cloud](../../resource-manager/concepts/resources-hierarchy#cloud) whose resources {{ interconnect-name }} will connect to.
-* `folder-id`: [ID of the folder](../../resource-manager/concepts/resources-hierarchy#folder) to send {{ interconnect-name }} monitoring metrics to.
+* `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to send {{ interconnect-name }} monitoring metrics to.
 * `point of presence`: [Code of the point of presence](../../interconnect/concepts/pops.md).
 * `transceiver type`: [Type of transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect.
 * `traffic package`: [Bandwidth](../../interconnect/concepts/capacity.md) in Mbps corresponding to the package of traffic selected by the customer.

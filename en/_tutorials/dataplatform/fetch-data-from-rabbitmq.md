@@ -19,20 +19,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually
 
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any configuration with the `db1` database. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts when creating it.
+   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any configuration with the `db1` database. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts when creating it.
 
-        {% note info %}
+      {% note info %}
 
-        You can set up {{ RMQ }} integration when creating a cluster. In this article, integration will be configured [later](#configure-mch-for-rmq).
+      You can set up {{ RMQ }} integration when creating a cluster. In this article, integration will be configured [later](#configure-mch-for-rmq).
 
-        {% endnote %}
+      {% endnote %}
 
-    1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md)for{{ RMQ }}. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access when creating it.
+   1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md)for{{ RMQ }}. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access when creating it.
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [clickhouse-cluster-and-vm-for-rabbitmq.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-cluster-and-vm-for-rabbitmq.tf) configuration file to the same working directory.
 
       This file describes:
@@ -48,8 +51,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Username and password that will be used to access the {{ mch-name }} cluster.
       * ID of the public [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) [image](../../compute/operations/images-with-pre-installed-software/get-list.md) without GPU for the VM.
       * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
-
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -317,9 +318,9 @@ Delete the resources you no longer need to avoid paying for them:
 
 - Manually
 
-    * [Delete the {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
-    * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
-    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
+   * [Delete the {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+   * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
+   * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 - Using {{ TF }}
 

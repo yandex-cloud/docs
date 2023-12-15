@@ -1,9 +1,14 @@
+---
+title: "Integrating {{ dns-full-name }} with {{ compute-full-name }}"
+description: "In this tutorial, you will learn how {{ dns-full-name }} is related to {{ compute-full-name }} resources."
+---
+
 # Integration with {{ compute-name }}
 
 You can immediately assign domain names to VMs when [creating](../../compute/operations/index.md) them in {{ compute-name }}:
 
 * All VMs are assigned an [internal FQDN](../../compute/concepts/network.md#hostname) using the VM name or the `hostname` parameter.
-* In the network interface settings, you can create additional DNS records for a VM. They will be placed in your own private zones. If you don't specify a zone for an additional record explicitly, it's selected automatically. For more detail, please see below.
+* In the network interface settings, you can create additional DNS records for a VM. They will be placed in your own private zones. If you do not specify a zone for an additional record explicitly, it is selected automatically. For more information, see below.
 
 For a VM's public IP address, integration with {{ compute-name }} is currently not supported. You can add an [A record](resource-record.md#a) to a [public zone](dns-zone.md#public-zones) manually after creating a VM. Learn more about how to [create a record](../operations/resource-record-create.md).
 

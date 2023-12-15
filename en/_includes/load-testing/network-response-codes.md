@@ -1,6 +1,3 @@
-## Network response codes
-
-During a load test, the service being tested returns an error for some requests rather than a response for various reasons. This could be a protocol error, a timeout, or an internal error on the side of the generator. If successful, 0 is returned on the network code graph. The other codes are defined in the table below:
 
 | Code | Value |
 |---|---|

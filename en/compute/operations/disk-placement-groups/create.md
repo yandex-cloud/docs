@@ -1,3 +1,8 @@
+---
+title: "How to create a disk placement group in {{ compute-full-name }}"
+description: "Follow this guide to create a disk placement group."
+---
+
 # Creating a disk placement group
 
 To create a [placement group](../../concepts/disk-placement-group.md) for non-replicated disks:
@@ -11,7 +16,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
    1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
    1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
    1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** → **{{ ui-key.yacloud.compute.placement-groups.button_create-disk-pg }}**.
-   1. Enter a name for the group. The requirements are as follows:
+   1. Enter a name for the group. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

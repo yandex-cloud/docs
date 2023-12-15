@@ -1,0 +1,1 @@
+[`load-balancer.auditor`](../../../../iam/concepts/access-control/roles.md#load-balancer-auditor): This role enables you to get lists of target groups and network load balancers, details on them and their operations, and view information about the cloud, cloud limits, and the folder.

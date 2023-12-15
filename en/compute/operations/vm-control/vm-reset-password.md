@@ -1,8 +1,13 @@
+---
+title: "How to reset a user password on a Windows Server VM"
+description: "Follow this guide to reset a user password on a Windows Server VM."
+---
+
 # Resetting a user password on a Windows Server virtual machine
 
-To reset a user password on a Windows Server virtual machine using {{ yandex-cloud }} tools, you require:
+To reset a user password on a Windows Server VM using {{ yandex-cloud }} tools, you need:
 
-* [Password reset agent](../../concepts/guest-agent.md). The agent is part of standard Windows Server images. If you are using a custom image, follow the [instructions](../vm-guest-agent/install.md) to install the password reset agent.
+* [Password reset agent](../../concepts/guest-agent.md). The agent is part of standard Windows Server images. If you are using a custom image, follow [this guide](../vm-guest-agent/install.md) to install the password reset agent.
 
 {% include [vm-reset-password-windows-reqs](../../../_includes/compute/vm-reset-password-windows-reqs.md) %}
 

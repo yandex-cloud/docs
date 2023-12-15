@@ -1,0 +1,1 @@
+`lockbox.auditor`: This role allows you to get information about secrets and permissions to them, folder data, and information about {{ lockbox-full-name }} quotas.

@@ -1,6 +1,6 @@
 # Sharding tables in {{ CH }}
 
-Sharding provides a [range of benefits](../../managed-clickhouse/concepts/sharding.md#advantages) for coping with a high query rate and big data amounts. It works by creating a distributed table that routes queries to underlying tables. You can access data in sharded tables both directly and through the distributed table.
+Sharding provides [a number of benefits](../../managed-clickhouse/concepts/sharding.md#advantages) for coping with a high query rate and large data sets. It works by creating a distributed table that routes queries to underlying tables. You can access data in sharded tables both directly and through the distributed table.
 
 There are three approaches to sharding:
 
@@ -62,10 +62,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-  
-  1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-  1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-
+  1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
    1. In the same working directory, download the configuration file for one of the sharding examples described below:
 
@@ -81,7 +81,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ mch-name }} cluster with relevant hosts and shards.
 
    1. In the configuration file, specify the username and password to access the {{ mch-name }} cluster.
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

@@ -99,3 +99,9 @@ scale_policy:
 ```
 
 For `test_auto_scale`, use the same keys [as for `auto_scale`](#auto-scale-policy).
+
+#### See also {#see-also}
+
+* [{#T}](healing-policy.md)
+* [{#T}](allocation-policy.md)
+* [{#T}](deploy-policy.md)

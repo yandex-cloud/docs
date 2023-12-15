@@ -25,19 +25,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Using {{ TF }}
 
-      1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-      1. Download the configuration file [data-transfer-mkf-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-ydb.tf) to the same working directory.
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+      1. Download the [data-transfer-mkf-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-ydb.tf) configuration file to the same working directory.
 
          This file describes:
 
-         * [Network](../../vpc/concepts/network.md#network)
-         * [Subnet](../../vpc/concepts/network.md#subnet)
+         * [Network](../../vpc/concepts/network.md#network).
+         * [Subnet](../../vpc/concepts/network.md#subnet).
          * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
-         * {{ mkf-name }} source cluster
-         * {{ KF }} topic
-         * {{ ydb-name }} database
-         * Transfer
+         * {{ mkf-name }} source cluster.
+         * {{ KF }} topic.
+         * {{ ydb-name }} database.
+         * Transfer.
 
       1. In the `data-transfer-mkf-ydb.tf` file, specify the variables:
 
@@ -47,7 +50,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_db_name`: {{ ydb-name }} database name.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -68,7 +70,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```json
    {
-       "device_id":"iv9a94th6rztooxh5ur2",
+       "device_id":"iv9a94th6rzt********",
        "datetime":"2020-06-05 17:27:00",
        "latitude":"55.70329032",
        "longitude":"37.65472196",
@@ -115,7 +117,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
 
-         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
+         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`
 
             Set a list of topic fields manually:
 
@@ -231,7 +233,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ```json
       {
-          "device_id": "iv9a94th6rztooxh5ur2",
+          "device_id": "iv9a94th6rzt********",
           "datetime": "2020-06-05 17:27:00",
           "latitude": 55.70329032,
           "longitude": 37.65472196,
@@ -243,7 +245,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       }
 
       {
-          "device_id": "rhibbh3y08qmz3sdbrbu",
+          "device_id": "rhibbh3y08qm********",
           "datetime": "2020-06-06 09:49:54",
           "latitude": 55.71294467,
           "longitude": 37.66542005,
@@ -255,7 +257,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       }
 
       {
-          "device_id": "iv9a94th6rztooxh5ur2",
+          "device_id": "iv9a94th6r********",
           "datetime": "2020-06-07 15:00:10",
           "latitude": 55.70985913,
           "longitude": 37.62141918,
@@ -271,13 +273,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ```bash
       jq -rc . sample.json | kafkacat -P \
-         -b <broker host FQDN>:9091 \
+         -b <broker_host_FQDN>:9091 \
          -t sensors \
          -k key \
          -X security.protocol=SASL_SSL \
          -X sasl.mechanisms=SCRAM-SHA-512 \
-         -X sasl.username="<username in the source cluster>" \
-         -X sasl.password="<user password in the source cluster>" \
+         -X sasl.username="<username_in_the_source_cluster>" \
+         -X sasl.password="<user_password_in_the_source_cluster>" \
          -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
       ```
 
@@ -289,7 +291,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

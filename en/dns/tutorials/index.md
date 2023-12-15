@@ -1,4 +1,9 @@
-# Practical guidelines for {{ dns-name }}
+---
+title: "{{ dns-full-name }} use cases"
+description: "Various {{ dns-full-name }} use cases in {{ yandex-cloud }}."
+---
+
+# {{ dns-name }} tutorials
 
 * [{#T}](local-dns-cache.md)
 * [{#T}](connect-migration.md)

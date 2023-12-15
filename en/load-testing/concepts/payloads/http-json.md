@@ -1,6 +1,8 @@
 # HTTP_JSON
 
-A type of payload for the Pandora load generator. It represents HTTP requests in a JSON structure.
+Type of test data for the Pandora load generator. It represents HTTP requests in a JSON structure.
+
+The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).
 
 Data format:
 
@@ -35,4 +37,4 @@ config_content:
                file: ./ammo.json
 ```
 
-When uploading a file with a payload via the management console, this is done automatically.
+When uploading a file with test data via the management console, this is done automatically.

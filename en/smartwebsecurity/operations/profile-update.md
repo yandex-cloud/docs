@@ -11,7 +11,7 @@ description: "Follow this guide to edit basic settings in a security profile."
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to edit basic parameters for a [security profile](../concepts/profiles.md).
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-   1. Next to the profile to edit the basic parameters for, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+   1. Next to the profile to edit the basic parameters for, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
    1. In the window that opens, edit the parameters:
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.

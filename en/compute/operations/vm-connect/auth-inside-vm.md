@@ -103,13 +103,13 @@ To authenticate from inside a VM on behalf of the linked service account:
 
       {% include [add-folder](../../../_includes/cli-add-folder.md) %}
 
-      You can also get an [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md), for example, to authenticate with the API:
+      You can also get a [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md), for example, to authenticate with the API:
 
       ```bash
       yc iam create-token
       ```
 
-      The [lifetime of an {{ iam-name }} token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an {{ iam-name }} token more often, like once per hour or with every operation. To find out the remaining lifetime of the token, use the API instructions.
+      The [lifetime of an {{ iam-name }} token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an {{ iam-name }} token more often, e.g., every hour. To learn the remaining token lifetime, use the API instructions.
 
 - API
 
@@ -126,6 +126,6 @@ To authenticate from inside a VM on behalf of the linked service account:
 
    1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-   Please consider the lifetime of the {{ iam-name }} token or request a new token more often, like once per hour or with every operation.
+  Keep track of the {{ iam-name }} token lifetime or request a new token more often, e.g., every hour.
 
 {% endlist %}

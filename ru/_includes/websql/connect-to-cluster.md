@@ -1,6 +1,6 @@
 {% note warning %}
 
-Вы можете устанавливать соединения с кластерами управляемых баз данных из облаков и каталогов, которые принадлежат вашей [организации](../../organization/concepts/manage-services.md) {{ yandex-cloud }}. Если вы [перейдете в другую организацию](../../organization/operations/manage-organizations#switch-to-another-org), то вам будет доступен набор кластеров из других облаков и каталогов.
+Вы можете устанавливать соединения с кластерами управляемых баз данных из облаков и каталогов, которые принадлежат вашей [организации](../../organization/concepts/manage-services.md) {{ yandex-cloud }}. Если вы [перейдете в другую организацию](../../organization/operations/manage-organizations.md#switch-to-another-org), то вам будет доступен набор кластеров из других облаков и каталогов.
 
 {% endnote %}
 

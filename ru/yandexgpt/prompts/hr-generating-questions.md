@@ -20,7 +20,7 @@
   "completionOptions": {
     "stream": false,
     "temperature": 0.5,
-    "maxTokens": "8000"
+    "maxTokens": "2000"
   },
   "messages": [
     {
@@ -99,7 +99,7 @@
   "completionOptions": {
     "stream": false,
     "temperature": 0,
-    "maxTokens": "8000"
+    "maxTokens": "2000"
   },
   "messages": [
     {

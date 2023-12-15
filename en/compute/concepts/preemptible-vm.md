@@ -1,3 +1,7 @@
+---
+title: "Preemptible VMs in {{ compute-full-name }}"
+---
+
 # Preemptible VMs
 
 *Preemptible VMs* are VM instances that may be forcibly stopped at any time. This can occur in two cases:

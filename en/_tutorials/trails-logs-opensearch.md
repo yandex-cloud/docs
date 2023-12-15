@@ -85,7 +85,7 @@ Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
 1. Select the `Global` tenant.
 1. Create a new index patten named `audit-trails*`:
 
-    1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/os-dashboards-sandwich.svg).
+    1. Open the control panel by clicking ![os-dashboards-sandwich](../_assets/console-icons/bars.svg).
     1. Under **Management**, select **Stack Management**.
     1. Go to **Index Patterns** and click **create an index pattern** at the bottom of the page.
     1. In the **Index pattern name** field, specify `audit-trails*` and click **Next step**.

@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ vpc-full-name }}"
+description: "This page provides a list of step-by-step guides for {{ vpc-name }}."
+---
+
 # Step-by-step guides for {{ vpc-name }}
 
 ## Cloud network {#network}

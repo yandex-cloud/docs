@@ -29,7 +29,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
    1. Go to the bucket settings.
    1. Go to the **Encryption** tab.
    1. Make sure that encryption is enabled and the {{ kms-short-name }} encryption key is specified.
-   1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -42,7 +42,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
       --bucket <bucket name>
       ```
 
-   1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -87,11 +87,11 @@ When using [{{ objstorage-name }}](../../../storage/), be sure that support for 
    1. Go to the bucket settings.
    1. Go to the **HTTPS** tab.
    1. Make sure that access over the protocol is enabled and a certificate is specified.
-   1. If access over HTTPS is enabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If access over HTTPS is enabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 Enable access over HTTPS if a bucket is used for hosting a static website.
 
 #### 4.3 {{ alb-full-name }} uses HTTPS {#alb-https}
@@ -106,11 +106,11 @@ Enable access over HTTPS if a bucket is used for hosting a static website.
    1. In the list of services, select **{{ alb-name }}**.
    1. Go to the load balancer settings.
    1. Make sure that **HTTPS** is specified for the load balancer.
-   1. If HTTPS is specified, the recommendation is fulfilled. If not, proceed to the "Instructions and solutions to use".
+   1. If HTTPS is specified, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -129,7 +129,7 @@ Enable access over HTTPS if a bucket is used for hosting a static website.
       done
       ```
 
-   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -148,11 +148,11 @@ Enable an HTTPS listener using the instructions.
    1. In the management console, select the cloud or folder to check the gateways in.
    1. In the list of services, select **{{ api-gw-name }} → Gateway settings → Domains**.
    1. Make sure the domain and certificate are enabled.
-   1. If the domain and certificate are active, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the domain and certificate are active, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -171,7 +171,7 @@ Enable an HTTPS listener using the instructions.
       done
       ```
 
-   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -194,11 +194,11 @@ Enable an HTTPS listener using the instructions.
    1. Go to the resource settings, the **Additional** tab.
    1. Make sure the **Origin request protocol** field is set to **HTTPS**.
    1. Make sure the **Certificate** field specifies your own certificate or a **Let’s encrypt** certificate.
-   1. If HTTPS and your own certificate are specified, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If HTTPS and your own certificate are specified, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -217,7 +217,7 @@ Enable an HTTPS listener using the instructions.
       done
       ```
 
-   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -288,7 +288,7 @@ For a comparison of libraries, see the {{ kms-short-name }} documentation,  [Wh
 
 - Manual check
 
-   Make sure that data is stored in an encrypted form.
+   Make sure that the stored data is encrypted.
 
 {% endlist %}
 
@@ -314,11 +314,11 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
    1. In the list of services, select **{{ kms-name }}**.
    1. Go to the **Keys** tab.
    1. Make sure the **Encryption algorithm** field is set to **AES-256 HSM**.
-   1. If AES-256 HSM is specified, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If AES-256 HSM is specified, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -335,7 +335,7 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
       done
       ```
 
-   1. If the encryption algorithm contains AES-256 HSM, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the encryption algorithm contains AES-256 HSM, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -368,7 +368,7 @@ To verify the {{ kms-short-name }} key access rights, check out who is granted a
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -381,7 +381,7 @@ To verify the {{ kms-short-name }} key access rights, check out who is granted a
       yc organization-manager organization list-access-bindings --id=${ORG_ID} --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="kms.admin" or .role_id=="kms.editor" or .role_id=="kms.keys.encrypterDecrypter")'
       ```
 
-   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
    1. Find accounts with roles assigned at the cloud level:
 
@@ -392,7 +392,7 @@ To verify the {{ kms-short-name }} key access rights, check out who is granted a
       done
       ```
 
-   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
    1. Run the command below to search for accounts with primitive roles assigned at the level of all folders in your clouds:
 
@@ -405,7 +405,7 @@ To verify the {{ kms-short-name }} key access rights, check out who is granted a
       done
       ```
 
-   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
    1. Find accounts with roles assigned at the key level:
 
@@ -440,7 +440,7 @@ A secure value for AES-GCM mode is encryption using 4294967296 (= 2<sup>32</sup>
 
 {% note info %}
 
-Destroying any version of a key means destroying all data encrypted with it. You can protect a key against deletion by setting the deletionProtection parameter. However, it doesn't protect against deleting individual versions.
+Destroying any version of a key means destroying all data encrypted with it. You can protect a key against deletion by setting the deletionProtection parameter. However, it does not protect against deleting individual versions.
 
 {% endnote %}
 
@@ -454,11 +454,11 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
    1. In the list of services, select **{{ kms-name }}**.
    1. Go to the key settings.
    1. Find the **Rotation period** parameter.
-   1. If the parameter is set to any value different from **No rotation**, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameter is set to any value other than **No rotation**, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -475,7 +475,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
       done
       ```
 
-   1. If an empty list is output, the recommendation is fulfilled. If not, proceed to the "Instructions and solutions to use".
+   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -495,11 +495,11 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, be 
    1. In the list of services, select **{{ kms-name }}**.
    1. Go to the key settings.
    1. Find the **Deletion protection** parameter.
-   1. If it's set to **Yes**, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If it is set to **Yes**, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -516,7 +516,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, be 
       done
       ```
 
-   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -534,7 +534,7 @@ Do not use critical data and access secrets, such as authentication tokens, API 
 
 {{ lockbox-short-name }} securely stores secrets in an encrypted form only. Encryption is performed using {{ kms-short-name }}. For secret access control, use service roles.
 
-For instructions on how to use the service, see the [{{ lockbox-short-name }} documentation](../../../lockbox/).
+You can learn how to use the service in the [{{ lockbox-short-name }} documentation](../../../lockbox/).
 
 [Vault](https://www.vaultproject.io/) allows you to use {{ kms-short-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal) mechanism.
 
@@ -554,11 +554,11 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
    1. In the list of services, select **{{ lockbox-short-name }}**.
    1. Make sure that at least one {{ lockbox-short-name }} secret is used.
    1. Find the **Deletion protection** parameter.
-   1. If {{ lockbox-short-name }} is used or {{ k8s }} VMs or entities have Hashicorp Vault installed, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If {{ lockbox-short-name }} is used or {{ k8s }} VMs or entities have Hashicorp Vault installed, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -575,7 +575,7 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
       done
       ```
 
-   1. If an empty list is output, the recommendation is fulfilled. If not, proceed to the "Instructions and solutions to use".
+   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -601,7 +601,7 @@ Make sure that the secrets are used as described above.
    1. In the list of services, select **{{ sf-name }}**.
    1. Go to the function settings, the **Editor** tab.
    1. Find the **{{ lockbox-short-name }} secrets** parameter.
-   1. If the parameters of each object specify **{{ lockbox-short-name }} secrets** or there are no environment variables with secret data, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If you see **{{ lockbox-short-name }} secrets** in the parameters of each object, or if there are no environment variables with secret data, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -618,7 +618,7 @@ Make sure that the secrets are used as described above.
       done
       ```
 
-   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -628,7 +628,7 @@ Delete the secret data from env and [use](../../../functions/operations/function
 
 #### 4.15 When working with {{ coi }}, secret encryption is used {#secrets-coi}
 
-{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. For details, see the [Encrypting secrets in {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) section of the {{ kms-short-name }} documentation. It is not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
+{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, in particular for transferring secrets to a VM in encrypted form. For more information, refer to the [Encrypting secrets in {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) section of the {{ kms-short-name }} documentation. It is not safe to openly transmit secrets through environment variables, because they are displayed in the VM properties.
 
 **Guides and solutions to use:**
 

@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    
    1. If you use {{ vpc-name }} security groups, [configure them](../../vpc/operations/security-group-add-rule.md). Add TCP settings to the security group to allow the following:
 
-      * Incoming traffic through port `22` from any IP addresses for SSH.
+      * Incoming traffic on port `22` from any IP addresses for SSH.
       * Outgoing and incoming traffic on ports `80` and `443` to and from any IP address for HTTP/HTTPS.
       * Outgoing and incoming traffic on port `6379` to and from internal network IP addresses for {{ RD }}.
 
@@ -37,8 +37,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the configuration file for the appropriate cluster type to the same working directory:
 
       * [redis-cluster-non-sharded-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-as-php-session-storage/redis-cluster-non-sharded-and-vm-for-php.tf): For a non-sharded cluster.
@@ -58,7 +61,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * ID of the public LAMP/LEMP [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
       * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

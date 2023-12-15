@@ -124,12 +124,12 @@ A signature based on a private key is used for messages of up to 32 KB.
       1. Change the format of the resulting digital signature to [DER](https://en.wikipedia.org/wiki/X.690#DER_encoding). This format is required for `OpenSSL`:
 
           ```bash
-          echo -n "$(< <signature_file_path>)" | base64 -d > <signature_file_in_DER_format>
+          echo -n "$(< <signature_file_path>)" | base64 -d > <signature_file>
           ```
 
           Where:
           * `<signature_file_path>`: Path to the signature file created at the previous step.
-          * `<signature_file_in_DER_format>`: Path to the created signature file in `DER` format.
+          * `<signature_file>`: Path to the new signature file in `DER` format.
 
       The resulting signature file in `DER` format can be used for signature [verification](#verify-digital-signature) by the `OpenSSL` utility.
 

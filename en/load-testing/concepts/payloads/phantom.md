@@ -1,6 +1,8 @@
 # PHANTOM
 
-A type of payload for the Phantom load generator. Lets you send any combination of any HTTP requests to the server as is. Using this format, you can make complex combinations of requests. It's well suited for generating requests from service logs, but not intended for manual configuration.
+Type of test data for the Phantom load generator. Allows sending any combination of any HTTP requests to the server as is. With this format, you can make complex combinations of requests. It is well suited for generating requests from service logs, but not for manual configuration.
+
+The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).
 
 Data format:
 

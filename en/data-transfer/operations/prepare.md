@@ -88,6 +88,16 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 {% endlist %}
 
+### {{ ES }} source {#source-es}
+
+{% list tabs %}
+
+- {{ ES }}
+
+   {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+{% endlist %}
+
 ### {{ GP }} source {#source-gp}
 
 {% note info %}
@@ -324,6 +334,16 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       {% endnote %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ MY }} source](./endpoint/source/mysql.md#additional-settings).
+
+{% endlist %}
+
+### {{ OS }} source {#source-os}
+
+{% list tabs %}
+
+- {{ OS }}
+
+   {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
 {% endlist %}
 
@@ -944,7 +964,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db).
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
    1. To shard the migrated collections in the {{ mmg-full-name }} target cluster:
-      1. Use [this guide](../../managed-mongodb/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
+      1. Use this [guide](../../managed-mongodb/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
 
          {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 

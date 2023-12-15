@@ -173,3 +173,5 @@ operationId | Идентификатор операции, полученный 
 || modifiedAt | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)
 Время последнего изменения ресурса. Указывается в формате [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt).
 |#
+
+Подробнее о формате и кодах ответов см. на странице [{#T}](../../concepts/response.md).

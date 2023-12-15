@@ -41,7 +41,7 @@ To launch a successful transfer in the selected endpoint subnet address range, t
 
 ## IP address availability and ownership {#ip-address-availability}
 
-An IP address __belongs to a network__ if it belongs to any CIDR of any subnet on this network. For example, if there is a network called `my-network` with subnets `my-network-a` (CIDR `192.168.0.0/24`) and `my-network-b` (CIDR `192.168.1.0/24`), then `192.168.0.100` and `192.168.1.50` belong to `my-network` while `1.2.3.4` does not.
+An IP address __belongs to a network__ if it belongs to any CIDR of any subnet on this network. For example, if there is a network named `my-network` with the `my-network-a` (CIDR `192.168.0.0/24`) and `my-network-b` (CIDR `192.168.1.0/24`) subnets, then the `192.168.0.100` and `192.168.1.50` addresses belong to `my-network` while `1.2.3.4` does not.
 
 An IP address __is available via a subnet__ if it belongs to this subnet's network, or the network this subnet belongs to has properly configured routing for the IP address in question. `192.168.0.100` and `192.168.1.50` will be available via the `my-network-a` subnet (as well as via `my-network-b`). `1.2.3.4` will be available through these subnets in the following cases only:
 * An egress [NAT gateway](../../vpc/concepts/gateways.md) is enabled in `my-network`; this will cause traffic to be routed to the internet.

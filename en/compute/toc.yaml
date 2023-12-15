@@ -143,6 +143,8 @@ items:
             href: operations/disk-control/disk-change-folder.md
           - name: Encrypting a disk
             href: operations/disk-control/disk-encrypt.md
+          - name: Getting information about a disk
+            href: operations/disk-control/get-info.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
       - name: Disk snapshots
@@ -155,7 +157,7 @@ items:
             href: operations/snapshot-control/create-schedule.md
           - name: Changing a snapshot schedule
             href: operations/snapshot-control/update-schedule.md
-          - name: Interrupting and starting a snapshot schedule
+          - name: Disabling and enabling a snapshot schedule
             href: operations/snapshot-control/stop-and-start-schedule.md
           - name: Encrypting an image
             href: operations/snapshot-control/snapshot-encrypt.md
@@ -167,6 +169,8 @@ items:
             href: operations/disk-placement-groups/create.md
           - name: Adding a disk to a placement group
             href: operations/disk-placement-groups/add-disk.md
+          - name: Getting information about a disk placement group
+            href: operations/disk-placement-groups/get-info.md
           - name: Removing a disk from a placement group
             href: operations/disk-placement-groups/remove-disk.md
       - name: Creating an image
@@ -199,6 +203,8 @@ items:
             href: operations/filesystem/detach-from-vm.md
           - name: Updating file storage
             href: operations/filesystem/update.md
+          - name: Getting information about file storage
+            href: operations/filesystem/get-info.md
           - name: Deleting file storage
             href: operations/filesystem/delete.md
       - name: Managing the serial console
@@ -389,6 +395,8 @@ items:
                 href: concepts/instance-groups/policies/deploy-policy.md
               - name: Scaling policy
                 href: concepts/instance-groups/policies/scale-policy.md
+              - name: Recovery policy
+                href: concepts/instance-groups/policies/healing-policy.md
           - name: Scaling types
             href: concepts/instance-groups/scale.md
           - name: Instance health checks and autohealing

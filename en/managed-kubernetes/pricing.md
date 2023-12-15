@@ -4,6 +4,10 @@ editable: false
 
 # Pricing for {{ managed-k8s-name }}
 
+
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+
 In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
 Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).

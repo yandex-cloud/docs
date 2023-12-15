@@ -25,7 +25,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
 
 - CLI
 
@@ -52,7 +52,7 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
    1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
    1. Select the source endpoint or [create](./endpoint/index.md#create) a new one.
    1. Select the target endpoint or [create](./endpoint/index.md#create) a new one.
@@ -206,8 +206,8 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-   1. Select a transfer and click ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top panel.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Select a transfer and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top panel.
    1. Edit the transfer parameters:
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.
@@ -252,27 +252,27 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To update the transfer settings:
+   To update the transfer settings:
 
-    1. View a description of the update transfer CLI command:
+   1. View a description of the update transfer CLI command:
 
-        ```bash
-        {{ yc-dt }} transfer update --help
-        ```
+      ```bash
+      {{ yc-dt }} transfer update --help
+      ```
 
-    1. Run the following command with a list of settings to update:
+   1. Run the following command with a list of settings to update:
 
-        ```bash
-        {{ yc-dt }} transfer update <transfer_ID> \
-           --name=<transfer_name> \
-           --description=<transfer_description>
-        ```
+      ```bash
+      {{ yc-dt }} transfer update <transfer_ID> \
+         --name=<transfer_name> \
+         --description=<transfer_description>
+      ```
 
-        You can get the transfer ID with a [list of transfers in the folder](#list).
+      You can get the transfer ID with a [list of transfers in the folder](#list).
 
 - {{ TF }}
 
@@ -293,14 +293,14 @@ To move a transfer and endpoints to a different availability zone, follow [this 
 
 - API
 
-    Use the [update](../api-ref/Transfer/update.md) API method and include the following in the request:
+   Use the [update](../api-ref/Transfer/update.md) API method and include the following in the request:
 
-    * Transfer ID in the `transferId` parameter. To find out the ID, [get a list of transfers in the folder](#list).
-    * Transfer name in the `name` parameter.
-    * Transfer description in the `description` parameter.
-    * List of transfer configuration fields to update in the `updateMask` parameter.
+   * Transfer ID in the `transferId` parameter. To find out the ID, [get a list of transfers in the folder](#list).
+   * Transfer name in the `name` parameter.
+   * Transfer description in the `description` parameter.
+   * List of transfer configuration fields to update in the `updateMask` parameter.
 
-    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+   {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -313,8 +313,8 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 - CLI
 
@@ -358,8 +358,8 @@ During transfer deactivation:
 
    1. Switch the source to <q>read-only</q>.
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
    1. Wait for the transfer status to change to {{ dt-status-stopped }}.
 
 - CLI
@@ -403,9 +403,9 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
    1. If the desired transfer is active, [deactivate it](#deactivate).
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.common.remove }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer in question and select **{{ ui-key.yacloud.common.remove }}**.
    1. Click **{{ ui-key.yacloud.common.remove }}**.
 
 - CLI

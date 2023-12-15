@@ -83,12 +83,6 @@ Advantages of taint policies:
 
 You can only apply a taint policy to a node group when [creating](../operations/node-group/node-group-create.md) it.
 
-{% note warning %}
-
-Do not confuse [{{ k8s }} node labels](#node-labels) (`node_labels`) managed by {{ managed-k8s-name }} and taint policies.
-
-{% endnote %}
-
 Every taint policy consists of three parts:
 
 ```text
@@ -124,6 +118,45 @@ For system pods, tolerations permitting them to run on all available nodes are a
 {% endnote %}
 
 For more information about taints and tolerations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+
+### Node labels {#node-labels}
+
+_Node labels_ is a mechanism for grouping nodes in {{ managed-k8s-name }}. There are different types of labels:
+
+* [Node group cloud labels](../../resource-manager/concepts/labels.md) are used to logically separate and label resources. For example, you can use cloud labels to [track your expenses](../../billing/operations/get-folder-report.md#format) for different node groups. They are indicated as `template-labels` in the CLI and as `labels` in {{ TF }}.
+
+* [{{ k8s }} node labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) are used to group {{ k8s }} objects and [distribute pods across cluster nodes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes). They are indicated as `node-labels` in the CLI and as `node_labels` in {{ TF }}.
+
+   When setting {{ k8s }} labels, specify the node characteristics to group objects by. You can find sample {{ k8s }} labels in the [{{ k8s }} documentation]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/#причины-использования).
+
+You can use both types of labels at the same time, e.g., when [creating a node group](../operations/node-group/node-group-create.md) in the CLI or {{ TF }}.
+
+You can use the [{{ managed-k8s-name }} API](../api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. API specifics:
+
+* {{ k8s }} labels added via the {{ k8s }} API may be lost because, when [updating or modifying a node group](../operations/node-group/node-group-update.md), some nodes are recreated with different names and some of the old ones are deleted.
+* If {{ k8s }} labels are created via the {{ managed-k8s-name }} API, you cannot delete them using the {{ k8s }} API. Otherwise, the labels will be restored once they are deleted.
+
+{% note warning %}
+
+To make sure no labels are lost, use the {{ managed-k8s-name }} API.
+
+{% endnote %}
+
+You can define a set of `key: value` {{ k8s }} labels for every object. All of its keys must be unique.
+
+{{ k8s }} label keys may consist of two parts: a prefix and a name separated by `/`.
+
+A prefix is an optional part of a key. The prefix requirements are as follows:
+* It must be a DNS subdomain, i.e., a series of DNS tags separated by `.`.
+* It may be up to 253 characters long.
+* The last character must be followed by a `/`.
+
+A name is a required part of a key. The naming requirements are as follows:
+* It may be up to 63 characters long.
+* It may contain lowercase Latin letters, numbers, hyphens, underscores, and periods.
+* The first and the last characters must be a letter or number.
+
+Learn about managing {{ k8s }} node labels in [{#T}](../operations/node-group/node-label-management.md).
 
 ## Pod {#pod}
 
@@ -185,31 +218,3 @@ Do not confuse [cloud service accounts](../security/index.md#sa-annotation) with
 In the service documentation, _service account_ refers to a regular cloud service account unless otherwise specified.
 
 {% endnote %}
-
-## Node labels {#node-labels}
-
-_Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k8s }}. You can use node labels to manage pod distribution across the nodes of a cluster. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes).
-
-{% note warning %}
-
-Do not confuse [cloud node group labels](../../resource-manager/concepts/labels.md) (`labels`) with [{{ k8s }} node labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) (`node_labels`) managed by {{ managed-k8s-name }}.
-
-We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) method, because by default, when [updating or changing a node group](../operations/node-group/node-group-update.md) some of the nodes are recreated with different names and some of the old ones are deleted. That is why labels added via the [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) can be lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
-
-{% endnote %}
-
-Node labels can only be set when creating a node group. Each object can be assigned a set of node labels in the form of a `key:value` pair. Each key must be unique to an object.
-
-Node label keys can consist of two parts: an optional prefix and a name separated by a `/`.
-
-A prefix is an optional part of a key. The prefix requirements are as follows:
-* It must be a DNS subdomain, i.e., a series of DNS tags separated by periods `.`.
-* It may be up to 253 characters long.
-* The last character must be followed by a `/`.
-
-A name is a required part of a key. The naming requirements are as follows:
-* It may be up to 63 characters long.
-* It may contain lowercase Latin letters, numbers, hyphens, underscores, and periods.
-* The first and the last characters must be a letter or number.
-
-For managing node labels, see [{#T}](../operations/node-group/node-label-management.md).

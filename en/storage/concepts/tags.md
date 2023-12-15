@@ -31,12 +31,6 @@ Bucket label operation limits:
 
 ## Object labels {#object-tags}
 
-{% note info %}
-
-{{ objstorage-name }} does not yet support group filters by object [lifecycle](lifecycles.md) labels.
-
-{% endnote %}
-
 Object label operation limits:
 
 * Maximum number of labels per object: 10.

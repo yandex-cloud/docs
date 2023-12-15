@@ -1,6 +1,11 @@
+---
+title: "How to detach file storage from a VM in {{ compute-full-name }}"
+description: "Follow this guide to detach file storage from a VM."
+---
+
 # Detaching file storage from a VM
 
-1. Dismount your [file store](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
+1. Dismount your [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
    1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
    1. If you added a line to the `/etc/fstab` file for automatically mounting file storage to the VM at startup (for example, when [attaching storage to a VM](attach-to-vm.md)), delete the line.
    1. Run this command:

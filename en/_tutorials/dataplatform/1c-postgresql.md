@@ -25,8 +25,11 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [postgresql-1c.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/postgresql-1c.tf) configuration file to the same working directory.
 
       This file describes:
@@ -43,7 +46,6 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
       * `db_name`: Database name.
       * `username` and `password`: Database owner username and password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

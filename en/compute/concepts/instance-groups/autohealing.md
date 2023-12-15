@@ -1,6 +1,6 @@
 # Health checks and autohealing of instances in a group
 
-{{ ig-name }} regularly runs health checks for instances in your instance group. If an instance stopped or an app is taking too long to respond, {{ ig-name }} tries to heal the instance by either restarting it or creating a new one, depending on the [deployment policy](policies/deploy-policy.md).
+{{ ig-name }} regularly runs health checks for instances in your instance group. If an instance stopped or an app is taking too long to respond, {{ ig-name }} tries to heal the instance by either restarting it or creating a new one, depending on the [recovery policy](policies/healing-policy.md). The instances will be [auto-healed](#healthcheck-cases) based on the [deployment policy](policies/deploy-policy.md).
 
 {% note info %}
 
@@ -18,7 +18,7 @@ Do not confuse these checks with those the load balancer performs if an instance
 
 ### Instance operability check {#auto-healthcheck}
 
-{{ ig-name }} checks the [instance status](../vm-statuses.md) in {{ compute-name }} every few seconds. If an instance stopped or an error occurred (the VM switched to the `STOPPED`, `ERROR`, or `CRASHED` status), {{ ig-name }} will try to restart the instance and create a new one, if this is allowed by the [deployment policy](#healthcheck-and-deploy).
+{{ ig-name }} checks the [instance status](../vm-statuses.md) in {{ compute-name }} every few seconds. If an instance stopped or an error occurred (the VM switched to the `STOPPED`, `ERROR`, or `CRASHED` status), {{ ig-name }} will try to restart the instance and create a new one, depending on the [recovery policy](policies/healing-policy.md). The instances will be healed based on the [deployment policy](#healthcheck-and-deploy).
 
 ### Application health check on the instance {#functional-healthcheck}
 

@@ -35,6 +35,8 @@ items:
             href: operations/resources/enable-segmentation.md
           - name: Включить экранирование источников
             href: operations/resources/enable-shielding.md
+          - name: Настроить доступ по защищенному токену
+            href: operations/resources/enable-secure-token.md
           - name: Управлять дополнительными настройками ресурса
             href: operations/resources/configure-additions.md
           - name: Отключить ресурс
@@ -95,6 +97,8 @@ items:
             href: concepts/origins-shielding.md
       - name: Кеширование контента
         href: concepts/caching.md
+      - name: Защищенные токены
+        href: concepts/secure-tokens.md
       - name: Выгрузка логов
         href: concepts/logs.md
       - name: Квоты и лимиты

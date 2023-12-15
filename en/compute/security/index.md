@@ -30,6 +30,7 @@ You can also assign a role for a separate VM.
 | `compute.admin` | Grants the permission to manage VMs and [instance groups](../../compute/concepts/instance-groups/index.md) and assign roles to other users. |
 | `compute.editor` | Grants the permission to manage virtual machines and instance groups. |
 | `compute.viewer` | Grants the permission to view information on [{{ compute-name }} resources](../concepts/index.md). |
+| `compute.auditor` | Enables you to view the amount of used resources and quotas, disk limits, lists of {{ compute-name }} resource operations and their details. |
 | `compute.disks.user` | Allows you to use disks to create new resources, such as virtual machines. |
 | `compute.images.user` | Allows you to use images to create new resources, such as virtual machines. |
 | `compute.operator` | Allows you to [stop, start, and restart virtual machines](../../compute/operations/vm-control/vm-stop-and-start.md), but does not allow creating or deleting them. |

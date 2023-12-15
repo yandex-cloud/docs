@@ -252,9 +252,9 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
       1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
       1. Select the `Global` tenant.
-      1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
+      1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
       1. Under **{{ OS }} Plugins**, select **Index Management**.
-      1. Go to **Indices**.
+      1. Go to **Indexes**.
 
       The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
 
@@ -432,9 +432,9 @@ Make sure all the indices you need have been transferred to the target {{ mos-na
 
    1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
    1. Select the `Global` tenant.
-   1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
+   1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
    1. Under **{{ OS }} Plugins**, select **Index Management**.
-   1. Go to **Indices**.
+   1. Go to **Indexes**.
 
    The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
 

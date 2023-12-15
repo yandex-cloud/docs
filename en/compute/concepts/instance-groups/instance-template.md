@@ -12,6 +12,8 @@ When describing a template, you specify the computing resources to allocate to e
 
 You can also use a template to enable creating [preemptible](../preemptible-vm.md) instances, which are cheaper than regular ones. Preemptible instances can only be autohealed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as the resources become available; this, however, may take a long time.
 
+You can enable a [software-accelerated network](../software-accelerated-network.md) for group instances. This will transfer the processing of VM network traffic to additional compute cores.
+
 ## Disks {#disks}
 
 Each instance must have at least one disk attached, which is a boot disk. Each boot disk is created automatically and attached to a single instance when creating an instance group. For more information, see [{#T}](../disk.md).
@@ -77,6 +79,8 @@ instance_template:
           ip_version: IPV4
         }
       }
+  network_settings:
+    type: SOFTWARE_ACCELERATED
   placement_policy:
     placement_group_id: rmppvhrgm77g********
   metadata:

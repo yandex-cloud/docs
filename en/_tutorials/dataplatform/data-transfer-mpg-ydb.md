@@ -24,8 +24,11 @@ Prepare the data transfer infrastructure:
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [data-transfer-mpg-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mpg-ydb.tf) configuration file to the same working directory.
 
       This file describes:
@@ -49,8 +52,7 @@ Prepare the data transfer infrastructure:
       * `target_db_name`: {{ ydb-name }} database name.
       * `transfer_enabled`: Set `0` to ensure that no transfer and source endpoint is created before you [manually create a target endpoint](#prepare-transfer).
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -91,9 +93,9 @@ Prepare the data transfer infrastructure:
 
    ```sql
    INSERT INTO public.sensors VALUES
-       ('iv9a94th6rztooxh5ur2', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-       ('rhibbh3y08qmz3sdbrbu', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
-       ('iv9a94th678tooxh5ur2', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
+       ('iv9a94th6rzt********', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+       ('rhibbh3y08qm********', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
+       ('iv9a94th678t********', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
    ```
 
 1. [Prepare the source cluster for transfer](../../data-transfer/operations/prepare.md#source-pg).
@@ -102,7 +104,7 @@ Prepare the data transfer infrastructure:
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
@@ -117,17 +119,17 @@ Prepare the data transfer infrastructure:
 
       1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [previously created](#before-you-begin) {{ PG }} source with the [following settings](../../data-transfer/operations/endpoint/source/postgresql.md):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`.
          * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Created {{ mpg-name }} cluster
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Created {{ mpg-name }} cluster.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: Name of the DB created in the cluster {{ mpg-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: Name of the user created in the {{ mpg-name }} cluster.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: User password
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: `<DB name>.sensors`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: User password.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: `<DB_name>.sensors`.
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}** type that will use the created endpoints.
-      1. [Enable](../../data-transfer/operations/transfer.md#activate) the transfer.
+      1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
    * Using {{ TF }}
 
@@ -184,10 +186,10 @@ Prepare the data transfer infrastructure:
 
    ```sql
    INSERT INTO public.sensors VALUES
-       ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+       ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
    ```
 
-1. Check that the {{ ydb-name }} database shows information about the row added:
+1. Check that the {{ ydb-name }} database shows information about the added row:
 
    {% list tabs %}
 

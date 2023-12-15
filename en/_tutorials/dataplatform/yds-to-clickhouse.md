@@ -32,14 +32,16 @@ Prepare the infrastructure:
                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}**: Enter the name and password of the user who has access to the database, for example, the database owner.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}**: Enter the name and password of the user who has access to the database (for example, the database owner).
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the configuration file [data-transfer-yds-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-yds-mch.tf) to the same working directory.
+   1. Download the [data-transfer-yds-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-yds-mch.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -61,14 +63,13 @@ Prepare the infrastructure:
       * `target_user` and `target_password`: {{ CH }} database owner username and password.
       * `transfer_enabled`: Set `0` to ensure that no transfer is created before [a source endpoint is created manually](#prepare-transfer).
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -81,11 +82,11 @@ Prepare the infrastructure:
 ## Prepare a {{ yds-name }} data stream {#prepare-source}
 
 1. [Create a {{ yds-name }} data stream](../../data-streams/operations/aws-cli/create.md).
-1. [Send test data to the data stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle's sensors in JSON format as a message:
+1. [Send test data to the data stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle sensors in JSON format as a message:
 
 ```json
 {
-    "device_id":"iv9a94th6rztooxh5ur2",
+    "device_id":"iv9a94th6rzt********",
     "datetime":"2022-06-05 17:27:00",
     "latitude":55.70329032,
     "longitude":37.65472196,
@@ -186,7 +187,7 @@ Prepare the infrastructure:
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -202,7 +203,7 @@ Prepare the infrastructure:
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -220,7 +221,7 @@ Prepare the infrastructure:
 
    ```json
    {
-       "device_id":"rhibbh3y08qmz3sdbrbu",
+       "device_id":"rhibbh3y08qm********",
        "datetime":"2022-06-06 09:49:54",
        "latitude":55.71294467,
        "longitude":37.66542005,
@@ -241,11 +242,11 @@ Prepare the infrastructure:
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. Delete the resources depending on how they were created:
@@ -268,9 +269,9 @@ Some resources are not free of charge. Delete the resources you no longer need t
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Confirm the resources have been updated.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

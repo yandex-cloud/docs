@@ -10,3 +10,7 @@ description: "Various {{ org-full-name }} use cases in {{ yandex-cloud }}."
 * [{#T}](integration-azure.md)
 * [{#T}](integration-keycloak.md)
 * [{#T}](integration-common.md)
+
+## Mapping user groups
+
+* [{#T}](./group-mapping/keycloak.md)

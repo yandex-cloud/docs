@@ -16,8 +16,8 @@ You can also use the {{ yandex-cloud }} [mobile app](/mobile-app) to monitor tra
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-   1. Click the name of the transfer you need and open the ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+   1. Click the name of the transfer you need and open the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab.
    1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** in the top panel.
 
 {% endlist %}
@@ -82,9 +82,9 @@ Type of the operation in progress: `1`, meaning the task is active.
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder with the transfer you want to set up alerts for.
-  1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
-  1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+  1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` threshold values to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -106,9 +106,9 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.changeitems`
+    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.changeitems`
 
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
@@ -137,8 +137,8 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
+    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
@@ -167,7 +167,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
+    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
 
 * Alert settings:
 
@@ -193,8 +193,8 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.bytes`
-    ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
+    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.bytes`
+    ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 

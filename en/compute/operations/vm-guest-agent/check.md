@@ -1,3 +1,8 @@
+---
+title: "How to verify password reset agent operation on a Windows Server VM"
+description: "This tutorial describes how to verify password reset agent operation on a Windows Server VM."
+---
+
 # Verifying password reset operation on a Windows Server virtual machine
 
 ## Checking that the agent is installed {#check-installation}

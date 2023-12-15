@@ -15,12 +15,12 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     Reports and invoices are generated on the last day of the reporting period (month). The relevant documents will become available for download seven business days after the reporting period closes. Documents for previous reporting periods are also available in the management console.
 
     To download closing documents:
-    1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
     1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
     1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
     1. Open the **{{ ui-key.yacloud.billing.account.tab_acts-title }}** tab.
-    1. In the line for the relevant reporting period, click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. A window will open showing the reporting documents for the selected period.
-    1. To the right of a document, click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
+    1. In the line for the relevant reporting period, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. A window will open showing the reporting documents for the selected period.
+    1. To the right of a document, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
     1. To download documents for multiple periods as a single archive, select the required periods in the left-hand column (or select the checkbox in the table header to select all periods at once) and click **{{ ui-key.yacloud.billing.account.acts_batch-download-text_pdf }}** or **{{ ui-key.yacloud.billing.account.acts_batch-download-text_zip }}**.
 
     ### Request a reconciliation report {#download-acts}
@@ -30,7 +30,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     You can request a reconciliation report for the current month seven business days after the month ends.
 
     To request a reconciliation report:
-    1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
     1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
     1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
     1. Open the **{{ ui-key.yacloud.billing.account.tab_reconciliation-reports-title }}** tab.
@@ -60,12 +60,12 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
     Documents are generated on the last day of the reporting period (month). The relevant acceptance certificate will become available for download seven business days after the reporting period closes. Acceptance certificates for previous reporting periods are also available in the management console.
 
     To request an acceptance certificate:
-    1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
     1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
     1. Go to **{{ ui-key.yacloud.billing.account.switch_acts }}**.
     1. Open the **{{ ui-key.yacloud.billing.account.tab_acts-title }}** tab.
-    1. In the line for the relevant reporting period, click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. This will open a window showing the acceptance certificates for the selected period.
-    1. To the right of a document, click ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
+    1. In the line for the relevant reporting period, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.billing.account.button_download-action }}**. This will open a window showing the acceptance certificates for the selected period.
+    1. To the right of a document, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.open }}**. The document will open in a new browser tab and will be available for saving.
     1. To download reconciliation reports for multiple periods as a single archive, select the required periods in the left-hand column (or select the checkbox in the table header to select all periods at once) and click **{{ ui-key.yacloud.billing.account.acts_batch-download-text_pdf }}** or **{{ ui-key.yacloud.billing.account.acts_batch-download-text_zip }}**.
 
     ### Electronic invoice {#electronic-invoice}
@@ -80,7 +80,7 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
   Individuals who are residents of  can view their monthly spending history in the {{ yandex-cloud }} management console.
 
   To view your expense history:
-    1. In the top-left corner of the management console, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. In the top-left corner of the management console, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select [**{{ billing-name }}**]({{ link-console-billing }}).
     1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, select a billing account.
     1. Go to **{{ ui-key.yacloud.billing.account.switch_expences }}**.
 

@@ -8,6 +8,8 @@ In ascending order of risk, instance groups can perform the following actions:
 * Re-creating an instance: deleting an instance and creating a new one.
 * Deleting an instance.
 
+You can also set the [minimum action](../policies/deploy-policy.md#minimal-action) to perform for updating an instance group.
+
 {% note alert %}
 
 When an instance is deleted, all its associated resources are deleted, such as the boot disk, secondary disks, and dynamic IP addresses.

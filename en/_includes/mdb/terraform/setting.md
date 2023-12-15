@@ -1,0 +1,1 @@
+[Configure and initialize a provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).

@@ -97,9 +97,10 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
         -pkeyopt rsa_padding_mode:oaep \
         -pkeyopt rsa_oaep_md:sha256 \
         -pkeyopt rsa_mgf1_md:sha256 | base64 > <path_to_file_with_ciphertext>
-      ````
+      ```
 
       Where:
+
       * `-in`: Path to the file with the message to be encrypted.
       * `-inkey`: Path to the file with the public encryption key.
       * `<path_to_file_with_ciphertext>`: Path to the file the encrypted message will be saved to.

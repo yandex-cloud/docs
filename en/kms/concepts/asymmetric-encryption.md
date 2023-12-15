@@ -29,18 +29,18 @@ To encrypt a message, you can use the [OpenSSL](https://www.openssl.org/) utilit
 
 ```bash
 openssl pkeyutl \
-  -in <text file> \
+  -in <path_to_message_file> \
   -encrypt \
   -pubin \
-  -inkey <pem_with_public_key> \
+  -inkey <path_to_public_key_file> \
   -pkeyopt rsa_padding_mode:oaep \
   -pkeyopt rsa_oaep_md:sha256 \
   -pkeyopt rsa_mgf1_md:sha256 | base64
 ```
 
 Where:
-* `<text_file>`: Path to the file with the message to be encrypted.
-* `<pem_with_public_key>`: Path to the file that contains the public encryption key.
+* `-in`: Path to the file with the message to be encrypted.
+* `-inkey`: Path to the file containing the public encryption key.
 
 The hash function is specified at the end of the selected key. Only `sha256` is used for encryption. {{ kms-short-name }} accepts encrypted text in `base64` encoding and decrypts it with the private key.
 

@@ -19,13 +19,13 @@ Prepare the infrastructure:
 
 * Manually
 
-   1. [Create a {{ mmy-name }} source cluster](../managed-mysql/operations/cluster-create.md) with any suitable configuration. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+   1. [Create a {{ mmy-name }} source cluster](../managed-mysql/operations/cluster-create.md) with any suitable configuration. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
    1. [Create a {{ mch-name }} target cluster](../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the following settings:
 
       * Number of {{ CH }} hosts: At least two, which is required to enable replication in the cluster.
-      * The name of the database must be the same as in the source cluster.
-      * To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
+      * Database name: Same as in the source cluster.
+      * To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
    
    1. If you are using security groups in your clusters, configure them so that you can connect to the clusters from the internet:
@@ -36,8 +36,11 @@ Prepare the infrastructure:
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [data-transfer-mmy-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-mch.tf) configuration file to the same working directory.
 
       This file describes:
@@ -59,18 +62,17 @@ Prepare the infrastructure:
          * `source_db_name`: {{ MY }} database name to use as the {{ mch-name }} database name.
          * `source_user` and `source_password`: Database owner username and password.
 
-      * The {{ mch-name }} target cluster that will also be used as the [target endpoint parameters](../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
+      * The {{ mch-name }} target cluster parameters that will also be used as the [target endpoint parameters](../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
          * `target_user` and `target_password`: Database owner username and password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -118,19 +120,19 @@ Prepare the infrastructure:
 
    1. [Create a source endpoint](../data-transfer/operations/endpoint/index.md#create):
 
-      * **Database type**: `{{ MY }}`.
-      * **Endpoint parameters** → **Connection settings**: `{{ mmy-name }} cluster`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`
+      * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
-         Select a source cluster from the list and specify the cluster connection settings.
+         Select a source cluster from the list and specify its connection settings.
 
    1. [Create a target endpoint](../data-transfer/operations/endpoint/index.md#create):
 
-      * **Database type**: `{{ CH }}`.
-      * **Endpoint parameters** → **Connection settings**: `{{ mch-name }} cluster`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ CH }}`
+      * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`
 
-         Select a target cluster from the list and specify the cluster connection settings.
+         Select a target cluster from the list and specify its connection settings.
 
-   1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+   1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
    1. [Activate](../data-transfer/operations/transfer.md#activate) your transfer.
 
 * Using {{ TF }}
@@ -143,19 +145,19 @@ Prepare the infrastructure:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-      Once created, a transfer is activated automatically.
+      Once created, your transfer will be activated automatically.
 
 {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure the data from the source {{ mmy-name }} cluster has been moved to the {{ mch-name }} database:
 
@@ -164,7 +166,7 @@ Prepare the infrastructure:
    1. Run the following query:
 
       ```sql
-      SELECT * FROM <{{ CH }} database name>.x_tab
+      SELECT * FROM <{{ CH }}_database_name>.x_tab
       ```
 
       Result:
@@ -181,7 +183,7 @@ Prepare the infrastructure:
 
       The table also contains [columns with timestamps](#working-with-data-ch) such as `__data_transfer_commit_time` and `__data_transfer_delete_time`.
 
-1. In the `x_tab` table of the {{ MY }} source database, delete the row where `id` is `41` and edit the one where `ID` equals `42`:
+1. In the `x_tab` table of the {{ MY }} source database, delete the row where `id` is `41` and update the row where `id` is `42`:
 
    1. [Connect to the {{ mmy-name }} source cluster](../managed-mysql/operations/connect.md).
 
@@ -195,7 +197,7 @@ Prepare the infrastructure:
 1. Make sure that you see the changes in the `x_tab` table on the {{ CH }} target:
 
    ```sql
-   SELECT * FROM <{{ CH }} database name>.x_tab WHERE id in (41,42);
+   SELECT * FROM <{{ CH }}_database_name>.x_tab WHERE id in (41,42);
    ```
 
    Result:
@@ -218,21 +220,21 @@ Prepare the infrastructure:
 For table recovery, the {{ CH }} target with [replication](../managed-clickhouse/concepts/replication.md) enabled uses the [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and the [ReplacingMergeTree]({{ ch.docs }}engines/table-engines/mergetree-family/replacingmergetree/) engines. The following columns are added automatically to each table:
 
 * `__data_transfer_commit_time`: Time allowed for the row to change to this value, in `TIMESTAMP` format.
-* `__data_transfer_delete_time`: Time allowed for deleting the row, in `TIMESTAMP` format, if the row has been deleted from the source. If it has not, the value is set at `0`.
+* `__data_transfer_delete_time`: Time allowed for deleting the row, in `TIMESTAMP` format, in case the row has been deleted from the source. If the row has not been deleted, the value is set at `0`.
 
    The `__data_transfer_commit_time` column is required for the ReplicatedReplacedMergeTree engine. If a record is deleted or updated, a new row is inserted with a value in this column. When running a query by a single primary key, it will return multiple records with different values from the `__data_transfer_commit_time` column.
 
-With the {{ dt-status-repl }} transfer status, the source data may be both added and deleted. To ensure the standard behavior of SQL commands when a primary key points to a single record, add a construction that filters data by the `__data_transfer_delete_time` column to your queries to the tables moved to {{ CH }}. For example, for the `x_tab` table, the query will be the following:
+With the **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}** transfer status, the source data may be both added and deleted. To ensure the normal behavior of SQL commands when a primary key points to a single record, add a construction that filters data by the `__data_transfer_delete_time` column to your queries to the tables moved to {{ CH }}. For example, for the `x_tab` table, the query will be the following:
 
 ```sql
-SELECT * FROM <{{ CH }} database name>.x_tab FINAL
+SELECT * FROM <{{ CH }}_database_name>.x_tab FINAL
 WHERE __data_transfer_delete_time = 0;
 ```
 
 To make it easier to run a `SELECT` query, create a view with filtering by the `__data_transfer_delete_time` column and access it. For example, for the `x_tab` table, the query will be the following:
 
 ```sql
-CREATE VIEW x_tab_view AS SELECT * FROM <{{ CH }} database name>.x_tab FINAL
+CREATE VIEW x_tab_view AS SELECT * FROM <{{ CH }}_database_name>.x_tab FINAL
 WHERE __data_transfer_delete_time == 0;
 ```
 
@@ -240,14 +242,14 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../_includes/mdb/note-before-delete-resources.md) %}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 
 * Manually
 
    1. [Delete the transfer](../data-transfer/operations/transfer.md#delete-transfer).
-   1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+   1. [Delete endpoints](../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
    1. [Delete the {{ mmy-name }} cluster](../managed-mysql/operations/cluster-delete.md).
    1. [Delete the {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-delete.md).
 
@@ -261,9 +263,9 @@ Some resources are not free of charge. Delete the resources you no longer need t
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

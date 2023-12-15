@@ -1,3 +1,8 @@
+---
+title: "How to delete a disk snapshot schedule {{ compute-full-name }}"
+description: "Follow this guide to delete a disk snapshot schedule."
+---
+
 # Deleting a disk snapshot schedule
 
 To delete a disk snapshot schedule:

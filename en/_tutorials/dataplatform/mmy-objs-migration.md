@@ -23,9 +23,12 @@ Prepare the infrastructure:
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [data-transfer-mmy-objs.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-objs.tf) to the same working directory.
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+   1. Download the [data-transfer-mmy-objs.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-objs.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -50,14 +53,13 @@ Prepare the infrastructure:
          * `source_user` and `source_password`: Database owner username and password.
       * `transfer_enabled`: Set `0` to ensure that no transfer is created before [creating a target endpoint manually](#prepare-transfer).
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -96,8 +98,8 @@ Prepare the infrastructure:
 
    ```sql
    INSERT INTO measurements VALUES
-       ('iv9a94th6rztooxh5ur2', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-       ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
+       ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+       ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
    ```
 
 ## Prepare and activate the transfer {#prepare-transfer}
@@ -149,7 +151,7 @@ Prepare the infrastructure:
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -167,14 +169,14 @@ Prepare the infrastructure:
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the bucket from the list.
-   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
-   1. Check that the {{ objstorage-name }} bucket contains the `measurements` folder with the `<source cluster DB name>_measurements` object with the test data.
+   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
+   1. Check that the {{ objstorage-name }} bucket contains the `measurements` folder with the `<source_cluster_database_name>_measurements` object with the test data.
 
 ## Delete the resources you created {#clear-out}
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
@@ -204,9 +206,9 @@ Delete the other resources, depending on the method used to create them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

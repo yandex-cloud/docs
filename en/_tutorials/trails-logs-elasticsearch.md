@@ -1,6 +1,6 @@
 # Exporting audit logs to {{ mes-full-name }}
 
-Create a trail to upload configuration-level (Control Plane) audit logs for an individual cloud's resources to a {{ objstorage-full-name }} bucket. Then configure continuous log delivery to a {{ mes-full-name }} cluster.
+Create a trail to upload management event (Control Plane) audit logs for an individual cloud's resources to a {{ objstorage-full-name }} bucket. Then configure continuous log delivery to a {{ mes-full-name }} cluster.
 
 The solution described in the tutorial follows the procedure below:
 
@@ -91,7 +91,7 @@ The infrastructure support cost includes:
    yc iam service-account create --name <service_account_name>
    ```
 
-   Where `name` is the service account name, such as `trails-sa`.
+   Where `--name` is the service account name, such as `trails-sa`.
 
 {% endlist %}
 
@@ -135,13 +135,14 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       yc resource-manager folder add-access-binding \
       --role storage.uploader \
       --id <folder_ID> \
-      --service-account-id <trails-sa_service_account_ID>
+      --service-account-id <service_account_ID>
       ```
 
       Where:
-      * `role`: Role being assigned.
-      * `id`: ID of the folder with the bucket.
-      * `service-account-id`: ID of your service account.
+
+      * `--role`: Role being assigned.
+      * `--id`: ID of the folder with the bucket.
+      * `--service-account-id`: ID of the `trails-sa` service account.
 
    1. Assign the `audit-trails.viewer` [role](../audit-trails/security/index.md#roles-list) to the cloud whose logs will be sent to the {{ ES }} cluster:
 
@@ -149,13 +150,14 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
       yc resource-manager cloud add-access-binding \
       --role audit-trails.viewer \
       --id <cloud_ID> \
-      --service-account-id <trails-sa_service_account_ID>
+      --service-account-id <service_account_ID>
       ```
 
       Where:
-      * `role`: Role being assigned.
-      * `id`: ID of the cloud whose logs will be sent to the {{ ES }} cluster.
-      * `service-account-id`: ID of your service account.
+
+      * `--role`: Role being assigned.
+      * `--id`: ID of the cloud the service account resides in.
+      * `--service-account-id`: ID of the `trails-sa` service account.
 
 {% endlist %}
 
@@ -199,7 +201,7 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
    yc vpc network create --name <cloud_network_name>
    ```
 
-   Where `name` is the name of your cloud network, like `trails-network`.
+   Where `--name` is the name of your cloud network, like `trails-network`.
 
 {% endlist %}
 
@@ -229,7 +231,7 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
       yc vpc network list --folder-id <folder_ID>
       ```
 
-      Where `folder-id` is the ID of the folder where the cloud network is located.
+      Where `--folder-id` is the ID of the folder where the cloud network is located.
 
       Result:
 
@@ -253,14 +255,15 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
       ```
 
       Where:
-      * `name`: Name of the subnet, such as `trails-subnet-1`.
-      * `folder-id`: ID of the folder where the cloud network is located.
-      * `network-name`: Name of the cloud network, such as `trails-network`.
-      * `zone`: Availability zone, e.g., `{{ region-id }}-a`
-      * `range`: Subnet CIDR, e.g., `10.128.0.0/24`
+
+      * `--name`: Name of the subnet, e.g., `trails-subnet-1`.
+      * `--folder-id`: ID of the folder where the cloud network is located.
+      * `--network-name`: Name of the cloud network, e.g., `trails-network`.
+      * `--zone`: Availability zone, e.g., `{{ region-id }}-a`.
+      * `--range`: Subnet CIDR, e.g., `10.128.0.0/24`.
    1. Create two more subnets:
-      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR
-      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR
+      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR.
+      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR.
 
 {% endlist %}
 
@@ -278,7 +281,7 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 
 {% note info %}
 
-You can also deploy the required environment using {{ TF }}. For more information, refer to  a [sample configuration file](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/terraform/example/main.tf).
+You can also deploy the required environment using {{ TF }}. For more information, refer to a [sample configuration file](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/blob/main/terraform/example/main.tf).
 
 {% endnote %}
 
@@ -293,7 +296,7 @@ You can also deploy the required environment using {{ TF }}. For more informatio
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket, such as `trails-sa`.
@@ -456,9 +459,9 @@ To use the latest version of the solution for exporting audit logs to your {{ ES
    docker run \
         -it \
         --rm \
-        -e ELASTIC_AUTH_USER='<{{ ES }}_cluster_user_name>' \
-        -e ELASTIC_AUTH_PW='<{{ ES }}_cluster_user_password>' \
-        -e KIBANA_SERVER='<{{ ES }}_cluster_network_address>' \
+        -e ELASTIC_AUTH_USER='<username>' \
+        -e ELASTIC_AUTH_PW='<password>' \
+        -e KIBANA_SERVER='<network_address>' \
         --name elk-updater {{ registry }}/sol/elk-updater:latest
    ```
 
@@ -469,7 +472,7 @@ To use the latest version of the solution for exporting audit logs to your {{ ES
 
 {% note tip %}
 
-You can also check the [yandex-cloud-examples/yc-export-auditlogs-to-elk](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) repository for solution updates.
+You can also follow the solution updates in the [yandex-cloud-examples/yc-security-solutions-library](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) repository.
 
 {% endnote %}
 

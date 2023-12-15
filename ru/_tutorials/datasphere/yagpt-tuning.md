@@ -45,7 +45,7 @@
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} (опционально) {#create-sa}
 
-Обращаться к дообученной модели можно через интерфейс {{ ml-platform-name }} (Playground) или через API, с помощью кода. Если вы планируете делать запросы через API, вам понадобится сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md) `{{ roles-yagpt-user }}`. Сервисный аккаунт должен быть участником проекта {{ ml-platform-name }}.
+Обращаться к дообученной модели можно через интерфейс {{ ml-platform-name }} (Playground) или через API v1 в синхронном режиме. Если вы планируете делать запросы через API, вам понадобится сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md) `{{ roles-yagpt-user }}`. Сервисный аккаунт должен быть участником проекта {{ ml-platform-name }}.
 
 {% list tabs %}
 
@@ -144,36 +144,141 @@
 
     1. Чтобы изменить вариативность, передвигайте ползунок в поле **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}**. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
 
-- API
+- {{ jlab }}Lab
 
-    Код для обращения к модели:
+    Скопируйте код в ячейку ноутбука, если вы не использовали инструкцию для дообучения модели:
 
     ```python
     import requests
     req = {
-    	    "model": "general",
-    	    "instruction_uri" : "ds://<идентификатор_дообученной_модели>",
-    	    "request_text": "<текст_запроса>",
-    	    "generation_options": {
-    	    "max_tokens": 1000,
-    	    "temperature": 0.1
-    	    }
+            "modelUri": "ds://<идентификатор_дообученной_модели>",
+            "completionOptions": {
+                "stream": False,
+                "temperature": 0.1,
+                "maxTokens": "2000"
+            },
+            "messages": [
+                {
+                "role": "user",
+                "text": "<текст_запроса>"
+                }
+            ]            
     }
-    headers = {'Authorization': 'Bearer ' + '<iam_токен>'}
-    res = requests.post("https://llm.api.cloud.yandex.net/llm/v1alpha/instruct",
-          headers=headers, json=req)
+    headers = {"Authorization" : "Bearer " + '<значение_IAM-токена>',
+            "x-folder-id": "<идентификатор_каталога>", }
+    res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+        headers=headers, json=req)
     print(res.json())
     ```
 
     Где:
 
-    * `instruction_uri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта.
-    * `request_text` — текст запроса.
-    * `max_tokens` — максимальное число символов в ответе модели.
+    * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта.
     * `temperature` — температура. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
-    * `Authorization` — [IAM-токен сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
+    * `maxTokens` — максимальное число токенов в ответе модели.
+    * `<значение_IAM-токена>` — [IAM-токен сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
+    * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
+
+    Если вы использовали инструкцию для дообучения, укажите ее текст в сообщении с ролью `system`:
+
+    ```python
+    import requests
+    req = {
+            "modelUri": "ds://<идентификатор_дообученной_модели>",
+            "completionOptions": {
+                "stream": False,
+                "temperature": 0.1,
+                "maxTokens": "2000"
+            },
+            "messages": [
+                {
+                "role": "system",
+                "text": "<текст_инструкции>"
+                },
+                {
+                "role": "user",
+                "text": "<текст_запроса>"
+                }
+            ]    
+    }
+    headers = {"Authorization" : "Bearer " + '<значение_IAM-токена>',
+                       "x-folder-id": "<идентификатор_каталога>", }
+    res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+        headers=headers, json=req)
+    print(res.json())
+    ```
 
     Подробнее о параметрах запроса к дообученной модели см. в [документации {{ yagpt-full-name }}](../../yandexgpt/api-ref/).
+
+- cURL
+
+    {% include [curl](../../_includes/curl.md) %}
+
+    1. Создайте файл JSON с параметрами запроса к модели. Если вы не использовали инструкцию для дообучения, скопируйте в него следующий код:
+    
+       ```json
+        {
+        "modelUri": "ds://<идентификатор_дообученной_модели>",
+        "completionOptions": {
+            "stream": false,
+            "temperature": 0.1,
+            "maxTokens": "2000"
+        },
+        "messages": [
+            {
+            "role": "user",
+            "text": "<текст_запроса>"
+            }
+        ]
+        }
+       ```
+
+       Где:
+
+       * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта.
+       * `temperature` — температура. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
+       * `maxTokens` — максимальное число токенов в ответе модели.
+       * `text` — текст запроса.
+
+       Если вы использовали инструкцию для дообучения, в JSON файле укажите ее текст в сообщении с ролью `system`:
+
+       ```json
+        {
+        "modelUri": "ds://<идентификатор_дообученной_модели>",
+        "completionOptions": {
+            "stream": false,
+            "temperature": 0.1,
+            "maxTokens": "2000"
+        },
+        "messages": [
+            {
+            "role": "system",
+            "text": "<текст_инструкции>"
+            },
+            {
+            "role": "user",
+            "text": "<текст_запроса>"
+            }
+        ]
+        }
+       ```
+
+    1. Отправьте запрос через командную оболочку:
+   
+       ```bash
+       curl --request POST
+           -H "Content-Type: application/json"
+           -H "Authorization: Bearer <значение_IAM-токена>"
+           -H "x-folder-id: <идентификатор_каталога>"
+           -d prompt.json
+           https://llm.{{ api-host }}/foundationModels/v1/completion
+       ```
+        
+       Где:
+   
+       * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
+       * `<значение_IAM-токена>` — [IAM-токен сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
+       * `prompt.json` — файл в формате JSON, содержащий параметры запроса.
 
 {% endlist %}
 

@@ -81,8 +81,10 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
       yc organization-manager organization add-access-binding \
       --role audit-trails.viewer \
       --id <organization_ID> \
-      --service-account-id <trail-sa_service_account_ID>
+      --service-account-id <service_account_ID>
       ```
+
+      Where `--service-account-id` is the ID of the `trail-sa` service account.
 
       Result:
 
@@ -97,8 +99,10 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
       ```bash
       yc resource-manager folder add-access-binding example-folder \
           --role storage.uploader \
-          --subject serviceAccount:<trail-sa_service_account_ID>
+          --subject serviceAccount:<service_account_ID>
       ```
+
+      Where `--subject` is the ID of the `trail-sa` service account.
 
       Result:
 
@@ -119,8 +123,10 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-
    ```bash
    yc resource-manager folder add-access-binding example-folder \
        --role storage.viewer \
-       --subject serviceAccount:<bucket-yq-sa_service_account_ID>
+       --subject serviceAccount:<service_account_ID>
    ```
+
+   Where `--subject` is the ID of the `bucket-yq-sa` service account.
 
    Result:
 
@@ -144,7 +150,7 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the [previously created](#create-backet) bucket.
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `trail-sa`.
    1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:

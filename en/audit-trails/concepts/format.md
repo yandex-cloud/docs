@@ -212,7 +212,7 @@ Depending on the [destination object](./trail.md#target) (a bucket or log group)
 
 Below is the template for the full name of an audit log file in a bucket:
 
-`<object prefix>/<trail ID>/<year>/<month>/<file_name.json>`
+`<object_prefix>/<trail_ID>/<year>/<month>/<file_name.json>`
 
 ### Log group entry {#logging-group-name}
 

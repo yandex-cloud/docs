@@ -448,7 +448,7 @@ To use the Cilium network policy controller in a cluster:
 
 Apply an L3/L4 network policy to disable the `xwing` pod's access to `deathstar`. Access rules for the `tiefighter` pod remain unchanged.
 
-For access differentiation, the following labels are assigned to pods when creating them:
+For access differentiation, the following {{ k8s }} labels are assigned to pods when creating them:
 * `org: empire` for the `tiefighter` pod.
 * `org: alliance` for the `xwing` pod.
 

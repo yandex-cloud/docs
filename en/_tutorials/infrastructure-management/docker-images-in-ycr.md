@@ -72,8 +72,11 @@ Infrastructure support costs include fees for the following resources:
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [container-registry-and-gitlab.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-gitlab/container-registry-and-gitlab.tf) configuration file to the same working directory.
 
       This file describes:
@@ -91,8 +94,6 @@ Infrastructure support costs include fees for the following resources:
       * [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
-
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

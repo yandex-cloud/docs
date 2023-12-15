@@ -16,7 +16,7 @@ To apply or edit a bucket access policy:
    1. Select **{{ objstorage-name }}**.
    1. Select a bucket from the list.
    1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
-   1. Click ![pencil](../../../_assets/pencil.svg) **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
+   1. Click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
    1. Enter a bucket policy ID.
    1. Set up a rule:
       1. Enter a rule ID.
@@ -192,7 +192,7 @@ To apply or edit a bucket access policy:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 
@@ -267,7 +267,7 @@ To delete a bucket policy:
    1. Select **{{ objstorage-name }}**.
    1. Select a bucket from the list.
    1. Click the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab in the left-hand menu.
-   1. Click ![options](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
+   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
 
 - AWS CLI

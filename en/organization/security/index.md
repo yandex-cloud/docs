@@ -26,6 +26,10 @@ For more information about access control in {{ yandex-cloud }}, see the {{ iam-
 
 * `organization-manager.groups.memberAdmin`: This role allows you to view information about a group and add and remove group members.
 
+* `organization-manager.federations.admin`: This role allows you to create, update, and delete federations, certificates, and their users, view organization settings, and get organization and federation lists and group mapping lists.
+
+* `organization-manager.federations.viewer`: This role enables you to view organization settings and get organization and federation lists and group mapping lists.
+
 * `organization-manager.osLogins.admin`: This role allows you to edit OS Login profiles, SSH keys, and create certificates for the organization users.
 
 * `organization-manager.osLogins.viewer`: This role allows you to view OS Login profiles and SSH keys of the organization users.
@@ -102,7 +106,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
    1. [Get the user ID](../operations/users-get.md).
 
-   1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+   1. Create a request body, for example, in the `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       Example `body.json` file:
 
@@ -121,7 +125,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       }
       ```
 
-  1. Assign the role. For example, for an organization with the `bpf3crucp1v28b74p3rk` ID:
+   1. Assign the role. For example, for an organization with the `bpf3crucp1v28b74p3rk` ID:
 
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
@@ -167,7 +171,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      2. Run a check using this command:
+      1. Run a check using this command:
 
         ```
         terraform plan
@@ -245,25 +249,25 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       ```
 
 
-1. To delete an access binding, run:
+   1. To delete an access binding, run:
 
-   ```bash
-   yc <SERVICE-NAME> <RESOURCE> remove-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
-       --role <ROLE-ID> \
-       --subject <SUBJECT-TYPE>:<SUBJECT-ID>
-   ```
+      ```bash
+      yc <SERVICE-NAME> <RESOURCE> remove-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
+          --role <ROLE-ID> \
+          --subject <SUBJECT-TYPE>:<SUBJECT-ID>
+      ```
 
-   * `<ROLE-ID>` is the ID of the role to revoke, such as `organization-manager.admin`.
-   * `<SUBJECT-TYPE>` is the [subject](../../iam/concepts/access-control/index.md#subject) type to revoke a role from.
-   * `<SUBJECT-ID>` is the subject ID.
+      * `<ROLE-ID>`: ID of the role to revoke, e.g., `organization-manager.admin`.
+      * `<SUBJECT-TYPE>`: [Subject](../../iam/concepts/access-control/index.md#subject) type to revoke a role from.
+      * `<SUBJECT-ID>`: Subject ID.
 
-   For example, to take a role away from a user with the ID `aje6o61dvog2h6g9a33s`:
+      For example, to revoke a role from the user with the `aje6o61dvog2h6g9a33s` ID:
 
-   ```bash
-   yc organization-manager organization remove-access-binding bpf3crucp1v28b74p3rk \
-       --role organization-manager.admin \
-       --subject userAccount:aje6o61dvog2h6g9a33s
-   ```
+      ```bash
+      yc organization-manager organization remove-access-binding bpf3crucp1v28b74p3rk \
+          --role organization-manager.admin \
+          --subject userAccount:aje6o61dvog2h6g9a33s
+      ```
 
 - API
 
@@ -293,35 +297,35 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       }
       ```
 
-  1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. The example below shows how to revoke the `organization-manager.admin` role from user `aje6o61dvog2h6g9a33s`.
+   1. Create a request body, for example, in the `body.json` file. In the request body, specify which access binding to delete. The example below shows how to revoke the `organization-manager.admin` role from the `aje6o61dvog2h6g9a33s` user.
 
-   Example of `body.json` file:
+      Example of `body.json` file:
 
-   ```json
-   {
-     "accessBindingDeltas": [{
-       "action": "REMOVE",
-       "accessBinding": {
-         "roleId": "organization-manager.admin",
-         "subject": {
-           "id": "aje6o61dvog2h6g9a33s",
-           "type": "userAccount"
-         }
-       }
-     }]
-   }
-   ```
+      ```json
+      {
+        "accessBindingDeltas": [{
+          "action": "REMOVE",
+          "accessBinding": {
+            "roleId": "organization-manager.admin",
+            "subject": {
+              "id": "aje6o61dvog2h6g9a33s",
+              "type": "userAccount"
+            }
+          }
+        }]
+      }
+      ```
 
-1. Revoke the role by deleting the specified access binding:
+   1. Revoke the role by deleting the specified access binding:
 
-   ```bash
-   export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-   export IAM_TOKEN=CggaATEVAgA...
-   curl -X POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-   ```
+      ```bash
+      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      ```
 
 {% endlist %}
 
@@ -329,7 +333,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/operations/groups/access-binding-object.md), see [{#T}](../../iam/concepts/access-control/index.md#subject).
 
-In the management console, you can assign a group a role for a cloud, folder, or service account. In the {{ org-full-name }} service, a group can only be granted a role for another group. To assign a group a role for an organization, use the CLI.
+In {{ org-full-name }}, you can assign a group a role for an organization, cloud, folder, another group, or service account.
 
 #### Assigning a role for a cloud or folder {#access-binding-cloud}
 

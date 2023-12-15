@@ -1,6 +1,6 @@
 # Uploading audit logs to ArcSight SIEM
 
-Create a trail to upload configuration-level (Control Plane) audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
+Create a trail to upload management event (Control Plane) audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
 
 To complete the tutorial successfully, you must have an ArcSight instance installed.
 
@@ -9,7 +9,7 @@ The solution described in the tutorial follows the procedure below:
 1. A [bucket](../../storage/concepts/bucket.md) is mounted via a [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) interface to a folder on an intermediate VM.
 1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) collects logs from the folder and delivers them to ArcSight for analysis.
 
-For more information about the scripts for uploading audit logs to ArcSight, see [solution](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight#two-log-shipping-scenarios) from the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library).
+For more information about the scripts for delivering audit logs to ArcSight, see [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight#two-log-shipping-scenarios).
 
 {% include [Yc-security-solutions-library](../../_includes/security-solution-library.md) %}
 
@@ -183,15 +183,15 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
       ```
       yc resource-manager folder add-access-binding \
       --role audit-trails.viewer \
-      --id <example-folder_ID> \
-      --service-account-id <sa-arcsight_service_account_ID>
+      --id <folder_ID> \
+      --service-account-id <service_account_ID>
       ```
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: ID of `example-folder`.
-      * `service-account-id`: ID of `sa-arcsight`.
+      * `--role`: Role being assigned.
+      * `--id`: ID of `example-folder`.
+      * `--service-account-id`: ID of the `sa-arcsight` service account.
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
@@ -200,30 +200,30 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
       ```
       yc resource-manager folder add-access-binding \
       --role storage.uploader \
-      --id <example-folder_ID> \
-      --service-account-id <sa-arcsight_service_account_ID>
+      --id <folder_ID> \
+      --service-account-id <service_account_ID>
       ```
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: ID of `example-folder`.
-      * `service-account-id`: ID of `sa-arcsight`.
+      * `--role`: Role being assigned.
+      * `--id`: ID of `example-folder`.
+      * `--service-account-id`: ID of the `sa-arcsight` service account.
 
    1. The `kms.keys.encrypterDecrypter` [role](../../kms/security/#service) to the `arcsight-kms` encryption key:
 
       ```
       yc kms symmetric-key add-access-binding \
       --role kms.keys.encrypterDecrypter \
-      --id <arcsight-kms_key_ID> \
-      --service-account-id <sa-arcsight_service_account_ID>
+      --id <key_ID> \
+      --service-account-id <service_account_ID>
       ```
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: ID of the `arcsight-kms` {{ kms-short-name }} key.
-      * `service-account-id`: ID of `sa-arcsight`.
+      * `--role`: Role being assigned.
+      * `--id`: ID of the `arcsight-kms` {{ kms-short-name }} key.
+      * `--service-account-id`: ID of the `sa-arcsight` service account.
 
 {% endlist %}
 
@@ -237,31 +237,31 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
       ```
       yc resource-manager folder add-access-binding \
-      --id <example-folder_ID> \
+      --id <folder_ID> \
       --role storage.viewer \
-      --service-account-id <sa-arcsight-bucket_service_account_ID>
+      --service-account-id <service_account_ID>
       ```
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: ID of `example-folder`.
-      * `service-account-id`: ID of `sa-arcsight-bucket`.
+      * `--id`: ID of `example-folder`.
+      * `--role`: Role being assigned.
+      * `--service-account-id`: ID of the `sa-arcsight-bucket` service account.
 
    1. The `kms.keys.encrypterDecrypter` role to the `arcsight-kms` encryption key:
 
       ```
       yc kms symmetric-key add-access-binding \
       --role kms.keys.encrypterDecrypter \
-      --id <arcsight-kms_key_ID> \
-      --service-account-id <sa-arcsight-bucket_service_account_ID>
+      --id <key_ID> \
+      --service-account-id <service_account_ID>
       ```
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: The ID of the `arcsight-kms` {{ kms-short-name }} key.
-      * `service-account-id`: The ID of `sa-arcsight-bucket`.
+      * `--role`: Role being assigned.
+      * `--id`: ID of the {{ kms-short-name }} `arcsight-kms` key.
+      * `--service-account-id`: ID of the `sa-arcsight-bucket` service account.
 
 {% endlist %}
 
@@ -280,7 +280,7 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 

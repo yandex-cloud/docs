@@ -1,6 +1,6 @@
 ---
 title: "Questions and answers about {{ objstorage-full-name }}"
-description: "This page presents questions and answers about {{ objstorage-name }}."
+description: "This page provides answers to questions about {{ objstorage-name }}."
 ---
 
 # Questions and answers about {{ objstorage-name }}
@@ -106,7 +106,7 @@ Data is stored in several geographically distributed data centers located in Rus
 
 #### How is my data protected in {{ objstorage-full-name }}? {#qa-data-security}
 
-Physical media is located in {{ yandex-cloud }} data centers, which are highly secure facilities.
+Physical media are located in {{ yandex-cloud }} data centers, which are high-security facilities.
 
 Data is stored in an encrypted format and none of those who have access to the physical media can read the data.
 
@@ -154,3 +154,7 @@ To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bu
 1. [Access policies](concepts/policy.md) treat objects within a bucket and the bucket itself as different resources. To apply an access policy rule to both the bucket and the objects within it, specify them separately, e.g., `samplebucket` and `samplebucket/*`.
 
 1. If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](operations/buckets/policy.md#delete-policy) it.
+
+#### How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network? {#qa-from-vpc}
+
+For resources that are hosted in a {{ vpc-short-name }} cloud network and have no public IPs or access to the internet, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via the appropriate [API endpoint](../api-design-guide/concepts/endpoints.md). The FQDN of the endpoint will be translated to a public IP using the DNS service.

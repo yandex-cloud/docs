@@ -28,7 +28,7 @@ A public IP address can be in one of the following two states:
 1. **Inactive**: When a _static_ public IP address is not linked to a cloud resource or is linked to a stopped resource.
 
 
-All prices are net of VAT.
+All prices are shown without VAT.
 
 
 
@@ -90,7 +90,7 @@ Please note that traffic transmitted via a NAT gateway is charged separately fro
 
 ### Using security groups {#prices-security-groups}
 
-The [security group](concepts/security-groups.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
+[Security groups](concepts/security-groups.md) can be used free of charge.
 
 ### Egress traffic {#prices-traffic}
 
@@ -113,7 +113,7 @@ All prices are net of VAT.
 ## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
 
 
-All prices are net of VAT.
+All prices are shown without VAT.
 
 
 

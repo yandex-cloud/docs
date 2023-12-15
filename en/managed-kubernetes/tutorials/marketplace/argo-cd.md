@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
    1. [Create service accounts](../../../iam/operations/sa/create.md):
       * Service account for {{ k8s }} resources with the [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) [role](../../../iam/concepts/access-control/roles.md) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) that you build in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md), as well as pull them to run [pods](../../concepts/index.md#pod).
+      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push to the [registry](../../../container-registry/concepts/registry.md) the [Docker images](../../../container-registry/concepts/docker-image.md) that you build in {{ GL }} and pull them to run [pods](../../concepts/index.md#pod).
 
       {% note tip %}
 
@@ -41,8 +41,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
       * [Network](../../../vpc/concepts/network.md#network).
       * [Subnet](../../../vpc/concepts/network.md#subnet).
@@ -61,7 +64,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ managed-k8s-name }} cluster CIDR.
       * Name of the service account for {{ managed-k8s-name }} resources and nodes.
       * Name of the {{ container-registry-name }} registry.
-   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -190,7 +192,7 @@ Install the following items in the local environment:
 1. In the Argo CD console, go to **Settings** → **Repositories**.
 1. Click **Connect Repo Using HTTPS**.
 1. In the resulting form, enter the settings:
-   * **Repository URL**: Repository URL in the following format: `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_name>/gitlab-test.git`.
+   * **Repository URL**: Repository URL like `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_name>/gitlab-test.git`.
    * **Username**: `gitlab-ci-token`.
    * **Password**: A previously generated {{ GL }} token.
 1. Click **Connect**.
