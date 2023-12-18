@@ -1305,6 +1305,8 @@ default:
         v1|int|string: ₽480
       night:
         v1|int|string: Free
+        v1|pricingRate:
+          1|int|string: ₽360
   sku|RUB|serverless:
     containers:
       compute:
@@ -2161,7 +2163,9 @@ default:
       day:
         v1|string: $3.840000
       night:
-        v1|string: Free
+        v1|int|string: Free
+        v1|pricingRate:
+          1|string: $2.880000
   sku|USD|serverless:
     containers:
       compute:
@@ -3594,6 +3598,9 @@ default:
           label_option-actual: Pending
           label_row-action-delete: Delete invitation
           label_row-action-resend: Resend
+        oslogin-profile:
+          action:
+            create: Create profile
         user:
           action:
             acl: Assign bindings
@@ -3629,8 +3636,11 @@ default:
           select:
             action:
               enter: Log in
+        oslogin-settings:
+          title_ssh-certificate-settings: Access via OS Login using SSH certificates (recommended)
       forms:
         action:
+          create: Create
           save: Save
       page:
         context:
@@ -3639,6 +3649,8 @@ default:
         settings:
           action:
             edit: Edit data
+        user:
+          title_tab-os-login: OS Login profiles
         users:
           action:
             add-federated-users: Add federated users
@@ -3649,6 +3661,8 @@ default:
         create: Create organization
         federations: Federations
         groups: Groups
+        oslogin:
+          title: Security settings
         raw_services: Clouds & services
         settings: Organization information
         users: Users

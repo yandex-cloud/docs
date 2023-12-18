@@ -76,3 +76,7 @@ description: "Следуя данной инструкции, вы сможет�
           --id <идентификатор_ВМ> \
           -o "PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com"
       ```
+
+## Подключиться к ВМ по SSH с помощью сертификата OS Login {#connect-via-exported-certificate}
+
+{% include [oslogin-connect-with-exported-cert](../../../_includes/compute/oslogin-connect-with-exported-cert.md) %}
