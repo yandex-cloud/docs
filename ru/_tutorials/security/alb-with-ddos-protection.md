@@ -1,13 +1,12 @@
 # Создание балансировщика с защитой от DDoS
 
-В этом сценарии вы создадите L7-балансировщик с обработчиком, который имеет публичный IP-адрес с функцией [защиты от DDoS-атак](../../vpc/ddos-protection/index.md).
+В этом сценарии вы создадите [L7-балансировщик](../../application-load-balancer/concepts/index.md) с обработчиком, который имеет [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) с функцией [защиты от DDoS-атак](../../vpc/ddos-protection/index.md).
 
 Чтобы создать L7-балансировщик с защитой от DDoS-атак:
-
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте облачную сеть](#create-network).
 1. [Создайте группы безопасности](#create-security-groups).
-1. [Создайте группу ВМ](#create-vms).
+1. [Создайте группу виртуальных машин](#create-vms).
 1. [Зарезервируйте статический публичный IP-адрес](#reserve-ip).
 1. [Создайте группу бэкендов](#create-backend-group).
 1. [Создайте HTTP-роутер](#create-http-routers-sites).
@@ -24,7 +23,7 @@
 
 ## Создайте облачную сеть {#create-network}
 
-Все ресурсы, созданные в сценарии, будут относиться к одной [облачной сети](../../vpc/concepts/network.md).
+Все ресурсы, созданные в практическом руководстве, будут относиться к одной [облачной сети](../../vpc/concepts/network.md).
 
 Чтобы создать сеть:
 
@@ -34,7 +33,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. Укажите имя сети: `ddos-network`.
+  1. Укажите имя сети `ddos-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
@@ -44,7 +43,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Создайте облачную сеть в каталоге по умолчанию:
+  1. Создайте облачную сеть в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
 
      ```bash
      yc vpc network create \
@@ -52,8 +51,7 @@
      ```
 
      Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
-
-  1. Создайте подсети в каждой зоне доступности, указав идентификатор облачной сети с помощью флага `--network-name`:
+  1. Создайте [подсети](../../vpc/concepts/network.md#subnet) в каждой [зоне доступности](../../overview/concepts/geo-scope.md), указав идентификатор облачной сети с помощью флага `--network-name`:
 
      ```bash
      yc vpc subnet create \
@@ -100,39 +98,34 @@
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
   1. Создайте группу безопасности для балансировщика:
-
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-     1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы: `ddos-sg-balancer`.
+     1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы безопасности: `ddos-sg-balancer`.
      1. Выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** `ddos-network`.
      1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
 
-        | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
-        | --- | --- | --- | --- | --- | --- |
-        | `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
+        Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+        --- | --- | --- | --- | --- | ---
+        `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
 
         1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
         1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
         1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
         1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
-
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
-
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
-
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-
   1. Аналогично создайте группу безопасности для ВМ с именем `ddos-sg-vms`, той же сетью `ddos-network` и следующими правилами:
 
-     | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
-     | --- | --- | --- | --- | --- | --- |
-     | `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `ddos-sg-balancer` |
-     | `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+     --- | --- | --- | --- | --- | ---
+     `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `ddos-sg-balancer`
+     `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 - CLI
 
@@ -170,7 +163,7 @@
 
 ## Создайте группу ВМ {#create-vms}
 
-На ВМ из [целевой группы](../../application-load-balancer/concepts/target-group.md) развертываются бэкенды вашего приложения. Целевая группа будет подключена к балансировщику, чтобы на эндпоинты бэкендов вашего приложения можно было направлять запросы. В этом сценарии достаточно создать группу ВМ с минимальной конфигурацией.
+На ВМ из [целевой группы](../../application-load-balancer/concepts/target-group.md) развертываются бэкенды вашего приложения. Целевая группа ВМ будет подключена к балансировщику, чтобы на эндпоинты бэкендов вашего приложения можно было направлять запросы. В этом сценарии достаточно создать [группу ВМ](../../compute/concepts/instance-groups/index.md) с минимальной конфигурацией.
 
 Чтобы создать группу ВМ:
 
@@ -181,13 +174,10 @@
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
-
      * Введите **{{ ui-key.yacloud.compute.groups.create.field_name }}** группы ВМ: `ddos-group`.
-     * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
-
+     * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и укажите конфигурацию базовой ВМ:
-
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите **{{ ui-key.yacloud.compute.instances.create.field_description }}** шаблона.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Выберите продукт [LEMP](/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите:
@@ -202,14 +192,12 @@
        * Выберите облачную сеть `ddos-network` и ее подсети.
        * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
        * Выберите группу безопасности `ddos-sg-vms`.
-     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на виртуальную машину:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
        * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** вставьте содержимое файла открытого ключа.
 
         Для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать пару ключей. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
      * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
-
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** группы ВМ — `2`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы: `tg-ddos`. [Подробнее о целевых группах](../../application-load-balancer/concepts/target-group.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -217,15 +205,14 @@
 - CLI
 
   1. Получите идентификаторы ресурсов, необходимые для создания группы ВМ, с помощью команд:
-
-     * [yc iam service-account get <имя_сервисного_аккаунта>](../../cli/cli-ref/managed-services/iam/service-account/get.md) — для сервисного аккаунта;
-     * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md) — для сети `ddos-network`;
-     * [yc vpc subnet get <имя_подсети>](../../cli/cli-ref/managed-services/vpc/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-c`;
-     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md) — для образа загрузочного диска;
+     * [yc iam service-account get <имя_сервисного_аккаунта>](../../cli/cli-ref/managed-services/iam/service-account/get.md) — для сервисного аккаунта.
+     * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md) — для сети `ddos-network`.
+     * [yc vpc subnet get <имя_подсети>](../../cli/cli-ref/managed-services/vpc/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-c`.
+     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md) — для образа загрузочного диска.
      * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/managed-services/vpc/security-group/get.md) — для группы безопасности `ddos-sg-vms`.
 
   1. Создайте YAML-файл с именем `specification.yaml`.
-  1. Добавьте в него описание конфигурации базовой виртуальной машины:
+  1. Добавьте в него описание конфигурации базовой ВМ:
 
      ```yaml
      name: ddos-group
@@ -269,8 +256,7 @@
      ```
 
      Где `security_group_ids` — идентификатор группы безопасности `ddos-sg-vms`.
-
-  1. Создайте группу виртуальных машин в каталоге по умолчанию:
+  1. Создайте группу ВМ в каталоге по умолчанию:
 
      ```bash
      yc compute instance-group create \
@@ -356,7 +342,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-  1. Выберите зону доступности, в которой нужно зарезервировать адрес.
+  1. Выберите зону доступности, в которой нужно зарезервировать IP-адрес.
   1. Включите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
@@ -404,7 +390,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: a5dg2cv4ngne********
      name: ddos-backend-group
      folder_id: aoerb349v3h4********
@@ -412,7 +398,6 @@
      ```
 
      Подробнее о команде `yc alb backend-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/create.md).
-
   1. Добавьте в группу бэкенд и проверку состояния:
 
      ```bash
@@ -426,7 +411,6 @@
      ```
 
      Где:
-
      * `--backend-group-name` — имя группы бэкендов.
      * `--name` — имя бэкенда.
      * `--weight` — вес бэкенда.
@@ -441,7 +425,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (21s)
      id: ds7fea2pggr2********
      name: ddos-backend-group
@@ -508,7 +492,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: a5dcsselagj4********
      name: ddos-router
      folder_id: aoerb349v3h4********
@@ -516,7 +500,6 @@
      ```
 
      Подробнее о команде `yc alb http-router create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
-
   1. Создайте виртуальный хост, указав имя HTTP-роутера:
 
      ```bash
@@ -526,7 +509,6 @@
      ```
 
      Подробнее о команде `yc alb virtual-host create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
-
   1. Добавьте маршрут, указав имя роутера и параметры маршрутизации:
 
      ```bash
@@ -540,7 +522,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      done (1s)
       name: ddos-host
       routes:
@@ -577,12 +559,10 @@
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть `ddos-network` и группу безопасности `ddos-sg-balancer`.
   1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсети для узлов балансировщика в каждой зоне доступности и включите передачу трафика.
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
-
      1. Введите имя обработчика: `ddos-listener`.
      1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** включите передачу трафика.
      1. Укажите порт `80`.
-     1. Выберите тип **{{ ui-key.yacloud.alb.label_address-list }}** и укажите [зарезервированный ранее](#reserve-ip) адрес с защитой от DDoS.
-
+     1. Выберите тип **{{ ui-key.yacloud.alb.label_address-list }}** и укажите [зарезервированный ранее](#reserve-ip) IP-адрес с защитой от DDoS.
   1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `ddos-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -590,26 +570,25 @@
 
   1. Создайте балансировщик с узлами в подсетях облачной сети:
 
-      ```bash
-      yc alb load-balancer create ddos-protect-alb \
-        --network-name ddos-network \
-        --location subnet-name=ddos-network-ru-a,zone={{ region-id }}-a \
-        --location subnet-name=ddos-network-ru-b,zone={{ region-id }}-b \
-        --location subnet-name=ddos-network-ru-c,zone={{ region-id }}-c
-      ```
+     ```bash
+     yc alb load-balancer create ddos-protect-alb \
+       --network-name ddos-network \
+       --location subnet-name=ddos-network-ru-a,zone={{ region-id }}-a \
+       --location subnet-name=ddos-network-ru-b,zone={{ region-id }}-b \
+       --location subnet-name=ddos-network-ru-c,zone={{ region-id }}-c
+     ```
 
-      Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
-
+     Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
   1. Добавьте обработчик:
 
-      ```bash
-      yc alb load-balancer add-listener ddos-protect-alb \
-        --listener-name ddos-listener \
-        --http-router-id <идентификатор_HTTP-роутера> \
-        --external-ipv4-endpoint port=80, address=<IP-адрес_с_защитой_от_DDoS>
-      ```
+     ```bash
+     yc alb load-balancer add-listener ddos-protect-alb \
+       --listener-name ddos-listener \
+       --http-router-id <идентификатор_HTTP-роутера> \
+       --external-ipv4-endpoint port=80, address=<IP-адрес_с_защитой_от_DDoS>
+     ```
 
-      Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+     Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
 - {{ TF }}
 
@@ -622,7 +601,7 @@
 Проверьте доступность сервиса на хосте `alb-with-ddos.com`. Для этого выполните команду:
 
 ```bash
-curl -H "Host: alb-with-ddos.com" http://<IP-адрес_балансировщика>
+curl -H "Host: alb-with-ddos.com" http://<IP-адрес_L7-балансировщика>
 ```
 
 Результат:
@@ -633,11 +612,11 @@ curl -H "Host: alb-with-ddos.com" http://<IP-адрес_балансировщи
 <head>
 <title>Welcome to nginx!</title>
 <style>
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
+  body {
+    width: 35em;
+    margin: 0 auto;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+  }
 </style>
 </head>
 <body>
@@ -658,15 +637,12 @@ Commercial support is available at
 ## Удалите созданные ресурсы {#delete-resources}
 
 Чтобы остановить работу хостинга и перестать платить за созданные ресурсы:
-
 1. Удалите нетарифицируемые ресурсы, которые блокируют удаление тарифицируемых ресурсов:
-
    1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `ddos-protect-alb`.
    1. [Удалите](../../application-load-balancer/operations/http-router-delete.md) HTTP-роутер `ddos-router`.
    1. [Удалите](../../application-load-balancer/operations/backend-group-delete.md) группу бэкендов `ddos-backend-group`.
-
-1. [Удалите](../../compute/operations/instance-groups/delete.md) группу виртуальных машин `ddos-group`.
-1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный адрес.
+1. [Удалите](../../compute/operations/instance-groups/delete.md) группу ВМ `ddos-group`.
+1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный IP-адрес.
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
@@ -690,24 +666,23 @@ Commercial support is available at
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `alb-with-ddos-protection.tf`:
 
-          {% cut "alb-with-ddos-protection.tf" %}
+        {% cut "alb-with-ddos-protection.tf" %}
 
-          {% include [alb-with-ddos-protection-tf-config](../../_includes/web/alb-with-ddos-protection-tf-config.md) %}
+        {% include [alb-with-ddos-protection-tf-config](../../_includes/web/alb-with-ddos-protection-tf-config.md) %}
 
-          {% endcut %}
+        {% endcut %}
 
      1. Создайте в папке файл с пользовательскими данными `alb-with-ddos-protection.auto.tfvars`:
 
-          {% cut "alb-with-ddos-protection.auto.tfvars" %}
+        {% cut "alb-with-ddos-protection.auto.tfvars" %}
 
-          {% include [alb-with-ddos-protection-tf-variables](../../_includes/web/alb-with-ddos-protection-tf-variables.md) %}
+        {% include [alb-with-ddos-protection-tf-variables](../../_includes/web/alb-with-ddos-protection-tf-variables.md) %}
 
-          {% endcut %}
+        {% endcut %}
 
    {% endlist %}
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
-
    * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
    * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
@@ -720,13 +695,10 @@ Commercial support is available at
    * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
    * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host)
    * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
-
 1. В файле `alb-with-ddos-protection.auto.tfvars` задайте пользовательские параметры:
-
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
     * `vm_user` — имя пользователя ВМ.
     * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}

@@ -378,7 +378,7 @@
 
 Воспользуйтесь сервисом {{ dns-name }} для управления доменом.
 
-{% include [configure-a-record-and-cname](../web/configure-a-record-and-cname.md) %}
+{% include [configure-a-record-and-cname](../_tutorials_includes/configure-a-record-and-cname.md) %}
 
 ### Проверьте работу сайта {#test-site}
 

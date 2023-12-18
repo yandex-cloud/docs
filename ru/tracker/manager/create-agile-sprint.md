@@ -36,6 +36,16 @@
 
 - Чтобы быстро добавить много задач, воспользуйтесь [массовым редактированием](agile-new-issues.md#bulk): на доске, на карточке одной из задач, нажмите ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_common_IssueActionsMenu.select-issue }}** и нажимайте на другие задачи, которые требуется добавить в спринт. Как только все задачи будут выбраны, на панели внизу доски нажмите **{{ ui-key.startrek.ui_components_agile_common_BulkActionsPanel.add-to-sprint }}** и выберите нужный.
 
+## Редактировать спринт {#sprint-edit}
+
+Для редактирования спринта:
+
+1. Справа от заголовка спринта нажмите ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-edit.svg) **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardColumnHeader.column-menu--edit }}**.
+
+1. В открывшемся окне вы можете изменить название спринта, длительность, время начала и окончания, а также включить опцию **{{ ui-key.startrek.ui_components_agile_common_SprintFormFields.take-sprint-to-work }}**.
+   
+1. Чтобы сохранить изменения, нажмите кнопку **{{ ui-key.startrek.ui_components_agile_common_SprintForm.edit-sprint }}**.
+
 ## Изменить статус спринта {#sprint-status}
 
 Когда все задачи для спринта спланированы и наступает дата начала спринта, на доске, на вкладке **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}**, рядом со спринтом нажмите **{{ ui-key.startrek.ui_components_agile_common_StartSprintButton.start }}**.

@@ -214,14 +214,14 @@
          serviceAccountName: "hubble-ui"
          containers:
            - name: frontend
-             image: "quay.io/cilium/hubble-ui:v0.7.9@sha256:e0e461c680ccd083ac24fe4f9e19e675422485f04d8720635ec41f2b********"
+             image: "quay.io/cilium/hubble-ui:v0.7.9@sha256:e0e461c680ccd083ac24fe4f9e19e675422485f04d8720635ec41f2ba9e5562c"
              imagePullPolicy: IfNotPresent
              ports:
                - containerPort: 8080
                  name: http
              resources: {}
            - name: backend
-             image: "quay.io/cilium/hubble-ui-backend:v0.7.9@sha256:632c938ef6ff30e3a080c59b734afb1fb7493689275443faa1435f71********"
+             image: "quay.io/cilium/hubble-ui-backend:v0.7.9@sha256:632c938ef6ff30e3a080c59b734afb1fb7493689275443faa1435f7141aabe76"
              imagePullPolicy: IfNotPresent
              env:
                - name: EVENTS_SERVER_PORT
@@ -233,7 +233,7 @@
                  name: grpc
              resources: {}
            - name: proxy
-             image: "docker.io/envoyproxy/envoy:v1.18.2@sha256:e8b37c1d75787dd1e712ff389b0d37337dc8a174a63bed9c34ba7335********"
+             image: "docker.io/envoyproxy/envoy:v1.18.2@sha256:e8b37c1d75787dd1e712ff389b0d37337dc8a174a63bed9c34ba73359dc67da7"
              imagePullPolicy: IfNotPresent
              ports:
                - containerPort: 8081

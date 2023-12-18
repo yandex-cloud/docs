@@ -16,7 +16,7 @@
 1. Выберите базы данных для диагностики.
 
 
-1. [Разрешите доступ к базам из консоли управления](../../managed-postgresql/operations/update.md#change-additional-settings).
+1. [Включите в кластере опцию](../../managed-postgresql/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
 
 
 1. [Активируйте сбор статистики](../../managed-postgresql/operations/performance-diagnostics.md#activate-stats-collector) о сессиях и запросах.
@@ -32,17 +32,21 @@
 
 ## Диагностика неэффективного выполнения запросов {#inefficient-queries}
 
-Чтобы выявить проблемные запросы, сделайте выборку из системной таблицы {{ PG }} `pg_stat_activity`:
+Выявить проблемные запросы можно двумя способами:
 
-```sql
-SELECT NOW() - query_start AS duration, query, state
-FROM pg_stat_activity
-WHERE state != 'idle' ORDER BY 1 DESC;
-```
+* Сделать выборку из системной таблицы {{ PG }} `pg_stat_activity`:
 
-Будет возвращен список запросов, выполняющихся на сервере. Обратите внимание на запросы с высоким значением `duration`.
+    ```sql
+    SELECT NOW() - query_start AS duration, query, state
+    FROM pg_stat_activity
+    WHERE state != 'idle' ORDER BY 1 DESC;
+    ```
 
-Подробнее об информации в выдаче см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+    Будет возвращен список запросов, выполняющихся на сервере. Обратите внимание на запросы с высоким значением `duration`.
+
+    Подробнее об информации в выдаче см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+
+* [Получить и проанализировать статистику по запросам](../../managed-postgresql/operations/performance-diagnostics.md#get-queries) с помощью встроенного в {{ mpg-name }} инструмента для диагностики.
 
 ## Устранение проблем с неэффективными запросами {#solving-inefficient-queries}
 
@@ -63,6 +67,8 @@ WHERE state != 'idle' ORDER BY 1 DESC;
 
     {% endnote %}
 
+
+* [Автоматически логировать план выполнения запросов](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) с помощью [модуля `auto_explain`](https://www.postgresql.org/docs/current/auto-explain.html).
 
 * Обновить статистику с помощью команды [`ANALYZE`](https://www.postgresql.org/docs/current/sql-analyze.html).
 

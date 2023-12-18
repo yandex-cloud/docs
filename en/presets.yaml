@@ -2993,6 +2993,7 @@ default:
         quick-filter--author-me: Created by me
       ui_components_agile_common_SprintForm:
         create-sprint: Create sprint
+        edit-sprint: Edit sprint
       ui_components_agile_common_SprintFormFields:
         take-sprint-to-work: Take to work
       ui_components_agile_common_StartSprintButton:

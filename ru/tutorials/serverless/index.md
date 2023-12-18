@@ -1,13 +1,25 @@
 # Руководства по работе с бессерверными технологиями в {{ yandex-cloud }}
 
+
 * [Сокращатель ссылок](serverless-url-shortener.md)
 * [Ввод данных в системы хранения](data-ingestion.md)
 * [Хранение журналов работы приложения](log-ingestion.md)
+
+
 * [Развертывание веб-приложения с использованием Java Servlet API](java-servlet-todo-list.md)
 * [Разработка Slack-бота](slack-bot-serverless.md)
 * [Разработка Telegram-бота](telegram-bot-serverless.md)
-* [Разработка пользовательской интеграции в {{ api-gw-name }}](api-gw-integration.md)
+
+
+* [Разработка пользовательской интеграции в {{ api-gw-full-name }}](api-gw-integration.md)
 * [Разработка CRUD API для сервиса фильмов](movies-database.md)
+
+
 * [Разработка навыка Алисы и сайта с авторизацией](alice-shareable-todolist.md)
 * [Построение пайплайна CI/CD в {{ GL }}](ci-cd-serverless.md)
 * [Создание интерактивного serverless-приложения с использованием WebSocket](websocket-app.md)
+* [Автоматическое копирование объектов из одного бакета {{ objstorage-full-name }} в другой](bucket-to-bucket-copying.md)
+* [Визуализация логов в {{ grafana-name }} с помощью плагина {{ cloud-logging-full-name }}](grafana-logs-plugin.md)
+* [Канареечный релиз функции {{ sf-full-name }}](canary-release.md)
+* [Авторизация с помощью функции {{ sf-name }} в сервисе Ory Kratos](ory-kratos-authorization.md)
+* [Интерактивная отладка функций {{ sf-name }}](serverless-live-debug.md)

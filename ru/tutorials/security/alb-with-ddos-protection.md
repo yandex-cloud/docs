@@ -1,0 +1,1 @@
+{% include [alb-with-ddos-protection](../../_tutorials/security/alb-with-ddos-protection.md) %}

@@ -60,9 +60,9 @@ description: "Следуя данной инструкции, вы сможет�
      ```hcl
      ...
      resource "yandex_logging_group" "group1" {
-       name      = "test-logging-group"
-       folder_id = "<идентификатор_каталога>"
-	   retention_period = "5h"
+       name             = "test-logging-group"
+       folder_id        = "<идентификатор_каталога>"
+       retention_period = "5h"
      }
      ...
      ```
