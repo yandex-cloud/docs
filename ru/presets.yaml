@@ -2997,6 +2997,7 @@ default:
         quick-filter--author-me: Я автор
       ui_components_agile_common_SprintForm:
         create-sprint: Создать спринт
+        edit-sprint: Редактировать спринт
       ui_components_agile_common_SprintFormFields:
         take-sprint-to-work: Взять в работу
       ui_components_agile_common_StartSprintButton:

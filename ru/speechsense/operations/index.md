@@ -18,7 +18,13 @@ description: "Страница содержит все инструкции дл
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
 
+## Управление подключением {#connection}
+
+* [{#T}](connection/create.md)
+
 ## Управление проектом {#project}
 
+* [{#T}](project/create.md)
 * [{#T}](project/add-user-to-project.md)
+* [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)

@@ -1,6 +1,6 @@
 # Управление базами данных в {{ mpg-name }}
 
-Вы можете добавлять и удалять базы данных, а также просматривать информацию о них.
+Вы можете добавлять, переименовывать и удалять базы данных, а также просматривать информацию о них.
 
 {% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
 
@@ -154,6 +154,55 @@
   * Настройки новой базы в параметре `databaseSpec`.
 
      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+{% endlist %}
+
+## Переименовать базу данных {#rename-db}
+
+{% list tabs %}
+
+- {{ TF }}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+      Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+
+  1. Найдите ресурс `yandex_mdb_postgresql_database` нужной базы данных.
+  1. Измените значение поля `name`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<имя_базы данных>" {
+        ...
+        name     = "<новое_имя_базы данных>"
+        ...
+      }
+      ```
+
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- API
+
+    Чтобы переименовать базу данных в кластере, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и передайте в запросе:
+
+    * Идентификатор кластера, в котором находится база данных, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Имя базы данных в параметре `databaseName`. Чтобы узнать имя базы, [получите список баз данных в кластере](#list-db).
+    * Новое имя базы данных в параметре `newDatabaseName`.
+
+        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+    * Список полей конфигурации базы данных, подлежащих изменению (в данном случае — `newDatabaseName`), в параметре `updateMask`.
+
+    {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

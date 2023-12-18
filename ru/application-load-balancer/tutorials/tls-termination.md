@@ -1,5 +1,5 @@
 ---
-canonical: "{{ link-docs }}/tutorials/web/tls-termination"
+canonical: "{{ link-docs }}/tutorials/security/tls-termination"
 ---
 
-{% include [tls-termination](../../_tutorials/web/tls-termination.md) %}
+{% include [tls-termination](../../_tutorials/security/tls-termination.md) %}

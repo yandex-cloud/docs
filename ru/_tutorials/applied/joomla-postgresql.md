@@ -1,10 +1,10 @@
 ---
-title: "Сайт на базе CMS Joomla с БД PostgreSQL – Установка и настройка"
-description: "Joomla — это система управления содержимым веб-сайтов написанная на языках PHP и JavaScript. С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS Joomla с базой данных PostgreSQL."
+title: "Сайт на базе CMS Joomla с БД {{ PG }} – Установка и настройка"
+description: "Joomla — это система управления содержимым веб-сайтов написанная на языках PHP и JavaScript. С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS Joomla с базой данных {{ PG }}."
 keywords:
   - joomla
   - CMS Joomla
-  - PostgreSQL
+  - {{ PG }}
   - установка joomla
   - настройка joomla
   - хостинг сайта joomla
@@ -301,7 +301,7 @@ keywords:
 
 - Консоль управления
 
-  {% include [configure-a-record-and-cname](../../_tutorials/web/configure-a-record-and-cname.md) %}
+  {% include [configure-a-record-and-cname](../../_tutorials/_tutorials_includes/configure-a-record-and-cname.md) %}
 
 - {{ TF }}
 

@@ -279,15 +279,15 @@
   ```bash
   curl -X POST \
     -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <iam_token>" \
-    -d '{"serviceAccountId": "<service_account_id>"}' \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{"serviceAccountId": "<идентификатор_сервисного_аккаунта>"}' \
     https://iam.{{ api-host }}/iam/v1/keys
   ```
 
   Где:
 
-  * `<iam_token>` — IAM-токен пользователя, у которого есть права на создание ключей для указанного сервисного аккаунта.
-  * `<service_account_id>` — идентификатор сервисного аккаунта, для которого создаются ключи.
+  * `<IAM-токен>` — IAM-токен пользователя, у которого есть права на создание ключей для указанного сервисного аккаунта.
+  * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта, для которого создаются ключи.
 
   В случае успеха в ответе сервера будет указан закрытый ключ (`privateKey`) и идентификатор открытого ключа (`id`). Сохраните эти данные. Получить значение ключа снова будет невозможно.
 
@@ -356,15 +356,15 @@
 
      ```hcl
      provider "yandex" {
-       token     = "<OAuth>"
+       token     = "<OAuth-токен>"
        cloud_id  = "<идентификатор_облака>"
        folder_id = "<идентификатор_каталога>"
        zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_logging_group" "grafana-plugin" {
-       name      = "grafana-plugin"
-       folder_id = "<идентификатор_каталога>"
+       name             = "grafana-plugin"
+       folder_id        = "<идентификатор_каталога>"
        retention_period = "1h"
      }
      ```

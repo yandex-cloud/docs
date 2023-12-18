@@ -38,7 +38,7 @@ keywords:
 
 ## Что дальше {#what-is-next}
 
-* Посмотрите [сценарии создания веб-сервисов в {{ yandex-cloud }}](../../tutorials/web/index.md).
+* Посмотрите [сценарии создания веб-сервисов в {{ yandex-cloud }}](../../tutorials/applied/index.md#web).
 * Узнайте, [как работать с ВМ](../operations/index.md).
 * Узнайте, [как создать ВМ с GPU](../operations/vm-create/create-vm-with-gpu.md).
 * Прочитайте [ответы на часто задаваемые вопросы](../qa/general.md).
