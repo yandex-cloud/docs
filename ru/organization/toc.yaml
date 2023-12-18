@@ -33,10 +33,12 @@ items:
             href: operations/leave-organization.md
       - name: Управление группами пользователей
         href: operations/manage-groups.md
-      - name: Включить доступ по OS Login
-        href: operations/os-login-access.md
-      - name: Создать профиль OS Login
-        href: operations/os-login-profile-create.md
+      - name: OS Login
+        items:
+          - name: Включить доступ
+            href: operations/os-login-access.md
+          - name: Создать профиль
+            href: operations/os-login-profile-create.md
   - name: Практические руководства
     items:
       - name: Управление федерациями удостоверений

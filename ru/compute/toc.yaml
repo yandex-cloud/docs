@@ -109,6 +109,8 @@ items:
                 href: operations/vm-connect/os-login-create-vm.md
               - name: Настроить OS Login на существующей ВМ
                 href: operations/vm-connect/enable-os-login.md
+              - name: Экспортировать сертификат OS Login
+                href: operations/vm-connect/os-login-export-certificate.md
               - name: Подключиться к ВМ через OS Login
                 href: operations/vm-connect/os-login.md
           - name: Работа с {{ yandex-cloud }} изнутри ВМ

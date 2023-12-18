@@ -7,6 +7,31 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.115.0 (18.12.23) {#version0.115.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mgp-name }}**
+
+* В команды `yc managed-greenplum cluster create` и `yc managed-greenplum cluster update` добавлен флаг `--backup-retain-period-days`.
+
+**{{ mch-name }}**
+
+* Параметр `network-id` для `yc clickhouse cluster restore` теперь опциональный.
+
+#### {{ alb-name }} {#alb}
+
+* В команды `yc alb virtual-host create` и `yc alb virtual-host update` добавлен параметр `--security-profile-id` для указания профиля безопасности из {{ sws-name }}.
+
+#### {{ compute-name }} {#compute}
+
+* Команды `yc compute instance`, `yc compute disk`, `yc compute image`, `yc compute snapshot`, `yc compute snapshot-schedule`, `yc compute placement-group`, `yc compute host-group`, `yc compute disk-placement-group`, `yc compute filesystem`, `yc compute gpu-cluster`: добавлена возможность отображать и управлять правами доступа с помощью `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`.
+* Добавлена команда `yc compute instance simulate-maintenance-event`.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.114.0 (05.12.23) {#version0.114.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -55,8 +80,6 @@ description: "На странице представлены релизы YC CLI
 * Расширен список выводимых полей в отображении по умолчанию списка шардов и кластеров.
 * Добавлены тип и размер резервной копии при выводе списка резервных копий.
 * Исправлен баг при попытке восстановить кластер с включенным гибридным хранилищем или SQL Management командой `yc clickhouse cluster restore`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.113.0 (31.10.23) {#version0.113.0}
 
