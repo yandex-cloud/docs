@@ -11,7 +11,7 @@ meta:
 links:
   - title: Безопасность
     description: Настройте безопасность инфраструктуры с помощью {{ yandex-cloud }}
-    href: web/
+    href: security/
   - title: Хранение и восстановление данных
     description: Настройте резервное копирование и восстановление данных
     href: archive/

@@ -4,15 +4,15 @@ items:
   - name: Безопасность
     items:
       - name: Все руководства
-        href: web/index.md
+        href: security/index.md
       - name: Создание балансировщика с защитой от DDoS
-        href: web/alb-with-ddos-protection.md
+        href: security/alb-with-ddos-protection.md
       - name: Терминирование TLS-соединений
-        href: web/tls-termination.md
-      - name: Передача логов с ВМ в {{ cloud-logging-name }}
-        href: infrastructure-management/vm-fluent-bit-logging.md
+        href: security/tls-termination.md
+      - name: Передача логов с виртуальной машины в {{ cloud-logging-name }}
+        href: security/vm-fluent-bit-logging.md
       - name: Запись логов балансировщика в {{ PG }}
-        href: infrastructure-management/logging.md
+        href: security/logging.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -69,11 +69,9 @@ items:
         href: testing/gitlab.md
       - name: Создание тестовых ВМ через {{ GL }} CI
         href: testing/ci-for-snapshots.md
-      - name: Интеграция {{ GL }} с {{ tracker-full-name }}
+      - name: Интеграция {{ GL }} с {{ tracker-name }}
         href: dev/gitlab-tracker-integration.md
-      - name: >-
-          Высокопроизводительные вычисления (HPC) на прерываемых виртуальных
-          машинах
+      - name: Высокопроизводительные вычисления (HPC) на прерываемых ВМ
         href: testing/hpc-on-preemptible.md
       - name: Нагрузочное тестирование gRPC-сервиса
         href: testing/loadtesting-grpc.md
@@ -390,8 +388,8 @@ items:
           data-transfer-name }}
         href: dataplatform/mmy-to-mpg.md
       - name: >-
-          Миграция данных из AWS RDS for {{ PG }} в {{ mpg-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/rds-to-mpg.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
@@ -469,7 +467,7 @@ items:
         href: routing/remote-wireguard-vpn.md
       - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
         href: routing/usergate-firewall.md
-      - name: Реализация отказоустойчивых сценариев для сетевых виртуальных машин
+      - name: Реализация отказоустойчивых сценариев для сетевых ВМ
         href: routing/route-switcher.md
       - name: >-
           Реализация защищенной высокодоступной сетевой инфраструктуры с
@@ -545,4 +543,18 @@ items:
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: serverless/websocket-app.md
+      - name: >-
+          Автоматическое копирование объектов из одного бакета {{
+          objstorage-name }} в другой
+        href: serverless/bucket-to-bucket-copying.md
+      - name: >-
+          Визуализация логов в {{ grafana-name }} с помощью плагина {{
+          cloud-logging-name }}
+        href: serverless/grafana-logs-plugin.md
+      - name: Канареечный релиз функции {{ sf-name }}
+        href: serverless/canary-release.md
+      - name: Авторизация с помощью функции {{ sf-name }} в сервисе Ory Kratos
+        href: serverless/ory-kratos-authorization.md
+      - name: Интерактивная отладка функций {{ sf-name }}
+        href: serverless/serverless-live-debug.md
 base: ru/tutorials

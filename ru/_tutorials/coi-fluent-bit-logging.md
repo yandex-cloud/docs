@@ -230,9 +230,9 @@ if __name__ == '__main__':
 ## Создайте виртуальную машину из образа {{ coi }} {#create-vm}
 
 Укажите в поле:
-* `zone` — [зону доступности](../overview/concepts/geo-scope.md), например `{{ region-id }}-a`.
-* `subnet-name` — имя [подсети](../vpc/concepts/network.md#subnet) в указанной зоне.
-* `service-account-name` — имя сервисного аккаунта.
+* `--zone` — [зону доступности](../overview/concepts/geo-scope.md), например `{{ region-id }}-a`.
+* `--subnet-name` — имя [подсети](../vpc/concepts/network.md#subnet) в указанной зоне.
+* `--service-account-name` — имя сервисного аккаунта.
 
 ```bash
 IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)

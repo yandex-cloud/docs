@@ -446,7 +446,7 @@
 
 Также настроить DNS можно с помощью {{ TF }}, подробнее см. в разделе [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
-{% include [configure-a-record-and-cname](../../_tutorials/web/configure-a-record-and-cname.md) %}
+{% include [configure-a-record-and-cname](../../_tutorials/_tutorials_includes/configure-a-record-and-cname.md) %}
 
 ## Проверьте работу сайта {#test-site}
 

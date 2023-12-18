@@ -26,10 +26,18 @@ items:
             href: operations/space/delete.md
           - name: Удалить пользователя из пространства
             href: operations/space/delete-user-from-space.md
+      - name: Управление подключением
+        items:
+          - name: Создать подключение
+            href: operations/connection/create.md
       - name: Управление проектом
         items:
+          - name: Создать проект
+            href: operations/project/create.md
           - name: Добавить пользователя в проект
             href: operations/project/add-user-to-project.md
+          - name: Удалить проект
+            href: operations/project/delete.md
           - name: Удалить пользователя из проекта
             href: operations/project/delete-user-from-project.md
   - name: Концепции

@@ -1,0 +1,1 @@
+{% include [bucket-to-bucket-copying](../../_tutorials/serverless/bucket-to-bucket-copying.md) %}
