@@ -537,6 +537,22 @@ items:
             href: concepts/projects/update-project.md
           - name: Deleting a project
             href: concepts/projects/delete-project.md
+      - name: Projects and portfolios (new version)
+        items:
+          - name: Projects and portfolios. Overview
+            href: concepts/entities/about-entities.md
+          - name: Creating an entity
+            href: concepts/entities/create-entity.md
+          - name: Getting entity parameters
+            href: concepts/entities/get-entity.md
+          - name: Updating an entity
+            href: concepts/entities/update-entity.md
+          - name: Deleting an entity
+            href: concepts/entities/delete-entity.md
+          - name: Getting a list of entities
+            href: concepts/entities/search-entities.md
+          - name: Bulk changes to entities
+            href: concepts/entities/bulkchange-entities.md
       - name: Comments
         items:
           - name: Adding a comment

@@ -3,7 +3,9 @@ sourcePath: en/tracker/api-ref/concepts/projects/delete-project.md
 ---
 # Delete a project
 
-Use this request to delete [projects](../../manager/project-new.md).
+Use this request to delete a [project](../../manager/project-new.md).
+
+You can also use a new, extended [entity deletion](../entities/delete-entity.md) API that provides a unified method for deleting projects and portfolios.
 
 ## Request format {#query}
 
@@ -16,6 +18,7 @@ DELETE /{{ ver }}/projects/<project-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
 {{ org-id }}
+
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
@@ -27,6 +30,7 @@ Authorization: OAuth <OAuth token>
 | \<project-id> | Project ID | Number |
 
 {% endcut %}
+
 
 ## Response format {#answer}
 
@@ -47,4 +51,3 @@ Authorization: OAuth <OAuth token>
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

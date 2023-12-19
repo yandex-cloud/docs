@@ -86,6 +86,7 @@ description: "На странице представлен список прак
 
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mos.md)
+* [{#T}](mos-migration-from-standalone.md)
 
 
 ## {{ PG }} {#postgresql}

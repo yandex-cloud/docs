@@ -1,14 +1,6 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect opacity="0.01" width="24" height="24" fill="#D8D8D8"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5 1C3.89543 1 3 1.89543 3 3V21C3 22.1046 3.89543 23 5 23H19C20.1046 23 21 22.1046 21 21V7L15 1H5Z" fill="#43A047"/>
-<rect x="16" y="16" width="2" height="2" fill="white"/>
-<rect x="12" y="16" width="2" height="2" fill="white"/>
-<rect x="6" y="16" width="4" height="2" fill="white"/>
-<rect x="16" y="12" width="2" height="2" fill="white"/>
-<rect x="12" y="12" width="2" height="2" fill="white"/>
-<rect x="6" y="12" width="4" height="2" fill="white"/>
-<rect x="16" y="8" width="2" height="2" fill="white"/>
-<rect x="12" y="8" width="2" height="2" fill="white"/>
-<rect x="6" y="8" width="4" height="2" fill="white"/>
-<path opacity="0.75" fill-rule="evenodd" clip-rule="evenodd" d="M17 7H21L15 1V5C15 6.10457 15.8954 7 17 7Z" fill="#207A40"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <path fill="#D8D8D8" d="M0 0h24v24H0z" opacity=".01"/>
+    <path fill="#43A047" fill-rule="evenodd" d="M5 1a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-6-6H5Z" clip-rule="evenodd"/>
+    <path fill="#fff" d="M16 16h2v2h-2zm-4 0h2v2h-2zm-6 0h4v2H6zm10-4h2v2h-2zm-4 0h2v2h-2zm-6 0h4v2H6zm10-4h2v2h-2zm-4 0h2v2h-2zM6 8h4v2H6z"/>
+    <path fill="#207A40" fill-rule="evenodd" d="M17 7h4l-6-6v4a2 2 0 0 0 2 2Z" clip-rule="evenodd" opacity=".75"/>
 </svg>

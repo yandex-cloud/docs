@@ -7,6 +7,57 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 ## Current version {#latest-release}
 
+### Version 0.114.0 (05/12/23) {#version0.114.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+#### {{ objstorage-name }}
+
+* Fixed sending bucket names to the `yc storage bucket create`, `yc storage bucket update`, and `yc storage bucket set-https` commands.
+
+#### {{ sf-name }} {#serverless-functions}
+
+Added a parameter to the `yc serverless function version create` command to specify that buckets are mounted to a function:
+
+* `--storage-mounts`, such as `--storage-mounts mount-point=dir,bucket=user-bucket,read-only=false`.
+
+#### {{ serverless-containers-name }} {#serverless-containers}
+
+Added a parameter to the `yc serverless container revision deploy` command to specify that buckets are mounted to a container:
+
+* `--storage-mounts`, such as `--storage-mounts mount-point-path=/data,bucket=user-bucket,read-only=false`.
+
+##### {{ compute-name }} {#compute}
+
+* In the `yc compute ssh` command, all temporary certificates are saved to a user's home directory.
+* In the `yc compute ssh` command, user-defined parameters are now placed at the end of the run `ssh` command.
+* The `yc compute disk relocate` and `yc compute instance relocate` commands now enable relocation of non-replicated disks with specified placement groups and VMs with these disks.
+* Added the `--maintenance-policy` and `--maintenance-grace-period` parameters to the `yc compute instance create` and `yc compute instance update` commands.
+* Added a check for simultaneous use of the `--spread-strategy` and `--partitions` flags when creating a placement group.
+* PAGER now runs correctly when requesting `help`. Now, when you run a command with the `--help` flag, the `less` window opens.
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* Fixed the error where a response contained under 1,000 rows, while the limit exceeded 1,000 rows.
+
+#### {{ cdn-name }} {#cdn}
+
+Added parameters to the `yc cdn resource update` and `yc cdn resource create` commands to set up access to a resource based on a _secure token_:
+
+* `--secure-key`: Secret key to be used to generate user-defined links.
+* `--enable-ip-url-signing`: Optional parameter that restricts access to resources based on IP.
+* `--clear-secure-key`: Parameter that disables access to a resource based on a secure token.
+
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* Extended the list of fields presented in the default list of shards and clusters.
+* Added backup type and size info in the list of backups.
+* Fixed the bug that occurred when trying to restore a cluster with hybrid storage or SQL Management enabled using the `yc clickhouse cluster restore` command.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.113.0 (31/10/23) {#version0.113.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -37,8 +88,6 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 ##### {{ vpc-name }} {#vpc}
 
 * Added the `yc vpc subnet relocate` command.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.112.0 (12/10/23) {#version0.112.0}
 
@@ -1385,8 +1434,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 * `yc dataproc cluster create` and `yc dataproc cluster update` commands.
 
-   The `--deletion-protection` flag allows you to enable/disable cluster protection against accidental deletion.
-
+   `--deletion-protection` flag allows you to enable/disable cluster protection against inadvertent deletion.
 
    To disable cluster protection from deletion, specify `--deletion-protection=false`.
 

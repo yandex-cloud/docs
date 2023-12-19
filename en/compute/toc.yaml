@@ -141,6 +141,8 @@ items:
             href: operations/disk-control/configure-schedule.md
           - name: Moving a disk to another folder
             href: operations/disk-control/disk-change-folder.md
+          - name: Moving a disk to a different availability zone
+            href: operations/disk-control/disk-change-zone.md
           - name: Encrypting a disk
             href: operations/disk-control/disk-encrypt.md
           - name: Getting information about a disk

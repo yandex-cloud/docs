@@ -17,8 +17,7 @@ description: "Под техническим обслуживанием в {{ mmy
 
 Предпочтительное время технического обслуживания можно задать при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/update.md):
 
-* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию) — разрешает проведение технического обслуживания в любое время.
-* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** — укажите предпочтительное время начала обслуживания: нужные день недели и час дня по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+{% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
 ## Порядок обслуживания {#maintenance-order}
 

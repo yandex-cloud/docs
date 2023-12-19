@@ -1,6 +1,6 @@
 # Load test results
 
-You can monitor load test results on the **Test results** page. It provides a graphic visualization of the following dependencies:
+You can monitor load test results on the **Test results** page. It provides a visualization of the following dependencies:
 
 1. [Response time quantiles](#quantiles)
 1. [Testing threads for the entire test](#test-streams)
@@ -10,7 +10,7 @@ You can monitor load test results on the **Test results** page. It provides a gr
 All charts are combined with the load pattern, i.e., the number of responses per second (RPS).
 A table representation of test results is available on the **Tables** page.
 
-You can set up the charts to only display the lines you need. To do this, click the required metrics in the chart legend while pressing **Ctrl** on Windows and Linux or **Cmd** on MacOS.
+You can set up the charts to only display the lines you need. To do this, click on the required metrics in the chart legend and press **Ctrl** on Windows and Linux or **Cmd** on MacOS.
 
 ## Response time quantiles {#quantiles}
 
@@ -20,7 +20,7 @@ An N-level quantile indicates the time that N% responses fall within. The 50th q
 
 A general principle for chart analysis is: the shorter and more stable the response times, the better.
 
-A point where a spike in response times starts as the load grows indicates that the maximum service performance is reached. In this case, the service may continue to respond, but an increase in response times indicates that some subsystems are overloaded. This is a <q>fault point</q> that may be defined in the test configuration with an [auto stop criterion](auto-stop.md#basic-criteria).
+If there is a point where a spike in response times starts as the load grows, it indicates that the maximum service performance has been reached. In this case, the service may continue to respond, but an increase in response times indicates that some subsystems are overloaded. This is a <q>fault point</q> that may be defined in the test configuration with an [auto stop criterion](auto-stop.md#basic-criteria).
 
 ## Testing threads for the entire test {#test-streams}
 

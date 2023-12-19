@@ -59,6 +59,10 @@ items:
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/migration-from-mkf.md
+      - name: >-
+          Миграция данных из стороннего кластера {{ OS }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/migration-from-standalone.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

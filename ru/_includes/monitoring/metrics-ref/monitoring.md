@@ -1,6 +1,6 @@
 ## Сервис {{ monitoring-full-name }} {#monitoring}
 
-Все метрики сервиса [{{ monitoring-full-name }}](../../../monitoring/) имеют общую метку `service=monitoring`.
+Все метрики сервиса [{{ monitoring-name }}](../../../monitoring/) имеют общую метку `service=monitoring`.
 
 Имя метрики<br/>Тип, единицы измерения | Описание<br/>Метки
 -------------------------------------- | ------------------

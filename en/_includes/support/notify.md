@@ -24,7 +24,7 @@ Cloud notifications are only sent to cloud subscribers. Users subscribed to fold
 
 ## Folder notifications {#folder-notifications}
 
-By default, notifications about folder resources are sent to users subscribed to parent cloud notifications. Organization owners (`{{ roles-organization-owner }}`) do not receive any notifications about their organization's cloud folders by default. They should subscribe to such notifications themselves. You can add folder notification recipients in the [folder settings](../../resource-manager/operations/folder/notify.md).
+By default, notifications about folder resources are sent to users subscribed to parent cloud notifications and cloud owners (`{{ roles-cloud-owner }}`). Organization owners (`{{ roles-organization-owner }}`) do not receive any notifications about their organization's cloud folders by default. They should subscribe to such notifications themselves. You can add folder notification recipients in the [folder settings](../../resource-manager/operations/folder/notify.md).
 
 Folder notifications include information about the following resources:
 

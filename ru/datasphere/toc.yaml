@@ -47,6 +47,8 @@ items:
             href: operations/projects/delete.md
           - name: Удалить пользователя из проекта
             href: operations/projects/delete-user.md
+          - name: Использовать ресурс с совместным доступом
+            href: operations/projects/use-shared-resource.md
       - name: Работа в ноутбуке
         items:
           - name: Подключиться к JupyterLab из локальной IDE

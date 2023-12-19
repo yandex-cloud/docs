@@ -110,6 +110,89 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
       {{ compute-name }} will launch the operation to change the disk size.
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+   {% note info %}
+
+   To increase the size using {{ TF }}, make sure to create a disk as a separate resource. We do not recommend creating a disk in the `initialize_params` section for `yandex_compute_instance`.
+
+   {% endnote %}
+
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      
+      ```hcl
+      # Creating a disk
+
+      resource "yandex_compute_disk" "first-disk" {
+        name     = "<disk_name>"
+        type     = "<disk_type>"
+        zone     = "<availability_zone>"
+        size     = "<disk_size>"
+        image_id = "<image_ID>"
+      }
+
+      # Creating a VM
+
+      resource "yandex_compute_instance" "vm-lamp" {
+        name        = "<VM_name>"
+        platform_id = "standard-v3"
+        zone        = "<availability_zone>"
+
+        resources {
+          core_fraction = <vCPU_performance_level>
+          cores         = <number_of_vCPU_cores>
+          memory        = <GB_of_RAM>
+        }
+
+        boot_disk {
+          disk_id = yandex_compute_disk.first-disk.id
+        }
+
+        network_interface {
+          subnet_id          = "<subnet_ID>"
+          nat                = true
+          security_group_ids = [<security_group_ID>]
+        }
+
+        metadata = {
+          user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=        (ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - <SSH_key_contents>"
+        }
+      }
+      ```
+
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   1. To increase the disk size, make the following changes to the configuration file:
+
+      
+      ```hcl
+      resource "yandex_compute_disk" "first-disk" {
+        ...
+        size = "<new_disk_size>"
+      }
+      ```
+
+
+      Where `size` is the new disk size.
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      This will increase the disk size. You can check the size of your disk and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc compute disk get <disk_name>
+      ```
+
 - API
 
   You can increase the disk size by using the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/Update](../../api-ref/grpc/disk_service.md#Update) gRPC API call.

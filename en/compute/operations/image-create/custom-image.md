@@ -161,9 +161,9 @@ After [creating a VM from your image](upload.md#create-vm-from-user-image), you 
 
 ## Disable verification of the cloud platform when creating an image in Amazon EC2 {#ec2}
 
-This step is only required when you are creating an image in Amazon EC2 based on an Amazon Machine Image. By default, when you run a VM instance created from such an image, `cloud-init` checks whether the VM instance is started in Amazon EC2. If this is not so, as in the case with {{ compute-full-name }}, the VM instance and its `cloud-init` may work incorrectly.
+If you are creating an image in Amazon EC2 based on an Amazon Machine Image, `cloud-init` checks that the VM can be run in Amazon EC2. VMs in {{ compute-full-name }} will fail the check and may run incorrectly.
 
-To disable the verification, in the `/etc/cloud/cloud.cfg.d` directory, create a configuration file, such as `99-ec2-datasource.cfg`, with the following contents:
+To avoid this, disable metadata verification on your VMs. To do this, in the `/etc/cloud/cloud.cfg.d` directory, create a configuration file, e.g., `99-ec2-datasource.cfg`, and add the following code to it:
 
 ```yaml
 #cloud-config
