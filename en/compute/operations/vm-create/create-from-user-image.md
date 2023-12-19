@@ -239,3 +239,7 @@ Make sure the uploaded image is in the `READY` status.
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}
+
+## Disable metadata verification {#disable-metadata-check}
+
+{% include [disable-metadata-check](../../../_includes/compute/disable-metadata-check.md) %}

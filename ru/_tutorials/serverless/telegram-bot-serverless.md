@@ -137,10 +137,10 @@
           get:
             x-yc-apigateway-integration:
               type: object_storage
-              bucket: <имя бакета>
+              bucket: <имя_бакета>
               object: sayhello.png
               presigned_redirect: false
-              service_account_id: <идентификатор сервисного аккаунта>
+              service_account_id: <идентификатор_сервисного_аккаунта>
             operationId: static
       ```
       
@@ -167,7 +167,7 @@
   1. Введите имя функции — `fshtb-function`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Node.js` и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** очистите содержимое файла `index.js` и вставьте в него следующий код. Вместо `<домен API-шлюза>` укажите служебный домен API-шлюза.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** очистите содержимое файла `index.js` и вставьте в него следующий код. Вместо `<домен_API-шлюза>` укажите служебный домен API-шлюза.
 
       ```javascript
       const { Telegraf } = require('telegraf');
@@ -176,7 +176,7 @@
       bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
       bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
       bot.on('text', (ctx) => {
-          ctx.replyWithPhoto({url: '<домен API-шлюза>/sayhello.png'});
+          ctx.replyWithPhoto({url: '<домен_API-шлюза>/sayhello.png'});
           ctx.reply(`Hello, ${ctx.message.from.username}`);
 
       });
@@ -239,23 +239,23 @@
           post:
             x-yc-apigateway-integration:
               type: cloud_functions
-              function_id: <идентификатор функции>
+              function_id: <идентификатор_функции>
             operationId: fshtb-function
       ```
       
       Где `function_id` — идентификатор функции `fshtb-function`.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
-  1. Выполните запрос, вместо `<токен бота>` укажите токен Telegram-бота, вместо `<домен API-шлюза>` — служебный домен API-шлюза:
+  1. Выполните запрос в терминале:
 
       * Linux, macOS:
 
           ```bash
           curl \
             --request POST \
-            --url https://api.telegram.org/bot<токен бота>/setWebhook \
+            --url https://api.telegram.org/bot<токен_бота>/setWebhook \
             --header 'content-type: application/json' \
-            --data '{"url": "<домен API-шлюза>/fshtb-function"}'
+            --data '{"url": "<домен_API-шлюза>/fshtb-function"}'
           ```
     
       * Windows (cmd):
@@ -263,9 +263,9 @@
           ```bash
           curl ^
             --request POST ^
-            --url https://api.telegram.org/bot<токен бота>/setWebhook ^
+            --url https://api.telegram.org/bot<токен_бота>/setWebhook ^
             --header "content-type: application/json" ^
-            --data "{\"url\": \"<домен API-шлюза>/fshtb-function\"}"
+            --data "{\"url\": \"<домен_API-шлюза>/fshtb-function\"}"
           ```
 
       * Windows (PowerShell):
@@ -273,16 +273,21 @@
           ```powershell
           curl.exe `
             --request POST `
-            --url https://api.telegram.org/bot<токен бота>/setWebhook `
+            --url https://api.telegram.org/bot<токен_бота>/setWebhook `
             --header '"content-type: application/json"' `
-            --data '"{ \"url\": \"<домен API-шлюза>/fshtb-function\" }"'
+            --data '"{ \"url\": \"<домен_API-шлюза>/fshtb-function\" }"'
           ``` 
-      
-          Результат:
 
-          ```bash
-          {"ok":true,"result":true,"description":"Webhook was set"}
-          ```
+      Где:
+
+      * `<токен_бота>` — токен Telegram-бота.
+      * `<домен_API-шлюза>` — служебный домен API-шлюза.
+
+      Результат:
+
+      ```bash
+      {"ok":true,"result":true,"description":"Webhook was set"}
+      ```
 
 {% endlist %}
 

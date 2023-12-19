@@ -81,6 +81,8 @@
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
 1. Включите опцию видимости напротив названия сообщества, в котором нужно поделиться Docker-образом.
 
+Чтобы Docker-образ стал доступен для работы в другом проекте, администратор проекта должен [добавить](./projects/use-shared-resource.md) его на вкладке **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
+
 ## Удалить Docker-образ {#delete}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}

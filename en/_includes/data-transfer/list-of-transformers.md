@@ -5,3 +5,4 @@
 * [{#T}](../../data-transfer/concepts/data-transformation.md#replace-primary-key)
 * [{#T}](../../data-transfer/concepts/data-transformation.md#convert-to-string)
 * [{#T}](../../data-transfer/concepts/data-transformation.md#shard)
+* [{#T}](../../data-transfer/concepts/data-transformation.md#append-only-sources)

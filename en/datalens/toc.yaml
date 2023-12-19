@@ -669,7 +669,7 @@ items:
         items:
           - name: Adding parameters in dashboard chart settings
             href: operations/chart/add-parameters.md
-          - name: Adding ID as a parameter
+          - name: Adding an ID as a parameter
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
@@ -864,7 +864,7 @@ items:
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API.md
-      - name: Error parsing clique GUID
+      - name: Failed to parse clique name
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-INVALID_GUID.md
       - name: Invalid clique specification. Probably, clique does not exists
@@ -945,7 +945,7 @@ items:
       - name: YT table has no schema. Only schematized tables are supported
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
-      - name: Could not create <object type>
+      - name: Failed to create <object type>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
       - name: Object request error

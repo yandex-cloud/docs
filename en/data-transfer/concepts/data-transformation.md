@@ -58,3 +58,16 @@ To convert column values to string values, specify a list of included and exclud
 
 Set the number of shards for particular tables and a list of columns whose values will be used for calculating a hash to determine a shard.
 
+### String filter for APPEND-ONLY sources {#append-only-sources}
+
+This filter only applies to transfers with queues ({{ KF }}) as a data source. When running a transfer, only the strings meeting the specified criteria remain in a changefeed.
+
+1. List the tables to filter data in using lists of included and excluded tables.
+1. Set a filtering criterion. This can be comparison operators for numeric, string, and Boolean values, comparison to NULL, and checking whether a substring is part of a string.
+
+Filtering criteria are specified by a set of rules separated by the `AND` keyword. Acceptable operators are `>`, `>=`, `<`, `<=`, `==`, `!=`, `~` (a substring is part of a string), `!~` (a substring is not part of a string). All columns listed in the filter must be present in the table being filtered.
+Here is an example of a filter string:
+```
+aid > 0 AND id >= 10 AND f > 1000.1 AND f <= 1000.5 AND d != 3.14 AND i < 0 AND bi >= -9223372036854775808 AND biu <= 9223372036854775807 AND da > 1999-01-04 AND da <= 2000-03-04 AND ts > 2000-01-01T00:00:00 AND c != 'a' AND str ~ 'hello' AND t !~ 'bye-bye' AND nil = NULL AND val != NULL
+```
+

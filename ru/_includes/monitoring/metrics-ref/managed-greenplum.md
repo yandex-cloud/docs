@@ -1,6 +1,6 @@
 ## Сервис {{ mgp-full-name }} {#managed-greenplum}
 
-Общие метки для всех метрик сервиса {{ mgp-full-name }}: 
+Общие метки для всех метрик сервиса {{ mgp-name }}: 
 
 Метка | Значение
 ----|----
@@ -136,4 +136,4 @@ fqdn | FQDN хоста
 | `gp.spill_files_num_per_seghost`<br/>`DGAUGE`, штуки | Число временных файлов на хост. | 
 | `gp.spill_files_size_per_seghost`<br/>`DGAUGE`, байты | Размер временных файлов на хост. |
 
-Подробнее о сервисе в документации [{{ mgp-full-name }}](../../../managed-greenplum/).
+Подробнее о сервисе в документации [{{ mgp-name }}](../../../managed-greenplum/).

@@ -1,17 +1,28 @@
 ---
-title: "{{ forms-full-name }} revision history for October 2023"
-description: "See below the {{ forms-full-name }} revision history for October 2023."
+title: "{{ forms-full-name }} revision history for November 2023"
+description: "See below the {{ forms-full-name }} revision history for November 2023."
 ---
 
-# {{ forms-full-name }} revision history for October 2023
+# {{ forms-full-name }} revision history for November 2023
 
-* [Enhanced integration with {{ sf-full-name }}](#integration-with-functions)
+* [Presenting the <q>One option</q> prompt as asterisks](#radiobutton-choice-star)
+* [Integration with dynamic {{ wiki-name }} tables](#wiki-grid)
+* [New prompt type: <q>Tracker</q>](#new-question-type-tracker)
 
+## Presenting the <q>One option</q> prompt as asterisks {#radiobutton-choice-star}
 
-## Enhanced integration with {{ sf-full-name }} {#integration-with-functions}
+[Business forms](../forms-for-org.md) now support presenting responses to the [<q>One option</q>](../blocks-ref/radiobutton.md) prompt as asterisks. Items shown as asterisks are arranged in a single row. The maximum number of response options per row is 10, the rest of them carried over to the next row. When hovering over an item, a response option is displayed as text.
 
-Before [setting up integration with {{ sf-full-name }}](../call-function.md), it is critical to specify the key ID and secret key. You can do this in the form settings: go to **Settings** → **Advanced** and fill in the fields under **Cloud function key**.
+## Integration with {{ wiki-name }} dynamic tables {#wiki-grid}
 
-To make sure users do not miss specifying the keys, we added a verification and prompts to the {{ forms-full-name }} interface: now, integrations with no keys are displayed as locked and the user can switch to the add keys page from a prompt.
+Now, you can easily integrate [{{ wiki-name }} dynamic tables](../../wiki/create-grid.md) created in the [new editor](../../wiki/new-editor.md) with forms:
 
+1. Specify the address of a dynamic table.
+1. In **Select action**, choose a table you want to integrate.
+1. Select the columns and specify what results from the forms you want to see in these columns.
 
+For more information, see [{#T}](../send-wiki.md#grid).
+
+## New prompt type: <q>Tracker</q> {#new-question-type-tracker}
+
+There is a new prompt type called [Tracker](../blocks-ref/tracker.md). Users can select {{ tracker-name }} entities from the list of suggested options. The type of entity is defined in the prompt settings, and the list is built based on the user permissions in {{ tracker-name }}.

@@ -69,3 +69,4 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](marketplace/kyverno.md)
 * [{#T}](marketplace/metrics-provider.md)
 * [{#T}](marketplace/thumbor.md)
+* [{#T}](marketplace/istio.md)

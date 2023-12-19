@@ -16,9 +16,9 @@ You can rename your billing account both on the management console home page and
 1. Enter a new name.
 1. Click **{{ ui-key.yacloud.billing.account.dashboard-resources.button_action-rename-account }}**.
 
-## Changing payer contact information {#change-address}
+## Updating payer details {#change-address}
 
-You can change the payer's contact information (for example, mailing address or phone number) in [Yandex Balance](https://balance.yandex.ru/):
+You can use [Yandex Balance](https://balance.yandex.ru/) to update payer's contact details (e.g., email address or phone number) or add payment details (e.g., bank account):
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ billing-name }}**.
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
 1. Go to the **{{ ui-key.yacloud.billing.account.switch_overview }}** page.

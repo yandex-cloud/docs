@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/issues/search-issues.md
 ---
-# Search for issues
+# Find issues
 
 Use this request to get a list of issues that meet specific criteria.
 
@@ -37,7 +37,7 @@ Authorization: OAuth <OAuth token
 
 | Parameter | Description | Data type |
 ----- | ----- | -----
-| expand | Additional fields to include in the response: <ul><li>`transitions`: Workflow transitions between statuses.</li><li>`attachments`: Attached files.</li></ul> | String |
+| expand | Additional fields to be included into the response: <ul><li>`transitions`: Workflow transitions between statuses</li><li>`attachments`: Attached files</li></ul> | String |
 | perPage | Number of issues per response page. The default value is 50. To set up additional response output parameters, use [pagination](../../common-format.md#displaying-results). | Number |
 
 {% endcut %}
@@ -50,7 +50,7 @@ To get the issue list, specify one of the following parameters:
 ----- | ----- | -----
 | queue | Queue | String |
 | keys | List of issue keys | String or Array of strings |
-| filter | Parameters for filtering issues. The parameter can specify any field and value to filter by. | Objects |
+| filter | Issue filtering parameters. The parameter can specify any field and value to filter by. | Object |
 | query | Filter using the [query language](../../user/query-filter.md) | String |
 
 {% note info %}
@@ -127,7 +127,7 @@ Responses to requests with the `queue` parameter are sorted by issue key, and th
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -135,7 +135,7 @@ Responses to requests with the `queue` parameter are sorted by issue key, and th
 
   {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
-- The request failed
+- Request failed
 
   If the request is processed incorrectly, the API returns a response with an error code:
 
@@ -169,8 +169,8 @@ Scrollable search results consume more resources than [paginated output](../../
 
   Scrolling type. Acceptable values:
 
-  - `sorted`: The sorting specified in the request is used.
-  - `unsorted`: No sorting is used.
+  - `sorted`: Use sorting specified in the request.
+  - `unsorted`: No sorting.
 
   This parameter is only used in the first request of the scrollable sequence.
 
@@ -203,7 +203,7 @@ The response includes the headers:
 
 - **Link**
 
-  Link to go to the next page of the search results. You can only use the link to go to the next or first page.
+  Link to the next search results page. You can only use the link to go to the next or first page.
 
 - **X-Scroll-Id**
 
@@ -234,7 +234,7 @@ Sequence of request execution:
   - `perScroll=100`
   - `scrollTTLMillis=10000`
 
-   Example:
+   For example:
    ```json
    POST /v2/issues/_search?scrollType=sorted&perScroll=100&scrollTTLMillis=10000
    Host: {{ host }}
@@ -267,7 +267,7 @@ Sequence of request execution:
 
 1. Create the second request of the sequence with the `scrollId` and `scrollToken` parameters obtained in the previous step.
 
-   Example:
+   For example:
    ```json
    POST /{{ ver }}/issues/_search?scrollId=cXVlcnlU<...>&scrollTTLMillis=10000
    Host: {{ host }}

@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" class="yc-icon" fill="currentColor" stroke="none" aria-hidden="true"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="3" height="2" rx="0.5"></rect><rect x="4" y="7" width="3" height="2" rx="0.5"></rect><rect x="4" y="11" width="3" height="2" rx="0.5"></rect><rect x="9" y="3" width="3" height="2" rx="0.5"></rect><rect x="9" y="7" width="3" height="2" rx="0.5"></rect><rect x="9" y="11" width="3" height="2" rx="0.5"></rect></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true" class="yc-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <rect width="3" height="2" x="4" y="3" rx=".5"/>
+        <rect width="3" height="2" x="4" y="7" rx=".5"/>
+        <rect width="3" height="2" x="4" y="11" rx=".5"/>
+        <rect width="3" height="2" x="9" y="3" rx=".5"/>
+        <rect width="3" height="2" x="9" y="7" rx=".5"/>
+        <rect width="3" height="2" x="9" y="11" rx=".5"/>
+    </svg>
+</svg>
