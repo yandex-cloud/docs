@@ -105,6 +105,8 @@ items:
             href: tutorials/managed-greenplum.md
           - name: Миграция из AWS RDS for {{ PG }}
             href: tutorials/rds-to-mpg.md
+          - name: Кластер {{ OS }}
+            href: tutorials/os-to-mos.md
       - name: Зеркалирование данных
         items:
           - name: '{{ KF }}'
@@ -119,6 +121,8 @@ items:
             href: tutorials/mmy-to-mpg.md
           - name: '{{ PG }} в {{ MY }}'
             href: tutorials/mpg-to-mmy.md
+          - name: '{{ ES }} в {{ OS }}'
+            href: tutorials/mes-to-mos.md
       - name: Захват изменений данных и поставка в очередь
         items:
           - name: '{{ MY }} в {{ KF }}'

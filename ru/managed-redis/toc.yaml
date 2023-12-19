@@ -75,8 +75,6 @@ items:
         href: concepts/backup.md
       - name: Репликация и отказоустойчивость
         href: concepts/replication.md
-      - name: Управление отказоустойчивостью
-        href: concepts/switchover.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Управление памятью

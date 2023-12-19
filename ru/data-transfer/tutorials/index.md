@@ -13,6 +13,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [Миграция кластера {{ GP }}](managed-greenplum.md)
 * [Миграция кластера {{ MG }}](managed-mongodb.md)
 * [Миграция из AWS RDS for {{ PG }}](rds-to-mpg.md)
+* [Миграция кластера {{ OS }}](os-to-mos.md)
 
 Отдельной задачей миграции является зеркалирование данных между очередями.
 
@@ -24,6 +25,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ PG }} в {{ ydb-short-name }}](mpg-to-ydb.md)
 * [{{ MY }} в {{ PG }}](mmy-to-mpg.md)
 * [{{ PG }} в {{ MY }}](mpg-to-mmy.md)
+* [{{ ES }} в {{ OS }}](mes-to-mos.md)
 
 ## Захват изменений данных {#cdc}
 

@@ -3,7 +3,9 @@ sourcePath: en/tracker/api-ref/concepts/projects/get-project.md
 ---
 # Get project parameters
 
-Use this request to get information about [projects](../../manager/project-new.md).
+Use this request to get information about a [project](../../manager/project-new.md).
+
+You can also use a new, extended [get entity information](../entities/get-entity.md) API that provides a unified method for getting information about projects and portfolios.
 
 ## Request format {#query}
 
@@ -21,6 +23,7 @@ Authorization: OAuth <OAuth token>
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
 {% cut "Resource" %}
+
 **Resource**
 
 | Parameter | Description | Data type |
@@ -35,7 +38,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| expand | Additional fields to be included in the response: <ul><li>`queues`: Project queues. </li></ul> | String |
+| expand | Additional fields to be included into the response: <ul><li>`queues`: Queues of the project. </li></ul> | String |
 
 {% endcut %}
 
@@ -72,23 +75,24 @@ Authorization: OAuth <OAuth token>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the project. | String |
-    | id | Project ID. | Number |
+    | self | Address of the API resource with information about the project | String |
+    | id | Project ID | Number |
     | version | Project version. Each change of the parameters increases the version number. | Number |
     | key | Project key. Matches the project name. | String |
-    | name | Project name. | String |
-    | description | Project description. This parameter isn't displayed in the {{ tracker-name }} interface. | String |
-    | lead | Block with information about the project assignee. | Object |
-    | status | Stage of the project:<ul><li>`DRAFT`: Draft.</li><li>`IN_PROGRESS`: In progress.</li><li>`LAUNCHED`: Launched.</li><li>`POSTPONED`: Postponed. </li></ul> | String |
-    | startDate | Project start date in `YYYY-MM-DD` format. | String |
-    | endDate | Project end date in `YYYY-MM-DD` format. | String |
+    | name | Project name | String |
+    | description | Project description. This parameter is not displayed in the {{ tracker-name }} interface. | String |
+    | lead | Block with information about the project assignee | Object |
+    | status | Stage of the project:<ul><li>`DRAFT`: Draft</li><li>`IN_PROGRESS`: In progress</li><li>`LAUNCHED`: Launched</li><li>`POSTPONED`: Postponed </li></ul> | String |
+    | startDate | Project start date in `YYYY-MM-DD` format | String |
+    | endDate | Project end date in `YYYY-MM-DD` format | String |
 
     **Object fields** `lead`
-    Parameter | Description | Data type
-    -------- | -------- | ----------
-    self | Address of the API resource with information about the user. | String
-    id | User ID. | Number
-    display | User's name displayed. | String
+ 
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the user | String |
+    | id | User ID | Number |
+    | display | User's display name | String |
 
     {% endcut %}
 
@@ -105,4 +109,3 @@ Authorization: OAuth <OAuth token>
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

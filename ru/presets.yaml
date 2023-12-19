@@ -4,6 +4,8 @@ default:
   AF: Apache Airflow™
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
+  all-mdb:
+    max-databases: 1000
   api-gw-full-name: Yandex API Gateway
   api-gw-name: API Gateway
   api-gw-short-name: API Gateway
@@ -7277,6 +7279,7 @@ default:
         add-link: Добавить ссылку
         add-member: Добавить участника
         add-new: Добавить
+        add-to-project: Добавить в проект
         alias: Алиас
         apply: Применить
         backend: Бэкенд

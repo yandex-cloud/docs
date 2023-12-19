@@ -27,7 +27,7 @@ items:
         href: add-questions.md
       - name: Conducting a test
         href: tests.md
-      - name: Customizing the appearance of form
+      - name: Customizing the appearance of a form
         href: appearance.md
       - name: Configuring conditions for submitting a response
         href: send-condition.md
@@ -84,7 +84,7 @@ items:
     href: forms-settings.md
   - name: Configuring access
     href: access.md
-  - name: Response reference
+  - name: Prompt reference
     items:
       - name: Overview
         href: blocks-ref/blocks-reference.md
@@ -152,18 +152,20 @@ items:
     href: pricing.md
   - name: Releases
     items:
-      - name: October 2023
+      - name: November 2023
         href: changelogs/index.md
+      - name: October 2023
+        href: changelogs/2310.md
       - name: September 2023
         href: changelogs/2309.md
       - name: August 2023
         href: changelogs/2308.md
       - name: July 2023
         href: changelogs/2307.md
-      - name: June 2023
-        href: changelogs/2306.md
       - name: Archive
         items:
+          - name: June 2023
+            href: changelogs/2306.md
           - name: May 2023
             href: changelogs/2305.md
           - name: March 2023

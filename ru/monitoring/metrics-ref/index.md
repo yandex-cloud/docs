@@ -20,6 +20,8 @@ editable: false
 {% include [data-proc.md](../../_includes/monitoring/metrics-ref/data-proc.md) %}
 
 
+{% include [managed-kafka.md](../../_includes/monitoring/metrics-ref/managed-kafka.md) %}
+
 {% include [managed-clickhouse.md](../../_includes/monitoring/metrics-ref/managed-clickhouse.md) %}
 
 
@@ -28,7 +30,11 @@ editable: false
 {% include [managed-greenplum.md](../../_includes/monitoring/metrics-ref/managed-greenplum.md) %}
 
 
-{% include [managed-kafka.md](../../_includes/monitoring/metrics-ref/managed-kafka.md) %}
+## Сервис {{ managed-k8s-full-name }} {#managed-kubernetes}
+
+{% include [managed-kubernetes.md](../../_includes/monitoring/metrics-ref/managed-kubernetes.md) %}
+
+Подробнее о сервисе в документации [{{ managed-k8s-name }}](../../managed-kubernetes/).
 
 
 {% include [managed-mongodb.md](../../_includes/monitoring/metrics-ref/managed-mongodb.md) %}

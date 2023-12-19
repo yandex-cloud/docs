@@ -8,21 +8,21 @@
 
 ## Создайте сервисный аккаунт и ключи {#service-account-and-keys}
 
-Для отправки писем вам потребуется сервисный аккаунт, статический ключ для использования в AWS CLI и публичный ключ для создания DKIM-подписи.
-
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) c ролью `postbox.sender`.
-1. [Создайте статический ключ](../iam/operations/sa/create-access-key.md) сервисного аккаунта.
-1. [Установите и настройте AWS CLI](https://aws.amazon.com/ru/cli/), указав идентификатор, секретный ключ и регион `ru-central1`.
-1. Сгенерируйте приватный ключ: `openssl genrsa -out privatekey.pem 2048`.
+1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт `postbox-user` c ролью `postbox.editor`.
+1. [Создайте](../iam/operations/sa/create-access-key.md) статические ключи доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
+1. Cгенерируйте ключ для создания DKIM-подписи:
+    ```
+    openssl genrsa -out privatekey.pem 2048
+    ```
 
 ## Создайте адрес {#create-address}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать адрес.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать адрес.
 1. В списке сервисов выберите **{{ postbox-name }}**.
 1. Нажмите кнопку **Создать адрес**.
-1. Укажите **Домен**, с которого вы будете отправлять письма. Домен может быть любого уровня.
+1. Укажите **Домен**, с которого будете отправлять письма. Домен может быть любого уровня.
 1. Укажите **Cелектор**: `mail`.
-1. Скопируйте в поле **Приватный ключ** содержимое файла приватного ключа `privatekey.pem`, созданного на [этапе подготовки](#service-account-and-keys).
+1. Скопируйте в поле **Приватный ключ** содержимое файла приватного ключа `privatekey.pem`, [созданного ранее](#service-account-and-keys).
 1. Нажмите кнопку **Создать**.
 
 ## Пройдите проверку владения доменом {#verify-domain}
@@ -50,39 +50,132 @@
 
 ## Отправьте проверочное письмо {#send-test-letter}
 
-Отправьте проверочное письмо с помощью AWS CLI. Подготовьте два JSON-файла:
+Отправить проверочное письмо можно с помощью:
+* AWS CLI.
+* пртокола SMTP.
 
-`destination.json` — файл со списком адресов назначения:
+### AWS CLI
 
-```json
-{
-  "ToAddresses": ["test@example.com"]
-}
-```
+1. [Установите](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) утилиту командной строки AWS CLI.
+1. Настройте AWS CLI:
+    1. Запустите интерактивную настройку профиля:
+        ```
+        aws configure
+        ```
+    1. Укажите полученный ранее идентификатор ключа сервисного аккаунта `postbox-user`:
+        ```
+        AWS Access Key ID [****************ver_]: <идентификатор_ключа_сервисного_аккаунта>
+        ```
+    1. Укажите полученный ранее секретный ключ сервисного аккаунта `postbox-user`:
+        ```
+        AWS Secret Access Key [****************w5lb]: <секретный_ключ_сервисного_аккаунта>
+        ```
+    1. Укажите имя региона по умолчанию ru-central1:
+        ```
+        Default region name [ru-central1]: ru-central1
+        ```
+    1. Укажите формат выходных данных по умолчанию json:
+        ```
+        Default output format [None]: json
+        ```
 
-`message.json` — файл с темой и содержимым письма:
+1. Подготовьте два JSON-файла:
 
-```json
-{
-  "Simple": {
-    "Subject": {
-      "Data": "Test message",
-      "Charset": "UTF-8"
-    },
-    "Body": {
-      "Text": {
-        "Data": "Test message. Hello!",
-        "Charset": "UTF-8"
-      }
-    }
-  }
-}
-```
+    * `destination.json` — файл со списком адресов назначения:
 
-Отправьте письмо с помощью AWS CLI:
+        ```json
+        {
+          "ToAddresses": ["test@example.com"]
+        }
+        ```
 
-```bash
-aws sesv2 send-email --from-email-address mail@example.com --destination file://destination.json --content file://message.json --endpoint-url https://postbox.cloud.yandex.net
-```
+     * `message.json` — файл с темой и содержимым письма:
 
-Проверьте почтовый ящик, указанный в `destination.json`, — туда должно прийти тестовое письмо.
+        ```json
+        {
+          "Simple": {
+            "Subject": {
+              "Data": "Test message",
+              "Charset": "UTF-8"
+            },
+            "Body": {
+              "Text": {
+                "Data": "Test message. Hello!",
+                "Charset": "UTF-8"
+              }
+            }
+          }
+        }
+        ```
+
+1. Отправьте письмо с помощью AWS CLI:
+
+    ```bash
+    aws sesv2 send-email --from-email-address mail@example.com --destination file://destination.json --content file://message.json --endpoint-url https://postbox.cloud.yandex.net
+    ```
+
+1. Проверьте почтовый ящик, указанный в `destination.json`, — туда должно прийти тестовое письмо.
+
+### SMTP
+
+1. Получите пароль, используя секретный ключ сервисного аккаунта `postbox-user`. Для этого вызовите скрипт `generate.py`:
+    ```
+    python generate.py <секретный_ключ_сервисного_аккаунта>
+    ```
+
+    {% cut "generate.py" %}
+
+    ```
+    #!/usr/bin/env python3
+
+    import hmac
+    import hashlib
+    import base64
+    import argparse
+
+    # These values are required to calculate the signature. Do not change them.
+    DATE = "20230926"
+    SERVICE = "postbox"
+    MESSAGE = "SendRawEmail"
+    REGION = "ru-central1"
+    TERMINAL = "aws4_request"
+    VERSION = 0x04
+
+
+    def sign(key, msg):
+        return hmac.new(key, msg.encode("utf-8"), hashlib.sha256).digest()
+
+
+    def calculate_key(secret_access_key):
+        signature = sign(("AWS4" + secret_access_key).encode("utf-8"), DATE)
+        signature = sign(signature, REGION)
+        signature = sign(signature, SERVICE)
+        signature = sign(signature, TERMINAL)
+        signature = sign(signature, MESSAGE)
+        signature_and_version = bytes([VERSION]) + signature
+        smtp_password = base64.b64encode(signature_and_version)
+        return smtp_password.decode("utf-8")
+
+
+    def main():
+        parser = argparse.ArgumentParser(
+            description="Convert a Secret Access Key to an SMTP password."
+        )
+        parser.add_argument("secret", help="The Secret Access Key to convert.")
+        args = parser.parse_args()
+
+        print(calculate_key(args.secret))
+
+
+    if __name__ == "__main__":
+        main()
+    ```
+
+    {% endcut %}
+
+1. Укажите следующие параметры в вашем почтовом клиенте:
+    * имя сервера — `postbox.cloud.yandex.net`;
+    * порт — `25`;
+    * имя пользователя — идентификатор ключа сервисного аккаунта `postbox-user`;
+    * пароль, полученный на предыдущем шаге.
+1. Отправьте письмо с помощью вашего почтового клиента и убедитесь, что оно пришло на указанные адреса.

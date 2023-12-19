@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" class="yc-icon" fill="currentColor" stroke="none" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 8.5V15.5H16.5V8.5H17.5ZM11.5 8.5V15.5H5.5V8.5H11.5ZM19 8C19 7.44772 18.5523 7 18 7H16C15.4477 7 15 7.44772 15 8V16C15 16.5523 15.4477 17 16 17H18C18.5523 17 19 16.5523 19 16V8ZM13 8C13 7.44772 12.5523 7 12 7H5C4.44771 7 4 7.44772 4 8V16C4 16.5523 4.44771 17 5 17H12C12.5523 17 13 16.5523 13 16V8Z" fill="currentColor"></path></svg></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" aria-hidden="true" class="yc-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <path fill="currentColor" fill-rule="evenodd" d="M17.5 8.5v7h-1v-7h1Zm-6 0v7h-6v-7h6ZM19 8a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8Zm-6 0a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V8Z" clip-rule="evenodd"/>
+    </svg>
+</svg>

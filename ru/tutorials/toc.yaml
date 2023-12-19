@@ -393,6 +393,10 @@ items:
         href: dataplatform/rds-to-mpg.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
+      - name: >-
+          Миграция данных в {{ mos-full-name }} из стороннего кластера {{ OS }}
+          с помощью {{ data-transfer-full-name }}
+        href: dataplatform/mos-migration-from-standalone.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}

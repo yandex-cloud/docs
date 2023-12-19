@@ -7271,6 +7271,7 @@ default:
         add-link: Add link
         add-member: Add member
         add-new: Add
+        add-to-project: Add to project
         alias: Alias
         apply: Apply
         backend: Backend

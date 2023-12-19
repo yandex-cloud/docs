@@ -296,7 +296,11 @@
 
     {% endcut %}
 
-1. [Подключитесь к кластеру-источнику](../../managed-postgresql/operations/connect.md) и добавьте еще одну строку в таблицу `measurements`:
+1. [Подключитесь к кластеру-источнику](../../managed-postgresql/operations/connect.md).
+
+    При подключении может возникнуть ошибка `ERROR Postgres roles LOGIN and REPLICATION are not assigned to user`. Она не влияет на работу Debezium, и ее можно игнорировать.
+
+1. Добавьте еще одну строку в таблицу `measurements`:
 
     ```sql
     INSERT INTO public.measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
