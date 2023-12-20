@@ -28,7 +28,7 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a cluster from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
 - CLI
@@ -43,7 +43,7 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
    {{ yc-mdb-es }} cluster delete <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

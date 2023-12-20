@@ -24,14 +24,14 @@ To view information about sessions and queries:
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and go to the ![image](../../_assets/mdb/mgp-command-center.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
+   1. Click the cluster name and go to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
    1. Select what you want to view and go to relevant tab:
 
       * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** for the current sessions and queries.
       * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}** for sessions or queries at a given point in the past.
 
    1. Go to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** or **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}** section. In the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}** tab, these are placed under the chart.
-   1. To filter the session or query list, click ![image](../../_assets/mdb/mgp-command-center-filter.svg) **{{ ui-key.yacloud.common.label_filters }}** and select relevant parameters.
+   1. To filter the session or query list, click ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** and select relevant parameters.
    1. To view the details of:
 
       * Sessions: Click the session name.
@@ -50,10 +50,10 @@ To view the resource consumption history for completed queries:
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and go to the ![image](../../_assets/mdb/mgp-command-center.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}** tab.
+   1. Click the cluster name and go to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}** tab.
    1. Select the appropriate consumption metric:
 
-      * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-running-time-seconds }}**: Time, in seconds, it took the CPU resources to process queries.
+      * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-running-time-seconds }}**: Time it took the CPU resources to process the queries, seconds.
       * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-vm-peak-kb }}**: Maximum memory the cluster used to handle a query during its lifetime.
       * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-read-bytes }}**: Memory used for data reads, bytes.
       * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-write-bytes }}**: Memory used for data writes to the DB, bytes.
@@ -62,7 +62,7 @@ To view the resource consumption history for completed queries:
 
       Once you select the consumption metric, you will see a chart with detailed information and the list of queries. The chart will show the metric value, the name of the user who ran the query, and query execution time.
 
-   1. To filter the results, click ![image](../../_assets/mdb/mgp-command-center-filter.svg) **{{ ui-key.yacloud.common.label_filters }}** and select relevant parameters.
+   1. To filter the results, click ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** and select relevant parameters.
 
 {% endlist %}
 
@@ -75,8 +75,8 @@ To free up resources for sessions, you can abort a session, for example, an `Idl
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and go to the ![image](../../_assets/mdb/mgp-command-center.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
-   1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**, click ![image](../../_assets/options.svg) in the appropriate line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
+   1. Click the cluster name and go to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
+   1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the appropriate line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
 
       If you see **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**, select it and stop the query.
 
@@ -93,8 +93,8 @@ To free up resources for queries, you can abort a query, for example, an `Idle` 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and go to the ![image](../../_assets/mdb/mgp-command-center.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
-   1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**, click ![image](../../_assets/options.svg) in the appropriate line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
+   1. Click the cluster name and go to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
+   1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the appropriate line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
    1. Confirm stopping the session.
 
 {% endlist %}

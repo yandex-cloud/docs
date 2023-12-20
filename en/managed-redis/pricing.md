@@ -2,19 +2,19 @@
 editable: false
 ---
 
-# Pricing for {{ mrd-name }}
+# {{ mrd-name }} pricing
 
 In this section, you can find {{ mrd-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
-## What goes into the cost of using {{ mrd-short-name }} {#rules}
+## What is included in {{ mrd-short-name }} cost {#rules}
 
 The {{ mrd-name }} usage cost is based on:
 
@@ -30,7 +30,7 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 
 * Storage allocated for DB clusters.
 
@@ -60,7 +60,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

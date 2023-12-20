@@ -34,7 +34,7 @@ description: "Следуя данной инструкции, вы сможет�
   * Получите список [политик удаления](../../concepts/lifecycle-policy.md) в репозитории:
 
     ```bash
-    yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
+    yc container repository lifecycle-policy list --repository-name crp2hlbs67tj********/ubuntu
     ```
 
     Результат:
@@ -43,7 +43,7 @@ description: "Следуя данной инструкции, вы сможет�
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
     |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
-    | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
+    | crp6lg1868p3******** | test-policy | crp3cpm16edq******** | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
     |                      |             |                      |          |                     | tests                         |
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
     ```
@@ -51,7 +51,7 @@ description: "Следуя данной инструкции, вы сможет�
   * Получите список политик удаления в реестре:
 
     ```bash
-    yc container repository lifecycle-policy list --registry-id crp2hlbs67tj4ggrfodb
+    yc container repository lifecycle-policy list --registry-id crp2hlbs67tj********
     ```
 
     Результат:
@@ -60,9 +60,9 @@ description: "Следуя данной инструкции, вы сможет�
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
     |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
-    | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
+    | crp6lg1868p3******** | test-policy | crp3cpm16edq******** | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
     |                      |             |                      |          |                     | tests                         |
-    | crpbia0qsdqpi28444jn |             | crpo17tgeemuto888jdh | DISABLED | 2020-05-28 08:06:14 |                               |
+    | crpbia0qsdqp******** |             | crpo17tgeemu******** | DISABLED | 2020-05-28 08:06:14 |                               |
     +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
     ```
 
@@ -92,15 +92,15 @@ description: "Следуя данной инструкции, вы сможет�
   Получите подробную информацию о политике удаления с помощью `id` из [предыдущего](#lifecycle-policy-list) пункта:
 
   ```bash
-  yc container repository lifecycle-policy get crp6lg1868p3i0emkv1b
+  yc container repository lifecycle-policy get crp6lg1868p3********
   ```
 
   Результат:
 
   ```bash
-  id: crp6lg1868p3i0emkv1b
+  id: crp6lg1868p3********
   name: test-policy
-  repository_id: crp3cpm16edqql0t30s2
+  repository_id: crp3cpm16edq********
   ...
     expire_period: 172800s
     tag_regexp: test.*

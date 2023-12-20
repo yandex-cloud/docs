@@ -22,7 +22,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
    1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_backups }}** tab.
-   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. In the line of the appropriate backup, click ![image ](../../_assets/console-icons/ellipsis.svg)and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -30,9 +30,9 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
    1. In the [management console]({{ link-console-main }}), go to the folder to restore the cluster in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
    1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-   1. In the line of the appropriate backup, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. In the line of the appropriate backup, click ![image](../../_assets/console-icons/ellipsis.svg)and select **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -87,7 +87,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
       * Name: `mynewrd`
       * Environment: `PRODUCTION`
       * Network: `default`
-      * Single `hm1.nano`-class host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone with public access and a replica priority of `50`.
+      * With a single `hm1.nano`-class host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone with public access and a replica priority of `50`.
       * Password: `P@ssWord`
       * Network SSD storage (`{{ disk-type-example }}`): 20 GB
 
@@ -158,7 +158,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
    To get a list of all backups in a folder:
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI
 
@@ -207,7 +207,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
    To get information about the backup of a previously deleted cluster:
    1. In the [management console]({{ link-console-main }}), go to the folder that contained the deleted cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI
 
@@ -252,7 +252,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
      --backup-window-start 10:25:00
    ```
 
-   Where `--environment` is `prestable` or `production` environment.
+   Where `--environment` is either `prestable` or `production`.
 
    To change the backup start time in an existing cluster, use the `update` command:
 

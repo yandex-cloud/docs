@@ -24,7 +24,7 @@ To view detailed information about the {{ mmg-name }} cluster state:
 
 The following charts will open on the page:
 
-* **Asserts total**: Number of [assert](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) triggered in the cluster.
+* **Asserts total**: Number of [asserts](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) triggered in the cluster.
 * **Average operation time per host**: Average time of operation execution by each host (in microseconds).
 * **Average operations time on primary**: Average operation execution time on primary replicas (in microseconds).
 * **Average operations time on secondaries**: Average operation execution time on secondary replicas (in microseconds).
@@ -76,7 +76,7 @@ The following charts will open on the page:
 
 ## Monitoring the state of hosts {#hosts}
 
-To view detailed information about the status of individual {{ mmg-name }} hosts:
+To view detailed information about the state of individual {{ mmg-name }} hosts:
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
@@ -98,16 +98,16 @@ This page displays charts showing the load on an individual host in the cluster:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
-   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
       * **{{ mmg-name }}** to configure cluster alerts.
       * **{{ mmg-name }} Host Overview** to configure host alerts.
 
-   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 

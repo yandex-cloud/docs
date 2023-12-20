@@ -33,9 +33,9 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
    ```bash
    {{ yc-mdb-ch }} shards add <new_shard_name> \
-      --cluster-name=<cluster_name> \
-      --host zone-id=<availability_zone>,`
-            `subnet-name=<subnet_name>
+     --cluster-name=<cluster_name> \
+     --host zone-id=<availability_zone>,`
+       `subnet-name=<subnet_name>
    ```
 
    Where:
@@ -141,8 +141,8 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-edit }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
+   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-edit }}**.
 
 - CLI
 
@@ -161,8 +161,8 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
       ```bash
       {{ yc-mdb-ch }} shards update <shard_name> \
-         --cluster-name=<cluster_name> \
-         --weight=<shard_weight>
+        --cluster-name=<cluster_name> \
+        --weight=<shard_weight>
       ```
 
       Where:
@@ -200,7 +200,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
 
 - CLI
 
@@ -212,7 +212,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
    ```bash
    {{ yc-mdb-ch }} shards delete <shard_name> \
-      --cluster-name=<cluster_name>
+     --cluster-name=<cluster_name>
    ```
 
    You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).

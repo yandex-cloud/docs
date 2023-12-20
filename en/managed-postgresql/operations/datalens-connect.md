@@ -87,7 +87,7 @@ Once the connection is created, you can:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
    1. Select a connection from the list.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) at the top of the page and select **Delete**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the page and select **Delete**.
    1. In the window that opens, click **Delete**.
 
 {% endlist %}

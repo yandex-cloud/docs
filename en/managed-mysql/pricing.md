@@ -8,8 +8,8 @@ editable: false
 
 In this section, you can find {{ mmy-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -18,7 +18,7 @@ To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ y
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What goes into the cost of using {{ mmy-short-name }} {#rules}
+## What is included in {{ mmy-short-name }} cost {#rules}
 
 The {{ mmy-name }} usage cost is based on:
 
@@ -40,10 +40,10 @@ There are different ways to calculate the cost depending on the [host type](conc
 
   The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
 
-Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+You can check the supported resource configurations in [{#T}](concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
 
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ MY }} host is not performing its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ MY }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -54,14 +54,14 @@ You are charged for the following:
    
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
       * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
-      * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
+      * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
+   * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
 
    * The number of hosts in the cluster does not affect the size of the storage and, consequently, of free backups.
 

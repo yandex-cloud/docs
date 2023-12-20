@@ -36,7 +36,7 @@
   1. Измените параметры политики, например, переименуйте политику:
 
      ```bash
-     yc container repository lifecycle-policy update <идентификатор политики> \
+     yc container repository lifecycle-policy update <идентификатор_политики> \
         --new-name=new-policy
      ```
 
@@ -104,14 +104,14 @@
      {% endnote %}
 
      ```bash
-     yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-rules ./new-rules.json
+     yc container repository lifecycle-policy update crp6lg1868p3******** --new-rules ./new-rules.json
      ```
 
      Результат:
 
      ```bash
      WARN: All current lifecycle rules will be overwritten. Are you sure?[y/N] y
-     id: crp6lg1868p3i0emkv1b
+     id: crp6lg1868p3********
      name: test-policy
      ...
        expire_period: 172800s
@@ -132,15 +132,15 @@
   Сделайте выключенную политику активной, выполнив команду с флагом `--activate`:
 
   ```bash
-  yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --activate
+  yc container repository lifecycle-policy update crp6lg1868p3******** --activate
   ```
 
   Результат:
 
   ```bash
-  id: crp6lg1868p3i0emkv1b
+  id: crp6lg1868p3********
   name: test-policy
-  repository_id: crp3cpm16edqql0t30s2
+  repository_id: crp3cpm16edq********
   ...
     expire_period: 172800s
     tag_regexp: test.*
@@ -158,15 +158,15 @@
   Выключите активную политику, выполнив команду с флагом `--disable`:
 
   ```bash
-  yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --disable
+  yc container repository lifecycle-policy update crp6lg1868p3******** --disable
   ```
 
   Результат:
 
   ```bash
-  id: crp6lg1868p3i0emkv1b
+  id: crp6lg1868p3********
   name: test-policy
-  repository_id: crp3cpm16edqql0t30s2
+  repository_id: crp3cpm16edq********
   ...
     expire_period: 172800s
     tag_regexp: test.*
@@ -184,19 +184,19 @@
   Измените имя политики, выполнив команду:
 
   ```bash
-  yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
+  yc container repository lifecycle-policy update crp6lg1868p3******** --new-name new-policy
   ```
 
-  Где `new-name` — новое имя политики. Требования к имени:
+  Где `--new-name` — новое имя политики. Требования к имени:
 
   {% include [name-format](../../../_includes/name-format.md) %}
 
   Результат:
 
   ```bash
-  id: crp6lg1868p3i0emkv1b
+  id: crp6lg1868p3********
   name: new-policy
-  repository_id: crp3cpm16edqql0t30s2
+  repository_id: crp3cpm16edq********
   ...
     expire_period: 172800s
     tag_regexp: test.*
@@ -214,17 +214,17 @@
   Измените описание политики, выполнив команду:
 
   ```bash
-  yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-description "new description"
+  yc container repository lifecycle-policy update crp6lg1868p3******** --new-description "new description"
   ```
 
-  Где `new-description` — новое описание политики.
+  Где `--new-description` — новое описание политики.
 
   Результат:
 
   ```bash
-  id: crp6lg1868p3i0emkv1b
+  id: crp6lg1868p3********
   name: test-policy
-  repository_id: crp3cpm16edqql0t30s2
+  repository_id: crp3cpm16edq********
   ...
     expire_period: 172800s
     tag_regexp: test.*

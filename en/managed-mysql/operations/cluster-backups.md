@@ -17,11 +17,11 @@ You can create backups and restore clusters from existing backups, including poi
 
    To get a list of cluster backups:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
 
    To get a list of all backups in a folder:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
 - CLI
 
@@ -64,11 +64,11 @@ You can create backups and restore clusters from existing backups, including poi
 
    To get information about the backup of an existing cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
 - CLI
 
@@ -99,7 +99,7 @@ You can create backups and restore clusters from existing backups, including poi
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -149,8 +149,8 @@ For a new cluster, you should set all the parameters that are required at creati
    To restore an existing cluster from a backup:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}** tab.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. To restore the cluster state [to the required point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), configure **{{ ui-key.yacloud.mdb.forms.field_date }}** as appropriate.
 
@@ -159,9 +159,9 @@ For a new cluster, you should set all the parameters that are required at creati
 
    To restore a previously deleted cluster from a backup:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
    1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. To restore the cluster state to the required point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** as appropriate. You can enter the value manually or select it from the drop-down calendar.
 
@@ -225,11 +225,11 @@ For a new cluster, you should set all the parameters that are required at creati
       Where:
 
       * `--backup-id`: [Backup](../concepts/backup.md) ID.
-      * `--time`: Point in time to which you need to restore a {{ MY }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
+      * `--time`: Time point to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -238,13 +238,13 @@ For a new cluster, you should set all the parameters that are required at creati
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
          
-         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-host) to the host is needed: `true` or `false`.
 
 
-      * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
+      * `--resource-preset`: [Host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `--disk-type`: The [type of disk](../concepts/storage.md):
+      * `disk-type`: [Disk type](../concepts/storage.md):
 
          
          * `network-hdd`
@@ -321,7 +321,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Do not use resources of the databases (`yandex_mdb_mysql_database`) and users (`yandex_mdb_mysql_user`). They will be restored from the backup.
 
-   1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
+   1. In this configuration file, add a `restore` block with the name of the backup to restore the cluster from:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -350,8 +350,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
-   * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * Timestamp to which you want to recover the cluster, in the `time` parameter.
+   * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * Time point to which you want to restore the cluster, in the `time` parameter.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
 {% endlist %}
@@ -422,7 +422,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    * Cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
    * New backup start time in the `configSpec.backupWindowStart` parameter.
-   * List of the updated cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.backupWindowStart`).
+   * List of cluster configuration fields to be updated in the `updateMask` parameter (in this case, `configSpec.backupWindowStart`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

@@ -162,7 +162,7 @@ You cannot delete data storage subclusters.
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
    1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
-   1. Click ![image](../../_assets/options.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-delete }}**.
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-remove-subcluster_button }}**.
 
@@ -186,7 +186,7 @@ You cannot delete data storage subclusters.
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-   1. In the {{ dataproc-name }} cluster description, delete the `subcluster_spec` section for the desired subcluster.
+   1. In the {{ dataproc-name }} cluster description, delete the `subcluster_spec` section for the required subcluster.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

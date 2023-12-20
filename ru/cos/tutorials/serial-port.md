@@ -44,12 +44,12 @@ description: "Следуя данному руководству, вы смож�
   runcmd:
     - [ sudo, chmod, 666, /dev/ttyS1]
   users:
-    - name: <имя пользователя>
+    - name: <имя_пользователя>
       groups: sudo
       shell: /bin/bash
       sudo: 'ALL=(ALL) NOPASSWD:ALL'
       ssh-authorized-keys:
-        - <публичный SSH-ключ для подключения к ВМ>
+        - <публичный_SSH-ключ_для_подключения_к_ВМ>
   ```
 
   В конфигурации файла задайте имя пользователя и укажите публичную часть [SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для подключения к ВМ. Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
@@ -109,7 +109,7 @@ description: "Следуя данному руководству, вы смож�
         yc compute instance create \
           --name coi-vm-with-sp \
           --zone {{ region-id }}-a \
-          --network-interface subnet-name=<имя подсети>,nat-ip-version=ipv4 \
+          --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
           --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
           --create-boot-disk image-id=$IMAGE_ID
         ```
@@ -165,7 +165,7 @@ description: "Следуя данному руководству, вы смож�
   yc compute instance create \
     --name coi-vm-with-sp \
     --zone {{ region-id }}-c \
-    --network-interface subnet-name=<имя подсети>,nat-ip-version=ipv4 \
+    --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
     --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
     --create-boot-disk image-id=$IMAGE_ID
   ```

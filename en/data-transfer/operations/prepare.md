@@ -258,11 +258,11 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       {% note info %}
 
-      For {{ MG }} 3.6 or older, it is enough to assign the created user the [`read`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) role for databases to replicate.
+      For {{ MG }} {{ dt-mg-version }} or higher, it is enough to assign the created user the [`read`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) role for databases to replicate.
 
       {% endnote %}
 
-   1. When using {{ MG }} versions 3.4 and 3.6 for a transfer, the user must have read access to the `local.oplog.rs` collection and read and write access to the `__data_transfer.__dt_cluster_time` collection. To assign a user the [`clusterAdmin`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterAdmin) role granting these privileges, connect to {{ MG }} and run the following commands:
+   1. When using {{ MG }} {{ dt-mg-version }} or higher, to run the transfer, the user must have the read permission to the `local.oplog.rs` collection and the read and write permissions to the `__data_transfer.__dt_cluster_time` collection. To assign a user the [`clusterAdmin`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterAdmin) role granting these privileges, connect to {{ MG }} and run the following commands:
 
       ```js
       use admin;
@@ -509,7 +509,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This will allow replication to continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
-    1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Disable the transfer of external keys when creating a source endpoint. Recreate them once the transfer is completed.
 

@@ -122,10 +122,10 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
-   1. Click ![image](../../_assets/options.svg) for the topic you need and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic you need and select **{{ ui-key.yacloud.common.edit }}**.
    1. Change the basic parameters of the topic:
-      * The number of topic partitions.
-      * The replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
+      * Number of topic partitions.
+      * Replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
          * For a cluster with one or two brokers: `1`
          * For a cluster with three or more brokers: `3`
    1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
@@ -188,10 +188,10 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - API
 
    To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/topic_service.md#Update) gRPC API call and provide the following in the request:
-   * ID of the cluster where the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
-   * New [topic settings](../concepts/settings-list.md#topic-settings) values in the `topicSpec` parameter.
-   * List of settings you want to update in the `updateMask` parameter.
+   * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -298,7 +298,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
-   1. Click ![image](../../_assets/options.svg) for the topic you need and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic you need and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

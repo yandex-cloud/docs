@@ -1,4 +1,4 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can retrain the [{{ yagpt-full-name }}](../../yandexgpt/concepts/index.md) neural network on your own examples to make it better suited to your tasks. To do this, prepare a file with pairs of queries and reference responses and start retraining.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can tune the [{{ yagpt-name }}](../../yandexgpt/concepts/index.md) neural network on your own examples to make it more tailored to your specific tasks. To do this, prepare a file with pairs of queries and reference responses and start tuning.
 
 {% note info %}
 
@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Create a service account for the {{ ml-platform-name }} project (optional) {#create-sa}
 
-You can access the retrained model through the {{ ml-platform-name }} interface (Playground) or the API, using the code. If you are going to make API requests, you need a service account with the `{{ roles-yagpt-user }}` [role](../../iam/concepts/access-control/roles.md). The service account must have access to {{ yagpt-name }} and be a {{ ml-platform-name }} project member.
+You can send requests to a fine-tuned model through the {{ ml-platform-name }} interface (Playground) or the API, using the code. If you are going to make API requests, you need a service account with the `{{ roles-yagpt-user }}` [role](../../iam/concepts/access-control/roles.md). The service account must be a {{ ml-platform-name }} project member.
 
 {% list tabs %}
 

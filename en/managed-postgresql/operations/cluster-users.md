@@ -55,16 +55,16 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
    1. Enter the database username and password.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
    1. Select one or more databases that the user should have access to:
-      1. In the **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** field, click ![image](../../_assets/plus-sign.svg) to the right of the drop-down list.
+      1. In the **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** field, click ![image](../../_assets/console-icons/plus.svg) to the right of the drop-down list.
       1. Select the database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
-      1. To delete a database added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name.
+      1. To delete a database added by mistake, click ![image](../../_assets/console-icons/xmark.svg) to the right of the database name.
    1. Configure the [DBMS settings](../concepts/settings-list.md#dbms-user-settings) for the user.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
@@ -167,7 +167,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
    1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
    {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
@@ -252,13 +252,13 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Set up user permissions to access certain databases:
       1. To grant access to the required databases:
-         1. In the **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** field, click ![image](../../_assets/plus-sign.svg) to the right of the drop-down list.
+         1. In the **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** field, click ![image](../../_assets/console-icons/plus.svg) to the right of the drop-down list.
          1. Select the database from the drop-down list.
          1. Repeat the previous two steps until all the required databases are selected.
-      1. To revoke access to a specific database, click ![image](../../_assets/cross.svg) to the right of the database name.
+      1. To revoke access to a specific database, click ![image](../../_assets/console-icons/xmark.svg) to the right of the database name.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** to change the maximum allowed number of connections for the user (**Conn limit**), enable/disable the user to connect to a cluster (**Login**), or update other [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings).
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
@@ -374,7 +374,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
    1. Confirm the deletion.
 
 - CLI

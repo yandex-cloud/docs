@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the appropriate [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) in the list on the left.
-1. At the top right, click ![image](../_assets/create.png) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+1. At the top right, click ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
 1. Enter the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) name. The naming requirements are as follows:
 
    {% include [name-format](name-format.md) %}

@@ -1,5 +1,5 @@
 ---
-title: "How to change {{ MY }} cluster settings in {{ mmy-full-name }}"
+title: "Tutorial on changing {{ MY }} cluster settings in {{ mmy-full-name }}"
 description: "In this tutorial, you will learn how to change settings for a {{ MY }} cluster."
 ---
 
@@ -27,7 +27,7 @@ After creating a cluster, you can:
 * [{#T}](#change-sg-set).
 
 
-To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different availability zone, see this [guide](host-migration.md). You will thus move the cluster hosts.
 
 ## Changing the host class {#change-resource-preset}
 
@@ -339,7 +339,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--backup-retain-period-days`: Retention period for automatic backups (in days). Acceptable values are from `7` to `60`. By default, it is set to `7`.
+   * `--backup-retain-period-days`: Retention period for automatic backups (in days). Acceptable values are from `7` to `60`. The default value is `7`.
 
    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
@@ -430,7 +430,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    * Settings for access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
-   * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. By default, it is set to `7`.
+   * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -452,7 +452,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the cluster you want to move.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
    1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
    1. Select a folder you want to move the cluster to.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.

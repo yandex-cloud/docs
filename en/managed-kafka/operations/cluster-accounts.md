@@ -146,7 +146,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
    1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
@@ -222,7 +222,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. [Grant](#grant-permission) or [revoke](#revoke-permission) permissions for topics, if necessary.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
@@ -289,8 +289,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select the cluster.
    1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the user to grant topic permissions to and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-   1. Click **+ {{ ui-key.yacloud.kafka.button_add-topic }}**. If you do not see this button, it means that the user is granted permissions to all existing cluster topics.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the user to grant topic permissions to and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.kafka.button_add-topic }}**. If you do not see this button, it means that the user is granted permissions to all existing cluster topics.
 
       If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
@@ -304,7 +304,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
       1. Click **{{ ui-key.yacloud.kafka.button_add-topic }}**.
 
-   1.  Click the ![image](../../_assets/plus.svg) icon in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column for the topic and select:
+   1.  Click the ![image](../../_assets/console-icons/plus.svg) icon in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column for the topic and select:
       * `ACCESS_ROLE_CONSUMER`: Consumers using this user will be granted access to the topic.
       * `ACCESS_ROLE_PRODUCER`: Producers using this user will be granted access to the topic.
       * `ACCESS_ROLE_ADMIN`: Only available if access to any topics is selected.
@@ -419,9 +419,9 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select the cluster.
    1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Find the appropriate topic in the list of topics.
-   1. Delete the role you no longer need: click the ![image](../../_assets/cross.svg) icon next to the role name. To revoke all permissions for a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/cross.svg) at the end of the line.
+   1. Delete the role you no longer need: click the ![image](../../_assets/console-icons/xmark.svg) icon next to the role name. To revoke all permissions for a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/console-icons/xmark.svg) at the end of the line.
 
 - CLI
 
@@ -550,7 +550,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

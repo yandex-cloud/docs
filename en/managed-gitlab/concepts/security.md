@@ -9,21 +9,21 @@ description: "In this tutorial, you will learn about security measures available
 
 {{ mgl-name }} offers protection of your pipeline with built-in {{ GL }} tools.
 
-The tools available depend on the [{{ GL }} license type](https://about.gitlab.com/pricing/). The free license offers several security tools, such as [Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/) and [Secret Detection](https://docs.gitlab.com/ee/user/application_security/secret_detection/index.html). You can also develop custom jobs using open-source tools.
+The tools available depend on the [{{ GL }} license](https://about.gitlab.com/pricing/) type. The free license offers several security tools, such as [Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/) and [Secret Detection](https://docs.gitlab.com/ee/user/application_security/secret_detection/index.html). You can also develop custom jobs using open-source tools.
 
 See the table for a complete list of pipeline security tools with respective licenses:
 
-Pipeline security tools | Free | Premium | Ultimate
+| Pipeline security tools | Free | Premium | Ultimate |
 --- | :---: | :---: | :---:
-[API Fuzzing](https://docs.gitlab.com/ee/user/application_security/api_fuzzing/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg)
-[Cluster Image Scanning](https://docs.gitlab.com/ee/user/application_security/cluster_image_scanning/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg)
-[Container Scanning](https://docs.gitlab.com/ee/user/application_security/container_scanning/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg)
-[Dependency Scanning](https://docs.gitlab.com/ee/user/application_security/dependency_scanning/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg)
-[Dynamic Application Security Testing (DAST)](https://docs.gitlab.com/ee/user/application_security/dast/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg)
-[License Compliance](https://docs.gitlab.com/ee/user/compliance/license_compliance/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg)
-[Secret Detection](https://docs.gitlab.com/ee/user/application_security/secret_detection/index.html) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
-[Security Dashboard](https://docs.gitlab.com/ee/user/application_security/security_dashboard/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg)
-[Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/index.html) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
+| [API Fuzzing](https://docs.gitlab.com/ee/user/application_security/api_fuzzing/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| [Cluster Image Scanning](https://docs.gitlab.com/ee/user/application_security/cluster_image_scanning/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| [Container Scanning](https://docs.gitlab.com/ee/user/application_security/container_scanning/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| [Dependency Scanning](https://docs.gitlab.com/ee/user/application_security/dependency_scanning/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| [Dynamic Application Security Testing (DAST)](https://docs.gitlab.com/ee/user/application_security/dast/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| [License Compliance](https://docs.gitlab.com/ee/user/compliance/license_compliance/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| [Secret Detection](https://docs.gitlab.com/ee/user/application_security/secret_detection/index.html) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| [Security Dashboard](https://docs.gitlab.com/ee/user/application_security/security_dashboard/index.html) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| [Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/index.html) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 
 As {{ mgl-name }} develops, the list may change.
 

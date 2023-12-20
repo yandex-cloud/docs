@@ -35,7 +35,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      +----------------------+-------------+----------------------+
      |          ID          |   NAME      |      FOLDER ID       |
      +----------------------+-------------+----------------------+
-     | crp1abc2tl3def1h2gu6 | my-registry | b1g23ga82bcv0cdeferg |
+     | crp1abc2tl3d******** | my-registry | b1g23ga82bcv******** |
      +----------------------+-------------+----------------------+
      ```
 
@@ -71,7 +71,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      +----------------------+---------------------+-----------------------------+-------+-----------------+
      |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
      +----------------------+---------------------+-----------------------------+-------+-----------------+
-     | crpabcpg1pde2f33ekp4 | 2020-10-26 15:45:39 | crp1abc2tl3def1h2gu6/ubuntu | hello | 27.2 MB         |
+     | crpabcpg1pde******** | 2020-10-26 15:45:39 | crp1abc2tl3d********/ubuntu | hello | 27.2 MB         |
      +----------------------+---------------------+-----------------------------+-------+-----------------+
      ```
 
@@ -88,16 +88,16 @@ description: "Данные в {{ container-registry-name }} надежно хр�
    - CLI
 
      ```bash
-     docker pull {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
+     docker pull {{ registry }}/crp1abc2tl3d********/ubuntu:hello
      ```
 
      Результат:
 
      ```bash
-     hello: Pulling from crp1abc2tl3def1h2gu6/ubuntu
-     Digest: sha256:1d2b339619babc2d008eca2d5293e3c43ff84cbee597ff76dd3e7f7de3e84956
-     Status: Downloaded newer image for {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
-     {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
+     hello: Pulling from crp1abc2tl3d********/ubuntu
+     Digest: sha256:1d2b339619babc2d008eca2d5293e3c43ff84cbee597ff76dd3e7f7d********
+     Status: Downloaded newer image for {{ registry }}/crp1abc2tl3d********/ubuntu:hello
+     {{ registry }}/crp1abc2tl3d********/ubuntu:hello
      ```
 
    {% endlist %}
@@ -116,8 +116,8 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
      ```bash
      REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE
-     {{ registry }} /crp1abc2tl3def1h2gu6/ubuntu  hello   d12eaa3277bc  3 days ago  72.9MB
-     ubuntu                                       latest  d12eaa3277bc  3 days ago  72.9MB
+     {{ registry }} /crp1abc2tl3d********/ubuntu       hello   d12e********  3 days ago  72.9MB
+     ubuntu                                       latest  d12e********  3 days ago  72.9MB
      ```
 
    {% endlist %}

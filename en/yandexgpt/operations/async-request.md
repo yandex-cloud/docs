@@ -21,12 +21,12 @@ You can send requests to the models asynchronously. In response to such a reques
      "completionOptions": {
        "stream": false,
        "temperature": 0.1,
-       "maxTokens": "5000"
+       "maxTokens": "2000"
      },
      "messages": [
        {
          "role": "system",
-         "text": "Translate the text to Russian"
+         "text": "Translate the text"
        },
        {
          "role": "user",
@@ -76,7 +76,7 @@ You can send requests to the models asynchronously. In response to such a reques
 
    ```bash
    curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-     https://llm.{{ api-host }}/operations/<operation_ID>
+     https://llm.api.cloud.yandex.net/operations/<operation_ID>
    ```
 
    Result example:

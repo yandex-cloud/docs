@@ -3,7 +3,7 @@ title: "How to manage {{ CH }} cluster databases in {{ mch-full-name }}"
 description: "Follow this guide to manage {{ CH }} cluster databases."
 ---
 
-# Managing databases in {{ mch-name }}
+# Database management in {{ mch-name }}
 
 {{ mch-name }} provides two ways for you to manage cluster databases:
 
@@ -153,7 +153,7 @@ In a cluster with DB management via SQL enabled:
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
-   1. Click ![image](../../_assets/options.svg) in the required DB row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
 

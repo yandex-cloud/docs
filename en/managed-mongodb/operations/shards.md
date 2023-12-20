@@ -64,19 +64,19 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
       ```bash
       {{ yc-mdb-mg }} cluster enable-sharding \
-         --cluster-name=<cluster_name> \
-         --host type=mongoinfra,`
-               `zone-id=<availability_zone>,`
-               `subnet-name=<subnet_name> \
-         --host type=mongoinfra,`
-               `zone-id=<availability_zone>,`
-               `subnet-name=<subnet_name> \
-         --host type=mongoinfra,`
-               `zone-id=<availability_zone>,`
-               `subnet-name=<subnet_name> \
-         --mongoinfra resource-preset=<host_class>,`
-                     `disk-size=<storage_size_GB>,`
-                     `disk-type=<disk_type>
+        --cluster-name=<cluster_name> \
+        --host type=mongoinfra,`
+          `zone-id=<availability_zone>,`
+          `subnet-name=<subnet_name> \
+        --host type=mongoinfra,`
+          `zone-id=<availability_zone>,`
+          `subnet-name=<subnet_name> \
+        --host type=mongoinfra,`
+          `zone-id=<availability_zone>,`
+          `subnet-name=<subnet_name> \
+        --mongoinfra resource-preset=<host_class>,`
+          `disk-size=<storage_size_GB>,`
+          `disk-type=<disk_type>
       ```
 
       Where:
@@ -88,34 +88,34 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       * `--mongoinfra`: `MONGOINFRA` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: The [type of disk](../concepts/storage.md).
+         * `disk-type`: [Disk type](../concepts/storage.md).
 
    * To enable advanced cluster sharding using `MONGOS` and `MONGOCFG` hosts, run the command (the list of supported parameters in the example is not exhaustive):
 
       ```bash
       {{ yc-mdb-mg }} cluster enable-sharding \
-         --cluster-name=<cluster_name> \
-         --host type=mongos,`
-               `zone-id=<availability_zone>,`
-               `subnet-name=<subnet_name> \
-         --host type=mongos,`
-               `zone-id=<availability_zone>,`
-               `subnet-name=<subnet_name> \
-         --mongos resource-preset=<host_class>,`
-                 `disk-size=<storage_size_GB>,`
-                 `disk-type=<disk_type> \
-         --host type=mongocfg,`
-               `zone-id=<availability_zone>,`
-               `subnet-name=<subnet_name> \
-         --host type=mongocfg,`
-               `zone-id=<availability_zone>,`
-               `subnet-name=<subnet_name> \
-         --host type=mongocfg,`
-               `zone-id=<availability_zone>,`
-               `subnet-name=<subnet_name> \
-         --mongocfg resource-preset=<host_class>,`
-                   `disk-size=<storage_size_GB>,`
-                   `disk-type=<disk_type>
+        --cluster-name=<cluster_name> \
+        --host type=mongos,`
+          `zone-id=<availability_zone>,`
+          `subnet-name=<subnet_name> \
+        --host type=mongos,`
+          `zone-id=<availability_zone>,`
+          `subnet-name=<subnet_name> \
+        --mongos resource-preset=<host_class>,`
+          `disk-size=<storage_size_GB>,`
+          `disk-type=<disk_type> \
+        --host type=mongocfg,`
+          `zone-id=<availability_zone>,`
+          `subnet-name=<subnet_name> \
+        --host type=mongocfg,`
+          `zone-id=<availability_zone>,`
+          `subnet-name=<subnet_name> \
+        --host type=mongocfg,`
+          `zone-id=<availability_zone>,`
+          `subnet-name=<subnet_name> \
+        --mongocfg resource-preset=<host_class>,`
+          `disk-size=<storage_size_GB>,`
+          `disk-type=<disk_type>
       ```
 
       Where:
@@ -127,11 +127,11 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       * `--mongos`: `MONGOS` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: The [type of disk](../concepts/storage.md).
+         * `disk-type`: [Disk type](../concepts/storage.md).
       * `--mongocfg`: `MONGOCFG` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: The [type of disk](../concepts/storage.md).
+         * `disk-type`: [Disk type](../concepts/storage.md).
 
 - {{ TF }}
 
@@ -272,7 +272,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
    +------+
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -306,9 +306,9 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
    ```bash
    {{ yc-mdb-mg }} shards add <new_shard_name> \
-      --cluster-name=<cluster_name> \
-      --host zone-id=<availability_zone>,`
-            `subnet-name=<subnet_name>
+     --cluster-name=<cluster_name> \
+     --host zone-id=<availability_zone>,`
+       `subnet-name=<subnet_name>
    ```
 
    Where:
@@ -377,7 +377,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required shard row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required shard row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI
@@ -390,7 +390,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
    ```bash
    {{ yc-mdb-mg }} shards delete <shard_name> \
-      --cluster-name=<cluster_name>
+     --cluster-name=<cluster_name>
    ```
 
    You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
@@ -401,7 +401,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
       For information on how to create this file, see [{#T}](cluster-create.md).
 
-   1. Delete all shard-related `host` blocks from the {{ mmg-name }} cluster description.
+   1. Delete all shard-related `host` sections from the {{ mmg-name }} cluster description.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

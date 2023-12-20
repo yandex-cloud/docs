@@ -13,6 +13,10 @@ The available storage size does not depend on the host class. For storage limita
 
 Hosts in {{ dataproc-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platforms {{ compute-name }} supports. See [{#T}](../../compute/concepts/vm-platforms.md) for a detailed description.
 
+A suitable host class depends on driver deploy mode:
+
+{% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
+
 The full list of possible host configurations on each platform is provided below.
 
 {% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}

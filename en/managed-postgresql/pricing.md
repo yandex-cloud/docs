@@ -5,12 +5,12 @@ description: "The cost of {{ mpg-name }} usage is calculated based on the disk t
 editable: false
 ---
 
-# Pricing for {{ mpg-name }}
+# {{ mpg-name }} pricing
 
 In this section, you can find {{ mpg-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -19,7 +19,7 @@ To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ y
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What goes into the cost of using {{ mpg-short-name }} {#rules}
+## What is included in {{ mpg-short-name }} cost {#rules}
 
 The {{ mpg-name }} usage cost is based on:
 
@@ -31,18 +31,18 @@ The {{ mpg-name }} usage cost is based on:
 
 The cost is calculated for each hour of the host's operation in accordance with its class. Exact class characteristics are given in [{#T}](concepts/instance-types.md).
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ PG }} host is not performing its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ PG }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 
 * Storage allocated for DB clusters.
 
    
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
       * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-      * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
+      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
@@ -55,7 +55,7 @@ The following is charged:
 
    {% endnote %}
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
+   * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
 
    * During an automatic backup, {{ mpg-short-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
@@ -72,7 +72,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

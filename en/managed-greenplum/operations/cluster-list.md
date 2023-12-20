@@ -66,7 +66,7 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
+   1. Click the cluster name and select the ![operations.svg](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI
 

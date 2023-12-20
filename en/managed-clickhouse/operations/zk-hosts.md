@@ -25,7 +25,7 @@ To learn more, see [Replication](../concepts/replication.md).
    1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
    1. Specify the [host class](../concepts/instance-types.md).
    1. Set up the storage settings.
-   1. Change the {{ ZK }} host settings, if required. To do this, hover over the required host row and click ![image](../../_assets/pencil.svg).
+   1. Change the {{ ZK }} host settings, if required. To do this, hover over the required host row and click ![image](../../_assets/console-icons/pencil.svg).
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
@@ -276,7 +276,7 @@ To learn more, see [Replication](../concepts/replication.md).
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Hover over the required host row and click ![image](../../_assets/cross.svg).
+   1. Hover over the required host row and click ![image](../../_assets/console-icons/xmark.svg).
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI

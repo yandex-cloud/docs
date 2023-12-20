@@ -1,6 +1,6 @@
 ---
 title: "{{ MG }} user management in {{ mmg-full-name }}"
-description: "In this article, you will learn how to add and remove users and manage their individual settings in the {{ MG }} database management service."
+description: "In this article you will learn how to add and remove users, as well as manage their individual settings in the {{ MG }} database management service."
 ---
 
 # Managing {{ MG }} users
@@ -14,7 +14,7 @@ You can add and delete users as well as manage their individual settings and dat
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click on the name of the desired cluster and then select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click on the name of the desired cluster and then select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
 - CLI
 
@@ -47,7 +47,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. Click the cluster name and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
 
@@ -58,7 +58,7 @@ You can add and delete users as well as manage their individual settings and dat
    1. Configure the [roles](../concepts/users-and-roles.md) for the user:
 
       1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select the database where you want to grant a role.
-      1. Add roles using ![image](../../_assets/plus-sign.svg).
+      1. Add roles using ![image](../../_assets/console-icons/plus.svg).
 
       You can grant multiple roles to a user in different databases.
 
@@ -151,17 +151,17 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. Click the cluster name and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
-   1. To edit a user password, click ![image](../../_assets/options.svg) in the required user row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+   1. To edit a user password, click ![image](../../_assets/console-icons/ellipsis.svg) in the required user row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
    1. To change the user's [roles](../concepts/users-and-roles.md):
 
-      1. Click ![image](../../_assets/options.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-      1. To add a role, click ![image](../../_assets/plus-sign.svg) next to the appropriate database and select the role.
-      1. To delete a role, click ![image](../../_assets/cross.svg) next to the role name.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+      1. To add a role, click ![image](../../_assets/console-icons/plus.svg) next to the appropriate database and select the role.
+      1. To delete a role, click ![image](../../_assets/console-icons/xmark.svg) next to the role name.
 
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
@@ -219,8 +219,8 @@ You can add and delete users as well as manage their individual settings and dat
 
       ```bash
       {{ yc-mdb-mg }} user revoke-permission <username> \
-         --cluster-name <cluster_name> \
-         --database <DB_name>
+        --cluster-name <cluster_name> \
+        --database <DB_name>
       ```
 
       This command completely blocks the user's access to the specified database.
@@ -268,11 +268,11 @@ You can add and delete users as well as manage their individual settings and dat
 
    To update a user, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
-   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
-   * The name of the database that you want to change the list of user roles for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
+   * ID of the cluster in which the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
+   * Name of the database you want to change the list of user roles for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
    * Array of the new list of user roles, in the `permissions.roles` parameter.
-   * The list of user settings to update in the `updateMask` parameter.
+   * List of user settings to be updated, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -285,8 +285,8 @@ You can add and delete users as well as manage their individual settings and dat
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/options.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
 
 - CLI
 
@@ -298,7 +298,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    ```
    {{ yc-mdb-mg }} user delete <username> \
-      --cluster-name <cluster_name>
+     --cluster-name <cluster_name>
    ```
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).

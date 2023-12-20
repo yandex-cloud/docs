@@ -39,8 +39,11 @@ Prepare the infrastructure:
 
 - Using {{ TF }}
 
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
     1. Download the [dataproc-to-dataproc.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/dataproc-to-dataproc.tf) configuration file to the same working directory.
 
         This file describes:
@@ -61,7 +64,6 @@ Prepare the infrastructure:
         * `output-bucket`: Name of the bucket for output data.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
 
-    1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
@@ -88,7 +90,7 @@ Prepare the infrastructure:
     spark:spark.hive.metastore.uris=thrift://<{{ metastore-name }} IP address>:{{ port-metastore }}
     ```
 
-    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../_assets/data-proc/metastore.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
+    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
 
 ## Create a test table {#create-table}
 
@@ -190,7 +192,7 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete a {{ metastore-name }} cluster](../../data-proc/operations/metastore/cluster-delete.md).
+1. [Delete the {{ metastore-name }} cluster](../../data-proc/operations/metastore/cluster-delete.md).
 1. Delete other resources depending on how they were created:
 
     {% list tabs %}

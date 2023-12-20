@@ -91,7 +91,7 @@ You can get the cluster ID with a [list of clusters in the folder](#list-cluster
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name.
-   1. In the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_operations }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_operations }}**.
 
 - CLI
 

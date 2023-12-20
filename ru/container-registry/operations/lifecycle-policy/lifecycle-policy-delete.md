@@ -24,14 +24,14 @@ description: "Следуя данной инструкции, вы сможет�
   1. Удалите политику, указав ее идентификатор:
 
      ```bash
-     yc container repository lifecycle-policy delete <идентификатор политики>
+     yc container repository lifecycle-policy delete <идентификатор_политики>
      ```
 
      Чтобы узнать идентификатор политики, получите [список политик удаления в репозитории или в реестре](lifecycle-policy-list.md#lifecycle-policy-list).
   1. Проверьте, что политика действительно удалена:
 
      ```bash
-     yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
+     yc container repository lifecycle-policy list --repository-name crp2hlbs67tj********/ubuntu
      ```
 
      Результат:

@@ -20,7 +20,7 @@ description: "After you delete a PostgreSQL database cluster, its backups are ke
 
    1. Open the folder page in the management console.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Click ![image](../../_assets/options.svg) for the appropriate cluster, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate cluster, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
 
 - CLI
 
@@ -34,7 +34,7 @@ description: "After you delete a PostgreSQL database cluster, its backups are ke
    {{ yc-mdb-pg }} cluster delete <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

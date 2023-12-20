@@ -14,7 +14,7 @@ When creating a job, specify:
 * _Arguments_: Values used by the job's main executable file.
 * _Properties_: The <q>key:value</q> pairs that configure [image components](./environment.md).
 
-To create and [start jobs](../operations/jobs.md), you can:
+To create and [start jobs](../operations/running-jobs.md), you can:
 
 * Use the {{ yandex-cloud }} interfaces. For more information, see [basic examples](../tutorials/job-overview.md#jobs-basic-tutorials) for working with jobs.
 

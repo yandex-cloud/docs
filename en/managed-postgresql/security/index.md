@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ mpg-full-name }}"
-description: "Access management in the PostgreSQL database creation and management service. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in the PostgreSQL database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ mpg-name }}
@@ -8,13 +8,13 @@ description: "Access management in the PostgreSQL database creation and manageme
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 

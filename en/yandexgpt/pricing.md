@@ -20,7 +20,7 @@ A pricing unit means a single billing unit. The cost of a billing unit is differ
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of prompt and response tokens and depends on the {{ yagpt-name }} request parameters. Namely, the cost depends on these parameters:
+Text generation cost is based on the overall number of prompt and response tokens and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on these parameters:
 
 * Model that is requested.
 * Model working mode.
@@ -37,7 +37,7 @@ The cost of providing text as vectors, i.e., getting text embeddings, depends on
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
 
-## Examples of {{ yagpt-name }} usage cost calculation {#price-examples}
+## Examples of {{ yagpt-full-name }} usage cost calculation {#price-examples}
 
 ### Calculating text generation cost {#price-example-generating}
 
@@ -102,7 +102,7 @@ Where:
 
 ## Pricing {#prices}
 
-### Text generation in {{ yagpt-name }} {#pricing-generating}
+### Text generation in {{ yagpt-full-name }} {#pricing-generating}
 
 
 
@@ -110,7 +110,7 @@ Where:
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating.md) %}
 
 
-### Text vectorization in {{ yagpt-name }} {#pricing-embedding}
+### Text vectorization in {{ yagpt-full-name }} {#pricing-embedding}
 
 
 

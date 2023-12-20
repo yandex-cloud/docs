@@ -27,7 +27,7 @@ To learn how to migrate {{ mos-name }} cluster host groups to a different availa
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 
 - API
 
@@ -44,8 +44,8 @@ To learn how to migrate {{ mos-name }} cluster host groups to a different availa
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
    1. Specify the group parameters:
 
       * [Group type](../concepts/host-groups.md): `{{ OS }}` or `Dashboards`.
@@ -130,8 +130,8 @@ When deleting a host group, the following limitation applies: you cannot delete 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
-   1. Click ![image](../../_assets/options.svg) in the line with the appropriate group and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the appropriate group and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
 
 - API
 
@@ -156,7 +156,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the cluster name and select the ![hosts](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+   1. Click the cluster name and select the ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
 
 - API
 

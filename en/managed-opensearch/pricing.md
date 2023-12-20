@@ -2,12 +2,12 @@
 editable: false
 ---
 
-# Pricing for {{ mos-name }}
+# {{ mos-name }} pricing
 
 In this section, you can find {{ mos-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -24,7 +24,7 @@ Prices are applied differently depending on the cluster status:
 
 
 
-## What goes into the cost of using {{ mos-short-name }} {#rules}
+## What is included in {{ mos-short-name }} cost {#rules}
 
 The {{ mos-name }} usage cost is based on:
 
@@ -45,11 +45,11 @@ You can select host class both for hosts with the `DATA` role and hosts with the
 
 
 
-You are charged per hour of host operation. The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ OS }} host is not performing its main functions.
+You are charged per hour of host operation. The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ OS }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 
 * Storage allocated for clusters.
 
@@ -72,7 +72,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

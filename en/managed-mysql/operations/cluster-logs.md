@@ -11,7 +11,7 @@
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mysql.cluster.switch_logs }}** tab.
    1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. Select the type of events to display. By default, the `MYSQL_ERROR` type is used.
    1. Select the hosts and logging level in the drop-down lists next to the date input field, if required.
@@ -48,8 +48,8 @@
 
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
       * {% include [logs output format](../../_includes/cli/logs/format.md) %}
-      * `--service-type`: Type of service to output records for (`mysql-error`, `mysql-general`, `mysql-slow-query`, or `mysql-audit`).
-      * `--columns`: List of columns to display information:
+      * `--service-type`: Service type to display records for (`mysql-error`, `mysql-general`, `mysql-slow-query`, or `mysql-audit`).
+      * `--columns`: List of columns with output data:
          * `hostname`: [Host name](hosts.md#list-hosts).
          * `id`: Query ID.
          * `message`: Message output by the service.

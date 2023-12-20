@@ -124,6 +124,7 @@ default:
   dt-copy-regular: Regular
   dt-copy-regular-incremental: Regular incremental
   dt-copy-snapshot: Single
+  dt-mg-version: 3.6
   dt-status-copy: '**Copying**'
   dt-status-created: '**Created**'
   dt-status-creation: '**Creating**'
@@ -234,7 +235,7 @@ default:
   link-console-main: https://console.cloud.yandex.com
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
   link-console-settings: https://console.cloud.yandex.com/settings
-  link-console-support: https://support.yandex.cloud/
+  link-console-support: https://support-center.cloud.yandex.com
   link-datalens-main: https://datalens.yandex.com
   link-datalens-settings: https://datalens.yandex.com/settings
   link-datasphere-main: https://datasphere.yandex.com/
@@ -497,6 +498,7 @@ default:
   roles-search-api-executor: search-api.executor
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
+  roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
@@ -5466,7 +5468,6 @@ default:
           switch_backups: Backups
           switch_hosts: Hosts
           switch_jobs: Jobs
-          switch_logs: Logs
           switch_monitoring: Monitoring
           switch_subclusters: Subclusters
           switch_users: Users
@@ -5669,7 +5670,7 @@ default:
           field_roles-key: roles_key
           field_sp-entity-id: sp_entity_id
           field_subject-key: subject_key
-          section_auth: Authorization sources
+          section_auth: Authentication sources
         cluster:
           node-groups:
             action_add-node-group: Add node group
@@ -6334,17 +6335,19 @@ default:
                         title: Connection type
                       database:
                         title: Database
-                      password:
-                        title: Password
                       security_groups:
                         title: Security groups
+                    ClickHouseConnectionType:
+                      on_premise:
+                        title: On-premise
+                    ClickHouseCredentials:
+                      password:
+                        title: Password
                       user:
                         title: User
-                    ClickHouseConnectionType:
+                    ClickHouseManaged:
                       mdb_cluster_id:
-                        title: Managed Service for ClickHouse cluster
-                      on_premise:
-                        title: Custom installation
+                        title: Managed cluster
                     ClickHouseOnPremise:
                       http_port:
                         title: HTTP port

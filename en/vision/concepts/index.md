@@ -61,6 +61,12 @@ The service returns an array of analysis results for each provided spec. Each el
 
 If an error occurs during an analysis, it will be returned instead of the result. You can read more about handling errors [here](../api-ref/errors-handling.md).
 
+{% note info %}
+
+The {{ vision-name }} API does not support a [resource-based approach](../../api-design-guide/concepts/general.md#resource-oriented-design), since it does not use {{ yandex-cloud }} resources. {{ vision-name }} API requests are [not idempotent](../../api-design-guide/concepts/idempotency.md).
+
+{% endnote %}
+
 #### What's next {#what-is-next}
 
 * [How text recognition works](ocr/index.md)

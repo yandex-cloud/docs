@@ -10,7 +10,7 @@ You can get a list of hosts (masters and segments) in a {{ mgp-name }} cluster.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![hosts.svg](../../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. Click the cluster name and select the ![hosts.svg](../../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
    In the list of hosts, the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** column shows the role of each host:
 
@@ -38,7 +38,7 @@ You can get a list of hosts (masters and segments) in a {{ mgp-name }} cluster.
       --cluster-name=<cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 - API
 

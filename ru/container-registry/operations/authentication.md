@@ -40,8 +40,8 @@ docker login \
 ```
 
 Где:
-* `username` — тип токена. Допустимые значения: `oauth`, `iam` или `json_key`.
-* `password` — тело токена.
+* `--username` — тип токена. Допустимые значения: `oauth`, `iam` или `json_key`.
+* `--password` — тело токена.
 * `{{ registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
 
 ## Аутентифицироваться как пользователь {#user}
@@ -80,7 +80,7 @@ docker login \
    ```bash
    docker login \
      --username iam \
-     --password <{{ iam-name }}-токен> \
+     --password <IAM-токен> \
      {{ registry }}
    ```
 
@@ -103,8 +103,8 @@ docker login \
    Результат:
 
    ```text
-   id: aje8a87g4e...
-   service_account_id: aje3932acd...
+   id: aje8a87g4eaj********
+   service_account_id: aje3932acde3********
    created_at: "2019-05-31T16:56:47Z"
    key_algorithm: RSA_2048
    ```
@@ -142,7 +142,7 @@ docker login \
    ```bash
    docker login \
      --username iam \
-     --password <{{ iam-name }}-токен> \
+     --password <IAM-токен> \
      {{ registry }}
    ```
 

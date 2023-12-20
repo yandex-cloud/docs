@@ -10,7 +10,7 @@ After you create a [{{ GL }} instance](../../concepts/index.md#instance), you ca
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ GL }} instance](../../concepts/index.md#instance) is located.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Select the instance and click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
+  1. Select the instance and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
   1. Under **{{ ui-key.yacloud.compute.group.overview.section_base }}**, enter a new name and description for the instance.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

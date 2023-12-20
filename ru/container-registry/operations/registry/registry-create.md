@@ -48,8 +48,8 @@
 
      ```text
      done
-     id: crpd50616s9a2t7gr8mi
-     folder_id: b1g88tflru0ek1omtsu0
+     id: crpd50616s9a********
+     folder_id: b1g88tflru0e********
      name: my-reg
      status: ACTIVE
      created_at: "2019-01-09T14:34:06.601Z"
@@ -72,13 +72,9 @@
      +----------------------+--------+----------------------+
      |          ID          |  NAME  |      FOLDER ID       |
      +----------------------+--------+----------------------+
-     | crpd50616s9a2t7gr8mi | my-reg | b1g88tflru0ek1omtsu0 |
+     | crpd50616s9a******** | my-reg | b1g88tflru0e******** |
      +----------------------+--------+----------------------+
      ```
-
-- API
-
-  Чтобы создать реестр, воспользуйтесь методом [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/).
 
 - {{ TF }}
 
@@ -88,7 +84,7 @@
      ```hcl
      resource "yandex_container_registry" "my-reg" {
        name = "my-registry"
-       folder_id = "<идентификатор каталога>"
+       folder_id = "<идентификатор_каталога>"
        labels = {
          my-label = "my-label-value"
        }
@@ -105,7 +101,7 @@
      1. В командной строке перейдите в директорию, где вы сохранили конфигурационный файл:
 
         ```bash
-        cd /Users/<имя пользователя>/cloud-terraform
+        cd /Users/<имя_пользователя>/cloud-terraform
         ```
 
      1. Выполните проверку с помощью команды:
@@ -156,12 +152,16 @@
 
         ```text
         yandex_container_registry.default: Creating...
-        yandex_container_registry.default: Creation complete after 4s [id=crpuljdfqoj3ve9mtbt1]
+        yandex_container_registry.default: Creation complete after 4s [id=crpuljdfqoj3********]
 
         Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
         ```
 
         В каталоге будет создан реестр с именем `my-registry`.
      1. Проверьте ресурсы и их настройки в [консоли управления]({{ link-console-main }}).
+
+- API
+
+  Чтобы создать реестр, воспользуйтесь методом [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/).
 
 {% endlist %}

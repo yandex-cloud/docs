@@ -11,7 +11,7 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 1. [Configure Amazon RDS](#amazon-set).
 1. [Configure the target cluster and create a subscription](#mdb-pg-set).
 1. [Migrate sequences](#transfer-sequences).
-1. [Delete the subscription and switch over the load to the target cluster](#transfer-load).
+1. [Delete the subscription and transfer the load to the target cluster](#transfer-load).
 
 ## Using logical replication {#logical-replica-specific}
 
@@ -70,8 +70,11 @@ Create the required resources:
 
 * Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/logical-replica-amazon-rds-to-postgresql.tf) configuration file to the same working directory.
 
       This file describes:
@@ -81,14 +84,13 @@ Create the required resources:
       * [Security group](../../vpc/concepts/security-groups.md) and rule enabling cluster connections.
       * {{ mpg-name }} cluster with public internet access.
 
-   1. Specify the infrastructure parameters in the configuration file `logical-replica-amazon-rds-to-postgresql.tf` under `locals`:
+   1. Specify the infrastructure parameters in the `logical-replica-amazon-rds-to-postgresql.tf` configuration file under `locals`:
 
       * `pg_version`: {{ PG }} version. It must be not lower than the Amazon RDS version.
       * `db_name`: Target cluster database name. It must be the same as the source database name.
       * `username` and `password`: Database owner username and password.
       * Names and versions of {{ PG }} extensions used in Amazon RDS. Uncomment and multiply the `extension` section.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
@@ -133,7 +135,7 @@ The DB instance must have public access: `Public accessibility = yes`.
 1. Grant the `SELECT` privilege to all the replicated tables:
 
    ```sql
-   GRANT SELECT ON <table_1>, <table_2>, ..., <table_n> TO <username>;
+   GRANT SELECT ON <table_1>, <table_2>, ..., <table_N> TO <username>;
    ```
 
 1. Create a publication:
@@ -148,7 +150,7 @@ The DB instance must have public access: `Public accessibility = yes`.
 
    {% endnote %}
 
-1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). E.g.:
+1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). Here is an example:
 
    ```text
    protocol: tcp, port: 5432, source: 84.201.175.90/32
@@ -216,4 +218,4 @@ To complete synchronization of the source cluster and the target cluster:
    DROP SUBSCRIPTION s_data_migration;
    ```
 
-1. Switch over the load to the target cluster.
+1. Transfer the load to the target cluster.

@@ -99,6 +99,8 @@ items:
         items:
           - name: Подключиться к ВМ по SSH
             href: operations/vm-connect/ssh.md
+          - name: Обмен файлами с ВМ
+            href: operations/vm-connect/scp-sftp.md
           - name: Подключиться к ВМ по RDP
             href: operations/vm-connect/rdp.md
           - name: Подключиться к ВМ через PowerShell

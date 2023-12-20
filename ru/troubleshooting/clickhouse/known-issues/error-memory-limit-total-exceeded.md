@@ -22,7 +22,7 @@ DB::Exception: Memory limit (total) exceeded: would use XX.XX GiB (attempt to al
 
 ## Если проблема осталась {#if-issue-still-persists}
 
-Если вышеописанные действия не помогли решить проблему, [создайте запрос в техническую поддержку](https://console.cloud.yandex.ru/support?section=contact).
+Если вышеописанные действия не помогли решить проблему, [создайте запрос в техническую поддержку]({{ link-console-support }}).
 При создании запроса просим указать следующую информацию:
 
 1. Идентификатор кластера Managed Service for Clickhouse.

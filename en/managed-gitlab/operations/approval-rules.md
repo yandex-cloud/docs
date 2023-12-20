@@ -1,23 +1,50 @@
 ---
-title: "How to set up code review rules"
-description: "Follow this guide to set up code review rules."
+title: "How to set up approval rules"
+description: "Follow this guide to set up approval rules."
 ---
 
-# Setting up code review rules
+# Setting up approval rules
 
 {% include [preview note](../../_includes/note-preview.md) %}
 
-With {{ mgl-name }}, you can flexibly set up mandatory code review rules before any code can be added to the target branch of the project. For more information on how code review rules work, see [Code review rules](../concepts/approval-rules.md).
+With {{ mgl-name }}, you can flexibly set up mandatory approval rules before any code can be added to the target branch of the project. For more information on how approval rules work, see [Approval rules](../concepts/approval-rules.md).
 
-To use code review rules:
+To set up approval rules, use a service account: this ensures flexible access rights management. The account that was created along with the {{ GL }} instance has access to all repositories. If you use this account to set up approval rules, the rules will be applied to all repositories. You can grant the service account access to specific repositories. If you set up approval rules on behalf of the service account, the rules will only apply to the repositories this account has access to.
 
+Before getting started, [create a service account and add it](create-user.md) to your {{ GL }} project. Assign the `Maintainer` or `Owner` [role]({{ gl.docs }}/ee/user/permissions.html) to the account, as other roles do not provide enough permissions to set up approval rules. Next, log in to the {{ GL }} instance and set up the approval rules via the service account.
+
+To use approval rules:
+
+1. [{#T}](#gitlab-token).
 1. [{#T}](#enable).
 1. [{#T}](#rules).
 1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages)).
 
 If necessary, enable [debugging mode](#debugging) and check out the [rules for handling exceptions](#exceptions).
 
-## Enable code review rules {#enable}
+## Create a {{ GL }} token {#gitlab-token}
+
+You need the [{{ GL }} token](../concepts/approval-rules.md#gitlab-token) to [enable approval rules](#enable) and access the repository, because the token is used for {{ GL }} API authentication.
+
+To create a token:
+
+1. Open your {{ GL }} instance.
+1. Click the profile icon and select **Edit profile**.
+1. Navigate to **Access Tokens** in the left-hand menu.
+1. Click **Add new token**.
+1. In the window that opens, navigate to the **Token name** field and enter a name that will make it easier to locate the token within your {{ GL }} project.
+1. In the **Expiration date** field, specify the date when the token will expire.
+
+   The default value is one month since the creation date, with a maximum value of one year. The token expires at midnight UTC on the specified day.
+
+1. Under **Select scopes**, select **api**.
+1. Click **Create personal access token**.
+
+   A new token will be generated.
+
+1. Copy the token and save it. Afterward, it will not be possible to copy it in {{ GL }}.
+
+## Enable approval rules {#enable}
 
 1. Activate the {{ GL }} setting that disables incorporating changes to the target branch until all threads are resolved in a merge request:
    1. Open your project in {{ GL }}.
@@ -33,16 +60,17 @@ If necessary, enable [debugging mode](#debugging) and check out the [rules for h
       * **URL**: `http://localhost:24080/default`.
       * In the **Trigger** section, disable all options except **Merge request events**, **Push events**, and **Repository update events**.
    1. Click **Add system hook**.
-1. Enable the code review rules in the {{ mgl-name }} instance:
+1. Enable the approval rules in the {{ mgl-name }} instance:
    1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ GL }} instance](../concepts/index.md#instance) is located.
    1. Select **{{ mgl-name }}**.
-   1. Select the instance and click ![image](../../_assets/pencil.svg) **Edit** at the top of the page.
-   1. Enable the **Code review rules** and select the appropriate [configuration](../concepts/approval-rules.md#packages).
-   1. Click **Save**.
+   1. Select the instance and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
+   1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules }}** field, select the required [configuration](../concepts/approval-rules.md#packages).
+   1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules-token }}** field, specify the [earlier created token](#gitlab-token).
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-## Set up the code review rules {#rules}
+## Set up the approval rules {#rules}
 
-The code review rules for the repository are stored in the `APPROVALRULES` file in the root directory. The configuration is read from the [default branch]({{ gl.docs }}/ee/user/project/repository/branches/default.html) when running the instance and is automatically loaded at file update.
+The approval rules for the repository are stored in the `APPROVALRULES` file in the root directory. The configuration is read from the [default branch]({{ gl.docs }}/ee/user/project/repository/branches/default.html) when running the instance and is automatically loaded at file update.
 
 The file consists of two sections:
 
@@ -55,7 +83,7 @@ The `APPROVALRULES` file structure is as follows:
 ApprovalRules:
   - <rule_name>:
     approvers:
-        - <name_of_the_user>
+        - <user_name>
         ...
       groups:
         - <group_name>
@@ -65,19 +93,19 @@ ApprovalRules:
 BranchGroups:
   - <branch_group_name>:
       branches:
-        - <name_of_the_branch>
+        - <branch_name>
         ...
       rules:
-        - <name_of_the_rule>
+        - <rule_name>
         ...
 ```
 
 Where:
 
-* `approvers`: {{ GL }} user who can approve the merge request.
-* `groups`: {{ GL }} group whose users can approve the merge request.
-* `branches`: Branch whose updates require a review.
-* `rules`: Rule applied to the specified branches.
+* `approvers`: Name of the {{ GL }} user who can approve the merge request.
+* `groups`: Name of the {{ GL }} group whose users can approve the merge request.
+* `branches`: Name of the branch the updates of which require approval.
+* `rules`: Name of the rule applied to the specified branches.
 
 You can use the `*` wildcard instead of user names and in branch names.
 
@@ -134,11 +162,11 @@ Add the `detailed_AR` keyword to a merge request description to have detailed in
 
 ## Handling exceptions {#exceptions}
 
-### Incorrect configuration of code review rules {#errors}
+### Incorrect configuration of approval rules {#errors}
 
 Issues related to the `APPROVALRULES` file are handled as follows:
 
-* If the file is missing from the repository, no code review rules apply to the repository's merge requests.
+* If the file is missing from the repository, no approval rules apply to the repository's merge requests.
 * If the file is available but is configured incorrectly:
    * An email notification of the error is sent to users with the `Maintainer` role.
    * All merge requests of the repository are locked.
@@ -150,4 +178,4 @@ If merge request changes need to be committed but the team members who can do th
 1. Add a comment with the `force_merge` keyword to the merge request.
 1. Update the MR description so that {{ mgl-name }} gets notified of the MR change.
 
-This will close the thread and the MR integration will be unlocked. When it is integrated, users with at least the `Maintainer` role will receive an email notifying them of a violation of the established code review procedure.
+This will close the thread and the MR integration will be unlocked. During the integration, users with the role `Maintainer` or higher will receive an email notification about a violation of the established code approval procedure.

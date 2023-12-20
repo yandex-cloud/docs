@@ -63,7 +63,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * [Security groups](../../vpc/concepts/security-groups.md) for the {{ mmy-name }} cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
 
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/edit.svg) and select the parameters for the DB hosts created together with the {{ mmy-name }} cluster:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and select the parameters for the DB hosts created together with the {{ mmy-name }} cluster:
       * Availability zone.
       * Host [subnet](../../vpc/concepts/network.md#subnet): By default, each host is created in a separate subnet.
       * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
@@ -308,7 +308,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
          Where `backup_retain_period_days` is the retention period for automatic backups (in days).
 
 
-         Acceptable values are from `7` to `60`. By default, it is set to `7`.
+         Acceptable values are from `7` to `60`. The default value is `7`.
 
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
    1. Make sure the configuration files are valid.
@@ -340,7 +340,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
 
 
-   If required, provide the [backup](../concepts/backup.md) start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. By default, it is set to `7`.
+   If required, provide the [backup](../concepts/backup.md) start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
 
    To allow [connection](connect.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
 

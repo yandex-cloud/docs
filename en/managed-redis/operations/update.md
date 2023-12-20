@@ -1,5 +1,5 @@
 ---
-title: "How to change {{ RD }} cluster settings in {{ mrd-full-name }}"
+title: "Tutorial on changing {{ RD }} cluster settings in {{ mrd-full-name }}"
 description: "In this tutorial, you will learn how to change settings for a {{ RD }} cluster."
 ---
 
@@ -220,7 +220,7 @@ Learn more about other cluster updates:
 
    To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New host class in the `configSpec.resources.resourcePresetId` parameter.
 
       To get a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) REST API method for the [ResourcePreset](../api-ref/ResourcePreset/index.md) resource or the [ResourcePresetService/List](../api-ref/grpc/resource_preset_service.md#List) gRPC API call.
@@ -307,7 +307,7 @@ Learn more about other cluster updates:
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.resources.diskSize`).
 
@@ -378,7 +378,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    To change {{ RD }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }}_version>` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -445,7 +445,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -463,7 +463,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the cluster you want to move.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
    1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
    1. Select a folder you want to move the cluster to.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.

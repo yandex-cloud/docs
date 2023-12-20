@@ -6,7 +6,9 @@ editable: false
 
 # {{ mgl-full-name }} pricing
 
-## What is included in the {{ mgl-name }} cost {#rules}
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+## What is included in {{ mgl-name }} cost {#rules}
 
 When running {{ mgl-name }}, you pay for:
 * Computing resources of your VM instance.
@@ -22,7 +24,7 @@ In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</su
 
 You are charged per hour of VM use.
 
-The minimum billing unit is one hour (e.g., the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation).
+The minimum billing unit is one hour (e.g., 1.5 hours of VM operation cost the same as 2 hours).
 
 ### Disk space usage {#rules-storage}
 

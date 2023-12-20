@@ -33,6 +33,7 @@ description: "This page provides a list of step-by-step guides for {{ dataproc-n
 ## Jobs
 
 * [{#T}](jobs.md)
+* [{#T}](running-jobs.md)
 * [{#T}](jobs-spark.md)
 * [{#T}](jobs-pyspark.md)
 * [{#T}](jobs-hive.md)

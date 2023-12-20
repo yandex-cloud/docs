@@ -11,37 +11,37 @@
      * Используя **тег**:
 
        ```bash
-       docker pull {{ registry }}/crpd50616s9a2t7gr8mi/ubuntu:hello
+       docker pull {{ registry }}/crpd50616s9a********/ubuntu:hello
        ```
 
        Результат:
 
        ```text
-       hello: Pulling from crpd50616s9a2t7gr8mi/ubuntu
+       hello: Pulling from crpd50616s9a********/ubuntu
        84ed7d2f608f: Already exists
        be2bf1c4a48d: Already exists
        a5bdc6303093: Already exists
        e9055237d68d: Already exists
-       Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
-       Status: Downloaded newer image for {{ registry }}/crpd50616s9a2t7gr8mi/ubuntu:hello
+       Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********
+       Status: Downloaded newer image for {{ registry }}/crpd50616s9a********/ubuntu:hello
        ```
 
      * Используя **хеш**:
 
        ```bash
-       docker pull {{ registry }}/crpd50616s9a2t7gr8mi/ubuntu@sha256:035ac8e1bd9c49871a2fd76
+       docker pull {{ registry }}/crpd50616s9a********/ubuntu@sha256:035ac8e1bd9c49871a2fd76
        ```
 
        Результат:
 
        ```text
        ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
-       sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d: Pulling from crpd50616s9a2t7gr8mi/ubuntu
+       sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********: Pulling from crpd50616s9a********/ubuntu
        84ed7d2f608f: Already exists
        ...
        e9055237d68d: Already exists
-       Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
-       Status: Downloaded newer image for {{ registry }}/crpd50616s9a2t7gr8mi/ubuntu@sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
+       Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********
+       Status: Downloaded newer image for {{ registry }}/crpd50616s9a********/ubuntu@sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********
        ```
 
        Обратите внимание, что в данном случае Docker-образ будет скачан без тега. В поле `TAG` будет указано `<none>`.
@@ -55,8 +55,8 @@
 
      ```text
      REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE
-     {{ registry }}/crpd50616s9a2t7gr8mi/ubuntu  <none>  50ff4b0e5783  24 hours ago  86.7MB
-     ubuntu                                      latest  1d9c17228a9e  2 weeks ago   86.7MB
+     {{ registry }}/crpd50616s9a********/ubuntu       <none>  50ff********  24 hours ago  86.7MB
+     ubuntu                                      latest  1d9c********  2 weeks ago   86.7MB
      ```
 
 {% endlist %}

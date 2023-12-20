@@ -33,11 +33,11 @@ Mar 25 12:07:41 instance-name yc-container-daemon[516]:
 **Пример:**
 
 ```
-Sep 28 08:00:18 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
+Sep 28 08:00:18 cl17bn514eluq62d****-**** yc-container-daemon[952]:
 {"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z ","caller":"container/container.go:121","msg":"trying to pull image (0/3)"}
-Sep 28 08:00:18 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
-{"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z","caller":"container/container.go:162","msg":"pulling image: '{{ registry }}/crpgrueprnhc1cgt1lab/nginx:1.16.0'"}
-Sep 28 08:00:33 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
+Sep 28 08:00:18 cl17bn514eluq62d****-**** yc-container-daemon[952]:
+{"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z","caller":"container/container.go:162","msg":"pulling image: '{{ registry }}/crpgrueprnhc********/nginx:1.16.0'"}
+Sep 28 08:00:33 cl17bn514eluq62d****-**** yc-container-daemon[952]:
 {"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://{{ registry }}/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
 ```
 
@@ -53,7 +53,7 @@ Mar 25 12:13:23 instance-name yc-container-daemon[518]:
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
 {"level":"DEBUG","ts":"2021-03-25T12:13:23.466Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
-{"level":"DEBUG","ts":"2021-03-25T12:13:23.467Z","caller":"container/image.go:47","msg":"pulling image: '{{ registry }}/crpgruehrnhc0bgt1lab/nginx:1.16.0'"}
+{"level":"DEBUG","ts":"2021-03-25T12:13:23.467Z","caller":"container/image.go:47","msg":"pulling image: '{{ registry }}/crpgruehrnhc********/nginx:1.16.0'"}
 Mar 25 12:13:24 instance-name yc-container-daemon[518]:
 {"level":"ERROR","ts":"2021-03-25T12:13:24.706Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: unauthorized: Authentication problem ; requestId = b2f6f07>
 ```

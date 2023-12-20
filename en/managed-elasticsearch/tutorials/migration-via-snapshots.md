@@ -1,6 +1,6 @@
 ---
 title: "Migration to {{ mes-name }} using snapshots"
-description: "{{ mes-name }} clusters support taking snapshots. This allows you to migrate data from another {{ ES }} cluster to it. For more information about snapshots, see the {{ ES }} documentation."
+description: "{{ mes-name }} clusters support the snapshot mechanism. This allows you to migrate data from another {{ ES }} cluster to them. For more information about snapshots, see the {{ ES }} documentation."
 ---
 
 # Migrating to {{ mes-name }} using snapshots
@@ -11,16 +11,16 @@ description: "{{ mes-name }} clusters support taking snapshots. This allows you 
 
 To migrate data from the *source cluster* in {{ ES }} to the *target cluster* in {{ mes-name }}:
 
-1. [{#T}](#before-you-begin)
-1. [{#T}](#create-snapshot)
-1. [{#T}](#restore-snapshot)
-1. [{#T}](#finish-migration)
+1. [{#T}](#before-you-begin).
+1. [{#T}](#create-snapshot).
+1. [{#T}](#restore-snapshot).
+1. [{#T}](#finish-migration).
 
 If you no longer need the resources you are using, [delete them](#clear-out).
 
 {% note warning %}
 
-You can't use a snapshot if the {{ ES }} version in the source cluster is higher than that in the target cluster. For example, you will not be able to restore a snapshot of an {{ ES }} 7.13 cluster in a {{ mes-name }} 7.11 cluster.
+You cannot use a snapshot if the {{ ES }} version in the source cluster is higher than that in the target cluster. For example, you will not be able to restore a snapshot of an {{ ES }} 7.13 cluster in a {{ mes-name }} 7.11 cluster.
 
 {% endnote %}
 
@@ -53,8 +53,11 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf) configuration file to the same working directory. The file describes:
 
       * Network.
@@ -71,7 +74,6 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
       * Target cluster version.
       * {{ objstorage-name }} bucket name.
 
-   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

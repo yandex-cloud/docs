@@ -16,24 +16,24 @@ You can manage user permissions at the level of an individual database by updati
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
-   1. Click the cluster name and select the ![image-users](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+   1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
 
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
 
    1. Add the databases required for the user:
 
       1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
       1. Select the database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
-      1. To revoke access to a specific database, delete it from the list by clicking ![image](../../_assets/cross.svg) to the right of the database name.
+      1. To revoke access to a specific database, delete it from the list by clicking ![image](../../_assets/console-icons/xmark.svg) to the right of the database name.
 
    1. Set up user privileges for each of the user's databases.
 
-      1. Click ![image](../../_assets/plus-sign.svg) in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column.
+      1. Click ![image](../../_assets/console-icons/plus.svg) in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column.
       1. Select the privilege you want to add to the user from the drop-down list.
       1. Repeat the previous two steps until all the required privileges are added.
 
-   1. To revoke a privilege, click ![image](../../_assets/cross.svg) to the right of its name.
+   1. To revoke a privilege, click ![image](../../_assets/console-icons/xmark.svg) to the right of its name.
    1. If necessary, set the [administrative privileges](../concepts/settings-list.md#setting-administrative-privileges) for the user.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 

@@ -91,7 +91,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. Create an access key for the `datasphere-sa` service account:
 

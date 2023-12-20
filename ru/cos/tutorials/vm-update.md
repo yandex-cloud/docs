@@ -35,7 +35,7 @@
      +----------------------+-------+-------------------+---------+----------------------------------+-------------+
      |          ID          | NAME  |      ZONE ID      | STATUS  |           EXTERNAL IP            | INTERNAL IP |
      +----------------------+-------+-------------------+---------+----------------------------------+-------------+
-     | epdbf646ge5qgutfvh43 | my-vm | {{ region-id }}-b | RUNNING | {{ external-ip-examples.0 }} | 172.18.0.21 |
+     | epdbf646ge5q******** | my-vm | {{ region-id }}-b     | RUNNING | {{ external-ip-examples.0 }}                   | 172.18.0.21 |
      +----------------------+-------+-------------------+---------+----------------------------------+-------------+
      ```
 
@@ -51,7 +51,7 @@
      * Обновите ВМ, задав новые параметры:
 
        ```bash
-       yc compute instance update-container epdbf646ge5qgutfvh43 \
+       yc compute instance update-container epdbf646ge5q******** \
          --container-name=my_vm_new_version \
          --container-image={{ registry }}/mirror/ubuntu:18.04 \
          --container-env=KEY1=VAL1,KEY2=VAL2 \
@@ -74,8 +74,8 @@
 
        ```text
        done (2s)
-       id: epdbf646ge5qgutfvh43
-       folder_id: b1g88tflru0ek1omtsu0
+       id: epdbf646ge5q********
+       folder_id: b1g88tflru0e********
        created_at: "2023-03-13T09:44:03Z"
        name: my-vm
        ...
@@ -84,7 +84,7 @@
      * Обновите ВМ, указав спецификацию нескольких Docker-контейнеров:
 
        ```bash
-       yc compute instance update-container epdbf646ge5qgutfvh43 --docker-compose-file=<путь к файлу>
+       yc compute instance update-container epdbf646ge5q******** --docker-compose-file=<путь_к_файлу>
        ```
 
        Где `--docker-compose-file` — путь к файлу со спецификацией Docker-контейнеров.
@@ -93,8 +93,8 @@
 
        ```text
        done (2s)
-       id: fhma9omhj2e7d4c04kd2
-       folder_id: b1g88tflru0ek1omtsu0
+       id: fhma9omhj2e7********
+       folder_id: b1g88tflru0e********
        created_at: "2023-03-13T17:08:48Z"
        name: coi-vm
        ...

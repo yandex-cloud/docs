@@ -21,7 +21,10 @@
             * идентификатор секрета;
             * идентификатор версии секрета;
             * неконфиденциальный идентификатор ключа.
-    1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. Можно передать несколько секретов в функцию.
+    1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
+
+        В функцию можно передать несколько секретов. Для этого еще раз нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
+
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. Будет создана новая версия функции с указанными секретами.
 
 - CLI
@@ -64,6 +67,8 @@
         * `id` — идентификатор секрета;
         * `version-id` — идентификатор версии секрета;
         * `key` — неконфиденциальный идентификатор ключа.
+  
+      В функцию можно передать несколько секретов. Для этого укажите параметр `--secret` необходимое количество раз.
 
 - {{ TF }}
 
