@@ -13,7 +13,7 @@ The `gp_expand` utility is used to expand a cluster. For more information about 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Select a cluster and open the ![hosts-edit](../../_assets/../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. Select a cluster and open the ![hosts-edit](../../_assets/../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
    1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
    1. Specify cluster expansion settings:
 

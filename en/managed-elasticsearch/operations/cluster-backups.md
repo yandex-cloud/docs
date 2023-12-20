@@ -118,7 +118,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
@@ -142,7 +142,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
       {{ yc-mdb-es }} cluster backup <cluster_name_or_ID>
       ```
 
-      You can fetch the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+      You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
 - API
 
@@ -169,7 +169,7 @@ When creating a new cluster, set all required parameters.
    To restore an existing cluster from a backup:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.common.folder }}** list.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -177,7 +177,7 @@ When creating a new cluster, set all required parameters.
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
    1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.common.folder }}** list.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -245,7 +245,7 @@ When creating a new cluster, set all required parameters.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -254,13 +254,13 @@ When creating a new cluster, set all required parameters.
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
          
-         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone includes two or more subnets.
+         * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-a-host) to the host is required, `true` or `false`.
 
 
-         * `type`: [Host role](../concepts/hosts-roles.md): `datanode` or `masternode`.
+         * `type`: [Host role](../concepts/hosts-roles.md), `datanode` or `masternode`.
 
-      * `--datanode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Data Node role.
+      * `--datanode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Data node role.
       * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
       * `--datanode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Data node role:
 
@@ -284,7 +284,7 @@ When creating a new cluster, set all required parameters.
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
-   * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
    * Cluster environment in the `environment` parameter.
    * Cluster configuration in the `configSpec` parameter.

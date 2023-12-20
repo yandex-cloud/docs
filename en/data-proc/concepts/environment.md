@@ -4,11 +4,7 @@ When creating a {{ dataproc-name }} cluster, you can choose the image version th
 
 You can view the list of  [current](#current-images) and [deprecated](#deprecated-images) {{ dataproc-name }} images below. Each image version includes [conda](https://docs.conda.io/en/latest/), [pip](https://pip.pypa.io/en/stable/installation/) (Python environment managers), and a collection of pre-installed libraries.
 
-{% note info %}
-
-{{ dataproc-name }} does not support automatic OS or software updates. For stable and reliable cluster performance, check for and install updates manually on a regular basis. This requires [connecting to your cluster hosts over SSH](../operations/connect.md).
-
-{% endnote %}
+{{ dataproc-name }} has no built-in mechanism for updating image versions. To update your image version, create a new cluster. To make sure the version you use is always up-to-date, automate the creation and removal of temporary {{ dataproc-name }} clusters using [{{ maf-full-name }}](../tutorials/airflow-automation.md). To run jobs automatically, apart from {{ maf-name }} you can also use [{{ ml-platform-full-name }}](../tutorials/datasphere-integration.md).
 
 ## Current images {#current-images}
 

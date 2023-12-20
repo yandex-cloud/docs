@@ -6,7 +6,7 @@ editable: false
 
 In this section, you can find {{ mgp-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
+{% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
@@ -14,7 +14,7 @@ To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ y
 
 {% include [pricing-status-warning](../../_includes/mdb/pricing-status-warning.md) %}
 
-## What goes into the cost of using {{ mgp-short-name }} {#rules}
+## What is included in {{ mgp-short-name }} cost {#rules}
 
 The {{ mgp-name }} usage cost is based on:
 
@@ -37,9 +37,9 @@ There are different ways to calculate the cost depending on the [host type](../c
 
    The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 
-Supported resource configurations are shown in [{#T}](../concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+You can check the supported resource configurations in [{#T}](../concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ GP }} host is not performing its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ GP }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -49,14 +49,14 @@ You are charged for the following:
 
    * You can only order local SSD storage (`local-ssd`) for clusters with two master hosts:
       * For Intel Cascade Lake: In 100 GB increments.
-      * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
+      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
    * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
 
    To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
+   * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
 
    * During an automatic backup, {{ mgp-name }} does not create a new copy but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
@@ -128,7 +128,7 @@ Where:
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
 
 {% endnote %}
 

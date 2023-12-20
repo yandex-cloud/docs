@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the state of Redis clusters and hosts"
-description: "Using monitoring tools in the management console, you can track the state of a {{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts."
+description: "Using monitoring tools in the management console, you can track the state of a {{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information as charts."
 ---
 
 # Monitoring the state of {{ RD }} clusters and hosts
@@ -13,9 +13,9 @@ description: "Using monitoring tools in the management console, you can track th
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring cluster status {#monitoring-cluster}
+## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed information about the {{ mrd-name }} cluster status:
+To view detailed information about the {{ mrd-name }} cluster state:
 
 {% list tabs %}
 
@@ -23,11 +23,11 @@ To view detailed information about the {{ mrd-name }} cluster status:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
 
    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-   The following charts open on the page:
+   The following charts will open on the page:
 
    * **Cache Hit Rate**: Percentage of cache hits for each host.
 
@@ -152,7 +152,7 @@ To view detailed information about the {{ mrd-name }} cluster status:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the status of individual {{ mrd-name }} hosts:
+To view detailed information about the state of individual {{ mrd-name }} hosts:
 
 {% list tabs %}
 
@@ -165,16 +165,16 @@ To view detailed information about the status of individual {{ mrd-name }} hosts
 
    This page displays charts showing the load on an individual host in the cluster:
 
-   * **CPU**: The load on processor cores. As the load goes up, the `Idle` value goes down.
-   * **Disk bytes**: The speed of disk operations (bytes per second).
+   * **CPU**: Load on processor cores. As the load goes up, the `Idle` value goes down.
+   * **Disk bytes**: Speed of disk operations (bytes per second).
    * **Disk IOPS**: Number of disk operations per second.
-   * **Memory**: Use of RAM, in bytes. At high loads, the value of `Free` goes down while the other values go up.
+   * **Memory**: Use of RAM, in bytes. At high loads, the `Free` value goes down, while the other values go up.
    * **Network bytes**: Speed of data exchange over the network, in bytes per second.
    * **Network packets**: Number of packets exchanged over the network, per second.
 
    The **Disk bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
 
-   For hosts with the **Replica** role, it's normal that **Received** is greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
+   For hosts with the **Replica** role, **Received** is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
 {% endlist %}
 
@@ -188,12 +188,12 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
-   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mpg-name }} — Host Overview** to configure host alerts.
-   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
@@ -208,9 +208,9 @@ The recommended thresholds are as follows:
 | DB write availability | `can_write` | `Equals 0` | N/A |
 | Number of Out of Memory errors, per hour | `redis_oom_count` | `Greater than 2` | `Greater than 0` |
 | RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory` | 90% RAM | 75% RAM |
-| Storage space used | `disk.used_bytes` | 90% of storage size | 80% of storage size |
+| Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 
-For the `disk.used_bytes` metric, the `Alarm` and `Warning` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
+For the `disk.used_bytes` metric, the values of the `Alarm` and `Warning` metrics are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
 * `Alarm`: `96,636,764,160` bytes (90%).
 * `Warning`: `85,899,345,920` bytes (80%).

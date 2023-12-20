@@ -21,7 +21,7 @@ To generate text in [chat mode](../concepts/index.md#working-mode), deliver a li
      "completionOptions": {
        "stream": false,
        "temperature": 0.6,
-       "maxTokens": "5000"
+       "maxTokens": "2000"
      },
      "messages": [
        {

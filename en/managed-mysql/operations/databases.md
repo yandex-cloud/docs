@@ -26,7 +26,7 @@ You can add and remove databases, view information about them, and manage some d
         --cluster-name=<cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - API
 
@@ -77,7 +77,7 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
+      You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
       {{ mmy-short-name }} runs the create database operation.
 
@@ -128,7 +128,7 @@ You can add and remove databases, view information about them, and manage some d
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the DB you need and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the same row as the DB and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
 
@@ -142,7 +142,7 @@ You can add and remove databases, view information about them, and manage some d
     {{ yc-mdb-my }} database delete <DB_name> --cluster-name=<cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 
@@ -199,7 +199,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Set the SQL modes in the `--set` parameter, for example:
+   Set the SQL modes in the `--set` parameter, e.g.:
 
    ```bash
    {{ yc-mdb-my }} cluster update-config \
@@ -209,7 +209,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
    Pay close attention to quotation marks: the entire string must constitute the parameter value, including `sql_mode=`.
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 

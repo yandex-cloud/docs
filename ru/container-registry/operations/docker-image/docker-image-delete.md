@@ -32,7 +32,7 @@ description: "Из статьи вы узнаете, как удалить Docke
   1. Удалите Docker-образ:
 
      ```bash
-     yc container image delete crp9vik7sgeco7emq743
+     yc container image delete crp9vik7sgec********
      ```
 
   1. Проверьте, что Docker-образ действительно удален:

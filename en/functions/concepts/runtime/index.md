@@ -27,41 +27,41 @@ Runtime environments available in {{ sf-name }}.
 | Name | ID | Preloaded | Supported by the service |
 | ---- | ---- | ---- | ---- |
 | **Node.js** |  |  |
-| Node.js 10 | `nodejs10` | no | no |
-| Node.js 12 | `nodejs12` | no | no |
-| Node.js 14 | `nodejs14` | no | no |
-| Node.js 16 | `nodejs16` | yes | no |
-| Node.js 18 | `nodejs18` | yes | yes |
+| Node.js 10 | `nodejs10` | No | No |
+| Node.js 12 | `nodejs12` | No | No |
+| Node.js 14 | `nodejs14` | No | No |
+| Node.js 16 | `nodejs16` | Yes | No |
+| Node.js 18 | `nodejs18` | Yes | Yes |
 | **PHP** |  |  |
-| PHP 7.4 | `php74` | no | no |
-| PHP 8.0 | `php8`  | no | no |
-| PHP 8.2 | `php82`  | no | yes |
+| PHP 7.4 | `php74` | No | No |
+| PHP 8.0 | `php8`  | No | No |
+| PHP 8.2 | `php82`  | No | Yes |
 | **Python** |  |  |
-| Python 3.7 | `python37` | no | no |
-| Python 3.8 | `python38` | no | no |
-| Python 3.9 | `python39` | no | no |
-| Python 3.11 | `python311` | yes | no |
-| Python 3.12 | `python312` | yes | yes |
+| Python 3.7 | `python37` | No | No |
+| Python 3.8 | `python38` | No | No |
+| Python 3.9 | `python39` | No | No |
+| Python 3.11 | `python311` | Yes | No |
+| Python 3.12 | `python312` | Yes | Yes |
 | **Go** |  |  |
-| Go 1.16 | `golang116` | no | no |
-| Go 1.17 | `golang117` | no | no |
-| Go 1.18 | `golang118` | no | no |
-| Go 1.19 | `golang119` | no | no |
-| Go 1.21 | `golang121` | no | yes |
+| Go 1.16 | `golang116` | No | No |
+| Go 1.17 | `golang117` | No | No |
+| Go 1.18 | `golang118` | No | No |
+| Go 1.19 | `golang119` | No | No |
+| Go 1.21 | `golang121` | No | Yes |
 | **Java** |  |  |
-| Java 11 | `java11` | no | no |
-| Java 17 | `java17` | no | no |
-| Java 21 | `java21` | no | yes |
+| Java 11 | `java11` | No | No |
+| Java 17 | `java17` | No | No |
+| Java 21 | `java21` | No | Yes |
 | **.NET Core** |  |  |
-| .NET Core 3.1 | `dotnetcore31` | no | no |
-| .NET Core 6 | `dotnet6` | no | yes |
-| .NET Core 8 | `dotnet8` | no | yes |
+| .NET Core 3.1 | `dotnetcore31` | No | No |
+| .NET Core 6 | `dotnet6` | No | Yes |
+| .NET Core 8 | `dotnet8` | No | Yes |
 | **R** |  |  |
-| R 4.2 | `r42` | no | no |
-| R 4.3 | `r43` | no | yes |
+| R 4.2 | `r42` | No | No |
+| R 4.3 | `r43` | No | Yes |
 | **Other** |  |  |
-| Bash 18.04 | `bash` | no | no |
-| Bash 22.04 | `bash-2204` | no | yes |
+| Bash 18.04 | `bash` | No | No |
+| Bash 22.04 | `bash-2204` | No | Yes |
 
 ## Function instance resources {#resources}
 

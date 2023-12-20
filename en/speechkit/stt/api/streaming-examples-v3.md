@@ -1,11 +1,11 @@
 ---
-title: "Audio file streaming recognition using API v3 in {{ speechkit-full-name }}"
-description: "Follow this guide to use streaming recognition of your audio files in API v3."
+title: "Audio file streaming recognition using the API v3 in {{ speechkit-full-name }}"
+description: "Follow this guide to use streaming recognition of your audio files in the API v3."
 ---
 
-# Audio file streaming recognition using API v3
+# Audio file streaming recognition using the API v3
 
-Below, we provide an example of synchronous recognition of speech from an audio file using the {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md). The example uses the following parameters:
+Below, we provide an example of streaming recognition of speech from an audio file using the {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md). This example uses the following parameters:
 
 * [Language](../models.md#languages): Russian.
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
@@ -13,20 +13,13 @@ Below, we provide an example of synchronous recognition of speech from an audio 
 * [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions) enabled.
 * Other parameters left by default.
 
-To use the API, the `grpcio-tools` package is required.
-
-An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
+Authentication is performed under a service account using an [API key](../../../iam/concepts/authorization/api-key.md) or [IAM token](../../../iam/concepts/authorization/iam-token.md). Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
 
 To implement an example from this section:
 
-1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
-
-   ```bash
-   git clone https://github.com/yandex-cloud/cloudapi
-   ```
-
-1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition.
-
+1. [Create](../../../iam/operations/sa/create.md) a service account to work with the {{ speechkit-short-name }} API.
+1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role or higher to the service account, which will allow it to work with {{ speechkit-name }} in the folder it was created in.
+1. Get an [API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/api-key/create.md) for your service account.
 1. Create a client application:
 
 {% list tabs %}
@@ -59,7 +52,7 @@ To implement an example from this section:
 
       As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-   1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
+   1. In the root of the `output` directory, create a file, e.g., `test.py`, and add to it the following code:
 
       ```python
       #coding=utf8
@@ -110,7 +103,7 @@ To implement an example from this section:
       # with an API key.
       # def run(api_key, audio_file_name):
       def run(iam_token, audio_file_name):
-          # Install a server connection.
+          # Establish a server connection.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
           stub = stt_service_pb2_grpc.RecognizerStub(channel)
@@ -119,7 +112,7 @@ To implement an example from this section:
           it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
           # Parameters for authorization with an IAM token
               ('authorization', f'Bearer {iam_token}'),
-          # Parameters for authorization with an API key as a service account
+          # Parameters for authorization as a service account with an API key
           #   ('authorization', f'Api-Key {api_key}'),
           ))
 
@@ -181,6 +174,62 @@ To implement an example from this section:
       type=partial, alternatives=None
       type=status_code, alternatives=None
       ```
+
+   - Java
+
+      1. Install the dependencies:
+
+         ```bash
+         sudo apt update && sudo apt install --yes default-jdk maven
+         ```
+
+      1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-speechkit-stt-java) with a Java application configuration:
+
+         ```bash
+         git clone https://github.com/yandex-cloud-examples/yc-speechkit-stt-java
+         ```
+
+      1. Go to the repository directory:
+
+         ```bash
+         cd yc-speechkit-stt-java
+         ```
+
+      1. Download a [sample](https://{{ s3-storage-host }}/doc-files/speech.wav) audio file in [WAV format](https://en.wikipedia.org/wiki/WAV). Save the audio file to the directory with the repository.
+      1. Compile a project in this directory:
+
+         ```bash
+         mvn clean install
+         ```
+
+      1. Go to the `target` directory you created:
+
+         ```bash
+         cd target
+         ```
+
+      1. Specify the service account's [API key](../../../iam/concepts/authorization/api-key.md):
+
+         ```bash
+         export API_KEY=<API key>
+         ```
+
+      1. Run the Java program for speech recognition:
+
+         ```bash
+         java -cp speechkit_examples-1.0-SNAPSHOT.jar yandex.cloud.speechkit.examples.SttV3Client <path_to_audio_file>
+         ```
+
+         In the command, specify the absolute path to the sample audio file you downloaded.
+
+         Result:
+
+         ```text
+         sending initial request
+         Done sending
+         Stt stream completed
+         Recognized text is I'm Yandex SpeechKit. I can turn any text into speech. Now you can, too!
+         ```
 
 {% endlist %}
 

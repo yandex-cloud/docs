@@ -16,7 +16,7 @@ description: "In this tutorial, you will learn how to delete a cluster in {{ mgp
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click ![image](../../_assets/options.svg) for the cluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI
 

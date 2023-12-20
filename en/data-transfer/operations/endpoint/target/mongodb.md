@@ -5,6 +5,8 @@ description: "In this tutorial, you will learn how to set up a {{ MG }} target e
 
 # Configuring a {{ MG }} target endpoint
 
+{% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
+
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * [{{ mmg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.

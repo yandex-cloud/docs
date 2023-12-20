@@ -51,13 +51,13 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **CPU usage per host**: Usage of processor cores on each host.
    * **Disk read per host:** Disk read rate on each host (in bytes per second).
    * **Disk space usage**: Shows how much disk space is used (in bytes).
-   * **Disk space usage per host**: Shows how much disk space is used on each host (two charts are displayed: in bytes and %).
+   * **Disk space usage per host**: Shows how much disk space is used on each host (two charts are displayed in bytes and %).
    * **Disk usage per host**: Speed of disk operations on each host (in bytes per second).
    * **Disk write per host**: Disk write rate on each host (in bytes per second).
    * **Failed insert queries per host**: Percentage of failed insert queries per second on each host.
    * **Failed queries per host**: Total percentage of failed queries per second on each host.
    * **Failed select queries per host**: Percentage of failed select queries per second on each host.
-   * **Inode usage**: Number of inodes used (two charts are displayed: in pieces and %).
+   * **Inode usage**: Number of inodes used (two charts are displayed in pieces and %).
    * **Insert queries**: Number of insert queries per second.
    * **Insert queries per host**: Number of insert queries per second on each host.
    * **Inserted data**: Data insertion rate (in bytes per second).
@@ -66,7 +66,7 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **Max data parts per partition**: Highest number of data parts per partition among all tables. The limit for this value is set in the [DBMS settings](../concepts/settings-list.md#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
    * **Max replication delay across tables**: Longest replication delay across tables. Values greater than a few seconds may indicate excessive load or replication issues.
    * **Memory usage**: Use of RAM, in bytes.
-   * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed: in bytes and %).
+   * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed in bytes and %).
    * **Merged data**: Data merge rate (in bytes per second).
    * **Merged data per host**: Data merge rate on each host (in bytes per second).
    * **Merged rows per host**: Row merge rate on each host (in rows per second).
@@ -150,13 +150,13 @@ To view detailed information about the state of individual {{ mch-name }} hosts:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
-   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
       * **{{ mch-name }} — Host Overview** to configure host alerts.
-   1. In the appropriate chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. In the appropriate chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
    1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` threshold values to trigger the alert.
    1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.

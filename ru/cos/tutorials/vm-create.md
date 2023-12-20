@@ -90,8 +90,8 @@
 
      ```text
      done (17s)
-      id: epdbf646ge5qgutfvh43
-      folder_id: b1g88tflru0ek1omtsu0
+      id: epdbf646ge5q********
+      folder_id: b1g88tflru0e********
       created_at: "2023-03-13T09:44:03Z"
       name: my-vm
      ...
@@ -153,8 +153,8 @@
 
      ```text
      done (1m40s)
-      id: epde18u4mahl4a8n39ta
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: epde18u4mahl********
+      folder_id: b1g7gvsi89m3********
       created_at: "2023-03-13T13:50:17Z"
       name: my-vm
       ...

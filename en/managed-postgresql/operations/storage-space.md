@@ -1,11 +1,11 @@
 ---
 title: "Managing disk space"
-description: "When the storage is more than 97% full, the host automatically switches to the read-only mode. You can track storage usage, configure its automatic expansion, and disable the read-only mode."
+description: "When the storage is more than 97% full, the host automatically switches to read-only mode. You can track storage usage, configure its automatic expansion, and disable the read-only mode."
 ---
 
 # Managing disk space
 
-When the [storage](../concepts/storage.md) is more than 97% full, the host automatically switches to the read-only mode.
+When the [storage](../concepts/storage.md) is more than 97% full, the host automatically switches to read-only mode.
 To avoid issues with writing to the database, use one of the following methods:
 
 
@@ -31,7 +31,7 @@ To avoid issues with writing to the database, use one of the following methods:
       * **{{ ui-key.yacloud_monitoring.services.label_postgresql }}** service
       * {{ mpg-name }} cluster ID
 
-         You can get the cluster ID [with a list of clusters in a folder](../operations/cluster-list.md#list-clusters).
+         You can get the cluster ID [with a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
       * `disk.free_bytes` label
 
@@ -93,7 +93,7 @@ To disable the read-only mode:
    To increase the cluster storage size:
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 

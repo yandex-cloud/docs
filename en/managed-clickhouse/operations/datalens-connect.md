@@ -30,7 +30,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 - Management console
 
-   1. Make sure that **{{ datalens-name }}** is [activated](#activate-datalens) in the appropriate folder and [allowed](#allow-access) to access the cluster.
+   1. Make sure that **{{ datalens-name }}** is [activated](#activate-datalens) in the appropriate folder and you [can access](#allow-access) the cluster from it.
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
@@ -38,7 +38,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
       {% cut "I have no "{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}" button" %}
 
       
-      If you see a message saying "{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}" instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, it means that you either did not activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
+      If you see a message saying "{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}" instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, it means that you either did not activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [guide](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
 
 
       {% endcut %}
@@ -69,7 +69,7 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
       {% cut "My connection is not in the list" %}
 
-      If the desired connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
+      If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
       {% endcut %}
 
@@ -87,7 +87,7 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
       {% cut "My connection is not in the list" %}
 
-      If the desired connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
+      If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
       {% endcut %}
 
@@ -109,11 +109,11 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
       {% cut "My connection is not in the list" %}
 
-      If the desired connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
+      If the required connection is missing from the list, this means that the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/).
 
       {% endcut %}
 
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) at the top of the page and select **Delete**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) at the top of the page and select **Delete**.
    1. In the window that opens, click **Delete**.
 
 {% endlist %}
@@ -124,7 +124,7 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
 
 - Management console
 
-   In the [management console]({{ link-console-main }}) when [creating](#create-connector) or [updating](#update-connector) a cluster connection:
+   In the [management console]({{ link-console-main }}), when [creating](#create-connector) or [updating](#update-connector) a cluster connection:
    1. Specify a name for the connection.
    1. Go to the **Select in folder** tab.
    1. Select the cluster and its host from the drop-down lists or [create a new cluster](cluster-create.md) in the folder with {{ datalens-name }} by clicking **Create new**.

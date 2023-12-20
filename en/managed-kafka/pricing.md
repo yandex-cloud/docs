@@ -6,8 +6,8 @@ editable: false
 
 In this section, you can find {{ mkf-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -21,7 +21,7 @@ Prices are applied differently depending on the cluster status:
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What goes into the cost of using {{ mkf-short-name }} {#rules}
+## What is included in {{ mkf-short-name }} cost {#rules}
 
 The {{ mkf-name }} usage cost is based on:
 
@@ -35,7 +35,7 @@ The {{ mkf-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can check the supported resource configurations in [{#T}](concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts (as appropriate for the expected replication load).
 
@@ -66,7 +66,7 @@ You pay for the storage allocated for DB clusters.
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
    * For Intel Cascade Lake: In increments of 100 GB.
-   * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
+   * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 

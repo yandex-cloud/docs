@@ -23,7 +23,6 @@ Depending on the subcluster role, the following types of entries are used for co
    * `salt-minion`: Initialization log of the {{ dataproc-name }} cluster service.
    * `syslog`: System log.
    * `telegraf`: Log of sending {{ dataproc-name }} cluster metrics to [{{ monitoring-name }}](../../monitoring/).
-   * `yandex-dataproc-start`: Log of service initialization for the {{ dataproc-name }} cluster.
 
 * Master host:
    * `flume`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.

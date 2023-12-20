@@ -8,7 +8,7 @@ description: "Follow this guide to send requests to fine-tuned models."
 You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the following models are supported:
 
 * {{ yagpt-name }} model fine-tuned for summarizing texts.
-* Fine-tuned fundamental models in {{ ml-platform-full-name }}.
+* [Fine-tuned foundation models](../../datasphere/concepts/models/tuned-models.md) in {{ ml-platform-full-name }}.
 
 ## Getting started {#before-begin}
 
@@ -24,7 +24,7 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
      "completionOptions": {
        "stream": false,
        "temperature": 0.1,
-       "maxTokens": "5000"
+       "maxTokens": "2000"
      },
      "messages": [
        {
@@ -55,7 +55,7 @@ You can send requests to fine-tuned models in {{ yagpt-name }}. Requests to the 
    * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
    * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
 
-   Example result for the SSH protocol article:
+   Here is an example result for the SSH protocol article:
 
    ```json
    {

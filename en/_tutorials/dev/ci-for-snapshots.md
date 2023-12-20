@@ -59,7 +59,7 @@ Once created, the VM is assigned an [IP address and a host name (FQDN)](../../vp
 ## Prepare a VM with the test application {#configure-vm}
 
 On the created VM, deploy a collection of components required for the test application to run and a web server to handle requests. The application will be written in Python 2.
-1. Under **{{ ui-key.yacloud.compute.instances.create.label_network }}** on the VM page in the [management console]({{ link-console-main }}) find the VM public IP address.
+1. Under **{{ ui-key.yacloud.compute.instances.create.label_network }}** on the VM page in the [management console]({{ link-console-main }}), find the VM public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH. You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
    ```bash
@@ -263,7 +263,7 @@ To easily transfer the app and the web server configuration you created to VMs s
 1. Click **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 1. After stopping the VM, select the **{{ ui-key.yacloud.compute.switch_disks }}** tab.
-1. In the required disk row, click ![vertical-ellipsis](../../_assets/vertical-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
+1. In the required disk row, click ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
 1. In the window that opens, enter a name for the snapshot: `test-app-snap`.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -302,7 +302,7 @@ To set {{ GL }} up and configure the CI process, create a new project and enter 
    ```
 
 1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-1. Open `http://<VM_public_IP_address>` in your browser. The {{ GL }} web interface will open.
+1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
 1. Log in using the administrator account:
    * **Username or email**: `root`
    * **Password**: Password you copied earlier
@@ -479,7 +479,7 @@ You need to define the configuration for CI.
    In the `subnet_name` field, specify the name of the subnet that the VMs will connect to. You can retrieve the name in the management console by opening the appropriate folder and going to the {{ vpc-name }} service page.
 1. Click **Commit changes**.
 
-## 9Check how the application works on the VM created using CI {#test-new-vm}
+## Check how the application works on the VM created using CI {#test-new-vm}
 
 After the commit, you need to make sure that CI worked correctly. The appropriate folder should contain a new VM where the test application and the web server are deployed.
 

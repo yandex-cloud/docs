@@ -1,6 +1,6 @@
 ---
 title: "Deleting a MongoDB cluster"
-description: "After you delete a MongoDB database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
+description: "After you delete a MongoDB database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, safely save the cluster ID before deleting the cluster."
 ---
 
 # Deleting {{ MG }} clusters
@@ -20,7 +20,7 @@ description: "After you delete a MongoDB database cluster, its backups are kept 
 
    1. Open the [folder page]({{ link-console-main }}) in the management console.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI
 

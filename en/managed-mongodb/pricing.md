@@ -2,11 +2,11 @@
 editable: false
 ---
 
-# Pricing for {{ mmg-name }}
+# {{ mmg-name }} pricing
 
 In this section, you can find {{ mmg-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -14,7 +14,7 @@ To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ y
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What goes into the cost of using {{ mmg-short-name }} {#rules}
+## What is included in {{ mmg-short-name }} cost {#rules}
 
 The {{ mmg-name }} usage cost is based on:
 
@@ -24,13 +24,13 @@ The {{ mmg-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. You can check the supported resource configurations in [{#T}](concepts/instance-types.md) and see prices for using vCPUs and RAM in the [Prices](#prices) section.
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ MG }} host is not performing its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the {{ MG }} host is not performing its main functions.
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 
 * Storage allocated for DB clusters.
 
@@ -39,7 +39,7 @@ The following is charged:
 
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
       * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
-      * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
+      * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
    For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 

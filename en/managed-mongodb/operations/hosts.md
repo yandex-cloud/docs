@@ -1,6 +1,6 @@
 # Managing {{ MG }} cluster hosts
 
-You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -36,7 +36,7 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
    +----------------------------+----------------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
-   You can get the {{ mmg-name }} cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -56,8 +56,8 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 
 | Sharding type | MONGOD | MONGOINFRA | MONGOS | MONGOCFG |
 --- | --- | --- | --- | ---
-| No sharding | ⩾ 1 | — | — | — |
-| Standard | ⩾ 1 | ⩾ 3 | — | — |
+| No sharding | ⩾ 1 | N/A | — | — |
+| Standard | ⩾ 1 | ⩾ 3 | N/A | — |
 | Advanced | ⩾ 1 | N/A | ⩾ 2 | ⩾ 3 |
 
 {% list tabs %}
@@ -178,7 +178,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
       Where:
 
       * `host`: Host parameters:
-         * `role`: Replica type: `PRIMARY` or `SECONDARY`.
+         * `role`: Replica type, `PRIMARY` or `SECONDARY`.
          * `zone_id`: Availability zone.
          * `subnet_id`: ID of a subnet in the selected availability zone.
          * `assign_public_ip`: Public access to the host, `true` or `false`.
@@ -232,7 +232,7 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
    To remove a host from a {{ mmg-name }} cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the line of the necessary host and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the line of the necessary host and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, check **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI
@@ -301,7 +301,7 @@ During this operation:
    To forcibly resync a host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.mongodb.hosts.action_resetup-host }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.mongodb.hosts.action_resetup-host }}**.
 
 - CLI
 

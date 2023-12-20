@@ -11,7 +11,7 @@ You are not charged while your instance is stopped: you continue to pay only fo
 - Management console
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Find the required instance in the list, click ![options](../../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.stop }}**.
+  1. Find the required instance in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the dialog box that opens, confirm that you want to stop the instance, then click **{{ ui-key.yacloud.common.stop }}**.
 
 {% endlist %}
@@ -25,7 +25,7 @@ You can restart your **Stopped** instance.
 - Management console
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-  1. Find the stopped cluster in the list, click ![options](../../../_assets/horizontal-ellipsis.svg), then select **{{ ui-key.yacloud.common.start }}**.
-  1. In the dialog that opens, confirm that you want to start the instance by clicking **{{ ui-key.yacloud.common.start }}**.
+  1. Find the stopped cluster in the list, click ![options](../../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.common.start }}**.
+  1. In the dialog box that opens, confirm that you want to start the instance by clicking **{{ ui-key.yacloud.common.start }}**.
 
 {% endlist %}

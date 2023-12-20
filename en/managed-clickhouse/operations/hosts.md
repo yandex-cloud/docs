@@ -59,7 +59,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
 
    
    1. Specify the host parameters:
@@ -112,15 +112,15 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       
       ```bash
       {{ yc-mdb-ch }} host add \
-         --cluster-name=<cluster_name> \
-         --host zone-id=<availability_zone>,`
-               `subnet-id=<subnet_ID>,`
-               `assign-public-ip=<public_access_to_host>,`
-               `shard-name=<shard_name>,`
-               `type=clickhouse
+        --cluster-name=<cluster_name> \
+        --host zone-id=<availability_zone>,`
+          `subnet-id=<subnet_ID>,`
+          `assign-public-ip=<public_access_to_host>,`
+          `shard-name=<shard_name>,`
+          `type=clickhouse
       ```
 
-      Where `assign-public-ip` indicates whether the host is reachable from the internet over a public IP: `true` or `false`.
+      Where `assign-public-ip` indicates whether the host is reachable from the internet over a public IP, `true` or `false`.
 
 
       To copy the data schema from a random replica to the new host, set the `--copy-schema` optional parameter.
@@ -150,7 +150,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       }
       ```
 
-      Where `assign_public_ip` indicates whether the host is reachable from the internet over a public IP: `true` or `false`.
+      Where `assign_public_ip` indicates whether the host is reachable from the internet over a public IP, `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -195,7 +195,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
    To change the parameters of the cluster host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click ![image](../../_assets/options.svg) in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
    1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -209,11 +209,11 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
    ```bash
    {{ yc-mdb-ch }} host update <host_name> \
-      --cluster-name=<cluster_name> \
-      --assign-public-ip=<public_access_to_host>
+     --cluster-name=<cluster_name> \
+     --assign-public-ip=<public_access_to_host>
    ```
 
-   Where `assign-public-ip` indicates whether the host is reachable from the internet over a public IP: `true` or `false`.
+   Where `assign-public-ip` indicates whether the host is reachable from the internet over a public IP, `true` or `false`.
 
    You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -236,7 +236,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
       }
       ```
 
-      Where `assign_public_ip` indicates whether the host is reachable from the internet over a public IP: `true` or `false`.
+      Where `assign_public_ip` indicates whether the host is reachable from the internet over a public IP, `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -284,7 +284,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click ![image](../../_assets/options.svg) in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

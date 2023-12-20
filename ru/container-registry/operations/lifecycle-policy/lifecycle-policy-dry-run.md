@@ -29,14 +29,14 @@
   1. Сделайте тестовый запуск политики:
 
      ```bash
-     yc container repository lifecycle-policy dry-run <идентификатор политики>
+     yc container repository lifecycle-policy dry-run <идентификатор_политики>
      ```
 
      Результат:
 
      ```bash
-     dry_run_lifecycle_policy_result_id: crpn27glo1k8r81dveq2
-     lifecycle_policy_id: crp6lg1868p3i0emkv1b
+     dry_run_lifecycle_policy_result_id: crpn27glo1k8********
+     lifecycle_policy_id: crp6lg1868p3********
      run_at: "2020-05-29T07:30:02.704Z"
      affected_images_count: "1"
      ```
@@ -45,7 +45,7 @@
   1. Получите список тестовых запусков политики:
 
      ```bash
-     yc container repository lifecycle-policy list-dry-run-results crp6lg1868p3i0emkv1b
+     yc container repository lifecycle-policy list-dry-run-results crp6lg1868p3********
      ```
 
      Результат:
@@ -54,21 +54,21 @@
      +----------------------+----------------------+-----------------------+---------------------+
      |      RESULT ID       | LIFECYCLE POLICY ID  | AFFECTED IMAGES COUNT |       RUN AT        |
      +----------------------+----------------------+-----------------------+---------------------+
-     | crpn27glo1k8r81dveq2 | crp6lg1868p3i0emkv1b |                     1 | 2020-05-29 07:30:02 |
+     | crpn27glo1k8******** | crp6lg1868p3******** |                     1 | 2020-05-29 07:30:02 |
      +----------------------+----------------------+-----------------------+---------------------+
      ```
 
   1. Получите информацию о результате тестового запуска политики. Используйте параметр `RESULT ID` из предыдущего пункта:
 
      ```bash
-     yc container repository lifecycle-policy get-dry-run-result crpn27glo1k8r81dveq2
+     yc container repository lifecycle-policy get-dry-run-result crpn27glo1k8********
      ```
 
      Результат:
 
      ```bash
-     dry_run_lifecycle_policy_result_id: crpn27glo1k8r81dveq2
-     lifecycle_policy_id: crp6lg1868p3i0emkv1b
+     dry_run_lifecycle_policy_result_id: crpn27glo1k8********
+     lifecycle_policy_id: crp6lg1868p3********
      run_at: "2020-05-29T07:30:02.704Z"
      affected_images_count: "1"
      ```
@@ -76,7 +76,7 @@
   1. Получите список Docker-образов, которые будут удалены в соответствии с правилами политики. Используйте параметр `dry_run_lifecycle_policy_result_id` из предыдущего пункта:
 
      ```bash
-     yc container repository lifecycle-policy list-dry-run-affected-images crpn27glo1k8r81dveq2
+     yc container repository lifecycle-policy list-dry-run-affected-images crpn27glo1k8********
      ```
 
      Результат:
@@ -85,7 +85,7 @@
      +----------------------+---------------------+-----------------------------+------+-----------------+
      |          ID          |       CREATED       |            NAME             | TAGS | COMPRESSED SIZE |
      +----------------------+---------------------+-----------------------------+------+-----------------+
-     | crphc7nnrvhlg73oeiv5 | 2019-01-17 17:00:48 | crp2hlbs67tj4ggrfodb/ubuntu | 111  | 64.1 MB         |
+     | crphc7nnrvhl******** | 2019-01-17 17:00:48 | crp2hlbs67tj********/ubuntu | 111  | 64.1 MB         |
      +----------------------+---------------------+-----------------------------+------+-----------------+
      ```
 

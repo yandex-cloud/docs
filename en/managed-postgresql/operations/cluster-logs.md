@@ -11,7 +11,7 @@
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Click the cluster name and select the ![image](../../_assets/managed-postgresql/logs.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_logs }}** tab.
    1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. If required, request the `POOLER` log, select the hosts and logging level from the drop-down lists next to the date input field.
 
@@ -48,8 +48,8 @@
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
       * {% include [logs output format](../../_includes/cli/logs/format.md) %}
       * `--service-type`: Type of service to output records for (`postgresql` or `pooler`).
-      * `--columns`: List of columns to display information:
-         * `hostname`: [Name of the host](hosts.md#list-hosts).
+      * `--columns`: List of columns with output data:
+         * `hostname`: [Host name](hosts.md#list-hosts).
          * `db`: [Database name](databases.md#list-db).
          * `level`: Logging level, such as `info`.
          * `pid`: ID of the current session's server process.
@@ -67,7 +67,7 @@
       * {% include [logs since time](../../_includes/cli/logs/since.md) %}
       * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -102,7 +102,7 @@ This method allows you to get cluster logs in real time.
    {{ yc-mdb-pg }} cluster list-logs <cluster_name_or_ID> --follow
    ```
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

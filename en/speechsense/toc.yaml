@@ -6,12 +6,22 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
-      - name: Uploading data
-        href: operations/data/upload-data.md
-      - name: Working with dialogs
-        href: operations/data/manage-dialogs.md
-      - name: Working with reports
-        href: operations/data/manage-reports.md
+      - name: All guides
+        href: operations/index.md
+      - name: Operations with data
+        items:
+          - name: Uploading data
+            href: operations/data/upload-data.md
+          - name: Working with dialogs
+            href: operations/data/manage-dialogs.md
+          - name: Working with reports
+            href: operations/data/manage-reports.md
+      - name: Space management
+        items:
+          - name: Creating a space
+            href: operations/space/create.md
+          - name: Deleting a space
+            href: operations/space/delete.md
   - name: Concepts
     items:
       - name: Dialogs in {{ speechsense-name }}

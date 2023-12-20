@@ -11,7 +11,7 @@
   Чтобы удалить Helm-чарт локально, выполните команду:
 
   ```bash
-  helm repo remove {{ registry }}/<ID реестра>/<имя Helm-чарта>:<версия>
+  helm repo remove {{ registry }}/<идентификатор_реестра>/<имя_Helm-чарта>:<версия>
   ```
 
 {% endlist %}
@@ -25,7 +25,7 @@
   Чтобы удалить Helm-чарт, загруженный в {{ container-registry-name }}, выполните команду, как и для [удаления](../docker-image/docker-image-delete.md) Docker-образов:
 
   ```bash
-  yc container image delete <ID образа>
+  yc container image delete <идентификатор_образа>
   ```
 
 {% endlist %}

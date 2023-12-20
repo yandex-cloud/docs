@@ -11,7 +11,7 @@
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and select the ![image](../../_assets/managed-clickhouse/logs.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_logs }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_logs }}** tab.
    1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. Select the hosts and logging level in the drop-down lists next to the date input field, if required.
 
@@ -56,7 +56,7 @@
       * {% include [logs since time](../../_includes/cli/logs/since.md) %}
       * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-   You can request cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -88,7 +88,7 @@ This method allows you to get cluster logs in real time.
    {{ yc-mdb-ch }} cluster list-logs <cluster_name_or_ID> --follow
    ```
 
-   You can request cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

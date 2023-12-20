@@ -68,6 +68,16 @@ too many active clients for user (pool_size for user <username> reached <limit_v
 
 To learn how to update the {{ PG }} settings at the user level, see our [documentation](../../managed-postgresql/operations/cluster-users.md#update-settings).
 
+#### Why does an error occur when trying to connect to a database? {#database-error}
+
+Connecting to a database may fail with an error like:
+
+```text
+ERROR: odyssey: ce3ea075f4ffa: route for 'dbname.username' is not found
+```
+
+The error means that the connection parameters contain an invalid database name.
+
 #### Why does an error occur when trying to connect to a database from {{ google-looker }}? {#google-looker}
 
 To connect from {{ google-looker }}, be sure to generate a client certificate file and a private key and specify them in the connection settings. For more information about how to do this, see [Connecting from {{ google-looker }}](../../managed-postgresql/operations/connect.md#connection-google-looker).

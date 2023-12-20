@@ -9,14 +9,14 @@
   Чтобы скачать Helm-чарт, выполните команду:
 
   ```bash
-  helm pull oci://{{ registry }}/<ID реестра>/<имя Helm-чарта> --version <версия>
+  helm pull oci://{{ registry }}/<идентификатор_реестра>/<имя_Helm-чарта> --version <версия>
   ```
 
   Результат выполнения команды:
 
   ```bash
-  Pulled: {{ registry }}/<ID реестра>/<имя Helm-чарта>:<версия>
-  Digest: sha256:14ae8791607a62ab7adde4c546fd4a256f34298ad96855eae6662f53c3ff748c
+  Pulled: {{ registry }}/<идентификатор_реестра>/<имя_Helm-чарта>:<версия>
+  Digest: sha256:14ae8791607a62ab7adde4c546fd4a256f34298ad96855eae6662f53********
   ```
 
 {% endlist %}

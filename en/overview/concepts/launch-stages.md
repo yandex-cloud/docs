@@ -7,7 +7,7 @@ description: "{{ yandex-cloud }} services feature a few release stages. Preview:
 
 | Stage | Description |
 ----- | -----
-| Preview | Services at the Preview stage are suitable for developers who are willing to use them while developing their applications or in a test environment. Preview services are not subject to the service level agreement (SLA) and are free to use. |
+| Preview | Services at the Preview stage are suitable for developers who are willing to use them while developing their applications or in a test environment. Services at the Preview stage are not subject to an SLA and you are billed for using them in cases stipulated by the [Special Terms of Use](https://yandex.ru/legal/cloud_specialterms/?lang=en#index__section_fk5_d4c_cgb), the documentation, or the website. |
 | Public version (General Availability) | Public versions of services are available to all users and can be fully used in production environments. These services are covered by the {{ yandex-cloud }} SLA and are charged according to the relevant pricing policy. |
 
 

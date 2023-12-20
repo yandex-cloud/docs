@@ -50,8 +50,8 @@
        --zone {{ region-id }}-a \
        --create-boot-disk size=30 \
        --create-disk name=data-disk,size=10,device-name=coi-data \
-       --network-interface subnet-name=<имя подсети>,nat-ip-version=ipv4 \
-       --ssh-key <путь к открытой части SSH-ключа> \
+       --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
+       --ssh-key <путь_к_открытой_части_SSH-ключа> \
        --docker-compose-file docker-compose.yaml
      ```
 
@@ -78,13 +78,13 @@
 
         ```text
         CONTAINER ID  IMAGE         COMMAND                 CREATED        STATUS        PORTS      NAMES
-        1f71192ded4c  mongo:latest  "docker-entrypoint.s…"  5 minutes ago  Up 5 minutes  27017/tcp  container-name
+        1f71********  mongo:latest  "docker-entrypoint.s…"  5 minutes ago  Up 5 minutes  27017/tcp  container-name
         ```
 
      1. Подключитесь к запущенному Docker-контейнеру:
 
         ```bash
-        sudo docker exec -it 1f71192ded4c bash
+        sudo docker exec -it 1f71******** bash
         ```
 
      1. Посмотрите список подключенных дисков. Обратите внимание на смонтированный диск `/dev/vdb 11G 24M 9.9G 1% /data`:

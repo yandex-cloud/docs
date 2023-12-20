@@ -18,7 +18,7 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and select the ![image](../../_assets/managed-kafka/logs.svg) **{{ ui-key.yacloud.common.logs }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
    1. Select **{{ ui-key.yacloud.kafka.label_filter_origin }}**, **{{ ui-key.yacloud.mdb.cluster.logs.label_hosts }}**, and **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}**.
    1. Specify the time period for which you want to display the log.
 
@@ -48,7 +48,7 @@ Here, the log is the system log of the cluster and its hosts. This log is not re
       Where:
 
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-      * `--columns`: List of columns to display information:
+      * `--columns`: List of columns with output data:
          * `hostname`: [Host name](cluster-hosts.md#list-hosts).
          * `message`: Message output by the component.
          * `severity`: Logging level, such as `I` or `W` (`Info` or `Warning`, respectively).
@@ -96,7 +96,7 @@ This method allows you to get cluster logs in real time.
 
    {% include [log-limits](../../_includes/mdb/mkf/log-limits.md) %}
 
-   If you don't set the `toTime` parameter value, the stream will receive new log entries as they appear.
+   If you do not set the `toTime` parameter value, the stream will receive new log entries as they appear.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

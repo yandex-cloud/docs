@@ -22,7 +22,7 @@ items:
         href: tutorials/yagpt-tuning.md
   - name: Concepts
     items:
-      - name: About {{ yagpt-name }}
+      - name: About {{ yagpt-full-name }}
         href: concepts/index.md
       - name: Models
         href: concepts/models.md
@@ -32,6 +32,8 @@ items:
         href: concepts/limits.md
   - name: API reference
     items:
+      - name: Overview
+        href: concepts/api.md
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: Foundation models API

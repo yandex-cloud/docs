@@ -1,6 +1,6 @@
 ---
 title: "How to create a {{ metastore-full-name }} cluster"
-description: "This guide describes how you can create a {{ metastore-full-name }} cluster."
+description: "Follow this guide to create a {{ metastore-full-name }} cluster."
 ---
 
 # Creating a {{ metastore-full-name }} cluster
@@ -46,7 +46,7 @@ You can set more detailed rules for security groups, such as allowing traffic in
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a server.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/data-proc/metastore.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Enter a name for the cluster. It must be unique within the folder.
    1. (Optional) Enter a cluster description.

@@ -5,7 +5,7 @@ Create a test application that can be deployed in a [{{ managed-k8s-full-name }}
    1. Log in to {{ GL }}.
    1. On the home page, select a repository.
    1. Select the **Repository** → **Files** section.
-   1. Click ![image](../../_assets/plus.svg) and select **New file** from the drop-down menu.
+   1. Click ![image](../../_assets/console-icons/plus.svg) and select **New file** from the drop-down menu.
    1. Name the file as `Dockerfile` and add the following code to it:
 
       ```Dockerfile
@@ -17,7 +17,7 @@ Create a test application that can be deployed in a [{{ managed-k8s-full-name }}
    1. Click **Commit changes**.
 1. Add the manifest for creating {{ managed-k8s-name }} cluster resources to the project:
    1. Select the **Repository** → **Files** section.
-   1. Click ![image](../../_assets/plus.svg) and select **New file** from the drop-down menu.
+   1. Click ![image](../../_assets/console-icons/plus.svg) and select **New file** from the drop-down menu.
    1. Name the file as `k8s.yaml`:
 
       {% cut "k8s.yaml" %}

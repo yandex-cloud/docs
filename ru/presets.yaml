@@ -238,7 +238,7 @@ default:
   link-console-main: https://console.cloud.yandex.ru
   link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-settings: https://console.cloud.yandex.ru/settings
-  link-console-support: https://console.cloud.yandex.ru/support
+  link-console-support: https://support-center.cloud.yandex.ru
   link-datalens-main: https://datalens.yandex.ru
   link-datalens-settings: https://datalens.yandex.ru/settings
   link-datasphere-main: https://datasphere.yandex.ru/
@@ -5476,7 +5476,6 @@ default:
           switch_backups: Резервные копии
           switch_hosts: Хосты
           switch_jobs: Задания
-          switch_logs: Логи
           switch_monitoring: Мониторинг
           switch_subclusters: Подкластеры
           switch_users: Пользователи
@@ -5679,7 +5678,7 @@ default:
           field_roles-key: roles_key
           field_sp-entity-id: sp_entity_id
           field_subject-key: subject_key
-          section_auth: Источники авторизации
+          section_auth: Источники аутентификации
         cluster:
           node-groups:
             action_add-node-group: Добавить группу хостов
@@ -6344,17 +6343,19 @@ default:
                         title: Тип подключения
                       database:
                         title: База данных
-                      password:
-                        title: Пароль
                       security_groups:
                         title: Группы безопасности
-                      user:
-                        title: Пользователь
                     ClickHouseConnectionType:
-                      mdb_cluster_id:
-                        title: Кластер Managed Service for ClickHouse
                       on_premise:
                         title: Пользовательская инсталляция
+                    ClickHouseCredentials:
+                      password:
+                        title: Пароль
+                      user:
+                        title: Пользователь
+                    ClickHouseManaged:
+                      mdb_cluster_id:
+                        title: Managed кластер
                     ClickHouseOnPremise:
                       http_port:
                         title: HTTP-порт

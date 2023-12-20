@@ -53,7 +53,7 @@ The infrastructure support costs include:
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, such as `sa-live-debug`.
+      1. Enter a name for the service account, e.g., `sa-live-debug`.
 
          The name format requirements are as follows:
 
@@ -225,7 +225,7 @@ The infrastructure support costs include:
 
          Where:
          * `service-account-id`: `sa-live-debug` ID.
-         * `folder-id`: ID of the folder the service account was created in.
+         * `folder-id`: ID of the folder where the service account was created.
          * `output`: Name of the file with the authorized key.
 
          Result:

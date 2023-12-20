@@ -39,8 +39,8 @@ description: "Следуя данной инструкции, вы сможет�
   Результат:
 
   ```bash
-  id: crp3qleutgksvd1prhvb
-  folder_id: b1g88tflru0ek1omtsu0
+  id: crp3qleutgks********
+  folder_id: b1g88tflru0e********
   name: new-reg
   status: ACTIVE
   created_at: "2019-01-15T14:39:48.154Z"
@@ -67,8 +67,8 @@ description: "Следуя данной инструкции, вы сможет�
   Результат:
 
   ```bash
-  id: crp3qleutgksvd1prhvb
-  folder_id: b1g88tflru0ek1omtsu0
+  id: crp3qleutgks********
+  folder_id: b1g88tflru0e********
   name: new-reg
   status: ACTIVE
   created_at: "2019-01-15T14:39:48.154Z"
@@ -104,8 +104,8 @@ description: "Следуя данной инструкции, вы сможет�
   ```bash
   yc container registry add-ip-permissions \
     --name my-reg \
-    --pull <IP-адрес с доступом к PULL> \
-    --push <IP-адрес с доступом к PUSH>
+    --pull <IP-адрес_с_доступом_к_PULL> \
+    --push <IP-адрес_с_доступом_к_PUSH>
   ```
 
   Удалите доступ для IP-адреса:
@@ -113,8 +113,8 @@ description: "Следуя данной инструкции, вы сможет�
   ```bash
   yc container registry remove-ip-permissions \
     --name my-reg \
-    --pull <IP-адрес с доступом к PULL> \
-    --push <IP-адрес с доступом к PUSH>
+    --pull <IP-адрес_с_доступом_к_PULL> \
+    --push <IP-адрес_с_доступом_к_PUSH>
   ```
 
 - API

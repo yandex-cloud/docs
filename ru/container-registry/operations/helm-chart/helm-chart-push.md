@@ -45,7 +45,7 @@
 
           ```bash
           helm registry login {{ registry }} -u iam
-          Password: <{{ iam-name }}-токен>
+          Password: <IAM-токен>
           ```
 
      Результат:
@@ -59,7 +59,7 @@
   1. Создайте Helm-чарт:
   
      ```bash
-     helm create <имя Helm-чарта>
+     helm create <имя_Helm-чарта>
      ```
 
      Имя должно соответствовать требованиям:
@@ -69,31 +69,31 @@
      Результат:
 
      ```text
-     Creating <имя Helm-чарта>
+     Creating <имя_Helm-чарта>
      ```
 
   1. Соберите Helm-чарт для загрузки:
 
      ```bash
-     helm package <имя Helm-чарта>/. --version <версия Helm-чарта>
+     helm package <имя_Helm-чарта>/. --version <версия_Helm-чарта>
      ```
 
      Результат:
 
      ```text
-     Successfully packaged chart and saved it to: <путь>/<имя Helm-чарта>-<версия>.tgz
+     Successfully packaged chart and saved it to: <путь>/<имя_Helm-чарта>-<версия>.tgz
      ```
 
   1. Загрузите Helm-чарт в {{ container-registry-name }}:
 
      ```bash
-     helm push <имя Helm-чарта>-<версия>.tgz oci://{{ registry }}/<ID реестра>
+     helm push <имя_Helm-чарта>-<версия>.tgz oci://{{ registry }}/<идентификатор_реестра>
      ```
 
      Результат:
 
      ```text
-     Pushed: {{ registry }}/<ID реестра>/<имя Helm-чарта>:<версия>
+     Pushed: {{ registry }}/<идентификатор_реестра>/<имя_Helm-чарта>:<версия>
      Digest: <SHA256...>
      ```
 
@@ -132,14 +132,14 @@
   1. Загрузите Helm-чарт в {{ container-registry-name }}:
 
      ```bash
-     helm push my-chart-3.11.2.tgz oci://{{ registry }}/crp3h07fgv9b2omnabc4
+     helm push my-chart-3.11.2.tgz oci://{{ registry }}/crp3h07fgv9b********
      ```
 
      Результат:
 
      ```text
-     Pushed: {{ registry }}/crp3h07fgv9b2omnabc4/my-chart:3.11.2
-     Digest: sha256:dc44a4e8b686b043b8a88f77ef9dcb998116fab422e8c892a2370da0e5abc4e6
+     Pushed: {{ registry }}/crp3h07fgv9b********/my-chart:3.11.2
+     Digest: sha256:dc44a4e8b686b043b8a88f77ef9dcb998116fab422e8c892a2370da0********
      ```
 
 {% endlist %}

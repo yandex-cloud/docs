@@ -19,7 +19,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 * A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
 
    
-   This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. Please contact [support]({{ link-console-support }}) or your account manager.
+   This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. To get such access, contact [support]({{ link-console-support }}) or your account manager.
 
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
@@ -73,7 +73,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
       * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. Once the second host is added, the **{{ ui-key.yacloud.mdb.forms.button_expand-zookeeper-settings }}** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
-      * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
+      * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/console-icons/pencil.svg).
       * To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
@@ -109,7 +109,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its number:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/console-icons/pencil.svg) icon in the line with its number:
 
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_zones }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
@@ -177,7 +177,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * `--environment`: Cluster environment, `prestable` or `production`.
       * `--host`: Host parameters:
-         * `type`: Host type, `clickhouse` or `zookeeper`.
+         * `type`: Host type: `clickhouse` or `zookeeper`.
          * `zone-id`: Availability zone.
          * `assign-public-ip`: Flag enabling online access to the host by a public IP, `true` or `false`.
 

@@ -19,7 +19,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a cluster from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
    1. Read the warning displayed.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 

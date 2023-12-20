@@ -38,8 +38,8 @@
         Результат:
 
         ```bash
-        id: ajeabccde01d23efl1v5
-        folder_id: b0g12ga82bcv0cdeferg
+        id: ajeabccde01d********
+        folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T14:32:18.900092Z"
         name: group-coi
         ```
@@ -47,9 +47,9 @@
      1. Назначьте роль сервисному аккаунту:
 
         ```bash
-        yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
+        yc resource-manager folder add-access-binding b0g12ga82bcv******** \
           --role editor \
-          --subject serviceAccount:ajeabccde01d23efl1v5
+          --subject serviceAccount:ajeabccde01d********
         ```
 
    - API
@@ -82,8 +82,8 @@
         Результат:
 
         ```bash
-        id: enpabce123hde4ft1r3t
-        folder_id: b0g12ga82bcv0cdeferg
+        id: enpabce123hd********
+        folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T14:57:15Z"
         name: yc-auto-network
         ```
@@ -91,16 +91,16 @@
      1. Создайте подсеть в зоне доступности `{{ region-id }}-a`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
+        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-a
         ```
 
         Результат:
 
         ```bash
-        id: e1lnabc23r1c9d0efoje
-        folder_id: b0g12ga82bcv0cdeferg
+        id: e1lnabc23r1c********
+        folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T16:23:12Z"
-        network_id: enpabce123hde4ft1r3t
+        network_id: enpabce123hd********
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.1.0/24
@@ -121,9 +121,9 @@
 
    ```yaml
    name: group-coi-containers # Имя группы ВМ, уникальным в рамках каталога.
-   service_account_id: ajeabccde01d23efl1v5 # Идентификатор сервисного аккаунта.
+   service_account_id: ajeabccde01d******** # Идентификатор сервисного аккаунта.
    instance_template:
-     service_account_id: ajeabccde01d23efl1v5 # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
+     service_account_id: ajeabccde01d******** # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
      platform_id: standard-v3 # Идентификатор платформы.
      resources_spec:
        memory: 2G # Количество памяти (RAM).
@@ -131,13 +131,13 @@
      boot_disk_spec:
        mode: READ_WRITE # Режим доступа к диску: чтение и запись.
        disk_spec:
-         image_id: <идентификатор последней версии COI>
+         image_id: <идентификатор_последней_версии_COI>
          type_id: network-hdd # Тип диска.
          size: 32G # Размер диска. Должен быть не менее 30 ГБ.
      network_interface_specs:
-      - network_id: enpabce123hde4ft1r3t # Идентификатор сети.
+      - network_id: enpabce123hd******** # Идентификатор сети.
         subnet_ids:
-          - e1lnabc23r1c9d0efoje # Идентификатор подсети.
+          - e1lnabc23r1c******** # Идентификатор подсети.
         primary_v4_address_spec: {
           one_to_one_nat_spec: {
             ip_version: IPV4 # Спецификация версии интернет-протокола IPv4 для публичного доступа к ВМ.
@@ -192,11 +192,11 @@
 
      ```bash
      done (48s)
-     id: cl0q12abcd4ef8m966de
-     folder_id: b0g12ga82bcv0cdeferg
+     id: cl0q12abcd4e********
+     folder_id: b0g12ga82bcv********
      ...
        target_size: "2"
-     service_account_id: ajeabccde01d23efl1v5
+     service_account_id: ajeabccde01d********
      status: ACTIVE
      ```
 
@@ -229,8 +229,8 @@
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      |     INSTANCE ID      |           NAME            |            EXTERNAL IP           | INTERNAL IP |         STATUS         | STATUS MESSAGE |
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
-     | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | {{ external-ip-examples.0 }} | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
-     | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | {{ external-ip-examples.1 }} | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
+     | fhmabcv0de12******** | cl0q12abcs4g********-fmar | {{ external-ip-examples.0 }}                   | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
+     | fhmab0cdqj12******** | cl0q12abcs4g********-fqeg | {{ external-ip-examples.1 }}                   | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      ```
 

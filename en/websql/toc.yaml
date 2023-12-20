@@ -10,9 +10,9 @@ items:
         href: operations/index.md
       - name: Connecting to a database
         href: operations/connect.md
-      - name: Executing SQL queries
+      - name: Executing queries
         href: operations/query-executor.md
-      - name: Working with query templates
+      - name: Working with saved queries
         href: operations/templates.md
       - name: Viewing query history
         href: operations/history.md

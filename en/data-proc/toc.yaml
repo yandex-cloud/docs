@@ -11,15 +11,15 @@ items:
         items:
           - name: Information about existing clusters
             href: operations/cluster-list.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Connecting to a cluster
             href: operations/connect.md
-          - name: Updating clusters
+          - name: Updating a cluster
             href: operations/cluster-update.md
           - name: Migrating a cluster to a different availability zone
             href: operations/migration-to-an-availability-zone.md
-          - name: Deleting clusters
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: '{{ dataproc-name }} subclusters'
         items:
@@ -45,6 +45,8 @@ items:
         items:
           - name: All jobs
             href: operations/jobs.md
+          - name: Running jobs
+            href: operations/running-jobs.md
           - name: Spark jobs
             href: operations/jobs-spark.md
           - name: PySpark jobs

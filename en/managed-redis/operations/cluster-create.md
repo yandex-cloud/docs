@@ -32,7 +32,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       * Select the DBMS version.
       * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
@@ -82,7 +82,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
-      * To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its name.
+      * To change the settings of a host, click the ![pencil](../../_assets/console-icons/pencil.svg) icon in the line with its name.
 
          * **{{ ui-key.yacloud.mdb.forms.host_column_zone }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
          * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
@@ -157,8 +157,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Internet access to the host via a public IP: `true` or `false`.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+         * `assign-public-ip`: Flag enabling online access to the host by a public IP, `true` or `false`.
          * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
 

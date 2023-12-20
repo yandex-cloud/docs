@@ -48,7 +48,7 @@
        --zone {{ region-id }}-a \
        --ssh-key ssh-key.pub \
        --create-boot-disk size=30 \
-       --network-interface subnet-name=<имя подсети>,nat-ip-version=ipv4 \
+       --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
        --service-account-name default-sa \
        --docker-compose-file docker-compose.yaml
      ```
@@ -75,8 +75,8 @@
 
         ```text
         CONTAINER ID  IMAGE  COMMAND                 CREATED         STATUS         PORTS               NAMES
-        c79b1cdc5a3a  nginx  "nginx -g 'daemon of…"  16 seconds ago  Up 14 seconds  0.0.0.0:80->80/tcp  nginx
-        3ac5a9844a5d  redis  "docker-entrypoint.s…"  2 minutes ago   Up 2 minutes   6379/tcp            redis
+        c79b********  nginx  "nginx -g 'daemon of…"  16 seconds ago  Up 14 seconds  0.0.0.0:80->80/tcp  nginx
+        3ac5********  redis  "docker-entrypoint.s…"  2 minutes ago   Up 2 minutes   6379/tcp            redis
         ```
 
 {% endlist %}

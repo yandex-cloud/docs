@@ -2,12 +2,12 @@
 editable: false
 ---
 
-# Pricing for {{ mch-short-name }}
+# {{ mch-short-name }} pricing
 
 In this section, you can find {{ mch-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
-To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ yandex-cloud }} website.
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -16,7 +16,7 @@ To calculate the service cost, use the [calculator]({{ link-calc }}) on the {{ y
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What goes into the cost of using {{ mch-short-name }} {#rules}
+## What is included in {{ mch-short-name }} cost {#rules}
 
 The {{ mch-name }} usage cost is based on:
 
@@ -55,7 +55,7 @@ You are charged for the following:
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
    * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
-   * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
+   * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
 
@@ -152,7 +152,7 @@ Where:
 
 {% note info %}
 
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
