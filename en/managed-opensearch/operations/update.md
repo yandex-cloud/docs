@@ -18,7 +18,7 @@ After creating a cluster, you can edit its service settings. You can also change
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Select a cluster and click ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** on the top panel.
+   1. Select a cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** on the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       1. Change the `admin` user password.

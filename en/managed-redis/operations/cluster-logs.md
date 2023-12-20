@@ -11,7 +11,7 @@
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the cluster name and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.redis.cluster.switch_logs }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.redis.cluster.switch_logs }}** tab.
    1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. Select the hosts in the drop-down list next to the date input field, if required.
 
@@ -45,8 +45,8 @@
       Where:
 
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-      * `--columns`: List of columns to display information:
-         * `hostname`: [Name of the host](hosts.md#list-hosts).
+      * `--columns`: List of columns with output data:
+         * `hostname`: [Host name](hosts.md#list-hosts).
          * `message`: Message output by the service.
          * `pid`: ID of the current session's server process.
          * `role`: Cluster component role, such as `X` or `M` (`Sentinel` or `Master`, respectively).
@@ -54,7 +54,7 @@
       * {% include [logs since time](../../_includes/cli/logs/since.md) %}
       * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -86,7 +86,7 @@ This method allows you to get cluster logs in real time.
    {{ yc-mdb-rd }} cluster list-logs <cluster_name_or_ID> --follow
    ```
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

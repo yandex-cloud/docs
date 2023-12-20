@@ -12,7 +12,7 @@ description: "Различные сценарии использования с�
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
 * [Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ network-load-balancer-full-name }}](../web/load-balancer-website.md)
 * [Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-full-name }}](../web/application-load-balancer-website.md)
-* [Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}](../web/cdn-storage-integration.md)
+* [Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
 * [Работа с группой виртуальных машин с автоматическим масштабированием](../infrastructure-management/vm-autoscale.md)
 * [Масштабирование группы ВМ по расписанию](../infrastructure-management/vm-scale-scheduled.md)
 * [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
@@ -22,7 +22,7 @@ description: "Различные сценарии использования с�
 ## Инструменты {#tools}
 
 * [Начало работы с {{ TF }}](../infrastructure-management/terraform-quickstart.md)
-* [Загрузка состояний {{ TF }} в {{ objstorage-full-name }}](../infrastructure-management/terraform-state-storage.md)
+* [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../infrastructure-management/terraform-state-storage.md)
 * [Начало работы с Packer](../infrastructure-management/packer-quickstart.md)
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](../infrastructure-management/packer-custom-image.md)
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)

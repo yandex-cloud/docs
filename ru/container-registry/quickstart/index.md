@@ -22,8 +22,8 @@
 
    ```text
    ..done
-   id: crpc9qeoft236r8tfalm
-   folder_id: b1g0itj57rbjk9thrinv
+   id: crpc9qeoft23********
+   folder_id: b1g0itj57rbj********
    name: my-first-registry
    status: ACTIVE
    created_at: "2018-12-25T12:24:56.286Z"
@@ -58,25 +58,25 @@
    docker pull ubuntu
    ```
 
-1. Присвойте скачанному Docker-образу тег вида `{{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>`:
+1. Присвойте скачанному Docker-образу тег вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
 
    ```bash
    docker tag ubuntu \
-   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   {{ registry }}/crpc9qeoft23********/ubuntu:hello
    ```
 
 1. Загрузите Docker-образ в репозиторий {{ container-registry-name }}:
 
    ```bash
    docker push \
-   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   {{ registry }}/crpc9qeoft23********/ubuntu:hello
    ```
 
 1. Запустите Docker-образ:
 
    ```bash
    docker run \
-   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   {{ registry }}/crpc9qeoft23********/ubuntu:hello
    ```
 
 #### Смотрите также {#see-also}

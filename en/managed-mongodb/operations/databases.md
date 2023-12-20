@@ -24,7 +24,7 @@ You can add and remove databases, as well as view information about them.
       --cluster-name <cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -67,7 +67,7 @@ You can add and remove databases, as well as view information about them.
 
    {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    {{ mmg-short-name }} runs the create database operation.
 
@@ -123,7 +123,7 @@ You can add and remove databases, as well as view information about them.
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the DB you need and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the same row as the DB and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
 
@@ -138,7 +138,7 @@ You can add and remove databases, as well as view information about them.
       --cluster-name <cluster_name>
    ```
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

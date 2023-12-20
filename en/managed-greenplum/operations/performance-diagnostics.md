@@ -5,7 +5,16 @@ description: "Follow this guide to run performance diagnostics."
 
 # Performance diagnostics
 
-For performance diagnostics, a {{ mgp-name }} cluster uses a dedicated `gpperfmon` database in which query statistics and system states are stored. The `gpperfmon` database can be accessed by:
+{% note info %}
+
+For performance diagnostics, the {{ mgp-name }} cluster uses:
+
+* In versions 6.22 and lower, a dedicated `gpperfmon` database.
+* In versions 6.25 or higher, the [{{ GP }} command center](../concepts/command-center.md).
+
+{% endnote %}
+
+The `gpperfmon` database saves the statistics on the system queries and states. Who can access the database:
 
 * Admin user.
 * User with the `mdb_admin` role.

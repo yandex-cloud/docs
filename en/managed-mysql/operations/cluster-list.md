@@ -87,7 +87,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name.
-   1. In the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.mysql.cluster.switch_operations }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.cluster.switch_operations }}**.
 
 - CLI
 

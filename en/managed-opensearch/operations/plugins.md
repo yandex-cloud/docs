@@ -9,7 +9,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of neces
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the cluster you need.
+   1. Click the cluster name.
 
 - API
 
@@ -28,7 +28,7 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of neces
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Select a cluster and click ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** on the top panel.
+   1. Select a cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** on the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify the plugins you want to install.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

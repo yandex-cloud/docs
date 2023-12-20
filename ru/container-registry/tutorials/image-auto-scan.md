@@ -58,8 +58,8 @@ description: "Следуя данному руководству, вы смож�
 
      ```text
      done
-     id: crpd50616s9a2t7gr8mi
-     folder_id: b1g88tflru0ek1omtsu0
+     id: crpd50616s9a********
+     folder_id: b1g88tflru0e********
      name: my-reg
      status: ACTIVE
      created_at: "2019-01-09T14:34:06.601Z"
@@ -99,8 +99,8 @@ description: "Следуя данному руководству, вы смож�
         Результат:
 
         ```text
-        id: ajelabcde12f33nol1v5
-        folder_id: b0g12ga82bcv0cdeferg
+        id: ajelabcde12f********
+        folder_id: b0g12ga82bcv********
         created_at: "2021-05-17T14:32:18.900092Z"
         name: service-acc
         ```
@@ -172,12 +172,12 @@ description: "Следуя данному руководству, вы смож�
      Результат:
 
      ```text
-     id: d4ejb1799eko6re4omb1
-     folder_id: aoek49ghmknnpj1ll45e
+     id: d4ejb1799eko********
+     folder_id: aoek49ghmknn********
      created_at: "2021-17-05T14:07:32.134Z"
      name: scan-on-push
-     log_group_id: eolm8aoq9vcppsieej6h
-     http_invoke_url: https://{{ sf-url }}/d4ejb1799eko6re4omb1
+     log_group_id: eolm8aoq9vcp********
+     http_invoke_url: https://{{ sf-url }}/d4ejb1799eko********
      status: ACTIVE
      ```
 
@@ -211,12 +211,12 @@ description: "Следуя данному руководству, вы смож�
 
      ```text
      done (1s)
-     id: d4egi3pmsd1qcdmsqt5n
-     function_id: d4e275oj7jtp2o6kdmim
+     id: d4egi3pmsd1q********
+     function_id: d4e275oj7jtp********
      ...
      tags:
      - $latest
-     log_group_id: ckg6nb0c7uf19oo8pvjj
+     log_group_id: ckg6nb0c7uf1********
      ```
 
 - {{ TF }}
@@ -276,12 +276,12 @@ description: "Следуя данному руководству, вы смож�
   Результат:
 
   ```text
-  id: a1spt834cjmk40si80sp
-  folder_id: b1g86q4m5vej8lkljme5
+  id: a1spt834cjmk********
+  folder_id: b1g86q4m5vej********
   created_at: "2021-05-18T20:42:54.898949653Z"
   ...
         function_tag: $latest
-        service_account_id: aje1insoe23e82t9mem2
+        service_account_id: aje1insoe23e********
   status: ACTIVE
   ```
 
@@ -337,7 +337,7 @@ description: "Следуя данному руководству, вы смож�
      1. Выполните команду:
 
         ```bash
-        echo <oauth-токен> | docker login --username oauth --password-stdin {{ registry }}
+        echo <OAuth-токен> | docker login --username oauth --password-stdin {{ registry }}
         ```
 
         Результат:
@@ -380,7 +380,7 @@ description: "Следуя данному руководству, вы смож�
 
    ```text
    20.04: Pulling from library/ubuntu
-   Digest: sha256:cf31af331f38d1d7158470e095b132acd126a7180a54f263d386da88eb681d93
+   Digest: sha256:cf31af331f38d1d7158470e095b132acd126a7180a54f263d386da88********
    Status: Image is up to date for ubuntu:20.04
    docker.io/library/ubuntu:20.04
    ```
@@ -400,11 +400,11 @@ description: "Следуя данному руководству, вы смож�
    Результат:
 
    ```text
-   The push refers to repository [{{ registry }}/crpu20rpdc2foid8p8b0/ubuntu]
+   The push refers to repository [{{ registry }}/crpu20rpdc2f********/ubuntu]
    2f140462f3bc: Layer already exists
    63c99163f472: Layer already exists
    ccdbb80308cc: Layer already exists
-   20.04: digest: sha256:86ac87f73641c920fb42cc9612d4fb57b5626b56ea2a19b894d0673fd5b4f2e9 size: 943
+   20.04: digest: sha256:86ac87f73641c920fb42cc9612d4fb57b5626b56ea2a19b894d0673f******** size: 943
    ```
 
 ## Проверьте результат {#check-result}
@@ -432,12 +432,12 @@ description: "Следуя данному руководству, вы смож�
      Результат:
 
      ```text
-     2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
-     2021-05-18 09:27:43  END RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad
-     2021-05-18 09:27:43  REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB
-     2021-05-18 09:29:25  START RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef Version: b09i2s85a0c1fisjboft
-     2021-05-18 09:29:26  END RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef
-     2021-05-18 09:29:26  REPORT RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef Duration: 554.904 ms Billed Duration: 555.000 ms Memory Size: 128 MB Max Memory Used: 13 MB
+     2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa0******** Version: b09i2s85a0c1********
+     2021-05-18 09:27:43  END RequestID: 34dc9533-ed6e-4468-b9f2-2aa0********
+     2021-05-18 09:27:43  REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa0******** Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB
+     2021-05-18 09:29:25  START RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f******** Version: b09i2s85a0c1********
+     2021-05-18 09:29:26  END RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f********
+     2021-05-18 09:29:26  REPORT RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f******** Duration: 554.904 ms Billed Duration: 555.000 ms Memory Size: 128 MB Max Memory Used: 13 MB
      ...
      ```
 
@@ -469,7 +469,7 @@ description: "Следуя данному руководству, вы смож�
      +----------------------+----------------------+---------------------+--------+--------------------------------+
      |          ID          |        IMAGE         |     SCANNED AT      | STATUS |        VULNERABILITIES         |
      +----------------------+----------------------+---------------------+--------+--------------------------------+
-     | crpu20rpdc2foid8p8b0 | crpqmsqp5mtbh627i7qs | 2021-05-18 14:34:02 | READY  | medium:6, low:13, negligible:3 |
+     | crpu20rpdc2f******** | crpqmsqp5mtb******** | 2021-05-18 14:34:02 | READY  | medium:6, low:13, negligible:3 |
      +----------------------+----------------------+---------------------+--------+--------------------------------+
      ```
 

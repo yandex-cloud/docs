@@ -33,9 +33,9 @@
 
        
        ```bash
-       yc <имя сервиса> <ресурс> add-access-binding <имя ресурса>|<id ресурса> \
-         --role <id роли> \
-         --subject userAccount:<id пользователя>
+       yc <имя_сервиса> <ресурс> add-access-binding <имя_или_идентификатор_ресурса> \
+         --role <идентификатор_роли> \
+         --subject userAccount:<идентификатор_пользователя>
        ```
 
 
@@ -44,36 +44,31 @@
 
        
        ```bash
-       yc <имя сервиса> <ресурс> set-access-bindings <имя ресурса>|<id ресурса> \
-         --role <id роли> \
-         --subject userAccount:<id пользователя>
+       yc <имя_сервиса> <ресурс> set-access-bindings <имя_или_идентификатор_ресурса> \
+         --role <идентификатор_роли> \
+         --subject userAccount:<идентификатор_пользователя>
        ```
 
 
 
      Где:
-     * `<имя сервиса>` — имя сервиса `container`.
+     * `<имя_сервиса>` — имя сервиса `container`.
      * `<ресурс>` — категория ресурса `registry` или `repository`.
-     * `<имя ресурса>` — имя ресурса, на который назначается роль. Вы можете указать ресурс по имени или идентификатору.
-     * `<id ресурса>` — идентификатор ресурса, на который назначается роль.
-     * `<id роли>` — идентификатор роли.
-     * `<id пользователя>` — идентификатор группы, пользователя или сервисного аккаунта, которому назначается роль.
+     * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначается роль.
+     * `--role` — идентификатор роли.
+     * `--subject` — идентификатор группы, пользователя или сервисного аккаунта, которому назначается роль.
 
-     >Пример. Добавьте роль `container-registry.admin` на реестр с идентификатором `crp0pmf1n68dh715tf02` для пользователя с идентификатором `kolhpriseeioo9dc3v24`:
+     >Пример. Добавьте роль `container-registry.admin` на реестр с идентификатором `crp0pmf1n68d********` для пользователя с идентификатором `kolhpriseeio********`:
      >
 
      
      >```bash
-     >yc container registry add-access-binding crp0pmf1n68dh715tf02 \
+     >yc container registry add-access-binding crp0pmf1n68d******** \
      >  --role container-registry.admin \
-     >  --subject userAccount:kolhpriseeioo9dc3v24
+     >  --subject userAccount:kolhpriseeio********
      >```
 
 
-
-- API
-
-  Воспользуйтесь методом `updateAccessBindings` для ресурсов `registry` и `repository`.
 
 - {{ TF }}
 
@@ -90,11 +85,11 @@
        
        >```
        >resource "yandex_container_registry_iam_binding" "puller" {
-       >  registry_id = "<id реестра>"
-       >  role        = "<id роли>"
+       >  registry_id = "<идентификатор_реестра>"
+       >  role        = "<идентификатор_роли>"
        >
        >  members = [
-       >    "userAccount:<id пользователя>",
+       >    "userAccount:<идентификатор_пользователя>",
        >  ]
        >}
        >```
@@ -113,11 +108,11 @@
        
        >```
        >resource "yandex_container_repository_iam_binding" "pusher" {
-       >  repository_id = "<id репозитория>"
-       >  role          = "<id роли>"
+       >  repository_id = "<идентификатор_репозитория>"
+       >  role          = "<идентификатор_роли>"
        >
        >  members = [
-       >    "userAccount:<id пользователя>",
+       >    "userAccount:<идентификатор_пользователя>",
        >  ]
        >}
        >```
@@ -151,14 +146,18 @@
      * Для реестра:
 
        ```bash
-       yc container registry list-access-bindings <id реестра>/<имя реестра>
+       yc container registry list-access-bindings <имя_или_идентификатор_реестра>
        ```
 
      * Для репозитория:
 
        ```
-       yc container repository list-access-bindings <id репозитория>/<имя репозитория>
+       yc container repository list-access-bindings <имя_или_идентификатор_репозитория>
        ```
+
+- API
+
+  Чтобы назначить роль пользователю, сервисному аккаунту или группе для доступа к ресурсу, воспользуйтесь методом `updateAccessBindings` для ресурсов `registry` и `repository`.
 
 {% endlist %}
 

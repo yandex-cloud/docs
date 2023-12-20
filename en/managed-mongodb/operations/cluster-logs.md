@@ -11,7 +11,7 @@
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the cluster name and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
    1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. Select the hosts and logging level in the drop-down lists next to the date input field, if required.
 
@@ -45,8 +45,8 @@
       Where:
 
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-      * `--service-type`: Type of service to output records for (`mongod`, `mongos`, `mongocfg`, or `audit`).
-      * `--columns`: List of columns to display information:
+      * `--service-type`: Service type to display records for (`mongod`, `mongos`, `mongocfg`, or `audit`).
+      * `--columns`: List of columns with output data:
          * `component`: Type of component to be logged. For example, `CONTROL`.
          * `context`: Name of the module being executed, such as `signalProcessingThread`.
          * `hostname`: [Host name](hosts.md#list-hosts).

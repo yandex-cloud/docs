@@ -202,7 +202,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-       --clickhouse-disk-size <storage_size_GB>
+        --clickhouse-disk-size <storage_size_GB>
       ```
 
    1. To increase the storage capacity of {{ ZK }} hosts, provide the value you need in the `--zookeeper-disk-size` parameter.
@@ -389,7 +389,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
-           --set <name_of_parameter_1>=<value_1>,...
+        --set <name_of_parameter_1>=<value_1>,...
       ```
 
       {{ mch-short-name }} runs the update cluster settings operation.
@@ -443,7 +443,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
             }
 
             graphite_rollup {
-              # GraphiteMergeTree engine settings for thinning and aggregation/averaging
+              # GraphiteMergeTree engine settings for decimation and aggregation/averaging
               # (rollup) of Graphite data.
               ...
             }
@@ -456,7 +456,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       Where:
       * `method`: Compression method, `LZ4` or `ZSTD`.
-      * `min_part_size`: Minimum size of a data part in a table, bytes.
+      * `min_part_size`: Minimum size of a table data part, bytes.
       * `min_part_size_ratio`: Ratio between the smallest table chunk and full table size.
 
    1. Make sure the settings are correct.
@@ -556,7 +556,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    
    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
+   * `--websql-access`: Enables [running SQL queries](web-sql-query.md) from the management console. The default value is `false`.
 
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
@@ -671,7 +671,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the cluster you want to move.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
    1. Select **{{ ui-key.yacloud.common.move }}**.
    1. Select a folder you want to move the cluster to.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
@@ -817,10 +817,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-         --cloud-storage-data-cache=<file_storage> \
-         --cloud-storage-data-cache-max-size=<storage_size_in_bytes> \
-         --cloud-storage-move-factor=<percentage_of_free_space> \
-         --cloud-storage-prefer-not-to-merge=<data_part_merges>
+          --cloud-storage-data-cache=<file_storage> \
+          --cloud-storage-data-cache-max-size=<storage_size_in_bytes> \
+          --cloud-storage-move-factor=<percentage_of_free_space> \
+          --cloud-storage-prefer-not-to-merge=<merge_of_data_parts>
       ```
 
       You can change the following settings:

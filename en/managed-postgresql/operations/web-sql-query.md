@@ -69,7 +69,7 @@ To display a visualization of a SQL query execution plan:
    * [Cost units for parts of a request](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS).
    * [Using `EXPLAIN` and `EXPLAIN ANALYZE`](https://www.postgresql.org/docs/current/using-explain.html).
 
-1. To view a detailed query execution plan as a tree, click ![full-screen](../../_assets/full-screen.svg). To exit this mode, press **Esc**.
+1. To view a detailed query execution plan as a tree, click ![full-screen](../../_assets/console-icons/square-dashed.svg). To exit this mode, press **Esc**.
 
    Each part of a query displays as a box showing the absolute and relative execution times. If one part of a query takes much longer to execute than the others or uses resource-heavy operations, the box will be marked with labels showing the reason.
 

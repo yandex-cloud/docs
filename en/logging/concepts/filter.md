@@ -5,7 +5,7 @@ description: "You can filter log group records using the language of filter expr
 
 # Filter expression language
 
-You can filter log group records using the language of filter expressions. With the filter expression language, you can:
+You can filter log group records using the filter expression language. With the filter expression language, you can:
 * Search for records by [one](#parameters) or [multiple](#multiple-values) parameter values.
 * Use the [comparison operators](#comparison-operations) and [logical operators](#multiple-conditions) in filters.
 
@@ -61,7 +61,7 @@ You can filter log group records using the language of filter expressions. With 
 >   ```
 >   message: warning "error dialing endpoint"
 >   ```
->* Records sent after June 8, 2023:
+>* Records created after June 8, 2023:
 >   ```
 >   timestamp > "2023-06-08T00:00:00Z"
 >   ```
@@ -81,10 +81,10 @@ You can filter log group records using the language of filter expressions. With 
 | `resource_id` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records sent by a service with the specified ID. | ```resource_id: "d4e155orh3nu********"``` |
 | `json_payload` | ```parameter: "value"``` | Search for records with `json_payload` set to certain values. The search is done by text. | ```json_payload: "error"``` |
 | `json_payload.<element>` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records by `json_payload` elements. If the filter uses a comparison operator, the element can be a string, a number, or a Boolean value; otherwise, it can only be a string. You can omit the `json_payload` prefix if the tree root element does not match any of the parameters. Check if `json_payload` contains a certain element using the `EXISTS` operator, e.g., ```json_payload.result EXISTS```. This filter outputs records whose `json_payload` contains the `result` element. | ```json_payload.flag = FALSE``` |
-| `timestamp` | ```parameter <comparison operator> "value"``` | Search for records sent within the specified interval. | ```timestamp >= "2023-06-08T00:00:00Z"``` |
+| `timestamp` | ```parameter <comparison operator> "value"``` | Search for records created within the specified interval. | ```timestamp >= "2023-06-08T00:00:00Z"``` |
 | `ingested_at` | ```parameter <comparison operator> "value"``` | Search for records delivered to the {{ cloud-logging-name }} system within the specified interval. | ```ingested_at = "2023-06-22T05:15:03Z"``` |
 | `saved_at` | ```parameter <comparison operator> "value"``` | Search for records saved to the {{ cloud-logging-name }} database within the specified interval. | ```saved_at >= 1622198048``` |
-| `level` | ```parameter <comparison operator> value``` | Search for records with the specified logging levels. Possible logging levels: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. | ```level >= WARN``` |
+| `level` | ```parameter <comparison operator> "value"``` | Search for records with the specified logging levels. Possible logging levels: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. | ```level >= WARN``` |
 
 ### Parameter value requirements {#requirements}
 

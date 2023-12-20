@@ -10,7 +10,7 @@
 
 To move cluster hosts between availability zones:
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone to move cluster hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
 1. Add a host to your cluster:
 
    {% list tabs %}
@@ -19,7 +19,7 @@ To move cluster hosts between availability zones:
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
       1. Specify the host parameters:
 
          * Availability zone to which you want to move the hosts.
@@ -45,7 +45,7 @@ To move cluster hosts between availability zones:
                `assign-public-ip=<public_access_to_host>
       ```
 
-      Where `assign-public-ip` is public access to the host: `true` or `false`.
+      Where `assign-public-ip` is public access to the host, `true` or `false`.
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
 
@@ -65,9 +65,9 @@ To move cluster hosts between availability zones:
          }
          ```
 
-         Where `assign_public_ip` is public access to the host: `true` or `false`.
+         Where `assign_public_ip` is public access to the host, `true` or `false`.
 
-         In the `zone` parameter, specify the availability zone you want to move the hosts to.
+         In the `zone` parameter, specify the availability zone you are moving the hosts to.
 
       1. Make sure the settings are correct.
 
@@ -104,7 +104,7 @@ To move cluster hosts between availability zones:
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI
 

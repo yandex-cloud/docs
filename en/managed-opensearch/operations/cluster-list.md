@@ -7,7 +7,7 @@ keywords:
   - OpenSearch
 ---
 
-# Information about existing clusters {{ OS }}
+# Information about existing {{ OS }} clusters
 
 You can request detailed information about each {{ mos-name }} cluster you created.
 
@@ -34,7 +34,7 @@ You can request detailed information about each {{ mos-name }} cluster you creat
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the cluster you need.
+   1. Click the cluster name.
 
 - API
 
@@ -53,7 +53,7 @@ The operation list shows operations with clusters and related resources (for exa
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the desired cluster and select the ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
+   1. Click the name of the desired cluster and select the ![operations.svg](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - API
 

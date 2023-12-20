@@ -37,17 +37,17 @@
 
      ```bash
      yc container repository lifecycle-policy create \
-       --repository-name crp3cpm16edqql0t30s2/ubuntu \
+       --repository-name crp3cpm16edq********/ubuntu \
        --name test-policy \
        --description "disabled lifecycle-policy for tests" \
        --rules ./rules.json
      ```
 
      Где:
-     * `repository-name` — имя репозитория.
-     * `rules` — путь к файлу с описанием политик.
-     * `description` — (опционально) описание политики удаления.
-     * `name` — (опционально) имя политики. Требования к имени:
+     * `--repository-name` — имя репозитория.
+     * `--rules` — путь к файлу с описанием политик.
+     * `--description` — (опционально) описание политики удаления.
+     * `--name` — (опционально) имя политики. Требования к имени:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -60,9 +60,9 @@
      Результат:
 
      ```bash
-     id: crp6lg1868p3i0emkv1b
+     id: crp6lg1868p3********
      name: test-policy
-     repository_id: crp3cpm16edqql0t30s2
+     repository_id: crp3cpm16edq********
      ...
      - description: delete all untagged Docker images older than 48 hours
        expire_period: 172800s
@@ -73,7 +73,7 @@
   1. Проверьте, что политика создалась, выполнив команду:
 
      ```bash
-     yc container repository lifecycle-policy list --repository-name crp3cpm16edqql0t30s2/ubuntu
+     yc container repository lifecycle-policy list --repository-name crp3cpm16edq********/ubuntu
      ```
 
      Где `repository-name` — имя репозитория.
@@ -84,7 +84,7 @@
      +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
      |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
      +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
-     | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
+     | crp6lg1868p3******** | test-policy | crp3cpm16edq******** | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
      |                      |             |                      |          |                     | tests                         |
      +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
      ```

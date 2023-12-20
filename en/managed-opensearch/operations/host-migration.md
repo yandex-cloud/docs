@@ -7,8 +7,8 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
-   1. In the line with the host group, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit**.
+   1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+   1. In the line with the host group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**.
    1. In the **Host placement** field, select the target availability zone for the clusters and remove the source availability zone.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 

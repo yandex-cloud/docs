@@ -24,7 +24,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Change the required settings:
       * To edit the [broker host](../concepts/brokers.md) class, select a new [**{{ ui-key.yacloud.mdb.forms.section_resource }}**](../concepts/instance-types.md).
       * Change **{{ ui-key.yacloud.kafka.label_brokers-per-az }}**.
@@ -114,7 +114,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Broker host class in the `configSpec.kafka.resources.resourcePresetId` parameter.
    * Number of broker hosts in the `configSpec.brokersCount` parameter.
-   * List of settings you want to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -127,7 +127,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Select a new [**{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**](../concepts/instance-types.md).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -197,7 +197,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * {{ ZK }} host class in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
-   * List of settings you want to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -220,7 +220,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    To increase the cluster storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -317,7 +317,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
    1. Enable or disable public access to a cluster via the **Public access** option.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -398,7 +398,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - List of security group IDs in the `securityGroupIds` parameter.
    - Public access settings in the `configSpec.assignPublicIp` parameter.
-   - List of settings you want to update in the `updateMask` parameter.
+   - List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -416,7 +416,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Change additional cluster settings:
 
       {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -545,7 +545,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings-kafka }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
 
       For more information, see [{{ KF }} settings](../concepts/settings-list.md).
@@ -626,7 +626,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
       * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`;
       * `configSpec.kafka.kafkaConfig_3` if you are using {{ KF }} version `3.x`.
 
-   * List of settings you want to update in the `updateMask` parameter.
+   * List of settings you want to update, in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -676,7 +676,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg), then **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
 
 - CLI

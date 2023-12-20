@@ -73,7 +73,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
          * Select the storage size to use for data.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the configuration of the hosts created together with the {{ mes-name }} cluster:
          1. To add a host, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-         1. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
+         1. To change the added host, hover over the host line and click ![image](../../_assets/console-icons/pencil.svg).
 
             When changing the host, you can: {#change-data-node-settings}
             * Select the [availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet).
@@ -92,7 +92,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    1. If necessary, configure the hosts with the _Master node_ role by opening the **Master node** tab:
       1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the platform, host type, and host class.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, configure storage the same way as for hosts with the _Data node_ role.
-      1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click **{{ ui-key.yacloud.elasticsearch.button_add-hosts }}**. Three hosts are added. To change one of the added hosts, hover over the host line and click ![image](../../_assets/pencil.svg).
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click **{{ ui-key.yacloud.elasticsearch.button_add-hosts }}**. Three hosts are added. To change one of the added hosts, hover over the host line and click ![image](../../_assets/console-icons/pencil.svg).
 
          When changing the host, you can: {#change-master-node-settings}
          * Select the availability zone and subnet.
@@ -163,7 +163,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       * `--environment`: `prestable` or `production`.
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone includes two or more subnets.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP, `true` or `false`.
          * `type`: Host role, `datanode` or `masternode`.
       * `--datanode-resource-preset`: Host class with the Data node role.
@@ -274,7 +274,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
          * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `type`: Host role, `DATA_NODE` or `MASTER_NODE`.
          * `assign_public_ip`: Public access to the host, `true` or `false`.
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone includes two or more subnets.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
 
       If the {{ mes-name }} cluster deletion protection is activated, this does not protect the DB contents.
 

@@ -69,7 +69,7 @@ The cost for maintaining a {{ GL }} server includes:
    ```
 
 1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-1. Open `http://<VM_public_IP_address>` in your browser. The {{ GL }} web interface will open.
+1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
 1. Log in using the administrator account:
    * **Username or email**: `root`
    * **Password**: Password you copied earlier
@@ -109,7 +109,7 @@ To create a project:
 1. Add a project file.
    1. In the left-hand panel, go to **Project** and select **Details**.
    1. On the project page, click **New file**.
-   1. Name the file `test.cpp`. Add the code of a program that checks the product of multiplying 2 x 2 and outputs `Hello World` if it is 4:
+   1. Name the file `test.cpp`. Add to it the code of a program that checks the product of 2 × 2 and displays `Hello World` if the result is 4:
 
       ```cpp
       #include <iostream>
@@ -169,7 +169,7 @@ A Runner is a program that tests and builds projects in the {{ GL }} environment
    1. Enter your {{ GL }} server address. When you see the prompt:
 
       ```text
-      Please enter the gitlab-ci coordinator URL (e.g., https://gitlab.com)
+      Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com)
       ```
 
       Enter `http://<public_IP_of_your_VM>`.
@@ -290,4 +290,4 @@ To stop paying for your deployed server, delete the `gitlab` VM you created.
 If you reserved a static public IP address specifically for this VM:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
 1. Go to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
-1. Find the required address, click ![ellipsis](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.delete }}**.
+1. Find the required address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.delete }}**.

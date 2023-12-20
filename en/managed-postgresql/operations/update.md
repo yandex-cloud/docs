@@ -1,5 +1,5 @@
 ---
-title: "How to change {{ PG }} cluster settings in {{ mpg-full-name }}"
+title: "Tutorial on changing PG cluster settings in {{ mpg-full-name }}"
 description: "In this tutorial, you will learn how to change settings for a {{ PG }} cluster."
 ---
 
@@ -42,7 +42,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select the cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for the {{ PG }} hosts.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -147,7 +147,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select the cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
    1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -237,7 +237,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select the cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Change additional cluster settings:
 
       {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
@@ -456,8 +456,8 @@ To switch the master:
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Click the cluster name and select the ![icon-hosts.svg](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-   1. Click ![icon-autofailover.svg](../../_assets/mdb/autofailover.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
+   1. Click the cluster name and select the ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+   1. Click ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * To switch the master to one of the quorum replicas, leave the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option enabled.
       * To switch the master to a specific replica, disable the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option and then select the required replica from the drop-down list.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
@@ -522,7 +522,7 @@ To switch the master:
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the cluster you want to move.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
    1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
    1. Select a folder you want to move the cluster to.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
@@ -561,7 +561,7 @@ To switch the master:
 
 After the cluster is moved, it will continue using the cloud network from the source folder. If you want to host the cluster in a different cloud network, use the [restore from a backup](./cluster-backups.md) feature and specify the required network for the cluster backup.
 
-To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different availability zone, see this [guide](host-migration.md). You will thus move the cluster hosts.
 
 
 ## Changing security groups {#change-sg-set}
@@ -571,7 +571,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select the cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI

@@ -1,6 +1,6 @@
 # About {{ websql-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
 
 {{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to clusters of managed databases, work with databases, tables, and schemas, and execute SQL queries. The service operates in your browser and offers convenient suggestions for SQL query execution.
 
@@ -10,7 +10,7 @@ To work with {{ websql-full-name }}, use:
 
 * _Control panel_ is the far-left panel with icons for **Connection manager** ![image](../../_assets/console-icons/folder-tree.svg), **Saved queries** ![image](../../_assets/console-icons/floppy-disk.svg), and **Query history** ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg).
 * _Connection manager_ is a panel for viewing existing and adding new database connections.
-* _Data panel_ is the far-right panel where you can build SQL queries and view the results of their execution and the connection settings.
+* _Data panel_ is the far-right panel where you can build SQL queries and view the results of their execution, as well as connection settings, and information about DB tables.
 
 ## Connection manager {#connection}
 

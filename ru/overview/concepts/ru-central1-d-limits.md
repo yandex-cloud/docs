@@ -15,7 +15,3 @@
 ## {{ cloud-desktop-name }} {#cloud-desktop}
 
 Создание рабочих столов в зоне `{{ region-id }}-d` еще не поддержано.
-
-## {{ ydb-name }} {#managed-ydb}
-
-Создание баз в Dedicated-режиме в зоне `{{ region-id }}-d` еще не поддержано.

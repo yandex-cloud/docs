@@ -54,8 +54,8 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    ```bash
    {{ yc-mdb-ch }} shard-groups get \
-      --cluster-name=<cluster_name> \
-      --name=<shard_group_name>
+     --cluster-name=<cluster_name> \
+     --name=<shard_group_name>
    ```
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -89,10 +89,10 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    ```bash
    {{ yc-mdb-ch }} shard-groups create \
-      --cluster-name=<cluster_name> \
-      --name=<shard_group_name> \
-      --description=<shard_group_description> \
-      --shards=<list_of_shard_names>
+     --cluster-name=<cluster_name> \
+     --name=<shard_group_name> \
+     --description=<shard_group_description> \
+     --shards=<list_of_shard_names>
    ```
 
    Where `--shards` is a list of shard names to be included in the group.
@@ -154,7 +154,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
-   1. Click ![image](../../_assets/options.svg) for the required shard group and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the required shard group and select **{{ ui-key.yacloud.common.edit }}**.
 
 - CLI
 
@@ -166,15 +166,15 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    ```bash
    {{ yc-mdb-ch }} shard-groups update \
-      --cluster-name=<cluster_name> \
-      --name=<shard_group_name> \
-      --description=<new_shard_group_description> \
-      --shards=<new_list_of_shard_names>
+     --cluster-name=<cluster_name> \
+     --name=<shard_group_name> \
+     --description=<new_shard_group_description> \
+     --shards=<new_list_of_shard_names>
    ```
 
    Where `--shards` is a new list of shard names be included in the group.
 
-   This command replaces the existing list of shards in the group with the new one that was provided to the command in the `--shards` parameter. Before running the command, make sure that you added all the appropriate shards in the new list.
+   This command replaces the existing list of shards in the group with a new one that was provided to the command in the `--shards` parameter. Before running the command, make sure that you added all the appropriate shards in the new list.
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -242,7 +242,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}** tab.
-   1. Click ![image](../../_assets/options.svg) for the required shard group and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the required shard group and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -254,8 +254,8 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    ```bash
    {{ yc-mdb-ch }} shard-groups delete \
-      --cluster-name=<cluster_name> \
-      --name=<shard_group_name>
+     --cluster-name=<cluster_name> \
+     --name=<shard_group_name>
    ```
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).

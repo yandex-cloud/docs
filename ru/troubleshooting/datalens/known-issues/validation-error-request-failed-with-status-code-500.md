@@ -21,7 +21,7 @@ at XMLHttpRequest.y (https://yastatic.net/s3/cloud/datalens/static/freeze/js/ven
 
 ## Если проблема осталась {#if-issue-still-persists}
 
-Если вышеописанные рекомендации не помогли решить проблему, [создайте запрос в техническую поддержку](https://console.cloud.yandex.ru/support?section=contact).
+Если вышеописанные рекомендации не помогли решить проблему, [создайте запрос в техническую поддержку]({{ link-console-support }}).
 В запросе укажите следующую информацию:
 
 1. Ссылка на проблемный дашборд;

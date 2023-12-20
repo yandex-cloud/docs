@@ -79,8 +79,8 @@
 
      ```text
      done (17s)
-      id: epdbf646ge5qgutfvh43
-      folder_id: b1g88tflru0ek1omtsu0
+      id: epdbf646ge5q********
+      folder_id: b1g88tflru0e********
       created_at: "2023-03-13T09:44:03Z"
       name: my-vm
      ...

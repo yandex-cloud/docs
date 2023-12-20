@@ -30,7 +30,7 @@
        }
      }
      network_interface {
-       subnet_id = "<идентификатор подсети>"
+       subnet_id = "<идентификатор_подсети>"
        nat = true
      }
      resources {
@@ -65,7 +65,7 @@
        sudo: ALL=(ALL) NOPASSWD:ALL
        shell: /bin/bash
        ssh-authorized-keys:
-         - "<публичный SSH-ключ>"
+         - "<публичный_SSH-ключ>"
    ```
 
    Где `ssh-authorized-keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -103,7 +103,7 @@
      1. В командной строке перейдите в директорию `~/cloud-terraform` с конфигурационными файлами:
 
         ```bash
-        cd /Users/<имя пользователя>/cloud-terraform
+        cd /Users/<имя_пользователя>/cloud-terraform
         ```
 
      1. Выполните проверку с помощью команды:
@@ -163,7 +163,7 @@
 
         Outputs:
 
-        external_ip = <публичный IP-адрес>
+        external_ip = <публичный_IP-адрес>
         ```
 
         В каталоге будут созданы требуемые ресурсы. При создании ВМ назначаются публичный IP-адрес и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
@@ -175,13 +175,13 @@
      1. Выполните команду:
 
         ```bash
-        ssh yc-user@<публичный IP-адрес>
+        ssh yc-user@<публичный_IP-адрес>
         ```
 
         Результат:
 
         ```
-        The authenticity of host '<публичный IP-адрес> (<публичный IP-адрес>)' can't be established.
+        The authenticity of host '<публичный_IP-адрес> (<публичный_IP-адрес>)' can't be established.
         ECDSA key fingerprint is SHA256:JPq....
         Are you sure you want to continue connecting (yes/no/[fingerprint])?
         ```
@@ -195,7 +195,7 @@
         Результат:
 
         ```bash
-        Warning: Permanently added '<публичный IP-адрес>' (ECDSA) to the list of known hosts.
+        Warning: Permanently added '<публичный_IP-адрес>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
          * Documentation:  https://help.ubuntu.com
@@ -207,7 +207,7 @@
   1. Выполните HTTP-запрос к ВМ:
 
      ```html
-     curl <публичный IP-адрес>
+     curl <публичный_IP-адрес>
      ```
 
      Результат:
@@ -237,8 +237,8 @@
    ```
    provider "yandex" {
      token     = "<OAuth-токен>"
-     cloud_id  = "<идентификатор облака>"
-     folder_id = "<идентификатор каталога>"
+     cloud_id  = "<идентификатор_облака>"
+     folder_id = "<идентификатор_каталога>"
      zone      = "{{ region-id }}-a"
    }
    data "yandex_compute_image" "container-optimized-image" {
@@ -246,8 +246,8 @@
    }
    resource "yandex_compute_instance_group" "ig-with-coi" {
      name = "ig-with-coi"
-     folder_id = "<идентификатор каталога>"
-     service_account_id = "<идентификатор сервисного аккаунта>"
+     folder_id = "<идентификатор_каталога>"
+     service_account_id = "<идентификатор_сервисного_аккаунта>"
      instance_template {
        platform_id = "standard-v3"
        resources {
@@ -261,8 +261,8 @@
          }
        }
        network_interface {
-         network_id = "<идентификатор сети>"
-         subnet_ids = ["<идентификаторы подсетей>"]
+         network_id = "<идентификатор_сети>"
+         subnet_ids = ["<идентификаторы_подсетей>"]
          nat = true
        }
        metadata = {
@@ -276,7 +276,7 @@
        }
      }
      allocation_policy {
-       zones = ["<зоны доступности>"]
+       zones = ["<зоны_доступности>"]
      }
      deploy_policy {
        max_unavailable = 2
@@ -322,7 +322,7 @@
      1. В командной строке перейдите в директорию `~/cloud-terraform` с конфигурационными файлами:
 
         ```bash
-        cd /Users/<имя пользователя>/cloud-terraform
+        cd /Users/<имя_пользователя>/cloud-terraform
         ```
 
      1. Выполните проверку с помощью команды:
@@ -380,8 +380,8 @@
         ...
         external_ip = [
           [
-            "<публичный IP-адрес ВМ1>",
-            "<публичный IP-адрес ВМ2>",
+            "<публичный_IP-адрес_ВМ_1>",
+            "<публичный_IP-адрес_ВМ_2>",
           ],
         ]
         ```
@@ -395,13 +395,13 @@
      1. Выполните команду:
 
         ```bash
-        ssh yc-user@<публичный IP-адрес ВМ1>
+        ssh yc-user@<публичный_IP-адрес_ВМ_1>
         ```
 
         Результат:
 
         ```
-        The authenticity of host '<публичный IP-адрес ВМ1> (<публичный IP-адрес ВМ1>)' can't be established.
+        The authenticity of host '<публичный_IP-адрес_ВМ_1> (<публичный_IP-адрес_ВМ_1>)' can't be established.
         ECDSA key fingerprint is SHA256:JPq....
         Are you sure you want to continue connecting (yes/no/[fingerprint])?
         ```
@@ -415,7 +415,7 @@
         Результат:
 
         ```bash
-        Warning: Permanently added '<публичный IP-адрес ВМ1>' (ECDSA) to the list of known hosts.
+        Warning: Permanently added '<публичный_IP-адрес_ВМ_1>' (ECDSA) to the list of known hosts.
         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
          * Documentation:  https://help.ubuntu.com
@@ -427,7 +427,7 @@
   1. Выполните HTTP-запрос к одной из ВМ группы:
 
      ```html
-     curl <публичный IP-адрес ВМ1>
+     curl <публичный_IP-адрес_ВМ_1>
      ```
 
      Результат:

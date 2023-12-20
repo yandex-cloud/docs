@@ -20,7 +20,7 @@ description: "After you delete a MySQL database cluster, its backups are kept fo
 
    1. Open the [folder page]({{ link-console-main }}) in the management console.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI
 

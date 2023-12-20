@@ -1,6 +1,6 @@
 ---
 title: "How to connect {{ dataproc-name }} to {{ metastore-name }}"
-description: "This guide describes how you can connect {{ dataproc-name }} to {{ metastore-name }}."
+description: "Follow this guide to connect {{ dataproc-name }} to {{ metastore-name }}."
 ---
 
 # Connecting {{ dataproc-name }} to {{ metastore-name }}
@@ -25,7 +25,7 @@ To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have
       spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }} cluster IP address>:{{ port-metastore }}
       ```
 
-      To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/data-proc/metastore.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
+      To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
 
    1. If the {{ metastore-name }} cluster and {{ dataproc-name }} cluster are hosted in different cloud networks, set up routing between these cloud networks so that the {{ metastore-name }} subnet is accessible from the {{ dataproc-name }} subnet.
 

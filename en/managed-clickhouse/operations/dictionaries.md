@@ -141,7 +141,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
-   1. Click ![image](../../_assets/options.svg) next to the dictionary you want to delete and select **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dictionary you want to delete and select **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
 - CLI
 
@@ -265,7 +265,7 @@ For more information about dictionary sources and their connection settings, see
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}**: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}**: Hierarchical support flag.
-   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Injective `id` → `attribute` mapping flag.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Injective mapping flag for `id` → `attribute`.
 
 For more information about the column settings, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
 
@@ -364,7 +364,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * `hierarchical`: Hierarchical support flag.
-   * `injective`: Injective `id` → `attribute` mapping flag.
+   * `injective`: Injective mapping flag for `id` → `attribute`.
 
 * `--structure-attribute`: Description of the fields available for database queries:
 
@@ -373,7 +373,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * `hierarchical`: Hierarchical support flag.
-   * `injective`: Injective `id` → `attribute` mapping flag.
+   * `injective`: Injective mapping flag for `id` → `attribute`.
 
 * `--fixed-lifetime`: Fixed interval between dictionary updates in seconds.
 * `--lifetime-range`: Time range for {{ CH }} to randomly select the time for update. This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.

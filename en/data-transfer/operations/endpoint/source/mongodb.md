@@ -3,7 +3,9 @@ title: "How to configure a {{ MG }} source endpoint in {{ data-transfer-full-nam
 description: "In this tutorial, you will learn how to set up a {{ MG }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring a {{ MG }} source endpoint
+# Configuring {{ MG }} source endpoints
+
+{% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -41,7 +43,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -99,7 +101,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl

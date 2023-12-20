@@ -33,7 +33,7 @@ You can add and remove databases, as well as view information about them.
 
    To get a list of databases in a cluster, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
 
-   The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -49,7 +49,7 @@ You can add and remove databases, as well as view information about them.
    1. Click the cluster name.
    1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
    1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
    1. Specify the database settings.
 
       * Name.
@@ -103,7 +103,7 @@ You can add and remove databases, as well as view information about them.
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       {{ mpg-short-name }} runs the create database operation.
 
@@ -165,7 +165,7 @@ You can add and remove databases, as well as view information about them.
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
-   1. Click ![image](../../_assets/options.svg) in the required DB row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, and confirm the deletion.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, and confirm the deletion.
 
 - CLI
 

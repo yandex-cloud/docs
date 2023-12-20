@@ -1,4 +1,4 @@
-# Working with databases during the transfer
+# Working with databases during transfer
 
 When working with data transfers, you must take into account the specific features of databases.
 While the transfer with replication is running ([transfer types](../concepts/index.md#transfer-type) _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_), the data on the source and target may differ, so during this time, errors may occur when reading data from the target database. After [deactivating](./transfer.md#deactivate) the transfer, all data on the source and target will be the same (eventual consistency).
@@ -13,14 +13,14 @@ While the transfer with replication is running ([transfer types](../concepts/ind
 
 {% note tip %}
 
-The {{ PG }} replication protocol doesn't support transmitting schema changes. Avoid changing the data schema in the source and target databases during the transfer. If this can't be avoided, perform explicit checks on the target.
+The {{ PG }} replication protocol does not support transmitting schema changes. Avoid changing the data schema in the source and target databases during the transfer. If this cannot be avoided, perform explicit checks on the target.
 
 {% endnote %}
 
 For _{{ dt-type-copy }}_ and _{{ dt-type-copy-repl }}_ transfers:
 
-* In the {{ dt-status-copy }} status, changes to the data schema on the source and target aren't allowed.
-* In the {{ dt-status-repl }} status, any changes to the data schema on the source should be manually applied to the target, otherwise the transfer won't be able to continue.
+* In the {{ dt-status-copy }} status, changes to the data schema on the source and target are not allowed.
+* In the {{ dt-status-repl }} status, any changes to the data schema on the source should be manually applied to the target, otherwise the transfer will not be able to continue.
 
    For example, suppose we added a new column to the `test_table` table on the source:
 
@@ -28,7 +28,7 @@ For _{{ dt-type-copy }}_ and _{{ dt-type-copy-repl }}_ transfers:
    ALTER TABLE test_table ADD COLUMN val2 TEXT;
    ```
 
-   If writing to this table continues, the transfer won't be able to insert data on the target. For replication to continue, run a similar query to change the data schema on the target:
+   If writing to this table continues, the transfer will not be able to insert data on the target. For replication to continue, run a similar query to change the data schema on the target:
 
    ```sql
    ALTER TABLE test_table ADD COLUMN val2 TEXT;

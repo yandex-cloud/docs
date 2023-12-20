@@ -22,7 +22,7 @@ keywords:
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the cluster name and select the ![image](../../_assets/managed-elasticsearch/logs.svg) **{{ ui-key.yacloud.common.logs }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
    1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. Select the `ELASTICSEARCH` component from the drop-down list next to the date field.
 

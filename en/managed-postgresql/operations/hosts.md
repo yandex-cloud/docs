@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to manage {{ PG }} cluster ho
 
 # Managing {{ PG }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -63,7 +63,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
    To add a host to the cluster:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
 
    
    1. Specify the host parameters:
@@ -200,7 +200,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
    To change the parameters of the cluster host:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
    1. Set new settings for the host:
       1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
@@ -301,7 +301,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
    To remove a host from a cluster:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
 - CLI
 

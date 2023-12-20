@@ -22,13 +22,13 @@ The rule priority depends on the order of lines: rules are read from top to bott
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/mgp-auth-user.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
    1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
-   1. Click ![image](../../_assets/mdb/mgp-auth-user-add-rule.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** and set its parameters:
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** and set its parameters:
 
       {% include [auth-user-rule-settings](../../_includes/mdb/mgp/auth-user-rule-settings.md) %}
 
-   1. To add another rule, click ![image](../../_assets/mdb/mgp-auth-user-add-rule.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** once again.
+   1. To add another rule, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** once again.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
    {% note info %}
@@ -46,7 +46,7 @@ The rule priority depends on the order of lines: rules are read from top to bott
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/mgp-auth-user.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
    1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}** and update the rule parameters:
 
       {% include [auth-user-rule-settings](../../_includes/mdb/mgp/auth-user-rule-settings.md) %}
@@ -62,9 +62,9 @@ The rule priority depends on the order of lines: rules are read from top to bott
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/mgp-auth-user.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
    1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
-   1. Click ![image](../../_assets/mdb/mgp-auth-user-replace-rule.svg) for the required rule and move it up or down.
+   1. Click ![image](../../_assets/console-icons/grip.svg) for the required rule and move it up or down.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -76,9 +76,9 @@ The rule priority depends on the order of lines: rules are read from top to bott
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![image](../../_assets/mdb/mgp-auth-user.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
    1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
-   1. Click ![image](../../_assets/options.svg) for the required rule and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the required rule and select **{{ ui-key.yacloud.common.delete }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

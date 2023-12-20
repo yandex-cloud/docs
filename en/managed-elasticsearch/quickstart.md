@@ -9,15 +9,15 @@ description: "This guide describes how you can get started with {{ mes-name }}."
 
 To get started with the service:
 
-1. [{#T}](#cluster-create)
+1. [{#T}](#cluster-create).
 
 
-1. [{#T}](#configuring-security-groups)
+1. [{#T}](#configuring-security-groups).
 
 
-1. [{#T}](#connect)
+1. [{#T}](#connect).
 
-1. [{#T}](#connect-kibana)
+1. [{#T}](#connect-kibana).
 
 
 ## Getting started {#before-you-begin}
@@ -49,7 +49,7 @@ These instructions assume that you are connecting to the cluster from the intern
 1. Set the cluster parameters.
 
    To access the Kibana web interface, request public access:
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, change the settings of the host with the _Data node_ role by clicking ![image](../_assets/pencil.svg) for the host.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, change the settings of the host with the _Data node_ role by clicking ![image](../_assets/console-icons/pencil.svg) for the host.
    1. Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -96,7 +96,7 @@ To connect to a cluster:
 
 ## Connect to Kibana {#connect-kibana}
 
-1. In the browser, connect to the [Kibana](https://www.elastic.co/kibana/features) web interface.
+1. Use your browser to connect to the [Kibana](https://www.elastic.co/kibana/features) web interface.
 
    To connect:
    1. Install the [SSL certificate]({{ crt-web-path }}) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).

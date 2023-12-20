@@ -32,7 +32,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the DBMS version.
 
       {% note info %}
@@ -58,7 +58,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    1. (Optional) Under **Automatic increase of storage size**, specify the required settings:
 
-      * In the **Increase size** field, set the appropriate conditions to:
+      * In the **Increase size** field, set the conditions to:
 
          * Increase the storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
          * Increase the storage size immediately when the storage is full by more than the specified percentage value (%).
@@ -99,7 +99,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate subnet. To select a specific [subnet](../../vpc/concepts/network.md#subnet) for the host, click ![image](../../_assets/pencil.svg) in the host row.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate subnet. To select a specific [subnet](../../vpc/concepts/network.md#subnet) for the host, click ![image](../../_assets/console-icons/pencil.svg) in the host row.
 
       
       When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the cluster.
@@ -179,7 +179,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       * `deletion-protection`: Cluster deletion protection, `true` or `false`.
 
       
-      You need to specify `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
+      You need to specify the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 

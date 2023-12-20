@@ -69,7 +69,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
-   1. In the required database row, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage-extensions }}**.
+   1. In the required database row, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage-extensions }}**.
    1. Select the extensions you need and click **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
 
 - CLI
@@ -156,7 +156,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[earthdistance]({{ pg-docs }}/static/earthdistance.html)</p><p>Provides a module for calculating distances between two points on the surface of the Earth. There are two ways to calculate them:
 * Via the `cube` data type (requires enabling the `cube` extension).
 * Via the built-in `point` data type.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[fuzzystrmatch]({{ pg-docs }}/fuzzystrmatch.html)</p><p>Provides functions to determine similarities and distance between strings.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[fuzzystrmatch]({{ pg-docs }}/fuzzystrmatch.html)</p><p>Provides functions to determine similarities and distance between strings.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.2 ||
 || <p>[hstore]({{ pg-docs }}/static/hstore.html)</p><p>Implements the `hstore` data type for storing sets of <q>key:value</q> pairs within a single table field and using them in an efficient way.</p> | 1.5 | 1.6 | 1.7 | 1.8 | 1.8 | 1.8 ||
 || <p>[hypopg](https://hypopg.readthedocs.io/en/rel1_stable/)</p><p>Adds support for virtual, or hypothetical, indexes. They are useful to discover if {{ PG }} will use real indexes to handle [problematic queries](../../tutorials/profiling.md#solving-inefficient-queries) without having to spend resources to create them.</p> | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 | 1.4.0 ||
 || <p>[intarray]({{ pg-docs }}/static/intarray.html)</p><p>Provides functions and operators for manipulating arrays of integers that do not contain any `NULL` elements.</p> | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 | 1.5 ||

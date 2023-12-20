@@ -21,12 +21,12 @@ To generate text in [prompt mode](../concepts/index.md#working-mode), send a req
      "completionOptions": {
        "stream": false,
        "temperature": 0.1,
-       "maxTokens": "5000"
+       "maxTokens": "1000"
      },
      "messages": [
        {
          "role": "system",
-         "text": "Translate the text to Russian"
+         "text": "Translate the text"
        },
        {
          "role": "user",

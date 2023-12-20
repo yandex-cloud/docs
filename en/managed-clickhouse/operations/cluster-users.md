@@ -85,13 +85,13 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
    1. Select one or more databases that the user should have access to:
-      1. Click ![image](../../_assets/plus-sign.svg) and select a database from the drop-down list.
+      1. Click ![image](../../_assets/console-icons/plus.svg) and select a database from the drop-down list.
       1. Repeat the previous step until all the required databases are selected.
-      1. To delete a database added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name.
+      1. To delete a database added by mistake, click ![image](../../_assets/console-icons/xmark.svg) to the right of the database name.
    1. Configure [additional settings](../concepts/settings-list.md) for the user:
       1. Set [quotas](../concepts/settings-list.md#quota-settings) in **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Quotas**:
-         1. To add a quota, click ![image](../../_assets/plus.svg) or the **+ Quotas** button. You can add multiple quotas that will be valid at the same time.
-         1. To delete a quota, click ![image](../../_assets/options.svg) to the right of the quota name and select **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
+         1. To add a quota, click ![image](../../_assets/console-icons/plus.svg). You can add multiple quotas that will be valid at the same time.
+         1. To delete a quota, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the quota name and select **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
          1. To change a quota, set the required values of its settings.
       1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
@@ -204,7 +204,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
    1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -293,7 +293,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    ```bash
    {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-    --admin-password <new_password_of_admin_user>
+    --admin-password <new_admin_password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -318,7 +318,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
-        admin_password = "<admin_user_password>"
+        admin_password = "<admin_password>"
         ...
       }
       ```
@@ -360,15 +360,15 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Set up user permissions to access certain databases:
       1. To grant access to the required databases:
-         1. Click ![image](../../_assets/plus-sign.svg) and select a database from the drop-down list.
+         1. Click ![image](../../_assets/console-icons/plus.svg) and select a database from the drop-down list.
          1. Repeat the previous step until all the required databases are selected.
-      1. To delete a database, click ![image](../../_assets/cross.svg) to the right of the database name.
+      1. To delete a database, click ![image](../../_assets/console-icons/xmark.svg) to the right of the database name.
    1. Set [quotas](../concepts/settings-list.md#quota-settings) for the user in **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Quotas**:
-      1. To add a quota, click **+ Quotas**. You can add multiple quotas that will be valid at the same time.
-      1. To delete a quota, click ![image](../../_assets/options.svg) to the right of the quota name and select **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
+      1. To add a quota, click ![image](../../_assets/console-icons/plus.svg). You can add multiple quotas that will be valid at the same time.
+      1. To delete a quota, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the quota name and select **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
       1. To change a quota, set the required values of its settings.
    1. Edit the user [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) under **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
@@ -415,7 +415,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
       To delete one or more user quotas, exclude their settings from the list and send the updated list of `--quota` parameters to the command.
 
-      When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1.000 milliseconds (e.g., `1s500ms` is incorrect).
+      When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1,000 milliseconds (e.g., `1s500ms` is incorrect).
 
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below listing the changed setting using the `--settings` option:
 
@@ -549,7 +549,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
-   1. Click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
 
 - CLI
 
@@ -622,7 +622,7 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
    1. Click the `mych` cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
    1. Enter `ro-user` as the DB username and `Passw0rd` as the password.
-   1. Click ![image](../../_assets/plus-sign.svg) and select the `db1` database from the drop-down list.
+   1. Click ![image](../../_assets/console-icons/plus.svg) and select the `db1` database from the drop-down list.
    1. Select **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings → Readonly**.
    1. Set the **Readonly** field value to `1`.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.

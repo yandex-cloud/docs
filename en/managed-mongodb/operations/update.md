@@ -21,7 +21,7 @@ After creating a cluster, you can:
 - [{#T}](#change-sg-set).
 
 
-To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different availability zone, see this [guide](host-migration.md). You will thus move the cluster hosts.
 
 ## Changing the host class {#change-resource-preset}
 
@@ -344,8 +344,8 @@ You can change the DBMS settings of the hosts in your cluster.
         --backup-retain-period-days=<retention_period> \
         --backup-window-start <backup_start_time> \
         --maintenance-window type=<maintenance_type>,`
-                           `day=<day_of_week>,`
-                           `hour=<hour> \
+                             `day=<day_of_week>,`
+                             `hour=<hour> \
         --performance-diagnostics=<enable_diagnostics> \
         --deletion-protection=<deletion_protection>
       ```
@@ -468,7 +468,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the cluster you want to move.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
    1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
    1. Select a folder you want to move the cluster to.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.

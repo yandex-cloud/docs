@@ -75,8 +75,8 @@
         Результат:
 
         ```text
-        id: ajelabcde12f33nol1v5
-        folder_id: b0g12ga82bcv0cdeferg
+        id: ajelabcde12f********
+        folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T14:32:18.900092Z"
         name: myservice-acc
         ```
@@ -84,7 +84,7 @@
      1. Назначьте роль сервисному аккаунту:
 
         ```bash
-        yc <имя_сервиса> <ресурс> add-access-binding <имя_ресурса>|<идентификатор_ресурса> \
+        yc <имя_сервиса> <ресурс> add-access-binding <имя_или_идентификатор_ресурса> \
           --role <идентификатор_роли> \
           --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
@@ -92,10 +92,9 @@
         Где:
         * `<имя_сервиса>` — имя сервиса `container`.
         * `<ресурс>` — категория ресурса `registry`.
-        * `<имя_ресурса>` — имя ресурса, на который назначается роль. Вы можете указать ресурс по имени или идентификатору.
-        * `<идентификатор_ресурса>` — идентификатор реестра `crpc9qeoft236r8tfalm`, на который назначается роль.
-        * `<идентификатор_роли>` — идентификатор роли `container-registry.images.puller`.
-        * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта (например: `ajelabcde12f33nol1v5`), которому назначается роль.
+        * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначается роль.
+        * `--role` — идентификатор роли `container-registry.images.puller`.
+        * `--subject` — идентификатор сервисного аккаунта (например: `ajelabcde12f********`), которому назначается роль.
 
    - {{ TF }}
 
@@ -186,9 +185,9 @@
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
         |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-        | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
-        | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
-        | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
+        | b0c6n43f9lgh******** | default-{{ region-id }}-c     | enpe3m3fa00u******** |                | {{ region-id }}-c     | [10.130.0.0/24] |
+        | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.129.0.0/24] |
+        | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.128.0.0/24] |
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
         ```
 
@@ -205,16 +204,16 @@
         ```
 
         Где:
-        * `name` — имя ВМ.
+        * `--name` — имя ВМ.
 
           {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-        * `zone` — зона доступности, которая соответствует выбранной подсети.
+        * `--zone` — зона доступности, которая соответствует выбранной подсети.
         * `subnet-name` — имя выбранной подсети.
         * `image-family` — [семейство образов](../../compute/concepts/image.md#family), например `centos-7`. Эта опция позволит установить последнюю версию операционной системы из указанного семейства.
         * Публичный IP. Чтобы создать ВМ без публичного IP, исключите опцию `nat-ip-version=ipv4`.
-        * `ssh-key` — путь до публичного SSH-ключа. Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
-        * `service-account-name` — имя сервисного аккаунта, созданного на предыдущем шаге.
+        * `--ssh-key` — путь до публичного SSH-ключа. Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+        * `--service-account-name` — имя сервисного аккаунта, созданного на предыдущем шаге.
 
         В результате будет создана ВМ `first-instance`.
 
@@ -249,7 +248,7 @@
 
         ```bash
         export IAM_TOKEN=CggaATEVAgA...
-        export FOLDER_ID=b1gvmob95yysaplct532
+        export FOLDER_ID=b1gvmob95yys********
         curl -H "Authorization: Bearer ${IAM_TOKEN}" \
           "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
         {
@@ -258,12 +257,12 @@
               "v4CidrBlocks": [
                 "10.130.0.0/24"
               ],
-            "id": "b0c6n43ftldh30l0vfg2",
-            "folderId": "b1gvmob95yysaplct532",
+            "id": "b0c6n43ftldh********",
+            "folderId": "b1gvmob95yys********",
             "createdAt": "2018-09-23T12:15:00Z",
             "name": "default-{{ region-id }}-a",
             "description": "Auto-created default subnet for zone {{ region-id }}-a",
-            "networkId": "enpe3m3fagludao8aslg",
+            "networkId": "enpe3m3faglu********",
             "zoneId": "{{ region-id }}-a"
           },
           ...
@@ -274,7 +273,7 @@
 
         ```json
         {
-          "folderId": "b1gvmob95yysaplct532",
+          "folderId": "b1gvmob95yys********",
           "name": "instance-demo-no-pwauth",
           "zoneId": "{{ region-id }}-a",
           "platformId": "standard-v3",
@@ -288,12 +287,12 @@
           "bootDiskSpec": {
             "diskSpec": {
               "size": "2621440000",
-              "imageId": "fd8rc75pn12fe3u2dnmb"
+              "imageId": "fd8rc75pn12f********"
             }
           },
           "networkInterfaceSpecs": [
             {
-              "subnetId": "b0c6n43ftldh30l0vfg2",
+              "subnetId": "b0c6n43ftldh********",
               "primaryV4AddressSpec": {
                 "oneToOneNatSpec": {
                   "ipVersion": "IPV4"
@@ -301,7 +300,7 @@
               }
             }
           ],
-          "serviceAccountId": "ajelabcde12f33nol1v5"
+          "serviceAccountId": "ajelabcde12f********"
         }
         ```
 
@@ -350,7 +349,7 @@
      export PUBLIC_IP=<имя_пользователя>@<публичный_IP-адрес_ВМ>
      ```
 
-   * Идентификатор реестра, созданного ранее, в формате `crpc9qeoft236r8tfalm` — в переменную `${REGISTRY_ID}`:
+   * Идентификатор реестра, созданного ранее, в формате `crpc9qeoft23********` — в переменную `${REGISTRY_ID}`:
 
      ```bash
      export REGISTRY_ID=<идентификатор_реестра>
@@ -367,7 +366,7 @@
      1. Выполните команду:
 
         ```bash
-        echo <oauth-токен> | docker login --username oauth --password-stdin {{ registry }}
+        echo <OAuth-токен> | docker login --username oauth --password-stdin {{ registry }}
         ```
 
         Результат:
@@ -464,7 +463,7 @@
    ```text
    ...
    Successfully built b68ee9b6b1af
-   Successfully tagged {{ registry }}/crpmnjr98tm54bejc46m/ubuntu:hello
+   Successfully tagged {{ registry }}/crpmnjr98tm5********/ubuntu:hello
    ```
 
 1. Загрузите собранный Docker-образ в {{ container-registry-name }}:
@@ -476,11 +475,11 @@
    Результат:
 
    ```text
-   The push refers to repository [{{ registry }}/crpc9qeoft236r8tfalm/ubuntu]
+   The push refers to repository [{{ registry }}/crpc9qeoft23********/ubuntu]
    cc9d18e90faa: Pushed
    0c2689e3f920: Pushed
    47dde53750b4: Pushed
-   hello: digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf size: 943
+   hello: digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928******** size: 943
    ```
 
 ## Загрузите Docker-образ на ВМ {#run}
@@ -511,13 +510,13 @@
    Результат:
 
    ```text
-   hello: Pulling from crpc9qeoft236r8tfalm/ubuntu
+   hello: Pulling from crpc9qeoft23********/ubuntu
    6a5697faee43: Pulling fs layer
    ba13d3bc422b: Pulling fs layer
    ...
-   Digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf
-   Status: Downloaded newer image for {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
-   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   Digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928********
+   Status: Downloaded newer image for {{ registry }}/crpc9qeoft23********/ubuntu:hello
+   {{ registry }}/crpc9qeoft23********/ubuntu:hello
    ```
 
 ## Проверьте результат {#check-result}

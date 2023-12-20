@@ -21,7 +21,9 @@ items:
         href: operations/instance/instance-backups.md
       - name: Deleting an instance
         href: operations/instance/instance-delete.md
-      - name: Setting up code review rules
+      - name: Adding and removing users from a project
+        href: operations/create-user.md
+      - name: Setting up approval rules
         href: operations/approval-rules.md
       - name: Setting up OmniAuth
         href: operations/omniauth.md
@@ -49,9 +51,9 @@ items:
         href: tutorials/tracker-integration.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
-      - name: Code review rules
+      - name: Approval rules
         href: concepts/approval-rules.md
       - name: Backups
         href: concepts/backup.md

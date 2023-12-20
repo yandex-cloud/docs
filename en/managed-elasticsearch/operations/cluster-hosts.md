@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-You can get a list of {{ ES }} cluster hosts and add or delete them. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can get a list of {{ ES }} cluster hosts and add or delete them. To move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 {% note info %}
 
@@ -140,7 +140,7 @@ You cannot enable public access to a host once it is created.
    To add hosts to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter.
 
-    {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
+     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
    * New host settings in one or more `hostSpecs` parameters.
 
@@ -167,7 +167,7 @@ The following restrictions apply when deleting hosts:
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click ![image](../../_assets/options.svg) in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

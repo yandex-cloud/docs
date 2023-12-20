@@ -9,11 +9,11 @@ description: "In this tutorial, you will learn about installing and starting up 
 
 {{ unified-agent-short-name }} is supported by the following operating systems:
 
-- Ubuntu 14.04 or higher.
-- Debian 9 or higher.
-- CentOS 7 or higher.
-- Fedora 32 or higher.
-- Fedora CoreOS.
+- Ubuntu 14.04 or higher
+- Debian 9 or higher
+- CentOS 7 or higher
+- Fedora 32 or higher
+- Fedora CoreOS
 
 ## Before you begin installation {#before-you-begin}
 

@@ -302,7 +302,7 @@ You can:
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
-   1. In the line with the required connector, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
+   1. In the line with the required connector, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
    1. Edit the connector properties as needed.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -453,7 +453,7 @@ To pause a connector:
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
 - CLI
 
@@ -486,7 +486,7 @@ To pause a connector:
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
 - CLI
 
@@ -543,7 +543,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the connector and select **{{ ui-key.yacloud.common.delete }}**.
    1. Click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
@@ -705,8 +705,8 @@ Using import, you can bring the existing connectors under {{ TF }} management.
          * **sasl_password**: User password for connecting the connector to the cluster.
          * **sasl_mechanism**: Name and password encryption mechanism.
          * **security_protocol**: Connector connection protocol:
-            * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections.
-            * `SSL`, `SASL_SSL`: For SSL connections.
+            * `plaintext`, `sasl_plaintext`: For non-SSL connections.
+            * `ssl`, `sasl_ssl`: For SSL connections.
          * **ssl_truststore_certificates**: PEM certificate contents.
 
 {% endlist %}

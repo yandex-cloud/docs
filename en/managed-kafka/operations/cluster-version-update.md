@@ -26,7 +26,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -88,7 +88,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
    To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. You can get it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ KF }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

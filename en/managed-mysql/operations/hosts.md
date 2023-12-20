@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to manage {{ MY }} cluster ho
 
 # Managing {{ MY }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings. To learn how to move your cluster hosts to a different availability zone, read this [guide](host-migration.md).
+You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, read this [guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -155,8 +155,8 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       Where:
 
-      * `assign_public_ip`: Public access to the host: `true` or `false`.
-      * `priority`: Priority of assigning the host as master: between `0` and `100`.
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
+      * `priority`: Priority of assigning the host as master, between `0` and `100`.
 
    1. Make sure the settings are correct.
 
@@ -208,7 +208,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
    To change the parameters of the cluster host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
    1. Set new settings for the host:
       1. Select a replication source for the host to control replication threads manually.
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
@@ -263,8 +263,8 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
       Where:
 
-      * `assign_public_ip`: Public access to the host: `true` or `false`.
-      * `priority`: Priority of assigning the host as master: between `0` and `100`.
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
+      * `priority`: Priority of assigning the host as master, between `0` and `100`.
 
    1. Make sure the settings are correct.
 
@@ -313,7 +313,7 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

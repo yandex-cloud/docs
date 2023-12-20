@@ -1,13 +1,13 @@
 # Exporting {{ GP }} data to a cold storage
 
-{{ mgp-full-name }} data is stored on cluster disks. Using a [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) from {{ yandex-cloud }}, you can move this data to a cold storage in {{ objstorage-full-name }}. This way, it will be stored in a service bucket in a compressed and encrypted form. It is convenient if you need to store your data for a long time while rarely using it. This will make data storage [less costly](../../storage/pricing.md).
+{{ mgp-full-name }} data is stored on cluster disks. Using the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/), you can move this data to a cold storage in {{ objstorage-full-name }}. This way, it will be stored in a service bucket in a compressed and encrypted form. It is convenient if you need to store your data for a long time while rarely using it. This will make data storage [less costly](../../storage/pricing.md).
 
 {{ YZ }} supports append-optimized (AO) and append-optimized column-oriented (AOCO) tables. For more information about the tables, see [{#T}](../../managed-greenplum/concepts/tables.md) and the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-storage.html).
 
 
 {% note info %}
 
-This functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
+The functionality is supported for clusters with {{ GP }} version 6.25 or higher. This functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
 
 {% endnote %}
 
@@ -99,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       SELECT * FROM yezzey_offload_relation_status_per_filesegment('ao_table');
       ```
 
-   If there are non-zero values in each `external_bytes` column in command output, the table is transferred to the cold storage in {{ objstorage-name }}.
+   If there are non-zero values in each `external_bytes` column in the command output, the table is transferred to the cold storage in {{ objstorage-name }}.
 
 1. Check out which of the table segment files are now in {{ objstorage-name }}:
 

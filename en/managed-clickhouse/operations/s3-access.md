@@ -1,6 +1,6 @@
 ---
 title: "How to set up access to {{ objstorage-full-name }} from a {{ CH }} cluster in {{ mch-full-name }}"
-description: "Follow this guide to set up access to {{ objstorage-full-name }} from your {{ CH }} cluster."
+description: "Follow this guide to set up access to {{ objstorage-full-name }} from a {{ CH }} cluster."
 ---
 
 # Configuring access to {{ objstorage-name }} from a {{ CH }} cluster
@@ -41,7 +41,7 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
    1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md) or [object ACL](../../storage/operations/objects/edit-acl.md):
 
-      1. In the list of buckets or objects, select the required item and click ![image](../../_assets/options.svg).
+      1. In the list of buckets or objects, select the required item and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.storage.buckets.button_permissions }}** or **{{ ui-key.yacloud.storage.file.button_permissions }}**.
       1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
       1. Click **{{ ui-key.yacloud.common.add }}**.
