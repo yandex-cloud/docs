@@ -1,4 +1,4 @@
-# Integrating L7 load balancer with {{ cdn-short-name }} and {{ objstorage-short-name }}
+# Integrating an L7 load balancer with {{ cdn-short-name }} and {{ objstorage-short-name }}
 
 In this tutorial a {{ objstorage-full-name }} bucket is used as the {{ alb-full-name }} L7 load balancer backend. User requests are transmitted to the load balancer via the {{ cdn-full-name }} content delivery network (CDN) that reduces the time of content delivery.
 
@@ -9,6 +9,7 @@ To perform steps, you can use various [supported tools](#supported-tools).
 To build architecture for integrating an L7 load balancer with CDN and Object Storage:
 
 1. [Prepare your cloud](#before-you-begin).
+1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate)
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a bucket in {{ objstorage-name }}](#create-buckets).
 1. [Upload the file of your service to the bucket](#upload-files).
@@ -49,6 +50,12 @@ The infrastructure support costs include:
 * Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 * Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
+## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
+
+Issue a Let's Encrypt® certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }} or [upload](../../certificate-manager/operations/import/cert-create.md) your own certificate.
+
+For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -65,7 +72,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
    1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select `{{ ui-key.yacloud.vpc.networks.create.field_is-default }}`.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -429,7 +436,7 @@ To create security groups:
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    Run the following command:
 
@@ -610,7 +617,7 @@ To create security groups:
 
    1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. Create the `example-router` HTTP Router:
 
@@ -760,7 +767,7 @@ To create security groups:
    1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `example-router`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. Get the IDs of subnets for `example-network`:
 
@@ -970,11 +977,11 @@ To create security groups:
       1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
       1. Set the main parameters of the CDN resource:
 
-         * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`
-         * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`
-         * **{{ ui-key.yacloud.cdn.label_balancer }}**: `example-balancer`
-         * **{{ ui-key.yacloud.cdn.label_ip-address }}**: IP address assigned to the load balancer (the only one in the list)
-         * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`
+         * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+         * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+         * **{{ ui-key.yacloud.cdn.label_balancer }}**: `example-balancer`.
+         * **{{ ui-key.yacloud.cdn.label_ip-address }}**: IP address assigned to the load balancer (the only one in the list).
+         * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`.
 
             {% note alert %}
 
@@ -987,12 +994,10 @@ To create security groups:
             * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
             * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
             * Select **{{ ui-key.yacloud.cdn.field_access }}**.
-            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `Let's Encrypt®` to automatically issue a certificate for the `cdn.yandexcloud.example` domain name after creating the CDN resource.
+            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.yandexcloud.example` domain name.
             * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
-
-      Wait until the Let's Encrypt® certificate is issued for the domain name. This may take up to 30 minutes.
 
    1. Enable a client redirect from HTTP to HTTPS:
 
@@ -1002,7 +1007,7 @@ To create security groups:
       1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. If the CDN provider is not activated yet, run the command:
 
@@ -1041,7 +1046,7 @@ To create security groups:
         --cname cdn.yandexcloud.example \
         --origin-group-id <origin_group_ID> \
         --origin-protocol http \
-        --lets-encrypt-gcore-ssl-cert \
+        --cert-manager-ssl-cert-id <certificate_ID> \
         --forward-host-header
       ```
 
@@ -1088,7 +1093,8 @@ To create security groups:
           origin_protocol     = "http"
           origin_group_id     = yandex_cdn_origin_group.my_group.id
           ssl_certificate {
-            type = "lets_encrypt_gcore"
+            type                   = "certificate_manager"
+            certificate_manager_id = "<certificate_ID>"
           }
           options {
               edge_cache_settings    = "345600"
@@ -1210,7 +1216,7 @@ To configure DNS:
          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `cl-....edgecdn.ru` format.
          1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
       1. If you do not have a public DNS zone, create one:
 

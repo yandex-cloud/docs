@@ -2,16 +2,6 @@
 
 [NodeLocal DNS](/marketplace/products/yc/node-local-dns) снижает нагрузку по [DNS-запросам](../../../glossary/dns.md) за счет запуска кеша на каждом [узле](../../concepts/index.md#node-group) в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). Это позволяет повысить производительность и отказоустойчивость кластера {{ managed-k8s-name }}.
 
-## Перед началом работы {#before-you-begin}
-
-1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-1. Получите [внутренний IP-адрес](../../../vpc/concepts/address.md#internal-addresses) службы `kube-dns`:
-
-   ```bash
-   kubectl get svc kube-dns -n kube-system -o jsonpath="{.spec.clusterIP}"
-   ```
-
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -20,7 +10,6 @@
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) `kube-system`.
    * **Название приложения** — укажите название, под которым приложение будет развернуто в кластере {{ managed-k8s-name }}.
-   * **Адрес ClusterIp сервиса kube-dns** — укажите IP-адрес, полученный [перед началом работы](#before-you-begin).
    * **Работа с Cilium** — выберите эту опцию, если кластер использует [контроллер сетевых политик Cilium](../../concepts/network-policy.md#cilium).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.

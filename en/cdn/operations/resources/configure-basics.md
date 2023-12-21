@@ -174,12 +174,12 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
 - CLI
 
-   Change the protocol for origins from HTTP to HTTPS and select a Let's Encrypt® certificate:
+   Change the protocol for origins from HTTP to HTTPS and select a Let's Encrypt® certificate [added](../../../certificate-manager/operations/managed/cert-create.md) to {{ certificate-manager-name }} or an [uploaded](../../../certificate-manager/operations/import/cert-create.md) certificate of your own:
 
    ```bash
    yc cdn resource update someidkfjqjfl325fw \
      --origin-protocol HTTPS \
-     --lets-encrypt-gcore-ssl-cert
+     --cert-manager-ssl-cert-id <certificate_ID>
    ```
 
    Result:
@@ -198,7 +198,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
    origin_group_name: My origins group
    origin_protocol: HTTPS
    ssl_certificate:
-   type: LETS_ENCRYPT_GCORE
+   type: CM
    status: CREATING
    ```
 

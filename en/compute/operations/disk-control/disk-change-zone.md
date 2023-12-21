@@ -70,8 +70,10 @@ To attach the disk to a VM from a different availability zone, move it:
 
       Where:
 
-      * `--id`: ID of the disk you need to move.
+      * `--id`: ID of the disk to be moved.
       * `--destination-zone-id`: ID of the availability zone to move the disk to, e.g., `{{ region-id }}-a`.
+
+      If you are moving a [disk in a placement group](../../concepts/disk-placement-group.md), provide the group ID in the `--disk-placement-group-id` parameter.
 
 {% endlist %}
 

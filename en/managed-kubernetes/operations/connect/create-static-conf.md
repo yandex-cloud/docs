@@ -5,6 +5,7 @@ Static configuration files allow you to access a [{{ managed-k8s-name }} cluster
 You can also use a static configuration file to configure access to multiple {{ managed-k8s-name }} clusters. You can quickly switch between {{ managed-k8s-name }} clusters described in configuration files using the `kubectl config use-context` command. For more information about how to configure access to multiple {{ managed-k8s-name }} clusters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
 To create a configuration file:
+* [Get a unique cluster ID](#k8s-id).
 * [Prepare a {{ managed-k8s-name }} cluster certificate](#prepare-cert).
 * [Create a ServiceAccount object](#create-sa).
 * [Prepare a ServiceAccount token](#prepare-token).
@@ -12,6 +13,13 @@ To create a configuration file:
 * [Check the result](#check-result).
 
 To run bash commands, you will need a JSON parser: [jq](https://stedolan.github.io/jq/download/).
+
+## Getting started {#before-you-begin}
+
+1. [Create a service account](../../../iam/operations/sa/create.md).
+1. [Create a {{ managed-k8s-name }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with any suitable configuration.
+1. [Create a node group](../node-group/node-group-create.md) of any suitable configuration.
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the created cluster](index.md#kubectl-connect). Add the credentials to the `test.kubeconfig` file using the `--kubeconfig=test.kubeconfig` flag.
 
 ## Get a unique cluster ID {#k8s-id}
 
@@ -108,7 +116,7 @@ Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {
 
    {% list tabs %}
 
-   - {{ managed-k8s-name }} cluster version: 1.24 and higher
+   - {{ k8s }} version: 1.24 or higher
 
       ```yaml
       apiVersion: v1
@@ -140,7 +148,7 @@ Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {
           kubernetes.io/service-account.name: "admin-user"
       ```
 
-   - {{ managed-k8s-name }} cluster version: 1.23 and lower
+   - {{ k8s }} version: 1.23 or lower
 
       ```yaml
       apiVersion: v1
@@ -276,6 +284,8 @@ Get the {{ managed-k8s-name }} cluster [IP](../../../vpc/concepts/address.md) an
      ```
 
    - PowerShell
+
+     Run this command:
 
      ```bash
      kubectl config set-cluster sa-test2 `

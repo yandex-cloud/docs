@@ -36,6 +36,8 @@ Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ man
 
 {% endnote %}
 
+To change your node group's [availability zone](../../../overview/concepts/geo-scope.md), [migrate the group](../../tutorials/migration-to-an-availability-zone.md) to a different zone.
+
 {% list tabs %}
 
 - Management console
@@ -312,7 +314,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
        cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
        ...
        labels = {
-         "<label>" = "<value>"
+         "<cloud_label>" = "<value>"
          ...
        }
        ...

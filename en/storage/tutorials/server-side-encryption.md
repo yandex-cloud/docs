@@ -1,6 +1,6 @@
 # Server-side encryption
 
-In this scenario, you'll enable bucket encryption. As a symmetric encryption key, you'll use a [{{ kms-full-name }} key](../../kms/concepts/key.md) . This key will encrypt all new bucket objects with [envelope encryption](../../kms/concepts/envelope.md).
+In this scenario, you will enable bucket encryption. As a symmetric encryption key, you will use a [{{ kms-full-name }} key](../../kms/concepts/key.md). This key will encrypt all new bucket objects with [envelope encryption](../../kms/concepts/envelope.md).
 
 
 {% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
@@ -26,7 +26,7 @@ The cost of maintaining a bucket with encryption includes:
 
 * Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../pricing.md#prices-storage)).
 * Fee for data operations (see [{{ objstorage-name }} pricing](../pricing.md#prices-operations)).
-* A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
+* Fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 
 ## Create a bucket {#create-bucket}
@@ -63,14 +63,14 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         folder_id   = "<folder ID>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
-      
+
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
-      
+
         bucket_name = "Bucket name" # The name of the bucket being created. If you do not specify a bucket name for the `yandex_storage_bucket` resource, the name will be generated automatically.
       }
-      
+
       terraform {
         required_providers {
           yandex = {
@@ -78,30 +78,30 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         }
         }
       }
-      
+
       provider "yandex" {
         token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
       }
-      
+
       resource "yandex_iam_service_account" "buckets-account" {
         name        = local.sa_name
         description = local.sa_desc
       }
-      
+
       resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
         member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
-      
+
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
         service_account_id = "${yandex_iam_service_account.buckets-account.id}"
         description        = local.sa_key_desc
       }
-      
+
       resource "yandex_storage_bucket" "test" {
         bucket     = local.bucket_name
         access_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.access_key}"
@@ -123,7 +123,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    3. Deploy cloud resources.
 
@@ -137,8 +137,8 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * The `new-buckets-account` service account
-         * The `editor` role for `new-buckets-account`
+         * `new-buckets-account` service account
+         * `editor` role for `new-buckets-account`
          * Static key for the service account
          * Bucket
 
@@ -182,7 +182,7 @@ Create a new key or use an existing one. To create a key:
 
    The key is created along with its first version: click the key in the list to open the page with its attributes.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    Run the following command:
 
@@ -212,17 +212,17 @@ Create a new key or use an existing one. To create a key:
         folder_id   = "<folder ID>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
-      
+
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
-      
+
         key_name    = "key-1" # KMS key name.
         key_desc    = "Bucket encryption key"
-      
+
         bucket_name = "Bucket name"
       }
-      
+
       terraform {
         required_providers {
           yandex = {
@@ -230,37 +230,37 @@ Create a new key or use an existing one. To create a key:
         }
         }
         }
-      
+
       provider "yandex" {
         token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
       }
-      
+
       resource "yandex_iam_service_account" "buckets-account" {
         name        = local.sa_name
         description = local.sa_desc
       }
-      
+
       resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
         member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
-      
+
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
         service_account_id = "${yandex_iam_service_account.buckets-account.id}"
         description        = local.sa_key_desc
       }
-      
+
       resource "yandex_kms_symmetric_key" "key-a" {
         name              = local.key_name
         description       = local.key_desc
         default_algorithm = "AES_256"
         rotation_period   = "168h"
       }
-      
+
       resource "yandex_storage_bucket" "test" {
         bucket     = local.bucket_name
         access_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.access_key}"
@@ -280,7 +280,7 @@ Create a new key or use an existing one. To create a key:
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -295,7 +295,7 @@ Create a new key or use an existing one. To create a key:
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
          * `new-buckets-account` service account
-         * `Editor` role for `new-buckets-account`
+         * `editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `key-1`
          * Bucket
@@ -334,17 +334,17 @@ To enable bucket encryption with a {{ kms-short-name }} key:
         folder_id   = "<folder ID>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
-      
+
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
-      
+
         key_name    = "key-1" # KMS key name.
         key_desc    = "Bucket encryption key"
-      
+
         bucket_name = "Bucket name" # Bucket name.
       }
-      
+
       terraform {
         required_providers {
           yandex = {
@@ -352,37 +352,37 @@ To enable bucket encryption with a {{ kms-short-name }} key:
           }
         }
       }
-      
+
       provider "yandex" {
         token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
       }
-      
+
       resource "yandex_iam_service_account" "buckets-account" {
         name        = local.sa_name
         description = local.sa_desc
       }
-      
+
       resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
         member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
-      
+
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
         service_account_id = "${yandex_iam_service_account.buckets-account.id}"
         description        = local.sa_key_desc
       }
-      
+
       resource "yandex_kms_symmetric_key" "key-a" {
         name              = local.key_name
         description       = local.key_desc
         default_algorithm = "AES_256"
         rotation_period   = "168h"
       }
-      
+
       resource "yandex_storage_bucket" "test" {
         bucket     = local.bucket_name
         access_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.access_key}"
@@ -410,7 +410,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -425,7 +425,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
          * `new-buckets-account` service account
-         * `Editor` role for `new-buckets-account`
+         * `editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `key-1`
          * Bucket with encryption
@@ -491,17 +491,17 @@ After you disable bucket encryption, previously uploaded objects will be stored 
         folder_id   = "<folder ID>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
-      
+
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
-      
+
         key_name    = "key-1"
         key_desc    = "Bucket encryption key"
-      
+
         bucket_name = "Bucket name"
       }
-      
+
       terraform {
         required_providers {
           yandex = {
@@ -509,37 +509,37 @@ After you disable bucket encryption, previously uploaded objects will be stored 
           }
         }
       }
-      
+
       provider "yandex" {
         token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
       }
-      
+
       resource "yandex_iam_service_account" "buckets-account" {
         name        = local.sa_name
         description = local.sa_desc
       }
-      
+
       resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
         member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
-      
+
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
         service_account_id = "${yandex_iam_service_account.buckets-account.id}"
         description        = local.sa_key_desc
       }
-      
+
       resource "yandex_kms_symmetric_key" "key-a" {
         name              = local.key_name
         description       = local.key_desc
         default_algorithm = "AES_256"
         rotation_period   = "168h"
       }
-      
+
       resource "yandex_storage_bucket" "test" {
         bucket     = local.bucket_name
         access_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.access_key}"
@@ -568,7 +568,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -583,7 +583,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
          After the command is executed, {{ TF }} updates the following resources in the specified folder:
 
          * `new-buckets-account` service account
-         * `Editor` role for `new-buckets-account`
+         * `editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `key-1`
          * Bucket

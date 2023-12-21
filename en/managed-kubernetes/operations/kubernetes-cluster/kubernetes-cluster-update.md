@@ -36,6 +36,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
   {% endnote %}
 
+
 {% list tabs %}
 
 - Management console

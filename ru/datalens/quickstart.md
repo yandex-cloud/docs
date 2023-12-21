@@ -65,7 +65,7 @@
 
 1. Сохраните чарт:
 
-   1. В правом верхнем углу нажмите значок ![save-button](../_assets/datalens/save-button.svg) → **Сохранить как копию**.
+   1. В правом верхнем углу нажмите значок ![save-button](../_assets/console-icons/chevron-down.svg) → **Сохранить как копию**.
    1. В открывшемся окне введите название нового чарта **Продажи по неделям** и нажмите кнопку **Сохранить**.
 
    ![create-chart-2](../_assets/datalens/quickstart/05-create-area-chart.png)
@@ -84,7 +84,7 @@
     * `OrderCount`
 1. Сохраните чарт:
 
-    1. В правом верхнем углу нажмите значок ![save-button](../_assets/datalens/save-button.svg) → **Сохранить как копию**.
+    1. В правом верхнем углу нажмите значок ![save-button](../_assets/console-icons/chevron-down.svg) → **Сохранить как копию**.
     1. В открывшемся окне введите название нового чарта **Карта продаж** и нажмите кнопку **Сохранить**.
 
     ![create-chart-3](../_assets/datalens/quickstart/06-create-map-chart.png)
@@ -92,7 +92,7 @@
 ## Создайте дашборд и добавьте на него чарты {#dashboard-create}
 
 1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. На панели слева нажмите ![image](../_assets/datalens/dashboard-0523.svg) **Дашборды**.
+1. На панели слева нажмите ![image](../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
 1. Нажмите кнопку **Создать дашборд**.
 1. На панели в нижней части страницы выберите **Чарт**.
 1. В открывшемся окне нажмите кнопку **Выбрать**.

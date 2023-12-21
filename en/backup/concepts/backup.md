@@ -7,8 +7,8 @@ description: "In this tutorial, you will learn about backups in {{ backup-name }
 
 ## Backup types {#types}
 
-* _Full backups_ contain all data required for VM recovery. They are more reliable than incremental backups: if you delete one full backup, a VM can be restored from another one.
-* _Incremental backups_ only contain data that differs from a previous VM backup. A VM is restored from a chain of incremental backups. Incremental backups are faster and take up less space than full backups.
+* _Full backups_ contain all data required for VM recovery. VMs recover faster from full backups than from incremental backups. However, full backups take up more storage space and it takes longer to create them.
+* _Incremental backups_ only contain data that differs from a previous VM backup. It takes longer to restore VMs as compared to recovery from full backups due to using a chain of incremental backups. Incremental backups are faster and take up less space than full backups. It is not cost-effective to use incremental backups if two consecutive backups are significantly different.
 
 {% note tip %}
 

@@ -152,6 +152,8 @@ items:
         href: tutorials/driverless-gpu.md
       - name: Setting up Time-Slicing GPUs
         href: tutorials/time-slicing-gpu.md
+      - name: Migrating resources to a different availability zone
+        href: tutorials/migration-to-an-availability-zone.md
       - name: Setting up and testing scaling
         items:
           - name: Horizontal application scaling in a cluster
