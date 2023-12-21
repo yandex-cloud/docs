@@ -198,7 +198,7 @@
     grep admin-user-token | \
     awk '{print $1}') -o json | \
     jq -r .data.token | \
-    base64 --d)
+    base64 -d)
   ```
 
 - PowerShell
