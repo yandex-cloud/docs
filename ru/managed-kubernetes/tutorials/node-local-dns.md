@@ -17,9 +17,11 @@
 С помощью такого плана удается избежать правил DNAT, [connection tracking](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation) и ограничений по [количеству соединений](../../vpc/concepts/limits.md#vpc-limits). Подробнее о NodeLocal DNS Cache смотрите в [документации](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md).
 
 Чтобы настроить кеширование запросов DNS:
+
 1. [{#T}](#install).
 1. [{#T}](#configure).
 1. [{#T}](#dns-queries).
+1. [{#T}](#dns-traffic).
 1. [{#T}](#check-logs).
 
 ## Перед началом работы {#before-you-begin}
@@ -79,12 +81,6 @@
 
 1. {% include [Install kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Узнайте [IP-адрес](../../vpc/concepts/address.md) сервиса `kube-dns`:
-
-   ```bash
-   kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
-   ```
-
 ## Установите NodeLocal DNS {#install}
 
 {% list tabs %}
@@ -96,6 +92,12 @@
 
 
 - Вручную
+
+  1. Узнайте [IP-адрес](../../vpc/concepts/address.md) сервиса `kube-dns`:
+
+     ```bash
+     kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
+     ```
 
   1. Создайте файл `node-local-dns.yaml`. В настройках DaemonSet `node-local-dns` укажите IP-адрес сервиса `kube-dns`:
 
@@ -343,7 +345,8 @@
 
 ## Измените конфигурацию NodeLocal DNS Cache {#configure}
 
-Чтобы изменить конфигурацию, отредактируйте соответствующий `configmap`. Например, чтобы включить логи DNS-запросов для зоны `cluster.local`.
+Чтобы изменить конфигурацию, отредактируйте соответствующий `configmap`. Например, чтобы включить логи DNS-запросов для зоны `cluster.local`:
+
 1. Выполните команду:
 
    ```bash
@@ -355,15 +358,15 @@
    ```text
    ...
    apiVersion: v1
-   data:
-   Corefile: |
-   cluster.local:53 {
-     log
-     errors
-     cache {
-       success 9984 30
-       denial 9984 5
-     }
+     data:
+       Corefile: |
+         cluster.local:53 {
+             log
+             errors
+             cache {
+                     success 9984 30
+                     denial 9984 5
+             }
    ...
    ```
 
@@ -380,6 +383,7 @@
 ## Выполните DNS-запросы {#dns-queries}
 
 Чтобы выполнить [тестовые запросы](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment), используйте под с утилитами диагностики DNS.
+
 1. Запустите под:
 
    ```bash
@@ -445,7 +449,130 @@
 
    После запуска `node-local-dns` правила iptables настраиваются так, что по обоим адресам (`<IP-адрес_сервиса_kube-dns>:53` и `169.254.20.10:53`) отвечает [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack).
 
-   К `kube-dns` можно обращаться по новому адресу, `ClusterIp` сервиса `kube-dns-upstream`. Этот адрес может понадобиться, чтобы настроить перенаправление (forwarding) запросов.
+   К `kube-dns` можно обращаться по адресу `ClusterIp` сервиса `kube-dns-upstream`. Этот адрес может понадобиться, чтобы настроить перенаправление запросов.
+
+## Настройте трафик через NodeLocal DNS {#dns-traffic}
+
+{% list tabs %}
+
+- Все поды
+  
+  1. Создайте под для настройки сетевого трафика:
+
+     ```bash
+     kubectl apply -f - <<EOF
+     apiVersion: v1
+     kind: Pod
+     metadata:
+       name: dnschange
+       namespace: default
+     spec:
+       priorityClassName: system-node-critical
+       hostNetwork: true
+       dnsPolicy: Default
+       hostPID: true
+       tolerations:
+         - key: "CriticalAddonsOnly"
+           operator: "Exists"
+         - effect: "NoExecute"
+           operator: "Exists"
+         - effect: "NoSchedule"
+           operator: "Exists"
+       containers:
+       - name: dnschange
+         image: registry.k8s.io/e2e-test-images/jessie-dnsutils:1.3
+         tty: true
+         stdin: true
+         securityContext:
+           privileged: true
+         command:
+           - nsenter
+           - --target
+           - "1"
+           - --mount
+           - --uts
+           - --ipc
+           - --net
+           - --pid
+           - --
+           - sleep
+           - "infinity"
+         imagePullPolicy: IfNotPresent
+       restartPolicy: Always
+     EOF
+     ```
+
+  1. Подключитесь к созданному поду `dnschange`:
+
+     ```bash
+     kubectl exec -it dnschange -- sh
+     ```
+
+  1. Откройте файл `/etc/default/kubelet` в контейнере для редактирования:
+
+     ```bash
+     vi /etc/default/kubelet
+     ```
+
+  1. В файле добавьте к значению переменной `KUBELET_OPTS` параметр `--cluster-dns=169.254.20.10` (адрес кеша NodeLocal DNS):
+
+     ```text
+     KUBELET_OPTS="--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubeconfig.conf --cert-dir=/var/lib/kubelet/pki/   --cloud-provider=external --config=/home/kubernetes/kubelet-config.yaml --kubeconfig=/etc/kubernetes/  kubelet-kubeconfig.conf --resolv-conf=/run/systemd/resolve/resolv.conf --v=2 --cluster-dns=169.254.20.10"
+     ```
+
+  1. Сохраните файл и выполните команду перезапуска компонента `kubelet`:
+
+     ```bash
+     systemctl daemon-reload && systemctl restart kubelet
+     ```
+
+     Затем выйдите из режима контейнера командой `exit`.
+
+  1. Удалите под `dnschange`:
+
+     ```bash
+     kubectl delete pod dnschange
+     ```  
+
+  1. Чтобы все поды начали работать через NodeLocal DNS, перезапустите их, например, командой:
+
+     ```bash
+     kubectl get deployments --all-namespaces | \
+       tail +2 | \
+       awk '{
+         cmd=sprintf("kubectl rollout restart deployment -n %s %s", $1, $2) ; 
+         system(cmd) 
+       }'
+     ```
+
+- Выбранные поды
+
+  1. Выполните команду:
+
+     ```bash
+     kubectl edit deployment <имя_развертывания_пода>
+     ```
+
+  1. Замените в спецификации пода, в ключе `spec.template.spec`, настройку `dnsPolicy: ClusterFirst` на блок:
+
+     ```yaml
+       dnsPolicy: "None"
+       dnsConfig:
+         nameservers:
+           - 169.254.20.10
+         searches:
+           - default.svc.cluster.local
+           - svc.cluster.local
+           - cluster.local
+           - ru-central1.internal
+           - internal
+           - my.dns.search.suffix
+         options:
+           - name: ndots
+             value: "5"
+     ```
+
+{% endlist %}
 
 ## Проверьте логи {#check-logs}
 
@@ -487,31 +614,32 @@ service "node-local-dns" deleted
 ## Удалите созданные ресурсы {#clear-out}
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
-1. Удалите кластер {{ managed-k8s-name }}.
 
-   {% list tabs %}
+{% list tabs %}
 
-   - Вручную
+- Вручную
 
-     [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.
 
-   - С помощью {{ TF }}
+- С помощью {{ TF }}
 
-     1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-     1. Удалите конфигурационный файл `k8s-node-local-dns.tf`.
-     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+  1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Удалите конфигурационный файл `k8s-node-local-dns.tf`.
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-        ```bash
-        terraform validate
-        ```
+     ```bash
+     terraform validate
+     ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-     1. Подтвердите изменение ресурсов.
+     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+  
+  1. Подтвердите изменение ресурсов.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        Все ресурсы, которые были описаны в конфигурационном файле `k8s-node-local-dns.tf`, будут удалены.
+     Все ресурсы, которые были описаны в конфигурационном файле `k8s-node-local-dns.tf`, будут удалены.
 
-   {% endlist %}
+  1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.
 
-1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.
+{% endlist %}

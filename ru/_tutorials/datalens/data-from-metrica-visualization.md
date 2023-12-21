@@ -31,7 +31,7 @@
 {% endnote %}
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
+1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите **Metrica**.
 
    ![image](../../_assets/datalens/solution-03/03-choose-metrica.png)
@@ -77,7 +77,7 @@
 
    ![image](../../_assets/datalens/solution-03/09-edit-dashboard.png)
 
-1. Удалите чарт **Глубина просмотров**. Для этого в правом верхнем углу графика нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) и выберите **Удалить**.
+1. Удалите чарт **Глубина просмотров**. Для этого в правом верхнем углу графика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
 
    ![image](../../_assets/datalens/solution-03/10-delete-charts1.png)
 
@@ -97,7 +97,7 @@
 
 Вы можете отредактировать любой чарт на дашборде. Например, поменяйте тип визуализации для диаграммы **Визиты по типам устройств и ОС** из раздела **Технологии**.
 
-1. В правом верхнем углу графика **Визиты по типам устройств и ОС** нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis-black.svg).
+1. В правом верхнем углу графика **Визиты по типам устройств и ОС** нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
 1. Выберите **Редактировать**.
 
    ![image](../../_assets/datalens/solution-03/14-edit-chart.png)

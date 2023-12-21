@@ -13,7 +13,7 @@ description: "Для создания дашборда в {{ datalens-full-name 
 
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На панели слева нажмите ![image](../../../_assets/datalens/dashboard-0523.svg) **Дашборды**.
+1. На панели слева нажмите ![image](../../../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
 1. Нажмите кнопку **Создать дашборд**.
 1. Добавьте на дашборд необходимые [виджеты](../../dashboard/widget.md).
 1. В правом верхнем углу экрана нажмите кнопку **Сохранить**.

@@ -260,7 +260,7 @@ val a: Int = 1
 Для загрузки изображения из **{{ objstorage-short-name }}** в виджет:
 
 1. Откройте [консоль управления]({{ link-console-main }}).
-1. В левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) и выберите сервис **{{ objstorage-short-name }}**.
+1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ objstorage-short-name }}**.
 1. [Создайте бакет](../../storage/operations/buckets/create.md) с публичным доступом.
 1. [Загрузите изображение](../../storage/operations/objects/upload.md) в бакет.
 1. Перейдите в полученный объект и нажмите кнопку **Получить ссылку**.

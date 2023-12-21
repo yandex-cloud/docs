@@ -30,7 +30,7 @@
 Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) типа **Файлы**.
 
 1. Перейдите в интерфейс [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
+1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите тип подключения **Файлы**.
 
    ![image](../../_assets/datalens/solution-05/select-file-connection.png)
@@ -110,7 +110,7 @@
 
 ## Шаг 4. Опубликуйте чарт {#step4}
 
-1. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) и в открывшемся списке выберите **Публичный доступ**.
+1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и в открывшемся списке выберите **Публичный доступ**.
 
     ![image](../../_assets/datalens/solution-05/16-share-button.png)
 

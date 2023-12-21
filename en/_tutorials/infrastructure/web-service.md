@@ -1,9 +1,11 @@
 # Architecture and protection of a basic internet service
 
-This scenario describes how the infrastructure of a basic internet service with multiple VMs is built.  Access to VMs will be restricted using security groups. A network load balancer will distribute the load across web app servers.
+You will deploy and configure the infrastructure of a basic internet service with multiple VMs. Access to VMs will be restricted using security groups. A network load balancer will distribute the load across web app servers.
 
 To create the infrastructure of an internet service:
 
+1. [Prepare your cloud](#before-begin).
+1. [Prepare the network infrastructure](#prepare-network).
 1. [Reserve two static public IP addresses](#reserve-ips).
 1. [Create VMs for the service in all availability zones](#create-vms).
 1. [Create an IPSec instance for remote access](#create-ipsec-instance).
@@ -21,17 +23,23 @@ If you no longer need the infrastructure, [delete](#clear-out) the created resou
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Create a virtual network with `subnet-a`, `subnet-b`, and `subnet-c` in the respective availability zones.
-
 
 ### Required paid resources {#paid-resources}
 
 The cost of internet service support includes:
 
 * Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+* Fee for using public static IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
+
+## Prepare the network infrastructure {#prepare-network}
+
+Before creating a VM:
+
+1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and open the folder where you want to perform the operations.
+
+1. Select **{{ vpc-name }}** and create a [cloud network](../../vpc/operations/network-create.md) with [subnets](../../vpc/operations/subnet-create.md) named `subnet-a`, `subnet-b`, and `subnet-c` in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones, respectively.
 
 ## Reserve two static public IP addresses {#reserve-ips}
 
@@ -86,7 +94,7 @@ To provide secure access to your resources, create an IPSec instance.
 
 ## Configure VPN routing {#vpn-routing}
 
-Configure routing between the remote network and your IPSec instance.  In the example, we'll use the subnet `192.168.0.0/24`.
+Configure routing between the remote network and your IPSec instance. In the example, we will use the `192.168.0.0/24` subnet.
 
 ### Create a route table {#create-route-table}
 
@@ -96,9 +104,9 @@ Create a route table and add [static routes](../../vpc/concepts/static-routes.md
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section in the folder where you want to configure routing.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to configure routing.
    1. Select the network to create the route table in.
-   1. Open the **{{ ui-key.yacloud.vpc.network.switch_route-table }}** tab:
+   1. Open the **{{ ui-key.yacloud.vpc.network.switch_route-table }}** tab.
    1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}**.
    1. Enter the route table name: `vpn-route`.
    1. Under **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}**, click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
@@ -117,7 +125,7 @@ To use static routes, link the route table to a subnet. To do this:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to configure routing.
-   1. Select the network with the subnets to assign the route table to.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. In the line of the subnet you need, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table in the **Route table** field.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -131,7 +139,7 @@ To distribute traffic between network segments, create security groups and set u
 
 ### Create a security group for a VPN {#create-vpn-sg}
 
-For a VPN to work properly, allow traffic to be received and transmitted to UDP ports `500` and `4500` from an external network. This is required for using the IPSec tunnel.  You also need to allow traffic between the subnets of your virtual network and the network on the remote site.
+For a VPN to work properly, allow traffic to be received and transmitted to UDP ports `500` and `4500` from an external network. This is required for using the IPSec tunnel. You also need to allow traffic between the subnets of your virtual network and the network on the remote site.
 
 {% list tabs %}
 
@@ -175,7 +183,7 @@ Create a security group named `web-service-sg` and set up traffic rules.
 Allow outgoing connections to other VM instances in the security group:
 
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
 * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
 
 #### Rules for incoming traffic {#web-service-ingress}
@@ -185,7 +193,7 @@ Allow the following incoming connections:
 1. HTTP connections from multiple test dummy IP addresses:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `1.1.1.1/32`, `85.32.45.45/32`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `1.1.1.1/32`, `85.32.45.45/32`
 1. HTTPS connections from multiple test dummy IP addresses:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
@@ -195,8 +203,8 @@ Allow the following incoming connections:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 1. Connections from other VM instances in the security group:
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
 1. Health checks from the network load balancer:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`
@@ -234,13 +242,15 @@ The network load balancer will distribute the internet service's incoming traffi
    1. Enter the load balancer name: `web-service-lb`.
    1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select **{{ ui-key.yacloud.common.label_list }}** and specify a static public address.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-   1. In the window that opens, enter a name for the listener and specify port `80` in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** fields.  Click **{{ ui-key.yacloud.common.add }}**.
+   1. In the window that opens, enter a name for the listener and specify port `80` in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** and **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** fields. Click **{{ ui-key.yacloud.common.add }}**.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
    1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**. In the window that opens:
       1. Enter the target group name: `web-tg`.
       1. Select the `web-node-a`, `web-node-b`, and `web-node-c` VMs.
-      1. Click **{{ ui-key.yacloud.common.save }}**.
-   1. Select the created target group from the list.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
+   1. Select the created target group from the list and change the protocol for the load balancer's health checks to `TCP` in the settings:
+      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
+      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** field of the window that opens, select **{{ ui-key.yacloud.common.label_tcp }}** and click **{{ ui-key.yacloud.common.apply }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -250,7 +260,7 @@ The network load balancer will distribute the internet service's incoming traffi
 Test the infrastructure and make sure that traffic to the internet service VMs only comes from the addresses allowed by the rules:
 
 1. On your computer, run the command: `curl <Network_load_balancer_public_IP_address>`. Make sure no response is received.
-1. Create a security group named `web-service-test-sg` with no rules and assign it to the  `web-node-a`, `web-node-b` and `web-node-c` VMs.
+1. Create a security group named `web-service-test-sg` with no rules and assign it to the `web-node-a`, `web-node-b` and `web-node-c` VMs.
 1. In the `web-service-test-sg` security group, create the following rule for incoming traffic:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
@@ -259,9 +269,10 @@ Test the infrastructure and make sure that traffic to the internet service VMs o
 1. Run the `curl <Network_load_balancer_public_IP_address>` command again on your PC. Make sure the Drupal homepage HTML code is returned in response.
 1. Delete the test security group.
 
-## Delete the resources you created {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the deployed resources, delete the created [VMs](../../compute/operations/vm-control/vm-delete.md) and the [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
+To shut down the infrastructure and stop paying for the deployed resources, delete the created [VMs](../../compute/operations/vm-control/vm-delete.md) and the [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
+
 * `vpn`
 * `web-node-a`
 * `web-node-b`

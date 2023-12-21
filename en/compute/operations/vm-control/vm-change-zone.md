@@ -126,36 +126,64 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
    ```
 
    Where:
-   
-   * `<VM_ID>`: ID of the VM instance to be moved to a different availability zone.
+
    * `--destination-zone-id`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) to move the VM instance to.
    * `subnet-id`: ID of the subnet in the availability zone to move the VM instance to.
    * `security-group-ids`: ID of the [security group](../../../vpc/concepts/security-groups.md) to be linked to the VM instance you move. You can link multiple security groups to a single VM instance. To do this, provide a comma-separated list of security group IDs in `[id1,id2]` format.
 
+   If you are moving a VM with a [disk in a placement group](../../concepts/disk-placement-group.md), use this command:
+
+   ```bash
+   yc compute instance relocate <VM_ID> \
+     --destination-zone-id <availability_zone_ID> \
+     --network-interface \
+       subnet-id=<subnet_ID>,security-group-ids=<security_group_ID> \
+     --boot-disk-placement-group-id <disk_placement_group_ID> \
+     --boot-disk-placement-group-partition <partition_number> \
+     --secondary-disk-placement \
+       disk-name=<disk_name>,disk-placement-group-id=<disk_placement_group_ID>,disk-placement-group-partition=<partition_number>
+   ```
+
+   Where:
+
+   * `--boot-disk-placement-group-id`: ID of the disk placement group.
+   * `--boot-disk-placement-group-partition`: Partition number in the disk placement group with the [partition placement](../../concepts/disk-placement-group.md#partition) strategy.
+   * `--secondary-disk-placement`: Placement policy for secondary disks. Parameters:
+
+      * `disk-name`: Disk name.
+      * `disk-placement-group-id`: ID of the disk placement group to place the disk in.
+      * `disk-placement-group-partition`: Partition number in the disk placement group.
+
    For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
 
-   Please note that a VM's relocation to a new subnet changes its IP addressing. If you need to specify a VM's internal IP address, use the `ipv4-address=<internal IP>` property and, if its public IP address, use the `nat-address=<public IP>` property of the `network-interface` parameter. In other respects, setting the network interface parameters of a VM you are migrating is similar to creating an instance.
+   {% note info %}
 
-   For example:
+   If data is being written to the VM disks, their move may fail. In this case, stop the disk write operation or shut down the VM instance and restart the move.
+
+   {% endnote %}
+
+Please note that migrating a VM to a new subnet changes its IP addressing. If you need to specify a VM's internal IP address, use the `ipv4-address=<internal_IP>` property of the `network-interface` parameter; for its public IP address, use the `nat-address=<public_IP>` property of the same parameter. In other respects, setting up the network interface parameters of the VM you want to migrate is similar to creating an instance.
+
+### Example {#example}
+
+In this example, a VM instance named `my-vm-1` is moved from the `{{ region-id }}-a` availability zone to the `{{ region-id }}-d` availability zone.
 
    ```bash
    yc compute instance relocate a7lh48f5jvlk******** \
-     --destination-zone-id {{ region-id }}-b \
+     --destination-zone-id {{ region-id }}-d \
      --network-interface \
        subnet-id=bltign9kcffv********,security-group-ids=c646ev94tb6k********
    ```
 
-   In this example, a VM instance named `my-vm-1` is moved from the `{{ region-id }}-a` availability zone to the `{{ region-id }}-b` availability zone.
+Result:
 
-   Result:
-
-   ```bash
+   ```text
    done (3m15s)
    id: a7lh48f5jvlk********
    folder_id: aoeg2e07onia********
    created_at: "2023-10-13T19:47:40Z"
    name: my-vm-1
-   zone_id: {{ region-id }}-b
+   zone_id: {{ region-id }}-d
    platform_id: standard-v3
    resources:
      memory: "2147483648"
@@ -187,10 +215,4 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
      type: STANDARD
    placement_policy: {}
    ```
-
-   {% note info %}
-
-   If writing data to the VM disks, their move may end in an error. In this case, stop the disk write operation or shut down the VM instance and restart the move process.
-
-   {% endnote %}
 

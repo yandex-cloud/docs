@@ -213,6 +213,7 @@ default:
   kms-name: Key Management Service
   kms-short-name: KMS
   lang: en
+  license-manager: License Manager
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.cloud.yandex.ru/logout

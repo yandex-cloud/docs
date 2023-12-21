@@ -46,7 +46,7 @@ description: "Для визуализация данных из {{ tracker-short
 ## Создайте БД для хранения данных {{ tracker-short-name }} {#database-create}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. В левом верхнем углу нажмите кнопку ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. В левом верхнем углу нажмите кнопку ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Выберите **Платформа данных** → **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Укажите параметры кластера:
@@ -98,7 +98,7 @@ description: "Для визуализация данных из {{ tracker-short
 ## Создайте функцию {{ sf-name }} для импорта данных {#function-import}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. В левом верхнем углу нажмите кнопку ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. В левом верхнем углу нажмите кнопку ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Выберите **Бессерверные вычисления** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Укажите название функции и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
@@ -143,7 +143,7 @@ description: "Для визуализация данных из {{ tracker-short
     ```
 1. Создайте [триггер](../../functions/concepts/trigger/index.md) для регулярного экспорта новых данных в БД:
     1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Нажмите ![trigger](../../_assets/functions/triggers.svg) → **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Нажмите ![trigger](../../_assets/console-icons/gear-play.svg) → **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
     1. Укажите тип триггера — **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
     1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** выберите `{{ ui-key.yacloud.common.button_cron-day }}`.
     1. В разделе **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** нажмите кнопку **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**.
@@ -154,7 +154,7 @@ description: "Для визуализация данных из {{ tracker-short
 ## Создайте подключение в {{ datalens-short-name }} {#connection-create}
 
 1. Откройте [кластер](#database-create) **{{ mch-name}}**.
-1. В левой части окна выберите раздел ![datalens](../../_assets/datalens/chart.svg) **{{ datalens-short-name }}**.
+1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
 1. Нажмите кнопку **Создать подключение**.
 1. Укажите настройки подключения:
     * **Подключение** — `Выбрать в каталоге`;
@@ -187,7 +187,7 @@ description: "Для визуализация данных из {{ tracker-short
 
 1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
 1. Нажмите кнопку **Создать чарт**.
-1. В левом верхнем углу нажмите ![image](../../_assets/datalens/datasets.svg) **Выберите датасет**.
+1. В левом верхнем углу нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет**.
 1. В выпадающем списке **Датасеты** выберите [датасет](#dataset-create), созданный на предыдущем шаге.
 
 

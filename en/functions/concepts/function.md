@@ -16,10 +16,10 @@ To [create a version](../operations/function/version-manage.md), you can use the
 
 | Format | Management console | {{ yandex-cloud }} CLI |
 |----|----|----|
-| ZIP archive from your PC | ![image](../../_assets/console-icons/circle-check-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
-| ZIP archive from S3, specifying the bucket and object | ![image](../../_assets/console-icons/circle-check-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
-| Directory | ![image](../../_assets/console-icons/circle-xmark-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
-| File | ![image](../../_assets/console-icons/circle-xmark-fill.svg) | ![image](../../_assets/console-icons/circle-check-fill.svg) |
+| ZIP archive from your PC | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| ZIP archive from S3, specifying the bucket and object | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Directory | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| File | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 
 {% include [upload-limits](../../_includes/functions/upload-limits.md) %}
 
@@ -41,11 +41,11 @@ When creating a new version, it's assigned the `$latest` tag by default.
 
 ### Model description {#model-desc}
 
-To enable a function call, describe a _handler_ in it. It's defined when writing code and handles the data received by calling the necessary functions and methods in the code. The handler should accept the data that comes with function requests and the context passed by {{ sf-name }}.
+To enable a function call, describe a _handler_ in it. It is defined when writing code. The handler handles the data received by invoking respective functions and methods in the code. The handler should accept the data that comes with function requests and the context provided by {{ sf-name }}.
 
-_Context_ lets your function code interact with {{ sf-name }}. For example, the function can use it to find how much time is left before {{ sf-name }} completes its execution.
+_Context_ allows your function code to interact with {{ sf-name }}. For example, the function can use it to find how much time is left before {{ sf-name }} completes its execution.
 
-Incoming requests are processed by the function one at a time. To let your function process multiple requests simultaneously, use _asynchronous code execution_ provided by the [runtime environment](runtime/index.md).
+Incoming requests are processed by the function one at a time. For your function to process multiple requests simultaneously, use _asynchronous code execution_ provided by the [runtime environment](runtime/index.md).
 
 To report a function execution error to the service, handle errors using _exceptions_.
 

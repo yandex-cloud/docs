@@ -29,7 +29,7 @@
 Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) типа **Файлы**.
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
+1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите **Файлы**.
 
    ![image](../../_assets/datalens/solution-01/select-file-connection.png)
@@ -66,7 +66,7 @@
 
 1. Создайте поле с показателем среднего веса супергероя:
 
-    1. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) в строке **Weight**.
+    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке **Weight**.
     1. Выберите **Дублировать**.
 
          ![image](../../_assets/datalens/solution-01/08-Weight-Duplication.png)

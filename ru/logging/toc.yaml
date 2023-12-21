@@ -11,10 +11,14 @@ items:
         href: operations/write-logs.md
       - name: Чтение записей
         href: operations/read-logs.md
-      - name: Получение списка лог-групп
-        href: operations/list.md
       - name: Управление правами доступа к лог-группе
         href: operations/access-rights.md
+      - name: Получение информации о лог-группе
+        items:
+          - name: Получить список лог-групп
+            href: operations/list.md
+          - name: Получить информацию о лог-группе
+            href: operations/get-group.md
       - name: Управление лог-группой
         items:
           - name: Создать лог-группу
@@ -31,6 +35,10 @@ items:
             href: operations/create-sink.md
           - name: Выгрузить логи
             href: operations/export-logs.md
+          - name: Получить список приемников логов
+            href: operations/list-sink.md
+          - name: Получить информацию о приемнике логов
+            href: operations/get-sink.md
   - name: Практические руководства
     items:
       - name: Все руководства

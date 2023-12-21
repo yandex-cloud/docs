@@ -62,7 +62,7 @@
 ## Создайте функцию {{ sf-name }} {#create-function}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. В левом верхнем углу нажмите кнопку ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. В левом верхнем углу нажмите кнопку ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Выберите **Бессерверные вычисления** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Укажите название функции, например `timeupdater`.
@@ -87,14 +87,14 @@
 
 ### Создайте очередь
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Создать очередь**.
+1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Создать очередь**.
 1. Выберите шаблон очереди, например **Базовая разработка**.
 1. Задайте имя, например `Function Test`.
 1. Нажмите кнопку **Создать**.
 
 ### Создайте триггер
 
-1. На странице очереди в правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. На странице очереди в правом верхнем углу нажмите ![](../../_assets/console-icons/gear.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
 1. В поле **Название** введите название триггера, например `timeupdater`.
 1. В блоке **Условия срабатывания** выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Затрачено времени**.

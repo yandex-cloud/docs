@@ -3,7 +3,7 @@ title: "Working with VMs Step-by-step guides"
 description: "Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
 ---
 
-# Step-by-step guide for {{ compute-name }}
+# Step-by-step guides for {{ compute-name }}
 
 ## Creating VMs {#vm-create}
 
@@ -63,6 +63,8 @@ description: "Step-by-step guides on how to use and manage VMs in {{ yandex-clou
 * [{#T}](vm-connect/ssh.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
+* [{#T}](vm-connect/os-login-create-vm.md)
+* [{#T}](vm-connect/enable-os-login.md)
 * [{#T}](vm-connect/os-login.md)
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)

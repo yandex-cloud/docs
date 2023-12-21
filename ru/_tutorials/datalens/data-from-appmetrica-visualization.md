@@ -32,7 +32,7 @@
 {% endnote %}
 
 1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
+1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите подключение **AppMetrica**.
 
     ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)
@@ -77,7 +77,7 @@
 
     ![image](../../_assets/datalens/solution-06/05-edit-dashboard.png)
 
-1. Чтобы удалить виджет **Динамика клик**, нажмите значок ![image](../../_assets/datalens/cross.svg) в правом верхнем углу.
+1. Чтобы удалить виджет **Динамика клик**, нажмите значок ![image](../../_assets/console-icons/xmark.svg) в правом верхнем углу.
 
     ![image](../../_assets/datalens/solution-06/06-specify-widgets.png)
 

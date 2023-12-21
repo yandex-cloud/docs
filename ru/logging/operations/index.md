@@ -7,17 +7,23 @@ description: "Из статьи вы узнаете, как работать с 
 
 * [{#T}](./write-logs.md)
 * [{#T}](./read-logs.md)
-* [{#T}](./list.md)
 * [{#T}](./access-rights.md)
 
-### Управление лог-группой
+### Получение информации о лог-группе {#log-group-info}
+
+* [{#T}](./list.md)
+* [{#T}](./get-group.md)
+
+### Управление лог-группой {#manage-log-group}
 
 * [{#T}](./create-group.md)
 * [{#T}](./retention-period.md)
 * [Посмотреть графики мониторинга](./monitoring.md)
 * [{#T}](./delete-group.md)
 
-### Выгрузка логов
+### Выгрузка логов {#discharge-logs}
 
 * [{#T}](./create-sink.md)
 * [{#T}](./export-logs.md)
+* [{#T}](./list-sink.md)
+* [{#T}](./get-sink.md)

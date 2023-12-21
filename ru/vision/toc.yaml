@@ -15,6 +15,10 @@ items:
             href: operations/ocr/text-detection-pdf.md
           - name: Распознавание строки текста
             href: operations/ocr/text-detection-single-line.md
+          - name: Распознавание рукописного текста
+            href: operations/ocr/text-detection-handwritten.md
+          - name: Распознавание таблицы
+            href: operations/ocr/text-detection-table.md
       - name: Определение качества изображения
         stage: preview
         href: operations/classification/quality.md

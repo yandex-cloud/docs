@@ -14,7 +14,7 @@
 
    ![multi-ds-chart-create](../../_assets/datalens/multi-dataset-chart/multi-ds-chart-create.png)
 
-1. В левой верхней части экрана перед полем **Датасет: Isolation Daily** нажмите ![image](../../_assets/datalens/angle-down.svg).
+1. В левой верхней части экрана перед полем **Датасет: Isolation Daily** нажмите ![image](../../_assets/console-icons/chevron-down.svg).
 1. Нажмите кнопку **Добавить датасет** и выберите датасет **Weather**.
 1. В открывшемся окне проверьте, что связи выставлены по полям `Дата`, `Город` и `Страна`.
 

@@ -70,12 +70,12 @@
    {% cut "Как скопировать запрос из {{ monitoring-name }}" %}
    
    1. Перейдите на интересующий вас дашборд в сервисе {{ monitoring-name }}. Для доступности дашбордов у вас должен быть запущен один из сервисов {{ yandex-cloud }}.
-   1. Откройте нужный график в Metric Explorer. Для этого нажмите значок ![image](../../_assets/datalens/open-in-explorer.svg) в правом верхнем углу графика.
+   1. Откройте нужный график в Metric Explorer. Для этого нажмите значок ![image](../../_assets/console-icons/compass.svg) в правом верхнем углу графика.
    
       ![metrica-memory-usage](../../_assets/datalens/monitoring-visualization/metrica-memory-usage.png)
 
    1. В нижней части экрана перейдите на вкладку **Запросы**.
-   1. В строке с нужным запросом нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Скопировать как текст**.
+   1. В строке с нужным запросом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Скопировать как текст**.
       
       Пример запроса:
       

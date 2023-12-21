@@ -11,7 +11,8 @@ We do not recommend preloading files smaller than 200 MB or larger than 5 GB.
 {% endnote %}
 
 To create a CDN infrastructure:
-1. [Get started](#before-you-begin).
+1. [Get things ready](#before-you-begin).
+1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate)
 1. [Create buckets in {{ objstorage-name }}](#create-buckets).
 1. [Enable logging for the bucket with files](#enable-logging).
 1. [Upload a file to the bucket](#upload-object).
@@ -35,6 +36,12 @@ The cost of supporting the CDN infrastructure includes:
 * Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 * Fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if you use [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+
+## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
+
+Issue a Let's Encrypt® certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }} or [upload](../../certificate-manager/operations/import/cert-create.md) your own certificate.
+
+For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
 
 
 ## Create buckets in {{ objstorage-name }} {#create-buckets}
@@ -273,11 +280,10 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
             * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_https }}`.
             * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
             * Select **{{ ui-key.yacloud.cdn.field_access }}**.
-            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `Let's Encrypt®` to automatically issue a [certificate](../../certificate-manager/concepts/managed-certificate.md) for the `cdn.ycprojectblue.example` domain name after creating the CDN resource.
+            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.ycprojectblue.example` domain name.
             * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the origin domain name, `<name_of_bucket_with_files>.{{ s3-storage-host }}`, so that the source bucket responds to CDN server requests correctly.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
-      Wait until the Let's Encrypt® certificate is issued for the domain name. This may take up to 30 minutes.
    1. Enable a client redirect from HTTP to HTTPS:
       1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the previously created resource.
       1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_section-additional }}** changes to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
@@ -311,8 +317,8 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         --origin-bucket-source <name_of_bucket_with_files>.{{ s3-storage-host }} \
         --origin-bucket-name <name_of_bucket_with_files> \
         --origin-protocol https \
-        --lets-encrypt-gcore-ssl-cert \
-        --host-header <name_of_bucket_with_files>.{{ s3-storage-host }} \
+        --cert-manager-ssl-cert-id <certificate_ID> \
+        --host-header <name_of_bucket_with_files>.{{ s3-storage-host }}
       ```
 
       Result:
@@ -353,10 +359,11 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         origin_protocol = "https"
         origin_group_id = yandex_cdn_origin_group.my_group.id
         options {
-          custom_host_header = "<name_of_bucket_with_files>.{{ s3-storage-host }}"
+          custom_host_header     = "<name_of_bucket_with_files>.{{ s3-storage-host }}"
         }
         ssl_certificate {
-          type = "lets_encrypt_gcore"
+          type                   = "certificate_manager"
+          certificate_manager_id = "<certificate_ID>"
         }
       }
       ```
