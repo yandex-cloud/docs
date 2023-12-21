@@ -57,7 +57,7 @@ The cost for bucket support includes:
    1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -95,7 +95,7 @@ The cost for bucket support includes:
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. Create an access key for `sa-win-disk-connect`:
 
@@ -170,7 +170,7 @@ The cost for bucket support includes:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan

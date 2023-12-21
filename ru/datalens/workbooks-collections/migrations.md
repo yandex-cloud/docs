@@ -15,7 +15,7 @@
 
 1. На [странице навигации](https://datalens.yandex.ru/navigation) найдите объект, который хотите перенести в воркбук.
 
-1. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у объекта и выберите ![image](../../_assets/datalens/replace.svg) **Перенос в воркбук**.
+1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у объекта и выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенос в воркбук**.
 1. В открывшемся окне вы увидите список связанных объектов, которые будут перенесены. Если вы готовы перенести все эти объекты в новую структуру хранения, нажмите кнопку **Перенести**.
 
    {% note warning %}
@@ -42,7 +42,7 @@
 
    1. Откройте датасет и перейдите на вкладку **Источники**.
    1. Удалите все таблицы из рабочей области.
-   1. В левой части экрана нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у подключения `SuperHeroes_Connection` и выберите **Заменить подключение**.
+   1. В левой части экрана нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у подключения `SuperHeroes_Connection` и выберите **Заменить подключение**.
 
       ![image](../../_assets/datalens/migration/replace-connection.png =450x496)
 
@@ -54,7 +54,7 @@
 1. В чарте `SuperHeroes_Gender` замените датасет на `SuperHeroes_Dataset_copy`:
 
    1. Откройте чарт.
-   1. В левой части экрана нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у датасета `SuperHeroes_Dataset` и выберите **Заменить датасет**.
+   1. В левой части экрана нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у датасета `SuperHeroes_Dataset` и выберите **Заменить датасет**.
 
       ![image](../../_assets/datalens/migration/replace-dataset.png =450x432)
 
@@ -72,7 +72,7 @@
 Рассмотрим создание воркбука с датасетом. В качестве исходных объектов будет использоваться [готовый набор данных]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco) вымышленной компании из {{ datalens-short-name }} {{ marketplace-short-name }}.
 
 1. На [странице навигации](https://datalens.yandex.ru/navigation) найдите датасет **Sample Superstore Dataset**.
-1. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у датасета и выберите ![image](../../_assets/datalens/replace.svg) **Перенос в воркбук**.
+1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у датасета и выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенос в воркбук**.
 1. В открывшемся окне вы увидите список связанных объектов, которые будут перенесены.
 
    ![image](../../_assets/datalens/migration/store-migrate.png =750x422)
@@ -91,7 +91,7 @@
    1. В открывшемся окне выберите коллекцию, в которую хотите скопировать воркбук, и нажмите кнопку **Копировать**. Чтобы скопировать воркбук в новую коллекцию, нажмите кнопку **Создать коллекцию**.
    1. Введите название нового воркбука, например **Sample Superstore Copy**, и нажмите кнопку **Копировать**.
 
-1. В воркбуке **Sample Superstore Copy** перейдите на вкладку **Все объекты** и удалите все, кроме подключения **Sample Superstore. Connection** и датасета **Sample Superstore Dataset**. Для этого у каждого объекта нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) и выберите **Удалить**.
+1. В воркбуке **Sample Superstore Copy** перейдите на вкладку **Все объекты** и удалите все, кроме подключения **Sample Superstore. Connection** и датасета **Sample Superstore Dataset**. Для этого у каждого объекта нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
 
 Теперь воркбук **Sample Superstore Copy** содержит только подключение **Sample Superstore. Connection** и датасет **Sample Superstore Dataset**. Вы можете создать в воркбуке свои чарты и дашборд.
 

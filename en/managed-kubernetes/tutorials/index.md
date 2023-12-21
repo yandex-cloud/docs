@@ -8,6 +8,7 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containe
 * [{#T}](running-pod-gpu.md)
 * [{#T}](driverless-gpu.md)
 * [{#T}](time-slicing-gpu.md)
+* [{#T}](migration-to-an-availability-zone.md)
 
 ## Setting up and testing scaling {#scaling}
 

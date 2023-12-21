@@ -45,7 +45,7 @@ The cost of resources includes:
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.uploader`, `storage.viewer`, and `{{ roles-lockbox-payloadviewer }}` roles.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -184,7 +184,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. Run this command:
 
@@ -282,7 +282,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    To create a secret, run this command:
 
@@ -475,7 +475,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Create a function:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -504,7 +504,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. Create a function named `copy-function`:
 
@@ -696,7 +696,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    Run this command:
 

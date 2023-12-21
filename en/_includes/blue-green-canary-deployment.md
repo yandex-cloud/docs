@@ -18,6 +18,7 @@ To perform steps, you can use various [supported tools](#supported-tools).
 To build an architecture for the blue-green and canary deployment:
 
 1. [Prepare your cloud](#before-you-begin).
+1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate)
 1. [Create a cloud network and subnets](#create-network).
 1. [Create buckets in {{ objstorage-name }}](#create-buckets).
 1. [Upload the files of your service to the buckets](#upload-files).
@@ -58,6 +59,12 @@ The infrastructure support costs include:
 * Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../cdn/pricing.md)).
 * Fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../dns/pricing.md)).
 
+## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
+
+Issue a Let's Encrypt® certificate and [add](../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }} or [upload](../certificate-manager/operations/import/cert-create.md) your own certificate.
+
+For a Let's Encrypt® certificate, have your [rights checked](../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -74,7 +81,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
    1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    {% include [cli-install](cli-install.md) %}
 
@@ -483,7 +490,7 @@ To create security groups:
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    Run the following command:
 
@@ -681,7 +688,7 @@ To create security groups:
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. Create the `canary-router` HTTP Router:
 
@@ -890,7 +897,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `canary-router`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. Get the IDs of subnets for `canary-network`:
 
@@ -1119,12 +1126,10 @@ To create security groups:
             * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
             * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
             * Select **{{ ui-key.yacloud.cdn.field_access }}**.
-            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `Let's Encrypt®` to automatically issue a certificate for the `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names after creating the CDN resource.
+            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names.
             * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
-
-      Wait until the Let's Encrypt® certificate is issued for the domain name. This may take up to 30 minutes.
 
    1. Enable a client redirect from HTTP to HTTPS:
 
@@ -1142,7 +1147,7 @@ To create security groups:
       1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
    1. If the CDN provider is not activated yet, run the command:
 
@@ -1182,7 +1187,7 @@ To create security groups:
         --origin-group-id <origin_group_ID> \
         --secondary-hostnames cdn-staging.yandexcloud.example \
         --origin-protocol http \
-        --lets-encrypt-gcore-ssl-cert \
+        --cert-manager-ssl-cert-id <certificate_ID> \
         --forward-host-header
       ```
 
@@ -1233,7 +1238,8 @@ To create security groups:
           secondary_hostnames = ["cdn-staging.yandexcloud.example"]
           origin_group_id     = yandex_cdn_origin_group.my_group.id
           ssl_certificate {
-            type = "lets_encrypt_gcore"
+            type                   = "certificate_manager"
+            certificate_manager_id = "<certificate_ID>"
           }
           options {
               edge_cache_settings    = "345600"
@@ -1332,7 +1338,7 @@ To configure DNS:
 
    If you use {{ dns-name }}, follow this guide to configure the record:
 
-   {% cut "Guide for configuring DNS records for {{ dns-name }}" %}
+   {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
 
    {% list tabs %}
 
@@ -1358,7 +1364,7 @@ To configure DNS:
 
       1. In a similar way, in the same zone, create a CNAME record for `cdn-staging.yandexcloud.example`. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn-staging`.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
       1. If you do not have a public DNS zone, create one:
 
@@ -1477,7 +1483,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Enter the path to the uploaded file: `/index.html`.
       1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
       1. Get the ID of the CDN resource that you created:
 
@@ -1568,7 +1574,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Enter the path to the uploaded file: `/index.html`.
       1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
       1. Get the ID of the CDN resource that you created:
 
@@ -1634,7 +1640,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Similarly set the weight to 20 instead of 0 for `canary-backend-green`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
       1. For the `canary-backend-blue` backend, set the weight to 80 instead of 100:
 
@@ -1760,7 +1766,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Enter the path to the uploaded file: `/index.html`.
       1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
       1. Get the ID of the CDN resource that you created:
 
@@ -1826,7 +1832,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
       1. Similarly, set the weight to 0 instead of 100 for `canary-backend-green`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI
+   - {{ yandex-cloud }} CLI
 
       1. For the `canary-backend-blue` backend, set the weight to 100 instead of 0:
 

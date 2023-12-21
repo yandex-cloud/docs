@@ -118,3 +118,19 @@ Free tier распространяется на сервисы:
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 
+
+## Примеры расчетов с применением free tier {#examples}
+
+Стоимость использованного объема услуг сервиса рассчитывается в соответствии с тарифами этого сервиса за вычетом нетарифицируемого объема услуг. Например:
+
+### Расчет стоимости использования функции {#function-example}
+
+{% include [prices-example](../../_includes/functions/prices-example.md) %}
+
+### Расчет стоимости использования API-шлюза {api-gateway-example}
+
+{% include [prices-example](../../_includes/api-gateway/prices-example.md) %}
+
+### Расчет стоимости использования {{ iot-full-name }} {#iot-example}
+
+{% include [prices-example](../../_includes/iot-core/prices-example.md) %}

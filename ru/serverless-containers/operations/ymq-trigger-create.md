@@ -82,12 +82,7 @@
     * `--name` — имя триггера.
     * `--queue` — идентификатор очереди.
 
-        Чтобы узнать идентификатор очереди:
-
-        1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится очередь.
-        1. Выберите сервис **{{ message-queue-name }}**.
-        1. Выберите очередь.
-        1. Идентификатор очереди будет в блоке **Общая информация**, в поле **ARN**.
+        {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
     * `--invoke-container-id` — идентификатор контейнера.
     * `--queue-service-account-name` — сервисный аккаунт с правами на чтение из очереди сообщений.
@@ -114,6 +109,65 @@
           service_account_id: bfbqqeo6jk**********
     status: ACTIVE
     ```
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать триггер для {{ message-queue-name }}:
+
+  1. Опишите в конфигурационном файле параметры триггера:
+
+     
+     ```
+     resource "yandex_function_trigger" "my_trigger" {
+       name = "<имя_триггера>"
+       container {
+         id                 = "<идентификатор_контейнера>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+       }
+       message_queue {
+         queue_id           = "<идентификатор_очереди>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+         batch_cutoff       = "<время_ожидания>"
+         batch_size         = "<размер_группы_событий>"
+       }
+     }
+     ```
+
+
+     Где:
+
+     * `name` — имя триггера. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+     * `container` — параметры контейнера, который будет запускать триггер:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+     * `message_queue` — параметры триггера:
+         * `queue_id` — идентификатор очереди.
+
+             {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
+
+         * `service_account_id` — сервисный аккаунт с правами на чтение из очереди сообщений.
+
+         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+        ```bash
+        yc serverless trigger list
+        ```
 
 - API
 

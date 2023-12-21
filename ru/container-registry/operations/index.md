@@ -32,6 +32,7 @@ description: "Пошаговые инструкции по работе с Docke
 * [{#T}](registry/registry-create.md)
 * [{#T}](registry/registry-access.md)
 * [{#T}](registry/registry-update.md)
+* [{#T}](registry/registry-permissions-get.md)
 * [{#T}](registry/registry-delete.md)
 
 ## Управление репозиторием {#repository}

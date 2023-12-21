@@ -4,15 +4,15 @@ description:
     Managed Service for GitLab helps you deploy and maintain GitLab instances in
     the Yandex Cloud infrastructure.
   - >-
-    The Yandex Cloud infrastructure <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">fully
-    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">
+    fully secure</a> and in compliance with Russian Federal Law No. 152-FZ.
   - >-
     The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla/">Service Level Agreement</a>. The
-    service level is defined in <a
-    href="https://yandex.ru/legal/cloud_sla_glb/">Yandex Managed Service for
-    GitLab</a>.
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_glb/">Service Level for Yandex
+    Managed Service for GitLab</a>.
 meta:
   title: Yandex Managed Service for GitLab
   description: >-
@@ -20,10 +20,10 @@ meta:
     the Yandex Cloud infrastructure.
 links:
   - title: Getting started
-    description: Create the first instance
+    description: Create your first instance
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about basic concepts and how the service works
@@ -32,7 +32,7 @@ links:
     description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Set up access rights to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

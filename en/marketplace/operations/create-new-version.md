@@ -15,14 +15,18 @@ All text fields support [Markdown](https://ydocs.tech/en/).
 
 {% list tabs %}
 
-- Compute Cloud
+- {{ compute-name }}
 
    {% include [product-version-compute](../../_includes/marketplace/product-version-compute.md) %}
 
-- Managed Service for Kubernetes
+- {{ managed-k8s-name }}
 
    {% include [product-version-k8s](../../_includes/marketplace/product-version-k8s.md) %}
 
+- {{ cloud-apps-name }}
+
+   {% include [product-version-cloud-apps](../../_includes/marketplace/product-version-cloud-apps.md) %}
+
 {% endlist %}
 
-Before publication, the version must be moderated by technical experts and editors. When moderation succeeds, the publisher can publish the approved version.
+Before publication, the version must be moderated by technical experts and editors. When moderation succeeds, you can publish the approved version.

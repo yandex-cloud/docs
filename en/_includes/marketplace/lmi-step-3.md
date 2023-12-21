@@ -1,0 +1,1 @@
+Configuring business logic for subscription processing: consumption records, limitations related to time, number of users, etc.

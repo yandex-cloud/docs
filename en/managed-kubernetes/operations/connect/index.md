@@ -10,8 +10,8 @@ You can connect to a [{{ managed-k8s-name }} cluster](../../concepts/index.md#ku
 * From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../../vpc/concepts/network.md).
 
 To connect to a cluster, you can use:
-* [kubectl](#kubectl-connect).
-* [Static configuration file](#static-conf-connect).
+* [kubectl](#kubectl-connect)
+* [Static configuration file](#static-conf-connect)
 
 To connect to cluster nodes, follow the instructions in [{#T}](../node-connect-ssh.md).
 
@@ -31,22 +31,33 @@ To connect to a cluster:
 
 1. [Install kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
 
-1. Add credentials to the `kubectl` configuration file:
-   * To connect to the cluster's private IP address from a VM located on the same network:
+1. Add credentials to the `kubectl` configuration file depending on the type of the IP address of the cluster you are connecting to:
 
-     ```bash
-     {{ yc-k8s }} cluster \
-       get-credentials <cluster_name_or_ID> \
-       --internal
-     ```
+   {% list tabs %}
 
-   * To connect to the cluster's public IP address via the internet:
+   - Public IP address
 
-     ```bash
-     {{ yc-k8s }} cluster \
-       get-credentials <cluster_name_or_ID> \
-       --external
-     ```
+      To get credentials to connect to the cluster's public IP address via the internet, run this command:
+
+      ```bash
+      {{ yc-k8s }} cluster \
+         get-credentials <cluster_name_or_ID> \
+         --external
+      ```
+
+      If you [created your cluster](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with no public IP address, this cluster can only be connected to using its internal IP.
+
+   - Internal IP address
+
+      To get credentials to connect to the cluster's internal IP address from a VM located in the same network, run this command:
+
+      ```bash
+      {{ yc-k8s }} cluster \
+         get-credentials <cluster_name_or_ID> \
+         --internal
+      ```
+
+   {% endlist %}
 
    {% note info %}
 
@@ -64,4 +75,4 @@ To connect to a cluster:
 
 ## Connecting using a static configuration {#static-conf-connect}
 
-If you can't use the {{ yandex-cloud }} CLI for some reason, [connect to a cluster using static configuration files](./create-static-conf.md).
+If you cannot use the {{ yandex-cloud }} CLI for some reason, [connect to a cluster using static configuration files](./create-static-conf.md).

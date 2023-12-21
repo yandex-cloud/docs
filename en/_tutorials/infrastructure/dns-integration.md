@@ -1,10 +1,10 @@
 If you have your own corporate networks connected to internal [networks](../../vpc/concepts/network.md#network) in your {{ yandex-cloud }} [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) via [{{ interconnect-full-name }}](../../interconnect/index.yaml), you can integrate your corporate DNS with [{{ dns-name }}](../../dns). This will allow you to access resources and services by name, regardless of their location, both in corporate and cloud networks.
 
-You cannot delegate DNS record management in [private zones](../../dns/concepts/dns-zone.md#private-zones) in {{ yandex-cloud }} to your DNS servers in the corporate network, because NS records are ignored for private DNS zones. To ensure domain name recognition for cloud network services and resources in private zones, configure separate DNS forwarders in your cloud subnets. _DNS forwarders_ are DNS servers that redirect requests differently depending on the name specified in the request.
+You cannot delegate DNS record management in [private zones](../../dns/concepts/dns-zone.md#private-zones) in {{ yandex-cloud }} to your DNS servers in the corporate network, because NS records are ignored for private DNS zones. To ensure domain name recognition for cloud network services and resources in private zones, configure separate DNS forwarders in your cloud subnets. _DNS forwarders_ are DNS servers that redirect requests differently depending on the name specified in the request. We recommend [CoreDNS](https://coredns.io/) or [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
 
-{% note info %}
+{% note warning %}
 
-As examples of such servers, we use [CoreDNS](https://coredns.io/) and [Unbound](https://www.nlnetlabs.nl/projects/unbound/). You can use any other DNS forwarder.
+Some DNS forwarders map the location of zones in {{ dns-name }} to their own settings when validating responses. In this case, only specify existing {{ dns-name }} zones in the settings. For example, if records share a `.` zone, configure redirects for this zone.
 
 {% endnote %}
 

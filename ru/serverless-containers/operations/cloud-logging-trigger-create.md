@@ -125,6 +125,77 @@
     ```
   
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать триггер для {{ cloud-logging-name }}
+
+  1. Опишите в конфигурационном файле параметры триггера:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<имя_триггера>"
+        container {
+          id                 = "<идентификатор_контейнера>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          retry_attempts     = "<количество_повторных_вызовов>"
+          retry_interval     = "<интервал_между_повторными_вызовами>"
+        }
+        logging {
+          group_id       = "<идентификатор_лог-группы>"
+          resource_types = [ "<тип_ресурса>" ]
+          resource_ids   = [ "<идентификатор_ресурса>" ]
+          levels         = [ "INFO", "ERROR" ]
+          stream_names   = [ "<поток_логирования>" ]
+          batch_cutoff   = "<время_ожидания>"
+          batch_size     = "<размер_группы_событий>"
+        }
+        dlq {
+         queue_id           = "<идентификатор_очереди_DLQ>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+       }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя триггера. Формат имени:
+
+        {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container` — параметры контейнера:
+
+        {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+        {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `logging` — параметры триггера:
+        * `group_id` — идентификатор лог-группы.
+        * `resource_types` — типы ресурсов, например функций {{ sf-name }}. Необязательный параметр.
+        * `resource_ids` — идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например функций {{ sf-name }}. Необязательный параметр.
+        * `levels` — уровни логирования. Необязательный параметр.
+        * `stream_names` — потоки логирования. Необязательный параметр.
+          Триггер срабатывает, когда в указанную лог-группу добавляют записи, которые соответствуют всем следующим параметрам: `resource_ids`, `resource_types`, `stream_names` и `levels`. Если параметр не задан, триггер срабатывает при любом его значении.
+
+        {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+      ```bash
+      yc serverless trigger list
+      ```
+
 - API
 
   Чтобы создать триггер для {{ cloud-logging-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).

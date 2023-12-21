@@ -98,6 +98,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+
+## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
+
+Issue a Let's Encrypt® certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }} or [upload](../../certificate-manager/operations/import/cert-create.md) your own certificate.
+
+For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+
+
 ## Install Thumbor {#install}
 
 1. Create a [static access key](../../iam/concepts/authorization/access-key.md) for the `thumbor-sa` service account and save it to the `sa-key.json` file:
@@ -238,13 +246,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
       --origin-group-id=<origin_group_ID> \
       --origin-protocol=https \
       --ignore-query-string \
-      --lets-encrypt-gcore-ssl-cert \
+      --cert-manager-ssl-cert-id <certificate_ID> \
       --forward-host-header
    ```
 
    Sample resource domain name: `{{ domain-name-example }}`.
-
-   To enable HTTPS access, use a [Let's Encrypt®](https://letsencrypt.org/) certificate.
 
    Result example:
 
@@ -276,7 +282,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    origin_group_name: thumbor
    origin_protocol: HTTPS
    ssl_certificate:
-     type: LETS_ENCRYPT_GCORE
+     type: CM
      status: CREATING
    ```
 

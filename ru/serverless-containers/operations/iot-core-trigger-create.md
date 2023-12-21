@@ -115,6 +115,72 @@ description: "Создайте триггер для топика устройс
     status: ACTIVE
     ```
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать триггер для {{ iot-name }}:
+
+  1. Опишите в конфигурационном файле параметры триггера:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<имя_триггера>"
+        container {
+          id                 = "<идентификатор_контейнера>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          retry_attempts     = "<количество_повторных_вызовов>"
+          retry_interval     = "<интервал_между_повторными_вызовами>"
+        }
+        iot {
+          registry_id  = "<идентификатор_реестра>"
+          device_id    = "<идентификатор_устройства>"
+          topic        = "<идентификатор_топика>"
+          batch_cutoff = "<время_ожидания>"
+          batch_size   = "<размер_группы_сообщений>"
+        }
+        dlq {
+         queue_id           = "<идентификатор_очереди_DLQ>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+       }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя триггера. Формат имени:
+
+        {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container` — параметры контейнера:
+
+        {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+        {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `iot` — параметры триггера:
+        * `registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
+        * `device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
+        * `topic` — MQTT-топик, для которого вы хотите создать триггер. Необязательный параметр. Если параметр не указан, триггер срабатывает для всех топиков реестра или устройства.
+        * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch_cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch_size`.
+        * `batch_size` — размер группы сообщений из MQTT-топиков. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+      ```bash
+      yc serverless trigger list
+      ```
+
 - API
 
   Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/trigger_service.md#Create).

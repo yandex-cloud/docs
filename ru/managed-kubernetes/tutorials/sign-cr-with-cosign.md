@@ -1,3 +1,3 @@
-# Подпись и проверка Docker-образов {{ container-registry-name }} в {{ managed-k8s-name }}
+# Подпись и проверка Docker-образов {{ container-registry-full-name }} в {{ managed-k8s-name }}
 
-{% include notitle [sign-cr-with-cosign](../../_tutorials/sign-cr-with-cosign.md) %}
+{% include notitle [sign-cr-with-cosign](../../_tutorials/containers/sign-cr-with-cosign.md) %}

@@ -10,7 +10,7 @@
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-1. Нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg) у объекта или папки и выберите **Права доступа**.
+1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) у объекта или папки и выберите **Права доступа**.
 1. Выберите пользователя с правом доступа, которое вы хотите отозвать, или группу **Все**.
 1. В появившемся окне нажмите **Отозвать права**.
 
@@ -22,7 +22,7 @@
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-1. Нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg) у объекта или папки и выберите **Права доступа**.
-1. Напротив нужного запроса нажмите значок **![image](../../../_assets/datalens/circle_stop.svg)**.
+1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) у объекта или папки и выберите **Права доступа**.
+1. Напротив нужного запроса нажмите значок **![image](../../../_assets/console-icons/ban.svg)**.
 1. (опционально) Напишите комментарий для пользователя, запросившего доступ.
 1. Нажмите **Отклонить запрос**.

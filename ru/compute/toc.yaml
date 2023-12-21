@@ -311,6 +311,8 @@ items:
             href: operations/gpu-cluster/gpu-cluster-update.md
           - name: Удалить кластер GPU
             href: operations/gpu-cluster/gpu-cluster-delete.md
+      - name: Получить список операций с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Практические руководства

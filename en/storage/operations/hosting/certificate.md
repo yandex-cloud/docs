@@ -34,7 +34,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
-- CLI
+- {{ yandex-cloud }} CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

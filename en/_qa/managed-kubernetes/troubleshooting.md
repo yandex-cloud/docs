@@ -231,6 +231,32 @@ Make sure you only provide one of the three parameters in a command. It is suffi
 
 {% include [assign-public-ip-addresses](../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
+#### Error connecting to a cluster using `kubectl` {#connect-to-cluster}
+
+Error message:
+
+```text
+ERROR: cluster has empty endpoint
+```
+
+The error occurs if you try to [connect to a cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) with no public IP address and get `kubectl` credentials for a public IP address using this command:
+
+```bash
+{{ yc-k8s }} cluster \
+   get-credentials <cluster_name_or_ID> \
+   --external
+```
+
+To connect to the cluster's private IP address from a VM located in the same network, get `kubectl` credentials with the command below:
+
+```bash
+{{ yc-k8s }} cluster \
+   get-credentials <cluster_name_or_ID> \
+   --internal
+```
+
+If you need to connect to a cluster from the internet, [recreate the cluster and assign](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) it a public IP address.
+
 #### Errors occur when connecting to a node over SSH {#node-connect}
 
 Error messages:

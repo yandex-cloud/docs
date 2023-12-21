@@ -84,6 +84,7 @@
         name        = "<имя_таймера>"
         timer {
           cron_expression = "<cron-выражение>"
+          payload         = "<сообщение>"
         }
         container {
           id                 = "<идентификатор_контейнера>"
@@ -100,14 +101,21 @@
 
       Где:
 
-      * `name` — имя таймера.
-      * `timer.0.cron_expression` — расписание вызова контейнера в формате [cron-выражения](../concepts/trigger/timer.md#cron-expression).
-      * `container.0.id` — идентификатор контейнера.
-      * `container.0.service_account_id` — идентификатор сервисного аккаунта с правами на вызов контейнера.
-      * `container.0.retry_attempts` — количество повторных вызовов, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Необязательный параметр. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
-      * `container.0.retry_interval` — время, через которое будет сделан повторный вызов контейнера, если текущий завершился неуспешно. Необязательный параметр. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-      * `dlq.0.queue_id` — идентификатор очереди Dead Letter Queue. Необязательный параметр.
-      * `dlq.0.service_account_id` — сервисный аккаунт с правами на запись в очередь Dead Letter Queue. Необязательный параметр.
+      * `name` — имя таймера. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+      * `timer` — параметры триггера:
+          * `cron_expression` — расписание вызова контейнера в формате [cron-выражения](../concepts/trigger/timer.md#cron-expression).
+          * `payload` — сообщение, которое будет передаваться в функцию при срабатывании таймера. Длина строки должна быть не более 4096 символов.
+
+      * `container` — параметры контейнера, который будет запускать триггер:
+
+          {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+          {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
       Более подробную информацию о параметрах ресурса `function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 

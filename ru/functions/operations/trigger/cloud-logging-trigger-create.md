@@ -152,6 +152,7 @@
           stream_names   = [ "<поток логирования>" ]
           batch_cutoff   = 1
           batch_size     = 1
+       }
        function {
           id                 = "<идентификатор функции>"
           service_account_id = "<идентификатор сервисного аккаунта>"

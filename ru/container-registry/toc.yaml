@@ -35,6 +35,8 @@ items:
         items:
           - name: Получить информацию об имеющихся реестрах
             href: operations/registry/registry-list.md
+          - name: Получить информацию о политике доступа к реестру
+            href: operations/registry/registry-permissions-get.md
           - name: Создать реестр
             href: operations/registry/registry-create.md
           - name: Настроить доступ к реестру

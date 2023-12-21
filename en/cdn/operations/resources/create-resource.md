@@ -5,6 +5,10 @@ description: "Follow this guide to create a resource."
 
 # Creating a resource
 
+
+{% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+
+
 To create a [resource](../../concepts/resource.md):
 
 {% list tabs %}
@@ -35,7 +39,7 @@ To create a [resource](../../concepts/resource.md):
 
       For more information, see [{#T}](../../concepts/origins.md).
 
-   1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, enter **{{ ui-key.yacloud.cdn.label_personal-domain }}**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, Сyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
+   1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, enter **{{ ui-key.yacloud.cdn.label_personal-domain }}**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, Cyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
 
       {% note warning %}
 
@@ -56,7 +60,6 @@ To create a [resource](../../concepts/resource.md):
       1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
 
          * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
-         * `Let's Encrypt®`: Certificate will be issued by the CDN provider. You will not be able to manage such a certificate from {{ certificate-manager-name }}.
          * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate in {{ certificate-manager-name }}. This can be both a [Let's Encrypt® certificate](../../../certificate-manager/concepts/managed-certificate.md) and a [user certificate](../../../certificate-manager/concepts/imported-certificate.md).
 
          For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).

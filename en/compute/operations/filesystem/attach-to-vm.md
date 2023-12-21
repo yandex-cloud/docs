@@ -21,7 +21,7 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the file store.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-      1. Select the desired storage.
+      1. Select the required storage.
       1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
       1. Click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
       1. In the window that opens:
@@ -79,6 +79,24 @@ You can attach file storage to VMs running Linux [OS](../../concepts/filesystem.
       ```bash
       sudo mount -t virtiofs <device_name> <mount_path>
       ```
+
+      If, while attaching file storage to your VM, you did not specify a device name or forgot it, you can get the name with this [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc compute instance get <VM_name>
+      ```
+
+      Result:
+      ```yaml
+      ...
+      filesystems:
+         - mode: READ_WRITE
+            device_name: my-storage-device
+            filesystem_id: epdb1jata63j********
+      ...
+      ```
+
+      Use the value of the `device_name` field in `filesystems` as the device name.
 
    1. Check that the file storage has been mounted:
 
