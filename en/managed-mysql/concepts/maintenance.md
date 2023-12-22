@@ -1,15 +1,17 @@
 ---
 title: "Maintenance in {{ mmy-full-name }}"
-description: "Maintenance in {{ mmy-name }} means automatic installation of MySQL updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
+description: "In {{ mmy-name }}, maintenance means automatic installation of MySQL updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
 ---
 
 # Maintenance in {{ mmy-name }}
 
 In {{ mmy-name }}, maintenance means:
 
-* Automatic installation of MySQL updates and revisions for hosts (including disabled clusters).
+* Automatic installation of MySQL updates and fixes for hosts (including disabled clusters).
 * Changes to the host class and storage size.
 * Other maintenance activities.
+
+Changing a DBMS version is not part of maintenance. For more information about version changes, see [{#T}](../operations/cluster-version-update.md).
 
 ## Maintenance window {#maintenance-window}
 

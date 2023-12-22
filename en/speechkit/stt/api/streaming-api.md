@@ -6,17 +6,17 @@ The service is located at: `stt.{{ api-host }}:443`
 
 | Parameter | Description |
 ----- | -----
-| config | **object**<br>Field with the recognition settings and folder ID. |
-| config<br>.specification | **object**<br>Recognition settings. |
+| config | **object**<br>Field with the recognition settings and folder ID |
+| config<br>.specification | **object**<br>Recognition settings |
 | config<br>.specification<br>.languageCode | **string**<br>Language that recognition will be performed for.<br/>See a list of available languages in the [model description](../models.md). The default value is `ru-RU` (Russian). |
-| config<br>.specification<br>.model | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](../models.md) depend on the selected language. Default value: `general`. |
-| config<br>.specification<br>.profanityFilter | **boolean**<br>Profanity filter.<br/>Acceptable values:<ul><li>`true`: Exclude profanities from recognition results.</li><li>`false` (default): Do not exclude profanities from recognition results.</li></ul> |
-| config<br>.specification<br>.partialResults | **boolean**<br>Filter intermediate results.<br/>Acceptable values:<ul><li>`true`: Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default): Return only the final results (the entire recognized utterance). |
-| config<br>.specification<br>.singleUtterance | **boolean**<br>Flag that disables recognition after the first utterance.<br/>Acceptable values:<ul><li>`true`: Recognize only the first utterance, stop recognition, and wait for the user to disconnect.</li><li>`false` (default): Continue recognition until the end of the session.</li></ul> |
-| config<br>.specification<br>.audioEncoding | **string**<br>Synthesized audio [format](../../formats.md).<br/>Acceptable values include:<ul><li>`LINEAR16_PCM`: [LPCM without WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus) format.</li></ul> |
-| config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>Sampling frequency of the synthesized audio.<br/>This parameter is required if `format` is set to `LINEAR16_PCM`. Acceptable values include:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
-| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true`: In words. `false` (by default): In numbers. |
-| folderId | **string**<br><p>[ID of the folder](../../../resource-manager/operations/folder/get-id.md) that you have access to. It is required for authorization with a user account (see the [{#T}](../../concepts/auth.md) resource). Do not specify this field if you make a request on behalf of a service account.</p> <p>The maximum string length is 50 characters.</p> |
+| config<br>.specification<br>.model | **string**<br>Language model to use for recognition.<br/>The closer the model is matched, the better is the recognition result. You can only specify one model per request.<br/>[Acceptable values](../models.md) depend on the selected language. The default value is `general`. |
+| config<br>.specification<br>.profanityFilter | **boolean**<br>Profanity filter.<br/>Acceptable values include:<ul><li>`true`: Exclude profanities from recognition results.</li><li>`false` (default): Do not exclude profanities from recognition results.</li></ul> |
+| config<br>.specification<br>.partialResults | **boolean**<br>Filter intermediate results.<br/>Acceptable values include:<ul><li>`true`: Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`:</li><li>`false` (default): Return only the final results (the entire recognized utterance). |
+| config<br>.specification<br>.singleUtterance | **boolean**<br>Flag that disables recognition after the first utterance.<br/>Acceptable values include:<ul><li>`true`: Recognize only the first utterance, stop recognition, and wait for the user to disconnect.</li><li>`false` (default): Continue recognition until the end of the session.</li></ul> |
+| config<br>.specification<br>.audioEncoding | **string**<br>[Format](../../formats.md) of the audio being provided.<br/>Acceptable values include:<ul><li>`LINEAR16_PCM`: [LPCM without WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus) format.</li></ul> |
+| config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>Sampling frequency of the audio being provided.<br/>This parameter is required if `format` is set to `LINEAR16_PCM`. Acceptable values include:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
+| config.<br>specification.<br>rawResults | **boolean** <br>Flag that toggles spelling out numbers. `true` means spelling numbers out, while `false` (default) stands for writing them as numbers. |
+| folderId | **string**<br><p>[ID of the folder](../../../resource-manager/operations/folder/get-id.md) that you have access to. It is required for authorization with a user account (see [{#T}](../../concepts/auth.md)). Do not specify this field if you make a request on behalf of a service account.</p> <p>The maximum string length is 50 characters.</p> |
 
 ### Experimental additional recognition settings {#additional-settings}
 
@@ -24,7 +24,7 @@ For streaming recognition models, new recognition settings are supported. They a
 
 | Parameter | Description |
 ----- | -----
-| `x-normalize-partials` | **boolean**<br>A flag that lets you get intermediate recognition results (parts of a recognized utterance) in normalized form: numbers are passed as digits, the profanity filter is enabled, and so on.<br>Acceptable values:<ul><li>`true `: Return a normalized result.</li><li>`false` (default): Return an unnormalized result. |
+| `x-normalize-partials` | **boolean**<br>Flag that allows you to get intermediate recognition results (parts of a recognized utterance) in a normalized format: numbers are specified as digits, the profanity filter is enabled, etc.<br>Acceptable values include:<ul><li>`true `: Return a normalized result.</li><li>`false` (default): Return an non-normalized result. |
 
 ### Audio message {#audio-msg}
 
@@ -47,7 +47,7 @@ If speech fragment recognition is successful, you will receive a message contain
 
    {% note info %}
 
-   If you specified `singleUtterance=true` in the settings, only one utterance will be recognized per session. After sending a message where `endOfUtterance` is `true`, the server doesn't recognize the following utterances and waits until you end the session.
+   If you specified `singleUtterance=true` in the settings, only one utterance will be recognized per session. After sending a message where `endOfUtterance` is `true`, the server does not recognize the following utterances and waits until you end the session.
 
    {% endnote %}
 

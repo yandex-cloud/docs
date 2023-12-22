@@ -5,12 +5,6 @@ description: "{{ alb-name }} предоставляет инструмент д�
 
 # Gateway API для {{ managed-k8s-name }}
 
-{% note info %}
-
-Gateway API находится на стадии Preview.
-
-{% endnote %}
-
 {{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Gateway API. Подробнее о проекте Gateway API см. на его [сайте](https://gateway-api.sigs.k8s.io/).
 
 После установки Gateway API вы сможете создать с его помощью ресурс `Gateway` и связанные с ним ресурсы `HTTPRoute`:
@@ -107,3 +101,4 @@ spec:
 
 * [Настройка групп безопасности](../k8s-ingress-controller/security-groups.md) для кластера {{ k8s }} и балансировщика.
 * [Сервисный аккаунт](../k8s-ingress-controller/service-account.md) для работы контроллера.
+* [Gateway API в {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/gateway-api).

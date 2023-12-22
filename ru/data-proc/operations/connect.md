@@ -87,7 +87,7 @@ description: "Следуя данной инструкции, вы сможет�
 
     При использовании [перенаправления портов](../operations/connect-interfaces.md#routing), [добавьте](../../vpc/operations/security-group-add-rule.md) в группу безопасности промежуточной ВМ правила, разрешающие входящий и исходящий трафик через порты требуемых компонентов:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `<порт компонента>`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `<порт_компонента>`.
 
         Номера портов для компонентов {{ dataproc-name }} приведены в таблице:
 
@@ -138,13 +138,13 @@ description: "Следуя данной инструкции, вы сможет�
 1. Откройте SSH-соединение с хостом {{ dataproc-name }}, указав его FQDN или IP-адрес, если для хоста включен публичный доступ.  Для образа 2.0 укажите пользователя `ubuntu`, для образа 1.4 — `root`, например:  
 
    ```bash
-   ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
+   ssh ubuntu@rc1b-dataproc-m-fh4y4nur********.{{ dns-zone }}
    ```
 
    Результат:
 
    ```text
-   ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
+   ubuntu@rc1b-dataproc-m-fh4y4nur********:~#
    ```
 
 1. Проверьте, что команды Hadoop выполняются, например:
@@ -157,10 +157,10 @@ description: "Следуя данной инструкции, вы сможет�
 
     ```text
     Hadoop 2.8.5
-    Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4d24e81b5
+    Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4********
     Compiled by robot-pgaas-ci on 2019-04-16T10:35Z
     Compiled with protoc 2.5.0
-    From source with checksum 9942ca5c745417c14e318835f420733
+    From source with checksum 9942ca5c745417c14e31883********
     This command was run using /usr/lib/hadoop/hadoop-common-2.8.5.jar
     ```
 

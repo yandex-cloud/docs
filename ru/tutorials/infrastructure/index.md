@@ -18,6 +18,7 @@ description: "Различные сценарии использования с�
 * [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Обновление группы ВМ под нагрузкой](../infrastructure-management/updating-under-load.md)
 * [Создание триггера для бюджетов, который вызывает функцию {{ sf-full-name }} для остановки ВМ](../infrastructure-management/serverless-trigger-budget-vm.md)
+* [Развертывание отказоустойчивой архитектуры с прерываемыми ВМ](../infrastructure/nodejs-cron-restart-vm.md)
 
 ## Инструменты {#tools}
 
@@ -42,10 +43,10 @@ description: "Различные сценарии использования с�
 * [Соединение с облачной сетью при помощи OpenVPN](../routing/openvpn.md)
 * [Создание и настройка шлюза UserGate в режиме прокси-сервера](../routing/usergate-proxy.md)
 
-## {{ dns-name }} {#dns}
+## {{ dns-full-name }} {#dns}
 
 * [Настройка локального кеширующего DNS-резолвера](../infrastructure-management/local-dns-cache.md)
-* [Миграция DNS-зон из {{ yandex-360 }} в {{ dns-full-name }}](../infrastructure-management/connect-migration.md)
+* [Миграция DNS-зон из {{ yandex-360 }} в {{ dns-name }}](../infrastructure-management/connect-migration.md)
 * [{#T}](../dataplatform/mdb-dns-peering.md)
 * [{#T}](../infrastructure-management/dns-integration.md)
 * [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](../infrastructure-management/cert-manager-webhook.md)

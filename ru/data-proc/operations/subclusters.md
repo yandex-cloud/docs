@@ -26,7 +26,7 @@
   Чтобы запросить список подкластеров в кластере {{ dataproc-name }}, выполните команду:
 
   ```bash
-  {{ yc-dp }} subcluster list --cluster-name=<имя кластера>
+  {{ yc-dp }} subcluster list --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
@@ -87,21 +87,21 @@
   1. Укажите параметры подкластера в команде создания (в примере приведены не все доступные параметры):
 
      ```bash
-     {{ yc-dp }} subcluster create <имя подкластера> \
-       --cluster-name=<имя кластера> \
-       --role=<роль подкластера> \
-       --resource-preset=<класс хоста> \
-       --disk-type=<тип хранилища: network-ssd, network-hdd или network-ssd-nonreplicated> \
-       --disk-size=<размер хранилища в гигабайтах> \
-       --subnet-name=<имя подсети> \
-       --hosts-count=<количество хостов>
+     {{ yc-dp }} subcluster create <имя_подкластера> \
+       --cluster-name=<имя_кластера> \
+       --role=<роль_подкластера> \
+       --resource-preset=<класс_хоста> \
+       --disk-type=<тип_хранилища> \
+       --disk-size=<размер_хранилища_ГБ> \
+       --subnet-name=<имя_подсети> \
+       --hosts-count=<количество_хостов>
      ```
 
      Где:
      * `--cluster-name` — имя кластера. Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
      * `--role` — роль подкластера: `datanode` или `computenode`.
      * `--resource-preset` — [класс хостов](../concepts/instance-types.md).
-     * `--disk-type` — [тип хранилища](../concepts/storage.md).
+     * `--disk-type` — [тип хранилища](../concepts/storage.md): `network-ssd`, `network-hdd` или `network-ssd-nonreplicated`.
      * `--disk-size` — размер хранилища в гигабайтах.
      * `--subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
      * `--hosts-count` — количество хостов подкластера. Минимальное значение — `1`, максимальное — `32`.
@@ -114,25 +114,27 @@
   1. Добавьте в описании кластера {{ dataproc-name }} блок `subcluster_spec` с параметрами нового подкластера:
 
      ```hcl
-     resource "yandex_dataproc_cluster" "<имя кластера>" {
+     resource "yandex_dataproc_cluster" "data_cluster" {
        ...
        cluster_config {
          ...
          subcluster_spec {
-           name = "<имя подкластера>"
-           role = "<роль подкластера: COMPUTENODE или DATANODE>"
+           name = "<имя_подкластера>"
+           role = "<роль_подкластера>"
            resources {
-             resource_preset_id = "<класс хоста>"
-             disk_type_id       = "<тип хранилища>"
-             disk_size          = <объем хранилища, ГБ>
+             resource_preset_id = "<класс_хоста>"
+             disk_type_id       = "<тип_хранилища>"
+             disk_size          = <объем_хранилища_ГБ>
            }
-           subnet_id   = "<идентификатор подсети в {{ TF }}>"
-           hosts_count = <число хостов в подкластере>
+           subnet_id   = "<идентификатор_подсети>"
+           hosts_count = <число_хостов_в_подкластере>
            ...
          }
        }
      }
      ```
+
+     Где `role` — роль подкластера: `COMPUTENODE` или `DATANODE`.
 
   1. Проверьте корректность настроек.
 
@@ -175,8 +177,8 @@
   Чтобы удалить подкластер в кластере {{ dataproc-name }}, выполните команду:
 
   ```bash
-  {{ yc-dp }} subcluster delete <идентификатор или имя подкластера> \
-    --cluster-name=<имя кластера>
+  {{ yc-dp }} subcluster delete <имя_или_идентификатор_подкластера> \
+    --cluster-name=<имя_кластера>
   ```
 
   Идентификатор и имя подкластера можно получить со [списком подкластеров в кластере](#list-subclusters), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list).

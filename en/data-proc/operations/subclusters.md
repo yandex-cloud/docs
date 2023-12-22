@@ -4,7 +4,7 @@ In addition to [updating the settings](subcluster-update.md) of a particular sub
 
 {% note warning %}
 
-Each cluster may have only 1 subcluster with a master host, which is why you cannot create or delete such subclusters. You cannot delete data storage subclusters either.
+Each cluster may have only 1 subcluster with a master host, which is why you cannot create or delete subclusters with this role. You cannot delete data storage subclusters either.
 
 {% endnote %}
 
@@ -99,9 +99,9 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
 
       Where:
       * `--cluster-name`: Cluster name. You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list).
-      * `--role`: Subcluster role (`datanode`, or `computenode`)
-      * `--resource-preset`: [Host class](../concepts/instance-types.md)
-      * `--disk-type`: [Storage type](../concepts/storage.md)
+      * `--role`: Subcluster role (`datanode`, or `computenode`).
+      * `--resource-preset`: [Host class](../concepts/instance-types.md).
+      * `--disk-type`: [Storage type](../concepts/storage.md).
       * `--disk-size`: Storage size in GB.
       * `--subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
       * `--hosts-count`: Subcluster host count. The minimum value is `1` and the maximum value is `32`.

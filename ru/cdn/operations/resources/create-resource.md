@@ -19,7 +19,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-  1. Если у вас еще нет CDN-ресурсов, нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**. Подключение происходит автоматически.
+  1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 

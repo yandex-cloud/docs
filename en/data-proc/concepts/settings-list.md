@@ -41,8 +41,8 @@ The available properties are listed in the official documentation for the compon
 | `core` | `/etc/hadoop/conf/core-site.xml` | [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml) |
 | `hdfs` | `/etc/hadoop/conf/hdfs-site.xml` | [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml) |
 | `yarn` | `/etc/hadoop/conf/yarn-site.xml` | [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml) |
-| `mapreduce` | `/etc/hadoop/conf/mapred-site.xml` | [mapreduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml) |
-| `capacity-scheduler` | `/etc/hadoop/capacity-scheduler.xml` | [CapacityScheduler](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) |
+| `mapreduce` | `/etc/hadoop/conf/mapred-site.xml` | [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml) |
+| `capacity-scheduler` | `/etc/hadoop/conf/capacity-scheduler.xml` | [CapacityScheduler](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) |
 | `resource-type` | `/etc/hadoop/conf/resource-types.xml` | [ResourceTypes](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceModel.html) |
 | `node-resources` | `/etc/hadoop/conf/node-resources.xml` | [NodeResources](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceModel.html) |
 | `spark` | `/etc/spark/conf/spark-defaults.xml` | [Spark](https://spark.apache.org/docs/latest/configuration.html) |
@@ -59,13 +59,13 @@ Settings for running jobs are specified in special properties:
 * `dataproc:version`: Version of the `dataproc-agent` that runs jobs, sends the property of a cluster state, and proxies the UI. This poperty is used for debugging. Its default value is `latest`.
 * `dataproc:max-concurrent-jobs`: Number of concurrent jobs. The default value is `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
 * `dataproc:min-free-memory-to-enqueue-new-job`: Minimum size of free memory to run a job, in bytes. The default value is `1073741824` (1 GB).
-* `dataproc:job-memory-footprint`: Memory size to run a job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. The default value is `536870912` (512 MB).
+* `dataproc:job-memory-footprint`: Memory size to run a job on the cluster's master host, used to estimate the maximum number of jobs per cluster. The default value is `536870912` (512 MB).
 * `dataproc:spark_executors_per_vm`: Maximum number of containers per computing host when running [Spark jobs](./spark-sql.md). The default values are:
 
    * `1`: For [lightweight clusters](./index.md#light-weight-clusters).
    * `2`: For clusters with HDFS.
 
-* `dataproc:spark_driver_memory_fraction`: Computing host memory fraction reserved for the driver when running [Spark jobs](./spark-sql.md). By default, it is set to `0.25`.
+* `dataproc:spark_driver_memory_fraction`: Computing host memory fraction reserved for the driver when running [Spark jobs](./spark-sql.md). The default value is `0.25`.
 
 ## JVM settings for Spark applications set in {{ dataproc-name }} by default {#jvm-settings-for-spark}
 
