@@ -38,7 +38,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
     * Идентификатор секрета {{ lockbox-full-name }}, который создали ранее.
 1. Нажмите кнопку **Установить** и дождитесь, пока приложение установится.
 1. На странице **Обзор**, в разделе **Ресурсы приложения**, найдите API-шлюз, перейдите на его страницу и скопируйте ссылку на служебный домен.
-1. Чтобы настроить связь между функцией и Telegram-ботом, выполните запрос. Вместо `<токен бота>` укажите токен Telegram-бота, вместо `<домен API-шлюза>` — ссылку на служебный домен API-шлюза.
+1. Чтобы настроить связь между функцией и Telegram-ботом, выполните запрос. Вместо `<токен_бота>` укажите токен Telegram-бота, вместо `<домен_API-шлюза>` — ссылку на служебный домен API-шлюза.
 
     {% list tabs group=operating_system %}
 
@@ -47,7 +47,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```bash
         curl \
           --request POST \
-          --url https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo
+          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=https://<домен_API-шлюза>/echo
         ```
 
     - Windows (cmd) {#windows-cmd}
@@ -55,7 +55,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```bash
         curl ^
           --request POST ^
-          --url "https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo"
+          --url "https://api.telegram.org/bot<токен_бота>/setWebhook?url=https://<домен_API-шлюза>/echo"
         ```
 
     - Windows (PowerShell) {#windows-powershell}
@@ -63,7 +63,7 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
         ```powershell
         curl.exe `
           --request POST `
-          --url https://api.telegram.org/bot<токен бота>/setWebhook?url=https://<Домен API-шлюза>/echo
+          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=https://<домен_API-шлюза>/echo
         ```
 
     {% endlist %}

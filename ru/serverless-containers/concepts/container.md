@@ -15,6 +15,12 @@ title: "Контейнер в {{ serverless-containers-full-name }}"
 
 Ревизию контейнера можно создать только из Docker-образа, который загружен в [реестр](../../container-registry/concepts/registry) {{ container-registry-full-name }}. Другие реестры не поддерживаются. Ревизия содержит всю информацию, необходимую для запуска контейнера.
 
+Возможные статусы ревизии:
+* `Active` — активная;
+* `Obsolete` — устаревшая.
+
+При вызове контейнера запускается активная ревизия. По умолчанию это последняя ревизия, но вы можете [сделать активной](../operations/activate-revision.md) другую. Если вы создадите новую ревизию, она автоматически станет активной.
+
 {% include [manage-revision-note](../../_includes/serverless-containers/manage-revision-note.md) %}
 
 {% include [create-revision-note](../../_includes/serverless-containers/create-revision-note.md) %}

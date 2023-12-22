@@ -13,7 +13,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы узнать имя или уникальный идентификатор ревизии контейнера, [получите](../../serverless-containers/operations/revision-list.md) список ревизий контейнера в каталоге.
+    {% include [get-revision-list](../../_includes/serverless-containers/get-revision-list.md) %}
 
     Чтобы получить подробную информацию о ревизии контейнера, выполните команду:
 

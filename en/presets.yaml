@@ -5724,9 +5724,11 @@ default:
         button_create-container: Create container
         button_deploy-revision: Create revision
         label_containers: Containers
+        label_edit-active-revision: Make active
         label_editor: Editor
         label_timeout: Timeout, s
         label_url: Link to invoke
+        popup-confirm-edit-active-revision_button_confirm: Confirm
         section_image: Image settings
         section_parameters: Settings
         section-revisions: Revisions

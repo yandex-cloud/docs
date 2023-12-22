@@ -2,13 +2,13 @@
 editable: false
 ---
 
-# Pricing for {{ dataproc-name }}
+# {{ dataproc-name }} pricing
 
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using {{ dataproc-name }} {#rules}
+## What is included in the {{ dataproc-name }} cost {#rules}
 
 The total cost of using {{ dataproc-name }} includes:
 
@@ -53,7 +53,7 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
       * **Data storage host**: `s2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 8 GB RAM.
       * **Host storage**: 100 GB of `network-hdd`.
 
-   Cost calculation:
+   The cost is calculated as follows:
 
    > 
    > ({{ sku|USD|compute.vm.cpu.50.v2|string }} + {{ sku|USD|mdb.dataproc.v2.cpu.c50|string }}) × 2 + ({{ sku|USD|compute.vm.ram.v2|string }} + {{ sku|USD|mdb.dataproc.v2.ram|string }}) × 4 + {{ sku|USD|nbs.network-nvme.allocated|string }} × 20 = $0.026288
@@ -65,7 +65,7 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 
    * {{ sku|USD|compute.vm.cpu.50.v2|string }} is the cost of using 50% vCPU per hour.
    * {{ sku|USD|mdb.dataproc.v2.cpu.c50|string }} is the {{ dataproc-name }} markup for using 50% vCPU.
-   * 2 is the number of vCPUs in the master host.
+   * 2 is the number of vCPUs per master host.
    * {{ sku|USD|compute.vm.ram.v2|string }} is the cost of using 1 GB of RAM per hour.
    * {{ sku|USD|mdb.dataproc.v2.ram|string }} is the {{ dataproc-name }} markup for using 1 GB of RAM.
    * 4 is the amount of RAM per master host (in GB).

@@ -59,10 +59,10 @@ Run a query to the `mdb_toolkit.gp_cancel_backend()` function:
 
 ```sql
 SELECT *
-FROM mdb_toolkit.gp_cancel_backend(<process_ID>,<message_text>);
+FROM mdb_toolkit.gp_cancel_backend(<process_ID>);
 ```
 
-You can get the process ID with the [list of cluster processes](#list). Message text is optional and is sent to the client when the function is run.
+You can get the process ID with the [list of cluster processes](#list).
 
 ## Closing a database connection {#terminate-backend}
 
@@ -70,10 +70,10 @@ Run a query to the `mdb_toolkit.gp_terminate_backend()` function:
 
 ```sql
 SELECT *
-FROM mdb_toolkit.gp_terminate_backend(<process_ID>,<message_text>);
+FROM mdb_toolkit.gp_terminate_backend(<process_ID>);
 ```
 
-You can get the process ID with the [list of cluster processes](#list). Message text is optional and is sent to the client when the function is run.
+You can get the process ID with the [list of cluster processes](#list).
 
 ## Load management {#load-management}
 

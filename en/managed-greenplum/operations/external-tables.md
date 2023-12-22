@@ -2,14 +2,6 @@
 
 {{ GP }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to [data in external DBMS](#pxf) uses the _PXF_ protocol whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
 
-{% note info %}
-
-
-To connect to external sources, [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet hosting the {{ mgp-name }} cluster.
-
-
-{% endnote %}
-
 With external tables, you can:
 
 * Query external data sources.
@@ -22,6 +14,17 @@ With external tables, you can:
 For security reasons, {{ mgp-name }} does not support creating [external web tables]({{ gp.docs.pivotal }}/6-19/admin_guide/external/g-creating-and-using-web-external-tables.html) that use shell scripts.
 
 {% endnote %}
+
+## Getting started {#before-you-begin}
+
+In the {{ mgp-name }} cluster subnet:
+
+
+1. [Set up a NAT gateway and link a route table](../../vpc/operations/create-nat-gateway.md).
+1. [Create a security group](../../vpc/operations/security-group-create.md) that allows all incoming and outgoing traffic from all addresses.
+
+
+Without these settings, the cluster will have no access to external sources.
 
 ## Connecting to external DBMS {#pxf}
 
@@ -75,11 +78,9 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
 - {{ CH }}
 
-   1. [Create a {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
-
-      * User name: `chuser`.
-
-   1. [Connect to a {{ CH }} database](../../managed-clickhouse/operations/connect#connection-string) using `clickhouse-client`.
+   1. [Create a {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the `chuser` username.
+   1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
+   1. [Connect to a {{ CH }} database](../../managed-clickhouse/operations/connect.md#connection-string) using `clickhouse-client`.
    1. Create a test table and populate it with data:
 
       ```sql
@@ -132,7 +133,8 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       * User name: `mysqluser`.
       * In the host settings, select the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
 
-   1. [Connect to a {{ MY }} database](../../managed-mysql/operations/connect#connection-string) using `mysql`.
+   1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
+   1. [Connect to a {{ MY }} database](../../managed-mysql/operations/connect.md#connection-string) using `mysql`.
    1. Create a test table and populate it with data:
 
       ```sql
@@ -178,6 +180,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       * User name: `pguser`.
       * In the host settings, select the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
 
+   1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
    1. [Connect to a {{ PG }} database](../../managed-postgresql/operations/connect.md#bash) using `psql`.
    1. Create a test table and populate it with data:
 
@@ -219,7 +222,9 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
 - {{ objstorage-name }}
 
-   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
+   1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
+
+   1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md).
 

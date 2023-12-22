@@ -486,6 +486,12 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
 {% endlist %}
 
+{% note info %}
+
+Changes to some [cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings) take effect only after you restart the cluster. Check the description of the updated settings and [restart the cluster](./cluster-stop.md) if needed.
+
+{% endnote %}
+
 ## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs %}

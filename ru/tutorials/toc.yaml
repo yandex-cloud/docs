@@ -127,6 +127,8 @@ items:
               Создание триггера для бюджетов, который вызывает функцию для
               остановки ВМ
             href: infrastructure-management/serverless-trigger-budget-vm.md
+          - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
+            href: infrastructure/nodejs-cron-restart-vm.md
       - name: Инструменты
         items:
           - name: Начало работы с {{ TF }}
@@ -394,8 +396,8 @@ items:
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
-          Миграция данных в {{ mos-full-name }} из стороннего кластера {{ OS }}
-          с помощью {{ data-transfer-full-name }}
+          Миграция данных в {{ mos-name }} из стороннего кластера {{ OS }} с
+          помощью {{ data-transfer-name }}
         href: dataplatform/mos-migration-from-standalone.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md

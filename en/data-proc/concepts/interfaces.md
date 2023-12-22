@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn what component interfaces and por
 
 # {{ dataproc-name }} component interfaces and ports
 
-For some {{ dataproc-name }} components, such as Hadoop, Spark, Yarn, and Zeppelin, there are custom web interfaces available on the master cluster host. These interfaces can be used:
+For some {{ dataproc-name }} components, such as Hadoop, Spark, Yarn, and Zeppelin, there are custom web interfaces available on a cluster's master host. These interfaces can be used:
 
 * YARN Resource Manager and HDFS Name Node: To manage and monitor cluster resources.
 * Spark History and JobHistory: To view job statuses and debug jobs.

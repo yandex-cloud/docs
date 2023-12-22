@@ -1,3 +1,3 @@
-# Подключение к базе данных {{ ydb-short-name }} из функции {{ sf-full-name }} на Python
+# Подключение к базе данных {{ ydb-name }} из функции {{ sf-full-name }} на Python
 
-{% include [connect-from-cf](../../_tutorials/connect-from-cf.md) %}
+{% include [connect-from-cf](../../_tutorials/serverless/connect-from-cf.md) %}

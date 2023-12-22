@@ -36,7 +36,7 @@
     object Main {
         def main(args: Array[String]) {
             if (args.length != 2){ // check number of args
-                System.err.println("Usage spark-app.jar <input_dir> <output_dir>");
+                System.err.println("Usage spark-app.jar <входная_директория> <выходная_директория>");
                 System.exit(-1);
             }
 
@@ -71,11 +71,11 @@
 
 1. [Создайте задание Spark](../operations/jobs-spark#create) с параметрами:
 
-    * **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}**: `s3a://<имя бакета для исходных данных>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}**: `s3a://<имя_бакета_для_исходных_данных>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
     * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `com.yandex.cloud.dataproc.scala.Main`
     * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
-        * `s3a://<имя бакета для исходных данных>/text.txt`
-        * `s3a://<имя бакета для результатов обработки>/<папка для результатов>`
+        * `s3a://<имя_бакета_для_исходных_данных>/text.txt`
+        * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
 
 1. Подождите, пока [статус задания](../operations/jobs-spark.md#get-info) изменится на `Done`.
 

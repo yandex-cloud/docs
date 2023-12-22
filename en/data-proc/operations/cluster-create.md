@@ -5,7 +5,7 @@ To create a {{ dataproc-name }} cluster, a user must be assigned the `editor` an
 
 ## Configure a network {#setup-network}
 
-Configure access to the internet from the subnet to which the subcluster with a master host will be be connected, e.g., using a [NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
+Configure access to the internet from the subnet to which the subcluster with a master host will be connected, e.g., using a [NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
 
 ## Configure security groups {#change-security-groups}
 
@@ -96,7 +96,7 @@ A cluster must include a subcluster with a master host and at least one subclust
    1. Enter the public part of your SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
    1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access. Make sure to [assign](../security/index.md#grant-role) the `dataproc.agent` role to the cluster service account.
    1. Select the availability zone for the cluster.
-   1. If necessary, configure the [properties of cluster components](../concepts/settings-list.md), jobs, and the environment.
+   1. If required, configure the [properties of cluster components, jobs, and the environment](../concepts/settings-list.md).
    1. If necessary, specify the custom [initialization scripts](../concepts/init-action.md) of cluster hosts. For each script, specify:
 
       * **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}**: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
@@ -125,7 +125,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       To enable this functionality, assign the [cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
 
-   1. Configure subclusters: no more than one subcluster with a master host (called **Master**) and subclusters for data storage or processing.
+   1. Configure subclusters: not more than one subcluster with a master host (**Master**) and subclusters for data storage or processing.
 
       Storage and processing subcluster roles are different: you can deploy data storage components on data storage subclusters and computing components on data processing subclusters. Storage on a data processing subcluster is only used to temporarily store processed files.
 
@@ -136,7 +136,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       * [Storage](../concepts/storage.md) size and type.
       * Subnet of the network where the cluster is located.
 
-         In the subnet, you need to [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subcluster with the master host. For more information, see [{#T}](#setup-network).
+         In the subnet, you need to [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subcluster with a master host. For more information, see [{#T}](#setup-network).
 
       * To access subcluster hosts from the internet, select **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. In this case, you can only connect to subcluster hosts over an SSL connection. For more information, see [{#T}](connect.md).
 
@@ -413,7 +413,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       If necessary, you can also use it to specify the [properties of cluster components, jobs, and the environment](../concepts/settings-list.md).
 
-      Sample structure of a configuration file that describes a cluster consisting of a subcluster with a master host, a data storage subcluster, and a data processing subcluster:
+      See below a sample structure of a configuration file that describes a cluster consisting of a subcluster with a master host, a data storage subcluster, and a data processing subcluster:
 
       ```hcl
       resource "yandex_dataproc_cluster" "<cluster name in {{ TF }}>" {
@@ -582,13 +582,13 @@ After your cluster's status changes to **Running**, you can [connect](connect.md
 
    Create a {{ dataproc-name }} cluster to run Spark jobs without HDFS and data storage subclusters and set the test characteristics:
 
-   * Cluster name: `my-dataproc`.
-   * With a bucket named `dataproc-bucket`.
-   * In the `{{ zone-id }}` availability zone.
-   * With a service account named `dataproc-sa`.
-   * With image version `2.0`.
-   * With `SPARK` and `YARN` components.
-   * With the path to the public part of the SSH key: `/home/username/.ssh/id_rsa.pub`.
+   * Cluster name: `my-dataproc`
+   * Bucket name: `dataproc-bucket`
+   * Availability zone: `{{ zone-id }}`
+   * Service account: `dataproc-sa`
+   * Image version: `2.0`
+   * `SPARK` and `YARN` components
+   * Path to the public part of the SSH key: `/home/username/.ssh/id_rsa.pub`
    * With the `master` subcluster for master hosts and a single `compute` subcluster for processing data:
 
       * Class: `{{ host-class }}`

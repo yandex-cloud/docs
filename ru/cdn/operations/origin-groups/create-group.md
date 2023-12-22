@@ -13,14 +13,17 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
   1. Введите название группы.
   1. Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+
      * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Подробнее о типах см. в разделе [{#T}](../../concepts/origins.md).
      * Укажите источник.
      * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` или `{{ ui-key.yacloud.cdn.value_backup }}`. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
      * Добавьте другие источники, если необходимо.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI

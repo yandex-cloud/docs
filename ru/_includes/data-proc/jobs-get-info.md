@@ -16,8 +16,8 @@
 
     ```bash
     {{ yc-dp }} job get \
-       --cluster-name=<имя кластера> \
-       --name=<имя задания>
+       --cluster-name=<имя_кластера> \
+       --name=<имя_задания>
     ```
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](../../data-proc/operations/cluster-list.md#list).

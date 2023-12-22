@@ -20,7 +20,7 @@ When you reduce the number of hosts in a subcluster, it is {{ dataproc-name }} t
 
 ### Assigning network aliases to hosts {#fqdn-reconnect}
 
-To maintain external network access to {{ dataproc-name }} services, create a network alias (`CNAME` record) in {{ dns-full-name }} to point to the current name of the {{ dataproc-name }} cluster master host.
+To maintain external network access to {{ dataproc-name }} services, create a network alias (`CNAME` record) in {{ dns-full-name }} to point to the relevant name of the {{ dataproc-name }} cluster master host.
 
 To reconfigure external connections when recreating a cluster or moving the workload to a different cluster, you can just change the `CNAME` record you created.
 

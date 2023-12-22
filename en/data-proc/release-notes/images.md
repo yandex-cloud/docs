@@ -5,7 +5,7 @@ For a complete listing of current and deprecated {{ dataproc-name }} images, ple
 
 ## 2.0.69 {#2.0.69}
 
-* Added the `kafka-clients` and `commons-pool2` to ensure proper interaction between {{ SPRK }} и {{ KF }}.
+* Added the `kafka-clients` and `commons-pool2` libraries required for {{ SPRK }} and {{ KF }} integration.
 
 ## 2.0.66 {#2.0.66}
 

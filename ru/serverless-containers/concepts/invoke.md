@@ -10,6 +10,8 @@ description: "Вы можете вызвать контейнер с помощ�
 * с помощью [триггера](#trigger);
 * с помощью [расширения {{ api-gw-full-name }}](#extension).
 
+{% include [active-revision](../../_includes/serverless-containers/active-revision.md) %}
+
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 ## HTTPS {#https}
