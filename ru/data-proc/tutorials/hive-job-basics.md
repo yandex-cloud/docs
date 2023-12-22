@@ -60,7 +60,7 @@
     (city_name string, population decimal)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     STORED AS TEXTFILE
-    LOCATION 's3a://<бакет для исходных данных>/cities';
+    LOCATION 's3a://<бакет_для_исходных_данных>/cities';
 
     /* Показать количество городов и суммарную численность населения в них: */
     SELECT COUNT(*) num_cities, SUM(population) sum_populataion FROM cities;
@@ -74,7 +74,7 @@
 1. [Создайте задание Hive](../operations/jobs-hive#create) с параметрами:
 
     * **{{ ui-key.yacloud.dataproc.jobs.field_driver }}**: `Файл`
-    * **{{ ui-key.yacloud.dataproc.jobs.field_query-file-uri }}**: `s3a://<имя бакета для исходных данных>/cities.sql`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_query-file-uri }}**: `s3a://<имя_бакета_для_исходных_данных>/cities.sql`
 
 1. Подождите, пока [статус задания](../operations/jobs-spark.md#get-info) изменится на `Done`.
 

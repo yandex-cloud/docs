@@ -39,6 +39,14 @@
           zone = "{{ region-id }}-a"
         }
 
+        resource "yandex_compute_disk" "boot-disk" {
+          name     = "<имя_диска>"
+          type     = "<тип_диска>"
+          zone     = "{{ region-id }}-a"
+          size     = "<размер_диска>"
+          image_id = "<идентификатор_образа_с_драйверами>"
+        }
+
         resource "yandex_compute_instance" "default" {
           name           = "vm-gpu"
           platform_id    = "gpu-standard-v3"
@@ -52,10 +60,7 @@
           }
 
           boot_disk {
-            initialize_params {
-              image_id = "<идентификатор_образа_с_драйверами>"
-              size     = "64"
-            }
+            disk_id = yandex_compute_disk.boot-disk.id
           }
 
           network_interface {
@@ -84,8 +89,8 @@
 
         Где:
 
+        * `yandex_compute_disk` — описание загрузочного [диска](../../concepts/disk.md), где `image_id` — идентификатор образа с драйверами.
         * `gpu_cluster_id` — идентификатор кластера GPU. Обязательный параметр.
-        * `image_id` — идентификатор образа с драйверами. Обязательный параметр.
         * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md).
         * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#subnet), в которой будет создана виртуальная машина.
 

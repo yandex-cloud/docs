@@ -36,6 +36,7 @@ description: "Из статьи вы узнаете, как работать с 
 
 * [Изменить имя](./name-update.md)
 * [Изменить описание](./description-update.md)
+* [Сделать ревизию активной](./activate-revision.md)
 * [Посмотреть настройки масштабирования](./scaling-settings-list.md)
 * [Добавить настройки масштабирования](./scaling-settings-add.md)
 * [Удалить настройки масштабирования](./scaling-settings-delete.md)

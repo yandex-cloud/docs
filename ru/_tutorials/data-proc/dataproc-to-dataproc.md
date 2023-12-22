@@ -87,7 +87,7 @@
 1. [Измените настройки](../../data-proc/operations/cluster-update.md) кластеров {{ dataproc-name }}, добавив в них следующее [свойство](../../data-proc/concepts/settings-list.md):
 
     ```text
-    spark:spark.hive.metastore.uris=thrift://<IP-адрес кластера {{ metastore-name }}>:{{ port-metastore }}
+    spark:spark.hive.metastore.uris=thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}
     ```
 
    Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и на левой панели выберите страницу ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. IP-адрес кластера указан в блоке **{{ ui-key.yacloud.common.section-base }}**.
@@ -126,7 +126,7 @@
             df = spark.createDataFrame([('Австралия', 'Канберра', 7686850, 19731984), ('Австрия', 'Вена', 83855, 7700000)], schema)
 
             # Запись датафрейма в бакет в виде таблицы countries
-            df.write.mode("overwrite").option("path","s3a://<имя выходного бакета>/countries").saveAsTable("countries")
+            df.write.mode("overwrite").option("path","s3a://<имя_выходного_бакета>/countries").saveAsTable("countries")
             ```
 
             {% endcut %}
@@ -135,7 +135,7 @@
 
         1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `create-table.py`.
 
-    1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/create-table.py`.
+    1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/create-table.py`.
 
     1. Дождитесь завершения задания и проверьте, что в выходном бакете в папке `countries` появился файл `part-00000-...`.
 
@@ -175,7 +175,7 @@
             df = spark.sql("select * from countries")
 
             # Перенос таблицы в бакет для проверки
-            df.repartition(1).write.csv(path='s3a://<имя выходного бакета>/csv', header=True, sep=',')
+            df.repartition(1).write.csv(path='s3a://<имя_выходного_бакета>/csv', header=True, sep=',')
             ```
 
             {% endcut %}
@@ -183,7 +183,7 @@
         1. Укажите в скрипте имя выходного бакета, в который будет сохранен CSV-файл с таблицей `countries`.
         1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `obtain-table.py` в бакет для входных данных в папку `scripts`.
 
-    1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/obtain-table.py`.
+    1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/obtain-table.py`.
     1. Дождитесь выполнения задания и убедитесь, что в выходном бакете появилась папка `csv` с таблицей в формате CSV.
 
 {% endlist %}

@@ -11,9 +11,9 @@ items:
         items:
           - name: Information about existing clusters
             href: operations/cluster-list.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Updating clusters
+          - name: Updating a cluster
             href: operations/update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
@@ -23,7 +23,9 @@ items:
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
-          - name: Deleting clusters
+          - name: Updating the {{ MY }} version
+            href: operations/cluster-version-update.md
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Databases
         items:
@@ -255,7 +257,7 @@ items:
     href: public-talks.md
   - name: Releases
     href: release-notes.md
-  - name: Questions and answers
+  - name: Q&A
     items:
       - name: General questions
         href: qa/general.md
@@ -267,7 +269,7 @@ items:
         href: qa/read-write.md
       - name: Performance issues
         href: qa/performance.md
-      - name: Updating clusters
+      - name: Updating a cluster
         href: qa/updating.md
       - name: Monitoring and logs
         href: qa/monitoring.md

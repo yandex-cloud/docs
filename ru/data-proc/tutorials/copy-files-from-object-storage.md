@@ -52,14 +52,14 @@
 Чтобы воспользоваться провайдером для хранения секретов, разместите эти секреты в компонентах, которым нужен доступ к {{ objstorage-name }}. Для этого можно воспользоваться [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore). 
 В примере вы создадите файл с секретами, который затем разместите в HDFS:
 
-1. Укажите `access key` и `secret key`, например:
+1. Укажите статический и секретный ключи, например:
 
     ```bash
     hadoop credential create fs.s3a.access.key \
-           -value <access key> \
+           -value <статический_ключ> \
            -provider localjceks://file/home/jack/yc.jceks && \
     hadoop credential create fs.s3a.secret.key \
-           -value <secret key> \
+           -value <секретный_ключ> \
            -provider localjceks://file/home/jack/yc.jceks
     ```
 
@@ -79,10 +79,10 @@
            -skipcrccheck \
            -numListstatusThreads 10 \
            s3a://yc-mdb-examples/dataproc/example01/set01 \
-           hdfs://<хост HDFS>/<путь>/
+           hdfs://<хост_HDFS>/<путь>/
     ```
 
-    `<хост HDFS>` — целевой сервер HDFS, который вы используете. Сервер по умолчанию можно получить с помощью команды:
+    `<хост_HDFS>` — целевой сервер HDFS, который вы используете. Сервер по умолчанию можно получить с помощью команды:
 
     ```bash
     hdfs getconf -confKey fs.defaultFS
@@ -108,8 +108,8 @@ hadoop distcp \
 ```bash
 hadoop distcp \
        -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
-       -D fs.s3a.bucket.dataproc-examples.access.key=<access_key> \
-       -D fs.s3a.bucket.dataproc-examples.secret.key=<secret_key> \
+       -D fs.s3a.bucket.dataproc-examples.access.key=<статический_ключ> \
+       -D fs.s3a.bucket.dataproc-examples.secret.key=<секретный_ключ> \
        -update \
        -skipcrccheck \
        -numListstatusThreads 10 \
@@ -226,7 +226,7 @@ hadoop distcp \
 
 * `hive:datanucleus.connectionPool.maxPoolSize` — максимальный размер пула соединений к БД {{ metastore-full-name }}.
 * `hive:hive.metastore.fshandler.threads` — количество рабочих потоков, выполняющих фоновые операции с файловой системой в рамках сервиса {{ metastore-full-name }}.
-* `spark:spark.sql.addPartitionInBatch.size` — количество партиций, актуализируемых за один вызов {{ metastore-full-name }}. Оптимальное значение — `10 × <значение настройки hive:hive.metastore.fshandler.threads>` или выше.
+* `spark:spark.sql.addPartitionInBatch.size` — количество партиций, актуализируемых за один вызов {{ metastore-full-name }}. Оптимальное значение — `10 × <значение_настройки_hive:hive.metastore.fshandler.threads>` или выше.
 
 {% note info %}
 
@@ -254,7 +254,7 @@ hadoop distcp \
     sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
     sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
     sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
-    sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>");
+    sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь_к_файлу_JCEKS>");
     ```
   * По ключу доступа и секрету:
 
@@ -262,15 +262,15 @@ hadoop distcp \
     sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
     sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
     sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
-    sc.hadoopConfiguration.set("fs.s3a.access.key","<ключ доступа>");
-    sc.hadoopConfiguration.set("fs.s3a.secret.key","<секрет бакета>");
+    sc.hadoopConfiguration.set("fs.s3a.access.key","<ключ_доступа>");
+    sc.hadoopConfiguration.set("fs.s3a.secret.key","<секрет_бакета>");
     ```
 
   После этого можно читать файл из {{ objstorage-name }}:
 
   ```scala
   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-  val df = sqlContext.read.parquet("s3a://<имя бакета>/<путь к объекту>")
+  val df = sqlContext.read.parquet("s3a://<имя_бакета>/<путь_к_объекту>")
   ```
 
 - PySpark Shell
@@ -283,7 +283,7 @@ hadoop distcp \
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
     sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
-    sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>")
+    sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь_к_файлу_JCEKS>")
     ```
 
   * Доступ по ключу доступа и секрету бакета:
@@ -292,8 +292,8 @@ hadoop distcp \
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
     sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
-    sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<ключ доступа>")
-    sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<секрет бакета>")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<ключ_доступа>")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<секрет_бакета>")
     ```
 
   Получив доступ, вы можете читать файл напрямую из {{ objstorage-name }}:
@@ -302,7 +302,7 @@ hadoop distcp \
   from pyspark.sql import SQLContext
 
   sql = SQLContext(sc)
-  df = sql.read.parquet("s3a://<имя бакета>/<путь к объекту>")
+  df = sql.read.parquet("s3a://<имя_бакета>/<путь_к_объекту>")
   ```
 
 {% endlist %}

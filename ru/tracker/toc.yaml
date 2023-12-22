@@ -474,6 +474,7 @@ items:
       - name: Посмотреть детализацию услуг
         href: check-charges.md
   - name: Справочник API
+    editable: false
     items:
       - name: Обзор
         href: about-api.md

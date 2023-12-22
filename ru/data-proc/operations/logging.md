@@ -132,7 +132,7 @@
     ```
     
     ```bash
-    {{ yc-dp }} cluster update <имя_или_ID_кластера> \
+    {{ yc-dp }} cluster update <имя_или_идентификатор_кластера> \
        --property dataproc:disable_cloud_logging=true
     ```
 

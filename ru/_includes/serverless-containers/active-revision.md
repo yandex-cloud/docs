@@ -1,0 +1,1 @@
+При вызове контейнера запускается [активная ревизия](../../serverless-containers/concepts/container.md#revision).

@@ -4,7 +4,7 @@ Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud networ
 
 {% note info %}
 
-This section provides migration guides for [lightweight clusters](../concepts/index.md#light-weight-clusters) only. Guides for HDFS clusters are currently under development. If you store your data in a cluster hosted in the `{{ region-id }}-c` availability zone and it uses the HDFS, the {{ yandex-cloud }} support team will notify you when the migration guides for these clusters become available.
+Only [lightweight clusters](../concepts/index.md#light-weight-clusters) can be migrated to a different availability zone. Migration of HDFS clusters is currently not supported. The support team will migrate HDFS clusters from the `{{ region-id }}-c` availability zone manually with a prior warning to the cluster owners.
 
 {% endnote %}
 

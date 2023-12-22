@@ -36,7 +36,7 @@ For more information, see [{#T}](../concepts/logs.md).
             container_id="<YARN_container_ID>" AND yarn_log_type="stderr"
             ```
 
-         * Getting the YARN Resource Manager service logs from the cluster's managing host:
+         * Getting the YARN Resource Manager service logs from the cluster's master host:
 
             ```ini
             hostname="<master_host_FQDN>" AND log_type="hadoop-yarn-resourcemanager"

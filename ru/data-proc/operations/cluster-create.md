@@ -193,32 +193,32 @@
 
         
         ```bash
-        {{ yc-dp }} cluster create <имя кластера> \
-           --bucket=<имя бакета> \
-           --zone=<зона доступности> \
-           --service-account-name=<имя сервисного аккаунта кластера> \
-           --version=<версия образа> \
-           --services=<список компонентов> \
-           --ssh-public-keys-file=<полный путь к файлу с публичной частью SSH-ключа> \
-           --subcluster name=<имя подкластера с хостом-мастером>,`
+        {{ yc-dp }} cluster create <имя_кластера> \
+           --bucket=<имя_бакета> \
+           --zone=<зона_доступности> \
+           --service-account-name=<имя_сервисного_аккаунта> \
+           --version=<версия_образа> \
+           --services=<список_компонентов> \
+           --ssh-public-keys-file=<путь_к_открытому_SSH-ключу> \
+           --subcluster name=<имя_подкластера_с_хостом-мастером>,`
                        `role=masternode,`
-                       `resource-preset=<класс хоста>,`
-                       `disk-type=<тип хранилища: network-ssd, network-hdd или network-ssd-nonreplicated>,`
-                       `disk-size=<размер хранилища в гигабайтах>,`
-                       `subnet-name=<имя подсети>,`
-                       `assign-public-ip=<публичный доступ к хосту подкластера: true или false> \
-           --subcluster name=<имя подкластера для хранения данных>,`
+                       `resource-preset=<класс_хоста>,`
+                       `disk-type=<тип_хранилища>,`
+                       `disk-size=<размер_хранилища_ГБ>,`
+                       `subnet-name=<имя_подсети>,`
+                       `assign-public-ip=<публичный_доступ_к_хосту_подкластера> \
+           --subcluster name=<имя_подкластера_для_хранения_данных>,`
                        `role=datanode,`
-                       `resource-preset=<класс хоста>,`
-                       `disk-type=<тип хранилища: network-ssd, network-hdd или network-ssd-nonreplicated>,`
-                       `disk-size=<размер хранилища в гигабайтах>,`
-                       `subnet-name=<имя подсети>,`
-                       `hosts-count=<количество хостов>,`
-                       `assign-public-ip=<публичный доступ к хостам подкластера: true или false> \
-           --deletion-protection=<защита от удаления кластера: true или false> \
-           --ui-proxy=<доступ к веб-интерфейсам компонентов: true или false> \
-           --log-group-id=<идентификатор лог-группы> \
-           --security-group-ids=<список идентификаторов групп безопасности>
+                       `resource-preset=<класс_хоста>,`
+                       `disk-type=<тип_хранилища>,`
+                       `disk-size=<размер_хранилища_ГБ>,`
+                       `subnet-name=<имя_подсети>,`
+                       `hosts-count=<количество_хостов>,`
+                       `assign-public-ip=<публичный_доступ_к_хосту_подкластера> \
+           --deletion-protection=<защита_от_удаления_кластера> \
+           --ui-proxy=<доступ_к_веб-интерфейсам_компонентов> \
+           --log-group-id=<идентификатор_лог-группы> \
+           --security-group-ids=<список_идентификаторов_групп_безопасности>
         ```
 
 
@@ -250,11 +250,11 @@
             * `name` — имя подкластера.
             * `role` — роль подкластера: `masternode`, `datanode` или `computenode`.
             * `resource-preset` — [класс хостов](../concepts/instance-types.md).
-            * `disk-type` — [тип хранилища](../concepts/storage.md).
+            * `disk-type` — [тип хранилища](../concepts/storage.md): `network-ssd`, `network-hdd` или `network-ssd-nonreplicated`.
             * `disk-size` — размер хранилища в гигабайтах.
             * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
             * `hosts-count` — количество хостов подкластеров для хранения или обработки данных. Минимальное значение — `1`, максимальное — `32`.
-            * `assign-public-ip` — доступ к хостам подкластера из интернета. В этом случае подключаться к кластеру можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
+            * `assign-public-ip` — доступ к хостам подкластера из интернета. Может принимать значения `true` или `false`. Если доступ включен, подключаться к кластеру можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
 
                 {% note warning %}
 
@@ -262,11 +262,11 @@
 
                 {% endnote %}
 
-        * `--deletion-protection` — защита от удаления кластера.
+        * `--deletion-protection` — защита от удаления кластера. Может принимать значения `true` или `false`.
 
             {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        * `--ui-proxy` — доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
+        * `--ui-proxy` — доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}. Может принимать значения `true` или `false`.
 
         
         * `--log-group-id` — [идентификатор лог-группы](../concepts/logs.md).
@@ -277,36 +277,36 @@
         Чтобы создать кластер, состоящих из нескольких подкластеров для хранения или обработки данных, передайте необходимое количество аргументов `--subcluster` в команде создания кластера:
 
         ```bash
-        {{ yc-dp }} cluster create <имя кластера> \
+        {{ yc-dp }} cluster create <имя_кластера> \
            ...
-           --subcluster <параметры подкластера> \
-           --subcluster <параметры подкластера> \
+           --subcluster <параметры_подкластера> \
+           --subcluster <параметры_подкластера> \
            ...
         ```
 
     1. Чтобы включить [автоматическое масштабирование](../concepts/autoscaling.md) в подкластерах для обработки данных, задайте параметры:
 
         ```bash
-        {{ yc-dp }} cluster create <имя кластера> \
+        {{ yc-dp }} cluster create <имя_кластера> \
            ...
-           --subcluster name=<имя подкластера>,`
+           --subcluster name=<имя_подкластера>,`
                        `role=computenode`
                        `...`
-                       `hosts-count=<минимальное количество хостов>`
-                       `max-hosts-count=<максимальное количество хостов>,`
-                       `preemptible=<использование прерываемых ВМ: true или false>,`
-                       `warmup-duration=<время на разогрев ВМ>,`
-                       `stabilization-duration=<период стабилизации>,`
-                       `measurement-duration=<промежуток измерения нагрузки>,`
-                       `cpu-utilization-target=<целевой уровень загрузки CPU, %>,`
-                       `autoscaling-decommission-timeout=<таймаут декомиссии, сек.>
+                       `hosts-count=<минимальное_количество_хостов>`
+                       `max-hosts-count=<максимальное_количество_хостов>,`
+                       `preemptible=<использование_прерываемых_ВМ>,`
+                       `warmup-duration=<время_на_разогрев_ВМ>,`
+                       `stabilization-duration=<период_стабилизации>,`
+                       `measurement-duration=<промежуток_измерения_нагрузки>,`
+                       `cpu-utilization-target=<целевой_уровень_загрузки_CPU>,`
+                       `autoscaling-decommission-timeout=<таймаут_декомиссии>
         ```
 
         Где:
 
         * `hosts-count` — минимальное количество хостов (виртуальных машин) в подкластере. Минимальное значение — `1`, максимальное — `32`.
         * `max-hosts-count` — максимальное количество хостов (виртуальных машин) в подкластере. Минимальное значение — `1`, максимальное — `100`.
-        * `preemptible` — использование [прерываемых ВМ](../../compute/concepts/preemptible-vm.md).
+        * `preemptible` — использование [прерываемых ВМ](../../compute/concepts/preemptible-vm.md). Может принимать значения `true` или `false`.
         * `warmup-duration` — время в секундах на разогрев ВМ, в формате `<значение>s`. Минимальное значение — `0s`, максимальное — `600s` (10 минут).
         * `stabilization-duration` — период в секундах, в течение которого требуемое количество ВМ не может быть снижено, в формате `<значение>s`. Минимальное значение — `60s` (1 минута), максимальное — `1800s` (30 минут).
         * `measurement-duration` — период в секундах, за который замеры нагрузки усредняются для каждой ВМ, в формате `<значение>s`. Минимальное значение — `60s` (1 минута), максимальное — `600s` (10 минут).
@@ -319,9 +319,9 @@
     1. Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
-        {{ yc-dp }} cluster create <имя кластера> \
+        {{ yc-dp }} cluster create <имя_кластера> \
            ...
-           --host-group-ids=<идентификаторы групп выделенных хостов>
+           --host-group-ids=<идентификаторы_групп_выделенных_хостов>
         ```
 
         {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
@@ -330,17 +330,17 @@
     1. Чтобы настроить хосты кластера с помощью [скриптов инициализации](../concepts/init-action.md), укажите их в одном или нескольких параметрах `--initialization-action`:
 
         ```bash
-        {{ yc-dp }} cluster create <имя кластера> \
+        {{ yc-dp }} cluster create <имя_кластера> \
            ...
-           --initialization-action uri=<URI скрипта инициализации>,`
-                                  `timeout=<таймаут выполнения скрипта>,`
+           --initialization-action uri=<URI_скрипта_инициализации>,`
+                                  `timeout=<таймаут_выполнения_скрипта>,`
                                   `args=["arg1","arg2","arg3",...]
         ```
 
         Где:
 
         * `uri` — ссылка на скрипт инициализации в схеме `https://`, `http://`, `hdfs://` или `s3a://`.
-        * (опционально) `timeout` —  таймаут (в секундах) выполнения скрипта. Скрипт инициализации, выполняющийся дольше указанного времени, будет прерван.
+        * (опционально) `timeout` — таймаут выполнения скрипта, в секундах. Скрипт инициализации, выполняющийся дольше указанного времени, будет прерван.
         * (опционально) `args` — разделенные запятыми аргументы, с которыми должен быть выполнен скрипт инициализации.
 
 - {{ TF }}
@@ -363,12 +363,14 @@
        Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
 
        ```hcl
-       resource "yandex_vpc_network" "<имя сети в {{ TF }}>" { name = "<имя сети>" }
+       resource "yandex_vpc_network" "test_network" { 
+         name = "<имя_сети>" 
+       }
 
-       resource "yandex_vpc_subnet" "<имя подсети в {{ TF }}>" {
-         name           = "<имя подсети>"
-         zone           = "<зона доступности>"
-         network_id     = yandex_vpc_network.<имя сети в {{ TF }}>.id
+       resource "yandex_vpc_subnet" "test_subnet" {
+         name           = "<имя_подсети>"
+         zone           = "<зона_доступности>"
+         network_id     = yandex_vpc_network.test_network.id
          v4_cidr_blocks = ["<подсеть>"]
        }
        ```
@@ -377,35 +379,35 @@
     1. Создайте конфигурационный файл с описанием [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру, а также [статического ключа](../../iam/concepts/authorization/access-key.md) и [бакета {{ objstorage-full-name }}](../../storage/concepts/bucket.md) для хранения заданий и результатов.
 
        ```hcl
-       resource "yandex_iam_service_account" "<имя сервисного аккаунта в {{ TF }}>" {
-         name        = "<имя сервисного аккаунта>"
-         description = "<описание сервисного аккаунта>"
+       resource "yandex_iam_service_account" "data_proc_sa" {
+         name        = "<имя_сервисного_аккаунта>"
+         description = "<описание_сервисного_аккаунта>"
        }
 
        resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
-         folder_id = "<идентификатор каталога>"
+         folder_id = "<идентификатор_каталога>"
          role      = "dataproc.agent"
-         member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
+         member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
        }
 
        resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
-         folder_id = "<идентификатор каталога>"
+         folder_id = "<идентификатор_каталога>"
          role      = "dataproc.editor"
-         member    = "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
+         member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
        }
 
-       resource "yandex_iam_service_account_static_access_key" "<имя статического ключа в {{ TF }}>" {
-         service_account_id = yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id
+       resource "yandex_iam_service_account_static_access_key" "sa_static_key" {
+         service_account_id = yandex_iam_service_account.data_proc_sa.id
        }
 
-       resource "yandex_storage_bucket" "<имя бакета в {{ TF }}>" {
+       resource "yandex_storage_bucket" "data_bucket" {
          depends_on = [
            yandex_resourcemanager_folder_iam_member.bucket-creator
          ]
 
-         bucket     = "<имя бакета>"
-         access_key = yandex_iam_service_account_static_access_key.<имя статического ключа в {{ TF }}>.access_key
-         secret_key = yandex_iam_service_account_static_access_key.<имя статического ключа в {{ TF }}>.secret_key
+         bucket     = "<имя_бакета>"
+         access_key = yandex_iam_service_account_static_access_key.sa_static_key.access_key
+         secret_key = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
        }
        ```
 
@@ -416,68 +418,70 @@
        Пример структуры конфигурационного файла, в котором описывается кластер из одного подкластера с хостом-мастером, одного подкластера для хранения данных и одного подкластера для обработки данных:
 
        ```hcl
-       resource "yandex_dataproc_cluster" "<имя кластера в {{ TF }}>" {
-         bucket              = "<имя бакета в {{ TF }}>"
-         name                = "<имя кластера>"
-         description         = "<описание кластера>"
-         service_account_id  = "<идентификатор сервисного аккаунта в {{ TF }}>"
-         zone_id             = "<зона доступности>"
-         security_group_ids  = ["<список идентификаторов групп безопасности>"]
-         deletion_protection = <защита от удаления кластера: true или false>
+       resource "yandex_dataproc_cluster" "data_cluster" {
+         bucket              = "<имя_бакета>"
+         name                = "<имя_кластера>"
+         description         = "<описание_кластера>"
+         service_account_id  = yandex_iam_service_account.data_proc_sa.id
+         zone_id             = "<зона_доступности>"
+         security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
+         deletion_protection = <защита_от_удаления_кластера>
 
          cluster_config {
-           version_id = "<версия образа>"
+           version_id = "<версия_образа>"
 
            hadoop {
-             services   = ["<список компонентов>"]
+             services   = ["<список_компонентов>"]
              # пример списка: ["HDFS", "YARN", "SPARK", "TEZ", "MAPREDUCE", "HIVE"]
              properties = {
-               "<свойство компонента>" = <значение>
+               "<свойство_компонента>" = <значение>
                ...
              }
              ssh_public_keys = [
-               file("${file("<путь к файлу публичной части SSH-ключа>")}")
+               file("${file("<путь_к_открытому_SSH-ключу>")}")
              ]
            }
 
            subcluster_spec {
-             name = "<имя подкластера с хостом-мастером>"
+             name = "<имя_подкластера_с_хостом-мастером>"
              role = "MASTERNODE"
              resources {
-               resource_preset_id = "<класс хоста>"
-               disk_type_id       = "<тип хранилища>"
-               disk_size          = <объем хранилища, ГБ>
+               resource_preset_id = "<класс_хоста>"
+               disk_type_id       = "<тип_хранилища>"
+               disk_size          = <объем_хранилища_ГБ>
              }
-             subnet_id   = "<идентификатор подсети в {{ TF }}>"
+             subnet_id   = yandex_vpc_subnet.test_subnet.id
              hosts_count = 1
            }
 
            subcluster_spec {
-             name = "<имя подкластера для хранения данных>"
+             name = "<имя_подкластера_для_хранения_данных>"
              role = "DATANODE"
              resources {
-               resource_preset_id = "<класс хоста>"
-               disk_type_id       = "<тип хранилища>"
-               disk_size          = <объем хранилища, ГБ>
+               resource_preset_id = "<класс_хоста>"
+               disk_type_id       = "<тип_хранилища>"
+               disk_size          = <объем_хранилища_ГБ>
              }
-             subnet_id   = "<идентификатор подсети в {{ TF }}>"
-             hosts_count = <число хостов в подкластере>
+             subnet_id   = yandex_vpc_subnet.test_subnet.id
+             hosts_count = <число_хостов_в_подкластере>
            }
 
            subcluster_spec {
-             name = "<имя подкластера для обработки данных>"
+             name = "<имя_подкластера_для_обработки_данных>"
              role = "COMPUTENODE"
              resources {
-               resource_preset_id = "<класс хоста>"
-               disk_type_id       = "<тип хранилища>"
-               disk_size          = <объем хранилища, ГБ>
+               resource_preset_id = "<класс_хоста>"
+               disk_type_id       = "<тип_хранилища>"
+               disk_size          = <объем_хранилища_ГБ>
              }
-             subnet_id   = "<идентификатор подсети в {{ TF }}>"
-             hosts_count = <число хостов в подкластере>
+             subnet_id   = yandex_vpc_subnet.test_subnet.id
+             hosts_count = <число_хостов_в_подкластере>
            }
          }
        }
        ```
+
+       Где `deletion_protection` — защита от удаления кластера. Может принимать значения `true` или `false`.
 
        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -489,12 +493,12 @@
 
        {% endnote %}
 
-       Чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}, добавьте в описание кластера поле `ui_proxy`:
+       Чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}, добавьте в описание кластера поле `ui_proxy` с значением `true`:
 
        ```hcl
-       resource "yandex_dataproc_cluster" "<имя кластера в {{ TF }}>" {
+       resource "yandex_dataproc_cluster" "data_cluster" {
          ...
-         ui_proxy = <включить опцию UI Proxy: true или false>
+         ui_proxy = true
          ...
        }
        ```
@@ -503,20 +507,30 @@
 
        ```hcl
        subcluster_spec {
-         name = "<имя подкластера>"
+         name = "<имя_подкластера>"
          role = "COMPUTENODE"
          ...
          autoscaling_config {
-           max_hosts_count        = <максимальное количество ВМ в группе>
-           measurement_duration   = <промежуток измерения нагрузки (в секундах)>
-           warmup_duration        = <время на разогрев ВМ (в секундах)>
-           stabilization_duration = <период стабилизации (в секундах)>
-           preemptible            = <использование прерываемых ВМ: true или false>
-           cpu_utilization_target = <целевой уровень загрузки vCPU, %>
-           decommission_timeout   = <таймаут декомиссии ВМ (в секундах)>
+           max_hosts_count        = <максимальное_количество_ВМ_в_группе>
+           measurement_duration   = <промежуток_измерения_нагрузки>
+           warmup_duration        = <время_на_разогрев>
+           stabilization_duration = <период_стабилизации>
+           preemptible            = <использование_прерываемых_ВМ>
+           cpu_utilization_target = <целевой_уровень_загрузки_vCPU>
+           decommission_timeout   = <таймаут_декомиссии>
          }
        }
        ```
+
+        Где:
+
+        * `max_hosts_count` — максимальное количество хостов (виртуальных машин) в подкластере. Минимальное значение — `1`, максимальное — `100`.
+        * `measurement_duration` — период в секундах, за который замеры нагрузки усредняются для каждой ВМ, в формате `<значение>s`. Минимальное значение — `60s` (1 минута), максимальное — `600s` (10 минут).
+        * `warmup_duration` — время в секундах на разогрев ВМ, в формате `<значение>s`. Минимальное значение — `0s`, максимальное — `600s` (10 минут).
+        * `stabilization_duration` — период в секундах, в течение которого требуемое количество ВМ не может быть снижено, в формате `<значение>s`. Минимальное значение — `60s` (1 минута), максимальное — `1800s` (30 минут).
+        * `preemptible` — использование [прерываемых ВМ](../../compute/concepts/preemptible-vm.md). Может принимать значения `true` или `false`.
+        * `cpu_utilization_target` — целевой уровень загрузки CPU, в процентах. Используйте эту настройку, чтобы включить [масштабирование](../concepts/autoscaling.md) на основе загрузки CPU, иначе в качестве метрики будет использоваться `yarn.cluster.containersPending` (на основе количества ожидающих задания ресурсов). Минимальное значение — `10`, максимальное — `100`.
+        * `decommission_timeout` — [таймаут декомиссии](../concepts/decommission.md) в секундах. Минимальное значение — `0`, максимальное — `86400` (сутки).
 
        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/dataproc_cluster).
 

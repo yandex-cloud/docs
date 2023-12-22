@@ -22,14 +22,14 @@
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../glossary/ssh-keygen.md):
 
       ```bash
-      ssh -A <имя_пользователя>@<FQDN ВМ>
+      ssh -A <имя_пользователя>@<FQDN_ВМ>
       ```
 
   1. Скопируйте настройки репозитория с любого из хостов кластера {{ dataproc-name }}. Для этого выполните последовательность команд на созданной виртуальной машине.
      1. Скопируйте адрес репозитория:
 
         ```bash
-        ssh root@<FQDN хоста кластера> \
+        ssh root@<FQDN_хоста_кластера> \
         "cat /etc/apt/sources.list.d/yandex-dataproc.list" | \
         sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
         ```
@@ -37,7 +37,7 @@
      1. Скопируйте gpg-ключ для верификации подписей deb-пакетов:
 
         ```bash
-        ssh root@<FQDN хоста кластера> \
+        ssh root@<FQDN_хоста_кластера> \
         "cat /srv/dataproc.gpg" | sudo apt-key add -
         ```
 
@@ -63,10 +63,10 @@
 
      ```bash
      sudo -E scp -r \
-         root@<FQDN хоста кластера>:/etc/hadoop/conf/* \
+         root@<FQDN_хоста_кластера>:/etc/hadoop/conf/* \
          /etc/hadoop/conf/ && \
      sudo -E scp -r \
-         root@<FQDN хоста кластера>:/etc/spark/conf/* \
+         root@<FQDN_хоста_кластера>:/etc/spark/conf/* \
          /etc/spark/conf/
      ```
 
@@ -74,7 +74,7 @@
 
      ```bash
      sudo useradd sparkuser && \
-     ssh root@<FQDN хоста кластера> "
+     ssh root@<FQDN_хоста_кластера> "
        hadoop fs -mkdir /user/sparkuser
        sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser
        sudo -u hdfs hdfs dfs -ls /user/sparkuser
@@ -88,14 +88,14 @@
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../glossary/ssh-keygen.md):
 
      ```bash
-     ssh -A <имя_пользователя>@<FQDN ВМ>
+     ssh -A <имя_пользователя>@<FQDN_ВМ>
      ```
 
   1. Скопируйте настройки репозитория с любого из хостов кластера {{ dataproc-name }}. Для этого выполните последовательность команд на созданной виртуальной машине.
      1. Скопируйте адрес репозитория:
 
         ```bash
-        ssh ubuntu@<FQDN хоста кластера> \
+        ssh ubuntu@<FQDN_хоста_кластера> \
         "cat /etc/apt/sources.list.d/yandex-dataproc.list" | \
         sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
         ```
@@ -103,7 +103,7 @@
      1. Скопируйте gpg-ключ для верификации подписей deb-пакетов:
 
         ```bash
-        ssh ubuntu@<FQDN хоста кластера> \
+        ssh ubuntu@<FQDN_хоста_кластера> \
         "cat /srv/dataproc.gpg" | sudo apt-key add -
         ```
 
@@ -129,10 +129,10 @@
 
      ```bash
      sudo -E scp -r \
-         ubuntu@<FQDN хоста кластера>:/etc/hadoop/conf/* \
+         ubuntu@<FQDN_хоста_кластера>:/etc/hadoop/conf/* \
          /etc/hadoop/conf/ && \
      sudo -E scp -r \
-         ubuntu@<FQDN хоста кластера>:/etc/spark/conf/* \
+         ubuntu@<FQDN_хоста_кластера>:/etc/spark/conf/* \
          /etc/spark/conf/
      ```
 
@@ -140,7 +140,7 @@
 
      ```bash
      sudo useradd sparkuser && \
-     ssh ubuntu@<FQDN хоста кластера> "
+     ssh ubuntu@<FQDN_хоста_кластера> "
        hadoop fs -mkdir /user/sparkuser
        sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser
        sudo -u hdfs hdfs dfs -ls /user/sparkuser
@@ -230,8 +230,8 @@
      Результат:
 
      ```text
-     20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:8032
-     20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
+     20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}/10.13.13.18:8032
+     20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}/10.13.13.18:10200
      Application Report :
          Application-Id : application_1586176069782_0003
          Application-Name : org.apache.spark.examples.SparkPi
@@ -244,9 +244,9 @@
          Progress : 100%
          State : FINISHED
          Final-State : SUCCEEDED
-         Tracking-URL : rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:18080/history/application_1586176069782_0003/1
+         Tracking-URL : rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}:18080/history/application_1586176069782_0003/1
          RPC Port : 41648
-         AM Host : rc1b-dataproc-d-9cd9yoenm4npsznt.{{ dns-zone }}
+         AM Host : rc1b-dataproc-d-9cd9yoen********.{{ dns-zone }}
          Aggregate Resource Allocation : 141510 MB-seconds, 11 vcore-seconds
          Aggregate Resource Preempted : 0 MB-seconds, 0 vcore-seconds
          Log Aggregation Status : SUCCEEDED
@@ -298,7 +298,7 @@
   1. Скопируйте файл `month_stat.py` на хосте-мастере кластера:
 
      ```bash
-     sudo -E scp month_stat.py <имя_пользователя>@<FQDN хоста кластера>:~/month_stat.py
+     sudo -E scp month_stat.py <имя_пользователя>@<FQDN_хоста_кластера>:~/month_stat.py
      ```
 
      {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}
@@ -315,7 +315,7 @@
   1. Результат работы приложения будет выгружен в HDFS на кластере. Список получившихся файлов можно вывести командой:
 
      ```bash
-     ssh <имя_пользователя>@<FQDN хоста кластера> "hdfs dfs -ls /tmp/month_stat"
+     ssh <имя_пользователя>@<FQDN_хоста_кластера> "hdfs dfs -ls /tmp/month_stat"
      ```
 
      {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}

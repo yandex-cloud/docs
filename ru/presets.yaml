@@ -5731,9 +5731,11 @@ default:
         button_create-container: Создать контейнер
         button_deploy-revision: Создать ревизию
         label_containers: Контейнеры
+        label_edit-active-revision: Сделать активной
         label_editor: Редактор
         label_timeout: Таймаут, с
         label_url: Ссылка для вызова
+        popup-confirm-edit-active-revision_button_confirm: Подтвердить
         section_image: Параметры образа
         section_parameters: Настройки
         section-revisions: Ревизии

@@ -95,7 +95,7 @@
    {% endnote %}
 
    >Пример запроса:
-
+   >
    >```text
    >https://smartcaptcha.yandexcloud.net/validate?secret=<ключ_сервера>&ip=<IP-адрес_пользователя>&token=<токен>
    >```

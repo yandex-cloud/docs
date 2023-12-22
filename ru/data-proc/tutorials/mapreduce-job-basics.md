@@ -57,12 +57,12 @@
        * `-numReduceTasks`
        * `1`
        * `-input`
-       * `s3a://<имя бакета для исходных данных>/cities500.txt`
+       * `s3a://<имя_бакета_для_исходных_данных>/cities500.txt`
        * `-output`
-       * `s3a://<имя бакета для результатов обработки>/<папка для результатов>`
+       * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
     * **{{ ui-key.yacloud.dataproc.jobs.field_files }}**:
-       * `s3a://<имя бакета для исходных данных>/mapper.py`
-       * `s3a://<имя бакета для исходных данных>/reducer.py`        
+       * `s3a://<имя_бакета_для_исходных_данных>/mapper.py`
+       * `s3a://<имя_бакета_для_исходных_данных>/reducer.py`        
     * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**:
        * `mapreduce.job.maps: 6`
        * `yarn.app.mapreduce.am.resource.mb: 2048`

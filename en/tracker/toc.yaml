@@ -472,6 +472,7 @@ items:
       - name: Viewing service usage details
         href: check-charges.md
   - name: API reference
+    editable: false
     items:
       - name: Overview
         href: about-api.md

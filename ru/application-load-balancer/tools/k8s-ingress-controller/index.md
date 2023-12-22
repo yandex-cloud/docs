@@ -71,3 +71,4 @@ spec:
 * [Принципы работы контроллера](principles.md).
 * [Настройка групп безопасности](security-groups.md) для кластера {{ k8s }} и балансировщика.
 * [Сервисный аккаунт](service-account.md) для работы контроллера.
+* [ALB Ingress Controller в {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/alb-ingress-controller).

@@ -8,7 +8,7 @@ The main entity used in {{ dataproc-name }} is a _cluster_. It groups together a
 
 Each cluster consists of _subclusters_. They integrate _hosts_ that perform identical functions:
 
-* Subcluster with a master host (`Master` or `masternode`), such as NameNode for HDFS or ResourceManager for YARN.
+* Subcluster with a master host (`masternode`), such as NameNode for HDFS or ResourceManager for YARN.
 
    Each cluster may only have one subcluster with a master host.
 
@@ -52,7 +52,7 @@ Starting from [image version](./environment.md) `2.0.39`, you can use a lightwei
 
 Benefits of lightweight clusters:
 
-* The Spark Driver is run on a subcluster with master hosts. This enables you to allocate various resources to the subcluster with master hosts, which will run the Spark Driver, and to the data processing subclusters, which will run Spark Executors.
+* The Spark Driver is run on a subcluster with master hosts. This enables you to allocate different resources to the subcluster with master hosts, which will run the Spark Driver, and to the data processing subclusters, which will run Spark Executors.
 
 * At least one Spark Driver and Spark Executor instance will be running on each data processing subcluster of regular clusters. In lightweight clusters, the Spark Driver can use all free resources of the subcluster with master hosts, while Spark Executors can use all free resources of the data processing subclusters. This improves the performance of hosts.
 

@@ -41,9 +41,9 @@ For more information, see [{#T}](../concepts/index.md).
          * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone.
          * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to allow accessing the cluster from the internet.
 
-   1. If you are not going to export {{ GP }} data to cold storage in {{ objstorage-full-name }}, disable the associated option under **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** (enabled by default).
+   1. (Optional) For clusters with {{ GP }} version 6.25 or higher, enable the **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** option.
 
-      This option activates the [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) from {{ yandex-cloud }}. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+      It activates the [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) from {{ yandex-cloud }}. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
       You cannot disable this option after you save your cluster settings.
 
@@ -170,7 +170,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       Where:
 
-      * `--greenplum-version`: {{ GP }} version: {{ versions.cli.str }}.
+      * `--greenplum-version`: {{ GP }} version, {{ versions.cli.str }}.
       * `--environment`: Environment:
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
@@ -195,7 +195,7 @@ For more information, see [{#T}](../concepts/index.md).
 
            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   1. To set a backup start time, pass the desired value in `HH:MM:SS` format in `--backup-window-start`:
+   1. To set a backup start time, provide the required value in `HH:MM:SS` format in `--backup-window-start`:
 
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
@@ -215,7 +215,7 @@ For more information, see [{#T}](../concepts/index.md).
       {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
 
-   1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled clusters), pass the required value in the `--maintenance-window` parameter when creating your cluster:
+   1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled clusters), provide the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
@@ -229,7 +229,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   1. To allow access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) or [{{ data-transfer-full-name }}](../../data-transfer/), pass the `true` value in the corresponding parameters when creating a cluster:
+   1. To allow access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) or [{{ data-transfer-full-name }}](../../data-transfer/), provide the `true` value in the corresponding parameters when creating a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
@@ -240,8 +240,8 @@ For more information, see [{#T}](../concepts/index.md).
 
       Where:
 
-      * `--datalens-access`: Access from {{ datalens-full-name }}: true or false.
-      * `--datatransfer-access`: Access from {{ data-transfer-full-name }}: true or false.
+      * `--datalens-access`: Access from {{ datalens-full-name }}, true or false.
+      * `--datatransfer-access`: Access from {{ data-transfer-full-name }}, true or false.
 
 - {{ TF }}
 
@@ -322,8 +322,8 @@ For more information, see [{#T}](../concepts/index.md).
       * `assign_public_ip`: Public access to cluster hosts, true or false.
       * `deletion_protection`: Cluster deletion protection, true or false.
       * `version`: {{ GP }} version.
-      * `master_host_count`: Number of master hosts: 1 or 2.
-      * `segment_host_count`: Number of segment hosts: between 2 and 32.
+      * `master_host_count`: Number of master hosts, 1 or 2.
+      * `segment_host_count`: Number of segment hosts, between 2 and 32.
       * `disk_size`: Storage size in GB.
 
       Cluster deletion protection will not prevent a manual connection to delete the contents of a database.
@@ -351,7 +351,7 @@ For more information, see [{#T}](../concepts/index.md).
    * Username in the `userName` parameter.
    * User password in the `userPassword` parameter.
    * Network ID in the `networkId` parameter.
-      * [Security group](../concepts/network.md#security-groups) identifiers in the `securityGroupIds` parameter.
+      * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
    * Configuration of master hosts in the `masterConfig` parameter.
    * Configuration of segment hosts in the `segmentConfig` parameter.
 

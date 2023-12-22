@@ -53,10 +53,10 @@ The request body structure is as follows:
 || config.<br>specification.<br>model | **string**<br>[Language model](../models.md#tags) used for speech recognition.<br>The default parameter value is `general`.<br>The model you select affects the service [usage cost](../../pricing.md#rules-stt-long). ||
 || config.<br>specification.<br>profanityFilter | **boolean**<br>Profanity filter.<br/>Acceptable values include:<ul><li>`true`: Mask profanities with asterisks in recognition results.</li><li>`false` (default): Do not mask profanities.</li></ul> ||
 || config.<br>specification.<br>literature_text | **boolean**<br>Enables [normalization mode](../normalization.md). ||
-|| config.<br>specification.<br>audioEncoding | **string**<br>[Synthesized audio](../../formats.md) format.<br/>Acceptable values include:<ul><li>`LINEAR16_PCM`: [LPCM without WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus) format.</li><li>`MP3`: [MP3](../../formats.md#MP3) format.</li></ul> ||
-|| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Sampling frequency of the synthesized audio.<br/>This parameter is required if `format` is set to `LINEAR16_PCM`. Acceptable values include:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> ||
+|| config.<br>specification.<br>audioEncoding | **string**<br>[Format](../../formats.md) of the audio being provided.<br/>Acceptable values include:<ul><li>`LINEAR16_PCM`: [LPCM without WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus) format.</li><li>`MP3`: [MP3](../../formats.md#MP3) format.</li></ul> ||
+|| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Sampling frequency of the audio being provided.<br/>This parameter is required if `format` is set to `LINEAR16_PCM`. Acceptable values include:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> ||
 || config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>Number of channels for [LPCM](../../formats.md#lpcm) audio files. The default value is `1`.<br>Do not use this field for [OggOpus](../../formats.md#oggopus) and [MP3](../../formats.md#MP3) audio files. They already contain information about the channel count. ||
-|| config.<br>specification.<br>rawResults | **boolean** <br>Flag indicating how to write numbers.</br>Acceptable values include:<ul><li>`true`: In words.</li><li>`false` (default): In numbers.</li></ul> ||
+|| config.<br>specification.<br>rawResults | **boolean** <br>Flag that toggles spelling out numbers.</br>Acceptable values include:<ul><li>`true`: Spell out.</li><li>`false` (default): Write as numbers.</li></ul> ||
 || audio.<br>uri | **string**<br>URI of the audio file for recognition. Supports only links to files stored in [{{ objstorage-full-name }}](../../../storage/). ||
 |#
 
@@ -67,9 +67,9 @@ If your request is written correctly, the service returns the [Operation object]
 ```json
 {
  "done": false,
- "id": "e03sup**********ht8g",
+ "id": "e03sup6d5h1q********",
  "createdAt": "2019-04-21T22:49:29Z",
- "createdBy": "ajes08**********bhqq",
+ "createdBy": "ajes08feato8********",
  "modifiedAt": "2019-04-21T22:49:29Z"
 }
 ```
@@ -82,7 +82,7 @@ Monitor the recognition results using the obtained ID. The number of result moni
 
 {% note warning %}
 
-Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. You can then request the recognition results using the received ID.
+Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. You can then request the recognition results using the obtained ID.
 
 {% endnote %}
 
@@ -94,7 +94,7 @@ Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. 
 
 ### Response {#get-result-response}
 
-The [Operation object](../../../api-design-guide/concepts/operation.md) is returned in response to your request. Sample response:
+The [Operation object](../../../api-design-guide/concepts/operation.md) is returned in response to your request. Response example:
 
 ```json
 {
@@ -129,9 +129,9 @@ The [Operation object](../../../api-design-guide/concepts/operation.md) is retur
    ...
   ]
  },
- "id": "e03sup**********ht8g",
+ "id": "e03sup6d5h1q********",
  "createdAt": "2019-04-21T22:49:29Z",
- "createdBy": "ajes08**********bhqq",
+ "createdBy": "ajes08feato8********",
  "modifiedAt": "2019-04-21T22:49:36Z"
 }
 ```
@@ -173,3 +173,5 @@ ID of the user who run the operation. ||
 || modifiedAt | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)
 Time when the resource was last updated. It is specified in [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format.
 |#
+
+For more information about the response format and codes, see [{#T}](../../concepts/response.md).

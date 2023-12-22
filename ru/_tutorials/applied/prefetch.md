@@ -297,7 +297,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. Если провайдер CDN еще не активирован, нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
+  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
+
   1. Создайте CDN-ресурс:
      1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
      1. Задайте основные параметры CDN-ресурса следующим образом:

@@ -61,6 +61,8 @@ items:
                 href: operations/name-update.md
               - name: Изменить описание
                 href: operations/description-update.md
+          - name: Сделать ревизию активной
+            href: operations/activate-revision.md
           - name: Масштабировать контейнер
             items:
               - name: Посмотреть настройки масштабирования

@@ -3,7 +3,7 @@
 A {{ TF }} provider sets the timeout for {{ mmy-name }} cluster operations:
 
 * Creating a cluster, including by restoring one from a backup: 15 minutes.
-* Editing a cluster: 60 minutes.
+* Editing a cluster, including the {{ MY }} version update: 60 minutes.
 * Deleting a cluster: 15 minutes.
 
 Operations exceeding the set timeout are interrupted.

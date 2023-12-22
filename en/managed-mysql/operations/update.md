@@ -27,7 +27,11 @@ After creating a cluster, you can:
 * [{#T}](#change-sg-set).
 
 
-To move a cluster to a different availability zone, see this [guide](host-migration.md). You will thus move the cluster hosts.
+Learn more about other cluster updates:
+
+* [{#T}](cluster-version-update.md).
+
+* [{#T}](host-migration.md).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -292,6 +296,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% endlist %}
 
+For more information on how to update the {{ MY }} settings, see [Q&A](../qa/configuring.md).
+
 ## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs %}
@@ -389,7 +395,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         }
       ```
 
-      Where `backup_retain_period_days` is the retention period for automatic backups (in days). Acceptable values are from `7` to `60`. By default, it is set to `7`.
+      Where `backup_retain_period_days` is the retention period for automatic backups (in days). Acceptable values are from `7` to `60`. The default value is `7`.
 
    
    1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}

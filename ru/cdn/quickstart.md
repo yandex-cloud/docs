@@ -20,13 +20,10 @@ description: "Следуя данной инструкции, вы сможет�
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. Если провайдер CDN еще не активирован, активируйте его:
-    
-   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
-   
+1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. {% include [activate-provider](../_includes/cdn/activate-provider.md) %}
 1. Если у вас еще нет бакета {{ objstorage-name }}:
-   
+
    1. [Создайте бакет](../storage/operations/buckets/create.md).
    1. [Откройте публичный доступ](../storage/operations/buckets/bucket-availability.md) к объектам в бакете и их списку.
    1. [Загрузите контент](../storage/operations/objects/upload.md) в бакет.
@@ -53,15 +50,15 @@ description: "Следуя данной инструкции, вы сможет�
      1. В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
      1. В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}`.
      1. В поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя из [URL бакета](../storage/concepts/bucket.md#bucket-url) в формате `<имя_бакета>.{{ s3-storage-host }}`. Схему (`http` или `https`) указывать не нужно. Например:
-     
+
         ```
         my-bucket.{{ s3-storage-host }}
         ```
-        
+
         {% note alert %}
-        
+
         Если настроен неверный заголовок `Host`, {{ objstorage-name }} будет отвечать на запросы CDN-сервера ошибками.
-        
+
         {% endnote %}
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
