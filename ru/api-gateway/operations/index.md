@@ -12,6 +12,8 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](api-gw-update.md)
 * [{#T}](api-gw-domains.md)
 * [{#T}](api-gw-network-add.md)
+* [{#T}](api-gw-vars.md)
+* [{#T}](api-gw-canary.md)
 * [Посмотреть графики мониторинга](api-gw-monitoring.md)
 * [Посмотреть журнал выполнения](api-gw-logs.md)
 * [{#T}](api-gw-migration.md)

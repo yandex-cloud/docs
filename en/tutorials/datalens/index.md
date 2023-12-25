@@ -1,6 +1,6 @@
 ---
 title: "Tutorials for visualizing and analyzing data"
-description: "This page provides a list of tutorials for visualizing and analyzing data using {{ datalens-full-name }}."
+description: "This page gives a list of tutorials for visualizing and analyzing data using {{ datalens-full-name }}."
 ---
 
 # Tutorials for visualizing and analyzing data
@@ -22,3 +22,5 @@ description: "This page provides a list of tutorials for visualizing and analyzi
 * [Visualizing geographic data with the Yandex Geocoder API](data-from-ch-geocoder.md)
 
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

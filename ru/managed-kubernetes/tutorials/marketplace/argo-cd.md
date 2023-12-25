@@ -24,7 +24,7 @@
   1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../concepts/index.md#node-group).
   1. [Создайте сервисные аккаунты](../../../iam/operations/sa/create.md):
-     * Сервисный аккаунт для ресурсов {{ k8s }} с [ролью](../../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}.
+     * Сервисный аккаунт для ресурсов {{ k8s }} с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}.
      * Сервисный аккаунт для узлов {{ managed-k8s-name }} с ролями [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) и [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md). От его имени узлы {{ managed-k8s-name }} будут загружать в [реестр](../../../container-registry/concepts/registry.md) собранные в {{ GL }} [Docker-образы](../../../container-registry/concepts/docker-image.md), а также скачивать их для запуска [подов](../../concepts/index.md#pod).
 
      {% note tip %}

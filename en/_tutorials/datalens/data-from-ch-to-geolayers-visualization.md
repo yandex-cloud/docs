@@ -1,6 +1,6 @@
-# Analyzing sales and locations of pizzerias based on data from ClickHouse and Marketplace databases
+# Analyzing sales and locations of pizzerias based on data from {{ CH }} databases and Marketplace
 
-We will use a ClickHouse database connection and the **Companies: supply and demand** product from Marketplace as a source.
+We will use a {{ CH }} database connection and the **Companies: supply and demand** product from Marketplace as a source.
 
 In this tutorial, you will prepare a dashboard for selecting locations to open new Dodo pizzerias.
 
@@ -48,7 +48,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Step 2. Create a connection {#step2}
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
 1. Select the **ClickHouse** connection.
    1. In the window that opens, specify the connection parameters:

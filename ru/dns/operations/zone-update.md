@@ -32,20 +32,22 @@
   1. Измените видимость зоны в сетях:
 
      ```
-     yc dns zone update <имя или идентификатор зоны> --network-ids=c645mh47vscba1d64tbs,
+     yc dns zone update <имя_или_идентификатор_зоны> --network-ids=<идентификаторы_сетей_для_зоны>,
      ```
+
+     Где `--network-ids` — идентификаторы сетей для зоны.
 
      Результат:
 
      ```
-     id: aet29qhara5jeg45tbjg
-     folder_id: aoerb349v3h4bupphtaf
+     id: aet29qhara5j********
+     folder_id: aoerb349v3h4********
      created_at: "2021-02-21T09:21:03.935Z"
-     name: <новое имя зоны>
+     name: new-zone-name
      zone: staging.
      private_visibility:
        network_ids:
-       - c645mh47vscba1d64tbs
+       - c645mh47vsc********
      ```
 
 - {{ TF }}
@@ -99,7 +101,7 @@
      Проверить изменение параметров зоны DNS можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc dns zone get <имя зоны DNS>
+     yc dns zone get <имя_зоны>
      ```
 
 - API

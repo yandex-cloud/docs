@@ -1,6 +1,6 @@
 ---
 title: "How to create a BigQuery connection"
-description: "This guide describes how you can create a BigQuery connection."
+description: "Follow this guide to create a BigQuery connection."
 ---
 
 # Creating a Google BigQuery connection

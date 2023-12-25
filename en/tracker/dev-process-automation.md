@@ -42,7 +42,7 @@ To make sure that your assignees adhere to deadlines, you can send them reminder
 
 Say, for example, that you need to check all issues in your queue once a day. If the issue is not solved and the date specified in the <q>Deadline</q> field is less than 3 days away, the issue must be updated with a comment and the assignee must be invited. For this, set up the following automatic action:
 
-- Auto action type: **Update issues**.
+- Auto action type: **Issue update**.
 
 - Frequency: Once per day.
 
@@ -64,7 +64,7 @@ If you need to create issues by a template from time to time, you can use action
 
 For this, set up the following automatic action:
 
-- Auto action type: **Create issues**.
+- Auto action type: **Issue creation**.
 
 - Frequency: Once a week on Fridays.
 

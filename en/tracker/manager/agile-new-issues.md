@@ -32,7 +32,7 @@ Managing issues on {{ tracker-name }} boards is like working with stickers on a 
 
    {% note info %}
 
-   You won't be able to move a card to a column unless the [workflow](./workflow.md) of the queue that the issue belongs to supports switching from the current status to the new status.
+   You will not be able to move a card to a column unless the [workflow](./workflow.md) of the queue that the issue belongs to supports switching from the current status to the new status.
 
    {% endnote %}
 
@@ -100,11 +100,11 @@ You can set the maximum number of issues per group:
 
 1. Click **Save**.
 
-You can also add issues with preset parameters to a group. To do this, click **Add issue** under the list of issues in the group. This sets a value in a new or existing issue's field to group issues by. For example, <q>Assignee</q> or <q>Deadline</q>.
+You can also add issues with preset parameters to a group. To do this, click **Add issue** under the list of issues in the group. A field value for the grouping by will be set in the new or existing issue. For example, <q>Assignee</q> or <q>Deadline</q>.
 
-Restrictions:
+Limitations:
 * When grouping issues by queue, you can only create a new issue.
-* When grouping issues by reporter, status, or type, you can't add a new issue.
+* When grouping issues by reporter, status, or type, you cannot add a new issue.
 
 You can move issues across groups on a [board](agile-new.md) or in a [backlog](backlog.md). When moving an issue, a new field value is set depending on the grouping criterion.
 

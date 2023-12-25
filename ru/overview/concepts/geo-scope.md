@@ -10,7 +10,7 @@ _Зона доступности_ — это инфраструктура вну
 * `{{ region-id }}-a`;
 * `{{ region-id }}-b`;
 * `{{ region-id }}-c` ([выводится из эксплуатации](ru-central1-c-deprecation.md));
-* `{{ region-id }}-d` ([с ограничениями](ru-central1-d-limits.md)).
+* `{{ region-id }}-d`.
 
 
 

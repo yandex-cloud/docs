@@ -720,6 +720,7 @@ default:
   yc-mdb-rd: yc managed-redis
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
+  yc-ydb: yc ydb
   ydb-full-name: Yandex Managed Service for YDB
   ydb-name: Managed Service for YDB
   ydb-short-name: YDB
@@ -3032,7 +3033,7 @@ default:
         deck-field-label: Колода оценок
         display-estimated-field-label: Отображать оценённые задачи
         save: Сохранить
-      ui_components_AttachmentsManager:
+      ui_components_attachments-manager:
         attach: Прикрепить файлы
         attachments-section-title: Файлы
       ui_components_bulk_BulkChangeParametersDialog:

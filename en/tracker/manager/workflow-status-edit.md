@@ -43,7 +43,7 @@ Issues with the <q>Completed</q> and <q>Canceled</q> statuses are considered clo
 
 ### Status update after adding a comment {#change-with-comment}
 
-The **Changing the status when commenting** setting allows updating the status after adding a comment to an issue. It is useful in linear processes, e.g., for the support team.
+The **Changing the status when commenting** setting allows updating the status after a comment is added to an issue. It is useful in linear processes, e.g., for the support team.
 
 1. Open the settings of the status to make a transition from when a comment is added to the issue and click **Changing the status when commenting**.
 
@@ -66,7 +66,7 @@ To set up a status transition:
 1. Go to **Transitions** in the status settings and click **Add**.
    The **Source status** field will show the source status. Fill in the **New status** field with the target status that you can choose from the list. The list contains statuses which have been added to the workflow diagram.
 
-1. **Name**: This field is for the name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name will be used for the transition in the editor. By default, the name matches the new status in the transition; however, you can edit it. The **Name in English** value is provided automatically.
+1. **Name**: This field is for the name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name will be used for the transition in the editor. By default, the name matches the new status in the transition; however, you can edit it. The **Name in English** is filled in automatically.
 
 1. Select the appropriate workflow and click ![](../../_assets/tracker/button-edit.png).
 
@@ -101,7 +101,7 @@ To create a new status:
 
 1. Make sure you are authorized in {{ tracker-full-name }} as an [administrator](../role-model.md).
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Configure** → **Issue statuses**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Admin settings** → **Issue statuses**.
 
 1. Click **Create a status**.
 

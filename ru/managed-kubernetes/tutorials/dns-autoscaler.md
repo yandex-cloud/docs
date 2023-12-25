@@ -67,6 +67,8 @@ description: "Следуя данному руководству, вы смож�
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
+
 ## Настройте kube-dns-autoscaler {#configure-autoscaler}
 
 ### Убедитесь, что приложение работает {#verify-app}

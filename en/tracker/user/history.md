@@ -11,7 +11,7 @@ Any changes to an issue are saved in the **History**. To view issue change histo
 
 1. Open the issue page.
 
-1. To the right of the **Activity** section, click on the **Comments** list (selected by default) and select **History**.
+1. To the right of the **Activity** section, click the **Comments** list (selected by default) and select **History**.
 
 The change history saves:
 

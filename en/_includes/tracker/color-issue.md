@@ -1,9 +1,11 @@
 By default, issue bars on the chart are colored according to the issue status types set in the [workflow editor](../../tracker/manager/workflow.md).
 
+![](../../_assets/tracker/color-by-type.png)
+
 To select a different color scheme:
 
 1. Above the timeline on the right, click ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}**.
-1. Under **{{ ui-key.startrek-backend.fields.issue.paletteColor }}**, you can choose a suitable color scheme:
+1. Under **{{ ui-key.startrek-backend.fields.issue.paletteColor }}**, you can choose an appropriate color scheme:
 
    {% list tabs %}
 

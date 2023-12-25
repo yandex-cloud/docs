@@ -58,7 +58,7 @@ There are several ways to set the filter conditions:
 
 ### Step 3. Set up the layout for the issue list
 
-- If you want to hide or display certain issue parameters, to the right above the list, click ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}**, select the parameters, and click **Apply**.
+- If you want to hide or display certain issue parameters, on the right above the list, click ![](../../_assets/tracker/svg/list-settings.svg) **{{ ui-key.startrek.ui_components_PageAgileBoard_PageAgileBoardHeader.settings }}**, select the parameters, and click **Apply**.
 
 - To group issues by a certain parameter, click ![](../../_assets/tracker/svg/group.svg) **Not grouped** above the list and select the parameter.
 

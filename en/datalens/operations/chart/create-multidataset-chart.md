@@ -32,7 +32,7 @@ To create a [multi-dataset chart](../../concepts/chart/index.md#multi-dataset-ch
 1. Repeat steps 3-4 as required.
 1. Select your chart type, such as **Line chart**.
 1. Drag one of the linked dimensions to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
-1. Drag measures from different datasets to the **Y** section. The values are displayed as charts on the Y axis.
+1. Drag measures from different datasets to the **Y** section. The values will be displayed as charts on the Y axis.
 1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
 
 
@@ -47,3 +47,5 @@ To create a [multi-dataset chart](../../concepts/chart/index.md#multi-dataset-ch
 
 {% include [datalens-multidataset-chart-example](../../../_includes/datalens/datalens-multidataset-chart-example.md) %}
 
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

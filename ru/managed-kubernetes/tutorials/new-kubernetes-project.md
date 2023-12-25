@@ -66,8 +66,8 @@
 ## Создайте сервисные аккаунты {#create-sa}
 
 Для работы кластера {{ managed-k8s-name }} и [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) нужны [сервисные аккаунты](../../iam/concepts/users/service-accounts.md):
-* С ролью [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От имени этого сервисного аккаунта будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-* С ролью [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От имени этого сервисного аккаунта [узлы](../../managed-kubernetes/concepts/index.md#node-group) будут скачивать из реестра необходимые Docker-образы.
+* Сервисный аккаунт с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От имени этого сервисного аккаунта будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+* Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От имени этого сервисного аккаунта [узлы](../../managed-kubernetes/concepts/index.md#node-group) будут скачивать из реестра необходимые Docker-образы.
 * Для работы Ingress-контроллера {{ alb-name }}, с ролями:
   * [alb.editor](../../iam/concepts/access-control/roles.md#alb-editor) — для создания необходимых ресурсов.
   * [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
