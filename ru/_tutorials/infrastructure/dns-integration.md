@@ -99,7 +99,7 @@
   1. Скачайте актуальную версию `CoreDNS` со [страницы производителя](https://github.com/coredns/coredns/releases/latest) и установите ее:
 
       ```bash
-      cd /var/tmp && wget <URL пакета> -O - | tar -zxvf
+      cd /var/tmp && wget <URL_пакета> -O - | tar -zxvf
       sudo mv coredns /usr/local/sbin
       ```
 

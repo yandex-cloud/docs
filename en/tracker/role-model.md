@@ -92,7 +92,7 @@ Actions available to employees:
 
 Employees working in <q>Read</q> mode can use the features related to viewing issues in {{ tracker-name }}. You do not pay for the use of the service by such users.
 
-If the [administrator](#admin) has the <q>Read</q> access to {{ tracker-name }}, they can edit access rights for their account themselves.
+If the [administrator](#admin) has the <q>Read</q> permission to {{ tracker-name }}, they can edit access rights for their account themselves.
 
 Actions available in <q>Read only</q> mode:
 

@@ -40,13 +40,13 @@ To share a chart or dashboard containing Yandex Metrica or AppMetrica data, use 
 
 ## Embedding public objects {#embedded-public-chart}
 
-You can embed published dashboards and charts into a website or app using an `iframe`. You can also pass a parameter to specify the object design:
+You can embed published dashboards and charts into a website or app using an `iframe`. You can additionally provide a parameter for the object's format:
 
 * `_theme=light`: Use the light theme for the object.
 * `_theme=dark`: Use the dark theme for the object.
 
 The parameter is added to the URL following the question mark `?`.
-For example:
+Here is an example:
 
 ```
 <iframe frameborder="0" src="https://datalens.yandex/bdzixmpsae3o2?_embedded=1&_no_controls=1&_lang=ru&_theme=dark"></iframe>
@@ -77,3 +77,5 @@ The filter parameters will be added to the chart URL following the question mark
 ```
 <iframe frameborder="0" src="https://datalens.yandex/z2uxl5pbztkep?shopid_vj2j=sp-15&shopid_vj2j=sp-18&shopid_vj2j=sp-20&_embedded=1&_no_controls=1&_theme=light&_lang=ru" width="100%" height="400px"></iframe>
 ```
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

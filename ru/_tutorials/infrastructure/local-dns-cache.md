@@ -168,7 +168,7 @@ dig example.com
      sudo apt-get install unbound dnsutils -y
      ```
 
-  1. Укажите настройки сервера в конце глобального конфигурационного файла `/etc/unbound/unbound.conf` или в отдельном конфигурационном файле с именем `/etc/unbound/unbound.conf.d/<имя файла>.conf`:
+  1. Укажите настройки сервера в конце глобального конфигурационного файла `/etc/unbound/unbound.conf` или в отдельном конфигурационном файле с именем `/etc/unbound/unbound.conf.d/<имя_файла>.conf`:
 
      ```
      server:

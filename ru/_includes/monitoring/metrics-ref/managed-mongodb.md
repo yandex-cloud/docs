@@ -18,6 +18,7 @@ shard | Идентификатор шарда
 | ----- | ----- |
 | `cpu.fraction`<br/>`DGAUGE`, % | Гарантированная доля vCPU. | 
 | `cpu.guarantee`<br/>`DGAUGE`, штуки | Гарантированное число ядер. | 
+| `cpu.guest_nice`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `guest_nice`. | 
 | `cpu.limit`<br/>`DGAUGE`, штуки | Предельное число используемых ядер. | 
 | `cpu.guest`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `guest`. | 
 | `cpu.idle`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `idle`. | 
@@ -28,6 +29,8 @@ shard | Идентификатор шарда
 | `cpu.steal`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `steal`. | 
 | `cpu.system`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `system`. | 
 | `cpu.user`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `user`. |
+| `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Средняя утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 60 секунд. | 
+| `cpu_utilization_by_db_60_limit`<br/>`DGAUGE`, % | Предельная утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 60 секунд. |
 
 ### Метрики диска {#managed-mongodb-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -38,42 +41,62 @@ shard | Идентификатор шарда
 | `disk.total_inodes`<br/>`DGAUGE`, штуки | Доступное количество inodes. | 
 | `disk.used_bytes`<br/>`DGAUGE`, байты | Занятое место. | 
 | `disk.used_inodes`<br/>`DGAUGE`, штуки | Занятое количество inodes. |
+| `load.avg_15min`<br/>`DGAUGE`, % | Средняя нагрузка за 15 минут. | 
+| `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
+| `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 
 ### Метрики дисковых операций {#managed-mongodb-diskio-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `io.avg_read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с дисков. | 
-| `io.avg_write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. | 
-| `io.disk*.avg_read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с конкретного диска. | 
-| `io.disk*.avg_write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на конкретный диск. | 
+| `io.disk*.iops_in_progress`<br/>`DGAUGE`, штуки | Количество незавершенных дисковых операций. | 
+| `io.disk*.merged_reads`<br/>`DGAUGE`, штуки | Количество слитых операций чтения с конкретного диска. | 
+| `io.disk*.merged_writes`<br/>`DGAUGE`, штуки | Количество слитых операций записи на конкретный диск. | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения с конкретного диска. | 
 | `io.disk*.read_count`<br/>`DGAUGE`, операций/с | Количество операций чтения с конкретного диска в секунду. | 
-| `io.disk*.read_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций чтения с конкретного диска в секунду. | 
+| `io.disk*.read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с конкретного диска. |
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Использование конкретного диска. Не работает для сетевых дисков. | 
+| `io.disk*.weighted_io_time`<br/>`DGAUGE`, миллисекунды | Длительность ожидания операций ввода/вывода на конкретном диске. | 
 | `io.disk*.write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи на конкретный диск. | 
 | `io.disk*.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи на конкретный диск в секунду. | 
-| `io.disk*.write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи на конкретный диск в секунду. |
-| `io.read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения с дисков. | 
-| `io.read_count`<br/>`DGAUGE`, операций/с | Количество операций чтения в секунду. | 
-| `io.read_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций чтения в секунду. | 
-| `io.utilization`<br/>`DGAUGE`, % | Использование дисков. | 
-| `io.write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи на диски. | 
-| `io.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
-| `io.write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи в секунду. |
+| `io.disk*.write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на конкретный диск. | 
 
 ### Метрики RAM {#managed-mongodb-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `mem.guarantee_bytes`<br/>`DGAUGE`, байты | Гарантированный размер оперативной памяти. | 
-| `mem.limit_bytes`<br/>`DGAUGE`, байты | Предельный размер оперативной памяти. | 
 | `mem.active_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которая используется наиболее часто и освобождается только в крайнем случае. | 
 | `mem.available_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `available`. | 
+| `mem.available_percent_bytes`<br/>`DGAUGE`, % | Доля использования оперативной памяти, тип потребления `available`. | 
 | `mem.buffers_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `buffers`. | 
 | `mem.cached_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `cached`. | 
+| `mem.commit_limit_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `commit_limit`. | 
+| `mem.committed_as_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `committed_as`. | 
+| `mem.dirty_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `dirty`. | 
 | `mem.free_bytes`<br/>`DGAUGE`, байты | Объем свободной оперативной памяти, доступной для использования, без учета `mem.buffers_bytes` и `mem.cached_bytes`. |
+| `mem.high_free_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_free`. | 
+| `mem.high_total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_total`. | 
+| `mem.huge_page_size_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_page_size`. | 
+| `mem.huge_pages_free_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_pages_free`. | 
+| `mem.huge_pages_total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_pages_total`. | 
+| `mem.inactive_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `inactive`. | 
+| `mem.low_free_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_free`. | 
+| `mem.low_total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_total`. | 
+| `mem.mapped_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `mapped`. | 
+| `mem.page_tables_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `page_tables`. | 
+| `mem.slab_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `slab`. | 
+| `mem.sreclaimable_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `sreclaimable`. | 
+| `mem.sunreclaim_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `sunreclaim`. | 
+| `mem.swap_cached_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `swap_cached`. | 
+| `mem.swap_free_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `swap_free`. | 
+| `mem.swap_total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `swap_total`. | 
 | `mem.shared_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `shared`. | 
 | `mem.total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `total`. | 
 | `mem.used_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которую в данный момент используют запущенные процессы. | 
+| `mem.used_percent_bytes`<br/>`DGAUGE`, % | Процент использованной оперативной памяти. | 
+| `mem.vmalloc_chunk_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_chunk`. | 
+| `mem.vmalloc_total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_total`. | 
+| `mem.vmalloc_used_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_used`. | 
+| `mem.write_back_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back`. | 
+| `mem.write_back_tmp_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back_tmp`. |
 
 ### Метрики сети {#managed-mongodb-net-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -88,169 +111,102 @@ shard | Идентификатор шарда
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. | 
 
 ### Метрики сервиса {#managed-mongodb-metrics}
-##### Метрики dbStats {#managed-mongodb-dbstats-metrics}
-Собираются в разрезе каждой базы `<dbname>`, включая служебные (admin, config, local).
-
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `db_stats_avgObjSize`<br/>`DGAUGE`, байты | Средний размер документа. | 
-| `db_stats_collections`<br/>`DGAUGE`, штуки | Количество коллекций в базе. | 
-| `db_stats_dataSize`<br/>`DGAUGE`, байты | Размер несжатых данных в базе. | 
-| `db_stats_fsTotalSize`<br/>`DGAUGE`, байты | Размер дискового пространства файловой системы, где MongoDB хранит данные. | 
-| `db_stats_fsUsedSize`<br/>`DGAUGE`, байты | Размер использованного дискового пространства файловой системы, где MongoDB хранит данные. | 
-| `db_stats_indexSize`<br/>`DGAUGE`, байты | Размер места, занимаемого индексами базы. | 
-| `db_stats_indexes`<br/>`DGAUGE`, штуки | Количество индексов во всех коллекциях в базе. | 
-| `db_stats_numExtents`<br/>`DGAUGE`, штуки | Количество логических контейнеров во всех коллекциях в базе. | 
-| `db_stats_objects`<br/>`DGAUGE`, штуки | Количество объектов (документов) во всех коллекциях в базе. | 
-| `db_stats_ok`<br/>`DGAUGE`, 0/1 | Результат выполнения команды dbStats.<br/>Принимает значение `1`, если команда завершена успешно, `0`, если что-то пошло не так. | 
-| `db_stats_scaleFactor`<br/>`DGAUGE`, штуки | Параметр `scale`, используемый командой.  | 
-| `db_stats_storageSize`<br/>`DGAUGE`, байты | Размер места, выделенного под хранение документов во всех коллекциях в базе, включая свободное место. | 
-| `db_stats_views`<br/>`DGAUGE`, штуки | Количество представлений в базе. |
-
-##### Метрики serverStatus {#managed-mongodb-serverstatus-metrics}
-| Имя<br/>Тип, единицы измерения | Описание |
-| ----- | ----- |
-| `server_status_admin_asserts.msg`<br/>`DGAUGE`, штуки | Количество срабатываний ассертов сообщений. | 
-| `server_status_admin_asserts.msg_rate`<br/>`DGAUGE`, штуки | Прирост срабатываний ассертов сообщений за секунду. | 
-| `server_status_admin_asserts.regular`<br/>`DGAUGE`, штуки | Количество срабатываний регулярных ассертов. | 
-| `server_status_admin_asserts.regular_rate`<br/>`DGAUGE`, штуки | Прирост срабатываний регулярных ассертов за секунду. | 
-| `server_status_admin_asserts.rollovers`<br/>`DGAUGE`, штуки | Количество переполнений счетчиков.  | 
-| `server_status_admin_asserts.rollovers_rate`<br/>`DGAUGE`, штуки | Прирост переполнений счетчиков за секунду. | 
-| `server_status_admin_asserts.user`<br/>`DGAUGE`, штуки | Количество срабатываний пользовательский ассертов.  | 
-| `server_status_admin_asserts.user_rate`<br/>`DGAUGE`, штуки | Прирост срабатываний пользовательский ассертов за секунду. | 
-| `server_status_admin_asserts.warning`<br/>`DGAUGE`, штуки | Количество предупреждений. | 
-| `server_status_admin_asserts.warning_rate`<br/>`DGAUGE`, штуки | Прирост предупреждений за секунду. | 
-| `server_status_admin_connections.active`<br/>`DGAUGE`, штуки | Количество активных подключений. | 
-| `server_status_admin_connections.active_rate`<br/>`DGAUGE`, штуки | Прирост активных подключений за секунду. | 
-| `server_status_admin_connections.adminConnections.readyThreads`<br/>`DGAUGE`, штуки | Количество подготовленных потоков. | 
-| `server_status_admin_connections.adminConnections.readyThreads_rate`<br/>`DGAUGE`, штуки | Прирост подготовленных потоков за секунду.  | 
-| `server_status_admin_connections.adminConnections.startingThreads`<br/>`DGAUGE`, штуки | Количество стартовавших потоков. | 
-| `server_status_admin_connections.adminConnections.startingThreads_rate`<br/>`DGAUGE`, штуки | Прирост стартовавших потоков за секунду. | 
-| `server_status_admin_connections.adminConnections.threadsRunning`<br/>`DGAUGE`, штуки | Количество запущенных потоков. | 
-| `server_status_admin_connections.adminConnections.threadsRunning_rate`<br/>`DGAUGE`, штуки | Прирост запущенных потоков за секунду. | 
-| `server_status_admin_connections.available`<br/>`DGAUGE`, штуки | Количество доступных для использования соединений. | 
-| `server_status_admin_connections.available_rate`<br/>`DGAUGE`, штуки | Прирост доступных для использования соединений за секунду. | 
-| `server_status_admin_connections.current`<br/>`DGAUGE`, штуки | Количество входящих соединений с БД. | 
-| `server_status_admin_connections.current_rate`<br/>`DGAUGE`, штуки | Прирост входящих соединений с БД за секунду. | 
-| `server_status_admin_connections.totalCreated`<br/>`DGAUGE`, штуки | Количество всех входящих соединений с сервером, включая завершенные. | 
-| `server_status_admin_connections.totalCreated_rate`<br/>`DGAUGE`,число  | Прирост всех входящих соединений с сервером за секунду, включая завершенные. | 
-| `server_status_admin_extra_info.page_faults_rate`<br/>`DGAUGE`, штуки | Количество [отказов страниц](https://ru.wikipedia.org/wiki/Отказ_страницы). | 
-| `server_status_admin_globalLock.currentQueue.readers`<br/>`DGAUGE`, штуки | Количество операций в очереди операций, ожидающих снятия блокировки на чтение. | 
-| `server_status_admin_globalLock.currentQueue.readers_rate`<br/>`DGAUGE`, штуки | Прирост операций в очереди операций, ожидающих снятия блокировки на чтение, за секунду. | 
-| `server_status_admin_globalLock.currentQueue.total`<br/>`DGAUGE`, штуки | Суммарное количество операций в очереди операций, ожидающих снятия блокировки. | 
-| `server_status_admin_globalLock.currentQueue.total_rate`<br/>`DGAUGE`, штуки | Прирост операций в очереди операций, ожидающих снятия блокировки, за секунду. | 
-| `server_status_admin_globalLock.currentQueue.writers`<br/>`DGAUGE`, штуки | Количество операций в очереди операций, ожидающих снятия блокировки на запись. | 
-| `server_status_admin_globalLock.currentQueue.writers_rate`<br/>`DGAUGE`, штуки | Прирост операций в очереди операций, ожидающих снятия блокировки на запись, за секунду. | 
-| `server_status_admin_metrics.cursor.open.noTimeout`<br/>`DGAUGE`, штуки | Количество открытых курсоров с настройкой `DBQuery.Option.noTimeout` для предотвращения таймаута в случае неактивности. | 
-| `server_status_admin_metrics.cursor.open.noTimeout_rate`<br/>`DGAUGE`, штуки | Прирост количества открытых курсоров с настройкой `DBQuery.Option.noTimeout` для предотвращения таймаута в случае неактивности за секунду. | 
-| `server_status_admin_metrics.cursor.open.pinned`<br/>`DGAUGE`, штуки | Количество закрепленных открытых курсоров. | 
-| `server_status_admin_metrics.cursor.open.pinned_rate`<br/>`DGAUGE`, штуки | Прирост закрепленных открытых курсоров за секунду. | 
-| `server_status_admin_metrics.cursor.open.total`<br/>`DGAUGE`, штуки | Количество открытых курсоров. | 
-| `server_status_admin_metrics.cursor.open.total_rate`<br/>`DGAUGE`, штуки | Прирост открытых курсоров за секунду.  | 
-| `server_status_admin_metrics.cursor.timedOut`<br/>`DGAUGE`, штуки | Количество курсоров, достигших таймаута. | 
-| `server_status_admin_metrics.cursor.timedOut_rate`<br/>`DGAUGE`, штуки | Прирост курсоров, достигших таймаута, за секунду. | 
-| `server_status_admin_metrics.document.deleted`<br/>`DGAUGE`, штуки | Количество удаленных документов. | 
-| `server_status_admin_metrics.document.deleted_rate`<br/>`DGAUGE`, штуки | Прирост удаленных документов за секунду. | 
-| `server_status_admin_metrics.document.inserted`<br/>`DGAUGE`, штуки | Количество вставленных документов. | 
-| `server_status_admin_metrics.document.inserted_rate`<br/>`DGAUGE`, штуки | Прирост вставленных документов за секунду. | 
-| `server_status_admin_metrics.document.returned`<br/>`DGAUGE`, штуки | Количество возвращенных документов. | 
-| `server_status_admin_metrics.document.returned_rate`<br/>`DGAUGE`, штуки | Прирост возвращенных документов за секунду. | 
-| `server_status_admin_metrics.document.updated`<br/>`DGAUGE`, штуки | Количество обновленных документов. | 
-| `server_status_admin_metrics.document.updated_rate`<br/>`DGAUGE`, штуки | Прирост обновленных документов за секунду. | 
-| `server_status_admin_metrics.getLastError.wtime.totalMillis`<br/>`DGAUGE`, миллисекунды | Число миллисекунд, которое БД потратила в ожидании подтверждения успешной записи. | 
-| `server_status_admin_metrics.getLastError.wtime.totalMillis_rate`<br/>`DGAUGE`, миллисекунды | Прирост миллисекунд, которое БД потратила в ожидании подтверждения успешной записи, за секунду. | 
-| `server_status_admin_metrics.operation.scanAndOrder`<br/>`DGAUGE`, штуки | Количество сортировок данных без использования индекса. | 
-| `server_status_admin_metrics.operation.scanAndOrder_rate`<br/>`DGAUGE`, штуки | Прирост сортировок данных без использования индекса за секунду. | 
-| `server_status_admin_metrics.operation.writeConflicts`<br/>`DGAUGE`, штуки | Количество конфликтов при записи. | 
-| `server_status_admin_metrics.operation.writeConflicts_rate`<br/>`DGAUGE`, штуки | Прирост конфликтов при записи за секунду. | 
-| `server_status_admin_metrics.queryExecutor.scanned`<br/>`DGAUGE`, штуки | Количество просканированных ключей индекса. | 
-| `server_status_admin_metrics.queryExecutor.scanned_rate`<br/>`DGAUGE`, штуки | Прирост просканированных ключей индекса за секунду. | 
-| `server_status_admin_metrics.queryExecutor.scannedObjects`<br/>`DGAUGE`, штуки | Количество просканированных документов. | 
-| `server_status_admin_metrics.queryExecutor.scannedObjects_rate`<br/>`DGAUGE`, штуки | Прирост просканированных документов за секунду. | 
-| `server_status_admin_metrics.ttl.deletedDocuments`<br/>`DGAUGE`, штуки | Количество удаленных документов с использованием [TTL индекса](https://www.mongodb.com/docs/manual/core/index-ttl/). | 
-| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, штуки | Прирост удаленных документов с использованием [TTL индекса](https://www.mongodb.com/docs/manual/core/index-ttl/) за секунду. | 
-| `server_status_admin_metrics.ttl.passes`<br/>`DGAUGE`, штуки | Количество фоновых операций удаления документов из коллекций с использованием TTL индекса. | 
-| `server_status_admin_metrics.ttl.passes_rate`<br/>`DGAUGE`, штуки | Прирост фоновых операций удаления документов из коллекций с использованием TTL индекса за секунду. | 
-| `server_status_admin_opLatencies.commands.latency`<br/>`DGAUGE`, микросекунды | Суммарная задержка выполнения команд БД в микросекундах. | 
-| `server_status_admin_opLatencies.commands.latency_rate`<br/>`DGAUGE`, микросекунды | Изменение задержки выполнения команд БД за секунду. | 
-| `server_status_admin_opLatencies.commands.ops`<br/>`DGAUGE`, штуки | Количество операций над коллекциями БД. | 
-| `server_status_admin_opLatencies.commands.ops_rate`<br/>`DGAUGE`, штуки | Прирост операций над коллекциями БД за секунду. | 
-| `server_status_admin_opLatencies.reads.latency`<br/>`DGAUGE`, микросекунды | Задержка выполнения команд чтения в микросекундах. | 
-| `server_status_admin_opLatencies.reads.latency_rate`<br/>`DGAUGE`, микросекунды | Изменение задержки выполнения команд чтения за секунду. | 
-| `server_status_admin_opLatencies.reads.ops`<br/>`DGAUGE`, штуки | Количество операций чтения коллекций БД. | 
-| `server_status_admin_opLatencies.reads.ops_rate`<br/>`DGAUGE`, штуки | Прирост операций чтения коллекций БД за секунду. | 
-| `server_status_admin_opLatencies.transactions.latency`<br/>`DGAUGE`, микросекунды | Задержка транзакций в микросекундах. | 
-| `server_status_admin_opLatencies.transactions.latency_rate`<br/>`DGAUGE`, микросекунды |Изменение задержки транзакций за секунду.  | 
-| `server_status_admin_opLatencies.transactions.ops`<br/>`DGAUGE`, штуки | Количество транзакций в БД. | 
-| `server_status_admin_opLatencies.transactions.ops_rate`<br/>`DGAUGE`, штуки | Прирост транзакций в БД за секунду. | 
-| `server_status_admin_opLatencies.writes.latency`<br/>`DGAUGE`, микросекунды | Задержка выполнения команд записи в микросекундах. | 
-| `server_status_admin_opLatencies.writes.latency_rate`<br/>`DGAUGE`, микросекунды | Изменение задержки выполнения команд записи за секунду. | 
-| `server_status_admin_opLatencies.writes.ops`<br/>`DGAUGE`, штуки | Количество операций записи коллекций БД. | 
-| `server_status_admin_opLatencies.writes.ops_rate`<br/>`DGAUGE`, штуки | Прирост операций записи коллекций БД за секунду. | 
-| `server_status_admin_opcounters.command`<br/>`DGAUGE`, штуки | Количество команд к БД с момента последнего старта. Кроме команд `insert`, `update`, `delete`. | 
-| `server_status_admin_opcounters.command_rate`<br/>`DGAUGE`, штуки | Прирост количества команд к БД за секунду. Кроме команд `insert`, `update`, `delete`. | 
-| `server_status_admin_opcounters.delete`<br/>`DGAUGE`, штуки | Количество `delete` операций с момента последнего старта БД. | 
-| `server_status_admin_opcounters.delete_rate`<br/>`DGAUGE`, штуки | Прирост количества `delete` операций в БД за секунду. | 
-| `server_status_admin_opcounters.getmore`<br/>`DGAUGE`, штуки | Количество `getmore` операций с момента последнего старта БД. | 
-| `server_status_admin_opcounters.getmore_rate`<br/>`DGAUGE`, штуки | Прирост количества `getmore` операций в БД за секунду. | 
-| `server_status_admin_opcounters.insert`<br/>`DGAUGE`, штуки | Количество `insert` операций с момента последнего старта БД. | 
-| `server_status_admin_opcounters.insert_rate`<br/>`DGAUGE`, штуки | Прирост количества `insert` операций в БД за секунду. | 
-| `server_status_admin_opcounters.query`<br/>`DGAUGE`, штуки | Количество `query` операций с момента последнего старта БД. | 
-| `server_status_admin_opcounters.query_rate`<br/>`DGAUGE`, штуки | Прирост количества `query` операций в БД за секунду. | 
-| `server_status_admin_opcounters.update`<br/>`DGAUGE`, штуки | Количество `update` операций с момента последнего старта БД. | 
-| `server_status_admin_opcounters.update_rate`<br/>`DGAUGE`, штуки | Прирост количества `update` операций в БД за секунду. | 
-| `server_status_admin_opcountersRepl.command`<br/>`DGAUGE`, штуки | Количество реплицируемых команд к БД с момента последнего старта БД. | 
-| `server_status_admin_opcountersRepl.command_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых команд к БД за секунду. | 
-| `server_status_admin_opcountersRepl.delete`<br/>`DGAUGE`, штуки | Количество реплицируемых `delete` операций с момента последнего старта БД. | 
-| `server_status_admin_opcountersRepl.delete_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `delete` операций в БД за секунду. | 
-| `server_status_admin_opcountersRepl.getmore`<br/>`DGAUGE`, штуки | Количество реплицируемых `getmore` операций с момента последнего старта БД. | 
-| `server_status_admin_opcountersRepl.getmore_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `getmore` операций в БД за секунду. | 
-| `server_status_admin_opcountersRepl.insert`<br/>`DGAUGE`, штуки | Количество реплицируемых `insert` операций с момента последнего старта БД. | 
-| `server_status_admin_opcountersRepl.insert_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `insert` операций в БД за секунду. | 
-| `server_status_admin_opcountersRepl.query`<br/>`DGAUGE`, штуки | Количество реплицируемых `query` операций с момента последнего старта БД. | 
-| `server_status_admin_opcountersRepl.query_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `query` операций в БД за секунду. | 
-| `server_status_admin_opcountersRepl.update`<br/>`DGAUGE`, штуки | Количество реплицируемых `update` операций с момента последнего старта БД. | 
-| `server_status_admin_opcountersRepl.update_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `update` операций в БД за секунду. | 
-| `server_status_admin_wiredTiger.cache.bytes_currently_in_the_cache`<br/>`DGAUGE`, байты | Размер использованного кеша WiredTiger. | 
-| `server_status_admin_wiredTiger.cache.bytes_currently_in_the_cache_rate`<br/>`DGAUGE`, байты | Прирост использованного кеша WiredTiger за секунду. | 
-| `server_status_admin_wiredTiger.cache.checkpoint_blocked_page_eviction`<br/>`DGAUGE`, штуки | Количество освобожденных страниц при чекпоинте. | 
-| `server_status_admin_wiredTiger.cache.checkpoint_blocked_page_eviction_rate`<br/>`DGAUGE`, штуки | Прирост освобожденных страниц при чекпоинте за секунду. | 
-| `server_status_admin_wiredTiger.cache.maximum_bytes_configured`<br/>`DGAUGE`, байты | Установленный максимальный размер кеша. | 
-| `server_status_admin_wiredTiger.cache.modified_pages_evicted`<br/>`DGAUGE`, штуки | Количество освобожденных измененных страниц оперативной памяти. | 
-| `server_status_admin_wiredTiger.cache.modified_pages_evicted_rate`<br/>`DGAUGE`, штуки | Прирост освобожденных измененных страниц оперативной памяти за секунду. | 
-| `server_status_admin_wiredTiger.cache.tracked_dirty_bytes_in_the_cache`<br/>`DGAUGE`, байты | Размер грязного кеша. | 
-| `server_status_admin_wiredTiger.cache.tracked_dirty_bytes_in_the_cache_rate`<br/>`DGAUGE`, байты | Прирост грязного кеша за секунду. | 
-| `server_status_admin_wiredTiger.cache.unmodified_pages_evicted`<br/>`DGAUGE`, штуки | Количество освобожденных неизмененных страниц оперативной памяти. | 
-| `server_status_admin_wiredTiger.cache.unmodified_pages_evicted_rate`<br/>`DGAUGE`, штуки | Прирост освобожденных неизмененных страниц оперативной памяти за секунду. | 
-| `server_status_admin_wiredTiger.concurrentTransactions.read.out`<br/>`DGAUGE`, штуки | Количество задействованных тикетов параллельных транзакций чтения. | 
-| `server_status_admin_wiredTiger.concurrentTransactions.read.out_rate`<br/>`DGAUGE`, штуки | Прирост задействованных тикетов параллельных транзакций чтения за секунду. | 
-| `server_status_admin_wiredTiger.concurrentTransactions.read.totalTickets`<br/>`DGAUGE`, штуки | Количество доступных тикетов параллельных транзакций чтения. | 
-| `server_status_admin_wiredTiger.concurrentTransactions.read.totalTickets_rate`<br/>`DGAUGE`, штуки | Прирост тикетов параллельных транзакций чтения за секунду. | 
-| `server_status_admin_wiredTiger.concurrentTransactions.write.out`<br/>`DGAUGE`, штуки | Количество задействованных тикетов параллельных транзакций записи. | 
-| `server_status_admin_wiredTiger.concurrentTransactions.write.out_rate`<br/>`DGAUGE`, штуки | Прирост задействованных тикетов параллельных транзакций записи за секунду. | 
-| `server_status_admin_wiredTiger.concurrentTransactions.write.totalTickets`<br/>`DGAUGE`, штуки | Количество доступных тикетов параллельных транзакций записи. | 
-| `server_status_admin_wiredTiger.concurrentTransactions.write.totalTickets_rate`<br/>`DGAUGE`, штуки | Прирост доступных тикетов параллельных транзакций записи за секунду. | 
-| `server_status_admin_wiredTiger.transaction.transaction_begins`<br/>`DGAUGE`, штуки | Количество запущенных транзакций. | 
-| `server_status_admin_wiredTiger.transaction.transaction_begins_rate`<br/>`DGAUGE`, штуки | Прирост запущенных транзакций за секунду. | 
-| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_max_time_msecs`<br/>`DGAUGE`, миллисекунды | Максимальное время создания чекпоинта. | 
-| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_min_time_msecs`<br/>`DGAUGE`, миллисекунды | Минимальное время создания чекпоинта. |  
-| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, миллисекунды | Время создания последнего чекпоинта (в миллисекундах). | 
-| `server_status_admin_wiredTiger.transaction.transaction_checkpoints`<br/>`DGAUGE`, штуки | Количество чекпоинтов транзакций. | 
-| `server_status_admin_wiredTiger.transaction.transaction_checkpoints_rate`<br/>`DGAUGE`, штуки | Прирост чекпоинтов транзакций за секунду. | 
-| `server_status_admin_wiredTiger.transaction.transactions_committed`<br/>`DGAUGE`, штуки | Количество завершенных транзакций. | 
-| `server_status_admin_wiredTiger.transaction.transactions_committed_rate`<br/>`DGAUGE`, штуки | Прирост завершенных транзакций за секунду. | 
-| `server_status_admin_wiredTiger.transaction.transactions_rolled_back`<br/>`DGAUGE`, штуки | Количество отмененных транзакций. | 
-| `server_status_admin_wiredTiger.transaction.transactions_rolled_back_rate`<br/>`DGAUGE`, штуки | Прирост отмененных транзакций за секунду. | 
-
-##### Прочие метрики {#managed-mongodb-other-metrics}
-| Имя<br/>Тип, единицы измерения | Описание |
-| ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности на чтение.<br/>Принимает значение `1`, если кластер доступен на чтение, `0`, если нет.  | 
-| `can_write`<br/>`DGAUGE`, 0/1 | Показатель доступности на запись.<br/>Принимает значение `1`, если кластер доступен на запись, `0`, если нет.  |
-| `oplog-diff`<br/>`DGAUGE`, миллисекунды | Размер журнала операций (в миллисекундах). | 
-| `oplog-firstTs`<br/>`DGAUGE`, миллисекунды | Таймстамп первой операции в журнале операций. | 
-| `oplog-lastTs`<br/>`DGAUGE`, миллисекунды | Таймстамп последней операции в журнале операций. | 
-| `oplog-maxSize`<br/>`DGAUGE`, байты | Максимальный размер журнала операций. | 
-| `replset_status-replicationLag`<br/>`DGAUGE`, секунды | Задержка репликации. |
+| `active`<br/>`DGAUGE`, штуки | Количество активных кластеров. |
+| `available`<br/>`DGAUGE`, штуки | Количество доступных кластеров. |
+| `available_percent`<br/>`DGAUGE`, % | Доля доступных кластеров. |
+| `buffered`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `buffered`. |
+| `bytes_recv`<br/>`DGAUGE`, байты | Размер полученных данных. |
+| `bytes_sent`<br/>`DGAUGE`, байты | Размер отправленных данных. |
+| `cached`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `cached`. |
+| `commit_limit`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `commit_limit`. |
+| `committed_as`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `committed_as`. |
+| `dirty`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `dirty`. | 
+| `drop_in`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при получении. | 
+| `drop_out`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при отправке. | 
+| `err_in`<br/>`DGAUGE`, штуки | Количество ошибок при получении. | 
+| `err_out`<br/>`DGAUGE`, штуки | Количество ошибок при отправке. | 
+| `free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `free`. | 
+| `high_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_free`. | 
+| `high_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_total`. | 
+| `huge_page_size`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_page_size`. | 
+| `huge_pages_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_pages_free`. | 
+| `huge_pages_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_pages_total`. | 
+| `icmp_inaddrmasks`<br/>`DGAUGE`, штуки | Количество полученных сообщений с запросом маски ICMP-адреса. | 
+| `icmp_insrcquenchs`<br/>`DGAUGE`, штуки | Количество полученных сообщений о неполадках с параметрами ICMP. | 
+| `icmp_intimestampreps`<br/>`DGAUGE`, штуки | Количество полученных ответных сообщений с меткой времени ICMP. | 
+| `icmp_intimestamps`<br/>`DGAUGE`, штуки | Количество полученных сообщений (запросов) с меткой времени ICMP. | 
+| `icmp_outaddrmasks`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с запросом маски ICMP-адреса. | 
+| `icmp_outdestunreachs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о недоступности назначения ICMP. | 
+| `icmp_outechoreps`<br/>`DGAUGE`, штуки | Количество отправленных ICMP-сообщений Echo Reply. | 
+| `icmp_outerrors`<br/>`DGAUGE`, штуки | Количество ICMP-сообщений, которые этот объект не отправил из-за проблем, обнаруженных в ICMP, таких как нехватка буферов. | 
+| `icmp_outmsgs`<br/>`DGAUGE`, штуки | Общее количество ICMP-сообщений, которые пытался отправить этот объект. Включает все сообщения, подсчитанные `icmp_outerrors`. |
+| `icmp_outparmprobs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о проблемах с параметрами ICMP. | 
+| `icmp_outsrcquenchs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений Source Quench по протоколу ICMP. |
+| `inactive`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `inactive`. | 
+| `inodes_free`<br/>`DGAUGE`, штуки | Свободное количество inodes. | 
+| `inodes_total`<br/>`DGAUGE`, штуки | Доступное количество inodes. | 
+| `inodes_used`<br/>`DGAUGE`, штуки | Занятое количество inodes. |
+| `iops_in_progress`<br/>`DGAUGE`, штуки | Количество незавершенных дисковых операций. | 
+| `ip_forwdatagrams`<br/>`DGAUGE`, штуки | Количество входящих пакетов, для которых этот объект не был их конечным IP-адресатом, в результате чего была предпринята попытка найти маршрут для пересылки их в этот конечный пункт назначения. В объектах, которые не действуют как IP-маршрутизаторы, этот счетчик будет включать только те пакеты, которые были перенаправлены источником через этот объект, и обработка параметра исходного маршрута прошла успешно. | 
+| `ip_inaddrerrors`<br/>`DGAUGE`, штуки | Количество входящих пакетов, отброшенных из-за того, что IP-адрес в поле назначения их IP-заголовка не был допустимым адресом для получения в этом объекте. Это количество включает недопустимые адреса (например, `0.0.0.0`) и адреса неподдерживаемых классов (например, класс E). Для объектов, которые не являются IP-маршрутизаторами и, следовательно, не пересылают пакеты, этот счетчик включает пакеты, отброшенные из-за того, что адрес назначения не был локальным адресом. | 
+| `ip_indiscards`<br/>`DGAUGE`, штуки | Количество входящих IP-пакетов, для которых не возникло проблем, препятствующих их дальнейшей обработке, но которые были отброшены (например, из-за нехватки места в буфере). Этот счетчик не включает в себя пакеты, отброшенные в ожидании повторной сборки. | 
+| `ip_reasmreqds`<br/>`DGAUGE`, штуки | Количество полученных IP-фрагментов, которые необходимо было повторно собрать в этом объекте. | 
+| `ip_reasmtimeout`<br/>`DGAUGE`, секунды | Максимальное количество секунд, в течение которых удерживаются полученные фрагменты, пока они ожидают повторной сборки в этом объекте. | 
+| `low_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_free`. | 
+| `low_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_total`. | 
+| `mapped`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `mapped`. | 
+| `merged_reads`<br/>`DGAUGE`, штуки | Количество слитых операций чтения с дисков. | 
+| `merged_writes`<br/>`DGAUGE`, штуки | Количество слитых операций записи на диски. | 
+| `n_cpus`<br/>`DGAUGE`, штуки | Предельное число используемых ядер. | 
+| `n_users`<br/>`DGAUGE`, штуки | Предельное число пользователей. | 
+| `packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
+| `packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. | 
+| `page_tables`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `page_tables`. | 
+| `read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения с конкретного диска. | 
+| `read_count`<br/>`DGAUGE`, операций/с | Количество операций чтения с конкретного диска в секунду. | 
+| `read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с дисков. | 
+| `shared`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `shared`. | 
+| `slab`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `slab`. | 
+| `sreclaimable`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `sreclaimable`. | 
+| `sunreclaim`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `sunreclaim`. | 
+| `swap_cached`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `swap_cached`. | 
+| `swap_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `swap_free`. | 
+| `swap_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `swap_total`. | 
+| `tcp_inerrs`<br/>`DGAUGE`, штуки | Общее количество сегментов, полученных с ошибкой (например, неверные контрольные суммы TCP). |
+| `tcp_outrsts`<br/>`DGAUGE`, штуки | Количество отправленных TCP-сегментов, содержащих флаг RST. |
+| `tcp_passiveopens`<br/>`DGAUGE`, штуки | Количество раз, когда TCP-соединения осуществляли прямой переход в состояние `SYN-RCVD` из состояния `LISTEN`. | 
+| `tcp_retranssegs`<br/>`DGAUGE`, штуки | Общее количество повторно переданных сегментов, то есть количество переданных TCP-сегментов, содержащих один или несколько ранее переданных октетов. | 
+| `tcp_rtoalgorithm`<br/>`DGAUGE`, штуки | Алгоритм, используемый для определения значения тайм-аута, используемого для повторной передачи неподтвержденных октетов. |
+| `tcp_rtomax`<br/>`DGAUGE`, штуки | Максимальное значение, разрешенное реализацией TCP для времени ожидания повторной передачи, измеряемое в миллисекундах. | 
+| `total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `total`. | 
+| `udp_incsumerrors`<br/>`DGAUGE`, штуки | Увеличивается, когда полученный UDP-пакет содержит недопустимую контрольную сумму кода ядра. | 
+| `udp_outdatagrams`<br/>`DGAUGE`, штуки | Общее количество UDP-пакетов, отправленных от этого объекта. | 
+| `udplite_noports`<br/>`DGAUGE`, штуки | Общее количество принятых пакетов UDP Lite, для которых на порте назначения не было слушателя. Перебои в значении этого счетчика могут возникать при повторной инициализации системы управления и в другое время, на что указывает значение `udplite_statsdiscontinuitytime`. | 
+| `udplite_sndbuferrors`<br/>`DGAUGE`, штуки | Увеличивается, когда память не может быть выделена для отправки пакета UDP Lite. | 
+| `uptime`<br/>`DGAUGE`, % | Коэффициент отказоустойчивости. | 
+| `usage_guest`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `guest`. | 
+| `usage_guest_nice`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `guest_nice`. | 
+| `usage_idle`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `idle`. | 
+| `usage_iowait`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `iowait`. | 
+| `usage_irq`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `irq`. | 
+| `usage_nice`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `nice`. | 
+| `usage_softirq`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `softirq`. | 
+| `usage_steal`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `steal`. | 
+| `usage_system`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `system`. | 
+| `usage_user`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `user`. | 
+| `used`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `used`. | 
+| `used_percent`<br/>`DGAUGE`, % | Доля использования оперативной памяти, тип потребления `used`. | 
+| `utilization`<br/>`DGAUGE`, % | Средняя утилизация процессорных ядер ВМ (vCPU) базой данных. | 
+| `vmalloc_chunk`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_chunk`. | 
+| `vmalloc_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_total`. | 
+| `vmalloc_used`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_used`. | 
+| `weighted_io_time`<br/>`DGAUGE`, миллисекунды | Длительность ожидания операций ввода/вывода. | 
+| `write_back`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back`. | 
+| `write_back_tmp`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back_tmp`. |
+| `write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи на диски. | 
+| `write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
+| `write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. | 
 
 Подробнее о сервисе в документации [{{ mmg-name }}](../../../managed-mongodb/).

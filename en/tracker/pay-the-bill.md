@@ -24,7 +24,7 @@ The fees for using {{ tracker-name }} are debited from the balance of the linked
 
 * If the number of users with full access increases during the month, the payment amount for the current month will increase as well. If the number of users with full access decreases, the payment amount will not change.
 
-* On the first day of each month, a report for services rendered for the previous month is generated. If the balance of the billing account is negative at this time, the unpaid amount will become an [arrear](#debt).
+* On the first day of each month, a report for services rendered for the previous month is generated. If your billing account is at a deficit at that point, the unpaid amount will turn into [arrears](#debt).
 
 {% note tip %}
 

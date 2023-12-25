@@ -6,7 +6,7 @@ You can create issues in any of the available [queues](../queue-intro.md). Selec
 
 To create an issue:
 
-1. In the upper-right corner, tap ![](../../_assets/tracker/add-task-mobile.png).
+1. In the top-right corner, click ![](../../_assets/tracker/add-task-mobile.png).
 
 1. Select the queue to create your issue in.
 
@@ -20,7 +20,7 @@ To create an issue:
 
 1. Enter a name for the issue and tap **Create issue**.
 
-1. A window with the new issue opens. The **Type**, **Priority**, **Status**, and **{{ ui-key.startrek-backend.fields.issue.author-key-value }}** fields are filled in automatically. Each queue can have its own [set of types and statuses](../manager/add-ticket-type.md).
+1. A window with the new issue will open. The **Type**, **Priority**, **Status**, and **{{ ui-key.startrek-backend.fields.issue.author-key-value }}** fields are filled in automatically. Each queue can have its own [set of types and statuses](../manager/add-ticket-type.md).
 
 1. [Edit](edit-ticket.md) the issue details:
 

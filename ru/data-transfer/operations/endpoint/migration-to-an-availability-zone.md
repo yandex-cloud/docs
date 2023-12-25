@@ -33,9 +33,8 @@
    * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md);
    * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md);
    * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md);
-   * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md).
-
-   Не размещайте все хосты кластера в зоне `{{ region-id }}-d`, иначе трансфер не будет работать корректно. Если вы переносите хосты в зону `{{ region-id }}-d`, расположите хотя бы один хост в зоне `{{ region-id }}-a` или `{{ region-id }}-b`. Трансфер автоматически выберет подходящую зону. Если в кластере один хост, разместите его в зоне `{{ region-id }}-a` или `{{ region-id }}-b`.
+   * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md);
+   * [{{ ydb-full-name }}](../../../ydb/operations/migration-to-an-availability-zone.md).
 
 1. Если [тип трансфера](../../concepts/transfer-lifecycle.md#transfer-types) — {{ dt-type-repl }} или {{ dt-type-copy-repl }}, перезапустите трансфер, чтобы он получил сведения о новой топологии кластера. Трансферы типа {{ dt-type-copy }} перезапускать не нужно, так как во время их активации информация о новой топологии передается автоматически.
 

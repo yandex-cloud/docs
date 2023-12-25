@@ -7,15 +7,15 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
 
 1. If you previously had a provider from the Hashicorp registry configured, save its settings:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux and macOS
+   - Linux/macOS {#linux-macos}
 
       ```bash
       mv ~/.terraformrc ~/.terraformrc.old
       ```
 
-   - Windows
+   - Windows {#windows}
 
       ```powershell
       mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
@@ -25,9 +25,9 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
 
 1. Specify the source the provider will be installed from.
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux and macOS
+   - Linux/macOS {#linux-macos}
 
       Open the {{ TF }} CLI configuration file:
 
@@ -35,7 +35,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
       nano ~/.terraformrc
       ```
 
-   - Windows
+   - Windows {#windows}
 
       Open the {{ TF }} CLI configuration file named `terraform.rc` in your user's `%APPDATA%` folder.
 

@@ -11,20 +11,20 @@ To create an issue or comment template:
    - [Issues]({{ link-settings }}/templates/issues) to edit issue templates.
    - [Comments]({{ link-settings }}/templates/comments) to edit comment templates.
 
-1. Tap **Create template**.
+1. Click **Create template**.
 
 1. Enter the template name and description.
 
-1. If you want the template to only be used in a specific queue, specify the queue in the **Queue binding** field.
+1. If you want the template to only be used in a specific queue, enter the queue in the **Queue binding** field.
 
 1. Fill in the template parameters the same way as when creating a [new issue](create-ticket.md) or [comment](comments.md).
 
-1. Tap **Save**.
+1. Click **Save**.
 
 The new template will be available on the [template page]({{ link-tracker-templates }}).
 
 
-To be sure that other users can use your template:
+Make sure that other users can use your template:
 
 1. [Set up shared access to the template](share-template.md#section_nmn_prs_zz).
 

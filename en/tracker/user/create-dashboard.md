@@ -11,7 +11,7 @@ To create a dashboard:
 1. In the top-right corner, click **Edit** and select widgets one by one from the **Add widget** list to configure them. The following widgets are available in {{ tracker-name }}:
 
    - [Issues](widgets.md#tasks)
-   - [Note Widget](widgets.md#note)
+   - [Note](widgets.md#note)
    - [Summary table](widgets.md#summary-table)
    - [Summary table with totaled values](widgets.md#summary-table-with-totals)
    - [Events](widgets.md#events)

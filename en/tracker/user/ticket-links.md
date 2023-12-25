@@ -38,7 +38,7 @@ To create a sub-issue:
 
 1. Fill in the fields the same way as when [creating a new issue](./create-ticket.md).
 
-1. Click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**. You'll see a link to the parent issue at the top of the page above the sub-issue name.
+1. Click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**. You will see a link to the parent issue at the top of the page above the sub-issue name.
 
 ## Changing the link type {#change-link-type}
 

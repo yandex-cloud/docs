@@ -26,13 +26,13 @@ To schedule creation of issues:
 
 1. On the **Auto actions** page, click **Create auto action**.
 
-1. Select the **Create issues** type.
+1. Choose **Create issues**.
 
 1. Set up a period for creating issues:
 
    1. Select the unit for the issue creation period: hours, days, or weeks.
 
-   1. Specify the period of creating issues in the selected units. To do this, enter a number between 1 and 1000 in the **Every(Every)** field.
+   1. Specify the period of creating issues in the selected units. To do this, enter a number between 1 and 1000 in the **Every** field.
 
       For example, if you specify <q>Every 4 days</q>, a new issue is created every 4 days.
 
@@ -46,9 +46,9 @@ To schedule creation of issues:
 
 1. Under **Action**, click **Create issue**.
 
-1. Fill in the fields of the automatic issue creation template in the **Creating issues** window and click **{{ ui-key.startrek.ui_components_FieldEdit.form-submit }}**.
+1. Fill in the fields of the automatic issue creation template in the **Create issue** window and click **{{ ui-key.startrek.ui_components_FieldEdit.form-submit }}**.
 
-1. If you wish to include multiple issues in one auto action, click **Create issue** again and fill in the fields for a new issue.
+1. If you want to include multiple issues in one auto action, click **Create issue** again and fill in the fields for the new issue.
 
 1. To save an auto action, click **Create**.
 

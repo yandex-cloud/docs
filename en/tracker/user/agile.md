@@ -4,7 +4,7 @@ Issues are displayed on the board as cards with basic issue parameters. You [can
 
 {% note warning %}
 
-You can't restrict access to a board, but you can restrict access to issues shown on the board.
+You cannot restrict access to a board, but you can restrict access to issues shown on the board.
 
 The board shows the issues only from the queues that the user has access to. To restrict access to individual issues, [add components with restricted access](../manager/queue-access.md#access-components).
 
@@ -54,7 +54,7 @@ The created issue will be placed in the queue you specified in the [settings](..
 
 #### Creating an issue in the backlog
 
-1. In the top-right corner, click **Sprints**.
+1. Click **Sprints** in the top-right corner.
 
 1. Enter the issuer name in the field under the backlog's issue list.
 
@@ -76,7 +76,7 @@ You can add issues with specific settings to your board automatically using [boa
 
 1. Open the issue page.
 
-1. Click the **{{ ui-key.startrek-backend.fields.issue.boards }}** field header in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.boards }}** field, add it by clicking **Select fields**.
+1. Click the **{{ ui-key.startrek-backend.fields.issue.boards }}** field header in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.boards }}** field, add it by clicking **Choose fields**.
 
 1. Start typing the board name in the **{{ ui-key.startrek-backend.fields.issue.boards }}** field and pick the option you need from the list that appears.
 
@@ -86,7 +86,7 @@ The issue will be placed on the board you've picked.
 
 1. Open the issue page.
 
-1. Under **{{ ui-key.startrek-backend.fields.issue.fields.agile }}** in the right-hand panel, click the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field header. If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **Select fields**.
+1. Under **{{ ui-key.startrek-backend.fields.issue.fields.agile }}** in the right-hand panel, click the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field header. If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **Choose fields**.
 
 1. Start typing the sprint's name in the field and pick the option you need from the list that appears. The board field is populated automatically.
 
@@ -100,11 +100,11 @@ To add multiple issues to the board at once, use the [bulk change](../manager/bu
 
 1. Choose the issues you want to add to the board and click **Edit fields**.
 
-1. To add an issue to a backlog, start typing the backlog name in the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field and pick the option you need from the list that appears. If you do not see the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field, add it by clicking **Select fields**.
+1. To add an issue to a backlog, start typing the backlog name in the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field and pick the option you need from the list that appears. If you do not see the **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.board }}** field, add it by clicking **Choose fields**.
 
 1. To add an issue to a sprint, start typing the sprint name in the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field and pick the option you need from the list that appears. The board field is populated automatically.
 
-   If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **Select fields**.
+   If you do not see the **{{ ui-key.startrek-backend.fields.issue.sprint }}** field, add it by clicking **Choose fields**.
 
 1. Click **{{ ui-key.startrek.ui_components_TransitionScreen.screen-next-button }}** and wait until your issues are processed.
 
@@ -126,7 +126,7 @@ Removed issues will no longer show up on the board, but will remain available in
 
 ## Adding notes to a board {#notes_add}
 
-You can add your notes or comments to the board's columns to explain them to other users. Such notes aren't protected from editing: any user can change them.
+You can add your notes or comments to the board's columns to explain them to other users. Such notes are not protected from editing: any user can change them.
 
 To add a note to a column:
 
@@ -147,9 +147,9 @@ If there are too many issues on the board, you can always hide some of them usin
 
 * By sprint. On the top panel, select the issues that you want to view.
 
-* By resolution. In the top panel, expand the **Resolution** menu and specify the resolutions you want to display on the board.
+* By resolution. On the top panel, expand the **Resolution** menu and specify the resolutions you want to display on the board.
 
-* By status. In the top panel, expand the **Status** menu and specify the statuses you want to display on the board.
+* By status. On the top panel, expand the **Status** menu and specify the statuses you want to display on the board.
 
 * The issue's key or name. Start typing the text in the field on the top panel. Only the issues whose key or name includes this text will remain on the board.
 

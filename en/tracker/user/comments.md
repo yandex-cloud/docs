@@ -67,7 +67,7 @@ To copy a link to a comment, hover over it and click ![](../../_assets/horizonta
 
 ## Deleting a comment {#delete-comment}
 
-To delete a comment, hover over it and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Remove**.
+To delete a comment, hover over it and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete**.
 
 
 

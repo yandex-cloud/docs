@@ -1,84 +1,86 @@
 ---
-title: "{{ tracker-full-name }} revision history for October 2023"
-description: "See below the {{ tracker-full-name }} revision history for October 2023."
+title: "{{ tracker-full-name }} revision history for November 2023"
+description: "See below the {{ tracker-full-name }} revision history for November 2023."
 ---
 
-# {{ tracker-full-name }} revision history for October 2023
+# {{ tracker-full-name }} revision history for November 2023
 
+* [Ideas from our users](#your-ideas)
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
+## Ideas from our users {#your-ideas}
+
+
+While working on our main goals, we also try to listen to our users' ideas. This month, we implemented one of their ideas:
+
+
+### PATCH method for HTTP requests {#patch-method}
+
+**29 votes**
+
+You can now select the PATCH method for an [HTTP request](../user/set-action.md#create-http) in the action settings when creating a trigger.
+
 ## Updates {#top-news}
 
-### Adding portfolios and projects on a Gantt chart for a portfolio {#portfolio-gantt-add}
 
-You can create new and nest existing portfolios or projects in a [Gantt chart for a portfolio](../gantt/portfolio.md).
+### Onboarding for {{ tracker-name }} users {#onboarding}
 
-To do this, click ![](../../_assets/tracker/svg/add-task.svg) **Add** below the list of nested portfolios and projects.
+Onboarding is now available to new users, including a number of step-by-step tutorials in the {{ tracker-name }} interface:
 
-### Automatic calculation of time spent on an issue {#calculate-time}
+* Creating an issue from navigation
+* Setting up workflows in queues
+* Inviting users
+* Downloading an application
 
-[Advanced time tracking](../user/time-spent.md#extended-spent-time) now allows you to automatically calculate the time spent on an issue. The time calculation covers the span from when the issue was assigned until it was closed, the employee's schedule considered.
+To see the tutorials, click ![](../../_assets/console-icons/circle-question.svg) **Help center** → **Run quick guide** in the left-hand panel.
 
-To learn how to activate auto time calculation and how it works, see [{#T}](../manager/queue-spent-time.md).
 
-### Viewing a workflow on the issue page {#see-workflow}
+### Portfolio and project change history {#notifications-projects-portfolios}
 
-{{ tracker-name }} users can now view a queue's [workflow](../manager/workflow.md) in issues. If authorized to [view queue issues](../manager/queue-access.md#acces-types), the user will now see a set of statuses inside an issue. The user will also be able to view transitions, but only those they have access to within the workflow configuration.
+You can now view the change history for portfolios and projects. For more information about what notifications are sent to users depending on their role in a portfolio or project, see our [documentation](../user/notifications-projects-portfolios.md).
 
-To view the workflow on the issue page, click ![](../../_assets/tracker/svg/arrow.svg) → **View workflow** in the right-hand panel in the **Status** field.
+### Issues filter {#task-filter}
 
-### List of statuses in the workflow editor {#list-workflow}
+An [issue list]({{ link-tracker }}issues) now has a permanent Issues filter that allows displaying all available issues, either in progress or completed. An issue is considered completed if its [status](../manager/workflow-status-edit.md#status-types) is **Completed** or **Canceled** and/or it has a [resolution](../manager/create-resolution.md).
 
-The workflow editor now has a panel where you can search by workflow status and transition. Click the panel to view a list of all the workflow statuses. Each status will show a list of transitions configured for it with prompts on the settings available for each one (e.g., automation, transition screens).
+![](../../_assets/tracker/changelogs/issues-tasks-filter.png =250x)
 
-![](../../_assets/tracker/workflow-editor-list-of-statuses.png =300x)
+### Adding links when creating an issue {#task-links}
 
-Hovering over a status selects in the diagram all the transitions from the status, as well as the initial and final statuses for a given transition. You can also swap statuses and transitions in the list by dragging them. Hovering over an element makes an icon appear to the right of it. Click and hold the icon and drag the selected element.
+The [issue creation](../user/create-ticket.md) interface has been updated to enable you to [add links](../user/ticket-links.md) in a pop-up window. You can select a link type and specify the link to or key of the issue you want to link.
+
+![](../../_assets/tracker/changelogs/new-task-links.png =350x)
+
+### Cloning dashboards {#create-dashboard-copy}
+
+You can now clone dashboards. You can create copies of any dashboard, except for empty ones (those without widgets) and the [**My page** dashboard](../user/startpage.md#my-page).
 
 ## Fixes and improvements {#fixes}
 
-### New interface with {{ tracker-name }} settings {#new-admin-settings}
 
-The [**Issue statuses**]({{ link-tracker-statuses }}), [**Issue types**]({{ link-admin-types }}), and [**Resolutions**]({{ link-admin-resolutions }}) pages are now available in the new interface. Use these pages to perform a search, create new entities, and view the list of existing ones.
+### Adding nested portfolios and projects {#add-projects-and-portfolio}
 
-### Viewing {{ tracker-name }} settings {#see-admin-settings}
+You can now add nested portfolios and projects to portfolios by clicking ![](../../_assets/console-icons/plus.svg). The add button is now available on the following pages:
+* [**Portfolios and projects**]({{ link-tracker }}pages/projects), the **Structure** tab.
+* Individual portfolio page, the **Projects** and **Gantt chart** tabs.
 
-Organization users who are not administrators can now follow direct links to view {{ tracker-name }} settings:
+### Improvements in project operations {#improvements-in-projects}
 
-* Issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }})
-* Issue types: [{{ link-admin-types }}]({{ link-admin-types }})
-* Resolutions: [{{ link-admin-resolutions }}]({{ link-admin-resolutions }})
+* You can now add and change users in the **Follower** field in a project.
+* The header of a project now displays quarters next to the project name. A quarter corresponds to specified project timeframes.
+* Now, attached files in projects and portfolios are shown separately for a description and comments, as they are in issues. Files attached to comments are displayed in the **Attachments** tab.
 
+### Viewing and creating queue components {#queue-components}
 
+The queue components page now has a new {{ tracker-name }} interface. To view a queue's components, click ![](../../_assets/console-icons/ellipsis.svg) → ![](../../_assets/console-icons/tags.svg) **Components** on the queue page.
 
+### Queue team {#queue-team}
 
-### Notifications about changes to portfolios and projects {#projects-notifications}
+The **Queue team** tab in the queue settings now has a new interface. You can use this tab to add employees: the team members will be able to see the queue under **My queues**.
 
-{{ tracker-name }} now notifies users about portfolio and project updates. Users with the following roles will be notified:
-* Author
-* Owner
-* Customer
-* Participant
-* Follower
+You can edit the queue team by removing its members, including through bulk edits. You can also search for team members and use suggestions in the search field by English and Russian characters.
 
+### Filtering by SLA {#sla-filter}
 
-### Creating and editing versions {#queue-versions}
-
-The new interface allows you to create and edit [queue versions](../manager/versions.md).
-
-### Fixed the error of updating issue status with local fields {#boards-fix}
-
-Fixed the error that prevented dragging an issue to a different column on the [issue board](../manager/agile-new.md) for an [issue status](../manager/workflow-status-edit.md) update, if it was required to fill a [local field](../local-fields.md) on the transition screen.
-
-### Fixed the error with setting up conditions for transition between local fields {#workflow-fix}
-
-Fixed the error that prevented specifying [local fields](../local-fields.md) in transition conditions in the [workflow](../manager/workflow.md) editor.
-
-### Fixed emoji display {#emoji-fix}
-
-Fixed the issue that caused emojis to be replaced with their text names.
-
-### Fixed the home page link {#logo-link-fix}
-
-Fixed the error that opened a wrong page when clicking the {{ tracker-name }} logo (not the one specified in the settings).
+You can now filter issue lists by the **SLA** field, if [configured](../manager/sla.md) for the queue.

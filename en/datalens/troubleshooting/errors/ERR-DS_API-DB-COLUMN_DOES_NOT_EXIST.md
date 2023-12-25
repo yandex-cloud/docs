@@ -10,7 +10,7 @@ Possible causes:
 
 * When building a dataset from a {{ CH }} connection, a SQL subquery is used. If this is the case, set an alias for the selected fields.
 
-   Example:
+   For example:
 
    ```sql
    SELECT DISTINCT
@@ -29,3 +29,5 @@ Possible causes:
    ```
 
 * When building a dataset, the SQL subquery makes an implicit reference to the selected fields (`SELECT * FROM`). To avoid an error, explicitly list the required fields in the `SELECT` clause.
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

@@ -36,8 +36,8 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 
 1. Click **Configure integrations** and wait for the page to load.
 1. In the **Issue type** field, select `Vacation`.
-1. In the **Header** field, click ![](../_assets/tracker/svg/icon-add.svg) and select **Response option**. In the dialog box that opens, select **Vacation type** in the **Question** field and click **Save**.
-1. In the **Description** field, click ![](../_assets/tracker/svg/icon-add.svg) and select **Response options**. In the dialog box that opens, click **Select all** and choose **Formatted** in the **Response formatting** field. Click **Save**.
+1. In the **Header** field, click ![](../_assets/tracker/svg/icon-add.svg) and select **Response**. In the dialog box that opens, select **Vacation type** in the **Question** field and click **Save**.
+1. In the **Description** field, click ![](../_assets/tracker/svg/icon-add.svg) and select **Responses**. In the dialog box that opens, click **Select all** and choose **Formatted** in the **Response formatting** field. Click **Save**.
 1. Click **Add issue parameters** and select the **Deadline** option using the search field.
 1. Use the **Deadline** field to add an answer to the `Start` question.
 1. Click **Save** to save the form.
@@ -53,7 +53,7 @@ For your employees to be able to easily submit a vacation or sick leave in advan
 
 1. Return to the `Vacations Queue` settings and click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-autoactions }}**.
 1. Wait for the page to load and click **Create auto action**.
-1. In the **Type of auto action** field, activate **Update issues**.
+1. In the **Auto action type** field, enable **Issue update**.
 1. In the **Name** field, enter a name, such as `vacation_warning`.
 1. In the **Update once per** field, set the update frequency to once a day (for testing purposes, once an hour is recommended).
 1. Under **Filter settings**, select **Query** and use the [query language](user/query-filter.md):

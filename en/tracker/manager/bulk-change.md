@@ -14,9 +14,9 @@ To change the issue status:
 
 1. Click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.change-status }}** under the issue list and select the status.
 
-   Only status transitions that are included in the [workflow](workflow.md) are available for bulk change. If you select a status change that's available only to part of the issues, only this part will change their status.
+   Only status transitions that are included in the [workflow](workflow.md) are available for bulk change. If you select a status change that is available only to part of the issues, only this part will change their status.
 
-1. After the operation is complete, in the bottom-right corner, you'll see a notification with the number of issues with changed status.
+1. After the operation is complete, in the bottom-right corner, you will see a notification with the number of issues with changed status.
 
    To see a list of issues that cannot be changed to the selected status, click **More** in the notification.
 
@@ -38,7 +38,7 @@ To edit the issue queue:
 
    To see a list of issues that cannot be moved, click **More** in the notification. The issues that are in the selected queue already, cannot be moved.
 
-Once moved to another queue, the issues are assigned new keys. Links to the issue using the old key remain valid. When following such a link, the issue automatically opens in the new queue. However, you won't be able to find the issue by the old key using a [filter](../manager/quick-filters.md) or a [query](../user/query-filter#query-format.md).
+Once moved to another queue, the issues are assigned new keys. Links to the issue using the old key remain valid. When following such a link, the issue automatically opens in the new queue. However, you will not be able to find the issue by the old key using a [filter](../manager/quick-filters.md) or a [query](../user/query-filter.md#query-format.md).
 
 ## Adding a link {#add-links}
 
@@ -84,11 +84,11 @@ To edit issue parameters:
 
 1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list and select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.edit-parameters }}**.
 
-1. Select relevant parameters. If the fields you need are not in the list, click **Edit parameters list**.
+1. Select relevant parameters. If the fields you need are not in the list, click **Edit parameter list** to add them.
 
 1. Set the values.
 
-   Some fields may contain a list of values (for example, <q>Followers</q>, <q>{{ ui-key.startrek-backend.messages.workflow.field.maillists }}</q>, or <q>Tags</q>). New values are added to the end of the list by default. To overwrite a field, select **Delete value**.
+   Some fields, such as <q>Followers</q>, <q>{{ ui-key.startrek-backend.messages.workflow.field.maillists }}</q>, or <q>Tags</q>, may contain a list of values. New values are added to the end of the list by default. To overwrite a field, select **Delete values**.
 
 1. Click **{{ ui-key.startrek.ui_components_BulkSuggestPopup.apply }}**.
 

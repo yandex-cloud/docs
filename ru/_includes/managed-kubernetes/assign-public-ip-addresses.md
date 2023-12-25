@@ -1,3 +1,3 @@
-Чтобы назначить [узлам {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), выполните одно из действий:
+Чтобы назначить узлам {{ managed-k8s-name }} [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), выполните одно из действий:
 * Укажите `--network-interface ipv4-address=nat` или `--network-interface ipv6-address=nat`.
 * [Включите доступ к узлам {{ managed-k8s-name }} из интернета](../../managed-kubernetes/operations/node-group/node-group-update.md#node-internet-access) после того, как создадите группу узлов.

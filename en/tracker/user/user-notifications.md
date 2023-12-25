@@ -37,6 +37,6 @@ To add roles and set up notifications for them:
 
 1. In the panel on the left, click ![](../../_assets/tracker/svg/settings.svg) **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}**. Then select ![](../../_assets/tracker/svg/interface.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** and click **Notification settings**. You can also follow the link [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
-1. At the bottom of the page, click **Add role**, then select a role. To delete a role, click ![](../../_assets/tracker/remove-task-type.png) next to the role name.
+1. Click **Add role** at the bottom of the page and select a role. To delete a role, click ![](../../_assets/tracker/remove-task-type.png) next to the role name.
 
 1. [Configure the list of events](notification-settings.md#section_iqn_y55_xgb) you want to be notified about for the role.

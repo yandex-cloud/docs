@@ -15,10 +15,10 @@ To find issues you're working on:
 
 ## Quick filters {#q-filters}
 
-* To use standard filters, tap the filter name in the list located in the bottom-left corner of the page.
+* To use standard filters, click the filter name in the list in the bottom-left corner of the page.
    * **Favorite issues**.
    * **All my issues**.
-   * **Created by me**.
+   * **Reported by me**.
    * **Assigned to me**.
    * **Followed by me**.
    * **Waiting for response**.

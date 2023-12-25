@@ -31,4 +31,4 @@ A dashboard can only be deleted by its owner. To delete a dashboard:
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/actions.svg) → **Delete**. Confirm the deletion.
 
-You can't restore a dashboard after deleting it.
+You cannot restore a dashboard after deleting it.

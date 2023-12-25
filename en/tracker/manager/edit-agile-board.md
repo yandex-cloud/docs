@@ -9,7 +9,7 @@ description: "In this tutorial, you will learn how to edit or delete a board in 
 
 1. Go to the board page.
 
-1. In the upper-right corner, click ![](../../_assets/tracker/edit-agile.png).
+1. In the top-right corner, click ![](../../_assets/tracker/edit-agile.png).
 
 1. Configure general board settings:
 
@@ -18,8 +18,8 @@ description: "In this tutorial, you will learn how to edit or delete a board in 
    | **Name** | Board name. |
    | **Allow changing the order of issues** | If the option is enabled, the order of issues on the board can be changed by dragging issues. |
    | **Queue for creating issues** | Queue key You can create issues in this queue directly from the board page. |
-   | **Filter settings** | Settings of the filter used to add issues with certain parameters automatically on the board. There are multiple ways to set up filters:<br/><ul><li>Set your filters on the **Conditions** tab.</li><li>Set your filters using the query language on the **Query** tab.</li></ul> |
-   | **Board type** |You will not be able to change board type after you [create a board](create-agile-board.md). |
+   | **Filter settings** | Settings of the filter used to add issues with certain parameters automatically on the board. There are multiple ways to set up filters:<br/><ul><li>Set your filters in the **Conditions** tab.</li><li>Set your filters using the query language on the **Query** tab.</li></ul> |
+   | **Board type** | You will not be able to change board type after you [create a board](create-agile-board.md). |
 
 1. Use the **Columns** tab to customize the settings and appearance of your board's columns:
 
@@ -53,7 +53,7 @@ By default, the issue card displays the values of required fields: key, name, as
 
 1. Go to the **Card view** tab.
 
-1. Click **Add field** and select issue fields you wish to add to the issue card.
+1. Click **Add field** and select issue fields you want to add to the issue card.
 
    An example of the issue card with the added fields is shown in the upper-right corner of the page.
 
@@ -105,7 +105,7 @@ To delete a board:
 
 1. Go to the board page.
 
-1. In the upper-right corner, click ![](../../_assets/tracker/edit-agile.png).
+1. In the top-right corner, click ![](../../_assets/tracker/edit-agile.png).
 
 1. Click **Delete board** at the bottom of the page.
 

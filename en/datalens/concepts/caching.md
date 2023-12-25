@@ -58,3 +58,5 @@ Caching will be used if you add to the **Colors** section a field already used t
 If you add a new field to the **Colors** section, a new query to the source data will be made.
 
 {% endcut %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

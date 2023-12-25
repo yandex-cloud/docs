@@ -28,7 +28,7 @@ To send emails from the issue page:
 
    If you are [using forms to process user requests](#form), ask users to provide their email address in the form and save their responses in the issue's <q>{{ ui-key.startrek-backend.fields.issue.emailFrom }}</q> field. In this case, the **{{ ui-key.startrek-backend.fields.issue.emailTo }}** field will still be automatically filled in with the requester's email address.
 
-1. Click **Submit**.
+1. Click **Send**.
 
 ### Step 3. Enable automation
 

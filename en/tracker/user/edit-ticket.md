@@ -14,7 +14,7 @@ Tap the issue name. Edit the text and press **Enter**.
 
 ## Editing issue descriptions {#edit-description}
 
-To the right of the issue description, tap ![](../../_assets/tracker/svg/icon-edit.svg) and edit the text. Use [YFM markup](markup.md) to format text. To save your changes, click **Save**.
+To the right of the issue description, tap ![](../../_assets/tracker/svg/icon-edit.svg) and edit the text. Use [YFM markup](markup.md) to format text. Click **Save** to save your changes.
 
 
 You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues. When entering the issue key, use ALL CAPS.
@@ -32,7 +32,7 @@ To edit the parameters of multiple issues at once, use [bulk operations](../mana
 
 ## Changing issue status {#edit-status}
 
-To change the issue status, in the right-hand panel, select a new value in the **Status** field.
+To change the issue status, on the right-hand panel, select a value in the **Status** field.
 
 To edit the statuses of multiple issues at once, use [bulk operations](../manager/bulk-change.md#change-status).
 

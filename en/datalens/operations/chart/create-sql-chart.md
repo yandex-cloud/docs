@@ -179,3 +179,5 @@ CASE
     ELSE column IN not_var{{param}}
 END
 ```
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

@@ -60,7 +60,7 @@ As a result, only the issues that meet the selected filter criteria are shown in
 
 #### Searching by parameters
 
-To find issues by the parameters that can't be set using the system filters, add search conditions.
+To find issues by the parameters that cannot be set using the system filters, add search conditions.
 
 1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/icon-parameters.svg) **{{ ui-key.startrek.ui_components_dashboard_IssuesStatEditor.editor-source-radio-parameters }}**. A panel with the specified filtering parameters will be shown under the search bar.
 
@@ -68,7 +68,7 @@ To find issues by the parameters that can't be set using the system filters, add
 
 1. Select an issue parameter, set its value, and click **{{ ui-key.startrek.ui_components_filter-field.save-button }}**.
 
-   Any issues that don't meet your criteria are filtered out of the list.
+   Any issues that do not meet your criteria are filtered out of the list.
 
 
 1. If you need to refine the search conditions, add more parameters.
@@ -90,7 +90,7 @@ If you set multiple search conditions, only those issues that meet all the condi
 
 #### Query language
 
-If you can't set search conditions using the issue parameters, use the request:
+If you cannot set search conditions using the issue parameters, use the request:
 
 1. Click ![](../../_assets/tracker/svg/query-language.svg) **{{ ui-key.startrek.ui_components_dashboard_FilterEditor.editor-source-radio-query }}** in the top-right corner. All the search parameters that you set by quick filters and conditions, will be shown in the search bar.
 
@@ -98,14 +98,13 @@ If you can't set search conditions using the issue parameters, use the request:
 
 1. Click **Apply**.
 
-Any issues that don't meet your criteria are filtered out of the list.
-
+Any issues that do not meet your criteria are filtered out of the list.
 
 #### Saving filters
 
 To save the issue search conditions as a filter:
 
-1. In the panel under the issue list, click ![](../../_assets/tracker/svg/save-filter.svg) **Save**.
+1. On the panel under the issue list, click ![](../../_assets/tracker/svg/save-filter.svg) **Save**.
 
 1. Set the name and category for the filter.
 

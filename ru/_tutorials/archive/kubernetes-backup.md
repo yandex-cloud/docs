@@ -20,12 +20,13 @@
 
 - Вручную
 
-  1. [Создайте два кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) в каждом со следующими настройками:
+  1. [Создайте два кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}.
 
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** — `1.22` или выше.
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
+     Один кластер {{ managed-k8s-name }} будет использован, чтобы создать резервную копию данных для группы узлов, другой — чтобы восстановить данные из копии.
 
-      Один кластер {{ managed-k8s-name }} будет использован для создания резервной копии группы узлов, другой — для восстановления.
+     Если вы планируете работать с кластерами в пределах сети {{ yandex-cloud }}, выделять кластерам публичный IP-адрес не нужно. Для подключений извне предоставьте кластерам публичный адрес.
+
+  1. [Создайте по группе узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) в каждом кластере и выделите каждой группе публичный IP-адрес.
   1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `compute.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) для работы с Velero.
   1. Выдайте [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) права **READ и WRITE** к [бакету](../../storage/concepts/bucket.md) в {{ objstorage-name }}. Для этого [выполните настройки ACL бакета](../../storage/operations/buckets/edit-acl.md).
@@ -110,6 +111,9 @@
 
 Чтобы выполнить резервное копирование данных группы узлов {{ managed-k8s-name }}:
 1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с первым кластером {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
+
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 1. Выполните резервное копирование данных с группы узлов кластера {{ managed-k8s-name }}:
 
@@ -141,6 +145,9 @@
 
 Чтобы восстановить данные группы узлов кластера {{ managed-k8s-name }}:
 1. [Настройте kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) на работу со вторым кластером {{ managed-k8s-name }}.
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
+
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 1. Проверьте, что в новом кластере {{ managed-k8s-name }} отображается резервная копия данных:
 

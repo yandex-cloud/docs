@@ -19,9 +19,9 @@ To move a issue:
 
 1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.move-issue }}**.
 
-1. Specify the queue to which you want to move the issue, then click **Save**.
+1. Specify the queue to which you want to move the issue, then click **Save**.
 
 To move multiple issues to another queue, use [bulk operations](../manager/bulk-change.md#change-queue).
 
-Once moved to another queue, the issue is assigned a new key. Links to the issue using the old key remain valid. When following such a link, the issue automatically opens in the new queue. However, you won't be able to find the issue by the old key using a [filter](../manager/quick-filters.md) or a [query](../user/query-filter#query-format.md).
+Once moved to another queue, the issue is assigned a new key. Links to the issue using the old key remain valid. When following such a link, the issue automatically opens in the new queue. However, you will not be able to find the issue by the old key using a [filter](../manager/quick-filters.md) or a [query](../user/query-filter.md#query-format.md).
 

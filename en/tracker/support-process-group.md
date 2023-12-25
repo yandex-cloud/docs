@@ -8,7 +8,7 @@ To group issues by subject, use the following components:
 
    You can make an employee responsible for a particular component and select **Assign to issues by default** so that they are automatically assigned any issue that contains a component they are responsible for.
 
-1. If you don't want users to be able to view or edit issues containing specific components, [configure access rights for components](manager/queue-access.md#access-components).
+1. If you do not want users to be able to view or edit issues containing specific components, [configure access rights for components](manager/queue-access.md#access-components).
 
 1. If you want to automatically pick an assignee once a component is added to an existing issue, [set up a trigger](manager/trigger-examples.md#assign_ticket) that does that.
 

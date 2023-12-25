@@ -717,6 +717,7 @@ default:
   yc-mdb-rd: yc managed-redis
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
+  yc-ydb: yc ydb
   ydb-full-name: Yandex Managed Service for YDB
   ydb-name: Managed Service for YDB
   ydb-short-name: YDB
@@ -3029,7 +3030,7 @@ default:
         deck-field-label: Deck of estimates
         display-estimated-field-label: Display estimated issues
         save: Save
-      ui_components_AttachmentsManager:
+      ui_components_attachments-manager:
         attach: Attach files
         attachments-section-title: Files
       ui_components_bulk_BulkChangeParametersDialog:

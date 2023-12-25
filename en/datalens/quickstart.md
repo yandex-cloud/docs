@@ -89,7 +89,7 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 
    ![create-chart-3](../_assets/datalens/quickstart/06-create-map-chart.png)
 
-## Create a dashboard and add charts there {#dashboard-create}
+## Create a dashboard and add charts to it {#dashboard-create}
 
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
 1. In the left-hand panel, click ![image](../_assets/datalens/dashboard-0523.svg) **Dashboards**.
@@ -128,3 +128,5 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 * See the [guides](tutorials/index.md) with service usage examples.
 * Read about [service concepts](./concepts/index.md).
 * View an [example of a ready-to-use dashboard](https://datalens.yandex/9fms9uae7ip02).
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

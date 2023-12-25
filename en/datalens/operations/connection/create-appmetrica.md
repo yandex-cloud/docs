@@ -49,3 +49,5 @@ Connections to AppMetrica do not support [public access](../../concepts/datalens
 
 
 {% include [datalens-get-token](../../../_includes/datalens/operations/datalens-get-token.md) %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

@@ -12,7 +12,7 @@ The Telegram messenger uses bots to automatically send messages to group chats a
 
    1. Send the message `/newbot` and follow the instructions: come up with a display name for the bot (such as `My Company`) and an account name (such as `MyCompanyBot`). The account name must end with `bot`.
 
-   In response, you'll get a message that the bot has been created successfully. The message will include the token: a secret code that you'll need to access your bot over the API. The token follows the format `1234567890:ABC123-defHIJ...`
+   In response, you will get a message that the bot has been created successfully. The message will include the token: a secret code that you will need to access your bot over the API. The token follows the format `1234567890:ABC123-defHIJ...`
 
 1. Add the bot you created to the Telegram group chat you want to send {{ tracker-name }} notifications to.
    If you want to receive {{ tracker-name }} notifications privately, start a chat with the bot.
@@ -26,7 +26,7 @@ To learn more about setting up a Telegram bot, please visit [https://core.telegr
 
 ## Step 2. Set up {{ tracker-name }} {#tracker-setup}
 
-1. Log in to {{ tracker-name }}. You must have administrator privileges for the queue that you'll configure the trigger for.
+1. Log in to {{ tracker-name }}. You must have administrator privileges for the queue for which you want to configure the trigger.
 
 1. Go to **Triggers** in the queue settings and click [**Create trigger**](user/create-trigger.md).
 
@@ -42,7 +42,7 @@ To learn more about setting up a Telegram bot, please visit [https://core.telegr
 
    ![](../_assets/tracker/slack-trigger-example.png)
 
-1. Click **Add new action** and select **Webhook**.
+1. Click **Add new action** and choose **HTTP request**.
 
 1. Set up the request:
    - Method: **POST**.
