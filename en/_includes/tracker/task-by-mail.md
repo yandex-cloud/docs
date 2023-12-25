@@ -61,7 +61,7 @@
 
    1. Enable sending issue comments as emails:
       1. In the queue settings, select **Basic settings**.
-      1. Click **Show advanced settings** and enable **Allow emails to be sent externally** under **Sending mails**.
+      1. Click **Show advanced settings** and select **Allow emails to be sent externally** under **Sending mails**.
 
    {% note tip %}
 

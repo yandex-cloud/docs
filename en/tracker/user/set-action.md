@@ -10,11 +10,11 @@ Configure one or more actions under **Actions** by clicking **Add new action**.
 - [Change issue status](set-action.md#section_change_status)
 - [Update fields](set-action.md#section_mod_fields)
 - [Add comment](set-action.md#create-comment)
-- [Create a checklist](set-action.md#create-checklist)
+- [Create checklist](set-action.md#create-checklist)
 - [Calculate value](set-action.md#section_calc_field)
 - [Move issue](set-action.md#sec_move)
 - [Create issue](set-action.md#sec_create_issue)
-- [Webhook](set-action.md#create-http)
+- [HTTP request](set-action.md#create-http)
 
 ## Change issue status {#section_change_status}
 
@@ -27,7 +27,7 @@ If you set up a [transition screen](../manager/workflow-action-edit.md#section_u
 
 Set up new values for one or more fields.
 
-1. Click **Select field** and specify the field.
+1. Click **Select fields** and specify the field.
 
 1. Select an action:
 
@@ -108,9 +108,9 @@ To set up creation of an issue:
 
 1. Add an action for the **Create issue** trigger.
 
-1. Tap **Fill in the fields**.
+1. Click **Fill in fields**.
 
-1. In the **Creating issues** window:
+1. In the **Issue creation** window:
 
    1. Specify the queue to create an issue automatically in.
 

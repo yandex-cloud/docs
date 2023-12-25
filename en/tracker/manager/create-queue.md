@@ -33,7 +33,7 @@ To create a new queue:
 
    {% note warning %}
 
-   The queue key must be unique. You can't assign to a new queue the key that was assigned to a previously deleted queue.
+   The queue key must be unique. You cannot assign to a new queue the key that was assigned to a previously deleted queue.
 
    {% endnote %}
 
@@ -68,7 +68,7 @@ If you want to use the settings of an existing queue, copy the queue:
 
    {% note warning %}
 
-   The queue key must be unique. You can't assign to a new queue the key that was assigned to a previously deleted queue.
+   The queue key must be unique. You cannot assign to a new queue the key that was assigned to a previously deleted queue.
 
    {% endnote %}
 
@@ -92,7 +92,7 @@ If none of the preset queue types fit your issues, you can set all parameters fo
 
    {% note warning %}
 
-   The queue key must be unique. You can't assign to a new queue the key that was assigned to a previously deleted queue.
+   The queue key must be unique. You cannot assign to a new queue the key that was assigned to a previously deleted queue.
 
    {% endnote %}
 

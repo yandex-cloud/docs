@@ -15,7 +15,7 @@ Only [queue owners](../manager/queue-access.md) can create, edit, and delete tri
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. In the left-hand panel, select **Automation** → **Triggers**.
+1. On the left-hand panel, select **Automation** → **Triggers**.
 
 1. Follow the steps:
    - To change trigger settings, hover over the trigger and click ![](../../_assets/tracker/icon-edit.png

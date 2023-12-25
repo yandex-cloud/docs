@@ -27,7 +27,7 @@ The [issue details](../user/create-param.md#default-fields) are shown in the **{
 
 {% note info %}
 
-If you do not see the required parameters, go to the web version and add them in the panel on the right by tapping ![](../../_assets/tracker/task-params-btn.png) **Choose fields**.
+If you do not see the required parameters, go to the web version and add them in the panel on the right by clicking ![](../../_assets/tracker/task-params-btn.png) **Choose fields**.
 
 {% endnote %}
 

@@ -23,7 +23,7 @@ To delete a template of an issue or comment:
 
 ## Disabling a template {#section_dmz_p1t_zz}
 
-If you're not going to use a template anytime soon, you can disable it. Disabled templates are saved in {{ tracker-name }}, but they aren't displayed when creating new issues.
+If you are not going to use a template anytime soon, you can disable it. Disabled templates are saved in {{ tracker-name }}, but they are not displayed when creating new issues.
 
 To disable a template:
 

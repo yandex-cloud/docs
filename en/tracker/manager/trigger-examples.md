@@ -98,7 +98,7 @@ Having completed the issue, the employee might forget to specify some important
 
    1. Click ![](../../_assets/tracker/summon.png) and enter <q>Assignee</q> in the **Invite users from a field** line.
 
-   1. Enter the comment to be displayed to the issue assignee and select **Send as robot**.
+   1. Enter the comment to be displayed to the issue assignee and choose **Send as robot**.
 
 1. Click **Create** to save the trigger.
 
@@ -128,13 +128,13 @@ Let's set up a trigger that will change an issue status and add a comment for it
 
    1. Add the **Change issue status** action.
 
-   1. In the **Next status** field, select the status to switch the issue to when the condition is met. For example, **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
+   1. In the **Next status** field, select the status to switch the issue to when the condition is met, e.g., **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
 
    1. Add the **Add comment** action.
 
-   1. Click ![](../../_assets/tracker/summon.png) and enter <q>Reporter</q> in the **Invite users from a field** line.
+   1. Click ![](../../_assets/tracker/summon.png) and in the **Invite users from a field** line, enter <q>Reporter</q>.
 
-   1. Enter the comment to be displayed to the issue reporter and select **Send as robot**. Otherwise, the comment is sent on behalf of the user who initiates the trigger action by adding the link.
+   1. Enter the comment to be displayed to the issue reporter and choose **Send as robot**. Otherwise, the comment is sent on behalf of the user who initiates the trigger action by adding the link.
 
    ![](../../_assets/tracker/blocker-actions.png)
 
@@ -188,7 +188,7 @@ Set up a trigger that, whenever an issue created based on an email, will notify 
 
 1. As a trigger action, set up sending an email:
 
-   1. Select the **Add comment** action.
+   1. Choose the **Add comment** action.
 
    1. Enable **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}**.
 
@@ -240,7 +240,7 @@ To create issues based on requests submitted from a form:
 
    1. Use the **Issue description** field to add answers to the questions included in your form.
 
-   1. To save the user email address in the issue settings, add the **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** field and select **Variables** → **Answer to question** → **Email**.
+   1. To save the user's email address in the issue settings, add the **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** field and select **Variables** → **Answer to question** → **Email**.
 
    1. Save your integration settings.
 
@@ -269,7 +269,7 @@ Set up a trigger that, whenever an issue created from a form, will notify the us
 
 1. As a trigger action, set up sending an email:
 
-   1. Select the **Add comment** action.
+   1. Choose the **Add comment** action.
 
    1. Enable **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}**.
 
@@ -309,7 +309,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
 1. Add the **Add comment** action.
 
-1. Use the following code as the comment text:
+1. Use the following code as the comment's text:
 
    
    ```
@@ -447,10 +447,10 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
    #|
    || **Field** | **Content** ||
    || Method | POST ||
-   || URL | `{{ host }}/{{ ver }}/issues` ||
-   || Auth type | OAuth 2.0 ||
+   || Address | `{{ host }}/{{ ver }}/issues` ||
+   || Authorization method | OAuth 2.0 ||
    || Token | [How to get a token](../concepts/access.md#section_about_OAuth) ||
-   || Auth header | Authorization ||
+   || Authorization header | Authorization ||
    || Token type | OAuth ||
    || Content type | application/json ||
    || Request body |

@@ -15,22 +15,22 @@ To resolve current issues received by the HR department from company employees, 
    - `Good`
    - `Average`
    - `Bad`
-1. Set up the form's integration, for example, with [your API](../forms/send-request.md) for collecting statistics.
+1. Set up the form's integration, e.g., with [your API](../forms/send-request.md) for collecting statistics.
 
 ## Set up a trigger for adding a form
 
 ### Create a trigger
 
-1. Go to the `General Questions` queue settings and click **Create trigger** in **Triggers**.
+1. Go to the `General Questions` queue settings, open the **Triggers** section, and click **Create trigger**.
 1. Add the condition: **Status** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 1. Add the **Add comment** action.
-1. Use the following code as the comment text:
+1. Use the following code as the comment's text:
 
    ```
    {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/cloud/<form_id>/?iframe=1" frameborder=0 width=100% height=660px scrolling=no)
    ```
    Where `<form_id>` is the ID of the form to add.
-1. Click ![](../_assets/tracker/summon.png) and enter <q>Assignee</q> in the **Invite users from a field** line.
+1. Click ![](../_assets/tracker/summon.png) and in the **Invite users from field** line, enter <q>Assignee</q>.
 1. Enable **Send as robot**.
 1. Click **Create** to save the trigger.
 
@@ -39,7 +39,7 @@ To resolve current issues received by the HR department from company employees, 
 To ensure the form is inserted correctly, provide the {{ forms-name }} robot (`yndx-forms-cnt-robot@`) with access to the queue:
 
 1. In the `General Questions` queue settings, select **Access**.
-1. Under **Access control**, enter `Robot` in the search field and select **Service robot {{ forms-name }} Robot** from the list.
+1. Under **Access rights**, enter `Robot` in the search field and select **Service robot {{ forms-name }} Robot** from the list.
 1. Click **Save**.
 
 ## Test the trigger

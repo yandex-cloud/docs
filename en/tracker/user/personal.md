@@ -82,12 +82,12 @@ To change the display format for such parameters:
 
 ## Configuring notifications {#sec_notifications}
 
-{{ tracker-name }} uses email to send notifications about changes in the issues you're subscribed to. On the personal settings page, you can set up the notification parameters:
+{{ tracker-name }} uses email to send notifications about changes in the issues you are subscribed to. On the personal settings page, you can set up the notification parameters:
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
 1. Set notification settings:
-   - Enable or disable [regular update reports for issues you're subscribed to](notification-digest.md).
+   - Enable or disable [regular update reports for issues you are subscribed to](notification-digest.md).
    - Set up [username and event type display in emails](notification-settings.md#section_u1f_3w5_xgb).
    - Enable or disable [notifications about changes to issues](subscribe.md#sec_self).
 
@@ -104,7 +104,7 @@ By default, issue comments are sorted from oldest to newest. You can change the 
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Under **Message order in issues**, enable the **Newest first** option.
+1. Under **Message order in issues**, select **Newest first**.
 
 1. Click **{{ ui-key.yacloud.common.save }}**.
 

@@ -9,29 +9,21 @@ To create an issue:
 
 1. Click ![](../../_assets/tracker/svg/icon-add.svg) **Create issue** in the left panel.
 
-1. In the upper-left corner of the page, choose the queue to create your issue in.
-
-   {% note info %}
-
-   The queue owner can [set up simplified forms](../manager/attach-form.md) for creating issues. In this case, select the proper form and fill out the fields by following the tips. If in doubt how to properly fill out the form, contact the queue owner.
-
-   If no simplified form has been added to the queue, a standard issue creation form with open.
-
-   {% endnote %}
+1. In the top-left corner of the page, choose the queue to create your issue in.
 
 1. Enter a name for the issue.
 
 1. Add an issue description. Use [YFM markup](markup.md) to format text.
 
-1. To add files or images to the issue, click **{{ ui-key.startrek.ui_components_AttachmentsManager.attach }}**.
+1. To add files or images to the issue, click **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**.
 
-1. To add a list of steps for resolving the issue, click **Add checklist**.
+1. To add a list of steps for issue resolution, click **Add checklist**.
 
 1. In the right panel, specify:
 
    * Key issue parameters: <q>Type</q>, <q>Priority</q>, <q>Deadline</q>, <q>Project</q>, and <q>Tags</q>.
 
-   * List of users relevant to the issue: Enter names or usernames in the <q>Assignee</q> and <q>Followers</q> fields or click **Me** to add yourself.
+   * List of the users relevant to the issue: Enter names or usernames in the <q>Assignee</q> and <q>Followers</q> fields or click **Me** to add yourself.
 
       You can also leave the values at defaults to come back to them later.
 
@@ -45,11 +37,21 @@ To create an issue:
 
 1. Click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
 
-   {% note tip %}
+## Automation features {#avto}
 
-   If you need to create a lot of similar issues, make a [template](ticket-template.md) for them.
+### Simplified form for issue creation {#avto-form}
 
-   {% endnote %}
+The queue owner can [set up simplified forms](../manager/attach-form.md) for creating issues. In this case, select the proper form and fill out the fields by following the tips. If in doubt how to properly fill out the form, contact the queue owner.
+
+If no simplified form was added to the queue, a standard issue creation form will open.
+
+### Using a template {#avto-template}
+
+If you need to create a lot of similar issues, make a [template](ticket-template.md) for them.
+
+To create an issue using a template, click ![](../../_assets/tracker/svg/icon-note.svg) **{{ ui-key.startrek.ui_components_issue-templates_Select.select-template }}** in the top-right corner. Select a suitable template or click `{{ ui-key.startrek.ui_components_issue-templates_Select.manage-templates }}` to create a new one.
+
+If you apply a template, the issue fields will be set to template values that you can edit.
 
 ## Issue key {#key}
 

@@ -1,6 +1,6 @@
 # Configuring issue templates
 
-You can use [templates](user/ticket-template.md) to make it easier to create common issue types, such as bug fixing or testing-related issues. In the template, you can specify the issue parameters that are known in advance and add tips for issue description so that the users don't forget to specify the required information.
+You can use [templates](user/ticket-template.md) to make it easier to [create common issue](user/create-ticket.md#avto-template) types, such as bug fixing or testing-related issues. In the template, you can specify the issue parameters that are known in advance and add tips for issue description so that the users do not forget to specify the required information.
 
 To create an issue template for your queue and allow team members to use it:
 
@@ -14,7 +14,7 @@ To create an issue template for your queue and allow team members to use it:
 
 1. Fill out the fields of the template and save it. The field values that you enter will automatically populate the issues created from the template.
 
-1. To configure template access, click **Access control** next to the template and add the desired groups or users.
+1. To configure template access, click **Access rights** next to the template and add the desired groups or users.
 
 1. To make sure that your team members can use your template to create issues:
 

@@ -46,8 +46,8 @@ You need to create a connector in the same CH cluster that will host your user d
 
    1. In the settings, enable **Access from {{ datalens-short-name }}** and **Database management via SQL**.
 
-1. Provide the password and the cluster host list to {{ datalens-short-name }}.
-1. Generate a pair of RSA-2048 keys. Provide the public key and the key version to {{ datalens-short-name }}.
+1. Provide the password and the cluster host list to {{ datalens-short-name }} managers. They will contact you after they receive your request in {{ marketplace-short-name }}.
+1. Generate a pair of RSA-2048 keys. Provide the public key and the key version to {{ datalens-short-name }} managers.
    Key generation requirements: `public_exponent=65537`, `key_size=2048`. A key version is an integer that is required for future seamless key rotation.
 
    {% cut "Python code to generate a pair of keys" %}
@@ -81,7 +81,7 @@ You need to create a connector in the same CH cluster that will host your user d
 
 ## Connecting a new user {#how-to-add-new-user}
 
-1. Add databases for your users to the {{ CH }} cluster. For every user, create a dedicated database in the {{ CH }} cluster. The `datalens` user's database is granted read access to the database.
+1. Add databases intended for your users to the {{ CH }} cluster. Create a dedicated database in the {{ CH }} cluster for each user. The database gets read access from the `datalens` user's DB.
 1. Prepare an access token for the user:
 
    {% note warning %}
@@ -111,7 +111,7 @@ You need to create a connector in the same CH cluster that will host your user d
     private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Your private RSA key.
     datalens_key_version, partner_key_version = '1', '1' # Key versions.
 
-    data = json.dumps({'db_name': 'db_name_123'}) # JSON with the user database in the ClickHouse cluster.
+    data = json.dumps({'db_name': 'db_name_123'}) # JSON with the user database in the {{ CH }} cluster.
 
     public_key_datalens = serialization.load_pem_public_key(public_key_datalens_pem.encode())
     private_key_partner = serialization.load_pem_private_key(
@@ -151,3 +151,5 @@ You need to create a connector in the same CH cluster that will host your user d
 #### See also
 
 * [{#T}](../../concepts/marketplace.md)
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

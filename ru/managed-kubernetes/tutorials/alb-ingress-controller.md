@@ -26,11 +26,8 @@
 1. [Установите Ingress-контроллер {{ alb-name }}](../operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Убедитесь, что вы можете подключиться к кластеру {{ managed-k8s-name }} с помощью `kubectl`:
 
-   ```bash
-   kubectl cluster-info
-   ```
+   {% include [Run kubectl cluster-info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 ## Настройте Ingress-контроллер и тестовые приложения {#create-ingress-and-apps}
 

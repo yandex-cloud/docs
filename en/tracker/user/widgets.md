@@ -137,14 +137,14 @@ To configure a widget, set the following:
 
 - **Widget name**: Name displayed in the widget header.
 
-- **Filter**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **Filter**: Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
 
-- **Group**: Select a step and set the period for collecting statistics.
+- **Group**: Select the step and specify the period for collecting statistics.
 
 - **Show average value**: If this option is enabled, a trend line is displayed under the chart.
 
 - **Show cumulative total**: If this option is enabled, data collected from previous steps is included in each subsequent step.
 
-- **Show versions**: If this option is enabled, the chart shows the versions issues belongs to.
+- **Show versions**: If this option is enabled, the chart shows the versions that issues belong to.
 
 

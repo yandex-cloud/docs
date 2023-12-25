@@ -10,7 +10,7 @@ Let's set up the SLA rules that will measure the support's initial response time
 
 To measure the support's initial response time, set up a timer that will be started when an issue has been created and stopped when an employee has sent a comment or email from the issue page.
 
-1. Go to **SLA** in the queue settings and click [**Create a rule**](manager/sla.md).
+1. Go to **SLA** in the queue settings and click [**Create rule**](manager/sla.md).
 
 1. Set the rule's name and choose [Work schedule](manager/schedule.md) so that the timer is only active during business hours.
 
@@ -46,7 +46,7 @@ Now, when an issue has been created in the support queue, a timer will get start
 
 If you want to measure the total request processing time, set up a timer that triggers during issue creation and stops once the issue status is updated to <q>{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}</q> or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>. You can pause the timer while the issue is in the <q>{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}</q> status to prevent the waiting time from counting towards the total processing time.
 
-1. Go to **SLA** in the queue settings and click [**Create a rule**](manager/sla.md).
+1. Go to **SLA** in the queue settings and click [**Create rule**](manager/sla.md).
 
 1. Set the rule's name and choose [Work schedule](manager/schedule.md) so that the timer is only active during business hours.
 

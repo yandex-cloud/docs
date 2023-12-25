@@ -58,7 +58,7 @@
 
    1. При желании дайте описание задачи. Для этого кликните по плейсхолдеру `{{ ui-key.startrek.ui_components_PageCreateIssue.description-placeholder }}` и опишите задачу в открывшемся текстовом редакторе.
 
-   1. Если нужно, загрузите файлы, кликнув на кнопку **{{ ui-key.startrek.ui_components_AttachmentsManager.attach }}**. 
+   1. Если нужно, загрузите файлы, кликнув на кнопку **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**. 
 
    1. Также вы можете добавить чекпоинты в **Чеклист**, кликнув на кнопку **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** и заполнив открывшуюся форму.
 

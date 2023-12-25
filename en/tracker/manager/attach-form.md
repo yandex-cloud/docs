@@ -1,6 +1,6 @@
 ---
 title: "How to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface"
-description: "You can use this guide to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface."
+description: "Follow this guide to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface."
 ---
 
 # Using a form as a template for creating issues
@@ -29,7 +29,7 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 
 ## Step 2. Connect your form to the queue {#section_xxj_fll_1gb}
 
-1. Go to the [{{ tracker-name }}]({{ link-tracker }}).
+1. Go to [{{ tracker-name }}]({{ link-tracker }}).
 
 1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 

@@ -20,3 +20,5 @@ To share a dashboard containing Yandex Metrica or AppMetrica data, use one of th
 {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

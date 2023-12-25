@@ -25,7 +25,7 @@ User's access level covers their operations on {{ tracker-name }} entities in th
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the left-hand panel, click **Configure** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. In the left-hand panel, click **Admin settings** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. For all employees who need to manage issues, select **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_full-access }}** in the **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.title_access }}** column.
 
@@ -49,11 +49,11 @@ To make sure all new users added to {{ tracker-name }} automatically get full ac
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the left-hand panel, click **Configure** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. In the left-hand panel, click **Admin settings** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. In the top-right corner of the page, select **Full access for all new users**:
 
-   - If you already linked your billing account to {{ tracker-name }}, click **Enable** in the window that opens.
+   - If you already linked your billing account to {{ tracker-name }}, click **Enable**.
 
    - If you have no billing account linked, click **Go to billing** to create a new billing account or link an existing billing account to {{ yandex-cloud }}. For more information, see [Setting up a billing account](billing-account.md).
 
@@ -67,7 +67,7 @@ When enabling or disabling **Full access for all new users**, the access rights 
 
 If your company uses {{ yandex-360 }} for Business, you can create employee groups and set up access for them. For more information about creating a group, see the [Yandex 360 for Business documentation](https://yandex.ru/support/business/projects.html). To configure full access for a group of users, [link a billing account](billing-account.md).
 
-To configure access for a group of users, open **Configure** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** and select the required access level for each group.
+To configure access for a group of users, open **Admin settings** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** and select the required access level for each group.
 
 {% note warning %}
 

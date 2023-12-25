@@ -14,9 +14,9 @@ When an auto action is triggered, only the first 100 issues that meet the specif
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. In the left-hand panel, select **Automation** → **Auto actions** and click **Create auto action**.
+1. On the left-hand panel, select **Automation** → **Auto actions** and click **Create auto action**.
 
-1. Select the **Update issues** type.
+1. Select **Update issues**.
 
 1. Set the name for the auto action.
 
@@ -73,7 +73,7 @@ Let's set up a daily auto update to invite the assignee to comment if the deadl
 
 1. Go to the settings of the queue where you want to create an automatic deadline reminder.
 
-1. Under **Auto actions**, click [**Create auto action**](create-autoaction.md#section_eh1_zlr_kgb).
+1. Go to **Auto actions** and click [**Create auto action**](create-autoaction.md#section_eh1_zlr_kgb).
 
 1. Select **Update issues** and name the auto action.
 
@@ -89,9 +89,9 @@ Let's set up a daily auto update to invite the assignee to comment if the deadl
 
 1. Set up the auto action — Inviting the issue assignee to comment:
 
-   1. Click **Add new action** and select **{{ ui-key.startrek-backend.types.types.trigger.action.create.comment }}**.
+   1. Click **Add action** and select **{{ ui-key.startrek-backend.types.types.trigger.action.create.comment }}**.
 
-   1. In the field saying **Invite users from a field**, click ![](../../_assets/tracker/summon.png) and enter **Assignee**.
+   1. In the **Invite users from a field** field, click ![](../../_assets/tracker/summon.png) and enter **Assignee**.
 
    1. Write the text of your comment. You can add issue fields to your comment by clicking **Add variable**.
 

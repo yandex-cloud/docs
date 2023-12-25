@@ -22,3 +22,5 @@ If {{ PG }} MBD is your data source, review the [performance analysis](../../../
 
 {% endnote %}
 
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

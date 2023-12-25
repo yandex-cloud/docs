@@ -12,7 +12,7 @@ To the personal dashboard of a support representative, add the widget with a lis
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a widget with the **Issues** type.
+1. Add an **Issues** widget.
 
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
@@ -34,7 +34,7 @@ To make sure that your support representatives can quickly find the requests wit
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a widget with the **Issues** type.
+1. Add an **Issues** widget.
 
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
@@ -56,7 +56,7 @@ To get statistics about how many issues were assigned to your employees over the
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a widget with the **Summary table** type.
+1. Add a **Summary table** widget.
 
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
@@ -66,7 +66,7 @@ To get statistics about how many issues were assigned to your employees over the
 
    This filter will find all the issues created over the past 30 days within the selected queue.
 
-1. Select **Status** in the **Columns** field and **Assignee** in **Rows**. In this case, the table's cells will show the number of issues with a specific status for each assignee.
+1. In the **Columns** field, select **Status**, and in the **Rows** field, select **Assignee**. In this case, the table's cells will show the number of issues with a specific status for each assignee.
 
 1. If you want to display the totals by columns and rows, select **Show total**.
 
@@ -80,7 +80,7 @@ To watch the dynamics of creation and resolution of requests, add the following
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a widget with the **Created vs. Resolved Graph** type.
+1. Add a **"Created vs. Resolved" Chart** widget.
 
 1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
@@ -90,7 +90,7 @@ To watch the dynamics of creation and resolution of requests, add the following
 
    This filter will find all the issues inside the selected queue.
 
-1. In the **Group** field, select **By day**, then specify the number of days to be displayed on the chart.
+1. In the **Group** field, select **By day** and specify the number of days to be displayed on the chart.
 
 1. If you want to display the totals for created and resolved requests on the chart, select **Show total**.
 

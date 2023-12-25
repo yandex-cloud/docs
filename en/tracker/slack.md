@@ -1,8 +1,8 @@
 # Slack
 
-Suppose that you need to automatically send notifications to the messenger whenever an issue changes its status. You might need it to see when your releases are ready for testing. To do this, [create a trigger](user/trigger.md) that keeps track of issue statuses like <q>Release</q> and sends an HTTP request when the issue status changes to <q>{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}</q>.
+Let's assume that you need to automatically send notifications to the messenger whenever an issue changes its status. You may need it to see when your releases are ready for testing. To do this, [create a trigger](user/trigger.md) that keeps track of <q>Release</q> issue statuses and sends an HTTP request when the issue status changes to <q>{{ ui-key.startrek-backend.presets.developmentPreset.board.column.ready.for.test }}</q>.
 
-If you want to transmit {{ tracker-name }} notifications to team chats, set up an external app in Slack and create a trigger that will send messages to Slack via HTTP requests.
+If you want to send {{ tracker-name }} notifications to team chats, set up an external app in Slack and create a trigger that will send messages to Slack via HTTP requests.
 
 ## Step 1. Set up Slack {#slack-setup}
 
@@ -12,7 +12,7 @@ If you want to transmit {{ tracker-name }} notifications to team chats, set up a
 
    1. Follow the link [Create your Slack app](https://api.slack.com/apps/new).
 
-   1. Think up a name for the app, like <q>Tracker</q>.
+   1. Give your app a name, e.g., <q>Tracker</q>.
 
    1. Select the workspace to connect {{ tracker-name }} to.
 
@@ -30,15 +30,15 @@ If you want to transmit {{ tracker-name }} notifications to team chats, set up a
    ```
    https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
    ```
-   Copy the address because you'll need it when setting up {{ tracker-name }} integration.
+   Copy the address as you will need it when setting up {{ tracker-name }} integration.
 
 ## Step 2. Set up {{ tracker-name }} {#tracker-setup}
 
-1. Log in to {{ tracker-name }}. You must have administrator privileges for the queue that you'll configure the trigger for.
+1. Log in to {{ tracker-name }}. You must have administrator privileges for the queue for which you want to configure the trigger.
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](user/create-trigger.md).
 
-1. Name the trigger, for example, <q>Slack notifications</q>.
+1. Name the trigger, e.g., <q>Slack notifications</q>.
 
 1. Configure trigger conditions so that the trigger is fired when the status of a **Release** issue changes to **{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.ready.for.test }}**:
 
@@ -50,11 +50,11 @@ If you want to transmit {{ tracker-name }} notifications to team chats, set up a
 
    ![](../_assets/tracker/slack-trigger-example.png)
 
-1. Click **Add new action** and select **Webhook**.
+1. Click **Add new action** and choose **HTTP request**.
 
 1. Set up the request:
    - Method: **POST**.
-   - Address: The URL that you received when you set up the integration on the Slack side.
+   - Address: URL that you received when you set up the integration on the Slack side.
    - Authorization method: **NoAuth**.
    - Content type: **application/json**.
    - Request body:

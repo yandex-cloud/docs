@@ -6,11 +6,11 @@ To create a filter:
 
 1. Open the issue list.
 
-1. In the top-right corner, tap ![](../../_assets/tracker/svg/gantt-settings-button.svg) → ![](../../_assets/tracker/svg/filter-mobile.svg) **Filters**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/gantt-settings-button.svg) → ![](../../_assets/tracker/svg/filter-mobile.svg) **Filters**.
 
 1. Select an issue parameter and then set its value.
 
-1. Tap **Apply**. Any issues that don't meet your criteria are filtered out of the list.
+1. Click **Apply**. Any issues that don't meet your criteria are filtered out of the list.
 
 1. If you need to refine the search conditions, add more parameters.
 

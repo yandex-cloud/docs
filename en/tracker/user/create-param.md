@@ -69,7 +69,7 @@ QA engineer | User assigned to test the issue.
 
 If you need to add a new issue field that is not available in {{ tracker-name }}, you can add local fields to your queue.
 
-A local field can only be used in the issues of the queue it's linked to. The advantage of local fields is that the queue owner can manage them without the risk of affecting the workflows in other queues. Users working in other queues won't see this field in their issues.
+A local field can only be used in the issues of the queue it's linked to. The advantage of local fields is that the queue owner can manage them without the risk of affecting the workflows in other queues. Users working in other queues will not see this field in their issues.
 
 For more information about creating and using local fields, see [{#T}](../local-fields.md).
 
@@ -94,28 +94,28 @@ To add a new issue field (parameter):
 
 1. Make sure you are authorized as an [administrator](../role-model.md).
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Admin** → **{{ tracker-name }} settings**.
+1. On the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Admin settings** → **{{ tracker-name }} setting** .
 
 1. Click the **Fields** tab.
 
 1. Click **Create field**.
 
-1. Select the field type and click **Next**.
+1. Select the field type and click **Continue**.
 
 1. Set parameters for a new field:
-   * **Category**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
+   * **Category**: All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
 
-   * **Name in Russian**. Try to give short and concise names to your fields.
+   * **Name**: Try to give short and concise names to your fields.
 
-   * **Name in English**. This name is shown in the English interface of {{ tracker-name }}.
+   * **Name in English**: This name is shown in the English interface of {{ tracker-name }}.
 
-   * **Type of number** (only for fields with the <q>Number</q> type).
+   * **Type of number** (only for the <q>Number</q> fields).
 
-   * **List items** (only for fields with the <q>Dropdown list</q> type): Enter the possible values and their order.
+   * **List items** (only for the <q>Drop-down list</q> fields): Enter the possible values and their order.
 
-   * **Item selection** (only for fields with the <q>Dropdown list</q> type).
+   * **Item selection** (only for the <q>Drop-down list</q> fields).
 
-   * **Number of employees** (only for fields with the <q>User list</q> type).
+   * **Number of employees** (only for the <q>User list</q> fields).
 
 1. Click **Create**.
 

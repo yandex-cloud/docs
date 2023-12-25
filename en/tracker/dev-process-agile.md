@@ -1,6 +1,6 @@
 # Using Agile methodologies
 
-If your team leverages [Agile development methodology]({{ link-wiki-agile-en }}), try Agile boards in {{ tracker-name }}. You can use boards to track your team's current issues, for example, during daily meetings. On the board, issues are shown as cards assigned to columns depending on their status.
+If your team leverages [Agile development methodology]({{ link-wiki-agile-en }}), try Agile boards in {{ tracker-name }}. You can use boards to track your team's current issues, e.g., during daily meetings. On the board, issues are shown as cards assigned to columns depending on their status.
 
 
 ![](../_assets/tracker/agile-board-c.png)
@@ -14,7 +14,7 @@ You can also [create multiple issue boards](manager/create-agile-board.md). This
 
 1. Select the [board type](#board_types).
 
-1. Under **Add issues**, enable the **automatic** option and set the filters so that only issues with certain parameters are displayed.
+1. Under **Add issues**, enable **automatic** issue adding and set the filters so that only issues with certain parameters are displayed.
 
    For example, you can set up filters in such a way so that all issues from your queue are displayed on the board, or only issues with certain [components](manager/components.md) or assignees are displayed, and so on.
 
@@ -24,7 +24,7 @@ You can also [create multiple issue boards](manager/create-agile-board.md). This
 
 {{ tracker-name }} has multiple board types:
 
-- <q>Basic</q> boards have the least features and display the team's issues and their statuses.
+- <q>Basic</q> boards have the least features and display the team's issues and issue statuses.
 
 - <q>Kanban</q> boards are similar to basic boards, but all issues with the **Open** status are automatically moved to the [**{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.open }}**](manager/agile.md#dlen_backlog) column.
 
@@ -74,6 +74,6 @@ In agile development methodologies, issues are broken down as follows:
 
 - Epics are <q>User Stories</q>, which are finalized product features that can be implemented in a single sprint.
 
-- User Stories are split into individual issues, for example, GUI design, backend development, and frontend development.
+- User Stories are split into individual issues, e.g., GUI design, backend development, and frontend development.
 
-The [<q>{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.name }}</q> queue template](manager/workflows.md#sec_scrum) provides Epic and Story issue types to accommodate this system. If you picked a template that doesn't include Epic or Story issues when [creating a queue](dev-process-create-queue.md), you can manually [add them in the queue settings](manager/add-ticket-type.md).
+The [<q>{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.name }}</q> queue template](manager/workflows.md#sec_scrum) provides Epic and Story issue types to accommodate this system. If you picked a template that does not include Epic or Story issues when [creating a queue](dev-process-create-queue.md), you can manually [add them in the queue settings](manager/add-ticket-type.md).

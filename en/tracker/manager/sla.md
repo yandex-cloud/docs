@@ -23,7 +23,7 @@ To create a new SLA rule:
 
 1. Go to the **SLA** tab.
 
-1. Click **Create a rule**.
+1. Click **Create rule**.
 
 1. Click the ![](../../_assets/tracker/icon-edit.png
    ) icon and name the rule.
@@ -45,7 +45,7 @@ To create a new SLA rule:
 
    * **Time until warning** (optional): When this time expires, {{ tracker-name }} sends a warning that the time to process the issue is running out.
 
-   * **Time until expiration**: Time limit for handling the issue. At the end of this time, {{ tracker-name }} sends out a notification saying that the time is up.
+   * **Time until expiration**: Time limit for processing the issue. At the end of this time, {{ tracker-name }} sends out a notification saying that the time is up.
 
 1. Set the conditions on which the timer will start, pause, or stop.
 
@@ -83,7 +83,7 @@ To create a new SLA rule:
     | **Pause** | The timer will be paused while the issue has an assignee set. Once the assignee is removed, the timer will restart automatically.
    {{ ui-key.startrek-backend.messages.sla.issue.has.no.assignee.condition.type }} | **Pause** | The timer will be paused while the issue has no assignee set. Once the assignee is set, the timer will start automatically.
 
-1. You can configure the timer to reset if the start conditions are met. To do this, enable the **Restart the timer each time start conditions are triggered** option under **Restart**. In this case, instead of resuming the time count, it will restart after the pause.
+1. You can configure the timer to reset if the start conditions are met. To do this, select **Restart the timer each time start conditions are triggered** under **Restart**. In this case, instead of resuming the time count, it will restart after the pause.
 
 1. In the **Notifications** section, specify who should be notified of overdue issues and which way.
 
@@ -134,7 +134,7 @@ To view the parameters of the rule, click its name:
 
    * **Time until warning** (optional): When this time expires, {{ tracker-name }} sends a warning that the time to process the issue is running out.
 
-   * **Time until expiration**: Time limit for handling the issue. At the end of this time, {{ tracker-name }} sends out a notification saying that the time is up.
+   * **Time until expiration**: Time limit for processing the issue. At the end of this time, {{ tracker-name }} sends out a notification saying that the time is up.
 
 * **Timer settings**
 
@@ -142,7 +142,7 @@ To view the parameters of the rule, click its name:
 
    * **Start**: The timer starts if any of the listed conditions is met. If the timer was on pause, the time count will resume.
 
-   * **Pause**: The timer pauses if any of the listed conditions is met. The timer will restart when a condition from the **Start** list is met.
+   * **Pause**: The timer pauses if any of the listed conditions is met. The timer will start when a condition from the **Start** list is met.
 
       {% note info %}
 

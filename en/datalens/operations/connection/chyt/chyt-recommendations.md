@@ -28,15 +28,15 @@ Typically, query processing speed decreases when reading (not just when reading 
 
 {% note info %}
 
-In some cases, when you sort a table, filtering isn't efficient. The column has a string type and the conversion `DateTime` <-> `String` isn't monotonous and has no one-to-one correspondence. The `Int` <-> `DateTime` conversion in monotonous, but generally, you can't use such an optimization with a string representation. For example, `2020-01-01 00:00:00` and `2020-01-01T00:00:00` correctly represent the same time in ClickHouse, but when sorting based on a string representation, the value `2020-01-01 00:00:01` may appear between them, hence, the `String` -> `DateTime` conversion is monotonous, and this optimization can't be used.
+In some cases, when you sort a table, filtering is not efficient. The column has a string type and the conversion `DateTime` <-> `String` is not monotonous and has no one-to-one correspondence. The `Int` <-> `DateTime` conversion in monotonous, but generally, you cannot use such an optimization with a string representation. For example, `2020-01-01 00:00:00` and `2020-01-01T00:00:00` correctly represent the same time in {{ CH }}, but when sorting based on a string representation, the value `2020-01-01 00:00:01` may appear between them, hence, the `String` -> `DateTime` conversion is monotonous, and this optimization cannot be used.
 
 {% endnote %}
 
-* Don't use erasing code. This type of code is designed for "cold" data, it increases the replication workload, so reading such tables isn't effective. Queries against the tables without `erasure_codec` run much faster than on the same tables with `erasure_codec`.
+* Do not use erasure coding. This type of code is designed for "cold" data, it increases the replication workload, so reading such tables is not effective. Queries against the tables without `erasure_codec` run much faster than on the same tables with `erasure_codec`.
 
 {% note warning %}
 
-However, by simply changing from `erasure_codec` to `optimize_for` you won't modify the data format. To enforce the modification, run `merge` with the option `force_transform=%true`.
+However, by simply changing from `erasure_codec` to `optimize_for` you will not modify the data format. To enforce the modification, run `merge` with the option `force_transform=%true`.
 
 {% endnote %}
 

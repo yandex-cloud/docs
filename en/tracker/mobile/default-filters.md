@@ -10,11 +10,11 @@ Find your issues using preset system filters.
 
    * **Favorite issues**: Issues you [added to Favorites](../user/favourites.md#task-fav).
 
-   * **All my issues**: Issues in which you are the reporter, assignee, or follower.
+   * **All my issues**: Issues in which you are reporter, assignee, or follower.
 
-   * **Created by me**: Issues you created.
+   * **Reported by me**: Issues you created.
 
-   * **Assigned to me**: Issues in which you are the assignee.
+   * **Assigned to me**: Issues in which you are assignee.
 
    * **Followed by me**: Issues you are [subscribed](../user/subscribe.md#section_xt5_xrv_jz) to.
 
@@ -33,17 +33,17 @@ Find your issues using preset system filters.
 
 #### Searching by parameters
 
-To find issues by the parameters that can't be set using the system filters, add search conditions.
+To find issues by the parameters that cannot be set using the system filters, add search conditions.
 
-1. In the top-right corner, tap ![](../../_assets/tracker/svg/gantt-settings-button.svg).
+1. In the top-right corner, click ![](../../_assets/tracker/svg/gantt-settings-button.svg).
 
-1. Select an issue parameter, set its value, and tap **Apply**.
+1. Select an issue parameter, set its value, and click **Apply**.
 
-   Any issues that don't meet your criteria are filtered out of the list.
+   Any issues that do not meet your criteria are filtered out of the list.
 
 
 1. If you need to refine the search conditions, add more parameters.
 
-1. To reset the search parameters, tap **Reset** in the top-right corner of the **Filters** page.
+1. To reset the search parameters, click **Reset** in the top-right corner of the **Filters** page.
 
 {% endlist %}

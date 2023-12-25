@@ -37,7 +37,7 @@
 
     ```
     yc iam key create iamkey \
-        --service-account-id=<your service account ID> \
+        --service-account-id=<идентификатор_сервисного_аккаунта> \
         --format=json \
         --output=iamkey.json
     ```
@@ -77,7 +77,7 @@
           webhook:
             config:
               # The ID of the folder where dns-zone located in
-              folder: <your folder ID>
+              folder: <идентификатор_каталога>
               # This is the secret used to access the service account
               serviceAccountSecretRef:
                 name: cert-manager-secret

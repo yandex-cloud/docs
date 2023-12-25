@@ -14,7 +14,7 @@ Things to remember when using Yandex ID accounts:
 
 1. An account is owned by the user.
 1. Any organization service can be used: {{ ya-360 }} and {{ org-full-name }} will do equally well.
-1. You can remove a user from an organization which will make them lose access to all it's data. However, their account will still be available for personal use.
+1. You can remove a user from an organization which will make them lose access to all its data. However, their account will still be available for personal use.
 
 ## {{ ya-360 }} accounts {#ya-360}
 
@@ -23,7 +23,7 @@ If you plan to use a {{ ya-360 }} organization, users can be registered using:
 * An [organization domain](https://yandex.ru/support/business/domains/add-domain.html) created in {{ ya-360 }}.
 * [Single Sign-On (SSO)](https://yandex.ru/support/business/sso.html).
 
-Things to remember when using Yandex ID accounts:
+Things to remember when using a Yandex ID account:
 
 1. These are corporate accounts that are not available for personal use.
 1. Yandex ID accounts and log-in are supported.
@@ -35,3 +35,9 @@ Things to remember when using Yandex ID accounts:
 If you plan to use a {{ org-full-name }} organization, users can be registered using an [identity federation](../organization/concepts/add-federation.md). To log in, users should specify the federation ID or use a special link.
 
 You can set up multiple federations for your organization. Federated users will not be able to log in to any services other than {{ yandex-cloud }} services.
+
+{% note info %}
+
+Please note that an account in Yandex ID and an account in an identity federation are completely different accounts even if the same email address is used.
+
+{% endnote %}

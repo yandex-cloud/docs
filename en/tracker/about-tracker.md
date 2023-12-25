@@ -1,6 +1,6 @@
 ---
 title: "How {{ tracker-name }} works"
-description: "In this section, you'll learn all about how {{ tracker-name }} works and how you can use {{ tracker-name }} to suit your workflow. Organizing your workflow in {{ tracker-name }} requires managing two crucial elements: issues and queues. Issues describe what needs to be done, while queues set the rules for working with issues."
+description: "In this section, you will learn how {{ tracker-name }} works and how you can use {{ tracker-name }} to suit your workflow. Organizing your workflow in {{ tracker-name }} requires managing two crucial elements: issues and queues. Issues describe what needs to be done, while queues set the rules for working with issues."
 ---
 
 # How {{ tracker-name }} works
@@ -15,7 +15,7 @@ Before you start, check the {{ tracker-name }} setup guide in [{#T}](quick-start
 
 Organizing your workflow in {{ tracker-name }} requires managing two crucial elements: _issues_ and _queues_. Issues describe what needs to be done, while queues set the rules for working with issues.
 
-Additional elements, such as components, issue boards, and dashboards, let you manage issues, monitor their status, and keep track of results. An overview of these features is given below.
+Additional elements, such as components, issue boards, and dashboards, allow you to manage issues, monitor their status, and keep track of results. An overview of these features is given below.
 
 ![](../_assets/tracker/concept-structure.png)
 
@@ -59,7 +59,7 @@ For some examples on how you can set up workflows in {{ tracker-name }}, see the
 
 ## Grouping and sorting issues {#group}
 
-It's helpful to group issues, for example, to estimate the workload at different project stages or specify the scope of responsibility for teams and individual employees.
+Grouping issues is useful, for example, to estimate the workload at different project stages or specify the scope of responsibility for teams and individual employees.
 
 ![](../_assets/tracker/concept-group.png)
 
@@ -68,7 +68,7 @@ You can use {{ tracker-name }} to group issues by the following criteria:
 - [Components](manager/components.md) help you group issues in a queue that relate to the same topic. When managing issues with components, you can set up a default assignee and [access rights](manager/queue-access.md#access-components).
    For example, using components, you can [classify requests to technical support](support-process-group.md).
 - [Versions](manager/versions.md) help you group issues within the same queue based on the product version they belong to.
-   For example, to schedule a bug fix for a specific product release, you can specify the product's version in the **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field.
+   For example, to schedule a bug fix for a specific product release, you can specify the product version in the **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field.
 - A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
 
 

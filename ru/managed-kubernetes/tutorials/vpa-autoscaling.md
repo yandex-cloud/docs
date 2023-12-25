@@ -19,11 +19,20 @@ description: "Следуя данному руководству, вы смож�
    * `sg-k8s` — для [мастера и группы узлов](../operations/connect/security-groups.md#rules-internal).
    * `k8s-public-services` — для [публичного доступа к сервисам из интернета](../operations/connect/security-groups.md#rules-nodes).
    * `k8s-master-whitelist` — для [доступа к API {{ k8s }}](../operations/connect/security-groups.md#rules-master).
-1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании кластера и группы узлов:
+
+1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }}. При создании задайте настройки:
+
    * Используйте созданные ранее группы безопасности.
-   * Выберите автоматический тип назначения [публичного адреса](../../vpc/concepts/address.md#public-addresses).
+   * Если вы планируете работать с кластером в пределах сети {{ yandex-cloud }}, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
+
+1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании задайте настройки:
+
+   * Используйте созданные ранее группы безопасности.
+   * Выделите публичный IP-адрес, чтобы предоставить группе узлов доступ в интернет и возможность скачивать Docker-образы и компоненты.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. Установите {{ k8s-vpa }} из [репозитория](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
 

@@ -18,7 +18,7 @@ In {{ wiki-full-name }}, you can insert a list of issues from any queue page:
 
 1. Open the queue page.
 
-1. In the upper-left corner of the page, select ![](../../_assets/tracker/icon-settings2.png) → **Get the Wiki code**.
+1. In the top-left corner of the page, select ![](../../_assets/tracker/icon-settings2.png) → **Get the Wiki code**.
 
 1. Copy the code.
 
@@ -36,5 +36,10 @@ To place a filtered issue list in {{ wiki-full-name }}:
 
 | Example | Result |
 | ----- | ----- |
-| ``` {{tasks url="{{ link-tracker }}filters/<filter>}} ``` | ![](../../_assets/tracker/magic-tickets-list.png) |
+| ``` {{tasks url="{{ link-tracker }}filters/<filter>"}} ``` | ![](../../_assets/tracker/magic-tickets-list.png) |
 
+{% note info %}
+
+The `url` parameter of the `tasks` block does not support the `"` character. If this character is present in the filter's URL copied from the address bar, replace it with `%22`.
+
+{% endnote %}

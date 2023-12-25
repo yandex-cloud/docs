@@ -50,3 +50,5 @@ To create a QL chart, see the [instructions](../../operations/chart/create-sql-c
 * [{#T}](../../operations/chart/create-sql-chart.md)
 * [{#T}](../../concepts/chart/index.md)
 * [{#T}](../../operations/chart/create-chart.md)
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

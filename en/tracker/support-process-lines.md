@@ -73,7 +73,7 @@ Go to the {{ tracker-name }} settings and [create a new field](user/create-param
 
 In the support team queue, create two triggers that will be fired if the **Line** field value changes and will update issue statuses:
 
-1. Go to **Triggers** in the queue settings and click [**Create trigger**](user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](user/create-trigger.md).
 
 1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **Line** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **1**.
 

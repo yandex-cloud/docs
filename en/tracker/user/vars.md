@@ -12,7 +12,7 @@ When using macros, triggers, and auto actions, you can insert values from the is
 
    {% note info %}
 
-   The list shows variables for all the fields available in {{ tracker-name }}. If you select, for some field, a variable that is not used in a queue or issue, the value won't be inserted.
+   The list shows variables for all the fields available in {{ tracker-name }}. If you select a variable not used in a queue or issue for a field, the value will not be substituted.
 
    {% endnote %}
 

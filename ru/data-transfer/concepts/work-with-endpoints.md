@@ -51,9 +51,7 @@ db.<имя_коллекции>.createIndex(<свойства_индекса>)
 
 ## {{ PG }} {#postgresql}
 
-{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
-
-Если определение переносимого `VIEW` содержит вызов `VOLATILE` [функции]({{ pg.docs.org }}/current/xfunc-volatility.html), то трансфер читает данные из такого `VIEW` с уровнем изоляции `READ UNCOMMITTED`. Консистентность между данными в этом `VIEW` и данными других переносимых объектов не гарантируется. Чтение из `MATERIALIZED VIEW` в определении `VIEW` равносильно вызову `VOLATILE` функции.
+{% include [pg-types-limits](../../_includes/data-transfer/notes/pg-source-features.md) %}
 
 Источник считает `FOREIGN TABLE` обыкновенными представлениями и работает с ними в соответствии с общим алгоритмом для представлений.
 

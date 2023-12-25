@@ -1,6 +1,6 @@
 # Components
 
-Components help you group issues in a queue based on a shared theme, such as their product, pipeline, responsible party, and so on. You can create multiple components in a queue.
+Components help you group issues in a queue based on a shared theme, such as their product, pipeline, responsible party, etc. You can create multiple components in a queue.
 
 For example, using components, you can [classify requests to technical support](../support-process-group.md).
 
@@ -58,7 +58,7 @@ You can view a list of issues linked to a specific component:
 
 1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **Components**.
 
-1. Tap the component name.
+1. Click the component name.
 
 ## Deleting a component {#delete-component}
 
@@ -70,6 +70,6 @@ To delete a queue component:
 
 1. Hover the cursor over the component.
 
-1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **Remove**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **Delete**.
 
 1. Confirm the deletion.

@@ -40,8 +40,10 @@
   ```bash
   yc dns zone create --name test-zone \
   --zone testing. \
-  --private-visibility network-ids=<идентификатор сети с тестовыми ВМ>
+  --private-visibility network-ids=<идентификатор_сети>
   ```
+
+  Где `--private-visibility` — идентификатор сети с тестовыми ВМ.
 
 {% endlist %}
 
@@ -72,13 +74,17 @@
 
   ```bash
   yc dns zone add-records --name test-zone \
-  --record "test-vm-1 600 A <внутренний IP-адрес ВМ test-vm-1>"
+  --record "test-vm-1 600 A <внутренний_IP-адрес_ВМ>"
   ```
+
+  Где `--record` — запись, содержащая внутренний IP-адрес ВМ `test-vm-1`.
 
   ```bash
   yc dns zone add-records --name test-zone \
-  --record "test-vm-2 600 A <внутренний IP-адрес ВМ test-vm-2>"
+  --record "test-vm-2 600 A <внутренний_IP-адрес_ВМ>"
   ```
+
+  Где `--record` — запись, содержащая внутренний IP-адрес ВМ `test-vm-2`.
 
 {% endlist %}
 
@@ -87,7 +93,7 @@
 Подключитесь к `test-vm-1` через [SSH](../glossary/ssh-keygen.md):
 
 ```bash
-ssh <публичный IP-адрес ВМ>
+ssh <публичный_IP-адрес_ВМ>
 ```
 
 На ВМ попробуйте обратиться к `test-vm-2` по ее [доменному имени](../vpc/concepts/address.md#fqdn):
@@ -154,8 +160,10 @@ test-vm-2.testing has address 10.0.0.9
 
   ```bash
   yc dns zone add-records --name test-public-zone \
-  --record "www 600 A <публичный IP-адрес ВМ test-vm-1>"
+  --record "www 600 A <публичный_IP-адрес_ВМ>"
   ```
+
+  Где `--record` — запись, содержащая публичный IP-адрес ВМ `test-vm-1`.
 
 {% endlist %}
 
@@ -177,5 +185,5 @@ Name: ns1.{{ dns-ns-host-sld }}.
 Address: 84.201.185.208#53
 Aliases:
 
-www.example.com has address <публичный IP-адрес ВМ test-vm-1>
+www.example.com has address <публичный_IP-адрес_ВМ_test-vm-1>
 ```

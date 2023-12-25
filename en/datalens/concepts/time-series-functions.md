@@ -44,3 +44,5 @@ Create a chart to show the sales dynamics compared to the previous year.
 You can add both charts to the dashboard to compare the absolute and percentage changes in your sales year-on-year.
 
 ![image](../../_assets/datalens/solution-y-to-y/sales-dashboard.png)
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

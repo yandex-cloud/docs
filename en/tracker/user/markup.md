@@ -23,7 +23,7 @@ To format text, use the following toolbar buttons or keyboard shortcuts:
 | Italic | ![](../../_assets/tracker/text-edit/italic.svg) | **Ctrl** + **I** | **⌘** + **I** |
 | Underlined text | ![](../../_assets/tracker/text-edit/underline.svg) | **Ctrl** + **U** | **⌘** + **U** |
 | Strikethrough text | ![](../../_assets/tracker/text-edit/strikethrough.svg) | **Ctrl** + **Shift** + **S** | **⌘** + **Shift** + **S** |
-| Colored text | ![](../../_assets/tracker/text-edit/color.svg) ![](../../_assets/tracker/text-edit/show.svg) | — | — |
+| Colored text | ![](../../_assets/tracker/text-edit/color.svg) ![](../../_assets/tracker/text-edit/show.svg) | N/A | — |
 
 ## Lists {#lists-wysiwyg}
 
@@ -33,7 +33,7 @@ To add a list, select one or more paragraphs and use the following toolbar butto
 --- | --- | --- | ---
 | Bulleted list | ![](../../_assets/tracker/text-edit/ul.svg) | **Ctrl** + **Shift** + **L** | **⌘** + **Shift** + **L** |
 | Numbered list | ![](../../_assets/tracker/text-edit/ol.svg) | **Ctrl** + **Shift** + **M** | **⌘** + **Shift** + **M** |
-| Checklist (checkbox) | ![](../../_assets/tracker/text-edit/checkbox.svg) | — | — |
+| Checklist (checkbox) | ![](../../_assets/tracker/text-edit/checkbox.svg) | N/A | — |
 
 To format a nested list item, select a paragraph and press the Tab key (**⇥**) at the beginning of the line.
 
@@ -67,7 +67,7 @@ To add a link:
 
 1. On the toolbar, click ![](../../_assets/tracker/text-edit/link.svg).
 
-1. Enter the link's URL. If you have not selected a text fragment, enter the text to be displayed as a link.
+1. Enter the link's URL. If you did not select a text fragment, enter the text to be displayed as a link.
 
 1. Click **Save**.
 
@@ -134,7 +134,7 @@ To embed an object or media file from an external source in your issue descripti
 
 1. On the toolbar, click ![](../../_assets/tracker/text-edit/iframe.svg):
 
-   * In the **URL** field, paste the resource URL.
+   * In the **Link** field, paste the resource URL.
 
    * Specify the frame size.
 

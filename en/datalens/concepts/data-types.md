@@ -352,3 +352,5 @@ In the current version, a tree hierarchy has the following limitations:
 * The tree expansion state is not remembered.
 * Selectors do not support trees.
 * A source should store intermediate tree nodes, even those with no data available.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

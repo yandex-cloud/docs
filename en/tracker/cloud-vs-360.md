@@ -32,7 +32,7 @@ Starting April 17, 2023, the free {{ ya-360 }} version will be disabled and the 
 
 Starting April 17, 2023, you will be able to choose which service to use:
 
-* To continue using both services, you will need to pay for {{ ya-360 }} usage based on the [selected service plan]({{ link-ya-360-tariffs }}). {{ tracker-name }} usage is paid for [separately](./pricing.md).
+* To continue using both services, you will need to pay for {{ ya-360 }} usage as per the [selected service plan]({{ link-ya-360-tariffs }}). {{ tracker-name }} usage is paid for [separately](./pricing.md).
 
    {% note info %}
 
@@ -62,9 +62,9 @@ The steps below can only be completed by a {{ ya-360 }} organization administrat
 
 1. If you do not have an organization in {{ org-full-name }}, create one following [this guide](../organization/operations/enable-org.md). If you already have an organization, skip this step.
 
-1. In {{ tracker-name }}, click ![](../_assets/tracker/svg/admin.svg) **Admin** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs) in the left-hand panel. In the {{ org-full-name }} organizations section, click **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.domain-task-action }}** and select the organization you need. Wait until the users and groups from {{ org-full-name }} are synced in {{ tracker-name }}, which may take up to 30 minutes.
+1. In {{ tracker-name }}, click ![](../_assets/tracker/svg/admin.svg) **Admin settings** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs) in the left-hand panel. In the {{ org-full-name }} organizations section, click **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.domain-task-action }}** and select the organization you need. Wait until the users and groups from {{ org-full-name }} are synced in {{ tracker-name }}, which may take up to 30 minutes.
 
-1. In {{ org-full-name }}, add [users](../organization/operations/manage-users.md) and [groups](../organization/operations/manage-groups.md) in the same way as in {{ ya-360 }}. A group name in {{ tracker-name }} is generated as per the **Description** field value or, if it is not provided, the **Name** field value.
+1. In {{ org-full-name }}, add [users](../organization/operations/manage-users.md) and [groups](../organization/operations/manage-groups.md) in the same way as in {{ ya-360 }}. A group name in {{ tracker-name }} is generated based on the **Description** field value, or, if it is not provided, on the **Name** field value.
 
    {% note info %}
 
@@ -78,7 +78,7 @@ The steps below can only be completed by a {{ ya-360 }} organization administrat
 
    {% note info %}
 
-   In the group access settings, under ![](../_assets/tracker/svg/admin.svg) **Admin** → [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}**]({{ link-tracker }}admin/groups), you will see two **All employees** groups: one with the {{ ya-360 }} organization employees and the other with the employees from both organizations.
+   In the group access settings, under ![](../_assets/tracker/svg/admin.svg) **Admin settings** → [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}**]({{ link-tracker }}admin/groups), you will see two **All employees** groups: one with the {{ ya-360 }} organization employees and the other with the employees from both organizations.
 
    {% endnote %}
 
