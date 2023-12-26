@@ -42,9 +42,11 @@ items:
             href: operations/project/delete-user-from-project.md
   - name: Концепции
     items:
-      - name: Диалоги в {{ speechsense-name }}
+      - name: Иерархия ресурсов
+        href: concepts/resources-hierarchy.md
+      - name: Диалоги
         href: concepts/dialogs.md
-      - name: Отчеты в {{ speechsense-name }}
+      - name: Отчеты
         href: concepts/reports.md
   - name: Справочник API
     items:

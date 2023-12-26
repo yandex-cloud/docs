@@ -4,12 +4,12 @@
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and [container](../concepts/container.md).
 
@@ -28,8 +28,6 @@ The list below shows all roles that are considered when verifying access rights 
 {% include [serverless-containers-roles-editor](../../_includes/roles-serverless-containers-editor.md) %}
 
 {% include [serverless-containers-roles-admin](../../_includes/roles-serverless-containers-admin.md) %}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 ### Primitive roles {#primitive-roles}
 

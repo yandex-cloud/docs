@@ -20,8 +20,18 @@ items:
         items:
           - name: Creating a space
             href: operations/space/create.md
+          - name: Adding a user to a space
+            href: operations/space/add-user-to-space.md
           - name: Deleting a space
             href: operations/space/delete.md
+          - name: Removing a user from a space
+            href: operations/space/delete-user-from-space.md
+      - name: Project management
+        items:
+          - name: Adding a user to a project
+            href: operations/project/add-user-to-project.md
+          - name: Removing a user from a project
+            href: operations/project/delete-user-from-project.md
   - name: Concepts
     items:
       - name: Dialogs in {{ speechsense-name }}

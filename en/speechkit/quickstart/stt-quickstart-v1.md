@@ -1,6 +1,6 @@
 # How to recognize short audio files in {{ speechkit-short-name }}
 
-The service can recognize speech [in different ways](../stt/index.md#stt-ways). The example below demonstrates an audio file recognition using the [synchronous recognition](../stt/request.md) API. This API is subject to the following limitations:
+The service can recognize speech [in different ways](../stt/index.md#stt-ways). The example below demonstrates an audio file recognition using the [synchronous recognition](../stt/request.md) API. This API has the following limitations:
 
 * Maximum audio duration: {{ stt-short-audioLength }}
 * Maximum file size: {{ stt-short-fileSize }}
@@ -8,8 +8,8 @@ The service can recognize speech [in different ways](../stt/index.md#stt-ways). 
 Send a speech recognition [request](../stt/request.md):
 
 ```bash
-export FOLDER_ID=<folder ID>
-export IAM_TOKEN=<IAM token>
+export FOLDER_ID=<folder_ID>
+export IAM_TOKEN=<IAM_token>
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-binary "@speech.ogg" \

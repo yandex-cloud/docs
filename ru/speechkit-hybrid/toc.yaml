@@ -51,6 +51,8 @@ items:
             href: api-ref/stt/v3/grpc/index.md
           - name: Recognizer
             href: api-ref/stt/v3/grpc/stt_service.md
+  - name: Правила тарификации
+    href: pricing.md
   - name: Релизы {{ sk-hybrid-name }}
     href: release-notes.md
   - name: Документация Яндекс Спичкит Гибрид ({{ sk-hybrid-full-name }})

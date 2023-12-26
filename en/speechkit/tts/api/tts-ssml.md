@@ -6,7 +6,7 @@ The example uses the following synthesis parameters:
 
 * [Language](../index.md#langs): Russian.
 * [Voice](../voices.md): `jane`.
-* Other parameters were left with their default values.
+* Other parameters are left at their defaults.
 
 The text file is read using the [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) utility.
 
@@ -23,8 +23,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    1. Send a request with the text to the server:
 
       ```bash
-      export FOLDER_ID=<folder ID>
-      export IAM_TOKEN=<IAM token>
+      export FOLDER_ID=<folder_ID>
+      export IAM_TOKEN=<IAM_token>
       curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         --data-urlencode "ssml=`cat text.xml`" \

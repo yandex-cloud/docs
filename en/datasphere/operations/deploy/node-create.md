@@ -1,6 +1,6 @@
 # Creating a node with Python code
 
-You can deploy an individual cell of a notebook or third-party [Docker image](../../../container-registry/concepts/docker-image.md) as an independent service using [nodes](../../concepts/resource-model.md#resources).
+You can deploy an individual notebook cell or a third-party [Docker image](../../../container-registry/concepts/docker-image.md) as an independent service using [nodes](../../concepts/resource-model.md#resources).
 
 {% note warning %}
 

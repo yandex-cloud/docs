@@ -164,8 +164,7 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
    desc: Simple TF script
    cmd: python example.py --input ${INPUT} --model ${MODEL}
    env:
-     python:
-       auto: true
+     python: auto
    inputs:
      - input.json: INPUT
    outputs:

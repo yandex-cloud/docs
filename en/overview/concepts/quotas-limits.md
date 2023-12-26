@@ -359,3 +359,5 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 
 {% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

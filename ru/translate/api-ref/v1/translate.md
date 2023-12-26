@@ -37,7 +37,7 @@ POST https://translate.{{ api-host }}/translate/v1/translate
 ```json
 {
     "translations": [
-        {"text": <перевод текста>},
+        {"text": <перевод_текста>},
         ...
     ]
 }
@@ -49,8 +49,8 @@ POST https://translate.{{ api-host }}/translate/v1/translate
 ### Пример запроса {#sample-request}
 
 ```httpget
-export FOLDER_ID=<folder id>
-export TOKEN=<IAM-token>
+export FOLDER_ID=<идентификатор_каталога>
+export TOKEN=<IAM-токен>
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}&target=en" \

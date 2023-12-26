@@ -47,21 +47,21 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 1. Restart the {{ grafana-name }} server:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux
+   - Linux {#linux}
 
       ```bash
       sudo systemctl restart grafana-server
       ```
 
-   - Windows
+   - Windows {#windows}
 
       1. Click **Win+R**.
       1. In the window that opens, enter `services.msc` and click **OK**.
       1. Right-click the line with `Grafana` and select **Restart**.
 
-   - MacOS
+   - macOS {#macos}
 
       ```bash
       brew services restart grafana
@@ -334,7 +334,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
    Where:
 
-   * `--name`: Name of the log group.
+   * `--name`: Log group name
    * `--retention-period`: Log group record retention period
 
    Result:
@@ -371,7 +371,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
       Where:
 
-      * `name`: Name of the log group
+      * `name`: Log group name
       * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md)
       * `retention_period`: Record retention period in the log group
 

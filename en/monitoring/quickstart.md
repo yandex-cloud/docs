@@ -56,3 +56,5 @@ If you do not have any resources, create them (for example, a {{ CH }} VM and cl
 1. Enter a name for the dashboard and click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 As a result, you created a dashboard with widgets that display the status of resources from different {{ yandex-cloud }} services.
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

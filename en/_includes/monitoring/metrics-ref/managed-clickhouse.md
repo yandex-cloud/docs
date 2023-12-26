@@ -94,7 +94,7 @@ The load on processor cores.
 
 ### Service metrics {#managed-clickhouse-metrics}
 ##### System event metrics {#managed-clickhouse-system-events-metrics}
-Clickhouse native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
+{{ CH }} native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
 For each metric, the increment (`inc`) and change `rate` per unit of time are calculated.
 
 | Name<br/>Type |
@@ -285,7 +285,7 @@ For each metric, the increment (`inc`) and change `rate` per unit of time are ca
 | `ch_system_events_ZooKeeperWatchResponse_rate`<br/>`DGAUGE` |
 
 ##### Current event metrics {#managed-clickhouse-system-metrics}
-Clickhouse native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
+{{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
 
 | Name<br/>Type |
 | ----- |
@@ -372,7 +372,7 @@ Clickhouse native metrics from the [system.metrics]({{ ch.docs }}/operations/sys
 | `ch_system_metrics_ZooKeeperWatch`<br/>`DGAUGE` |
 
 ##### Query queue metrics {#managed-clickhouse-query-log-metrics}
-Clickhouse native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
+{{ CH }} native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
 For each metric, the increment per unit of time (second) is calculated.
 
 | Name<br/>Type |
@@ -400,23 +400,23 @@ For each metric, the increment per unit of time (second) is calculated.
 ##### Replication metrics {#managed-clickhouse-replication-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `ch_replication-future_parts`<br/>`DGAUGE`, pcs | Number of data parts after MERGE and INSERT operations are completed. |
-| `ch_replication-inserts_in_queue`<br/>`DGAUGE`, pcs | Number of enqueued data parts to be inserted |
+| `ch_replication-future_parts`<br/>`DGAUGE`, number | Number of data parts after MERGE and INSERT operations are completed |
+| `ch_replication-inserts_in_queue`<br/>`DGAUGE`, number | Number of enqueued data parts to be inserted |
 | `ch_replication-is_alive`<br/>`DGAUGE`, 0/1 | Replication performance indicator.<br/>`1` if DB replication is alive, `0` if it is not. |
 | `ch_replication-max_absolute_delay`<br/>`DGAUGE`, seconds | Maximum replication delay |
-| `ch_replication-merges_in_queue`<br/>`DGAUGE`, pcs | Merges enqueued |
-| `ch_replication-parts_to_check`<br/>`DGAUGE`, pcs | Number of data parts to be checked |
-| `ch_replication-queue_size`<br/>`DGAUGE`, pcs | Merge and insert queue size |
-| `ch_replication-tables`<br/>`DGAUGE`, pcs | Number of replicated tables |
+| `ch_replication-merges_in_queue`<br/>`DGAUGE`, number | Merges enqueued |
+| `ch_replication-parts_to_check`<br/>`DGAUGE`, number | Number of data parts to be checked |
+| `ch_replication-queue_size`<br/>`DGAUGE`, number | Merge and insert queue size |
+| `ch_replication-tables`<br/>`DGAUGE`, number | Number of replicated tables |
 
 ##### System metrics {#managed-clickhouse-config-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, pcs | Threshold value of active data parts in a table. When exceeded, ClickHouse throws the `Too many parts ...` exception. Set in the [settings](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). It makes sense to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
+| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, number | Threshold value of active table data parts for {{ CH }} to throw a `Too many parts ...` exception if exceeded. Set in the [settings](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). It makes sense to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, bytes | Local disk partition size |
-| `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, pcs | Maximum number of data chunks in a partition |
+| `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, number | Maximum number of data parts per partition |
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, seconds | Maximum replication delay |
-| `ch_system_async_metrics_ReplicasMaxQueueSize`<br/>`DGAUGE`, pcs | Maximum size of the replication queue |
+| `ch_system_async_metrics_ReplicasMaxQueueSize`<br/>`DGAUGE`, number | Maximum replication queue size |
 
 ### Other metrics {#managed-clickhouse-other-metrics}
 | Name<br/>Type, units | Description |

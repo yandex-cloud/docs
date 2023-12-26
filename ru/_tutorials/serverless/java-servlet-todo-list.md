@@ -1,6 +1,7 @@
 Узнайте, как с помощью serverless-технологий и Java Servlet API создать небольшое веб-приложение для управления списком задач.
 
 Чтобы создать веб-приложение:
+
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#preare).
 1. [Создайте бакет {{ objstorage-full-name }}](#create-bucket).
@@ -19,6 +20,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов поддержки веб-приложения входят:
+
 * Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
 * Плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
@@ -136,14 +138,15 @@
   1. Подготовьте код функции. Для этого в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите скачанный архив `servlet.zip`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** установите значение `5`.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** установите значение `10`.
   1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** укажите аккаунт, созданный при [подготовке окружения](#prepare).
   1. Добавьте переменные окружения:
-     * `ENDPOINT` — введите первую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
+     * `ENDPOINT` — введите первую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `ydb.serverless.yandexcloud.net:2135`.
      * `DATABASE` — введите вторую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-  1. Повторите шаги 3-12 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
-  1. Повторите шаги 3-12 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
+  1. На странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** включите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
+  1. Повторите шаги 3-14 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
+  1. Повторите шаги 3-14 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
 
 - CLI
 
@@ -173,12 +176,13 @@
        --runtime java11 \
        --entrypoint yandex.cloud.examples.serverless.todo.AddTaskServlet \
        --memory 128m \
-       --execution-timeout 5s \
+       --execution-timeout 10s \
        --source-path ./servlet.zip \
        --environment DATABASE=<имя_БД>,ENDPOINT=<YDB_эндпоинт>
      ```
 
      Где:
+
      * `function-name` — имя функции, версию которой вы хотите создать.
      * `runtime` — среда выполнения.
      * `entrypoint` — точка входа, указывается в формате \<имя_файла_с_функцией>.\<имя_обработчика>.
@@ -198,13 +202,25 @@
      - $latest
      log_group_id: ckg3qh8h363p********
      ```
+  
+  1. Сделайте функцию публичной:
 
-  1. Повторите шаги 1-2 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
-  1. Повторите шаги 1-2 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
+     ```bash
+     yc serverless function allow-unauthenticated-invoke add-task
+     ```
+
+     Результат:
+
+     ```bash
+     done (1s)
+     ```
+
+  1. Повторите шаги 1-3 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
+  1. Повторите шаги 1-3 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
 
 - API
 
-  Воспользуйтесь API методами [create](../../functions/functions/api-ref/Function/create) и [createVersion](../../functions/functions/api-ref/Function/createVersion).
+  Воспользуйтесь API методами [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion) и [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) для ресурса [Function](../../functions/functions/api-ref/Function).
 
 
 - {{ yandex-cloud }} Toolkit
@@ -264,11 +280,13 @@
        ```
 
        Где:
+
        * `bucket` — имя бакета, в котором лежит файл `index.html`.
        * `service_account` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
        * Блок `/add`, параметр `function_id` — идентификатор функции `add-task`.
        * Блок `/list`, параметр `function_id` — идентификатор функции `list-tasks`.
        * Блок `/delete`, параметр `function_id` — идентификатор функции `delete-task`.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI
@@ -311,6 +329,7 @@
      ```
 
      Где:
+
      * `bucket` — имя бакета, в котором лежит файл `index.html`.
      * `service_account` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
      * Блок `/add`, параметр `function_id` — идентификатор функции `add-task`.
@@ -355,6 +374,7 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
+
 * [Удалите бакет](../../storage/operations/buckets/delete.md).
 * [Удалите базу данных](../../ydb/operations/manage-databases.md#delete-db).
 * [Удалите функции](../../functions/operations/function/function-delete.md).

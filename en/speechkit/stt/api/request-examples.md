@@ -5,7 +5,7 @@ The example shows how the [API v1](request-api.md) helps synchronously recognize
 The example uses the following parameters:
 
 * [Language](../index.md#langs): Russian.
-* Other parameters were left with their default values.
+* Other parameters are left at their defaults.
 
 Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
 
@@ -20,7 +20,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    Send a [request](../request.md) to convert speech to text:
 
    ```httpget
-   POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={<folder ID>} HTTP/1.1
+   POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={<folder_ID>} HTTP/1.1
    Host: stt.{{ api-host }}
    Authorization: Bearer <IAM token>
 
@@ -39,7 +39,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    Send a [request](../request.md) to convert speech to text:
 
    ```bash
-   export FOLDER_ID=<folder ID>
+   export FOLDER_ID=<<folder_ID>
    export IAM_TOKEN=<IAM token>
    curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -62,8 +62,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    import urllib.request
    import json
 
-   FOLDER_ID = "<folder ID>" # Folder ID
-   IAM_TOKEN = "<IAM token>" # IAM token
+   FOLDER_ID = "<folder_ID>" # Folder ID
+   IAM_TOKEN = "<IAM_token>" # IAM token
 
    with open("speech.ogg", "rb") as f:
        data = f.read()
@@ -100,8 +100,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    ```php
    <?php
 
-   $token = '<IAM token>'; # IAM token
-   $folderId = "<folder ID>"; # Folder ID
+   $token = '<IAM_token>'; # IAM token
+   $folderId = "<folder_ID>"; # Folder ID
    $audioFileName = "speech.ogg";
 
    $file = fopen($audioFileName, 'rb');

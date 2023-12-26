@@ -125,7 +125,7 @@ The infrastructure support cost includes:
      1. Check the results.
         1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Click the name of the `coi-vm-with-sp` VM.
-        1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
+        1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select `COM2`. In a few minutes, the screen will display `Hello world!`.
 
 {% endlist %}
 
@@ -133,9 +133,9 @@ The infrastructure support cost includes:
 
 To get the ID of the latest image used for VM creation, run:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (Bash)
+- Linux (Bash) {#linux}
 
   ```bash
   IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image \
@@ -143,7 +143,7 @@ To get the ID of the latest image used for VM creation, run:
     --format=json | jq -r .id)
   ```
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows}
 
   ```shell script
   $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image `

@@ -27,10 +27,10 @@ Please note that it is only possible to recognize long audio files under a servi
 #### How are IAM tokens generated? {#iam-token}
 
 To generate an [IAM token](../../iam/operations/iam-token/create.md), send a request with your OAuth token in
-`"yandexPassportOauthToken":"<OAuth token>"` format. If you are using cURL, run this command:
+`"yandexPassportOauthToken":"<OAuth_token>"` format. If you are using cURL, run this command:
 
 ```bash
-curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
+curl -d "{\"yandexPassportOauthToken\":\"<OAuth_token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
 ```
 
 Follow the recommendations and examples given in the **API** tab for [Getting an IAM token](../../iam/operations/iam-token/create.md).

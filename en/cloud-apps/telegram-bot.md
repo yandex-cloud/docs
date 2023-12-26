@@ -19,7 +19,7 @@ Register your bot in Telegram and get a token:
 
 1. Start the `BotFather` bot and send it the `/newbot` command.
 1. Enter a name for your bot, such as `Serverless Echo Telegram Bot`. This is the name users will see when talking to the bot.
-1. Specify a username for your bot, such as `ServerlessHelloTelegramBot`. You can use the username to search for the bot in Telegram. The user name must end with `...Bot` or `..._bot`.
+1. Specify a username for your bot, such as `ServerlessHelloTelegramBot`. You can use the user name to search for the bot in Telegram. The user name must end with `...Bot` or `..._bot`.
 
 Your Telegram bot's token will be displayed.
 
@@ -40,9 +40,9 @@ Your Telegram bot's token will be displayed.
 1. On the **Overview** page, find the API gateway under **Application resources**, go to the gateway page, and copy the service domain link.
 1. To bind the function to the Telegram bot, run a request. Replace the `<bot token>` with the Telegram bot token and the `<API gateway domain>` with a link to the API gateway's service domain.
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux and macOS
+   - Linux/macOS {#linux-macos}
 
       ```bash
       curl \
@@ -50,7 +50,7 @@ Your Telegram bot's token will be displayed.
         --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo
       ```
 
-   - Windows (cmd)
+   - Windows (cmd) {#windows-cmd}
 
       ```bash
       curl ^
@@ -58,7 +58,7 @@ Your Telegram bot's token will be displayed.
         --url "https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo"
       ```
 
-   - Windows (PowerShell)
+   - Windows (PowerShell) {#windows-powershell}
 
       ```powershell
       curl.exe `

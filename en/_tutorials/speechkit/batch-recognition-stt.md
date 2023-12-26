@@ -20,7 +20,7 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 
    ```json
    {
-     "lang": "<language code>"
+     "lang": "<language_code>"
    }
    ```
 
@@ -36,7 +36,7 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** and specify `asr-batch-function` as the function name.
 1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
-1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `Python` version `3.8` as the runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `Python` `3.8` as the runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. Download a [script file](https://github.com/yandex-cloud-examples/yc-speechkit-async-recognizer/blob/main/python/main.py) from the {{ yandex-cloud }} repository.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, clear the contents of the `index.py` file and paste the downloaded script.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file named `requirements.txt` and add the following code to it:
@@ -85,8 +85,8 @@ The trigger you created will fire once a minute and invoke the [cloud function](
 1. In the management console, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and open `asr-batch-bucket`.
 1. [Upload](../../storage/operations/objects/upload.md#simple) audio files of any [supported format](../../speechkit/formats.md) to the `input` folder.
 1. Wait a few minutes and make sure the bucket contains the `log` and `out` folders.
-1. Check the recognition status in the `log` folder. The status of each audio file sent for recognition is saved to an `<audio file name>.json` auxiliary file (such as `audio.mp3.json`). If the file contains the `"done": "false"` parameter, the recognition process is not completed.
-1. Check the recognition result in the `out` folder. The result is saved to an `<audio file name>.json` file (such as `audio.mp3.json`). For more information about the recognition result format, see [Asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md#get-result-response).
+1. Check the recognition status in the `log` folder. The status of each audio file sent for recognition is saved to an `<audio_file_name>.json` auxiliary file (such as `audio.mp3.json`). If the file contains the `"done": "false"` parameter, the recognition process is not completed.
+1. Check the recognition result in the `out` folder. The result is saved to an `<audio_file_name>.json` file (such as `audio.mp3.json`). For more information about the recognition result format, see [Asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md#get-result-response).
 
 {% note info %}
 

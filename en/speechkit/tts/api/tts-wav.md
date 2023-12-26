@@ -25,8 +25,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       > I can turn any text into speech.
       > Now y+ou can, too!
       EOM
-      export FOLDER_ID=<folder ID>
-      export IAM_TOKEN=<IAM token>
+      export FOLDER_ID=<folder_ID>
+      export IAM_TOKEN=<IAM_token>
       curl -X POST \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -o speech.raw \
@@ -68,7 +68,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
           static async Task Tts()
           {
             const string iamToken = "<IAM token>";
-            const string folderId = "<folder ID>";
+            const string folderId = "<folder_ID>";
 
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
@@ -154,8 +154,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       * Run the created file:
 
          ```bash
-         export FOLDER_ID=<folder ID>
-         export IAM_TOKEN=<IAM token>
+         export FOLDER_ID=<folder_ID>
+         export IAM_TOKEN=<IAM_token>
          python test.py
            --token ${IAM_TOKEN}
            --folder_id ${FOLDER_ID}
@@ -178,7 +178,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       <?php
 
       $token = '<IAM token>'; # Specify an IAM token.
-      $folderId = "<folder ID>"; # Specify a folder ID.
+      $folderId = "<folder_ID>"; # Specify folder ID.
 
       $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
       $headers = ['Authorization: Bearer ' . $token];

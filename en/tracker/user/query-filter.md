@@ -332,19 +332,19 @@ In addition to exact parameter values, you can use functions. A function is a va
 Created: today()
 ```
 
-Function | Result | Example
+| Function | Result | Example |
 ----- | ----- | -----
-```empty()  ``` | Empty value (no parameter specified) | Find issues that have no assignee specified:<br/>``` Assignee: empty() ```
-```notEmpty() ``` | Any non-empty value (parameter specified) | Find issues that have a deadline set:<br/>``` Deadline: notEmpty() ```
-```me()  ``` | Name of the user running the query | Find issues created by you:<br/>``` Author: me() ```
-```now() ``` | Current time with to-the-minute precision | Find issues created in the last 12 hours:<br/>``` Created: >now()-12h ```
-```today() ``` | Time interval corresponding to current date | Find issues created today:<br/>``` Created: today() ```
-```week() ``` | Date interval corresponding to current week | Find issues created this week:<br/>``` Created: week() ```
-```month()  ``` | Date interval corresponding to current month | Find issues created this month:<br/>``` Created: month() ```
-```quarter()  ``` | Date interval corresponding to current quarter | Find issues created in this quarter:<br/>``` Created: quarter() ```
-```year() ``` | Date interval corresponding to current year | Find issues created this year:<br/>``` Created: year() ```
-```unresolved() ``` | Issues without a resolution | Find all issues that have no resolution:<br/>``` Resolution: unresolved() ```
-```group() ``` | List of the department's employees | Find issues that employees of the Sales department are working on:<br/>``` Assignee: group(value: "Sales department")  ```
+| ```empty()  ``` | Empty value (no parameter specified) | Find issues that have no assignee specified:<br/>``` Assignee: empty() ``` |
+| ```notEmpty() ``` | Any non-empty value (parameter specified) | Find issues that have a deadline set:<br/>``` Deadline: notEmpty() ``` |
+| ```me()  ``` | Name of the user running the query | Find issues created by you:<br/>``` Author: me() ``` |
+| ```now() ``` | Current time with to-the-minute precision | Find issues created in the last 12 hours:<br/>``` Created: >now()-12h ``` |
+| ```today() ``` | Time interval corresponding to current date | Find issues created today:<br/>``` Created: today() ``` |
+| ```week() ``` | Date interval corresponding to current week | Find issues created this week:<br/>``` Created: week() ``` |
+| ```month()  ``` | Date interval corresponding to current month | Find issues created this month:<br/>``` Created: month() ``` |
+| ```quarter()  ``` | Date interval corresponding to current quarter | Find issues created in this quarter:<br/>``` Created: quarter() ``` |
+| ```year() ``` | Date interval corresponding to current year | Find issues created this year:<br/>``` Created: year() ``` |
+| ```unresolved() ``` | Issues without a resolution | Find all issues that have no resolution:<br/>``` Resolution: unresolved() ``` |
+| ```group() ``` | List of the department's employees | Find issues that employees of the Sales department are working on:<br/>``` Assignee: group(value: "Sales department")  ```<br/>**Note:** If a group to select from contains more than 1,000 users, the query will only search across 1,000 users. Moreover, it is not known beforehand which users will be selected, as you cannot manage this process. |
 
 
 ## Searching by parameter change {#query-change}

@@ -35,7 +35,6 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}** used to connect to storage.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}**: In the list, select a [secret](../../concepts/secrets.md) that contains the secret part of the static access key or create a new secret.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}**: Object storage access mode (**{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** or **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**).
-   * **{{ ui-key.yc-ui-datasphere.common.backend }}**: Backend mode (**{{ ui-key.yc-ui-datasphere.common.default }}**, **{{ ui-key.yc-ui-datasphere.new-s3-page.backend-geesefs }}**, or **{{ ui-key.yc-ui-datasphere.new-s3-page.backend-s3fs }}**).
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Attaching an S3 storage to a project {#mount}

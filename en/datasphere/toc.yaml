@@ -15,7 +15,7 @@ items:
             href: operations/community/add-user.md
           - name: Community label management
             href: operations/community/manage-community-labels.md
-          - name: Community configuration management
+          - name: Managing community limits
             href: operations/community/manage-community-config.md
           - name: Adding a link for a community
             href: operations/community/link-channel.md
@@ -101,11 +101,9 @@ items:
             href: operations/data/connect-to-ya-disk.md
           - name: Connecting to Google Drive
             href: operations/data/connect-to-google-drive.md
-          - name: Connecting to a {{ ydb-name }} database
-            href: operations/data/connect-to-ydb.md
       - name: Deploying models
         items:
-          - name: Creating a node with Python code
+          - name: Creating a node
             href: operations/deploy/node-create.md
           - name: Updating a node
             href: operations/deploy/node-update.md
@@ -225,7 +223,7 @@ items:
             href: tutorials/node-from-docker.md
           - name: Image generation using Stable Diffusion model
             href: tutorials/stable-diffusion.md
-          - name: Retraining a {{ yagpt-full-name }} model
+          - name: Tuning a {{ yagpt-full-name }} model
             href: tutorials/yagpt-tuning.md
       - name: Data analytics
         items:

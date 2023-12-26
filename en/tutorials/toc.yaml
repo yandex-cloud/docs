@@ -190,7 +190,7 @@ items:
             href: internet-store/opencart.md
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
-      - name: 1С
+      - name: 1C
         items:
           - name: 1C-Bitrix online store
             href: internet-store/bitrix-shop.md

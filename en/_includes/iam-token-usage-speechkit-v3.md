@@ -1,5 +1,4 @@
-When accessing {{ speechkit-name }} via the API, pass the received parameters in each request:
-
+When accessing {{ speechkit-name }} via the API, provide the received parameters in each request:
 
 * For API v1 and API v2:
 
@@ -9,7 +8,7 @@ When accessing {{ speechkit-name }} via the API, pass the received parameters in
    Authorization: Bearer <IAM token>
    ```
 
-   Specify the folder ID in the request body in the `folderId` parameter.
+   Specify the folder ID in the request body in the `folderId` parameter.
 
 * For API v3:
 
@@ -17,6 +16,6 @@ When accessing {{ speechkit-name }} via the API, pass the received parameters in
    * Specify the folder ID in the `x-folder-id` header.
 
    ```
-   Authorization: Bearer <IAM token> 
-   x-folder-id <folder ID>
+   Authorization: Bearer <IAM_token>
+   x-folder-id <folder_ID>
    ```

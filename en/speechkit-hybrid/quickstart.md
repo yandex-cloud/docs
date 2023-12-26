@@ -41,7 +41,7 @@ To get started with the service, test the deployment of applications in Docker c
          - TZ=UTC
          - NVIDIA_VISIBLE_DEVICES=0
          - NVIDIA_DRIVER_CAPABILITIES=compute,utility
-       image: cr.yandex/<registry ID>/tts/v100/tts_server:<SK Hybrid version>
+       image: cr.yandex/<registry_ID>/tts/v100/tts_server:<version>
        deploy:
          resources:
            reservations:
@@ -56,12 +56,12 @@ To get started with the service, test the deployment of applications in Docker c
          LICENSE_MODE: billing_agent
          LOGGING_LEVEL: INFO
          USE_TLS: "false"
-         STATIC_API_KEY: <API KEY>
-       image: cr.yandex/<registry ID>/license_server:<SK Hybrid version>
+         STATIC_API_KEY: <API_key>
+       image: cr.yandex/<registry_ID>/license_server:<version>
 
      envoy:
        network_mode: host
-       image: cr.yandex/<registry ID>/envoy:<SK Hybrid version>
+       image: cr.yandex/<registry_ID>/envoy:<version>
        environment:
          LOGGING_LEVEL: INFO
          ENVOY_UID: 0
@@ -75,9 +75,9 @@ To get started with the service, test the deployment of applications in Docker c
 
    In the file, specify the parameters obtained during the [environment setup](#before-you-begin):
 
-   * `<API KEY>`: ID of the created API key.
-   * `<registry ID>`: ID of the {{ container-registry-name }} registry.
-   * `<SK Hybrid version>`: {{ sk-hybrid-name }} image version.
+   * `STATIC_API_KEY`: ID of the created API key.
+   * `<registry_ID>`: ID of the {{ container-registry-name }} registry.
+   * `<version>`: {{ sk-hybrid-name }} image version.
 
 1. Run the application from the directory with the `docker-compose.yaml` file:
 
@@ -114,7 +114,7 @@ We do not recommend deploying the applications for speech synthesis and recognit
          - TZ=UTC
          - NVIDIA_VISIBLE_DEVICES=0
          - NVIDIA_DRIVER_CAPABILITIES=compute,utility
-       image: cr.yandex/<registry ID>/stt/v100/stt_server:<SK Hybrid version>
+       image: cr.yandex/<registry_ID>/stt/v100/stt_server:<version>
        deploy:
          resources:
            reservations:
@@ -129,12 +129,12 @@ We do not recommend deploying the applications for speech synthesis and recognit
          LICENSE_MODE: billing_agent
          LOGGING_LEVEL: INFO
          USE_TLS: "false"
-         STATIC_API_KEY: <API KEY>
-       image: cr.yandex/<registry ID>/license_server:<SK Hybrid version>
+         STATIC_API_KEY: <API_key>
+       image: cr.yandex/<registry_ID>/license_server:<version>
 
      envoy:
        network_mode: host
-       image: cr.yandex/<registry ID>/envoy:<SK Hybrid version>
+       image: cr.yandex/<registry_ID>/envoy:<version>
        environment:
          LOGGING_LEVEL: INFO
          ENVOY_UID: 0
@@ -148,9 +148,9 @@ We do not recommend deploying the applications for speech synthesis and recognit
 
    In the file, specify the parameters obtained during the [environment setup](#before-you-begin):
 
-   * `<API KEY>`: ID of the created API key.
-   * `<registry ID>`: ID of the {{ container-registry-name }} registry.
-   * `<SK Hybrid version>`: {{ sk-hybrid-name }} image version.
+   * `STATIC_API_KEY`: ID of the created API key.
+   * `<registry_ID>`: ID of the {{ container-registry-name }} registry.
+   * `<version>`: {{ sk-hybrid-name }} image version.
 
 1. Run the speech recognition application from the directory with the `docker-compose.yaml` file:
 
@@ -171,7 +171,7 @@ To check that the {{ sk-hybrid-name }} test installation works properly and eval
        --env ENVOY_TTS_PORT=9080 \
        --env USE_SSL=1 \
        --env RPS=1 \
-       cr.yandex/<registry ID>/tools/tts-tools:0.19
+       cr.yandex/<registry_ID>/tools/tts-tools:0.19
    ```
 
 1. Run speech recognition load testing on the VM instance with the application for speech recognition:
@@ -185,7 +185,7 @@ To check that the {{ sk-hybrid-name }} test installation works properly and eval
        --env ENVOY_PORT=8080 \
        --env USE_SSL=1 \
        --env ERRORS_THRESHOLD=0.1
-       cr.yandex/<registry ID>/tools/stt-tools:0.20
+       cr.yandex/<registry_ID>/tools/stt-tools:0.20
    ```
 
 If the applications are running properly, you will see messages with request processing time percentiles and other details output to the console, such as:
