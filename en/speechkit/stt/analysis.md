@@ -65,15 +65,15 @@ StreamingResponse(
 ...,
   classifier_update=RecognitionClassifierUpdate(
     window_type=RecognitionClassifierUpdate.LAST_UTTERANCE,
-    start_time_ms=<start of utterance>,
-    end_time_ms=<end of utterance>,
+    start_time_ms=<start_of_utterance>,
+    end_time_ms=<end_of_utterance>,
     classifier_result=RecognitionClassifierResult(
       classifier="insult",
       highlights=[
         PhraseHighlight(
           text="idiots",
-          start_time_ms=<word start time>,
-          end_time_ms=<word end time>
+          start_time_ms=<word_start_time>,
+          end_time_ms=<word_end_time>
         )
       ],
       labels=[]

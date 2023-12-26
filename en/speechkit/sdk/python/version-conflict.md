@@ -16,15 +16,15 @@ To deploy a virtual environment and install the package in it:
 1. Create a virtual environment in this directory:
 
    ```bash
-   python3 -m venv <environment name>
+   python3 -m venv <environment_name>
    ```
 
-   If you need to create an environment with a specific Python version, specify `python<version>` instead of `python3`, e.g., `python3.9`.
+   If you need to create an environment using a specific Python version, specify `python<version>` instead of `python3`, e.g., `python3.9`.
 
 1. Activate the environment.
 
    ```bash
-   source <environment name>/bin/activate
+   source <environment_name>/bin/activate
    ```
 
    You will see the environment name before the input line in the terminal.

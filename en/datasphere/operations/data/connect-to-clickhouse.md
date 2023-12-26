@@ -30,7 +30,7 @@ To connect to {{ mch-short-name }} cluster hosts:
       ```python
       import requests
       url = 'https://{host}:8443/?database={db}&query={query}'.format(
-              host='<ClickHouse_host_FQDN>',
+              host='<{{ CH }}_host_FQDN>',
               db='<database_name>',
               query='SELECT version()')
       auth = {
@@ -54,7 +54,7 @@ To connect to {{ mch-short-name }} cluster hosts:
       ```python
       %pip install clickhouse-driver
       from clickhouse_driver import Client
-      client = Client(host='<ClickHouse_host_FQDN>',
+      client = Client(host='<{{ CH }}_host_FQDN>',
                       user='<DB_user_name>',
                       password='<DB_user_password>',
                       database='<DB_name>',
@@ -69,3 +69,5 @@ To connect to {{ mch-short-name }} cluster hosts:
       ```
 
    {% endlist %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

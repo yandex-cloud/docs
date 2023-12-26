@@ -19,7 +19,7 @@ To deploy a project:
 1. [Deploy resources for the integration](#deploy-resources).
 1. [Check the performance of the CRUD API](#test-api).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -28,22 +28,22 @@ If you no longer need the created resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources for the integration includes:
-* A fee for the amount of stored data, the number of data transactions, and outgoing traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* A fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
-* A fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* A fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for the occupied data storage volume, number of operations with data, and outgoing traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
+* Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Configure the environment {#setup-environment}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. [Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install) utility to run a Linux environment.
    1. Run the Linux subsystem (by default, Ubuntu).
    1. Configure the environment as described in the Linux manual.
 
-- Linux
+- Linux {#linux}
 
    {% note info %}
 
@@ -111,7 +111,7 @@ The cost of resources for the integration includes:
    1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic parameters.
    1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
-- MacOS
+- macOS {#macos}
 
    1. Install the following utilities in the specified order using commands in the terminal:
       * [Homebrew](https://brew.sh):
@@ -244,7 +244,7 @@ A special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverle
 * API gateway.
 
 To prepare configuration files for {{ TF }}:
-1. Find out the name of the `ACTIVE` profile of the {{ yandex-cloud }} CLI command line interface. In the terminal, run the command:
+1. Find out the name of the `ACTIVE` profile of the {{ yandex-cloud }} CLI command line interface. In the terminal, run this command:
 
    ```bash
    yc config profile list
@@ -258,7 +258,7 @@ To prepare configuration files for {{ TF }}:
 
    Save the parameters:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md).
-   * `cloud-id`: ID of the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+   * `cloud-id`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID.
    * `folder-id`: ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. Create the `crud-api` folder and open it:
 
@@ -268,10 +268,10 @@ To prepare configuration files for {{ TF }}:
    ```
 
    Run all subsequent {{ TF }} commands in the `crud-api` folder.
-1. Create the file `main.tf` and copy the {{ TF }} module configuration there. Set the parameters of the resources to be created:
-   * `cloud_id`: cloud ID.
-   * `folder_id`: ID of the folder.
-   * `oauth_token`: OAuth-token.
+1. Create the `main.tf` file and copy the {{ TF }}module configuration there. Set the parameters of the resources to be created:
+   * `cloud_id`: Cloud ID.
+   * `folder_id`: Folder ID.
+   * `oauth_token`: OAuth token.
    * `database_connector_bucket`: Name of the bucket with the integration function.
 
    ```hcl
@@ -282,9 +282,9 @@ To prepare configuration files for {{ TF }}:
      oauth_token = "<OAuth token>"
      zone        = "{{ region-id }}-a"
    }
-
    module "crud-api" {
      source = "https://github.com/yandex-cloud-examples/yc-serverless-ydb-api"
+
      folder_id                 = local.folder_id
      api_name                  = "movies-api"
      database_name             = "movies-db"
@@ -545,7 +545,7 @@ To prepare configuration files for {{ TF }}:
 
 ## Deploy resources for the {#deploy-resources} integration.
 
-1. Initiate {{ TF }}. In the terminal, run the command:
+1. Initiate {{ TF }}. In the terminal, run this command:
 
    ```bash
    terraform init
@@ -566,7 +566,7 @@ To prepare configuration files for {{ TF }}:
 ## Check the performance of the created CRUD API {#test-api}
 
 To check the performance of the created CRUD API, run the following HTTP requests:
-1. Add movie details. In the terminal, run the command:
+1. Add movie details. In the terminal, run this command:
 
    ```bash
    curl \
@@ -631,10 +631,10 @@ To check the performance of the created CRUD API, run the following HTTP request
      --data-raw ''
    ```
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
-* Delete the resources created with {{ TF }}. In the terminal, run the command:
+To stop paying for the resources you created:
+* Delete the resources created with {{ TF }}. In the terminal, run this command:
 
    ```bash
    terraform destroy

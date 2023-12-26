@@ -9,7 +9,7 @@ description: "In this tutorial, you will learn how to create a billing account f
 
 ## Creating a billing account {#new-account}
 
-A billing account is required even if you are going to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../usage-grant.md).
+A billing account is required even if your plan is to use only free services. When creating your first billing account linked to your user account, you will get your [initial grant](../usage-grant.md).
 
 {% list tabs group=versions %}
 
@@ -72,9 +72,11 @@ Provide details to create a billing account:
 
    You will receive an email with further instructions at the email address specified in your user account. It may take up to three business days to activate your billing account.
 
-   If this is your first billing account in {{ yandex-cloud }}, it's created with the trial period enabled. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../../billing/operations/activate-commercial.md).
+   If this is your first {{ yandex-cloud }} billing account, it will be created with the trial period enabled. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../../billing/operations/activate-commercial.md).
 
 {% endlist %}
 
 
 {% include [start](../_includes/quickstart-qa-whats-next.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -38,3 +38,5 @@ You can track changes in the {{ yandex-cloud }} services and tools using our doc
 ## Container-based development {#containerization}
 
 * [{{ managed-k8s-full-name }}](../managed-kubernetes/changelog.md)
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

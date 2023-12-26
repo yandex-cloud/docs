@@ -38,8 +38,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите свой рабочий каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
      1. Введите имя бакета.
 
@@ -49,9 +49,9 @@
 
         {% endnote %}
 
-     1. Задайте максимальный размер `1 ГБ`.
-     1. Выберите доступ на чтение объектов `Публичный`.
-     1. Нажмите кнопку **Создать бакет** для завершения операции.
+     1. Задайте максимальный размер `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     1. Выберите доступ на чтение объектов `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
   1. Скопируйте HTML-код и вставьте его в файл `index.html`:
 
      {% cut "HTML-код" %}
@@ -104,13 +104,13 @@
      {% endcut %}
 
   1. Нажмите на имя созданного бакета.
-  1. Нажмите кнопку **Загрузить объекты**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. Укажите подготовленный ранее файл `index.html`.
-  1. Нажмите кнопку **Загрузить**.
-  1. В левой панели выберите вкладку **Веб-сайт**.
-  1. Выберите опцию **Хостинг**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
+  1. На панели слева выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Выберите опцию **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**.
   1. Укажите главную страницу сайта — `index.html`.
-  1. Нажмите кнопу **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 {% endlist %}
 
@@ -123,11 +123,11 @@
 - Консоль управления
 
   1. Перейдите в свой рабочий каталог.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта `serverless-shortener`.
-  1. Нажмите **Добавить роль** и выберите роль `editor`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Нажмите на имя созданного сервисного аккаунта.
 
      Сохраните идентификатор созданного сервисного аккаунта, он понадобится на следующих шагах.
@@ -143,20 +143,20 @@
 - Консоль управления
 
   1. Перейдите в свой рабочий каталог.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите кнопку **Создать базу данных**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Введите имя базы `for-serverless-shortener`.
-  1. Выберите тип базы данных **Serverless**.
-  1. Нажмите кнопку **Создать базу данных**.
+  1. Выберите тип базы данных **{{ ui-key.yacloud.ydb.forms.label_serverless-type }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
   1. Дождитесь запуска базы данных.
 
      В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию — статус изменится на `Running`.
   1. Нажмите на имя созданной БД.
 
-     Сохраните значения полей **Эндпоинт**, **База данных** и **Протокол** блока **{{ ydb-short-name }} эндпоинт**, они понадобится на следующих шагах.
-  1. В левой панели выберите вкладку **Навигация**.
-  1. Нажмите кнопку **SQL-запрос**.
-  1. Скопируйте SQL-запрос и вставьте его в поле **Запрос**:
+     Сохраните значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}**, оно понадобится на следующих шагах.
+  1. На панели слева выберите вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
+  1. Скопируйте SQL-запрос и вставьте его в поле **{{ ui-key.yacloud.ydb.sql.label_query }}**:
 
      ```sql
      CREATE TABLE links
@@ -167,7 +167,7 @@
      );
      ```
 
-  1. Нажмите кнопку **Выполнить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
 {% endlist %}
 
@@ -180,24 +180,25 @@
 - Консоль управления
 
   1. Перейдите в свой рабочий каталог.
-  1. В списке сервисов выберите **{{ sf-name }}**.
-  1. Нажмите кнопку **Создать функцию**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Введите имя `for-serverless-shortener`.
-  1. Нажмите кнопку **Создать**.
-  1. В выпадающем списке **Python** выберете среду выполнения `python37`.
-  1. Нажмите кнопку **Продолжить**.
-  1. Скопируйте код функции и вставьте его в файл `index.py` в блоке **Код функции**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В выпадающем списке **Python** выберите среду выполнения `python312`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. Скопируйте код функции и вставьте его в файл `index.py` в блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**.
 
      {% cut "Код функции" %}
 
      ```py
-     from kikimr.public.sdk.python import client as ydb
+     import ydb
 
      import urllib.parse
      import hashlib
      import base64
      import json
      import os
+
 
      def decode(event, body):
        # Тело запроса может быть закодировано.
@@ -219,13 +220,13 @@
        database = os.getenv("database")
        if endpoint is None or database is None:
          raise AssertionError("Нужно указать обе переменные окружения")
-       credentials = ydb.construct_credentials_from_environ()
+       credentials = ydb.iam.MetadataUrlCredentials()
        return ydb.DriverConfig(endpoint, database, credentials=credentials)
 
      def execute(config, query, params):
        with ydb.Driver(config) as driver:
          try:
-           driver.wait(timeout=5)
+           driver.wait(timeout=5, fail_fast=True)
          except TimeoutError:
            print("Connect failed to YDB")
            print("Last reported errors by discovery:")
@@ -234,7 +235,6 @@
 
          session = driver.table_client.session().create()
          prepared_query = session.prepare(query)
-
          return session.transaction(ydb.SerializableReadWrite()).execute(
            prepared_query,
            params,
@@ -263,6 +263,7 @@
          """
        params = {'$id': id}
        result_set = execute(config, query, params)
+
        if not result_set or not result_set[0].rows:
          return None
 
@@ -279,7 +280,6 @@
          # поэтому следует избавиться от них вызовом urllib.parse.unquote.
          insert_link(link_id, urllib.parse.unquote(body))
          return response(200, {'Content-Type': 'application/json'}, False, json.dumps({'url': f'{original_host}/r/{link_id}'}))
-
        return response(400, {}, False, 'В теле запроса отсутствует параметр url')
 
      def redirect(event):
@@ -314,7 +314,7 @@
 
      {% endcut %}
 
-  1. Скопируйте следующий текст и вставьте его в файл `requirements.txt` в блоке **Код функции**:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `requirements.txt` и вставьте в него следующий текст:
 
      ```txt
      ydb
@@ -324,13 +324,10 @@
   1. Задайте таймаут `5`.
   1. Выберите сервисный аккаунт `serverless-shortener`.
   1. Добавьте переменные окружения:
-     * `endpoint` — введите строку, сформированную из протокола и эндпоинта базы данных.
-
-       Например, если протокол `grpcs`, а эндпоинт `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, введите `{{ ydb.ep-serverless }}`.
-     * `database` — введите сохраненное ранее значение поля **База данных**.
-     * `USE_METADATA_CREDENTIALS` — введите `1`.
+     * `endpoint` — введите первую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
+     * `database` — введите вторую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-  1. В блоке **Общая информация** включите опцию **Публичная функция**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** включите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
 
   Сохраните идентификатор созданной функции, он понадобится на следующих шагах.
 
@@ -345,10 +342,10 @@
 - Консоль управления
 
   1. Перейдите в свой рабочий каталог.
-  1. В списке сервисов выберите **{{ api-gw-name }}**.
-  1. Нажмите кнопку **Создать API-шлюз**.
-  1. В поле **Имя** введите `for-serverless-shortener`.
-  1. Скопируйте и вставьте следующий код в блок **Спецификация**:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `for-serverless-shortener`.
+  1. Скопируйте и вставьте следующий код в блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**:
 
      {% cut "Спецификация" %}
 
@@ -362,8 +359,8 @@
          get:
            x-yc-apigateway-integration:
              type: object_storage
-             bucket: <имя_бакета> # <-- название бакета
-             object: index.html # <-- название html-файла
+             bucket: <имя_бакета> # <-- имя бакета
+             object: index.html # <-- имя html-файла
              presigned_redirect: false
              service_account: <service_account_id> # <-- ID сервисного аккаунта
            operationId: static
@@ -393,9 +390,10 @@
      {% endcut %}
 
      Внесите правки в код спецификации:
-     * Замените `<service_account_id>` идентификатором созданного ранее сервисного аккаунта.
-     * Замените `<function_id>` идентификатором созданной ранее функции.
-  1. Нажмите кнопку **Создать**.
+     * Замените `<service_account_id>` на идентификатор созданного ранее сервисного аккаунта.
+     * Замените `<function_id>` на идентификатор созданной ранее функции.
+     * Замените `<имя_бакета>` на имя созданного ранее бакета.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Нажмите на имя созданного API-шлюза.
   1. Скопируйте значение `url` из спецификации.
 
@@ -413,42 +411,11 @@
    Ниже отобразится сокращенная ссылка.
 1. Перейдите по сокращенной ссылке, должна открыться та же страница, что и по ссылке до сокращения.
 
-## Удалите компоненты сервиса {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы удалить все созданные компоненты сервиса:
-
-{% list tabs %}
-
-- Консоль управления
-
-  1. Удалите API-шлюз:
-     1. Перейдите в свой рабочий каталог.
-     1. В списке сервисов выберите **{{ api-gw-name }}**.
-     1. Справа от имени созданного API-шлюза нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-  1. Удалите функцию:
-     1. Перейдите в свой рабочий каталог.
-     1. В списке сервисов выберите **{{ sf-name }}**.
-     1. Справа от имени созданной функции нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-  1. Удалите БД:
-     1. Перейдите в свой рабочий каталог.
-     1. В списке сервисов выберите **{{ ydb-name }}**.
-     1. Справа от имени созданной базы данных нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-  1. Удалите сервисный аккаунт:
-     1. Перейдите в свой рабочий каталог.
-     1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-     1. Справа от имени созданного сервисного аккаунта нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-  1. Удалите бакет:
-     1. Перейдите в свой рабочий каталог.
-     1. Выберите сервис **{{ objstorage-name }}**.
-     1. Нажмите на имя созданного бакета.
-     1. Справа от имени созданного объекта нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-     1. Вернитесь на страницу **Бакеты**.
-     1. Справа от имени созданного бакета нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
-     1. Нажмите кнопку **Удалить**.
-
-{% endlist %}
+Чтобы перестать платить за созданные ресурсы:
+1. [Удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md).
+1. [Удалите функцию](../../functions/operations/function/function-delete.md).
+1. [Удалите базу данных](../../ydb/operations/manage-databases.md#delete-db).
+1. [Удалите бакет](../../storage/operations/buckets/delete.md).
+1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).

@@ -8,7 +8,7 @@ This section describes the {{ yandex-cloud }} service metrics that are automatic
 
 The name of the metric is written in the `name` label.
 
-## Service: {{ alb-full-name }} {#alb}
+## {{ alb-full-name }} service {#alb}
 
 {% include [alb](../../_includes/monitoring/metrics-ref/alb.md) %}
 
@@ -47,3 +47,5 @@ Read more about the service in the [{{ alb-name }}](../../application-load-balan
 
 
 {% include [monitoring.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

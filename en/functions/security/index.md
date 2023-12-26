@@ -1,18 +1,18 @@
 ---
 title: "Access management in {{ sf-name }}"
-description: "Access management in {{ sf-name }}, a service for running applications without creating and maintaining VM instances. This section describes what resources you can assign a role for and what roles the service supports."
+description: "Access management in {{ sf-name }}, a service for running applications without creating and maintaining VM instances. This section describes the resources for which you can assign a role and the roles existing in the service."
 ---
 
 # Access management in {{ sf-name }}
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and [function](../concepts/function.md). Roles assigned to a cloud or folder also affect the functions that are located there.
 
@@ -35,8 +35,6 @@ The list below shows all roles that are considered when verifying access rights 
 
 
 {% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 ### Primitive roles {#primitive-roles}
 

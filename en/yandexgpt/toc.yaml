@@ -16,9 +16,11 @@ items:
         href: operations/finetune.md
       - name: Sending an asynchronous request
         href: operations/async-request.md
+      - name: Disabling request logging
+        href: operations/disable-logging.md
   - name: Tutorials
     items:
-      - name: Retraining a {{ yagpt-name }} model
+      - name: Tuning a {{ yagpt-name }} model
         href: tutorials/yagpt-tuning.md
   - name: Concepts
     items:

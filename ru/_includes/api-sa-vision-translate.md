@@ -64,15 +64,15 @@
       -H "Authorization: Bearer <IAM-токен>" \
       -d '{
             "folderId": "<идентификатор_каталога>",
-            "name": "sa-api",
+            "name": "<имя_сервисного_аккаунта>",
             "description": "service account for api"
       }' \
       https://iam.{{ api-host }}/iam/v1/serviceAccounts
    ```
    Где:
    * `<IAM-токен>` — действующий токен авторизации;
-   * `folderId` — идентификатор каталога, в котором размещены сервисы;
-   * `name` — имя сервисного аккаунта в формате:
+   * `<идентификатор_каталога>` — идентификатор каталога, в котором размещены сервисы;
+   * `<имя_сервисного_аккаунта>` — имя сервисного аккаунта, например `sa-api`. Требования к формату имени:
 
       {% include [name-format](./name-format.md) %}
 
@@ -102,8 +102,7 @@
       --subject serviceAccount:<идентификатор_сервисного_аккаунта>
    ```
 
-   Где:
-   <идентификатор_роли> — `ai.translate.user` для {{ translate-full-name }} или `ai.vision.user` для {{ vision-full-name }}.
+   Где `--role` — `ai.translate.user` для {{ translate-full-name }} или `ai.vision.user` для {{ vision-full-name }}.
 
 - API
 
@@ -130,9 +129,10 @@
    ```
 
    Где:
-   * `<IAM-токен>` — действующий токен авторизации;
-   * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта `sa-api`;
+
+   * `<IAM-токен>` — действующий токен авторизации.
    * `<идентификатор_роли>` — `ai.translate.user` для {{ translate-full-name }} или `ai.vision.user` для {{ vision-full-name }}.
+   * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта `sa-api`.
 
    Также назначить сервисному аккаунту роль можно с помощью вызова gRPC [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
 
@@ -168,7 +168,7 @@
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
-      | aje6o61dvog2h6g9a33s | sa-api           |                               |
+      | aje6o61dvog2******** | sa-api           |                               |
       +----------------------+------------------+-------------------------------+
       ```
 
@@ -182,10 +182,10 @@
 
       ```
       api_key:
-        id: ajeke74kbp5bfq7m6ka2
+        id: ajeke74kbp5b********
         service_account_id: ajepg0mjt06********
         created_at: "2019-04-09T08:41:27Z"
-      secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHsssT5ICtm
+      secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHs********
       ```
 
       О том, как передать ключ в запросе, читайте в документации [сервисов](../iam/concepts/authorization/api-key.md#supported-services), которые поддерживают такой способ авторизации.
@@ -203,7 +203,8 @@
    ```
 
    Где:
-   * `<IAM-токен>` — действующий токен авторизации;
+
+   * `<IAM-токен>` — действующий токен авторизации.
    * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта `sa-api`.
 
    Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../iam/api-ref/grpc/api_key_service.md#Create).

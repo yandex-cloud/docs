@@ -31,15 +31,15 @@ The cost of CRUD API resources includes:
 
 ## Configure the environment {#setup-environment}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. [Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install) utility to run a Linux environment.
    1. Run the Linux subsystem (by default, Ubuntu).
    1. Configure the environment as described in the Linux manual.
 
-- Linux
+- Linux {#linux}
 
    {% note info %}
 
@@ -128,7 +128,7 @@ The cost of CRUD API resources includes:
       docker run hello-world
       ```
 
-- MacOS
+- macOS {#macos}
 
    1. Install the following utilities in the specified order using commands in the terminal:
       * [Homebrew](https://brew.sh):
@@ -229,7 +229,7 @@ The cost of CRUD API resources includes:
 
 1. Copy the parameters to [provider.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/provider.tf):
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md).
-   * `cloud-id`: ID of the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+   * `cloud-id`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID.
    * `folder-id`: ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. Export the folder ID to the environment variable:
 
@@ -499,7 +499,7 @@ Build the application as a Docker image and run it in [{{ serverless-containers-
    * `execution-timeout`: Execution timeout.
    * `concurrency`: Maximum number of concurrent container calls. If the number of requests to a container exceeds the value of the `concurrency` parameter, the service scales the container up by launching additional copies.
    * `environment`: Environment variables. The Document API endpoint of a database is passed to the application via the `DOCUMENT_API_ENDPOINT` environment variable.
-   * `service-account-id`: ID of your service account.
+   * `service-account-id`: Service account ID.
    * `image`: Repository name.
 
 ### Deploy the API in {{ api-gw-name }} {#deploy-api-gw}
@@ -589,11 +589,11 @@ terraform destroy
 
 Confirm resource deletion: type `yes` in the terminal and press **Enter**.
 
-#### For more information, see also {#see-also}
+#### See also {#see-also}
 
-* [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md)
-* [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }})
-* [Document table](../../ydb/operations/schema.md)
-* [X-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md)
-* [{#T}](../../serverless-containers/concepts/logs.md)
-* [{#T}](../../serverless-containers/operations/monitoring.md)
+* [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }}).
+* [Document table](../../ydb/operations/schema.md).
+* [X-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md).
+* [{#T}](../../serverless-containers/concepts/logs.md).
+* [{#T}](../../serverless-containers/operations/monitoring.md).

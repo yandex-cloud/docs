@@ -58,7 +58,8 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
 {{ speechsense-name }} uses the [gRPC API](api-ref/grpc/index.md) to upload data.
 
-1. [Create a service account](../iam/operations/sa/create.md) and add it to your space with the `speech-sense.data.editor` [role](../iam/concepts/access-control/roles.md). This way, the service account will be authorized to upload data to the connection you created. To learn more about the roles available in the service, see [{#T}](security/index.md).
+1. [Create a service account](../iam/operations/sa/create.md) with the `speech-sense.data.editor` role. This will allow the service account to upload data to the connection you created. To learn more about the roles available in the service, see [{#T}](security/index.md).
+1. [Add the service account to the namespace](operations/space/add-user-to-space.md) with the `{{ roles-speechsense-editor }}` role.
 1. [Create an API key](../iam/operations/api-key/create.md) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
 1. [Upload your data](operations/data/upload-data.md) using a Python data transfer script. You can send your entire audio recording as one message or in snippets.
 

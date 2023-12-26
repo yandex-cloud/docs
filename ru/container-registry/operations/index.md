@@ -52,6 +52,10 @@ description: "Пошаговые инструкции по работе с Docke
 
 * [{#T}](scanning-docker-image.md)
 
+## Создание триггера для реестра {#trigger}
+
+* [{#T}](trigger-create.md)
+
 ## Работа с ролями {#roles}
 
 * [{#T}](roles/grant.md)

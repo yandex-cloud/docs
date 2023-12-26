@@ -88,3 +88,5 @@ Services at the Preview stage are available only to some users. If you want to u
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

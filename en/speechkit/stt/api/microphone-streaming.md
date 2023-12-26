@@ -1,6 +1,6 @@
 # Microphone speech streaming recognition using API v3
 
-Below, we provide an example of streaming recognition of microphone-recorded speech. Speech is recognized in real time using {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/).
+Below, we provide an example of streaming recognition of microphone-recorded speech. Speech is recognized in real time using the {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/).
 
 This example uses the following parameters:
 
@@ -50,7 +50,7 @@ Authentication is performed under a service account using an [API key](../../../
    1. Go to the directory hosting the {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
 
       ```bash
-      cd <path to cloudapi directory> && \
+      cd <path_to_cloudapi_directory> && \
       mkdir output && \
       python -m grpc_tools.protoc -I . -I third_party/googleapis \
          --python_out=output \

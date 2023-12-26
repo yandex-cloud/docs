@@ -123,7 +123,7 @@ No physical invoice is provided, but you can generate and print it out from the 
 
 #### I need a bilateral contract rather than an offer. Can I have it?
 
-Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the signature terms.
+Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms.
 
 #### How do I get invoiced?
 
@@ -138,3 +138,5 @@ Start exploring {{ yandex-cloud }} services.
 {% include [quickstart-all-no-billing](../_includes/quickstart-all-no-billing.md) %}
 
 
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

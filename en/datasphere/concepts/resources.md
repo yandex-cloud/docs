@@ -14,5 +14,8 @@ You can use resources in multiple projects without recreating them. To make a re
 * [Datasets](dataset.md)
 * [S3 connectors](s3-connector.md)
 * [Nodes and aliases](deploy/index.md#python-nodes)
+* [Data Proc templates](data-proc-template.md)
+* [Models](models/index.md)
+* [Fine-tuned foundation models](models/tuned-models.md)
 
 For more information about the {{ ml-platform-name }} resource model, see [{#T}](resource-model.md).

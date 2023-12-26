@@ -9,6 +9,8 @@ description: "Access management in {{ api-gw-full-name }}, an API gateway servic
 
 To allow access to {{ api-gw-name }} resources (API gateways), assign the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md) the required roles from the list below. Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
 
+Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
+
 {% note info %}
 
 For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
@@ -36,8 +38,6 @@ The list below shows all roles that are considered when verifying access rights 
 {% include [api-gateway-websocket-writer](../../_includes/roles-api-gateway-websocket-writer.md) %}
 
 {% include [api-gateway-admin](../../_includes/roles-api-gateway-admin.md) %}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 ### Primitive roles {#primitive-roles}
 

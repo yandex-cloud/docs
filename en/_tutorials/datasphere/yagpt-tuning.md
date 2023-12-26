@@ -2,7 +2,7 @@ In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can tune the [
 
 {% note info %}
 
-Foundation model retraining is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+Foundation model tuning is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -12,11 +12,11 @@ Foundation model retraining is at the [Preview](../../overview/concepts/launch-s
 
 {% endnote %}
 
-To retrain the {{ yagpt-name }} model:
+To tune the {{ yagpt-name }} model:
 
 1. [Prepare your infrastructure](#infra).
 1. [Prepare data for model training](#create-data).
-1. [Retrain the model](#model-tuning).
+1. [Tune the model](#model-tuning).
 1. [Test the model](#model-test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -61,7 +61,7 @@ You can send requests to a fine-tuned model through the {{ ml-platform-name }} i
 
 #### Add the service account to a project {#sa-to-project}
 
-To enable the service account to access the retrained model from the {{ ml-platform-name }} project code, add it to the list of project members.
+To enable the service account to access the fine-tuned model from the {{ ml-platform-name }} project code, add it to the list of project members.
 
 {% list tabs %}
 
@@ -75,27 +75,23 @@ To enable the service account to access the retrained model from the {{ ml-platf
 
 ## Prepare data for model training {#create-data}
 
-Data required for model retraining should be saved to a JSON file as pairs of UTF-8 encoded [queries and reference responses](../../datasphere/concepts/models/foundation-models.md#yagpt-tuning). To successfully run model retraining, you need at least 10 pairs.
+Data required for model tuning should be saved to a JSON file as pairs of UTF-8 encoded [queries and reference responses](../../datasphere/concepts/models/foundation-models.md#yagpt-tuning). To successfully run model tuning, you need at least 10 pairs.
 
 File content example:
 
 ```json
 [
 {
-    "request": "What is {{ ml-platform-name }}",
-    "response": "{{ ml-platform-name }} is an ML development environment where you can perform computation and train and deploy models."
+    "request": "happy new year!",
+    "response": "Happy New Year!"
 },
 {
-    "request": "How to manage costs in {{ ml-platform-name }}",
-    "response": "To manage costs, you can set up budgets in {{ billing-name }} or set a consumption threshold for your project. Consumption thresholds can be set in the form of your project balance, a limit on the number of units consumed per hour, or a limit for each computation."
+    "request": "goot prodact, recomend it to everibody!",
+    "response": "Good product, recommend it to everybody!"
 },
 {
-    "request": "Why does {{ ml-platform-name }} need a service account",
-    "response": "Service accounts allow programs to perform various actions with {{ yandex-cloud }} services and resources. To enable {{ ml-platform-name }} to perform actions in other platform services, e.g., create a {{ dataproc-name }} cluster, add a service account to your project settings."
-},
-{
-    "request": "What is a checkpoint",
-    "response": "A checkpoint is a separate type of {{ ml-platform-name }} {{ ds }} project resources which stores the state of the variables, the interpreter, and cell outputs."
+    "request": "i have a komplaint about theirs service!",
+    "response": "I have a complaint about their service!"
 }
 …
 ]
@@ -113,16 +109,16 @@ File content example:
 
 1. In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a model name, e.g., `my-first-model`.
 
-1. Set **{{ ui-key.yc-ui-datasphere.foundation-model.learning-rate }}**. The learning rate determines the step size at each iteration when searching for the optimal solution. The higher the value, the faster the model will converge, but also the higher the risk of model retraining.
+1. Set **{{ ui-key.yc-ui-datasphere.foundation-model.learning-rate }}**. The learning rate determines the step size at each iteration when searching for the optimal solution. The higher the value, the faster the model will converge, but also the higher the risk of model tuning.
 
 1. Under **{{ ui-key.yc-ui-datasphere.foundation-model.data-for-tuning }}**:
 
     * In the **{{ ui-key.yc-ui-datasphere.foundation-model.samples-file }}** field, attach your JSON file with query/response pairs.
-    * In the **{{ ui-key.yc-ui-datasphere.foundation-model.instruction }}** field, describe the task conditions, context, and possible limitations, or set the response style. This step is optional; however, after you run retraining, you will not be able to change the instruction. The instruction will be part of the retrained model.
+    * In the **{{ ui-key.yc-ui-datasphere.foundation-model.instruction }}** field, describe the task conditions, context, and possible limitations, or set the response style. This step is optional; however, after you run tuning, you will not be able to change the instruction. The instruction will be part of the fine-tuned model.
 
-1. Click **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** and wait for the model to be retrained.
+1. Click **{{ ui-key.yc-ui-datasphere.foundation-model.start-tuning }}** and wait for the model to be tuned.
 
-1. To check the status of your retrained model:
+1. To check the status of your fine-tuned model:
 
     * {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
     * In the list of available project resources, select **{{ ui-key.yc-ui-datasphere.common.models }}**.
@@ -142,7 +138,7 @@ File content example:
 
     1. In the **{{ ui-key.yc-ui-datasphere.common.projects-resources }}** tab, select **{{ ui-key.yc-ui-datasphere.common.tuned-foundation-models }}**.
 
-    1. Select your retrained model and click **{{ ui-key.yc-ui-datasphere.foundation-model.test-in-playground }}**.
+    1. Select your fine-tuned model and click **{{ ui-key.yc-ui-datasphere.foundation-model.test-in-playground }}**.
 
     1. Under **{{ ui-key.yc-ui-datasphere.yagpt-playground.request.title }}**, specify your request to the model.
 
@@ -156,7 +152,7 @@ File content example:
    import requests
    req = {
    	    "model": "general",
-   	    "instruction_uri" : "ds://<ID_of_retrained_model>",
+   	    "instruction_uri" : "ds://<ID_of_fine-tuned_model>",
    	    "request_text": "<text_of_request>",
    	    "generation_options": {
    	    "max_tokens": 1000,
@@ -171,13 +167,13 @@ File content example:
 
     Where:
 
-    * `instruction_uri`: Retrained model ID. You can [find](#model-tuning) it in the list of available project resources.
+    * `instruction_uri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
     * `request_text`: Text of your request.
     * `max_tokens`: Maximum number of characters per model response.
     * `temperature`: Temperature. The higher the value, the more unpredictable the result.
     * `Authorization`: [IAM token of the service account](../../iam/operations/iam-token/create-for-sa.md).
 
-   For more information about parameters of requests to retrained models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/api-ref/).
+   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/api-ref/).
 
 {% endlist %}
 

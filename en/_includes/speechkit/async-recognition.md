@@ -46,9 +46,9 @@
    ```text
    {
       "done": false,
-      "id": "e03sup6d5h1qr574ht99",
+      "id": "e03sup6d5h1q********",
       "createdAt": "2019-04-21T22:49:29Z",
-      "createdBy": "ajes08feato88ehbbhqq",
+      "createdBy": "ajes08feato8********",
       "modifiedAt": "2019-04-21T22:49:29Z"
    }
    ```
@@ -82,9 +82,9 @@
             }
          ]
       },
-      "id": "e03sup6d5h1qr574ht99",
+      "id": "e03sup6d5h1q********",
       "createdAt": "2019-04-21T22:49:29Z",
-      "createdBy": "ajes08feato88ehbbhqq",
+      "createdBy": "ajes08feato8********",
       "modifiedAt": "2019-04-21T22:49:36Z"
    }
    ```
