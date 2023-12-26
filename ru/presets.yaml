@@ -503,6 +503,7 @@ default:
   roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
   roles-speechsense-editor: Editor
+  roles-speechsense-viewer: Viewer
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
   roles-vision-user: ai.vision.user
@@ -4958,7 +4959,6 @@ default:
             label_data-transfer: Data Transfer
             label_data-transfer_ru: Data Transfer
             label_datalens: DataLens
-            label_datasphere: DataSphere
             label_dns: Cloud DNS
             label_iot-core: IoT Core
             label_kms: Key Management Service
@@ -5985,6 +5985,7 @@ default:
           button_action-delete: Удалить
           button_action-permissions: ACL объекта
           button_create: Создать папку
+          button_empty-create: Загрузить объекты
           button_gr-delete: Удалить
           button_permissions: ACL бакета
           button_upload: Загрузить
@@ -7286,7 +7287,6 @@ default:
         add-to-project: Добавить в проект
         alias: Алиас
         apply: Применить
-        backend: Бэкенд
         billing: Биллинг
         bucket: Бакет
         build: Собрать
@@ -7433,8 +7433,6 @@ default:
           name: Имя
       new-s3-page:
         access-key-id: Идентификатор статического ключа доступа
-        backend-geesefs: GeeseFS
-        backend-s3fs: s3fs
         mode: Режим работы
         mount-name: Имя раздела при подключении
         static-access-key: Статический ключ доступа

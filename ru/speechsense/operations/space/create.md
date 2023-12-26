@@ -1,6 +1,6 @@
 # Создать пространство
 
-Перед началом работы [убедитесь](../../../iam/operations/roles/get-assigned-roles.md), что у вашего аккаунта есть роль `speech-sense.spaces.creator` для создания пространства.
+Перед началом работы [убедитесь](../../../iam/operations/roles/get-assigned-roles.md), что у вашего аккаунта есть роль `speech-sense.spaces.creator` для создания [пространства](../../concepts/resources-hierarchy.md#space).
 
 Чтобы создать пространство:
 

@@ -108,7 +108,7 @@ The example uses the following parameters:
          )
 
          pattern_based_synthesis_model = model_repository.synthesis_model()
-         pattern_based_synthesis_model.voice = '<voice ID>'
+         pattern_based_synthesis_model.voice = '<voice_ID>'
 
          # Performing speech synthesis and creating an audio with results.
          result = pattern_based_synthesis_model.synthesize_template(text_template, audio_template, raw_format=False)

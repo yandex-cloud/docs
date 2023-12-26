@@ -21,6 +21,7 @@
 | Maximum number of rules per security group | 50 |
 | Maximum number of CIDRs per rule | 50 |
 | Size of the DNS server IP address list | 100 characters |
+| Maximum number of DNS requests to DNS server (second address listed in the [subnet](../vpc/concepts/network.md#subnet)) | 1,000 requests per second |
 
 ^*^ All TCP/IP and UDP connections opened and half-opened within 180 seconds are taken into account. If there are no data or keep-alive packets in the connection during this time, it is forcibly closed.
 

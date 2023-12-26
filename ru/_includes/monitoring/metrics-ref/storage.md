@@ -2,9 +2,9 @@
 
 Метка | Значение
 ----|----
-service | Идентификатор сервиса: `storage`.
-resource_id |  Имя [бакета](../../../storage/concepts/bucket.md). 
-resource_type | Тип ресурса: `bucket`.
+service | Идентификатор сервиса: `storage`
+resource_id |  Имя [бакета](../../../storage/concepts/bucket.md)
+resource_type | Тип ресурса: `bucket`
 
 Метрики сервиса:
 

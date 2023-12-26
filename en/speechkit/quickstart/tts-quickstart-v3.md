@@ -1,8 +1,8 @@
 # How to synthesize speech in {{ speechkit-short-name }} API v3
 
-In this section, you will learn how to synthesize speech from text using {{ speechkit-short-name }} [API v3](../tts-v3/api-ref/grpc/) (gRPC).
+In this section, you will learn how to synthesize speech from text using the {{ speechkit-short-name }} [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
-To use the API, the `grpcurl` utility is required.
+You will need the `grpcurl` utility to use the API.
 
 ## Getting started {#before-you-begin}
 
@@ -15,7 +15,7 @@ To use the API, the `grpcurl` utility is required.
 
 {% note info %}
 
-You can implement speech synthesis in {{ speechkit-short-name }} API v3 both using the specified utilities and in other ways.
+You can implement speech synthesis in the {{ speechkit-short-name }} API v3 either using the mentioned utilities or other methods.
 
 {% endnote %}
 
@@ -52,8 +52,8 @@ To synthesize speech from text with [TTS markup](../tts/markup/tts-markup.md) to
 1. Run the following commands:
 
    ```bash
-   export FOLDER_ID=<folder ID>
-   export IAM_TOKEN=<IAM token>
+   export FOLDER_ID=<folder_ID>
+   export IAM_TOKEN=<IAM_token>
    jq . -c tts_req.json | \
    grpcurl -H "authorization: Bearer ${IAM_TOKEN}" \
            -H "x-folder-id: ${FOLDER_ID}" \

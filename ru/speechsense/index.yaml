@@ -6,7 +6,7 @@ description:
   - >-
     В основе Yandex SpeechSense лежат ML-технологии Yandex Cloud. Yandex
     SpeechKit распознает речь, соберет статистику диалога и определит ключевые
-    слова, а YandexGPT поможет написать резюме.
+    слова, а YandexGPT API поможет написать резюме.
 meta:
   title: Yandex SpeechSense
 links:

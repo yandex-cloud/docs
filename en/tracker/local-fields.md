@@ -4,7 +4,7 @@ If you need to add a new issue field that is not available in {{ tracker-name }}
 
 {% note info %}
 
-You can see the list of existing global fields on the [Settings {{ tracker-name }}]({{ link-admin-fields }}) page.
+You can see the list of existing global fields on the [{{ tracker-name }} settings]({{ link-admin-fields }}) page.
 
 {% endnote %}
 
@@ -22,18 +22,25 @@ By default, [only the queue owner](manager/queue-access.md) can configure a queu
 
 1. In the top-right corner of the page, click ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **Queue fields** tab.
+1. Go to the **Queue fields** tab.
 
 1. Click **Create field**.
 
 1. Select the field type and click **Continue**.
 
 1. Set parameters for a new field:
-   * **Category**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
+   * **Category** All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field:
+      * System
+      * Time tracking
+      * Agile
+      * Email
+      * SLA
 
-   * **Name in Russian**. Try to give short and concise names to your fields.
+      For more information about the fields and categories, see [Standard issue fields](user/create-param.md#default-fields).
 
-   * **Name in English**. This name is shown in the English interface of {{ tracker-name }}.
+   * **Name**: Try to give short and concise names to your fields.
+
+   * **Name in English**: This name is shown in the English interface of {{ tracker-name }}.
 
    * **Type of number** (only for fields with the <q>Number</q> type).
 

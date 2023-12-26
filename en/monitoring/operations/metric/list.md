@@ -55,3 +55,5 @@ Where:
 
 * `resource_id`: Resource ID.
 * `metrics`: List of metrics.
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

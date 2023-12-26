@@ -20,7 +20,7 @@ A pricing unit means a single billing unit. The cost of a billing unit is differ
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of prompt and response tokens and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on these parameters:
+Text generation cost is based on the overall number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on these parameters:
 
 * Model that is requested.
 * Model working mode.

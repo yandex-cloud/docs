@@ -26,7 +26,7 @@ A template consists of a pattern phrase audio recording and its text with markup
 Template parameter restrictions are as follows:
 
 * A phrase for synthesis must not be longer than {{ tts-v3-time }} (the API limit), including the variable part. A phrase ideal for perception is under 16 seconds, as in a regular conversation.
-* Pattern length: not more than {{ tts-v3-count }} of normalized text.
+* The pattern must not be longer than {{ tts-v3-count }} of normalized text.
 
 {% note warning %}
 
@@ -99,8 +99,8 @@ Create and run a client app to send your data to the API:
       import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
       def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
-          template = "<pattern phrase with markup>"
-          # Pattern example: 'This is to remind you that your kid has an appointment for {treatment name} treatment session tomorrow at {time}.'
+          template = "<pattern_phrase_with_markup>"
+          # Pattern example: 'This is to remind you that your child has an appointment for {treatment name} tomorrow at {time}.'
           request = tts_pb2.UtteranceSynthesisRequest(
               output_audio_spec=tts_pb2.AudioFormatOptions(
                   container_audio=tts_pb2.ContainerAudio(
@@ -140,7 +140,7 @@ Create and run a client app to send your data to the API:
                                   # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
                                   tts_pb2.TextVariable(
                                       variable_name = "<template_variable_name>",
-                                      variable_value = "<text of the phrase's variable part in the template audio file>"
+                                      variable_value = "<text_of_the_phrase's_variable_part_in_the_template_audio_file>"
                                   )
                               ]
                           ),

@@ -9,6 +9,8 @@ Access to {{ ml-platform-full-name }} is regulated by assigning permissions in a
 
 The list of operations available to {{ ml-platform-short-name }} users is determined by the roles they have. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md). For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
+Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
+
 ## Which resources you can assign roles to {#resources}
 
 Access control is implemented at the level of [communities](../concepts/community.md) and [projects](../concepts/project.md). You can also grant resource access to all community users. The access rights granted apply to the entire hierarchy of resources. For example, if you assign a user a role for a {{ ml-platform-name }} project, all permissions are also valid for resources within this project. Learn more about [relationships between {{ ml-platform-name }} resources](../concepts/resource-model.md).

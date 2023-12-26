@@ -8,7 +8,6 @@ description: "Различные сценарии использования {{ 
 * [{#T}](run-docker-on-vm.md)
 
 
-* [{#T}](trigger-create.md)
 * [{#T}](image-auto-scan.md)
 
 

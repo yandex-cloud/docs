@@ -317,3 +317,5 @@ The connection ID and the entry point are available on the connection page in th
    ```
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

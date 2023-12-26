@@ -9,7 +9,7 @@ description: "In this tutorial, you will learn how to create a billing account f
 
 ## Creating a billing account {#new-account}
 
-A billing account is required even if you are going to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](../usage-grant.md).
+A billing account is required even if your plan is to use only free services. When creating your first billing account linked to your user account, you will get your [initial grant](../usage-grant.md).
 
 {% list tabs group=versions %}
 
@@ -53,3 +53,5 @@ Provide details to create a billing account:
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% include [start](../_includes/quickstart-qa-whats-next.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

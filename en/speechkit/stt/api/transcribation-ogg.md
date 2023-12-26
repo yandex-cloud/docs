@@ -1,6 +1,6 @@
 ---
 title: "Asynchronous OggOpus audio file recognition in {{ speechkit-full-name }}"
-description: "Follow this guide for asynchronous OggOpus audio file recognition."
+description: "Follow this guide to use asynchronous OggOpus audio file recognition."
 ---
 
 # Asynchronously recognizing audio files in OggOpus format
@@ -81,9 +81,9 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
       ```text
       {
           "done": false,
-          "id": "e03sup6d5h1qr574ht99",
+          "id": "e03sup6d5h1q********",
           "createdAt": "2019-04-21T22:49:29Z",
-          "createdBy": "ajes08feato88ehbbhqq",
+          "createdBy": "ajes08feato8********",
           "modifiedAt": "2019-04-21T22:49:29Z"
       }
       ```
@@ -117,9 +117,9 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
          }
         ]
        },
-       "id": "e03sup6d5h1qr574ht99",
+       "id": "e03sup6d5h1q********",
        "createdAt": "2019-04-21T22:49:29Z",
-       "createdBy": "ajes08feato88ehbbhqq",
+       "createdBy": "ajes08feato8********",
        "modifiedAt": "2019-04-21T22:49:36Z"
       }
       ```

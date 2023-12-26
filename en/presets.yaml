@@ -501,6 +501,7 @@ default:
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
+  roles-speechsense-editor: Editor
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
   roles-vision-user: ai.vision.user
@@ -614,6 +615,7 @@ default:
   sf-name: Cloud Functions
   sf-short-name: Cloud Functions
   sf-url: functions.yandexcloud.net
+  sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
@@ -4951,7 +4953,6 @@ default:
             label_data-transfer: Data Transfer
             label_data-transfer_ru: Data Transfer
             label_datalens: DataLens
-            label_datasphere: DataSphere
             label_dns: Cloud DNS
             label_iot-core: IoT Core
             label_kms: Key Management Service
@@ -5978,6 +5979,7 @@ default:
           button_action-delete: Delete
           button_action-permissions: Object ACL
           button_create: Create folder
+          button_empty-create: Upload objects
           button_gr-delete: Delete
           button_permissions: Bucket ACL
           button_upload: Upload
@@ -7281,7 +7283,6 @@ default:
         add-to-project: Add to project
         alias: Alias
         apply: Apply
-        backend: Backend
         billing: Billing
         bucket: Bucket
         build: Build
@@ -7428,8 +7429,6 @@ default:
           name: Name
       new-s3-page:
         access-key-id: Static access key ID
-        backend-geesefs: GeeseFS
-        backend-s3fs: s3fs
         mode: Mode
         mount-name: Mount name
         static-access-key: Static access key

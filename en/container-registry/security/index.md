@@ -1,20 +1,20 @@
 ---
 title: "Access management in {{ container-registry-full-name }}"
-description: "Access management in {{ container-registry-full-name }}, a service for Docker image storage and distribution. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ container-registry-full-name }}, a service for Docker image storage and distribution. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ container-registry-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#choosing-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
-You can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), a [registry](../concepts/registry.md), or a [repository](../concepts/repository.md). These roles also apply to nested resources.
+You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [registry](../concepts/registry.md), or [repository](../concepts/repository.md). These roles also apply to nested resources.
 
 ## Which roles exist in the service {#roles-list}
 
@@ -32,8 +32,6 @@ You can assign a role to a [cloud](../../resource-manager/concepts/resources-hie
 | `container-registry.images.pusher` | Allows you to manage Docker images and view information about service resources (registries, Docker images, and repositories). |
 | `container-registry.images.puller` | Allows you to download Docker images and view information about service resources (registries, Docker images, and repositories). |
 | `container-registry.images.scanner` | Allows you to scan Docker images for vulnerabilities and view information about service resources (registries, Docker images, and repositories). |
-| `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
-| `resource-manager.clouds.member` | Role everyone requires to access cloud resources, except for [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 

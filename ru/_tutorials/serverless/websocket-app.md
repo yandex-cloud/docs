@@ -219,7 +219,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 1. Сохраните токен в переменную `TG_BOT_TOKEN`:
 
     ```bash
-    echo "export TG_BOT_TOKEN=<токен>" >> ~/.bashrc && . ~/.bashrc  
+    echo "export TG_BOT_TOKEN=<токен>" >> ~/.bashrc && . ~/.bashrc
     echo $TG_BOT_TOKEN
     ```
 
@@ -286,7 +286,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
      --service-account-name sls-deploy \
      --output sls-deploy.sa
    
-   echo "export SA_KEY_FILE=$PWD/sls-deploy.sa" >> ~/.bashrc && . ~/.bashrc  
+   echo "export SA_KEY_FILE=$PWD/sls-deploy.sa" >> ~/.bashrc && . ~/.bashrc
    echo $SA_KEY_FILE
    ```
 
