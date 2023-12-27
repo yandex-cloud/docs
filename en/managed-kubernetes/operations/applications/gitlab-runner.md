@@ -58,7 +58,7 @@
      --namespace <namespace> \
      --create-namespace \
      --set gitlabDomain=<VM_public_IP_or_{{ GL }}_instance_FQDN> \
-     --set runnerToken=<previously_retrieved_registration_token> \
+     --set runnerRegistrationToken=<previously_retrieved_registration_token> \
      gitlab-runner ./gitlab-runner/
    ```
 
