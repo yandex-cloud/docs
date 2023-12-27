@@ -139,10 +139,10 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 - API
 
    To create a shard group, use the [createShardGroup](../api-ref/Cluster/createShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateShardGroup](../api-ref/grpc/cluster_service.md#CreateShardGroup) gRPC API call and provide the following in the request:
-   * The ID of the cluster where you want to create a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which you want to create a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter.
-   * A list of shard names be included in the group, in the `shardNames` parameter. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster.
-   * If necessary, a description of the shard group, in the `description` parameter.
+   * List of shard names be included in the group, in the `shardNames` parameter. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster.
+   * Description of the shard group, in the `description` parameter, if required.
 
 {% endlist %}
 
@@ -174,7 +174,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
    Where `--shards` is a new list of shard names be included in the group.
 
-   This command replaces the existing list of shards in the group with a new one that was provided to the command in the `--shards` parameter. Before running the command, make sure that you added all the appropriate shards in the new list.
+   This command replaces the existing list of shards in the group with the new one that was provided to the command in the `--shards` parameter. Before running the command, make sure that you added all the appropriate shards in the new list.
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -220,7 +220,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 - API
 
    To update a shard group, use the [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateShardGroup](../api-ref/grpc/cluster_service.md#UpdateShardGroup) gRPC API call and provide the following in the request:
-   * The ID of the cluster where you want to change a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster in which you want to change a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
    * If necessary, a new description of the shard group, in the `description` parameter.
    * If necessary, a new list of shard names to be included in the group, in the `shardNames` parameter. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure that you added all the appropriate shards in the new list.
@@ -283,7 +283,9 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 - API
 
    To delete a shard group, use the [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShardGroup](../api-ref/grpc/cluster_service.md#DeleteShardGroup) gRPC API call and provide the following in the request:
-   * The ID of the cluster where you want to delete a group from, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the cluster you want to delete a group from, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -16,7 +16,7 @@ In this section, you can find {{ mch-name }} pricing [rules](#rules) and [effect
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-## What is included in {{ mch-short-name }} cost {#rules}
+## What is included in the {{ mch-short-name }} cost {#rules}
 
 The {{ mch-name }} usage cost is based on:
 
@@ -214,3 +214,5 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

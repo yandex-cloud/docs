@@ -22,6 +22,8 @@ items:
             href: operations/api-gw-monitoring.md
           - name: Viewing execution logs
             href: operations/api-gw-logs.md
+          - name: Migration to the {{ region-id }}-d availability zone
+            href: operations/api-gw-migration.md
           - name: Deleting API gateways
             href: operations/api-gw-delete.md
   - name: Tutorials
@@ -180,6 +182,6 @@ items:
                 href: apigateway/websocket/api-ref/Connection/get.md
               - name: send
                 href: apigateway/websocket/api-ref/Connection/send.md
-  - name: FAQ
+  - name: Q&A
     href: qa/index.md
 base: en/api-gateway

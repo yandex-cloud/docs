@@ -89,3 +89,5 @@ Demo connections are pre-established connections with test databases that allow 
 
 1. Click **Settings** (![image](../../_assets/console-icons/gear.svg)) in the bottom-left corner.
 1. Disable **Show demo connections** in the general settings.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

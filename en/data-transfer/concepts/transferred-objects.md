@@ -38,3 +38,5 @@ In general, {{ data-transfer-full-name }} transfers `VIEW` objects (from databas
 * {{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (in the copy step) _between endpoints of different types_, such as from {{ PG }} to {{ CH }}, transfer `VIEW` objects as regular tables and not as regular views. This feature allows converting and exporting data to external databases and can be helpful when making regular transfers of the {{ dt-type-copy }} type.
 
 Some sources may impose additional restrictions on transfers of `VIEW` and similar objects. For more information about how to work with views from particular sources, see [{{ data-transfer-full-name }} specifics for sources and targets](work-with-endpoints.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

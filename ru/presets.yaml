@@ -3972,7 +3972,6 @@ default:
             column_service: Сервис
             column_unit: Ед. потребления
             filter_label_all-filters: Фильтры
-            filter_label-folders: 'Каталоги:'
             label_from: От
             label_product: Продукты
             label_service: Сервисы
@@ -7316,6 +7315,7 @@ default:
         member:
           remove: Удалить
         members: Участники
+        model: Модель
         models: Модели
         more: Еще
         name: Имя

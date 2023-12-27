@@ -40,7 +40,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -97,7 +97,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -207,3 +207,4 @@ If the list of included tables contains tables or views with other engines or th
 
 {{ data-transfer-full-name }} cannot transfer a {{ CH }} database if its name contains a hyphen.
 
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

@@ -153,3 +153,5 @@ For more information, see [{#T}](operations/transfer.md).
 * Check out [our tutorials on using {{ data-transfer-name }}](tutorials/index.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

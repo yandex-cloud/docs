@@ -7,6 +7,9 @@
 1. You host your content in [origins](origins.md). As an origin, you can use your server with a domain name, a [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md) or [{{ alb-name }} L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md).
 1. In {{ cdn-name }}, you create a [_resource_](resource.md) and specify in its settings the origins, domain names for content distribution, and other CDN settings.
 1. {{ cdn-name }} deploys CDN servers in many regions of the world and provides you with a domain name of the _CDN Load Balancer_ that accepts requests and passes them to the servers. You must link this name to the domain names that you use for content distribution using the CNAME type of DNS records.
+
+   {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
+
 1. When the client requests a file using the domain name specified in the settings:
 
    1. Depending on where the client is located on the web, the CDN load balancer determines the CDN server that can deliver the content the fastest, and sends a request to this server.
@@ -30,7 +33,7 @@
 | [Content segmentation](slicing.md) | Storing large files on CDN servers in parts. |
 | [Origin shielding](origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. |
 | [Content caching](caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or at the client side. |
-| [Exporting logs](logs.md) | Exporting CDN and shielding server request logs to object storage. |
+| [Log export](logs.md) | Exporting CDN and shielding server request logs to object storage. |
 | [Quotas and limits](limits.md) | Service use restrictions. |
 
 See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).

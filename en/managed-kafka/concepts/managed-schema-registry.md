@@ -32,7 +32,7 @@ To automate handling of data format schemas, a _data format schema registry_ is 
 
 {{ mkf-name }} clusters already have a built-in {{ mkf-msr }} data format schema registry. The registry is deployed on each cluster broker host and is accessible via HTTPS on port 443.
 
-To work with the registry, there is a JSON REST API that is fully compatible with the [Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/api.html). To run API requests, you need [authentication](#msr-auth).
+The [Karapace](https://github.com/Aiven-Open/karapace) open-source tool is used as a {{ mkf-msr }} implementation. API is compatible with the [Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/api.html) with only minor exceptions. To run API requests, you need [authentication](#msr-auth).
 
 Schema information is posted to a [service topic](./topics.md#service-topics) called `__schema_registry`. You cannot use regular tools to write data to this topic.
 

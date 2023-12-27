@@ -121,6 +121,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/managed-services/application-load-balancer/index.md
+  - name: Terraform reference
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication in the API
@@ -255,9 +259,13 @@ items:
                 href: api-ref/VirtualHost/update.md
               - name: updateRoute
                 href: api-ref/VirtualHost/updateRoute.md
-  - name: Metric reference
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ managed-k8s-name }} tool references'
+  - name: '{{ at-name }} audit logs'
+    href: at-ref.md
+  - name: L7 load balancer logs
+    href: logs-ref.md
+  - name: '{{ managed-k8s-name }} tool reference'
     items:
       - name: Overview
         href: k8s-ref/index.md
@@ -275,6 +283,4 @@ items:
             href: k8s-ref/http-route.md
       - name: Service
         href: k8s-ref/service.md
-  - name: Log reference
-    href: logs-ref.md
 base: en/application-load-balancer

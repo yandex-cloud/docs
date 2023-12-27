@@ -1,17 +1,17 @@
 # Using deprecated host classes in {{ mch-name }}
 
-As of June 1, 2020, the `s1.nano` host class is deprecated for {{ mch-short-name }}.
+Starting January 1, 2024, the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, and `b2.small` host classes will be deprecated for {{ mch-name }}.
 
 What this means for you as a user:
-- Now you cannot change the host class to `s1.nano` for your cluster.
-- You can still operate your cluster if it uses the `s1.nano` class but you cannot [add new hosts to such a cluster](../operations/hosts.md).
 
-   To add hosts to your cluster, you will need to [change the host class](../operations/update.md#change-resource-preset) to a [supported one](instance-types.md) first.
+- You will no longer be able to run your cluster if it uses the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, or `b2.small` host classes.
 
-   For example, you can migrate from `s1.nano` to:
-   - `s2.micro`: This is the most affordable host class with 100% guaranteed vCPU performance. It contains twice as many resources as `s1.nano`.
-   - `b2.medium`: The closest host class in terms of computing resources. It costs less than `s1.nano`, but the guaranteed vCPU performance is lower: 50% instead of 100%.
-- The [pricing](../pricing.md) for previously created `s1.nano` hosts does not change.
+- If your cluster uses hosts of these classes, you will not be able [to add new hosts of any class to your cluster](../operations/hosts.md).
+
+   To add hosts to your cluster, first [change the host class](../operations/update.md#change-resource-preset) to a [supported one](instance-types.md), for example, `b1.medium` or `b2.medium`.
+
 - You can [restore a cluster from a backup](../operations/cluster-backups.md) only to [existing host classes](instance-types.md).
 
-   You cannot restore a cluster from a backup to `s1.nano` hosts even if the backup was created from a cluster consisting of such hosts.
+   You cannot restore a cluster from a backup to `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, or `b2.small` hosts even if the backup was created from a cluster consisting of such hosts.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

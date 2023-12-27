@@ -17,7 +17,7 @@ description: "This page provides answers to questions about {{ mch-short-name }}
 
 {% include notitle [connection](../../_qa/managed-clickhouse/connection.md) %}
 
-## Updating {#cluster-update} clusters
+## Updating a cluster {#cluster-update}
 
 {% include notitle [cluster-update](../../_qa/managed-clickhouse/cluster-update.md) %}
 
@@ -32,3 +32,5 @@ description: "This page provides answers to questions about {{ mch-short-name }}
 ## Monitoring and logs {#monitoring}
 
 {% include notitle [monitoring](../../_qa/managed-clickhouse/monitoring.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -46,18 +46,18 @@ Backups in {{ objstorage-name }} are performed on behalf of a [service account](
 To create a service account:
 
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md) to your service account.
-1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret access key right away. You won't be able to access the private key parameters again after you close the window.
+1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and the secret key right away. After you close the window, the private key parameters will become unavailable.
 
 ## Install Duplicati {#install-duplicati}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. [Install](https://dotnet.microsoft.com/en-us/download) Microsoft .NET Framework version 4.6.2 or higher.
    1. [Install](https://www.duplicati.com/download) Duplicati.
 
-- Linux/macOS
+- Linux/macOS {#linux-macos}
 
    1. [Install](https://www.mono-project.com/download/stable/) the Mono framework.
    1. [Install](https://www.duplicati.com/download) Duplicati.
@@ -75,8 +75,8 @@ To configure Duplicati to work with {{ objstorage-name }}:
 1. Under **Storage Type**, select`S3 compatible`.
 1. In the **Server** list, specify `Custom server URL`. In the field below, enter the address `{{ s3-storage-host }}/`.
 1. In the **Bucket name** field, enter a name for your bucket.
-1. In the **AWS Access ID** field, specify the ID of the static access key.
-1. In the **AWS Access Key** field, enter the private key.
+1. In the **AWS Access ID** field, specify the static access key ID.
+1. In the **AWS Access Key** field, enter the secret key.
 1. To double-check the settings, click **Test connection**. In the window that opens, click **No**.
 1. After checking the settings, click **Next**.
 1. Select the files that you want to back up.

@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (Bash) and macOS (Zsh)
+- Linux (Bash)/macOS (Zsh) {#linux-macos}
 
    ```bash
    mkdir -p {{ crt-local-dir }} && \
@@ -9,9 +9,9 @@
    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
 
-   The certificate is saved to the `{{ crt-local-dir }}{{ crt-local-file }}` file.
+   The certificate will be saved to the `{{ crt-local-dir }}{{ crt-local-file }}` file.
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows}
 
    ```powershell
    mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}

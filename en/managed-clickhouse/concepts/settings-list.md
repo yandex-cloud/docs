@@ -16,7 +16,7 @@ Depending on the selected interface, the same setting may be represented in a di
 
 ## Cluster-level settings {#dbms-cluster-settings}
 
-You can use the following settings at the cluster level:
+You can use the following settings:
 
 {% include [mch-dbms-settings](../../_includes/mdb/mch-dbms-settings.md) %}
 
@@ -54,3 +54,5 @@ You can use the following settings:
 You can redefine [custom settings]({{ ch.docs }}/operations/settings/#custom_settings) as variables in the [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management), session, or request. Working with settings profiles is available if the [user management via SQL](../operations/cluster-users.md#sql-user-management) is enabled for the cluster.
 
 The name of the user setting in {{ mch-name }} must start with the `custom_` predefined prefix. The prefix is fixed and the users cannot change it.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
