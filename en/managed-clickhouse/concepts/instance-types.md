@@ -1,11 +1,11 @@
 ---
 title: "{{ mch-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the ClickHouse cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage size does not depend on the host class."
+description: "The host class determines the computing power allocated for each host in a {{ CH }} cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class."
 ---
 
 # Host classes in {{ mch-name }}
 
-The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change accordingly.
 
 
 The host class also determines which [disk types](./storage.md) are available:
@@ -110,3 +110,5 @@ The full list of possible host configurations on each platform is provided below
 | c3-c80-m160 | 80 | 100% | 160 | 10 - 8192 |
 | c3-c96-m192 | 96 | 100% | 192 | 10 - 8192 |
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

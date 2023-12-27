@@ -41,9 +41,9 @@ Rule settings depend on the connection method you select:
 
    1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to enable incoming traffic from the security group where your VM is located on port {{ port-mmy }}. To do this, create the following rule for incoming traffic in these groups:
 
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
       * Security group: If a cluster and a VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`) as the value. Otherwise, specify the VM security group.
 
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
@@ -246,3 +246,5 @@ To connect to a {{ mmy-name }} cluster from a Docker container, add the followin
 You can only connect to publicly accessible {{ MY }} hosts using an SSL certificate.
 
 {% include [mmy-connection-strings](../../_includes/mdb/mmy/code-examples.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

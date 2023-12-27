@@ -58,3 +58,5 @@ description: "Videos of conferences and webinars on {{ mch-full-name }}."
 * Cloud databases.
 
   * [Click here to view the recording](https://www.youtube.com/watch?v=xyMN1EA9p5Y).
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

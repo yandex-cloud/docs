@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ maf-full-name }}"
-description: "Access management in the {{ AF }} database creation and management service. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in the {{ AF }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ maf-name }}
@@ -8,12 +8,12 @@ description: "Access management in the {{ AF }} database creation and management
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -44,14 +44,6 @@ This role includes the `{{ roles-viewer }}` role.
 Users with the `{{ roles-admin }}` role can manage resource access rights, e.g., allow other users to create {{ maf-name }} clusters and to view information about user rights.
 
 This role includes the `{{ roles-editor }}` role.
-
-### {{ roles-cloud-member }} {#member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ## What's next {#whats-next}
 

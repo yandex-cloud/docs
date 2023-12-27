@@ -1,3 +1,5 @@
 # Uploading data from {{ MY }} to a {{ CH }} data mart
 
 {% include notitle [article-body](../../_tutorials/mysql-to-clickhouse.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

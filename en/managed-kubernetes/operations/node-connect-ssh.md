@@ -28,9 +28,9 @@ For more information, see [Connecting to a VM via SSH](../../compute/operations/
 
 Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do this:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux/MacOS
+- Linux/macOS {#linux-macos}
 
   1. Open the terminal.
   1. Use the `ssh-keygen` command to create a new key:
@@ -43,7 +43,7 @@ Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do th
 
      The public part of the key will be saved to a file named `<key name>.pub`.
 
-- Windows 10
+- Windows 10 {#windows}
 
   1. Run `cmd.exe` or `powershell.exe`.
   1. Use the `ssh-keygen` command to create a new key. Run this command:
@@ -56,7 +56,7 @@ Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do th
 
      The public part of the key will be saved to a file named `<key name>.pub`.
 
-- Windows 7/8
+- Windows 7/8 {#windows7-8}
 
   To create keys for Windows, use the PuTTY application.
   1. [Download](https://www.putty.org) and install PuTTY.
@@ -204,9 +204,9 @@ To connect, specify the {{ managed-k8s-name }} node [public IP address](../../vp
 
 You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the status is `RUNNING`). You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux/macOS/Windows 10
+- Linux/macOS/Windows 10 {#linux-macos-windows10}
 
   In the terminal, run the following command:
 
@@ -224,7 +224,7 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the st
 
   Type `yes` in the terminal and press **Enter**.
 
-- Windows 7/8
+- Windows 7/8 {#windows7-8}
 
   In Windows, a connection is established using the PuTTY application.
   1. Run the Pageant application.

@@ -57,7 +57,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
    To get a list of extensions for a database, use the [get](../../api-ref/Database/get.md) REST API method for the [Database](../../api-ref/Database/index.md) resource or the [DatabaseService/Get](../../api-ref/grpc/database_service.md#Get) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
-   * Database name, in the `databaseName` parameter.
+   * Database name in the `databaseName` parameter.
 
 {% endlist %}
 
@@ -218,3 +218,5 @@ Command syntax:
 Requires enabling the `pgstattuple` extension.
 
 To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

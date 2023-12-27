@@ -110,7 +110,7 @@ To activate the license:
 1. Your subscription will be displayed on the screen: **Subscription 1**.
 1. To copy the activation key, click **Copy Key** under **Subscription Key**.
 
-Wait until the VM status changes to `RUNNING` and enter the activation key in the admin panel at `https://<VM public IP address>/admin/`.
+Wait until the VM status changes to `RUNNING` and enter the activation key in the admin panel at `https://<VM_public_IP_address>/admin/`.
 
 ## Create an OpenVPN user {#configure-openvpn}
 
@@ -142,9 +142,9 @@ In the admin panel, you can download [OpenVPN Connect](https://openvpn.net/vpn-c
 
 To check that a connection is established and working properly, connect to the VPN and run the `ping` command for the test VM internal address:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
    1. Install the `openvpn` using package manager:
 
@@ -221,7 +221,7 @@ To check that a connection is established and working properly, connect to the V
 
    1. To terminate a manually established connection, press **Ctrl** + **C**.
 
-- Windows
+- Windows {#windows}
 
    1. Download the installation distribution:
 
@@ -237,7 +237,7 @@ To check that a connection is established and working properly, connect to the V
 
    1. Open the terminal and run the `ping <internal_IP_address_of_the_test_VM>` command. If the command is executed, the VM can be accessed via OpenVPN.
 
-- MacOS
+- macOS {#macos}
 
    1. Download the installation distribution:
 

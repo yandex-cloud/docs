@@ -4,7 +4,7 @@ description: "Follow this guide to configure a {{ metrika-endpoint }} source end
 noIndex: true
 ---
 
-# Configuring source endpoints {{ metrika-endpoint }}
+# Configuring {{ metrika-endpoint }} source endpoints
 
 {% include [note-metrica-pro](../../../../_includes/data-transfer/note-metrica-pro.md) %}
 
@@ -28,3 +28,5 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 For more information about the settings, see the [service documentation]({{ link-yandex }}/support/metrica/index.html).
 
 See [this tutorial](../../../tutorials/metrika-to-clickhouse.md) on how to transfer {{ metrika }} tag data to a {{ CH }} cluster.
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

@@ -283,7 +283,7 @@ description: "Следуя данной инструкции, вы сможет�
         terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
         ```
 
-        Подробнее об импорте топиков см. в [документации провайдера {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_topic.html.markdown#import).
+        Подробнее об импорте топиков см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic#import).
 
 {% endlist %}
 

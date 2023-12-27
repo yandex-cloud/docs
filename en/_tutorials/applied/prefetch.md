@@ -104,8 +104,8 @@ Create two buckets: one will store files and the other will store request logs f
 
    Before you start, obtain [static access keys](../../iam/operations/sa/create-access-key.md), i.e., a [secret key and key ID](../../iam/concepts/authorization/access-key.md) used for authentication in {{ objstorage-name }}.
    1. In the configuration file, describe the bucket parameters:
-      * `access_key`: ID of the static access key
-      * `secret_key`: Value of the secret access key.
+      * `access_key`: ID of the static access key.
+      * `secret_key`: Secret access key value.
       * `bucket`: Name of the bucket you are creating.
 
       Here is an example of the configuration file structure:
@@ -217,7 +217,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       * `key`: Name of the object in the bucket (`ycgame-update-v1.1.exe`). This is a required parameter.
       * `source`: Relative or absolute path to the file that you upload as an object.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       ...
@@ -441,9 +441,11 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    cdn CNAME cl-********.edgecdn.ru.
    ```
 
+   {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
+
    If you use {{ dns-name }}, follow this guide to configure the record:
 
-   {% cut "Guide for configuring DNS records for {{ dns-name }}" %}
+   {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
 
    {% list tabs %}
 

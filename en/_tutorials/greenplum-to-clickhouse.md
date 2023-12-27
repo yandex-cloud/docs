@@ -16,12 +16,12 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 * Manually
 
-   1. [Create a {{ mgp-full-name }} source cluster](../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration.
+   1. [Create a {{ mgp-full-name }} source cluster](../managed-greenplum/operations/cluster-create.md#create-cluster) with any suitable configuration.
 
    1. [Create a {{ mch-full-name }} target cluster](../managed-clickhouse/operations/cluster-create.md#create-cluster) with any configuration with a database called `db1`.
 
    
-   1. If you are using security groups in your clusters, make sure they have been set up correctly and allow connection to clusters:
+   1. If you are using security groups in clusters, make sure they are set up correctly and allow connecting to the clusters:
 
       * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
       * [{{ mgp-name }}](../managed-greenplum/operations/connect.md#configuring-security-groups).
@@ -29,8 +29,11 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
+
    1. Download the [greenplum-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/greenplum-clickhouse/greenplum-clickhouse.tf) configuration file to the same working directory.
 
       This file describes:
@@ -45,14 +48,13 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       * {{ mch-name }} target cluster.
 
    1. In the `greenplum-clickhouse.tf` configuration file, specify the {{ GP }} and {{ CH }} administrator passwords.
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -64,11 +66,11 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 ## Set up the transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../data-transfer/operations/endpoint/source/greenplum.md) with the `{{ GP }}` type, and specify the cluster connection settings in it.
+1. [Create a source endpoint](../data-transfer/operations/endpoint/source/greenplum.md) of the `{{ GP }}` type, and specify the cluster connection settings in it.
 
-1. [Create a target endpoint](../data-transfer/operations/endpoint/target/clickhouse.md) with the `{{ CH }}` type.
+1. [Create a target endpoint](../data-transfer/operations/endpoint/target/clickhouse.md) of the `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}` type.
 
-1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
+1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
 
    Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** field under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}**, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
@@ -116,15 +118,15 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 ## Check the copy function upon re-activation {#example-check-copy}
 
-1. [Connect to the {{ mgp-name }} cluster](../managed-greenplum/operations/connect.md), drop a single row in the `x_tab` table and update another:
+1. [Connect to the {{ mgp-name }} cluster](../managed-greenplum/operations/connect.md), delete one row in the `x_tab` table and edit the other:
 
    ```sql
    DELETE FROM x_tab WHERE id = 41;
    UPDATE x_tab SET name = 'Key3' WHERE id = 42;
    ```
 
-1. [Re-activate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Make sure that you see the changes in the `x_tab` table on the {{ CH }} target:
+1. [Reactivate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Check the changes in the `x_tab` table on the {{ CH }} target:
 
    ```sql
    SELECT id, name FROM db1.x_tab;
@@ -166,9 +168,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Confirm the resources have been updated.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

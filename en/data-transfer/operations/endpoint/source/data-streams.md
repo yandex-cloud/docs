@@ -3,7 +3,7 @@ title: "How to configure a {{ yds-full-name }} source endpoint in {{ data-transf
 description: "Follow this guide to configure a {{ yds-full-name }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring a {{ yds-full-name }} source endpoint
+# Configuring {{ yds-full-name }} source endpoints
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -22,18 +22,18 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## Advanced settings {#additional-settings}
 
+
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
+
 
 {% list tabs %}
 
 - Management console
 
    
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**:
 
-      Rules for processing an incoming stream using a {{ sf-name }} function:
-
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in [{{ sf-full-name }}](../../../../functions/).
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in {{ sf-name }}.
 
          
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or [create](../../../../iam/operations/sa/create.md) a service account that the processing function will start under.

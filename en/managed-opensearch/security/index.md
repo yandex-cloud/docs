@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ mos-full-name }}"
-description: "Access management in {{ OS }}, the database creation and management service. This section describes which resources you can assign a role for, what roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ OS }}, the database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Managing access to {{ mos-name }}
@@ -46,13 +46,6 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
 
-#### {{ roles-cloud-member }} {#member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-#### {{ roles-cloud-owner }} {#owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ### Primitive roles {#primitive-roles}
 

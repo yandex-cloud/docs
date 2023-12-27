@@ -530,7 +530,7 @@
         terraform import yandex_mdb_kafka_connector.<имя_коннектора> <идентификатор_кластера>:<имя_коннектора>
         ```
 
-        Подробнее об импорте коннекторов см. в [документации провайдера {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_connect.html.markdown#import).
+        Подробнее об импорте коннекторов см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect#import).
 
 {% endlist %}
 

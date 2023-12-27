@@ -32,7 +32,7 @@ When creating a cluster, specify:
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
-   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
 You should also specify the host class when creating a [shard](sharding.md).
 
@@ -41,3 +41,5 @@ A cluster created in a folder can be accessed by all VMs connected to the same c
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

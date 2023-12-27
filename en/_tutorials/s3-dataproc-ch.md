@@ -197,20 +197,20 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
       # Reading the data from the Parquet file
       parquetFile = spark.read.parquet("s3a://<output bucket name>/parquet/*.parquet")
 
-      # Specifying the port and ClickHouse cluster parameters
+      # Specifying the port and {{ CH }} cluster parameters
       jdbcPort = 8443
       jdbcHostname = "c-<cluster ID>.rw.mdb.yandexcloud.net"
       jdbcDatabase = "db1"
       jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-      # Transferring the table from the Parquet file to a ClickHouse table named "measurements"
+      # Transferring the table from the Parquet file to a {{ CH }} table named "measurements"
       parquetFile.write.format("jdbc") \
       .mode("error") \
       .option("url", jdbcUrl) \
       .option("dbtable", "measurements") \
       .option("createTableOptions", "ENGINE = MergeTree() ORDER BY vehicle_id") \
       .option("user","user1") \
-      .option("password","<ClickHouse user password>") \
+      .option("password","<{{ CH }} user password>") \
       .save()
       ```
       {% endcut %}
@@ -226,7 +226,7 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/parquet-to-ch.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 1. Wait for the job to complete and make sure the joined table has been moved to the cluster:
 
-   1. [Connect to the](../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster as `user1`.
+   1. [Connect to](../managed-clickhouse/operations/connect.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
    1. Run the following query:
 
       ```sql

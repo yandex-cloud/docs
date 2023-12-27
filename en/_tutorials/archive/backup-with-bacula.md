@@ -45,11 +45,11 @@ To create a bucket for backups in {{ objstorage-name }}:
 - Management console
 
    1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
-   1. On the folder page, click **Create resource** and select **Bucket**.
-   1. In the **Name** field, enter a name for the bucket.
-   1. In the **Bucket access** field, select **Restricted**.
-   1. In the **Storage class** field, select **Cold**.
-   1. Click **Create bucket**.
+   1. On the folder page, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -71,30 +71,30 @@ To create a VM:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter the VM name `bacula-vm`.
-   1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
-   1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
-   1. Under **Computing resources**, select:
-      * **Platform**: Intel Cascade Lake.
-      * **Guaranteed vCPU share**: 20%.
-      * **vCPU**: 2.
-      * **RAM**: 2 GB.
-   1. Under **Network settings**, select the network and subnet to connect the VM to. If there are no networks available, create one:
-      1. Select ![image](../../_assets/plus-sign.svg) **Create network**.
+   1. In the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name: `bacula-vm`.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the network and subnet to connect the VM to. If there are no networks available, create one:
+      1. Select ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**.
       1. In the window that opens, enter the network name and specify the folder to host the network.
-      1. (optional) To automatically create subnets, select the **Create subnets** option.
-      1. Click **Create**.
+      1. (Optional) To automatically create subnets, select the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** option.
+      1. Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
-         Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet available, create one by selecting ![image](../../_assets/plus-sign.svg)**Add subnet**.
-   1. Under **Public address**, keep **Auto** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+         Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet available, create one by selecting ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+   1. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
    1. Enter the VM access information:
-      * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the public key file.
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
          You will need to create a key pair for the SSH connection yourself, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   1. Click **Create VM**.
-   1. Wait for the VM to change to the `RUNNING` status.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+   1. Wait for the VM status to change to `RUNNING`.
 
 {% endlist %}
 
@@ -309,7 +309,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
       sudo ls -la /tmp/bacula | grep test.test
       ```
 
-   1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ objstorage-short-name }}** and make sure the `test.test` file is in the bucket.
+   1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and make sure the `test.test` file is in the bucket.
    1. Delete the test file:
 
       ```bash
@@ -647,7 +647,7 @@ To make sure that the backup is complete:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ objstorage-short-name }}**.
+   1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Open the bucket.
    1. Make sure it contains `MyVolume`.
 
@@ -835,5 +835,5 @@ To stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} bucket:
-1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
+1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.

@@ -3,7 +3,7 @@ title: "How to manage {{ CH }} cluster databases in {{ mch-full-name }}"
 description: "Follow this guide to manage {{ CH }} cluster databases."
 ---
 
-# Database management in {{ mch-name }}
+# Managing databases in {{ mch-name }}
 
 {{ mch-name }} provides two ways for you to manage cluster databases:
 
@@ -212,3 +212,5 @@ In a cluster with DB management via SQL enabled:
 Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

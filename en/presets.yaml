@@ -3968,7 +3968,6 @@ default:
             column_service: Service
             column_unit: Unit
             filter_label_all-filters: Filters
-            filter_label-folders: 'Folders:'
             label_from: From
             label_product: Products
             label_service: Services
@@ -7312,6 +7311,7 @@ default:
         member:
           remove: Remove
         members: Members
+        model: Model
         models: Models
         more: More
         name: Name

@@ -435,3 +435,5 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 {% endlist %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

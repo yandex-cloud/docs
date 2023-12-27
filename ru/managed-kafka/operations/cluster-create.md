@@ -314,7 +314,7 @@
         terraform import yandex_mdb_kafka_cluster.<имя_кластера> <идентификатор_кластера>
         ```
 
-        Подробнее об импорте кластеров см. в [документации провайдера {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_cluster.html.markdown#import).
+        Подробнее об импорте кластеров см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster#import).
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. Right-click the downloaded RDP file and select **Edit** (in Windows 11, select **Show more options** → **Edit**).
    1. In the **Remote Desktop Connection** window, the **General** tab, select **Allow me to save credentials** and click **Connect**.
@@ -9,7 +9,7 @@
 
    To reconnect to the desktop, run the RDP file you saved.
 
-- macOS
+- macOS {#macos}
 
    1. Install and run [Microsoft Remote Desktop](https://itunes.apple.com/ru/app/microsoft-remote-desktop/id1295203466), an official free RDP client for macOS.
    1. Open the **Connections** menu amd click **Import from RDP file**.
@@ -27,7 +27,7 @@
 
    * [Getting started with Remote Desktop on macOS]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
 
-- Linux
+- Linux {#linux}
 
    1. Install [Remmina](https://remmina.org), a free RDP client for Linux. Run the following commands in the terminal:
 

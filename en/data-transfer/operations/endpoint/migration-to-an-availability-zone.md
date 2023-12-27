@@ -1,10 +1,10 @@
 # Migrating a {{ data-transfer-name }} transfer and endpoints to a different availability zone
 
-[Transfers](../../concepts/index.md#transfer) are located in the same [availability zone](../../../overview/concepts/geo-scope.md). You can move them from one availability zone to another. Migration involves a number of actions depending on which service is used as the transfer endpoint: a [custom DB installation](#on-premise) or a [{{ yandex-cloud }} managed DB](#managed-service). If [migrating data](../../tutorials/index.md#migration) between a custom installation and a managed DB, you should first move the endpoint based on a custom installation and then the one based on a managed DB.
+You can migrate [transfers](../../concepts/index.md#transfer) from one [availability zone](../../../overview/concepts/geo-scope.md) to another. The migration method depends on which service is used as the transfer endpoint: a [custom DB installation](#on-premise) or a [{{ yandex-cloud }} managed DB](#managed-service). If [migrating data](../../tutorials/index.md#migration) between a custom installation and a managed DB, you should first move the endpoint based on a custom installation and then the one based on a managed DB.
 
 ## Moving an endpoint based on a custom installation {#on-premise}
 
-1. If [your transfer type](../../concepts/transfer-lifecycle.md#transfer-types) is {{ dt-type-repl }} or {{ dt-type-copy-repl }}, [deactivate](../transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
+1. If the [transfer type](../../concepts/transfer-lifecycle.md#transfer-types) is {{ dt-type-repl }} or {{ dt-type-copy-repl }}, [deactivate](../transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 1. [Create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone you want to move your endpoint to.
 1. If your custom installation is hosted on a {{ yandex-cloud }} VM, follow these steps:
 
@@ -19,7 +19,7 @@
 
    {% note warning %}
 
-   If your transfer includes an endpoint based on a managed DB, [move](#managed-service) this endpoint to a different availability zone before activating the transfer.
+   If your transfer includes an endpoint based on a managed DB, [migrate](#managed-service) this endpoint to a different availability zone before activating the transfer.
 
    {% endnote %}
 
@@ -37,6 +37,8 @@
 
    Do not place all cluster hosts in the `{{ region-id }}-d` zone; otherwise, the transfer will not operate correctly. If migrating your cluster hosts to the `{{ region-id }}-d` zone, place at least one host in the `{{ region-id }}-a` or `{{ region-id }}-b` zone. The transfer will select the appropriate zone automatically. If there is a single host in your cluster, place it in the `{{ region-id }}-a` or `{{ region-id }}-b` zone.
 
-1. If your [transfer type](../../concepts/transfer-lifecycle.md#transfer-types) is {{ dt-type-repl }} or {{ dt-type-copy-repl }}, restart the transfer for it to get the information about the new cluster topology. You do not need to restart {{ dt-type-copy }} transfers, as information about the new topology is provided automatically while activating them.
+1. If the [transfer type](../../concepts/transfer-lifecycle.md#transfer-types) is {{ dt-type-repl }} or {{ dt-type-copy-repl }}, restart the transfer for it to get the information about the new cluster topology. You do not need to restart {{ dt-type-copy }} transfers, as information about the new topology is provided automatically while activating them.
 
    {% include [reactivate-a-transfer](../../../_includes/data-transfer/reactivate-a-transfer.md) %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

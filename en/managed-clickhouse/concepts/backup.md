@@ -5,14 +5,14 @@ keywords:
   - backup
   - database backup
   - backups
-  - ClickHouse backups
-  - backup ClickHouse
-  - ClickHouse
+  - {{ CH }} backups
+  - backup {{ CH }}
+  - {{ CH}}
 ---
 
 # Backups in {{ mch-name }}
 
-{{ mch-short-name }} provides automatic and manual database backups.
+{{ mch-short-name }} supports automatic and manual database backups.
 
 A backup is automatically created every day. You cannot disable automatic backups or change the retention period.
 
@@ -62,3 +62,5 @@ For more information about creating a backup manually, see [Managing backups](..
 ## Checking backup recovery {#capabilities}
 
 To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -22,9 +22,9 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
    1. Create a {{ mch-name }} target cluster in any applicable [configuration](../managed-clickhouse/concepts/instance-types.md) with publicly available hosts and the following settings:
       * **Number of {{ CH }} hosts**: At least two, which is required to enable replication in the cluster.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `ch-user`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `ch-user`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`
 
    
    1. If you are using security groups in clusters, make sure they are set up correctly and allow connecting to the clusters:
@@ -103,10 +103,10 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ PG }}_source_cluster>` from the drop-down list.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`.
 
-      1. [Create a target endpoint](../data-transfer/operations/endpoint/target/clickhouse.md) of the `{{ CH }}` type and specify the cluster connection parameters in it:
+      1. [Create a target endpoint](../data-transfer/operations/endpoint/target/clickhouse.md) of the `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}` type and specify the cluster connection parameters in it:
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: `<name_of_{{ CH }}_target_cluster>` from the drop-down list.

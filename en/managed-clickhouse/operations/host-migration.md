@@ -137,3 +137,5 @@ To move cluster hosts between availability zones:
 1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

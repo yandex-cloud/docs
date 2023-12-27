@@ -29,7 +29,7 @@ After creating a cluster, you can:
 
 * [Changing hybrid storage settings](#change-hybrid-storage).
 
-To move a cluster to a different availability zone, see this [guide](host-migration.md). You will thus move the cluster hosts.
+To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
 
 ## Change service account settings {#change-service-account}
@@ -443,7 +443,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
             }
 
             graphite_rollup {
-              # GraphiteMergeTree engine settings for decimation and aggregation/averaging
+              # GraphiteMergeTree engine settings for thinning and aggregation/averaging
               # (rollup) of Graphite data.
               ...
             }
@@ -480,7 +480,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       All supported settings are described in the [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) section and in the [API reference](../api-ref/Cluster/update.md).
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -779,7 +779,7 @@ Changes to some [cluster-level settings](../concepts/settings-list.md#dbms-clust
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * List of security group IDs in the `securityGroupIds` parameter.
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -846,8 +846,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
 
-   * List of settings you want to update, in the `updateMask` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

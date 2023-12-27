@@ -53,6 +53,7 @@ description: "In this article, you will learn how to work with {{ sf-full-name }
 * [Viewing monitoring charts](function/function-monitoring.md)
 * [Viewing logs](function/function-logs.md)
 * [Logging data to the execution log](function/logs-write.md)
+* [{#T}](function/migration.md)
 * [{#T}](function/function-delete.md)
 
 

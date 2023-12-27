@@ -19,7 +19,7 @@
       * **{{ ui-key.yacloud.alb.label_protocol }}** — протокол соединений с бэкендом: `{{ ui-key.yacloud.alb.label_proto-http-plain }}` (без шифрования) или `{{ ui-key.yacloud.alb.label_proto-http-tls }}` (с TLS-шифрованием). Для протокола `{{ ui-key.yacloud.alb.label_proto-http-tls }}` укажите:
         
         * **{{ ui-key.yacloud.alb.label_sni }}**. Доменное имя хоста для Server Name Indication — расширения TLS.
-        * **{{ ui-key.yacloud.alb.label_trusted-ca }}**. Укажите сертификат удостоверяющего центра, которому балансировщик будет доверять при установке безопасного соединения с эндпоинтами бэкендов. Поддерживаются сертификаты стандарта X.509 в формате PEM.
+        * **{{ ui-key.yacloud.alb.label_trusted-ca }}**. Укажите [корневой сертификат](https://en.wikipedia.org/wiki/Root_certificate) (Root CA) для цепочки сертификатов, установленной на эндпоинтах бэкендов. Поддерживаются сертификаты стандарта [X.509](https://ru.wikipedia.org/wiki/X.509) в формате [PEM](https://ru.wikipedia.org/wiki/Почта_с_повышенной_секретностью).
     
     * Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-grpc }}`:
 

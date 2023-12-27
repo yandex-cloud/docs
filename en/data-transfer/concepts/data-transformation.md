@@ -34,6 +34,11 @@ You can hash data as follows:
 
 ### Splitting tables into subtables {#subtable-splitting}
 
+A transfer splits the `X` table into multiple tables (`X_1`, `X_2`, …, `X_n`) based on data. If a row was located in the `X` table before it was split, it is now in the `X_i` table, where `i` is determined by the column list and split string parameters.
+
+> Example:
+> If the column list has two columns, `month of birth` and `gender`, specified and the split string states `@`, information about an employee whose name is John and who was born on February 11, 1984, from the `Employees` table will get to a new table named `Employees@February@male`.
+
 To partition tables:
 
 1. Use lists of included and excluded tables to list the required tables.

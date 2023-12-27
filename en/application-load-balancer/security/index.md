@@ -6,13 +6,13 @@ description: "Access management in {{ alb-full-name }}, a service for distributi
 # Access management in {{ alb-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -24,8 +24,6 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * {% include [alb.auditor](../../_includes/iam/roles/short-descriptions/alb.auditor.md) %}
 * {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
 * {% include [alb.user](../../_includes/iam/roles/short-descriptions/alb.user.md) %}

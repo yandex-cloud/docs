@@ -84,3 +84,6 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

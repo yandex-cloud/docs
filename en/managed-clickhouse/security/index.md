@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ mch-full-name }}"
-description: "Access management in the {{ CH }} database creation and management service. This section describes which resources you can assign a role for, what roles exist in the service, and which roles are required for particular actions."
+description: "Access management in the {{ CH }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ mch-name }}
@@ -77,3 +77,5 @@ You can always assign a role with more permissions. For instance, you can assign
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

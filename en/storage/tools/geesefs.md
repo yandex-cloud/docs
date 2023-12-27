@@ -76,9 +76,9 @@ GeeseFS does not support the following:
 
 ## Installing {#installation}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
    1. Install the utilities required by FUSE, e.g.:
 
@@ -102,7 +102,7 @@ GeeseFS does not support the following:
       sudo cp geesefs-linux-amd64 /usr/bin/geesefs
       ```
 
-- MacOS
+- macOS {#macos}
 
    1. Install the [macFUSE](https://osxfuse.github.io/) package. For more information, see the [installation guide](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) in the macFUSE repository on GitHub.
    1. Download and install GeeseFS:
@@ -115,7 +115,7 @@ GeeseFS does not support the following:
       sudo cp geesefs-mac-$platform /usr/bin/geesefs
       ```
 
-- Windows
+- Windows {#windows}
 
    1. [Download](https://winfsp.dev/rel/) and install WinFSP.
    1. [Download](https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-win-x64.exe) `geesefs-win-x64.exe`.
@@ -125,14 +125,13 @@ GeeseFS does not support the following:
 
 You can also build GeeseFS yourself using its source code. For more information, see the [guide](https://github.com/yandex-cloud/geesefs#installation) in the GeeseFS repository on GitHub.
 
-
 ## Authentication {#authentication}
 
 GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.md) for {{ objstorage-name }}. You can set it using one of the following methods:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux/MacOS
+- Linux/macOS {#linux-macos}
 
    * Using a `credentials` [file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) placed in the `~/.aws/` folder:
 
@@ -163,7 +162,7 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
 
    {% endnote %}
 
-- Windows
+- Windows {#windows}
 
    * Using a [credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) `file` placed in the `users/<current_user>/.aws/` folder:
 
@@ -205,9 +204,9 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
 
 * To automatically mount a bucket at system startup:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux/MacOS
+   - Linux/macOS {#linux-macos}
 
       1. Add the following line to `/etc/fuse.conf`:
 
@@ -227,7 +226,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
 
       {% endnote %}
 
-   - Windows
+   - Windows {#windows}
 
       Create a Windows service that will automatically run at system startup:
 
