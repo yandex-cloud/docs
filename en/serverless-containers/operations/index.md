@@ -48,6 +48,7 @@ description: "In this tutorial, you will learn how to use the {{ serverless-cont
 * [Removing a label](./label-delete.md)
 * [Viewing monitoring charts](./monitoring.md)
 * [Viewing logs](./logs.md)
+* [{#T}](./migration.md)
 * [{#T}](./delete.md)
 
 ## Getting information about a trigger {#get-trigger}

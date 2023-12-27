@@ -34,7 +34,7 @@ The cost of using a virtual router and test VM includes:
 1. In the [management console]({{ link-console-main }}), select the folder.
 1. In the top-right corner, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and choose **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter a name for the VM, such as `mikrotik-router`.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter a name for the VM, e.g., `mikrotik-router`.
    1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you do not know which availability zone you need, leave the default one.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router) image.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the parameters:
@@ -104,7 +104,7 @@ Make sure that a network connection has been established between the router and 
 
 1. Open the router's administrative interface in the browser.
 1. Click **Terminal**.
-1. In the terminal that opens, run `ping <internal IP address of the test VM>`.
+1. In the terminal that opens, run the `ping <internal_IP_address_of_the_test_VM>` command.
 
 If the packets reach the test VM, you can start configuring the router. To learn how to work with the router, see the [Mikrotik documentation](https://wiki.mikrotik.com/wiki/Main_Page).
 

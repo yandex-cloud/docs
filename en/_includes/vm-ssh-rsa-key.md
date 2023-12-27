@@ -6,9 +6,9 @@ Cisco Cloud Services Router (CSR) 1000v only supports keys generated using the R
 
 To create a key pair:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux/macOS
+- Linux/macOS {#linux-macos}
 
    1. Open the terminal.
    1. Use the `ssh-keygen` command to create a new key:
@@ -19,9 +19,9 @@ To create a key pair:
 
       After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~/.ssh` directory.
 
-      The public part of the key will be saved in the `<key_name>.pub` file.
+      The public part of the key will be saved to the `<key_name>.pub` file.
 
-- Windows 10
+- Windows 10 {#windows}
 
    1. Run `cmd.exe` or `powershell.exe`.
    1. Use the `ssh-keygen` command to create a new key:
@@ -32,14 +32,14 @@ To create a key pair:
 
       After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. The keys are created in `C:\Users\<username>\.ssh\` or `C:\Users\<username>\` depending on the command-line interface.
 
-      The public part of the key will be saved in a file with the name `<key name>.pub`.
+      The public part of the key will be saved to a file named `<key name>.pub`.
 
-- Windows 7/8
+- Windows 7/8 {#windows7-8}
 
    To create keys for Windows, use the PuTTY application.
    1. [Download](https://www.putty.org) and install PuTTY.
    1. Make sure that the directory where you installed PuTTY is included in `PATH`:
-      1. Right-click on **My computer**. Click **Properties**.
+      1. Right-click **My computer**. Click **Properties**.
       1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
       1. Under **System variables**, find `PATH` and click **Edit**.
       1. In the **Variable value** field, append the path to the directory where you installed PuTTY.

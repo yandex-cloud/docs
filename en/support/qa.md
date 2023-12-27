@@ -77,3 +77,6 @@ If the technical support team cannot resolve your third-party software issue, yo
 Only the organization owner or administrator can change the technical support service plan. See [Changing your service plan](support-center.md#change-pricing) for details.
 
 See [Requesting technical support](overview.md). Service plan upgrades are effective immediately; downgrades take effect on the first day of the following month.
+
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

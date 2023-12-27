@@ -36,3 +36,4 @@ You might also find these links useful:
 * [{{ yandex-cloud }} platform overview](../../overview/index.yaml)
 * [{{ yandex-cloud }} documentation](/docs)
 
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

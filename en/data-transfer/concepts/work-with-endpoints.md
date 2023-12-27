@@ -102,3 +102,5 @@ By default, a separate table is created for every partition when data is transfe
 ## Oracle {#oracle}
 
 The source ignores `VIEW` and `MATERIALIZED VIEW` objects in transfers of any type.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

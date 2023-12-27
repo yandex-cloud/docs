@@ -1,6 +1,6 @@
 ---
 title: "Tutorial on how to work with {{ api-gw-full-name }}"
-description: "In this tutorial, you'll learn how to work with {{ api-gw-full-name }} in {{ yandex-cloud }}. You'll learn to create, edit, and delete API gateways, as well as view the monitoring chart and execution log."
+description: "In this tutorial, you will learn how to work with {{ api-gw-full-name }} in {{ yandex-cloud }}. You will learn to create, edit, and delete API gateways, as well as view the monitoring chart and execution log."
 ---
 
 # Step-by-step guides for {{ api-gw-name }}
@@ -14,4 +14,5 @@ description: "In this tutorial, you'll learn how to work with {{ api-gw-full-nam
 * [{#T}](api-gw-network-add.md)
 * [Viewing monitoring charts](api-gw-monitoring.md)
 * [Viewing execution logs](api-gw-logs.md)
+* [{#T}](api-gw-migration.md)
 * [{#T}](api-gw-delete.md)

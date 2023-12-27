@@ -31,7 +31,7 @@ Please note that the infrastructure for Hystax Acura and Hystax Acura Cloud Agen
 
 The cost of the resources required to use Hystax Acura Live Migration includes:
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Charges for object storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for image storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for each completed migration (see [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}).
 
@@ -50,24 +50,24 @@ Save the following details to use in subsequent steps:
 
 Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing VM traffic will be allowed.
 
-If a security group is available, [add](../../vpc/operations/security-group-add-rule.md) the rules below to it:
+If a security group is available, [add](../../vpc/operations/security-group-add-rule.md) to it the following rules:
 
-| Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
+| Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 --- | --- | --- | --- | --- | ---
-| Incoming | http | 80 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | https | 443 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | https | 4443 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | tcp | 15000 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | http | 80 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | https | 443 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
-| Outgoing | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
+| Incoming | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `https` | `4443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `tcp` | `15000` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 Save the security group ID. You will need it when creating VMs with Hystax Acura.
 
@@ -80,35 +80,34 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. Click **Create VM**.
-   1. Under **Basic parameters**:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter `hystax-acura-vm` as your VM name and add a description.
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
-   1. Under **Image/boot disk selection**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Click the **{{ marketplace-name }}** tab.
-      * Click **Show more**.
-      * In the public image list, select [Hystax Acura Live Cloud Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) and click **Use**.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+      * Click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+      * In the public image list, select [Hystax Acura Live Cloud Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-   1. Under **Disks**, enter 200 GB as your disk size.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
 
-      1. Under **File storage**, keep the default value.
-   1. Under **Computing resources**, specify:
-      * vCPU: 8
-      * RAM: 16 GB
-   1. Under **Network settings**:
-      * Select a cloud network and a [subnet](../../vpc/concepts/network.md#subnet) from the list. If there is no subnet, click **Add subnet** and create one.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * Select a cloud network and a [subnet](../../vpc/concepts/network.md#subnet) from the list. If there is no subnet, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** and create one.
 
-        To add a subnet, select a folder, enter a subnet name, select the availability zone, specify a CIDR in the window that opens, and click **Create**.
-      * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
-   1. Under **Access**, specify the information required to access the instance:
+         To add a subnet, select a folder, enter a subnet name, select the availability zone, and specify a CIDR in the window that opens. Then click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Select the previously created `hystax-acura-account` service account.
-      * In the **Login** field, enter a username for SSH access, such as `yc-user`.
-      * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, e.g., `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-   1. Click **Create VM**.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI
 
@@ -181,7 +180,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
    * **Key id**: ID of the authorized key of your service account.
    * **Private key**: Service account private key.
 
-     {% note info %}
+      {% note info %}
 
       {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
 
@@ -212,9 +211,9 @@ The agents are normally installed onto VMs to be migrated to {{ yandex-cloud }}.
    Click **Next**.
 1. Download and install the agent on the VMs you would like to migrate:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - VMware
+   - VMware {#vmware}
 
       1. Select **New VMware vSphere** and fill out the fields:
          * **Platform Name**: Name of the platform.
@@ -227,13 +226,13 @@ The agents are normally installed onto VMs to be migrated to {{ yandex-cloud }}.
       1. Unpack the downloaded OVA agent file to the VMs in your cluster.
       1. Start the VMs with the agent.
 
-   - Windows
+   - Windows {#windows}
 
       1. Click **Next**.
       1. Click **Download Agent** and wait for the agent to download.
-      1. Unpack the archive and install the agent from the `hwragent.msi` file on the VMs you would like to migrate.
+      1. Unpack the archive and install the agent from `hwragent.msi` on the VMs you want to migrate.
 
-   - Linux
+   - Linux {#linux}
 
       1. Select Linux distribution type:
          * **CentOS/RHEL (.rpm package)**: CentOS or Red Hat-based.

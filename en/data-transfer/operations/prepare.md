@@ -964,7 +964,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db).
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
    1. To shard the migrated collections in the {{ mmg-full-name }} target cluster:
-      1. Use this [guide](../../managed-mongodb/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
+      1. Use [this guide](../../managed-mongodb/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
 
          {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 
@@ -1266,3 +1266,5 @@ If the definition of the `VIEW` to be transferred contains an invocation of the 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

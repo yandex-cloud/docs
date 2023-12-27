@@ -9,9 +9,9 @@ To connect using RDP, specify the public IP address or the FQDN of the VM. Acces
 
 To connect to the VM:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. Click **Start**.
    1. In the search box, type **Remote Desktop Connection** and select the appropriate item.
@@ -28,15 +28,15 @@ To connect to the VM:
 
    * [Remote Desktop Connection](https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c).
 
-- MacOS
+- macOS {#macos}
 
    1. Install and run [Microsoft Remote Desktop](https://itunes.apple.com/ru/app/microsoft-remote-desktop/id1295203466) (official free RDP client for Mac).
    1. Click ![image](../_assets/plus.svg) → **Add PC**.
    1. In the **Add PC** dialog, enter the public IP address of the virtual machine to connect to in the **PC name** field.
    1. In the **User account** field, select **Add User Account**.
    1. In the **Add a User Account** dialog, specify the account settings:
-      * **User name**: `Administrator`.
-      * **Password**.
+      * **Username**: `Administrator`
+      * **Password**
    1. Click **Add** twice.
    1. Connect to the remote machine by double-clicking the connection you created in the main Microsoft Remote Desktop window.
 
@@ -44,9 +44,9 @@ To connect to the VM:
 
    * [Getting started with Remote Desktop on Mac]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 
-- Linux
+- Linux {#linux}
 
-  1. Install Remmina (a free RDP client for Linux) using the commands:
+   1. Install Remmina (a free RDP client for Linux) using the commands:
 
       ```bash
       sudo apt-add-repository ppa:remmina-ppa-team/remmina-next

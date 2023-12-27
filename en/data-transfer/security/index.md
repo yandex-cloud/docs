@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ data-transfer-full-name }}"
-description: "Access management in {{ data-transfer-full-name }}, a service for data transfer between storages. This section describes which roles are needed to perform actions, for which resources you\_can assign a role, and which roles can be used in the service."
+description: "Access management in {{ data-transfer-full-name }}, a service for data transfer between storages. This section describes the roles required to perform a particular action, the resources for which you can assign a role, and the roles existing in the service."
 ---
 
 # Access management in {{ data-transfer-name }}
@@ -8,7 +8,7 @@ description: "Access management in {{ data-transfer-full-name }}, a service for 
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
@@ -16,7 +16,7 @@ To use the service, log in to the management console with a [Yandex account](../
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Cloud roles also apply to nested folders.
 
@@ -42,19 +42,11 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
-### {{ roles-cloud-member }} {#member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-### {{ roles-cloud-owner }} {#owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
-
 ## Roles required {#required-roles}
 
 To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher to the folder that projects are being created in. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
 
-To create or edit an endpoint of a managed database, you need a service or primitive [`viewer` role](../../iam/concepts/access-control/roles.md) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need the service or primitive [`viewer` role](../../iam/concepts/access-control/roles.md) assigned for the folder hosting a cluster of this managed database.
 
 You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
 

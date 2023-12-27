@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The price for the UserGate gateway includes:
 
 * Fee for continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* [UserGate NGFW](/marketplace/products/usergate/ngfw) usage.
+* Fee for using [UserGate NGFW](/marketplace/products/usergate/ngfw).
 * Fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -59,12 +59,12 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       Result:
 
-      ```
-      id: enptrcle5q3d3ktd33hj
-      folder_id: b1g9hv2loamqfnbul7d9
+      ```text
+      id: enptrcle5q3d********
+      folder_id: b1g9hv2loamq********
       created_at: "2022-06-08T09:25:03Z"
       name: usergate-network
-      default_security_group_id: enpbsnnop4akg7ng70ll
+      default_security_group_id: enpbsnnop4ak********
       ```
 
       For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
@@ -80,12 +80,12 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       Result:
 
-      ```
-      id: e9bnnssj8sc8mjhat9qk
-      folder_id: b1g9hv2loamqfnbul7d9
+      ```text
+      id: e9bnnssj8sc8********
+      folder_id: b1g9hv2loamq********
       created_at: "2022-06-08T09:27:00Z"
       name: usergate-subnet-{{ region-id }}-a
-      network_id: enptrcle5q3d3ktd33hj
+      network_id: enptrcle5q3d********
       zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 10.1.0.0/16
@@ -95,9 +95,9 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 - {{ TF }}
 
-   1. In the configuration file, describe the network parameters for `usergate-network` and its subnet `usergate-subnet-{{ region-id }}-a`:
+   1. In the configuration file, describe the network parameters for `usergate-network` and its `usergate-subnet-{{ region-id }}-a` subnet:
 
-      ```
+      ```hcl
       resource "yandex_vpc_network" "usergate-network" {
         name = "usergate-network"
       }
@@ -121,7 +121,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -192,29 +192,29 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
    Result:
 
-   ```
-   id: enpu0e0nrqdnvk10r3lp
-   folder_id: b1g86q4m5vej8lkljme5
+   ```text
+   id: enpu0e0nrqdn********
+   folder_id: b1g86q4m5vej********
    created_at: "2022-06-29T09:38:40Z"
    name: usergate-sg
-   network_id: enp3srbi9u49pjvcejnb
+   network_id: enp3srbi9u49********
    status: ACTIVE
    rules:
-   - id: enpdp9d0pingp28d04kn
+   - id: enpdp9d0ping********
      direction: EGRESS
      protocol_name: ANY
      protocol_number: "-1"
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enps2r5ru3s11mdark60
+   - id: enps2r5ru3s1********
      direction: INGRESS
      protocol_name: ICMP
      protocol_number: "1"
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enpgonbui61ah7ifdc9i
+   - id: enpgonbui61a********
      direction: INGRESS
      ports:
        from_port: "3389"
@@ -224,7 +224,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enpbg1jh11hvp9tu1mq9
+   - id: enpbg1jh11hv********
      direction: INGRESS
      ports:
        from_port: "22"
@@ -234,7 +234,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enpgdavevku7583jo3ah
+   - id: enpgdavevku7********
      direction: INGRESS
      ports:
        from_port: "8001"
@@ -244,7 +244,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      cidr_blocks:
        v4_cidr_blocks:
        - 0.0.0.0/0
-   - id: enp335ibig9kq7qvcg7q
+   - id: enp335ibig9k********
      direction: INGRESS
      ports:
        from_port: "8090"
@@ -316,7 +316,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -360,8 +360,8 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    Result:
 
    ```bash
-   id: e9b6un9gkso6stdh6b3p
-   folder_id: b1g7gvsi89m34pipa3ke
+   id: e9b6un9gkso6********
+   folder_id: b1g7gvsi89m3********
    created_at: "2022-06-08T17:52:42Z"
    external_ipv4_address:
      address: 178.154.253.52
@@ -436,14 +436,14 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         --zone {{ region-id }}-a \
         --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<ID_of_the_usergate-sg_security_group> \
         --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
-        --ssh-key <path to the public part of the SSH key> \
+        --ssh-key <path_to_the_public_part_of_the_SSH_key> \
       ```
 
       Result:
 
       ```bash
-      id: fhm2na1siftpfhrfc03l
-      folder_id: b1g86q4m5vej8lkljme5
+      id: fhm2na1siftp********
+      folder_id: b1g86q4m5vej********
       created_at: "2022-06-09T11:15:52Z"
       name: usergate-proxy
       zone_id: {{ region-id }}-a
@@ -455,19 +455,19 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
       status: RUNNING
       boot_disk:
         mode: READ_WRITE
-        device_name: fhmiq60rni2tqvjdiq3l
+        device_name: fhmiq60rni2t********
         auto_delete: true
-        disk_id: fhmiq60rni2tqvjdiq3l
+        disk_id: fhmiq60rni2t********
       network_interfaces:
       - index: "0"
         mac_address: d0:0d:2b:a8:3c:93
-        subnet_id: e9bqlr188as7rgsgh4kn
+        subnet_id: e9bqlr188as7********
         primary_v4_address:
           address: 10.1.0.27
           one_to_one_nat:
             address: 51.250.72.1
             ip_version: IPV4
-      fqdn: fhm2na1siftpfhrfc03l.auto.internal
+      fqdn: fhm2na1siftp********.auto.internal
       scheduling_policy: {}
       network_settings:
         type: STANDARD
@@ -519,7 +519,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -539,7 +539,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 ## Set up the UserGate NGFW via the administrative console {#admin-console}
 
-To set up the gateway, go to the UserGate NGFW administrative console at `https://<VM_public_IP>:8001` and log in with the default credentials: `Admin` as the username and `utm` as the password.
+To set up the gateway, go to the UserGate NGFW administrative console at `https://<VM_public_IP>:8001` and log in with the default credentials: `Admin` for the username and `utm` for the password.
 
 When you are logged in, the system prompts you to change the default password and update the OS.
 

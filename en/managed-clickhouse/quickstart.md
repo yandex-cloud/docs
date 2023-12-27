@@ -10,6 +10,7 @@ To get started with the service:
 * [Connect to the DB](#connect).
 
 
+
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
@@ -95,3 +96,5 @@ To get started with the service:
 * Read about [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
 * Read [questions and answers](qa/general.md).
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -13,3 +13,5 @@ As opposed to other [DBMS settings](./settings-list.md), you cannot change the *
 The remaining RAM is committed to the OS and auxiliary services such as monitoring or backups.
 
 You can only change the **Max server memory usage** setting value along with the [host class](./instance-types.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

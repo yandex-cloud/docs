@@ -294,3 +294,5 @@ copied successfully.
 ## Delete the resources you created {#clear-out}
 
 If you no longer need the resources you created, delete the [{{ mch-full-name }} cluster](../operations/cluster-delete.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

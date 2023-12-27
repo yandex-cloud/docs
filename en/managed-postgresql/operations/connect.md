@@ -341,3 +341,5 @@ You can connect to a cluster using both regular host [FQDNs](../concepts/network
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
 If the connection to the cluster and the test query are successful, the {{ PG }} version is output.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

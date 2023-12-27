@@ -66,7 +66,7 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
       * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
       * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
-      * Name of the shard.
+      * Shard name.
       * Select the **{{ ui-key.yacloud.clickhouse.hosts.dialog.field_copy_schema }}** option to copy the schema from a random replica to the new host.
 
 
@@ -326,3 +326,5 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
    * Name(s) of the host(s) to delete in the `hostNames` parameter.
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -4,9 +4,9 @@ To connect to a [VM](../compute/concepts/vm.md) over SSH, you need a key pair: t
 
 To create a key pair:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux/MacOS
+- Linux/macOS {#linux-macos}
 
    1. Open the terminal.
    1. Use the `ssh-keygen` command to create a new key:
@@ -17,9 +17,9 @@ To create a key pair:
 
       After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. Press **Enter** to use the default name (`id_ed25519`). The key pair will be created in the `~/.ssh` directory.
 
-      The public key will be saved in the `<key_name>.pub` file.
+      The public key will be saved to the `<key_name>.pub` file.
 
-- Windows 10
+- Windows 10 {#windows}
 
    If you do not have [OpenSSH](https://en.wikipedia.org/wiki/OpenSSH) installed yet, install it by following this [guide](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui).
 
@@ -34,9 +34,9 @@ To create a key pair:
 
       The key pair will be created in `C:\Users\<username>\.ssh\` or `C:\Users\<username>\` depending on the command line interface.
 
-      The public key will be saved in the `<key_name>.pub` file.
+      The public key will be saved to the `<key_name>.pub` file.
 
-- Windows 7/8
+- Windows 7/8 {#windows7-8}
 
    To create keys for Windows, use the PuTTY application.
    1. [Download](https://www.putty.org) and install PuTTY.

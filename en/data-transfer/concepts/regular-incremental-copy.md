@@ -30,3 +30,5 @@ Make sure the transaction completion timeout is:
 * Much shorter than the interval between transfer runs, as it directly impacts the transfer duration.
 
 The recommended and default value is `15` seconds.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

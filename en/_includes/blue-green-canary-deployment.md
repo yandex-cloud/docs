@@ -1336,6 +1336,8 @@ To configure DNS:
    cdn-staging CNAME cl-....edgecdn.ru
    ```
 
+   {% include [note-dns-aname](../_includes/cdn/note-dns-aname.md) %}
+
    If you use {{ dns-name }}, follow this guide to configure the record:
 
    {% cut "Guide on configuring DNS records for {{ dns-name }}" %}

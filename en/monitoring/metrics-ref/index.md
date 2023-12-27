@@ -48,4 +48,10 @@ Read more about the service in the [{{ alb-name }}](../../application-load-balan
 
 {% include [monitoring.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
 
+## {{ objstorage-full-name }} service {#storage}
+
+{% include [storage.md](../../_includes/monitoring/metrics-ref/storage.md) %}
+
+Read more about the service in the [{{ objstorage-name }}](../../storage/) documentation.
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

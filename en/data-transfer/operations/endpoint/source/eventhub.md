@@ -24,20 +24,20 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+## Advanced settings {#additional-settings}
+
 
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
+
 
 {% list tabs %}
 
 - Management console
 
    
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.eventhub.console.form.eventhub.EventhubAdvancedSettings.transformer.title }}**
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.eventhub.console.form.eventhub.EventhubAdvancedSettings.transformer.title }}**:
 
-      Rules for processing an incoming stream using a {{ sf-name }} function:
-
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in [{{ sf-full-name }}](../../../../functions/).
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in {{ sf-name }}.
 
          
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.service_account_id.title }}**: Select or [create](../../../../iam/operations/sa/create.md) a service account that the processing function will start under.

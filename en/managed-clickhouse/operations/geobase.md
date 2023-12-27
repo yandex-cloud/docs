@@ -20,7 +20,7 @@ To add your own geobase to a {{ CH }} cluster:
       * `5`: Region.
       * `6`: City.
    * Population (UInt32): Optional.
-1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function. For example:
+1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function. Here is an example:
 
    * `regionToCountry(RegionID)`: Uses the default dictionary: `regions_hierarchy.txt`.
    * `regionToCountry(RegionID, 'alt')`: Uses the dictionary with the `alt` suffix: `regions_hierarchy_alt.txt`.
@@ -129,3 +129,5 @@ To add your own geobase to a {{ CH }} cluster:
 
 {% endlist %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

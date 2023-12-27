@@ -85,7 +85,7 @@ The table contains the following columns:
 * `service_name`: Name of the service that the consumed product belongs to.
 * `sku_id`: ID of the consumed product.
 * `sku_name`: Name of the product.
-* `date`: Date that the cost of consumption is charged for. Dates are set as a range from 0:00 to 23:59 (UTC+3).
+* `date`: Date that the cost of consumption is charged for. A date is defined as an interval from 0:00 to 23:59 (UTC+3).
 * `currency`: Billing account currency. Possible values: `RUB`, `USD`, and `KZT`.
 * `pricing_quantity`: Amount of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Unit of product consumption.
@@ -112,3 +112,5 @@ The table contains the following columns:
 ##### See also
 
 * [View usage details for the cloud](check-charges.md)
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

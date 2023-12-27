@@ -17,9 +17,9 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Run the following commands:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Ubuntu
+   - Ubuntu {#ubuntu}
 
       ```bash
       sudo apt update && \
@@ -34,7 +34,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
       ```
 
-   - CentOS
+   - CentOS {#centos}
 
       ```bash
       sudo yum install epel-release -y && \

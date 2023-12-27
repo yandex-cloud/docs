@@ -14,7 +14,7 @@ In this case, the **Exactly-once** strategy is implemented for DMBS-level data i
 * The consumer database deduplicates data by primary key:
 
    | Consumer | Deduplication by primary key |
-   |---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------:|
+   |-------------------------------------------------------------------------------|:-----------------------------------------------------------------:|
    | {{ KF }} topic: Your own or as part of the [{{ mkf-short-name }} service](../../managed-kafka/). | ![no](../../_assets/common/no.svg) |
    | {{ CH }} database: Your own or as part of the [{{ mch-short-name }} service](../../managed-clickhouse/) | ![no](../../_assets/common/no.svg) |
    | {{ ES }} database: Your own or as part of the [{{ mes-short-name }} service](../../managed-elasticsearch/) | ![yes](../../_assets/common/yes.svg) |
@@ -32,3 +32,5 @@ In this case, the **Exactly-once** strategy is implemented for DMBS-level data i
 To perform background deduplication in the {{ CH }} consumer database, you can use the [ReplacingMergeTree engine](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replacingmergetree) that deduplicates data by sort key when merging data chunks. However, this engine does not guarantee that there are no duplicates on the consumer side at each point in time.
 
 {% endnote %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -163,7 +163,10 @@ Automatic selection of serialization settings depending on the source type.
 
 * **key.converter.schema.registry.url** and **value.converter.schema.registry.url**: Determine whether to add a schema description to each message for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-   The default value is `true`.
+   The possible values include:
+
+   * Empty string (default): Do not add a schema description.
+   * URL string value defining the path to the schema registry service.
 
 * **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in the Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 

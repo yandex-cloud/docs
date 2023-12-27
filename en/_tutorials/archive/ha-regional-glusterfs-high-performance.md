@@ -79,7 +79,7 @@ The infrastructure support costs include:
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-glusterfs` service account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **Add role** in the dialog box that opens and select the `admin` role.
+      1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog box that opens and select the `admin` role.
 
    - CLI
 
@@ -151,7 +151,7 @@ The infrastructure support costs include:
          export YC_FOLDER_ID=$(yc config get folder-id)
          ```
 
-    {% endlist %}
+   {% endlist %}
 
 
 ## Prepare an environment for deploying the resources {#setup-environment}
@@ -193,217 +193,217 @@ The infrastructure support costs include:
 
 ## Deploy your resources {#deploy-resources}
 
-   1. Initialize {{TF}}:
-      ```bash
-      terraform init
-      ```
-   1. Check the {{TF}} file configuration:
-      ```bash
-      terraform validate
-      ```
-   1. Check the list of created cloud resources:
-      ```bash
-      terraform plan
-      ```
-   1. Create resources:
-      ```bash
-      terraform apply -auto-approve
-      ```
-   1. Wait until a process completion message appears:
-      ```bash
-      Outputs:
+1. Initialize {{TF}}:
+   ```bash
+   terraform init
+   ```
+1. Check the {{TF}} file configuration:
+   ```bash
+   terraform validate
+   ```
+1. Check the list of created cloud resources:
+   ```bash
+   terraform plan
+   ```
+1. Create resources:
+   ```bash
+   terraform apply -auto-approve
+   ```
+1. Wait until a process completion message appears:
+   ```bash
+   Outputs:
 
-      connect_line = "ssh storage@158.160.108.137"
-      public_ip = "158.160.108.137"
-      ```
+   connect_line = "ssh storage@158.160.108.137"
+   public_ip = "158.160.108.137"
+   ```
 
 This will create 30 VMs for hosting client code (`client01`, `client02`, etc.) in the folder and 30 VMs for distributed data storage (`gluster01`, `gluster02`, etc.) bound to the client VMs and placed in the same availability zone.
 
 ## Install and configure GlusterFS {#install-glusterfs}
 
-   1. Connect to the `client01` VM using the command from the process completion output:
-      ```bash
-      ssh storage@158.160.108.137
-      ```
-   1. Switch to `root` superuser mode:
-      ```bash
-      sudo -i
-      ```
-   1. Install [ClusterShell](https://clustershell.readthedocs.io/en/latest/intro.html):
-      ```bash
-      dnf install epel-release -y
-      dnf install clustershell -y
-      echo 'ssh_options: -oStrictHostKeyChecking=no' >> /etc/clustershell/clush.conf
-      ```
-   1. Create the configuration files:
-      ```bash
-      cat > /etc/clustershell/groups.conf <<EOF
-      [Main]
-      default: cluster
-      confdir: /etc/clustershell/groups.conf.d $CFGDIR/groups.conf.d
-      autodir: /etc/clustershell/groups.d $CFGDIR/groups.d
-      EOF
+1. Connect to the `client01` VM using the command from the process completion output:
+   ```bash
+   ssh storage@158.160.108.137
+   ```
+1. Switch to `root` superuser mode:
+   ```bash
+   sudo -i
+   ```
+1. Install [ClusterShell](https://clustershell.readthedocs.io/en/latest/intro.html):
+   ```bash
+   dnf install epel-release -y
+   dnf install clustershell -y
+   echo 'ssh_options: -oStrictHostKeyChecking=no' >> /etc/clustershell/clush.conf
+   ```
+1. Create the configuration files:
+   ```bash
+   cat > /etc/clustershell/groups.conf <<EOF
+   [Main]
+   default: cluster
+   confdir: /etc/clustershell/groups.conf.d $CFGDIR/groups.conf.d
+   autodir: /etc/clustershell/groups.d $CFGDIR/groups.d
+   EOF      
 
-      cat > /etc/clustershell/groups.d/cluster.yaml <<EOF
-      cluster:
-         all: '@clients,@gluster'
-         clients: 'client[01-30]'
-         gluster: 'gluster[01-30]'
-      EOF
-      ```
-   1. Install GlusterFS:
-      ```bash
-      clush -w @all hostname # check and auto add fingerprints
-      clush -w @all dnf install centos-release-gluster -y
-      clush -w @all dnf --enablerepo=powertools install glusterfs-server -y
-      clush -w @gluster mkfs.xfs -f -i size=512 /dev/vdb
-      clush -w @gluster mkdir -p /bricks/brick1
-      clush -w @gluster "echo '/dev/vdb /bricks/brick1 xfs defaults 1 2' >> /etc/fstab"
-      clush -w @gluster "mount -a && mount"
-      ```
-   1. Restart GlusterFS:
-      ```bash
-      clush -w @gluster systemctl enable glusterd
-      clush -w @gluster systemctl restart glusterd
-      ```
-   1. Check the availability of the `gluster02` through `gluster30` VMs:
-      ```bash
-      clush -w gluster01 'for i in {2..9}; do gluster peer probe gluster0$i; done'
-      clush -w gluster01 'for i in {10..30}; do gluster peer probe gluster$i; done'
-      ```
-   1. Create a `vol0` folder in each of the storage VMs and configure availability and fault tolerance by connecting to the `stripe-volume` shared folder:
-      ```bash
-      clush -w @gluster mkdir -p /bricks/brick1/vol0
-      export STRIPE_NODES=$(nodeset -S':/bricks/brick1/vol0 ' -e @gluster)
-      clush -w gluster01 gluster volume create stripe-volume ${STRIPE_NODES}:/bricks/brick1/vol0
-      ```
+   cat > /etc/clustershell/groups.d/cluster.yaml <<EOF
+   cluster:
+      all: '@clients,@gluster'
+      clients: 'client[01-30]'
+      gluster: 'gluster[01-30]'
+   EOF
+   ```
+1. Install GlusterFS:
+   ```bash
+   clush -w @all hostname # check and auto add fingerprints
+   clush -w @all dnf install centos-release-gluster -y
+   clush -w @all dnf --enablerepo=powertools install glusterfs-server -y
+   clush -w @gluster mkfs.xfs -f -i size=512 /dev/vdb
+   clush -w @gluster mkdir -p /bricks/brick1
+   clush -w @gluster "echo '/dev/vdb /bricks/brick1 xfs defaults 1 2' >> /etc/fstab"
+   clush -w @gluster "mount -a && mount"
+   ```
+1. Restart GlusterFS:
+   ```bash
+   clush -w @gluster systemctl enable glusterd
+   clush -w @gluster systemctl restart glusterd
+   ```
+1. Check the availability of the `gluster02` through `gluster30` VMs:
+   ```bash
+   clush -w gluster01 'for i in {2..9}; do gluster peer probe gluster0$i; done'
+   clush -w gluster01 'for i in {10..30}; do gluster peer probe gluster$i; done'
+   ```
+1. Create a `vol0` folder in each of the storage VMs and configure availability and fault tolerance by connecting to the `stripe-volume` shared folder:
+   ```bash
+   clush -w @gluster mkdir -p /bricks/brick1/vol0
+   export STRIPE_NODES=$(nodeset -S':/bricks/brick1/vol0 ' -e @gluster)
+   clush -w gluster01 gluster volume create stripe-volume ${STRIPE_NODES}:/bricks/brick1/vol0
+   ```
 
-   1. Configure additional performance settings:
-      ```bash
-      clush -w gluster01 gluster volume set stripe-volume client.event-threads 8
-      clush -w gluster01 gluster volume set stripe-volume server.event-threads 8
-      clush -w gluster01 gluster volume set stripe-volume cluster.shd-max-threads 8
-      clush -w gluster01 gluster volume set stripe-volume performance.read-ahead-page-count 16
-      clush -w gluster01 gluster volume set stripe-volume performance.client-io-threads on
-      clush -w gluster01 gluster volume set stripe-volume performance.quick-read off
-      clush -w gluster01 gluster volume set stripe-volume performance.parallel-readdir on
-      clush -w gluster01 gluster volume set stripe-volume performance.io-thread-count 32
-      clush -w gluster01 gluster volume set stripe-volume performance.cache-size 1GB
-      clush -w gluster01 gluster volume set stripe-volume performance.cache-invalidation on
-      clush -w gluster01 gluster volume set stripe-volume performance.md-cache-timeout 600
-      clush -w gluster01 gluster volume set stripe-volume performance.stat-prefetch on
-      clush -w gluster01 gluster volume set stripe-volume server.allow-insecure on
-      clush -w gluster01 gluster volume set stripe-volume network.inode-lru-limit 200000
-      clush -w gluster01 gluster volume set stripe-volume features.shard-block-size 128MB
-      clush -w gluster01 gluster volume set stripe-volume features.shard on
-      clush -w gluster01 gluster volume set stripe-volume features.cache-invalidation-timeout 600
-      clush -w gluster01 gluster volume set stripe-volume storage.fips-mode-rchecksum on
-      ```
-   1. Mount the `stripe-volume` shared folder on the client VMs:
-      ```bash
-      clush -w gluster01  gluster volume start stripe-volume
-      clush -w @clients mount -t glusterfs gluster01:/stripe-volume /mnt/
-      ```
+1. Configure additional performance settings:
+   ```bash
+   clush -w gluster01 gluster volume set stripe-volume client.event-threads 8
+   clush -w gluster01 gluster volume set stripe-volume server.event-threads 8
+   clush -w gluster01 gluster volume set stripe-volume cluster.shd-max-threads 8
+   clush -w gluster01 gluster volume set stripe-volume performance.read-ahead-page-count 16
+   clush -w gluster01 gluster volume set stripe-volume performance.client-io-threads on
+   clush -w gluster01 gluster volume set stripe-volume performance.quick-read off
+   clush -w gluster01 gluster volume set stripe-volume performance.parallel-readdir on
+   clush -w gluster01 gluster volume set stripe-volume performance.io-thread-count 32
+   clush -w gluster01 gluster volume set stripe-volume performance.cache-size 1GB
+   clush -w gluster01 gluster volume set stripe-volume performance.cache-invalidation on
+   clush -w gluster01 gluster volume set stripe-volume performance.md-cache-timeout 600
+   clush -w gluster01 gluster volume set stripe-volume performance.stat-prefetch on
+   clush -w gluster01 gluster volume set stripe-volume server.allow-insecure on   
+   clush -w gluster01 gluster volume set stripe-volume network.inode-lru-limit 200000
+   clush -w gluster01 gluster volume set stripe-volume features.shard-block-size 128MB
+   clush -w gluster01 gluster volume set stripe-volume features.shard on
+   clush -w gluster01 gluster volume set stripe-volume features.cache-invalidation-timeout 600
+   clush -w gluster01 gluster volume set stripe-volume storage.fips-mode-rchecksum on  
+   ```
+1. Mount the `stripe-volume` shared folder on the client VMs:
+   ```bash
+   clush -w gluster01  gluster volume start stripe-volume      
+   clush -w @clients mount -t glusterfs gluster01:/stripe-volume /mnt/
+   ```
 
 ## Test the solution availability {#test-glusterfs}
 
-   1. Check the status of the `stripe-volume` shared folder:
-      ```bash
-      clush -w gluster01  gluster volume status
-      ```
+1. Check the status of the `stripe-volume` shared folder:
+   ```bash
+   clush -w gluster01  gluster volume status
+   ```
 
-   1. Create a text file:
-      ```bash
-      cat > /mnt/test.txt <<EOF
-      Hello, GlusterFS!
-      EOF
-      ```
+1. Create a text file:
+   ```bash
+   cat > /mnt/test.txt <<EOF
+   Hello, GlusterFS!
+   EOF
+   ```
 
-   1. Make sure that the file is available on all client VMs:
-      ```bash
-      clush -w @clients sha256sum /mnt/test.txt
-      ```
-      Result:
-      ```bash
-      client01: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
-      client02: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
-      client03: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
-      ...
-      client30: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
-      ```
+1. Make sure that the file is available on all client VMs:
+   ```bash
+   clush -w @clients sha256sum /mnt/test.txt
+   ```
+   Result:
+   ```bash
+   client01: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
+   client02: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
+   client03: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
+   ...
+   client30: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
+   ```
 
 ## Test the solution performance {#test-glusterfs-performance}
 
-   [IOR](https://github.com/hpc/ior) is a benchmark for concurrent I/O operations that can be used to test the performance of parallel data storage systems using various interfaces and access patterns.
+[IOR](https://github.com/hpc/ior) is a benchmark for concurrent I/O operations that can be used to test the performance of parallel data storage systems using various interfaces and access patterns.
 
-   1. Install the dependencies:
-      ```bash
-      clush -w @clients dnf install -y autoconf automake pkg-config m4 libtool git mpich mpich-devel make fio
-      cd /mnt/
-      git clone https://github.com/hpc/ior.git
-      cd ior
-      mkdir prefix
-      ```
+1. Install the dependencies:
+   ```bash
+   clush -w @clients dnf install -y autoconf automake pkg-config m4 libtool git mpich mpich-devel make fio
+   cd /mnt/
+   git clone https://github.com/hpc/ior.git
+   cd ior
+   mkdir prefix
+   ```
 
-   1. Close the shell and open it again:
-      ```bash
-      ^C
-      sudo -i
-      module load mpi/mpich-x86_64
-      cd /mnt/ior
-      ```
+1. Close the shell and open it again:
+   ```bash
+   ^C
+   sudo -i
+   module load mpi/mpich-x86_64
+   cd /mnt/ior
+   ```
 
-   1. Install IOR:
-      ```bash
-      ./bootstrap
-      ./configure --disable-dependency-tracking  --prefix /mnt/ior/prefix
-      make
-      make install
-      mkdir -p /mnt/benchmark/ior
-      ```
+1. Install IOR:
+   ```bash
+   ./bootstrap
+   ./configure --disable-dependency-tracking  --prefix /mnt/ior/prefix
+   make
+   make install
+   mkdir -p /mnt/benchmark/ior
+   ```
 
-   1. Run IOR:
-      ```bash
-      export NODES=$(nodeset  -S',' -e @clients)
-      mpirun -hosts $NODES -ppn 16 /mnt/ior/prefix/bin/ior  -o /mnt/benchmark/ior/ior_file -t 1m -b 16m -s 16 -F
-      mpirun -hosts $NODES -ppn 16 /mnt/ior/prefix/bin/ior  -o /mnt/benchmark/ior/ior_file -t 1m -b 16m -s 16 -F -C
-      ```
+1. Run IOR:
+   ```bash
+   export NODES=$(nodeset  -S',' -e @clients)
+   mpirun -hosts $NODES -ppn 16 /mnt/ior/prefix/bin/ior  -o /mnt/benchmark/ior/ior_file -t 1m -b 16m -s 16 -F
+   mpirun -hosts $NODES -ppn 16 /mnt/ior/prefix/bin/ior  -o /mnt/benchmark/ior/ior_file -t 1m -b 16m -s 16 -F -C
+   ```
 
-      Result:
-      ```bash
-      IOR-4.1.0+dev: MPI Coordinated Test of Parallel I/O
-      Options:
-      api                 : POSIX
-      apiVersion          :
-      test filename       : /mnt/benchmark/ior/ior_file
-      access              : file-per-process
-      type                : independent
-      segments            : 16
-      ordering in a file  : sequential
-      ordering inter file : no tasks offsets
-      nodes               : 30
-      tasks               : 480
-      clients per node    : 16
-      memoryBuffer        : CPU
-      dataAccess          : CPU
-      GPUDirect           : 0
-      repetitions         : 1
-      xfersize            : 1 MiB
-      blocksize           : 16 MiB
-      aggregate filesize  : 120 GiB
+   Result:
+   ```bash
+   IOR-4.1.0+dev: MPI Coordinated Test of Parallel I/O
+   Options:
+   api                 : POSIX
+   apiVersion          :
+   test filename       : /mnt/benchmark/ior/ior_file
+   access              : file-per-process
+   type                : independent
+   segments            : 16
+   ordering in a file  : sequential
+   ordering inter file : no tasks offsets
+   nodes               : 30
+   tasks               : 480
+   clients per node    : 16
+   memoryBuffer        : CPU
+   dataAccess          : CPU
+   GPUDirect           : 0
+   repetitions         : 1
+   xfersize            : 1 MiB
+   blocksize           : 16 MiB
+   aggregate filesize  : 120 GiB
 
-      Results:
+   Results:
 
-      access    bw(MiB/s)  IOPS       Latency(s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
-      ------    ---------  ----       ----------  ---------- ---------  --------   --------   --------   --------   ----
-      write     1223.48    1223.99    4.65        16384      1024.00    2.44       100.39     88.37      100.44     0
-      read      1175.45    1175.65    4.83        16384      1024.00    0.643641   104.52     37.97      104.54     0
-      ```
+   access    bw(MiB/s)  IOPS       Latency(s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+   ------    ---------  ----       ----------  ---------- ---------  --------   --------   --------   --------   ----
+   write     1223.48    1223.99    4.65        16384      1024.00    2.44       100.39     88.37      100.44     0
+   read      1175.45    1175.65    4.83        16384      1024.00    0.643641   104.52     37.97      104.54     0
+   ```
 
 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created, delete them:
-   ```bash
-   terraform destroy -auto-approve
-   ```
+```bash
+terraform destroy -auto-approve
+```

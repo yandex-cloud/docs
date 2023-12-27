@@ -58,7 +58,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 {% include [create-agent](../../_includes/load-testing/create-agent.md) %}
 
-## Prepare your load testing scenario {#test-sceanrio}
+## Prepare your load testing scenario {#test-scenario}
 
 Create a load testing scenario in the JMeter UI and save it to a `.JMX` file. You can learn more in the [JMeter documentation](https://jmeter.apache.org/usermanual/index.html).
 
@@ -138,27 +138,27 @@ This example creates a single thread group with one HTTP request (a `sleep` requ
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select `agent-008`.
-1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and select the scenario file you created [earlier](#test-sceanrio).
+1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and select the scenario file you created [earlier](#test-scenario).
 1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
 
-    1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select `JMETER`.
-    1. In the **jmx scenario** field, select `Attached file`.
+   1. In the **{{ ui-key.yacloud.load-testing.field_load-generator }}** field, select `JMETER`.
+   1. In the **jmx scenario** field, select `Attached file`.
 
-        If you have uploaded multiple files under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select `Specify file` and in the **Attached file name or download URL** field, enter the scenario file name. If your scenario is not locally available, specify its download URL here.
+      If you have uploaded multiple files under **{{ ui-key.yacloud.load-testing.test-data-section }}**, select `Specify file` and in the **Attached file name or download URL** field, enter the scenario file name. If your scenario is not locally available, specify its download URL here.
 
 1. (Optional) In the **Override jmx scenario variables** menu, you can add variables in the `var=value` format. In this case, custom variables will be passed to the scenario. You can access them as `${var}`.
-1. (Otional) In the **JMeter launch parameters** menu:
+1. (Optional) In the **JMeter launch parameters** menu:
 
-    1. If you are using a custom JMeter version which you manually copied to the agent, specify the JMeter executable path in the **Path to jmeter executable file** field.
-    1. In the **Additional jmeter launch arguments** field, specify the additional arguments: they allow you to use Non-GUI mode launch commands. Yo can learn more in the [JMeter documentation](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
+   1. If you are using a custom JMeter version which you manually copied to the agent, specify the JMeter executable path in the **Path to jmeter executable file** field.
+   1. In the **Additional jmeter launch arguments** field, specify the additional arguments: they allow you to use Non-GUI mode launch commands. You can learn more in the [JMeter documentation](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
 
 1. In the **Autostop** menu, click ![image](../../_assets/plus-sign.svg) **Autostop** and enter the following description:
-    * **Autostop type 1**: `QUANTILE`
-    * **Quantile**: `75`
-    * **Response time limit**: `100ms`
-    * **Window duration**: `10s`
+   * **Autostop type 1**: `QUANTILE`
+   * **Quantile**: `75`
+   * **Response time limit**: `100ms`
+   * **Window duration**: `10s`
 
-    This criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the processing time of 25% of queries exceeds 100 milliseconds).
+   This criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the processing time of 25% of queries exceeds 100 milliseconds).
 
 1. Under **{{ ui-key.yacloud.load-testing.meta-section }}**, specify the name, description, and number of the test version. This will make the report easier to read.
 1. Click **{{ ui-key.yacloud.common.create }}**.

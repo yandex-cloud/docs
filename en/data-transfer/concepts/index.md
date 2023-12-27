@@ -42,7 +42,7 @@ The following can be the data source or target:
 
 _Transfer_ is the process of transmitting data between the source and target service. It should be in the same folder as the endpoints used.
 
-If subnets are specified for endpoints, they must be hosted in the same [availability zone](../../overview/concepts/geo-scope.md). Otherwise, activating the transfer with such endpoints will result in an error.
+If subnets are specified for endpoints, these subnets must be hosted in the same [availability zone](../../overview/concepts/geo-scope.md). Otherwise, activating the transfer with such endpoints will result in an error.
 
 ### Transfer types {#transfer-type}
 
@@ -53,3 +53,5 @@ For more information about the differences between transfer types, see [{#T}](./
 ### Compatibility of sources and targets {#connectivity-matrix}
 
 {% include [include](../../_includes/data-transfer/connectivity-marix.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

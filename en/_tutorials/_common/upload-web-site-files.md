@@ -2,15 +2,15 @@
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 1. Grant your user write access to the `/var/www/html` directory:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Ubuntu
+   - Ubuntu {#ubuntu}
 
       ```bash
       sudo chown -R "$USER":www-data /var/www/html
       ```
 
-   - CentOS
+   - CentOS {#centos}
 
       ```bash
       sudo chown -R "$USER":apache /var/www/html
@@ -20,9 +20,9 @@
 
 1. Upload the website files to the VM via [SCP](https://en.wikipedia.org/wiki/Secure_copy_protocol).
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux/macOS
+   - Linux/macOS {#linux-macos}
 
       Use the `scp` command-line utility:
 
@@ -30,7 +30,7 @@
       scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
       ```
 
-   - Windows
+   - Windows {#windows}
 
       Use [WinSCP](https://winscp.net/eng/download.php) to copy the local file directory to `/var/www/html` on the VM.
 

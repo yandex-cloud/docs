@@ -50,9 +50,9 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 ## Set up synchronization {#setup-ntp}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (systemd)
+- Linux (systemd) {#linux-systemd}
 
    On Linux-based VMs, enable a DHCP client with the `42` (`Network Time Protocol Servers`) option. The DHCP client automatically applies the list of time synchronization servers sent by the DHCP server. In {{ compute-name }} images, operating systems are preset properly.
 
@@ -90,7 +90,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
       sudo systemctl restart systemd-timesyncd
       ```
 
-- Linux (ntpd)
+- Linux (ntpd) {#linux-ntpd}
 
    On Linux-based VMs, enable a DHCP client with the `42` (`Network Time Protocol Servers`) option. The DHCP client automatically applies the list of time synchronization servers sent by the DHCP server. In {{ compute-name }} images, operating systems are preset properly.
 
@@ -141,7 +141,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
       sudo service ntp restart
       ```
 
-- Windows Server
+- Windows Server {#windows}
 
    To set up time synchronization:
    1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM via RDP.
@@ -203,9 +203,9 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 ## Check the synchronization {#check-ntp}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (systemd)
+- Linux (systemd) {#linux-systemd}
 
    Run this command:
 
@@ -222,7 +222,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
    ...
    ```
 
-- Linux (ntpd)
+- Linux (ntpd) {#linux-ntpd}
 
    Run this command:
 
@@ -244,7 +244,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 
 
-- Windows Server
+- Windows Server {#windows}
 
    Run the command below and specify the VM name:
 

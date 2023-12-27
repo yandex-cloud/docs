@@ -15,17 +15,17 @@ To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04 or Ubuntu 
 
 1. Download deb packages required to install Greenplum Database 6 from a {{ objstorage-full-name }} bucket using the script below:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Ubuntu 22.04
+   - Ubuntu 22.04 {#ubuntu2204}
 
-        ```bash
-        curl {{ s3-storage-host }}/greenplum-jammy-packages/install.sh | sudo bash
-        ```
+      ```bash
+      curl {{ s3-storage-host }}/greenplum-jammy-packages/install.sh | sudo bash
+      ```
 
       To view the list of downloadable deb packages, download the [script file](http://{{ s3-storage-host }}/greenplum-jammy-packages/install.sh).
 
-   - Ubuntu 20.04
+   - Ubuntu 20.04 {#ubuntu2004}
 
       ```bash
       curl {{ s3-storage-host }}/greenplum-focal-packages/install.sh | sudo bash

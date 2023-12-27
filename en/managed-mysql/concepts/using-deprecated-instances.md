@@ -1,19 +1,15 @@
 # Using deprecated host classes in {{ mmy-name }}
 
-Starting June 1, 2020, the `s1.nano` and all `m1.*` host classes are deprecated for {{ mmy-short-name }}.
+Starting January 1, 2024, the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, and `b2.small` host classes will be deprecated for {{ mmy-name }}.
 
 What this means for you as a user:
-- Now you can no longer change the host class to `s1.nano` or `m1.*` for your cluster.
-- You can still work with your cluster if it uses the `s1.nano` or `m1.*` class; however, you cannot [add new hosts](../operations/hosts.md) of any class to such a cluster.
 
-   To add hosts to your cluster, you will need to [change the host class](../operations/update.md#change-resource-preset) to a [supported one](instance-types.md) first.
+- You will no longer be able to run your cluster if it uses the `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, or `b2.small` host classes.
 
-   For example, you can migrate:
-   - From `s1.nano` to:
-      - `s2.micro`: This is the most affordable host class with 100% guaranteed vCPU performance. It contains twice as many resources as `s1.nano`.
-      - `b2.medium`: The closest host class in terms of computing resources. It costs less than `s1.nano`, but the guaranteed vCPU performance is lower: 50% instead of 100%.
-   - From `m1.*` to `m2.*` (from `m1.medium` to `m2.medium`).
-      - The [pricing](../pricing.md) for previously created `s1.nano` and `m1.*` does not change.
+- If your cluster uses hosts of these classes, you will not be able [to add new hosts of any class to your cluster](../operations/hosts.md).
+
+   To add hosts to your cluster, first [change the host class](../operations/update.md#change-resource-preset) to a [supported one](instance-types.md), for example, `b1.medium` or `b2.medium`.
+
 - You can [restore a cluster from a backup](../operations/cluster-backups.md) only to [existing host classes](instance-types.md).
 
-   You cannot restore a cluster from a backup to `s1.nano` or `m1.*` hosts even if the backup was created from a cluster consisting of such hosts.
+   You cannot restore a cluster from a backup to `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro`, or `b2.small` hosts even if the backup was created from a cluster consisting of such hosts.

@@ -224,7 +224,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
    1. In the cluster subnet, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) and [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
-   1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
+   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md).
 
@@ -383,3 +383,5 @@ The `WRITABLE` option enables you to write data to an external object. To be abl
    ```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

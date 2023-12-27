@@ -48,7 +48,7 @@ Access to {{ ZK }} and its setup are not available to {{ yandex-cloud }} users.
 
 When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster with 3 {{ ZK }} hosts to manage replication and fault tolerance, if {{ CK }} support is not enabled. These hosts are taken into account when calculating the consumed cloud [resource quota]({{ link-console-quotas }}) and cluster cost. By default, {{ ZK }} hosts are created with a minimal [host class](../../managed-clickhouse/concepts/instance-types.md).
 
-For more information about using {{ ZK }}, see the [ClickHouse documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+For more information about using {{ ZK }}, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
 
 #### How do I delete data in {{ CH }} based on TTL? {#how-ttl-data-processing-works}
 

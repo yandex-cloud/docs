@@ -2,7 +2,7 @@
 
 {% include [mdb-peering-intro](intro.md) %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 ### Assign roles {#assign-roles}
 

@@ -40,7 +40,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-source.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -94,7 +94,7 @@ For OnPremise, all fields are filled in manually.
 
    {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-source.md) %}
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    
    ```hcl
@@ -167,7 +167,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `exclude_table_regex`: List of excluded tables. Data from tables on this list will not be transferred. This option is specified using regular expressions.
+   * `exclude_table_regex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
@@ -189,7 +189,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `excludeTablesRegex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
+   * `excludeTables`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
@@ -220,3 +220,5 @@ If you are setting up a transfer from a {{ MY }} cluster to a {{ CH }} cluster, 
 * Data of the `TIME` type is transferred as strings with the source and target time zones ignored.
 * When transferring data of the `TIMESTAMP` type, the time zone set in the {{ MY }} source settings or [advanced endpoint settings](#additional-settings) is used. For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/datetime.html).
 * The source endpoint assigns the UTC+0 time zone to data of the `DATETIME` type.
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

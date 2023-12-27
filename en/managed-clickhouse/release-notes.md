@@ -1,4 +1,4 @@
-# {{ mch-full-name }} releases
+# Revision history for {{ mch-full-name }}
 
 This section covers the revision history for {{ mch-name }}.
 
@@ -55,3 +55,5 @@ This section covers the revision history for {{ mch-name }}.
 * A new version is available: {{ CH }} 22.3 LTS ([revision list](https://github.com/ClickHouse/ClickHouse/blob/master/CHANGELOG.md)).
 * Added the ability to restore a sharded cluster from a backup entirely. {{ tag-cli }} {{ tag-api }}
 * Added the ability to change the settings that enable public access to a host. {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

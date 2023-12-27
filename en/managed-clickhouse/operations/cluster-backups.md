@@ -1,6 +1,6 @@
 ---
-title: "Managing ClickHouse backups"
-description: "You can create backups and restore clusters from existing ClickHouse backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup."
+title: "Managing {{ CH }} backups"
+description: "You can create backups and restore clusters from existing {{ CH }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup."
 ---
 
 # Managing backups in {{ mch-name }}
@@ -47,7 +47,7 @@ Backups are created based on a random replica host. If there is no cluster host 
       {{ yc-mdb-ch }} cluster backup <cluster_name_or_ID>
       ```
 
-      You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -306,3 +306,5 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

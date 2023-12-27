@@ -78,7 +78,7 @@ The infrastructure support costs include:
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-glusterfs` service account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **Add role** in the dialog box that opens and select the `admin` role.
+      1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog box that opens and select the `admin` role.
 
    - CLI
 
@@ -110,7 +110,7 @@ The infrastructure support costs include:
          ```
          Where:
          * `service-account-id`: ID of your service account.
-         * `folder-id`: ID of the folder where the service account was created.
+         * `folder-id`: ID of the folder the service account was created in.
          * `output`: Name of the file with the authorized key.
 
          Result:
@@ -162,10 +162,10 @@ The infrastructure support costs include:
    We recommend leaving the key file name unchanged.
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Clone the `yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs` repository from GitHub and go to the `yc-distributed-ha-storage-with-glusterfs` folder:
-    ```
-    git clone https://github.com/yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs.git
-    cd ./yc-distributed-ha-storage-with-glusterfs
-    ```
+   ```
+   git clone https://github.com/yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs.git
+   cd ./yc-distributed-ha-storage-with-glusterfs
+   ```
 1. Edit the `variables.tf` file, specifying the parameters of the deployed resources:
 
    {% note warning %}

@@ -21,7 +21,7 @@ See [Examples of working with objects](#examples).
 
 1. When [creating](cluster-create.md) or [updating](update.md) a cluster, either select an existing service account or create a new one.
 
-1. Make sure that this account is assigned the correct roles from the `storage.*` role group. If necessary, assign it the necessary roles, such as `storage.viewer` and `storage.uploader`.
+1. Make sure that this account is assigned the correct roles from the `storage.*` role group. If needed, assign it the necessary roles, e.g., `storage.viewer` and `storage.uploader`.
 
 {% note tip %}
 
@@ -41,7 +41,7 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
    1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md) or [object ACL](../../storage/operations/objects/edit-acl.md):
 
-      1. In the list of buckets or objects, select the required item and click ![image](../../_assets/console-icons/ellipsis.svg).
+      1. In the list of buckets or objects, select the required object and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.storage.buckets.button_permissions }}** or **{{ ui-key.yacloud.storage.file.button_permissions }}**.
       1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
       1. Click **{{ ui-key.yacloud.common.add }}**.
@@ -60,7 +60,7 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
 To use {{ mch-name }} to work with data of an object in {{ objstorage-name }}, you need to [get a link](../../storage/operations/objects/link-for-download.md) to this object in the bucket.
 
-A link like `https://{{ s3-storage-host }}/<bucket_name>/<object_name>?X-Amz-Algorithm=...` should be changed to `https://{{ s3-storage-host }}/<bucket_name>/<object_name>`. To do this, delete all parameters in the query string.
+A link, such as `https://{{ s3-storage-host }}/<bucket_name>/<object_name>?X-Amz-Algorithm=...` should be changed to `https://{{ s3-storage-host }}/<bucket_name>/<object_name>`. To do this, delete all parameters in the query string.
 
 ## Examples of working with objects {#examples}
 
@@ -112,3 +112,5 @@ For example, if the {{ objstorage-name }} bucket has a `table.tsv` file that sto
       ```
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

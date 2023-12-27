@@ -36,7 +36,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - For folders {#folders}
 
-   You can view usage details for one or more folders. The selected folders have a mark next to their name. By default, all the folders of the selected cloud are marked. To only view usage details for some of them, in the **{{ ui-key.yacloud.billing.account.detail.filter_label-folders }}** list, deselect the folders you need no information about. To get details for selected folders by specific product or label, click **{{ ui-key.yacloud.billing.account.detail.filter_label_all-filters }}** and specify the products and labels to include in the report.
+   You can view usage details for one or more folders. The selected folders have a mark next to their name. By default, all the folders of the selected cloud are marked. To only view usage details for some of them, in the **{{ ui-key.yacloud.billing.account.detail.value_folders }}** list, deselect the folders you need no information about. To get details for selected folders by specific product or label, click **{{ ui-key.yacloud.billing.account.detail.filter_label_all-filters }}** and specify the products and labels to include in the report.
 
 - For services {#services}
 

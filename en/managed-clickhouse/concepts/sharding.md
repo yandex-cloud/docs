@@ -58,3 +58,5 @@ To learn more about working with distributed tables, see the [{{ CH }} documenta
    * In clusters with single-host shards, you need to [enable fault tolerance using {{ ZK}}](../operations/zk-hosts.md#add-zk), and only then add hosts to the shard.
 
    For more information about replication, {{ CK }}, and {{ ZK }}, see [Replication](replication.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

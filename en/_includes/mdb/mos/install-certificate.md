@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (Bash) and macOS (Zsh)
+- Linux (Bash)/macOS (Zsh) {#linux-macos}
 
    ```bash
    mkdir -p ~/.opensearch && \
@@ -11,7 +11,7 @@
 
    The certificate is saved to the `~/.opensearch/root.crt` file.
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows}
 
    ```powershell
    mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}

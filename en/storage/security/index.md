@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ objstorage-full-name }} (S3)"
-description: "Access management in {{ objstorage-full-name }} (S3), a service for scalable data storage. This section describes which resources you can assign a role for and what roles exist in the service."
+description: "Access management in {{ objstorage-full-name }} (S3), a service for scalable data storage. This section describes the resources for which you can assign a role and the roles existing in the service."
 ---
 
 # Access management in {{ objstorage-name }}
@@ -38,13 +38,6 @@ For information about managing access to buckets and objects, see [{#T}](../conc
 
 {% include [storage-admin](../../_includes/iam/roles/storage-admin.md) %}
 
-#### {{ roles-cloud-member }} {#member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-#### {{ roles-cloud-owner }} {#owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
 ### Primitive roles {#primitive-roles}
 

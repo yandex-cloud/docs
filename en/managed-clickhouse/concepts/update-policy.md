@@ -10,7 +10,7 @@ Each {{ CH }} version supported by {{ mch-name }} undergoes comprehensive testin
 After updating to a new supported version of {{ CH }}, your data remains safe and accessible.
 
 
-## Version support policy for {#versioning-policy}
+## Version support policy {#versioning-policy}
 
 {{ mch-name }} uses two types of {{ CH }} versions:
 - **LTS** (Long-Term Support).
@@ -32,12 +32,12 @@ You can manually [change the cluster version](../operations/cluster-version-upda
 {% note warning %}
 
 * You cannot create new hosts in clusters on a deprecated version of {{ CH }}.
-* Clusters on a deprecated version of {{ CH }} are automatically updated according to the [update policy](#update-policy).
+* Clusters based on a deprecated {{ CH }} version are automatically updated according to the [update policy](#update-policy).
 
 {% endnote %}
 
 
-## Update policy for {#update-policy}
+## Update policy {#update-policy}
 
 {% list tabs %}
 
@@ -67,3 +67,5 @@ You can manually [change the cluster version](../operations/cluster-version-upda
    {% endnote %}
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

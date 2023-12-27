@@ -6,9 +6,9 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
 
 1. Reconnect to {{ backup-name }} from the outdated VM:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux
+   - Linux {#linux}
 
       1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
       1. Install the [jq](https://jqlang.github.io/jq/), [awk](http://awklang.org/), [curl](https://curl.se/), and [uuidgen](https://uuidgen.org/) utilities on the VM:
@@ -38,10 +38,10 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
           ...
           Deleting old resource bound for instance_id epdoe4g6dbq4******** and resource_id: F07543A1-BDC1-415A-A143-C18E********
           Updating ids in {{ backup-name }}
-          Finished     
+          Finished
           ```
 
-   - Windows
+   - Windows {#windows}
 
       1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM via RDP.
       1. Run Windows PowerShell.

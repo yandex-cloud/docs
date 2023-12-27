@@ -88,9 +88,9 @@ To view detailed information about the {{ mch-name }} cluster state:
 - {{ ui-key.yacloud.clickhouse.title_zookeeper }}
 
    * **Average latency per ZooKeeper host**: Average time it takes each ZooKeeper host to respond.
-   * **Average transaction time per ClickHouse host**: Average time it takes each ClickHouse host to execute a transaction. It indicates the time ClickHouse spends to access ZooKeeper.
+   * **Average transaction time per {{ CH }} host**: Average time it takes each {{ CH }} host to execute a transaction. It indicates the time {{ CH }} spends to access ZooKeeper.
    * **Connections per ZooKeeper host**: Number of connections on each ZooKeeper host.
-   * **CPU cores usage**: The number processor cores used.
+   * **CPU cores usage**: Number processor cores used.
    * **CPU cores usage per host**: Number of processor cores used on each host.
    * **CPU usage per host**: Usage of processor cores on each host.
    * **Disk read per host:** Disk read rate on each host (in bytes per second).
@@ -113,7 +113,7 @@ To view detailed information about the {{ mch-name }} cluster state:
    * **Network usage per host**: Rate of data exchange over the network on each host (in bytes per second).
    * **Outstanding requests per ZooKeeper host**: Number of requests being processed on each ZooKeeper host.
    * **Transactions**: Number of transactions per second.
-   * **Transactions per ClickHouse host**: Number of transactions per second on each ClickHouse host.
+   * **Transactions per {{ CH }} host**: Number of transactions per second on each {{ CH }} host.
    * **Watches**: Number of Watches.
    * **Znodes**: Number of Znodes.
 
@@ -207,3 +207,5 @@ To view a cluster's state and status:
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

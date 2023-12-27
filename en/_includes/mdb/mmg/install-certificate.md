@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (Bash) and macOS (Zsh)
+- Linux (Bash)/macOS (Zsh) {#linux-macos}
 
    ```bash
    mkdir -p ~/.mongodb && \
@@ -11,7 +11,7 @@
 
    The certificate is saved to the `~/.mongodb/root.crt` file.
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows}
 
    ```powershell
    mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt {{ crt-web-path }}

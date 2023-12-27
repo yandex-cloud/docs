@@ -106,3 +106,5 @@ You can request detailed information about each {{ mch-short-name }} cluster you
    You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

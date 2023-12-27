@@ -113,7 +113,7 @@ Prepare the infrastructure:
 
 ### Create a table in the {{ mch-name }} cluster {#prepare-mch}
 
-1. [Connect to the](../../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster as `user1`.
+1. [Connect to](../../managed-clickhouse/operations/connect.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
 1. Add test data to the database. As an example, a simple table is used with people's names and ages.
 
    1. Create a table:
@@ -162,13 +162,13 @@ Prepare the infrastructure:
       # Creating a Spark session
       spark = SparkSession.builder.appName("ClickhouseDataproc").getOrCreate()
 
-      # Setting the port and ClickHouse cluster parameters
+      # Setting the port and {{ CH }} cluster parameters
       jdbcPort = 8443
       jdbcHostname = "c-<{{ CH }}_cluster_ID>.rw.mdb.yandexcloud.net"
       jdbcDatabase = "db1"
       jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-      # Transferring the persons table from ClickHouse to DataFrame
+      # Transferring the persons table from {{ CH }} to DataFrame
       df = spark.read.format("jdbc") \
       .option("url", jdbcUrl) \
       .option("user","user1") \
@@ -223,13 +223,13 @@ Prepare the infrastructure:
                                   ('Mary', 34),
                                   ('Dmitry', 42)], schema)
 
-      # Specifying the port and ClickHouse cluster parameters
+      # Specifying the port and {{ CH }} cluster parameters
       jdbcPort = 8443
       jdbcHostname = "c-<{{ CH }}_cluster_ID>.rw.mdb.yandexcloud.net"
       jdbcDatabase = "db1"
       jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-      # Transferring the DataFrame to ClickHouse
+      # Transferring the DataFrame to {{ CH }}
       df.write.format("jdbc") \
       .mode("error") \
       .option("url", jdbcUrl) \
@@ -256,9 +256,9 @@ Prepare the infrastructure:
    1. [Connect to](../../managed-clickhouse/operations/connect.md) the `db1` database of the {{ mch-name }} cluster as `user1`.
    1. Run the following query:
 
-        ```sql
-        SELECT * FROM people;
-        ```
+      ```sql
+      SELECT * FROM people;
+      ```
 
    If the import was successful, the response will contain a table with the data.
 

@@ -5,15 +5,15 @@ description: "{{ mch-name }} allows you to visualize the data structure in your 
 
 # SQL queries in {{ mch-name }}
 
-{{ mch-name }} allows you to visualize the data structure in your ClickHouse cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}** tab.
+{{ mch-name }} allows you to visualize the data structure in your {{ CH }} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}** tab.
 
-See a reference list of supported queries in the [ClickHouse documentation]({{ ch.docs }}/sql-reference/statements/select/).
+See a reference list of supported queries in the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/select/).
 
 {% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
 
 ## Access to the cluster from the management console {#sql-cluster-access}
 
-To connect to a {{ mch-name }} cluster from the management console and operate its data, activate the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
+To connect to a {{ mch-name }} cluster from the management console and operate its data, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings).
 
 {% include [web-sql-auth](../../_includes/mdb/web-sql-auth-mch.md) %}
 
@@ -50,3 +50,5 @@ In addition, keep the following in mind:
 * When a cluster query takes more than 10 minutes to complete, the management console will report an error as a result, even if the query was eventually processed successfully.
 * If your cluster has multiple {{ CH }} hosts, queries from the management console are sent to a random one. Keep this in mind if you are going to modify data. For example, the `CREATE TABLE db1.newtable` query creates a table on one host only. To avoid this, use a [distributed query]({{ ch.docs }}/sql-reference/statements/create/table), putting your cluster name inside the curly brackets: `CREATE TABLE db1.newtable ON CLUSTER '{cluster}'`.
 * SQL queries in the management console are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session have no impact. For example, this is true for such queries as `USE` or `SET`.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

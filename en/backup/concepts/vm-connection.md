@@ -52,7 +52,7 @@ You can install the {{ backup-name }} agent yourself:
 * [Guide for Linux](../operations/connect-vm-linux.md)
 * [Guide for Windows](../operations/connect-vm-windows.md)
 
-For a complete list of supported operating systems, see the [backup provider documentation](https://cyberprotect.ru/ru-RU/support/documentation/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html?TocPath=%25D0%25A2%25D1%2580%25D0%25B5%25D0%25B1%25D0%25BE%25D0%25B2%25D0%25B0%25D0%25BD%25D0%25B8%25D1%258F%2520%25D0%25BA%2520%25D0%25BF%25D1%2580%25D0%25BE%25D0%25B3%25D1%2580%25D0%25B0%25D0%25BC%25D0%25BC%25D0%25BD%25D0%25BE%25D0%25BC%25D1%2583%2520%25D0%25BE%25D0%25B1%25D0%25B5%25D1%2581%25D0%25BF%25D0%25B5%25D1%2587%25D0%25B5%25D0%25BD%25D0%25B8%25D1%258E%257C_____2).
+For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
 
 If you have issues while installing the agent, [contact]({{ link-console-support }}) support.
 

@@ -27,3 +27,5 @@ If the connection is successful, the structure of the cluster or database will s
 * [Execute SQL queries](operations/query-executor.md)
 * [Create query templates](operations/templates.md)
 * [View query history](operations/history.md)
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

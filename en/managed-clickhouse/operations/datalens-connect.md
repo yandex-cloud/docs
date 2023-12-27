@@ -143,3 +143,5 @@ If the cluster and {{ datalens-name }} are in different folders, use the setting
 
 If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`.
  Otherwise, the connection will not work.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

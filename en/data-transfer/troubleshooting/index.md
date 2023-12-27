@@ -169,3 +169,4 @@ If you followed the tips provided but the problem persists, contact [tech suppor
 
 In your request, specify the [transfer](../operations/transfer.md#list) or [endpoint](../operations/endpoint/index.md#list) ID and attach [transfer status](../operations/monitoring.md) details.
 
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

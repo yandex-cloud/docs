@@ -35,7 +35,7 @@ Backups in {{ objstorage-name }} are performed on behalf of a [service account](
 
 To create a service account:
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md#editor) to your service account.
-1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret access key right away. You won't be able to access the private key parameters again after you close the window.
+1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret access key right away. You will not be able to view the private access key parameters again after you close the window.
 
 
 ## Create a bucket {#create-bucket}
@@ -50,25 +50,20 @@ To create a service account:
 
 ## Install CloudBerry Desktop Backup {#install-cloudberry}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. [Install](https://dotnet.microsoft.com/en-us/download) the Microsoft .NET Framework.
    1. [Install](https://www.msp360.com/cloudberry-backup/download/cbbbm/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
    1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
    1. Click **Start Free Trial**.
 
-- MacOS
+- Linux/macOS {#linux-macos}
 
-   1. [Install](https://www.msp360.com/cloudberry-backup/download/cbbmac/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
-   1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
-   1. Enter your email address, then click **Finish**.
-   1. In the window that opens, click **OK**.
-
-- Linux
-
-   1. [Install](https://www.msp360.com/cloudberry-backup/download/cbbub1214/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
+   1. Install CloudBerry Backup. To download the program, enter the required parameters and click **Download**.  
+      [Installing on macOS](https://www.msp360.com/cloudberry-backup/download/cbbmac/)  
+      [Installing on Linux](https://www.msp360.com/cloudberry-backup/download/cbbub1214/)
    1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
    1. Enter your email address, then click **Finish**.
    1. In the window that opens, click **OK**.
@@ -77,9 +72,9 @@ To create a service account:
 
 ## Configure CloudBerry Backup {#configure-cloudberry}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. Run CloudBerry Backup.
    1. To open the main menu, click the CloudBerry Backup logo in the top-left corner.
@@ -112,7 +107,7 @@ To create a service account:
    1. Check the backup plan and click **Next**.
    1. Click **Finish**.
 
-- macOS/Linux
+- Linux/macOS {#linux-macos}
 
    1. Run CloudBerry Backup.
    1. Click **Backup files**.
@@ -143,9 +138,9 @@ To create a service account:
 
 ## Test the backup procedure {#test-backup}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. Open the **Backup plans** tab.
    1. To run a manual backup, next to `cloud-backup-plan`, click ![запуск копирования](../../_assets/tutorials/arrow-button.png =12x12).
@@ -154,7 +149,7 @@ To create a service account:
    1. In the list of buckets, select the bucket with your backups.
    1. Make sure that all the relevant files have been backed up.
 
-- macOS/Linux
+- Linux/macOS {#linux-macos}
 
    1. Open the **Backup plans** tab.
    1. To run a manual backup, next to `cloud-backup-plan`, click **Start**.

@@ -259,14 +259,14 @@ The network load balancer will distribute the internet service's incoming traffi
 
 Test the infrastructure and make sure that traffic to the internet service VMs only comes from the addresses allowed by the rules:
 
-1. On your computer, run the command: `curl <Network_load_balancer_public_IP_address>`. Make sure no response is received.
+1. On your computer, run the command: `curl <network_load_balancer_public_IP_address>`. Make sure no response is received.
 1. Create a security group named `web-service-test-sg` with no rules and assign it to the `web-node-a`, `web-node-b` and `web-node-c` VMs.
 1. In the `web-service-test-sg` security group, create the following rule for incoming traffic:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source}}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `<Your_PC_IP_address>/32`.
-1. Run the `curl <Network_load_balancer_public_IP_address>` command again on your PC. Make sure the Drupal homepage HTML code is returned in response.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `<Your_PC_IP_address>/32`
+1. Run the `curl <network_load_balancer_public_IP_address>` command again on your PC. Make sure the Drupal homepage HTML code is returned in response.
 1. Delete the test security group.
 
 ## How to delete the resources you created {#clear-out}
