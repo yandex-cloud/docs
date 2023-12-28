@@ -51,9 +51,9 @@ yc iam create-token
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Инструкция
+- Инструкция {#instruction}
 
   Сгенерируйте части, из которых состоит JWT:
   * `header` — заголовки JWT в формате Base64Url.
@@ -120,7 +120,7 @@ yc iam create-token
 
   Если вы генерируете токен с помощью [jwt.io](https://jwt.io), обратите внимание, что в значении ключа вместо `\n` должны быть подставлены переносы строки.
 
-- Python
+- Python {#python}
 
   Пример создания JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
 
@@ -155,7 +155,7 @@ yc iam create-token
       headers={'kid': key_id})
   ```
 
-- Java
+- Java {#java}
 
   Пример создания JWT с использованием [JJWT](https://github.com/jwtk/jjwt).
 
@@ -200,7 +200,7 @@ yc iam create-token
   }
   ```
 
-- C#
+- C# {#csharp}
 
   Пример создания JWT с использованием [jose-jwt](https://www.nuget.org/packages/jose-jwt/).
 
@@ -294,7 +294,7 @@ yc iam create-token
     }
     ```
 
-- Go
+- Go {#go}
 
   Пример создания JWT с использованием [golang-jwt](https://github.com/golang-jwt/jwt):
 
@@ -346,7 +346,7 @@ yc iam create-token
   }
   ```
 
-- Node.js
+- Node.js {#node}
 
   Пример создания JWT с использованием [node-jose](https://github.com/cisco/node-jose):
 
@@ -376,7 +376,7 @@ yc iam create-token
       });
   ```
 
-- PHP
+- PHP {#php}
 
   Пример создания JWT с использованием [PHP JWT Framework](https://github.com/web-token/jwt-framework).
 
@@ -430,7 +430,7 @@ yc iam create-token
   $token = $serializer->serialize($jws);
   ```
 
-- C++
+- C++ {#cpp}
 
   Пример создания JWT с использованием [jwt-cpp](https://github.com/Thalhammer/jwt-cpp).
 
@@ -467,7 +467,7 @@ yc iam create-token
   }
   ```
 
-- Ruby
+- Ruby {#ruby}
 
   Пример создания JWT с использованием [ruby-jwt](https://github.com/jwt/ruby-jwt).
 
@@ -512,9 +512,9 @@ yc iam create-token
 * Ключ принадлежит сервисному аккаунту.
 * Подпись верна.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- API
+- API {#api}
 
   Чтобы получить IAM-токен, воспользуйтесь методом REST API [create](../../api-ref/IamToken/create.md) для ресурса [IamToken](../../api-ref/IamToken/index.md) или вызовом gRPC API [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/iam_token_service.md#CreateForServiceAccount).
 
@@ -529,7 +529,7 @@ yc iam create-token
 
   Где `<JWT-токен>` — токен в формате JWT, полученный на предыдущем шаге.
 
-- Go
+- Go {#go}
 
   Пример обмена JWT на IAM-токен:
 

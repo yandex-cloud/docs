@@ -3,9 +3,9 @@
 1. [Подключитесь к ВМ по RDP](../vm-connect/rdp.md).
 1. Остановите службу Windows Server и удалите агент:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
    
-   - PowerShell
+   - PowerShell {#powershell}
    
      1. Остановите службу `yc-guest-agent`:
      

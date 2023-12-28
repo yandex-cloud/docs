@@ -6,9 +6,9 @@
 
 Чтобы создать самоподписанный сертификат с использованием библиотеки `OpenSSL`, выполните команду:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   ```bash
   openssl req -x509 -newkey rsa:4096 -nodes \
@@ -18,7 +18,7 @@
     -subj '/CN=example.com'
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   ```PowerShell
   openssl req -x509 -newkey rsa:4096 -nodes `

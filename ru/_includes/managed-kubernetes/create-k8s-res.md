@@ -4,9 +4,9 @@
 
 Создайте [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) во флагах `--service-account-id` и `--node-service-account-id`.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   Выполните команду:
 
@@ -21,7 +21,7 @@
     --node-service-account-id $NODE_SA_ID
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   Выполните команду:
 
@@ -48,9 +48,9 @@
       * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** должно быть указано `Healthy`.
 1. Создайте [группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group):
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      yc managed-kubernetes node-group create \
@@ -66,7 +66,7 @@
        --async
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```shell script
      > yc managed-kubernetes node-group create `

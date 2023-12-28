@@ -240,9 +240,9 @@
 
 1. Убедитесь, что все нужные индексы перенесены в кластер-приемник {{ mos-name }}, а количество документов в них такое же, как и в кластере-источнике:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
       Выполните команду:
 
@@ -255,7 +255,7 @@
 
       В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце `docs.count`.
 
-    - {{ OS }} Dashboards
+    - {{ OS }} Dashboards {#opensearch}
     
       1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
       1. Выберите общий тенант `Global`.
@@ -420,9 +420,9 @@
 
 Убедитесь, что все нужные индексы перенесены в кластер-приемник {{ mos-name }}, а количество документов в них такое же как и в кластере-источнике:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   Выполните команду:
 
@@ -435,7 +435,7 @@
 
   В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце `docs.count`.
 
-- {{ OS }} Dashboards
+- {{ OS }} Dashboards {#opensearch}
 
   1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
   1. Выберите общий тенант `Global`.

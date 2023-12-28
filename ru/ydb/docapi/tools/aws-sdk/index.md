@@ -43,15 +43,15 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 
 Настройте окружение для вашего языка программирования:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   В примерах раздела для сборки приложений Java используется [Apache Maven](https://maven.apache.org/).
 
   Подробнее об AWS SDK для Java читайте в [документации AWS](https://aws.amazon.com/ru/sdk-for-java/).
 
-- Python
+- Python {#python}
 
   1. [Установите](https://www.python.org/downloads/) Python версии 3.6 и выше.
   1. Установите библиотеку Boto3:
@@ -62,21 +62,21 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 
      Подробнее об AWS SDK for Python (Boto) читайте в [документации AWS](https://aws.amazon.com/ru/sdk-for-python/).
 
-- PHP
+- PHP {#php}
 
   1. Установите [PHP](https://www.php.net/).
   1. Настройте [AWS SDK для PHP](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
 
   Подробнее об AWS SDK for PHP читайте в [документации AWS](https://aws.amazon.com/ru/sdk-for-php/).
 
-- Node.js
+- Node.js {#node}
 
   1. Установите [Node.js](https://nodejs.org/ru/).
   1. Установите [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
 
   Подробнее об AWS SDK для Node.js читайте в [документации](https://aws.amazon.com/ru/sdk-for-node-js/).
 
-- Ruby
+- Ruby {#ruby}
 
   1. Установите [Ruby](https://www.ruby-lang.org/ru/documentation/installation/).
   1. Установите [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-install.html).

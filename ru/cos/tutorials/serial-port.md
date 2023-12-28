@@ -87,15 +87,15 @@ description: "Следуя данному руководству, вы смож�
   1. Создайте ВМ с несколькими [дисками](../../compute/concepts/disk.md).
      1. Получите идентификатор образа для создания ВМ:
 
-        {% list tabs %}
+        {% list tabs group=programming_language %}
 
-        - Bash
+        - Bash {#bash}
 
           ```bash
           IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
           ```
 
-        - PowerShell
+        - PowerShell {#powershell}
 
           ```shell script
           > $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | ConvertFrom-Json).id

@@ -51,9 +51,9 @@ components:
       scheme: basic
       x-yc-apigateway-authorizer:
         type: function
-        function_id: b095c95icnvbuf4v755l
+        function_id: b095c95icnvb********
         tag: "$latest"
-        service_account_id: ajehfe84hhlaq4n59q1
+        service_account_id: ajehfe84hhl********
         authorizer_result_ttl_in_seconds: 300
 ```
 
@@ -163,9 +163,9 @@ components:
       scheme: basic
       x-yc-apigateway-authorizer:
         type: function
-        function_id: b095c95icnvbuf4v755l
+        function_id: b095c95icnvb********
         tag: "$latest"
-        service_account_id: ajehfe84hhlaq4n59q1
+        service_account_id: ajehfe84hhl********
         authorizer_result_ttl_in_seconds: 300
         authorizer_result_caching_mode: path
 ```

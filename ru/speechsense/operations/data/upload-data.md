@@ -31,9 +31,9 @@
 
 1. Перейдите в папку с репозиторием {{ yandex-cloud }} API, создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в папку `upload_data`:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
    
       ```bash
       cd <путь_к_папке_cloudapi> && \

@@ -113,9 +113,9 @@
 
 Создайте файл `setpass`, содержащий скрипт, который будет устанавливать пароль для локальной учетной записи администратора при создании виртуальных машин через CLI:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- PowerShell
+- PowerShell {#powershell}
 
     ```
     #ps1
@@ -199,9 +199,9 @@
 1. Подключитесь к ВМ `my-rds-vm` с [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. Установите роли Active Directory:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
 
         ```powershell
         Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
@@ -212,9 +212,9 @@
 
 1. Создайте лес Active Directory:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
 
         ```powershell
         Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
@@ -228,9 +228,9 @@
 
 1. Добавьте правила файрвола, защищающие службу Active Directory от запросов из внешних сетей:
     
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
 
         ```powershell
         Set-NetFirewallRule `
@@ -252,9 +252,9 @@
 
 1. Добавьте системного пользователя Network Service в Terminal Server License Servers, группу безопасности Active Directory:
     
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
 
         ```powershell
         net localgroup "Terminal Server License Servers" /Add 'Network Service'
@@ -270,9 +270,9 @@
     
     {% endnote %}
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
 
         ```powershell
         New-ItemProperty `
@@ -286,9 +286,9 @@
     
 1. Укажите службу лицензирования RDS:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
 
         ```powershell
         New-ItemProperty `
@@ -302,9 +302,9 @@
 
 1. (Опционально) Ограничьте количество разрешенных одновременных сессий к серверу:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
         
       ```powershell
       New-ItemProperty `
@@ -320,9 +320,9 @@
 
 Установите роль Remote Desktop Session Host на сервер:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- PowerShell
+- PowerShell {#powershell}
 
     ```powershell
     Install-WindowsFeature RDS-RD-Server -IncludeManagementTools
@@ -355,9 +355,9 @@
 
 1. Создайте тестовых пользователей:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
     
         ```powershell
         New-ADUser `
@@ -391,9 +391,9 @@
 
 1. Выдайте пользователям права `Remote Desktop Users`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
 
         ```powershell
         Add-ADGroupMember -Members 'ru1' -Identity 'Remote Desktop Users'
@@ -407,9 +407,9 @@
 
 1. Настройте права доступа по RDP для группы `Remote Desktop Users`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - PowerShell
+    - PowerShell {#powershell}
     
         ```powershell
         & secedit /export /cfg sec_conf_export.ini  /areas user_rights

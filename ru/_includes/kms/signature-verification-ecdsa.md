@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   Проверьте электронную подпись с помощью утилиты [OpenSSL](https://www.openssl.org/):
 
@@ -23,7 +23,7 @@
 
   Если подпись корректна, утилита OpenSSL вернет статус `Verified OK`.
 
-- Java
+- Java {#java}
 
   ```java
   import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -91,7 +91,7 @@
 
   Код выполняет проверку электронной подписи на эллиптических кривых (ECDSA). Если подпись корректна, код возвращает `true`, если нет — `false`.
 
-- Go
+- Go {#go}
 
   ```golang
   import (
@@ -165,7 +165,7 @@
 
   Код выполняет проверку электронной подписи на эллиптических кривых (ECDSA). Если подпись корректна, код возвращает `true`, если нет — `false`.
 
-- Python
+- Python {#python}
 
   ```python
   import base64

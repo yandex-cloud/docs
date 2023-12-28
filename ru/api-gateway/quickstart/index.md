@@ -79,14 +79,14 @@ description: "В этой инструкции вы создадите и про
 1. Скопируйте значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** и сформируйте ссылку вида: `https://<домен>/hello?user=API`. Должна получиться ссылка вида: 
 
     ```
-    https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/hello?user=API
+    https://falrnjna8r5v********.apigw.yandexcloud.net/hello?user=API
     ```
 
 1. Обратитесь к API-шлюзу с помощью [curl](https://curl.haxx.se), используя одну из команд: 
     
     ```bash
-    curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/hello?user=API
-    curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/hello
+    curl https://falrnjna8r5v********.apigw.yandexcloud.net/hello?user=API
+    curl https://falrnjna8r5v********.apigw.yandexcloud.net/hello
     ```
 
     Результат:
@@ -166,10 +166,10 @@ description: "В этой инструкции вы создадите и про
        entrypoint         = "index.handler"
        memory             = "128"
        execution_timeout  = "10"
-       service_account_id = "<идентификатор сервисного аккаунта>"
+       service_account_id = "<идентификатор_сервисного_аккаунта>"
        tags               = ["my_tag"]
        content {
-         zip_filename = "<путь к ZIP-архиву>"
+         zip_filename = "<путь_к_ZIP-архиву>"
        }
      }
      ```
@@ -285,8 +285,8 @@ description: "В этой инструкции вы создадите и про
                          type: "integer"
             x-yc-apigateway-integration:
               type: cloud_functions
-              function_id: <ID функции>
-              service_account_id: <ID сервисного аккаунта>
+              function_id: <идентификатор_функции>
+              service_account_id: <идентификатор_сервисного_аккаунта>
       ```
 
 - {{ TF }}
@@ -350,8 +350,8 @@ description: "В этой инструкции вы создадите и про
                            type: "integer"
                x-yc-apigateway-integration:
                  type: cloud_functions
-                 function_id: <идентификатор функции>
-                 service_account_id: <идентификатор сервисного аккаунта>
+                 function_id: <идентификатор_функции>
+                 service_account_id: <идентификатор_сервисного_аккаунта>
        EOT
      }
      ```
@@ -382,7 +382,7 @@ description: "В этой инструкции вы создадите и про
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
 
         ```
-        yc serverless api-gateway get <имя API-шлюза>
+        yc serverless api-gateway get <имя_API-шлюза>
         ```
 
 {% endlist %}
@@ -398,7 +398,7 @@ description: "В этой инструкции вы создадите и про
 Обратитесь к API-шлюзу:
 
 ```bash
-curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/numbers
+curl https://falrnjna8r5v********.apigw.yandexcloud.net/numbers
 ```
 
 Результат:

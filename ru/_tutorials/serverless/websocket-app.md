@@ -212,7 +212,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 1. Сохраните имя пользователя в переменную `TG_BOT_LOGIN`:
 
     ```bash
-    echo "export TG_BOT_LOGIN=<имя пользователя для бота>" >> ~/.bashrc && . ~/.bashrc
+    echo "export TG_BOT_LOGIN=<имя_пользователя_для_бота>" >> ~/.bashrc && . ~/.bashrc
     echo $TG_BOT_LOGIN
     ```
 
@@ -310,7 +310,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 1. Сохраните идентификатор ключа `key_id` в переменную `AWS_ACCESS_KEY_ID` и секретный ключ `secret` — в переменную `AWS_SECRET_ACCESS_KEY`:
 
     ```bash
-    echo "export AWS_ACCESS_KEY_ID=<идентификатор ключа>" >> ~/.bashrc && . ~/.bashrc
+    echo "export AWS_ACCESS_KEY_ID=<идентификатор_ключа>" >> ~/.bashrc && . ~/.bashrc
     echo $AWS_ACCESS_KEY_ID
     
     echo "export AWS_SECRET_ACCESS_KEY=<секретный_ключ>" >> ~/.bashrc && . ~/.bashrc
@@ -327,7 +327,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
    
    * `AWS Access Key ID` — идентификатор ключа доступа `key_id` сервисного аккаунта, полученный ранее.
    * `AWS Secret Access Key` — секретный ключ `secret` сервисного аккаунта, полученный ранее.
-   * `Default region name` — используйте значение `ru-central1`.
+   * `Default region name` — используйте значение `{{ region-id }}`.
    * `Default output format` — оставьте пустым.
 
 1. Проверьте конфигурацию:
@@ -357,24 +357,24 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
     created_at: "2023-03-30T15:01:19Z"
     name: game-data
     status: PROVISIONING
-    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbao********/etn0ejcvmjm4********
+    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaom********/etn0ejcvmjm4********
     serverless_database:
       storage_size_limit: "53687091200"
-    location_id: ru-central1
+    location_id: {{ region-id }}
     ...
     ```
 
 1. Сохраните в переменной `YDB_ENDPOINT` значение `endpoint` из вывода предыдущей команды. В нашем примере оно равняется `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
     ```bash
-    echo "export YDB_ENDPOINT=<эндпоинт Document API БД>" >> ~/.bashrc && . ~/.bashrc
+    echo "export YDB_ENDPOINT=<эндпоинт_Document_API_БД>" >> ~/.bashrc && . ~/.bashrc
     echo $YDB_ENDPOINT
     ```
 
-1. Сохраните в переменной `YDB_DATABASE` значение `database` из вывода предыдущей команды. В нашем примере оно равняется `/ru-central1/b1gia87mbaomkfvsleds/etn0ejcvmjm4********`.
+1. Сохраните в переменной `YDB_DATABASE` значение `database` из вывода предыдущей команды. В нашем примере оно равняется `/{{ region-id }}/b1gia87mbaom********/etn0ejcvmjm4********`.
 
     ```bash
-    echo "export YDB_DATABASE=<имя таблицы>" >> ~/.bashrc && . ~/.bashrc
+    echo "export YDB_DATABASE=<имя_таблицы>" >> ~/.bashrc && . ~/.bashrc
     echo $YDB_DATABASE
     ```
 
@@ -393,23 +393,23 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
     created_at: "2023-03-30T15:02:44Z"
     name: data-streams
     status: PROVISIONING
-    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etn16k0e1757********
+    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaom********/etn16k0e1757********
     serverless_database:
       storage_size_limit: "53687091200"
-    location_id: ru-central1
+    location_id: {{ region-id }}
     ```
 
 1. Сохраните  в переменной `YDB_DATA_STREAMS_ENDPOINT` значение `endpoint` из вывода предыдущей команды. В нашем примере оно равняется `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
     ```bash
-    echo "export YDB_DATA_STREAMS_ENDPOINT=<эндпоинт Document API БД>" >> ~/.bashrc && . ~/.bashrc
+    echo "export YDB_DATA_STREAMS_ENDPOINT=<эндпоинт_Document_API_БД>" >> ~/.bashrc && . ~/.bashrc
     echo $YDB_DATA_STREAMS_ENDPOINT
     ```
 
-1. Сохраните в переменной `YDB_DATA_STREAMS_DATABASE` значение `database` из вывода предыдущей команды. В нашем примере оно равняется `/ru-central1/b1gia87mbaomkfvsleds/etn16k0e1757********`.
+1. Сохраните в переменной `YDB_DATA_STREAMS_DATABASE` значение `database` из вывода предыдущей команды. В нашем примере оно равняется `/{{ region-id }}/b1gia87mbaom********/etn16k0e1757********`.
 
     ```bash
-    echo "export YDB_DATA_STREAMS_DATABASE=<имя таблицы>" >> ~/.bashrc && . ~/.bashrc
+    echo "export YDB_DATA_STREAMS_DATABASE=<имя_таблицы>" >> ~/.bashrc && . ~/.bashrc
     echo $YDB_DATA_STREAMS_DATABASE
     ```
 
@@ -780,13 +780,13 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 1. Скопируйте служебный домен API-шлюза. Он находится в выводе предыдущей команды, в поле `domain`.
 
 1. В Telegram найдите [BotFather](https://t.me/BotFather) и введите команду `/setdomain`.
-1. Выберите из списка своего бота и отправьте служебный домен API-шлюза. Перед доменом добавьте `https://`. Например, если служебный домен API-шлюза — `d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`, URL будет `https://d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`.
+1. Выберите из списка своего бота и отправьте служебный домен API-шлюза. Перед доменом добавьте `https://`. Например, если служебный домен API-шлюза — `d5d920bqkitf********.apigw.yandexcloud.net`, URL будет `https://d5d920bqkitf********.apigw.yandexcloud.net`.
 
 ## Протестируйте приложение {#test-app}
 
 Перейдите по ссылке, которую отправили Telegram-боту, авторизуйтесь и откройте игру.
 
-В игре доступна статистика игроков. Если служебный домен API-шлюза — `d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`, тогда по адресу `https://d5d920bqkitfr3nqk61s.apigw.yandexcloud.net/stats.html` будет доступна страница со статистикой всех игроков.
+В игре доступна статистика игроков. Если служебный домен API-шлюза — `d5d920bqkitf********.apigw.yandexcloud.net`, тогда по адресу `https://d5d920bqkitf********.apigw.yandexcloud.net/stats.html` будет доступна страница со статистикой всех игроков.
 
 ## Как удалить созданные ресурсы {#clear-out}
 

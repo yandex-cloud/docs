@@ -85,7 +85,7 @@ description: "Узнайте, как работать с API-шлюзом {{ api
 Сообщение отправится через установленное соединение в API-шлюз. API-шлюз вызовет интеграцию и отправит ответ — вы увидите его на экране. В ответе будет идентификатор установленного соединения:
 ```bash
 > Hello!
-< {"connection_id":"<идентификатор соединения>"}
+< {"connection_id":"<идентификатор_соединения>"}
 ```
 ## Проверьте работу соединения {#check}
 
@@ -105,18 +105,18 @@ description: "Узнайте, как работать с API-шлюзом {{ api
         ```
     1. Отправьте сообщение на клиентскую сторону:
         ```bash
-        yc serverless api-gateway websocket send <идентификатор соединения> --data Hello!
+        yc serverless api-gateway websocket send <идентификатор_соединения> --data Hello!
         ```
     1. Закройте соединение:
         ```bash
-        yc serverless api-gateway websocket disconnect <идентификатор соединения>
+        yc serverless api-gateway websocket disconnect <идентификатор_соединения>
         ```
     1. Перейдите в окно терминала с установленным соединением. Там должна отобразиться следующая информация:
         ```bash
-        wscat -c wss://<идентификатор API-шлюза>.apigw.yandexcloud.net/connections
+        wscat -c wss://<идентификатор_API-шлюза>.apigw.yandexcloud.net/connections
         Connected (press CTRL+C to quit)
         > Hello!
-        < {"connection_id":"<идентификатор соединения>"}
+        < {"connection_id":"<идентификатор_соединения>"}
         < Hello!
         Disconnected (code: 1000, reason: "")
         ```

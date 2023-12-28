@@ -21,6 +21,10 @@ items:
         href: end-to-end-analytics.md
       - name: Бизнес-аналитика
         href: business-analytics.md
+  - name: Искусственный интеллект
+    items:
+      - name: Чат-бот
+        href: chat-bot.md
   - name: Облачные вычисления и сервера
     items:
       - name: Виртуальная машина

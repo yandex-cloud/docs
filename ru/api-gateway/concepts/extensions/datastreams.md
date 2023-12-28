@@ -24,9 +24,9 @@
       x-yc-apigateway-integration:
         type: cloud_datastreams
         action: PutRecord
-        stream_name: /{{ region-id }}/b1v1emj927uvf97q62lt/ett01h3uz7qm8rjv0rsh/pets-stream
+        stream_name: /{{ region-id }}/b1v1emj927uv********/ett01h3uz7qm********/pets-stream
         partition_key: '{petId}'
-        service_account_id: ajeqvh23fi2mfdoq6ba
+        service_account_id: ajeqvh23fi2********
       parameters:
       - description: petId
         explode: false

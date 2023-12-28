@@ -1,0 +1,1 @@
+Идентификатор БД можно получить со [списком БД](../../ydb/operations/manage-databases.md#list-db).

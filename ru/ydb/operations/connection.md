@@ -15,7 +15,7 @@
 
 ## Получите реквизиты для подключения {#endpoint-and-path}
 
-Получить реквизиты для подключения к БД можно в консоли управления {{ yandex-cloud }} или с помощью интерфейса командной строки {{ yandex-cloud }}.
+Чтобы получить реквизиты для подключения к БД:
 
 {% list tabs %}
 
@@ -61,6 +61,22 @@
       >Для БД в режиме Dedicated:
       >* эндпоинт — `{{ ydb.ep-dedicated }}`;
       >* путь — `{{ ydb.path-dedicated }}`.
+
+- API
+
+  Воспользуйтесь методом REST API [get](../api-ref/Database/get.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../api-ref/grpc/database_service.md#Get) и передайте в запросе идентификатор требуемой БД в параметре `databaseId`.
+
+  Реквизиты для подключения к БД указаны в параметре `endpoint`.
+
+  >Например, для БД в режиме Serverless:
+  >* эндпоинт — `{{ ydb.ep-serverless }}`;
+  >* путь — `{{ ydb.path-serverless }}`.
+  >
+  >Для БД в режиме Dedicated:
+  >* эндпоинт — `{{ ydb.ep-dedicated }}`;
+  >* путь — `{{ ydb.path-dedicated }}`.
+
+  {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
 {% endlist %}
 

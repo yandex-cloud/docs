@@ -8,9 +8,9 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 Перед началом работы необходимо добавить зависимости.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java 
+- Java {#java}
 
     Добавьте зависимости с помощью [Apache Maven](https://maven.apache.org/):
 
@@ -22,7 +22,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
     </dependency>
     ```
 
-- Go
+- Go {#go}
 
     Установите SDK:
 
@@ -41,9 +41,9 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 ### Аутентификация с сервисным аккаунтом, привязанным к виртуальной машине {{ yandex-cloud }} {#vm}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
     Аутентифицируйтесь с сервисным аккаунтом, привязанным к [ВМ](../../../glossary/vm.md):
 
@@ -51,7 +51,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
     CredentialProvider credentialProvider = Auth.computeEngineBuilder().build();
     ```
 
-- Go
+- Go {#go}
 
     Аутентифицируйтесь с сервисным аккаунтом, привязанным к ВМ:
 
@@ -65,9 +65,9 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 В `key.json` должен содержаться авторизованный ключ сервисного аккаунта. Как создать авторизованный ключ читайте в разделе [{#T}](../../../iam/operations/authorized-key/create.md).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
     Аутентифицируйтесь с произвольным сервисным аккаунтом:
 
@@ -76,7 +76,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
     ```
 
-- Go
+- Go {#go}
 
     Аутентифицируйтесь с произвольным сервисным аккаунтом:
 
@@ -95,9 +95,9 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 Переменная `token` — это ваш [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
     Аутентифицируйтесь с аккаунтом на Яндексе:
 
@@ -105,7 +105,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
     CredentialProvider credentialProvider = Auth.oauthTokenBuilder().build();  
     ```
 
-- Go
+- Go {#go}
 
     Аутентифицируйтесь с аккаунтом на Яндексе:
 
@@ -126,9 +126,9 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 * `ciphertext` – шифртекст.
 * `aad` – [AAD-контекст](../../concepts/symmetric-encryption.md#add-context).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
     ```Java
     SymmetricCryptoServiceBlockingStub symmetricCryptoService = ServiceFactory.builder()
@@ -160,7 +160,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
     ```
 
-- Go
+- Go {#go}
 
     ```Go
     sdk, err := ycsdk.Build(context, ycsdk.Config{

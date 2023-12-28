@@ -69,15 +69,15 @@ fi
 
 Одной из причин ошибок скриптов инициализации может быть несовместимость формата. Так как среда выполнения скрипта — Linux (Ubuntu), то скрипты, подготовленные в Windows, могут выполниться с ошибкой `^M: bad interpreter` из-за использования символа переноса строки `CR/LF` (в Linux – `LF`). Для исправления выполните команду:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   ```bash
   sed -i -e 's/\r$//' <имя_файла_скрипта>
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   ```powershell
   $file = "<имя_файла_скрипта>"; $text = [IO.File]::ReadAllText($file) -replace "`r`n", "`n"; [IO.File]::WriteAllText($file, $text)

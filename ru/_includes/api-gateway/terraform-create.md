@@ -14,8 +14,8 @@
 
    ```hcl
    resource "yandex_api_gateway" "test-api-gateway" {
-     name        = "<имя API-шлюза>"
-     description = "<описание API-шлюза>"
+     name        = "<имя_API-шлюза>"
+     description = "<описание_API-шлюза>"
      labels      = {
        label       = "label"
        empty-label = ""
@@ -82,5 +82,5 @@
       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
 
       ```
-      yc serverless api-gateway get <имя API-шлюза>
+      yc serverless api-gateway get <имя_API-шлюза>
       ```

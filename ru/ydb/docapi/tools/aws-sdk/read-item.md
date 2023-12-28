@@ -7,9 +7,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
 
 Чтобы прочитать запись из таблицы `Series`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesItemOps02`:
 
@@ -187,7 +187,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       Получена запись: { Item: {title=Supernatural, series_id=3, info={release_date=2015-09-13, series_info=Supernatural is an American television series created by Eric Kripke}} }
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesItemOps02.py`, например с помощью редактора nano:
 
@@ -246,7 +246,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
                               'created by Eric Kripke'}}
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesItemOps02.php`, например с помощью редактора nano:
 
@@ -341,7 +341,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       }
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesItemOps02.js`, например с помощью редактора nano:
 
@@ -409,7 +409,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesItemOps02.rb`, например с помощью редактора nano:
 

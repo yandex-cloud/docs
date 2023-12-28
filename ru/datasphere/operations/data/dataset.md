@@ -26,9 +26,9 @@
 
 Этот способ также подойдет для создания датасета с данными из бакета [{{ objstorage-full-name }}](../../../storage/) или другого объектного хранилища, подключенного к хранилищу проекта с помощью [коннектора S3](connect-to-s3.md).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   Чтобы создать датасет `<имя_датасета>`, инициализируйте его и скопируйте файлы каталога `<имя_исходного_каталога>`:
 
@@ -37,7 +37,7 @@
   #pragma dataset init <имя_датасета> --size 1Gb
 
   set -e
-  cp -r <имя исходного каталога> /home/jupyter/mnt/datasets/<имя_датасета>
+  cp -r <имя_исходного_каталога> /home/jupyter/mnt/datasets/<имя_датасета>
   ```
 
 {% endlist %}
@@ -46,9 +46,9 @@
 
 Чтобы создать датасет `<имя_датасета>` из архива [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), выполните код в ячейке:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   ```bash
   #!:bash
@@ -61,7 +61,7 @@
   rm -rf cifar-10-python.tar.gz
   ```
 
-- Python 3
+- Python 3 {#python}
 
   ```python
   #pragma dataset init <имя_датасета> --size 1Gb
@@ -106,7 +106,7 @@
   import boto3
 
   S3_CREDS = {
-      "aws_access_key_id": os.environ['<секрет_с_ID_ключа_доступа>'],
+      "aws_access_key_id": os.environ['<секрет_с_идентификатором_ключа_доступа>'],
       "aws_secret_access_key": os.environ['<секрет_с_секретным_ключом>']
   }
   bucket_name = "<имя_бакета>"
@@ -171,13 +171,13 @@
 
      import gdown
 
-     gdrive_folder_id = '<ID_папки_Google_Drive>'
+     gdrive_folder_id = '<идентификатор_папки_Google_Drive>'
      dst_path = '/home/jupyter/mnt/datasets/<имя_датасета>/'
 
      gdown.download_folder(id=gdrive_folder_id, output=dst_path, use_cookies=False)
      ```
 
-     Где `gdrive_folder_id` — идентификатор папки Google Drive, который содержится в адресе после `https://drive.google.com/drive/folders/`. Например, в URL `https://drive.google.com/drive/folders/exampleId` идентификатор папки — `exampleId`.
+     Где `<идентификатор_папки_Google_Drive>` — идентификатор папки Google Drive, который содержится в адресе после `https://drive.google.com/drive/folders/`. Например, в URL `https://drive.google.com/drive/folders/exampleId` идентификатор папки — `exampleId`.
 
 {% endlist %}
 

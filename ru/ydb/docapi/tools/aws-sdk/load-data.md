@@ -23,9 +23,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 
 Чтобы загрузить данные в таблицу `Series`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesLoadData`:
 
@@ -228,7 +228,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       Добавлен сериал: 5 Twin Peaks
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesLoadData.py`, например с помощью редактора nano:
   
@@ -285,7 +285,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       Добавлен сериал: 5 Twin Peaks
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesLoadData.php`, например с помощью редактора nano:
   
@@ -377,7 +377,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       Добавлен сериал: 5 Twin Peaks
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesLoadData.js`, например с помощью редактора nano:
   
@@ -446,7 +446,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       Добавлен сериал: True Detective
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesLoadData.rb`, например с помощью редактора nano:
   

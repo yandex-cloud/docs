@@ -18,9 +18,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
 Чтобы извлечь данные методом `query` из таблицы `Series`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesQuery01`:
 
@@ -223,7 +223,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       3: True Detective
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesQuery01.py`, например с помощью редактора nano:
   
@@ -279,7 +279,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       3 : True Detective
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesQuery01.php`, например с помощью редактора nano:
   
@@ -372,7 +372,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       3: True Detective
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesQuery01.js`, например с помощью редактора nano:
 
@@ -438,7 +438,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       - 3: True Detective
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesQuery01.rb`, например с помощью редактора nano:
 
@@ -522,9 +522,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
 Чтобы найти в таблице `Series` сериалы с ключом партицирования, равным 3, и названием на букву T:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesQuery02`:
 
@@ -719,7 +719,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       3: True Detective
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesQuery02.py`, например с помощью редактора nano:
   
@@ -776,7 +776,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       3 : True Detective
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesQuery02.php`, например с помощью редактора nano:
   
@@ -863,7 +863,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       3: True Detective
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesQuery02.js`, например с помощью редактора nano:
 
@@ -932,7 +932,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       - 3: True Detective
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesQuery02.rb`, например с помощью редактора nano:
 
@@ -1014,9 +1014,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
 Чтобы извлечь данные методом `scan` из таблицы `Series`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesScan`:
 
@@ -1206,7 +1206,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       { Item: {title=Silicon Valley, series_id=2, info={release_date=2014-04-06T00:00:00Z}} }
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesScan.py`, например с помощью редактора nano:
   
@@ -1290,7 +1290,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       {'release_date': '2014-04-06'}
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesScan.php`, например с помощью редактора nano:
   
@@ -1386,7 +1386,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       2: Silicon Valley
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesScan.js`, например с помощью редактора nano:
 
@@ -1470,7 +1470,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       Сканирование успешно.
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesScan.rb`, например с помощью редактора nano:
 

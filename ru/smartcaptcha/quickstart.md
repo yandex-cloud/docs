@@ -103,9 +103,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Пример функции проверки токена:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
     ```js
     const https = require('https'),
@@ -153,7 +153,7 @@ description: "Следуя данной инструкции, вы сможет�
     });
     ```
 
-- PHP
+- PHP {#php}
 
     ```php
     define('SMARTCAPTCHA_SERVER_KEY', '<ключ_сервера>');
@@ -190,7 +190,7 @@ description: "Следуя данной инструкции, вы сможет�
     }
     ```
 
-- Python
+- Python {#python}
 
     ```py
     import requests

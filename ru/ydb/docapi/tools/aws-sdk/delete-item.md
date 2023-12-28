@@ -7,9 +7,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
 
 Чтобы удалить с условием запись в таблице `Series`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesItemOps06`:
 
@@ -215,7 +215,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       Данные о сериале удалены.
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesItemOps06.py`, например с помощью редактора nano:
   
@@ -315,7 +315,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
                             'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesItemOps06.php`, например с помощью редактора nano:
   
@@ -423,7 +423,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       Запись удалена.
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesItemOps06.js`, например с помощью редактора nano:
 
@@ -477,7 +477,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
           })
       ```
 
-      Удалить одиночную запись, указав её первичный ключ, можно с помощью команды `DeleteItemCommand`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
+      Удалить одиночную запись, указав ее первичный ключ, можно с помощью команды `DeleteItemCommand`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
 
   1. Запустите программу:
 
@@ -520,7 +520,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       Удаление выполнено: {}
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesItemOps06.rb`, например с помощью редактора nano:
 
@@ -584,7 +584,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-      Удалить одиночную запись, указав её первичный ключ, можно с помощью метода `delete`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
+      Удалить одиночную запись, указав ее первичный ключ, можно с помощью метода `delete`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
 
   1. Запустите программу:
 

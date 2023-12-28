@@ -128,7 +128,7 @@ VALUES
 
 ### INSERT {#insert}
 
-Инструкция [INSERT](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into) используется для вставки одной или нескольких строк. При попытке вставить строку в таблицу, с уже существующим значением первичного ключа {{ ydb-short-name }} вернёт ошибку с сообщением `Transaction rolled back due to constraint violation: insert_pk.`.
+Инструкция [INSERT](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into) используется для вставки одной или нескольких строк. При попытке вставить строку в таблицу, с уже существующим значением первичного ключа {{ ydb-short-name }} вернет ошибку с сообщением `Transaction rolled back due to constraint violation: insert_pk.`.
 
 {% note info %}
 

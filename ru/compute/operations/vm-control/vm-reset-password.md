@@ -13,13 +13,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы сбросить пароль:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [vm-reset-password-windows-console](../../../_includes/compute/vm-reset-password-windows-console.md) %}
   
-- PowerShell
+- PowerShell {#powershell}
 
   1. Запустите PowerShell от имени администратора.
   1. Установите модуль для сброса пароля (один раз):

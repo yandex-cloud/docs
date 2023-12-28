@@ -110,9 +110,9 @@ service_account_id: ajefnb8427bh********
 
 * Объекты (JSON), структуры `message` и поля типа `map` (Protobuf) преобразуются в словарные объекты YAML (пары «ключ — значение»). Ключи объектов и названия полей преобразуются из `lowerCamelCase` и `CamelCase` в `snake_case`.
 
-  {% list tabs %}
+  {% list tabs group=data_format %}
   
-  - JSON
+  - JSON {#json}
   
     ```json
     "targetGroupSpec": {
@@ -125,7 +125,7 @@ service_account_id: ajefnb8427bh********
     }
     ```
   
-  - Protobuf
+  - Protobuf {#protobuf}
   
     ```protobuf
     message TargetGroupSpec {
@@ -135,7 +135,7 @@ service_account_id: ajefnb8427bh********
     }
     ```
   
-  - YAML
+  - YAML {#yaml}
   
     ```yaml
     target_group_spec:
@@ -150,9 +150,9 @@ service_account_id: ajefnb8427bh********
 
 * Массивы (JSON) и поля типа `repeated` (Protobuf) преобразуются в списки YAML.
 
-  {% list tabs %}
+  {% list tabs group=data_format %}
   
-  - JSON
+  - JSON {#json}
   
     ```json
     "variables": [
@@ -167,7 +167,7 @@ service_account_id: ajefnb8427bh********
     ]
     ```
   
-  - Protobuf
+  - Protobuf {#protobuf}
   
     ```protobuf
     message Variable {
@@ -178,7 +178,7 @@ service_account_id: ajefnb8427bh********
     repeated Variable variables = 1;
     ```
   
-  - YAML
+  - YAML {#yaml}
   
     ```yaml
     variables:
@@ -192,9 +192,9 @@ service_account_id: ajefnb8427bh********
 
 * Структуры типа `enum` (Protobuf) преобразуются в скалярные значения YAML — строки, соответствующие названиям полей в Protobuf.
 
-  {% list tabs %}
+  {% list tabs group=data_format %}
   
-  - Protobuf
+  - Protobuf {#protobuf}
   
     ```protobuf
     message AttachedDiskSpec {
@@ -207,7 +207,7 @@ service_account_id: ajefnb8427bh********
     }
     ```
   
-  - YAML
+  - YAML {#yaml}
   
     ```yaml
     attached_disk_spec:

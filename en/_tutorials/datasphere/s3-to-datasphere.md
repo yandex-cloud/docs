@@ -164,6 +164,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
       For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
 
    1. Create resources:
+
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
       {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).

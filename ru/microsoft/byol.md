@@ -42,15 +42,15 @@
 
 1. Выполните запрос вида:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID вашего каталога>", "name": "<название образа>", "description": "<описание образа>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<ссылка на образ в Object Storage>"}'
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```powershell
      function Create-YCImage {

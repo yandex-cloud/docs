@@ -30,9 +30,9 @@
 
 Созданный секрет можно использовать в ячейках проекта как переменные окружения.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
    ```python
    import os
@@ -40,7 +40,7 @@
    os.environ['<имя_секрета>'] # Обратиться к секрету <имя_секрета> из переменных окружения
    ```
 
-- bash
+- Bash {#bash}
 
    ```bash
    #!:bash
