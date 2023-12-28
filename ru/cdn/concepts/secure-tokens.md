@@ -34,9 +34,9 @@ _Подписанная ссылка_ [генерируется](#link-generatio
 
 ### Подписанная ссылка с ограничением доступа по IP-адресу {#link-code-ip-access}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- PHP
+- PHP {#php}
 
   ```php
   <?php
@@ -64,7 +64,7 @@ _Подписанная ссылка_ [генерируется](#link-generatio
   * `$hostname` — [доменное имя](./resource.md#hostnames) CDN-ресурса. Например: `cdn.example.com`.
   * `$url` — готовая [подписанная ссылка](#protected-link) на файл.
 
-- Python
+- Python {#python}
 
   ```python
   import base64 
@@ -87,7 +87,7 @@ _Подписанная ссылка_ [генерируется](#link-generatio
   * `hostname` — [доменное имя](./resource.md#hostnames) CDN-ресурса. Например: `cdn.example.com`.
   * `secured_url` — готовая [подписанная ссылка](#protected-link) на файл.
 
-- OpenSSL
+- OpenSSL {#openssl}
 
   ```bash
   echo -n '<срок_действия_ссылки><путь_к_файлу><IP-адрес> <секретный_ключ>' | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d ='<срок_действия_ссылки><путь_к_файлу><IP-адрес> <секретный_ключ>' = '{expires}{path}{ip} {secret_key}'
@@ -103,9 +103,9 @@ _Подписанная ссылка_ [генерируется](#link-generatio
 
 ### Подписанная ссылка без ограничения доступа по IP-адресу {#link-code-no-ip}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- PHP
+- PHP {#php}
 
   ```php
   <?php
@@ -131,7 +131,7 @@ _Подписанная ссылка_ [генерируется](#link-generatio
   * `$hostname` — [доменное имя](./resource.md#hostnames) CDN-ресурса. Например: `cdn.example.com`.
   * `$url` — готовая [подписанная ссылка](#protected-link) на файл.
 
-- Python
+- Python {#python}
 
   ```python
   import base64 
@@ -152,7 +152,7 @@ _Подписанная ссылка_ [генерируется](#link-generatio
   * `hostname` — [доменное имя](./resource.md#hostnames) CDN-ресурса. Например: `cdn.example.com`.
   * `secured_url` — готовая [подписанная ссылка](#protected-link) на файл.
 
-- OpenSSL
+- OpenSSL {#openssl}
 
   ```bash
   echo -n '<срок_действия_ссылки><путь_к_файлу> <секретный_ключ>' | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d = '<срок_действия_ссылки><путь_к_файлу> <секретный_ключ>' = '{expires}{path} {secret_key}'

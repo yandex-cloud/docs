@@ -37,9 +37,9 @@
 
 Где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
 	```bash
 	curl -k -v -X POST
@@ -116,9 +116,9 @@
 
 Где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
 	```bash
 	curl -k -v -X POST

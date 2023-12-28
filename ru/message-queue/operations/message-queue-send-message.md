@@ -12,9 +12,9 @@ description: "Следуя данной инструкции, вы сможет�
 1. Если у вас еще нет очереди сообщений {{ message-queue-name }}, [создайте](message-queue-new-queue.md) ее.
 1. Выполните в терминале команду:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
    
-   - AWS CLI
+   - AWS CLI {#aws_cli}
    
      ```bash
      aws sqs send-message \
@@ -38,7 +38,7 @@ description: "Следуя данной инструкции, вы сможет�
      }
      ```
    
-   - cURL
+   - cURL {#curl}
    
      ```bash
      curl -X POST \

@@ -8,9 +8,9 @@
 
 Перед началом работы необходимо добавить зависимости.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
     Добавьте зависимости с помощью [Apache Maven](https://maven.apache.org/):
 
@@ -28,9 +28,9 @@
 
 Создайте провайдер {{ yandex-cloud }} для AWS Encryption SDK и используйте методы класса [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/com/amazonaws/encryptionsdk/AwsCrypto.html) для шифрования и расшифрования данных.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
     ```java
     YcKmsMasterKeyProvider provider = new YcKmsMasterKeyProvider()

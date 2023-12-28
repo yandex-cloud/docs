@@ -4,9 +4,9 @@
 
 ## Примеры функций
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
     **package.json**
     ```json
@@ -38,7 +38,7 @@
     };
     ```
 
-- Python
+- Python {#python}
 
     **requirements.txt**
     ```
@@ -71,7 +71,7 @@
         
         return "Hello, world!"
     ```
-- Go
+- Go {#go}
 
     **index.go**
     ```go
@@ -106,7 +106,7 @@
     }
     ```
 
-- Java
+- Java {#java}
 
     **pom.xml**
     ```xml

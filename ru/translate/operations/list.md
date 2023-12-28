@@ -17,9 +17,9 @@ description: "Из статьи вы узнаете, как получить с�
 
 Получите список поддерживаемых языков с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     ```bash
     export FOLDER_ID=<идентификатор_каталога>

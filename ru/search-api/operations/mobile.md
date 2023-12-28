@@ -4,15 +4,15 @@
 
 Чтобы получить результаты мобильной выдачи, добавьте заголовок `user-agent` со спецификацией устройства и браузера. Например, для поискового запроса `query=youtube`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
   ```bash
   curl -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1' 'https://yandex.ru/search/xml?query=youtube&user={USER}&key={KEY}&lr=2&l10n=en&page=0&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D100.docs-in-group%3D1&filter=moderate&noredirect=1&nocache=da' 
   ```
 
-- Python
+- Python {#python}
 
   ```python
   import subprocess

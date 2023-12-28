@@ -34,9 +34,9 @@
             type: string
       x-yc-apigateway-integration:
         type: cloud_functions
-        function_id: b095c95icnvbuf4v755l
+        function_id: b095c95icnvb********
         tag: "$latest"
-        service_account_id: ajehfe56hhlsd4n93q1
+        service_account_id: ajehfe56hhl********
 ```
 
 Пример функции:

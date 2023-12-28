@@ -277,9 +277,9 @@
 
 Вы можете отправлять запросы из интерфейса {{ ml-platform-name }} или из кода ноутбука.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Интерфейс {{ ml-platform-name }}
+- Интерфейс {{ ml-platform-name }} {#datasphere}
 
     {% note info %}
     
@@ -296,16 +296,16 @@
         
         В ответе вернется код класса, к которому относится изображение.
 
-- Python
+- Python {#python}
 
     1. Определите параметры запроса:
-    
+
         ```python
         #!c1.4
         import json
         import os
         import requests
-    
+
         resp = requests.post(
             "https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<идентификатор_ноды>:execute",
             data = json.dumps({
@@ -323,13 +323,14 @@
                 'Authorization': f"Bearer <IAM-токен>" 
             }
         )
-    
+
         # check response
         print(resp.status_code, resp.reason)
         print(resp.text)
         ```
-    
+
         Где:
+
         - `<идентификатор_ноды>` — идентификатор ноды `classifier-node`;
         - `<IAM-токен>` — [IAM-токен](../../iam/operations/iam-token/create.md) вашего аккаунта;
         - `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создана нода.

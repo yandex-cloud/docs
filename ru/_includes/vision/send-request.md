@@ -1,8 +1,8 @@
 Отправьте запрос с помощью метода [batchAnalyze](../../vision/vision/api-ref/Vision/batchAnalyze.md) и сохраните ответ в файл, например `output.json`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   ```bash
   export IAM_TOKEN=<IAM-токен>
@@ -13,7 +13,7 @@
       https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
   ```
 
-- CMD
+- CMD {#cmd}
 
   ```cmd
   set IAM_TOKEN=<IAM-токен>
@@ -24,7 +24,7 @@
       https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   ```powershell
   $Env:IAM_TOKEN="<IAM-токен>"

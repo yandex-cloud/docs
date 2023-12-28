@@ -8,9 +8,9 @@
 
 Перед началом работы необходимо добавить зависимости.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
     
     Добавьте зависимости с помощью [Apache Maven](https://maven.apache.org/):
     
@@ -22,7 +22,7 @@
     </dependency>
     ```
 
-- Go
+- Go {#go}
 
     Выполните команду: 
     
@@ -43,9 +43,9 @@
 * `ciphertext` – шифртекст.
 * `aad` – [AAD-контекст](../../concepts/symmetric-encryption.md#add-context).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
     
     Создайте [Aead](https://google.github.io/tink/javadoc/tink/1.3.0/index.html?com/google/crypto/tink/Aead.html)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
     
@@ -66,7 +66,7 @@
     byte[] plaintext = aead.decrypt(ciphertext, aad);
     ```
 
-- Go
+- Go {#go}
 
     Создайте [aead](https://pkg.go.dev/github.com/google/tink/go/aead?tab=doc)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
     

@@ -136,6 +136,15 @@
     > }
     > ```
 
+- API
+
+  Чтобы создать Serverless базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:
+
+  * Идентификатор каталога, в котором должна быть размещена БД, в параметре `folderId`.
+  * Имя БД в параметре `name`.
+  * Пропускную способность БД в параметре `serverlessDatabase.throttlingRcuLimit`.
+  * Объем БД в параметре (в байтах) `serverlessDatabase.storageSizeLimit`.
+
 {% endlist %}
 
 ### Изменить параметры Serverless базы данных {#update-db-serverless}
@@ -239,6 +248,24 @@
     >   }
     > }
     > ```
+
+- API
+
+  Чтобы изменить параметры Serverless базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
+
+  {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
+
+   Передайте в запросе:
+
+  * Идентификатор каталога, в котором должна быть размещена БД, в параметре `folderId`.
+  * Имя БД в параметре `name`.
+  * Пропускную способность БД в параметре `serverlessDatabase.throttlingRcuLimit`.
+  * Объем БД в параметре (в байтах) `serverlessDatabase.storageSizeLimit`.
+  * Идентификатор вычислительного ресурса в параметре `resourcePresetId`.
+  * Идентификатор сети в параметре `networkId`.
+  * Тип носителя в параметре `storageConfig.storageOptions.storageTypeId`.
+  * Количество групп хранения в параметре `storageConfig.storageOptions.groupCount`.
+  * Количество экземпляров БД в параметре `scalePolicy.fixedScale.size`.
 
 {% endlist %}
 
@@ -423,6 +450,19 @@
     > }
     > ```
 
+- API
+
+  Чтобы создать Dedicated базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:
+
+  * Идентификатор каталога, в котором должна быть размещена БД, в параметре `folderId`.
+  * Имя БД в параметре `name`.
+  * Разрешение на присвоение публичных IP-адресов узлам БД в параметре `dedicatedDatabase.assignPublicIps`.
+  * Идентификатор вычислительного ресурса в параметре `resourcePresetId`.
+  * Идентификатор сети в параметре `networkId`.
+  * Тип носителя в параметре `storageConfig.storageOptions.storageTypeId`.
+  * Количество групп хранения в параметре `storageConfig.storageOptions.groupCount`.
+  * Количество экземпляров БД в параметре `scalePolicy.fixedScale.size`.
+
 {% endlist %}
 
 ### Изменить параметры Dedicated базы данных {#update-db-dedicated}
@@ -500,6 +540,14 @@
   yc ydb database get <имя_БД>
   ```
 
+- API
+
+  Чтобы изменить параметры Dedicated базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
+
+  {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
+
+  Передайте в запросе набор параметров, который используется для [создания Dedicated БД](#create-db-dedicated), с измененными значениями.
+
 {% endlist %}
 
 Если вы хотите перенести БД в другую зону доступности, обратитесь к [инструкции](migration-to-an-availability-zone.md).
@@ -524,6 +572,10 @@
   ```bash
   yc ydb database list
   ```
+
+- API
+
+  Чтобы получить список баз данных в каталоге, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/database_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
 {% endlist %}
 
@@ -588,5 +640,11 @@
     ```bash
     yc ydb database list
     ```
+
+- API
+
+  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) и укажите в запросе идентификатор удаляемой БД в параметре `databaseId`.
+
+  {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
 {% endlist %}

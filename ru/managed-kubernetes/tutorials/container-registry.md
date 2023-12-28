@@ -32,15 +32,15 @@
 Чтобы создать сервисный аккаунт, от имени которого будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
 1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля CLI:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      FOLDER_ID=$(yc config get folder-id)
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```shell script
      $FOLDER_ID = yc config get folder-id
@@ -50,15 +50,15 @@
 
 1. Создайте сервисный аккаунт:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```shell script
      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
@@ -68,15 +68,15 @@
 
 1. Запишите в переменную идентификатор сервисного аккаунта:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      RES_SA_ID=$(yc iam service-account get --name k8s-res-sa-${FOLDER_ID} --format json | jq .id -r)
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```shell script
      $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
@@ -107,15 +107,15 @@
 Чтобы создать сервисный аккаунт, от имени которого узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля CLI:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      FOLDER_ID=$(yc config get folder-id)
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```shell script
      $FOLDER_ID = yc config get folder-id
@@ -125,15 +125,15 @@
 
 1. Создайте сервисный аккаунт:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```shell script
      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
@@ -143,15 +143,15 @@
 
 1. Запишите в переменную идентификатор сервисного аккаунта:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      NODE_SA_ID=$(yc iam service-account get --name k8s-node-sa-${FOLDER_ID} --format json | jq .id -r)
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```shell script
      $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
@@ -206,15 +206,15 @@ yc container registry configure-docker
 1. Соберите Docker-образ.
    1. Получите идентификатор реестра, [созданного ранее](#registry-create), и запишите его в переменную:
 
-      {% list tabs %}
+      {% list tabs group=programming_language %}
 
-      - Bash
+      - Bash {#bash}
 
         ```bash
         REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
         ```
 
-      - PowerShell
+      - PowerShell {#powershell}
 
         ```shell script
         $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
@@ -329,15 +329,15 @@ yc container registry configure-docker
 1. Удалите ресурсы {{ container-registry-name }}.
    1. Узнайте имя Docker-образа, загруженного в реестр:
 
-      {% list tabs %}
+      {% list tabs group=programming_language %}
 
-      - Bash
+      - Bash {#bash}
 
         ```bash
         IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
         ```
 
-      - PowerShell
+      - PowerShell {#powershell}
 
         ```shell script
         $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id

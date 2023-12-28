@@ -134,7 +134,7 @@
         }
 
         resource "yandex_resourcemanager_folder_iam_member" "{{ roles-admin }}" {
-          folder_id = "<идентификатор каталога>"
+          folder_id = "<идентификатор_каталога>"
           role      = "{{ roles-admin }}"
           member    = "serviceAccount:${yandex_iam_service_account.sa-for-kratos id}"
         }
@@ -250,7 +250,7 @@
         * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `sa-func-authorizer`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-          * `KRATOS_API_BASE_PATH` — `https://<kratos_api_gw_domain>/public`, где `<kratos_api_gw_domain>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
+          * `KRATOS_API_BASE_PATH` — `https://<служебный_домен_API-шлюза>/public`, где `<служебный_домен_API-шлюза>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -284,19 +284,19 @@
        --runtime=nodejs16 \
        --entrypoint=index.js \
        --service-account-id=<идентификатор_сервисного_аккаунта> \
-       --environment KRATOS_API_BASE_PATH=https://<kratos_api_gw_domain>/public \
+       --environment KRATOS_API_BASE_PATH=https://<служебный_домен_API-шлюза>/public \
        --source-path=./index-js.zip
        ```
 
        Где:
 
        * `--function-name` — имя функции, версия которой создается.
-       * `--memory` —  объем RAM.
+       * `--memory` — объем RAM.
        * `--execution-timeout` — максимальное время выполнения функции до таймаута.
        * `--runtime` — среда выполнения.
        * `--entrypoint` — точка входа.
        * `--service-account-id` — идентификатор сервисного аккаунта `sa-func-authorizer`.
-       * `--environment` — переменные окружения.  `<kratos_api_gw_domain>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
+       * `--environment` — переменные окружения. `<служебный_домен_API-шлюза>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
        * `--source-path` — путь до ZIP-архива `index-js.zip`.
 
        Результат:
@@ -337,7 +337,7 @@
        execution_timeout  = "5"
        service_account_id = "<идентификатор_сервисного_аккаунта>"
        environment = {
-         KRATOS_API_BASE_PATH = https://<kratos_api_gw_domain>/public
+         KRATOS_API_BASE_PATH = https://<служебный_домен_API-шлюза>/public
        }
        content {
          zip_filename = "./index-js.zip"
@@ -354,7 +354,7 @@
      * `memory` — объем памяти в мегабайтах, отведенный для выполнения функции.
      * `execution_timeout` — таймаут выполнения функции.
      * `service_account_id` — идентификатор сервисного аккаунта `sa-func-authorizer`.
-     * `environment` — переменные окружения. `<kratos_api_gw_domain>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
+     * `environment` — переменные окружения. `<служебный_домен_API-шлюза>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
      * `content` — путь до ZIP-архива `index-js.zip` c исходным кодом функции.
 
      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
@@ -512,20 +512,17 @@
 
 ## Проверьте результат {#check}
 
-1. В браузере перейдите на страницу тестовой консоли Identity Server based on Ory Kratos по адресу `https://<kratos_api_gw_domain>/ui/`, где `<kratos_api_gw_domain>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
+1. В браузере перейдите на страницу тестовой консоли Identity Server based on Ory Kratos по адресу `https://<служебный_домен_API-шлюза>/ui/`, где `<служебный_домен_API-шлюза>` — служебный домен API-шлюза, который вы сохранили на шаге [Разверните Identity Server based on Ory Kratos](#deploy-kratos).
 1. Зарегистрируйте пользователя.
-1. Выполните вход с учетными данными пользователя: `https://<kratos_api_gw_domain>/ui/login`.
+1. Выполните вход с учетными данными пользователя: `https://<служебный_домен_API-шлюза>/ui/login`.
 1. Откройте консоль разработчика в браузере и скопируйте значение куки с названием `ory_kratos_session`.
 1. Обратитесь к API-шлюзу `for-kratos-authorization`:
 
    ```bash
-   curl 'https://<authorized_api_gw_domain>/authorized/api' -H 'Cookie: ory_kratos_session=<ory_kratos_cookie>'
+   curl 'https://<служебный_домен_API-шлюза_for-kratos-authorization>/authorized/api' -H 'Cookie: ory_kratos_session=<значение_куки>'
    ```
 
-   Где:
-
-   * `<authorized_api_gw_domain>` — служебный домен API-шлюза `for-kratos-authorization`;
-   * `<ory_kratos_cookie>` — значение куки `ory_kratos_session`, скопированное на предыдущем шаге.
+   Где `<значение_куки>` — значение куки `ory_kratos_session`, скопированное на предыдущем шаге.
 
 Если в ответе вы получили `Authorized!`, значит, сессия пользователя активна и API был успешно вызван после проверки авторизационной куки.
 

@@ -14,9 +14,9 @@
 
 Для использования CLI в скриптах можно использовать флаги для неинтерактивной установки: 
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     Выполните команду: 
     

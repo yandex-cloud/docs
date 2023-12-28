@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Kibana
+- Kibana {#kibana}
 
   
   **Если хосту с ролью _Data node_ назначен публичный IP-адрес:**
@@ -81,13 +81,13 @@
   {% include [kibana-api](mes-kibana-api.md) %}
 
 
-- Bash
+- Bash {#bash}
 
   **Пример команды для подключения с использованием SSL-соединения:**
 
   {% include [default-connstring](./mes/default-connstring.md) %}
 
-- PowerShell
+- PowerShell {#powershell}
 
   **Пример команды для подключения с использованием SSL-соединения:**
 
@@ -100,7 +100,7 @@
 
    В открывшемся окне введите пароль пользователя.
 
-- Python
+- Python {#python}
 
   **Перед подключением установите зависимости:**
 
@@ -144,7 +144,7 @@
   python3 connect.py
   ```
 
-- Go
+- Go {#go}
 
   **Перед подключением установите зависимости:**
 

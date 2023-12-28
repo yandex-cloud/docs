@@ -66,9 +66,9 @@
 
 Убедитесь, что логи кластера {{ managed-k8s-name }} поступают в кластер {{ mos-name }}:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   Выполните команду:
 
@@ -79,7 +79,7 @@
     --request GET 'https://<имя_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/_cat/indices?v'
   ```
 
-- {{ OS }} Dashboards
+- {{ OS }} Dashboards {#opensearch}
 
   1. Подключитесь к кластеру {{ mos-name }} с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
   1. Выберите общий тенант `Global`.

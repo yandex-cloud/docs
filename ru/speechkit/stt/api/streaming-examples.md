@@ -26,9 +26,9 @@
 
 1. Создайте клиентское приложение:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Python 3
+   - Python 3 {#python}
 
      1. Установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
@@ -166,7 +166,7 @@
         Is final: True
         ```
 
-   - Node.js
+   - Node.js {#node}
 
      1. Перейдите в папку с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi), создайте папку `src` и сгенерируйте в ней файл зависимостей `package.json`:
 

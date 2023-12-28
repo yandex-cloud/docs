@@ -7,9 +7,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
 
 Чтобы удалить таблицу `Series`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesDeleteTable`:
 
@@ -180,7 +180,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       Таблица Series удалена.
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesDeleteTable.py`, например с помощью редактора nano:
   
@@ -222,7 +222,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       Таблица Series удалена
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesDeleteTable.php`, например с помощью редактора nano:
   
@@ -283,7 +283,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       Таблица удалена.
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesDeleteTable.js`, например с помощью редактора nano:
   
@@ -359,7 +359,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesDeleteTable.rb`, например с помощью редактора nano:
   

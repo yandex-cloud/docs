@@ -15,6 +15,10 @@
 * [{#T}](end-to-end-analytics.md)
 * [{#T}](business-analytics.md)
 
+## Искусственный интеллект
+
+* [{#T}](chat-bot.md)
+
 ## Облачные вычисления и сервера
 
 * [{#T}](vm.md)

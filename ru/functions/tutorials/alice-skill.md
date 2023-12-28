@@ -32,14 +32,14 @@ keywords:
 
 Для создания [версии](../../functions/concepts/function.md#version) функции вы можете воспользоваться одним из [форматов загрузки кода](../../functions/concepts/function.md#upload). Для примера код будет загружен в формате ZIP-архива.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
     1. Скачайте с GitHub файл с примером: [parrot.py](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/python/parrot/parrot.py).
     1. Создайте ZIP-архив `parrot-py.zip` с файлом `parrot.py`.
 
-- Node.js
+- Node.js {#node}
 
     1. Скачайте с GitHub файл с примером: [index.js](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/nodejs/parrot/index.js).
     1. Создайте ZIP-архив `parrot-js.zip` с файлом `index.js`.
@@ -63,9 +63,9 @@ keywords:
 
 Выберите язык программирования и создайте [версию функции](../concepts/function.md#version).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
   1. В [консоли управления]({{ link-console-main }}) откройте **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** в каталоге, где вы хотите создать версию функции.
   1. Выберите функцию, для которой необходимо создать версию.
@@ -81,7 +81,7 @@ keywords:
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `parrot.handler`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- Node.js
+- Node.js {#node}
 
   1. В [консоли управления]({{ link-console-main }}) откройте **{{ sf-name }}** в каталоге, где вы хотите создать версию функции.
   1. Выберите функцию, для которой необходимо создать версию.

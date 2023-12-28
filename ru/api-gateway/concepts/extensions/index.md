@@ -24,10 +24,10 @@ description: "Расширение x-yc-apigateway позволяет задат
 
 ```yaml
 x-yc-apigateway:
-  service_account_id: <ID сервисного аккаунта>
-  validator: <ValidatorObject или ссылка на него>
-  cors: <CorsRuleObject или ссылка на него>
-  rateLimit: <RateLimitObject или ссылка на него>
+  service_account_id: <идентификатор_сервисного_аккаунта>
+  validator: <ValidatorObject_или_ссылка_на_него>
+  cors: <CorsRuleObject_или_ссылка_на_него>
+  rateLimit: <RateLimitObject_или_ссылка_на_него>
 ```
 
 ## Расширение x-yc-apigateway-integration {#integration}
@@ -97,9 +97,9 @@ components:
   x-yc-apigateway-integrations:
     BaseGetDefault:
       type: cloud_functions
-      function_id: b095c95icnvbuf4v755l
+      function_id: b095c95icnvb********
       tag: "$latest"
-      service_account_id: ajehfe84hhlaq4n59q1
+      service_account_id: ajehfe84hhl********
     BaseGetUnimplemented:
       type: dummy
       content:

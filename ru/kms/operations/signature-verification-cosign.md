@@ -21,15 +21,15 @@ description: "Следуя данной инструкции, вы сможет�
 
 1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) и сохраните его в переменную среды `$YC_IAM_TOKEN`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
       ```bash
       export YC_IAM_TOKEN=$(yc iam create-token)
       ```
 
-    - PowerShell
+    - PowerShell {#powershell}
 
       ```powershell
       $env:YC_IAM_TOKEN = $(yc iam create-token)

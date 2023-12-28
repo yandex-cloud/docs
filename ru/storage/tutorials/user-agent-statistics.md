@@ -14,9 +14,9 @@
 
 ## Получение статистики посещения {#session-stat}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   1. Выполните запрос в {{ objstorage-name }} и сохраните результат выполнения в файл:
 

@@ -15,9 +15,9 @@ Docker-образ — исполняемый пакет, который соде
 
 ### Примеры приложений и Dockerfile {#examples}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
     **index.js**
 
@@ -51,7 +51,7 @@ Docker-образ — исполняемый пакет, который соде
     CMD [ "node", "index.js" ]
     ```
 
-- Python
+- Python {#python}
 
     **index.py**
 
@@ -88,7 +88,7 @@ Docker-образ — исполняемый пакет, который соде
     CMD [ "python", "index.py" ]
     ```
 
-- Go
+- Go {#go}
 
     **index.go**
 

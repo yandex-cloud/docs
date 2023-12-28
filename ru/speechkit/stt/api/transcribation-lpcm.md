@@ -25,9 +25,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Выполните распознавание с помощью API {#recognize-using-api}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
    {% include [async-recognition](../../../_includes/speechkit/async-recognition.md) %}
 

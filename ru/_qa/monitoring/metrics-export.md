@@ -18,29 +18,29 @@
 
 Воспользуйтесь [клиентской библиотекой](https://prometheus.io/docs/instrumenting/clientlibs/) для языка программирования, на котором написано ваше приложение, и передавайте метрики в {{ monitoring-name }} в формате {{ prometheus-name }}.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Go
+- Go {#go}
 
   [Клиентская библиотека Prometheus для Go](https://github.com/prometheus/client_golang).
 
-- Python
+- Python {#python}
 
   [Клиентская библиотека Prometheus для Python](https://github.com/prometheus/client_python).
 
-- PHP
+- PHP {#php}
 
   [Клиентская библиотека Prometheus для PHP](https://github.com/promphp/prometheus_client_php).
 
-- Java
+- Java {#java}
 
   [Клиентская библиотека Prometheus для Java](https://github.com/prometheus/client_java).
 
-- Node.js
+- Node.js {#node}
 
   [Клиентская библиотека Prometheus для Node.js](https://github.com/siimon/prom-client).
 
-- C++
+- C++ {#cpp}
 
   [Клиентская библиотека Prometheus для C++](https://github.com/jupp0r/prometheus-cpp).
 

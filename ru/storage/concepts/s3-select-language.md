@@ -255,9 +255,9 @@ SELECT s.CAST FROM S3Object s
 
 Примеры:
 
-{% list tabs %}
+{% list tabs group=data_format %}
 
-- JSON
+- JSON {#json}
 
   Образец данных:
 
@@ -286,7 +286,7 @@ SELECT s.CAST FROM S3Object s
   {"count": 2, "min": 6, "max": 12, "sum": 18, "avg": 9.0}
   ```
     
-- CSV
+- CSV {#csv}
 
   Образец данных:
 

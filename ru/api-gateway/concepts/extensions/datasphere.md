@@ -25,7 +25,7 @@
         - datasphere
       x-yc-apigateway-integration:
         type: cloud_datasphere
-        folder_id: b095c95icnvbuf4v755l
-        node_id: 244e0c20-74a7-4147-83ad-7fd7b8a1f43f
-        service_account_id: ajehfe78asliq4n94q1
+        folder_id: b095c95icnvb********
+        node_id: 244e0c20-74a7-4147-83ad-7fd7********
+        service_account_id: ajehfe78asl********
 ```

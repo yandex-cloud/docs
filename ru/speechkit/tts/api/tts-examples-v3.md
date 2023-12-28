@@ -18,9 +18,9 @@
 1. Получите [API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/api-key/create.md) для сервисного аккаунта.
 1. Создайте клиентское приложение:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Python 3
+    - Python 3 {#python}
 
       1. Установите пакеты `grpcio-tools` и `pydub` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
@@ -145,7 +145,7 @@
 
           В результате в папке `cloudapi` будет создан файл `speech.wav` с синтезированной речью.
 
-    - Java
+    - Java {#java}
 
       1. Установите зависимости:
 

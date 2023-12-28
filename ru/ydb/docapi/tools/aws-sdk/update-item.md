@@ -11,9 +11,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
 Чтобы обновить запись о фильме в таблице `Series`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesItemOps03`:
 
@@ -209,7 +209,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesItemOps03.py`, например с помощью редактора nano:
   
@@ -286,7 +286,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
                             'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesItemOps03.php`, например с помощью редактора nano:
   
@@ -394,7 +394,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesItemOps03.js`, например с помощью редактора nano:
   
@@ -472,7 +472,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesItemOps03.rb`, например с помощью редактора nano:
   
@@ -576,9 +576,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
 Чтобы увеличить атомарный счетчик `rating` для сериала:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesItemOps04`:
 
@@ -768,7 +768,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesItemOps04.py`, например с помощью редактора nano:
   
@@ -841,7 +841,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
                             'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesItemOps04.php`, например с помощью редактора nano:
   
@@ -944,7 +944,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesItemOps04.js`, например с помощью редактора nano:
 
@@ -1022,7 +1022,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesItemOps04.rb`, например с помощью редактора nano:
 
@@ -1121,9 +1121,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
 Чтобы обновить запись в таблице `Series` при выполнении условия:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesItemOps05`:
 
@@ -1340,7 +1340,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesItemOps05.py`, например с помощью редактора nano:
   
@@ -1444,7 +1444,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
                             'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesItemOps05.php`, например с помощью редактора nano:
   
@@ -1571,7 +1571,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesItemOps05.js`, например с помощью редактора nano:
 
@@ -1676,7 +1676,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesItemOps05.rb`, например с помощью редактора nano:
 
