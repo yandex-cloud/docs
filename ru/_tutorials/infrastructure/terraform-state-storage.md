@@ -76,16 +76,16 @@
 
 1. Добавьте в переменные окружения идентификатор ключа и секретный ключ, [полученные ранее](#create-service-account):
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
       ```bash
       export ACCESS_KEY="<идентификатор_ключа>"
       export SECRET_KEY="<секретный_ключ>"
       ```
     
-    - PowerShell
+    - PowerShell {#powershell}
 
       ```powershell
       $ACCESS_KEY="<идентификатор_ключа>"

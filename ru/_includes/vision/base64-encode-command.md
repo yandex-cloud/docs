@@ -1,25 +1,25 @@
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- UNIX
+- UNIX {#unix}
   
   ```
   base64 -i input.jpg > output.txt
   ```
   
-- Windows
+- Windows {#windows}
   
   ```
   C:> Base64.exe -e input.jpg > output.txt
   ```
   
-- PowerShell
+- PowerShell {#powershell}
   
   ```
   [Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt
   ```
   
-- Python
+- Python {#python}
   
   ```python
   # Импортируйте библиотеку для кодирования в Base64
@@ -31,7 +31,7 @@
     return base64.b64encode(file_content)
   ```
   
-- Node.js
+- Node.js {#node}
   
   ```js
   // Считайте содержимое файла в память.
@@ -42,7 +42,7 @@
   var encoded = Buffer.from(file).toString('base64');
   ```
   
-- Java
+- Java {#java}
   
   ```java
   // Импортируйте библиотеку для кодирования в Base64.
@@ -52,7 +52,7 @@
   byte[] fileData = Base64.encodeBase64(yourFile.getBytes());
   ```
   
-- Go
+- Go {#go}
   
   ```go
   import (

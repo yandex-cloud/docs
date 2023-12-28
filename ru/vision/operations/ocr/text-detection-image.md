@@ -242,9 +242,9 @@
 
 В примерах ниже показан код скрипта для распознавания текста с использованием Vision API. Аутентификация реализована для аккаунта на Яндексе с помощью [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md) ([подробнее о способах аутентификации](../../api-ref/authentication.md)).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Go
+- Go {#go}
 
     Создайте файл скрипта, например `text_detection.go` и скопируйте в него следующий код:
 
@@ -421,7 +421,7 @@
     go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
     ```
 
-- Python
+- Python {#python}
 
     Создайте файл скрипта, например `text_detection.py` и скопируйте в него следующий код:
 

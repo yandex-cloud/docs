@@ -82,9 +82,9 @@ description: "Следуя данной инструкции, вы сможет�
 
     {% include [asymmetric-encryption-message-size-note](../../_includes/kms/a-encryption-message-size-note.md) %}
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
     
-    - Bash
+    - Bash {#bash}
 
       В терминале выполните команду:
 
@@ -107,7 +107,7 @@ description: "Следуя данной инструкции, вы сможет�
     
       В результате выполнения команды зашифрованное сообщение сохранится в указанном файле в кодировке `base64`.
 
-    - Java
+    - Java {#java}
 
       ```java
       import org.bouncycastle.util.io.pem.PemObject;
@@ -163,7 +163,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       {% include [encrypt-code-legend](../../_includes/kms/encrypt-code-legend.md) %}
 
-    - Go
+    - Go {#go}
 
       ```golang
        import (
@@ -215,7 +215,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       {% include [encrypt-code-legend](../../_includes/kms/encrypt-code-legend.md) %}
 
-    - Python
+    - Python {#python}
 
       ```python
       from cryptography.hazmat.primitives.asymmetric import rsa, padding

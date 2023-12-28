@@ -4,9 +4,9 @@
 
 ## Примеры приложений и Dockerfile
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
     **index.js**
     ```
@@ -42,7 +42,7 @@
     CMD [ "node", "index.js" ]
     ```
 
-- Python
+- Python {#python}
 
     **requirements.txt**
     ```
@@ -103,7 +103,7 @@
     CMD [ "python", "index.py" ]
     ```
 
-- Go
+- Go {#go}
 
     **index.go**
     ```

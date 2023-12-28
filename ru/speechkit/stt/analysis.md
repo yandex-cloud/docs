@@ -23,9 +23,9 @@
 | `insult` | Оскорбления (например, "дурак", "урод") | `ON_UTTERANCE`, `ON_FINAL` |
 | `profanity` | Мат | `ON_UTTERANCE`, `ON_FINAL` |
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
   ```python
   session_options = StreamingRequest(

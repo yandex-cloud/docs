@@ -295,9 +295,9 @@
 
 1. Проверьте, что индекс `sensors` кластера {{ mes-name }} содержит отправленные данные:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
         Выполните команду:
 
@@ -309,7 +309,7 @@
             --request GET 'https://c-<идентификатор_кластера_{{ ES }}>.rw.{{ dns-zone }}:{{ port-mes }}/sensors/_search?pretty'
         ```
 
-    - Kibana
+    - Kibana {#kibana}
 
         1. [Подключитесь](../../managed-elasticsearch/operations/cluster-connect.md#connection-string) к кластеру-приемнику с помощью Kibana.
         1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).

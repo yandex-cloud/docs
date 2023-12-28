@@ -175,3 +175,9 @@ operationId | Идентификатор операции, полученный 
 |#
 
 Подробнее о формате и кодах ответов см. на странице [{#T}](../../concepts/response.md).
+
+## Примеры использования {#examples}
+
+* [{#T}](transcribation-lpcm.md).
+* [{#T}](transcribation-ogg.md).
+* [{#T}](batch-transcribation.md).

@@ -1015,9 +1015,9 @@
 
 1. Чтобы получить все распознанные на изображении слова, найдите все строки со свойством `text`, например с помощью [grep](https://www.gnu.org/software/grep/):
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
       ```bash
       grep -o "\"text\":\s\".*\"" output.json
@@ -1045,7 +1045,7 @@
       "text": "SLOW"
       ```
 
-    - PowerShell
+    - PowerShell {#powershell}
 
       ```powershell
       Select-String -Pattern '\"text\":\s\".*\"' -Path .\output.json

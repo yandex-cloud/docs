@@ -2,6 +2,12 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [28.12.2023 — CVE-2023-44487 HTTP/2 Rapid Reset Attack](../../_includes/security/security-bulletins/cve-2023-44487.md) %}
+
+{% include [28.12.2023 — CVE-2023-23583 Reptar in Ice Lake IPU Out-of-Band](../../_includes/security/security-bulletins/cve-2023-23583.md) %}
+
+{% include [28.12.2023 — CVE-2023-46850 OpenVPN v.2.6.7 Security patch](../../_includes/security/security-bulletins/cve-2023-46850.md) %}
+
 {% include [3.11.2023 — CVE-2023-5043 Nginx ingress controller fo Kubernetes vulnerabilities](../../_includes/security/security-bulletins/cve-2023-5043.md) %}
 
 {% include [26.10.2023 — CVE-2023-3484 GitLab Security Release: 16.1.2, 16.0.7, and 15.11.11](../../_includes/security/security-bulletins/cve-2023-3484-gitlab-security-release.md) %}

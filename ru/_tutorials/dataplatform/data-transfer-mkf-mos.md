@@ -296,9 +296,9 @@
 
 1. Проверьте, что индекс `sensors` кластера {{ mos-name }} содержит отправленные данные:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
         Выполните команду:
 
@@ -310,7 +310,7 @@
             --request GET 'https://<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.rw.{{ dns-zone }}:{{ port-mos }}/sensors/_search?pretty'
         ```
 
-    - {{ OS }} Dashboards
+    - {{ OS }} Dashboards {#opensearch}
 
         1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
         1. Выберите общий тенант `Global`.

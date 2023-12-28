@@ -7,9 +7,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
 Чтобы создать таблицу с именем `Series`, ключом партицирования `series_id` и ключом сортировки `title`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
 
   1. Создайте проект `SeriesCreateTable`:
 
@@ -194,7 +194,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       Статус таблицы: ACTIVE
       ```
 
-- Python
+- Python {#python}
 
   В коде ниже используется функция `print` из Python 3. Для использования этой функции в версиях Python 2.6 и старше добавьте в начало файла строку `from __future__ import print_function`.
 
@@ -261,7 +261,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       Статус таблицы: ACTIVE
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesCreateTable.php`, например с помощью редактора nano:
 
@@ -343,7 +343,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       Статус таблицы: ACTIVE
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesCreateTable.js`, например с помощью редактора nano:
 
@@ -427,7 +427,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       }
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesCreateTable.rb`, например с помощью редактора nano:
 

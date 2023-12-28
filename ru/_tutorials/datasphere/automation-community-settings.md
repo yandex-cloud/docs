@@ -52,7 +52,7 @@
 1. Укажите полученный IAM-токен:
 
     ```python
-    iam_token = "<iam_токен>"
+    iam_token = "<IAM-токен>"
     ```
 
 1. Импортируйте необходимую библиотеку:
@@ -73,7 +73,7 @@
 1. Укажите идентификатор организации, в которой должно быть создано сообщество:
 
     ```python
-    ORGANIZATION_ID = "<id_организации>"
+    ORGANIZATION_ID = "<идентификатор_организации>"
     ```
 
 1. Получите список доступных платежных аккаунтов:
@@ -91,7 +91,7 @@
     data['name'] = "<имя_сообщества>"
     data['description'] = "<описание_сообщества>"
     data['organizationId'] = ORGANIZATION_ID
-    data['billingAccountId'] = "<ID_платежного_аккаунта>"
+    data['billingAccountId'] = "<идентификатор_платежного_аккаунта>"
 
     res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/communities', 
                         json=data,
@@ -124,7 +124,7 @@
 
     ```python
     # Укажите список идентификаторов участников из поля 'sub', для которых должны быть созданы проекты
-    user_organization_ids = ['<id_участника_1>','<id_участника_2>']
+    user_organization_ids = ['<идентификатор_участника_1>','<идентификатор_участника_2>']
 
     projects = {}
     for user_id in user_organization_ids:
@@ -159,13 +159,13 @@
        data['accessBindings'] = [{
          "roleId": 'datasphere.community-projects.admin',
          "subject": {
-               "id": "<id_администратора_проекта>", # Укажите идентификатор администратора проекта
+               "id": "<идентификатор_администратора_проекта>", # Укажите идентификатор администратора проекта
                "type": "userAccount"
          }},
          {
          "roleId": 'datasphere.community-projects.developer',
          "subject": {
-               "id": "<id_разработчика_проекта>", # Укажите идентификатор разработчика проекта
+               "id": "<идентификатор_разработчика_проекта>", # Укажите идентификатор разработчика проекта
                "type": "userAccount"
          }}
        ]

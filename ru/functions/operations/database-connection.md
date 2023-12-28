@@ -41,9 +41,9 @@
 
 ### {{ mpg-name }}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
     **index.js**
 
@@ -77,7 +77,7 @@
     }
     ```
 
-- Python
+- Python {#python}
 
     ```py
     import psycopg2
@@ -97,7 +97,7 @@
         return record
     ```
 
-- Go
+- Go {#go}
 
     ```golang
     package main
@@ -163,9 +163,9 @@
 
 ### {{ mch-name }}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Node.js
+- Node.js {#node}
 
     ```js
     module.exports.handler = async function (event, context) {
@@ -212,7 +212,7 @@
     };
     ```
 
-- Python
+- Python {#python}
 
     ```py
     import requests
@@ -240,7 +240,7 @@
         }
     ```
 
-- Go
+- Go {#go}
 
     ```golang
     package main

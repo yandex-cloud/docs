@@ -14,9 +14,9 @@
 1. [Подключитесь к ВМ по RDP](../vm-connect/rdp.md).
 1. Скачайте и настройте программу для обновления агента:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
    
-   - PowerShell
+   - PowerShell {#powershell}
    
      1. Получите номер последней версии программы:
      

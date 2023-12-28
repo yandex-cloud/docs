@@ -29,9 +29,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
   1. [Получите ссылку на аудиофайл](../../../storage/operations/objects/link-for-download.md) в {{ objstorage-name }}.
   1. Создайте файл, например `body.json`, и добавьте в него код:
@@ -124,7 +124,7 @@ description: "Следуя данной инструкции, вы сможет�
       }
       ```
 
-- Python 3
+- Python 3 {#python}
 
   1. Установите пакет `requests` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 

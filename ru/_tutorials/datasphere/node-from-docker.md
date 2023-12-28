@@ -204,11 +204,11 @@
         {{ registry }}
       ```
 
-   1. Загрузите Docker-образ в {{ container-registry-name }}. Вместо <ID реестра> подставьте идентификатор вашего реестра `datasphere-registry`:
+   1. Загрузите Docker-образ в {{ container-registry-name }}. Вместо <идентификатор_реестра> подставьте идентификатор вашего реестра `datasphere-registry`:
 
       ```bash
-      docker tag triton-docker {{ registry }}/<ID реестра>/triton:v1
-      docker push {{ registry }}/<ID реестра>/triton:v1
+      docker tag triton-docker {{ registry }}/<идентификатор_реестра>/triton:v1
+      docker push {{ registry }}/<идентификатор_реестра>/triton:v1
       ```
 
 {% endlist %}

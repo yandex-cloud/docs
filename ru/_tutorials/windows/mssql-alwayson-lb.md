@@ -40,16 +40,16 @@
 
 1. Создайте сеть с именем `ya-network`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
        1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать облачную сеть.
        1. Нажмите кнопку **Создать сеть.**
        1. Задайте имя сети: `ya-network`.
        1. Нажмите кнопку **Создать сеть**.
 
-    - Bash 
+    - Bash {#bash}
       
       {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -59,7 +59,7 @@
       yc vpc network create --name ya-network
       ```
 
-    - PowerShell 
+    - PowerShell {#powershell}
 
       [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в PowerShell. 
 
@@ -76,9 +76,9 @@
    * Подсеть `ya-ad-rc1a` для Active Directory.
 
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсети.
       1. Выберите сеть `ya-network`.
@@ -94,7 +94,7 @@
       * `ya-ilb-rc1a` в зоне доступности `{{ region-id }}-a` — `192.168.1.48/28`;
       * `ya-ad-rc1a` в зоне доступности `{{ region-id }}-a` — `10.0.0.0/28`.
 
-    - Bash
+    - Bash {#bash}
 
       ```
       yc vpc subnet create \
@@ -136,7 +136,7 @@
         --network-name ya-network
       ```
 
-    - PowerShell
+    - PowerShell {#powershell}
 
       ```
       yc vpc subnet create `
@@ -182,9 +182,9 @@
 
 ## Создайте внутренний сетевой балансировщик {#create-load-balancer}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   ```
   yc load-balancer network-load-balancer create \
@@ -192,7 +192,7 @@
      --type internal
   ```
 
-- PowerShell
+- PowerShell {#powershell}
   
   ```
   yc load-balancer network-load-balancer create `
@@ -204,9 +204,9 @@
 
 ### Создайте обработчик {#create-listener}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash 
+- Bash {#bash}
   
   Получите идентификатор подсети:
 
@@ -222,7 +222,7 @@
      --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=<идентификатор_подсети>
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   ```
   $inlbSubnet = yc vpc subnet get `
@@ -240,9 +240,9 @@
 
 ### Создайте и подключите целевую группу к балансировщику {#create-target-group}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   ```
   yc load-balancer target-group create \
@@ -260,7 +260,7 @@
      --target-group target-group-id=<идентификатор_целевой_группы>,healthcheck-name=listener,healthcheck-tcp-port=59999
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   ```
   yc load-balancer target-group create `
@@ -304,9 +304,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   ```
   touch ~/setpass
@@ -321,7 +321,7 @@
   cd
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   ```
   ni ~/setpass
@@ -359,9 +359,9 @@
 
 Создайте бастионный хост с ОС Windows Server 2022 Datacenter с публичным IP-адресом для доступа к остальным ВМ:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
 
 
@@ -382,7 +382,7 @@
   ```
 
 
-- PowerShell
+- PowerShell {#powershell}
 
 
 
@@ -408,9 +408,9 @@
 
 #### Создайте ВМ для Active Directory {#create-ad-controller}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
 
 
@@ -431,7 +431,7 @@
   ```
 
 
-- PowerShell
+- PowerShell {#powershell}
 
 
 
@@ -459,9 +459,9 @@
 
 Создайте три виртуальных машины с ОС Windows Server 2022 Datacenter для серверов SQL Server:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
 
 
@@ -526,7 +526,7 @@
   ```
 
 
-- PowerShell
+- PowerShell {#powershell}
 
 
 
@@ -607,9 +607,9 @@
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
 1. На ВМ `ya-ad` запустите PowerShell и установите необходимые роли сервера:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
        ```
        Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
@@ -619,9 +619,9 @@
 
 1. Создайте лес Active Directory:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Install-ADDSForest `
@@ -639,9 +639,9 @@
 
 1. Переименуйте сайт и добавьте в него созданные подсети:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}'
@@ -656,9 +656,9 @@
 
 1. Укажите Forwarder для DNS-сервера:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Set-DnsServerForwarder '10.0.0.2'
@@ -668,9 +668,9 @@
 
 1. Укажите адреса DNS-сервера:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3,127.0.0.1"
@@ -686,9 +686,9 @@
 
 1. На ВМ `ya-ad` запустите PowerShell и создайте сервисную учетную запись `mssql-svc`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        New-ADUser `
@@ -703,9 +703,9 @@
 
 1. Создайте группы для доступа к резервным копиям и серверам баз данных:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        New-AdGroup mssql-admins-grp -GroupScope:Global
@@ -716,9 +716,9 @@
 
 1. Добавьте учетную запись `Administrator` во все группы. В группу `mssql-backups-grp` добавьте сервисную учетную запись `mssql-svc`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Add-ADGroupMember mssql-admins-grp -Members Administrator
@@ -730,9 +730,9 @@
 
 1. Задайте [SPN](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) сервисной учетной записи:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        setspn -A MSSQLSvc/ya-mssql1.yantoso.net:1433 yantoso\mssql-svc
@@ -753,9 +753,9 @@
 
 1. Настройте на ВМ с серверами БД доступ в интернет:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
        ```
        yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql1> --network-interface-index 0
@@ -763,7 +763,7 @@
        yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql3> --network-interface-index 0
        ```
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql1> --network-interface-index 0
@@ -777,9 +777,9 @@
 
 1. Запустите PowerShell и установите роль: 
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Install-WindowsFeature Failover-Clustering -IncludeManagementTools
@@ -793,9 +793,9 @@
 
 1. Инициализируйте и отформатируйте второй логический диск:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
       ```
       Get-Disk | `
@@ -816,9 +816,9 @@
     
 1. Подготовьте папки для дистрибутива, резервного копирования, хранения баз данных, логов и временных файлов:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        mkdir C:\dist
@@ -835,9 +835,9 @@
 
 1. Установите модуль SqlServer:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Install-Module -Name SqlServer
@@ -849,9 +849,9 @@
 
 1. Импортируйте команды модуля SqlServer для PowerShell:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Import-Module SQLServer
@@ -861,9 +861,9 @@
 
 1. Укажите адрес DNS-сервера:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3"
@@ -873,9 +873,9 @@
 
    Подготовьте данные для доступа к домену:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        $domain_credential = `
@@ -888,9 +888,9 @@
 
    Добавьте сервер БД в домен:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Add-Computer -DomainCredential $domain_credential -DomainName 'yantoso.net' -Restart -Force
@@ -904,9 +904,9 @@
 
 1. Настройте необходимые права служебной учетной записи: 
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        & secedit /export /cfg sec_conf_export.ini /areas user_rights
@@ -950,9 +950,9 @@
 
 1. Настройте файрвол: 
    
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        New-NetFirewallRule `
@@ -992,9 +992,9 @@
 
 1. Установите SQL Server. Смонтируйте образ, выполните установку и отсоедините образ:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Mount-DiskImage -ImagePath C:\dist\<имя_образа_SQL_Server>.iso
@@ -1019,16 +1019,16 @@
 
 1. Отключите у ВМ доступ в интернет:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - Bash
+    - Bash {#bash}
 
        ```
        yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql1> --network-interface-index 0
        yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql2> --network-interface-index 0
        yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql3> --network-interface-index 0
        ```
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql1> --network-interface-index 0
@@ -1054,9 +1054,9 @@
 
 1. Для работы группы доступности Always On требуется настроенный Windows Server Failover Cluster. Для его создания необходимо протестировать серверы БД. На любой из ВМ кластера выполните:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Test-Cluster -Node 'ya-mssql1.yantoso.net'
@@ -1072,9 +1072,9 @@
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-mssql1` с помощью RDP и учетной записи `yantoso\Administrator`.
 1. Создайте кластер из трех серверов БД:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        New-Cluster `
@@ -1104,9 +1104,9 @@
 
 1. Включите на всех ВМ TCP/IP и добавьте порт `14333` для получения трафика:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo")
@@ -1148,9 +1148,9 @@
 
 1. Назначьте служебному пользователю `mssql-svc` разрешения на управление серверами:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql1\Default" `
@@ -1198,9 +1198,9 @@
 
 1. Создайте и запустите [эндпоинты HADR](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        New-SqlHADREndpoint -Port 5022 -Owner sa `
@@ -1229,9 +1229,9 @@
 
 1. Создайте переменные с параметрами реплик. Основной репликой будет выступать `ya-mssql1`, второй и третьей — `ya-mssql2` и `ya-mssql3`. 
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        $PrimaryReplica = New-SqlAvailabilityReplica `
@@ -1260,9 +1260,9 @@
 
 1. Создайте из реплик группу доступности `MyAG` и добавьте туда первый сервер:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        New-SqlAvailabilityGroup `
@@ -1275,9 +1275,9 @@
 
 1. Добавьте оставшиеся серверы в группу доступности:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Join-SqlAvailabilityGroup -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" -Name 'MyAG'
@@ -1288,9 +1288,9 @@
 
 1. Создайте [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description):
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        $NLBIPAddress = '192.168.1.62'
@@ -1333,9 +1333,9 @@
 
 1. Назначьте порт `14333` обработчику:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
       ```
       Set-SqlAvailabilityGroupListener `
@@ -1347,9 +1347,9 @@
 
 1. Откройте порт `14333` на всех ВМ кластера:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
       ```
       $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
@@ -1390,9 +1390,9 @@
 
 1. Создайте базу данных на сервере `ya-mssql1`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -Query "CREATE DATABASE MyDatabase" -ServerInstance 'ya-mssql1.yantoso.net'
@@ -1402,9 +1402,9 @@
 
 1. Задайте настройки доступа к папке с резервными копиями на сервере:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        New-SMBShare -Name SQLBackup -Path "X:\BACKUP" -FullAccess "yantoso\mssql-backups-grp"
@@ -1420,9 +1420,9 @@
 
 1. Создайте резервную копию базы `MyDatabase` на ВМ `ya-mssql1`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Backup-SqlDatabase `
@@ -1441,9 +1441,9 @@
 
 1. Восстановите базу данных на сервере `ya-mssql2` из резервной копии: 
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Restore-SqlDatabase `
@@ -1464,9 +1464,9 @@
 
 1. Восстановите базу данных на сервере `ya-mssql3` из резервной копии: 
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Restore-SqlDatabase `
@@ -1487,9 +1487,9 @@
 
 1. Добавьте все базы данных в группу доступности:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Add-SqlAvailabilityDatabase `
@@ -1513,9 +1513,9 @@
 
 1. Создайте таблицу в реплицируемой БД `MyDatabase`:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
@@ -1530,9 +1530,9 @@
 
 1. Добавьте в таблицу БД новую строку:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
@@ -1545,9 +1545,9 @@
 
 1. Проверьте, появилась ли строка в таблице:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
@@ -1567,9 +1567,9 @@
 
 1. Проверьте имя основной реплики БД:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
@@ -1587,9 +1587,9 @@
 
 1. Выполните аварийное переключение на вторую реплику:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -Query "ALTER AVAILABILITY GROUP MyAg FAILOVER" -ServerInstance 'ya-mssql2.yantoso.net'
@@ -1599,9 +1599,9 @@
 
 1. Снова проверьте имя основной реплики:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
@@ -1618,9 +1618,9 @@
 
 1. Добавьте еще одну строку в таблицу, чтобы проверить работу второй реплики на запись:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
@@ -1633,9 +1633,9 @@
 
 1. Убедитесь, что строка добавлена:
 
-    {% list tabs %}
+    {% list tabs group=programming_language %}
 
-    - PowerShell
+    - PowerShell {#powershell}
 
        ```
        Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"

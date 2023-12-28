@@ -13,9 +13,9 @@
 
 ## Пример запроса {#request_examples}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- POST-запрос
+- POST-запрос {#post}
 
   Отправьте [запрос](../request.md) на преобразование речи в текст: 
 
@@ -34,7 +34,7 @@
     * `folderId` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
     * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
 
-- cURL
+- cURL {#curl}
 
   Отправьте [запрос](../request.md) на преобразование речи в текст:
 
@@ -54,7 +54,7 @@
     * `--data-binary` — имя аудиофайла для распознавания.
     * `topic` — [языковая модель](../models.md).
 
-- Python 3
+- Python 3 {#python}
 
   Отправьте [запрос](../request.md) на преобразование речи в текст:
 
@@ -93,7 +93,7 @@
     * `topic` — [языковая модель](../models.md).
     * `lang` — [язык](../index.md#langs), для которого будет выполнено распознавание.
 
-- PHP
+- PHP {#php}
 
   Отправьте [запрос](../request.md) на преобразование речи в текст:
 

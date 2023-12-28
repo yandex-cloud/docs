@@ -50,15 +50,15 @@
 * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
 
 Добавьте аутентификационные данные в переменные окружения:
-{% list tabs %}
-- Bash
+{% list tabs group=programming_language %}
+- Bash {#bash}
     ```bash
     export YC_TOKEN=$(yc iam create-token)
     export YC_CLOUD_ID=$(yc config get cloud-id)
     export YC_FOLDER_ID=$(yc config get folder-id)
     ```
     
-- PowerShell
+- PowerShell {#powershell}
     ```powershell
     $Env:YC_TOKEN=$(yc iam create-token)
     $Env:YC_CLOUD_ID=$(yc config get cloud-id)

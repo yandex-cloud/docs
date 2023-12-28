@@ -132,42 +132,43 @@
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
   1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
-  
+
 - AWS CLI
   
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
   1. Создайте бакет, указав имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming):
-  
+
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<имя_бакета>
      ```
 
      Результат:
-     
+
      ```text
      make_bucket: <имя_бакета>
      ```
-  
+
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Добавьте в конфигурационный файл блок с параметрами бакета, указав имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming):
-  
+
      ```hcl
      resource "yandex_storage_bucket" "<имя_бакета>" {
        bucket = "<имя_бакета>"
      }
      ```
-     
+
      Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-link }}/storage_bucket) провайдера {{ TF }}.
-     
+
   1. Создайте ресурсы:
+
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
-      
+
       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
-     
+
 - API
 
    Используйте метод REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызов gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или метод S3 API [create](../../storage/s3/api-ref/bucket/create.md).
@@ -240,11 +241,11 @@
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Заполните поля:
-   * **{{ ui-key.yc-ui-datasphere.common.name }}** — имя создаваемого коннектора, например `s3-datasphere-connect`.   
+   * **{{ ui-key.yc-ui-datasphere.common.name }}** — имя создаваемого коннектора, например `s3-datasphere-connect`.
    * **{{ ui-key.yc-ui-datasphere.common.endpoint }}** — хост {{ objstorage-full-name }} — `https://{{ s3-storage-host }}/`.
    * **{{ ui-key.yc-ui-datasphere.common.bucket }}** — имя вашего бакета.
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}** — название тома при монтировании бакета в файловую систему проекта.
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}**, который используется для подключения к хранилищу.   
+   * **{{ ui-key.yc-ui-datasphere.new-s3-page.access-key-id }}**, который используется для подключения к хранилищу.
    * В поле **{{ ui-key.yc-ui-datasphere.new-s3-page.static-access-key }}** нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**. В открывшемся окне введите имя секрета и секретный ключ, который используется для подключения к хранилищу.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. Перейдите на страницу коннектора S3 и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.activate }}**. После активации бакет будет доступен в интерфейсе {{ jlab }}Lab в списке на вкладке **S3 Mounts** ![S3 Mounts](../../_assets/console-icons/bucket.svg), и его можно будет просматривать как файловую систему.

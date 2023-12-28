@@ -128,9 +128,9 @@
 
 ## Протестируйте модель {#model-test}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Playground    
+- Playground {#playground}
 
     1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 
@@ -144,7 +144,7 @@
 
     1. Чтобы изменить вариативность, передвигайте ползунок в поле **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}**. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
 
-- {{ jlab }}Lab
+- {{ jlab }}Lab {#jupyterlab}
 
     Скопируйте код в ячейку ноутбука, если вы не использовали инструкцию для дообучения модели:
 
@@ -164,7 +164,7 @@
                 }
             ]            
     }
-    headers = {"Authorization" : "Bearer " + '<значение_IAM-токена>',
+    headers = {"Authorization" : "Bearer " + '<IAM-токен>',
             "x-folder-id": "<идентификатор_каталога>", }
     res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
         headers=headers, json=req)
@@ -176,7 +176,7 @@
     * `modelUri` — идентификатор дообученной модели. Можно [найти](#model-tuning) в списке доступных ресурсов проекта.
     * `temperature` — температура. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
     * `maxTokens` — максимальное число токенов в ответе модели.
-    * `<значение_IAM-токена>` — [IAM-токен сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
+    * `<IAM-токен>` — значение [IAM-токена сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
     * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
 
     Если вы использовали инструкцию для дообучения, укажите ее текст в сообщении с ролью `system`:
@@ -201,7 +201,7 @@
                 }
             ]    
     }
-    headers = {"Authorization" : "Bearer " + '<значение_IAM-токена>',
+    headers = {"Authorization" : "Bearer " + '<IAM-токен>',
                        "x-folder-id": "<идентификатор_каталога>", }
     res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
         headers=headers, json=req)
@@ -210,7 +210,7 @@
 
     Подробнее о параметрах запроса к дообученной модели см. в [документации {{ yagpt-full-name }}](../../yandexgpt/api-ref/v1/index.md).
 
-- cURL
+- cURL {#curl}
 
     {% include [curl](../../_includes/curl.md) %}
 
@@ -268,7 +268,7 @@
        ```bash
        curl --request POST
            -H "Content-Type: application/json"
-           -H "Authorization: Bearer <значение_IAM-токена>"
+           -H "Authorization: Bearer <IAM-токен>"
            -H "x-folder-id: <идентификатор_каталога>"
            -d prompt.json
            https://llm.{{ api-host }}/foundationModels/v1/completion
@@ -277,7 +277,7 @@
        Где:
    
        * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}, у которого есть доступ к сервису {{ yagpt-name }}.
-       * `<значение_IAM-токена>` — [IAM-токен сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
+       * `<IAM-токен>` — значение [IAM-токена сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
        * `prompt.json` — файл в формате JSON, содержащий параметры запроса.
 
 {% endlist %}

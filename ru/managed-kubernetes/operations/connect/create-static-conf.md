@@ -55,15 +55,15 @@
 
 1. Запишите уникальный идентификатор кластера {{ managed-k8s-name }} в переменную:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      ```bash
      CLUSTER_ID=catb3ppsdsh7********
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      ```shell script
      $CLUSTER_ID = "catb3ppsdsh7********"
@@ -75,9 +75,9 @@
 
 Сохраните сертификат кластера {{ managed-k8s-name }} в файл `ca.pem`. С помощью этого сертификата подтверждается подлинность кластера {{ managed-k8s-name }}.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   Выполните команду, которая:
   * Получает информацию о кластере {{ managed-k8s-name }} в формате JSON.
@@ -91,7 +91,7 @@
     awk '{gsub(/\\n/,"\n")}1' > ca.pem
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   1. Получите подробную информацию о кластере {{ managed-k8s-name }} в формате JSON и сохраните ее в переменную `$CLUSTER`:
 
@@ -183,9 +183,9 @@
 
 Токен необходим для аутентификации объекта `ServiceAccount` в кластере {{ managed-k8s-name }}.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   Выполните команду, которая:
   * Получает информацию о созданном [сервисном аккаунте](../../../iam/concepts/users/service-accounts.md) `admin-user` в формате JSON.
@@ -201,7 +201,7 @@
     base64 -d)
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   1. Получите токен объекта `ServiceAccount`. Кавычки из содержимого уберутся автоматически:
 
@@ -224,9 +224,9 @@
 
 Получите [IP-адрес](../../../vpc/concepts/address.md) кластера {{ managed-k8s-name }} и добавьте его в переменную `MASTER_ENDPOINT` для дальнейшего использования.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
   Выполните команду, которая:
   * Получает в формате JSON информацию о кластере {{ managed-k8s-name }} по его уникальному идентификатору.
@@ -250,7 +250,7 @@
     jq -r .master.endpoints.internal_v4_endpoint)
   ```
 
-- PowerShell
+- PowerShell {#powershell}
 
   Выполните команду для подключения к API кластера {{ managed-k8s-name }} из интернета (вне {{ yandex-cloud }}):
 
@@ -270,9 +270,9 @@
 
 1. Добавьте сведения о кластере {{ managed-k8s-name }} в файл конфигурации.
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      Выполните команду:
 
@@ -283,7 +283,7 @@
        --kubeconfig=test.kubeconfig
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      Выполните команду:
 
@@ -298,9 +298,9 @@
 
 1. Добавьте информацию о токене для `admin-user` в файл конфигурации.
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      Выполните команду:
 
@@ -310,7 +310,7 @@
        --kubeconfig=test.kubeconfig
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      Выполните команду:
 
@@ -324,9 +324,9 @@
 
 1. Добавьте информацию о контексте в файл конфигурации.
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      Выполните команду:
 
@@ -337,7 +337,7 @@
        --kubeconfig=test.kubeconfig
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      Выполните команду:
 
@@ -352,9 +352,9 @@
 
 1. Используйте созданную конфигурацию для дальнейшей работы.
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
      Выполните команду:
 
@@ -363,7 +363,7 @@
        --kubeconfig=test.kubeconfig
      ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
      Выполните команду:
 

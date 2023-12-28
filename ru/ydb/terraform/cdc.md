@@ -17,7 +17,7 @@ resource "yandex_ydb_table_changefeed" "ydb_changefeed" {
 ```
 
 В создании потока изменений таблицы мы использовали следующие параметры:
-* `table_id` — идентификатор таблицы, для которой создаётся поток изменений;
+* `table_id` — идентификатор таблицы, для которой создается поток изменений;
 * `name` — название потока изменений;
 * `mode` — режим работы потока изменений. Все доступные режимы работы потока изменений описаны в [документации](https://ydb.tech/ru/docs/yql/reference/syntax/alter_table#changefeed-options).  
 * `format` — формат потока изменений. Доступен только JSON формат.
@@ -45,6 +45,6 @@ resource "yandex_ydb_table_changefeed" "ydb_changefeed" {
 | --- | --- | --- |
 | name | `string`<br>`required` | Имя читателя |
 | supported_codecs | `array[string]`<br>`optional` | Поддерживаемые кодировки данных |
-| starting_message_timestamp_ms | `integer`<br>`optional` | Временная метка в формате UNIX timestamp, с которой читатель начнёт читать данные |
+| starting_message_timestamp_ms | `integer`<br>`optional` | Временная метка в формате UNIX timestamp, с которой читатель начнет читать данные |
 
 Имя читателя используется в SDK или CLI для [чтения данных](https://ydb.tech/ru/docs/best_practices/cdc#read) из топика.

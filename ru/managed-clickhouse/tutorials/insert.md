@@ -165,9 +165,9 @@ pip3 install protobuf varint pycapnp
 
 1. Создайте файл с описанием схемы:
 
-   {% list tabs %}
+   {% list tabs group=data_format %}
    
-   - Cap'n Proto
+   - Cap'n Proto {#capn}
    
      `user.capnp`
      ```
@@ -181,7 +181,7 @@ pip3 install protobuf varint pycapnp
    
      Подробнее о формате файла см. в [документации Cap'n Proto](https://capnproto.org/language.html).
    
-   - Protobuf
+   - Protobuf {#protobuf}
    
      `user.proto`
      ```
@@ -227,9 +227,9 @@ pip3 install protobuf varint pycapnp
    
 1. Создайте файлы с кодом Python:
 
-   {% list tabs %}
+   {% list tabs group=data_format %}
    
-   - Cap'n Proto
+   - Cap'n Proto {#capn}
    
      `capnproto-example.py`
      ```python
@@ -295,7 +295,7 @@ pip3 install protobuf varint pycapnp
      1. Записывает тестовый набор данных в объект класса User (`def add_user ...`) и добавляет этот объект к битовому потоку ввода-вывода `message`.
      1. Вставляет данные из битового потока `message` в таблицу `db1.users`, опираясь на данные класса `User` схемы формата данных `schema-capnproto` в кластере. 
    
-   - Protobuf
+   - Protobuf {#protobuf}
    
      `protobuf-example.py`
      ```python
@@ -367,15 +367,15 @@ pip3 install protobuf varint pycapnp
 
 1. Запустите подготовленные на [предыдущем этапе](#prepare-scripts) скрипты:
    
-   {% list tabs %}
+   {% list tabs group=data_format %}
    
-   - Cap'n Proto
+   - Cap'n Proto {#capn}
      
      ```bash
      python3 capnproto-example.py
      ```
      
-   - Protobuf
+   - Protobuf {#protobuf}
      
      ```bash
      python3 protobuf-example.py
@@ -385,9 +385,9 @@ pip3 install protobuf varint pycapnp
    
 1. [Подключитесь к кластеру](../operations/connect.md) и проверьте, что данные были успешно вставлены, выполнив запрос `SELECT`: 
 
-   {% list tabs %}
+   {% list tabs group=data_format %}
 
-   - Cap'n Proto
+   - Cap'n Proto {#capn}
 
      ```sql
      SELECT * FROM db1.users;
@@ -399,7 +399,7 @@ pip3 install protobuf varint pycapnp
      └────┴──────┘
      ```
      
-   - Protobuf
+   - Protobuf {#protobuf}
    
      ```sql
      SELECT * FROM db1.users;

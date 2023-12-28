@@ -5,9 +5,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 
 Чтобы добавить новую запись в таблицу `Series`:  
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Java
+- Java {#java}
   
   1. Создайте проект `SeriesItemOps01`:
 
@@ -194,7 +194,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       {}
       ```
 
-- Python
+- Python {#python}
 
   1. Создайте файл `SeriesItemOps01.py`, например с помощью редактора nano:
   
@@ -258,7 +258,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
                             'RetryAttempts': 0}}
       ```
 
-- PHP
+- PHP {#php}
 
   1. Создайте файл `SeriesItemOps01.php`, например с помощью редактора nano:
   
@@ -341,7 +341,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       Сериал успешно добавлен: 3 - Supernatural
       ```
 
-- Node.js
+- Node.js {#node}
 
   1. Создайте файл `SeriesItemOps01.js`, например с помощью редактора nano:
   
@@ -409,7 +409,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       Сериал успешно добавлен: {}
       ```
 
-- Ruby
+- Ruby {#ruby}
 
   1. Создайте файл `SeriesItemOps01.rb`, например с помощью редактора nano:
   
