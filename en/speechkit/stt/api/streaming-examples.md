@@ -8,7 +8,7 @@ The example uses the following parameters:
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
 * [Profanity filter](streaming-api.md#specification-msg): True.
 * [Intermediate result filter](streaming-api.md#specification-msg): True.
-* Other parameters were left with their default values.
+* Other parameters are left at their defaults.
 
 To use the API, you need the `grpcio-tools` package for Python and `grpc` for Node.js.
 
@@ -137,7 +137,7 @@ To try the examples in this section:
       1. Set the [folder ID](../../../resource-manager/operations/folder/get-id.md):
 
          ```bash
-         export FOLDER_ID=<ID of the folder>
+         export FOLDER_ID=<folder_ID>
          ```
 
       1. Set the [IAM token](../../../iam/concepts/authorization/iam-token.md):
@@ -214,8 +214,8 @@ To try the examples in this section:
              }
          };
 
-         // How often audio is sent in milliseconds.
-         // For LPCM format, the frequency can be calculated using the formula: CHUNK_SIZE * 1000 / ( 2 * sampleRateHertz);
+         // Set audio send frequency in milliseconds.
+         // For LPCM format, the frequency can be calculated using the formula: CHUNK_SIZE * 1,000 / ( 2 * sampleRateHertz);
          const FREQUENCY = 250;
 
          const serviceMetadata = new grpc.Metadata();
@@ -278,7 +278,7 @@ To try the examples in this section:
       1. Set the [folder ID](../../../resource-manager/operations/folder/get-id.md):
 
          ```bash
-         export FOLDER_ID=<ID of the folder>
+         export FOLDER_ID=<folder_ID>
          ```
 
       1. Set the [IAM token](../../../iam/concepts/authorization/iam-token.md):

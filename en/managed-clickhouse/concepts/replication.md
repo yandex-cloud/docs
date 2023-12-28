@@ -104,3 +104,5 @@ ORDER BY
 The `'{cluster}'` argument will be automatically resolved to the {{ CH }} cluster ID.
 
 To learn how to manage the interaction between replicated and distributed tables in a {{ CH }} cluster, see [Sharding](sharding.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

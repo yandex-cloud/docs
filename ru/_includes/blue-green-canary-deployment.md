@@ -1101,7 +1101,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. Если CDN-провайдер ещё не активирован, нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
+  1. {% include [activate-provider](./cdn/activate-provider.md) %}
   1. Создайте CDN-ресурс:
 
      1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
@@ -1149,7 +1149,7 @@
 
 - {{ yandex-cloud }} CLI
 
-  1. Если CDN-провайдер ещё не активирован, выполните команду:
+  1. Если CDN-провайдер еще не активирован, выполните команду:
       
       ```bash
       yc cdn provider activate --folder-id <идентификатор_каталога> --type gcore

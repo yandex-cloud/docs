@@ -1,6 +1,6 @@
 # {{ mch-name }} host classes prior to June 1, 2020
 
-A host class in {{ mch-name }} determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+A host class in {{ mch-name }} determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change accordingly.
 
 
 The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](../limits.md).
@@ -53,3 +53,5 @@ The full list of possible host configurations on each platform is provided below
 | s2.5xlarge | 48 | 100% | 192 |
 | s2.6xlarge | 64 | 100% | 256 |
 
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

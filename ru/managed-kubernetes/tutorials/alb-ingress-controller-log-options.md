@@ -31,7 +31,7 @@
 
     1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md) для кластера {{ managed-k8s-name }}:
 
-        * Сервисный аккаунт для ресурсов с ролью [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster).
+        * Сервисный аккаунт для ресурсов с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster).
         * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
         * Сервисный аккаунт для работы Ingress-контроллера {{ alb-name }} с ролями:
 
@@ -52,7 +52,15 @@
 
         Данные ключа необходимы для [установки](#install-alb-ingress-controller) приложения ALB Ingress Controller.
 
-    1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов и выберите для настройки **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** значение `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
+    1. [Создайте кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }}. При создании задайте настройки:
+
+        * Укажите ранее созданный сервисный аккаунт для ресурсов.
+        * Если вы планируете работать с кластером в пределах сети {{ yandex-cloud }}, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
+
+    1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании задайте настройки:
+
+        * Укажите ранее созданный сервисный аккаунт для узлов.
+        * Выделите публичный IP-адрес, чтобы предоставить группе узлов доступ в интернет и возможность скачивать Docker-образы и компоненты.
 
     1. Настройте группы безопасности:
 
@@ -109,6 +117,8 @@
 ### Подготовьтесь к работе с кластером {{ managed-k8s-name }} {#prepare-k8s-cluster}
 
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
 

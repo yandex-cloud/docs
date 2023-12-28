@@ -16,13 +16,13 @@ You can use the comments section to specify a key for a different issue so that 
 
 ## Replying to comments {#answer-comment}
 
-1. Tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Respond**. The comment you are replying to will be quoted in the response.
+1. Click ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Respond**. The comment you are replying to will be quoted in the response.
 
 1. Make your changes and tap ![](../../_assets/tracker/send.png).
 
 ## Editing comments {#edit-comment}
 
-1. Tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Edit**.
+1. Click ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Edit**.
 
 1. Make your changes and tap ![](../../_assets/tracker/send.png).
 
@@ -54,7 +54,7 @@ To attach a file to a comment:
 
    * To add a photo or video from your phone's camera, tap **Camera**. When everything is ready, tap **OK**. To take a new photo or video, tap **Repeat**.
 
-   * To attach files from your phone, tap **{{ ui-key.startrek.ui_components_AttachmentsManager.attachments-section-title }}** and select them.
+   * To attach files from your phone, tap **{{ ui-key.startrek.ui_components_attachments-manager.attachments-section-title }}** and select them.
 
    {% note info %}
 
@@ -72,7 +72,7 @@ To copy a link to a comment, tap ![](../../_assets/horizontal-ellipsis.svg) and 
 
 ## Deleting a comment {#delete-comment}
 
-To delete a comment, tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Remove**.
+To delete a comment, tap ![](../../_assets/horizontal-ellipsis.svg) next to the comment and select **Delete**.
 
 
 ## Creating an issue based on a comment {#create-task}
@@ -81,7 +81,7 @@ If, while having a discussion with your teammates, you decided to create a new i
 
 1. Click the comment the new issue will be based on.
 
-1. Click **Create issue from comment** and choose the link type.
+1. Click **Create issue from comment** and select the link type.
 
 1. Fill in the fields the same way as when [creating a regular issue](create-ticket.md#create-task).
 

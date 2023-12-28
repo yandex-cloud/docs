@@ -3,7 +3,7 @@
 
 ## How to migrate data from {{ ya-360 }} to {{ org-full-name }}
 
-Since {{ release-date }} 2021, when connecting {{ tracker-full-name }}, an organization is created automatically in {{ org-full-name }}. The administrator can add, to the organization, an [identity federation](../organization/concepts/add-federation.md) so that employees can use their work accounts to log in to {{ tracker-name }}. The usage of {{ tracker-name }} is rated via the [{{ yandex-cloud }} billing](../billing/).
+Since {{ release-date }} 2021, when connecting {{ tracker-full-name }}, an organization is created automatically in {{ org-full-name }}. The administrator can add to the organization an [identity federation](../organization/concepts/add-federation.md) so that employees can use their work accounts to log in to {{ tracker-name }}. The use of {{ tracker-name }} is billed through the [{{ yandex-cloud }} billing](../billing/).
 
 If {{ tracker-name }} is connected to {{ release-date }}, the service is linked to an organization in {{ ya-360 }}. We will gradually migrate all organizations from {{ ya-360 }} to {{ org-full-name }} with no effort needed from your organization's administrator. We will notify your administrator about migrating to {{ org-full-name }} in advance.
 
@@ -61,7 +61,7 @@ To delete a queue:
 
 1. Open the [queue page](user/queue.md).
 
-1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **Admin**.
+1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **Admin settings**.
 
 1. Go to the **Basic settings** tab.
 
@@ -127,15 +127,15 @@ If you add keywords to issue names to use them for grouping issues in widgets, w
 
 1. In your existing issues, move the data to the new field by an [automatic action](user/create-autoaction):
 
-   1. Select the **Update issues** type.
+   1. Select **Issue update**.
 
-   1. Under **Filter settings**, click **Add filter**, select **Issue**, and specify the issue name (the keyword used for grouping in the widget).
+   1. Under **Filter settings**, click **Add condition**, select **Issue**, and specify the issue name (the keyword used for grouping in the widget).
 
-   1. Click **Add new action** and select **Update fields**. Then select the previously created field and paste the issue name to it.
+   1. Click **Add new action** and select **Update fields**. Then select the previously created field and copy the issue name to it.
 
    1. Create similar automatic actions for every possible keyword.
 
-1. If you use an external source to create an issue (for example, [{{ forms-full-name }}](../forms/create-task.md)), when setting up [integration](manager/forms-integration.md), save the widget data to a new field.
+1. If you use an external source to create an issue (e.g., [{{ forms-full-name }}](../forms/create-task.md)) when setting up [integration](manager/forms-integration.md), save the widget data to a new field.
 
 1. [Edit](user/edit-dashboard.md#section_xz4_bk4_mz) the old widget: use the new field instead of the **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}** field in the settings.
 

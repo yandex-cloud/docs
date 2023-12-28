@@ -29,7 +29,7 @@ If different users are responsible for {{ tracker-name }} and billing account ad
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. Go to **Admin** → **Billing** and click **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
+1. Go to **Admin settings** → **Billing** and click **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
 
 1. Select the country that the payer is a resident of.
 

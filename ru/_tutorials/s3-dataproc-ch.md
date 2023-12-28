@@ -155,16 +155,16 @@
         spark = SparkSession.builder.appName("JoinExample").getOrCreate()
 
         # Чтение таблицы из файла coords.csv
-        coords_df = spark.read.csv("s3a://<имя входного бакета>/csv/coords.csv", header=True)
+        coords_df = spark.read.csv("s3a://<имя_входного_бакета>/csv/coords.csv", header=True)
 
         # Чтение таблицы из файла sensors.csv
-        sensors_df = spark.read.csv("s3a://<имя входного бакета>/csv/sensors.csv", header=True)
+        sensors_df = spark.read.csv("s3a://<имя_входного_бакета>/csv/sensors.csv", header=True)
 
         # Объединение таблицы по столбцу vehicle_id
         joined_df = coords_df.join(sensors_df, on="vehicle_id", how="inner")
 
         # Сохранение объединенной таблицы в бакет в формате Parquet
-        joined_df.write.parquet("s3a://<имя выходного бакета>/parquet/")
+        joined_df.write.parquet("s3a://<имя_выходного_бакета>/parquet/")
         ```
         {% endcut %}
 
@@ -175,7 +175,7 @@
 
     1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../storage/operations/objects/upload.md#simple) в нее файл `join-tables.py`.
 
-1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/join-tables.py`.
+1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/join-tables.py`.
 
 1. Дождитесь завершения задания и проверьте, что в выходном бакете в папке `parquet` появился Parquet-файл `part-00000-***`.
 
@@ -195,11 +195,11 @@
         spark = SparkSession.builder.appName("ParquetClickhouse").getOrCreate()
 
         # Чтение данных из Parquet-файла
-        parquetFile = spark.read.parquet("s3a://<имя выходного бакета>/parquet/*.parquet")
+        parquetFile = spark.read.parquet("s3a://<имя_выходного_бакета>/parquet/*.parquet")
 
         # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор кластера>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -210,7 +210,7 @@
         .option("dbtable", "measurements") \
         .option("createTableOptions", "ENGINE = MergeTree() ORDER BY vehicle_id") \
         .option("user","user1") \
-        .option("password","<пароль пользователя {{ CH }}>") \
+        .option("password","<пароль_пользователя_{{ CH }}>") \
         .save()
         ```
         {% endcut %}
@@ -223,7 +223,7 @@
 
     1. [Загрузите](../storage/operations/objects/upload.md#simple) файл `parquet-to-ch.py` в бакет для входных данных в папку `scripts`.
 
-1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя входного бакета>/scripts/parquet-to-ch.py`.
+1. [Создайте задание PySpark](../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/parquet-to-ch.py`.
 1. Дождитесь выполнения задания и убедитесь, что объединенная таблица перенесена в кластер:
 
     1. [Подключитесь к базе данных](../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.

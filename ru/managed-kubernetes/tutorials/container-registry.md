@@ -24,7 +24,7 @@
 ## Создайте сервисные аккаунты {#create-sa}
 
 Создайте [сервисные аккаунты](../../iam/operations/sa/create.md):
-* Сервисный аккаунт для ресурсов с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../resource-manager/security/#roles-list) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+* Сервисный аккаунт для ресурсов с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
 * Сервисный аккаунт для [узлов {{ managed-k8s-name }}](../concepts/index.md#node-group) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог с реестром Docker-образов. От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 
 ### Создайте сервисный аккаунт для ресурсов {#res-sa}
@@ -84,12 +84,21 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту роль [{{ roles-editor }}](../../resource-manager/security/#roles-list) на каталог:
+1. Назначьте сервисному аккаунту роль [k8s.clusters.agent](../security/index.md#k8s-clusters-agent) на каталог:
 
    ```bash
    yc resource-manager folder add-access-binding \
      --id $FOLDER_ID \
-     --role editor \
+     --role k8s.clusters.agent \
+     --subject serviceAccount:$RES_SA_ID
+   ```
+
+1. Назначьте сервисному аккаунту роль [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin) на каталог:
+
+   ```bash
+   yc resource-manager folder add-access-binding \
+     --id $FOLDER_ID \
+     --role vpc.publicAdmin \
      --subject serviceAccount:$RES_SA_ID
    ```
 

@@ -65,4 +65,4 @@ sourcePath: overlay/public_talks.md
 
 Базы данных {{ ydb-name }} располагаются трех зонах доступности региона центральной России `{{ region-id }}`. Сервис {{ ydb-name }} обеспечивает полноценное продолжение работы баз данных при отказе одной из зон доступности.
 
-Подробнее о географии {{ yandex-cloud }} читайте в разделе [{#T}](../../overview/concepts/geo-scope.md).
+Подробнее о географии {{ yandex-cloud }} читайте в разделе [{#T}](../../overview/concepts/geo-scope.md). Если вы хотите перенести БД в другую зону доступности, обратитесь к [инструкции](../operations/migration-to-an-availability-zone.md).

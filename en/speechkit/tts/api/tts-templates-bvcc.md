@@ -131,7 +131,7 @@ Create and run a client app to send your data to the API:
                                   # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
                                   tts_pb2.TextVariable(
                                       variable_name = "<template_variable_name>",
-                                      variable_value = "<text of the phrase's variable part in the template audio file>"
+                                      variable_value = "<text_of_the_phrase's_variable_part_in_the_template_audio_file>"
                                   )
                               ]
                           ),

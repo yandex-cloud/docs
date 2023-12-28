@@ -1,7 +1,7 @@
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux (Bash)
+- Linux (Bash) {#linux}
 
    ```bash
    sudo mkdir --parents {{ crt-local-dir }} && \
@@ -20,7 +20,7 @@
    * `{{ crt-local-dir }}{{ crt-local-file-root }}`
    * `{{ crt-local-dir }}{{ crt-local-file-int }}`
 
-- macOS (Zsh)
+- macOS (Zsh) {#macos}
 
    ```bash
    sudo mkdir -p {{ crt-local-dir }} && \
@@ -40,7 +40,7 @@
    * `{{ crt-local-dir }}{{ crt-local-file-root }}`
    * `{{ crt-local-dir }}{{ crt-local-file-int }}`
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows}
 
    1. Download and import the certificates:
 

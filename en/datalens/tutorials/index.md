@@ -1,6 +1,6 @@
 ---
 title: "{{ datalens-full-name }} use cases"
-description: "This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a store chain's sales based on data from a ClickHouse DB, and analyzing public data on road accidents in Russia"
+description: "This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a retail chain's sales performance based on a {{ CH }} DB, and analyzing public data on road accidents in Russia."
 ---
 
 # {{ datalens-name }} tutorials
@@ -25,11 +25,11 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 
   * [Web analytics with a connection to Yandex.Metrica](data-from-metrica-visualization.md)
   * [Web analytics with funnels and cohorts calculated based on Yandex Metrica data](data-from-metrica-yc-visualization.md)
-  * [Web analytics with funnels and cohorts calculated based on Yandex.Metrica data](data-from-metrica-yc-visualization.md)
   * [Mobile app analytics based on AppMetrica data](data-from-appmetrica-visualization.md)
   * [Visualizing Bitrix24 data](data-from-bitrix24-visualization.md)
   * [Visualizing {{ yq-full-name }} data](data-from-yandex-query-visualization.md)
   * [Visualizing {{ monitoring-full-name }} data](data-from-monitoring-visualization.md)
+  * [Visualizing data from {{ tracker-full-name }}](data-from-tracker.md)
   * [Analyzing Yandex Music podcast statistics (for podcasters)](data-from-podcasts.md)
   * [Building customer journey charts based on AppMetrica data](data-from-appmetrica-yc-visualization.md)
 
@@ -39,3 +39,5 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
   * [Visualizing data with a QL chart](data-from-ch-to-sql-chart.md)
 
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -38,6 +38,14 @@ For the resource to run properly, you must have:
    cdn.example.com. CNAME cl-4sne12sd.edgecdn.ru
    ```
 
+{% note info %}
+
+You cannot have both a CDN resource and a mail server on the same second-level domain. We recommend creating two domains:
+
+* For content distributed over a CDN. Please note that you should only use {{ cdn-name }} with [CNAME](../../dns/concepts/resource-record.md#cname) resource records, because if using an [ANAME](../../dns/concepts/resource-record.md#aname) record, the end users will get a response unrelated to their geolocation. For more information about CNAME records and their [limitations](https://www.rfc-editor.org/rfc/rfc1912#section-2.4), see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
+* For lightweight content and your mail server. In this case, you can use ANAME and [MX](../../dns/concepts/resource-record.md#mx) resource records.
+
+{% endnote %}
 
 ## Time needed for the settings to apply {#delay}
 
@@ -76,5 +84,5 @@ You can view statistics on the resource page in the [management console]({{ link
 
 #### See also {#see-also}
 
-* [Instructions for operations with resources](../operations/index.md#resources).
-* [Instructions for operations with the basic resource settings](../operations/resources/configure-basics.md).
+* [Guides on using resources](../operations/index.md#resources).
+* [Guide on using the basic resource settings](../operations/resources/configure-basics.md).

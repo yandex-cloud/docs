@@ -1,4 +1,4 @@
-# Configuring an SFTP server on Centos 7
+# Configuring an SFTP server based on CentOS 7
 
 In this tutorial, you will create VMs for the [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) server and client using {{ compute-short-name }}, connect to them over SSH, create an SFTP user, and set up data backups.
 
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#cleanup).
 
 ### Required paid resources {#paid-resources}
 
-The cost of this infrastructure includes:
+The infrastructure support costs include:
 
 * Fee for two continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)):
    * VM for the SFTP client.
@@ -40,38 +40,38 @@ To create a VM:
 
 - Management console
 
-   1. On the [management console]({{ link-console-main }}) folder page, click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter the VM name: `sftp-server`.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name: `sftp-server`.
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
-   1. Under **Image/boot disk selection**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      1. Click the **{{ marketplace-name }}** tab.
-      1. Click **Show more**.
+      1. Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+      1. Click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
       1. In the list of public images, find [CentOS 7](/marketplace/products/yc/centos-7) and select it.
 
-   1. In the **Computing resources** section, select the following configuration:
+   1. In the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section, select the following configuration:
 
-      * **Platform**: Intel Cascade Lake.
-      * **Guaranteed vCPU share**: 20%
-      * **vCPU**: 2.
-      * **RAM**: 2 GB.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-   1. In the **Network settings** section, select the network and subnet to connect the VM to. If you do not have a network or subnet yet, you can create them on the VM creation page.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.section_network }}** section, select the network and subnet to connect the VM to. If you do not have a network or subnet yet, you can create them on the VM creation page.
 
-   1. In the **Public address** field, leave the **Automatically** value to assign a random external IP address from the {{ yandex-cloud }} pool. To ensure the external IP address does not change after the VM is stopped, [convert it to static](../../vpc/operations/set-static-ip.md).
+   1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign a random external IP address from the {{ yandex-cloud }} pool. To ensure the external IP address does not change after the VM is stopped, [convert it to static](../../vpc/operations/set-static-ip.md).
 
    1. Specify the data required for accessing the VM:
 
-      * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a Linux VM via SSH](../../compute/operations/vm-connect/ssh.md).
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a Linux VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 
-      The IP address and the host name (FQDN) for connecting to the VM will be assigned when it is created. If you selected the **No address** option in the **Public address** field, you will not be able to access the VM from the internet.
+      The IP address and the host name (FQDN) for connecting to the VM will be assigned when it is created. If you selected the **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** option in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 
-   1. Click **Create VM**.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 

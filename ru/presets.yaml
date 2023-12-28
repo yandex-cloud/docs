@@ -503,6 +503,7 @@ default:
   roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
   roles-speechsense-editor: Editor
+  roles-speechsense-viewer: Viewer
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
   roles-vision-user: ai.vision.user
@@ -720,6 +721,7 @@ default:
   yc-mdb-rd: yc managed-redis
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
+  yc-ydb: yc ydb
   ydb-full-name: Yandex Managed Service for YDB
   ydb-name: Managed Service for YDB
   ydb-short-name: YDB
@@ -3032,7 +3034,7 @@ default:
         deck-field-label: Колода оценок
         display-estimated-field-label: Отображать оценённые задачи
         save: Сохранить
-      ui_components_AttachmentsManager:
+      ui_components_attachments-manager:
         attach: Прикрепить файлы
         attachments-section-title: Файлы
       ui_components_bulk_BulkChangeParametersDialog:
@@ -3970,7 +3972,6 @@ default:
             column_service: Сервис
             column_unit: Ед. потребления
             filter_label_all-filters: Фильтры
-            filter_label-folders: 'Каталоги:'
             label_from: От
             label_product: Продукты
             label_service: Сервисы
@@ -4957,7 +4958,6 @@ default:
             label_data-transfer: Data Transfer
             label_data-transfer_ru: Data Transfer
             label_datalens: DataLens
-            label_datasphere: DataSphere
             label_dns: Cloud DNS
             label_iot-core: IoT Core
             label_kms: Key Management Service
@@ -5731,9 +5731,11 @@ default:
         button_create-container: Создать контейнер
         button_deploy-revision: Создать ревизию
         label_containers: Контейнеры
+        label_edit-active-revision: Сделать активной
         label_editor: Редактор
         label_timeout: Таймаут, с
         label_url: Ссылка для вызова
+        popup-confirm-edit-active-revision_button_confirm: Подтвердить
         section_image: Параметры образа
         section_parameters: Настройки
         section-revisions: Ревизии
@@ -5982,6 +5984,7 @@ default:
           button_action-delete: Удалить
           button_action-permissions: ACL объекта
           button_create: Создать папку
+          button_empty-create: Загрузить объекты
           button_gr-delete: Удалить
           button_permissions: ACL бакета
           button_upload: Загрузить
@@ -7283,7 +7286,6 @@ default:
         add-to-project: Добавить в проект
         alias: Алиас
         apply: Применить
-        backend: Бэкенд
         billing: Биллинг
         bucket: Бакет
         build: Собрать
@@ -7313,6 +7315,7 @@ default:
         member:
           remove: Удалить
         members: Участники
+        model: Модель
         models: Модели
         more: Еще
         name: Имя
@@ -7430,8 +7433,6 @@ default:
           name: Имя
       new-s3-page:
         access-key-id: Идентификатор статического ключа доступа
-        backend-geesefs: GeeseFS
-        backend-s3fs: s3fs
         mode: Режим работы
         mount-name: Имя раздела при подключении
         static-access-key: Статический ключ доступа

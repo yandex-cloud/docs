@@ -1,13 +1,13 @@
 ---
 title: "Access management in {{ iot-full-name }}"
-description: "Access management in the {{ iot-full-name }} cloud-based MQTT server This section describes what resources you can assign a role for and what roles the service supports."
+description: "Access management in the {{ iot-full-name }} cloud-based MQTT server This section describes the resources for which you can assign a role and the roles existing in the service."
 ---
 
 # Access management in {{ iot-name }}
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
@@ -21,10 +21,6 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 The list below shows all roles that are considered when verifying access rights in the {{ iot-short-name }} service.
 
 ### Service roles {#service-roles}
-
-{% include [resource-manager.clouds.member](../../_includes/roles-resource-manager-clouds-member.md) %}
-
-{% include [resource-manager.clouds.owner](../../_includes/roles-resource-manager-clouds-owner.md) %}
 
 {% include [iot-editor](../../_includes/roles-iot-editor.md) %}
 

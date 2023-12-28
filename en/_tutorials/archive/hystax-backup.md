@@ -55,7 +55,7 @@ Hystax Acura Backup will run under a [service account](../../iam/concepts/users/
 
 Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group).
 
-[Add](../../vpc/operations/security-group-update.md#add-rule) the rules below to it:
+[Add](../../vpc/operations/security-group-update.md#add-rule) the following rules to it:
 
 | Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 --- | --- | --- | --- | --- | ---
@@ -92,15 +92,15 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
       1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access):
-         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
+         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
+         * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
       1. Select the [storage class](../../storage/concepts/storage-class.md): `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
    1. Save the bucket name. You will need it later.
@@ -126,21 +126,21 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
          * Enter `hystax-acura-vm` as your VM name and add a description.
-         * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+         * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
             Save the availability zone ID. You will need it later.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
-         * Click the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+         * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
          * Click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
-         * In the list of public images, select [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+         * In the list of public images, select [Hystax Acura Backup to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
-         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
-         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-         * Select a cloud [network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Set the network parameters and click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
-         * Select a [subnet](../../vpc/concepts/network.md#subnet). If you don't have a subnet, click ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Save the subnet ID. You will need it later.
+         * Select a cloud [network](../../vpc/concepts/network.md#network) from the list. If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Set the network parameters and click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+         * Select a [subnet](../../vpc/concepts/network.md#subnet). If you do not have a subnet, click ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Save the subnet ID. You will need it later.
          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
@@ -201,7 +201,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 
    1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. Click the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
+   1. Go to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
    1. Click ![image](../../_assets/options.svg) in the row next to the address of your Hystax Acura Backup VM.
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
@@ -272,47 +272,11 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 
    {% note info %}
 
-   Booting the Hystax Acura Backup VM for the first time initiates an installation process which can take over 20 minutes.
+   Booting the Hystax Acura Backup VM for the first time will start an installation process which may take over 20 minutes.
 
    {% endnote %}
 
    By default, a Hystax Acura VM has a self-signed certificate installed.
-
-   {% cut "To replace a self-signed certificate" %}
-
-   1. Get the SSL certificate and private key files in one of the available ways.
-
-   1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM with Hystax Acura Backup over SSH. Use the username you set when creating the VM and the private SSH key.
-
-   1. Go to the `/tmp` directory by running the following command:
-
-      ```bash
-      cd /tmp
-      ```
-
-   1. Create a file named `private.key`:
-
-      ```bash
-      nano private.key
-      ```
-
-      Copy and paste the contents of the previously obtained private key file into it.
-
-   1. Create a file named `certificate.pem`:
-
-      ```bash
-      nano certificate.pem
-      ```
-
-      Copy and paste the contents of the previously obtained SSL certificate file into it.
-
-   1. To update the SSL certificate and the private key in the Hystax Acura Backup configuration, run this command:
-
-      ```bash
-      hx_update_nginx_ssl
-      ```
-
-   {% endcut %}
 
 1. On the page that opens, fill out the following fields:
    * **Organization**: Name of your organization.
@@ -323,16 +287,16 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 1. Specify the {{ yandex-cloud }} connection settings:
    * **Service account ID**: The service account ID (obtained when [Creating a service account](#create-sa)).
    * **Key ID**: Service account authorized key ID (obtained when [creating a service account](#create-sa)).
-   * **Private key**: The service account's private key (obtained when [Creating a service account](#create-sa)).
+   * **Private key**: Service account's private key (obtained when [Creating a service account](#create-sa)).
 
-     {% note info %}
+      {% note info %}
 
-     {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
+      {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
 
-     {% endnote %}
-     
+      {% endnote %}
+
    * **Default folder ID**: [ID](../../resource-manager/operations/folder/get-id.md) of your folder.
-   * **Availability zone**: The ID of the availability zone hosting the Hystax Acura Backup VM (obtained [When creating a VM with Hystax Acura Backup](#create-acura-vm)).
+   * **Availability zone**: ID of the availability zone hosting the Hystax Acura Backup VM (obtained when [Creating a VM with Hystax Acura Backup](#create-acura-vm)).
    * **Hystax Service Subnet**: ID of the subnet that the Hystax Acura Backup VM is connected to (obtained when [Creating a VM with Hystax Acura Backup](#create-acura-vm).
    * **S3 Host**: `{{ s3-storage-host }}`.
    * **S3 Port**: `443`.
@@ -358,9 +322,9 @@ To install an agent on the VMs to create backups of:
 1. Click **Next**.
 1. Download and install an agent on the VMs to create backups of:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - VMware
+   - VMware {#vmware}
 
       1. In the drop-down list, select a group of VMs to set up agents for, such as `Default`.
       1. Select **New VMware vSphere** and fill out the fields:
@@ -374,14 +338,14 @@ To install an agent on the VMs to create backups of:
       1. Deploy the downloaded OVA file with the agent in your cluster on the VMs to create backups of.
       1. Start the VMs with the agent.
 
-   - Windows
+   - Windows {#windows}
 
       1. In the drop-down list, select a group of VMs to set up agents for, such as `Default`.
       1. Click **Next**.
       1. Click **Download Agent** and wait for the agent to download.
       1. Unpack the archive and install the agent from `hwragent.msi` on the VMs to create backups of.
 
-   - Linux
+   - Linux {#linux}
 
       1. In the drop-down list, select a group of VMs to set up agents for, such as `Default`.
       1. Select Linux distribution type:
@@ -483,6 +447,6 @@ To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the Hystax Acura Backup VM.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the auxiliary Hystax Cloud Agent VMs.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the recovered VMs.
-1. [Delete](../../storage/operations/buckets/delete.md) the respective bucket.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../iam/operations/sa/delete.md) the service account used for Hystax Acura Backup.
 1. [Delete](../../vpc/operations/address-delete.md) the public static IP you reserved.

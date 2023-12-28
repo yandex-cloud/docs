@@ -39,7 +39,7 @@ The cost of maintaining your {{ CH }} database for Graphite includes:
 
 1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the `db1` database and public access to all of its hosts. Save the database name, username, and password.
 1. In the [management console]({{ link-console-main }}), select {{ mch-name }} and go to the created cluster. Save the cluster ID in the **{{ ui-key.yacloud.common.overview }}** tab.
-1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**. In the **Shell** tab, save the `--host` parameter from the **Sample connection string** field, e.g., `rc1a-2sqal8f0********.{{ dns-zone }}`. This is the cluster host FQDN which you will need later.
+1. In the top-right corner, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**. In the **Shell** tab, save the **--host** parameter from the `Sample connection string` field, e.g., `rc1a-2sqal8f0********.{{ dns-zone }}`. This is the cluster host FQDN which you will need later.
 
 ## Register the rollup configuration in a cluster {#rollup-config}
 
@@ -142,7 +142,7 @@ Register the `rollup` configuration in a cluster to decimate and aggregate or av
 1. If you are using security groups for a cloud network, [set them up](../../managed-clickhouse/operations/connect.md#configuring-security-groups) to allow all required traffic between the cluster and the VM.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md).
-1. Run the ClickHouse CLI with the following parameters: replace `<host_FQDN>`, `<database_name>`, `<database_username>`, and `<database_user_password>` with the previously saved values.
+1. Run the {{ CH }} CLI with the following parameters: replace `<host_FQDN>`, `<database_name>`, `<database_username>`, and `<database_user_password>` with the previously saved values.
 
    ```bash
    clickhouse-client --host <host_FQDN> \
@@ -157,9 +157,9 @@ Register the `rollup` configuration in a cluster to decimate and aggregate or av
 
 {% list tabs %}
 
-- ClickHouse CLI
+- {{ CH }} CLI
 
-   In the ClickHouse CLI interface, run a query to create a [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table. Provide the name of the `rollup` section described earlier:
+   In the {{ CH }} CLI interface, run a query to create a [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table. Provide the name of the `rollup` section described earlier:
 
    ```sql
    CREATE TABLE GraphiteTable

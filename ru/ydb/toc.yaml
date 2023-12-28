@@ -11,6 +11,8 @@ items:
         href: operations/connection.md
       - name: Управление базами данных
         href: operations/manage-databases.md
+      - name: Миграция базы данных в другую зону доступности
+        href: operations/migration-to-an-availability-zone.md
       - name: Управление таблицами и директориями
         href: operations/schema.md
       - name: Чтение и запись данных

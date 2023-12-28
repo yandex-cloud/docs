@@ -150,8 +150,15 @@
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
       ```hcl
-      resource "yandex_compute_instance" "vm-1" {
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<имя_диска>"
+        type     = "<тип_диска>"
+        zone     = "<зона_доступности>"
+        size     = "<размер_диска>"
+        image_id = "<идентификатор_образа>"
+      }
 
+      resource "yandex_compute_instance" "vm-1" {
         name                      = "preemptible-vm"
         allow_stopping_for_update = true
         platform_id               = "standard-v3"
@@ -163,9 +170,7 @@
         }
 
         boot_disk {
-          initialize_params {
-            image_id = "<идентификатор_образа>"
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
 
         network_interface {
@@ -194,13 +199,23 @@
       ```
 
      Где:
+
+     * `yandex_compute_disk` — описание загрузочного [диска](../../concepts/disk.md):
+       * `name` — имя диска.
+       * `type` — тип создаваемого диска.
+       * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
+       * `size` — размер диска в ГБ.
+       * `image_id` — идентификатор образа для ВМ. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+
+         {% include [id-info](../../../_includes/compute/id-info.md) %}
+        
      * `yandex_compute_instance` — описание ВМ:
        * `name` — имя ВМ.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
-       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+       * `zone` — зоны доступности, в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md). Укажите идентификатор выбранного [образа](../../concepts/image.md). Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска.
        * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
        * `metadata` — в метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
        * `scheduling_policy` — политика планирования. Чтобы создать прерываемую ВМ, укажите `preemptible = true`.

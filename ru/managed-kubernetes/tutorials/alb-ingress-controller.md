@@ -26,11 +26,8 @@
 1. [Установите Ingress-контроллер {{ alb-name }}](../operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Убедитесь, что вы можете подключиться к кластеру {{ managed-k8s-name }} с помощью `kubectl`:
 
-   ```bash
-   kubectl cluster-info
-   ```
+   {% include [Run kubectl cluster-info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 ## Настройте Ingress-контроллер и тестовые приложения {#create-ingress-and-apps}
 
@@ -305,6 +302,7 @@ yc certificate-manager certificate list
      ```
 
      Где:
+
      * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
      * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
      * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md) либо установите значение `auto`, чтобы получить новый.
@@ -316,6 +314,9 @@ yc certificate-manager certificate list
        Вместо `my-ingress-group` вы можете указать произвольное имя группы. Убедитесь, что оно соответствует [требованиям]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
      (Опционально) Укажите дополнительные настройки контроллера:
+
+     {% cut "Дополнительные настройки" %}
+
      * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
@@ -349,6 +350,8 @@ yc certificate-manager certificate list
 
      * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо только если для параметра `pathType` указано значение `Exact`.
 
+     {% endcut %}
+
      {% note info %}
 
      Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
@@ -356,6 +359,7 @@ yc certificate-manager certificate list
      {% endnote %}
 
      Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
+
   1. Создайте Ingress-контроллер и приложения:
 
      ```bash

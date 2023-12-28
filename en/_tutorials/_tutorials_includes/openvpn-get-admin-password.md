@@ -5,8 +5,10 @@ The openvpn user with administrator privileges was created on the `OpenVPN` serv
 You can get the password in the [serial port output](../../compute/operations/vm-info/get-serial-port-output) or the serial console. The password will display in the following string:
 
 ```
-To login, please use the "openvpn" account with <`openvpn` user password> password.
+To log in, please use the `openvpn` account with the <password> password.
 ```
+
+Where `<password>` is the `openvpn` user password.
 
 Log in to the admin panel using the `openvpn` username and the obtained password.
 

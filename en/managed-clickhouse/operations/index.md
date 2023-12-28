@@ -47,3 +47,5 @@ description: "This page provides a list of step-by-step guides for {{ mch-name }
 * [{#T}](monitoring.md)
 * [{#T}](datalens-connect.md)
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

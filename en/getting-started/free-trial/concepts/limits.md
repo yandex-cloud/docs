@@ -108,3 +108,7 @@ Quotas and limits for {{ yandex-cloud }} services during the trial period are li
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../../_includes/vision-limits.md) %}
+
+
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

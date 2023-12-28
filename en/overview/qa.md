@@ -109,3 +109,5 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

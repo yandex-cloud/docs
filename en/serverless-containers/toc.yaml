@@ -93,6 +93,8 @@ items:
                 href: operations/logs.md
               - name: Writing logs
                 href: operations/logs-write.md
+          - name: Migration to the {{ region-id }}-d availability zone
+            href: operations/migration.md
           - name: Deleting a container
             href: operations/delete.md
       - name: Getting information about a trigger

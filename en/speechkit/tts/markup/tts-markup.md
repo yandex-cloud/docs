@@ -16,7 +16,7 @@ Pausing is available for testing in all languages the speech synthesis is suppor
 | [Explicitly define a pause between sentences](#pause) | `sil<[t]>`, where t is the pause in milliseconds. |
 | [Define a pause depending on the context](#context-pause) | `<[small]>`. Acceptable values: `tiny`, `small`, `medium`, `large`, `huge` |
 | [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
-| [Use phonetic pronunciation](#phoneme) | `[[ <word phonemes separated with spaces> ]]` |
+| [Use phonetic pronunciation](#phoneme) | `[[ <word_phonemes_separated_with_spaces> ]]` |
 
 ### Apply stress {#a}
 
@@ -67,7 +67,6 @@ or
 ```text
 You become responsible **forever** for what you have tamed.
 ```
-
 
 ### Use phonetic pronunciation {#phoneme}
 

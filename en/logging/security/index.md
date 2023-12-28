@@ -4,12 +4,12 @@
 
 In this section, you will learn:
 
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources can be assigned a role {#resources}
+## Which resources you can assign a role for {#resources}
 
 Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [custom log group](../concepts/log-group.md). Roles assigned for a cloud or folder also apply to their log groups.
 
@@ -18,8 +18,6 @@ Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hi
 The list below shows all roles that are considered when verifying access rights in the {{ cloud-logging-name }} service.
 
 ### Service roles {#service-roles}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 {% include [logging-roles-viewer](../../_includes/roles-logging-viewer.md) %}
 

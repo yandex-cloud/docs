@@ -1,6 +1,6 @@
 # Single-node file server
 
-You'll learn to use [Samba](https://www.samba.org/) and [NFS](https://docs.microsoft.com/en-us/windows-server/storage/nfs/nfs-overview) to create a single-node file server, as well as connect to it from computers running Linux, macOS, and Windows.
+You will learn to use [Samba](https://www.samba.org/) and [NFS](https://docs.microsoft.com/en-us/windows-server/storage/nfs/nfs-overview) to create a single-node file server, as well as connect to it from computers running Linux, macOS, and Windows.
 
 To create a single-node file server:
 
@@ -9,11 +9,11 @@ To create a single-node file server:
 1. [Set up Samba and NFS](#setup-samba-nfs).
 1. [Test your file server](#test-file-server).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 You can also deploy the infrastructure for hosting a website via {{ TF }} using a [ready-made configuration file](#terraform).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -23,8 +23,8 @@ You can also deploy the infrastructure for hosting a website via {{ TF }} using 
 
 The cost of hosting a static website includes:
 
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 
@@ -34,7 +34,7 @@ Before creating a VM:
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
 
-1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, select **{{ vpc-short-name }}** on the folder page. If the list contains a network, click on its name to see the available subnets. If there is neither network nor subnet, [create them](../../vpc/quickstart.md).
+1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** on the folder page. If the list contains a network, click its name to see the available subnets. If there is neither network nor subnet, [create them](../../vpc/quickstart.md).
 
 
 ## Create a virtual machine for your file server {#create-vm}
@@ -45,40 +45,40 @@ To create a VM:
 
 - Management console
 
-   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
 
-   1. In the **Name** field, enter the VM name: `fileserver-tutorial`.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_name }}** field, enter the VM name: `fileserver-tutorial`.
 
    1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
 
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab and select [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) as your public image.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
 
-   1. In the **Disks** section, click **Add disk**. In the **Add disk** window, specify the disk settings for data storage:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**. In the **{{ ui-key.yacloud.compute.instances.create-disk.label_title }}** window, specify the disk settings for data storage:
 
-      * **Name**: `fileserver-tutorial-disk`.
-      * **Disk type**: SSD.
-      * **Size**: 100 GB.
-      * **Content**: Empty.
+      * **{{ ui-key.yacloud.compute.disk-form.field_name }}**: `fileserver-tutorial-disk`
+      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`
+      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * **{{ ui-key.yacloud.compute.disk-form.field_source }}**: `{{ ui-key.yacloud.compute.disk-form.value_source-none }}`
 
-      Click **Add**.
+      Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
-   1. Under **Computing resources**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
-      * Specify the necessary number of vCPUs and amount of RAM.
+      * Specify the required number of vCPUs and the amount of RAM.
 
       Recommended values for the file server:
-      * **Guaranteed vCPU share**: 100%
-      * **vCPU**: 8 or more.
-      * **RAM**: 56 GB or more.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8` or more
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `56 {{ ui-key.yacloud.common.units.label_gigabyte }}` or more
 
-   1. Under **Network settings**, select the subnet to connect the VM to when creating it.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet to connect the VM to when creating it.
 
-   1. Specify data required for accessing the VM:
+   1. Specify the data required for accessing the VM:
 
-      * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the public key file. You need to [create](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys) the SSH key pair yourself.
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to create the SSH [key pair yourself](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
 
-   1. Click **Create VM**.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ TF }}
 
@@ -86,23 +86,23 @@ To create a VM:
 
 {% endlist %}
 
-Creating the VM may take several minutes. When the virtual machine's status changes to `RUNNING`, you can [set up NFS and Samba](#setup-samba-nfs).
+It may take a few minutes to create a VM. When the virtual machine's status changes to `RUNNING`, you can [set up NFS and Samba](#setup-samba-nfs).
 
 When a VM is created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
 
 ## Set up Samba and NFS {#setup-samba-nfs}
 
 After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the following:
-1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
+1. On the VM page of the [management console]({{ link-console-main }}), under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, find the VM's public IP address.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
-   The recommended authentication method when connecting over SSH is using a key pair. Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
+   The recommended authentication method when connecting over SSH is using a key pair. Make sure to set up the created key pair so that the private key matches the public key sent to the VM.
 1. Download and install Samba:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Ubuntu
+   - Ubuntu {#ubuntu}
 
       ```bash
       sudo apt-get update
@@ -201,9 +201,9 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
 
 1. On the `fileserver-tutorial` VM instance, create a directory named `remote` and a test.txt file:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Ubuntu
+   - Ubuntu {#ubuntu}
       ```bash
       sudo mkdir /folder_name/remote
       sudo setfacl -m u:<name_of_your_user>:xw /folder_name/remote
@@ -213,9 +213,9 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
 
 1. Connect the network disk to your computer via NFS and check if the test file is available:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - Linux/macOS
+   - Linux/macOS {#linux-macos}
 
       If needed, install the network disk utility:
 
@@ -237,9 +237,9 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
 
       As as result, the test directory and the file should become available at the mount point.
 
-   - Windows
+   - Windows {#windows}
 
-      1. Run the **cmd.exe** utility. To do this, use the **Windows** + **R** keyboard shortcut and run the command `cmd`.
+      1. Run the **cmd.exe** utility. To do this, use the **Windows** + **R** keyboard shortcut and run the `cmd` command.
       1. From the command line, run:
          ```
          net use x: \\<public_IP_address_of_the_instance>\folder_name
@@ -250,11 +250,11 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
    {% endlist %}
 
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 
-1. [Deleting a VM](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the static public IP](../../vpc/operations/address-delete.md) if you reserved one.
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
@@ -273,6 +273,7 @@ To create a single-node file server using {{ TF }}:
       1. Create a directory for files:
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/single-node-file-server.zip) (1 KB).
       1. Unpack the archive to the directory. As a result, it should include a configuration file named `single-node-file-server.tf`.
+
    - Creating files manually
 
       1. Create a directory for files:

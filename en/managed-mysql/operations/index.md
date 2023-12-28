@@ -14,6 +14,7 @@ description: "This page provides a list of step-by-step guides for {{ mmy-name }
 * [{#T}](hosts.md)
 * [{#T}](host-migration.md)
 * [{#T}](cluster-backups.md)
+* [{#T}](cluster-version-update.md)
 * [{#T}](cluster-delete.md)
 
 ## Databases

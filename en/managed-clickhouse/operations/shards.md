@@ -56,7 +56,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
    {% note info %}
 
-   {{ TF }} doesn't allow specifying shard weight.
+   {{ TF }} does not allow specifying shard weight.
 
    {% endnote %}
 
@@ -215,7 +215,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
      --cluster-name=<cluster_name>
    ```
 
-   You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
+   You can request the shard name with a [list of cluster shards](#list-shards) and the cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -240,3 +240,5 @@ When you delete a shard, all tables and data that are saved on that shard are de
    To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/cluster_service.md#DeleteShard) gRPC API call.
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

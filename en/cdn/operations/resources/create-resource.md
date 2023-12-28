@@ -230,6 +230,8 @@ To create a [resource](../../concepts/resource.md):
 
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
+{% include [note-dns-aname](../../../_includes/cdn/note-dns-aname.md) %}
+
 {% include [edge-center-features-note](../../../_includes/cdn/edge-center-features-note.md) %}
 
 ## Examples {#examples}

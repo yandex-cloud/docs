@@ -68,7 +68,7 @@ After creating a connection, you can create a dataset over it.
 
       {% endnote %}
 
-   - **SQL**: Selecting data for a dataset via an SQL query. We recommend copying a query from Query in ClickHouse syntax and then pasting it into the field.
+   - **SQL**: Selecting data for a dataset via an SQL query. We recommend copying a query from Query in {{ CH }} syntax and then pasting it into the field.
 
       {% note warning %}
 
@@ -78,7 +78,7 @@ After creating a connection, you can create a dataset over it.
 
 1. Click **Save**. Make sure that the data is displayed in the dataset preview.
 
-1. Click Save in the upper-right corner. Enter the dataset name and click **Create**. The dataset appears in the available list.
+1. Click Save in the upper-right corner. Enter a name for the dataset and click **Create**. The dataset will appear in the list of datasets available to you.
 
 Above the created dataset, you can create various charts and place them on dashboards.
 

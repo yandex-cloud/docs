@@ -8,9 +8,11 @@ description: "Access management in {{ monitoring-full-name }}, a service for col
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user does not have any roles assigned, almost all operations are forbidden.
 
-To allow access to {{ monitoring-full-name }} resources, assign the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md) the required roles from the list below.
+To allow access to {{ monitoring-full-name }} resources, assign the required roles from the list below to the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md).
 
 Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
+
+Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
 
 {% note info %}
 
@@ -29,8 +31,6 @@ To assign a user a role:
 The list below shows all roles that are considered when verifying access rights in the {{ monitoring-full-name }} service.
 
 ### Service roles {#service-roles}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 #### {{ roles-monitoring-viewer }} {#monitoring-viewer}
 

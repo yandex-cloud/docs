@@ -47,7 +47,7 @@ You can integrate your form with [{{ tracker-short-name }}]({{ link-tracker }}) 
 
    {% note warning %}
 
-   You can add the employee who's specified in a response to the <q>People</q>, to the **Reporter**, **Assignee**, and **Followers** fields in Tracker. To do so, add a **Response ID** variable to the field. If you use a **Response to prompt** variable, integration won't work.
+   To add an employee specified in a response to the <q>People</q>, to the **Reporter**, **Assignee**, **Followers** fields in Tracker, add a **Response ID** variable to the field. If you use a **Response to prompt** variable, integration will not work.
 
    {% endnote %}
 
@@ -88,14 +88,14 @@ The error may be caused by invalid data being sent from the form to the **Report
 
 - To enter multiple usernames in the **Followers** field, separate them with commas (for example, `smith,johnson`).
 
-- To add the employee who's specified in a response to the <q>People</q>,, insert a **Response ID** [variable](vars.md) in the field. If you use a **Response to prompt** variable, integration won't work.
+- To add an employee specified in a response to the <q>People</q>,, insert a **Response ID** [variable](vars.md) in the field. If you use a **Response to prompt** variable, integration will not work.
 
 - To add an employee specified in a response to the <q>Drop-down list</q> or <q>Multiple answers</q> prompt, set usernames (e.g., `smith`) as response options and use the **Response to prompt** [variable](vars.md).
 
-If there is an error in the **Reporter** field even though the field is populated correctly, make sure the user filling the form is [authorized to create issues in the specified {{ tracker-short-name }} queue](#access).
+If there is an error in the **Reporter** field even though the field is populated correctly, make sure the user filling out the form is [authorized to create issues in the specified {{ tracker-short-name }} queue](#access).
 
 ### Error: No rights to add issues to queue {#access}
 
-This error occurs because the user who filled out the form doesn't have the rights to create issues in the specified {{ tracker-short-name }} queue. Ask the queue owner to [check access rights](../tracker/manager/queue-access.md).
+This error occurs because the user who filled out the form does not have the rights to create issues in the specified {{ tracker-short-name }} queue. Ask the queue owner to [check access rights](../tracker/manager/queue-access.md).
 
 

@@ -21,7 +21,7 @@ You can use these environment variables in your initialization scripts:
 * `MAX_WORKER_COUNT`: Maximum number of hosts in data storage and processing subclusters.
 * `MIN_WORKER_COUNT`: Minimum number of hosts in data storage and processing subclusters.
 
-For example, to run a part of a script only on the `MASTERNODE` host, check the value of the `ROLE` environment variable:
+For example, to run a part of a script only on the `masternode` host, check the value of the `ROLE` environment variable:
 
 ```bash
 if [[ "${ROLE}" == "masternode" ]]; then

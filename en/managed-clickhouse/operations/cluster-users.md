@@ -111,7 +111,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       --cluster-name=<cluster_name> \
       --password=<user_password> \
       --permissions=<DB_list> \
-      --quota=<list_of_settings_per_quota_for_user> \
+      --quota=<list_of_single_quota_settings_for_user> \
       --settings=<list_of_{{ CH }}_settings_for_user>
    ```
 
@@ -267,7 +267,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
    To update a password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * New password, in the `password` parameter.
+   * New password in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
@@ -707,3 +707,5 @@ Let's say you need to add a new user named `ro-user` with the password `Passw0rd
       ```
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

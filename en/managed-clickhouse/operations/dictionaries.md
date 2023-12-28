@@ -2,7 +2,7 @@
 
 You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. For more information about dictionaries, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/).
 
-{{ mch-name }} supports several types of dictionary sources.
+{{ mch-name }} supports several types of dictionary sources:
 
 * {{ CH }}
 * HTTP(s)
@@ -11,6 +11,12 @@ You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) 
 * {{ PG }}
 
 Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the recommended method.
+
+{% note info %}
+
+Changes to the dictionary settings take effect after [restarting the cluster](./cluster-stop.md).
+
+{% endnote %}
 
 ## Getting a list of dictionaries {#get-dicts-list}
 
@@ -265,7 +271,7 @@ For more information about dictionary sources and their connection settings, see
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}**: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}**: Hierarchical support flag.
-   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Injective mapping flag for `id` → `attribute`.
+   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Injective `id` → `attribute` mapping flag.
 
 For more information about the column settings, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
 
@@ -348,7 +354,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
       * `port`: Port for connecting to the source.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
-      * `ssl-mode`: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database Acceptable values: `disable`, `allow`, `prefer`, `verify-ca`, or `verify-full`.
+      * `ssl-mode`: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database. Acceptable values: `disable`, `allow`, `prefer`, `verify-ca`, or `verify-full`.
 
    * `--postgresql-source-hosts`: Names of a {{ PG }} host its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
 
@@ -364,7 +370,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * `hierarchical`: Hierarchical support flag.
-   * `injective`: Injective mapping flag for `id` → `attribute`.
+   * `injective`: Injective `id` → `attribute` mapping flag.
 
 * `--structure-attribute`: Description of the fields available for database queries:
 
@@ -373,7 +379,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * `hierarchical`: Hierarchical support flag.
-   * `injective`: Injective mapping flag for `id` → `attribute`.
+   * `injective`: Injective `id` → `attribute` mapping flag.
 
 * `--fixed-lifetime`: Fixed interval between dictionary updates in seconds.
 * `--lifetime-range`: Time range for {{ CH }} to randomly select the time for update. This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.
@@ -413,7 +419,7 @@ For more information about the settings, see the description of the [createExter
       * Connection port: `5432`.
       * Database user name: `user1`.
       * Password for access to the database: `user1user1`.
-      * Mode for secure SSL TCP/IP connection to the database: `verify-full`.
+      * `verify-full` mode for establishing a secure SSL TCP/IP connection to the database.
 
    * Host name: `rc1b-05vjbfhf********.{{ dns-zone }}`.
 
@@ -440,3 +446,5 @@ For more information about the settings, see the description of the [createExter
    ```
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

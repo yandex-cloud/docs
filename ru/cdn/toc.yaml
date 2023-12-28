@@ -221,6 +221,8 @@ items:
                 href: api-ref/ResourceRules/list.md
               - name: update
                 href: api-ref/ResourceRules/update.md
+  - name: Справочник метрик
+    href: metrics.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/cdn

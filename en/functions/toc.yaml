@@ -119,6 +119,8 @@ items:
                 href: operations/function/function-logs.md
               - name: Writing logs
                 href: operations/function/logs-write.md
+          - name: Migration to the {{ region-id }}-d availability zone
+            href: operations/function/migration.md
           - name: Deleting a function
             href: operations/function/function-delete.md
       - name: Getting information about a trigger
@@ -533,6 +535,6 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: update
                 href: triggers/api-ref/Trigger/update.md
-  - name: FAQ
+  - name: Q&A
     href: qa/index.md
 base: en/functions

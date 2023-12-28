@@ -10,11 +10,11 @@
    Result:
 
    ```text
-   id: <registry ID>
-   folder_id: <folder ID>
+   id: <registry_ID>
+   folder_id: <folder_ID>
    name: speechkit-hybrid
    status: ACTIVE
-   created_at: "<creation date and time>"
+   created_at: "<creation_date_and_time>"
    ```
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `{{ roles-editor }}` role for the selected folder.

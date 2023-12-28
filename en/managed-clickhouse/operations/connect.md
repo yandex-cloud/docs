@@ -295,3 +295,5 @@ Connecting without any SSL certificates is only supported for hosts that are not
 If the connection to the cluster and the test query are successful, the {{ CH }} version is output.
 
 {% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

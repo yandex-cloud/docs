@@ -46,7 +46,7 @@
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
-Для доступа к проекту {{ml-platform-name }} из функции {{ sf-name }} вам понадобится сервисный аккаунт с ролью `datasphere.community-project.editor`.
+Для доступа к проекту {{ml-platform-name }} из функции {{ sf-name }} вам понадобится сервисный аккаунт с ролью `{{ roles-datasphere-project-editor }}`.
 
 {% list tabs %}
 

@@ -10,13 +10,13 @@ You can add your important issues to Favorites so that they are always at hand:
 
 1. Open the issue page.
 
-1. At the top of the page, under the issue name, click ![](../../_assets/tracker/svg/favourites.svg) **Add to Favorites**.
+1. At the top of the page, above the issue name, click ![](../../_assets/tracker/svg/favourites.svg) **Add to Favorites**.
 
 To open the list of your favorite issues:
 
 1. In the left-hand panel, open ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}**.
 
-1. In the list on the right, select the **Favorite issues** filter, then at the bottom of the window, click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.filter-items-link }}**.
+1. In the list on the right, select the **Favorite issues** filter and then click **{{ ui-key.startrek.ui_components_NavigationBar_IssuesPanel.filter-items-link }}** at the bottom of the window.
 
 You can also open your favorite issues by the [link]({{ link-tracker }}issues/favorite).
 
@@ -26,7 +26,7 @@ If you need quick access to a particular [queue](queue.md), add it to your Favor
 
 1. Open the queue page.
 
-1. At the top of the page, under the queue name, click ![](../../_assets/tracker/svg/favourites.svg) **Add to Favorites**.
+1. At the top of the page, above the queue name, click ![](../../_assets/tracker/svg/favourites.svg) **Add to Favorites**.
 
 To open the list of your favorite queues:
 
@@ -54,7 +54,7 @@ To add an [agile board](../manager/agile.md#sec_boards) to Favorites:
 
 1. Open the board page.
 
-1. At the top of the page, under the board name, click ![](../../_assets/tracker/svg/favourites.svg) **Add to Favorites**.
+1. At the top of the page, above the board name, click ![](../../_assets/tracker/svg/favourites.svg) **Add to Favorites**.
 
 To open the list of your favorite boards:
 

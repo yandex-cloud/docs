@@ -28,7 +28,7 @@ Issues are the foundation of {{ tracker-name }}. To make your work more efficien
 
 ### Creating an issue on a board {#tasks-board}
 
-The fastest way to create an issue is to do it from the board. You only need to enter the issue name. Everything else can be set up later.
+The fastest way to create an issue is to do it from the board. You only need to name the issue. Everything else can be set up later.
 
 1. To create an issue, click **Create issue**.
 
@@ -42,7 +42,7 @@ The new issue will appear on the board, the queue page, and the [{{ tracker-name
 
 Use the full form to set up all the issue attributes you need right from the start.
 
-1. Click ![](../_assets/tracker/svg/icon-add.svg) **New issue** in the left panel.
+1. Click ![](../_assets/tracker/svg/icon-add.svg) **Create issue** in the left panel.
 
 1. In the top-left corner of the page, choose the queue to create your issue in, such as <q>QUEUE</q>.
 
@@ -54,13 +54,13 @@ Use the full form to set up all the issue attributes you need right from the sta
 
 1. You will be suggested to fill out a standard form with a pre-configured list of parameters.
 
-   1. Enter a name for the issue in the **Issue name** field. Make sure that the name is informative to be easy to find in the list, for example: <q>Find the answer to the ultimate question of life, the Universe, and everything else</q>.
+   1. Enter a name for the issue in the **Issue name** field. Make sure the name is informative to be easy to find in the list, for example: <q>Find the answer to the ultimate question of life, the Universe, and everything else</q>.
 
    1. Enter a description of the issue if needed. To do so, click the `{{ ui-key.startrek.ui_components_PageCreateIssue.description-placeholder }}` placeholder and describe the issue in the text editor that opens.
 
-   1. If you need to upload files, click **{{ ui-key.startrek.ui_components_AttachmentsManager.attach }}**.
+   1. If you need to upload files, click **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**.
 
-   1. You can also add checkpoints to **Checklist**. To do so, click **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}**, then fill out the form that opens.
+   1. You can also add checkpoints to the **Checklist**. For this, click **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** and fill out the form that opens.
 
    1. On the left-hand panel, enter the relevant issue details, for example:
       * In the **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** field, assign the issue to yourself by clicking **Assign to me**.

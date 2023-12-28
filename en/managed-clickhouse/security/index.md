@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ mch-full-name }}"
-description: "Access management in the {{ CH }} database creation and management service. This section describes which resources you can assign a role for, what roles exist in the service, and which roles are required for particular actions."
+description: "Access management in the {{ CH }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ mch-name }}
@@ -28,29 +28,37 @@ The chart below shows which roles are available in the service and how they inhe
 
 ### Service roles {#service-roles}
 
-{% include [mch-auditor](../../_includes/iam/roles/mch-auditor.md) %}
+#### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 
-{% include [mch-viewer](../../_includes/iam/roles/mch-viewer.md) %}
+{% include [managed-clickhouse.auditor](../../_roles/managed-clickhouse/auditor.md) %}
 
-{% include [mch-editor](../../_includes/iam/roles/mch-editor.md) %}
+#### managed-clickhouse.viewer {#managed-clickhouse-viewer}
 
-{% include [mch-admin](../../_includes/iam/roles/mch-admin.md) %}
+{% include [managed-clickhouse.viewer](../../_roles/managed-clickhouse/viewer.md) %}
 
-{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
+#### managed-clickhouse.editor {#managed-clickhouse-editor}
 
-{% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
+{% include [managed-clickhouse.editor](../../_roles/managed-clickhouse/editor.md) %}
 
-{% include [mdb.admin](../../_includes/iam/roles/mdb.admin.md) %}
+#### managed-clickhouse.admin {#managed-clickhouse-admin}
 
-{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+{% include [managed-clickhouse.admin](../../_roles/managed-clickhouse/admin.md) %}
 
-#### {{ roles-cloud-member }} {#member}
+#### mdb.auditor {#mdb-auditor}
 
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+{% include [mdb-auditor](../../_roles/mdb/auditor.md) %}
 
-#### {{ roles-cloud-owner }} {#owner}
+#### mdb.viewer {#mdb-viewer}
 
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+{% include [mdb-viewer](../../_roles/mdb/viewer.md) %}
+
+#### mdb.admin {#mdb-admin}
+
+{% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### vpc.publicAdmin {#vpc-public-admin}
+
+{% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
 ### Primitive roles {#primitive-roles}
 
@@ -69,3 +77,5 @@ You can always assign a role with more permissions. For instance, you can assign
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

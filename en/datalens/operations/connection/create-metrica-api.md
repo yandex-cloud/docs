@@ -43,3 +43,5 @@ Connections to the Yandex Metrica API do not support [public access](../../conce
 
 
 {% include [datalens-get-token](../../../_includes/datalens/operations/datalens-get-token.md) %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

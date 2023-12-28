@@ -237,18 +237,18 @@ Measures can consist of more than one aggregate function and have more complex e
 ### Using dimensions and measures in charts {#aggregation-in-charts}
 
 When building any chart in {{ datalens-short-name }}, data is grouped and aggregated.
-Let's look at table [Selling](#what-is-aggregation), for we need to calculate the sales amount (`Sales`) for all dates (`Date`) separately for each city (`City`). To do this, you need to group the data by the `City` field. When grouping, rows are combined in such a way that each `City` value occupies one row. All source rows where the `City` values match and are equal, form a group of rows. As a result, there are three groups for which the `Sales` value will be summed up:
+Let's look at the [Selling](#what-is-aggregation) table, where we need to calculate the sales amount (`Sales`) for all dates (`Date`) separately for each city (`City`). To do this, you need to group the data by the `City` field. When grouping, rows are combined in such a way that each `City` value occupies one row. All source rows where the `City` values match and are equal, form a group of rows. As a result, there are three groups for which the `Sales` value will be summed up:
 
 * Rows 1 and 5 will be added to the `Detroit` group.
-* Rows 2, 3, and 6 — to `Portland`.
-* Rows 4, 7, and 8 — `San Francisco`.
+* Rows 2, 3, and 6, to `Portland`.
+* Rows 4, 7, and 8, to `San Francisco`.
 
-For example, in the **Column chart**, the result looks like this:
+For example, in the **Column chart**, the result will be as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-1.png)
 
 You can group by several fields rather than one. In this case, each row is defined by a set of values of all fields by which grouping is performed. There will be as many rows in the final result as there are unique sets of such values.
-For example, when adding the `Category` field to the **Colors** section, it will affect grouping. The chart looks like this:
+For example, when adding the `Category` field to the **Colors** section, it will affect grouping. The chart will look as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-2.png)
 
@@ -258,7 +258,7 @@ Measures in the **Colors** section also affect data grouping.
 
 {% endnote %}
 
-In some chart sections, you can drag only a dimension or only a measure. This depends on the [chart type](../visualization-ref/index.md). For example, in the **Y** section of the [Column chart](../visualization-ref/bar-chart.md), you can only drag a measure. If you drag a dimension to this section, it'll be automatically converted to a measure as a result of the **Number of unique** aggregation.
+In some chart sections, you can drag only a dimension or only a measure. This depends on the [chart type](../visualization-ref/index.md). For example, in the **Y** section of the [Column chart](../visualization-ref/bar-chart.md), you can only drag a measure. If you drag a dimension to this section, it will be automatically converted to a measure as a result of the **Number of unique** aggregation.
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-13.png)
 
@@ -309,3 +309,5 @@ If the measure set using the dataset creation interface is substituted in the ca
 **Example 2**
 
 For the `[Sales]` field, the **Amount** aggregation type is set in the dataset creation interface. Then the `AVG([Sales])` calculated field is assigned the **Auto** aggregation type and calculated as an average. The **Amount** aggregation will be ignored.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

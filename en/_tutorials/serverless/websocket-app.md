@@ -39,15 +39,15 @@ The infrastructure support cost for this tutorial includes:
 
 ## Prepare the environment {#prepare}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. [Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install) utility to run a Linux environment.
    1. Run the Linux subsystem (by default, Ubuntu).
    1. Next, configure the environment as described in this guide for Linux.
 
-- Linux
+- Linux {#linux}
 
    {% note info %}
 
@@ -113,7 +113,7 @@ The infrastructure support cost for this tutorial includes:
 
    1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic parameters.
 
-- MacOS
+- macOS {#macos}
 
    1. Install the following utilities in the specified order using commands in the terminal:
       * [Homebrew](https://brew.sh):
@@ -205,7 +205,7 @@ Register your bot in Telegram and get a token.
 
 1. In the `name` field, enter a name for the bot being created, such as `Serverless Game With WebSockets`. This is the name users will see when communicating with the bot.
 
-1. In the `username` field, enter the username for the bot being created, such as `ServerlessGameWithWebSocketsBot`. You can use the username to search for the bot in Telegram. The user name must end with `...Bot` or `..._bot`.
+1. In the `username` field, enter the user name for the bot being created, such as `ServerlessGameWithWebSocketsBot`. You can use the user name to search for the bot in Telegram. The user name must end with `...Bot` or `..._bot`.
 
 1. You will get the `t.me/ServerlessGameWithWebSocketsBot` address and token in response.
 
@@ -219,7 +219,7 @@ Register your bot in Telegram and get a token.
 1. Save the token to the `TG_BOT_TOKEN` variable:
 
    ```bash
-   echo "export TG_BOT_TOKEN=<token>" >> ~/.bashrc && . ~/.bashrc  
+   echo "export TG_BOT_TOKEN=<token>" >> ~/.bashrc && . ~/.bashrc
    echo $TG_BOT_TOKEN
    ```
 
@@ -286,7 +286,7 @@ Register your bot in Telegram and get a token.
      --service-account-name sls-deploy \
      --output sls-deploy.sa
 
-   echo "export SA_KEY_FILE=$PWD/sls-deploy.sa" >> ~/.bashrc && . ~/.bashrc  
+   echo "export SA_KEY_FILE=$PWD/sls-deploy.sa" >> ~/.bashrc && . ~/.bashrc
    echo $SA_KEY_FILE
    ```
 

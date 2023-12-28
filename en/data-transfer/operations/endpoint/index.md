@@ -75,9 +75,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       ```bash
       {{ yc-dt }} endpoint create <endpoint_type> \
-         --name <endpoint_name> \
-         --description <endpoint_description> \
-         <endpoint_parameters>
+        --name <endpoint_name> \
+        --description <endpoint_description> \
+        <endpoint_parameters>
       ```
 
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
@@ -121,7 +121,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
    1. Confirm updating the resources.
 
@@ -209,16 +209,16 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
    1. Open the current {{ TF }} configuration file with the endpoint description.
 
-        To learn how to create such a file, see [Create endpoint](#create).
+      To learn how to create such a file, see [Create endpoint](#create).
 
    1. Edit the value in the `name` field (endpoint name) and the endpoint parameters under `settings`.
    1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
    1. Confirm updating the resources.
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
@@ -314,3 +314,5 @@ To delete an endpoint:
 {% endlist %}
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

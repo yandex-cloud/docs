@@ -2,6 +2,8 @@ To provide the function with access to the [secret](../../lockbox/concepts/secre
 * `{{ roles-lockbox-payloadviewer }}` for the secret (see [how to grant access rights to secrets](../../lockbox/operations/secret-access.md)).
 * `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key (see [how to grant access rights to encryption keys](../../kms/operations/key-access.md)).
 
+A {{ lockbox-short-name }} secret transmitted to a function is cached in {{ sf-name }}. As soon as the service account can no longer access the secret, the function may store it for up to 5 minutes.
+
 A new version of a function is created when secrets are transmitted. You cannot transmit secrets to an existing version.
 
 {% list tabs %}

@@ -1,6 +1,6 @@
-# Analyzing a retail chain's sales from a ClickHouse database
+# Analyzing a retail chain's sales performance based on a {{ CH }} database
 
-As a data source, we'll use a demo ClickHouse database on sales in a Moscow chain of stores.
+We will use a demo {{ CH }} database with a Moscow retail chain's sales data as our data source.
 
 
 In this example, {{ datalens-short-name }} is used to visualize:
@@ -109,7 +109,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
    ![image](../../_assets/datalens/solution-02/15-ordercount.png)
 
 1. Create a calculated field for the average sales amount per order.
-   1. In the upper-right corner, click **Add field**.
+   1. In the top-right corner, click **Add field**.
    1. In the **Name** field, specify **Sales per Order**.
    1. In the column to the left, click on the **Sales** field.
    1. Enter a `/`.
@@ -230,7 +230,7 @@ To visualize sales by products and time, create a pivot table [chart](../../data
 To visualize the density of orders on the map of Moscow, create a heat map [chart](../../datalens/concepts/chart/index.md).
 
 1. Copy the chart from the previous step.
-   1. Click the icon next to the **Save** button in the upper-right corner and select **Save as**.
+   1. Click the icon next to the **Save** button in the top-right corner and select **Save as**.
    1. In the window that opens, enter the name **Sales heat map** for the new chart.
    1. Click **Save**.
 

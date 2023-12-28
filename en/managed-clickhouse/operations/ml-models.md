@@ -339,7 +339,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
    * Cluster ID in the `clusterId` parameter.
    * Model name in the `mlModelName` parameter.
 
-   You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the model name with a [list of models in the cluster](#list-ml).
+   You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and model name with a [list of models in the cluster](#list-ml).
 
 {% endlist %}
 
@@ -435,3 +435,5 @@ To upload data to {{ CH }} and test the model:
       FROM ml_test_table
       LIMIT 10;
       ```
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

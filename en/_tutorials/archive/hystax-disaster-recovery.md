@@ -7,7 +7,7 @@ Supported platforms:
 * Hypervisors.
 * Physical servers.
 
-To get started, create a VM with Hystax Acura Disaster Recovery to manage replication and recovery. Continuous and periodic replication is performed by auxiliary Hystax Cloud Agent VMs. For a detailed description of the architecture, see the [Hystax documentation](https://hystax.com/documentation/dr/solution_description.html#architecture).
+To get started, create a VM with [Hystax Acura Disaster Recovery](/marketplace/products/hystax/hystax-acura-disaster-recovery) to manage replication and recovery. Continuous and periodic replication is performed by auxiliary Hystax Cloud Agent VMs. For a detailed description of the architecture, see the [Hystax documentation](https://hystax.com/documentation/dr/solution_description.html#architecture).
 
 To run Hystax Acura Disaster Recovery, perform the steps below:
 1. [Prepare your cloud](#before-begin).
@@ -40,10 +40,10 @@ Please note that both the Hystax Acura infrastructure and all the recovered VMs 
 {% endnote %}
 
 The cost of the resources required to use Hystax Acura Disaster Recovery includes:
-* Charge for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Charges for object storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for storing images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Charge for each protected VM (see [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}).
+* Fee for each protected VM (see [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}).
 
 
 ## Create a service account and authorized key {#create-sa}
@@ -59,26 +59,26 @@ Save the following details to use in subsequent steps:
 
 ## Configure network traffic permissions {#network-settings}
 
-Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group).
+Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing VM traffic will be allowed.
 
-[Add](../../vpc/operations/security-group-add-rule.md) the rules below to it:
+If a security group is available, [add](../../vpc/operations/security-group-add-rule.md) to it the following rules:
 
-| Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
+| Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 --- | --- | --- | --- | --- | ---
-| Incoming | http | 80 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | https | 443 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | https | 4443 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
-| Incoming | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | TCP | 15000 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | http | 80 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | https | 443 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
-| Outgoing | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
-| Outgoing | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
+| Incoming | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `https` | `4443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Incoming | `tcp` | `15000` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `http` | `80` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `https` | `443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `vmware` | `902` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `iSCSI` | `3260` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+| Outgoing | `udp` | `12201` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 Save the security group ID. You will need it when creating VMs with Hystax Acura.
 
@@ -93,35 +93,34 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. Click **Create VM**.
-   1. Under **Basic parameters**:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter `hystax-acura-vm` as your VM name and add a description.
-      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
-   1. Under **Image/boot disk selection**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Click the **{{ marketplace-name }}** tab.
-      * Click **Show more**.
-      * In the public image list, select [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) and click **Use**.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+      * Click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**.
+      * In the public image list, select [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-   1. Under **Disks**, enter 200 GB as your disk size.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
 
-      1. Under **File storage**, keep the default value.
-   1. Under **Computing resources**, specify:
-      * vCPU: 8
-      * RAM: 16 GB
-   1. Under **Network settings**:
-      * Select a cloud network and a [subnet](../../vpc/concepts/network.md#subnet) from the list. If there is no subnet, click **Add subnet** and create one.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * Select a cloud network and a [subnet](../../vpc/concepts/network.md#subnet) from the list. If there is no subnet, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** and create one.
 
-         To add a subnet, select a folder, enter a subnet name, select the availability zone, specify a CIDR in the window that opens, and click **Create**.
-      * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
+         To add a subnet, select a folder, enter a subnet name, select the availability zone, and specify a CIDR in the window that opens. Then click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
 
-   1. Under **Access**, specify the information required to access the instance:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * Select the previously created `hystax-acura-account` service account.
-      * In the **Login** field, enter a username for SSH access, such as `yc-user`.
-      * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   1. Click **Create VM**.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username for SSH access, such as `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI
 
@@ -181,11 +180,11 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
 
    To convert a dynamic public IP address to static:
    1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
-   1. Select **{{ vpc-short-name }}**.
-   1. Go to the **IP addresses** tab.
-   1. Click ![image](../../_assets/options.svg) in the row next to the address of your Hystax Acura VM.
-   1. In the menu that opens, select **Make static**.
-   1. In the window that opens, click **Change**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Go to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
+   1. Click ![image](../../_assets/options.svg) in the row with the address of your Hystax Acura VM.
+   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
 
 - CLI
 
@@ -249,7 +248,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
 
    {% note info %}
 
-   Booting the Hystax Acura Disaster Recovery VM for the first time initiates an installation process which can take over 20 minutes.
+   After the Hystax Acura Disaster Recovery VM boots up for the first time, an installation process will start which may take over 20 minutes.
 
    {% endnote %}
 
@@ -265,12 +264,12 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
    * **Key id**: ID of your service account authorized key.
    * **Private Key**: Private part of your service account authorized key.
 
-     {% note info %}
+      {% note info %}
 
-     {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
+      {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
 
-     {% endnote %}
-     
+      {% endnote %}
+
    * **Default Folder id**: ID of your folder.
    * **Zone**: Availability zone.
    * **Hystax Service Subnet**: ID of the subnet the `hystax-acura-vm` virtual machine is connected to.
@@ -296,9 +295,9 @@ The agents will install on the VMs that will be recovered to {{ yandex-cloud }}.
    Click **Next**.
 1. Download and install the agent on the VMs you would like to protect:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - VMware
+   - VMware {#vmware}
 
       1. In the drop-down list, select the VM group the agents will be set up for, such as `Prod-Web`.
       1. Select **New VMware vSphere** and fill out the fields:
@@ -312,14 +311,14 @@ The agents will install on the VMs that will be recovered to {{ yandex-cloud }}.
       1. Unpack the downloaded OVA file with the agent on the ESXi host.
       1. Start the VMs with the agent.
 
-   - Windows
+   - Windows {#windows}
 
       1. In the drop-down list, select the VM group the agents will be set up for, such as `Prod-Web`.
       1. Click **Next**.
       1. Click **Download Agent** and wait for the agent to download.
       1. Unpack the archive and install the agent from `hwragent.msi` on the VMs you would like to protect.
 
-   - Linux
+   - Linux {#linux}
 
       1. In the drop-down list, select the VM group the agents will be set up for, such as `Prod-Web`.
       1. Select Linux distribution type:
@@ -360,13 +359,13 @@ To create subnets:
 
 - Management console
 
-   1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
+   1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section in the folder to create a subnet in.
    1. Click the name of the cloud network.
-   1. Click **Add subnet**.
+   1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
    1. Enter the subnet name, such as `net-b-155`.
    1. Select an availability zone from the drop-down list, such as `{{ region-id }}-b`.
    1. Enter the subnet CIDR, such as `10.155.0.0/16`.
-   1. Click **Create subnet**.
+   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
    Save the **IDs** of the created subnets. You will need these when you create your disaster recovery (DR) plan.
 

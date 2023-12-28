@@ -127,7 +127,7 @@
    150 × <number_of_vCPUs_per_host> + 400
    ```
 
-   Example:
+   For example:
 
    | Host class | vCPU | Default value |
    ---|----|-----
@@ -180,7 +180,7 @@
 
    Controls representation of quotation mark in an SQL string.
 
-   Acceptable values:
+   Acceptable values include:
 
    - `backslash_quote` (`BACKSLASH_QUOTE` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'` (equivalent to `on`).
    - `on` (`BACKSLASH_QUOTE_ON` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'`.
@@ -278,7 +278,7 @@
 
    Allows the query planner to use table constraints to optimize queries.
 
-   Acceptable values:
+   Acceptable values include:
 
    - `on` (`CONSTRAINT_EXCLUSION_ON` for {{ TF }}, API, and CLI): Use constraints for all tables.
    - `off` (`CONSTRAINT_EXCLUSION_OFF` for {{ TF }}, API, and CLI): Do not use constraints.
@@ -318,7 +318,7 @@
 
    This setting determines the default isolation level to be used for new SQL transactions.
 
-   Acceptable values:
+   Acceptable values include:
 
    - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for {{ TF }}, API, and CLI): The query only sees the rows that were committed before it started.
    - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for {{ TF }}, API, and CLI): The behavior of this isolation level in {{ PG }} is identical to `read committed`.
@@ -963,7 +963,7 @@
 
    Waiting time (in milliseconds) after which the hot standby host replica will start canceling the queries that conflict with the about-to-be-applied [WAL](https://www.postgresql.org/docs/current/wal-intro.html) entries.
 
-   The minimum value is `-1`, while the maximum one is `2147483647` (2 GB). The default value is `30000`.
+   The minimum value is `-1` (unlimited waiting time), the maximum one is `2147483647`. The default value is `30000` (30 seconds).
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY).
 
@@ -1051,14 +1051,14 @@
 
 - **Pg hint plan message level**{#setting-pg-hint-plan-message} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The level of debug messages for the `pg_hint_plan` module that will be included in the {{ PG }} log. Only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. Possible values:
+   The level of debug messages for the `pg_hint_plan` module that will be included in the {{ PG }} log. Only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. The possible values include:
 
-   - `error`;
-   - `warning`;
-   - `notice`;
-   - `info` (default);
-   - `log`;
-   - `debug`.
+   - `error`
+   - `warning`
+   - `notice`
+   - `info` (default)
+   - `log`
+   - `debug`
 
 - **Pg qualstats enabled**{#setting-pg-qualstats-enabled} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -1094,7 +1094,7 @@
 
 - **Plan cache mode**{#setting-plan-cache-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Determines the type of query plan (generic or custom) to be used to execute [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html). Possible values:
+   Determines the type of query plan (generic or custom) to be used to execute [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html). The possible values include:
 
    - `auto` (`PLAN_CACHE_MODE_AUTO` for {{ TF }} and API): Automatic selection.
    - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for {{ TF }} and API): Force custom plans.
@@ -1204,7 +1204,7 @@
 
    Determines at what stage of [WAL](https://www.postgresql.org/docs/current/wal-intro.html) data processing the server will commit a transaction.
 
-   Acceptable values:
+   Acceptable values include:
 
    {% list tabs %}
 
@@ -1362,7 +1362,7 @@
 
 - **Wal level**{#setting-wal-level} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The logging level used for [WAL](https://www.postgresql.org/docs/current/wal-intro.html). Possible values:
+   The logging level used for [WAL](https://www.postgresql.org/docs/current/wal-intro.html). The possible values include:
 
    - `WAL_LEVEL_REPLICA`: Writes enough data to support WAL archiving and replication.
    - `WAL_LEVEL_LOGICAL`: On top of the `WAL_LEVEL_REPLICA` level, information necessary for logical replication is added.
@@ -1381,7 +1381,7 @@
 
 - **Xmlbinary**{#setting-xmlbinary} {{ tag-all }}
 
-   The method used for encoding binary data in XML. Possible values:
+   The method used for encoding binary data in XML. The possible values include:
 
    - `base64` (`XML_BINARY_BASE64` for {{ TF }}, API, and CLI): BASE64 encoding.
    - `hex` (`XML_BINARY_HEX` for {{ TF }}, API, and CLI): Hexadecimal encoding.
@@ -1392,7 +1392,7 @@
 
 - **Xmloption**{#setting-xmloption} {{ tag-all }}
 
-   The default type of conversion between the XML and character string data. Possible values:
+   The default type of conversion between the XML and character string data. The possible values include:
 
    - `document` (`XML_OPTION_DOCUMENT` for {{ TF }}, API, and CLI): An XML document.
    - `content` (`XML_OPTION_CONTENT` for {{ TF }}, API, and CLI): A fragment of an XML document.

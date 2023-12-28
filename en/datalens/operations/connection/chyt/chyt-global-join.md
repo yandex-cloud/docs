@@ -87,7 +87,7 @@ In this case, additional restrictions are imposed on the `LHS` and `RHS`:
 * The `lhs` and `rhs` must be sorted tables.
 * The `USING/ON` clause must use sorted columns only.
 
-Example:
+For example:
 
 * Let's assume that the `lhs` is sorted by columns `l1, l2, ..., ln` and the `rhs`, by columns `r1, r2, ..., rm`.
 * The `JOIN` `ON` clause should look like a set of `l1 = r1 , ..., lk = rk` equations for a `k` (the equations can be listed in any order).
@@ -96,3 +96,5 @@ Example:
 If these conditions are met, the query coordinator generates pairs of matching ranges from the `lhs` and `rhs` and distributes them across the instances in subqueries.
 
 Otherwise, an error is returned. In this case, you should either use a `GLOBAL JOIN` or enclose the `rhs` in a subquery.
+
+{% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

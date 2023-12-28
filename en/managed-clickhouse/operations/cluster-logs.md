@@ -46,7 +46,7 @@
 
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
       * `--columns`: List of columns with output data:
-         * `hostname`: [Name of the host](hosts.md#list-hosts).
+         * `hostname`: [Host name](hosts.md#list-hosts).
          * `component`: Type of component to be logged. For example, `HTTP-Session`.
          * `message`: Message output by the component.
          * `query_id`: Query ID.
@@ -56,7 +56,7 @@
       * {% include [logs since time](../../_includes/cli/logs/since.md) %}
       * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -88,7 +88,7 @@ This method allows you to get cluster logs in real time.
    {{ yc-mdb-ch }} cluster list-logs <cluster_name_or_ID> --follow
    ```
 
-   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -101,3 +101,5 @@ This method allows you to get cluster logs in real time.
    * `CLICKHOUSE`, in the `serviceType` parameter.
 
 {% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

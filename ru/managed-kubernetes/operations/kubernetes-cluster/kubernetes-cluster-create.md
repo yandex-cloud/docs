@@ -20,7 +20,7 @@
   1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../concepts/index.md#node-group).
   1. Создайте [сервисные аккаунты](../../../iam/operations/sa/create.md):
-     * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+     * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
@@ -234,15 +234,9 @@
 
 ### Создание зонального кластера {{ managed-k8s-name }} {#example-zonal-cluster}
 
-{% list tabs %}
-
-- {{ TF }}
-
   Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
 
   * Название — `k8s-zonal`.
-  * Версия — 1.22.
-  * Идентификатор [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) — `{{ tf-cloud-id }}`.
   * Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) — `{{ tf-folder-id }}`.
   * Сеть — `mynet`.
   * Подсеть — `mysubnet`. Ее сетевые настройки:
@@ -251,37 +245,26 @@
     * Диапазон — `10.1.0.0/16`.
 
   * Сервисный аккаунт — `myaccount`.
-  * Права сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.viewer`.
-  * [Ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md) — `kms-key`.
+  * [Роли](../../../iam/concepts/access-control/roles.md) сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.keys.encrypterDecrypter`.
+  * [Ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }} — `kms-key`.
   * [Группа безопасности](../../../vpc/concepts/security-groups.md) — `k8s-public-services`. Она содержит [правила для подключения к сервисам из интернета](../connect/security-groups.md#rules-nodes).
 
   Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
+{% list tabs %}
+
+- {{ TF }}
+
   
   ```hcl
   locals {
-    cloud_id    = "{{ tf-cloud-id }}"
     folder_id   = "{{ tf-folder-id }}"
-    k8s_version = "1.22"
-    sa_name     = "myaccount"
-  }
-
-  terraform {
-    required_providers {
-      yandex = {
-        source = "yandex-cloud/yandex"
-      }
-    }
-  }
-
-  provider "yandex" {
-    folder_id = local.folder_id
   }
 
   resource "yandex_kubernetes_cluster" "k8s-zonal" {
+    name = "k8s-zonal"
     network_id = yandex_vpc_network.mynet.id
     master {
-      version = local.k8s_version
       zonal {
         zone      = yandex_vpc_subnet.mysubnet.zone
         subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -293,7 +276,8 @@
     depends_on = [
       yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
       yandex_resourcemanager_folder_iam_member.vpc-public-admin,
-      yandex_resourcemanager_folder_iam_member.images-puller
+      yandex_resourcemanager_folder_iam_member.images-puller,
+      yandex_resourcemanager_folder_iam_member.encrypterDecrypter
     ]
     kms_provider {
       key_id = yandex_kms_symmetric_key.kms-key.id
@@ -305,13 +289,14 @@
   }
 
   resource "yandex_vpc_subnet" "mysubnet" {
+    name = "mysubnet"
     v4_cidr_blocks = ["10.1.0.0/16"]
     zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
   }
 
   resource "yandex_iam_service_account" "myaccount" {
-    name        = local.sa_name
+    name        = "zonal-k8s-account"
     description = "K8S zonal service account"
   }
 
@@ -336,17 +321,18 @@
     member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
+  resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
+    # Сервисному аккаунту назначается роль "kms.keys.encrypterDecrypter".
+    folder_id = local.folder_id
+    role      = "kms.keys.encrypterDecrypter"
+    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+  }
+
   resource "yandex_kms_symmetric_key" "kms-key" {
-    # Ключ для шифрования важной информации, такой как пароли, OAuth-токены и SSH-ключи.
+    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли, OAuth-токены и SSH-ключи.
     name              = "kms-key"
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 год.
-  }
-
-  resource "yandex_resourcemanager_folder_iam_member" "viewer" {
-    folder_id = local.folder_id
-    role      = "viewer"
-    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
   }
 
   resource "yandex_vpc_security_group" "k8s-public-services" {
@@ -402,17 +388,11 @@
 
 ### Создание регионального кластера {{ managed-k8s-name }} {#example-regional-cluster}
 
-{% list tabs %}
-
-- {{ TF }}
-
   Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
 
   * Название — `k8s-regional`.
-  * Версия — 1.22.
-  * Идентификатор облака — `{{ tf-cloud-id }}`.
   * Идентификатор каталога — `{{ tf-folder-id }}`.
-  * Сеть — `mynet`.
+  * Сеть — `my-regional-net`.
   * Подсеть — `mysubnet-a`. Ее сетевые настройки:
 
     * Зона доступности — `{{ region-id }}-a`.
@@ -423,43 +403,32 @@
     * Зона доступности — `{{ region-id }}-b`.
     * Диапазон — `10.6.0.0/16`.
 
-  * Подсеть — `mysubnet-c`. Ее сетевые настройки:
+  * Подсеть — `mysubnet-d`. Ее сетевые настройки:
 
-    * Зона доступности — `{{ region-id }}-c`.
+    * Зона доступности — `{{ region-id }}-d`.
     * Диапазон — `10.7.0.0/16`.
 
-  * Сервисный аккаунт — `myaccount`.
-  * Права сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.viewer`.
-  * Ключ шифрования {{ kms-name }} — `kms-key`.
-  * Группа безопасности — `k8s-main-sg`. Она содержит [правила для служебного трафика](../connect/security-groups.md#rules-internal).
+  * Сервисный аккаунт — `regional-k8s-account`.
+  * Роли сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.keys.encrypterDecrypter`.
+  * [Ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }} — `kms-key`.
+  * Группа безопасности — `regional-k8s-sg`. Она содержит [правила для служебного трафика](../connect/security-groups.md#rules-internal).
 
   Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+
+{% list tabs %}
+
+- {{ TF }}
 
   
   ```hcl
   locals {
-    cloud_id    = "{{ tf-cloud-id }}"
     folder_id   = "{{ tf-folder-id }}"
-    k8s_version = "1.22"
-    sa_name     = "myaccount"
-  }
-
-  terraform {
-    required_providers {
-      yandex = {
-        source = "yandex-cloud/yandex"
-      }
-    }
-  }
-
-  provider "yandex" {
-    folder_id = local.folder_id
   }
 
   resource "yandex_kubernetes_cluster" "k8s-regional" {
-    network_id = yandex_vpc_network.mynet.id
+    name = "k8s-regional"
+    network_id = yandex_vpc_network.my-regional-net.id
     master {
-      version = local.k8s_version
       regional {
         region = "{{ region-id }}"
         location {
@@ -471,48 +440,52 @@
           subnet_id = yandex_vpc_subnet.mysubnet-b.id
         }
         location {
-          zone      = yandex_vpc_subnet.mysubnet-c.zone
-          subnet_id = yandex_vpc_subnet.mysubnet-c.id
+          zone      = yandex_vpc_subnet.mysubnet-d.zone
+          subnet_id = yandex_vpc_subnet.mysubnet-d.id
         }
       }
-      security_group_ids = [yandex_vpc_security_group.k8s-main-sg.id]
+      security_group_ids = [yandex_vpc_security_group.regional-k8s-sg.id]
     }
-    service_account_id      = yandex_iam_service_account.myaccount.id
-    node_service_account_id = yandex_iam_service_account.myaccount.id
+    service_account_id      = yandex_iam_service_account.my-regional-account.id
+    node_service_account_id = yandex_iam_service_account.my-regional-account.id
     depends_on = [
       yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
       yandex_resourcemanager_folder_iam_member.vpc-public-admin,
-      yandex_resourcemanager_folder_iam_member.images-puller
+      yandex_resourcemanager_folder_iam_member.images-puller,
+      yandex_resourcemanager_folder_iam_member.encrypterDecrypter
     ]
     kms_provider {
       key_id = yandex_kms_symmetric_key.kms-key.id
     }
   }
 
-  resource "yandex_vpc_network" "mynet" {
-    name = "mynet"
+  resource "yandex_vpc_network" "my-regional-net" {
+    name = "my-regional-net"
   }
 
   resource "yandex_vpc_subnet" "mysubnet-a" {
+    name = "mysubnet-a"
     v4_cidr_blocks = ["10.5.0.0/16"]
     zone           = "{{ region-id }}-a"
-    network_id     = yandex_vpc_network.mynet.id
+    network_id     = yandex_vpc_network.my-regional-net.id
   }
 
   resource "yandex_vpc_subnet" "mysubnet-b" {
+    name = "mysubnet-b"
     v4_cidr_blocks = ["10.6.0.0/16"]
     zone           = "{{ region-id }}-b"
-    network_id     = yandex_vpc_network.mynet.id
+    network_id     = yandex_vpc_network.my-regional-net.id
   }
 
-  resource "yandex_vpc_subnet" "mysubnet-c" {
+  resource "yandex_vpc_subnet" "mysubnet-d" {
+    name = "mysubnet-d"
     v4_cidr_blocks = ["10.7.0.0/16"]
-    zone           = "{{ region-id }}-c"
-    network_id     = yandex_vpc_network.mynet.id
+    zone           = "{{ region-id }}-d"
+    network_id     = yandex_vpc_network.my-regional-net.id
   }
 
-  resource "yandex_iam_service_account" "myaccount" {
-    name        = local.sa_name
+  resource "yandex_iam_service_account" "my-regional-account" {
+    name        = "regional-k8s-account"
     description = "K8S regional service account"
   }
 
@@ -520,40 +493,41 @@
     # Сервисному аккаунту назначается роль "k8s.clusters.agent".
     folder_id = local.folder_id
     role      = "k8s.clusters.agent"
-    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
     # Сервисному аккаунту назначается роль "vpc.publicAdmin".
     folder_id = local.folder_id
     role      = "vpc.publicAdmin"
-    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
     # Сервисному аккаунту назначается роль "container-registry.images.puller".
     folder_id = local.folder_id
     role      = "container-registry.images.puller"
-    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
+    # Сервисному аккаунту назначается роль "kms.keys.encrypterDecrypter".
+    folder_id = local.folder_id
+    role      = "kms.keys.encrypterDecrypter"
+    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
-    # Ключ для шифрования важной информации, такой как пароли, OAuth-токены и SSH-ключи.
+    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли, OAuth-токены и SSH-ключи.
     name              = "kms-key"
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 год.
   }
 
-  resource "yandex_resourcemanager_folder_iam_member" "viewer" {
-    folder_id = local.folder_id
-    role      = "viewer"
-    member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-  }
-
-  resource "yandex_vpc_security_group" "k8s-main-sg" {
-    name        = "k8s-main-sg"
-    description = "Правила группы обеспечивают базовую работоспособность кластера {{ managed-k8s-name }}. Примените ее к кластеру {{ managed-k8s-name }} и группам узлов."
-    network_id  = yandex_vpc_network.mynet.id
+  resource "yandex_vpc_security_group" "regional-k8s-sg" {
+    name        = "regional-k8s-sg"
+    description = "Правила группы обеспечивают базовую работоспособность кластера {{ managed-k8s-name }}. Примените ее к кластеру и группам узлов."
+    network_id  = yandex_vpc_network.my-regional-net.id
     ingress {
       protocol          = "TCP"
       description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
@@ -571,7 +545,7 @@
     ingress {
       protocol          = "ANY"
       description       = "Правило разрешает взаимодействие под-под и сервис-сервис. Укажите подсети вашего кластера {{ managed-k8s-name }} и сервисов."
-      v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-c.v4_cidr_blocks)
+      v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-d.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535
     }

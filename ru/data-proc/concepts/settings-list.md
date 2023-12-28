@@ -14,7 +14,7 @@ description: "Из статьи вы узнаете, какие свойства
 Ключ может быть как простой строкой, так и содержать префикс, указывающий на принадлежность к [определенному компоненту](environment.md):
 
 ```text
-<префикс ключа>:<тело ключа>:<значение>
+<префикс_ключа>:<тело_ключа>:<значение>
 ```
 
 Например:
@@ -113,8 +113,8 @@ spark:spark.driver.cores : 1
 
 | Пакетный менеджер | Ключ                 | Значение                                                                                                                                                          | Пример                 |
 |:------------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
-| conda             | `conda:<имя пакета>` | Номер версии пакета согласно [спецификации conda](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
-| pip               | `pip:<имя пакета>`   | Номер версии пакета согласно [спецификации pip](https://www.python.org/dev/peps/pep-0440/#version-specifiers)                                                     | `pip:psycopg2 : 2.7.0` |
+| conda             | `conda:<имя_пакета>` | Номер версии пакета согласно [спецификации conda](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
+| pip               | `pip:<имя_пакета>`   | Номер версии пакета согласно [спецификации pip](https://www.python.org/dev/peps/pep-0440/#version-specifiers)                                                     | `pip:psycopg2 : 2.7.0` |
 
 ## Использование Apache Spark Thrift Server {#spark-thrift-server}
 

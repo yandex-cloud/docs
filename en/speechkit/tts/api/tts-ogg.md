@@ -6,7 +6,7 @@ The example uses the following synthesis parameters:
 
 * [Language](../index.md#langs): Russian.
 * [Voice](../voices.md): `filipp`.
-* Other parameters were left with their default values.
+* Other parameters are left at their defaults.
 
 The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
 
@@ -22,8 +22,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    > I can turn any text into speech.
    > Now y+ou can, too!
    EOM
-   export FOLDER_ID=<folder ID>
-   export IAM_TOKEN=<IAM token>
+   export FOLDER_ID=<folder_ID>
+   export IAM_TOKEN=<IAM_token>
    curl -X POST \
      -H "Authorization: Bearer ${IAM_TOKEN}" \
      --data-urlencode "text=${TEXT}" \
@@ -143,8 +143,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    1. Run the created file:
 
       ```bash
-      export FOLDER_ID=<folder ID>
-      export IAM_TOKEN=<IAM token>
+      export FOLDER_ID=<folder_ID>
+      export IAM_TOKEN=<IAM_token>
       python test.py
         --token ${IAM_TOKEN} \
        --folder_id ${FOLDER_ID} \
@@ -169,7 +169,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    <?php
 
    $token = '<IAM token>'; # Specify an IAM token.
-   $folderId = "<folder ID>"; # Specify a folder ID.
+   $folderId = "<folder_ID>"; # Specify folder ID.
 
    $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
    $headers = ['Authorization: Bearer ' . $token];

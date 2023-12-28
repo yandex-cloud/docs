@@ -28,8 +28,8 @@ If you use standard {{ dataproc-name }} settings, computing resources required t
 
 Resources are allocated between the driver and the executors based on the Spark [component properties](./settings-list.md). The key properties and their default values are determined by the driver deployment mode set in the `spark:spark.submit.deployMode` property:
 
-* `deployMode=client`: Deploy the driver on the cluster's `master` host. This is the default mode if the cluster meets the [lightweight cluster](./index.md#light-weight-clusters) requirements.
-* `deployMode=cluster`: Deploy the cluster on one of the cluster's `compute` hosts. This is the default mode if the cluster does not meet the [lightweight cluster](./index.md#light-weight-clusters) requirements.
+* `deployMode=client`: Deploy the driver on the cluster's master host. This is the default mode if the cluster meets the [lightweight cluster](./index.md#light-weight-clusters) requirements.
+* `deployMode=cluster`: Deploy the cluster on one of the cluster's compute hosts. This is the default mode if the cluster does not meet the [lightweight cluster](./index.md#light-weight-clusters) requirements.
 
 The tables below list the key properties that determine resource allocation in various driver deployment modes.
 
@@ -55,28 +55,28 @@ In the tables, results of arithmetic operations are rounded:
    In this mode, the driver runs on the cluster's master host separately from the YARN Application Master and can access all resources of the master host. On compute hosts, only a minimum amount of resources is reserved for the YARN Application Master.
 
    #|
-   || **Parameter (abbreviation)**                    | **Description**                                                       | **Default value**        ||
-   || `dataproc:spark_executors_per_vm` (`numCon`) | Maximum number of containers per compute host  | `1`                              ||
+   || **Parameter (abbreviation)**                 | **Description**                                                     | **Default value**                ||
+   || `dataproc:spark_executors_per_vm` (`numCon`) | Maximum number of containers per compute host                       | `1`                              ||
    || `spark:spark.yarn.am.cores` (`yamCPU`)       | Number of processor cores allocated for the YARN Application Master | `1`                              ||
-   || `spark:spark.yarn.am.memory` (`yamMem`)      | Amount of RAM (MB) allocated for the YARN Application Master          | `1024`                           ||
-   || `spark:spark.executor.cores` (`exCPU`)       | Number of processor cores allocated to each executor     | (`allCPU` − `yamCPU`) / `numCon` ||
-   || `spark:spark.executor.memory` (`exMem`)      | Amount of RAM (MB) allocated to each executor               | (`nmMem` − `yamMem`) / `numCon`  ||
+   || `spark:spark.yarn.am.memory` (`yamMem`)      | Amount of RAM (MB) allocated for the YARN Application Master        | `1024`                           ||
+   || `spark:spark.executor.cores` (`exCPU`)       | Number of processor cores allocated to each executor                | (`allCPU` − `yamCPU`) / `numCon` ||
+   || `spark:spark.executor.memory` (`exMem`)      | Amount of RAM (MB) allocated to each executor                       | (`nmMem` − `yamMem`) / `numCon`  ||
    |#
 
    Since `yamCPU` and `yamMem` are subtracted from the total CPU and RAM, respectively, the YARN Application Master consumes less resources than a standard container, and the amount of resources for the executor increases.
 
 - deployMode=cluster
 
-   This mode assumes that a resource-intensive program, such as HDFS, is running on the cluster's master host. Consequently, the drivers run on compute hosts within the YARN Application Master and are allocated a substantial amount of resources.
+   This mode assumes that a resource-intensive program, e.g., HDFS, is running on the cluster's master host. Consequently, the drivers run on compute hosts within the YARN Application Master and are allocated a substantial amount of resources.
 
    #|
-   || **Property (abbreviation)**                          | **Description**                                                        | **Default value**     ||
-   || `dataproc:spark_driver_memory_fraction` (`drMemF`) | Fraction of compute host RAM reserved for the driver       | `0.25`                        ||
-   || `dataproc:spark_executors_per_vm` (`numCon`)       | Maximum number of containers per compute host   | `2`                           ||
-   || `spark:spark.executor.cores` (`exCPU`)             | Number of processor cores allocated to each executor      | `allCPU` / `numCon`           ||
-   || `spark:spark.executor.memory` (`exMem`)            | Amount of RAM (MB) allocated to each executor                | `nmMem` / `numCon`            ||
+   || **Property (abbreviation)**                        | **Description**                                                      | **Default value**             ||
+   || `dataproc:spark_driver_memory_fraction` (`drMemF`) | Fraction of compute host RAM reserved for the driver                 | `0.25`                        ||
+   || `dataproc:spark_executors_per_vm` (`numCon`)       | Maximum number of containers per compute host                        | `2`                           ||
+   || `spark:spark.executor.cores` (`exCPU`)             | Number of processor cores allocated to each executor                 | `allCPU` / `numCon`           ||
+   || `spark:spark.executor.memory` (`exMem`)            | Amount of RAM (MB) allocated to each executor                        | `nmMem` / `numCon`            ||
    || `spark:spark.driver.cores` (`drCPU`)               | Number of processor cores allocated for the YARN Application Master  | `allCPU` / `numCon`           ||
-   || `spark:spark.driver.memory` (`drMem`)              | Amount of RAM (MB) allocated for the YARN Application Master           | `drMemF` × `nmMem` / `numCon` ||
+   || `spark:spark.driver.memory` (`drMem`)              | Amount of RAM (MB) allocated for the YARN Application Master         | `drMemF` × `nmMem` / `numCon` ||
    |#
 
 {% endlist %}
@@ -98,7 +98,7 @@ A single app runs on a cluster with default settings and two compute hosts. In t
 
 - deployMode=client
 
-   * The driver can use all resources of the master host.
+   * The driver can take up all the master host's resources.
    * The amount of resources available for executors on all compute hosts will be reduced by the amount reserved for YARN Application Master.
    * The resources reserved for the YARN Application Master on the second host will remain unused.
 

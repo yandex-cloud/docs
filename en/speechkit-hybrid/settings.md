@@ -5,14 +5,14 @@ description: "In this tutorial, you will learn how to set up {{ sk-hybrid-name }
 
 # {{ sk-hybrid-name }} service settings
 
-To configure [service components](architecture.md), provide each setting in the respective environment variable in the `--env` parameter of a component's Docker container run command:
+To configure the [service components](architecture.md), provide each setting in the respective environment variable in the `--env` parameter of a component's Docker container run command:
 
 ```bash
 docker run --it \
-    --env <setting 1>=<value> \
-    --env <setting 2>=<value> \
+    --env <setting_1>=<value> \
+    --env <setting_2>=<value> \
     ... \
-    <container name>
+    <container_name>
 ```
 
 If you run containers using the `docker compose` command, add or edit service specification settings in the `environment` section of the `docker-compose.yaml` file.
@@ -20,14 +20,14 @@ If you run containers using the `docker compose` command, add or edit service sp
 | **Component** | **Environment variable** | **Setting description** |
 |:---------------|:-----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | All | `LOGGING_LEVEL` | [Logging level](operations/logging.md). The default value is `INFO`. |
-| Envoy | `UPSTREAM_ASR_PROXY_PORT` | Port for handling incoming requests for the STT server. By default, it is set to `8080`. |
-| Envoy | `UPSTREAM_TTS_PROXY_PORT` | Port for handling incoming requests for the TTS server. By default, it is set to `9080`. |
-| License server | `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` | Speech recognition service registration port. By default, it is set to `8087`. |
-| License server | `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT` | Speech synthesis service registration port. By default, it is set to `9087`. |
-| License server | `PROMETHEUS_PORT` | Prometheus port for [service metric delivery](monitoring.md). By default, it is set to `8003`. |
+| Envoy | `UPSTREAM_ASR_PROXY_PORT` | Port for handling incoming requests for the STT server. The default value is `8080`. |
+| Envoy | `UPSTREAM_TTS_PROXY_PORT` | Port for handling incoming requests for the TTS server. The default value is `9080`. |
+| License server | `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` | Speech recognition service registration port. The default value is `8087`. |
+| License server | `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT` | Speech synthesis service registration port. The default value is `9087`. |
+| License server | `PROMETHEUS_PORT` | Prometheus port for [service metric delivery](monitoring.md). The default value is `8003`. |
 | STT/TTS server | `SERVICE_PORT` | Port for making requests to speech/text processing services |
-| STT server | `LICENSE_SERVICE_ENDPOINTS` | FQDN License server and the service registration server specified in the `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` setting in `<FQDN License server>:<port>` format |
-| TTS server | `LICENSE_SERVICE_ENDPOINTS` | FQDN License server and the service registration server specified in the `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT` setting in `<FQDN License server>:<port>` format |
+| STT server | `LICENSE_SERVICE_ENDPOINTS` | FQDN License server and the service registration server specified in the `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` setting in `<FQDN_License_server>:<port>` format |
+| TTS server | `LICENSE_SERVICE_ENDPOINTS` | FQDN License server and the service registration server specified in the `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT` setting in `<FQDN_License_server>:<port>` format |
 
 ## Reserved ports {#reserved-ports}
 
@@ -47,10 +47,10 @@ The example assumes that the License server is running on host `172.10.19.12` an
 docker run -it \
    --env LICENSE_SERVICE_ENDPOINTS=172.10.19.12:8083 \
    --env SERVICE_PORT=17019 \
-   cr.yandex/<registry ID>/stt/cpu_x86_64/stt_server:<STT application version>
+   cr.yandex/<registry_ID>/stt/cpu_x86_64/stt_server:<STT_application_version>
 ```
 
 Where:
 
-* `<registry ID>`: Registry with Docker images for deploying {{ sk-hybrid-name }} components.
-* `<STT application version>`: Provided STT service version.
+* `<registry_ID>`: Registry with Docker images for deploying {{ sk-hybrid-name }} components.
+* `<STT_application_version>`: Provided STT service version.

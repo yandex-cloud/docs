@@ -7,10 +7,10 @@ description: "Follow this guide to create and set up a CDN resource."
 
 Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an example:
 
-1. [{#T}](#create-cdn-resource).
-1. [{#T}](#upload-content-to-CDN).
-1. [{#T}](#setup-cname).
-1. [{#T}](#check-cdn-working).
+1. [{#T}](#create-cdn-resource)
+1. [{#T}](#upload-content-to-CDN)
+1. [{#T}](#setup-cname)
+1. [{#T}](#check-cdn-working)
 
 ## Getting started {#before-you-begin}
 
@@ -52,7 +52,7 @@ Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an e
 
       1. In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
       1. In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`.
-      1. In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the domain name from the [bucket URL](../storage/concepts/bucket.md#bucket-url) in `<bucket name>{{ s3-storage-host }}` format. The schema (`http` or `https`) does not need to be specified. For example:
+      1. In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the domain name from the [bucket URL](../storage/concepts/bucket.md#bucket-url) in `<bucket name>{{ s3-storage-host }}` format. The schema (`http` or `https`) does not need to be specified. Here is an example:
 
          ```
          my-bucket.{{ s3-storage-host }}
@@ -99,6 +99,7 @@ To preload content to CDN servers:
    cdn CNAME cl-.....6bb.edgecdn.ru.
    ```
 
+   {% include [note-dns-aname](../_includes/cdn/note-dns-aname.md) %}
 
 ## Test the CDN {#check-cdn-working}
 

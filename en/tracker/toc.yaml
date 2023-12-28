@@ -181,9 +181,9 @@ items:
         href: user/reminder.md
       - name: Specifying time spent
         href: user/time-spent.md
-      - name: Adding issue fields
+      - name: Adding an issue field
         href: user/create-param.md
-      - name: Viewing the history of issue changes
+      - name: Viewing issue change history
         href: user/history.md
       - name: Getting access to an issue
         href: user/ticket-access.md
@@ -311,6 +311,8 @@ items:
             href: user/widgets.md
           - name: Editing a dashboard
             href: user/edit-dashboard.md
+          - name: How to copy a dashboard
+            href: user/copy-dashboard.md
           - name: Shared access to dashboards
             href: user/share-dashboard.md
           - name: Making a dashboard your start page
@@ -472,6 +474,7 @@ items:
       - name: Viewing service usage details
         href: check-charges.md
   - name: API reference
+    editable: false
     items:
       - name: Overview
         href: about-api.md
@@ -753,18 +756,20 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: October 2023
+      - name: November 2023
         href: changelogs/index.md
+      - name: October 2023
+        href: changelogs/2310.md
       - name: September 2023
         href: changelogs/2309.md
       - name: August 2023
         href: changelogs/2308.md
       - name: July 2023
         href: changelogs/2307.md
-      - name: June 2023
-        href: changelogs/2306.md
       - name: Archive
         items:
+          - name: June 2023
+            href: changelogs/2306.md
           - name: May 2023
             href: changelogs/2305.md
           - name: April 2023

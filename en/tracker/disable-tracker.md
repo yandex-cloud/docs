@@ -19,9 +19,9 @@ To avoid paying for {{ tracker-name }}, you can disable the paid features, leavi
 
 {% endnote %}
 
-To stop using the paid features {{ tracker-full-name }}, revoke full access to {{ tracker-name }} from your company's employees. If only 5 or fewer users have full access, you can use {{ tracker-name }} free of charge. For more information, see [{#T}](pricing.md).
+To stop using the paid {{ tracker-full-name }} features, revoke full access to {{ tracker-name }} from your company's employees. If only 5 or fewer users have full access, you can use {{ tracker-name }} free of charge. For more information, see [{#T}](pricing.md).
 
-1. In the {{ tracker-name }} left-hand panel, click **Configure** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
+1. In the {{ tracker-name }} left-hand panel, click **Admin settings** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
 1. Make sure the **Full access for all new users** option is disabled.
 
