@@ -10,9 +10,9 @@
 
 Чтобы добавить диск в группу размещения:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно добавить диск в группу размещения.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -26,7 +26,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [update](../../api-ref/Disk/update.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Update](../../api-ref/grpc/disk_service.md#Update).
 

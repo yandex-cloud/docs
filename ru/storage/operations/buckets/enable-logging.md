@@ -20,9 +20,9 @@
 
 1. Включите механизм логирования в исходном бакете, который вы хотите отслеживать.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
      Чтобы включить логирование с помощью [AWS CLI](../../tools/aws-cli.md):
 
@@ -56,7 +56,7 @@
          * `--bucket` — имя исходного бакета, для которого нужно включить логирование действий.
          * `--bucket-logging-status` — путь к файлу с настройками логирования.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -102,7 +102,7 @@
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-   - API
+   - API {#api}
 
      Чтобы включить механизм логирования в бакете, воспользуйтесь методом S3 API [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md).
 
@@ -128,9 +128,9 @@
 
 Чтобы получить имя целевого бакета и префикс ключа объекта с логами, выполните следующее действие:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
    Чтобы получить настройки логирования с помощью [AWS CLI](../../tools/aws-cli.md):
 
@@ -154,7 +154,7 @@
    }
    ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [getBucketLogging](../../s3/api-ref/bucket/getBucketLogging.md).
 
@@ -177,9 +177,9 @@
 
 Чтобы получить логи, скачайте из целевого бакета объект с префиксом `logs/`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится целевой бакет с логами.
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -193,9 +193,9 @@
 
 Чтобы выключить логирование, выполните следующее действие:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -237,7 +237,7 @@
 
   Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md). В теле запроса передайте параметр `<BucketLoggingStatus>` с пустым значением.
 

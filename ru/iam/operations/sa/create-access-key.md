@@ -6,9 +6,9 @@
 
 Чтобы создать статический ключ доступа:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -24,7 +24,7 @@
 
       {% endnote %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -71,11 +71,7 @@
 
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
-- API
-
-  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../api-ref/AccessKey/create.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -127,6 +123,10 @@
           yc iam access-key list --service-account-name=<имя_сервисного_аккаунта>
           ```
 
+- API {#api}
+
+  Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../api-ref/AccessKey/create.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../api-ref/grpc/access_key_service.md#Create).
+
 {% endlist %}
 
 ## Примеры {#examples}
@@ -135,16 +135,26 @@
 
 Добавьте описание при создании ключа доступа.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc iam access-key create --service-account-name my-robot \
     --description "this key is for my bucket"
   ```
 
-- API
+- {{ TF }} {#tf}
+
+  ```hcl
+  resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+  service_account_id = "<идентификатор_сервисного_аккаунта>"
+  description        = "this key is for my bucket"
+  pgp_key            = "BIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+x....."
+  }
+  ```
+
+- API {#api}
 
   ```bash
   curl -X POST \
@@ -155,16 +165,6 @@
         "description": "this key is for my bucket"
     }' \
     https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
-  ```
-
-- {{ TF }}
-
-  ```hcl
-  resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-  service_account_id = "<идентификатор_сервисного_аккаунта>"
-  description        = "this key is for my bucket"
-  pgp_key            = "BIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+x....."
-  }
   ```
 
 {% endlist %}

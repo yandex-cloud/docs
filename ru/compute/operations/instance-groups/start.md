@@ -8,9 +8,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -18,7 +18,7 @@
   1. В строке с нужной группой ВМ нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.compute.groups.button_action-start }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@
 
      {{ ig-name }} начнет запускать ВМ в группе. Когда все ВМ будут запущены, группа перейдет в статус `ACTIVE`.
 
-- API
+- API {#api}
 
   Запустить группу можно с помощью метода REST API [start](../../api-ref/InstanceGroup/start.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Start](../../api-ref/grpc/instance_group_service.md#Start).
 

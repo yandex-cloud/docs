@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы изменить параметры L7-балансировщика:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -39,7 +39,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -236,7 +236,7 @@ description: "Следуя данной инструкции, вы сможет�
  
      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -321,7 +321,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc alb load-balancer get <имя_балансировщика>
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [update](../api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update).
 
@@ -331,9 +331,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы удалить обработчик L7-балансировщика:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -341,7 +341,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** напротив имени нужного обработчика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -366,7 +366,7 @@ description: "Следуя данной инструкции, вы сможет�
      done (50s)
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -440,7 +440,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc alb load-balancer get <имя_L7-балансировщика>
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [removeListener](../api-ref/LoadBalancer/removeListener.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/RemoveListener](../api-ref/grpc/load_balancer_service.md#RemoveListener).
 

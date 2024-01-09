@@ -10,9 +10,9 @@
 
 Чтобы создать группу ВМ с L7-балансировщиком нагрузки:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -80,7 +80,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_variables }}** при необходимости укажите пары `{{ ui-key.yacloud.common.label_key }}`-`{{ ui-key.yacloud.common.label_value }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -258,7 +258,7 @@
 
   После этого вы можете добавить целевую группу `first-target-group` к [новой](../../../application-load-balancer/operations/backend-group-create.md) или [существующей группе бэкендов](../../../application-load-balancer/operations/backend-group-update.md) {{ alb-name }}, группу бэкендов — к [новому](../../../application-load-balancer/operations/http-router-create.md) или [существующему HTTP-роутеру](../../../application-load-balancer/operations/http-router-update.md), а роутер — к [новому](../../../application-load-balancer/operations/application-load-balancer-create.md) или [существующему L7-балансировщику](../../../application-load-balancer/operations/application-load-balancer-update.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -382,7 +382,7 @@
 
       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/InstanceGroup/create.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create).
 

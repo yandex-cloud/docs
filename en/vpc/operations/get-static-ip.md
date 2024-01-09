@@ -74,8 +74,8 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
       ```hcl
       resource "yandex_vpc_address" "addr" {
-        name = "<static_public_IP_name>"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        name = "<IP_name>"
+        deletion_protection = "<deletion_protection>"
         external_ipv4_address {
           zone_id = "<availability_zone>"
         }

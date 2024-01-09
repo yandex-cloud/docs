@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Посмотреть настройки масштабирования функции
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -18,7 +18,7 @@ description: "Следуя данной инструкции, вы сможет�
         * **zone_requests_limit** — количество одновременно выполняемых вызовов функции в зоне доступности.
         * **provisioned_instances_count** — количество подготовленных экземпляров.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -44,12 +44,12 @@ description: "Следуя данной инструкции, вы сможет�
     ```
   
 
-- API
+- API {#api}
 
     Чтобы посмотреть настройки масштабирования функции, воспользуйтесь методом REST API [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/function_service.md#ListScalingPolicies).
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Посмотреть настройки масштабирования функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

@@ -16,9 +16,9 @@
 
 1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `group-coi` и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `editor`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -27,7 +27,7 @@
      1. Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Создайте сервисный аккаунт:
 
@@ -52,7 +52,7 @@
           --subject serviceAccount:ajeabccde01d********
         ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом [Create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`.
 
@@ -60,9 +60,9 @@
 
 1. Создайте [сеть](../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсеть](../../vpc/concepts/network.md#subnet) в одной [зоне доступности](../../overview/concepts/geo-scope.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -71,7 +71,7 @@
      1. Выберите дополнительную опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Создайте сеть:
 
@@ -106,7 +106,7 @@
         - 192.168.1.0/24
         ```
 
-   - API
+   - API {#api}
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
      1. Создать подсеть в зоне доступности `{{ region-id }}-a` с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
@@ -178,9 +178,9 @@
 
 1. Создайте группу ВМ с именем `group-coi-containers` с помощью спецификации `specification.yaml`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      Выполните команду:
 
@@ -200,7 +200,7 @@
      status: ACTIVE
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
 
@@ -208,16 +208,16 @@
 
 1. Убедитесь, что группа ВМ с {{ coi }} и несколькими Docker-контейнерами создана:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. Перейдите в раздел **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Нажмите на имя группы ВМ `group-coi-containers`.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc compute instance-group list-instances group-coi-containers
@@ -234,7 +234,7 @@
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      ```
 
-   - API
+   - API {#api}
 
      Посмотрите список созданных ВМ с помощью метода [List](../../compute/api-ref/InstanceGroup/list.md) для ресурса `InstanceGroup`.
 
@@ -244,9 +244,9 @@
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к одной из созданных ВМ по SSH:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      ssh yc-user@{{ external-ip-examples.0 }}
@@ -267,9 +267,9 @@
 
 1. Посмотрите список запущенных на ВМ Docker-контейнеров:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      sudo docker ps -a

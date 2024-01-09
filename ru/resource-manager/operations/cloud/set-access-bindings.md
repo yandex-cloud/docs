@@ -5,13 +5,13 @@
 
 ## Назначить роль на облако {#access-to-user}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   1. Посмотрите описание команды для назначения роли на облако:
 
@@ -78,7 +78,7 @@
       ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -137,7 +137,7 @@
 
       После этого будут назначены права доступа к облаку.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings).
 
@@ -207,13 +207,13 @@
 
 ## Назначить несколько ролей {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [set-access-binding-multiple-users-cloud-console](../../../_includes/resource-manager/set-access-binding-multiple-users-cloud-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
 
@@ -245,7 +245,7 @@
       ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры прав доступа к облаку. Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
@@ -297,7 +297,7 @@
 
       После этого будут назначены права доступа к облаку.
 
-- API
+- API {#api}
 
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
@@ -360,9 +360,9 @@
 
 Разрешите сервисному аккаунту `test-sa` управлять облаком `my-cloud` и ресурсами в нем:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Роли сервисному аккаунту назначаются так же, как пользовательскому аккаунту.
 
@@ -370,7 +370,7 @@
 
   {% include [set-accessbinding-sa-cloud-console](../../../_includes/iam/set-accessbinding-sa-cloud-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   1. Узнайте идентификатор сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов:
 
@@ -396,7 +396,7 @@
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Назначьте роль `editor` сервисному аккаунту:
 
@@ -442,7 +442,7 @@
 
       После этого будут назначены права доступа к облаку.
 
-- API
+- API {#api}
 
   1. Узнайте идентификатор сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов:
 

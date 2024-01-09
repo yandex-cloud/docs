@@ -12,9 +12,9 @@ noIndex: true
 
 ## Настройки {#settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.counter_ids.title }}** — укажите [номера счетчиков](https://yandex.ru/support/metrica/general/tag-id.html), из которых будут поступать данные.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}** — укажите токен для подтверждения доступа к счетчикам. Его можно получить по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).

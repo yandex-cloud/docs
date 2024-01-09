@@ -2,14 +2,14 @@
 
 Вы можете узнать идентификатор, почту и другую информацию о пользователях.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
   {% include [users-info](../../../_includes/users-info.md) %}
 
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@
           default_email: just.mad.hatter@yandex.ru
       ```
 
-- API
+- API {#api}
 
   Если вы знаете логин пользователя, воспользуйтесь методом REST API [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) для ресурса [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md) или вызовом gRPC API [YandexPassportUserAccount/GetByLogin](../../api-ref/grpc/yandex_passport_user_account_service.md#GetByLogin).
   

@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
 
@@ -16,7 +16,7 @@
 
    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -46,39 +46,7 @@
         --subject group:aje6o61dvog2********
       ```
 
-- API
-
-  Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
-
-  1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
-
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `group` и идентификатор группы:
-
-      **body.json:**
-      ```json
-      {
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "<идентификатор_группы>",
-                      "type": "group"
-                      }
-                  }
-              }
-          ]
-      }
-      ```
-
-  1. {% include [grant-role-folder-via-curl-step](../iam/grant-role-folder-via-curl-step.md) %}
-
-  Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
-  * [{#T}](../../iam/operations/sa/set-access-bindings.md)
-  * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
-  * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
-
-- Terraform
+- {{ TF }} {#tf}
 
     Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -126,5 +94,37 @@
        ```bash
        yc resource-manager folder list-access-bindings <название_папки>|<идентификатор_папки>
        ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
+
+  1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
+
+  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `group` и идентификатор группы:
+
+      **body.json:**
+      ```json
+      {
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "<идентификатор_группы>",
+                      "type": "group"
+                      }
+                  }
+              }
+          ]
+      }
+      ```
+
+  1. {% include [grant-role-folder-via-curl-step](../iam/grant-role-folder-via-curl-step.md) %}
+
+  Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
+  * [{#T}](../../iam/operations/sa/set-access-bindings.md)
+  * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
 
 {% endlist %}

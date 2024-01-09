@@ -19,9 +19,9 @@ description: "Следуя данной инструкции, вы сможет�
 * _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_ — функция, которая будет вызываться в качестве обработчика. Подробнее об обработчике читайте в разделе [Модель программирования](../../concepts/function.md#programming-model).
 * _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_ — максимальное время выполнения функции, после которого сервис прервет выполнение, не дожидаясь ответа. Включает в себя время начальной инициализации при первом запуске.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -41,7 +41,7 @@ description: "Следуя данной инструкции, вы сможет�
        * [**{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**](../../concepts/runtime/environment-variables.md): `{{ ui-key.yacloud.common.not-selected }}`.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -91,7 +91,7 @@ description: "Следуя данной инструкции, вы сможет�
     ```
   
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -172,7 +172,7 @@ description: "Следуя данной инструкции, вы сможет�
     yc serverless function version list --function-name <имя функции>
     ```
 
-- API
+- API {#api}
 
     Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
 
@@ -238,7 +238,7 @@ description: "Следуя данной инструкции, вы сможет�
         ```
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

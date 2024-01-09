@@ -6,9 +6,9 @@
 
 В этом разделе приведена инструкция для изменения количества и производительности ядер процессора (vCPU), а также количества памяти (RAM).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы изменить vCPU и RAM ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
@@ -26,7 +26,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}** в правом верхнем углу.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -75,7 +75,7 @@
      yc compute instance start first-instance
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить vCPU и RAM ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
@@ -91,9 +91,9 @@
 
 Чтобы добавить [GPU](../../concepts/gpus.md) к существующей ВМ, измените платформу и укажите количество GPU.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы изменить количество GPU на ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
@@ -111,7 +111,7 @@
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -164,7 +164,7 @@
      yc compute instance start first-instance
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить платформу и конфигурацию ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
@@ -172,9 +172,9 @@
 
 ## Изменить количество GPU {#update-gpu}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы изменить количество [GPU](../../concepts/gpus.md) на существующей ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
@@ -188,7 +188,7 @@
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -236,7 +236,7 @@
      yc compute instance start first-instance
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить количество GPU, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
@@ -250,9 +250,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы включить [программно-ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.

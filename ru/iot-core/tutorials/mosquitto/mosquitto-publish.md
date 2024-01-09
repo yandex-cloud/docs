@@ -38,9 +38,9 @@ description: "Следуя данному руководству, вы смож�
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
  
-- Mosquitto
+- Mosquitto {#mosquitto}
 
     - Отправьте данные в топик устройства:
 
@@ -116,9 +116,9 @@ description: "Следуя данному руководству, вы смож�
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
     - Отправьте команду одному устройству:
 

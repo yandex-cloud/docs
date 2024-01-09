@@ -2,16 +2,16 @@
 
 Если у вас еще нет сервисного аккаунта, [создайте его](create.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Выберите сервисный аккаунт и нажмите на строку с его именем.
   1. На странице **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** отобразится **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** сервисного аккаунта — строка вида `aje9sb6ffd2u********`.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -47,7 +47,7 @@
   +----------------------+------------------+-------------------------------+
   ```
 
-- API
+- API {#api}
 
   1. [Узнайте идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором был создан сервисный аккаунт.
   1. Получите информацию о сервисных аккаунтах в каталоге с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md):

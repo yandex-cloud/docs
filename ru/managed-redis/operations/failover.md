@@ -6,9 +6,9 @@
 
 [Шардированный кластер](../concepts/sharding.md) содержит три и более хоста-мастера — по одному на каждый [шард](../concepts/sharding.md#redis-cluster-structure). Переключение мастера для шардированного кластера осуществляется поочередно для каждого шарда.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     Чтобы переключить мастер в нешардированном кластере:
 
@@ -26,7 +26,7 @@
     1. В строке хоста с ролью `MASTER` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_label-title }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md), имя мастера для нужного вам шарда — со [списком хостов в кластере](hosts.md#list).
 
-- API
+- API {#api}
 
     Чтобы переключить мастер, воспользуйтесь методом REST API [startFailover](../api-ref/Cluster/startFailover.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) и передайте в запросе:
 

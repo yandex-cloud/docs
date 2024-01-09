@@ -13,9 +13,9 @@ description: "Чтобы удалить целевую группу, в конс
 
 Чтобы удалить целевую группу:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -26,7 +26,7 @@ description: "Чтобы удалить целевую группу, в конс
      Чтобы выполнить это действие с несколькими группами, выделите нужные в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@ description: "Чтобы удалить целевую группу, в конс
       yc alb target-group list
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -91,7 +91,7 @@ description: "Чтобы удалить целевую группу, в конс
      yc alb target-group list
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [delete](../api-ref/TargetGroup/delete.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete).
 

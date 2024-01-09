@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
 
@@ -10,7 +10,7 @@
 
     1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud_org.entity.group.action_create }}** и введите название и описание группы.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

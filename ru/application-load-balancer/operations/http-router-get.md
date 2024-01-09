@@ -6,11 +6,11 @@ title: "Как получить информацию об HTTP-роутере в
 
 Вы можете посмотреть идентификатор роутера, его хосты, а также маршруты в хостах.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 Чтобы получить информацию об HTTP-роутере:
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

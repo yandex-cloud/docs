@@ -46,8 +46,8 @@ You cannot restore a network after it is deleted.
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
-      | enpiuvhhd4t80k4n80i8 | test-network-1 |
-      | enplom7a98s1t0lhass8 | default        |
+      | enpiuvhhd4t8******** | test-network-1 |
+      | enplom7a98s1******** | default        |
       +----------------------+----------------+
       ```
 

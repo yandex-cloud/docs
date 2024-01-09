@@ -8,9 +8,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -21,7 +21,7 @@
        * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
    1. Нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -54,7 +54,7 @@
 
       Статический публичный IP-адрес зарезервирован.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -94,7 +94,7 @@
      yc vpc address list
      ```
 
-- API
+- API {#api}
 
   Чтобы зарезервировать статический публичный IP-адрес, воспользуйтесь методом REST API [create](../api-ref/Address/create.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Create](../api-ref/grpc/address_service.md#Create) и передайте в запросе:
 

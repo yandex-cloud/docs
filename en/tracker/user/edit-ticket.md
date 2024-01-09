@@ -26,7 +26,7 @@ You can also [attach images or files](attach-file.md) to issue descriptions.
 
 The [issue details](create-param.md##default-fields) are shown in the panel on the right. To edit the parameter's value, click its name and select a new value.
 
-If you do not see the desired parameters in the right-hand panel, add them by clicking **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}**.
+If you do not see the desired parameters in the right-hand panel, add them by clicking **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 To edit the parameters of multiple issues at once, use [bulk operations](../manager/bulk-change.md#change-parameters).
 

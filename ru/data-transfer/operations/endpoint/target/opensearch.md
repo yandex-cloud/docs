@@ -23,9 +23,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed OpenSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-opensearch.md) %}
 
@@ -36,9 +36,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к узлам с явным указанием сетевых адресов и портов.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise OpenSearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-opensearch.md) %}
 
@@ -46,9 +46,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Дополнительные настройки {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.cleanup_policy.title }}** — выберите способ очистки данных в приемнике перед переносом:
 

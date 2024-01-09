@@ -33,9 +33,9 @@ description: "Атомарные полномочия в PostgreSQL называ
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
@@ -43,7 +43,7 @@ description: "Атомарные полномочия в PostgreSQL называ
   1. Разверните список **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** и в поле **Grants** выберите роли, которые хотите назначить пользователю.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -61,7 +61,7 @@ description: "Атомарные полномочия в PostgreSQL называ
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md), имя пользователя — со [списком пользователей](cluster-users.md#list-users).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы назначить роли пользователю кластера:
   
@@ -91,7 +91,7 @@ description: "Атомарные полномочия в PostgreSQL называ
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
     Чтобы указать новый список необходимых ролей для пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
 
@@ -109,14 +109,14 @@ description: "Атомарные полномочия в PostgreSQL называ
 
 ## Выдать привилегию пользователю {#grant-privilege}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - SQL
 
     1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
     1. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-grant.html).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     Выдать привилегию пользователю через {{ TF }} можно только в кластере с хостами в публичном доступе.
 
@@ -205,14 +205,14 @@ description: "Атомарные полномочия в PostgreSQL называ
 
 ## Отозвать привилегию у пользователя {#revoke-privilege}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - SQL
 
     1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
     1. Выполните команду `REVOKE`. Подробное описание синтаксиса команды смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-revoke.html).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     Если вы ранее выдали привилегию с использованием {{ TF }}:
 

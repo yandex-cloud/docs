@@ -13,9 +13,9 @@ description: "Из статьи вы узнаете, как остановить
 
 Чтобы остановить L7-балансировщик:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -23,7 +23,7 @@ description: "Из статьи вы узнаете, как остановить
   
      Чтобы выполнить это действие с несколькими балансировщиками, выделите нужные в списке, в нижней части экрана нажмите кнопку **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -100,7 +100,7 @@ description: "Из статьи вы узнаете, как остановить
 
      Подробнее о команде `application-load-balancer load-balancer stop` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/stop.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [stop](../api-ref/LoadBalancer/stop.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Stop](../api-ref/grpc/load_balancer_service.md#Stop).
 
@@ -112,9 +112,9 @@ description: "Из статьи вы узнаете, как остановить
 
 Чтобы запустить балансировщик:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -122,7 +122,7 @@ description: "Из статьи вы узнаете, как остановить
 
      Чтобы выполнить это действие с несколькими балансировщиками, выделите нужные в списке, в нижней части экрана нажмите кнопку **{{ ui-key.yacloud.common.start }}**, в открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -199,7 +199,7 @@ description: "Из статьи вы узнаете, как остановить
 
      Подробнее о команде `application-load-balancer load-balancer start` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/start.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [start](../api-ref/LoadBalancer/start.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancer/Start](../api-ref/grpc/load_balancer_service.md#Start).
 

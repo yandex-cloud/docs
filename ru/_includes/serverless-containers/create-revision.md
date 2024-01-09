@@ -1,9 +1,9 @@
 
 {% include [revision-service-account-note](./revision-service-account-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
 	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -12,7 +12,7 @@
 	1. Укажите параметры ревизии.
 	1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
-- CLI
+- CLI {#cli}
 
 	Чтобы создать ревизию контейнера, выполните команду:
 
@@ -59,7 +59,7 @@
 	status: ACTIVE
 	```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -119,7 +119,7 @@
      yc serverless container revision list
      ```
 
-- API
+- API {#api}
 
   Чтобы создать ревизию контейнера, воспользуйтесь методом REST API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../../serverless-containers/containers/api-ref/grpc/container_service.md#DeployRevision).
 

@@ -19,9 +19,9 @@ description: "Из статьи вы узнаете, как задать нас�
 {% endnote %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name.md) %}
 

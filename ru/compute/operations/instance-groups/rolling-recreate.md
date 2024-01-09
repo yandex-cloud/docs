@@ -8,9 +8,9 @@
 
 Чтобы поочередно пересоздать ВМ в группе:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -123,7 +123,7 @@
 
   Подробную информацию о параметрах команды `{{ yc-compute-ig }} rolling-recreate` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/rolling-recreate.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [rollingRecreate](../../api-ref/InstanceGroup/rollingRecreate.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/RollingRecreate](../../api-ref/grpc/instance_group_service.md#RollingRecreate).
 

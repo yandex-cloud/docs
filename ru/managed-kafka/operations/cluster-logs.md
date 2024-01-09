@@ -12,9 +12,9 @@
 
 ## Получить лог кластера {#get-log}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -22,7 +22,7 @@
     1. Выберите **{{ ui-key.yacloud.kafka.label_filter_origin }}**, **{{ ui-key.yacloud.mdb.cluster.logs.label_hosts }}** и **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}**.
     1. Укажите период времени, за который нужно отобразить лог.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -60,7 +60,7 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -74,9 +74,9 @@
 
 Этот способ позволяет получать логи кластера в реальном времени.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -90,7 +90,7 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 

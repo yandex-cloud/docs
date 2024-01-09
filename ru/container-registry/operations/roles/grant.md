@@ -2,9 +2,9 @@
 
 Чтобы предоставить доступ к [ресурсу](../../../iam/concepts/access-control/resources-with-access-control.md), назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или на ресурс, от которого наследуются права доступа, например, на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Подробнее читайте в разделе [{#T}](../../../iam/concepts/access-control/index.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно назначить роль на ресурс.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -21,7 +21,7 @@
        1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.column_permissions }}** отметьте нужные роли.
        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@
 
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
   1. Опишите в конфигурационном файле:
@@ -155,7 +155,7 @@
        yc container repository list-access-bindings <имя_или_идентификатор_репозитория>
        ```
 
-- API
+- API {#api}
 
   Чтобы назначить роль пользователю, сервисному аккаунту или группе для доступа к ресурсу, воспользуйтесь методом `updateAccessBindings` для ресурсов `registry` и `repository`.
 

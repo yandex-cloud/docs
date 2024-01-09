@@ -14,9 +14,9 @@
 1. Проверьте работу федерации, войдя от имени одного из федеративных пользователей.
 1. Назначьте роль `organization-manager.organizations.owner` федеративному пользователю:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
         ``` yc
         yc organization-manager organization add-access-binding \
@@ -33,9 +33,9 @@
 
     Если вы используете уже существующий сервисный аккаунт, убедитесь, что у него отсутствуют [статические](../../iam/concepts/authorization/access-key.md) и [API-ключи](../../iam/concepts/authorization/api-key.md).
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
         ``` yc
         yc iam api-key list --service-account-id=<идентификатор_сервисного_аккаунта> 
@@ -48,9 +48,9 @@
 
     Офицер безопасности имеет возможность повысить себе роль вплоть до `organization-manager.organizations.owner` за счет того, что он контролирует сервисный аккаунт, которому назначена такая роль. Убедитесь, что в административный доступ к облаку `security` и сервисному аккаунту есть только у офицеров безопасности, для этого выполните команду:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
         ``` yc
         yc iam service-account list-access-bindings --id <идентификатор_сервисного_аккаунта>
@@ -64,9 +64,9 @@
 
 1. Назначьте сервисному аккаунту роль `organization-manager.organizations.owner`:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
         ``` yc
         yc organization-manager organization add-access-binding \
@@ -81,9 +81,9 @@
 1. Сохраните файл ключа в доверенном хранилище.
 1. Удалите роль `organization-manager.organizations.owner` у паспортного аккаунта через консоль или интерфейс командной строки:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
         ``` yc
         yc organization-manager organization remove-access-binding \

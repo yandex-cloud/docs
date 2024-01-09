@@ -24,9 +24,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
@@ -38,9 +38,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с явным указанием сетевых адресов и портов.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise Greenplum UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-greenplum.md) %}
 
@@ -48,9 +48,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Дополнительные настройки {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка.
 

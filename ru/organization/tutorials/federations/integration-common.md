@@ -26,9 +26,9 @@
 
 Чтобы создать федерацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -68,7 +68,7 @@
 
    Атрибуты пользователей, которые поддерживают сервисы {{ org-full-name }}, перечислены в разделе [{#T}](#claims-mapping).
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -111,7 +111,7 @@
 
         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-- API
+- API {#api}
 
   1. Создайте файл с телом запроса, например `body.json`:
 
@@ -150,7 +150,7 @@
 
   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -224,9 +224,9 @@
 
 Чтобы добавить сертификат в федерацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Получите сертификат вашего поставщика удостоверений.
 
@@ -251,7 +251,7 @@
       * Чтобы вставить скопированное содержимое сертификата, выберите способ **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** и вставьте содержимое.
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -271,7 +271,7 @@
         --certificate-file test.pem
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить сертификат, воспользуйтесь методом [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/index.md):
 
@@ -487,9 +487,9 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
 
 Чтобы добавить пользователей федерации в организацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
 
@@ -505,7 +505,7 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**. Пользователи будут подключены к организации.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -524,7 +524,7 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить пользователей федерации в облако:
 

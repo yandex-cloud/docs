@@ -7,9 +7,9 @@ description: "Из статьи вы узнаете, как создать ин�
 
 ## Как создать инстанс {{ GL }} {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [instance-create-console](../../../_includes/managed-gitlab/instance-create-console.md) %}
 

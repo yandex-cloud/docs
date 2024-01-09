@@ -4,9 +4,9 @@
 
 Для доступа к выводимым данным необходима роль [роль](../../security/index.md) `сompute.operator` или `{{ roles-viewer }}`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Выберите каталог, которому принадлежит виртуальная машина.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -14,7 +14,7 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_service-console }}**.
   1. Чтобы воспользоваться поиском с помощью сочетания клавиш **Ctrl** + **F**, включите переключатель **{{ ui-key.yacloud.compute.instance.service-console.raw-mode }}** в правом верхнем углу.
 
-- CLI
+- CLI {#cli}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -34,7 +34,7 @@
       yc compute instance get-serial-port-output first-instance > output.txt
       ```
 
-- API
+- API {#api}
 
   Чтобы получить вывод последовательного порта, воспользуйтесь методом REST API [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/GetSerialPortOutput](../../api-ref/grpc/instance_service.md#GetSerialPortOutput).
 

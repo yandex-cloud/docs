@@ -38,7 +38,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       |          ID          |         NAME          |         ...          |
       +----------------------+-----------------------+----------------------+
       ...
-      | e2l2prrbkbimvjuuhht2 |     test-subnet-1     |         ...          |
+      | e2l2prrbkbim******** |     test-subnet-1     |         ...          |
       ...
       +----------------------+-----------------------+----------------------+
       ```
@@ -47,7 +47,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
    1. Change the subnet parameters, for example:
 
       ```
-      yc vpc subnet update e2l2prrbkbimvjuuhht2 \
+      yc vpc subnet update e2l2prrbkbim******** \
         --new-name test-subnet-renamed \
         --labels new_label=test_label
       ```
@@ -55,14 +55,14 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       Result:
 
       ```
-      id: e2l2prrbkbimvjuuhht2
-      folder_id: b1g6ci08ma55klukmdjs
+      id: e2l2prrbkbim********
+      folder_id: b1g6ci08ma55********
       created_at: "2018-10-24T13:54:10Z"
       name: test-subnet-renamed
       description: My test subnet
       labels:
         new_label: test_label
-      network_id: enplom7a98s1t0lhass8
+      network_id: enplom7a98s1********
       zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 192.168.0.0/24
@@ -121,7 +121,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       You can check the subnet update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc vpc subnet get <subnet name>
+      yc vpc subnet get <subnet_name>
       ```
 
 - API
@@ -167,24 +167,24 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
    Result:
 
    ```
-   id: e2l2prrbkbimvjuuhht2
-   folder_id: b1g6ci08ma55klukmdjs
+   id: e2l2prrbkbim********
+   folder_id: b1g6ci08ma55********
    created_at: "2018-10-24T13:54:10Z"
    name: test-subnet-renamed
    description: My test subnet
    labels:
      new_label: test_label
-   network_id: enplom7a98s1t0lhass8
+   network_id: enplom7a98s1********
    zone_id: {{ region-id }}-a
    v4_cidr_blocks:
    - 192.168.0.0/24
    ```
 
-   You can pass the subnet ID and name as positional arguments, or you can use the `--id` and `--name` flags:
+   You can provide the subnet ID and name not only as positional arguments but also using the `--id` and `--name` flags:
 
    ```
    yc vpc network update \
-     --id enpavfmgapumnl7cqin8 \
+     --id enpavfmgapum******** \
      --new-name test-network-renamed \
      --labels new_label=test_label
    ```

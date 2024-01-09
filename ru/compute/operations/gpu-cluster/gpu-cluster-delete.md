@@ -2,9 +2,9 @@
 
 Перед удалением кластера удалите из него все ВМ.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -29,7 +29,7 @@
      yc compute gpu-cluster delete first-gpu-cluster
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

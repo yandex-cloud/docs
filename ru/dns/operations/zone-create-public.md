@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать публичную [зону DNS](../concepts/dns-zone.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать зону DNS.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -20,7 +20,7 @@ description: "Следуя данной инструкции, вы сможет�
      1. **{{ ui-key.yacloud.common.name }}** зоны.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -51,7 +51,7 @@ description: "Следуя данной инструкции, вы сможет�
      public_visibility: {}
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -129,7 +129,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc dns zone get <имя_зоны>
      ```
 
-- API
+- API {#api}
 
   Чтобы создать публичную зону DNS, воспользуйтесь методом REST API [create](../api-ref/DnsZone/create.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Create](../api-ref/grpc/dns_zone_service.md#Create).
 

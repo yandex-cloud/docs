@@ -25,9 +25,9 @@ keywords:
 ### Получить список резервных копий {#list-backups}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
@@ -37,7 +37,7 @@ keywords:
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -60,7 +60,7 @@ keywords:
     +----------------------+----------------------+----------------------+----------------------+
     ```
 
-- API
+- API {#api}
 
     Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -74,9 +74,9 @@ keywords:
 ### Получить информацию о резервной копии {#get-backup}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
@@ -86,7 +86,7 @@ keywords:
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -100,7 +100,7 @@ keywords:
 
     Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API
+- API {#api}
 
     Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
@@ -112,9 +112,9 @@ keywords:
 ### Создать резервную копию {#create-backup}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
@@ -122,7 +122,7 @@ keywords:
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -144,7 +144,7 @@ keywords:
 
         Идентификатор и имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -162,9 +162,9 @@ keywords:
 
 Для нового кластера необходимо задать все параметры, обязательные при его создании.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы восстановить из резервной копии существующий кластер:
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
@@ -183,7 +183,7 @@ keywords:
 
   {{ mes-name }} запустит операцию создания кластера из резервной копии.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -280,7 +280,7 @@ keywords:
             {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
 
 
-- API
+- API {#api}
 
     Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
 

@@ -2,9 +2,9 @@
 
 Образ {{ coi }} в реестре [{{ container-registry-name }}](../../container-registry/) может обновляться и меняться в соответствии с релизами. При этом образ на [виртуальной машине](../../compute/concepts/vm.md) не обновится автоматически до последней версии. Чтобы создать [группу ВМ](../../compute/concepts/instance-groups/index.md) с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
@@ -18,7 +18,7 @@
   ...
   ```
 
-- {{ marketplace-full-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
   1. Перейдите на страницу {{ marketplace-name }} и выберите образ с нужной конфигурацией:
      * [{{ coi }}](/marketplace/products/yc/container-optimized-image).

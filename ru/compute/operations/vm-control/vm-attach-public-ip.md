@@ -2,9 +2,9 @@
 
 Если вы создали виртуальную машину без публичного IP-адреса, вы можете привязать к ней адрес, [зарезервированный вами](../../../vpc/operations/get-static-ip.md) в {{ vpc-name }} или выбранный {{ compute-name }} автоматически из свободных адресов.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -16,7 +16,7 @@
      * Если в поле **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** вы выбрали `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}`, выберите адрес, который хотите привязать к ВМ.
      * Нажмите кнопку **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -87,7 +87,7 @@
 
     Подробнее о команде `yc compute instance add-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/add-one-to-one-nat.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 

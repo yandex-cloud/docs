@@ -7,16 +7,16 @@ description: "Из статьи вы узнаете, как деактивиро
 
 ## Деактивировать секрет {#secret-deactivate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Напротив нужного секрета нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.lockbox.button_deactivate-secret }}**.
     1. Подтвердите деактивацию.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "Из статьи вы узнаете, как деактивиро
           - secret-key
       ```
 
-- API
+- API {#api}
 
   Чтобы деактивировать секрет, воспользуйтесь методом REST API [deactivate](../api-ref/Secret/deactivate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Deactivate](../api-ref/grpc/secret_service.md#Deactivate).
 
@@ -57,15 +57,15 @@ description: "Из статьи вы узнаете, как деактивиро
 
 ## Активировать секрет {#secret-activate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Напротив нужного секрета нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.lockbox.button_activate-secret }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -98,7 +98,7 @@ description: "Из статьи вы узнаете, как деактивиро
           - secret-key
       ```
 
-- API
+- API {#api}
 
   Чтобы активировать секрет, воспользуйтесь методом REST API [activate](../api-ref/Secret/activate.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Activate](../api-ref/grpc/secret_service.md#Activate).
 

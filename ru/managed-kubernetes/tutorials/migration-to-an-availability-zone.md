@@ -30,9 +30,9 @@
 
 1. Проверьте, используются ли стратегии `nodeSelector`, `affinity` или `topology spread constraints` для привязки подов к узлам группы. Подробнее о стратегиях см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) и разделе [{#T}](../concepts/usage-recommendations.md#high-availability). Чтобы проверить привязку пода к узлам и убрать ее:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером {{ managed-k8s-name }}.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.

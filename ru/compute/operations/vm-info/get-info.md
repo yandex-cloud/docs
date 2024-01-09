@@ -6,9 +6,9 @@
 
 ## Получить информацию снаружи ВМ {#outside-instance}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   В сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**, на странице **{{ ui-key.yacloud.compute.instances.label_title }}**, приводится список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) с краткой информацией о них.
 
@@ -27,7 +27,7 @@
   * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../operations/serial-console/index.md), если при [создании](../../operations/index.md#vm-create) ВМ вы разрешили к ней доступ.
   * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** приводится информация, которую ВМ выводит в последовательный порт. Чтобы получить эту информацию через API или CLI, воспользуйтесь инструкцией [{#T}](get-serial-port-output.md).
 
-- CLI
+- CLI {#cli}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -53,7 +53,7 @@
      yc compute instance get --full first-instance
      ```
 
-- API
+- API {#api}
 
   Чтобы получить основную информацию о ВМ, воспользуйтесь методом REST API [get](../../api-ref/Instance/get.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Get](../../api-ref/grpc/instance_service.md#Get).
 
@@ -198,9 +198,9 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 
 Чтобы настроить параметры сервиса метаданных ВМ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -226,11 +226,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
        --metadata-options gce-http-endpoint=enabled
      ```
 
-- API
-
-  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -272,6 +268,10 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
      ```bash
      yc compute instance get <имя_ВМ>
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
 {% endlist %}
 

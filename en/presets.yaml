@@ -3039,15 +3039,6 @@ default:
         button-submit-text: Apply
       ui_components_BulkSuggestPopup:
         apply: Apply
-      ui_components_Checklist:
-        button-cancel: Cancel
-        button-submit: Save
-        header-title: Checklist
-        new-item-button-caption: Add item
-        remove-item-title: Delete item
-        remove-title: Delete checklist
-      ui_components_CommentEditor:
-        write-comment: Write a comment
       ui_components_Confirm:
         ok-button-text: 'Yes'
       ui_components_CreateIssueForm:
@@ -3073,6 +3064,20 @@ default:
         show-all: Show All
       ui_components_dashboard:
         summary-field-name: Summary
+      ui_components_entity-page_checklist_ChecklistActionsMenu:
+        remove-title: Delete checklist
+      ui_components_entity-page_checklist_ChecklistItem:
+        button-cancel: Cancel
+        button-submit: Save
+        remove-item-title: Delete item
+      ui_components_entity-page_checklist_Footer:
+        new-item-button-caption: Add item
+      ui_components_entity-page_checklist_Header:
+        header-title: Checklist
+      ui_components_entity-page_comments_CommentEditor_mobile:
+        write-comment: Write a comment
+      ui_components_entity-page_sidebar_SidebarFieldsSelect:
+        add-sidebar-field: Edit parameters list
       ui_components_FieldEdit:
         form-submit: Save
       ui_components_filter-field:
@@ -3159,8 +3164,6 @@ default:
         add-parameters: Add parameters
       ui_components_IssuesGroupHeader:
         no-epic: No epic
-      ui_components_IssueSidebar:
-        add-sidebar-field: Edit parameters list
       ui_components_IssuesPresetSelect:
         preset_assignee: Assigned to me
         preset_author: Created by me
@@ -3284,7 +3287,6 @@ default:
       ui_components_PageAgileBoardSettings_Header:
         settings: Settings
       ui_components_PageCreateIssue:
-        add-parameter: Edit parameters list
         change-template: Edit form
         change-title-and-description: Change title and description
         create-new: Create form

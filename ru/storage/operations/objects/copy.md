@@ -17,9 +17,9 @@ description: "Из статьи вы узнаете, как скопироват
 
 ## Копирование одного объекта {#copy-single-object}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -46,9 +46,9 @@ description: "Из статьи вы узнаете, как скопироват
 
 ## Копирование всех объектов бакета в другой бакет {#copy-from-bucket-to-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -80,9 +80,9 @@ description: "Из статьи вы узнаете, как скопироват
 
 Чтобы скопировать объекты в бакет другой [организации](../../../overview/roles-and-resources.md), [создайте](../../../iam/operations/sa/create.md) два сервисных аккаунта: один с ролью [`storage.viewer`](../../security/index.md#storage-viewer) на бакет-источник, а второй — с ролью [`storage.editor`](../../security/index.md#storage-editor) на бакет-приемник.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md) для каждой из организаций.
   1. Задайте [список управления доступом](../../concepts/acl.md) бакета-приемника с полным доступом для сервисного аккаунта исходного бакета:

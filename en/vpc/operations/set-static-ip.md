@@ -42,23 +42,23 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
       +----------------------+------+---------------+----------+------+
       |          ID          | NAME |    ADDRESS    | RESERVED | USED |
       +----------------------+------+---------------+----------+------+
-      | e2l46k8conff8n6ru1jl |      | 84.201.177.41 | false    | true |
+      | e2l46k8conff******** |      | 84.201.177.41 | false    | true |
       +----------------------+------+---------------+----------+------+
       ```
 
-      The `false` value of the RESERVED parameter of the IP address with the `e2l46k8conff8n6ru1jl` ID shows that this address is dynamic.
+      The `false` value of the RESERVED parameter of the IP address with the `e2l46k8conff********` ID shows that this address is dynamic.
 
    1. Make the address static by using the `--reserved=true` key and address ID:
 
       ```bash
-      yc vpc address update --reserved=true e2l46k8conff8n6ru1jl
+      yc vpc address update --reserved=true e2l46k8conff********
       ```
 
       Result:
 
       ```bash
-      id: e2l46k8conff8n6ru1jl
-      folder_id: b1g7gvsi89m34pipa3ke
+      id: e2l46k8conff********
+      folder_id: b1g7gvsi89m3********
       created_at: "2021-01-14T09:36:46Z"
       external_ipv4_address:
         address: 84.201.177.41

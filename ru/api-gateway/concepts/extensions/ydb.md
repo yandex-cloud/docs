@@ -24,7 +24,7 @@
 ----|----|-----|----|----
 `action` | `string` | Да | Нет | Выполняемая операция. Возможные значения: `PutItem`, `GetItem`, `UpdateItem`, `DeleteItem`, `Scan`.
 `database` | `string` | Да | Нет | Относительный путь к базе данных.
-`service_account_id` | `string` | Да | Нет | Идентификатор сервисного аккаунта. Используется для авторизации при выполнении операции с базой данных. Если параметр не указан, используется значение [верхнеуровнего параметра](./index.md#top-level) `service_account_id`.
+`service_account_id` | `string` | Да | Нет | Идентификатор сервисного аккаунта. Используется для авторизации при выполнении операции с базой данных. Если параметр не указан, используется значение [верхнеуровневого параметра](./index.md#top-level) `service_account_id`.
 `table_name` | `string` | Да | Да | Название таблицы, с которой выполняется операция.
 `key` | `string` | Нет | Да | Первичный ключ элемента, с которым выполняется операция. Набор атрибутов и их значений в формате JSON. Необходимо указать все ключевые атрибуты. Значения атрибутов автоматически преобразовываются в объекты типа [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html). Используется в операциях [GetItem](../../../ydb/docapi/api-ref/actions/getItem.md), [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md) и [DeleteItem](../../../ydb/docapi/api-ref/actions/deleteItem.md).
 `update_expression` | `string` |  Нет | Да | Выражение, которое определяет, как и какие атрибуты нужно обновить. Используется в операции [UpdateItem](../../../ydb/docapi/api-ref/actions/updateItem.md).

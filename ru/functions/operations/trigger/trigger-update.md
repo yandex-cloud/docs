@@ -8,9 +8,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -19,7 +19,7 @@
     1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.
     1. Измените параметры триггера и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -73,7 +73,7 @@
 
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -110,7 +110,7 @@
     yc serverless trigger get <идентификатор_триггера>
     ```
 
-- API
+- API {#api}
 
   Чтобы изменить параметры триггера, воспользуйтесь методом REST API [update](../../triggers/api-ref/Trigger/update.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Update](../../triggers/api-ref/grpc/trigger_service.md#Update).
 

@@ -31,9 +31,9 @@
 
 ## Обновить кластер {#start-update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Выберите нужный кластер в списке и нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -44,7 +44,7 @@
 
    Время обновления зависит от многих факторов, например от объема данных или количества баз данных в кластере. Обновление обычно занимает несколько минут, для больших БД — от 10 минут.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -73,7 +73,7 @@
 
    Время обновления зависит от многих факторов, например от объема данных или количества баз данных в кластере. Обновление обычно занимает несколько минут, для больших БД — от 10 минут.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -101,7 +101,7 @@
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
    Чтобы обновить кластер до определенной версии {{ MY }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
@@ -119,9 +119,9 @@
 
 Допустим, нужно обновить кластер с версии 5.7 до версии 8.0.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Чтобы получить список кластеров и узнать их идентификаторы и имена, выполните команду:
 
@@ -161,7 +161,7 @@
       {{ yc-mdb-my }} cluster update mysql406 --mysql-version 8.0
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
    1. В поле `version` в ресурсе `yandex_mdb_mysql_cluster` укажите значение `8.0`:

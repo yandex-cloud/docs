@@ -22,9 +22,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-kafka.md) %}
 
@@ -34,9 +34,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к кластеру {{ KF }} с явным указанием сетевых адресов и портов хостов-брокеров.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-kafka.md) %}
 
@@ -48,9 +48,9 @@ description: "Из статьи вы узнаете, как задать нас�
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**:

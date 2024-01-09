@@ -9,9 +9,9 @@ description: "Из статьи вы узнаете, как остановить
 
 Чтобы остановить автоматическое создание [снимков дисков](../../concepts/snapshot.md) по [расписанию](../../concepts/snapshot-schedule.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -20,7 +20,7 @@ description: "Из статьи вы узнаете, как остановить
   1. Напротив расписания, которое нужно остановить, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
   1. Подтвердите остановку расписания.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -94,7 +94,7 @@ description: "Из статьи вы узнаете, как остановить
       snapshot_spec: {}
       ```
 
-- API
+- API {#api}
 
   1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
   1. Остановите расписание снимков с помощью метода REST API [disable](../../api-ref/SnapshotSchedule/disable.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Disable](../../api-ref/grpc/snapshot_schedule_service.md#Disable).
@@ -109,9 +109,9 @@ description: "Из статьи вы узнаете, как остановить
 
 Чтобы запустить автоматическое создание снимков дисков по расписанию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -119,7 +119,7 @@ description: "Из статьи вы узнаете, как остановить
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
   1. Напротив расписания, которое нужно запустить, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -193,7 +193,7 @@ description: "Из статьи вы узнаете, как остановить
       snapshot_spec: {}
       ```
 
-- API
+- API {#api}
 
   1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
   1. Запустите расписание снимков с помощью метода REST API [enable](../../api-ref/SnapshotSchedule/enable.md) для ресурса `SnapshotSchedule` или вызова gRPC API [SnapshotScheduleService/Enable](../../api-ref/grpc/snapshot_schedule_service.md#Enable).

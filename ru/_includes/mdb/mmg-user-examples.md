@@ -4,9 +4,9 @@
 
 Чтобы добавить в существующий кластер нового пользователя `user2` с доступом только на чтение к базе данных `db1`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
@@ -16,7 +16,7 @@
   1. Выберите роль `read` из выпадающего списка напротив базы данных `db1`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните следующую команду:
 
@@ -33,9 +33,9 @@
 
 Чтобы добавить существующему пользователю `user1` кластера `cluster1` доступ только на чтение к базе данных `db2`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя кластера `cluster1` и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
@@ -44,7 +44,7 @@
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) и выберите роль `read` из выпадающего списка напротив базы данных `db2`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните следующую команду:
 
@@ -55,7 +55,7 @@
     --role read
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 

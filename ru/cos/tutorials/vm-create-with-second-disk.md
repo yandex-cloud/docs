@@ -8,9 +8,9 @@
 
 ## Создайте ВМ на базе образа {{ coi }} и дополнительным томом для Docker-контейнера {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

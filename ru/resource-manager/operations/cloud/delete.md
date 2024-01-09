@@ -3,16 +3,16 @@
 
 Чтобы удалить облако, у вас должна быть роль `{{ roles-cloud-owner }}` на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако.
   1. В правом верхнем углу страницы нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Выберите срок удаления облака, после которого оно будет удалено. Выберите один из возможных периодов или `Удалить сейчас`. Срок удаления облака по умолчанию — 7 дней.
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -68,7 +68,7 @@
       yc resource-manager cloud list
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить облако, воспользуйтесь вызовом gRPC API [CloudService/Delete](../../api-ref/grpc/cloud_service.md#Delete).
 

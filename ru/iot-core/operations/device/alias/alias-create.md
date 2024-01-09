@@ -4,9 +4,9 @@
 
 {% include [monitoring-topic](../../../../_includes/iot-core/monitoring-topic.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы создать алиас:
 
@@ -21,7 +21,7 @@
       1. Повторите действия для каждого добавляемого алиаса.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
     
     {% include [cli-install](../../../../_includes/cli-install.md) %}
     
@@ -54,7 +54,7 @@
       --topic-aliases <имя_алиаса>='$devices/{id}/<events,_state,_commands_или_config>'
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
@@ -121,7 +121,7 @@
       yc iot device get <имя_устройства>
       ```
 
-- API
+- API {#api}
 
   Чтобы создать алиас, воспользуйтесь методом REST API [create](../../../api-ref/Device/create.md) для ресурса [Device](../../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Create](../../../api-ref/grpc/device_service.md#Create).
 

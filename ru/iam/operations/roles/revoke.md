@@ -5,9 +5,9 @@
 
 ## Отозвать роль {#revoke-one-role}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     В консоли управления можно отозвать роль только на облако или каталог.
 
@@ -26,7 +26,7 @@
         1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив имени пользователя.
         1. Если вы хотите отозвать все роли пользователя в облаке — нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** и подтвердите отзыв.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -46,36 +46,7 @@
         * `<тип_субъекта>` — тип [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
         * `<идентификатор_субъекта>` — идентификатор субъекта.
 
-- API
-
-    Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа:
-
-    1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
-    1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `ajei8n54hmfh********` роль `editor`:
-
-        **body.json:**
-        ```json
-        {
-            "accessBindingDeltas": [{
-                "action": "REMOVE",
-                "accessBinding": {
-                    "roleId": "editor",
-                    "subject": {
-                        "id": "ajei8n54hmfh********",
-                        "type": "userAccount"
-                        }
-                    }
-                }
-            ]
-        }
-        ```
-
-
-    1. Отзовите роль, удалив указанную привязку прав доступа:
-
-        {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -123,5 +94,34 @@
         ```
         yc resource-manager cloud list-access-bindings <имя_или_идентификатор_облака>
         ```
+
+- API {#api}
+
+    Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа:
+
+    1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
+    1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `ajei8n54hmfh********` роль `editor`:
+
+        **body.json:**
+        ```json
+        {
+            "accessBindingDeltas": [{
+                "action": "REMOVE",
+                "accessBinding": {
+                    "roleId": "editor",
+                    "subject": {
+                        "id": "ajei8n54hmfh********",
+                        "type": "userAccount"
+                        }
+                    }
+                }
+            ]
+        }
+        ```
+
+
+    1. Отзовите роль, удалив указанную привязку прав доступа:
+
+        {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
 {% endlist %}

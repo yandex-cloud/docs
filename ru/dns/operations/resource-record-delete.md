@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы удалить [ресурсную запись](../concepts/resource-record.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится зона DNS из которой требуется удалить запись.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -18,7 +18,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -41,7 +41,7 @@ description: "Следуя данной инструкции, вы сможет�
      --record "<доменное_имя> <TTL> <тип_записи> <значение>"
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -99,7 +99,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc dns zone list-records <имя_зоны>
      ```
 
-- API
+- API {#api}
 
   Чтобы удалить ресурсную запись, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
 

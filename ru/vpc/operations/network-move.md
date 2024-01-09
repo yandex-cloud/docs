@@ -2,9 +2,9 @@
 
 Облачные ресурсы можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы переместить [облачную сеть](../concepts/network.md) в другой каталог:
 
@@ -20,7 +20,7 @@
 
   {% endnote %}
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -90,7 +90,7 @@
 
      Подробнее о команде `yc vpc network move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/move.md).
 
-- API
+- API {#api}
 
   Чтобы переместить [облачную сеть](../concepts/network.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Network/move) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Move](../api-ref/grpc/network_service.md#Move) и передайте в запросе:
 
@@ -110,9 +110,9 @@
 
 Переместите облачную сеть из текущего каталога, указав имя сети и имя каталога назначения:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc vpc network move network-1 \
@@ -125,9 +125,9 @@
 
 Переместите облачную сеть, которая находится в другом каталоге. Укажите идентификатор сети, а также идентификаторы исходного и целевого каталога:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc vpc network move enc39op1vq9m******** \

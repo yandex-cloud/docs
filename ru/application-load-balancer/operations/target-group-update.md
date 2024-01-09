@@ -6,9 +6,9 @@
 
 Чтобы добавить ВМ в целевую группу:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -27,7 +27,7 @@
       1. Нажмите **{{ ui-key.yacloud.alb.button_add-target }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -85,7 +85,7 @@
       created_at: "2023-07-25T08:55:14.172526884Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -164,7 +164,7 @@
      yc alb target-group get --name <имя_целевой_группы>
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [addTargets](../api-ref/TargetGroup/addTargets.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../api-ref/grpc/target_group_service.md#AddTargets).
 
@@ -174,9 +174,9 @@
 
 Чтобы удалить ВМ из целевой группы:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана целевая группа.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -185,7 +185,7 @@
   1. Справа от нужной виртуальной машины нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -231,7 +231,7 @@
       created_at: "2023-06-10T13:14:55.239094324Z"
       ``` 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -272,7 +272,7 @@
      yc alb target-group get --name <имя_целевой_группы>
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [removeTargets](../api-ref/TargetGroup/removeTargets.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/RemoveTargets](../api-ref/grpc/target_group_service.md#RemoveTargets).
 

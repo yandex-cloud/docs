@@ -26,7 +26,7 @@
 
 [Параметры задачи](create-param.md##default-fields) отображаются на панели справа. Чтобы изменить значение параметра, нажмите на его название и выберите новое значение.
 
-Если вы не видите на панели справа нужных параметров, добавьте их с помощью кнопки **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}**.
+Если вы не видите на панели справа нужных параметров, добавьте их с помощью кнопки **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 Чтобы изменить параметры сразу нескольких задач, используйте [массовые операции](../manager/bulk-change.md#change-parameters).
 

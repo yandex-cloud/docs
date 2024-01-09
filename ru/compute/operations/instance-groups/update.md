@@ -15,9 +15,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы изменить имя и описание группы виртуальных машин:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -27,7 +27,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Заполните поля **{{ ui-key.yacloud.compute.groups.create.field_name }}** и **{{ ui-key.yacloud.compute.groups.create.field_description }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -53,7 +53,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
 
-- API
+- API {#api}
 
   Изменить имя и описание группы можно с помощью метода REST API [update](../../api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update).
 
@@ -72,9 +72,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы изменить вычислительные ресурсы группы виртуальных машин:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -87,7 +87,7 @@ description: "Следуя данной инструкции, вы сможет�
      * Нажмите **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}** на странице **{{ ui-key.yacloud.compute.group.edit.label_title }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -113,7 +113,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
 
-- API
+- API {#api}
 
   Изменить вычислительные ресурсы можно с помощью метода REST API [update](../../api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update).
 
@@ -127,9 +127,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы увеличить размер диска группы виртуальных машин:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -141,7 +141,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Нажмите **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}** на странице **{{ ui-key.yacloud.compute.group.edit.label_title }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -167,7 +167,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
 
-- API
+- API {#api}
 
   Изменить размер диска можно с помощью метода REST API [update](../../api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update).
 

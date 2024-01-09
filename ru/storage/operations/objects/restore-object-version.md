@@ -2,9 +2,9 @@
 
 Для восстановления версий объектов бакет должен быть [версионируемым](../../concepts/versioning.md). Восстановить можно только те версии, которые были загружены при включенном версионировании. Чтобы включить версионирование, воспользуйтесь [инструкцией](../buckets/versioning.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% note warning %}
 
@@ -20,7 +20,7 @@
   1. В списке объектов в строке с нужным объектом нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.file.button_version-history }}**.
   1. В списке версий в строке с нужной версией нажмите **{{ ui-key.yacloud.storage.file.action_file-restore }}**. Выбранная версия будет восстановлена и отображена как текущая.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Чтобы восстановить версию объекта с помощью [AWS CLI](../../tools/aws-cli.md):
 
@@ -128,7 +128,7 @@
 
      Подробнее о команде читайте в ее описании в [документации Amazon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html).
 
-- API
+- API {#api}
 
   Чтобы восстановить версию объекта:
 

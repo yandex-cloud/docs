@@ -7,9 +7,9 @@ description: "Для управления доступом к бакету {{ ob
 
 Для управления доступом к бакету {{ objstorage-name }}, помимо [{{ iam-short-name }}](../../../iam/), можно воспользоваться [ACL](../../concepts/acl.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -19,7 +19,7 @@ description: "Для управления доступом к бакету {{ ob
 
   1. В появившемся окне **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -98,7 +98,7 @@ description: "Для управления доступом к бакету {{ ob
        created_at: "2022-12-14T08:42:16.273717Z"
        ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -159,7 +159,7 @@ description: "Для управления доступом к бакету {{ ob
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Чтобы редактировать ACL бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [bucketPutAcl](../../s3/api-ref/acl/bucketput.md).
 

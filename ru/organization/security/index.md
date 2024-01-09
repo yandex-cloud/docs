@@ -51,9 +51,9 @@
 
 О том, какие роли доступны в {{ yandex-cloud }} и какие разрешения в них входят, читайте в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
   1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
 
@@ -71,7 +71,7 @@
   
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Выберите роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
 
@@ -98,50 +98,8 @@
           --role organization-manager.admin \
           --subject userAccount:aje6o61dvog2h6g9a33s
       ```
-- API
 
-  Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
-
-  1. Выберите роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
-
-  1. [Получите идентификатор пользователя](../operations/users-get.md).
-
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
-
-      Пример файла `body.json`:
-
-      ```json
-      {
-        "accessBindingDeltas": [{
-          "action": "ADD",
-          "accessBinding": {
-            "roleId": "organization-manager.admin",
-            "subject": {
-              "id": "gfei8n54hmfhuk5nogse",
-              "type": "userAccount"
-            }
-          }
-        }]
-      }
-      ```
-
-  1. Назначьте роль. Например, для организации с идентификатором `bpf3crucp1v28b74p3rk`:
-
-      ```bash
-      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-      ```
-
-     Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса в документации {{ iam-full-name }} и {{ resmgr-full-name }}:
-     * [{#T}](../../iam/operations/sa/set-access-bindings.md)
-     * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
-     * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -188,6 +146,49 @@
        ```
      После этого в указанной организации будут назначены роли.
 
+- API {#api}
+
+  Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
+
+  1. Выберите роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md).
+
+  1. [Получите идентификатор пользователя](../operations/users-get.md).
+
+  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+
+      Пример файла `body.json`:
+
+      ```json
+      {
+        "accessBindingDeltas": [{
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "organization-manager.admin",
+            "subject": {
+              "id": "gfei8n54hmfhuk5nogse",
+              "type": "userAccount"
+            }
+          }
+        }]
+      }
+      ```
+
+  1. Назначьте роль. Например, для организации с идентификатором `bpf3crucp1v28b74p3rk`:
+
+      ```bash
+      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      ```
+
+     Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса в документации {{ iam-full-name }} и {{ resmgr-full-name }}:
+     * [{#T}](../../iam/operations/sa/set-access-bindings.md)
+     * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
+     * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
+
 {% endlist %}
 
 Аналогичным образом можно [назначить роль](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) на организацию сервисному аккаунту.
@@ -198,9 +199,9 @@
 
 Отозвать роль может пользователь с ролью администратора `organization-manager.admin` или владельца `organization-manager.organizations.owner` организации. О том, как назначить пользователю роль, читайте в разделе [Роли](#admin).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
   1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
 
@@ -216,7 +217,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   Чтобы отозвать роль у субъекта, удалите соответствующую привязку прав доступа для соответствующего ресурса:
 
@@ -269,7 +270,8 @@
           --subject userAccount:aje6o61dvog2h6g9a33s
       ```
 
-- API
+
+- API {#api}
 
   Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа:
 

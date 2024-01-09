@@ -4,14 +4,14 @@
 
 ## Получить список хостов в кластере {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
   Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -60,9 +60,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы добавить хост в кластере:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -78,7 +78,7 @@
      * При необходимости настройте публичный доступ к хосту.
      * Если вы добавляете хост в шардированный кластер, выберите шард.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -138,7 +138,7 @@
        * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover). Доступен только для нешардированного кластера.
        * `shard-name` — имя шарда, в который следует добавить хост, если кластер шардированный.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы добавить хост в кластере:
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -173,7 +173,7 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы добавить хост, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
@@ -193,9 +193,9 @@
 
 {% include [mrd-public-access](../../_includes/mdb/mrd/note-public-access.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -204,7 +204,7 @@
   1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -223,7 +223,7 @@
 
   Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы изменить параметры хоста в кластере:
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -256,7 +256,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
-- API
+- API {#api}
 
   Чтобы изменить параметры хоста, воспользуйтесь методом REST API [updateHosts](../api-ref/Cluster/updateHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) и передайте в запросе:
   * Идентификатор кластера, в котором нужно изменить хост, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
@@ -283,9 +283,9 @@
 
 Если хост является мастером в момент удаления, {{ mrd-name }} автоматически назначит мастером другую реплику.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы удалить хост из кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -293,7 +293,7 @@
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -308,7 +308,7 @@
 
   Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы удалить хост из кластера:
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -327,7 +327,7 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).

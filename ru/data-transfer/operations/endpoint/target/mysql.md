@@ -22,19 +22,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-target.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `mysql-target`.
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-target.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `mysql_target`.
 
@@ -66,7 +66,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql-target.md) %}
 
@@ -76,19 +76,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Для случая OnPremise все поля заполняются вручную.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-target.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `mysql-target`.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-target.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `mysql_target`.
 
@@ -123,7 +123,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql-target.md) %}
 
@@ -137,9 +137,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.cleanup_policy.title }}** — выберите способ очистки данных в базе-приемнике перед переносом:
 
@@ -163,7 +163,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.service_database.title }}** — укажите имя схемы, в которой будут созданы служебные таблицы, необходимые для обеспечения работы трансфера.
 
-- CLI
+- CLI {#cli}
 
     * `--sql-mode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
 
@@ -173,7 +173,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * `--timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * `sql_mode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html). По умолчанию используется список `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`.
 
@@ -185,7 +185,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     * `sqlMode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
 
