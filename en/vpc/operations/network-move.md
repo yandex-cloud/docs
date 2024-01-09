@@ -44,9 +44,9 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+-----------+
       |          ID          |   NAME    |
       +----------------------+-----------+
-      | encb4ubvmief09h6qg5e | default   |
-      | enc39op1vq9m8tjr3udp | network-1 |
-      | enc772aa2rgqiqq67ehu | network-2 |
+      | encb4ubvmief******** | default   |
+      | enc39op1vq9m******** | network-1 |
+      | enc772aa2rgq******** | network-2 |
       +----------------------+-----------+
       ```
 
@@ -61,9 +61,9 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
       +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk10aurd2c3 | default                |        | ACTIVE |
-      | b1chgf288nvg541tgu73 | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh690at5bm7 | my-folder-2            |        | ACTIVE |
+      | b1cs8ie21pk1******** | default                |        | ACTIVE |
+      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
       +----------------------+------------------------+--------+--------+
       ```
 
@@ -79,13 +79,15 @@ You can move cloud resources between folders within a single [cloud](../../resou
       If the network is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
 
       Result:
+
       ```text
-      id: enc39op1vq9m8tjr3udp
-       folder_id: b1chgf288nvg541tgu73
+      id: enc39op1vq9m********
+       folder_id: b1chgf288nvg********
        created_at: "2022-10-06T14:54:48Z"
        name: network-1
-       default_security_group_id: enc2ta63h3q2jsri70ll
+       default_security_group_id: enc2ta63h3q2********
       ```
+
       For more information about the `yc vpc network move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/move.md).
 
 - API
@@ -128,9 +130,9 @@ Move a cloud network from a different folder. Specify the network ID and the sou
 - CLI
 
    ```bash
-   yc vpc network move enc39op1vq9m8tjr3udp \
-     --folder-id b1chgf288nvg541tgu73 \
-     --destination-folder-id b1cs8ie21pk10aurd2c3
+   yc vpc network move enc39op1vq9m******** \
+     --folder-id b1chgf288nvg******** \
+     --destination-folder-id b1cs8ie21pk1********
    ```
 
 {% endlist %}

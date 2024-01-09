@@ -4,9 +4,9 @@
 
 ## Назначить роль на сервисный аккаунт {#assign-role-to-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -19,7 +19,7 @@
     1. Выберите роль.
     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -90,7 +90,58 @@
           --subject userAccount:gfei8n54hmfh********
         ```
 
-- API
+- {{ TF }} {#tf}
+
+    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
+
+       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+       * `role` — назначаемая роль. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
+
+       Пример структуры конфигурационного файла:
+
+       ```
+       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
+         role               = "<роль>"
+         members            = [
+           "federatedUser:<идентификатор_пользователя>",
+         ]
+       }
+       ```
+
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+
+    1. Проверьте корректность конфигурационных файлов.
+
+       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+       1. Выполните проверку с помощью команды:
+
+          ```
+          terraform plan
+          ```
+
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Разверните облачные ресурсы.
+
+       1. Если в конфигурации нет ошибок, выполните команду:
+
+          ```
+          terraform apply
+          ```
+
+       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+       ```
+       yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+       ```
+
+- API {#api}
 
     Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/service_account_service.md#UpdateAccessBindings). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
 
@@ -155,57 +206,6 @@
          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
         ```
 
-- {{ TF }}
-
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
-
-    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
-
-       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
-       * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
-
-       Пример структуры конфигурационного файла:
-
-       ```
-       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-         service_account_id = "<идентификатор_сервисного_аккаунта>"
-         role               = "<роль>"
-         members            = [
-           "federatedUser:<идентификатор_пользователя>",
-         ]
-       }
-       ```
-
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
-
-    1. Проверьте корректность конфигурационных файлов.
-
-       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-       1. Выполните проверку с помощью команды:
-
-          ```
-          terraform plan
-          ```
-
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Разверните облачные ресурсы.
-
-       1. Если в конфигурации нет ошибок, выполните команду:
-
-          ```
-          terraform apply
-          ```
-
-       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
-
-       ```
-       yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
-       ```
-
 {% endlist %}
 
 ## Примеры {#examples}
@@ -217,9 +217,9 @@
 
 ### Назначить несколько ролей {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -245,60 +245,8 @@
           --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
-- API
 
-    Назначьте одному пользователю роль `editor`, а другому `viewer`:
-
-    ```bash
-    curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-токен>" \
-        -d '{
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "editor",
-                "subject": {
-                    "id": "gfei8n54hmfh********",
-                    "type": "userAccount"
-                }
-            }
-        },{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "viewer",
-                "subject": {
-                    "id": "helj89sfj80a********",
-                    "type": "userAccount"
-        }}}]}' \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
-    ```
-
-    Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings).
-
-    {% note alert %}
-
-    Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
-
-    {% endnote %}
-
-
-    ```bash
-    curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-токен>" \
-        -d '{
-        "accessBindings": [{
-            "roleId": "editor",
-            "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
-        },{
-            "roleId": "viewer",
-            "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
-        }]}' \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
-    ```
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -375,15 +323,69 @@
      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
      ```
 
+- API {#api}
+
+    Назначьте одному пользователю роль `editor`, а другому `viewer`:
+
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-токен>" \
+        -d '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfh********",
+                    "type": "userAccount"
+                }
+            }
+        },{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "viewer",
+                "subject": {
+                    "id": "helj89sfj80a********",
+                    "type": "userAccount"
+        }}}]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+    ```
+
+    Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings).
+
+    {% note alert %}
+
+    Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
+
+    {% endnote %}
+
+
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-токен>" \
+        -d '{
+        "accessBindings": [{
+            "roleId": "editor",
+            "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
+        },{
+            "roleId": "viewer",
+            "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
+        }]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
+    ```
+
+
 {% endlist %}
 
 ### Настроить имперсонацию {#impersonation}
 
 [Имперсонация](../../concepts/access-control/index.md#impersonation) позволяет пользователю выполнять действия от имени сервисного аккаунта с помощью флага `--impersonate-service-account-id`. Для этого у сервисного аккаунта должны быть нужные права, а у пользователя — роль `iam.serviceAccounts.tokenCreator`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -460,9 +462,9 @@
 
 Разрешите сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -491,56 +493,7 @@
         --subject serviceAccount:ajebqtreob2d********
       ```
 
-- API
-
-  1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
-
-      ```bash
-      curl -H "Authorization: Bearer <IAM-токен>" \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
-      ```
-
-      Результат:
-
-      ```
-      {
-       "serviceAccounts": [
-        {
-         "id": "ajebqtreob2d********",
-         "folderId": "b1gvmob95yys********",
-         "createdAt": "2018-10-18T13:42:40Z",
-         "name": "test-sa",
-         "description": "test-description"
-        },
-        {
-         "id": "aje6o61dvog2********",
-         "folderId": "b1gvmob95yys********",
-         "createdAt": "2018-10-15T18:01:25Z",
-         "name": "my-robot"
-        }
-       ]
-      }
-      ```
-
-  1. Назначьте сервисному аккаунту `test-sa` роль `editor` на другой сервисный аккаунт `my-robot`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-robot`:
-
-      ```bash
-      curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-токен>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "ajebqtreob2d********",
-                      "type": "serviceAccount"
-          }}}]}' \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
-      ```
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -601,6 +554,55 @@
      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
      ```
 
+- API {#api}
+
+  1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
+
+      ```bash
+      curl -H "Authorization: Bearer <IAM-токен>" \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
+      ```
+
+      Результат:
+
+      ```
+      {
+       "serviceAccounts": [
+        {
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
+         "createdAt": "2018-10-18T13:42:40Z",
+         "name": "test-sa",
+         "description": "test-description"
+        },
+        {
+         "id": "aje6o61dvog2********",
+         "folderId": "b1gvmob95yys********",
+         "createdAt": "2018-10-15T18:01:25Z",
+         "name": "my-robot"
+        }
+       ]
+      }
+      ```
+
+  1. Назначьте сервисному аккаунту `test-sa` роль `editor` на другой сервисный аккаунт `my-robot`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-robot`:
+
+      ```bash
+      curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM-токен>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "ajebqtreob2d********",
+                      "type": "serviceAccount"
+          }}}]}' \
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+      ```
+
 {% endlist %}
 
 ### Разрешить доступ к ресурсу всем пользователям {#access-to-all}
@@ -609,9 +611,9 @@
 
 Например, разрешите любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -623,28 +625,7 @@
     --subject system:allAuthenticatedUsers
   ```
 
-- API
-
-
-  Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
-
-  ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-токен>" \
-      -d '{
-      "accessBindingDeltas": [{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "viewer",
-              "subject": {
-                  "id": "allAuthenticatedUsers",
-                  "type": "system"
-      }}}]}' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
-  ```
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -704,5 +685,25 @@
      ```
      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
      ```
+
+- API {#api}
+
+  Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
+
+  ```bash
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-токен>" \
+      -d '{
+      "accessBindingDeltas": [{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "viewer",
+              "subject": {
+                  "id": "allAuthenticatedUsers",
+                  "type": "system"
+      }}}]}' \
+      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+  ```
 
 {% endlist %}

@@ -94,9 +94,9 @@
 
 ### Создайте федерацию {#create-federation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -174,7 +174,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -289,7 +289,7 @@
 
         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-- API
+- API {#api}
 
   1. Создайте файл с телом запроса, например `body.json`:
 
@@ -406,7 +406,7 @@
 
   1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -551,9 +551,9 @@
 
 При аутентификации у сервиса {{ org-name }} должна быть возможность проверить сертификат IdP-сервера. Для этого добавьте сертификат в федерацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
@@ -571,7 +571,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -592,7 +592,7 @@
        --certificate-file certificate.cer
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/index.md):
   1. Сформируйте тело запроса. В свойстве `data` укажите содержимое сертификата:
@@ -787,9 +787,9 @@
 
 Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. О том, как назначить пользователю роль, читайте в разделе [Роли](../../security/index.md#admin).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
 
@@ -805,7 +805,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**. Пользователи будут подключены к организации.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -829,7 +829,7 @@
      * `id` — идентификатор федерации.
      * `name-ids` — Name ID пользователей.
 
-- API
+- API {#api}
 
   Чтобы добавить пользователей федерации в облако:
 

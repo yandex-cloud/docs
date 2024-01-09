@@ -7,9 +7,9 @@ description: "Для управления доступом к объекту в 
 
 Для управления доступом к объекту в бакете {{ objstorage-name }} можно воспользоваться [ACL](../../concepts/acl.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. Выберите сервис **{{ objstorage-name }}**.
@@ -20,7 +20,7 @@ description: "Для управления доступом к объекту в 
 
     1. В появившемся окне **{{ ui-key.yacloud.storage.permissions-dialog.label_title }}** выдайте или отзовите необходимые разрешения.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -82,7 +82,7 @@ description: "Для управления доступом к объекту в 
 
      Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Чтобы отредактировать ACL объекта, воспользуйтесь методом S3 API [objectPutAcl](../../s3/api-ref/acl/objectput.md).
 

@@ -38,9 +38,9 @@
 
 1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `container-registry.images.puller` на реестр, созданный ранее:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -54,7 +54,7 @@
      1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `container-registry.images.puller`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -96,11 +96,11 @@
         * `--role` — идентификатор роли `container-registry.images.puller`.
         * `--subject` — идентификатор сервисного аккаунта (например: `ajelabcde12f********`), которому назначается роль.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      См. раздел [{#T}](#terraform).
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом `updateAccessBindings` для ресурса `registry`.
 
@@ -110,9 +110,9 @@
 
 1. Создайте ВМ с публичным IP-адресом и привяжите к ней созданный сервисный аккаунт:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -160,7 +160,7 @@
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Посмотрите описание команды CLI для создания ВМ:
 
@@ -217,11 +217,11 @@
 
         В результате будет создана ВМ `first-instance`.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      См. раздел [{#T}](#terraform).
 
-   - API
+   - API {#api}
 
      Создайте ВМ с помощью метода [Create](../../compute/api-ref/Instance/create.md) для ресурса `Instance`:
      1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
@@ -376,7 +376,7 @@
         ```
 
 
-   - С помощью {{ iam-name }}-токена
+   - С помощью IAM-токена
 
      {% note info %}
 

@@ -11,9 +11,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [network](../../../_includes/functions/network.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, в поле **{{ ui-key.yacloud.vpc.label_network }}**, выберите сеть, в которой будет исполняться функция.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
     
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@ description: "Следуя данной инструкции, вы сможет�
     * `--source-version-id` — ID версии функции, код которой вы хотите скопировать.
     * `--network-id` — идентификатор облачной сети, в которой будет исполняться функция.
 
-- API
+- API {#api}
 
     Чтобы указать облачную сеть, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
 

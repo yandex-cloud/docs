@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -8,7 +8,7 @@
   1. В правом верхнем углу страницы нажмите ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Раскройте меню **{{ ui-key.yacloud.common.metadata }}** и удалите ключи, нажав ![image](../../_assets/cross.svg).
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -26,7 +26,7 @@
       yc compute instance remove-metadata <идентификатор_ВМ> --keys <имя_SSH-ключа>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить SSH-ключи из метаданных ВМ, воспользуйтесь методом REST API [updateMetadata](../../compute/api-ref/Instance/updateMetadata.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/UpdateMetadata](../../compute/api-ref/grpc/instance_service.md#UpdateMetadata).
 

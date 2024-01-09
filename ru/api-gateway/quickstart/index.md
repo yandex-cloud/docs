@@ -16,9 +16,9 @@ description: "В этой инструкции вы создадите и про
 
 ## Создайте API-шлюз {#create-api-gw}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -62,7 +62,7 @@ description: "В этой инструкции вы создадите и про
       ```
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -102,9 +102,9 @@ description: "В этой инструкции вы создадите и про
 
 Создайте функцию для получения списка чисел. Подробнее о функциях читайте в документации [{{ sf-name }}](../../functions/).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     Чтобы создать функцию:
     1. Создайте функцию: 
@@ -136,7 +136,7 @@ description: "В этой инструкции вы создадите и про
         1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `index.handler`.
         1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы создать функцию:
 
@@ -223,9 +223,9 @@ description: "В этой инструкции вы создадите и про
 
 Добавьте в спецификацию API-шлюза информацию о функции.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы обновить спецификацию API-шлюза:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо обновить API-шлюз.
@@ -289,7 +289,7 @@ description: "В этой инструкции вы создадите и про
               service_account_id: <идентификатор_сервисного_аккаунта>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы добавить в спецификацию API-шлюза информацию о функции:
 

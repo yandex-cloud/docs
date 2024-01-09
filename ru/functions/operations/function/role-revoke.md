@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Отозвать роли, назначенные на функцию
 
-{% list tabs %}
-    
-- CLI 
+{% list tabs group=instructions %}
+
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "Следуя данной инструкции, вы сможет�
         done (1s)
         ```
 
-- API
+- API {#api}
 
   Чтобы отозвать роли на функцию, воспользуйтесь методом REST API [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/function_service.md#UpdateAccessBindings).
 

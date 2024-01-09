@@ -25,9 +25,9 @@
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md) для кластера {{ managed-k8s-name }}:
 
@@ -69,7 +69,7 @@
 
     1. [Создайте пользовательскую лог-группу {{ cloud-logging-name }}](../../logging/operations/create-group.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -460,16 +460,16 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
     1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
     1. [Удалите сервисные аккаунты](../../iam/operations/sa/delete.md).
     1. [Удалите лог-группу](../../logging/operations/delete-group.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `k8s-and-registry-for-alb.tf`.

@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Изменить описание функции
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите изменить описание [функции](../../concepts/function.md).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -16,7 +16,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. В открывшемся окне укажите нужное описание функции.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
     
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ description: "Следуя данной инструкции, вы сможет�
     status: ACTIVE
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -107,12 +107,12 @@ description: "Следуя данной инструкции, вы сможет�
     yc serverless function get <имя_функции>|<идентификатор_функции>
     ```
 
-- API
+- API {#api}
 
     Чтобы изменить описание функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update).
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Изменить описание функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

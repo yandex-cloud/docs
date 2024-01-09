@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать [файловое хранилище](../../concepts/filesystem.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать файловое хранилище.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -32,7 +32,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Укажите размер блока и размер диска хранилища.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -78,7 +78,7 @@ description: "Следуя данной инструкции, вы сможет�
     yc compute filesystem get <имя_хранилища>
     ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/Filesystem/create.md) для ресурса [Filesystem](../../api-ref/Filesystem/index.md) или вызовом gRPC API [FilesystemService/Create](../../api-ref/grpc/filesystem_service.md#Create).
 

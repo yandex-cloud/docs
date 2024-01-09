@@ -22,9 +22,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-kafka-target.md) %}
 
@@ -34,9 +34,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с явным указанием сетевых адресов.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-kafka-target.md) %}
 
@@ -44,9 +44,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Настройки топика {{ KF }} {#kafka-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise Kafka UI](../../../../_includes/data-transfer/kafka-topic.md) %}
 
@@ -60,9 +60,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [serializer](../../../../_includes/data-transfer/serializer.md) %}
 

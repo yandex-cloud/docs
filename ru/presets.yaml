@@ -3041,15 +3041,6 @@ default:
         button-submit-text: Применить
       ui_components_BulkSuggestPopup:
         apply: Применить
-      ui_components_Checklist:
-        button-cancel: Отменить
-        button-submit: Сохранить
-        header-title: Чеклист
-        new-item-button-caption: Добавить пункт
-        remove-item-title: Удалить пункт
-        remove-title: Удалить чеклист
-      ui_components_CommentEditor:
-        write-comment: Написать комментарий
       ui_components_Confirm:
         ok-button-text: Да
       ui_components_CreateIssueForm:
@@ -3075,6 +3066,20 @@ default:
         show-all: Показать все
       ui_components_dashboard:
         summary-field-name: Задача
+      ui_components_entity-page_checklist_ChecklistActionsMenu:
+        remove-title: Удалить чеклист
+      ui_components_entity-page_checklist_ChecklistItem:
+        button-cancel: Отменить
+        button-submit: Сохранить
+        remove-item-title: Удалить пункт
+      ui_components_entity-page_checklist_Footer:
+        new-item-button-caption: Добавить пункт
+      ui_components_entity-page_checklist_Header:
+        header-title: Чеклист
+      ui_components_entity-page_comments_CommentEditor_mobile:
+        write-comment: Написать комментарий
+      ui_components_entity-page_sidebar_SidebarFieldsSelect:
+        add-sidebar-field: Изменить список параметров
       ui_components_FieldEdit:
         form-submit: Сохранить
       ui_components_filter-field:
@@ -3161,8 +3166,6 @@ default:
         add-parameters: Добавить параметры
       ui_components_IssuesGroupHeader:
         no-epic: Без эпика
-      ui_components_IssueSidebar:
-        add-sidebar-field: Изменить список параметров
       ui_components_IssuesPresetSelect:
         preset_assignee: Я исполнитель
         preset_author: Я автор
@@ -3286,7 +3289,6 @@ default:
       ui_components_PageAgileBoardSettings_Header:
         settings: Настройки
       ui_components_PageCreateIssue:
-        add-parameter: Изменить список параметров
         change-template: Редактировать форму
         change-title-and-description: Изменить название и описание
         create-new: Создать форму

@@ -6,9 +6,9 @@
 
 Чтобы создать ВМ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -100,7 +100,7 @@
           - fhm1ab2mhnf3cd1610f5
       ```
 
-- API
+- API {#api}
 
   1. Узнайте идентификатор группы выделенных хостов с помощью метода REST API [list](../../api-ref/HostGroup/list.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/List](../../api-ref/grpc/host_group_service.md#List).
   1. Узнайте идентификаторы выделенных хостов в группе с помощью метода REST API [listHosts](../../api-ref/HostGroup/listHosts.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/ListHosts](../../api-ref/grpc/host_group_service.md#ListHosts).
@@ -130,9 +130,9 @@
 
 Для этого выполните следующие действия:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

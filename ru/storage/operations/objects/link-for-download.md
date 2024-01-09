@@ -4,9 +4,9 @@
 
 Если у вас бакет с ограниченным доступом, то {{ objstorage-name }} позволяет сгенерировать подписанную ссылку на объект. Любой человек, получивший эту ссылку, сможет скачать объект даже из бакета с ограниченным доступом. [Подробнее про подписанные ссылки, их генерацию и использование](../../concepts/pre-signed-urls.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [storage-get-link-for-download](../../_includes_service/storage-get-link-for-download.md) %}
 

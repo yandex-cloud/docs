@@ -2,9 +2,9 @@
 
 [Публичный адрес](../concepts/address.md) можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится адрес.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -13,7 +13,7 @@
   1. В открывшемся окне выберите каталог назначения.
   1. Нажмите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -86,7 +86,7 @@
 
      Подробнее о команде `yc vpc address move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/address/move.md).
 
-- API
+- API {#api}
 
   Чтобы переместить [публичный адрес](../concepts/address.md#public-addresses) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Address/move) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Move](../api-ref/grpc/address_service.md#Move) и передайте в запросе:
 
@@ -106,9 +106,9 @@
 
 Переместите адрес из текущего каталога, указав имя адреса и имя каталога назначения:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc vpc address move site-1 \
@@ -121,9 +121,9 @@
 
 Переместите адрес, который находится в другом каталоге. Укажите идентификатор адреса, а также идентификаторы исходного и целевого каталога:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc vpc address move e9br252il3ce******** \

@@ -6,9 +6,9 @@
 
 Чтобы создать группу выделенных хостов:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -55,7 +55,7 @@
           size: "2"
       ```
 
-- API
+- API {#api}
 
   1. Выберите тип хоста с помощью метода REST API [list](../../api-ref/HostType/list.md) для ресурса [HostType](../../api-ref/HostType/index.md) или вызова gRPC API [HostTypeService/List](../../api-ref/grpc/host_type_service.md#List).
   1. Создайте группу выделенных хостов с помощью метода REST API [create](../../api-ref/HostGroup/create.md) для ресурса [HostGroup](../../api-ref/HostGroup/index.md) или вызова gRPC API [HostGroupService/Create](../../api-ref/grpc/host_group_service.md#Create).

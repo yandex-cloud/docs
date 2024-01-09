@@ -29,9 +29,9 @@
 
 Для примера в целевой группе будет находиться только одна виртуальная машина.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться целевая группа.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -41,7 +41,7 @@
   1. Выберите ВМ `test-vm1`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -58,9 +58,9 @@
 
 [Группы бэкендов](concepts/backend-group.md) содержат настройки балансировки трафика и проверок состояния целевых ресурсов. Создайте группу и добавьте в нее один бэкенд.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В меню слева выберите **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
@@ -80,7 +80,7 @@
       1. **{{ ui-key.yacloud.alb.label_path }}**: `/`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте группу бэкендов:
 
@@ -106,9 +106,9 @@
 
 [HTTP-роутеры](concepts/http-router.md) определяют правила маршрутизации запросов к бэкендам и позволяют модифицировать запросы прямо на балансировщике.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В меню слева выберите **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -122,7 +122,7 @@
   1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите `test-backend-group`.
   1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте HTTP-роутер:
 
@@ -154,9 +154,9 @@
 
 Для примера будет создан балансировщик с узлом в одной подсети в одной зоне доступности.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В меню слева выберите **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
@@ -174,7 +174,7 @@
   1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `test-http-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте балансировщик с узлом в одной подсети:
 

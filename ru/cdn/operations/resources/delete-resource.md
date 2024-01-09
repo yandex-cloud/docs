@@ -5,16 +5,16 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Удаление ресурса
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Нажмите на имя необходимого ресурса.
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** и в открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -57,7 +57,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc cdn resource list
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -118,7 +118,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc cdn resource list
      ```
 
-- API
+- API {#api}
 
   Чтобы удалить ресурс, воспользуйтесь методом REST API [delete](../../api-ref/Resource/delete.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Delete](../../api-ref/grpc/resource_service.md#Delete).
 

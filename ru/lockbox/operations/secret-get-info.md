@@ -8,9 +8,9 @@ title: "Как получить информацию о секрете в {{ loc
 
 ## Получить информацию о секрете {#secret-info}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -50,9 +50,9 @@ title: "Как получить информацию о секрете в {{ loc
 
 ## Получить содержимое секрета {#secret-contents}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -83,9 +83,9 @@ title: "Как получить информацию о секрете в {{ loc
 
 ## Просмотреть права доступа к секрету {#secret-access}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

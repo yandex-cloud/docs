@@ -9,6 +9,6 @@ editable: false
 Метод | Описание
 --- | ---
 [listLabelKeys](listLabelKeys.md) | Возвращает список ключей меток.
-[listLabelValues](listLabelValues.md) | Возвращает список значенений для указанного ключа метки.
+[listLabelValues](listLabelValues.md) | Возвращает список значений для указанного ключа метки.
 [listMetricNames](listMetricNames.md) | Возвращает список имен метрик.
 [listMetrics](listMetrics.md) | Возвращает список метрик.

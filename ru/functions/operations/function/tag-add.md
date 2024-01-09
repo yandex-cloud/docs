@@ -2,9 +2,9 @@
 
 При создании новой версии ей присваивается [тег](../../concepts/function.md#) по умолчанию — `$latest`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -35,7 +35,7 @@
     log_group_id: eolv6578frac********
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -99,12 +99,12 @@
     yc serverless function version list --function-name <имя функции>
     ```
 
-- API
+- API {#api}
 
     Чтобы добавить тег версии функции, воспользуйтесь методом REST API [setTag](../../functions/api-ref/Function/setTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetTag](../../functions/api-ref/grpc/function_service.md#SetTag).
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Добавить тег можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

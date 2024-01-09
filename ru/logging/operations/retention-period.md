@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Изменить лог-группу
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [лог-группа](../concepts/log-group.md).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -16,7 +16,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. Измените параметры лог-группы.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "Следуя данной инструкции, вы сможет�
     retention_period: 86400s
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -111,7 +111,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc logging group get <имя_лог-группы>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить лог-группу, воспользуйтесь методом REST API [update](../api-ref/LogGroup/update.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Update](../api-ref/grpc/log_group_service.md#Update).
 

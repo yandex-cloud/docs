@@ -1,8 +1,8 @@
 Подключиться к виртуальной машине с включенным доступом через OS Login можно с помощью стандартного [SSH](../../glossary/ssh-keygen.md)-клиента. Для этого нужно [экспортировать](../../compute/operations/vm-connect/os-login-export-certificate.md) сертификат OS Login на локальный компьютер и указать этот сертификат при подключении:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 

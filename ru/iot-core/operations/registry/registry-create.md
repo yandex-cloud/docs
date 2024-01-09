@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создание реестра
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать реестр.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -44,7 +44,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -115,7 +115,7 @@ description: "Следуя данной инструкции, вы сможет�
       created_at: "2019-05-27T13:41:45.295Z"
       ```
 
-- {{ TF }} 
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -199,7 +199,7 @@ description: "Следуя данной инструкции, вы сможет�
           yc iot registry list
           ```
 
-- API
+- API {#api}
 
   Чтобы создать реестр, воспользуйтесь методом REST API [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create).
 

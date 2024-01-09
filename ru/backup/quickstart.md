@@ -22,9 +22,9 @@
 
 Чтобы активировать сервис:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите активировать сервис.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -34,9 +34,9 @@
 
 ## Настройте сервисный аккаунт {#prepare-service-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором активирован сервис.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -52,9 +52,9 @@
 
 ## Создайте ВМ {#vm-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором активирован сервис.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -89,9 +89,9 @@
 
 1. Убедитесь, что агент {{ backup-name }} установлен:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором активирован сервис.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -106,9 +106,9 @@
 
 1. Привяжите ВМ к политике резервного копирования:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором активирован сервис.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -121,9 +121,9 @@
 
     Также вы можете привязать ВМ к политике резервного копирования в сервисе {{ compute-name }}:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором активирован сервис.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.

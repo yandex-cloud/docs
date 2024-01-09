@@ -23,9 +23,9 @@ description: "Следуя данному руководству, вы смож�
 
 1. Создайте ресурсы {{ managed-k8s-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
      1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
@@ -33,7 +33,7 @@ description: "Следуя данному руководству, вы смож�
 
      1. [Настройте группы безопасности кластера и группы узлов {{ managed-k8s-name }}](../operations/connect/security-groups.md). [Группа безопасности](../../vpc/concepts/security-groups.md) кластера {{ managed-k8s-name }} должна разрешать входящие подключения к портам `443` и `6443`.
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -296,13 +296,13 @@ kube-dns-autoscaler  0/0    0           0          3h53m
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
   1. В терминале перейдите в директорию с планом инфраструктуры.

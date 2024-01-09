@@ -15,15 +15,15 @@
 
 ## Настройка {#setup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Локально
+- Локально {#locally}
 
   {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-- В Cloud Functions
+- {{ sf-full-name }} {#functions}
   
-  В функцию Cloud Functions [добавьте переменные окружения](../../functions/operations/function/version-manage#version-env):
+  В функцию {{ sf-name }} [добавьте переменные окружения](../../functions/operations/function/version-manage#version-env):
 
   * `AWS_ACCESS_KEY_ID` — идентификатор статического ключа сервисного аккаунта.
   * `AWS_SECRET_ACCESS_KEY` — секретный ключ.
@@ -37,9 +37,9 @@
 ## Пример {#boto-example}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Локально 
+- Локально {#locally}
   
   boto3: 
 
@@ -51,7 +51,7 @@
 
   {% endcut %}
 
-- В Cloud Functions
+- {{ sf-full-name }} {#functions}
 
   См. пример в [руководстве по конвертации видео](../../functions/tutorials/video-converting-queue.md).
 

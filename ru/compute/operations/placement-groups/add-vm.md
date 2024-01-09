@@ -4,9 +4,9 @@
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит группа размещения.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -24,7 +24,7 @@
 
   {% endnote %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -145,11 +145,7 @@
      status: RUNNING
      ```
 
-- API
-
-  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -218,6 +214,10 @@
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить, что виртуальная машина добавлена в группу размещения, можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
 {% endlist %}
 

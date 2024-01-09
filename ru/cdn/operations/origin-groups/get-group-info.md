@@ -10,9 +10,9 @@ title: "Как получить информацию об источнике в 
 
 Чтобы получить URL и другую информацию об источнике:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -48,9 +48,9 @@ title: "Как получить информацию об источнике в 
 
 Чтобы получить имя, состав группы и другую информацию о группе источников:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

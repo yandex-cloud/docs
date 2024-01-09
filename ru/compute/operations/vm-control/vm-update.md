@@ -4,9 +4,9 @@
 
 Как изменить конфигурацию ВМ, читайте в разделе [{#T}](vm-update-resources.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы изменить ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
@@ -16,7 +16,7 @@
   1. Измените параметры ВМ, например, переименуйте машину, отредактировав поле **{{ ui-key.yacloud.compute.instances.create.field_name }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@
        --new-name windows-vm
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
@@ -58,9 +58,9 @@
 
 Чтобы просмотреть список изменяемых параметров, выполните команду:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc compute instance update --help
@@ -72,9 +72,9 @@
 
 Чтобы изменить имя и описание ВМ, выполните следующие шаги:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@
        --description "changed description vm via CLI"
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 
@@ -111,9 +111,9 @@
 
 Чтобы изменить метаданные ВМ, выполните следующие шаги:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -161,9 +161,9 @@
 
 Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) через [OS Login](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -172,7 +172,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.field_os-login-access-method }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -197,7 +197,7 @@
        --metadata enable-oslogin=true
      ```
 
-- API
+- API {#api}
 
   Передайте в поле `metadata` пару `enable-oslogin=true` в методе REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или в вызове gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update).
 

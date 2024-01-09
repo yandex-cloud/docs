@@ -2,9 +2,9 @@
 
 Статический публичный IP-адрес, заданный облачному ресурсу, можно сделать динамическим. Если динамический IP-адрес используется [виртуальной машиной](../../glossary/vm.md), после ее остановки он пропадет, а при следующем запуске изменится на новый.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный адрес.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -12,7 +12,7 @@
    1. Нажмите ![image](../../_assets/options.svg) в строке нужного адреса и выберите **{{ ui-key.yacloud.vpc.addresses.button_action-dynamic }}**.
    1. В открывшемся окне нажмите **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_dynamic }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -63,7 +63,7 @@
 
       Теперь IP-адрес стал динамическим.
 
-- API
+- API {#api}
 
   Чтобы изменить тип публичного IP-адреса со статического на динамический, воспользуйтесь методом REST API [update](../api-ref/Address/update.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../api-ref/grpc/address_service.md#Update) и передайте в запросе:
 

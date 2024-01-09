@@ -8,10 +8,10 @@
 
 ## Создайте ВМ с Docker-контейнером на базе образа {{ coi }} {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -30,7 +30,7 @@
   1. Задайте остальные параметры ВМ по [инструкции](../compute/operations/vm-create/create-linux-vm.md).
  
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../_includes/cli-install.md) %}
 

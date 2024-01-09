@@ -15,9 +15,9 @@ description: "Версионирование бакета — это возмо�
 
 Включить версионирование бакета:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -47,7 +47,7 @@ description: "Версионирование бакета — это возмо�
      created_at: "2022-12-14T08:42:16.273717Z"
      ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -60,7 +60,7 @@ description: "Версионирование бакета — это возмо�
     --versioning-configuration 'Status=Enabled'
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
   
@@ -90,7 +90,7 @@ description: "Версионирование бакета — это возмо�
   * `versioning` — управление версионированием бакета:
     * `enabled` — включает версионирование бакета. Необязательный параметр.
 
-- API
+- API {#api}
 
   Чтобы управлять версионированием бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketVersioning](../../s3/api-ref/bucket/putBucketVersioning.md).
 

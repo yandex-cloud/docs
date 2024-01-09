@@ -45,8 +45,8 @@ To create a connection:
 
       * **Cluster**: Select an existing {{ mch-name }} cluster or create a new one.
       * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) in {{ mch-name }}, or create a new service account with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
-      * **Login**: Username that will be used to connect to ClickHouse databases.
-      * **Password**: User password that will be used to connect to ClickHouse databases.
+      * **Login**: Username to be used to connect to {{ CH }} databases.
+      * **Password**: User password to be used to connect to {{ CH }} databases.
 
 
    - {{ monitoring-short-name }}
@@ -89,3 +89,5 @@ To delete a connection:
 1. On the left-hand panel, select **Connections**.
 1. Click ![delete](../../_assets/console-icons/trash-bin.svg) next to the name of the appropriate connection.
 1. Confirm connection deletion.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

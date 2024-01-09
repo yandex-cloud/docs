@@ -28,9 +28,9 @@
 
 ### Создайте инфраструктуру {#create-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
   1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `editor`.
@@ -38,7 +38,7 @@
      * [Версия {{ k8s }}](../concepts/release-channels-and-updates.md) — 1.20 или выше.
      * Публичный доступ в интернет.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -83,15 +83,15 @@
 
 ## Установите NodeLocal DNS {#install}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- С помощью {{ marketplace-full-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
   Установите [NodeLocal DNS](/marketplace/products/yc/node-local-dns) с помощью {{ marketplace-name }}, как описано в [инструкции](../operations/applications/node-local-dns.md#marketplace-install).
 
 
-- Вручную
+- Вручную {#manual}
 
   1. Узнайте [IP-адрес](../../vpc/concepts/address.md) сервиса `kube-dns`:
 
@@ -615,14 +615,14 @@ service "node-local-dns" deleted
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   1. Удалите конфигурационный файл `k8s-node-local-dns.tf`.

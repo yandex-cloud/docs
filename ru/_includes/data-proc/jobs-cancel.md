@@ -4,9 +4,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
@@ -14,7 +14,7 @@
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.cancel }}**.
   1. В открывшемся окне выберите **{{ ui-key.yacloud.mdb.dialogs.popup_button_cancel }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -29,7 +29,7 @@
 
   Идентификатор и имя задания можно получить со [списком заданий в кластере](#list), имя кластера — со [списком кластеров в каталоге](../../data-proc/operations/cluster-list.md#list).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом API [cancel](../../data-proc/api-ref/Job/cancel) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`.

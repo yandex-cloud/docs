@@ -9,9 +9,9 @@ description: "Для создания целевой группы {{ alb-full-na
 
 Чтобы создать [целевую группу](../concepts/target-group.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться целевая группа.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -32,7 +32,7 @@ description: "Для создания целевой группы {{ alb-full-na
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -98,7 +98,7 @@ description: "Для создания целевой группы {{ alb-full-na
       created_at: "2023-07-25T08:55:14.172526884Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
@@ -173,7 +173,7 @@ description: "Для создания целевой группы {{ alb-full-na
       yc alb target-group list
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create).
 

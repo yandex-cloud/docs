@@ -28,12 +28,12 @@ description: "Данные в сервисе {{ sf-name }} надежно хра
 
 {% endnote %}
 
-{% include [version-list](../../_includes/functions/version-get.md) %}
+{% include [version-get](../../_includes/functions/version-get.md) %}
 
 ## Получить список триггеров {#trigger-list}
 
-{% include [version-list](../../_includes/functions/trigger-list.md) %}
+{% include [trigger-list](../../_includes/functions/trigger-list.md) %}
 
 ## Получить информацию о триггере {#trigger-get}
 
-{% include [version-list](../../_includes/functions/trigger-get.md) %}
+{% include [trigger-get](../../_includes/functions/trigger-get.md) %}

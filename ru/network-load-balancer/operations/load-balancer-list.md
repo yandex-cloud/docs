@@ -4,13 +4,13 @@
 
 ## Получить список сетевых балансировщиков в каталоге {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@
 
 
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [list](../api-ref/NetworkLoadBalancer/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
@@ -44,14 +44,14 @@
 
 ## Получить детальную информацию о сетевом балансировщике {#get}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Нажмите на имя нужного сетевого балансировщика.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -65,7 +65,7 @@
 
     Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [get](../api-ref/NetworkLoadBalancer/get.md) и передайте идентификатор сетевого балансировщика в параметре `networkLoadBalancerId` запроса.
 
@@ -75,14 +75,14 @@
 
 ## Посмотреть список операций в сетевом балансировщике {#list-operations}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Нажмите на имя нужного сетевого балансировщика и перейдите на вкладку ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -96,7 +96,7 @@
 
     Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) и передайте идентификатор сетевого балансировщика в параметре `networkLoadBalancerId` запроса.
 

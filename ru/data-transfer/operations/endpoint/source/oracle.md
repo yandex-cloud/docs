@@ -6,9 +6,9 @@
 
 Настройки приведены для случая OnPremise, когда все поля заполняются вручную.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise Oracle UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-oracle.md) %}
 

@@ -7,9 +7,9 @@ description: "Вы можете Просмотр журнала выполнен
 
 Время в журнале выполнения указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз, журнал выполнения которого вы хотите посмотреть.

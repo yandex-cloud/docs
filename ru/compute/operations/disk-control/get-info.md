@@ -6,11 +6,11 @@ title: "Как получить информацию о диске в {{ compute
 
 Вы можете узнать размер, зону доступности и другую информацию о дисках.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 Чтобы получить информацию о диске:
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

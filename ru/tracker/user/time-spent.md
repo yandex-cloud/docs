@@ -74,7 +74,7 @@
 
 Если в задаче не отображается блок **Учёт времени**, добавьте его:
 
-1. Нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}** на панели справа.
+1. Нажмите кнопку ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** на панели справа.
 
 1. В группе **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** включите опции **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** и **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}**.
 

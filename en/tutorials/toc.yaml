@@ -73,6 +73,8 @@ items:
         href: testing/loadtesting-overload-migration.md
       - name: Running external agents for load testing
         href: testing/loadtesting-external-agent.md
+      - name: JMeter load testing
+        href: testing/loadtesting-jmeter.md
   - name: Basic infrastructure
     items:
       - name: All tutorials

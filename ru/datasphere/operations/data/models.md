@@ -41,16 +41,16 @@
 
 - {{ jlab }}Lab
 
-1. В интерфейсе {{ jlab }}Lab на панели справа выберите ![models](../../../_assets/console-icons/nodes-right.svg). 
-1. В списке моделей выберите ту, которую вы хотите удалить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**Удалить**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
+   1. В интерфейсе {{ jlab }}Lab на панели справа выберите ![models](../../../_assets/console-icons/nodes-right.svg). 
+   1. В списке моделей выберите ту, которую вы хотите удалить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**Удалить**.
+   1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 - Ресурсы проекта
 
-1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![model](../../../_assets/console-icons/nodes-right.svg)**Модель**.
-1. В списке моделей выберите ту, которую хотите удалить.
-1. На странице просмотра модели нажмите **Еще** и выберите ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**{{ ui-key.yc-ui-datasphere.common.delete }}**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
+   1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+   1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![model](../../../_assets/console-icons/nodes-right.svg)**Модель**.
+   1. В списке моделей выберите ту, которую хотите удалить.
+   1. На странице просмотра модели нажмите **Еще** и выберите ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**{{ ui-key.yc-ui-datasphere.common.delete }}**.
+   1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 {% endlist %}

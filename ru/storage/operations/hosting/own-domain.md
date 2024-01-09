@@ -10,9 +10,9 @@
 
 1. Создайте на [DNS-сервере](../../../glossary/dns.md#dns-server) публичную [зону DNS](../../../dns/concepts/dns-zone.md) и [ресурсную запись](../../../dns/concepts/resource-record.md), которая связывает ваше доменное имя и бакет:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - {{ dns-full-name }}
+    - {{ dns-full-name }} {#dns}
 
       1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите использовать собственный домен.
       1. Перейдите на вкладку ![website](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
@@ -52,7 +52,7 @@
 
       {% endcut %}
 
-    - Внешний DNS-сервер
+    - Внешний DNS-сервер {#third-party-dns-server}
 
       Пример параметров зоны DNS:
       * Зона — `example.com.`.

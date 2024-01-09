@@ -17,9 +17,9 @@
 
 ### К существующей ВМ {#link-with-exist-instance}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -28,7 +28,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите один из существующих сервисных аккаунтов или создайте новый.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@
   yc compute instance update my-instance --service-account-name test
   ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update). В запросе укажите идентификатор сервисного аккаунта.
 
@@ -48,9 +48,9 @@
 
 ### К создаваемой ВМ {#link-with-new-instance}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   В консоли можно привязать сервисный аккаунт из того же [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), где создается ВМ. Если сервисный аккаунт лежит в другом каталоге, воспользуйтесь CLI или API.
 
@@ -58,7 +58,7 @@
 
   ![image](../../../_assets/compute/connect-sa.png)
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@
     --service-account-name my-robot
   ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create). В запросе укажите идентификатор сервисного аккаунта.
 
@@ -84,9 +84,9 @@
 
 Чтобы аутентифицироваться изнутри ВМ от имени привязанного сервисного аккаунта:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. [Подключитесь](../vm-connect/ssh.md) к ВМ по [SSH](../../../glossary/ssh-keygen.md).
 
@@ -111,7 +111,7 @@
 
      [Время жизни {{ iam-name }}-токена](../../../iam/concepts/authorization/iam-token.md#lifetime) в этом случае будет меньше чем {{ iam-token-lifetime }}. Запрашивайте {{ iam-name }}-токен чаще, например, каждый час. Чтобы узнать оставшееся время жизни токена, воспользуйтесь инструкцией для API.
 
-- API
+- API {#api}
 
   1. Подключитесь к ВМ [по SSH](../vm-connect/ssh.md).
   1. Получите {{ iam-name }}-токен из метаданных в формате Google Compute Engine:

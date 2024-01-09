@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы [предзагрузить контент](../../concepts/caching.md#prefetch) из [источников](../../concepts/origins.md) на серверы CDN:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен [ресурс](../../concepts/resource.md).
 
@@ -25,7 +25,7 @@ description: "Следуя данной инструкции, вы сможет�
   
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
-- CLI
+- CLI {#cli}
   
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@ description: "Следуя данной инструкции, вы сможет�
       
       Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [prefetch](../../api-ref/Cache/prefetch.md) для ресурса [Cache](../../api-ref/Cache/index.md) или вызовом gRPC API [CacheService/Prefetch](../../api-ref/grpc/cache_service.md#Prefetch).
 

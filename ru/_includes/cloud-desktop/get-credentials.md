@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится рабочий стол.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
@@ -11,7 +11,7 @@
   1. Сохраните новый пароль из всплывающего окна и закройте его.
   1. Справа сверху нажмите ![image](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.vdi.button_download-rdp }}**.
 
-- Витрина пользовательских рабочих столов
+- Витрина пользовательских рабочих столов {#desktop-showcase}
 
   1. Откройте [Витрину пользовательских рабочих столов]({{ link-cloud-desktop-showcase }}).
   1. Аутентифицируйтесь с помощью [Яндекс ID](https://yandex.ru/support/id/index.html) или через [систему единого входа (SSO)](../../organization/concepts/add-federation.md).

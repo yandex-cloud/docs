@@ -2,9 +2,9 @@
 
 Для скачивания [Docker-образа](../../concepts/docker-image.md) необходимо знать в каком [репозитории](../../concepts/repository.md) он хранится, а также его [тег или хеш](../../concepts/docker-image.md#version).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Выберите необходимый вам Docker-образ. Для этого [получите список Docker-образов в реестре](docker-image-list.md#docker-image-list).
   1. Скачайте Docker-образ из [реестра](../../concepts/registry.md):

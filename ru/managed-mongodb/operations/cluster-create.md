@@ -14,9 +14,9 @@
 
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы создать кластер:
 
@@ -90,7 +90,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -161,7 +161,7 @@
 
       {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -266,7 +266,7 @@
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
     Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
 
@@ -304,9 +304,9 @@
 
 ### Создание кластера с одним хостом {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать кластер с одним хостом, передайте один параметр `--host`.
 
@@ -343,7 +343,7 @@
   ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Создайте кластер {{ mmg-name }} и сеть для него с тестовыми характеристиками:
 
@@ -474,9 +474,9 @@
 * Зона доступности — `{{ region-id }}-a`.
 * Диапазон — `10.5.0.0/24` (только для {{ TF }}).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Выполните команду, чтобы создать кластер {{ mmg-name }} со стандартным шардированием:
 
@@ -510,7 +510,7 @@
      --security-group-ids {{ security-group }}
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Конфигурационный файл для кластера со стандартным шардированием:
 
@@ -629,9 +629,9 @@
 * Зона доступности — `{{ region-id }}-a`.
 * Диапазон — `10.5.0.0/24` (только для {{ TF }}).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Выполните команду, чтобы создать кластер {{ mmg-name }} с расширенным шардированием:
 
@@ -674,7 +674,7 @@
     --security-group-ids {{ security-group }}
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Конфигурационный файл для кластера с расширенным шардированием:
 

@@ -11,9 +11,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     Чтобы посмотреть роли, назначенные на [контейнер](../concepts/container.md), выполните команду:
 
@@ -31,7 +31,7 @@ description: "Следуя данной инструкции, вы сможет�
     +---------+--------------+-----------------------+
     ```
 
-- API
+- API {#api}
 
   Чтобы посмотреть роли, назначенные на контейнер, воспользуйтесь методом REST API [listAccessBindings](../containers/api-ref/Container/listAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/ListAccessBindings](../containers/api-ref/grpc/container_service.md#ListAccessBindings).
 

@@ -23,9 +23,9 @@ description: "Узнайте, как работать с API-шлюзом {{ api
 
 ## Создайте API-шлюз {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -91,9 +91,9 @@ description: "Узнайте, как работать с API-шлюзом {{ api
 
 Откройте новое окно в терминале и проверьте работу соединения, используя полученный идентификатор соединения.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 

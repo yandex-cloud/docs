@@ -4,9 +4,9 @@
 
 Если вы, например, предоставляете пользователям вашего сервиса возможность самостоятельно загружать объекты в {{ objstorage-name }}, то ограничение максимального объема позволит лучше контролировать действия пользователей и избежать лишних трат.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -17,7 +17,7 @@
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@
       created_at: "2022-12-16T13:58:18.933814Z"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
  
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -130,7 +130,7 @@
 
      Проверить изменение бакета можно в [консоли управления]({{ link-console-main }}).
   
-- API
+- API {#api}
 
   Чтобы ограничить максимальный размер бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
 

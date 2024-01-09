@@ -2,9 +2,9 @@
 
 Чтобы удалить каталог, у вас должна быть роль [`editor`](../../../iam/concepts/access-control/roles.md#editor) или выше на этот каталог. Если вы не можете выполнить эту операцию, обратитесь к [администратору](../../../iam/concepts/access-control/roles.md#admin) или [владельцу каталога](../../concepts/resources-hierarchy.md#owner).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Выберите каталог на [стартовой странице]({{ link-console-cloud }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
   
@@ -16,7 +16,7 @@
 
   Ресурсы будут остановлены, каталог перейдет в статус ожидания удаления `PENDING_DELETION`. Удаление каталога, находящегося в статусе `PENDING_DELETION`, можно отменить. Для этого нажмите на значок ![***](../../../_assets/console-icons/ellipsis.svg) справа от каталога и выберите пункт **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@
       
       Чтобы отобразить информацию о выполняемой операции, не дожидаясь ее завершения, установите флаг `--async`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -93,7 +93,7 @@
      yc resource-manager folder list
      ```
 
-- API
+- API {#api}
 
   Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../api-ref/Folder/delete.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete).
 

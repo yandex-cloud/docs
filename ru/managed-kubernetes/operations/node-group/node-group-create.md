@@ -4,13 +4,13 @@
 
 ## Создайте группу узлов {#node-group-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [node-group-create](../../../_includes/managed-kubernetes/node-group-create.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -112,7 +112,7 @@
           --placement-group <имя_или_идентификатор_группы_размещения>
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы создать [группу узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group):
   1. В каталоге с [файлом описания кластера](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) создайте конфигурационный файл, содержащий параметры новой группы узлов {{ managed-k8s-name }}:
@@ -217,7 +217,7 @@
 
      {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
-- API
+- API {#api}
 
   Воспользуйтесь методом API [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
   * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров {{ managed-k8s-name }} в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).

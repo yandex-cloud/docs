@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
     1. Перейдите в сервис [{{ org-full-name }}]({{link-org-main}}).
 
@@ -14,7 +14,7 @@
 
     1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

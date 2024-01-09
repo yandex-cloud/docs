@@ -26,16 +26,16 @@
 Для обращения к кластеру {{ managed-k8s-name }} используйте его уникальный идентификатор. Запишите его в переменную для использования в других командах.
 1. Узнайте уникальный идентификатор кластера {{ managed-k8s-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
 
      В поле **{{ ui-key.yacloud.k8s.cluster.overview.label_id }}** отобразится уникальный идентификатор кластера {{ managed-k8s-name }}.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc managed-kubernetes cluster list

@@ -10,10 +10,12 @@ The data is received in {{ yds-name }} as in a data bus that stores it in a faul
 
 The data being transferred via the bus can then be saved to target systems, such as S3, {{ CH }}, etc., using [{{ data-transfer-full-name }}](../../data-transfer/concepts/index.md). You can set up the transfer parameters in the {{ yandex-cloud }} management console or via the API.
 
-If, while saving the data, you need to change either the data itself or its format, or handle it in any other way (for example, delete sensitive information), you can do this using [{{ sf-full-name }}](../../functions/concepts/index.md). {{ sf-short-name }} supports a variety of programming languages such as Python, Java, PHP, and more.
+If, while saving the data, you need to change either the data itself or its format, or process it in any other way (for example, delete sensitive information), you can do this using [{{ sf-full-name }}](../../functions/concepts/index.md) functions. {{ sf-short-name }} supports a variety of programming languages such as Python, Java, PHP, and more.
 
 ## Benefits {#advantages}
 
 * Support for a large number of targets, extensive customization options for streaming data.
-* The solution is fully integrated into the {{ yandex-cloud }} ecosystem and lets you centrally manage data streams using both the {{ yandex-cloud }} management console and API.
+* The solution is fully integrated into the {{ yandex-cloud }} ecosystem and supports central management of data streams using both the {{ yandex-cloud }} management console and API.
 * All components are fully managed, which means they do not require any administration or dedicated DevOps engineers.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -9,6 +9,12 @@ A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
+{% note alert %}
+
+When creating a snapshot of the `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}` or `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` type, all write operations will be temporarily suspended, and the disk will be read-only. All suspended writes requested on the guest OS side will be completed after the snapshot is created. During the snapshot generation, the guest OS will be waiting for I/O operations to be completed (`iowait` status).
+
+{% endnote %}
+
 ## Setup {#prepare}
 
 {% include [prepare-snapshots](../../../_includes/compute/prepare-snapshots.md) %}
@@ -20,8 +26,6 @@ To create a disk snapshot:
 {% include [create-snapshot](../../../_includes/compute/create-snapshot.md) %}
 
 An HDD or SSD snapshot is created asynchronously. The snapshot is created with the `Creating` status immediately after the create command is run. From this point on, you can resume writing data to disk, and disk operations will not affect the data in the snapshot.
-
-While creating a snapshot of a high-performance or non-replicated SSD, any write operations will be suspended and the disk will be read-only. All suspended writes (if they are requested on the guest OS side) will be completed after the snapshot is created.
 
 Once the snapshot has been created, its status will change to `Ready`. From this point on, you can use the snapshot to create images, populate disks, and so on.
 

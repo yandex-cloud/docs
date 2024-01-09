@@ -4,9 +4,9 @@
 
 Права доступа наследуются от родительского ресурса к дочерним. Например, если сервисному аккаунту назначить роль на облако, этот сервисный аккаунт получит нужные разрешения на все ресурсы во всех каталогах этого облака.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     Роли сервисному аккаунту назначаются так же, как пользовательскому аккаунту.
     
@@ -21,7 +21,7 @@
     1. Выберите роль в каталоге.
     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -46,11 +46,7 @@
 
   {% include [grant-role-for-sa-to-folder-via-cli](grant-role-for-sa-to-folder-via-cli.md) %}
 
-- API
-
-  {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -100,6 +96,10 @@
      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
 
+- API {#api}
+
+  {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
+
 {% endlist %}
 
 ## Назначение роли на организацию {#binding-role-organization}
@@ -108,9 +108,9 @@
 
 Чтобы предоставить сервисному аккаунту права доступа на организацию, необходима роль не ниже `{{ roles-organization-admin }}`. 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
 
@@ -130,7 +130,7 @@
   
   1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -210,7 +210,59 @@
         --subject serviceAccount:aje6o61dvog2********
       ```
 
-- API
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %} 
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+     Пример структуры конфигурационного файла:
+
+     ```
+     resource "yandex_organizationmanager_organization_iam_binding" "editor" {
+       organization_id   = "<идентификатор_организации>"
+       role              = "<роль>"
+       members           = [
+                             "serviceAccount:<идентификатор_сервисного_аккаунта>",
+                           ]
+     }
+     ```
+
+     Где:
+     * `organization_id` — [идентификатор организации](../../organization/operations/org-profile.md). Обязательный параметр.
+     * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. Обязательный параметр.
+     * `members` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
+
+  1. Проверьте корректность конфигурационных файлов.
+    
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+ 
+        ```
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+ 
+  1. Разверните облачные ресурсы.
+  
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+	 
+     После этого в указанной организации будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```bash
+     yc organization-manager organization list-access-bindings <имя_или_идентификатор_организации>
+     ```
+
+- API {#api}
 
   Чтобы назначить сервисному аккаунту роль на организацию, воспользуйтесь методом REST API [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../../organization/api-ref/Organization/index.md):
 
@@ -295,57 +347,5 @@
         -d '@body.json' \
         -X POST "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
-
-- {{ TF }}
-
-  {% include [terraform-install](../../_includes/terraform-install.md) %} 
-
-  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-
-     Пример структуры конфигурационного файла:
-
-     ```
-     resource "yandex_organizationmanager_organization_iam_binding" "editor" {
-       organization_id   = "<идентификатор_организации>"
-       role              = "<роль>"
-       members           = [
-                             "serviceAccount:<идентификатор_сервисного_аккаунта>",
-                           ]
-     }
-     ```
-
-     Где:
-     * `organization_id` — [идентификатор организации](../../organization/operations/org-profile.md). Обязательный параметр.
-     * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. Обязательный параметр.
-     * `members` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
-
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-
-  1. Проверьте корректность конфигурационных файлов.
-    
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
- 
-        ```
-        terraform plan
-        ```
-
-     Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
- 
-  1. Разверните облачные ресурсы.
-  
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-	 
-     После этого в указанной организации будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-     ```bash
-     yc organization-manager organization list-access-bindings <имя_или_идентификатор_организации>
-     ```
 
 {% endlist %}

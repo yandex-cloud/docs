@@ -8,9 +8,9 @@ title: "Как получить информацию о ресурсе в {{ cdn
 
 Чтобы получить информацию о ресурсе:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

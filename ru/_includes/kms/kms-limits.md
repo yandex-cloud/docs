@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Каждая асиметричная ключевая пара [шифрования](../../kms/concepts/asymmetric-signature-key.md) или [подписи](../../kms/concepts/asymmetric-signature-key.md) соответствует одному ключу в квоте.
+Каждая асимметричная ключевая пара [шифрования](../../kms/concepts/asymmetric-signature-key.md) или [подписи](../../kms/concepts/asymmetric-signature-key.md) соответствует одному ключу в квоте.
 
 {% endnote %}
 

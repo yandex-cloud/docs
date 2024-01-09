@@ -13,9 +13,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Изменить имя брокера {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить имя брокера.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -24,7 +24,7 @@ description: "Следуя данной инструкции, вы сможет�
    1. Измените поле **{{ ui-key.yacloud.common.name }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -44,7 +44,7 @@ description: "Следуя данной инструкции, вы сможет�
   name: test-broker
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -100,7 +100,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc iot broker list
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить имя брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
@@ -108,9 +108,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Изменить описание брокера {#update-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы изменить описание брокера:
 
@@ -121,7 +121,7 @@ description: "Следуя данной инструкции, вы сможет�
    1. Измените поле **{{ ui-key.yacloud.common.description }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -142,7 +142,7 @@ description: "Следуя данной инструкции, вы сможет�
     test_label: my_broker_label
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -198,7 +198,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc iot broker get <имя_брокера>
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить описание брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
@@ -214,9 +214,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ### Добавить метку {#add-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить метку брокера.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -225,7 +225,7 @@ description: "Следуя данной инструкции, вы сможет�
    1. Заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}**, **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.iot.button_add-label }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -247,7 +247,7 @@ description: "Следуя данной инструкции, вы сможет�
     new_label: test_label
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -310,7 +310,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc iot broker get <имя_брокера>
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить метку брокеру, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
@@ -318,9 +318,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ### Изменить метку {#update-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить метку брокера.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -329,7 +329,7 @@ description: "Следуя данной инструкции, вы сможет�
    1. Измените поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -357,7 +357,7 @@ description: "Следуя данной инструкции, вы сможет�
     test_label: my_broker_label
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -415,7 +415,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc iot broker get <имя_брокера>
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить метку брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 
@@ -423,9 +423,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ### Удалить метку {#remove-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить метку брокера.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -434,7 +434,7 @@ description: "Следуя данной инструкции, вы сможет�
    1. Справа от удаляемой метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -454,7 +454,7 @@ description: "Следуя данной инструкции, вы сможет�
   name: my-broker
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -512,7 +512,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc iot broker get <имя_брокера>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить метку брокера, воспользуйтесь методом REST API [update](../../broker/api-ref/Broker/update.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Update](../../broker/api-ref/grpc/broker_service.md#Update).
 

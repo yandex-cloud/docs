@@ -2,9 +2,9 @@
 
 После создания [политики удаления](../../concepts/lifecycle-policy.md) вы можете изменить ее правила, а также статус, имя или описание.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -23,7 +23,7 @@
        * **{{ ui-key.yacloud.common.description }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@
 
      Чтобы узнать идентификатор политики, получите [список политик удаления в репозитории или в реестре](lifecycle-policy-list.md#lifecycle-policy-list)
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -74,7 +74,7 @@
      yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
     ```
 
-- API
+- API {#api}
 
   Чтобы изменить политику удаления, воспользуйтесь методом [Update](../../api-ref/grpc/lifecycle_policy_service.md#Update) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md). В свойстве `lifecycle_policy_id` укажите идентификатор политики.
 
@@ -86,9 +86,9 @@
 
 ### Изменить правила политики удаления {#update-rules}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Подготовьте новые [правила политики](../../concepts/lifecycle-policy.md#lifecycle-rules) и сохраните их в файл `new-rules.json`.
 
@@ -125,9 +125,9 @@
 
 #### Активируйте политику удаления {#activate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Сделайте выключенную политику активной, выполнив команду с флагом `--activate`:
 
@@ -151,9 +151,9 @@
 
 #### Выключите политику удаления {#disabled}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Выключите активную политику, выполнив команду с флагом `--disable`:
 
@@ -177,9 +177,9 @@
 
 ### Изменить имя политики удаления {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Измените имя политики, выполнив команду:
 
@@ -207,9 +207,9 @@
 
 ### Изменить описание политики удаления {#update-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Измените описание политики, выполнив команду:
 

@@ -56,9 +56,9 @@ Follow the guide below to check if the drivers are installed; if they are not, a
 
    {% cut "How to check if drivers belong to a module" %}
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - CentOS, Fedora
+   - CentOS/Fedora {#centos}
 
       Run the following command:
 
@@ -83,7 +83,7 @@ Follow the guide below to check if the drivers are installed; if they are not, a
 
          After running each of the commands, the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, `virtio_pci.ko.xz`, and `virtiofs.ko.xz` filenames should be returned.
 
-   - Debian, Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
       Run the following command:
 
@@ -133,9 +133,9 @@ To connect to your VM using the serial console, set up the `ttyS0` terminal (COM
 
 1. Run the following commands:
 
-   {% list tabs %}
+   {% list tabs group=operating_system %}
 
-   - CentOS, Fedora
+   - CentOS/Fedora {#centos}
 
      ```sh
      sudo stty -F /dev/ttyS0 9600 # Sets the recommended baud rate for the ttyS0 terminal at 9600.
@@ -144,7 +144,7 @@ To connect to your VM using the serial console, set up the `ttyS0` terminal (COM
      sudo systemctl enable getty@ttyS0 # Specifies that getty should be run every time the OS is started.
      ```
 
-   - Debian, Ubuntu
+   - Debian/Ubuntu {#ubuntu}
 
      ```sh
      sudo stty -F /dev/ttyS0 9600 # Sets the recommended baud rate for the ttyS0 terminal at 9600.

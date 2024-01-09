@@ -14,19 +14,19 @@
 
 ### Аутентификация с аккаунтом на {{ yandex-cloud }} {#passport}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Аутентификация происходит автоматически, когда вы входите в аккаунт Яндекса или Яндекс 360.
 
 
-- CLI
+- CLI {#cli}
 
   Чтобы выполнять операции в CLI, аутентифицируйтесь по [инструкции](../../../cli/operations/authentication/user.md). После этого аутентификация будет происходить автоматически.
 
 
-- API
+- API {#api}
 
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
 
@@ -41,13 +41,13 @@
 
 ### Аутентификация сервисного аккаунта {#sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы выполнять операции в CLI, аутентифицируйтесь по [инструкции](../../../cli/operations/authentication/service-account.md). После этого аутентификация будет происходить автоматически.
 
-- API
+- API {#api}
 
   Есть 3 способа выполнять операции от имени сервисного аккаунта:
 
@@ -69,15 +69,15 @@
 
 ### Аутентификация федеративного пользователя {#saml-federation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
 
   То, как выглядит процесс аутентификации для федеративного пользователя — зависит от настроек сервера IdP. Подробнее читайте в разделе [{#T}](../../../organization/concepts/add-federation.md).
 
-- CLI
+- CLI {#cli}
 
   Чтобы выполнять операции в CLI, аутентифицируйтесь по [инструкции](../../../cli/operations/authentication/federated-user.md).
 

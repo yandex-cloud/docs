@@ -9,6 +9,8 @@ description: "Access management in {{ message-queue-full-name }}, an inter-appli
 
 To allow access to {{ message-queue-full-name }} resources, assign the required roles from the list below to the Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md). Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
 
+Only users with the `admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role for a resource can assign roles for this resource.
+
 {% note info %}
 
 For more information about role inheritance, see the section [Inheritance of access rights](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
@@ -34,8 +36,6 @@ The list below shows all roles that are considered when verifying access rights 
 {% include [roles-ymq-writer](../../_includes/roles-ymq-writer.md) %}
 
 {% include [roles-ymq-admin](../../_includes/roles-ymq-admin.md) %}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 ### Primitive roles {#primitive-roles}
 

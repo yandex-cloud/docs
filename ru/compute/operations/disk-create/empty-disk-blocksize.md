@@ -7,13 +7,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   См. раздел [{#T}](../../../compute/operations/disk-create/empty.md).
 
-- CLI
+- CLI {#cli}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -64,14 +64,14 @@ description: "Следуя данной инструкции, вы сможет�
            disk_placement_policy: {}
         ```
 
-- API
-
-  Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   {% include [terraform-empty-disk-create](../../../_includes/compute/terraform-empty-disk-create.md) %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create).
 
 {% endlist %}

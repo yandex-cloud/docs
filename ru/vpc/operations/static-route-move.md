@@ -2,9 +2,9 @@
 
 Облачные ресурсы можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы переместить [таблицу маршрутизации](../concepts/static-routes.md) в другой каталог:
 
@@ -15,7 +15,7 @@
   1. В выпадающем списке выберите каталог назначения.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@
      ```
      Подробнее о команде `yc vpc route-table move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/route-table/move.md).
 
-- API
+- API {#api}
 
   Чтобы переместить [таблицу маршрутизации](../concepts/static-routes.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/RouteTable/move.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move) и передайте в запросе:
 
@@ -101,9 +101,9 @@
 
 Переместите таблицу маршрутизации из текущего каталога, указав имя таблицы и имя каталога назначения:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc vpc route-table move table-1 \

@@ -10,9 +10,9 @@
 
 Для остановленных ВМ тарифицируются только диски. Если вы не хотите платить за использование дисков, тогда сократите размер группы до 0, или [удалите группу](delete.md). Чтобы не потерять данные, [сделайте снимки дисков](../disk-control/create-snapshot.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -20,7 +20,7 @@
   1. В строке с нужной группой ВМ нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.compute.groups.button_action-stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_stop }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -45,7 +45,7 @@
 
      {{ ig-name }} начнет останавливать ВМ в группе. Когда все ВМ будут остановлены, группа перейдет в статус `STOPPED`.
 
-- API
+- API {#api}
 
   Остановить группу можно с помощью метода REST API [stop](../../api-ref/InstanceGroup/stop.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Stop](../../api-ref/grpc/instance_group_service.md#Stop).
 

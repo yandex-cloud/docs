@@ -11,9 +11,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого хотите удалить бакет.
   1. Выберите сервис **{{ objstorage-name }}**. Вы попадете на страницу со списком бакетов.
@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -61,7 +61,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
     
@@ -132,7 +132,7 @@ description: "Следуя данной инструкции, вы сможет�
       --bucket $x}
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -187,7 +187,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
   
   Чтобы удалить бакет, воспользуйтесь методом REST API [delete](../../api-ref/Bucket/delete.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Delete](../../api-ref/grpc/bucket_service.md#Delete) или методом S3 API [deleteBucket](../../s3/api-ref/bucket/delete.md).
 

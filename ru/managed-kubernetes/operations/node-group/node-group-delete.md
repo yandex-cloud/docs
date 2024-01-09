@@ -4,9 +4,9 @@
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы удалить [группу узлов](../../concepts/index.md#node-group):
   1. Перейдите в [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster), в котором требуется удалить группу узлов:
@@ -17,7 +17,7 @@
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@
      +----+------------+------+-------------------+------------+--------+------+
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы удалить [группу узлов](../../concepts/index.md#node-group):
   1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов.
@@ -65,7 +65,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
-- API
+- API {#api}
 
   Чтобы удалить группу узлов, воспользуйтесь методом [delete](../../api-ref/NodeGroup/delete.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
 

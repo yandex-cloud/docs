@@ -31,9 +31,9 @@
 
 ## Создайте сервисный аккаунт {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -54,9 +54,9 @@
 
 ### Создайте реестр {#registry}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать реестр.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -79,9 +79,9 @@
 
 ### Создайте устройство {#device}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     После создания реестра вы попадете в его настройки.
 
@@ -111,9 +111,9 @@
 
 ### Создайте кластер {#cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -167,9 +167,9 @@
 
 Дождитесь, пока статус кластера изменится на `Alive`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Выберите кластер `my-pg-database`.
     1. Перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
@@ -207,9 +207,9 @@
 
 После того, как вы [подключились к кластеру](#connect-to-cluster), создайте таблицу. Для этого:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В окне редактирования введите следующий запрос:
 
@@ -241,9 +241,9 @@
 
 Функция будет получать сообщения из MQTT-брокера и записывать данные в таблицу, созданную на предыдущем шаге.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать функцию.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -257,9 +257,9 @@
 
 После создания функции вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
 
@@ -309,9 +309,9 @@
 
 Триггер будет принимать копии сообщений из топика устройства и передавать их в функцию для обработки.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать триггер.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.

@@ -5,9 +5,9 @@ description: "Из статьи вы узнаете, как удалить ав�
 
 # Удаление авторизованного ключа
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -15,7 +15,7 @@ description: "Из статьи вы узнаете, как удалить ав�
   1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}** напротив ключа, который нужно удалить, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ description: "Из статьи вы узнаете, как удалить ав�
      yc iam key delete <идентификатор>
      ```
 
-- API
+- API {#api}
 
   Чтобы удалить авторизованный ключ, воспользуйтесь методом REST API [delete](../../api-ref/Key/delete.md) для ресурса [Key](../../api-ref/Key/index.md) или вызовом gRPC API [KeyService/Delete](../../api-ref/grpc/key_service.md#Delete).
 

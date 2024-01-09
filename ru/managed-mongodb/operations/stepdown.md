@@ -6,15 +6,15 @@
 
 Подробнее о переключении первичной реплики см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/rs.stepDown/).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}**.
     1. Нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) в строке `PRIMARY` хоста и выберите пункт **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -29,7 +29,7 @@
 
     Имя первичной реплики для нужного шарда можно получить со [списком хостов в кластере](hosts.md#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы переключить первичную реплику, воспользуйтесь методом REST API [stepdownHosts](../api-ref/Cluster/stepdownHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StepdownHosts](../api-ref/grpc/cluster_service.md#StepdownHosts) и передайте в запросе:
 

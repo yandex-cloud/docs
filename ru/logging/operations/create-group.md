@@ -11,9 +11,9 @@ description: "Из статьи вы узнаете, как создать ло�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [лог-группу](../concepts/log-group.md).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -26,7 +26,7 @@ description: "Из статьи вы узнаете, как создать ло�
     1. (опционально) Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или создайте новый.
     1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -76,7 +76,7 @@ description: "Из статьи вы узнаете, как создать ло�
     ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -143,7 +143,7 @@ description: "Из статьи вы узнаете, как создать ло�
         yc logging group list
         ```
 
-- API
+- API {#api}
 
   Чтобы создать лог-группу, воспользуйтесь методом REST API [create](../api-ref/LogGroup/create.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../api-ref/grpc/log_group_service.md#Create).
 

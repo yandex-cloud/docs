@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Изменение сервисного аккаунта
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -21,7 +21,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Измените описание сервисного аккаунта.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -60,11 +60,7 @@ description: "Следуя данной инструкции, вы сможет�
       
       {% include [name-format](../../../_includes/name-format.md) %}
 
-- API
-
-  Чтобы изменить сервисный аккаунт, воспользуйтесь методом REST API [update](../../api-ref/ServiceAccount/update.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Update](../../api-ref/grpc/service_account_service.md#Update).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -111,5 +107,9 @@ description: "Следуя данной инструкции, вы сможет�
      ```bash
      yc iam service-account list
      ```
+
+- API {#api}
+
+  Чтобы изменить сервисный аккаунт, воспользуйтесь методом REST API [update](../../api-ref/ServiceAccount/update.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Update](../../api-ref/grpc/service_account_service.md#Update).
 
 {% endlist %}

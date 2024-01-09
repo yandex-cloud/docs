@@ -8,9 +8,9 @@
 
 ## Добавить хосты-сегменты {#add-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Выберите кластер и откройте вкладку ![hosts-edit](../../_assets/../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
@@ -22,7 +22,7 @@
         * **{{ ui-key.yacloud.greenplum.field_expand-duration }}** — таймаут перераспределения данных по новым сегментам в секундах. При значении `0` (рекомендуемое значение) величина таймаута будет подобрана автоматически, исходя из конфигурации кластера и объема данных.
     1. Нажмите кнопку **{{ ui-key.yacloud.greenplum.action_expand-start }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -53,7 +53,7 @@
 
         Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы добавить хосты-сегменты, воспользуйтесь методом REST API [expand](../../api-ref/Cluster/expand.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Expand](../../api-ref/grpc/cluster_service.md#Expand) и передайте в запросе:
 

@@ -48,9 +48,9 @@ X.509-сертификаты нужны для взаимодействия кл
 
 ## Создайте реестр {#create-registry}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать реестр.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -74,7 +74,7 @@ X.509-сертификаты нужны для взаимодействия кл
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -126,9 +126,9 @@ X.509-сертификаты нужны для взаимодействия кл
 
 ## Создайте устройство {#create-device}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать устройство.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -153,7 +153,7 @@ X.509-сертификаты нужны для взаимодействия кл
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
     1. Создайте устройство:
 

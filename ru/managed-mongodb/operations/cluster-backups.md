@@ -33,9 +33,9 @@ description: "Вы можете создавать резервные копии
 
 {% include [mmg-pitr-preview-note](../../_includes/mdb/mmg-pitr-preview-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы восстановить из резервной копии существующий кластер:
 
@@ -65,7 +65,7 @@ description: "Вы можете создавать резервные копии
 
   {{ mmg-name }} запустит операцию создания кластера из резервной копии.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -129,7 +129,7 @@ description: "Вы можете создавать резервные копии
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
 
-- API
+- API {#api}
 
     Чтобы восстановить из резервной копии существующий кластер, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
 
@@ -142,9 +142,9 @@ description: "Вы можете создавать резервные копии
 
 ## Создать резервную копию {#create-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
@@ -152,7 +152,7 @@ description: "Вы можете создавать резервные копии
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -174,7 +174,7 @@ description: "Вы можете создавать резервные копии
 
       Идентификатор и имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -186,9 +186,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить список резервных копий {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
 
@@ -206,10 +206,10 @@ description: "Вы можете создавать резервные копии
   * Шард-источник.
   * Размер резервной копии.
   * Тип резервной копии: автоматическая (`Automated`) или ручная (`Manual`).  
-  * Время начала создания резервной копии по UTC (Coordinated Universal Time).  
+  * Время начала создания резервной копии по UTC (Coordinated Universal Time).
   * Время окончания создания резервной копии по UTC.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -240,7 +240,7 @@ description: "Вы можете создавать резервные копии
   * Размер резервной копии.
   * Тип резервной копии: автоматическая (`AUTOMATED`) или ручная (`MANUAL`).
 
-- API
+- API {#api}
 
     Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`. 
     
@@ -252,9 +252,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить информацию о резервной копии {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
@@ -264,7 +264,7 @@ description: "Вы можете создавать резервные копии
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -278,7 +278,7 @@ description: "Вы можете создавать резервные копии
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API
+- API {#api}
 
     Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
@@ -302,9 +302,9 @@ description: "Вы можете создавать резервные копии
 * С базами данных и пользователями, которые существовали в кластере на момент восстановления.
      
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Выполните следующую команду:
 

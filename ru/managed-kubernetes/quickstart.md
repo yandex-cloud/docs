@@ -59,9 +59,9 @@ description: "В этой инструкции вы создадите клас�
 
 ## Добавьте учетные данные в конфигурационный файл kubectl {#add-conf}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../_includes/cli-install.md) %}
 

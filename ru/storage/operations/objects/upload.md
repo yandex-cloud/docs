@@ -11,9 +11,9 @@
 
 ## Простая загрузка {#simple}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Консоль управления позволяет работать с бакетами {{ objstorage-name }} как с иерархической файловой системой.
 
@@ -30,7 +30,7 @@
 
   В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Чтобы загрузить один объект, выполните команду:
@@ -59,7 +59,7 @@
 
   Команда `aws s3 cp` — высокоуровневая, ее функциональность ограничена. Подробнее см. в [справочнике AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). Все возможности загрузки, которые поддерживаются в {{ objstorage-name }}, можно использовать при выполнении команды [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) (см. [ниже](#w-object-lock) примеры работы с [блокировками](../../concepts/object-lock.md)).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -116,7 +116,7 @@
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Чтобы загрузить объект, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md).
 
@@ -127,9 +127,9 @@
 
 Если в бакете включены [версионирование](../buckets/versioning.md) и [блокировки версий объектов](../buckets/configure-object-lock.md), вы можете указать настройки блокировки (запрета на удаление или перезапись) при загрузке версии объекта.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -166,7 +166,7 @@
     
      Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе см. в разделе [{#T}](../../concepts/object-lock.md#types).
 
-- API
+- API {#api}
 
   Чтобы загрузить версию объекта с блокировкой, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md) с заголовками `X-Amz-Object-Lock-Mode` и `X-Amz-Object-Lock-Retain-Until-Date` для временной блокировки и `X-Amz-Object-Lock-Legal-Hold` для бессрочной.
 
@@ -174,9 +174,9 @@
 
 Если для бакета также настроены [временные блокировки по умолчанию](../../concepts/object-lock.md#default), все объекты в него нужно загружать с указанием их [MD5-хешей](https://{{ lang }}.wikipedia.org/wiki/MD5):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Вычислите MD5-хэш файла и закодируйте его по схеме [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
  
@@ -213,7 +213,7 @@
  
      Подробнее об этих параметрах см. в инструкции выше.
 
-- API
+- API {#api}
 
   Чтобы загрузить версию объекта с временной блокировкой по умолчанию, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md) с заголовком `Content-MD5`.
 

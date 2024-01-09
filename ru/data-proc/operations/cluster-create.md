@@ -69,9 +69,9 @@
 
 Кластер должен состоять из подкластера с хостом-мастером и как минимум из одного подкластера для хранения или обработки данных.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
 
@@ -165,7 +165,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -343,7 +343,7 @@
         * (опционально) `timeout` — таймаут выполнения скрипта, в секундах. Скрипт инициализации, выполняющийся дольше указанного времени, будет прерван.
         * (опционально) `args` — разделенные запятыми аргументы, с которыми должен быть выполнен скрипт инициализации.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -544,7 +544,7 @@
 
        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-- API
+- API {#api}
 
     Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create) и передайте в запросе:
 
@@ -590,9 +590,9 @@
 
 ### Создание легковесного кластера для заданий Spark и PySpark {#creating-a-light-weight-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     Создайте кластер {{ dataproc-name }} для выполнения заданий Spark без HDFS и подкластеров для хранения данных с тестовыми характеристиками:
 

@@ -1,6 +1,6 @@
 ---
 title: "Managing access in {{ vpc-full-name }} ({{ vpc-short-name }})"
-description: "Managing access within the cloud network service (private cloud), mutual communications between cloud services, and their online interactions — {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Managing access within the cloud network service (private cloud), mutual communications between cloud services, and their online interactions — {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ vpc-name }}
@@ -9,13 +9,13 @@ description: "Managing access within the cloud network service (private cloud), 
 
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#choosing-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -27,8 +27,6 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * {% include [vpc.auditor](../../_includes/iam/roles/short-descriptions/vpc.auditor.md) %}
 * {% include [vpc.viewer](../../_includes/iam/roles/short-descriptions/vpc.viewer.md) %}
 * {% include [vpc.user](../../_includes/iam/roles/short-descriptions/vpc.user.md) %}

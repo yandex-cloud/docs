@@ -27,7 +27,7 @@
     
         Вы также можете оставить значения по умолчанию, чтобы настроить их позже.
 
-1. При необходимости задайте [дополнительные параметры](create-param.md#default-fields). Для этого добавьте поля с помощью кнопки ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}** и заполните их.
+1. При необходимости задайте [дополнительные параметры](create-param.md#default-fields). Для этого добавьте поля с помощью кнопки ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** и заполните их.
 
     {% note info %}
 

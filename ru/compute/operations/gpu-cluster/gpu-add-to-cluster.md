@@ -8,9 +8,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   export YC_GPU_CLUSTER=$(yc compute gpu-cluster list --format=json | jq -r .[].id)
@@ -27,7 +27,7 @@
     --gpu-cluster-id=$YC_GPU_CLUSTER
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

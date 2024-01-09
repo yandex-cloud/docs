@@ -2,9 +2,9 @@
 
 Задать [политику удаления](../../concepts/lifecycle-policy.md) можно только для [репозитория](../../concepts/repository.md). Чтобы узнать имя репозитория, получите [список репозиториев в реестре](../repository/repository-list.md#repository-get).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -25,7 +25,7 @@
           * (Опционально) **{{ ui-key.yacloud.common.description }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -89,7 +89,7 @@
      +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -135,7 +135,7 @@
      yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
     ```
 
-- API
+- API {#api}
 
   Чтобы создать политику удаления, воспользуйтесь методом [Create](../../api-ref/grpc/lifecycle_policy_service.md#Create) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md).
 

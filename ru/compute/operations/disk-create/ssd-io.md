@@ -4,9 +4,9 @@
 
 Размер диска должен быть кратен 93 ГБ.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -33,7 +33,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
@@ -68,7 +68,7 @@
       disk_placement_policy: {}
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create).
 

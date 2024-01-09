@@ -1,13 +1,13 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
 	1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится реестр.
 	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
 	1. Выберите реестр.
 	1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
 
-- CLI
+- CLI {#cli}
   
 	{% include [cli-install](../cli-install.md) %}
 
@@ -29,7 +29,7 @@
 	+----------------------+-----------+
 	```
 
-- API
+- API {#api}
 
     Чтобы получить список устройств в реестре, воспользуйтесь методом REST API [list](../../iot-core/api-ref/Device/list.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/List](../../iot-core/api-ref/grpc/device_service.md#List).
 

@@ -8,9 +8,9 @@
 
 ## Просмотр записей логов {#logging-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
@@ -46,7 +46,7 @@
         * количество сообщений на странице;
         * интервал сообщений (один из стандартных или произвольный).
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -111,13 +111,13 @@
 
 ## Выключение отправки логов {#disable-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     При [создании](cluster-create.md) или [изменении кластера](cluster-update.md) добавьте свойство `dataproc:disable_cloud_logging` со значением `true`.
     
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 

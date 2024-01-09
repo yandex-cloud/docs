@@ -4,9 +4,9 @@
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа размещения.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -20,7 +20,7 @@
   1. (Опционально) Добавьте описание группы размещения.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -52,11 +52,7 @@
      +----------------------+----------+----------+
      ```
 
-- API
-
-  Воспользуйтесь методом REST API [create](../../api-ref/PlacementGroup/create.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/Create](../../api-ref/grpc/placement_group_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -118,6 +114,10 @@
      ```bash
      yc compute placement-group list
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../../api-ref/PlacementGroup/create.md) для ресурса [PlacementGroup](../../api-ref/PlacementGroup/index.md) или вызовом gRPC API [PlacementGroupService/Create](../../api-ref/grpc/placement_group_service.md#Create).
 
 {% endlist %}
 

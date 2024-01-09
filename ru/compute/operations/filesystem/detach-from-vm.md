@@ -36,9 +36,9 @@ description: "Следуя данной инструкции, вы сможет�
 1. [Остановите ВМ](../vm-control/vm-stop-and-start.md).
 1. Отключите файловое хранилище от ВМ в {{ compute-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится файловое хранилище.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -48,7 +48,7 @@ description: "Следуя данной инструкции, вы сможет�
      1. В строке нужной ВМ нажмите ![image](../../../_assets/options-grey.svg) и выберите пункт **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
      1. В открывшемся окне подтвердите отключение.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -84,7 +84,7 @@ description: "Следуя данной инструкции, вы сможет�
         yc compute instance get <имя_ВМ>
         ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem).
 

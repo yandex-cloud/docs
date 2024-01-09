@@ -5,9 +5,9 @@
 
 ## Получить список хостов в кластере {#list-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts.svg](../../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
@@ -18,7 +18,7 @@
     * `REPLICA` — резервный хост-мастер (STANDBY). Реплицирует данные первичного хоста-мастера.
     * `SEGMENT` — хост-сегмент. Хранит часть данных кластера.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@
 
     Имя кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы получить список хостов в кластере, воспользуйтесь методами REST API [listMasterHosts](../../api-ref/Cluster/listMasterHosts.md) и [listSegmentHosts](../../api-ref/Cluster/listSegmentHosts.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовами gRPC API [ClusterService/ListMasterHosts](../../api-ref/grpc/cluster_service.md#ListMasterHosts) и [ClusterService/ListSegmentHosts](../../api-ref/grpc/cluster_service.md#ListSegmentHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 

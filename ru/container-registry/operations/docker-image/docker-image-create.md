@@ -2,9 +2,9 @@
 
 В инструкции описано, как создать [Docker-образ](../../concepts/docker-image.md) на основе Dockerfile и собрать его.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Создайте файл Dockerfile и добавьте туда следующие строки:
 

@@ -20,9 +20,9 @@ keywords:
 
 ## Создайте кластер {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   
   @[youtube](https://www.youtube.com/watch?v=vWCmvbrhDsI)

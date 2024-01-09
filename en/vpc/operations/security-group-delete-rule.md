@@ -33,26 +33,26 @@ description: "Follow this guide to delete a rule from a security group."
       +----------------------+---------------------------------+------------------------------------+----------------------+
       |          ID          |              NAME               |          DESCRIPTION               |      NETWORK-ID      |
       +----------------------+---------------------------------+------------------------------------+----------------------+
-      | enp9bmjge93bvnlb4061 | default-sg-enp509crtqufsu9m9kbr | Default security group for network | enp509crtqufsuhm9kbr |
-      | enp9rs9u4h6juk9rq3k5 | sg-1                            |                                    | enp509crtqufsuhm9kbr |
-      | enp9d8m73d1cgh2rm179 | sg-2                            |                                    | enp509crtqufsuhm9kbr |
+      | enp9bmjge93b******** | default-sg-enp509crtquf******** | Default security group for network | enp509crtquf******** |
+      | enp9rs9u4h6j******** | sg-1                            |                                    | enp509crtquf******** |
+      | enp9d8m73d1c******** | sg-2                            |                                    | enp509crtquf******** |
       +----------------------+---------------------------------+------------------------------------+----------------------+
       ```
    1. Get a list of security group rules by specifying the group name or ID:
 
       ```
-      yc vpc security-groups get <group name or ID>
+      yc vpc security-groups get <group_name_or_ID>
       ```
       Result:
       ```
-      id: enp8rs9i4h6juk9rl3k5
-      folder_id: b1gaus8l79li5979eabd
+      id: enp8rs9i4h6j********
+      folder_id: b1gaus8l79li********
       created_at: "2022-06-24T15:46:31Z"
       name: sg-1
-      network_id: enp559cr9qufsuhm9kbr
+      network_id: enp559cr9quf********
       status: ACTIVE
       rules:
-        - id: enpbbmv8icie959gcm84
+        - id: enpbbmv8ici********
           description: SSH
           direction: INGRESS
           ports:
@@ -69,16 +69,16 @@ description: "Follow this guide to delete a rule from a security group."
    1. To delete a rule, specify its ID in the command:
 
       ```
-      yc vpc security-group update-rules <group name or ID> --delete-rule-id <rule ID>
+      yc vpc security-group update-rules <group_name_or_ID> --delete-rule-id <rule_ID>
       ```
       Result:
       ```
       done (12s)
-      id: enp8rs9i4h6juk9rq3k5
-      folder_id: b1gaus8l79li5n96eabd
+      id: enp8rs9i4h6j********
+      folder_id: b1gaus8l79li********
       created_at: "2022-06-24T15:46:31Z"
       name: sg-1
-      network_id: enp559cr9qufsuhm9kbr
+      network_id: enp559cr9quf********
       status: ACTIVE
       rules:
       ...
@@ -156,7 +156,7 @@ description: "Follow this guide to delete a rule from a security group."
       You can verify the changes to the security group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
-      yc vpc security-group get <security group name>
+      yc vpc security-group get <security_group_name>
       ```
 
 - API

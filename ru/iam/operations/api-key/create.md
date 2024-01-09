@@ -6,13 +6,13 @@
 
 Чтобы создать API-ключ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [create-console](../../../_includes/iam/create-api-key-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -59,23 +59,7 @@
 
       О том, как передать ключ в запросе, читайте в документации [сервисов](../../concepts/authorization/api-key.md#supported-services), которые поддерживают такой способ авторизации.
 
-- API
-
-  1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
-  1. Создайте API-ключ с помощью метода REST API [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
-
-      ```bash
-      export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer $IAM_TOKEN" \
-        -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
-        https://iam.{{ api-host }}/iam/v1/apiKeys
-      ```
-      Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -124,6 +108,22 @@
        yc iam key list --service-account-id <идентификатор_сервисного_аккаунта>
        ```
 
+- API {#api}
+
+  1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
+  1. Создайте API-ключ с помощью метода REST API [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
+
+      ```bash
+      export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $IAM_TOKEN" \
+        -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
+        https://iam.{{ api-host }}/iam/v1/apiKeys
+      ```
+      Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/api_key_service.md#Create).
+
 {% endlist %}
 
 ## Примеры {#examples}
@@ -132,31 +132,16 @@
 
 Чтобы было проще найти API-ключ, не зная его идентификатора, добавьте описание при создании:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc iam api-key create --service-account-name my-robot \
     --description "this API-key is for my-robot"
   ```
 
-- API
-
-  ```bash
-  export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
-  export IAM_TOKEN=CggaATEVAgA...
-  curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer $IAM_TOKEN" \
-    -d "{
-        \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
-        \"description\": \"this API-key is for my-robot\"
-    }" \
-    https://iam.{{ api-host }}/iam/v1/apiKeys
-  ```
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. Добавьте в конфигурационный файл параметры ресурса:
 
@@ -198,6 +183,21 @@
        1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  ```bash
+  export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
+  export IAM_TOKEN=CggaATEVAgA...
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -d "{
+        \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
+        \"description\": \"this API-key is for my-robot\"
+    }" \
+    https://iam.{{ api-host }}/iam/v1/apiKeys
+  ```
 
 {% endlist %}
 

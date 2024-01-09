@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [active-revision](../../_includes/serverless-containers/active-revision.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -18,7 +18,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.serverless-containers.popup-confirm-edit-active-revision_button_confirm }}**. Статус ревизии изменится с `Obsolete` на `Active`.
   
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@ description: "Следуя данной инструкции, вы сможет�
   status: ACTIVE
   ```
 
-- API
+- API {#api}
 
   Чтобы сделать ревизию контейнера активной, воспользуйтесь методом REST API [rollback](../../serverless-containers/containers/api-ref/Container/rollback.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Rollback](../../serverless-containers/containers/api-ref/grpc/container_service.md#Rollback).
 

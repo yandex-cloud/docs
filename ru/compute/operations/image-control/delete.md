@@ -15,9 +15,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы удалить образ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В консоли управления выберите каталог, которому принадлежит образ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -25,7 +25,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В строке с нужным образом нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.images.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.images.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -49,11 +49,7 @@ description: "Следуя данной инструкции, вы сможет�
        --name first-image
      ```
 
-- API
-
-  Воспользуйтесь методом REST API [delete](../../api-ref/Image/delete.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Delete](../../api-ref/grpc/image_service.md#Delete).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -72,5 +68,9 @@ description: "Следуя данной инструкции, вы сможет�
      {% endnote %}
 
   1. Введите слово `yes` и нажмите **Enter**.
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [delete](../../api-ref/Image/delete.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Delete](../../api-ref/grpc/image_service.md#Delete).
 
 {% endlist %}

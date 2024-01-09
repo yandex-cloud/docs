@@ -9,9 +9,9 @@
 
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     В консоли управления можно назначить роль только на облако или каталог:
 
@@ -26,7 +26,7 @@
  
         {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -57,39 +57,7 @@
         ```
 
 
-- API
-
-    Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
-
-    1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
-    1. [Получите идентификатор пользователя](../users/get.md).
-    1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
-
-        **body.json:**
-        ```json
-        {
-            "accessBindingDeltas": [{
-                "action": "ADD",
-                "accessBinding": {
-                    "roleId": "editor",
-                    "subject": {
-                        "id": "gfei8n54hmfh********",
-                        "type": "userAccount"
-                        }
-                    }
-                }
-            ]
-        }
-        ```
-
-    1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
-
-    Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
-    * [{#T}](../sa/set-access-bindings.md).
-    * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md).
-    * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -142,18 +110,50 @@
         yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
         ```
 
+- API {#api}
+
+    Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
+
+    1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
+    1. [Получите идентификатор пользователя](../users/get.md).
+    1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+
+        **body.json:**
+        ```json
+        {
+            "accessBindingDeltas": [{
+                "action": "ADD",
+                "accessBinding": {
+                    "roleId": "editor",
+                    "subject": {
+                        "id": "gfei8n54hmfh********",
+                        "type": "userAccount"
+                        }
+                    }
+                }
+            ]
+        }
+        ```
+
+    1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
+
+    Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
+    * [{#T}](../sa/set-access-bindings.md).
+    * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md).
+    * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md).
+
 {% endlist %}
 
 
 ## Назначить несколько ролей {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-multiple-users-console.md) %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -182,7 +182,8 @@
             --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
-- API
+
+- API {#api}
 
     1. Чтобы назначить одному пользователю роль `editor`, а другому `viewer`, в файл с телом запроса добавьте несколько привязок прав доступа в `accessBindingDeltas`.
 
@@ -262,9 +263,9 @@
 
 В консоли управления [федеративному пользователю](../../../organization/concepts/add-federation.md) можно назначить роль на отдельное облако или каталог.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
 
@@ -278,7 +279,7 @@
 
         {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -308,7 +309,7 @@
             --subject federatedUser:aje6o61dvog2********
         ```
 
-- API
+- API {#api}
 
     Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
 
@@ -342,9 +343,9 @@
 
 ## Доступ к ресурсу для группы пользователей {#access-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     Назначьте роль в облаке для группы пользователей:
 
@@ -359,7 +360,7 @@
   
     Название группы отобразится в разделе **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** облака вместе с остальными пользователями, у которых есть роли в этом облаке.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 

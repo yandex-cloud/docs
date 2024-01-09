@@ -63,9 +63,9 @@
 1. Отключитесь от ВМ.
 1. Убедитесь, что неактуальная ВМ удалена из списка ВМ, подключенных к {{ backup-name }}:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.

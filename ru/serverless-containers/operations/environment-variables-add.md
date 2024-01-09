@@ -2,9 +2,9 @@
 
 При добавлении переменных окружения создается новая ревизия контейнера. В существующую ревизию переменные окружения добавить нельзя.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -13,7 +13,7 @@
     1. В открывшемся окне, в блоке **{{ ui-key.yacloud.serverless-containers.section_image }}**, укажите переменную окружения и нажмите **{{ ui-key.yacloud.common.add }}**. Можно добавить несколько переменных окружения.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. Будет создана новая ревизия контейнера с указанными переменными окружения.
     
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@
     * `--memory` — требуемая память. По умолчанию — 128 МБ.
     * `--environment` — переменные окружения в формате `key=value`. Можно указать несколько пар через запятую.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -104,7 +104,7 @@
   yc serverless container revision get <идентификатор_ревизии>
   ```
 
-- API
+- API {#api}
 
   Чтобы добавить переменную окружения в ревизию контейнера, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision).
 

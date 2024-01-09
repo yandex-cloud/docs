@@ -11,9 +11,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В поле **{{ ui-key.yacloud.backup.field_recover-to-vm }}** выберите ВМ, из которой была создана резервная копия. В списке эта ВМ отмечена как `({{ ui-key.yacloud.backup.context_current-vm }})`.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -63,7 +63,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
 
-- API
+- API {#api}
 
   Чтобы восстановить виртуальную машину из резервной копии, воспользуйтесь методом REST API [startRecovery](../../backup/api-ref/Backup/startRecovery.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery).
 

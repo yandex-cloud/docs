@@ -50,7 +50,7 @@
             1. В открывшемся окне укажите [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md) и нажмите **{{ ui-key.yacloud_portal.common.action_add }}**.
             1. Найдите сервисный аккаунт в списке и нажмите ![image](../../_assets/marketplace/three_dots.png) → **{{ ui-key.yacloud_portal.common.action_change }}**.
             1. В открывшемся окне нажмите **+ Добавить роль**, выберите `license-manager.saasSubscriptionSupervisor` и нажмите **Сохранить**.
-            1. Аутентифицируйтесь в {{ license-manager }} API от имени сервсисного аккаунта. Для аутентификации используйте [API-ключ](../../iam/concepts/authorization/api-key.md).
+            1. Аутентифицируйтесь в {{ license-manager }} API от имени сервисного аккаунта. Для аутентификации используйте [API-ключ](../../iam/concepts/authorization/api-key.md).
 
     1. {% include [lmi-step-1](../../_includes/marketplace/lmi-step-1.md) %}
 

@@ -11,9 +11,9 @@ description: "Перед удалением целевой группы ее н�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы удалить [целевую группу](../concepts/target-resources.md):
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить целевую группу.
@@ -23,7 +23,7 @@ description: "Перед удалением целевой группы ее н�
   1. В открывшемся меню выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ description: "Перед удалением целевой группы ее н�
 
      Идентификатор и имя целевой группы можно получить со [списком целевых групп в каталоге](target-group-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -74,7 +74,7 @@ description: "Перед удалением целевой группы ее н�
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Чтобы удалить целевую группу, воспользуйтесь методом REST API [delete](../api-ref/TargetGroup/delete.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Delete](../api-ref/grpc/target_group_service.md#Delete).
 

@@ -11,15 +11,15 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
 1. Посмотрите список имеющихся [реестров](registry.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите посмотреть список реестров.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. На вкладке **{{ ui-key.yacloud.cr.switch_registry }}** отображен список реестров.
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
      
@@ -39,7 +39,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      +----------------------+-------------+----------------------+
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом [list](../api-ref/Registry/list.md) для ресурса [Registry](../api-ref/Registry/).
 
@@ -47,9 +47,9 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
 1. Получите информацию об имеющихся Docker-образах по каждому реестру:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите посмотреть информацию о Docker-образах.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -57,7 +57,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      1. На странице **{{ ui-key.yacloud.cr.registry.overview.section_repositories }}** нажмите на имя нужного репозитория.
      1. На странице **{{ ui-key.yacloud.cr.registry.overview.section_images }}** отображены Docker-образы.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc container image list --registry-name my-registry
@@ -75,7 +75,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      +----------------------+---------------------+-----------------------------+-------+-----------------+
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом [list](../api-ref/Image/list.md) для ресурса [Image](../api-ref/Image/).
 
@@ -83,9 +83,9 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
 1. Скачайте необходимые Docker-образы из каждого реестра, используя полный адрес — `{{ registry }}/<имя>:<тег>`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      docker pull {{ registry }}/crp1abc2tl3d********/ubuntu:hello
@@ -104,9 +104,9 @@ description: "Данные в {{ container-registry-name }} надежно хр�
 
 1. Проверьте, что Docker-образ действительно скачался:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      docker image list

@@ -8,9 +8,9 @@
 
 Для применения или изменения политики доступа к бакету:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно настроить политику доступа для бакета.
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -41,7 +41,7 @@
   1. При необходимости добавьте правила и настройте их.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.permissions-dialog.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -99,7 +99,7 @@
      created_at: "2022-12-14T08:42:16.273717Z"
      ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
   {% note info %}
 
@@ -139,7 +139,7 @@
 
   Если ранее для бакета уже была установлена политика доступа, то после применения новой политики она будет полностью перезаписана.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -204,7 +204,7 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Чтобы управлять политикой доступа, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [PutBucketPolicy](../../s3/api-ref/policy/put.md). Если ранее для бакета уже была установлена политика доступа, то после применения новой политики она будет полностью перезаписана.
 
@@ -218,16 +218,16 @@
 
 Чтобы просмотреть примененную к бакету политику доступа:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно просмотреть политику доступа для бакета.
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}** в меню слева.
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
   Выполните следующую команду:
 
@@ -247,7 +247,7 @@
 
   Подробнее о параметрах читайте в описании [схемы данных](../../s3/api-ref/policy/scheme.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [GetBucketPolicy](../../s3/api-ref/policy/get.md).
 
@@ -259,9 +259,9 @@
 
 Чтобы удалить политику доступа:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно настроить политику доступа для бакета.
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -270,7 +270,7 @@
   1. Нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
   Выполните следующую команду:
 
@@ -279,7 +279,7 @@
     --bucket <имя_бакета>
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -338,7 +338,7 @@
 
      После этого в указанном каталоге будет удалена политика доступа к бакету. Проверить отсутствие политики доступа можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [DeleteBucketPolicy](../../s3/api-ref/policy/delete.md).
 

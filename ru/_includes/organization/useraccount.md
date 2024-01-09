@@ -6,9 +6,9 @@
 
 ### Отправьте приглашение {#send-invitation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
     1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
@@ -20,7 +20,7 @@
 
     1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
     1. Войдите в [консоль управления]({{ link-console-main }}).

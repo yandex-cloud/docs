@@ -9,7 +9,7 @@ The recommended method for connecting to a [VM](../../concepts/vm.md) over SSH u
 
 {% note info %}
 
-You cannot use an SSH key pair to connect to a VM with [access via OS Login](./os-login.md) enabled. However, it is recommended to always specify SSH keys when creating a VM: this way, you can [connect to a VM via SSH](#vm-connect) if you disable OS Login access for it.
+You cannot use an SSH key pair to connect to a VM with [access via OS Login](./os-login.md) enabled. However, it is recommended to always specify SSH keys when creating a VM: this way, you will be able to [connect to a VM via SSH](#vm-connect) if you disable OS Login access for it.
 
 {% endnote %}
 
@@ -30,9 +30,9 @@ Copy the key from the `<key_name>.pub` file using any text editor, such as Notep
 
 You can also copy the key using the command line:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux-macos}
 
    1. Run the terminal.
    1. Output the file contents:
@@ -52,7 +52,7 @@ You can also copy the key using the command line:
 
       Paste the public key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field when creating a new VM in the [management console]({{ link-console-main }}).
 
-- MacOS
+- MacOS {#macos}
 
    1. Run the terminal.
    1. Output the file contents:
@@ -72,7 +72,7 @@ You can also copy the key using the command line:
 
       Paste the public key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field when creating a new VM in the [management console]({{ link-console-main }}).
 
-- Windows
+- Windows {#windows}
 
    1. Run `cmd.exe` or `powershell.exe`.
    1. Output the file contents:
@@ -108,9 +108,9 @@ To connect, specify the VM's [public IP address](../../../vpc/concepts/address.m
 
 You can also use the [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) and [FQDNs](../../../vpc/concepts/address.md#fqdn) to establish an SSH connection between the VMs on a single [cloud network](../../../vpc/concepts/network.md#network) in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux/macOS
+- Linux/macOS {#linux-macos}
 
    In the terminal, run this command:
 
@@ -136,7 +136,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
    Type `yes` in the terminal and press **Enter**.
 
-- Windows 10
+- Windows 10 {#windows}
 
    Make sure that the Windows account has read privileges on the folder containing the keys.
 
@@ -164,7 +164,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
    Type `yes` in the command prompt and press **Enter**.
 
-- Windows 7/8
+- Windows 7/8 {#windows7-8}
 
    In Windows, a connection is established using the PuTTY application.
    1. Run the Pageant application.

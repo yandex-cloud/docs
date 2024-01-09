@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Удалить API-шлюз
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     Чтобы удалить API-шлюз:
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо удалить API-шлюз.
@@ -15,7 +15,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
     Чтобы удалить API-шлюз, выполните команду: 
 
@@ -31,7 +31,7 @@ description: "Следуя данной инструкции, вы сможет�
     done (18s)
     ```
     
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -125,14 +125,14 @@ description: "Следуя данной инструкции, вы сможет�
      yc serverless api-gateway list
      ```
 
+- API {#api}
 
-- {{ yandex-cloud }} Toolkit
+  Чтобы удалить API-шлюз, воспользуйтесь методом REST API [delete](../apigateway/api-ref/ApiGateway/delete.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete).
+
+
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
   Удалить API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
-
-- API
-
-  Чтобы удалить API-шлюз, воспользуйтесь методом REST API [delete](../apigateway/api-ref/ApiGateway/delete.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Delete](../apigateway/api-ref/grpc/apigateway_service.md#Delete).
 
 {% endlist %}

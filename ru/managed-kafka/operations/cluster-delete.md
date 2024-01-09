@@ -13,9 +13,9 @@ description: "Вы можете удалить кластер Apache Kafka®, е
 
 ## Удалить кластер {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого нужно удалить кластер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -23,7 +23,7 @@ description: "Вы можете удалить кластер Apache Kafka®, е
   1. Прочитайте предупреждение.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -35,14 +35,14 @@ description: "Вы можете удалить кластер Apache Kafka®, е
   {{ yc-mdb-kf }} cluster delete <имя_или_идентификатор_кластера>
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
-- API
+- API {#api}
 
   Чтобы удалить кластер, воспользуйтесь методом REST API [delete](../api-ref/Cluster/delete.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 

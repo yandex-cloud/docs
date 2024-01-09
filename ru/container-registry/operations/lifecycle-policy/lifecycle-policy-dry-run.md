@@ -8,9 +8,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -21,7 +21,7 @@
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.cr.registry.button_lifecycle-dry-run }}**. После завершения проверки в разделе **{{ ui-key.yacloud.cr.registry.label_lifecycle-dry-runs }}** появится строка с результатами тестового запуска политики.
   1. Чтобы получить список Docker-образов, которые будут удалены в соответствии с правилами политики, нажмите на строку с результатами тестового запуска политики.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -89,7 +89,7 @@
      +----------------------+---------------------+-----------------------------+------+-----------------+
      ```
 
-- API
+- API {#api}
 
   Чтобы протестировать политику удаления:
   1. Сделайте тестовый запуск политики с помощью метода [DryRun](../../api-ref/grpc/lifecycle_policy_service.md#DryRun) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md). В параметре `lifecycle_policy_id` укажите идентификатор политики. Получить список политик удаления можно с помощью метода [List](../../api-ref/grpc/lifecycle_policy_service.md#List) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md).

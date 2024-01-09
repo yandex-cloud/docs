@@ -13,9 +13,9 @@ description: "Удаление группы виртуальных машин �
 
 Чтобы удалить группу ВМ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -23,7 +23,7 @@ description: "Удаление группы виртуальных машин �
   1. В строке с нужной группой ВМ нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -48,13 +48,7 @@ description: "Удаление группы виртуальных машин �
 
      {{ ig-name }} запустит операцию удаления группы ВМ.
 
-- API
-
-  Воспользуйтесь методом REST API [delete](../../api-ref/InstanceGroup/delete.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Delete](../../api-ref/grpc/instance_group_service.md#Delete).
-
-  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -73,5 +67,11 @@ description: "Удаление группы виртуальных машин �
      {% endnote %}
 
   1. Введите слово `yes` и нажмите **Enter**.
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [delete](../../api-ref/InstanceGroup/delete.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Delete](../../api-ref/grpc/instance_group_service.md#Delete).
+
+  Список доступных групп запрашивайте методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
 
 {% endlist %}

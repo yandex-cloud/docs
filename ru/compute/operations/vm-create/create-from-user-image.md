@@ -13,9 +13,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Создайте ВМ из подготовленного образа {#create-vm-from-image}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   
   @[youtube](https://www.youtube.com/watch?v=M9KoXX4ueAI&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=9&pp=iAQB)
@@ -114,7 +114,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -163,11 +163,7 @@ description: "Следуя данной инструкции, вы сможет�
      На ВМ будет создан пользователь `yc-user` с публичным ключом из файла `~/.ssh/id_ed25519.pub`. ВМ получит [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Чтобы создать ВМ без публичного IP, исключите флаг `--public-ip`.
 
 
-- API
-
-  Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -252,6 +248,10 @@ description: "Следуя данной инструкции, вы сможет�
      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
 
 {% endlist %}
 

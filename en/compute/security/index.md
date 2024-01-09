@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ compute-full-name }}"
-description: "Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes which resources you can assign a role for and what roles exist in the service."
+description: "Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes the resources for which you can assign a role and the roles existing in the service."
 ---
 
 # Access management in {{ compute-name }}
@@ -39,8 +39,6 @@ You can also assign a role for a separate VM.
 | `compute.osLogin` | Allows SSH access to VMs via OS Login. |
 | `compute.osAdminLogin` | Allows SSH access to VMs via OS Login and enables you to run commands as a superuser (`sudo`). |
 | `iam.serviceAccounts.user` | Verifies the right to use the service account.<br/>This role is required to perform operations with instance groups. If you specify a service account in the request, {{ iam-short-name }} will check whether you have permissions to use this account. |
-| `resource-manager.clouds.member` | Role everyone requires to access cloud resources, except for [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
-| `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 

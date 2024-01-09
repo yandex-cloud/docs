@@ -4,14 +4,14 @@
 
 ## Получить список эндпоинтов {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@
     {{ yc-dt }} endpoint list
     ```
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [list](../../api-ref/Endpoint/list.md).
 
@@ -34,9 +34,9 @@
 {% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -51,7 +51,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
 
-- CLI
+- CLI {#cli}
 
     {% note info %}
 
@@ -82,7 +82,7 @@
 
         Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     
     {% note info %}
@@ -131,7 +131,7 @@
     1. Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
     
 
-- API
+- API {#api}
 
     {% note info %}
 
@@ -161,9 +161,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -174,7 +174,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
 
-- CLI
+- CLI {#cli}
 
     {% note info %}
 
@@ -205,7 +205,7 @@
 
         Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных. Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с описанием эндпоинта.
 
@@ -222,7 +222,7 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% note info %}
 
@@ -251,9 +251,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -277,9 +277,9 @@
 
 Чтобы удалить эндпоинт:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -287,7 +287,7 @@
     1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели сверху.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -301,11 +301,11 @@
 
     Идентификатор эндпоинта можно получить со [списком эндпоинтов в каталоге](#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [delete](../../api-ref/Endpoint/delete) и передайте идентификатор нужного эндпоинта в параметре `endpointId` запроса.
 

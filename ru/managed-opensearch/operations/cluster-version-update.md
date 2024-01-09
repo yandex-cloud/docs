@@ -6,9 +6,9 @@
 
 ## Узнать доступные версии {#version-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     В [консоли управления]({{ link-console-main }}) откройте страницу [создания](cluster-create.md) или [изменения кластера](update.md) {{ mos-name }}. Список доступен в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
 
@@ -24,16 +24,16 @@
 
 ## Обновить версию {#start-version-update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию {{ OS }}.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 

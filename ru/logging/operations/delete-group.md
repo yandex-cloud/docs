@@ -11,16 +11,16 @@ description: "Из статьи вы узнаете, как удалить ло�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите удалить [лог-группу](../concepts/log-group.md).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -47,7 +47,7 @@ description: "Из статьи вы узнаете, как удалить ло�
     retention_period: 3600s
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -104,7 +104,7 @@ description: "Из статьи вы узнаете, как удалить ло�
      yc logging group list
      ```
 
-- API
+- API {#api}
 
   Чтобы удалить пользовательскую лог-группу, воспользуйтесь методом REST API [delete](../api-ref/LogGroup/delete.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Delete](../api-ref/grpc/log_group_service.md#Delete).
 

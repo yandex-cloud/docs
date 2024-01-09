@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Настроить права доступа к секрету
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -18,7 +18,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../security/index.md#roles-list).
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -56,7 +56,7 @@ description: "Следуя данной инструкции, вы сможет�
         * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
         * `--role` — назначаемая [роль](../security/index.md#roles-list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -92,7 +92,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc lockbox secret list-access-binding <идентификатор_секрета>
       ```
 
-- API
+- API {#api}
 
   Чтобы настроить права доступа к секрету, воспользуйтесь методом REST API [setAccessBindings](../api-ref/Secret/setAccessBindings.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/SetAccessBindings](../api-ref/grpc/secret_service.md#SetAccessBindings).
 

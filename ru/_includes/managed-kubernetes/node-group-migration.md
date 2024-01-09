@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Создайте подсеть:
       
@@ -36,7 +36,7 @@
       * `zone` — зона доступности, в которую вы переносите группу узлов: `{{ region-id }}-a`, `{{ region-id }}-b` или `{{ region-id }}-d`.
       * `subnet-id` и `subnets` — идентификатор новой подсети, созданной ранее.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% note alert %}
 

@@ -45,7 +45,7 @@
    1. Get a list of cloud networks in the required folder:
 
       ```
-      yc vpc network list --folder-id b1g6ci08ma55klukmdjs
+      yc vpc network list --folder-id b1g6ci08ma55********
       ```
 
       Result:
@@ -54,8 +54,8 @@
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
-      | enpavfmgapumnl7cqin8 | test-network-1 |
-      | enplom7a98s1t0lhass8 | default        |
+      | enpavfmgapum******** | test-network-1 |
+      | enplom7a98s1******** | default        |
       +----------------------+----------------+
       ```
 
@@ -65,7 +65,7 @@
       yc vpc subnet create \
         --name test-subnet-1 \
         --description "My test subnet" \
-        --network-id enplom7a98s1t0lhass8 \
+        --network-id enplom7a98s1******** \
         --zone {{ region-id }}-a \
         --range 192.168.0.0/24
       ```
@@ -104,7 +104,7 @@
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
       ...
-      | e2l0psbfoloefpjb1rau | test-subnet-1         | ... | [192.168.0.0/24] |
+      | e2l0psbfoloe******** | test-subnet-1         | ... | [192.168.0.0/24] |
       ...
       +----------------------+-----------------------+-----+------------------+
       ```
@@ -120,12 +120,12 @@
       ```
       ...
 
-      - id: e2l0psbfoloefpjb1rau
-        folder_id: b1g6ci08ma55klukmdjs
+      - id: e2l0psbfoloe********
+        folder_id: b1g6ci08ma55********
         created_at: "2018-10-24T12:25:58Z"
         name: test-subnet-1
         description: My test subnet
-        network_id: enplom7a98s1t0lhass8
+        network_id: enplom7a98s1********
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.0.0/24
@@ -154,11 +154,11 @@
 
       ```hcl
       resource "yandex_vpc_subnet" "lab-subnet-a" {
-        name           = "<subnet name>"
-        description    = "<subnet description>"
-        v4_cidr_blocks = ["<IPv4 address>"]
-        zone           = "<availability zone>"
-        network_id     = "<network ID>"
+        name           = "<subnet_name>"
+        description    = "<subnet_description>"
+        v4_cidr_blocks = ["<IPv4_address>"]
+        zone           = "<availability_zone>"
+        network_id     = "<network_ID>"
       }
       ```
 
@@ -220,8 +220,8 @@
    yc vpc subnet create \
      --name test-subnet-1 \
      --description "My test subnet" \
-     --folder-id b1g6ci08ma55klukmdjs \
-     --network-id enplom7a98s1t0lhass8 \
+     --folder-id b1g6ci08ma55******** \
+     --network-id enplom7a98s1******** \
      --zone {{ region-id }}-a \
      --range 192.168.0.0/24
    ```
@@ -231,8 +231,8 @@
    yc vpc subnet create \
      --name test-subnet-1 \
      --description "My test subnet" \
-     --folder-id b1g6ci08ma55klukmdjs \
-     --network-id enplom7a98s1t0lhass8 \
+     --folder-id b1g6ci08ma55******** \
+     --network-id enplom7a98s1******** \
      --zone {{ region-id }}-a \
      --range 192.168.0.0/24 \
      --domain-name test.domain \

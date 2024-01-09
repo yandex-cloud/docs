@@ -17,9 +17,9 @@
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../concepts/index.md#node-group).
@@ -39,7 +39,7 @@
   1. [Создайте реестр {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
   1. [Сохраните идентификатор созданного реестра](../../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
   1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -275,16 +275,16 @@
 1. [Удалите созданные Docker-образы](../../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Удалите кластер {{ managed-k8s-name }} и реестр {{ container-registry-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
      1. [Удалите кластер {{ managed-k8s-name }}](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
      1. [Удалите реестр {{ container-registry-name }}](../../../container-registry/operations/registry/registry-delete.md).
      1. [Удалите созданные подсети](../../../vpc/operations/subnet-delete.md) и [сети](../../../vpc/operations/network-delete.md).
      1. [Удалите созданные сервисные аккаунты](../../../iam/operations/sa/delete.md).
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
      1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
      1. Удалите конфигурационный файл `k8s-argocd.tf`.

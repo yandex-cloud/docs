@@ -9,15 +9,15 @@ description: "Вы можете запросить детальную инфор
 
 ## Получить список кластеров в каталоге {#list-clusters}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@ description: "Вы можете запросить детальную инфор
   +----------------------+----------+---------------------+--------+---------+
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список кластеров БД в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/cluster_service.md#List) и передайте в запросе идентификатор требуемого каталога в параметре `folderId`.
 
@@ -51,16 +51,16 @@ description: "Вы можете запросить детальную инфор
 
 ## Получить детальную информацию о кластере {#get-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера.
 
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@ description: "Вы можете запросить детальную инфор
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
-- API
+- API {#api}
 
   Чтобы получить детальную информацию о кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
@@ -87,16 +87,16 @@ description: "Вы можете запросить детальную инфор
 
 {% include [list-operations-about](../../_includes/mdb/mkf-list-operations-about.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -111,7 +111,7 @@ description: "Вы можете запросить детальную инфор
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
 
-- API
+- API {#api}
 
   Чтобы получить список операций, воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/cluster_service.md#ListOperations).
 

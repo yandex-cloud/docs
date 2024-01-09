@@ -21,9 +21,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 После создания кластера вы сможете [добавлять](gpu-add-to-cluster.md) к нему виртуальные машины из той же зоны доступности.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc compute gpu-cluster create --interconnect-type infiniband
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
   

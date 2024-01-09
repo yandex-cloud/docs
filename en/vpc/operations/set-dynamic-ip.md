@@ -36,23 +36,23 @@ You can convert a static public IP address set for a cloud resource to dynamic. 
       +----------------------+------+---------------+----------+------+
       |          ID          | NAME |    ADDRESS    | RESERVED | USED |
       +----------------------+------+---------------+----------+------+
-      | e2l46k8conff8n6ru1jl |      | 84.201.177.41 | true     | true |
+      | e2l46k8conff******** |      | 84.201.177.41 | true     | true |
       +----------------------+------+---------------+----------+------+
       ```
 
-      The `true` value of the RESERVED parameter of the IP address with the `e2l46k8conff8n6ru1jl` ID shows that this address is static.
+      The `true` value of the RESERVED parameter of the IP address with the `e2l46k8conff********` ID shows that this address is static.
 
    1. Make the address dynamic using the `--reserved=false` key and the address ID:
 
       ```bash
-      yc vpc address update --reserved=false e2l46k8conff8n6ru1jl
+      yc vpc address update --reserved=false e2l46k8conff********
       ```
 
       Result:
 
       ```bash
-      id: e2l46k8conff8n6ru1jl
-      folder_id: b1g7gvsi89m34pipa3ke
+      id: e2l46k8conff********
+      folder_id: b1g7gvsi89m3********
       created_at: "2021-01-14T09:36:46Z"
       external_ipv4_address:
         address: 84.201.177.41

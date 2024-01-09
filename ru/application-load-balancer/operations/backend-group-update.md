@@ -7,9 +7,9 @@ description: "Пошаговая инструкция по изменению г
 
 ## Изменить базовые параметры группы {#update-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   {% note info %}
 
@@ -41,7 +41,7 @@ description: "Пошаговая инструкция по изменению г
    
   1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -110,7 +110,7 @@ description: "Пошаговая инструкция по изменению г
      created_at: "2022-11-30T17:46:05.599491104Z"
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -155,7 +155,7 @@ description: "Пошаговая инструкция по изменению г
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/backend_group_service.md#Update).
 
@@ -163,9 +163,9 @@ description: "Пошаговая инструкция по изменению г
 
 ## Добавить бэкенд в группу {#add-backend}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -178,7 +178,7 @@ description: "Пошаговая инструкция по изменению г
      
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -311,7 +311,7 @@ description: "Пошаговая инструкция по изменению г
 
   {% endcut %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -374,7 +374,7 @@ description: "Пошаговая инструкция по изменению г
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [addBackend](../api-ref/BackendGroup/addBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/AddBackend](../api-ref/grpc/backend_group_service.md#AddBackend).
 
@@ -382,9 +382,9 @@ description: "Пошаговая инструкция по изменению г
 
 ## Изменить параметры бэкенда в группе {#update-backend}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -394,7 +394,7 @@ description: "Пошаговая инструкция по изменению г
   1. В открывшемся окне задайте настройки бэкенда. Подробнее о настройках см. [выше](#add-backend).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -533,7 +533,7 @@ description: "Пошаговая инструкция по изменению г
 
      {% endcut %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -595,7 +595,7 @@ description: "Пошаговая инструкция по изменению г
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить параметры бэкенда в группе, воспользуйтесь методом REST API [updateBackend](../api-ref/BackendGroup/updateBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/UpdateBackend](../api-ref/grpc/backend_group_service.md#UpdateBackend).
 
@@ -605,9 +605,9 @@ description: "Пошаговая инструкция по изменению г
 
 Чтобы удалить бэкенд из группы:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -616,7 +616,7 @@ description: "Пошаговая инструкция по изменению г
   1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -663,7 +663,7 @@ description: "Пошаговая инструкция по изменению г
      created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -708,7 +708,7 @@ description: "Пошаговая инструкция по изменению г
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [removeBackend](../api-ref/BackendGroup/removeBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/RemoveBackend](../api-ref/grpc/backend_group_service.md#RemoveBackend).
 

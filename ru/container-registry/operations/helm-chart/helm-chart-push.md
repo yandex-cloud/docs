@@ -10,9 +10,9 @@
 
 Чтобы загрузить Helm-чарт:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. [Установите](https://helm.sh/ru/docs/intro/install/) клиент Helm версии 3.7.1 или выше.
 
@@ -101,9 +101,9 @@
 
 ## Примеры {#examples}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Создайте Helm-чарт:
 

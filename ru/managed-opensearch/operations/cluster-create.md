@@ -19,9 +19,9 @@ keywords:
 
 При создании кластера для каждой [группы хостов](../concepts/host-groups.md) указываются отдельные параметры.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы создать кластер:
 
@@ -107,7 +107,7 @@ keywords:
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- API
+- API {#api}
 
   Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
 

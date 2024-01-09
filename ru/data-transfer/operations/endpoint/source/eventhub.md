@@ -4,9 +4,9 @@
 
 ## Настройки {#settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.eventhub.console.form.eventhub.EventhubConnection.namespace_name.title }}** — укажите пространство имен, к которому будет относиться хаб.
 
@@ -30,9 +30,9 @@
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.eventhub.console.form.eventhub.EventhubAdvancedSettings.transformer.title }}**:

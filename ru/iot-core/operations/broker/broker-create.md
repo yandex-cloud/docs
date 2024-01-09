@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать брокер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -46,7 +46,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -116,7 +116,7 @@ description: "Следуя данной инструкции, вы сможет�
       created_at: "2023-07-11T16:20:53.466370019Z"
       ```
 
-- {{ TF }} 
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -187,7 +187,7 @@ description: "Следуя данной инструкции, вы сможет�
           yc iot broker list
           ```
 
-- API
+- API {#api}
 
   Чтобы создать брокер, воспользуйтесь методом REST API [create](../../broker/api-ref/Broker/create.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/Create](../../broker/api-ref/grpc/broker_service.md#Create).
 

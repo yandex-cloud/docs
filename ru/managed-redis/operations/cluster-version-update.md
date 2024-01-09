@@ -14,9 +14,9 @@
 
 ### Узнать доступные версии {{ RD }} {#version-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -41,9 +41,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, который нужно обновить.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -53,7 +53,7 @@
 
   После запуска обновления кластер переходит в статус **Updating**. Дождитесь окончания операции и проверьте версию кластера.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -80,7 +80,7 @@
 
      После запуска обновления кластер переходит в статус **Updating**. Дождитесь окончания операции и проверьте версию кластера.
 
-- API
+- API {#api}
 
   Чтобы обновить кластер, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
@@ -96,9 +96,9 @@
 
 Допустим, нужно обновить кластер с версии {{ versions.cli.previous }} до версии {{ versions.cli.latest }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Чтобы получить список кластеров и узнать их имена и идентификаторы, выполните команду:
 

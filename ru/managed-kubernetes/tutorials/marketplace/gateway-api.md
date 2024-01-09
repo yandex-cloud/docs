@@ -25,16 +25,16 @@
 
 1. Создайте кластер и [группу узлов](../../../managed-kubernetes/concepts/index.md#node-group) {{ k8s }}.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
      1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
      1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.
      1. [Создайте кластер {{ k8s }}](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
      1. [Создайте правило для подключения к сервисам из интернета](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) и примените его к группе узлов кластера.
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
      1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
      1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -489,15 +489,15 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. [Удалите кластер {{ k8s }}](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. [Удалите созданные подсети](../../../vpc/operations/subnet-delete.md) и [сети](../../../vpc/operations/network-delete.md).
   1. [Удалите созданный сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   1. Удалите конфигурационный файл `k8s-gateway-api.tf`.

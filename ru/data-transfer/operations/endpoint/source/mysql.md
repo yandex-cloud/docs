@@ -22,19 +22,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-source.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `mysql-source`.
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-source.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `mysql_source`.
 
@@ -66,7 +66,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql-source.md) %}
 
@@ -76,21 +76,21 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Для случая OnPremise все поля заполняются вручную.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-source.md) %}
 
-- CLI
+- CLI {#cli}
 
     *  Тип эндпоинта — `mysql-source`.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-source.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
-    *  Тип эндпоинта — `mysql_source`.
+    * Тип эндпоинта — `mysql_source`.
 
     {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-source.md) %}
 
@@ -123,7 +123,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql-source.md) %}
 
@@ -131,9 +131,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Дополнительные настройки {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка. Задается с помощью регулярных выражений.
 
@@ -147,7 +147,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.service_database.title }}** — база данных для технических таблиц (`__tm_keeper`, `__tm_gtid_keeper`). По умолчанию это БД, из которой происходит перенос данных.
 
-- CLI
+- CLI {#cli}
 
     * `--include-table-regex` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка. Задается с помощью регулярных выражений.
 
@@ -161,7 +161,7 @@ description: "Из статьи вы узнаете, как задать нас�
         * `--transfer-before-data` — при активации трансфера.
         * `--transfer-after-data` — при деактивации трансфера.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * `include_table_regex` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка. Задается с помощью регулярных выражений.
 
@@ -183,7 +183,7 @@ description: "Из статьи вы узнаете, как задать нас�
         * `AFTER_DATA` — перенос на этапе деактивации трансфера;
         * `NEVER` — не переносить.
 
-- API
+- API {#api}
 
     * `includeTablesRegex` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка. Задается с помощью регулярных выражений.
 

@@ -45,9 +45,9 @@
 
 ### Создайте новый бакет для загрузки в него аудитных логов {#create-backet}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -69,9 +69,9 @@
 
 ### Создайте ключ шифрования в сервисе {{ kms-name }} {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с бакетом.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -88,9 +88,9 @@
 
 ### Включите шифрование бакета {#backet-encoding}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить шифрование.
   1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
@@ -104,9 +104,9 @@
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -121,9 +121,9 @@
 
 ## Назначьте роли сервисному аккаунту {#add-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI 
+- CLI {#cli}
 
   1. Назначьте роль [audit-trails.viewer](../../audit-trails/security/#roles) на каталог, с ресурсов которого будут собираться аудитные логи:
      
@@ -181,9 +181,9 @@
    * `audit-trails.viewer` на каталог, с которого будут собираться аудитные логи;
    * `storage.viewer` на бакет или каталог.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать трейл.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -228,9 +228,9 @@
 
 ## Настройте NAT-шлюз для подсети с промежуточной ВМ {#enable-nat}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Создайте NAT-шлюз:
       1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с подсетью для промежуточной ВМ.
@@ -262,9 +262,9 @@
 
 ## Создайте ВМ для непрерывной доставки логов в Splunk {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk) из [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library):

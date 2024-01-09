@@ -21,9 +21,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Как создать кластер {{ PG }} {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   
   @[youtube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB)
@@ -124,7 +124,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -212,7 +212,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -326,7 +326,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
   * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер, в параметре `folderId`.
@@ -391,9 +391,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ### Создание кластера с одним хостом {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать кластер с одним хостом, передайте один параметр `--host`.
 
@@ -430,7 +430,7 @@ description: "Следуя данной инструкции, вы сможет�
   ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Создайте кластер {{ mpg-name }} и сеть для него с тестовыми характеристиками:
 

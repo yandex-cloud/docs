@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -10,7 +10,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** отключите старую зону доступности.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Откройте файл со [спецификацией](../../compute/concepts/instance-groups/specification.md) группы ВМ и измените шаблон ВМ:
 
@@ -41,7 +41,7 @@
       ...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте файл конфигурации {{ TF }} для группы ВМ и удалите в блоке `allocation_policy` старую зону доступности, а в блоке `network_interface` идентификатор подсети в старой зоне: 
 
@@ -74,7 +74,7 @@
       yc compute instance-group get <имя_группы_ВМ>
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [update](../../compute/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Update](../../compute/api-ref/grpc/instance_group_service.md#Update).
 

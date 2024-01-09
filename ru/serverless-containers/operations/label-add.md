@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Добавить метку контейнеру
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -33,7 +33,7 @@ description: "Следуя данной инструкции, вы сможет�
     status: ACTIVE
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -91,7 +91,7 @@ description: "Следуя данной инструкции, вы сможет�
   yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
   ```
 
-- API
+- API {#api}
 
   Чтобы добавить метку контейнеру, воспользуйтесь методом REST API [update](../containers/api-ref/Container/update.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update).
 

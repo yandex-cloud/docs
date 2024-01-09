@@ -2,9 +2,9 @@
 
 [Подсети](../concepts/network.md) можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится подсеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -19,7 +19,7 @@
 
   {% endnote %}
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -91,7 +91,7 @@
      ```
      Подробнее о команде `yc vpc subnet move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/move.md).
 
-- API
+- API {#api}
 
   Чтобы переместить [подсеть](../concepts/network.md#subnet) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Subnet/move.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Move](../api-ref/grpc/subnet_service.md#Move) и передайте в запросе:
 
@@ -111,9 +111,9 @@
 
 Переместите подсеть из текущего каталога, указав имя подсети и имя каталога назначения:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc vpc subnet move subnet-a \
@@ -126,9 +126,9 @@
 
 Переместите подсеть, которая находится в другом каталоге. Укажите идентификатор подсети, а также идентификаторы исходного и целевого каталога:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc vpc subnet move enc39op1vq9m******** \

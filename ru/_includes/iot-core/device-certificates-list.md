@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится устройство.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -9,7 +9,7 @@
    1. Выберите устройство.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -32,7 +32,7 @@
   +------------------------------------------+---------------------+
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список сертификатов устройства, воспользуйтесь методом REST API [listCertificates](../../iot-core/api-ref/Device/listCertificates.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/ListCertificates](../../iot-core/api-ref/grpc/device_service.md#ListCertificates).
 

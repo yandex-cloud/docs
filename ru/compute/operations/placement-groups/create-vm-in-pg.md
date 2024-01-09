@@ -4,9 +4,9 @@
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -77,11 +77,7 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 
-- API
-
-  Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -144,6 +140,10 @@
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить, что виртуальная машина создана и добавлена в группу размещения, можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create).
 
 {% endlist %}
 

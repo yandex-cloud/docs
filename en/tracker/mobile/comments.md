@@ -10,7 +10,7 @@ If you only discuss an issue in the comments, you will always have access to a 
 
 ## Leaving a comment {#leave-comment}
 
-To comment on an issue, enter your text in the **{{ ui-key.startrek.ui_components_CommentEditor.write-comment }}** box at the bottom of the screen and tap ![](../../_assets/tracker/send.png). In the comments section, you can use [text markup](../user/markup.md) and [attach images and files](#sec_file). To expand the comment box to full screen, tap ![](../../_assets/tracker/open-text.png).
+To comment on an issue, enter your text in the **{{ ui-key.startrek.ui_components_entity-page_comments_CommentEditor_mobile.write-comment }}** box at the bottom of the screen and tap ![](../../_assets/tracker/send.png). In the comments section, you can use [text markup](../user/markup.md) and [attach images and files](#sec_file). To expand the comment box to full screen, tap ![](../../_assets/tracker/open-text.png).
 
 You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically [links](ticket-links.md#add-link) the issue.
 
@@ -32,7 +32,7 @@ Any changes to comments are saved in the [History](../user/history.md).
 
 To invite other users to discuss an issue:
 
-1. Select **{{ ui-key.startrek.ui_components_CommentEditor.write-comment }}** at the bottom of the screen and tap ![](../../_assets/tracker/at.png).
+1. Select **{{ ui-key.startrek.ui_components_entity-page_comments_CommentEditor_mobile.write-comment }}** at the bottom of the screen and tap ![](../../_assets/tracker/at.png).
 
 1. Enter the username or name of the user you want to invite to the comments and tap **{{ ui-key.startrek.ui_components_ModalTextEditor.save }}**. You can invite multiple users at once.
 
@@ -50,7 +50,7 @@ If you add a user in the **{{ ui-key.startrek-backend.fields.issue.pendingReplyF
 
 To attach a file to a comment:
 
-1. Select **{{ ui-key.startrek.ui_components_CommentEditor.write-comment }}** at the bottom of the screen and tap ![](../../_assets/tracker/pin.png).
+1. Select **{{ ui-key.startrek.ui_components_entity-page_comments_CommentEditor_mobile.write-comment }}** at the bottom of the screen and tap ![](../../_assets/tracker/pin.png).
 
    * To add a photo or video from your phone's camera, tap **Camera**. When everything is ready, tap **OK**. To take a new photo or video, tap **Repeat**.
 

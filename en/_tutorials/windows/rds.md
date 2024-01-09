@@ -142,7 +142,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    1. Under **Disks**, enter 50 GB for the size of the boot disk.
    1. Under **Computing resources**:
       - Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      - Specify the number of vCPUs and the amount of RAM:
+      - Specify the required number of vCPUs and the amount of RAM:
          * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB
@@ -336,9 +336,9 @@ Install the Remote Desktop Session Host role on the server:
 
 Add the server to the Terminal Server License Servers group in the Active Directory security group and register it as the license service connection point (SCP) for users:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows Server
+- Windows Server {#windows}
 
   1. Click **Start**.
   1. Type `Remote Desktop Licensing Manager` in the search box.

@@ -6,9 +6,9 @@
 
 ## Изменить имя реестра {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы изменить имя реестра:
 
@@ -18,7 +18,7 @@
    1. Измените поле **{{ ui-key.yacloud.common.name }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@
   name: test-registry
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -92,7 +92,7 @@
       yc iot registry list
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить имя реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
@@ -100,9 +100,9 @@
 
 ## Изменить описание реестра {#update-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы изменить описание реестра:
 
@@ -112,7 +112,7 @@
    1. Измените поле **{{ ui-key.yacloud.common.description }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -133,7 +133,7 @@
     test_label: my_registry_label
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -189,7 +189,7 @@
       yc iot registry get <имя_реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить описание реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
@@ -205,9 +205,9 @@
 
 ### Добавить метку {#add-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы добавить метку реестра:
 
@@ -217,7 +217,7 @@
    1. Заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}**, **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.iot.button_add-label }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -237,7 +237,7 @@
     new_label: test_label
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -300,7 +300,7 @@
       yc iot registry get <имя_реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить метку реестру, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
@@ -308,9 +308,9 @@
 
 ### Изменить метку {#update-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы изменить метку реестра:
 
@@ -320,7 +320,7 @@
    1. Измените поля **{{ ui-key.yacloud.component.key-values-input.label_key }}**, **{{ ui-key.yacloud.component.key-values-input.label_value }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -346,7 +346,7 @@
     test_label: my_registry_label
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -404,7 +404,7 @@
       yc iot registry get <имя_реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить метку реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 
@@ -412,9 +412,9 @@
 
 ### Удалить метку {#remove-label}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы удалить метку реестра:
 
@@ -424,7 +424,7 @@
    1. Справа от удаляемой метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -442,7 +442,7 @@
   name: my-registry
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -500,7 +500,7 @@
       yc iot registry get <имя_реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить метку реестра, воспользуйтесь методом REST API [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Update](../../api-ref/grpc/registry_service.md#Update).
 

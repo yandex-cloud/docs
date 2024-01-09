@@ -12,16 +12,16 @@
 
 1. Создайте кластер {{ managed-k8s-name }} и [группу узлов](../../managed-kubernetes/concepts/index.md#node-group).
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
      1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
      1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и группа узлов.
      1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
      1. [Создайте правило для подключения к сервисам из интернета](../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) и примените его к группе узлов кластера {{ managed-k8s-name }}.
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -99,15 +99,15 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. [Удалите созданные подсети](../../vpc/operations/subnet-delete.md) и [сети](../../vpc/operations/network-delete.md).
   1. [Удалите созданный сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   1. Удалите конфигурационный файл `k8s-cluster.tf`.

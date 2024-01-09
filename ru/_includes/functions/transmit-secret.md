@@ -6,9 +6,9 @@
 
 При передаче секретов создается новая версия функции. В существующую версию секреты передать нельзя.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -27,7 +27,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. Будет создана новая версия функции с указанными секретами.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -70,7 +70,7 @@
   
       В функцию можно передать несколько секретов. Для этого укажите параметр `--secret` необходимое количество раз.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -120,7 +120,7 @@
 
     Проверить изменение функции и ее настройки можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
     Чтобы передать секрет {{ lockbox-name }} в функцию, воспользуйтесь методом REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion).
 

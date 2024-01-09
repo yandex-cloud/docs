@@ -13,9 +13,9 @@ keywords:
 
 ## Получить лог кластера {#list-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- API
+- API {#api}
 
     Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/cluster_service.md#ListLogs) и передайте в запросе:
 
@@ -34,9 +34,9 @@ keywords:
 
 Этот способ позволяет получать логи кластера в реальном времени.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- API
+- API {#api}
 
     Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/cluster_service.md#StreamLogs) и передайте в запросе:
 

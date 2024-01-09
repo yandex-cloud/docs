@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создать целевую группу {{ network-load-balancer-name }}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   Чтобы создать новую [целевую группу](../concepts/target-resources.md):
   
@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Выберите [виртуальные машины](../../glossary/vm.md), которые нужно добавить в целевую группу.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -42,7 +42,7 @@ description: "Следуя данной инструкции, вы сможет�
                 `address=<внутренний_IP-адрес_ВМ>
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -79,7 +79,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Чтобы создать новую целевую группу, воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/target_group_service.md#Create).
   

@@ -60,28 +60,28 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       +----------------------+---------------------------------+------------------------------------+----------------------+
       |          ID          |              NAME               |          DESCRIPTION               |      NETWORK-ID      |
       +----------------------+---------------------------------+------------------------------------+----------------------+
-      | enp9bmjge93bvnlb4061 | default-sg-enp509crtqufsuhm9kbr | Default security group for network | enp509crtqufsuhm9kbr |
-      | enp9rs9u4h6juk9rq3k5 | sg-1                            |                                    | enp509crtqufsuhm9kbr |
-      | enp9d8m73d1cgh2rm179 | sg-2                            |                                    | enp509crtqufsuhm9kbr |
+      | enp9bmjge93b******** | default-sg-enp509crtquf******** | Default security group for network | enp509crtquf******** |
+      | enp9rs9u4h6j******** | sg-1                            |                                    | enp509crtquf******** |
+      | enp9d8m73d1c******** | sg-2                            |                                    | enp509crtquf******** |
       +----------------------+---------------------------------+------------------------------------+----------------------+
       ```
 
    1. Add a rule using the `update-rules` command and the `--add-rule` parameter:
 
       ```
-      yc vpc security-group update-rules <group name or ID> --add-rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24,10.10.0.0/24]"
+      yc vpc security-group update-rules <group_name_or_ID> --add-rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24,10.10.0.0/24]"
       ```
       Result:
       ```
       done (12s)
-      id: enp9rs9i4h9juk9rq3k5
-      folder_id: b1gau98l79li5n96eabd
+      id: enp9rs9i4h9j********
+      folder_id: b1gau98l79li********
       created_at: "2022-06-24T15:46:31Z"
       name: sg-1
-      network_id: enp559cr9q9fsuhm9kbr
+      network_id: enp559cr9q9f********
       status: ACTIVE
       rules:
-        - id: enp68o6cdi872ftdu4vp
+        - id: enp68o6cdi87********
           direction: INGRESS
           ports:
             from_port: "443"
@@ -179,7 +179,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       You can verify the changes to the security group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
-      yc vpc security-group get <security group name>
+      yc vpc security-group get <security_group_name>
       ```
 
    ### Adding a new rule using the yandex_vpc_security_group_rule resource {#add-rule-with-yandex-vpc-security-group-rule}
@@ -206,9 +206,9 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       ```hcl
       ...
       resource "yandex_vpc_security_group_rule" "rule1" {
-        security_group_binding = <security group ID>
+        security_group_binding = <security_group_ID>
         direction              = "ingress"
-        description            = "<rule description>"
+        description            = "<rule_description>"
         v4_cidr_blocks         = ["10.0.1.0/24", "10.0.2.0/24"]
         port                   = 8080
         protocol               = "TCP"
@@ -259,7 +259,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       You can verify the changes to the security group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
-      yc vpc security-group get <security group name>
+      yc vpc security-group get <security_group_name>
       ```
 
 - API
