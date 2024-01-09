@@ -25,12 +25,17 @@ description: "Следуя данной инструкции, вы сможет�
     {% list tabs group=programming_language %}
 
     - Python 3 {#python}
-      
-      1. Установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
-        ```bash
-        pip install grpcio-tools
-        ```
+        1. Установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
+
+            ```bash
+            pip install grpcio-tools
+            ```
+
+        1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
+           ```bash
+          git clone https://github.com/yandex-cloud/cloudapi
+          ```
 
         1. Перейдите в папку со склонированным репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
