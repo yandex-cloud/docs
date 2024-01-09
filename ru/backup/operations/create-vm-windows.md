@@ -11,9 +11,9 @@
 
 ## Создание ВМ {#creating-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -37,7 +37,7 @@
   1. Укажите другие необходимые параметры ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder):
 

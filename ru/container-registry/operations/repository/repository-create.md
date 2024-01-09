@@ -13,9 +13,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать [репозиторий](../../concepts/repository.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -55,7 +55,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc container repository list --registry-id <идентификатор_реестра>
      ```
 
-- API
+- API {#api}
 
   Чтобы создать репозиторий, воспользуйтесь методом REST API [upsert](../../api-ref/Repository/upsert.md) для ресурса [Repository](../../api-ref/Repository/index.md), или вызовом gRPC API [RepositoryService/Upsert](../../api-ref/grpc/repository_service.md#Upsert).
 

@@ -6,9 +6,9 @@
 
 ## Создать отдельный нереплицируемый диск {#nr-disk}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -39,7 +39,7 @@
   
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
@@ -74,7 +74,7 @@
       disk_placement_policy: {}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -133,7 +133,7 @@
         yc compute disk list
         ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create).
 
@@ -143,9 +143,9 @@
 
 Диск можно создать только в существующей группе размещения дисков.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -169,7 +169,7 @@
       Если вы хотите указать еще одно расписание, вы сможете [добавить](../disk-control/configure-schedule.md#add-schedule) его после создания диска.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -251,7 +251,7 @@
         ```
 
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create).
 

@@ -8,9 +8,9 @@
 
 {% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md)%}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -19,7 +19,7 @@
     1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** укажите количество подготовленных экземпляров.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
-- CLI
+- CLI {#cli}
 
     Чтобы добавить настройки масштабирования для контейнера, выполните команду:
 
@@ -62,7 +62,7 @@
 	  min_instances: "1"
     ```
 
-- API
+- API {#api}
 
   Чтобы добавить настройки масштабирования контейнера, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/container_service.md#DeployRevision).
 

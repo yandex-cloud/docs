@@ -1,8 +1,8 @@
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
@@ -19,9 +19,9 @@
 
    1. After installation is complete, restart your terminal.
 
-- MacOS
+- MacOS {#macos}
 
-   1. Run the command:
+   1. Run this command:
 
       ```bash
       curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
@@ -37,7 +37,7 @@
 
       {% note warning %}
 
-      If you have macOS Mojave 10.14 or earlier, use the `bash-completion` package instead of `zsh-completion` and the `~/.bash_profile` configuration file instead of `~/.zshrc` at the current and next step.
+      If you installed bash instead of zsh or have macOS Mojave 10.14 or earlier with bash as the default shell, use the `bash-completion` package instead of `zsh-completion` and the `~/.bash_profile` configuration file instead of `~/.zshrc` at the current and next step.
 
       {% endnote %}
 
@@ -63,13 +63,13 @@
       ```
    1. Restart your terminal.
 
-- Windows
+- Windows {#windows}
 
    For Windows, you can install the CLI using PowerShell or command line:
 
    - To install using PowerShell:
 
-      1. Run the command:
+      1. Run this command:
 
          ```
          iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
@@ -82,7 +82,7 @@
       1. Enter `Y`. After this, you can use the {{ yandex-cloud }} CLI without restarting the command shell.
    - To install using command line:
 
-      1. Run the command:
+      1. Run this command:
 
          ```
          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"

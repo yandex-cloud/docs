@@ -11,9 +11,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [network](../../_includes/functions/network.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится API-шлюз.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. В поле **{{ ui-key.yacloud.vpc.label_network }}** укажите облачную сеть, в которой будет находиться API-шлюз.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
-- API
+- API {#api}
 
   Чтобы указать облачную сеть, в которой будет находиться API-шлюз, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
 

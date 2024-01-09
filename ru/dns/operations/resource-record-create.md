@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать [ресурсную запись](../concepts/resource-record.md) в зоне DNS:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится зона DNS, в которой требуется создать запись. 
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
      1. Введите **{{ ui-key.yacloud.dns.label_records }}** записи.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -37,7 +37,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Вы можете добавить несколько записей одновременно.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -124,7 +124,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc dns zone list-records <имя_зоны>
      ```
 
-- API
+- API {#api}
 
   Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
 

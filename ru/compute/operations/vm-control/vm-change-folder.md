@@ -17,9 +17,9 @@
 
 ### Изменить каталог ВМ {#change-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
   
@@ -78,7 +78,7 @@
 
       Подробнее о команде `yc compute instance move` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/move.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [move](../../api-ref/Instance/move.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move).
 
@@ -153,9 +153,9 @@
 
 После переноса ВМ остается подключена к [подсети](../../../vpc/concepts/network.md#subnet) исходного каталога. Чтобы перенести ВМ в подсеть каталога назначения:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который была перемещена ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -166,7 +166,7 @@
   1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите новую подсеть и нажмите **{{ ui-key.yacloud.common.save }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
   
@@ -246,7 +246,7 @@
       yc compute instance start fhm0b28lgfp4********
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/instance_service.md#UpdateNetworkInterface).
 

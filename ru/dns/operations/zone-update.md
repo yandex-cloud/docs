@@ -4,9 +4,9 @@
 
 Чтобы изменить зону DNS:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется изменить зону DNS.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -15,7 +15,7 @@
   1. Измените параметры зоны.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@
        - c645mh47vsc********
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -104,7 +104,7 @@
      yc dns zone get <имя_зоны>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить зону DNS, воспользуйтесь методом REST API [update](../api-ref/DnsZone/update.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Update](../api-ref/grpc/dns_zone_service.md#Update).
 

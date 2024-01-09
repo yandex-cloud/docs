@@ -16,9 +16,9 @@
 
 ## Добавить сертификат {#add-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы добавить сертификат реестра:
 
@@ -40,7 +40,7 @@
          1. Вставьте тело сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
          1. Нажмите **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -63,7 +63,7 @@
   created_at: "2019-05-29T16:40:48.230Z"
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -128,7 +128,7 @@
       yc iot registry certificate list --registry-name <имя_реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить сертификат реестру, воспользуйтесь методом REST API [addCertificate](../../api-ref/Registry/addCertificate.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/AddCertificate](../../api-ref/grpc/registry_service.md#AddCertificate).
 
@@ -136,9 +136,9 @@
 
 ## Удалить сертификат {#delete-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы удалить сертификат реестра:
 
@@ -149,7 +149,7 @@
    1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -174,7 +174,7 @@
       +-------------+------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -234,7 +234,7 @@
       yc iot registry certificate list --registry-name <имя_реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить сертификат реестра, воспользуйтесь методом REST API [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/DeleteCertificate](../../api-ref/grpc/registry_service.md#DeleteCertificate).
 

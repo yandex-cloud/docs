@@ -36,14 +36,14 @@
 
 В отказоустойчивом кластере из нескольких хостов вы можете переключить роль мастера с текущего хоста-мастера на хост-реплику. После этой операции текущий хост-мастер станет хостом-репликой для нового мастера.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Перейдите на страницу кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
    1. Нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

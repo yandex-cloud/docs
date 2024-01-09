@@ -2,9 +2,9 @@
 
 После создания [подсети](../concepts/network.md#subnet) вы можете изменить ее имя, описание и настройки DCHP.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить подсеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -13,7 +13,7 @@
   1. Внесите нужные изменения.
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -68,7 +68,7 @@
       - 192.168.0.0/24
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -124,7 +124,7 @@
      yc vpc subnet get <имя_подсети>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [update](../api-ref/Subnet/update.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) и передайте в запросе:
 
@@ -152,9 +152,9 @@
 
 ### Изменение подсети с использованием флага имени {#using-name-flag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Можно изменять подсеть, используя ее имя вместо идентификатора:
 

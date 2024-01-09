@@ -21,9 +21,9 @@
 
 {% include [trigger-time](trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
         
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
@@ -67,7 +67,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -131,7 +131,7 @@
     status: ACTIVE
   ```
 
-- API
+- API {#api}
 
   Чтобы создать триггер для {{ cloud-logs-name }}, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).
 

@@ -32,9 +32,9 @@ keywords:
 
 Допускается использовать только хосты с ролью _Data node_ и не создавать выделенные хосты для роли _Master node_: в этом случае хосты с ролью _Data node_ будут совмещать две роли.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы создать кластер {{ mes-name }}:
 
@@ -111,7 +111,7 @@ keywords:
   1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -186,7 +186,7 @@ keywords:
 
      {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -291,7 +291,7 @@ keywords:
 
      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы создать кластер {{ mes-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
   * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mes-name }}, в параметре `folderId`.
@@ -325,9 +325,9 @@ keywords:
 
 ### Создание кластера с одним хостом {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать кластер {{ mes-name }} с одним хостом, передайте один параметр `--host`.
 
@@ -367,7 +367,7 @@ keywords:
   ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Создайте кластер {{ mes-name }}. Конфигурационный файл для кластера {{ mes-name }} выглядит так:
 

@@ -8,9 +8,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный адрес.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -18,7 +18,7 @@
    1. Нажмите ![image](../../_assets/options.svg) в строке нужного адреса и выберите **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. В открывшемся окне нажмите **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@
 
       Параметр `reserved` принял значение `true`, теперь IP-адрес статический.
 
-- API
+- API {#api}
 
   Чтобы изменить тип публичного IP-адреса с динамического на статический, воспользуйтесь методом REST API [update](../api-ref/Address/update.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../api-ref/grpc/address_service.md#Update) и передайте в запросе:
 

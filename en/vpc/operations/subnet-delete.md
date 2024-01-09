@@ -47,7 +47,7 @@ You cannot restore a subnet after it is deleted.
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
       ...
-      | e2l0psbfoloefpjb1rau | test-subnet-1         | ... | [192.168.0.0/24] |
+      | e2l0psbfoloe******** | test-subnet-1         | ... | [192.168.0.0/24] |
       ...
       +----------------------+-----------------------+-----+------------------+
       ```
@@ -142,7 +142,7 @@ You cannot restore a subnet after it is deleted.
    Delete a subnet from another folder:
 
    ```
-   yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
+   yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5********
    ```
 
    Where `--folder-id` is the ID of the folder.
@@ -153,10 +153,10 @@ You cannot restore a subnet after it is deleted.
 
    Where `--folder-name` is the name of the folder.
 
-   You can pass the ID and name as positional arguments, or you can use the `--id` and `--name` flags:
+   You can provide the ID and name not only as positional arguments but also using the `--id` and `--name` flags:
 
    ```
-   yc vpc subnet delete --id enpavfmgapumnl7cqin8
+   yc vpc subnet delete --id enpavfmgapum********
    ```
 
    ```

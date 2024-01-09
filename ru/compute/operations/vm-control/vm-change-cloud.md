@@ -5,16 +5,16 @@
 1. [Создайте образ](../image-create/create-from-disk.md) из загрузочного диска нужной виртуальной машины.
 1. Получите идентификатор образа загрузочного диска:
    
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
      
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится образ диска.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева выберите ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
      1. Скопируйте значение из столбца **{{ ui-key.yacloud.compute.images.column_id }}** нужного образа.
 
-   - CLI
+   - CLI {#cli}
      
      {% include [cli-install](../../../_includes/cli-install.md) %}
      
@@ -36,7 +36,7 @@
      +----------------------+----------------+--------+-------------+--------+
      ```
      
-   - API
+   - API {#api}
      
      Воспользуйтесь методом REST API [list](../../api-ref/Image/list.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List).
      
@@ -44,14 +44,14 @@
 
 1. Получите идентификатор облака, в котором расположен каталог с образом:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) в списке слева нажмите на нужное облако.
      1. На вкладке **{{ ui-key.yacloud.iam.cloud.switch_overview }}** скопируйте значение из поля **{{ ui-key.yacloud.iam.cloud.overview.label_id }}**.
 
-   - CLI
+   - CLI {#cli}
 
      Получите список облаков с идентификаторами:
 
@@ -70,7 +70,7 @@
      +----------------------+------------+--------------------------+
      ```
 
-   - API
+   - API {#api}
 
      Чтобы получить список облаков с идентификаторами, воспользуйтесь методом REST API [list](../../../resource-manager/api-ref/Cloud/list.md) для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/List](../../../resource-manager/api-ref/grpc/cloud_service.md#List).
 
@@ -80,9 +80,9 @@
 1. [Назначьте](../../../iam/operations/roles/grant.md) пользователю роли `{{ roles-cloud-member }}` и `{{ roles-image-user }}` на облако.
 1. Создайте новый образ в целевом облаке:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc compute image create \
@@ -92,7 +92,7 @@
        --folder-id <идентификатор_каталога_назначения>
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../../api-ref/grpc/image_service.md#Create). В запросе укажите идентификатор образа.
 

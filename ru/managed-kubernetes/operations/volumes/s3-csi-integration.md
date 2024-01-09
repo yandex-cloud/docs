@@ -19,9 +19,9 @@
 
 ## Настройка {{ CSI }} {#configure-csi}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- С помощью {{ marketplace-full-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
   Установите приложение {{ CSI }} для S3 с помощью [пошаговой инструкции](../applications/csi-s3.md#install-fb-marketplace). При установке приложения укажите параметры:
   * **Пространство имен** — `kube-system`.
@@ -30,7 +30,7 @@
 
   После установки приложения можно создавать [статические](../../concepts/volume.md#static-provisioning) и [динамические](../../concepts/volume.md#dynamic-provisioning) `PersistentVolume`, которые будут использовать бакеты {{ objstorage-name }}.
 
-- Вручную
+- Вручную {#manual}
 
   1. Создайте файл `secret.yaml`, в котором укажите настройки доступа для {{ CSI }}:
 

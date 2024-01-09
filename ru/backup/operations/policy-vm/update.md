@@ -7,9 +7,9 @@ description: "Из статьи вы узнаете, как изменить п�
 
 ## Изменить основные параметры {#update-basic-parameters}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить политику.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -21,7 +21,7 @@ description: "Из статьи вы узнаете, как изменить п�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -119,7 +119,7 @@ description: "Из статьи вы узнаете, как изменить п�
 
       Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/update.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -204,7 +204,7 @@ description: "Из статьи вы узнаете, как изменить п�
      yc backup policy get <идентификатор_политики>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить основные параметры [политики резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [update](../../backup/api-ref/Policy/update.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update).
 
@@ -212,9 +212,9 @@ description: "Из статьи вы узнаете, как изменить п�
 
 ## Изменить список виртуальных машин {#update-vm-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -225,7 +225,7 @@ description: "Из статьи вы узнаете, как изменить п�
       * Чтобы добавить новую ВМ, в блоке **{{ ui-key.yacloud.backup.label_linked-instances }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**. В открывшемся окне выберите ВМ, которую нужно привязать к политике, и нажмите кнопку **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
       * Чтобы удалить ВМ, в блоке **{{ ui-key.yacloud.backup.label_linked-instances }}** напротив ВМ, которую нужно отвязать от политики, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_detach-instance }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -279,7 +279,7 @@ description: "Из статьи вы узнаете, как изменить п�
 
         Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/revoke.md).
 
-- API
+- API {#api}
 
   Чтобы изменить список виртуальных машин, копии которых создаются согласно [политике резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [update](../../backup/api-ref/Policy/update.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update).
 

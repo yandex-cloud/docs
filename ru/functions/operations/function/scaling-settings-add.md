@@ -21,9 +21,9 @@ description: "Следуя данной инструкции, вы сможет�
 {% include [provisioned-instances-time](../../../_includes/functions/provisioned-instances-time.md)%}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -36,7 +36,7 @@ description: "Следуя данной инструкции, вы сможет�
         * **provisioned_instances_count** — количество подготовленных экземпляров.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
     Чтобы добавить настройки масштабирования для функции, выполните команду:
 
@@ -71,7 +71,7 @@ description: "Следуя данной инструкции, вы сможет�
     ```
   
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -144,12 +144,12 @@ description: "Следуя данной инструкции, вы сможет�
     yc serverless function list-scaling-policies <имя_функции>|<идентификатор_функции>
     ```
 
-- API
+- API {#api}
 
     Чтобы добавить настройки масштабирования для функции, воспользуйтесь методом REST API [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/function_service.md#SetScalingPolicy).
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Добавить настройки масштабирования для функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

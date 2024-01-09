@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать контейнер.
 	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -12,7 +12,7 @@
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 
-- CLI
+- CLI {#cli}
 
 	{% include [cli-install](../cli-install.md) %}
 
@@ -35,7 +35,7 @@
 	status: ACTIVE
 	```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -111,7 +111,7 @@
      yc serverless container list 
      ```
 
-- API
+- API {#api}
 
   Чтобы создать контейнер, воспользуйтесь методом REST API [create](../../serverless-containers/containers/api-ref/Container/create.md) для ресурса [Container](../../serverless-containers/containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Create](../../serverless-containers/containers/api-ref/grpc/container_service.md#Create).
 

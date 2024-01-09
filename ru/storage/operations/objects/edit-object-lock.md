@@ -13,9 +13,9 @@
 
 Чтобы установить или настроить блокировку:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -46,7 +46,7 @@
    
      * `--bypass-governance-retention` — флаг, подтверждающий обход блокировки. Его нужно установить, если на версию объекта уже установлена управляемая блокировка.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [putObjectRetention](../../s3/api-ref/object/putobjectretention.md).
 
@@ -58,9 +58,9 @@
 
 Чтобы снять блокировку:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -83,7 +83,7 @@
      * `--retention` — настройки временной блокировки. В обоих параметрах указаны пустые строки, чтобы снять блокировку.
      * `--bypass-governance-retention` — флаг, подтверждающий обход блокировки.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) с заголовком `X-Amz-Bypass-Governance-Retention: true` и пустым элементом `Retention`.
 
@@ -96,9 +96,9 @@
 
 Чтобы установить или удалить блокировку:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -125,7 +125,7 @@
          * `ON` — блокировка установлена.
          * `OFF` — блокировка не установлена.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md).
 

@@ -2,9 +2,9 @@ A disk snapshot only contains the data that had already been written to the disk
 
 To ensure the integrity of the snapshot data:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
    1. Stop all disk write operations in applications.
 
@@ -30,7 +30,7 @@ To ensure the integrity of the snapshot data:
       ```
       Where `--unfreeze` is the parameter to unfreeze the file system. Instead of `<mount_point>`, specify the folder the file system is connected to, e.g., `/mnt/vdc2`.
 
-- Other OS's
+- Other OS's {#other}
 
    1. Stop the virtual machine (see [{#T}](../../compute/operations/vm-control/vm-stop-and-start.md#stop)).
    1. Wait until the VM status changes to `STOPPED`.

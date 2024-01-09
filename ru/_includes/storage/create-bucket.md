@@ -1,8 +1,8 @@
 Минимально необходимая роль для создания бакета — `storage.editor`. См. [описание роли](../../storage/security/#storage-editor).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -27,7 +27,7 @@
 
       1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -85,7 +85,7 @@
       created_at: "2022-12-16T14:05:12.196007Z"
       ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
     
@@ -104,7 +104,7 @@
   {% endnote %}
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -185,7 +185,7 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
 

@@ -10,15 +10,15 @@ description: "Чтобы сделать резервное копировани�
 Чтобы сохранить сертификат:
 1. Получите идентификатор сертификата.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится сертификат.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
      1. Скопируйте содержимое поля **{{ ui-key.yacloud.common.id }}** для сохраняемого сертификата.
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@ description: "Чтобы сделать резервное копировани�
         yc cm certificate list
         ```
 
-   - API
+   - API {#api}
 
      Чтобы получить идентификатор сертификата, воспользуйтесь методом REST API [list](../api-ref/Certificate/list.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/List](../api-ref/grpc/certificate_service.md#List).
 
@@ -45,9 +45,9 @@ description: "Чтобы сделать резервное копировани�
 
 1. Получите содержимое сертификата.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -69,7 +69,7 @@ description: "Чтобы сделать резервное копировани�
         ...
         ```
 
-   - API
+   - API {#api}
 
      Чтобы получить содержимое сертификата, воспользуйтесь методом REST API [get](../api-ref/CertificateContent/get.md) для ресурса [CertificateContent](../api-ref/CertificateContent/) или вызовом gRPC API [CertificateContentService/Get](../api-ref/grpc/certificate_content_service.md#Get).
 
@@ -90,9 +90,9 @@ description: "Чтобы сделать резервное копировани�
 1. Подготовьте файлы с содержимым сертификата.
 1. Импортируйте сертификат.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет восстановлен сертификат.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -110,7 +110,7 @@ description: "Чтобы сделать резервное копировани�
         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -132,7 +132,7 @@ description: "Чтобы сделать резервное копировани�
         ...
         ```
 
-   - API
+   - API {#api}
 
      Чтобы импортировать сертификат, воспользуйтесь методом REST API [create](../api-ref/Certificate/create.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../api-ref/grpc/certificate_service.md#Create).
 

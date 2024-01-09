@@ -6,15 +6,15 @@
 
 Получите список [групп узлов](../../concepts/index.md#node-group) в кластере {{ k8s }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ k8s }}.
   1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните команду:
 
@@ -32,7 +32,7 @@
   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список групп узлов в каталоге по умолчанию, воспользуйтесь методом [list](../../api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
 
@@ -42,16 +42,16 @@
 
 Для обращения к группе узлов используйте параметры `ID` или `NAME` из [предыдущего](node-group-list.md#list) пункта.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ k8s }}.
   1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Нажмите на имя нужной группы узлов.
 
-- CLI
+- CLI {#cli}
 
   Получите подробную информацию о группе узлов:
 
@@ -71,7 +71,7 @@
   node_version: 1.13.3
   ```
 
-- API
+- API {#api}
 
   Чтобы получить подробную информацию о группе узлов, воспользуйтесь методом [get](../../api-ref/NodeGroup/get.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
 

@@ -12,9 +12,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить статический адрес.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
    1. Нажмите ![image](../../_assets/options.svg) в строке нужного адреса и выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
   
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -56,7 +56,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc vpc address delete e9b6un9gkso6********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -115,7 +115,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc vpc address list
      ```
 
-- API
+- API {#api}
 
   Чтобы удалить [статический адрес](../concepts/address.md), воспользуйтесь методом REST API [delete](../api-ref/Address/delete.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Delete](../api-ref/grpc/address_service.md#Delete) и передайте в запросе идентификатор удаляемого адреса в параметре `addressId`.
 

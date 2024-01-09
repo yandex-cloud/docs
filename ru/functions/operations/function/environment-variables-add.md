@@ -2,9 +2,9 @@
 
 При добавлении переменных окружения создается новая версия функции. В существующую версию переменные добавить нельзя.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -13,7 +13,7 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите переменную окружения и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. Можно добавить несколько переменных окружения.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. Будет создана новая версия функции с указанными переменными окружения.
     
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@
     * `--source-version-id` — идентификатор версии функции, код которой вы хотите скопировать.
     * `--environment` — переменные окружения в формате `key=value`. Можно указать несколько пар через запятую.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -112,12 +112,12 @@
       
     Проверить появление переменных окружения можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
     Чтобы добавить переменные окружения, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Добавить переменные окружения можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

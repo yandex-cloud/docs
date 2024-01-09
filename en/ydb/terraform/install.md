@@ -5,16 +5,16 @@ You can download Terraform from the official [HashiCorp](https://developer.hashi
 
 ## Installing Terraform for Windows, Linux, and macOS from the HashiCorp site {#terraform-install-on-dif-os}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
-   * Download Terraform from the [official website](https://developer.hashicorp.com/terraform/downloads) and install it following [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
-   * Install Terraform using the [Chocolatey](https://chocolatey.org/install) package manager and the `choco install terraform` command.
-- Linux
+- Linux {#linux}
    * Download a [Terraform](https://developer.hashicorp.com/terraform/downloads) distribution and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
-- MacOS
+- macOS {#macos}
    * Download a [Terraform distribution](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
    * Install Terraform using the [Homebrew](https://brew.sh) package manager and the `brew install terraform` command.
+- Windows {#windows}
+   * Download Terraform from the [official website](https://developer.hashicorp.com/terraform/downloads) and install it as per [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
+   * Install Terraform using the [Chocolatey](https://chocolatey.org/install) package manager and the `choco install terraform` command.
 
 {% endlist %}
 
@@ -25,10 +25,10 @@ Once you have installed Terraform, configure it to access YDB. First, install a 
 
 Terraform will independently download and install a provider from the URL specified by the user in the `provider_installation` section of the `~/.terraformrc` file.
 
-{% list tabs %}
-- Linux and macOS
-   1. Open the  Terraform CLI configuration file, `~/.terraformrc`, in your favorite text editor.
-   2. Add the following section to the file:
+{% list tabs group=operating_system %}
+- Linux/macOS {#linux}
+   1. Open the Terraform CLI configuration file, `~/.terraformrc`, in your favorite text editor.
+   1. Add the following section to the file:
       ```tf
       provider_installation {
           network_mirror {
@@ -40,9 +40,9 @@ Terraform will independently download and install a provider from the URL specif
           }
       }
       ```
-- Windows
+- Windows {#windows}
    1. Open the Terraform CLI `terraform.rc` configuration file located in your user's `%APPDATA%` folder.
-   2. Add the following section to the file:
+   1. Add the following section to the file:
       ```tf
       provider_installation {
           network_mirror {

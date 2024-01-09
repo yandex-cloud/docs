@@ -6,9 +6,9 @@
 
 Чтобы включить выгрузку для [ресурса](../../concepts/resource.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
@@ -26,7 +26,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [activate](../../api-ref/RawLogs/activate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Activate](../../api-ref/grpc/raw_logs_service.md#Activate).
 
@@ -40,9 +40,9 @@
 
 Чтобы изменить параметры выгрузки:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
@@ -56,7 +56,7 @@
 
   1. Укажите нужные параметры и нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [update](../../api-ref/RawLogs/update.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Update](../../api-ref/grpc/raw_logs_service.md#Update).
 
@@ -66,9 +66,9 @@
 
 Чтобы отключить выгрузку:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
@@ -80,7 +80,7 @@
 
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.cdn.button_resource-deactivate-raw-logs }}**.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [deactivate](../../api-ref/RawLogs/deactivate.md) для ресурса [RawLogs](../../api-ref/RawLogs/index.md) или вызовом gRPC API [RawLogsService/Deactivate](../../api-ref/grpc/raw_logs_service.md#Deactivate).
 

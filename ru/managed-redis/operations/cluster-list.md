@@ -10,14 +10,14 @@ description: "Вы можете запросить детальную инфор
 
 ## Получить список кластеров БД в каталоге {#list-clusters}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, список кластеров которого нужно получить.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -40,7 +40,7 @@ description: "Вы можете запросить детальную инфор
   +----------------------+---------------+-----------------------------+--------+---------+
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список кластеров БД в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/cluster_service.md#List).
 
@@ -49,15 +49,15 @@ description: "Вы можете запросить детальную инфор
 
 ## Получить детальную информацию о кластере {#get-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, информацию о кластере которого нужно получить.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -71,7 +71,7 @@ description: "Вы можете запросить детальную инфор
   
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
-- API
+- API {#api}
 
   Чтобы получить детальную информацию о кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get).
 

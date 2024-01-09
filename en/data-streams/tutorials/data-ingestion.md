@@ -68,3 +68,5 @@ To set up data input to storage systems:
    * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html).
    * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html).
    * [HTTP Kinesis Data Streams API](../kinesisapi/api-ref.md).
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

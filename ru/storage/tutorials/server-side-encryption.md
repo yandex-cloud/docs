@@ -33,9 +33,9 @@
 
 Вы можете создать новый бакет или использовать существующий. Чтобы создать бакет, выполните:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -50,7 +50,23 @@
   1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-- {{ TF }}
+- AWS CLI {#aws-cli}
+
+  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../tools/aws-cli.md).
+
+  1. Выполните команду:
+
+      ```bash
+      aws s3 mb s3://<имя_бакета> --endpoint-url=https://{{ s3-storage-host }}
+      ```
+
+      Результат:
+
+      ```bash
+      make_bucket: <имя_бакета>
+      ```
+
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -144,31 +160,15 @@
 
           Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-- AWS CLI
-
-  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../tools/aws-cli.md).
-
-  1. Выполните команду:
-
-      ```bash
-      aws s3 mb s3://<имя_бакета> --endpoint-url=https://{{ s3-storage-host }}
-      ```
-
-      Результат:
-
-      ```bash
-      make_bucket: <имя_бакета>
-      ```
-
 {% endlist %}
 
 ## Создайте ключ {#create-key}
 
 Создайте новый ключ или используйте существующий. Чтобы создать новый ключ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -182,7 +182,7 @@
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   Выполните команду:
 
@@ -201,7 +201,7 @@
 
   Вместе с ключом создается его первая версия. Она указана в поле `primary_version`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
@@ -302,7 +302,7 @@
 
           Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [create](../../kms/api-ref/SymmetricKey/create.md) для ресурса `SymmetricKey`.
 
@@ -312,9 +312,9 @@
 
 Чтобы включить шифрование бакета ключом {{ kms-short-name }}, выполните следующее:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -323,7 +323,30 @@
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `key-1`.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
-- {{ TF }}
+- AWS CLI {#aws-cli}
+
+  Выполните команду:
+
+  ```
+  aws s3api put-bucket-encryption \
+    --bucket <имя_бакета> \
+    --endpoint-url=https://{{ s3-storage-host }} \
+    --server-side-encryption-configuration '{
+	  "Rules": [
+	    {
+		  "ApplyServerSideEncryptionByDefault": {
+		    "SSEAlgorithm": "aws:kms",
+		    "KMSMasterKeyID": "<идентификатор_ключа_KMS>"
+		  },
+		  "BucketKeyEnabled": true
+		}
+	  ]
+	}'
+  ```
+
+  В результате успешного выполнения команды все новые объекты в бакете будут шифроваться ключом `key-1`.
+
+- {{ TF }} {#tf}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
@@ -434,29 +457,6 @@
 
           В результате успешного выполнения команды все новые объекты в бакете будут шифроваться ключом `key-1`.
 
-- AWS CLI
-
-  Выполните команду:
-
-  ```
-  aws s3api put-bucket-encryption \
-    --bucket <имя_бакета> \
-    --endpoint-url=https://{{ s3-storage-host }} \
-    --server-side-encryption-configuration '{
-	  "Rules": [
-	    {
-		  "ApplyServerSideEncryptionByDefault": {
-		    "SSEAlgorithm": "aws:kms",
-		    "KMSMasterKeyID": "<идентификатор_ключа_KMS>"
-		  },
-		  "BucketKeyEnabled": true
-		}
-	  ]
-	}'
-  ```
-
-  В результате успешного выполнения команды все новые объекты в бакете будут шифроваться ключом `key-1`.
-
 {% endlist %}
 
 ## Отключите шифрование {#disable-encryption}
@@ -469,9 +469,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -480,7 +480,19 @@
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
-- {{ TF }}
+- AWS CLI {#aws-cli}
+
+  Выполните команду:
+
+  ```bash
+  aws s3api delete-bucket-encryption \
+    --bucket <имя_бакета> \
+    --endpoint-url=https://{{ s3-storage-host }}
+  ```
+
+  В результате успешного выполнения шифрование в бакете будет отключено.
+
+- {{ TF }} {#tf}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы отключить шифрование, удалите или закомментируйте блок `server_side_encryption_configuration` для ресурса `yandex_storage_bucket`:
 
@@ -589,17 +601,5 @@
           * Бакет.
 
           В указанном каталоге шифрование для бакета будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
-
-- AWS CLI
-
-  Выполните команду:
-
-  ```bash
-  aws s3api delete-bucket-encryption \
-    --bucket <имя_бакета> \
-    --endpoint-url=https://{{ s3-storage-host }}
-  ```
-
-  В результате успешного выполнения шифрование в бакете будет отключено.
 
 {% endlist %}

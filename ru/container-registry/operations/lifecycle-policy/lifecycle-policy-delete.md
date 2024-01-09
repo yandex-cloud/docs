@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Удалить политику удаления
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -17,7 +17,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужной [политики](../../concepts/lifecycle-policy.md) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ description: "Следуя данной инструкции, вы сможет�
      +----+------+---------------+--------+---------+-------------+
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -79,7 +79,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>
     ```
 
-- API
+- API {#api}
 
   Чтобы удалить политику, воспользуйтесь методом [Delete](../../api-ref/grpc/lifecycle_policy_service.md#Delete) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md). В параметре `lifecycle_policy_id` укажите идентификатор политики.
 

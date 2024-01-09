@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы изменить [группу виртуальных машин](../../concepts/instance-groups/index.md) по [спецификации](../../concepts/instance-groups/specification.md) в формате YAML:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Подробнее о команде `{{ yc-compute-ig }} update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/update.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [updateFromYaml](../../api-ref/InstanceGroup/updateFromYaml.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/UpdateFromYaml](../../api-ref/grpc/instance_group_service.md#UpdateFromYaml).
 

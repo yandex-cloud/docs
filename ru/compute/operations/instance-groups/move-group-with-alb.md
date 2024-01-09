@@ -17,9 +17,9 @@ description: "Из статьи вы узнаете, как можно пере�
 1. [Создайте](../../../vpc/operations/subnet-create.md) подсеть в зоне доступности, в которую вы хотите перенести группу ВМ.
 1. Включите для L7-балансировщика прием трафика в новой зоне доступности:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -27,7 +27,7 @@ description: "Из статьи вы узнаете, как можно пере�
       1. В открывшемся окне в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** включите прием трафика в той зоне доступности, в которую хотите перенести группу ВМ.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -90,7 +90,7 @@ description: "Из статьи вы узнаете, как можно пере�
           log_options: {}
           ```
 
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -130,7 +130,7 @@ description: "Из статьи вы узнаете, как можно пере�
           yc alb load-balancer get <имя_балансировщика>
           ```
 
-    - API
+    - API {#api}
 
       Воспользуйтесь методом REST API [update](../../../application-load-balancer/api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../../../application-load-balancer/api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Update).
 

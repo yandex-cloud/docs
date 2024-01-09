@@ -13,13 +13,13 @@
 
 1. Создайте ресурсы {{ k8s }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
      [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.20.
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -285,13 +285,13 @@
 
 1. Удалите кластер {{ managed-k8s-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
      [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
      1. В командной строке перейдите в каталог, в котором расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
      1. Удалите ресурсы с помощью команды:

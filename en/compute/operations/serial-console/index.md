@@ -34,9 +34,9 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
    1. View a description of the CLI create VM command:
 
@@ -78,7 +78,7 @@ To enable access to the serial console when updating a VM, set the `serial-port-
 
    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
 
 1. Set `serial-port-enable=1` in the VM metadata:
 
@@ -127,7 +127,7 @@ To create a local password, use the CLI.
 
    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
 1. Get the public IP address of the VM.
 
    ```bash

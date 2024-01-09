@@ -38,7 +38,7 @@
 
 1. Откройте страницу задачи.
 
-1. Нажмите на поле **{{ ui-key.startrek-backend.fields.issue.boards }}** на панели справа. Если поля **{{ ui-key.startrek-backend.fields.issue.boards }}** нет, добавьте его с помощью кнопки **{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}**.
+1. Нажмите на поле **{{ ui-key.startrek-backend.fields.issue.boards }}** на панели справа. Если поля **{{ ui-key.startrek-backend.fields.issue.boards }}** нет, добавьте его с помощью кнопки **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 1. Начните вводить название доски и выберите подходящий вариант из списка.
 

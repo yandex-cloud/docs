@@ -1,11 +1,11 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -19,7 +19,7 @@
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](../../data-proc/operations/cluster-list.md#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [list](../../data-proc/api-ref/Job/list) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 

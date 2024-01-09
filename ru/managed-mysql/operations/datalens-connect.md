@@ -22,9 +22,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Создать подключение к кластеру {#create-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Убедитесь, что сервис {{ datalens-name }} [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
@@ -55,9 +55,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Просмотреть список подключений кластера {#connectors-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}**.
@@ -66,9 +66,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Изменить подключение к кластеру {#update-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}**.
@@ -81,9 +81,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Удалить подключение к кластеру {#delete-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **Managed Service for MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
@@ -95,9 +95,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Настройки подключения {#connector-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Если кластер и {{ datalens-name }} находятся в одном каталоге:
   1. Откройте вкладку **Выбрать в каталоге**.

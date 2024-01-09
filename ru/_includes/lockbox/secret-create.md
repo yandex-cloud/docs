@@ -1,8 +1,8 @@
 Чтобы создать секрет:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан [секрет](../../lockbox/concepts/secret.md).
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -27,7 +27,7 @@
         Чтобы добавить больше данных нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и повторите шаги.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -99,7 +99,7 @@
      deletion_protection: true
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   [Секрет](../../lockbox/concepts/secret.md) содержит только метаинформацию о себе: имя, описание, уникальный идентификатор и т. д. Для начала работы с секретом необходимо [создать версию](../../lockbox/operations/secret-version-manage.md) секрета.
 
@@ -157,7 +157,7 @@
     yc lockbox secret get <имя_секрета>
     ```
 
-- API
+- API {#api}
 
   Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create).
 

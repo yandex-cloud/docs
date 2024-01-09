@@ -6,9 +6,9 @@
 
 ## Добавить или изменить метки {#add-edit-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -19,7 +19,7 @@
   1. Нажмите **Enter**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -39,7 +39,7 @@
     * `Value` — значение метки, тип: `string`.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -71,7 +71,7 @@
   yc storage bucket get <имя_бакета> --full
   ```
 
-- API
+- API {#api}
 
   Чтобы добавить или изменить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md).
 
@@ -113,16 +113,16 @@
 
 ## Посмотреть метки {#get-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
   1. Выберите сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** в меню слева.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -155,7 +155,7 @@
   }
   ```  
 
-- API
+- API {#api}
 
   Чтобы посмотреть метки бакета, воспользуйтесь методом REST API [get](../../api-ref/Bucket/get.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Get](../../api-ref/grpc/bucket_service.md#Get) или методом S3 API [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md).
 
@@ -211,9 +211,9 @@
 
 ## Удалить метки {#delete-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится [бакет](../../concepts/bucket.md).
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -222,7 +222,7 @@
   1. Напротив нужной метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -238,7 +238,7 @@
   * `--bucket` — имя бакета.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -270,7 +270,7 @@
   yc storage bucket get <имя_бакета> --full
   ```
 
-- API
+- API {#api}
 
   Чтобы удалить метки бакета, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md).
 

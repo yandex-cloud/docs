@@ -173,7 +173,7 @@ File content example:
     * `temperature`: Temperature. The higher the value, the more unpredictable the result.
     * `Authorization`: [IAM token of the service account](../../iam/operations/iam-token/create-for-sa.md).
 
-   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/api-ref/).
+   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/concepts/api.md).
 
 {% endlist %}
 

@@ -21,9 +21,9 @@ description: "Обработчик логов Fluent Bit позволяет тр
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../managed-kubernetes/concepts/index.md#node-group).
@@ -42,7 +42,7 @@ description: "Обработчик логов Fluent Bit позволяет тр
   1. [Настройте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
   1. [Создайте лог-группу](../operations/create-group.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -115,9 +115,9 @@ description: "Обработчик логов Fluent Bit позволяет тр
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. Если вы зарезервировали для кластера {{ managed-k8s-name }} статический [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses), освободите и [удалите его](../../vpc/operations/address-delete.md).
@@ -125,7 +125,7 @@ description: "Обработчик логов Fluent Bit позволяет тр
   1. [Удалите созданные сервисные аккаунты](../../iam/operations/sa/delete.md).
   1. [Удалите лог-группу](../../logging/operations/delete-group.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   1. Удалите конфигурационный файл `k8s-cluster-with-master-logging.tf`.

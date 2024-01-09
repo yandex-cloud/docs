@@ -27,9 +27,9 @@
 
 ## Создайте бакет {{ objstorage-name }} {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -41,9 +41,9 @@
 
 ## Получите детализацию расходов {#get-billing-detail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
   1. В списке платежных аккаунтов выберите нужный.

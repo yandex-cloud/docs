@@ -43,9 +43,9 @@ You can move [subnets](../concepts/network.md) between folders within a single [
       +----------------------+----------+----------------------+----------------+---------------+------------------+
       |          ID          |   NAME   |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
       +----------------------+----------+----------------------+----------------+---------------+------------------+
-      | e9bcd5mq43cnrsfckikh | subnet-a | encb4ubvmief09h6qg5e |                | {{ region-id }}-a | [10.1.0.0/16]    |
-      | e2llon52hhss119t4g2c | subnet-b | enc39op1vq9m8tjr3udp |                | {{ region-id }}-b | [192.168.1.0/24] |
-      | b0cscj0f9uq59ig7o6u0 | subnet-c | enc772aa2rgqiqq67ehu |                | {{ region-id }}-c | [10.0.0.0/16]    |
+      | e9bcd5mq43cn******** | subnet-a | encb4ubvmief******** |                | {{ region-id }}-a | [10.1.0.0/16]    |
+      | e2llon52hhss******** | subnet-b | enc39op1vq9m******** |                | {{ region-id }}-b | [192.168.1.0/24] |
+      | b0cscj0f9uq5******** | subnet-c | enc772aa2rgq******** |                | {{ region-id }}-c | [10.0.0.0/16]    |
       +----------------------+----------+----------------------+----------------+---------------+------------------+
       ```
 
@@ -60,9 +60,9 @@ You can move [subnets](../concepts/network.md) between folders within a single [
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
       +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk10aurd2c3 | default                |        | ACTIVE |
-      | b1chgf288nvg541tgu73 | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh690at5bm7 | my-folder-2            |        | ACTIVE |
+      | b1cs8ie21pk1******** | default                |        | ACTIVE |
+      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
       +----------------------+------------------------+--------+--------+
       ```
 
@@ -79,11 +79,11 @@ You can move [subnets](../concepts/network.md) between folders within a single [
 
       Result:
       ```text
-       id: e9bcd5mq43cnrsfckikh
-       folder_id: b1chgf288nvg541tgu73
+       id: e9bcd5mq43cn********
+       folder_id: b1chgf288nvg********
        created_at: "2022-10-08T15:03:39Z"
        name: subnet-a
-       network_id: encb4ubvmief09h6qg5e
+       network_id: encb4ubvmief********
        zone_id: {{ region-id }}-a
        v4_cidr_blocks:
          - 10.1.0.0/16
@@ -131,9 +131,9 @@ Move a subnet from a different folder. Specify the subnet ID and the source and 
 - CLI
 
    ```bash
-   yc vpc subnet move enc39op1vq9m8tjr3udp \
-     --folder-id b1chgf288nvg541tgu73 \
-     --destination-folder-id b1cs8ie21pk10aurd2c3
+   yc vpc subnet move enc39op1vq9m******** \
+     --folder-id b1chgf288nvg******** \
+     --destination-folder-id b1cs8ie21pk1********
    ```
 
 {% endlist %}

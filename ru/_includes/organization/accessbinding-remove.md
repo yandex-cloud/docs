@@ -1,9 +1,9 @@
 
 Чтобы отозвать у пользователя роль на группу:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
 

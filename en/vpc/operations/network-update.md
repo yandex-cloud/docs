@@ -27,8 +27,8 @@ After creating a cloud network, you can change its name, description, and tags.
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
-      | enpavfmgapumnl7cqin8 | test-network-1 |
-      | enplom7a98s1t0lhass8 | default        |
+      | enpavfmgapum******** | test-network-1 |
+      | enplom7a98s1******** | default        |
       +----------------------+----------------+
       ```
 
@@ -36,13 +36,13 @@ After creating a cloud network, you can change its name, description, and tags.
    1. Change the parameters of the cloud network by specifying its name:
 
       ```
-      yc vpc network update enpavfmgapumnl7cqin8 --new-name test-network-renamed
+      yc vpc network update enpavfmgapum******** --new-name test-network-renamed
       ```
 
       Result:
       ```
-      id: enpavfmgapumnl7cqin8
-      folder_id: b1g6ci08ma55klukmdjs
+      id: enpavfmgapum********
+      folder_id: b1g6ci08ma55********
       created_at: "2018-10-23T14:05:32Z"
       name: test-network-renamed
       description: My first network
@@ -50,11 +50,11 @@ After creating a cloud network, you can change its name, description, and tags.
         new_label: test_label
       ```
 
-      You can pass the ID and name as positional arguments, or you can use the `--id` and -`-name` flags:
+      You can provide the ID and name not only as positional arguments but also using the `--id` and -`-name` flags:
 
       ```
       yc vpc network update \
-        --id enpavfmgapumnl7cqin8 \
+        --id enpavfmgapum******** \
         --new-name test-network-renamed \
         --labels new_label=test_label
       ```
@@ -120,7 +120,7 @@ After creating a cloud network, you can change its name, description, and tags.
       You can verify the change to the cloud network using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc vpc network get <cloud network name>
+      yc vpc network get <network_name>
       ```
 
 - API
@@ -139,7 +139,7 @@ After creating a cloud network, you can change its name, description, and tags.
       * Description, in the `description` parameter.
       * Network labels, in the `labels` parameter.
 
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -163,8 +163,8 @@ You can change a cloud network using its name instead of its ID:
 
    Result:
    ```
-   id: enpavfmgapumnl7cqin8
-   folder_id: b1g6ci08ma55klukmdjs
+   id: enpavfmgapum********
+   folder_id: b1g6ci08ma55********
    created_at: "2018-10-23T14:05:32Z"
    name: test-network-renamed
    description: My first network

@@ -46,9 +46,9 @@
 
 Чтобы добавить пользовательский сертификат в {{ certificate-manager-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который будет добавлен пользовательский сертификат.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -68,7 +68,7 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -106,7 +106,7 @@
      not_before: "2020-09-15T06:48:26Z"
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -152,7 +152,7 @@
      yc certificate-manager certificate get <имя_сертификата>
     ```
 
-- API
+- API {#api}
 
   Чтобы добавить сертификат, воспользуйтесь методом REST API [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create).
 
@@ -164,9 +164,9 @@
 
 Вы можете хранить публичную часть пользовательского сертификата {{ certificate-manager-name }} в [{{ lockbox-name }}](../../../lockbox/quickstart.md). Чтобы добавить сертификат:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

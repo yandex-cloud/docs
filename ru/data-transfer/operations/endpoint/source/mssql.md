@@ -4,9 +4,9 @@
 
 ## Настройки {#settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.host.title }}** — IP-адрес или FQDN хоста, к которому необходимо подключиться.
   

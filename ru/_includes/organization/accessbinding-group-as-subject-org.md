@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
 
@@ -16,7 +16,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -48,7 +48,7 @@
         +------------------------------------------+--------------+----------------------+
         ```
 
-- Terraform
+- {{ TF }} {#tf}
 
     {% include [terraform-install](../terraform-install.md) %}
 

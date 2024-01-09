@@ -1,8 +1,8 @@
 # Исключить группу виртуальных машин из группы размещения
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -41,7 +41,7 @@
 
   {{ ig-name }} запустит операцию удаления группы виртуальных машин из группы размещения.
 
-- API
+- API {#api}
 
   Удалить группу ВМ из группы размещения можно с помощью метода REST API [update](../../api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update).
 

@@ -38,7 +38,7 @@ You can add no more than 2000 issues per board.
 
 1. Open the issue page.
 
-1. Click the **{{ ui-key.startrek-backend.fields.issue.boards }}** field in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.boards }}** field, add it by clicking **{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}**.
+1. Click the **{{ ui-key.startrek-backend.fields.issue.boards }}** field in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.boards }}** field, add it by clicking **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 1. Start typing the board name and pick the option you need from the list that appears.
 

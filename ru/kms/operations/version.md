@@ -6,9 +6,9 @@
 
 Чтобы сделать версию основной:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -16,7 +16,7 @@
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Получите список версий нужного ключа:
 
@@ -44,7 +44,7 @@
        --version-id abj8cvn99nam********
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [setPrimaryVersion](../../kms/api-ref/SymmetricKey/setPrimaryVersion.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/SetPrimaryVersion](../../kms/api-ref/grpc/symmetric_key_service.md#SetPrimaryVersion).
 
@@ -62,9 +62,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы удалить версию:
 
@@ -76,7 +76,7 @@
 
   Версия перейдет в статус `Scheduled for destruction`, а в столбце **{{ ui-key.yacloud.kms.symmetric-key.overview.column_version-destroy }}** будет указан срок, на который запланировано удаление.
 
-- CLI
+- CLI {#cli}
 
   Чтобы удалить версию:
 
@@ -108,7 +108,7 @@
 
      Версия перейдет в статус `SCHEDULED_FOR_DESTRUCTION`, а в поле `destroy_at` будет указано время, на которое запланировано удаление.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#ScheduleVersionDestruction).
 
@@ -118,9 +118,9 @@
 
 Если вы запланировали удаление версии ключа, то до запланированной даты вы можете отменить удаление:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -130,7 +130,7 @@
   
   Версия вернется в статус `Active`.
 
-- CLI
+- CLI {#cli}
 
   1. Получите список версий нужного ключа:
 
@@ -160,7 +160,7 @@
 
      Версия вернется в статус `ACTIVE`.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [cancelVersionDestruction](../../kms/api-ref/SymmetricKey/cancelVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/CancelVersionDestruction](../../kms/api-ref/grpc/symmetric_key_service.md#CancelVersionDestruction).
 

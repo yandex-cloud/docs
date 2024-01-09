@@ -10,14 +10,14 @@
 
 ## Получить список подкластеров в кластере {#list-subclusters}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -37,9 +37,9 @@
 
 Количество хостов в кластерах {{ dataproc-name }} ограничено [квотами]({{ link-console-quotas }}) на количество vCPU и объем памяти, которые могут использовать виртуальные машины в вашем облаке. Чтобы увидеть доступные ресурсы, откройте раздел [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и выберите нужный кластер.
@@ -71,7 +71,7 @@
      1. (Опционально) Включите опцию **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-subcluster }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -106,7 +106,7 @@
      * `--subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
      * `--hosts-count` — количество хостов подкластера. Минимальное значение — `1`, максимальное — `32`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -156,9 +156,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы удалить подкластер:
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
@@ -168,7 +168,7 @@
   1. (Опционально) Укажите таймаут [декомиссии](../concepts/decommission.md).
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-remove-subcluster_button }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -183,7 +183,7 @@
 
   Идентификатор и имя подкластера можно получить со [списком подкластеров в кластере](#list-subclusters), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 

@@ -12,9 +12,9 @@
 
 1. Если необходимо, укажите исполнителя и дедлайн для этого пункта чеклиста. 
 
-1. Чтобы добавит пункт, нажмите **{{ ui-key.startrek.ui_components_Checklist.button-submit }}**. Если вы хотите отменить добавление пункта, нажмите **{{ ui-key.startrek.ui_components_Checklist.button-cancel }}**.
+1. Чтобы добавит пункт, нажмите **{{ ui-key.startrek.ui_components_entity-page_checklist_ChecklistItem.button-submit }}**. Если вы хотите отменить добавление пункта, нажмите **{{ ui-key.startrek.ui_components_entity-page_checklist_ChecklistItem.button-cancel }}**.
 
-1. Чтобы добавить очередной пункт, нажмите **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}**.
+1. Чтобы добавить очередной пункт, нажмите **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}**.
 
 ## Работать с чеклистом {#checklist-operations}
 
@@ -32,8 +32,8 @@
   
 * Чтобы переместить пункт выше или ниже, нажмите значок ![](../../_assets/tracker/svg/range.svg) и перетащите пункт в нужное место списка.
   
-* Чтобы скрыть или показать все пункты, нажмите на **{{ ui-key.startrek.ui_components_Checklist.header-title }}** вверху списка.
+* Чтобы скрыть или показать все пункты, нажмите на **{{ ui-key.startrek.ui_components_entity-page_checklist_Header.header-title }}** вверху списка.
   
-* Чтобы добавить пункт в чеклист, нажмите **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** внизу списка.
+* Чтобы добавить пункт в чеклист, нажмите **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** внизу списка.
   
-* Чтобы удалить чеклист, нажмите значок ![](../../_assets/horizontal-ellipsis.svg) и выберите ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_Checklist.remove-title }}** вверху списка.
+* Чтобы удалить чеклист, нажмите значок ![](../../_assets/horizontal-ellipsis.svg) и выберите ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_entity-page_checklist_ChecklistActionsMenu.remove-title }}** вверху списка.

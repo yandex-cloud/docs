@@ -16,9 +16,9 @@
 
 ## Добавить сертификат {#add-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы добавить сертификат устройства:
 
@@ -42,7 +42,7 @@
          1. Вставьте тело сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
          1. Нажмите **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -65,7 +65,7 @@
   created_at: "2019-05-29T17:14:18.804Z"
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -131,7 +131,7 @@
       yc iot device certificate list --device-name <имя_устройства>
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить сертификат устройству, воспользуйтесь методом REST API [addCertificate](../../api-ref/Device/addCertificate.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/AddCertificate](../../api-ref/grpc/device_service.md#AddCertificate).
 
@@ -139,9 +139,9 @@
 
 ## Удалить сертификат {#delete-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы удалить сертификат устройства:
 
@@ -154,7 +154,7 @@
    1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -179,7 +179,7 @@
       +-------------+------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -239,7 +239,7 @@
       yc iot device certificate list --device-name <имя_устройства>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить сертификат устройства, воспользуйтесь методом REST API [deleteCertificate](../../api-ref/Device/deleteCertificate.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/DeleteCertificate](../../api-ref/grpc/device_service.md#DeleteCertificate).
 

@@ -4,9 +4,9 @@
 
 Чтобы получить список виртуальных машин:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -14,7 +14,7 @@
   1. Выберите нужную группу.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_instances }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -37,7 +37,7 @@
       {{ yc-compute-ig }} list-instances --name first-instance-group
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [listInstances](../../api-ref/InstanceGroup/listInstances.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../api-ref/grpc/instance_group_service.md#ListInstances).
 

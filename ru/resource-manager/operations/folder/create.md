@@ -2,13 +2,13 @@
 
 _Каталог_  — это пространство, в котором создаются и [группируются ресурсы](../../concepts/resources-hierarchy.md) {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [create-folder](../../../_includes/create-folder.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -38,7 +38,7 @@ _Каталог_  — это пространство, в котором соз�
             --description "my first folder with description"
           ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -103,7 +103,7 @@ _Каталог_  — это пространство, в котором соз�
      yc resource-manager cloud list
      ```
 
-- API
+- API {#api}
 
   Чтобы создать каталог, воспользуйтесь методом REST API [create](../../api-ref/Folder/create.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../api-ref/grpc/folder_service.md#Create).
 

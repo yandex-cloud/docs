@@ -9,9 +9,9 @@ description: "Из статьи вы узнаете, как удалить гр�
 
 Чтобы удалить [группу источников](../../concepts/origins.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -19,7 +19,7 @@ description: "Из статьи вы узнаете, как удалить гр�
   1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели внизу.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -57,7 +57,7 @@ description: "Из статьи вы узнаете, как удалить гр�
 
      Подробнее о команде `yc cdn origin-group delete` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/origin-group/delete.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -72,7 +72,7 @@ description: "Из статьи вы узнаете, как удалить гр�
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [delete](../../api-ref/OriginGroup/delete.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Delete](../../api-ref/grpc/origin_group_service.md#Delete).
 
@@ -82,9 +82,9 @@ description: "Из статьи вы узнаете, как удалить гр�
 
 Чтобы удалить несколько групп источников:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить несколько групп ресурсов.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.

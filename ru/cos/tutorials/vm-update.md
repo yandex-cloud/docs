@@ -2,10 +2,10 @@
 
 Измените параметры [Docker-контейнера](/blog/posts/2022/03/docker-containers) на виртуальной машине, созданной из образа [{{ coi }}](../concepts/index.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором была создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -15,7 +15,7 @@
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
  
 
-- CLI
+- CLI {#cli}
 
   1. Посмотрите описание команды CLI для обновления ВМ:
 

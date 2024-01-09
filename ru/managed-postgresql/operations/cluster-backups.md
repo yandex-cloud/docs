@@ -22,9 +22,9 @@ description: "Вы можете создавать резервные копии
 * существующего кластера на момент восстановления;
 * удаленного кластера на момент архивации последнего журнала опережающей записи.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
 
@@ -55,7 +55,7 @@ description: "Вы можете создавать резервные копии
   
   {{ mpg-name }} запустит операцию создания кластера из резервной копии.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -136,7 +136,7 @@ description: "Вы можете создавать резервные копии
           * `network-ssd-nonreplicated`.
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Используйте {{ TF }} для восстановления:
 
@@ -234,7 +234,7 @@ description: "Вы можете создавать резервные копии
 
   {{ TF }} создаст новый кластер. Базы данных и пользователи будут развернуты из резервной копии.
 
-- API
+- API {#api}
 
     Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
 
@@ -248,9 +248,9 @@ description: "Вы можете создавать резервные копии
 
 ## Создать резервную копию {#create-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
@@ -258,7 +258,7 @@ description: "Вы можете создавать резервные копии
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -279,7 +279,7 @@ description: "Вы можете создавать резервные копии
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы создать резервную копию кластера, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -291,9 +291,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить список резервных копий {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -303,7 +303,7 @@ description: "Вы можете создавать резервные копии
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups }}**.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -322,7 +322,7 @@ description: "Вы можете создавать резервные копии
   +--------------------------+---------------------+----------------------+---------------------+
   ```
 
-- API
+- API {#api}
 
     Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -335,9 +335,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить информацию о резервной копии {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -347,7 +347,7 @@ description: "Вы можете создавать резервные копии
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups }}**.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -361,7 +361,7 @@ description: "Вы можете создавать резервные копии
   
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API
+- API {#api}
 
     Чтобы получить данные о резервной копии кластера, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
@@ -371,13 +371,13 @@ description: "Вы можете создавать резервные копии
 
 ## Задать время начала резервного копирования {#set-backup-window}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   В консоли управления задать время начала резервного копирования можно при [создании](cluster-create.md) или [изменении кластера](update.md).
 
-- CLI
+- CLI {#cli}
 
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате `ЧЧ:ММ:СС`.
 
@@ -404,7 +404,7 @@ description: "Вы можете создавать резервные копии
      --backup-window-start 11:25:00
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -443,7 +443,7 @@ description: "Вы можете создавать резервные копии
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
     Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
@@ -459,9 +459,9 @@ description: "Вы можете создавать резервные копии
 
 Вы можете удалить только те резервные копии, которые были созданы вручную.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Выберите кластер {{ mpg-name }}, резервную копию которого нужно удалить.
@@ -470,7 +470,7 @@ description: "Вы можете создавать резервные копии
     1. Выберите пункт **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
     1. Подтвердите удаление и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.action_delete-backup }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -492,7 +492,7 @@ description: "Вы можете создавать резервные копии
 
     Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API
+- API {#api}
 
     Чтобы удалить резервную копию, воспользуйтесь методом REST API [delete](../api-ref/Backup/delete.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Delete](../api-ref/grpc/backup_service.md#Delete) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 

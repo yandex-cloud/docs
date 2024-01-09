@@ -13,9 +13,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать диск из [снимка](../../concepts/snapshot.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -37,7 +37,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -115,7 +115,7 @@ description: "Следуя данной инструкции, вы сможет�
           - fhm5b617fjnj44ovhcun
       ```
 
-- API
+- API {#api}
 
   1. Получите список снимков с помощью метода [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API или метода [list](../../api-ref/Snapshot/list.md) ресурса `Snapshot` REST API.
   1. Создайте диск с помощью метода [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API или метода [create](../../api-ref/Disk/create.md) ресурса `Disk` REST API. В запросе укажите идентификатор снимка.

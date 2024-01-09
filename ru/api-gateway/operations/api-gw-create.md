@@ -45,9 +45,9 @@ paths:
 
 {% endcut %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -58,7 +58,7 @@ paths:
     1. При необходимости задайте дополнительные настройки API-шлюза.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -80,7 +80,7 @@ paths:
            --spec=<путь_к_файлу_спецификации>
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -88,14 +88,14 @@ paths:
 
   {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
+- API {#api}
 
-- {{ yandex-cloud }} Toolkit
+  Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create).
+
+
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
   Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
-
-- API
-
-  Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../apigateway/api-ref/grpc/apigateway_service.md#Create).
 
 {% endlist %}

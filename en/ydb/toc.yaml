@@ -273,7 +273,7 @@ items:
         href: ./terraform/row-tables.md
       - name: Creating a changefeed for a table
         href: ./terraform/cdc.md
-  - name: FAQ
+  - name: Q&A
     href: faq.md
   - name: Public materials
     href: https://ydb.tech/en/docs/public-talks

@@ -10,9 +10,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы перенести подсеть в другую зону доступности:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -85,7 +85,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       Подробнее о команде `yc vpc subnet relocate` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/relocate.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [relocate](../api-ref/Subnet/relocate.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Relocate](../api-ref/grpc/subnet_service#Relocate).
 

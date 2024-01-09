@@ -14,9 +14,9 @@
 
 ## Список доступных версий {{ k8s }} {#versions-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы узнать список доступных версий для кластера {{ managed-k8s-name }}:
   1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -30,7 +30,7 @@
   1. Выберите нужную группу узлов {{ managed-k8s-name }} в списке и нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. Получите список доступных версий в поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@
   yc managed-kubernetes list-versions
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список доступных версий, воспользуйтесь методом [list](../../managed-kubernetes/api-ref/Version/list.md).
 
@@ -54,9 +54,9 @@
 
 Выберите режим автоматического обновления кластера {{ managed-k8s-name }} и задайте нужный график обновления:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Настройки обновлений можно указать при [создании кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении его настроек](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md).
 
@@ -66,7 +66,7 @@
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите время начала и продолжительность обновления.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}` — укажите день, время начала и продолжительность обновления. При необходимости выберите несколько вариантов с помощью кнопки **{{ ui-key.yacloud.k8s.clusters.create.button_add-day-of-week }}**.
 
-- CLI
+- CLI {#cli}
 
   Укажите параметры автоматического обновления при [создании](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) кластера {{ managed-k8s-name }}:
 
@@ -108,7 +108,7 @@
 
   Идентификатор и имя кластера {{ managed-k8s-name }} можно получить [со списком кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
@@ -182,7 +182,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
-- API
+- API {#api}
 
   Настройки автоматического обновления задаются в блоке `masterSpec.maintenancePolicy` при [создании кластера {{ managed-k8s-name }}](../../managed-kubernetes/api-ref/Cluster/create.md) или [изменении его настроек](../../managed-kubernetes/api-ref/Cluster/update.md).
 
@@ -238,9 +238,9 @@
 
 При необходимости обновите версию кластера {{ managed-k8s-name }} вручную. За один этап кластер {{ managed-k8s-name }} можно обновить только до следующей минорной версии относительно текущей. Обновление до более новых версий производится в несколько этапов, например: 1.19 → 1.20 → 1.21.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
@@ -248,7 +248,7 @@
   1. В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** выберите вариант `Обновить до версии <номер_версии>`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   Укажите новую версию {{ k8s }} в значении аргумента `--version`:
 
@@ -259,7 +259,7 @@
 
   Идентификатор и имя кластера {{ managed-k8s-name }} можно [получить со списком кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
@@ -284,7 +284,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster}}).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [update](../../managed-kubernetes/api-ref/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md).
@@ -301,9 +301,9 @@
 
 Выберите режим автоматического обновления группы узлов {{ managed-k8s-name }} и задайте нужный график обновления:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Настройки обновлений можно указать при [создании группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md) или [изменении ее настроек](../../managed-kubernetes/operations/node-group/node-group-update.md).
 
@@ -317,7 +317,7 @@
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите время начала и продолжительность обновления.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}` — укажите день, время начала и продолжительность обновления. При необходимости выберите несколько вариантов с помощью кнопки **{{ ui-key.yacloud.k8s.clusters.create.button_add-day-of-week }}**.
 
-- CLI
+- CLI {#cli}
 
   Укажите параметры автоматического обновления при [создании](../../managed-kubernetes/operations/node-group/node-group-create.md) или [изменении](../../managed-kubernetes/operations/node-group/node-group-update.md) группы узлов {{ managed-k8s-name }}:
 
@@ -376,7 +376,7 @@
 
   Идентификатор и имя группы узлов {{ managed-k8s-name }} можно [получить со списком групп в кластере](node-group/node-group-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл с описанием группы узлов {{ managed-k8s-name }}.
 
@@ -469,7 +469,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
-- API
+- API {#api}
 
   Настройки автоматического обновления задаются в блоке `maintenancePolicy` при [создании группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/api-ref/NodeGroup/create.md) или [изменении ее настроек](../../managed-kubernetes/api-ref/NodeGroup/update.md).
 
@@ -540,9 +540,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
@@ -552,7 +552,7 @@
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите вариант `Обновить до версии <номер_версии>`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   Укажите параметры автоматического обновления:
 
@@ -564,7 +564,7 @@
 
   Идентификатор и имя группы узлов {{ managed-k8s-name }} можно [получить со списком групп в кластере](node-group/node-group-list.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл с описанием группы узлов {{ managed-k8s-name }}.
 
@@ -589,7 +589,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) и передайте в запросе:
   * Идентификатор группы узлов {{ managed-k8s-name }} в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов {{ managed-k8s-name }}, [получите список групп в кластере](node-group/node-group-list.md).
@@ -613,9 +613,9 @@
 
 ### Обновление для кластера с отключенным автоматическим обновлением {#cluster-latest-revision}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
@@ -623,7 +623,7 @@
   1. В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** выберите `Получить последние улучшения и исправления для версии...`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save}}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните обновление кластера {{ managed-k8s-name }}:
 
@@ -634,7 +634,7 @@
 
   Идентификатор и имя кластера {{ managed-k8s-name }} можно [получить со списком кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [update](../../managed-kubernetes/api-ref/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
@@ -647,9 +647,9 @@
 
 ### Обновление для группы узлов с отключенным автоматическим обновлением {#node-group-latest-revision}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
@@ -659,7 +659,7 @@
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите `Получить последние улучшения и исправления для версии...`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save}}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните обновление группы узлов {{ managed-k8s-name }}:
 
@@ -670,7 +670,7 @@
 
   Идентификатор и имя группы узлов {{ managed-k8s-name }} можно [получить со списком групп в кластере](node-group/node-group-list.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) и передайте в запросе:
   * Идентификатор группы узлов {{ managed-k8s-name }} в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов {{ managed-k8s-name }}, [получите список групп в кластере](node-group/node-group-list.md).

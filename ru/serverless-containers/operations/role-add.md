@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Назначить роли на контейнер
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Выполните команду, чтобы назначить [роль](../security/index.md) на контейнер:
 
@@ -45,7 +45,7 @@ description: "Следуя данной инструкции, вы сможет�
         done (1s)
         ```
 
-- API
+- API {#api}
 
   Чтобы назначить роли на контейнер, воспользуйтесь методом REST API [setAccessBindings](../containers/api-ref/Container/setAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/SetAccessBindings](../containers/api-ref/grpc/container_service.md#SetAccessBindings).
 

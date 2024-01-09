@@ -11,9 +11,9 @@ description: "Вы можете посмотреть графики монито
 
 ## Посмотреть графики мониторинга {#charts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится API-шлюз. 
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.

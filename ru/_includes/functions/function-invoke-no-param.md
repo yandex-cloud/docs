@@ -6,9 +6,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -20,7 +20,7 @@
     1. В разделе **{{ ui-key.yacloud.serverless-functions.item.testing.label_title-test-result }}**, в поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_execution-result }}**, будет показан статус тестирования. **Важно**: максимальное время выполнения функции до [таймаута](../../functions/operations/function/version-manage.md) (включая начальную инициализацию при первом запуске) — 10 минут.
     1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** появится результат выполнения функции.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -35,7 +35,7 @@
     По умолчанию вызывается версия функции с тегом `$latest`.
 
 
-- HTTPS
+- HTTPS {#https}
 
 	Ссылку для вызова функции можно найти на вкладке **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}**, в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}**.
 
@@ -52,7 +52,7 @@
 	```
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Вызвать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

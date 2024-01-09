@@ -19,9 +19,9 @@
 
 Чтобы пригласить пользователей в организацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-full-name }}
+- {{ org-full-name }} {#cloud-org}
 
   1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
@@ -49,7 +49,7 @@
    
   1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
-- {{ ya-360 }}
+- {{ ya-360 }} {#ya360}
 
   Добавление пользователей в организацию доступно только в самом сервисе [{{ ya-360 }}]({{ link-ya-360 }}), на странице управления организацией. Подробнее о добавлении пользователей в {{ ya-360 }} в [документации](https://yandex.ru/support/business/users.html#add-users).
 
@@ -61,9 +61,9 @@
 
 Чтобы создать федерацию удостоверений для организации:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-full-name }}
+- {{ org-full-name }} {#cloud-org}
 
   1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
@@ -77,7 +77,7 @@
 
   Подробнее о создании федерации читайте в документации [{{ org-full-name }}](../organization/concepts/add-federation.md).
 
-- {{ ya-360 }}
+- {{ ya-360 }} {#ya360}
 
   Следуйте [инструкции](https://yandex.ru/support/business/sso/setup.html) в документации {{ ya-360 }}.
 

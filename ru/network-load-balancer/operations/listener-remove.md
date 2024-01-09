@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Удалить обработчик
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   Чтобы удалить [обработчик](../concepts/listener.md) сетевого балансировщика:
   
@@ -17,7 +17,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}** нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке обработчика, который нужно удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -32,7 +32,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list), имя обработчика — с [детальной информацией о сетевом балансировщике](load-balancer-list.md#get).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -63,7 +63,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
   
   Чтобы удалить обработчик сетевого балансировщика, воспользуйтесь методом REST API [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/RemoveListener](../api-ref/grpc/network_load_balancer_service.md#RemoveListener) и передайте в запросе:
 

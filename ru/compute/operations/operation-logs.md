@@ -10,9 +10,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы посмотреть операции со всеми ресурсами сервиса, на панели слева выберите ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.compute.switch_operations }}**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
   
@@ -26,7 +26,7 @@
 
      В открывшемся списке отображаются операции с выбранной виртуальной машиной и подключенными к ней ресурсами.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -103,7 +103,7 @@
       value: {}
   ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
   
@@ -119,9 +119,9 @@
 1. Скопируйте идентификатор нужной операции.
 1. Получите подробную информацию об операции:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -150,7 +150,7 @@
        value: {}
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [get](../api-ref/Operation/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/operation_service.md#Get).
 

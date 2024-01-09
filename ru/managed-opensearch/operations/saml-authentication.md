@@ -53,9 +53,9 @@ SAML (Security Assertion Markup Language) — это язык разметки �
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.opensearch.auth.section_auth }}**.
@@ -78,7 +78,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
 
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
 
-- API
+- API {#api}
 
     1. Сконвертируйте файл с метаданными, полученный от эмитента провайдера идентификации, в формат Base64.
     1. Чтобы задать настройки провайдера идентификации на стороне кластера, воспользуйтесь методом REST API [updateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateAuthSettings](../api-ref/grpc/cluster_service.md#UpdateAuthSettings) и передайте в запросе:

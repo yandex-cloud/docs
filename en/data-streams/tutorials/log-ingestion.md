@@ -46,3 +46,5 @@ To configure smart log processing:
 
    An example of setting up data delivery from {{ yds-short-name }} is given in the [tutorial on how to save data to {{ CH }}](send-to-clickhouse.md).
 1. Connect an arbitrary data processing function to {{ data-transfer-full-name }}. The [example](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) shows a sample function code.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

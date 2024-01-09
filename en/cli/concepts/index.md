@@ -40,9 +40,9 @@ If the password contains special characters, replace them with hexadecimal ASCII
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux and macOS
+- Linux/macOS {#linux-macos}
 
    To create the `HTTPS_PROXY` environment variable, run the command below:
 
@@ -56,7 +56,7 @@ If the password contains special characters, replace them with hexadecimal ASCII
    unset HTTPS_PROXY
    ```
 
-- Windows (PowerShell)
+- Windows (PowerShell) {#windows-powershell}
 
    To create the `HTTPS_PROXY` environment variable, run the command below:
 
@@ -70,7 +70,7 @@ If the password contains special characters, replace them with hexadecimal ASCII
    $Env:HTTPS_PROXY = ""
    ```
 
-- Windows (cmd)
+- Windows (cmd) {#windows-cmd}
 
    To create the `HTTPS_PROXY` environment variable, run the command below:
 

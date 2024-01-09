@@ -4,9 +4,9 @@
 
 Чтобы добавить новый [сертификат](../../concepts/managed-certificate.md) от Let's Encrypt®:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который будет добавлен сертификат.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -20,7 +20,7 @@
   1. Выберите [тип проверки прав на домен](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` или `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -56,7 +56,7 @@
      updated_at: "2020-09-15T08:49:11.533771Z"
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -91,7 +91,7 @@
   yc certificate-manager certificate get <имя_сертификата>
   ```
 
-- API
+- API {#api}
 
   Чтобы добавить сертификат, воспользуйтесь методом REST API [requestNew](../../api-ref/Certificate/requestNew.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/RequestNew](../../api-ref/grpc/certificate_service.md#RequestNew).
 

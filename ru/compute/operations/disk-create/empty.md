@@ -2,9 +2,9 @@
 
 Вы можете создать пустой диск заданного размера.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -32,7 +32,7 @@
  
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.create.button_create }}**.
   
-- CLI
+- CLI {#cli}
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
@@ -94,15 +94,15 @@
           - fhm5b617fjnj44ovhcun
       ```
 
-- API
-
-  Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   {% include [terraform-empty-disk-create](../../../_includes/compute/terraform-empty-disk-create.md) %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/disk_service.md#Create).
 
 {% endlist %}
 

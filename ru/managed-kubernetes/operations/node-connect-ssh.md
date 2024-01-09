@@ -128,29 +128,9 @@ yc managed-kubernetes node-group add-metadata \
 
 Для подключения необходимо указать [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) узла {{ managed-k8s-name }}. Его можно узнать одним из следующих способов.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- kubectl CLI
-
-  1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-  1. Выполните команду:
-
-     ```bash
-     kubectl get nodes -o wide
-     ```
-
-     Результат:
-
-     ```bash
-     NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
-     cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-     cl17i6943n92********-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-     ```
-
-     Публичный IP-адрес указан в столбце `EXTERNAL-IP`.
-
-- Консоль управления
+- Консоль управления {#console}
 
   1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в каталоге, где создан ваш кластер {{ managed-k8s-name }}.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
@@ -159,7 +139,7 @@ yc managed-kubernetes node-group add-metadata \
   1. Нажмите на ВМ, публичный адрес которой хотите узнать.
   1. Публичный IP-адрес указан в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в строке **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Узнайте идентификатор группы ВМ, которая соответствует группе узлов {{ managed-k8s-name }}.
 
@@ -197,6 +177,26 @@ yc managed-kubernetes node-group add-metadata \
      | ef37ddhg9i7j******** | cl17i6943n92********-ovah | 10.0.0.22~84.201.149.184 | RUNNING [53m] |                |
      +----------------------+---------------------------+--------------------------+---------------+----------------+
      ```
+
+- kubectl CLI {#kubectl}
+
+  1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+  1. Выполните команду:
+
+     ```bash
+     kubectl get nodes -o wide
+     ```
+
+     Результат:
+
+     ```bash
+     NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
+     cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+     cl17i6943n92********-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+     ```
+
+     Публичный IP-адрес указан в столбце `EXTERNAL-IP`.
 
 {% endlist %}
 

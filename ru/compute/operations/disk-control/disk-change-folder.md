@@ -17,9 +17,9 @@
 
 Чтобы изменить каталог диска:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
   
@@ -80,7 +80,7 @@
 
       Подробнее о команде `yc compute disk move` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/disk/move.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [move](../../api-ref/Disk/move.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Move](../../api-ref/grpc/disk_service.md#Move).
 

@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Изменить метку функции
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@ description: "Следуя данной инструкции, вы сможет�
     http_invoke_url: https://{{ sf-url }}/b097d9ous3ge********
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -107,7 +107,7 @@ description: "Следуя данной инструкции, вы сможет�
     yc serverless function get <имя_функции>|<идентификатор_функции>
     ```
 
-- API
+- API {#api}
 
     Чтобы изменить метку функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update).
 

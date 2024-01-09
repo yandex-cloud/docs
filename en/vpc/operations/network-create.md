@@ -56,8 +56,8 @@ In addition to the cloud network in the default folder, you can create cloud net
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
-      | enpiuvhhd4t80k4n80i8 | test-network-1 |
-      | enplom7a98s1t0lhass8 | default        |
+      | enpiuvhhd4t8******** | test-network-1 |
+      | enplom7a98s1******** | default        |
       +----------------------+----------------+
       ```
 
@@ -69,13 +69,13 @@ In addition to the cloud network in the default folder, you can create cloud net
 
       Result:
       ```
-      - id: enpiuvhhd4t80k4n80i8
-        folder_id: b1g6ci08ma55klukmdjs
+      - id: enpiuvhhd4t8********
+        folder_id: b1g6ci08ma55********
         created_at: "2018-10-23T11:12:51Z"
         name: test-network-1
         description: My first network
-      - id: enplom7a98s1t0lhass8
-        folder_id: b1g6ci08ma55klukmdjs
+      - id: enplom7a98s1********
+        folder_id: b1g6ci08ma55********
         created_at: "2018-09-24T08:23:00Z"
         name: default
         description: Auto-created default network
@@ -100,8 +100,8 @@ In addition to the cloud network in the default folder, you can create cloud net
 
       ```hcl
       resource "yandex_vpc_network" "default" {
-        name        = "<cloud network name>"
-        description = "<cloud network description>"
+        name        = "<network_name>"
+        description = "<network_description>"
         labels = {
           tf-label    = "tf-label-value"
           empty-label = ""
@@ -163,7 +163,7 @@ Create a cloud network with a name and description in the selected folder:
    ```
    yc vpc network create --name test-network-1 \
      --description "My test network" \
-     --folder-id b1gnbfd11bq5g5vnjgr4
+     --folder-id b1gnbfd11bq5********
    ```
 
 - {{ TF }}

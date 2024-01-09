@@ -74,7 +74,7 @@ You can see how much time was spent on an issue in the right-hand panel on the i
 
 If the issue does not have the **Time spent** section, add it as follows:
 
-1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}** in the right-hand panel.
+1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** in the right-hand panel.
 
 1. In the **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** group, enable **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** and **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}**.
 

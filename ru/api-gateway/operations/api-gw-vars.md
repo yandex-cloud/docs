@@ -41,9 +41,9 @@ paths:
 
 По умолчанию переменные принимают значения, которые указаны в поле `default` в спецификации OpenAPI. Вы можете переопределить их, передав другие значения при настройке API-шлюза:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо изменить API-шлюз.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -51,7 +51,7 @@ paths:
     1. В блоке **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}** перечислите все объявленные в спецификации переменные и их значения.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@ paths:
            --variables <список_переменных>
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -140,7 +140,7 @@ paths:
      yc serverless api-gateway get <имя_API-шлюза>
      ```
 
-- API
+- API {#api}
 
   Чтобы настроить переменные для спецификации API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
 

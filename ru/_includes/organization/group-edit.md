@@ -1,8 +1,8 @@
 Чтобы изменить название или описание группы:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
 
@@ -16,7 +16,7 @@
 
     1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

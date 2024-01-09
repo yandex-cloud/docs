@@ -4,13 +4,13 @@
 
 ## Получить список кластеров в каталоге {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -22,7 +22,7 @@
     {{ yc-dp }} cluster list
     ```
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [list](../api-ref/Cluster/list.md).
 
@@ -30,14 +30,14 @@
 
 ## Получить детальную информацию о кластере {#detail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -51,7 +51,7 @@
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [get](../api-ref/Cluster/get.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -61,14 +61,14 @@
 
 ## Посмотреть список операций в кластере {#operations}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.dataproc.switch_operations }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -82,7 +82,7 @@
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [listOperations](../api-ref/Cluster/listOperations.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 

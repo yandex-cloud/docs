@@ -2,9 +2,9 @@
 
 Чтобы переименовать облако, у вас должна быть роль [`editor`](../../../iam/concepts/access-control/roles.md#editor) или выше на это облако. Переименовать заблокированное облако нельзя. Если вы не можете выполнить эту операцию, обратитесь к [администратору](../../../iam/concepts/access-control/roles.md#admin) или [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако.
   1. В правом верхнем углу страницы нажмите значок ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -14,7 +14,7 @@
 
   1. Нажмите **{{ ui-key.yacloud.iam.cloud.edit.popup-edit-cloud_button_save }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -70,7 +70,7 @@
       yc resource-manager cloud list
       ```
 
-- API
+- API {#api}
 
   Чтобы переименовать облако, воспользуйтесь методом REST API [update](../../api-ref/Cloud/update.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update).
 

@@ -11,9 +11,9 @@
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать таймер.
 
@@ -38,7 +38,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -78,7 +78,7 @@
     status: ACTIVE
     ```
 
-- API
+- API {#api}
 
     Создать таймер можно с помощью метода API [create](../../triggers/api-ref/Trigger/create.md).
 
@@ -88,9 +88,9 @@
 
 Чтобы проверить, что таймер работает корректно, посмотрите логи функции. В них должно отображаться, что функция вызывается каждую минуту.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
 
@@ -100,7 +100,7 @@
 
     1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
 
-- CLI
+- CLI {#cli}
 
     Чтобы посмотреть логи функции, выполните команду:
 

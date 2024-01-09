@@ -2,9 +2,9 @@
 
 После создания облачной сети вы можете изменить ее имя, описание и метки.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -66,7 +66,7 @@
         --labels new_label=test_label
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -123,7 +123,7 @@
      yc vpc network get <имя_сети>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [update](../api-ref/Network/update.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Update](../api-ref/grpc/network_service.md#Update) и передайте в запросе:
 
@@ -151,9 +151,9 @@
 
 Можно изменять облачную сеть, используя имя вместо идентификатора:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```
   yc vpc network update test-network-1 \

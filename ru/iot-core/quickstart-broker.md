@@ -43,9 +43,9 @@ description: "Чтобы начать работать с {{ iot-name }}, соз
 
 ## Создайте брокер {#create-broker}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать брокер.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -69,7 +69,7 @@ description: "Чтобы начать работать с {{ iot-name }}, соз
 
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../_includes/cli-install.md) %}
 

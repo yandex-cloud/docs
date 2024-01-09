@@ -4,9 +4,9 @@
 
 ## Подключение группы источников при создании ресурса {#connect-while-creating}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ресурс.
 
@@ -22,7 +22,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -135,7 +135,7 @@
 
      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -172,7 +172,7 @@
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Чтобы подключить группу источников при создании ресурса, воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create).
 
@@ -180,9 +180,9 @@
 
 ## Подключение группы источников при изменении настроек ресурса {#connect-while-changing}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
@@ -198,7 +198,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -359,7 +359,7 @@
 
      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
-- API
+- API {#api}
 
   Чтобы подключить группу источников при изменении настроек ресурса, воспользуйтесь методом REST API [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update).
 

@@ -2,9 +2,9 @@
 
 Алиас привязан к конкретному устройству, поэтому для удаления алиаса вам надо [узнать идентификатор или имя устройства](../device-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы удалить алиас:
 
@@ -16,7 +16,7 @@
    1. Справа от удаляемого алиаса нажмите значок ![image](../../../../_assets/console-icons/xmark.svg).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
     
     {% include [cli-install](../../../../_includes/cli-install.md) %}
     
@@ -36,7 +36,7 @@
     name: second
     ``` 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
   

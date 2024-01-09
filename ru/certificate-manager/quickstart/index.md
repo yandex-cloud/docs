@@ -20,9 +20,9 @@
 
 1. Публичный бакет в Object Storage с точно таким же именем, что и домен. Если бакета еще нет, создайте его:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
         1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. 
@@ -36,9 +36,9 @@
     
 1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
@@ -60,9 +60,9 @@
 
 ## Создание запроса на получение сертификата от Let's Encrypt {#request-certificate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. Перейдите в [консоль управления]({{ link-console-main }}).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -80,9 +80,9 @@
 
 ### Создание файла для проверки {#create-file}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Выберите в списке нужный сертификат со статусом `Validating` и нажмите на него.
@@ -96,9 +96,9 @@
 
 ### Загрузка файла и проверка {#upload-and-check}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На вкладке **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
@@ -112,7 +112,7 @@
   1. Нажмите ![image](../../_assets/options.svg) справа от файла и выберите **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
   1. Подтвердите удаление.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Загрузите файл в бакет так, чтобы он располагался в папке `.well-known/acme-challenge`:
 
@@ -139,9 +139,9 @@
 
 ## Настройка доступа по HTTPS к статическому сайту {#hosting-certificate}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. Войдите в [консоль управления]({{ link-console-main }}).
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.

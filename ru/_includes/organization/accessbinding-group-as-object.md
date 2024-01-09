@@ -2,9 +2,9 @@
 
 Например, разрешите пользователю просматривать информацию о группе и управлять составом участников:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- {{ org-name }} {#cloud-org}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
 

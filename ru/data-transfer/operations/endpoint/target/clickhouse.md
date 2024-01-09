@@ -22,19 +22,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `clickhouse-target`.
 
     {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_target`.
 
@@ -69,7 +69,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
 
@@ -79,19 +79,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с явным указанием сетевых адресов и портов.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `clickhouse-target`.
 
     {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_target`.
 
@@ -138,7 +138,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
 
@@ -146,9 +146,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Дополнительные настройки {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}** — выберите способ очистки данных в базе-приемнике перед переносом:
 
@@ -182,7 +182,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.flush_interval.title }}** — укажите задержку, с которой данные должны поступать в кластер-приемник. Увеличьте значение в этом поле, если {{ CH }} не успевает делать слияние кусков данных.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * `clickhouse_cluster_name` — укажите имя кластера, в который будут передаваться данные.
 

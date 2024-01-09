@@ -2,16 +2,16 @@
 
 {{ objstorage-name }} позволяет управлять [конфигурацией CORS](../../concepts/cors.md) в бакете.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите настроить CORS.
   1. В левой панели выберите **{{ ui-key.yacloud.storage.bucket.cors.label_title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
   1. Откроется страница, на которой вы сможете добавлять, удалять и редактировать правила конфигурации. Подробное описание полей конфигурации смотрите в разделе [{#T}](../../s3/api-ref/cors/xml-config.md).
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@
     --remove-cors
   ```
 
-- AWS CLI
+- AWS CLI {#aws-cli}
 
   Чтобы загрузить конфигурацию с помощью [AWS CLI](../../tools/aws-cli.md):
 
@@ -111,7 +111,7 @@
        --endpoint-url=https://{{ s3-storage-host }}
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -160,7 +160,7 @@
      * `allowed_origins` — сайт, с которого разрешены кросс-доменные запросы к бакету. Обязательный параметр.
      * `expose_headers` — заголовок, разрешенный к показу в JavaScript-приложении в браузере. Необязательный параметр. 
      * `max_age_seconds` — Время в секундах, в течение которого браузер сохраняет в кеше результат запроса к объекту. Необязательный параметр.
-     * `server_side_encryption_configuration` - конфигурация шифрования бакета на стороне сервера. Необязательный параметр.
+     * `server_side_encryption_configuration` — конфигурация шифрования бакета на стороне сервера. Необязательный параметр.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
@@ -185,7 +185,7 @@
   
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Чтобы управлять конфигурацией CORS в бакете, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../s3/api-ref/cors/upload.md).
 

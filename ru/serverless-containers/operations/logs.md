@@ -7,15 +7,15 @@ description: "Вы можете посмотреть график монитор
 
 Логи выполнения контейнера хранятся 14 дней. Время в журнале указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Нажмите на контейнер, журнал выполнения которого хотите посмотреть.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
     
-- CLI
+- CLI {#cli}
     
     {% include [cli-install](../../_includes/cli-install.md) %}
     

@@ -10,9 +10,9 @@
 
 Чтобы восстановить ВМ из копии другой ВМ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -29,7 +29,7 @@
      Если не включить эту опцию, то после восстановления исходная ВМ, из которой была создана копия, станет неактуальной. Чтобы продолжить создавать резервные копии этой ВМ, [обновите](../refresh-connection.md) ее подключение к {{ backup-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
-- CLI
+- CLI {#cli}
 
   1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -101,7 +101,7 @@
 
   После восстановления исходная ВМ, из которой была создана копия, станет неактуальной. Чтобы избежать конфликтов между двумя ВМ при резервном копировании, [удалите](../../../compute/operations/vm-control/vm-delete.md) неактуальную ВМ или [обновите](../refresh-connection.md) ее подключение к {{ backup-name }}.
 
-- API
+- API {#api}
 
   Чтобы восстановить виртуальную машину из резервной копии другой виртуальной машины, воспользуйтесь методом REST API [startRecovery](../../backup/api-ref/Backup/startRecovery.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery).
 

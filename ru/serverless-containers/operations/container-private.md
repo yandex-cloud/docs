@@ -8,9 +8,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     Чтобы сделать контейнер приватным, выполните команду:
 

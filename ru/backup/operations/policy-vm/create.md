@@ -5,9 +5,9 @@ description: "Из статьи вы узнаете, как создать по�
 
 # Создать политику резервного копирования
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать политику.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -19,7 +19,7 @@ description: "Из статьи вы узнаете, как создать по�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -119,7 +119,7 @@ description: "Из статьи вы узнаете, как создать по�
 
       Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -271,7 +271,7 @@ description: "Из статьи вы узнаете, как создать по�
         yc backup policy list
         ```
 
-- API
+- API {#api}
 
   Чтобы создать [политику резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [create](../../backup/api-ref/Policy/create.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Create](../../backup/api-ref/grpc/policy_service.md#Create).
 

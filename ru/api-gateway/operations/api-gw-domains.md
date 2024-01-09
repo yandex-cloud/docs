@@ -10,9 +10,9 @@
 
 Чтобы подключить домен к API-шлюзу:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Разместите у своего DNS-провайдера или на собственном DNS-сервере CNAME-запись:
     
@@ -51,7 +51,7 @@
         1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
         1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, выберите сертификат и введите имя домена (FQDN).
 
-- API
+- API {#api}
 
   Чтобы подключить домен к API-шлюзу, воспользуйтесь методом REST API [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/apigateway_service.md#AddDomain).
 

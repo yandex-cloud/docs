@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится устройство.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -9,7 +9,7 @@
    1. Выберите устройство.
    1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация об устройстве.
 
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../cli-install.md) %}
   
@@ -30,7 +30,7 @@
   name: my-device
   ```
   
-- API
+- API {#api}
 
   Чтобы получить подробную информацию об устройстве, воспользуйтесь методом REST API [get](../../iot-core/api-ref/Device/get.md) для ресурса [Device](../../iot-core/api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Get](../../iot-core/api-ref/grpc/device_service.md#Get).
 

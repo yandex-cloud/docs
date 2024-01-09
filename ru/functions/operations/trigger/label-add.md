@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Добавить метку триггеру в {{ sf-name }}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -44,7 +44,7 @@ description: "Следуя данной инструкции, вы сможет�
     status: ACTIVE
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -109,7 +109,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc serverless trigger get <идентификатор триггера>
      ```
 
-- API
+- API {#api}
 
   Чтобы добавить метку триггеру, воспользуйтесь методом REST API [update](../../triggers/api-ref/Trigger/update.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Update](../../triggers/api-ref/grpc/trigger_service.md#Update).
 

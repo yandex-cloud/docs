@@ -6,9 +6,9 @@
 
 Чтобы создать новый ключ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -21,7 +21,7 @@
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
 
-- CLI
+- CLI {#cli}
 
   Выполните команду:
 
@@ -40,17 +40,17 @@
 
   Вместе с ключом создается его первая версия. Она указана в поле `primary_version`.
 
-- API
-
-  Воспользуйтесь методом REST API [create](../../kms/api-ref/SymmetricKey/create.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Create](../../kms/api-ref/grpc/symmetric_key_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   {% include [terraform-key-create](../../_includes/kms/terraform-key-create.md) %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../../kms/api-ref/SymmetricKey/create.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Create](../../kms/api-ref/grpc/symmetric_key_service.md#Create).
 
 {% endlist %}
 
@@ -60,9 +60,9 @@
 
 Чтобы изменить ключ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -70,7 +70,7 @@
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Изменив атрибуты ключа, нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните команду:
 
@@ -89,11 +89,7 @@
   * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
   * `--rotation-period` — период ротации ключа. Чтобы отключить автоматическую ротацию измененного ключа, не указывайте параметр `--rotation-period`.
 
-- API
-
-  Воспользуйтесь методом REST API [update](../../kms/api-ref/SymmetricKey/update.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Update](../../kms/api-ref/grpc/symmetric_key_service.md#Update).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы изменить ключ:
   1. Откройте файл конфигурации {{ TF }} и измените необходимые параметры ресурса `yandex_kms_symmetric_key`.
@@ -103,7 +99,7 @@
      ```hcl
      ...
      resource "yandex_kms_symmetric_key" "key-a" {
-       name              = "example-symetric-key"
+       name              = "example-symmetric-key"
        description       = "description for key"
        default_algorithm = "AES_128"
        rotation_period   = "8760h"
@@ -145,6 +141,10 @@
      yc kms symmetric-key get <имя_ключа>
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../../kms/api-ref/SymmetricKey/update.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Update](../../kms/api-ref/grpc/symmetric_key_service.md#Update).
+
 {% endlist %}
 
 ## Ротировать ключ {#rotate}
@@ -153,9 +153,9 @@
 
 Чтобы ротировать ключ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -163,7 +163,7 @@
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-rotate }}**.
   1. Подтвердите ротацию (убедитесь, что смена версии по умолчанию не повредит вашей работе).
 
-- CLI
+- CLI {#cli}
 
   Выполните команду, указав идентификатор или имя ключа:
 
@@ -171,7 +171,7 @@
   yc kms symmetric-key rotate example-key
   ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [rotate](../../kms/api-ref/SymmetricKey/rotate.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Rotate](../../kms/api-ref/grpc/symmetric_key_service.md#Rotate).
 
@@ -189,9 +189,9 @@
 
 Чтобы удалить ключ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -199,7 +199,7 @@
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-key.overview.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните команду, указав идентификатор или имя ключа:
 
@@ -207,11 +207,7 @@
   yc kms symmetric-key delete example-key
   ```
 
-- API
-
-  Воспользуйтесь методом REST API [delete](../../kms/api-ref/SymmetricKey/delete.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Delete](../../kms/api-ref/grpc/symmetric_key_service.md#Delete).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы удалить ключ, созданный с помощью {{ TF }}:
   1. Откройте файл конфигураций {{ TF }} и удалите фрагмент с описанием ключа.
@@ -221,7 +217,7 @@
      ```hcl
      ...
      resource "yandex_kms_symmetric_key" "key-a" {
-       name              = "example-symetric-key"
+       name              = "example-symmetric-key"
        description       = "description for key"
        default_algorithm = "AES_128"
        rotation_period   = "8760h"
@@ -262,6 +258,10 @@
      ```bash
      yc kms symmetric-key list
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [delete](../../kms/api-ref/SymmetricKey/delete.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Delete](../../kms/api-ref/grpc/symmetric_key_service.md#Delete).
 
 {% endlist %}
 

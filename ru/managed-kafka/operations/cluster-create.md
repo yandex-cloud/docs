@@ -17,9 +17,9 @@
 
 Перед созданием кластера {{ mkf-name }} рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -93,7 +93,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Дождитесь, когда кластер {{ mkf-name }} будет готов к работе: его статус на панели {{ mkf-name }} сменится на `Running`, а состояние — на `Alive`. Это может занять некоторое время.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -169,7 +169,7 @@
      {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -259,7 +259,7 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы создать кластер {{ mkf-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
   * Идентификатор [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mkf-name }}, в параметре `folderId`.
@@ -298,9 +298,9 @@
 
 С помощью импорта вы можете передать существующие кластеры под управление {{ TF }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. Укажите в конфигурационном файле {{ TF }} кластер, который необходимо импортировать:
 
@@ -322,9 +322,9 @@
 
 ### Создание кластера с одним хостом {#creating-a-single-host-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
 
@@ -363,7 +363,7 @@
   ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
   * В облаке с идентификатором `{{ tf-cloud-id }}`.

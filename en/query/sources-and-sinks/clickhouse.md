@@ -103,3 +103,5 @@ Below is a table of correspondence between {{ CH }} types and {{ yq-full-name }}
 | `FixedString` | `STRING` | Null `FixedString` bytes are transferred to `STRING` without changes. |
 
 Other data types are not supported.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

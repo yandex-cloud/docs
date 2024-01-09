@@ -18,9 +18,9 @@
 
 Чтобы подключить сетевой диск к ВМ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -38,7 +38,7 @@
      * При необходимости включите опцию **{{ ui-key.yacloud.compute.attach-disk.field_auto-delete }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -90,7 +90,7 @@
      yc compute instance start first-instance
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [attachDisk](../../api-ref/Instance/attachDisk.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/AttachDisk](../../api-ref/grpc/instance_service.md#AttachDisk).
 

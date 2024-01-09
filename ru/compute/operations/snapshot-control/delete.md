@@ -13,9 +13,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы удалить снимок:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В консоли управления выберите каталог, в котором находится снимок.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -23,7 +23,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В строке с нужным снимком нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.snapshots.list.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.snapshots.list.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -45,12 +45,7 @@ description: "Следуя данной инструкции, вы сможет�
        --name first-snapshot
      ```
 
-
-- API
-
-  Воспользуйтесь методом REST API [delete](../../api-ref/Snapshot/delete.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md) или вызовом gRPC API [SnapshotService/Delete](../../api-ref/grpc/snapshot_service.md#Delete).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -69,5 +64,9 @@ description: "Следуя данной инструкции, вы сможет�
      {% endnote %}
 
   1. Введите слово `yes` и нажмите **Enter**.
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [delete](../../api-ref/Snapshot/delete.md) для ресурса [Snapshot](../../api-ref/Snapshot/index.md) или вызовом gRPC API [SnapshotService/Delete](../../api-ref/grpc/snapshot_service.md#Delete).
 
 {% endlist %}

@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -16,7 +16,7 @@
       Вернуть деликатную стратегию остановки можно будет после воссоздания всех ВМ группы в новой зоне доступности и удаления всех ВМ в старой.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../cli-install.md) %}
 
@@ -79,7 +79,7 @@
       ...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -146,7 +146,7 @@
       yc compute instance-group get <имя_группы_ВМ>
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [update](../../compute/api-ref/InstanceGroup/update.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Update](../../compute/api-ref/grpc/instance_group_service.md#Update).
 

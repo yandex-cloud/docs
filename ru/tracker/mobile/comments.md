@@ -10,7 +10,7 @@
 
 ## Оставить комментарий {#leave-comment}
 
-Чтобы прокомментировать задачу, введите текст в поле **{{ ui-key.startrek.ui_components_CommentEditor.write-comment }}** в нижней части экрана и нажмите кнопку ![](../../_assets/tracker/send.png). В комментариях вы можете использовать [разметку текста](../user/markup.md), а также [прикреплять к ним изображения и файлы](#sec_file). Чтобы развернуть поле с комментарием на весь экран, нажмите на значок ![](../../_assets/tracker/open-text.png).
+Чтобы прокомментировать задачу, введите текст в поле **{{ ui-key.startrek.ui_components_entity-page_comments_CommentEditor_mobile.write-comment }}** в нижней части экрана и нажмите кнопку ![](../../_assets/tracker/send.png). В комментариях вы можете использовать [разметку текста](../user/markup.md), а также [прикреплять к ним изображения и файлы](#sec_file). Чтобы развернуть поле с комментарием на весь экран, нажмите на значок ![](../../_assets/tracker/open-text.png).
 
 В комментарии к задаче можно указать ключ любой другой задачи — тогда {{ tracker-name }} автоматически их [свяжет](ticket-links.md#add-link).
 
@@ -32,7 +32,7 @@
 
 Чтобы пригласить других пользователей к обсуждению задачи:
 
-1. Выберите поле **{{ ui-key.startrek.ui_components_CommentEditor.write-comment }}** в нижней части экрана и нажмите ![](../../_assets/tracker/at.png).
+1. Выберите поле **{{ ui-key.startrek.ui_components_entity-page_comments_CommentEditor_mobile.write-comment }}** в нижней части экрана и нажмите ![](../../_assets/tracker/at.png).
 
 1. Введите логин или имя пользователя, которого вы хотите призвать в комментарии, и нажмите кнопку **{{ ui-key.startrek.ui_components_ModalTextEditor.save }}**. Вы можете призвать несколько пользователей одновременно. 
 
@@ -50,7 +50,7 @@
 
 Чтобы прикрепить файл к комментарию:
 
-1. Выберите поле **{{ ui-key.startrek.ui_components_CommentEditor.write-comment }}** в нижней части экрана и нажмите ![](../../_assets/tracker/pin.png). 
+1. Выберите поле **{{ ui-key.startrek.ui_components_entity-page_comments_CommentEditor_mobile.write-comment }}** в нижней части экрана и нажмите ![](../../_assets/tracker/pin.png). 
     
     * Чтобы добавить фото или видео с камеры телефона, нажмите на иконку **Камера**. Когда все будет готово, нажмите **ОК**. Чтобы переснять фото или видео, нажмите **Повтор**.
 

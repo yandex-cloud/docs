@@ -2,9 +2,9 @@
 
 Использовать созданный [реестр](../../concepts/registry.md) могут все пользователи и [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md), у которых есть права на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан реестр.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
@@ -16,7 +16,7 @@
   1. (опционально) Добавьте метки.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -76,7 +76,7 @@
      +----------------------+--------+----------------------+
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
   1. Добавьте в конфигурационный файл параметры реестра, который необходимо создать. Например, файл с названием `example.tf` в директории `~/cloud-terraform`:
@@ -160,7 +160,7 @@
         В каталоге будет создан реестр с именем `my-registry`.
      1. Проверьте ресурсы и их настройки в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Чтобы создать реестр, воспользуйтесь методом [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/).
 

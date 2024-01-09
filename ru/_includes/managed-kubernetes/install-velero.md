@@ -1,8 +1,8 @@
 Установите приложение Velero:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- С помощью {{ marketplace-short-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
     Установите приложение Velero согласно [инструкции](../../managed-kubernetes/operations/applications/velero-yc-csi.md). В поле **Имя бакета Object Storage** укажите [созданный ранее](#before-you-begin) бакет.
 
@@ -12,7 +12,7 @@
 
     {% endnote %}
 
-- Вручную
+- Вручную {#manual}
 
     1. {% include [cli-install](../../_includes/cli-install.md) %}
 

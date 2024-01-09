@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать [группу источников](../../concepts/origins.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -26,7 +26,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -72,7 +72,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -120,7 +120,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc cdn origin-group list
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/OriginGroup/create.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Create](../../api-ref/grpc/origin_group_service.md#Create).
 

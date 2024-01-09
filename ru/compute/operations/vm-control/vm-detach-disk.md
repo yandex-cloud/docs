@@ -14,9 +14,9 @@
 
 Чтобы отключить диск от виртуальной машины:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -24,7 +24,7 @@
   1. Напротив нужного диска нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-detach }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.popup_detach-disk_button_detach }}**.
 
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../../_includes/cli-install.md) %}
   
@@ -70,7 +70,7 @@
       yc compute instance start first-instance
       ```
   
-- API
+- API {#api}
   
   Воспользуйтесь методом REST API [detachDisk](../../api-ref/Instance/detachDisk.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/DetachDisk](../../api-ref/grpc/instance_service.md#DetachDisk).
   

@@ -2,9 +2,9 @@
 
 Для обращения к [устройству](../../concepts/index.md#device) используйте его уникальный идентификатор или имя. Как узнать уникальный идентификатор или имя устройства, читайте в разделе [{#T}](device-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы удалить устройство:
 
@@ -15,7 +15,7 @@
    1. Справа от имени удаляемого устройства нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@
       +----+------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -95,7 +95,7 @@
       yc iot device list --registry-id <идентификатор реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить устройство, воспользуйтесь методом REST API [delete](../../api-ref/Device/delete.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Delete](../../api-ref/grpc/device_service.md#Delete).
 

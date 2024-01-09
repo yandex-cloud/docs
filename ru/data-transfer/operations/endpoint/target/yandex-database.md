@@ -22,9 +22,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
 
@@ -32,9 +32,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Дополнительные настройки {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.shard_count.title }}** — укажите нужное количество шардов `N`.
 

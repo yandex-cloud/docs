@@ -14,9 +14,9 @@
 
 ## Выбор сертификата из {{ certificate-manager-name }} {#cert-manager}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. Выберите сервис **{{ objstorage-name }}**.
@@ -34,7 +34,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -61,9 +61,9 @@
      ```text
      source_type: SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
      certificate_id: fpqe2g0hfr0e********
-     ```   
+     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
  
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -122,7 +122,7 @@
 
      Проверить выбранный сертификат можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Чтобы выбрать сертификат из {{ certificate-manager-name }}, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig).
 
@@ -142,9 +142,9 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 Чтобы загрузить сертификат:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -155,7 +155,7 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
    1. Добавьте сертификат и секретный ключ.
    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
-- API
+- API {#api}
 
   Чтобы загрузить собственный сертификат безопасности, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig).
 

@@ -11,9 +11,9 @@
 
 {% include [trigger-time](../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать таймер.
 
@@ -35,7 +35,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@
     status: ACTIVE
     ```
 
-- API
+- API {#api}
 
   Создать таймер можно с помощью метода API [create](../triggers/api-ref/Trigger/create.md).
 

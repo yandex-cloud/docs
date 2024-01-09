@@ -69,10 +69,11 @@ The infrastructure support costs include:
       yc iam service-account create --name sa-firezone
       ```
 
-      In this command, replace `name` with the name of the service account.
+      Where `--name` is the service account name.
 
       Result:
-      ```yaml
+
+      ```text
       id: ajehr0to1g8b********
       folder_id: b1gv87ssvu49********
       created_at: "2023-07-06T09:00:00.665153755Z"
@@ -117,13 +118,15 @@ The infrastructure support costs include:
          --folder-id <ID_of_folder_with_service_account> \
          --output key.json
          ```
+
          Where:
 
-         * `service-account-id`: Service account ID.
-         * `folder-id`: ID of the folder the service account was created in.
-         * `output`: Name of the file with the authorized key.
+         * `--service-account-id`: Service account ID.
+         * `--folder-id`: ID of the folder the service account was created in.
+         * `--output`: Name of the file with the authorized key.
 
          Result:
+
          ```
          id: aje8nn871qo4********
          service_account_id: ajehr0to1g8b********

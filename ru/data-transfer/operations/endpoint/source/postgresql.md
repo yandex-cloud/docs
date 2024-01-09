@@ -24,19 +24,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `postgres-source`.
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `postgres_source`.
 
@@ -68,7 +68,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
 
@@ -78,19 +78,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Для случая OnPremise все поля заполняются вручную.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `postgres-source`.
 
     {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `postgres_source`.
 
@@ -125,7 +125,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
 
@@ -133,9 +133,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Дополнительные настройки {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка.
 
@@ -160,7 +160,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}** — при необходимости задайте детальные настройки параллельного копирования таблиц (если в трансфере заданы параметры параллельного копирования).
 
-- CLI
+- CLI {#cli}
 
     * `--include-table` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка.
 
@@ -184,7 +184,7 @@ description: "Из статьи вы узнаете, как задать нас�
         * `--transfer-before-data` — на первичной стадии трансфера.
         * `--transfer-after-data` — на финальной стадии трансфера.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * `include_tables` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка.
 
@@ -230,7 +230,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     * `includeTables` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка.
 

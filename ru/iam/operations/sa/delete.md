@@ -11,13 +11,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [delete-sa-via-console](../../../_includes/iam/delete-sa-via-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -51,11 +51,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc iam service-account delete my-robot
       ```
 
-- API
-
-  Чтобы удалить сервисный аккаунт, воспользуйтесь методом REST API [delete](../../api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../api-ref/grpc/service_account_service.md#Delete).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -105,6 +101,10 @@ description: "Следуя данной инструкции, вы сможет�
      ```bash
      yc iam service-account list
      ```
+
+- API {#api}
+
+  Чтобы удалить сервисный аккаунт, воспользуйтесь методом REST API [delete](../../api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../api-ref/grpc/service_account_service.md#Delete).
 
 {% endlist %}
 

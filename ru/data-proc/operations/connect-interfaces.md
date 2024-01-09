@@ -12,16 +12,16 @@
 
 ### Включить веб-интерфейсы компонентов {#ui-proxy-enable}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_configuration }}** включите опцию **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
@@ -50,15 +50,15 @@
 
 ### Получить список URL для подключения {#ui-proxy-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
     1. Ссылки для подключения к веб-интерфейсам компонентов находятся в блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -72,7 +72,7 @@
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [listUILinks](../api-ref/Cluster/listUILinks.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 

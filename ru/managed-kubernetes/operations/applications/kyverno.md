@@ -67,9 +67,9 @@
 
 Если приложение Kyverno вам больше не нужно, удалите его:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Через {{ marketplace-name }}
+- {{ marketplace-full-name }} {#marketplace}
 
    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Нажмите на имя нужного [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
@@ -77,7 +77,7 @@
    1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.
    1. [Очистите конфигурации веб-хуков приложения](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), иначе кластер будет работать некорректно.
 
-- С помощью Helm
+- Helm {#helm}
 
    1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.
    1. Удалите приложение:

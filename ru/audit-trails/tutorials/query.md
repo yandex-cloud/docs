@@ -32,9 +32,9 @@
 
 ### Создайте бакет для аудитных логов {#create-backet}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md), например `example-folder`.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -52,9 +52,9 @@
 
 Создайте сервисный аккаунт `trail-sa`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -71,9 +71,9 @@
 
 Назначьте сервисному аккаунту `trail-sa` роли `audit-trails.viewer` и `storage.uploader`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
   
     1. Роль `audit-trails.viewer` на организацию:
 
@@ -116,9 +116,9 @@
 
 Назначьте сервисному аккаунту `bucket-yq-sa` роль `storage.viewer` на каталог `example-folder`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
   
     ```bash
     yc resource-manager folder add-access-binding example-folder \
@@ -141,9 +141,9 @@
 
 ## Создайте трейл {#create-trail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -170,9 +170,9 @@
 
 Соединение необходимо создать только при первом подключении трейла к {{ yq-short-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -193,9 +193,9 @@
 
 Откройте страницу создания аналитического запроса к логам {{ at-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с трейлом.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

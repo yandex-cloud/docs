@@ -4,13 +4,13 @@
 
 ## Назначить роль на каталог {#access-to-user}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@
       ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -162,7 +162,7 @@
      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
 
@@ -228,13 +228,13 @@
 
 ## Назначить несколько ролей {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-multiple-users-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -258,7 +258,7 @@
       ```
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -341,7 +341,7 @@
      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
 
-- API
+- API {#api}
 
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
@@ -400,19 +400,19 @@
 
 ## Доступ к каталогу для сервисного аккаунта {#access-to-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [grant-role-console-sa](../../../_includes/grant-role-console-sa.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [grant-role-for-sa-to-folder-via-cli](../../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -488,7 +488,7 @@
      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
 
-- API
+- API {#api}
 
   {% include [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
@@ -497,15 +497,15 @@
 
 ## Доступ к каталогу для федеративного пользователя {#access-to-federated-user}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
 
   {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
   1. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).

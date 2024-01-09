@@ -8,9 +8,9 @@
 
 ## Создайте ВМ с несколькими Docker-контейнерами {#docker-compose}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

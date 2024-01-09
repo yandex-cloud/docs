@@ -57,6 +57,8 @@ If you add instructions to access new streaming sources of data to the text of a
 
 {% note info %}
 
-Query execution method settings (whether to process data starting from a checkpoint or anew) are specified when [running a query](../operations/query.md#run).
+Query execution method settings (processing data starting from a checkpoint or processing anew) are specified when [running a query](../operations/query.md#run).
 
 {% endnote %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

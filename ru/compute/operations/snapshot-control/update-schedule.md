@@ -9,9 +9,9 @@ description: "Из статьи вы узнаете, как изменить р�
 
 Чтобы изменить основные параметры расписания снимков:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -38,7 +38,7 @@ description: "Из статьи вы узнаете, как изменить р�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -131,7 +131,7 @@ description: "Из статьи вы узнаете, как изменить р�
       snapshot_spec: {}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -172,7 +172,7 @@ description: "Из статьи вы узнаете, как изменить р�
     yc compute snapshot-schedule get <имя_расписания>
     ```
 
-- API
+- API {#api}
 
   1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
 
@@ -186,9 +186,9 @@ description: "Из статьи вы узнаете, как изменить р�
 
 Чтобы изменить список дисков, снимки которых создаются по расписанию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -201,7 +201,7 @@ description: "Из статьи вы узнаете, как изменить р�
       
       * Чтобы удалить диск, в блоке **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}** напротив диска, который нужно удалить из расписания, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -430,7 +430,7 @@ description: "Из статьи вы узнаете, как изменить р�
       snapshot_spec: {}
       ```
 
-- API
+- API {#api}
 
   1. Получите список расписаний с помощью метода REST API [list](../../api-ref/SnapshotSchedule/list.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List).
   1. Получите список дисков с помощью метода REST API [list](../../api-ref/Disk/list.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
@@ -442,9 +442,9 @@ description: "Из статьи вы узнаете, как изменить р�
 
 ### Изменить имя расписания {#change-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы задать новое имя для расписания:
 

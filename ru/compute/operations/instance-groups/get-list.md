@@ -7,15 +7,15 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы получить список групп виртуальных машин:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../../_includes/cli-install.md) %}
   
@@ -31,7 +31,7 @@ description: "Следуя данной инструкции, вы сможет�
   
       {% include [instance-group-list](../../../_includes/instance-groups/instance-group-list.md) %}
   
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [list](../../api-ref/InstanceGroup/list.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/List](../../api-ref/grpc/instance_group_service.md#List).
 

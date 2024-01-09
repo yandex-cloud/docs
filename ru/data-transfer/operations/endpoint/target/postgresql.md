@@ -22,19 +22,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `postgres-target`.
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
     
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `postgres_target`.
 
@@ -65,7 +65,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
 
@@ -75,19 +75,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Для случая OnPremise все поля заполняются вручную.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `postgres-target`.
 
     {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `postgres_target`.
 
@@ -121,7 +121,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
 
@@ -129,9 +129,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 ## Дополнительные настройки {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.cleanup_policy.title }}** — выберите способ очистки данных в базе-приемнике перед переносом:
 

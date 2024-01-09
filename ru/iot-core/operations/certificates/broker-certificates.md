@@ -23,9 +23,9 @@ description: "Из статьи вы узнаете, как получить с�
 
 ## Добавить сертификат {#add-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат брокера.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -46,7 +46,7 @@ description: "Из статьи вы узнаете, как получить с�
          1. Вставьте тело сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
          1. Нажмите **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -75,7 +75,7 @@ description: "Из статьи вы узнаете, как получить с�
   created_at: "2019-05-29T16:40:48.230Z"
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -140,7 +140,7 @@ description: "Из статьи вы узнаете, как получить с�
       yc iot broker certificate list --broker-name <имя_брокера>
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить сертификат брокеру, воспользуйтесь методом REST API [addCertificate](../../broker/api-ref/Broker/addCertificate.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/AddCertificate](../../broker/api-ref/grpc/broker_service.md#AddCertificate).
 
@@ -148,9 +148,9 @@ description: "Из статьи вы узнаете, как получить с�
 
 ## Удалить сертификат {#delete-cert}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого хотите удалить сертификат брокера.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
@@ -160,7 +160,7 @@ description: "Из статьи вы узнаете, как получить с�
    1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -187,7 +187,7 @@ description: "Из статьи вы узнаете, как получить с�
       +-------------+------------+
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -247,7 +247,7 @@ description: "Из статьи вы узнаете, как получить с�
       yc iot broker certificate list --broker-name <имя_брокера>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить сертификат брокера, воспользуйтесь методом REST API [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) для ресурса [Broker](../../broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/DeleteCertificate](../../broker/api-ref/grpc/broker_service.md#DeleteCertificate).
 

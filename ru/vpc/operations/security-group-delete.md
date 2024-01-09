@@ -13,9 +13,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы удалить группу безопасности: 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить группу безопасности.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -24,7 +24,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -58,7 +58,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc vpc security-group delete test-sg-cli
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -133,7 +133,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc vpc security-group list
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [delete](../api-ref/SecurityGroup/delete.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete) и передайте в запросе идентификатор удаляемой группы безопасности в параметре `securityGroupId`.
 

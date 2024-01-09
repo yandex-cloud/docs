@@ -45,7 +45,7 @@
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `deactivating-trail-alert`. 
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.status`.
     1. `status != ACTIVE`.
@@ -69,7 +69,7 @@
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `stopping-logs-alert`. 
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.delivered_events_count`.
     1. `trail = <имя_трейла>`.
@@ -91,7 +91,7 @@
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `number-trails-alert`. 
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = quota.trails_count.usage`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
@@ -111,7 +111,7 @@
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `trail-quota-alert`. 
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = quota.trails_count.usage`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
@@ -131,7 +131,7 @@
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `unauthorized-access-alert`. 
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** cправа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.unauthorized_events_count`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:

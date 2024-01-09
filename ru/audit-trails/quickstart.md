@@ -13,9 +13,9 @@
 1. Убедитесь, что в вашем облаке существует бакет для хранения аудитного лога, при необходимости [создайте новый бакет](../storage/quickstart.md#the-first-bucket) с ограниченным доступом.
 1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт и назначьте ему роли:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -63,9 +63,9 @@
 
 Чтобы создать первый трейл в {{ at-name }} и запустить процесс управления аудитными логами уровня конфигурации:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

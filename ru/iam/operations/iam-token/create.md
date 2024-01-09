@@ -11,9 +11,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@ description: "Следуя данной инструкции, вы сможет�
   yc iam create-token
   ```
 
-- API
+- API {#api}
 
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
 

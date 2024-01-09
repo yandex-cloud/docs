@@ -8,9 +8,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Посмотрите список доступных для загрузки [Docker-образов](../../concepts/docker-image.md):
 

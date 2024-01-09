@@ -8,9 +8,9 @@
 
 ## Как создать кластер {{ mgp-name }} {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер баз данных.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
@@ -115,7 +115,7 @@
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -243,7 +243,7 @@
         * `--datalens-access` — доступ из {{ datalens-full-name }}: true или false.
         * `--datatransfer-access` — доступ из {{ data-transfer-full-name }}: true или false.
         
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -340,7 +340,7 @@
 
        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-- API
+- API {#api}
 
     Чтобы создать кластер, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) и передайте в запросе:
 
@@ -378,9 +378,9 @@
 
 ### Создание кластера {#create-example}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     Создайте кластер {{ mgp-name }} с тестовыми характеристиками:
 

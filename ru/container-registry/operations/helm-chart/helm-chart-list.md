@@ -4,9 +4,9 @@
 
 ## Получить информацию о локальных Helm-чартах
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы посмотреть список Helm-чартов локально, выполните команду:
 
@@ -18,9 +18,9 @@
 
 ## Получить информацию о Helm-чартах в реестре
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы посмотреть список Helm-чартов, загруженных в {{ container-registry-name }}, выполните команду, как и для [просмотра](../docker-image/docker-image-list.md#docker-image-list) списка [Docker-образов](../../concepts/docker-image.md):
 

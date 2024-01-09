@@ -14,11 +14,11 @@
 
 {% include [read-pass](../../../_includes/iot-core/read-pass.md) %}
 
-### Добавить пароль уже созданному реестру {#add}  
+### Добавить пароль уже созданному реестру {#add}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы добавить пароль уже созданному реестру:
 
@@ -29,7 +29,7 @@
    1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который вы будете использовать для доступа к реестру.<br/>Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).<br/>Не забудьте сохранить пароль, он вам понадобится.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -61,7 +61,7 @@
         created_at: "2019-12-16T15:32:46.655139Z"
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -126,7 +126,7 @@
       yc iot registry password list --registry-name <имя_реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить пароль реестру, воспользуйтесь методом REST API [addPassword](../../api-ref/Registry/addPassword.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/AddPassword](../../api-ref/grpc/registry_service.md#AddPassword).
 
@@ -134,13 +134,13 @@
 
 ### Задать пароль реестру при создании {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Как задать пароль реестру при создании, читайте в разделе [{#T}](../registry/registry-create.md).
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -163,21 +163,21 @@
     log_group_id: ckghhil3b5o9********
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Как задать пароль реестру при создании, читайте в разделе [{#T}](../registry/registry-create.md).
 
-- API
+- API {#api}
 
   Чтобы задать пароль реестру при создании, воспользуйтесь методом REST API [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/Create](../../api-ref/grpc/registry_service.md#Create).
 
-{% endlist %}  
+{% endlist %}
 
 ## Получить список паролей реестра {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы просмотреть список паролей реестра:
 
@@ -186,7 +186,7 @@
    1. Выберите в списке нужный реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_passwords }}**.
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -223,17 +223,17 @@
         +----------------------+---------------------+
         ```
 
-- API
+- API {#api}
 
   Чтобы получить список паролей реестра, воспользуйтесь методом REST API [listPasswords](../../api-ref/Registry/listPasswords.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListPasswords](../../api-ref/grpc/registry_service.md#ListPasswords).
 
-{% endlist %}     
+{% endlist %}
    
 ## Удалить пароль реестра {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы удалить пароль реестра:
 
@@ -243,7 +243,7 @@
    1. В строке с нужным паролем нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -283,7 +283,7 @@
         +----+------------+
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -343,7 +343,7 @@
       yc iot registry password list --registry-name <имя_реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить пароль реестра, воспользуйтесь методом REST API [deletePassword](../../api-ref/Registry/deletePassword.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/DeletePassword](../../api-ref/grpc/registry_service.md#DeletePassword).
 

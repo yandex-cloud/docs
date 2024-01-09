@@ -11,9 +11,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
-    
-- CLI 
+{% list tabs group=instructions %}
+
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ description: "Следуя данной инструкции, вы сможет�
     +------------------------------+--------------+-----------------------+
     ```
 
-- API
+- API {#api}
 
   Чтобы посмотреть роли на функцию, воспользуйтесь методом REST API [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListAccessBindings](../../functions/api-ref/grpc/function_service.md#ListAccessBindings).
 

@@ -46,14 +46,14 @@ You cannot restore an address after it is deleted.
       +----------------------+------+----------------+----------+-------+
       |          ID          | NAME |    ADDRESS     | RESERVED | USED  |
       +----------------------+------+----------------+----------+-------+
-      | e9b6un9gkso6stdh6b3p |      | 178.154.253.52 | true     | false |
+      | e9b6un9gkso6******** |      | 178.154.253.52 | true     | false |
       +----------------------+------+----------------+----------+-------+
       ```
 
    1. Delete the address by specifying its ID:
 
       ```bash
-      yc vpc address delete e9b6un9gkso6stdh6b3p
+      yc vpc address delete e9b6un9gkso6********
       ```
 
 - {{ TF }}

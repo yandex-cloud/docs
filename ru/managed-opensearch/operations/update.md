@@ -13,9 +13,9 @@ keywords:
 
 ## Изменить сервисные настройки {#change-service-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
@@ -28,7 +28,7 @@ keywords:
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- API
+- API {#api}
 
     Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
 

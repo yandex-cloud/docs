@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -8,7 +8,7 @@
     1. Выберите функцию, для которой хотите получить список версий.
     1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** будет показан список версий функции и подробная информация о них.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -62,12 +62,12 @@
         log_group_id: eolv6578frac********
         ```
 
-- API
+- API {#api}
 
     Чтобы получить подробную информацию о версии функции, воспользуйтесь методом REST API [getVersion](../../functions/functions/api-ref/Function/getVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/GetVersion](../../functions/functions/api-ref/grpc/function_service.md#GetVersion).
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Получить подробную информацию о версии функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

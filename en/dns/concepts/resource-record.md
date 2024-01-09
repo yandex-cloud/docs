@@ -49,7 +49,7 @@ For more information about A records, see [RFC-1035](https://www.ietf.org/rfc/rf
 
 ## AAAA {#aaaa}
 
-`AAAA`: Points a domain name to an IPv6 address. Operates in a similar way to an A record.
+`AAAA`: Resolves a domain name to an IPv6 address. It works in a similar way to an A record.
 
 | Name | Type | TTL | Value |
 |--------------|------|-----|-------------|
@@ -71,16 +71,16 @@ A record consists of the following parts:
    * `issue`: Determines which certification authority is authorized to issue certificates for a zone or subzone.
    * `issuewild`: Determines which certification authority is authorized to issue certificates for a zone and all of its subzones (wildcard, `*.example.com`).
    * Contact information that the certification authority should use to notify zone owners about receiving a request to issue a certificate in violation of the rules defined in CAA records:
-      * `iodef`: The phone number, website, or email address in any format.
-      * `contactemail`: The email address.
-      * `contactphone`: The phone number.
+      * `iodef`: Phone number, website, or email address in any format.
+      * `contactemail`: Email address.
+      * `contactphone`: Phone number.
 
    If the server fails to process an unknown tag, the flag value is parsed:
 
    * `0`: The tag is ignored.
    * `128`: Regardless of the value in the `VALUE` field, the record prohibits the issuance of certificates for the specified zone.
 
-* `VALUE`: A record enclosed in double quotes: `""`. This field value is handled based on the tag value.
+* `VALUE`: Record enclosed in double quotes: `""`. This field value is handled based on the tag value.
 
 | Name | Type | TTL | Value | Description |
 |--------------|-----|-----|-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -95,7 +95,7 @@ For more information about CAA records, see [RFC-8659](https://tools.ietf.org/ht
 
 ## CNAME {#cname}
 
-`CNAME`: Creates an alias for an FQDN. You can use CNAME records to access different services running on the same IP address. For example, CNAME records like `first.example.com` and `second.example.com` may point to the same `host.example.com` A record.
+`CNAME`: Creates an alias for an FQDN. You can use CNAME records to access different services running on the same IP address. For example, CNAME records, such as `first.example.com` and `second.example.com`, may point to the same `host.example.com` A record.
 
 | Name | Type | TTL | Value |
 |---------------------|-------|-----|-------------------|
@@ -116,14 +116,20 @@ An `ANAME` record is similar to a `CNAME` record, but can be used in the same do
 | example.com. | TXT | 600 | v=spf1 redirect=_spf.example.com |
 | example.com. | TXT | 600 | v=DKIM1; k=rsa; t=s; p=<key> |
 
+{% note info %}
+
+Do not use an `ANAME` resource record with domain names for [{{ cdn-full-name }}](../../cdn/) content distribution; otherwise, the end user will get a response from a CDN server not linked to the user's geolocation. The response will always be the same for all users.
+
+{% endnote %}
+
 ## MX {#mx}
 
-`MX`: The name of a server that processes emails, such as `mx.example.com`.
+`MX` is the name of an email processing server, e.g., `mx.example.com`.
 
 A record consists of two parts:
 
-* `PREFERENCE`: A 16-bit integer that specifies the host priority. The lower the value, the higher the host preference.
-* `EXCHANGE`: The FQDN of the host that processes emails in the specified zone. This field value must point to an A or AAAA record.
+* `PREFERENCE`: 16-bit integer that specifies the host priority. The lower the value, the higher the host preference.
+* `EXCHANGE`: FQDN of the email processing host in the specified zone. This field value must point to an A or AAAA record.
 
 | Name | Type | TTL | Value |
 |--------------|-----|-----|----------------------------|
@@ -135,7 +141,7 @@ For more information about MX records, see [RFC-1035](https://www.ietf.org/rfc/r
 
 ## NS {#ns}
 
-`NS`: A record that stores the address of the name server that handles the specified zone.
+`NS`: Record that stores the address of the name server in charge of the specified zone.
 
 | Name | Type | TTL | Value |
 |--------------|-----|-----|------------------|
@@ -159,26 +165,26 @@ For more information about PTR records, see [RFC-1035](https://www.ietf.org/rfc/
 
 ## SOA {#soa}
 
-`SOA`: A record with basic information about a zone. Created automatically.
+`SOA`: Record with basic information about a zone. It is created automatically.
 
 It consists of the following parts:
 
-* `MNAME`: Domain name of the server that handles the zone. The default value is:
+* `MNAME`: Domain name of the server in charge of the zone. The default value is:
    * `ns.internal.` for private zones.
    * `ns1.{{ dns-ns-host-sld }}.` for public zones.
-* `RNAME`: Domain name of the mail server that handles the zone. The default value is `{{ dns-mx-host }}.`.
-* `SERIAL`: An unsigned 32-bit integer that points to the number of a zone copy. When synchronizing data between DNS servers, the value in the `SERIAL` field is checked. The larger it is, the more recent the data. The default value is `1`.
+* `RNAME`: Domain name of the mail server in charge of the zone. The default value is `{{ dns-mx-host }}.`.
+* `SERIAL`: Unsigned 32-bit integer pointing to a zone copy number. When synchronizing data between DNS servers, the value in the `SERIAL` field is checked. The larger the value, the more recent the data. The default value is `1`.
 
    {% note warning %}
 
-   The {{ dns-name }} service doesn't change the `SERIAL` field value in SOA records when editing zone resource records. If you want to forcibly update the cache of the DNS servers that store information about your resource records, increase the value in this field manually.
+   The {{ dns-name }} service does not change the `SERIAL` field value in SOA records when editing zone resource records. If you want to force updating the cache of the DNS servers storing your resource records data, increase the value in this field manually.
 
    {% endnote %}
 
-* `REFRESH`: The time, in seconds, between updates of information about zone resource records. The default value is `10800` (3 hours).
-* `RETRY`: The time, in seconds, before retrying to update information about zone resource records if the previous attempt failed. The default value is `900` (15 minutes).
-* `EXPIRE`: The time, in seconds, after which the zone will no longer be authoritative. The default value is `604800` (7 days).
-* `MINIMUM`: The minimum TTL value, in seconds, for any resource record exported from the zone. The default value is `86400` (24 hours).
+* `REFRESH`: Time, in seconds, between updates of information about zone resource records. The default value is `10800` (3 hours).
+* `RETRY`: Time, in seconds, before retrying to update information about zone resource records if the previous attempt failed. The default value is `900` (15 minutes).
+* `EXPIRE`: Time, in seconds, after which the zone will no longer be authoritative. The default value is `604800` (7 days).
+* `MINIMUM`: Minimum TTL value, in seconds, for any resource record exported from the zone. The default value is `86400` (24 hours).
 
 | Name | Type | TTL | Value |
 |--------------|-----|------|--------------------------------------------------------------------|
@@ -190,14 +196,14 @@ For more information about SOA records, see [RFC-1035](https://www.ietf.org/rfc/
 
 ## SRV {#srv}
 
-`SRV`: A record that specifies the hostname and port number of the server for a particular service. An SRV record must point to an A or AAAA record.
+`SRV`: Record that specifies the hostname and port number of the server for a particular service. An SRV record must point to an A or AAAA record.
 
 It consists of the following parts:
 
-* `Priority`: A 16-bit unsigned integer that specifies the host priority. The lower the value, the higher the host preference.
-* `Weight`: A 16-bit unsigned integer that specifies the weight for hosts with the same priority. The closer the field value is to 0, the less likely it is that this host will be selected. If the service is only running on a single host, set the field value to `0`.
-* `Port`: A 16-bit unsigned integer that specifies the port used by the service.
-* `Target`: The FQDN of the host for the service.
+* `Priority`: 16-bit unsigned integer that specifies the host priority. The lower the value, the higher the host preference.
+* `Weight`: 16-bit unsigned integer that specifies the weight for hosts with the same priority. The closer the field value is to 0, the less likely it is that this host will be selected. If the service is only running on a single host, set the field value to `0`.
+* `Port`: 16-bit unsigned integer that specifies the port used by the service.
+* `Target`: FQDN of the host for the service.
 
 The client accesses the server with the lowest priority. If multiple servers have the same priority, the load is distributed according to the weight. Specify the server priority and the weight of records to distribute the load both between and within groups of servers.
 
@@ -221,14 +227,14 @@ For more information about SRV records, see [RFC-2782](https://www.ietf.org/rfc/
 
 `TXT` is a free-form record that can store human-readable text or structured machine-readable data.
 
-Mostly used to verify:
+It is mostly used to verify:
 
 * Domain ownership.
 * Authenticity of email messages.
 
-   * DMARC, [RFC-7489](https://www.ietf.org/rfc/rfc7489.html);
-   * DKIM, [RFC-6376](https://datatracker.ietf.org/doc/html/rfc6376/);
-   * SPF, [RFC-7208](https://datatracker.ietf.org/doc/html/rfc7208).
+   * DMARC, [RFC-7489](https://www.ietf.org/rfc/rfc7489.html)
+   * DKIM, [RFC-6376](https://datatracker.ietf.org/doc/html/rfc6376/)
+   * SPF, [RFC-7208](https://datatracker.ietf.org/doc/html/rfc7208)
 
 TXT record implementation in {{ dns-full-name }} has the following special features and limitations:
 

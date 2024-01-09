@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../cli-install.md) %}
 
@@ -43,7 +43,7 @@
         * `--level` — уровень логирования.
         * `--json-payload` — дополнительная информация в формате JSON.
 
-- API
+- API {#api}
 
   Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write).
 

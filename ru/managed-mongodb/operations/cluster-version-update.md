@@ -22,9 +22,9 @@
 
 ## Обновить кластер {#start-update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Выберите нужный кластер в списке и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -33,7 +33,7 @@
 
   После запуска обновления кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
 
-- CLI
+- CLI {#cli}
 
   1. Получите список ваших кластеров {{ MG }} командой:
 
@@ -65,7 +65,7 @@
 
      Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
@@ -94,7 +94,7 @@
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
     Чтобы обновить версию {{ MG }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
@@ -114,9 +114,9 @@
 
 Допустим, нужно обновить кластер с версии 4.0 до версии 4.2.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Чтобы узнать идентификатор кластера, получите список всех кластеров в каталоге:
 

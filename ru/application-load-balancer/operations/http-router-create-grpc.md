@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать [HTTP-роутер](../concepts/http-router.md) и добавить в него [маршрут](../concepts/http-router.md#routes):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В меню слева выберите **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -51,7 +51,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -152,7 +152,7 @@ description: "Следуя данной инструкции, вы сможет�
           max_timeout: 60s
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -219,7 +219,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc alb http-router get <имя_HTTP-роутера>
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../api-ref/HttpRouter/create.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Create](../api-ref/grpc/http_router_service.md#Create).
 

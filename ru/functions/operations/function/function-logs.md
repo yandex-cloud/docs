@@ -7,16 +7,16 @@ description: "Вы можете посмотреть график монитор
 
 Логи выполнения функции хранятся 3 дня. Время в журнале указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Нажмите на функцию, журнал выполнения которой хотите посмотреть.
     1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
     
-- CLI
+- CLI {#cli}
     
     {% include [timeslot](../../../_includes/functions/timeslot.md) %}
     

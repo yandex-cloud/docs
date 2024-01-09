@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -13,7 +13,7 @@
   1. Если требуется, укажите произвольное текстовое описание снимка.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -44,12 +44,7 @@
 
       {% include [name-format](../name-format.md) %}
 
-- API
-
-  1. Получите список дисков с помощью метода REST API [list](../../compute/api-ref/Disk/list.md) для ресурса [Disk](../../compute/api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../compute/api-ref/grpc/disk_service.md#List).
-  1. Создайте снимок с помощью метода REST API [create](../../compute/api-ref/Snapshot/create.md) для ресурса [Snapshot](../../compute/api-ref/Snapshot/index.md) или вызова gRPC API [SnapshotService/Create](../../compute/api-ref/grpc/snapshot_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../terraform-install.md) %}
 
@@ -88,5 +83,10 @@
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  1. Получите список дисков с помощью метода REST API [list](../../compute/api-ref/Disk/list.md) для ресурса [Disk](../../compute/api-ref/Disk/index.md) или вызова gRPC API [DiskService/List](../../compute/api-ref/grpc/disk_service.md#List).
+  1. Создайте снимок с помощью метода REST API [create](../../compute/api-ref/Snapshot/create.md) для ресурса [Snapshot](../../compute/api-ref/Snapshot/index.md) или вызова gRPC API [SnapshotService/Create](../../compute/api-ref/grpc/snapshot_service.md#Create).
 
 {% endlist %}
