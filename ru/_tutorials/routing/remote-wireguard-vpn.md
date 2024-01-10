@@ -50,16 +50,16 @@
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизируйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
       1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-firezone`.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -84,9 +84,9 @@
 
 1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) администратора на каталог: 
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -94,7 +94,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `admin`.
 
-   - CLI
+   - CLI {#cli}
 
       Выполните команду:
       ```
@@ -107,9 +107,9 @@
 
 1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его в файл:
          ```
@@ -210,9 +210,9 @@
 
    {% endcut %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. Перейдите в папку `main`
          ```bash
@@ -264,9 +264,9 @@
 
 ## Настройте Keycloak для интеграции с Firezone {#configure-keycloak}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. После завершения развертывания виртуальных машин для Firezone и Keycloak перейдите в папку `keycloak-config`, чтобы выполнить настройку Keycloak для сценария интеграции Keycloak с Firezone и Single Sign-On.
       ```bash
@@ -355,9 +355,9 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Перейдите на вашей рабочей станции в папку `keycloak-config` и выполните команду `terraform destroy`.
    1. После этого перейдите в папку `main` и выполните команду `terraform destroy`.

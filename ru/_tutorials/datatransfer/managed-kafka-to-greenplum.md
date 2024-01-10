@@ -10,9 +10,9 @@
 
 1. Подготовьте инфраструктуру:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте кластер-источник {{ mkf-full-name }}](../../managed-kafka/operations/cluster-create.md#create-cluster) любой подходящей конфигурации c хостами в публичном доступе.
 
@@ -26,7 +26,7 @@
             * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
             * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -155,14 +155,14 @@
 1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md) типа `{{ GP }}`, укажите имя пользователя `user`.
 1. Создайте и активируйте трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-repl }}_, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-repl }}.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `kafka-greenplum.tf` переменные:
 
@@ -223,14 +223,14 @@
 * [Удалите эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
 * Удалите кластеры:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
         * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         Если вы создали ресурсы с помощью {{ TF }}:
 

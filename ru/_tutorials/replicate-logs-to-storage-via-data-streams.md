@@ -42,9 +42,9 @@
 
 ## Подключите поток данных к лог-группе {#stream-log-connect}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Напротив лог-группы, в которую поступают логи, нажмите ![options](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.

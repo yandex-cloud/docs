@@ -34,16 +34,16 @@
 
 Создайте облачную [сеть](../../vpc/concepts/network.md#network) с [подсетями](../../vpc/concepts/network.md#subnet) в тех [зонах доступности](../../overview/concepts/geo-scope.md), где будет находиться виртуальная машина.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Сеть**.
   1. Задайте имя сети: `usergate-network`.
   1. Включите опцию **Создать подсети**.
   1. Нажмите кнопку **Создать сеть**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@
 
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсетей:
 
@@ -133,7 +133,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   1. Создайте сеть `usergate-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса Network.
   1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
@@ -144,9 +144,9 @@
 
 Для работы шлюзу потребуется статический [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
   1. В списке сервисов выберите **{{ vpc-name }}**.
@@ -155,7 +155,7 @@
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. Нажмите кнопку **Зарезервировать**.
   
-- CLI
+- CLI {#cli}
 
   Выполните команду:
 
@@ -178,7 +178,7 @@
 
   Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/address/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Опишите в конфигурационном файле параметры публичного адреса `yandex_vpc_address`:
 
@@ -197,9 +197,9 @@
 
 ## Создайте виртуальную машину UserGate {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
   1. В поле **Имя** введите имя ВМ — `usergate-firewall`.
@@ -234,7 +234,7 @@
 
   1. Нажмите кнопку **Создать ВМ**.
    
-- CLI
+- CLI {#cli}
   
   1. [Создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару ключей SSH.
   
@@ -288,7 +288,7 @@
 
      Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. [Получите](../../compute/operations/images-with-pre-installed-software/get-list.md) идентификатор последней версии образа UserGate NGFW из списка публичных образов.
   1. Опишите в конфигурационном файле параметры ВМ `usergate-firewall`:
@@ -342,7 +342,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Создайте ВМ `usergate-firewall` с помощью метода REST API [create](../../compute/api-ref/Instance/create.md) для ресурса Instance.
 
@@ -426,9 +426,9 @@
 
 Создайте [статический маршрут](../../vpc/concepts/static-routes.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно создать статический маршрут.
   1. В списке сервисов выберите **{{ vpc-name }}**.
@@ -454,7 +454,7 @@
   1. В открывшемся окне выберите созданную таблицу в списке.
   1. Нажмите кнопку **Привязать**.
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../../vpc/concepts/static-routes.md): 
   1. Посмотрите описание команды CLI для создания таблиц маршрутизации:
@@ -545,7 +545,7 @@
      route_table_id: e2l5345dlgr1ugidhmov
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../../vpc/concepts/static-routes.md):
 

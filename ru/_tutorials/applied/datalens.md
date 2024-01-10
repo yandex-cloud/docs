@@ -160,9 +160,9 @@
    * `$devices/<deviceID>/events/` — топик устройства.
    * `<deviceID>` — ID устройства в сервисе.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      Выполните команду:
 

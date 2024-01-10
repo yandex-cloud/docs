@@ -45,9 +45,9 @@
 
 ## Создайте виртуальную машину с Cisco Cloud Services Router {#create-router}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ВМ с Cisco Cloud Services Router.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
@@ -81,9 +81,9 @@
 
 ## Задайте роутеру имя хоста {#hostname}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с созданной ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -112,9 +112,9 @@
 
 Создайте пользователя с правами администратора без возможности входа по паролю:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   В серийной консоли выполните команду:
 

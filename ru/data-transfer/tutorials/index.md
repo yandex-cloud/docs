@@ -74,6 +74,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ metrika }} в {{ CH }}](metrika-to-clickhouse.md)
 * [{{ PG }} в {{ CH }}](rdbms-to-clickhouse.md)
 * [{{ GP }} в {{ PG }}](greenplum-to-postgresql.md)
+* [{{ yandex-direct }} в {{ CH }}](direct-to-mch.md)
 
 ## Загрузка данных в {{ objstorage-name }} {#upload-to-storage}
 

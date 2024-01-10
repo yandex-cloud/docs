@@ -71,9 +71,9 @@
 
 1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `sa-for-kratos`, от имени которого будут создаваться ресурсы для Identity Server based on Ory Kratos:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
      1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -82,7 +82,7 @@
      1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `{{ roles-admin }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
     
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -119,7 +119,7 @@
         done (1s)
         ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      
      {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -175,7 +175,7 @@
            yc iam service-account list
            ```
 
-   - API
+   - API {#api}
 
      Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
 
@@ -189,9 +189,9 @@
 
 Разверните приложение Identity Server based on Ory Kratos с помощью сервиса {{ cloud-apps-full-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите развернуть приложение.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
@@ -226,9 +226,9 @@
 
 Создайте функцию, которая будет вызывать Identity Server based on Ory Kratos для авторизации пользователя.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
@@ -254,7 +254,7 @@
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте функцию `kratos-authorizer`:
 
@@ -323,7 +323,7 @@
          folder_id: b1g86q4m5vej8l******
        ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры функции:
 
@@ -380,7 +380,7 @@
 
      1. Подтвердите создание функции: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create).
 
@@ -392,9 +392,9 @@
 
 Создайте API-шлюз, который будет защищен авторизацией с помощью функции-авторайзера, созданной на предыдущем шаге.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором развернуто приложение Identity Server based on Ory Kratos.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -442,7 +442,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Сохраните следующую спецификацию в файл `kratos.yaml`:
 

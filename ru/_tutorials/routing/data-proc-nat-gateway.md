@@ -14,9 +14,9 @@
 * бакет, в котором будут храниться зависимости заданий и результаты их выполнения;
 * кластер {{ dataproc-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `data-proc-network`, при создании выключив опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. В сети `data-proc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) со следующими параметрами:
@@ -59,7 +59,7 @@
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `data-proc-network`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `data-proc-security-group`.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
     1. [Скачайте файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -117,9 +117,9 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Удалите кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
@@ -127,7 +127,7 @@
     1. Удалите таблицу маршрутизации и NAT-шлюз.
     1. [Удалите сеть](../../vpc/operations/network-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

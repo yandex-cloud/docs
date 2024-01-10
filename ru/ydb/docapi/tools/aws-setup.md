@@ -18,13 +18,13 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
     Сервисный аккаунт должен быть создан в том же каталоге, в котором располагается база данных.
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
 
-    - CLI
+    - CLI {#cli}
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -44,7 +44,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-    - API
+    - API {#api}
 
       Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md).
 
@@ -56,9 +56,9 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
 1. Получите идентификатор ключа и ключ доступа созданного сервисного аккаунта:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
       1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -74,7 +74,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
           {% endnote %}
 
-    - CLI
+    - CLI {#cli}
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -110,7 +110,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
       1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
-    - API
+    - API {#api}
 
       Чтобы создать ключ доступа, воспользуйтесь методом [create](../../../iam/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../../iam/api-ref/AccessKey/index.md).
 

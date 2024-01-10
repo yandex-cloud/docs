@@ -36,16 +36,16 @@
 
 Создайте облачную [сеть](../../vpc/concepts/network.md#network) с [подсетями](../../vpc/concepts/network.md#subnet) в тех [зонах доступности](../../overview/concepts/geo-scope.md), где будет находиться виртуальная машина.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
   1. Задайте имя сети: `usergate-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@
      
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсети `usergate-subnet-{{ region-id }}-a`:
 
@@ -133,7 +133,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   1. Создайте сеть `usergate-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса Network.
   1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
@@ -142,9 +142,9 @@
 
 ## Создайте группу безопасности {#create-security-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно создать группу.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -175,7 +175,7 @@
    
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните следующую команду:
 
@@ -258,7 +258,7 @@
 
   Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `usergate-sg`:
   
@@ -328,7 +328,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../../vpc/api-ref/SecurityGroup/create.md).
      
@@ -338,9 +338,9 @@
 
 Для работы шлюзу потребуется статический [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -349,7 +349,7 @@
   1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
-- CLI
+- CLI {#cli}
 
   Выполните команду:
 
@@ -376,9 +376,9 @@
 
 ## Создайте виртуальную машину UserGate {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
   1. Выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
@@ -415,7 +415,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
    
-- CLI
+- CLI {#cli}
   
   1. [Создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару ключей SSH.
   1. Получите идентификатор группы безопасности `usergate-sg`:
@@ -476,7 +476,7 @@
 
      Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. [Получите](../../compute/operations/images-with-pre-installed-software/get-list.md) идентификатор последней версии образа UserGate NGFW из списка публичных образов.
   1. Опишите в конфигурационном файле параметры ВМ `usergate-proxy`:
@@ -531,7 +531,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Создайте ВМ `usergate-proxy` с помощью метода REST API [create](../../compute/api-ref/Instance/create.md) для ресурса Instance.
 

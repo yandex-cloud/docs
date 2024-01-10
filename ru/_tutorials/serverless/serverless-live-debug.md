@@ -47,9 +47,9 @@
 
 1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md):
    
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
       1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -61,7 +61,7 @@
 
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -86,11 +86,11 @@
       name: sa-live-debug
       ```
 
-    - API
+    - API {#api}
 
       Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
 
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -135,9 +135,9 @@
 
 1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `{{ roles-admin }}` на облако: 
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите облако.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -146,7 +146,7 @@
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `{{ roles-admin }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-    - CLI
+    - CLI {#cli}
 
       Выполните команду:
 
@@ -161,11 +161,11 @@
       done (1s)
       ```
 
-    - API
+    - API {#api}
 
       Чтобы назначить сервисному аккаунту роль на облако, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
 
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -210,9 +210,9 @@
 
 1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
       1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его в файл:
 
@@ -342,16 +342,16 @@
 
 Удалите каталог, в котором находятся ресурсы, необходимые для интерактивной отладки функций {{ sf-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-cloud }}) выберите каталог `live-debug`. 
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В поле **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** выберите `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
-- API
+- API {#api}
 
   Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../resource-manager/api-ref/Folder/delete.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../resource-manager/api-ref/grpc/folder_service.md#Delete).
 

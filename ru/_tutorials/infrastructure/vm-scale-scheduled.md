@@ -35,9 +35,9 @@
 
 [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) будет привязан к группе ВМ {{ compute-name }} и функции {{ sf-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -51,7 +51,7 @@
    
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте сервисный аккаунт:
 
@@ -102,7 +102,7 @@
 
      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
-- API
+- API {#api}
 
   1. Создайте сервисный аккаунт `vm-scale-scheduled-sa`. Для этого воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
   
@@ -115,7 +115,7 @@
      Для этого воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings).
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -126,9 +126,9 @@
 
 Группа ВМ будет размещена в [облачной сети](../../vpc/concepts/network.md) {{ vpc-full-name }} и ее подсетях.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -137,7 +137,7 @@
   1. Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте сеть `vm-scale-scheduled-network`:
  
@@ -203,14 +203,14 @@
      - 192.168.2.0/24
      ```
 
-- API
+- API {#api}
 
   1. Создайте сеть `vm-scale-scheduled-network` с помощью метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
  
   1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -221,9 +221,9 @@
 
 Группа ВМ будет создана с ручным [масштабированием](../../compute/concepts/instance-groups/scale.md), чтобы ее размером могла управлять функция {{ sf-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -272,7 +272,7 @@
  
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
  
   1. Получите идентификаторы ресурсов, созданных ранее:
      
@@ -374,7 +374,7 @@
       status: ACTIVE
       ```
 
-- API
+- API {#api}
 
   1. Получите идентификаторы ресурсов, созданных ранее:
      
@@ -391,7 +391,7 @@
   1. Создайте группу ВМ с именем `vm-scale-scheduled-ig` по спецификации `specification.yaml` с помощью метода REST API [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml).
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -404,9 +404,9 @@
 
 Функция будет содержать код с командами [CLI {{ yandex-cloud }}](../../cli/), которые изменяют группу ВМ.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -433,7 +433,7 @@
 
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте файл `handler.sh` со следующим кодом:
 
@@ -500,7 +500,7 @@
        IG_NAME: vm-scale-scheduled-ig
      ```
 
-- API
+- API {#api}
 
   1. Создайте функцию `vm-scale-scheduled-function` с помощью метода REST API [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create). Из ответных данных получите идентификатор созданной функции.
   1. Создайте версию функции с помощью метода REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/function_service.md#CreateVersion). Версия функции должна иметь следующий код:
@@ -508,7 +508,7 @@
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -519,9 +519,9 @@
 
 [Триггер](../../functions/concepts/trigger/index.md) определяет условия запуска функции. Для запуска по расписанию используется [триггер-таймер](../../functions/concepts/trigger/timer.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -543,7 +543,7 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** очистите поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`).
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
   Выполните следующую команду:
 
@@ -573,12 +573,12 @@
   status: ACTIVE
   ```
 
-- API
+- API {#api}
 
   Используйте метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create), чтобы создать триггер типа `timer` с cron-выражением `*/2 * * * ? *`, связанный с функцией `vm-scale-scheduled-function` версии `$latest` и сервисным аккаунтом `vm-scale-scheduled-sa`.
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -587,9 +587,9 @@
 
 ## Проверьте масштабирование группы ВМ {#test-scale}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -598,7 +598,7 @@
   1. Убедитесь, что в блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.compute.group.switch_operations }}**.
   
 
-- CLI
+- CLI {#cli}
 
   Несколько раз выполните следующую команду:
 
@@ -623,7 +623,7 @@
   
   Значение в поле `target_size` (целевой размер группы) должно меняться с `2` на `3` и обратно.
 
-- API
+- API {#api}
 
   Несколько раз получите информацию о группе ВМ `vm-scale-scheduled-ig` с помощью метода REST API [get](../../compute/api-ref/InstanceGroup/get.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/Get](../../compute/api-ref/grpc/instance_group_service.md#Get). Значение в поле `target_size` (целевой размер группы) должно меняться с `2` на `3` и обратно.
 
@@ -656,7 +656,7 @@
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/vm-scale-scheduled-terraform.zip) (2 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `vm-scale-scheduled.tf` и архив с кодом функции {{ sf-name }} `vm-scale-scheduled-function.zip`.
 
-   - Создание вручную
+   - Вручную
 
      1. Создайте папку для файлов.
      1. Создайте в папке:

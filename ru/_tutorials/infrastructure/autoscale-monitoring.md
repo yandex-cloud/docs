@@ -34,9 +34,9 @@
 
 ### Создайте вспомогательные ресурсы {{ yandex-cloud }} {#create-aux-resources}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Создайте сервисный аккаунт `queue-autoscale-sa` и назначьте ему роль `editor` в каталоге `example-folder`:
   
@@ -82,7 +82,7 @@
         
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте сервисный аккаунт `queue-autoscale-sa`:
   
@@ -189,7 +189,7 @@
      - 192.168.1.0/24
      ```
      
-- API
+- API {#api}
 
   1. Создайте сервисный аккаунт `queue-autoscale-sa` с помощью вызова gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) или метода REST API [create](../../iam/api-ref/ServiceAccount/create.md). В ответных данных будет указан идентификатор сервисного аккаунта.
   1. Назначьте сервисному аккаунту роль `editor` в каталоге `example-folder` с помощью вызова gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings) или метода REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md). В теле запроса укажите идентификатор сервисного аккаунта.
@@ -237,9 +237,9 @@
 
 ## Создайте очередь в {{ message-queue-name }} {#create-queue}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Создайте очередь `queue-autoscale-queue`:
   
@@ -259,8 +259,8 @@
         QueueUrl: <URL_очереди>
         ``` 
 
-- AWS CLI
-     
+- AWS CLI {#cli}
+
   1. Создайте очередь `queue-autoscale-queue` и сохраните ее URL в файл `queue`:
   
      ```bash
@@ -282,7 +282,7 @@
      QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003n58805qi/queue-autoscale-queue
      ```
      
-- API
+- API {#api}
 
   1. Создайте очередь `queue-autoscale-queue` с помощью метода API [CreateQueue](../../message-queue/api-ref/queue/CreateQueue.md). В ответных данных будет указан URL очереди.
   1. Вставьте URL очереди в файл `queue` в следующем формате:
@@ -343,16 +343,16 @@
    
      {% cut "Как узнать идентификатор сервисного аккаунта" %}
      
-     {% list tabs %}
+     {% list tabs group=instructions %}
      
-     - Консоль управления
+     - Консоль управления {#console}
      
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
        1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
        1. В списке сервисных аккаунтов выберите `queue-autoscale-sa`.
        1. Скопируйте **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** сервисного аккаунта.
      
-     - CLI
+     - CLI {#cli}
      
        Выполните следующую команду:
        
@@ -369,7 +369,7 @@
        name: queue-autoscale-sa
        ```
      
-     - API
+     - API {#api}
      
        Воспользуйтесь методом REST API [list](../../iam/api-ref/ServiceAccount/list.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/List](../../iam/api-ref/grpc/service_account_service.md#List).
      
@@ -381,13 +381,13 @@
    
      {% cut "Как узнать идентификатор каталога" %}
      
-     {% list tabs %}
+     {% list tabs group=instructions %}
      
-     - Консоль управления
+     - Консоль управления {#console}
      
        На [странице облака]({{ link-console-cloud }}) в списке **{{ ui-key.yacloud.iam.cloud.folders.section_folders }}** найдите каталог `example-folder` и скопируйте его **{{ ui-key.yacloud.common.id }}**.
      
-     - CLI
+     - CLI {#cli}
      
        Выполните следующую команду:
        
@@ -405,7 +405,7 @@
        status: ACTIVE
        ```
        
-     - API
+     - API {#api}
      
        Воспользуйтесь методом REST API [list](../../resource-manager/api-ref/Folder/list.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../resource-manager/api-ref/grpc/folder_service.md#List).
      
@@ -417,16 +417,16 @@
    
      {% cut "Как узнать идентификатор подсети" %}
      
-     {% list tabs %}
+     {% list tabs group=instructions %}
      
-     - Консоль управления
+     - Консоль управления {#console}
      
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
        1. Перейдите на вкладку ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
        1. В списке подсетей найдите `queue-autoscale-subnet-a` и скопируйте ее **{{ ui-key.yacloud.vpc.network.overview.column_subnetwork_id }}**.
             
-     - CLI
+     - CLI {#cli}
      
        Выполните следующую команду:
        
@@ -447,7 +447,7 @@
        - 192.168.1.0/24
        ```
        
-     - API
+     - API {#api}
      
        Воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List).
      
@@ -457,9 +457,9 @@
 
 1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) для работы сервисного аккаунта с {{ compute-name }} и сохраните его в файл `key.json`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
    
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc iam key create \
@@ -484,7 +484,7 @@
      key_algorithm: RSA_2048
      ```
      
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create).
 
@@ -510,9 +510,9 @@
 
 ## Создайте группу виртуальных машин {#create-ig}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -573,7 +573,7 @@
      
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Получите идентификатор образа, созданного ранее:
   
@@ -607,9 +607,9 @@
      
        {% cut "Как узнать идентификатор сети" %}
             
-       {% list tabs %}
+       {% list tabs group=instructions %}
                
-       - CLI
+       - CLI {#cli}
         
          Выполните команду:
           
@@ -626,13 +626,13 @@
          name: queue-autoscale-network
          ```
         
-       - Консоль управления
+       - Консоль управления {#console}
         
          1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
          1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.vpc.networks.column_id }}**.
           
-       - API
+       - API {#api}
         
          Воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List).
         
@@ -652,7 +652,7 @@
      
      Где `--file` — путь к файлу со спецификацией группы ВМ: `spec.yaml`.
      
-- API
+- API {#api}
 
   1. Получите идентификатор образа из семейства `queue-autoscale-image`, созданного ранее, с помощью вызова gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily) или метода REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md).
   1. Измените файл со спецификацией группы виртуальных `spec.yaml`:
@@ -663,15 +663,15 @@
      
        {% cut "Как узнать идентификатор сети" %}
             
-       {% list tabs %}
+       {% list tabs group=instructions %}
           
-       - Консоль управления
+       - Консоль управления {#console}
         
          1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
          1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.vpc.networks.column_id }}**.
                
-       - CLI
+       - CLI {#cli}
         
          Выполните следующую команду:
           
@@ -688,7 +688,7 @@
          name: queue-autoscale-network
          ```
          
-       - API
+       - API {#api}
         
          Воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List).
 
@@ -710,9 +710,9 @@
 1. Запустите файл `messages.sh`. Начнется поочередная отправка 100 сообщений в очередь `queue-autoscale-queue`.
 1. Откройте дашборды в {{ monitoring-full-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
    
-   - Консоль управления
+   - Консоль управления {#console}
    
      1. Откройте дашборд с информацией о группе ВМ:
      

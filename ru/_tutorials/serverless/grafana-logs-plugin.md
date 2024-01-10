@@ -71,9 +71,9 @@
 
 ## Создайте сервисный аккаунт {#create-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
   1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -82,7 +82,7 @@
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `logging.reader`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -119,7 +119,7 @@
      done (1s)
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -175,7 +175,7 @@
      yc iam service-account list
      ```
 
-- API
+- API {#api}
 
   Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
 
@@ -185,9 +185,9 @@
 
 ## Создайте авторизованный ключ для сервисного аккаунта {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -200,7 +200,7 @@
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
 
-- CLI
+- CLI {#cli}
 
   Создайте авторизованные ключи для сервисного аккаунта `grafana-plugin`:
 
@@ -223,7 +223,7 @@
   }
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -270,7 +270,7 @@
         yc iam key list --service-account-id <идентификатор_сервисного_аккаунта>
         ```
 
-- API
+- API {#api}
 
   Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create).
 
@@ -311,9 +311,9 @@
 
 ## Создайте лог-группу {#create-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт `grafana-plugin`.
   1. Выберите сервис **{{ cloud-logging-name }}**.
@@ -322,7 +322,7 @@
   1. Укажите срок хранения записей в лог-группе.
   1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать лог-группу, выполните команду:
 
@@ -350,7 +350,7 @@
   retention_period: 3600s
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры лог-группы:
 
@@ -404,7 +404,7 @@
      yc logging group list
      ```
 
-- API
+- API {#api}
 
   Чтобы создать лог-группу, воспользуйтесь методом REST API [create](../../logging/api-ref/LogGroup/create.md) для ресурса [LogGroup](../../logging/api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Create](../../logging/api-ref/grpc/log_group_service.md#Create).
 
@@ -412,9 +412,9 @@
 
 ## Добавьте записи в лог-группу {#add-records}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы добавить записи в лог-группу, выполните команду:
 
@@ -451,7 +451,7 @@
     * `--message` — сообщение.
     * `--level` — уровень логирования.
 
-- API
+- API {#api}
 
   Чтобы добавить записи в лог-группу, воспользуйтесь вызовом gRPC API [LogIngestionService/Write](../../logging/api-ref/grpc/log_ingestion_service.md#Write).
 

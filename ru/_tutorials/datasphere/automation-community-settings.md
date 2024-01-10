@@ -23,9 +23,9 @@
 
 Чтобы получить доступ к вашей организации из {{ ml-platform-name }}, вам понадобится [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -35,7 +35,7 @@
   yc iam create-token
   ```
 
-- API
+- API {#api}
 
   {% include [owner-warning](../../_includes/iam/owner-warning.md) %}
 

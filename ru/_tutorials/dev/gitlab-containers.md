@@ -306,16 +306,16 @@
 1. [Удалите созданные Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Удалите кластер {{ managed-k8s-name }} и реестр {{ container-registry-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
      1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
      1. [Удалите реестр {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
      1. [Удалите созданные подсети](../../vpc/operations/subnet-delete.md) и [сети](../../vpc/operations/network-delete.md).
      1. [Удалите созданные сервисные аккаунты](../../iam/operations/sa/delete.md).
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
      1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
      1. Удалите конфигурационный файл `k8s-and-registry-for-gitlab.tf`.

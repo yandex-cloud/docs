@@ -344,9 +344,9 @@
 
 ## Посмотрите логи {#read-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1.  В [консоли  управления]({{ link-console-main }}) перейдите в каталог, который указали в настройках сервиса `td-agent-bit`.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -354,7 +354,7 @@
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. На открывшейся странице отобразятся записи.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -367,7 +367,7 @@
 
     Где `--folder-id` — идентификатор каталога, который указан в настройках сервиса `td-agent-bit`.
 
-- API
+- API {#api}
 
     Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService/Read](../../logging/api-ref/grpc/log_reading_service.md#Read).
 

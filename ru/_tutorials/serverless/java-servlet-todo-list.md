@@ -35,9 +35,9 @@
 
 Создайте [бакет](../../storage/concepts/bucket.md) и загрузите в него файл `index.html`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -58,9 +58,9 @@
 
 1. Создайте базу данных в [режиме Serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -79,9 +79,9 @@
 
 1. Создайте таблицу с именем `Tasks`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали базу данных.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -102,7 +102,7 @@
 
      1. Нажмите кнопку **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
-   - CLI
+   - CLI {#cli}
 
      Выполните запрос:
 
@@ -125,9 +125,9 @@
 
 Создайте [функцию](../../functions/concepts/function.md) для каждого сервлета:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали бакет и базу данных.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -148,7 +148,7 @@
   1. Повторите шаги 3-14 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
   1. Повторите шаги 3-14 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте функцию с именем `add-task`:
 
@@ -218,12 +218,12 @@
   1. Повторите шаги 1-3 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
   1. Повторите шаги 1-3 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
 
-- API
+- API {#api}
 
   Воспользуйтесь API методами [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion) и [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) для ресурса [Function](../../functions/functions/api-ref/Function).
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
   Создать функцию и ее версию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
@@ -234,9 +234,9 @@
 
 Для обеспечения взаимодействия между сервисами создайте API-шлюз:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет, базу данных и функции.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -289,7 +289,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Сохраните следующую спецификацию в файл `todo.yaml`:
 
@@ -360,7 +360,7 @@
      ```
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
   Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

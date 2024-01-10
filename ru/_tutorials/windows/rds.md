@@ -48,9 +48,9 @@
 
 1. Создайте облачную сеть:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
      1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать облачную сеть.
@@ -58,7 +58,7 @@
      1. Задайте имя сети: `my-network`.
      1. Нажмите кнопку **Создать сеть**.
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -70,7 +70,7 @@
      yc vpc network create --name my-network
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
 
@@ -78,9 +78,9 @@
 
 2. Создайте подсеть в сети `my-network`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-     - Консоль управления
+     - Консоль управления {#console}
 
        Чтобы создать подсеть:
        1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсеть.
@@ -90,7 +90,7 @@
        1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
        1. Нажмите кнопку **Создать подсеть**.
 
-     - CLI
+     - CLI {#cli}
 
        Чтобы создать подсеть, выполните команду:
 
@@ -102,7 +102,7 @@
          --range 10.1.0.0/16
        ```
      
-     - API
+     - API {#api}
 
        Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
@@ -131,9 +131,9 @@
 
 Создайте виртуальную машину для Windows Server with Remote Desktop Services. Эта машина будет иметь доступ в интернет.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `my-rds-vm`.
@@ -152,7 +152,7 @@
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
   ```
    yc compute instance create \
@@ -166,7 +166,7 @@
      --metadata-from-file user-data=setpass
   ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
 
@@ -176,21 +176,21 @@
 
 1. Перезапустите ВМ `my-rds-vm`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
    
-   - Консоль управления
+   - Консоль управления {#console}
    
      1. На странице каталога в [консоли управления]({{ link-console-main }}) выберите сервис **{{ compute-name }}**.
      1. Выберите виртуальную машину `my-rds-vm`.
      1. Нажмите ![image](../../_assets/options.svg) и выберите пункт **Перезапустить**.
    
-   - CLI
+   - CLI {#cli}
    
      ```
      yc compute instance restart my-rds-vm
      ```
    
-   - API
+   - API {#api}
    
      Воспользуйтесь методом REST API [restart](../../compute/api-ref/Instance/restart.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Restart](../../compute/api-ref/grpc/instance_service.md#Restart).
    

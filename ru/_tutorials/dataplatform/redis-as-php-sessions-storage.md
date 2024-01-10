@@ -13,9 +13,9 @@
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     
     1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../vpc/operations/security-group-add-rule.md). Добавьте разрешения для протокола TCP в группу безопасности:
@@ -35,7 +35,7 @@
 
     1. [Создайте кластер {{ mrd-name }}](../../managed-redis/operations/cluster-create.md) любой подходящей конфигурации.  При создании кластера {{ mrd-name }} укажите те же сеть и группы безопасности, что и для ВМ с веб-сервером. 
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -224,15 +224,15 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     * [Удалите кластер {{ mrd-full-name }}](../../managed-redis/operations/cluster-delete.md).
     * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
     * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

@@ -15,9 +15,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mmy-name }}](../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
@@ -34,7 +34,7 @@
         * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
 
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -114,9 +114,9 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте эндпоинт для источника](../data-transfer/operations/endpoint/index.md#create):
 
@@ -135,7 +135,7 @@
     1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
     1. [Активируйте](../data-transfer/operations/transfer.md#activate) его.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. Укажите в файле `data-transfer-mmy-mch.tf` для переменной `transfer_enabled` значение `1`.
 
@@ -244,16 +244,16 @@ WHERE __data_transfer_delete_time == 0;
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Удалите трансфер](../data-transfer/operations/transfer.md#delete-transfer).
     1. [Удалите эндпоинты](../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
     1. [Удалите кластер {{ mmy-name }}](../managed-mysql/operations/cluster-delete.md).
     1. [Удалите кластер {{ mch-name }}](../managed-clickhouse/operations/cluster-delete.md).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `data-transfer-mmy-mch.tf`.

@@ -25,9 +25,9 @@
 
 ### Создайте сервисный аккаунт и назначьте ему роли {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [сервисный аккаунт](../iam/concepts/users/service-accounts.md).
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -36,7 +36,7 @@
   1. Нажмите ![](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../iam/concepts/access-control/roles.md) `audit-trails.viewer` и `yds.editor`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -85,7 +85,7 @@
       * `--role` — назначаемая роль.
       * `--subject` — идентификатор сервисного аккаунта `sa-trail-logs`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../_includes/terraform-install.md) %}
 
@@ -133,7 +133,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   1. Создайте сервисный аккаунт с помощью метода [create](../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md).
   1. Узнайте идентификатор сервисного аккаунта:
@@ -212,9 +212,9 @@
 
 ### Создайте кластер {{ CH }} {#create-ch-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-clickhouse }}**.
   1. Укажите настройки кластера {{ CH }}:
@@ -228,7 +228,7 @@
         * Доступ из [{{ data-transfer-full-name }}](../data-transfer/).
   1. После всех настроек нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Проверьте, есть ли в каталоге [подсети](../vpc/concepts/network.md#subnet) для хостов кластера:
 
@@ -257,7 +257,7 @@
 
      Подробнее о команде `yc managed-clickhouse cluster create` см. в [справочнике CLI](../cli/cli-ref/managed-services/managed-clickhouse/cluster/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл описание кластера и его хостов:
 
@@ -319,7 +319,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Используйте метод REST API [create](../managed-clickhouse/api-ref/Cluster/create.md).
 
@@ -329,9 +329,9 @@
 
 Поток данных будет использоваться для загрузки в него аудитных логов.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
   1. В поле **{{ ui-key.yacloud.data-streams.label_database }}** нажмите **{{ ui-key.yacloud.common.label_create-new_female }}**. Откроется страница создания новой БД {{ ydb-name }}.
@@ -350,9 +350,9 @@
 
 [Трейл](../audit-trails/concepts/trail.md) будет загружать [аудитные логи](../audit-trails/concepts/format.md) уровня конфигурации всех ресурсов вашего каталога в поток данных {{ yds-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}**.
   1. Введите имя создаваемого трейла: `folder-trail`.
@@ -373,9 +373,9 @@
 
 Для создания [трансфера](../data-transfer/concepts/index.md#transfer) нужно указать [эндпоинт](../data-transfer/concepts/index.md#endpoint)-источник, ведущий на поток {{ yds-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -420,9 +420,9 @@
 
 Для создания трансфера нужно указать эндпоинт-приемник с настройками БД {{ CH }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
@@ -443,9 +443,9 @@
 
 С помощью трансфера будет выполняться перенос данных между сервисом-источником (потоком данных) и сервисом-приемником (БД {{ CH }}).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
@@ -457,7 +457,7 @@
   1. Нажмите значок ![ellipsis](../_assets/console-icons/ellipsis.svg) рядом с именем трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
   1. Дождитесь, когда трансфер перейдет в статус `{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}`.
 
-- CLI
+- CLI {#cli}
 
   Создайте трансфер с именем `logs-transfer`:
 
@@ -475,7 +475,7 @@
 
   Подробнее о команде `yc datatransfer transfer create` см. в [справочнике CLI](../cli/cli-ref/managed-services/datatransfer/transfer/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл описание трансфера.
 

@@ -38,9 +38,9 @@
 Создайте [облачную сеть](../../vpc/concepts/network.md#network) `ad-network` с [подсетями](../../vpc/concepts/network.md#subnet) во всех [зонах доступности](../../overview/concepts/geo-scope.md), где будут находиться ВМ.
 1. Создайте облачную сеть:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      Чтобы создать облачную сеть:
      1. Откройте раздел **{{ vpc-name }}** в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать облачную сеть.
@@ -48,7 +48,7 @@
      1. Задайте имя сети: `ad-network`.
      1. Нажмите кнопку **Создать сеть**.
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -64,9 +64,9 @@
 
 1. Создайте три подсети в сети `ad-network`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-     - Консоль управления
+   - Консоль управления {#console}
 
        Чтобы создать подсеть:
        1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсеть.
@@ -80,7 +80,7 @@
        * Название: `ad-subnet-b`. Зона доступности: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
        * Название: `ad-subnet-c`. Зона доступности: `{{ region-id }}-c`. CIDR: `10.3.0.0/16`.
 
-     - CLI
+   - CLI {#cli}
 
        Чтобы создать подсети, выполните команды:
 
@@ -125,9 +125,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 Создайте две ВМ для контроллеров домена Active Directory. Эти ВМ не будут иметь доступа в интернет.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя ВМ: `ad-vm-a`.
@@ -150,7 +150,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   Повторите шаги для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b`, подключите ее к подсети `ad-subnet-b` и вручную укажите внутренний IP-адрес `10.2.0.3`.
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc compute instance create \
@@ -180,9 +180,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 Для настройки ВМ с Active Directory будет использоваться файловый сервер с выходом в интернет.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя ВМ: `jump-server-vm`.
@@ -200,7 +200,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc compute instance create \

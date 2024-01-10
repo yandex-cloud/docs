@@ -175,6 +175,8 @@ items:
             href: tutorials/rdbms-to-clickhouse.md
           - name: '{{ GP }} в {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
+          - name: '{{ yandex-direct }} в {{ CH }}'
+            href: tutorials/direct-to-mch.md
       - name: Загрузка данных в {{ objstorage-name }}
         items:
           - name: '{{ MY }} в {{ objstorage-name }}'

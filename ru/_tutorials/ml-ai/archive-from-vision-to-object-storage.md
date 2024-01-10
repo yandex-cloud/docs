@@ -31,9 +31,9 @@
 
 Чтобы создать бакет {{ objstorage-name }} для хранения исходных изображений и результатов распознавания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
   1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
@@ -46,9 +46,9 @@
 
 ## Создайте ВМ {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на странице каталога нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя ВМ. Требования к имени:
@@ -91,9 +91,9 @@
 1. [Установите](../../cli/quickstart.md#install) на ВМ {{ yandex-cloud }} CLI и [создайте](../../cli/quickstart.md#initialize) профиль.
 1. Убедитесь, что {{ yandex-cloud }} CLI функционирует корректно:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      На ВМ выполните команду:
 
@@ -115,9 +115,9 @@
 
 ### Настройте сервисный аккаунт {#configure-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Создайте сервисный аккаунт:
 
@@ -438,9 +438,9 @@
 
 ## Проверьте корректность распознавания {#check-result}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором находится бакет с результатами распознавания.
   1. Выберите сервис **{{ objstorage-name }}**.

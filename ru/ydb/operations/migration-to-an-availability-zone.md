@@ -7,9 +7,9 @@ Dedicated БД располагается в нескольких [зонах д
 1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности, в которую вы переносите БД.
 1. Переместите базу данных {{ ydb-short-name }} в новый набор подсетей:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -24,7 +24,7 @@ Dedicated БД располагается в нескольких [зонах д
          --subnet-id <идентификатор_подсети_в_зоне_{{ region-id }}-d>
       ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 

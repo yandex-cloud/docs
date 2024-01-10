@@ -84,9 +84,9 @@ Hystax Acura Backup будет выполнять действия от имен
 
 ## Создайте бакет {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -105,7 +105,7 @@ Hystax Acura Backup будет выполнять действия от имен
       1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
   1. Сохраните имя бакета, оно потребуется в дальнейшем.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/) или вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create).
 
@@ -116,9 +116,9 @@ Hystax Acura Backup будет выполнять действия от имен
 1. [Сгенерируйте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару [SSH-ключей](../../glossary/ssh-keygen.md). Они понадобятся при создании ВМ.
 1. Чтобы создать ВМ с рекомендуемыми характеристиками и загрузочным диском из образа Hystax Acura Backup:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -149,7 +149,7 @@ Hystax Acura Backup будет выполнять действия от имен
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа SSH.
       1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -185,7 +185,7 @@ Hystax Acura Backup будет выполнять действия от имен
       * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa). Получить список аккаунтов можно с помощью команды `yc iam service-account list`.
       * `ssh-key` — путь к файлу открытого ключа SSH. Имя пользователя по умолчанию для доступа по SSH — `yc-user`.
 
-    - API
+    - API {#api}
 
       Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
 
@@ -195,9 +195,9 @@ Hystax Acura Backup будет выполнять действия от имен
 
 ВМ создаются с динамическим публичным IP-адресом. Так как ВМ с Hystax Acura Backup может быть перезагружена, сделайте IP-адрес статическим:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте страницу каталога, в котором вы работаете.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -207,7 +207,7 @@ Hystax Acura Backup будет выполнять действия от имен
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
   1. Сохраните IP-адрес, он потребуется в дальнейшем.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -259,7 +259,7 @@ Hystax Acura Backup будет выполнять действия от имен
       Параметр `reserved` принял значение `true`, теперь IP-адрес статический.
   1. Сохраните IP-адрес, он потребуется в дальнейшем.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [update](../../vpc/api-ref/Address/update.md) для ресурса [Address](../../vpc/api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../../vpc/api-ref/grpc/address_service.md#Update).
 
@@ -379,9 +379,9 @@ Hystax Acura Backup автоматически проверит доступ к 
 
 План аварийного восстановления (DR plan) содержит описание ВМ и сетевые настройки. План определяет, какие машины будут восстановлены в ваше облако, а также конфигурацию ВМ, подсеть и IP-адрес. План можно сгенерировать автоматически или создать вручную:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Автоматически
+- Автоматически {#auto}
 
   1. Откройте административную панель Hystax Acura Backup. Нажмите на логотип Hystax.
   1. Отметьте нужные ВМ в списке, затем нажмите кнопку **Bulk actions** и выберите **Generate DR plan**. Также план можно сгенерировать для группы ВМ, нажав кнопку ![image](../../_assets/options.svg) в заголовке группы.
@@ -399,7 +399,7 @@ Hystax Acura Backup автоматически проверит доступ к 
   1. В поле **Port ip** укажите новый IP-адрес ВМ из выбранной подсети.
   1. Нажмите **Save**.
 
-- Вручную
+- Вручную {#manual}
 
   1. Откройте административную панель Hystax Acura Backup. Нажмите на логотип Hystax.
   1. Нажмите кнопку **Add DR Plan**.

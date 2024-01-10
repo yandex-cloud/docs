@@ -96,13 +96,13 @@ resource "yandex_compute_instance" "vm-1" {
 
 
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Создание ВМ Linux
+- Создание ВМ Linux {#linux}
 
   {% include [terraform-prepare-plan-linux](../../_tutorials/terraform-prepare-plan-linux.md) %}
 
-- Создание ВМ Windows
+- Создание ВМ Windows {#windows}
 
   {% include [terraform-prepare-plan-windows](../../_tutorials/terraform-prepare-plan-windows.md) %}
 

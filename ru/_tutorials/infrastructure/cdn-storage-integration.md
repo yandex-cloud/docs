@@ -61,9 +61,9 @@
 
 Все ресурсы будут относиться к одной [облачной сети](../../vpc/concepts/network.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -72,7 +72,7 @@
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию `{{ ui-key.yacloud.vpc.networks.create.field_is-default }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -166,7 +166,7 @@
        
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
   
@@ -222,7 +222,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   1. Создайте сеть `example-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md).
   1. Создайте подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c` в трех зонах доступности с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md).
@@ -231,9 +231,9 @@
 
 ## Создайте бакет в {{ objstorage-name }} {#create-buckets}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -243,7 +243,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
   
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Создайте бакет:
   
@@ -267,7 +267,7 @@
        --acl public-read
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры бакета:
   
@@ -303,7 +303,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   Используйте метод REST API [create](../../storage/s3/api-ref/bucket/create.md).
 
@@ -331,16 +331,16 @@
 
 1. Загрузите файл в бакет:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
    
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Выберите бакет.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html`.
 
-   - AWS CLI
+   - AWS CLI {#cli}
    
      1. Загрузите в бакет файл `index.html`:
      
@@ -355,7 +355,7 @@
         upload: v1/index.html to s3://<имя_бакета>/index.html
         ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
    
      1. Добавьте в конфигурационный файл параметры файла `v1/index.html`, загружаемого в бакет:
      
@@ -392,7 +392,7 @@
    
         1. Подтвердите создание ресурсов.
 
-   - API
+   - API {#api}
    
      Используйте метод REST API [upload](../../storage/s3/api-ref/object/upload.md).
 
@@ -404,9 +404,9 @@
 
 Чтобы создать группы безопасности:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -436,7 +436,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   Выполните следующую команду:
 
@@ -498,7 +498,7 @@
 
   Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `example-sg`:
   
@@ -557,7 +557,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../../vpc/api-ref/SecurityGroup/create.md).
 
@@ -567,9 +567,9 @@
 
 ## Создайте группу бэкендов в {{ alb-name }} {#create-l7backend}
 
-{% list tabs %}
+{% list tabs group=instructions %}
    
-- Консоль управления
+- Консоль управления {#console}
    
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -586,7 +586,7 @@
 
   Если вы будете выполнять следующие шаги с помощью {{ TF }}, скопируйте идентификатор группы бэкендов `example-bg` со вкладки ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) или метод REST API [create](../../application-load-balancer/api-ref/BackendGroup/create.md).
      
@@ -594,9 +594,9 @@
 
 ## Создайте HTTP-роутер и виртуальный хост {#create-route-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -617,7 +617,7 @@
 
   1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте HTTP-роутер `example-router`:
   
@@ -684,7 +684,7 @@
 
      Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры HTTP-роутера `example-router`, его виртуальных хостов и маршрутов:
   
@@ -734,7 +734,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   1. Создайте HTTP-роутер `example-router` с помощью вызова gRPC API [HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/http_router_service.md#Create) или метода REST API [create](../../application-load-balancer/api-ref/HttpRouter/create.md).
   1. Создайте виртуальный хост `example-vh`, привязанный к роутеру, и его маршрут с помощью вызова gRPC API [VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) или метода REST API [create](../../application-load-balancer/api-ref/VirtualHost/create.md).
@@ -743,9 +743,9 @@
 
 ## Создайте L7-балансировщик {#create-balancer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -767,7 +767,7 @@
   1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `example-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Получите идентификаторы подсетей сети `example-network`:
   
@@ -887,7 +887,7 @@
      
      Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры L7-балансировщика `example-balancer`:
   
@@ -957,7 +957,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) или метод REST API [create](../../application-load-balancer/api-ref/LoadBalancer/create.md).
           
@@ -965,9 +965,9 @@
 
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1008,7 +1008,7 @@
      1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Если CDN-провайдер еще не активирован, выполните команду:
 
@@ -1072,7 +1072,7 @@
      yc cdn resource update <идентификатор_ресурса> --redirect-http-to-https
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры CDN-ресурсов:
       ```hcl
@@ -1159,7 +1159,7 @@
       
   После этого для у ресурса будет включена переадресация.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) или метод REST API [create](../../cdn/api-ref/Resource/create.md).
   
@@ -1173,9 +1173,9 @@
 
 1. Получите доменное имя CDN-балансировщика:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
    
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1197,9 +1197,9 @@
    
    {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
    
-   {% list tabs %}
+   {% list tabs group=instructions %}
    
-   - Консоль управления 
+   - Консоль управления {#console}
    
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
@@ -1219,7 +1219,7 @@
         1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `cl-********.edgecdn.ru`.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
    
      1. Если у вас нет публичной зоны DNS, создайте ее:
      
@@ -1253,7 +1253,7 @@
 
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
    
-   - {{ TF }}
+   - {{ TF }} {#tf}
    
      1. Добавьте в конфигурационный файл параметры DNS-зоны `example-dns-zone` и CNAME-записей в ней:
      
@@ -1297,7 +1297,7 @@
 
         1. Подтвердите создание ресурсов.
 
-   - API
+   - API {#api}
     
      1. Создайте DNS-зону `example-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../../dns/api-ref/DnsZone/create.md).
      1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-********.edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).

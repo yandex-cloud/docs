@@ -66,9 +66,9 @@
 
 1. Создайте каталог `net-folder`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и нажмите кнопку ![Create icon](../../_assets/create.png) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
      1. Введите имя [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) `net-folder`.
@@ -78,7 +78,7 @@
 
      Аналогично создайте еще два каталога без сети {{ vpc-short-name }} с именами `dev-folder` и `prod-folder`.
 
-   - CLI
+   - CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -102,7 +102,7 @@
         yc resource-manager folder create --name prod-folder
         ```
  
-   - Terraform
+   - {{ TF }} {#tf}
 
      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -165,7 +165,7 @@
 
         1. Подтвердите изменение ресурсов и дождитесь завершения операции.
 
-   - API
+   - API {#api}
 
      Чтобы создать каталог, воспользуйтесь:
      * методом [create](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/create) для ресурса [Folder](https://cloud.yandex.ru/docs/resource-manager/api-ref/Folder/) (`REST API`);
@@ -187,9 +187,9 @@
 
 1. Создайте сеть:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
@@ -200,7 +200,7 @@
      1. Отключите опцию [Создать подсети](../../vpc/operations/subnet-create.md), чтобы создать подсети вручную.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
      1. Посмотрите описание команды CLI для создания облачной сети:
@@ -215,7 +215,7 @@
         yc vpc network create --folder-name net-folder --name shared-net
         ```
 
-   - Terraform
+   - {{ TF }} {#tf}
 
      1. Опишите целевой ресурс — облачную сеть:
 
@@ -241,7 +241,7 @@
 
      1. Дождитесь завершения операции.
 
-   - API
+   - API {#api}
 
      Чтобы создать облачную сеть, воспользуйтесь:
      * методом [create](https://cloud.yandex.ru/docs/vpc/api-ref/Network/create) для ресурса [Network](https://cloud.yandex.ru/docs/vpc/api-ref/Network/) (`REST API`)
@@ -251,9 +251,9 @@
 
 1. Создайте подсеть `subnet-a` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`: 
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      Чтобы создать [подсеть](../../vpc/concepts/network.md#subnet):
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
@@ -269,7 +269,7 @@
      Аналогично создайте подсети `subnet-b` и `subnet-с` в каталоге **net-folder**.
 
 
-   - CLI
+   - CLI {#cli}
 
      Чтобы создать [подсеть](../../vpc/concepts/network.md#subnet):
 
@@ -300,7 +300,7 @@
         yc vpc subnet list --folder-name prod-folder
         ```
 
-   - Terraform
+   - {{ TF }} {#tf}
 
      1. Опишите целевые ресурсы — облачные подсети:
 
@@ -344,7 +344,7 @@
 
      1. Подтвердите изменение ресурсов и дождитесь завершения операции.
 
-   - API
+   - API {#api}
 
      Чтобы создать подсеть, воспользуйтесь:
      * методом [create](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/create) для ресурса [Subnet](https://cloud.yandex.ru/docs/vpc/api-ref/Subnet/) (`REST API`)
@@ -357,9 +357,9 @@
 
 Переместите подсеть `subnet-b` в каталог `dev-folder`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы переместить подсеть в другой каталог:
 
@@ -385,9 +385,9 @@
 | dev-vm | dev-folder | {{ region-id }}-b | subnet-b |
 | prod-vm | prod-folder | {{ region-id }}-c | subnet-c |
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Создайте ВМ `net-vm` с ОС Linux в каталоге `net-folder`:
 
@@ -412,7 +412,7 @@
 
   {% endnote %}
 
-- CLI
+- CLI {#cli}
 
   1. Опишите шаблон для метаданных ВМ в отдельном файле `vm-init.tpl`:
 
@@ -476,7 +476,7 @@
      PROD_VM_IP=$(yc compute instance get prod-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
      ```
 
-- Terraform
+- {{ TF }} {#tf}
 
   1. Опишите входные переменные:
 
@@ -635,7 +635,7 @@
 
   1. Подтвердите изменение ресурсов и дождитесь завершения операции.
 
-- API
+- API {#api}
 
   Чтобы создать виртуальную машину, воспользуйтесь:
   * методом [create](https://cloud.yandex.ru/docs/compute/api-ref/Instance/create) для ресурса [Compute Instance](https://cloud.yandex.ru/docs/compute/api-ref/Instance/) (`REST API`)

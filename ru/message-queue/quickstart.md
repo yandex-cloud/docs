@@ -16,9 +16,9 @@ description: "В этой инструкции вы научитесь выпо�
 
 1. Создайте очередь с именем `sample-queue`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
   
      ```bash
      aws sqs create-queue \
@@ -60,9 +60,9 @@ description: "В этой инструкции вы научитесь выпо�
 
 1. Отправьте сообщение в созданную очередь, используя сохраненный ранее URL очереди:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
      ```bash
      aws sqs send-message \
@@ -90,9 +90,9 @@ description: "В этой инструкции вы научитесь выпо�
 
 1. Примите сообщение из очереди:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
   
      ```bash
      aws sqs receive-message \
@@ -136,9 +136,9 @@ description: "В этой инструкции вы научитесь выпо�
 
    Чтобы удалить принятое из очереди сообщение, используйте сохраненное ранее значение параметра `ReceiptHandle`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
   
      ```bash
      aws sqs delete-message \
@@ -156,9 +156,9 @@ description: "В этой инструкции вы научитесь выпо�
 
 1. Удалите очередь:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - AWS CLI
+   - AWS CLI {#cli}
   
      ```bash
      aws sqs delete-queue \
