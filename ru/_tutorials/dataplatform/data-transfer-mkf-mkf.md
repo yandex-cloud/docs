@@ -25,16 +25,16 @@
 
 1. Подготовьте инфраструктуру поставки данных:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Вручную
+   - Вручную {#manual}
 
        1. [Создайте кластер-источник и кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с публичным доступом из интернета.
        1. [Создайте в кластере-источнике топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
        1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к созданному топику.
        1. [Создайте в кластере-приемнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` ко всем топикам.
 
-   * С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
        1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -135,14 +135,14 @@
 
 1. Создайте трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа {{ dt-type-repl }}, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-mkf-mkf.tf` значения параметров:
 
@@ -255,13 +255,13 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     [Удалите кластеры {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `data-transfer-mkf-mkf.tf`.

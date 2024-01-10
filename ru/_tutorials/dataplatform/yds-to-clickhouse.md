@@ -14,9 +14,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
@@ -34,7 +34,7 @@
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — укажите имя и пароль пользователя с доступом к базе, например, владельца базы данных.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -183,14 +183,14 @@
 
 1. Создайте трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-yds-mch.tf` переменные:
 
@@ -251,15 +251,15 @@
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. Удалите ресурсы в зависимости от способа их создания:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Вручную
+   - Вручную {#manual}
 
        * [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
        * [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
        * [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 
-   * С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        1. Удалите конфигурационный файл `data-transfer-yds-mch.tf`.

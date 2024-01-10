@@ -10,9 +10,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
@@ -27,7 +27,7 @@
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-sa` и ролью `storage.uploader`. Трансфер будет использовать его для доступа к бакету.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -95,9 +95,9 @@
 
 1. Создайте эндпоинт-источник и трансфер:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
@@ -109,7 +109,7 @@
 
     1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. Укажите в файле `postgresql-to-objstorage.tf` переменные:
 
@@ -156,16 +156,16 @@
 * [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
 * Удалите трансфер, эндпоинт-источник, кластер и бакет:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         * [Трансфер](../../data-transfer/operations/transfer.md#delete).
         * [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
         * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
         * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         1. Удалите конфигурационный файл `postgresql-to-objstorage.tf`.

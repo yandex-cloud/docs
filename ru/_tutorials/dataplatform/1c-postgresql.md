@@ -12,9 +12,9 @@
 
 ## Создайте кластер {{ mpg-name }} {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     [Создайте](../../managed-postgresql/operations/cluster-create.md#create-cluster) кластер {{ mpg-name }} любой подходящей конфигурации со следующими настройками:
 
@@ -23,7 +23,7 @@
     * **{{ ui-key.yacloud.mdb.forms.section_resource }}** — не ниже `s2.small`.
     * **{{ ui-key.yacloud.mdb.forms.section_host }}** — добавьте не меньше двух дополнительных хостов, разместив их в разных зонах доступности. Это обеспечит отказоустойчивость кластера. Репликация между хостами будет настроена автоматически. Подробнее см. в разделе [{#T}](../../managed-postgresql/concepts/replication.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -94,13 +94,13 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     [Удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#create-cluster):
 

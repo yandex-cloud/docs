@@ -13,9 +13,9 @@
 
 ### Создать Serverless базу данных {#create-db-serverless}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -30,7 +30,7 @@
 
    Дождитесь, когда статус БД изменится на `Running`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -77,7 +77,7 @@
 
   Любая создаваемая Serverless БД является георезервированной в трех [зонах доступности](../../overview/concepts/geo-scope.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
@@ -136,7 +136,7 @@
     > }
     > ```
 
-- API
+- API {#api}
 
   Чтобы создать Serverless базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:
 
@@ -149,9 +149,9 @@
 
 ### Изменить параметры Serverless базы данных {#update-db-serverless}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить настройки БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -162,7 +162,7 @@
       1. В блоке **{{ ui-key.yacloud.ydb.overview.label_serverless-billing }}** задайте [выделенную пропускную способность](../pricing/serverless.md#prices-ru).
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -192,7 +192,7 @@
       >   --sls-throttling-rcu 100
       > ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -249,7 +249,7 @@
     > }
     > ```
 
-- API
+- API {#api}
 
   Чтобы изменить параметры Serverless базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
 
@@ -273,9 +273,9 @@
 
 ### Создать Dedicated базу данных {#create-db-dedicated}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -315,7 +315,7 @@
 
     Дождитесь, когда статус БД изменится на `Running`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -376,7 +376,7 @@
       >   --async
       > ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -450,7 +450,7 @@
     > }
     > ```
 
-- API
+- API {#api}
 
   Чтобы создать Dedicated базу данных, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) и передайте в запросе:
 
@@ -467,9 +467,9 @@
 
 ### Изменить параметры Dedicated базы данных {#update-db-dedicated}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить настройки БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -480,7 +480,7 @@
       1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-storage }}** выберите тип диска и количество [групп хранения](../concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -505,7 +505,7 @@
 
   Количество групп хранения нельзя уменьшить.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -540,7 +540,7 @@
   yc ydb database get <имя_БД>
   ```
 
-- API
+- API {#api}
 
   Чтобы изменить параметры Dedicated базы данных, воспользуйтесь методом REST API [update](../api-ref/Database/update.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) и укажите в запросе идентификатор требуемой БД в параметре `databaseId`.
 
@@ -554,14 +554,14 @@
 
 ## Посмотреть список баз данных {#list-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, для которого нужно получить список БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -573,7 +573,7 @@
   yc ydb database list
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список баз данных в каталоге, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/database_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
@@ -581,16 +581,16 @@
 
 ## Удалить базу данных {#delete-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
   1. Подтвердите удаление.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -602,7 +602,7 @@
     yc ydb database delete <имя_БД>
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -641,7 +641,7 @@
     yc ydb database list
     ```
 
-- API
+- API {#api}
 
   Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) и укажите в запросе идентификатор удаляемой БД в параметре `databaseId`.
 

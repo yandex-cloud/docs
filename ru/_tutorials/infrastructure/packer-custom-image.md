@@ -89,9 +89,9 @@
 1. [Установите](../../cli/quickstart.md#install) {{ yandex-cloud }} CLI и [создайте](../../cli/quickstart.md#initialize) профиль.
 1. Получите информацию о доступных подсетях и зонах доступности. Если у вас нет подсетей — [создайте](../../vpc/operations/subnet-create.md) новую.
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
   
       * Выполните команду:
 
@@ -113,7 +113,7 @@
 
       * Запишите идентификатор [подсети](../../vpc/concepts/network.md#subnet) (столбец `ID`), в которой будет размещаться вспомогательная ВМ, на основе которой создается образ, а также соответствующую [зону доступности](../../overview/concepts/geo-scope.md) (столбец `ZONE`). Эти параметры потребуются в дальнейшем.
 
-    - API
+    - API {#api}
     
       Воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List).
 
@@ -347,9 +347,9 @@
 
 1. Проверьте наличие собранного образа в {{ yandex-cloud }}.
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
   
       Выполните команду:
 
@@ -367,7 +367,7 @@
       +----------------------+------------+-----------+----------------------+--------+
       ```
 
-    - API
+    - API {#api}
 
       Воспользуйтесь методом REST API [list](../../compute/api-ref/Image/list.md) для ресурса [Image](../../compute/api-ref/Image/) или вызовом gRPC API [ImageService/List](../../compute/api-ref/grpc/image_service.md#List).
 
@@ -393,9 +393,9 @@
 
 1. Создайте ВМ из собранного образа.
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
       Выполните команду:
 
@@ -435,7 +435,7 @@
 
       Подробнее о [создании ВМ из пользовательского образа](../../compute/operations/vm-create/create-from-user-image.md).
 
-    - API
+    - API {#api}
 
       Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
 

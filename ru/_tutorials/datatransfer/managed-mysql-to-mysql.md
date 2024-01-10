@@ -4,9 +4,9 @@
 1. [Подготовьте базу данных кластера-приемника](../../data-transfer/operations/prepare.md#target-my).
 1. Создайте эндпоинты и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -26,7 +26,7 @@
 
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -73,16 +73,16 @@
 
 1. Удалите созданные эндпоинты и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
       Если вы создали эндпоинты и трансфер вручную, то:
 
         1. [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete).
         1. [Удалите эндпоинты для источника и приемника](../../data-transfer/operations/endpoint/index.md#delete).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
       Если вы создали эндпоинты и трансфер с помощью {{ TF }}, то:
 

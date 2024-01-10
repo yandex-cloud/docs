@@ -52,9 +52,9 @@
 
 Для тестирования туннелирования между двумя разными виртуальными сетями расположите ресурсы в {{ yandex-cloud }} в разных каталогах. Чтобы создать новый каталог:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и справа сверху нажмите кнопку ![image](../../_assets/create.png) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder): `site-a`.
@@ -62,7 +62,7 @@
    1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. 
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -73,11 +73,11 @@
    --description "Folder for site-a"
    ```
 
-- API
+- API {#api}
 
    Чтобы создать каталог, воспользуйтесь методом REST API [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../resource-manager/api-ref/grpc/folder_service.md#Create).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -141,9 +141,9 @@
 
 ### Создайте первую ВМ с Cisco Cloud Services Router
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог `site-a`.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
@@ -170,9 +170,9 @@
 
 ### Задайте роутеру имя хоста {#hostname}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с созданной ВМ.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -200,9 +200,9 @@
 
 Создайте пользователя с правами администратора без возможности входа по паролю:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    В серийной консоли выполните команду:
 
@@ -234,9 +234,9 @@
 ### Настройте аутентификацию с помощью SSH-ключей {#enable-ssh}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В серийной консоли включите доступ на ВМ по SSH:
 

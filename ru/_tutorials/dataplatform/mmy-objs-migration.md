@@ -14,14 +14,14 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -118,9 +118,9 @@
 
 1. Создайте эндпоинт для источника и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -137,7 +137,7 @@
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-mmy-objs.tf` переменные:
 
@@ -187,16 +187,16 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
     1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
     1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
     1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `data-transfer-mmy-objs.tf`.

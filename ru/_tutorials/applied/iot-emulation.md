@@ -151,9 +151,9 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Удалите реестр:
      1. Перейдите в свой рабочий [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).

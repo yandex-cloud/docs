@@ -55,9 +55,9 @@
 
 ### Создайте новый бакет для загрузки в него аудитных логов {#create-backet}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../storage/concepts/bucket.md).
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -73,9 +73,9 @@
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать сервисный аккаунт.
    1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -83,7 +83,7 @@
    1. Введите имя сервисного аккаунта.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    Чтобы создать сервисный аккаунт, выполните команду:
 
@@ -99,9 +99,9 @@
 
 Назначьте сервисному аккаунту роли `audit-trails.viewer` и `storage.uploader`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. [Роль](../storage/security/index.md#storage-uploader) `storage.uploader` на каталог с бакетом:
 
@@ -127,7 +127,7 @@
       1. Выберите роль `audit-trails.viewer`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Назначьте [роль](../storage/security/index.md#storage-uploader) `storage.uploader` на каталог с бакетом:
 
@@ -163,9 +163,9 @@
 
 ### Проверьте ваши роли {#check-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите облако, с которого будут собираться аудитные логи.
    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -182,9 +182,9 @@
 
 Если у вас еще нет [облачной сети](../vpc/concepts/network.md), создайте ее:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать облачную сеть.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -193,7 +193,7 @@
    1. Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    Чтобы создать облачную сеть выполните команду:
 
@@ -207,9 +207,9 @@
 
 ### Создайте подсети {#create-subnets}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором требуется создать подсеть.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -223,7 +223,7 @@
       * `trails-subnet-2` в зоне доступности `{{ region-id }}-b`, CIDR подсети – `10.129.0.0/24`.
       * `trails-subnet-3` в зоне доступности `{{ region-id }}-c`, CIDR подсети – `10.130.0.0/24`.
 
-- CLI
+- CLI {#cli}
 
    1. Узнайте имя облачной сети, в которой требуется создать подсеть:
 
@@ -287,9 +287,9 @@
 
 ## Создайте трейл {#create-trail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -320,9 +320,9 @@
 
 ## Разверните кластер {{ ES }} и промежуточную ВМ {#create-cluster-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Скачайте директорию с [модулями {{ TF }}](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk/tree/main/terraform/modules):
       * `yc-managed-elk` создает кластер {{ ES }} и назначает пароль пользователю `admin`. Параметры кластера:

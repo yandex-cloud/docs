@@ -38,9 +38,9 @@
 
 Чтобы создать сеть:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -48,7 +48,7 @@
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -60,15 +60,15 @@
 
 Чтобы зарезервировать IP-адрес:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -80,9 +80,9 @@
 
 Чтобы создать группы безопасности:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
@@ -116,7 +116,7 @@
      | `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `mysite-sg-balancer` |
      | `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
   
@@ -130,9 +130,9 @@
 
 Чтобы импортировать уже имеющийся сертификат для сайта `my-site.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_add }}** и выберите пункт **{{ ui-key.yacloud.certificate-manager.action_import }}**.
@@ -142,7 +142,7 @@
   1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**. Загрузите **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** с ключом или укажите его **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** и нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -152,9 +152,9 @@
 
 Чтобы создать [группу ВМ](../../compute/concepts/instance-groups/index.md) для сайта `my-site.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.compute.switch_groups }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -190,7 +190,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы ВМ — `mysite-tg`. [Подробнее о целевых группах](../../application-load-balancer/concepts/target-group.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -230,9 +230,9 @@
 
 Чтобы создать группу бэкендов для сайта `my-site.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.alb.label_backend-groups }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
@@ -246,7 +246,7 @@
   1. Укажите **{{ ui-key.yacloud.alb.label_path }}**, к которому будет обращаться балансировщик при проверке состояния: `/`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -258,9 +258,9 @@
 
 Чтобы создать HTTP-роутер:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -273,7 +273,7 @@
   1. В поле **{{ ui-key.yacloud.alb.label_backend-group }}** выберите группу `my-site-bg`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -281,9 +281,9 @@
 
 ## Создайте L7-балансировщик {#create-l7-balancer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
@@ -311,7 +311,7 @@
         1. Выберите сертификат `mysite-cert` и HTTP-роутер `mysite-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -334,9 +334,9 @@
 
    {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной [зоны DNS](../../dns/concepts/dns-zone.md), создайте ее:
@@ -353,7 +353,7 @@
         1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный IP-адрес балансировщика.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -403,7 +403,7 @@
           * `tls-termination-config.tf` — конфигурация создаваемой инфраструктуры;
           * `tls-terminationg.auto.tfvars` — файл с пользовательскими данными.
 
-    - Создание вручную
+    - Вручную
       
       1. Создайте папку для конфигурационных файлов.
       

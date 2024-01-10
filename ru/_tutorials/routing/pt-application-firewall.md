@@ -86,9 +86,9 @@
 
 1. Создайте ВМ `pt-firewall` из публичного образа [PT Application Firewall](/marketplace/products/pt/pt-application-firewall):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
       1. В списке сервисов выберите **{{ compute-name }}**.
@@ -114,9 +114,9 @@
 
 1. Перейдите в [серийную консоль](../../compute/operations/serial-console/index.md) созданной ВМ:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором была создана ВМ.
       1. Перейдите в сервис **{{ compute-name }}** и выберите ВМ `pt-firewall`.

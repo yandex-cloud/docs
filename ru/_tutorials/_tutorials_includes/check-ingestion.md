@@ -1,8 +1,8 @@
 ## Проверьте отправку и получение данных {#check-ingestion}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали поток данных, трансфер и бакет.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.

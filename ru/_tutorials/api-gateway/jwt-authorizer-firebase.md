@@ -66,9 +66,9 @@ Firebase:
 
 ## Создайте API-шлюз {#create-gateway}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -118,7 +118,7 @@ Firebase:
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -192,7 +192,7 @@ Firebase:
       log_group_id: ckghq1hm19********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -254,7 +254,7 @@ Firebase:
 
   После этого в указанном каталоге будет создан API-шлюз.
 
-- API
+- API {#api}
 
   Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create).
 
@@ -309,9 +309,9 @@ Firebase:
 
 1. Создайте бакет {{ objstorage-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -321,7 +321,7 @@ Firebase:
           1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
           1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -354,7 +354,7 @@ Firebase:
           created_at: "2023-06-08T11:57:49.898024Z"
           ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -402,7 +402,7 @@ Firebase:
 
       После этого в указанном каталоге будет создан бакет.
 
-   - API
+   - API {#api}
 
       Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md). 
 
@@ -410,9 +410,9 @@ Firebase:
 
 1. Загрузите объекты в бакет {{ objstorage-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который нужно загрузить объекты.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -428,9 +428,9 @@ Firebase:
 
 1. Настройте хостинг статического сайта:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в бакет `bucket-for-tutorial`.
      1. Перейдите на вкладку ![website](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
@@ -440,7 +440,7 @@ Firebase:
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
      1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}** скопируйте адрес вашего сайта.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -483,7 +483,7 @@ Firebase:
           created_at: "2022-12-14T08:42:16.273717Z"
           ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
     
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -521,7 +521,7 @@ Firebase:
 
       После этого в бакете будет настроен хостинг.
 
-   - API
+   - API {#api}
 
       Чтобы настроить хостинг статического сайта, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../storage/api-ref/grpc/bucket_service.md#Update) или методом S3 API [upload](../../storage/s3/api-ref/hosting/upload.md).
 

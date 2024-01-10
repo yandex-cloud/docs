@@ -28,9 +28,9 @@
 
 ### Создайте бессерверную БД {#serverless}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -46,7 +46,7 @@
 
   Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию — статус сменится на `Running`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
   1. Создайте базу данных:
@@ -98,9 +98,9 @@
 
 ### Создайте БД на выделенных серверах {#dedicated}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -135,7 +135,7 @@
 
      Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию — статус сменится на `Running`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -230,9 +230,9 @@
 
 ## Выполните запрос к базе данных {#query}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -253,7 +253,7 @@
      0 1
      ```
 
-- {{ ydb-short-name }} CLI
+- {{ ydb-short-name }} CLI {#cli}
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 

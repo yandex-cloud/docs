@@ -10,9 +10,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе, и следующими настройками:
 
@@ -33,7 +33,7 @@
         * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
         * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -105,9 +105,9 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
@@ -128,7 +128,7 @@
     1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
     1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. Укажите в файле `postgresql-mysql.tf` значение `1` для параметра `transfer_enabled`.
 
@@ -199,16 +199,16 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     * [Трансфер](../../data-transfer/operations/transfer.md#delete).
     * [Эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
     * [Кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
     * [Кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Если вы создавали ресурсы с помощью {{ TF }}:
 

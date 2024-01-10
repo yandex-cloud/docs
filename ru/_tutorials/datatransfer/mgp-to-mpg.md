@@ -12,9 +12,9 @@
 
 Для примера все нужные ресурсы будут созданы в {{ yandex-cloud }}. Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mgp-full-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `gp-user` и хостами в публичном доступе.
 
@@ -30,7 +30,7 @@
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -79,9 +79,9 @@
 
 1. Создайте эндпоинт-приемник и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
@@ -101,7 +101,7 @@
 
             {% endnote %}
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `greenplum-postgresql.tf` переменные:
 
@@ -193,14 +193,14 @@
 * [Удалите эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
 * Удалите кластеры:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
         * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         Если вы создали ресурсы с помощью {{ TF }}:
 

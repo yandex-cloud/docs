@@ -33,9 +33,9 @@
 
 ## Создайте бакет {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
 
@@ -128,9 +128,9 @@
 
 ## Протестируйте резервное копирование {#test-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится бакет с резервными копиями.
   1. Выберите сервис **{{ objstorage-short-name }}**.

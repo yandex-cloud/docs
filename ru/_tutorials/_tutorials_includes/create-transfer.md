@@ -1,8 +1,8 @@
 ## Создайте трансфер {#create-transfer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать трансфер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer_ru }}**.

@@ -41,9 +41,9 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы создать сеть:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -59,9 +59,9 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы зарезервировать IP-адрес:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
@@ -75,9 +75,9 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы создать группы безопасности:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
@@ -121,9 +121,9 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы импортировать уже имеющийся сертификат для сайта `site-a.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_add }}** и выберите пункт **{{ ui-key.yacloud.certificate-manager.action_import }}**.
@@ -143,9 +143,9 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы создать группу ВМ для сайта `site-a.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -261,9 +261,9 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы создать HTTP-роутер для сайта `site-a.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -284,9 +284,9 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы создать HTTP-роутер для сайта `default.com`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -315,9 +315,9 @@ description: "Из данной инструкции вы узнаете, как
 
 Чтобы создать балансировщик:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
@@ -362,9 +362,9 @@ description: "Из данной инструкции вы узнаете, как
 
    {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной [зоны DNS](../../dns/concepts/dns-zone.md), создайте ее:

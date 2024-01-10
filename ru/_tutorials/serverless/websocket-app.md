@@ -503,9 +503,9 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 
 ## Создайте поток данных {{ yds-name }} {#yds-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS
+- AWS CLI {#cli}
   
   ```bash
   echo $YDB_DATA_STREAMS_DATABASE

@@ -32,9 +32,9 @@
 
 ## Создайте бакет для хранения логов {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -42,8 +42,8 @@
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
   1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
-  
-- AWS CLI
+
+- AWS CLI {#cli}
   
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
   1. Создайте бакет:
@@ -58,8 +58,8 @@
      ```
      make_bucket: <имя_бакета>
      ```
-  
-- {{ TF }}
+
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -80,8 +80,8 @@
   1. Создайте бакет.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-     
-- API
+
+- API {#api}
 
   Используйте метод REST API [create](../../storage/s3/api-ref/bucket/create.md).
        
@@ -89,9 +89,9 @@
 
 ## Включите экспорт логов {#logs-export}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Создайте файл `log-config.json` со следующим содержимым:
 
@@ -115,7 +115,7 @@
 
      Где `--bucket` — имя бакета, для которого надо включить логирование действий.
 
-- API
+- API {#api}
 
   Используйте метод REST API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md).
 
@@ -125,9 +125,9 @@
 
 ### Создайте кластер {{ CH }} {#create-ch-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать кластер.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
@@ -156,7 +156,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -189,7 +189,7 @@
         --websql-access=true
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл описание кластера и его хостов:
 
@@ -242,7 +242,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
   
   Используйте метод REST API [create](../../managed-clickhouse/api-ref/Cluster/create.md).
 
@@ -254,9 +254,9 @@
 
 ### Измените настройки пользователя {#user-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Выберите кластер `s3-logs`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
@@ -273,9 +273,9 @@
 
 ### Создайте таблицу в БД {#create-table}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Выберите кластер `s3-logs`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_explore }}**.
@@ -333,9 +333,9 @@
 
 ## Создайте подключение в {{ datalens-short-name }} {#create-connection}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Выберите кластер `s3-logs`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.

@@ -18,9 +18,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. Если у вас нет аккаунта AWS, [создайте](https://aws.amazon.com) его.
     1. В Amazon RDS [создайте группу параметров](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithDBInstanceParamGroups.html) и установите в ней параметр `rds.logical_replication` в значение `1`. Остальные параметры можно оставить по умолчанию.
@@ -48,7 +48,7 @@
     1. Настройте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в интернет для подсети, в которой расположен кластер-приемник.
     1. [Скачайте сертификат AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) для региона, в котором расположен инстанс Amazon RDS for {{ PG }}.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -182,9 +182,9 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
@@ -207,7 +207,7 @@
     1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
     1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. Укажите в файле `rds-pg-mpg.tf` значение `1` для параметра `transfer_enabled`.
 
@@ -287,16 +287,16 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     * [Трансфер](../../data-transfer/operations/transfer.md#delete).
     * [Эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
     * [Инстанс Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
     * [Кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Если вы создавали ресурсы с помощью {{ TF }}:
 

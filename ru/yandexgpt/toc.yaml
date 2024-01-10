@@ -182,6 +182,8 @@ items:
     href: security/index.md
   - name: Решение проблем
     items:
+      - name: Вопросы и ответы
+        href: qa/index.md
       - name: Коды ошибок
         href: troubleshooting/error-codes.md
   - name: Правила тарификации

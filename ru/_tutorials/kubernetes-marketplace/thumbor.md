@@ -19,9 +19,9 @@ Thumbor удобно использовать для подготовки изо
 
 ### Подготовьте инфраструктуру {#infra}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
    1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
 
@@ -37,7 +37,7 @@ Thumbor удобно использовать для подготовки изо
    1. [Cоздайте бакет](../../storage/operations/buckets/create.md) в {{ objstorage-full-name }}.
    1. [Предоставьте сервисному аккаунту](../../storage/operations/objects/edit-acl.md) `thumbor-sa` разрешение `READ` на бакет.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -133,9 +133,9 @@ Thumbor удобно использовать для подготовки изо
 
 1. Загрузите изображения в бакет:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который нужно загрузить объект.
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -147,7 +147,7 @@ Thumbor удобно использовать для подготовки изо
 
       В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
       Загрузить объекты в бакет можно только после его создания, поэтому для загрузки изображений используется отдельный файл конфигурации.
 
@@ -303,9 +303,9 @@ Thumbor удобно использовать для подготовки изо
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
    Удалите:
 
@@ -317,7 +317,7 @@ Thumbor удобно использовать для подготовки изо
    1. [Сервисные аккаунты](../../iam/operations/sa/delete.md).
    1. [Бакеты](../../storage/operations/buckets/delete.md) и [объекты в них](../../storage/operations/objects/delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
    1. В терминале перейдите в директорию с планом инфраструктуры.
    1. Удалите конфигурационный файл `images-for-thumbor.tf`. Чтобы удалить бакет, сначала удалите объекты в нем.

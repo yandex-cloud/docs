@@ -29,9 +29,9 @@
 
 1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-autoscale` и назначьте ему роль `editor`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -41,7 +41,7 @@
          * Чтобы назначить сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) на текущий каталог, нажмите ![image](../../_assets/plus-sign.svg)  **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
          * Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Создайте сервисный аккаунт:
 
@@ -69,12 +69,12 @@
         ```
 
     
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
 
@@ -82,9 +82,9 @@
 
 1. Создайте [сеть](../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсети](../../vpc/concepts/network.md#subnet) в двух [зонах доступности](../../overview/concepts/geo-scope.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -93,7 +93,7 @@
      1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Создайте сеть:
 
@@ -153,12 +153,12 @@
         ```
 
     
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 
-   - API
+   - API {#api}
 
      1. Создайте сеть:
          Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
@@ -169,9 +169,9 @@
 
 1. Создайте группу безопасности:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления 
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
       1. Откройте вкладку **Группы безопасности**.
@@ -203,7 +203,7 @@
         1. Нажмите кнопку **Сохранить**.
 
     
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -270,9 +270,9 @@
 1. Замените в файле `specification.yaml` значения в угловых скобках на реальные, на основе выполнения предыдущих шагов.
 1. Создайте группу ВМ с именем `auto-group` с помощью спецификации `specification.yaml`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      Выполните команду:
 
@@ -295,12 +295,12 @@
      ```
 
     
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
 
@@ -308,16 +308,16 @@
 
 1. Убедитесь, что группа ВМ создана:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева нажмите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Выберите группу ВМ `auto-group`.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc compute instance-group list-instances auto-group
@@ -335,12 +335,12 @@
      ```
 
     
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 
-   - API
+   - API {#api}
 
      Чтобы посмотреть список созданных групп ВМ, воспользуйтесь методом REST API [list](../../compute/api-ref/InstanceGroup/list.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/List](../../compute/api-ref/grpc/instance_group_service.md#List).
 
@@ -350,9 +350,9 @@
 
 1. Создайте сетевой балансировщик нагрузки с именем `group-balancer` и подключите его к созданной группе ВМ:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать балансировщик.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
@@ -372,7 +372,7 @@
         * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc load-balancer network-load-balancer create \
@@ -394,12 +394,12 @@
      ```
 
     
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 
-   - API
+   - API {#api}
 
      1. Создайте балансировщик нагрузки с помощью метода REST API [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызова gRPC API [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Create).
      1. Добавьте обработчик к балансировщику с помощью метода REST API [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancer` или вызова gRPC API [NetworkLoadBalancerService/AddListener](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AddListener).
@@ -410,15 +410,15 @@
 
 1. Убедитесь, что сетевой балансировщик `group-balancer` создан и привязан к группе ВМ:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Выберите балансировщик `group-balancer`.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc load-balancer network-load-balancer list
@@ -438,12 +438,12 @@
      
 
     
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/List](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#List).
 
@@ -463,9 +463,9 @@
 
 1. Запустите скрипт:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      sh request.sh
@@ -481,9 +481,9 @@
 
 1. Посмотрите нагрузку на ВМ:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -510,9 +510,9 @@
 
 1. Запустите скрипт:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      sh load.sh
@@ -533,9 +533,9 @@
 
 1. Посмотрите нагрузку:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ `auto-group`.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -554,16 +554,16 @@
 
 1. Удалите сетевой балансировщик нагрузки:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик `group-balancer`.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. В строке балансировщика `group-balancer` нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc load-balancer network-load-balancer delete group-balancer
@@ -575,7 +575,7 @@
      done (15s)
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Delete](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Delete).
 
@@ -583,9 +583,9 @@
 
 1. Удалите группу ВМ:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ `auto-group`.
      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -593,7 +593,7 @@
      1. В строке группы ВМ `auto-group` нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.groups.button_action-delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc compute instance-group delete auto-group
@@ -605,7 +605,7 @@
      done (1m20s)
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [delete](../../compute/api-ref/InstanceGroup/delete.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Delete](../../compute/api-ref/grpc/instance_group_service.md#Delete).
 
@@ -613,9 +613,9 @@
 
 1. Удалите подсети:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали подсети.
      1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -624,7 +624,7 @@
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
      1. Повторите три предыдущих шага, чтобы удалить остальные подсети.
 
-   - CLI
+   - CLI {#cli}
 
      1. Удалите подсеть в зоне `{{ region-id }}-a`:
 
@@ -664,7 +664,7 @@
         - 192.168.2.0/24
         ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [delete](../../vpc/api-ref/Subnet/delete.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../../vpc/api-ref/grpc/subnet_service.md#Delete).
 
@@ -672,16 +672,16 @@
 
 1. Удалите сеть:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сеть.
      1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. В строке нужной сети нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc vpc network delete yc-auto-network
@@ -696,7 +696,7 @@
      name: yc-auto-network
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [delete](../../vpc/api-ref/Network/delete.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../../vpc/api-ref/grpc/network_service.md#Delete).
 
@@ -704,16 +704,16 @@
 
 1. Удалите сервисный аккаунт:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
      1. В строке нужного сервисного аккаунта нажмите значок ![image](../../_assets/options.svg)  и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
      1. Подтвердите удаление.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc iam service-account delete for-autoscale
@@ -725,7 +725,7 @@
      done (2s)
      ```
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../iam/api-ref/grpc/service_account_service.md#Delete).
 
@@ -758,7 +758,7 @@
           * `config.tpl` — описание параметров пользователя ВМ;
           * `vm-autoscale.auto.tfvars` — пользовательские данные.
 
-    - Создание вручную
+    - Вручную
 
       1. Создайте папку для конфигурационных файлов.
 

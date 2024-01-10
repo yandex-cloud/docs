@@ -27,9 +27,9 @@
 
 Чтобы создать сеть:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -37,7 +37,7 @@
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -79,7 +79,7 @@
 
      Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -91,9 +91,9 @@
 
 Чтобы создать группы безопасности:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
@@ -127,7 +127,7 @@
      `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `ddos-sg-balancer`
      `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать группу безопасности для балансировщика, выполните команду:
 
@@ -155,7 +155,7 @@
 
   Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -167,9 +167,9 @@
 
 Чтобы создать группу ВМ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -202,7 +202,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы: `tg-ddos`. [Подробнее о целевых группах](../../application-load-balancer/concepts/target-group.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Получите идентификаторы ресурсов, необходимые для создания группы ВМ, с помощью команд:
      * [yc iam service-account get <имя_сервисного_аккаунта>](../../cli/cli-ref/managed-services/iam/service-account/get.md) — для сервисного аккаунта.
@@ -320,7 +320,7 @@
 
      Подробнее о команде `yc compute instance-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -336,9 +336,9 @@
 
 Чтобы защитить балансировщик от DDoS-атак, необходимо зарезервировать для него статический публичный IP-адрес с опцией **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
@@ -346,7 +346,7 @@
   1. Включите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -360,9 +360,9 @@
 
 Чтобы создать группу бэкендов:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
@@ -376,7 +376,7 @@
   1. Укажите **{{ ui-key.yacloud.alb.label_path }}**, к которому будет обращаться балансировщик при проверке состояния: `/`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -449,7 +449,7 @@
 
      Подробнее о команде `yc alb backend-group add-http-backend` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -461,9 +461,9 @@
 
 Чтобы создать HTTP-роутер и добавить в него маршрут:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
@@ -478,7 +478,7 @@
   1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите созданную ранее группу.
   1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -538,7 +538,7 @@
 
      Подробнее о команде `yc alb virtual-host append-http-route` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -548,9 +548,9 @@
 
 Чтобы создать балансировщик:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В меню слева выберите **{{ ui-key.yacloud.alb.label_load-balancers }}**.
@@ -566,7 +566,7 @@
   1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `ddos-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте балансировщик с узлами в подсетях облачной сети:
 
@@ -590,7 +590,7 @@
 
      Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -661,7 +661,7 @@ Commercial support is available at
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/alb-with-ddos-protection.zip) (3 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `alb-with-ddos-protection.tf` и файл с пользовательскими данными `alb-with-ddos-protection.auto.tfvars`.
 
-   - Создание вручную
+   - Вручную
 
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `alb-with-ddos-protection.tf`:

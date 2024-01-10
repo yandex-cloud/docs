@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Создание таблицы в AWS CLI
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
     {% note warning %}
 

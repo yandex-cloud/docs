@@ -48,9 +48,9 @@
 
 1. Создайте облачную сеть:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
 
@@ -59,7 +59,7 @@
      1. Задайте имя сети: `exchange-network`.
      1. Нажмите кнопку **Создать сеть**.
 
-   - CLI
+   - CLI {#cli}
 
      Чтобы создать облачную сеть, выполните команду:
 
@@ -71,9 +71,9 @@
 
 1. Создайте три подсети в сети `exchange-network`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       Чтобы создать подсеть:
 
@@ -86,7 +86,7 @@
 
       Повторите шаги еще для двух подсетей `exchange-subnet-b` и `exchange-subnet-c` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-c` с CIDR `10.2.0.0/16` и `10.3.0.0/16` соответственно.
 
-   - CLI
+   - CLI {#cli}
 
       Чтобы создать подсети, выполните команды:
 
@@ -130,9 +130,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 Создайте две виртуальных машины для Active Directory. Эти машины не будут иметь доступа в интернет.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
@@ -153,7 +153,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   Повторите шаги для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b` и подключите ее к подсети `exchange-subnet-b`.
 
-- CLI
+- CLI {#cli}
 
   ```
   yc compute instance create \
@@ -183,9 +183,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 Для настройки машин с Active Directory будет использоваться файловый сервер с выходом в интернет.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `fsw-vm`.
@@ -204,7 +204,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
   ```
   yc compute instance create \
@@ -399,9 +399,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 1. Создайте ВМ `vm-exchange-a`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
      1. В поле **Имя** введите имя виртуальной машины: `vm-exchange-a`.
@@ -421,7 +421,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-   - CLI
+   - CLI {#cli}
 
      ```
      yc compute instance create \
@@ -483,9 +483,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 1. Создайте ВМ `vm-exchange-b`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
      1. В поле **Имя** введите имя виртуальной машины: `vm-exchange-b`.
@@ -505,7 +505,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-   - CLI
+   - CLI {#cli}
 
      ```
      yc compute instance create \
@@ -712,9 +712,9 @@ Database Availability Group обеспечивает отказоусточив�
 
 Балансировщик будет распределять нагрузку по серверам Exchange в разных зонах доступности.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы создать [сетевой балансировщик](../../network-load-balancer/concepts/index.md):
 
@@ -736,7 +736,7 @@ Database Availability Group обеспечивает отказоусточив�
   1. Оставьте остальные параметры по умолчанию и нажмите кнопку **Применить**.
   1. Нажмите кнопку **Создать**.
 
-- CLI
+- CLI {#cli}
 
   1. Создайте сетевой балансировщик:
 
@@ -815,9 +815,9 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 Создайте ВМ `vm-edge-a`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `vm-edge-a`.
@@ -836,7 +836,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
   ```
   yc compute instance create \
@@ -856,9 +856,9 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 Создайте ВМ `vm-edge-b`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `vm-edge-b`.
@@ -877,7 +877,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-- CLI
+- CLI {#cli}
 
   ```
   yc compute instance create \

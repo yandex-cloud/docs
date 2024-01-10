@@ -35,9 +35,10 @@
 
 ## Перед началом работы {#before-you-begin}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
+
     1. [Создайте кластер {{ mkf-name }}](../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте топик](../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между {{ KFC }} и кластером {{ mkf-name }}.
     1. [Создайте пользователя](../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
@@ -49,7 +50,7 @@
     1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
 
 
-- С помощью Terraform
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -209,9 +210,9 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     
     1. [Удалите виртуальную машину](../compute/operations/vm-control/vm-delete.md).
@@ -219,7 +220,7 @@
     1. [Удалите кластер {{ mkf-name }}](../managed-kafka/operations/cluster-delete.md).
 
 
-- С помощью Terraform
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#before-you-begin):
 

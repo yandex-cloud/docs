@@ -16,9 +16,9 @@
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. [Создайте два кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}.
 
@@ -32,7 +32,7 @@
   1. Выдайте [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) права **READ и WRITE** к [бакету](../../storage/concepts/bucket.md) в {{ objstorage-name }}. Для этого [выполните настройки ACL бакета](../../storage/operations/buckets/edit-acl.md).
   1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта и сохраните его идентификатор и значение. Получить значение ключа снова будет невозможно.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -199,16 +199,16 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   * [Удалите кластеры {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   * Если вы зарезервировали для кластеров {{ managed-k8s-name }} [публичные статические IP-адреса](../../vpc/concepts/address.md#public-addresses), [удалите их](../../vpc/operations/address-delete.md).
   * [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
   * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md) для работы с Velero.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. В терминале перейдите в директорию с планом инфраструктуры.
   1. Удалите конфигурационный файл `velero-backup.tf`.

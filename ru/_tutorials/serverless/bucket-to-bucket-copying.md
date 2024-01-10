@@ -34,9 +34,9 @@
 
 1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `s3-copy-fn`, от имени которого будет работать функция:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
      1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -45,7 +45,7 @@
      1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `storage.uploader`, `storage.viewer` и `{{ roles-lockbox-payloadviewer }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
     
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
      {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -90,7 +90,7 @@
         done (1s)
         ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      
      {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -158,7 +158,7 @@
            yc iam service-account list
            ```
 
-   - API
+   - API {#api}
 
      Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
 
@@ -172,9 +172,9 @@
 
 Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта `s3-copy-fn`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится сервисный аккаунт.
   1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -184,7 +184,7 @@
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Выполните команду:
 
@@ -205,7 +205,7 @@
 
   1. Сохраните идентификатор (`key_id`) и секретный ключ (`secret`). Получить значение ключа снова будет невозможно.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры ключа:
 
@@ -249,7 +249,7 @@
         yc iam access-key list --service-account-name=s3-copy-fn
         ```
 
-- API
+- API {#api}
 
   Чтобы создать ключ доступа, воспользуйтесь методом REST API [create](../../iam/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../iam/api-ref/AccessKey/index.md) или вызовом gRPC API [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create).
 
@@ -259,9 +259,9 @@
 
 Создайте [секрет](../../lockbox/quickstart.md) {{ lockbox-name }} для хранения статического ключа доступа.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать секрет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -282,7 +282,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   Чтобы создать секрет, выполните команду:
 
@@ -309,7 +309,7 @@
       - secret
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры секрета:
     
@@ -363,7 +363,7 @@
 
      1. Подтвердите создание секрета: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create).
 
@@ -373,9 +373,9 @@
 
 Создайте два бакета: основной — где будут храниться файлы, резервный — куда будут копироваться файлы из основного бакета.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакеты.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -388,7 +388,7 @@
 
   1. Таким же образом создайте резервный бакет.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Создайте основной бакет:
 
@@ -405,7 +405,7 @@
 
   1. Таким же образом создайте резервный бакет.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры основного и резервного бакетов:
 
@@ -442,7 +442,7 @@
 
      1. Подтвердите создание бакетов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/s3/api-ref/bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create).
 
@@ -470,9 +470,9 @@
 
 Создайте функцию, которая при добавлении нового [объекта](../../storage/concepts/object.md) в основной бакет будет копировать его в резервный бакет.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
@@ -504,7 +504,7 @@
       
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте функцию `copy-function`:
 
@@ -587,7 +587,7 @@
          folder_id: b1g86q4m5vej********
        ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры функции:
 
@@ -658,7 +658,7 @@
 
      1. Подтвердите создание функции: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create).
 
@@ -670,9 +670,9 @@
 
 Создайте триггер для {{ objstorage-name }}, который будет вызывать функцию `copy-function` при создании нового объекта в основном бакете.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
@@ -696,7 +696,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   Выполните команду:
 
@@ -736,7 +736,7 @@
   status: ACTIVE
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры триггера:
 
@@ -787,7 +787,7 @@
 
      1. Подтвердите создание триггера: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Чтобы создать триггер для {{ objstorage-name }}, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).
 
@@ -795,9 +795,9 @@
 
 ## Протестируйте функцию {#test-function}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится основной бакет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.

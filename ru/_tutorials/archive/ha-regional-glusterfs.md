@@ -33,16 +33,16 @@
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
    
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
       1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-glusterfs`.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -62,7 +62,7 @@
       name: sa-glusterfs
       ```
 
-   - API
+   - API {#api}
 
       Чтобы создать сервисный аккаунт, воспользуйтесь методом [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
 
@@ -70,9 +70,9 @@
 
 1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) администратора на каталог: 
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -80,7 +80,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
 
-   - CLI
+   - CLI {#cli}
 
       Выполните команду:
       ```
@@ -89,7 +89,7 @@
          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-   - API
+   - API {#api}
 
       Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/service_account_service.md#SetAccessBindings).
 
@@ -97,9 +97,9 @@
 
 1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его в файл:
          ```
@@ -329,16 +329,16 @@
       ```
    1. Отключите одну из ВМ для хранения данных, например, `gluster02`:
 
-      {% list tabs %}
+      {% list tabs group=instructions %}
 
-      - Консоль управления
+      - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
         1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Выберите ВМ `gluster02` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
         1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
-      - CLI
+      - CLI {#cli}
 
         1. Посмотрите описание команды CLI для остановки ВМ:
 
@@ -351,7 +351,7 @@
            yc compute instance stop gluster02
            ```
 
-      - API
+      - API {#api}
 
         Воспользуйтесь методом REST API [stop](../../compute/api-ref/Instance/stop.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../compute/api-ref/grpc/instance_service.md#Stop).
 

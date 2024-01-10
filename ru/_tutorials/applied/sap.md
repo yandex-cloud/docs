@@ -27,9 +27,9 @@
 
 Создайте ВМ с публичным IP-адресом:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя ВМ: `vhcalnplci`. На этот hostname завязан скрипт установки SAP.

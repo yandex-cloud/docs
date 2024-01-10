@@ -15,9 +15,9 @@
 
 ### Создайте кластер и коннектор {#create-cluster-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. Подготовьте кластер-приемник:
         * Создайте [пользователя-администратора](../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
@@ -45,7 +45,7 @@
 
         * В блоке **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}** выберите опцию **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -104,9 +104,9 @@
 
 #### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-приемник {{ mkf-name }}](../managed-kafka/operations/cluster-create.md):
 
@@ -115,7 +115,7 @@
 
     1. [Создайте новую ВМ Linux](../compute/operations/vm-create/create-linux-vm.md) для MirrorMaker в той же сети, к которой подключен кластер-приемник. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -301,15 +301,15 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     * [Удалите кластер {{ mkf-full-name }}](../managed-kafka/operations/cluster-delete.md).
     * [Удалите виртуальную машину](../compute/operations/vm-control/vm-delete.md).
     * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../vpc/operations/address-delete.md)
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

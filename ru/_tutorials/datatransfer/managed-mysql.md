@@ -12,9 +12,9 @@
 1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
 1. Подготовьте инфраструктуру и запустите перенос данных:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте кластер-приемник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации. При этом:
 
@@ -51,7 +51,7 @@
 
             {% endnote %}
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
 
@@ -113,15 +113,15 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
     * [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete).
     * [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `data-transfer-mysql-mmy.tf`.

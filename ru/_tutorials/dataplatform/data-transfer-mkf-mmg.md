@@ -14,9 +14,9 @@
 
 1. Подготовьте инфраструктуру поставки данных:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
@@ -38,7 +38,7 @@
             * [{{ mmg-name }}](../../managed-mongodb/operations/connect/index.md#configuring-security-groups).
 
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -236,14 +236,14 @@
 
 1. Создайте трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-mkf-mmg.tf` переменные:
 
@@ -312,14 +312,14 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
     * [Удалите кластер {{ mmg-name }}](../../managed-mongodb/operations/cluster-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `data-transfer-mkf-mmg.tf`.

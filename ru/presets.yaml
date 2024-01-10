@@ -704,6 +704,8 @@ default:
   yagpt-name: YandexGPT
   yandex-360: Яндекс 360
   yandex-cloud: Yandex Cloud
+  yandex-direct: Яндекс Директ
+  yandex-oauth: Яндекс.OAuth
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
   yc-dp: yc dataproc
@@ -6828,6 +6830,8 @@ default:
                       service_account_id:
                         title: Сервисный аккаунт
                     ObjectStorageDataSchema:
+                      data_schema:
+                        title: Вручную
                       infer:
                         title: Автоматически
                     ObjectStorageSerializationFormatUI:
@@ -6898,6 +6902,8 @@ default:
                         title: Преобразовать комплексные значения в строки
                       connection_settings:
                         title: Настройки подключения
+                      format:
+                        title: Формат данных
                       output_encoding:
                         title: Формат сжатия
                       output_format:
@@ -7260,6 +7266,9 @@ default:
                         title: Схема
         transfer:
           transfer:
+            RenameTablesTransformer:
+              rename_tables:
+                array_item_label: Таблица
             Transformation:
               transformers:
                 array_item_label: Преобразование

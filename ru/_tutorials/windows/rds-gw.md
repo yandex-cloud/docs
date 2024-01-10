@@ -41,16 +41,16 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 1. Создайте [облачную сеть](../../vpc/concepts/network.md).
 
-   {% list tabs %}
-   
-    - Консоль управления
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
     
         1. Выберите сервис **{{ vpc-short-name }}** в каталоге, где требуется создать облачную сеть.
         1. Нажмите кнопку **Создать сеть**.
         1. Задайте имя сети `rdgw-network`.
         1. Нажмите кнопку **Создать сеть**.
    
-    - CLI
+    - CLI {#cli}
       
       ```
       yc vpc network create --name rdgw-network
@@ -67,7 +67,8 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       name: rdgw-network
       default_security_group_id: enpa139ji55jti00u5sg
       ```
-    - API
+
+    - API {#api}
 
       Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
 
@@ -75,9 +76,9 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 1. Создайте подсеть в сети `rdgw-network`.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
    
-    - Консоль управления
+    - Консоль управления {#console}
     
         1. Выберите сервис **{{ vpc-short-name }}** в каталоге, где требуется создать подсеть.
         1. Нажмите на имя облачной сети.
@@ -86,7 +87,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
         1. Нажмите кнопку **Создать подсеть**.
    
-    - CLI
+    - CLI {#cli}
    
       ```
       yc vpc subnet create `
@@ -111,7 +112,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       - 10.1.0.0/16
       ```
 
-     - API
+     - API {#api}
 
        Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
@@ -121,9 +122,9 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 Создайте и настройте [группу безопасности](../../vpc/concepts/security-groups.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Выберите сервис **{{ vpc-short-name }}** в каталоге, где требуется создать группу безопасности.
    1. Откройте вкладку **Группы безопасности**.
@@ -151,7 +152,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
      
    1. Нажмите кнопку **Сохранить**.
    
-- CLI
+- CLI {#cli}
 
    ```
    yc vpc security-group create --name=my-rdgw-sg `
@@ -183,7 +184,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       - 0.0.0.0/0
   ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../vpc/api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create).
 
@@ -193,9 +194,9 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 Создайте ВМ с публичным адресом:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
      1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
      1. В поле **Имя** введите имя виртуальной машины: `my-rds-gw`.
@@ -213,7 +214,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
- - CLI
+ - CLI {#cli}
      
     1. В терминале PowerShell создайте скрипт `setpass` для настройки пароля учетной записи `Administrator` через поле `user-data` в [метаданных ВМ](../../compute/concepts/vm-metadata.md). Утилита `cloudbase-init` выполнит его при первом запуске.
 
@@ -384,9 +385,9 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 1. Создайте ВМ без доступа в интернет, к которой вы будете подключаться во время проверки. 
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
     
-    - Консоль управления
+    - Консоль управления {#console}
     
         1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
         1. В поле **Имя** введите имя виртуальной машины: `test-vm`.
@@ -404,7 +405,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
         {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
-    - CLI
+    - CLI {#cli}
         
       Создайте ВМ:
     
@@ -454,7 +455,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         placement_policy: {}
       ```
 
-    - API
+    - API {#api}
 
       Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create).
 

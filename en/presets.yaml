@@ -6822,6 +6822,8 @@ default:
                       service_account_id:
                         title: Service account
                     ObjectStorageDataSchema:
+                      data_schema:
+                        title: Manual
                       infer:
                         title: Automatically
                     ObjectStorageSerializationFormatUI:
@@ -6892,6 +6894,8 @@ default:
                         title: Convert complex data to strings
                       connection_settings:
                         title: Connection settings
+                      format:
+                        title: Data format
                       output_encoding:
                         title: Encoding format
                       output_format:
@@ -7256,6 +7260,9 @@ default:
                         title: Schema
         transfer:
           transfer:
+            RenameTablesTransformer:
+              rename_tables:
+                array_item_label: Table
             Transformation:
               transformers:
                 array_item_label: Transformation

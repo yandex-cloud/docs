@@ -10,9 +10,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роль `dataproc.agent`.
     1. {% include [basic-before-buckets](../_includes/data-proc/tutorials/basic-before-buckets.md) %}
@@ -60,7 +60,7 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -239,9 +239,9 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Кластер {{ mch-name }}](../managed-clickhouse/operations/cluster-delete.md).
     1. [Кластер {{ dataproc-name }}](../data-proc/operations/cluster-delete.md).
@@ -249,7 +249,7 @@
     1. [Облачную сеть](../vpc/operations/network-delete.md).
     1. [Сервисный аккаунт](../iam/operations/sa/delete.md).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. [Удалите объекты](../storage/operations/objects/delete.md) из бакетов.
     1. В терминале перейдите в директорию с планом инфраструктуры.

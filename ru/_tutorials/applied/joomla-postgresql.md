@@ -46,9 +46,9 @@ keywords:
 
 ## Создайте ВМ для Joomla {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя ВМ — `joomla-pg-tutorial-web`.
@@ -75,7 +75,7 @@ keywords:
 
   При создании ВМ назначаются IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname). Эти данные можно использовать для доступа по SSH.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -83,9 +83,9 @@ keywords:
 
 ## Создайте кластер БД {{ PG }} {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Кластер {{ PG }}**.
   1. В поле **Имя** введите имя кластера — `joomla-pg-tutorial-db-cluster`.
@@ -101,7 +101,7 @@ keywords:
 
   Создание кластера БД может занять несколько минут.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -297,13 +297,13 @@ keywords:
 
 Доменное имя, которое вы хотите использовать для веб-сайта, нужно связать с IP-адресом созданной ВМ `joomla-pg-tutorial-web`. Для управления доменом можно использовать сервис [{{ dns-full-name }}](../../dns/).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [configure-a-record-and-cname](../../_tutorials/_tutorials_includes/configure-a-record-and-cname.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
@@ -338,7 +338,7 @@ keywords:
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/joomla-postgresql-terraform.zip) (2 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `joomla-postgresql-terraform.tf` и файл с пользовательскими данными `joomla-postgresql-terraform.auto.tfvars`.
 
-   - Создание вручную
+   - Вручную
 
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `joomla-postgresql-terraform.tf`:

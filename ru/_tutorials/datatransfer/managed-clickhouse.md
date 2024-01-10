@@ -3,9 +3,9 @@
 1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-ch).
 1. Подготовьте инфраструктуру:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#target-ch).
 
@@ -26,7 +26,7 @@
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -83,15 +83,15 @@
 
 1. Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Ресурсы созданы вручную
+    - Ресурсы созданы вручную {#manual}
 
         * [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
         * [Удалите завершившийся трансфер](../../data-transfer/operations/transfer.md#delete).
         * [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
-    * Ресурсы созданы с помощью {{ TF }}
+    - Ресурсы созданы с помощью {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         1. Удалите конфигурационный файл `data-transfer-ch-mch.tf`.

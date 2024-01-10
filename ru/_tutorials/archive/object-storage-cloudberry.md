@@ -40,9 +40,9 @@
 
 ## Создайте бакет {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
 
