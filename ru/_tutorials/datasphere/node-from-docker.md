@@ -39,9 +39,9 @@
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
@@ -53,9 +53,9 @@
 
 {{ ml-platform-name }} может создать ноду из Docker-образа, который хранится в {{ container-registry-full-name }}. Чтобы загрузить образ, создайте реестр:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
   1. В списке сервисов выберите **{{ container-registry-name }}**.
@@ -67,9 +67,9 @@
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
    1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -89,9 +89,9 @@
 
 {% include [disclaimer](../../_includes/iam/authorized-keys-disclaimer.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -163,9 +163,9 @@
 
 {% include [install cli](../../_includes/cli-install.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. [Задайте](../../cli/operations/profile/manage-properties.md) каталог `data-folder` каталогом по умолчанию:
    

@@ -12,9 +12,9 @@
 
 1. Подготовьте инфраструктуру:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
 
@@ -28,7 +28,7 @@
             * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
             * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -183,9 +183,9 @@
 
 1. Создайте эндпоинт-приемник и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
@@ -197,7 +197,7 @@
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `kafka-postgresql.tf` переменные:
 
@@ -263,15 +263,15 @@
 1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
 1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         * [Эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
         * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
         * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         1. Удалите конфигурационный файл `kafka-postgresql.tf`.

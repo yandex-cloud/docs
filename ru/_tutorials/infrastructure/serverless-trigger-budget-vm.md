@@ -34,9 +34,9 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
 ## Создайте сервисный аккаунт {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать сервисный аккаунт.
     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -45,7 +45,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
     1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `{{ roles-functions-invoker }}`.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -118,7 +118,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
         done (1s)
         ```
 
-- API
+- API {#api}
 
     Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
@@ -135,9 +135,9 @@ zip src.zip index.go go.mod
 
 ## Создайте функцию {{ sf-name }} {#create-function}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -158,7 +158,7 @@ zip src.zip index.go go.mod
                 * `TAG` — `target-for-stop`.
         1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
     1. Создайте функцию `function-for-budget`:
         ```bash
@@ -225,7 +225,7 @@ zip src.zip index.go go.mod
           folder_id: b1gc1t4cb638********
         ```
 
-- API
+- API {#api}
 
     Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md).
 
@@ -237,9 +237,9 @@ zip src.zip index.go go.mod
 
 Чтобы создать бюджет, у пользователя должна быть роль `editor`. Чтобы получать оповещения, достаточно роли `viewer`. 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт и функцию.
     1. В левом верхнем углу нажмите кнопку ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
@@ -261,7 +261,7 @@ zip src.zip index.go go.mod
         Например, можно указать два порога — `50%` и `100%`.
     1. Нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
 
-- API
+- API {#api}
 
     Чтобы создать бюджет, воспользуйтесь методом [create](../../billing/api-ref/Budget/create.md) для ресурса [Budget](../../billing/api-ref/Budget/index.md).
 
@@ -269,9 +269,9 @@ zip src.zip index.go go.mod
 
 ## Создайте триггер для бюджетов {#create-trigger}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт, функцию и бюджет.
 
@@ -296,7 +296,7 @@ zip src.zip index.go go.mod
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
     Чтобы создать триггер для бюджетов, который вызывает функцию `function-for-budget`, выполните команду:
 
@@ -335,7 +335,7 @@ zip src.zip index.go go.mod
     status: ACTIVE
     ```
 
-- API
+- API {#api}
 
     Чтобы создать триггер для бюджетов, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md).
 
@@ -343,9 +343,9 @@ zip src.zip index.go go.mod
 
 ## Создайте виртуальные машины {{ compute-name }} {##create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     1. Выберите подсеть:
         ```
@@ -415,7 +415,7 @@ zip src.zip index.go go.mod
         placement_policy: {}
         ```
 
-- API
+- API {#api}
 
     Чтобы создать виртуальную машину, воспользуйтесь методом [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/index.md).
 

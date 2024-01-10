@@ -13,7 +13,7 @@
 
 {% include [stt-language-labels](../../../_includes/speechkit/stt-language-labels.md) %}
 
-## Подготовьте необходимые данные {#preparations}
+## Подготовьте необходимые ресурсы {#preparations}
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-speechkit-stt }}`.
 1. Для сервисного аккаунта [получите](../../../iam/operations/iam-token/create-for-sa#via-cli) и сохраните IAM-токен. 

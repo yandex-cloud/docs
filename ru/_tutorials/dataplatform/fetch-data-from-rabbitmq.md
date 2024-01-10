@@ -15,9 +15,9 @@
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с базой данных `db1`. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам кластера при его создании.
 
@@ -29,7 +29,7 @@
 
     1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для {{ RMQ }}. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -130,13 +130,13 @@
 
 ## Настройте интеграцию {{ RMQ }} для кластера {{ mch-name }} {#configure-mch-for-rmq}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     Укажите в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) имя пользователя и пароль для аутентификации {{ RMQ }} в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Добавьте к описанию кластера блок `clickhouse.config.rabbitmq` с именем пользователя и паролем для аутентификации {{ RMQ }}:
 
@@ -314,15 +314,15 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     * [Удалите кластер {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md).
     * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
     * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

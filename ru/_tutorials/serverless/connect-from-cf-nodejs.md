@@ -81,9 +81,9 @@
 
 ## Создайте сервисный аккаунт {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -92,7 +92,7 @@
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `{{ roles-editor }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт:
 
@@ -132,7 +132,7 @@
 
   Подробнее о командах см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/index.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -163,7 +163,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Чтобы создать сервисный аккаунт и назначить ему [роль](../../iam/concepts/access-control/roles.md), воспользуйтесь методами [create](../../iam/api-ref/ServiceAccount/create.md) и [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
@@ -171,9 +171,9 @@
 
 ## Создайте авторизованный ключ {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -193,7 +193,7 @@
      }
      ```
 
-- CLI
+- CLI {#cli}
 
   Выполните команду:
 
@@ -205,7 +205,7 @@
 
   В случае успеха в файл `service_account_key_file.json` будет записан закрытая часть авторизованного ключа (`privateKey`) и идентификатор открытой части (`id`).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры авторизованного ключа:
 
@@ -235,7 +235,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Чтобы создать авторизованный ключ доступа, воспользуйтесь методом [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md).
 
@@ -243,9 +243,9 @@
 
 ## Создайте БД {{ ydb-short-name }} {#create-database}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать БД.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -339,9 +339,9 @@
 
 ## Протестируйте функцию {#test-function}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.

@@ -48,9 +48,9 @@
 
 Необходимо создать два бакета: в первом будут храниться файлы, а во втором — логи запросов к первому.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Создайте бакет для файлов:
@@ -63,7 +63,7 @@
      1. Укажите **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** бакета.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Создайте бакет для файлов:
 
@@ -98,7 +98,7 @@
      }
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -153,7 +153,7 @@
 
      1. Подтвердите создание бакета.
 
-- API
+- API {#api}
 
   Используйте метод API [create](../../storage/s3/api-ref/bucket/create.md).
 
@@ -163,9 +163,9 @@
 
 Чтобы проверить, что при пользовательском запросе файл скачивается не напрямую из бакета, а из кеша CDN-сервера, нужно включить логирование бакета.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Создайте файл с настройками логирования в формате JSON. Например:
 
@@ -197,7 +197,7 @@
       * `--bucket` — имя исходного бакета, для которого нужно включить логирование действий.
       * `--bucket-logging-status` — путь к файлу с настройками логирования.
 
-- API
+- API {#api}
 
   Используйте метод API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) для бакета с файлами. Тело HTTP-запроса:
 
@@ -219,9 +219,9 @@
 
 ## Загрузите файл в бакет {#upload-object}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет с файлами.
@@ -229,7 +229,7 @@
   1. В появившемся окне выберите файл с патчем `ycgame-update-v1.1.exe` и нажмите кнопку **{{ ui-key.yacloud.common.open }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Выполните команду:
 
@@ -246,7 +246,7 @@
   upload: <путь_к_файлу_ycgame-update-v1.1.exe> to s3://<имя_бакета_с_файлами>/ycgame-update-v1.1.exe
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте к конфигурационному файлу из [шага с созданием бакетов](#create-buckets) параметры [объекта](../../storage/concepts/object.md), который необходимо загрузить:
      * `bucket` — имя бакета для добавления объекта.
@@ -284,7 +284,7 @@
 
      1. Подтвердите создание объекта.
 
-- API
+- API {#api}
 
   Используйте метод API [upload](../../storage/s3/api-ref/object/upload.md).
 
@@ -292,9 +292,9 @@
 
 ## Создайте CDN-ресурс и включите кеширование {#create-cdn-resource}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
@@ -334,7 +334,7 @@
      1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -376,7 +376,7 @@
      yc cdn resource update <идентификатор_ресурса> --redirect-http-to-https
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры CDN-ресурсов:
 
@@ -451,7 +451,7 @@
 
   После этого для у ресурса будет включена переадресация.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create) или метод REST API [create](../../cdn/api-ref/Resource/create.md). Чтобы включить [кеширование](../../cdn/concepts/caching.md) на CDN-серверах, добавьте в тело запроса поле `edge_cache_settings`.
 
@@ -461,9 +461,9 @@
 
 1. Получите доменное имя в домене `.edgecdn.ru`, сгенерированное для созданного CDN-ресурса:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
@@ -484,9 +484,9 @@
 
    {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
@@ -503,7 +503,7 @@
         1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный адрес в домене `.edgecdn.ru` с точкой на конце.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
@@ -559,7 +559,7 @@
 
         В списке должна быть запись с именем `cdn.ycprojectblue.example.`
 
-   - API
+   - API {#api}
 
      1. Если у вас нет публичной зоны DNS, создайте ее с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../../dns/api-ref/DnsZone/create.md). Чтобы сделать зону публичной, добавьте в тело запроса поле `public_visibility` (gRPC) или `publicVisibility` (REST).
      1. Создайте в зоне [запись](../../dns/concepts/resource-record.md) `cdn CNAME cl-********.edgecdn.ru.` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
@@ -570,9 +570,9 @@
 
 ## Предзагрузите контент в кеш CDN-серверов {#prefetch-content}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
@@ -586,7 +586,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -601,7 +601,7 @@
 
   Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [CacheService/Prefetch](../../cdn/api-ref/grpc/cache_service.md#Prefetch) или метод REST API [prefetch](../../cdn/api-ref/Cache/prefetch.md).
 
@@ -618,16 +618,16 @@
 
 1. Получите логи запросов к бакету с файлами:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Выберите бакет с логами.
      1. Нажмите на имя объекта, соответствующего времени скачивания файла `ycgame-update-v1.1.exe`.
      1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
      1. Получите список объектов с логами:
 
@@ -661,7 +661,7 @@
         download: s3://<имя_бакета_с_логами>/2021-10-01-13-38-02-E69EAEC1C9083756 to 2021-10-01-13-38-02-E69EAEC1C9083756
         ```
 
-   - API
+   - API {#api}
 
      1. Получите список объектов в бакете с логами с помощью метода API [listObjects](../../storage/s3/api-ref/bucket/listobjects.md).
      1. Найдите в полученном списке объект с логом, сохраненным после скачивания файла `ycgame-update-v1.1.exe`, и скачайте его с помощью метода API [get](../../storage/s3/api-ref/object/get.md).

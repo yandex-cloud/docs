@@ -12,9 +12,9 @@
 
 Для примера все нужные ресурсы будут созданы в {{ yandex-cloud }}. Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mgp-full-name }}](../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации.
 
@@ -27,7 +27,7 @@
         * [{{ mgp-name }}](../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -149,14 +149,14 @@
 * [Удалите эндпоинт-источник и эндпоинт-приемник](../data-transfer/operations/endpoint/index.md#delete).
 * Удалите кластеры:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         * [{{ mch-name }}](../managed-clickhouse/operations/cluster-delete.md).
         * [{{ mgp-name }}](../managed-greenplum/operations/cluster-delete.md).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         Если вы создали ресурсы с помощью {{ TF }}:
 

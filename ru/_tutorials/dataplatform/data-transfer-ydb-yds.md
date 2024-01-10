@@ -17,9 +17,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте базу данных источника {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
@@ -27,7 +27,7 @@
 
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации для потока данных приемника {{ yds-name }}.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -71,16 +71,16 @@
 
 1. Подготовьтесь к выполнению SQL-запросов в базе данных источника {{ ydb-name }}:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Консоль управления
+    - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
         1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка и перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
-    * {{ ydb-short-name }} CLI
+    - {{ ydb-short-name }} CLI {#cli}
 
         1. [Настройте подключение к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
         1. Убедитесь, что можете выполнять запросы с помощью {{ ydb-short-name }} CLI с выбранным режимом аутентификации. Например, для [OAuth-токена](../../iam/concepts/authorization/oauth-token.md):
@@ -145,14 +145,14 @@
 
 1. Создайте трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-ydb-yds.tf` переменные:
 
@@ -217,14 +217,14 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Удалите базу данных источника {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
     1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db) для потока данных приемника.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `data-transfer-ydb-yds.tf`.

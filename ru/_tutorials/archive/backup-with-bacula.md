@@ -40,9 +40,9 @@ Bacula состоит из нескольких компонентов:
 
 Чтобы создать бакет для резервного копирования в {{ objstorage-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
   1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
@@ -67,9 +67,9 @@ Bacula состоит из нескольких компонентов:
 
 Чтобы создать ВМ:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя ВМ: `bacula-vm`.
@@ -643,9 +643,9 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
 Чтобы убедиться, что резервное копирование выполнено:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Откройте бакет.

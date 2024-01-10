@@ -26,9 +26,9 @@
 
 ## Создайте сервисный аккаунт {#create-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
   1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -37,7 +37,7 @@
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@
       done (1s)
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -130,7 +130,7 @@
            yc iam service-account list
            ```
 
-- API
+- API {#api}
 
   Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
 
@@ -150,9 +150,9 @@
 
 Первой версии функции добавьте тег `stable`, второй — `canary`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     Чтобы добавить тег версии, выполните команду:
 
@@ -178,7 +178,7 @@
       - stable
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы добавить тег версии:
 
@@ -237,7 +237,7 @@
     yc serverless function version list --function-name <имя_функции>
     ```
 
-- API
+- API {#api}
 
     Чтобы добавить тег версии функции, воспользуйтесь методом REST API [setTag](../../functions/functions/api-ref/Function/setTag.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetTag](../../functions/functions/api-ref/grpc/function_service.md#SetTag).
 
@@ -245,9 +245,9 @@
 
 ## Создайте API-шлюз {#create-api-gw}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -283,7 +283,7 @@
     1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** укажите `function.tag`=`canary`.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
     
-- CLI
+- CLI {#cli}
 
     1. Сохраните следующую спецификацию в файл `spec.yaml`:
         
@@ -344,7 +344,7 @@
               string_value: canary
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы создать API-шлюз:
 
@@ -423,7 +423,7 @@
         yc serverless api-gateway get <имя_API-шлюза>
         ```
 
-- API
+- API {#api}
 
   Чтобы создать API-шлюз, воспользуйтесь методом REST API [create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/apigateway_service.md#Create).
 

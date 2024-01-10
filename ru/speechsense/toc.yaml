@@ -62,4 +62,6 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Вопросы и ответы
+    href: qa/index.md
 base: ru/speechsense
