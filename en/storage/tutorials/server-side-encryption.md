@@ -59,8 +59,8 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       
       ```
       locals {
-        cloud_id    = "<cloud ID>"
-        folder_id   = "<folder ID>"
+        cloud_id    = "<cloud_ID>"
+        folder_id   = "<folder_ID>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
@@ -137,8 +137,8 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * `new-buckets-account` service account
-         * `editor` role for `new-buckets-account`
+         * `New-buckets-account` service account
+         * `Editor` role for `new-buckets-account`
          * Static key for the service account
          * Bucket
 
@@ -195,9 +195,9 @@ Create a new key or use an existing one. To create a key:
 
    Where:
 
-   * `name`: Key name.
-   * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
-   * `rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `rotation-period` parameter.
+   * `--name`: Key name.
+   * `--default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
+   * `--rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
 
    The key is created along with its first version. It is specified in the `primary_version` field.
 
@@ -208,13 +208,13 @@ Create a new key or use an existing one. To create a key:
       
       ```
       locals {
-        cloud_id    = "<cloud ID>"
-        folder_id   = "<folder ID>"
+        cloud_id    = "<cloud_ID>"
+        folder_id   = "<folder_ID>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets "
         sa_key_desc = "Static key for ${local.sa_name}"
 
         key_name    = "key-1" # KMS key name.
@@ -294,8 +294,8 @@ Create a new key or use an existing one. To create a key:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * `new-buckets-account` service account
-         * `editor` role for `new-buckets-account`
+         * `New-buckets-account` service account
+         * `Editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `key-1`
          * Bucket
@@ -330,8 +330,8 @@ To enable bucket encryption with a {{ kms-short-name }} key:
       
       ```
       locals {
-        cloud_id    = "<cloud ID>"
-        folder_id   = "<folder ID>"
+        cloud_id    = "<cloud_ID>"
+        folder_id   = "<folder_ID>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
@@ -424,8 +424,8 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * `new-buckets-account` service account
-         * `editor` role for `new-buckets-account`
+         * `New-buckets-account` service account
+         * `Editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `key-1`
          * Bucket with encryption
@@ -436,26 +436,26 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
 - AWS CLI
 
-  Run this command:
+   Run this command:
 
-  ```
-  aws s3api put-bucket-encryption \
-    --bucket <bucket_name> \
-    --endpoint-url=https://{{ s3-storage-host }} \
-    --server-side-encryption-configuration '{
-   	"Rules": [
-   	  {
-   		"ApplyServerSideEncryptionByDefault": {
-   		  "SSEAlgorithm": "aws:kms",
-   		  "KMSMasterKeyID": "<KMS key ID>"
-   		},
-   		"BucketKeyEnabled": true
-   	  }
-   	]
-  }'
-  ```
+   ```
+   aws s3api put-bucket-encryption \
+     --bucket <bucket_name> \
+     --endpoint-url=https://{{ s3-storage-host }} \
+     --server-side-encryption-configuration '{
+   	  "Rules": [
+   	    {
+   		  "ApplyServerSideEncryptionByDefault": {
+   		    "SSEAlgorithm": "aws:kms",
+   		    "KMSMasterKeyID": "<KMS_key_ID>"
+   		  },
+   		  "BucketKeyEnabled": true
+   		}
+   	  ]
+   	}'
+   ```
 
-  As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
+   As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
 
 {% endlist %}
 
@@ -487,8 +487,8 @@ After you disable bucket encryption, previously uploaded objects will be stored 
       
       ```
       locals {
-        cloud_id    = "<cloud ID>"
-        folder_id   = "<folder ID>"
+        cloud_id    = "<cloud_ID>"
+        folder_id   = "<folder_ID>"
         oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
@@ -582,8 +582,8 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
          After the command is executed, {{ TF }} updates the following resources in the specified folder:
 
-         * `new-buckets-account` service account
-         * `editor` role for `new-buckets-account`
+         * `New-buckets-account` service account
+         * `Editor` role for `new-buckets-account`
          * Static key for the service account
          * {{ kms-short-name }} key named `key-1`
          * Bucket

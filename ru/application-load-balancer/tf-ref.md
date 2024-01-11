@@ -10,8 +10,8 @@
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
-| [yandex_alb_backend_group](https://terraform-provider.yandexcloud.net/Resources/alb_backend_group) | [Группа бэкендов](./concepts/backend-group.md) |
-| [yandex_alb_http_router](https://terraform-provider.yandexcloud.net/Resources/alb_http_router) | [HTTP-роутер](./concepts/http-router.md) |
-| [yandex_alb_load_balancer](https://terraform-provider.yandexcloud.net/Resources/alb_load_balancer) | [L7-балансировщик нагрузки](./concepts/application-load-balancer.md) |
-| [yandex_alb_target_group](https://terraform-provider.yandexcloud.net/Resources/alb_target_group) | [Целевая группа](./concepts/target-group.md) |
-| [yandex_alb_virtual_host](https://terraform-provider.yandexcloud.net/Resources/alb_virtual_host) | [Виртуальный хост](./concepts/http-router.md#virtual-host) |
+| [yandex_alb_backend_group]({{ tf-provider-resources-link }}/alb_backend_group) | [Группа бэкендов](./concepts/backend-group.md) |
+| [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) | [HTTP-роутер](./concepts/http-router.md) |
+| [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer) | [L7-балансировщик нагрузки](./concepts/application-load-balancer.md) |
+| [yandex_alb_target_group]({{ tf-provider-resources-link }}/alb_target_group) | [Целевая группа](./concepts/target-group.md) |
+| [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) | [Виртуальный хост](./concepts/http-router.md#virtual-host) |

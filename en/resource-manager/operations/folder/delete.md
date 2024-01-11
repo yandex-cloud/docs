@@ -16,9 +16,25 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To cancel, click ![***](../../../_assets/console-icons/ellipsis.svg) to the right of the folder and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
-- API
+- CLI
 
-   To delete a folder, use the [delete](../../api-ref/Folder/delete.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete) gRPC API call.
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   1. View a description of the folder delete command:
+
+      ```bash
+      yc resource-manager folder delete --help
+      ```
+
+   1. {% include [get-folder-id-or-name](../../../_includes/resource-manager/get-folder-id-or-name.md) %}
+
+   1. Delete the folder:
+
+      ```bash
+      yc resource-manager folder delete <folder_ID>
+      ```
+
+      To have the operation progress details shown before the operation is completed, set the `--async` flag.
 
 - {{ TF }}
 
@@ -76,6 +92,10 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
       ```
       yc resource-manager folder list
       ```
+
+- API
+
+   To delete a folder, use the [delete](../../api-ref/Folder/delete.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete) gRPC API call.
 
 {% endlist %}
 

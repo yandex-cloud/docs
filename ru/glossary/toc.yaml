@@ -13,6 +13,8 @@ items:
         href: oltp.md
       - name: OLAP
         href: olap.md
+      - name: Кластер
+        href: cluster.md
   - name: Аналитика
     items:
       - name: Аналитика данных

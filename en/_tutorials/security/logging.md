@@ -173,7 +173,7 @@ To create a cluster and a database:
 
       * Database name. It must be unique within the folder and contain only Latin letters, numbers, and underscores.
       * DB owner username. It may only contain Latin letters, numbers, and underscores.
-      * User password. It must be from 8 to 128 characters.
+      * User password. It must be from 8 to 128 characters long.
 
       For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You cannot change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
 
@@ -234,7 +234,7 @@ You need to create a log table in advance:
 
 ## Create an instance group {#create-vms}
 
-As web servers for your site, you'll use an [instance group](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. The servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp.md).
+As web servers for your site, you will use an [instance group](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. The servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp.md).
 
 To create an instance group:
 
@@ -555,9 +555,9 @@ To create a trigger:
    * `--log-group-name`: Name of the log group you [previously created](#create-log-group).
    * `--resource-types`: Log group resource types.
    * `--invoke-function-name`: Name of the function that you [created earlier](#set-up-sf-create-function).
-   * `--invoke-function-service-account-name`: The name of the service account you created along with the function.
-   * `--batch-size`: The maximum number of messages sent to the function at the same time.
-   * `--batch-cutoff`: The maximum time interval between sending consecutive messages to the function.
+   * `--invoke-function-service-account-name`: Name of the service account created together with the function.
+   * `--batch-size`: Maximum number of messages sent to the function at the same time.
+   * `--batch-cutoff`: Maximum time interval between consecutive messages to the function.
 
    For more information about the command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/trigger/create/logging.md).
 
@@ -580,7 +580,7 @@ To create a trigger:
 
    {% endlist %}
 
-1. Open `http://<Load balancer IP address>` in the browser. Refresh the page several times.
+1. Open `http://<Load_balancer_IP_address>` in the browser. Refresh the page several times.
 1. Make sure that the logs contain information about your requests to the load balancer:
 
    {% list tabs %}
@@ -598,7 +598,7 @@ To create a trigger:
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the load balancer and stop paying for the created resources:
+To shut down the load balancer and stop paying for the resources you created:
 
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `alb-logging-balancer` L7 load balancer.
 1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the `alb-logging-router` HTTP router.

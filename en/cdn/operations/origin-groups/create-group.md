@@ -38,15 +38,15 @@ To create an [origin group](../../concepts/origins.md):
    1. Create an origin group in the default folder:
 
       ```
-      yc cdn origin-group create --name <group name> \
-        --origin source=<origin IP address or domain name>,enabled=true \
-        --origin source=<origin IP address or domain name>,enabled=true,backup=true
+      yc cdn origin-group create --name <group_name> \
+        --origin source=<origin_IP_address_or_domain_name>,enabled=true \
+        --origin source=<origin_IP_address_or_domain_name>,enabled=true,backup=true
       ```
 
-      Where `origin`: The origin specification:
-      * `source`: The origin IP address or domain name.
-      * `enabled`: Flag indicating whether an origin is enabled.
-      * `backup`: Flag indicating whether an origin is a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
+      Where `--origin` is the origin specification:
+      * `source`: Origin IP address or domain name.
+      * `enabled`: Origin enabled flag.
+      * `backup`: Flag marking the origin as a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
 
       Result:
 
@@ -80,23 +80,23 @@ To create an [origin group](../../concepts/origins.md):
       
       ```
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<default availability zone>"
+        token     = "<OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<default_availability_zone>"
       }
 
       resource "yandex_cdn_origin_group" "my_group" {
-        name = "<group name>"
+        name = "<group_name>"
         use_next = true
         origin {
-         source = "<origin 1 IP address or domain name>"
+         source = "<IP_address_or_domain_name_of_origin_1>"
         }
         origin {
-         source = "<origin 2 IP address or domain name>"
+         source = "<IP_address_or_domain_name_of_origin_2>"
         }
         origin {
-         source = "<origin 3 IP address or domain name>"
+         source = "<IP_address_or_domain_name_of_origin_3>"
          backup = false
         }
       }

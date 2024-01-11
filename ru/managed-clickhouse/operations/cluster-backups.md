@@ -17,9 +17,9 @@ description: "Вы можете создавать резервные копии
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
@@ -27,7 +27,7 @@ description: "Вы можете создавать резервные копии
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -49,7 +49,7 @@ description: "Вы можете создавать резервные копии
   
       Имя и идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
   Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -67,9 +67,9 @@ description: "Вы можете создавать резервные копии
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   Чтобы восстановить из резервной копии существующий кластер:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
@@ -88,7 +88,7 @@ description: "Вы можете создавать резервные копии
 
   {{ mch-name }} запустит операцию создания кластера из резервной копии.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -173,7 +173,7 @@ description: "Вы можете создавать резервные копии
          ...
       ```
 
-- API
+- API {#api}
 
   Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
 
@@ -190,9 +190,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить список резервных копий {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   Чтобы получить список резервных копий кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
@@ -211,7 +211,7 @@ description: "Вы можете создавать резервные копии
   * Время начала создания резервной копии по UTC (Coordinated Universal Time).
   * Время окончания создания резервной копии по UTC.
 
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -242,7 +242,7 @@ description: "Вы можете создавать резервные копии
   * Размер резервной копии.
   * Тип резервной копии: автоматическая (`AUTOMATED`) или ручная (`MANUAL`).
 
-- API
+- API {#api}
 
   Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -255,9 +255,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить информацию о резервной копии {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   Чтобы получить информацию о резервной копии существующего кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
@@ -267,7 +267,7 @@ description: "Вы можете создавать резервные копии
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -281,7 +281,7 @@ description: "Вы можете создавать резервные копии
   
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API
+- API {#api}
 
   Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
@@ -291,13 +291,13 @@ description: "Вы можете создавать резервные копии
 
 ## Задать время начала резервного копирования {#set-backup-window}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   В [консоли управления]({{ link-console-main }}) задать время начала резервного копирования можно при [создании](cluster-create.md) или [изменении кластера](update.md).
   
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -312,7 +312,7 @@ description: "Вы можете создавать резервные копии
   
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 

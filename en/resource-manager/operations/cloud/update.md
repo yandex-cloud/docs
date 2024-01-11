@@ -14,10 +14,6 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
 
    1. Click **{{ ui-key.yacloud.iam.cloud.edit.popup-edit-cloud_button_save }}**.
 
-- API
-
-   To rename a cloud, use the [update](../../api-ref/Cloud/update.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update) gRPC API call.
-
 - {{ TF }}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -73,5 +69,9 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
       ```bash
       yc resource-manager cloud list
       ```
+
+- API
+
+   To rename a cloud, use the [update](../../api-ref/Cloud/update.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update) gRPC API call.
 
 {% endlist %}

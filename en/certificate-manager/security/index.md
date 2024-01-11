@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ certificate-manager-full-name }}"
-description: "Access management in {{ certificate-manager-full-name }}, a service for issuing and updating TLS certificates from Let's Encrypt and for uploading custom certificates. This section describes which resources you can assign a role for, what roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ certificate-manager-full-name }}, a service for issuing and updating TLS certificates from Let's Encrypt and for uploading custom certificates. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ certificate-manager-name }}
@@ -31,8 +31,6 @@ Active roles in the service:
 * {% include [certificate-manager.editor](../../_includes/iam/roles/short-descriptions/certificate-manager.editor.md) %}
 * {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
 * {% include [certificate-manager.certificates.downloader](../../_includes/iam/roles/short-descriptions/certificate-manager.certificates.downloader.md) %}
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 
 ### Primitive roles {#primitive-roles}
 

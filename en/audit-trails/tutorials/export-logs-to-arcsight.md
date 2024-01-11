@@ -246,7 +246,7 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
       * `--id`: ID of `example-folder`.
       * `--role`: Role being assigned.
-      * `--service-account-id`: ID of the `sa-arcsight-bucket` service account.
+      * `--service-account-id`: ID of `sa-arcsight-bucket`.
 
    1. The `kms.keys.encrypterDecrypter` role to the `arcsight-kms` encryption key:
 
@@ -260,7 +260,7 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
       Where:
 
       * `--role`: Role being assigned.
-      * `--id`: ID of the {{ kms-short-name }} `arcsight-kms` key.
+      * `--id`: ID of the `arcsight-kms` {{ kms-short-name }} key.
       * `--service-account-id`: ID of the `sa-arcsight-bucket` service account.
 
 {% endlist %}

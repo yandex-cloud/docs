@@ -2,7 +2,7 @@
 
 Most {{ yandex-cloud }} services support resource labeling.
 
-A _label_ is a key-value pair in `<label name>=<label value>` format. You can use labels to logically separate resources.
+A _label_ is a key-value pair in `<label_name>=<label_value>` format. You can use labels to logically separate resources.
 
 Labels are subject to the following restrictions:
 
@@ -50,7 +50,11 @@ List of services whose resources support labels:
 #### See also {#see-also}
 
 * [Managing labels](../operations/manage-labels.md)
+* [Managing labels in {{ ml-platform-full-name }} communities](../../datasphere/operations/community/manage-community-labels.md)
+* [Managing labels in {{ ml-platform-full-name }} projects](../../datasphere/operations/projects/manage-project-labels.md)
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

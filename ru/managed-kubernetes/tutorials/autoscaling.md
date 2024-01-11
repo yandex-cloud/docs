@@ -24,7 +24,7 @@
    * Сервисный аккаунт `sa-k8s-nodes` для управления группой узлов:
      * `container-registry.images.puller` — для загрузки образов из [{{ container-registry-full-name }}](../../container-registry/).
 1. [Создайте сеть](../../vpc/quickstart.md) с именем `k8s-network` для размещения кластера. При создании сети выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-1. [Создайте группы безопасности](../operations/connect/security-groups.md) для мастера и узлов:
+1. [Создайте группы безопасности](../operations/connect/security-groups.md):
    * `sg-k8s` — для [мастера и группы узлов](../operations/connect/security-groups.md#rules-internal).
    * `k8s-public-services` — для обеспечения [публичного доступа к сервисам из интернета](../operations/connect/security-groups.md#rules-nodes).
    * `k8s-master-whitelist` — для [доступа к API {{ k8s }}](../operations/connect/security-groups.md#rules-master).

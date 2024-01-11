@@ -27,7 +27,7 @@
 
      {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
 
-  1. Создайте нужные [группы безопасности](../connect/security-groups.md).
+  1. [Создайте и настройте нужные группы безопасности](../connect/security-groups.md).
 
   1. Изучите [рекомендации по использованию {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 

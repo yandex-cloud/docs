@@ -73,10 +73,10 @@ Here are the examples of variables with date and time modifiers:
 | Variable | Value | Notation format |
 ----- | ----- | -----
 | `not_var{{currentDateTime.iso8601}}` | Current date and time in the ISO 8601 format | `YYYY-MM-DDThh:mm:ss.sssZ` |
-| `not_var{{currentDateTime.unixEpoch}}` | The current time in Unix Time format | `1638735223` |
-| `not_var{{currentDateTime.date}}` | The current date | `06 december 2021` |
-| `not_var{{issue.start.iso8601}}` | Issue start date in the ISO 8601 format | `YYYY-MM-DD` |
-| `not_var{{issue.start.unixEpoch}}` | Issue start date in the Unix Time format | `1638855321` |
+| `not_var{{currentDateTime.unixEpoch}}` | Current time in Unix Time format | `1638735223` |
+| `not_var{{currentDateTime.date}}` | Current date | `06 december 2021` |
+| `not_var{{issue.start.iso8601}}` | Issue start date in ISO 8601 format | `YYYY-MM-DD` |
+| `not_var{{issue.start.unixEpoch}}` | Issue start date in Unix Time format | `1638855321` |
 
 ### JSON modifiers {#json-variable}
 
@@ -97,15 +97,15 @@ Examples of variables in JSON format:
 
 {% note warning %}
 
-{{ tracker-name }} supports transmitting values in JSON format for simple field types that have such formats as string, number, and arrays of strings or numbers. The "Object" field type isn't supported: for example, the `not_var{{issue.author.json}}` variable won't work. Instead of it, you can use a variable to get a simple field attribute: `not_var{{issue.author.login.json}}`.
+{{ tracker-name }} supports transmitting values in JSON format for simple field types that have such formats as string, number, and arrays of strings or numbers. The "Object" field type is not supported: for example, the `not_var{{issue.author.json}}` variable will not work. Instead of it, you can use a variable to get a simple field attribute: `not_var{{issue.author.login.json}}`.
 
 {% endnote %}
 
-## Comment variables {#comment-var}
+## Comments {#comment-variables}
 
-Using variables, you can get some attributes of issue comments. These variables have the format: `{{<comment type>.<attribute>}}`, where `<comment type>` is selected depending on the author (user or robot), while `<attribute>` is the comment's parameter.
+Using variables, you can get some attributes of issue comments. These variables have the `{{<comment type>.<attribute>}}` format, where `<comment type>` is selected depending on the author (user or robot), and `<attribute>` is the comment's parameter.
 
-Possible <comment type> values:
+The possible <comment type> values include:
 * `userComment`: Comment from the current edit operation. If a user has made more than one comment, the first one will be considered.
 * `generatedComment`: Comment generated automatically as a result of a fired trigger or auto action.
 

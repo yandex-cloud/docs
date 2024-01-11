@@ -30,11 +30,11 @@ We recommend using access to the serial console only when absolutely necessary.
    1. Open the settings of all the necessary VMs.
    1. Under **Access**, find the **Additional** parameter.
    1. **Serial console access** must be disabled.
-   1. If it's disabled for all the VMs, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If it is disabled for all the VMs, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -52,7 +52,7 @@ We recommend using access to the serial console only when absolutely necessary.
       done
       ```
 
-   1. If an empty value is set in VM_ID next to FOLDER_ID, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty value is set in VM_ID next to FOLDER_ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -77,11 +77,11 @@ When deploying virtual machines, we recommend:
    1. Go to the **Disks** tab.
    1. Open the settings of all disks.
    1. Under **Source**, find the **Identifier** parameter.
-   1. If every disk displays the ID of your benchmark image, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If every disk displays the ID of your benchmark image, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -102,7 +102,7 @@ When deploying virtual machines, we recommend:
       done
       ```
 
-   1. If an empty value is set in DISK_ID next to FOLDER_ID, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty value is set in DISK_ID next to FOLDER_ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -225,7 +225,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Click the three dots next to each bucket and check their ACLs for allUsers and allAuthenticatedUsers.
    1. Open the bucket and check the ACL of each of its objects for allUsers and allAuthenticatedUsers.
-   1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -262,7 +262,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
    1. In the management console, select the cloud or folder to check the bucket policies in.
    1. From the list of services, select {{ objstorage-name }}.
    1. Go to **Access policy**.
-   1. Make sure that at least one policy is enabled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. Make sure that at least one policy is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -302,7 +302,7 @@ The storage period of critical data in a bucket is determined by the client's in
    1. In the management console, select the cloud or folder to check the buckets in.
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Open the settings of all buckets.
-   1. Go to the **Versioning** tab and make sure it's enabled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -354,7 +354,7 @@ If [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_s
    1. In the management console, select the cloud or folder to check the buckets in.
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Open the settings of all buckets.
-   1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to the "Instructions and solutions to use".
+   1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -375,7 +375,7 @@ We recommend prohibiting internet access to databases that contain critical data
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, find the **Security group** parameter and make sure that at least one security group is assigned.
-   1. If the parameters of each object have at least one security group set, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object have at least one security group set, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -391,7 +391,7 @@ We recommend prohibiting internet access to databases that contain critical data
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Checking if managed databases have SGs
 
@@ -407,7 +407,7 @@ We recommend prohibiting internet access to databases that contain critical data
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. If not, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -425,11 +425,11 @@ Assigning a public IP to a managed database raises information security risks. W
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, go to the **Hosts** tab.
-   1. If the parameters of each object have the **Public access** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object have the **Public access** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -447,7 +447,7 @@ Assigning a public IP to a managed database raises information security risks. W
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. If not, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -466,11 +466,11 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, go to the **Advanced settings** tab.
-   1. If the parameters of each object have the **Deletion protection** option enabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object have the **Deletion protection** option enabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -488,7 +488,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -510,11 +510,11 @@ You shouldn't enable access to databases containing critical data from the manag
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, go to the **Advanced settings** tab.
-   1. If the parameters of each object have **Access from {{ datalens-short-name }}** disabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object have **Access from {{ datalens-short-name }}** disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -532,7 +532,7 @@ You shouldn't enable access to databases containing critical data from the manag
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -556,11 +556,11 @@ We recommend that you enable this type of access only if needed, because it rais
    1. In the management console, select the cloud or folder to check the databases in.
    1. In the list of services, select a service or services with managed databases.
    1. In the object settings, go to the **Advanced settings** tab.
-   1. If the parameters of each object have **Access from the management console** disabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object have **Access from the management console** disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -578,7 +578,7 @@ We recommend that you enable this type of access only if needed, because it rais
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -603,7 +603,7 @@ In cases where the use of public functions is not explicitly required, we recomm
    1. In the list of services, select **{{ sf-name }}**.
    1. Open all the functions.
    1. In the function settings, go to the **Overview** tab.
-   1. If the parameters of each object have the **Public function** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object have the **Public function** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -620,7 +620,7 @@ In cases where the use of public functions is not explicitly required, we recomm
       done
       ```
 
-   1. If none of the specified resources contain `allUsers` and `allAuthenticatedUsers`, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If none of the specified resources contain `allUsers` and `allAuthenticatedUsers`, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -665,7 +665,7 @@ If necessary, you can specify a cloud network in function settings. In this case
    1. From the list of services, select {{ sf-name }}.
    1. Open all the functions.
    1. In the object settings, go to the **Edit function version** tab.
-   1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -682,7 +682,7 @@ If necessary, you can specify a cloud network in function settings. In this case
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -718,11 +718,11 @@ When setting up database permissions, use the principle of least privilege.
    1. In the list of services, select **{{ ydb-name }}**.
    1. Open all the databases.
    1. In the database settings, go to the **Network** tab.
-   1. If the parameters of each object have the **Public IP addresses** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameters of each object have the **Public IP addresses** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -740,7 +740,7 @@ When setting up database permissions, use the principle of least privilege.
       done
       ```
 
-   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -767,11 +767,11 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
    1. In the management console, select the cloud or folder to check the registry in.
    1. In the list of services, select **{{ container-registry-short-name }}**.
    1. In the settings of the specific registry, go to the **Access for IP address** tab.
-   1. If specific IPs to allow access for are set in the parameters, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If specific IPs to allow access for are set in the parameters, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -789,7 +789,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
       done
       ```
 
-   1. If PULL/PUSH is output before each registry ID, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If PULL/PUSH is output before each registry ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -810,13 +810,13 @@ We do not recommend that you use privileged containers to run loads that process
    1. In the list of services, select **{{ compute-short-name }}**.
    1. Open the settings of a specific VM with a **Container Optimized Image**.
    1. In the Docker container's **Settings**, find the **Privileged mode** parameter.
-   1. If it's disabled, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If it s disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
        
 
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -835,7 +835,7 @@ We do not recommend that you use privileged containers to run loads that process
       done
       ```
 
-   1. If you don't see `privileged: true` before any VM ID, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If you don't see `privileged: true` before any VM ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -866,11 +866,11 @@ We recommend that you update certificates in advance if they are not [updated au
    1. In the management console, select the cloud or folder to check the VMs in.
    1. In the list of services, select **{{ certificate-manager-full-name }}**.
    1. Open the settings of each certificate and find the **End date** parameter.
-   1. If the parameter shows that the certificate will be valid for at least 30 days more, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If the parameter shows that the certificate will be valid for at least 30 days more, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
-   1. See what organizations are available to you and write down the desired ID:
+   1. See what organizations are available to you and write down the ID you need:
 
       ```bash
       yc organization-manager organization list
@@ -889,7 +889,7 @@ We recommend that you update certificates in advance if they are not [updated au
       done
       ```
 
-   1. If you don't see `privileged: true` before any VM ID, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If you don't see `privileged: true` before any VM ID, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 

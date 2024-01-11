@@ -66,38 +66,7 @@ Service name: `serverless.apigateway`.
 
 Service name: `apploadbalancer`.
 
-| Event name | Description |
---- | ---
-| `AddBackendGroupBackend` | Adding a backend to a backend group |
-| `AddLoadBalancerListener` | Adding a listener to a load balancer |
-| `AddLoadBalancerSniMatch` | Adding an SNI match to a load balancer |
-| `AddTargetGroupTargets` | Adding a VM to a target group |
-| `CreateBackendGroup` | Creating a backend group |
-| `CreateHttpRouter` | Create an HTTP router |
-| `CreateLoadBalancer` | Creating a load balancer |
-| `CreateTargetGroup` | Creating a target group |
-| `CreateVirtualHost` | Creating a virtual host |
-| `DeleteBackendGroup` | Deleting a backend group |
-| `DeleteHttpRouter` | Delete an HTTP router |
-| `DeleteLoadBalancer` | Deleting a load balancer |
-| `DeleteTargetGroup` | Deleting a target group |
-| `DeleteVirtualHost` | Deleting a virtual host |
-| `RemoveBackendGroupBackend` | Removing a backend from a backend group |
-| `RemoveLoadBalancerListener` | Removing a listener from a load balancer |
-| `RemoveLoadBalancerSniMatch` | Removing an SNI match from a load balancer |
-| `RemoveTargetGroupTargets` | Removing a VM from a target group |
-| `RemoveVirtualHostRoute` | Deleting a virtual host route |
-| `StartLoadBalancer` | Starting a load balancer |
-| `StopLoadBalancer` | Stopping a load balancer |
-| `UpdateBackendGroup` | Updating a backend group |
-| `UpdateBackendGroupBackend` | Updating a backend in a backend group |
-| `UpdateHttpRouter` | Update an HTTP router |
-| `UpdateLoadBalancer` | Updating a load balancer |
-| `UpdateLoadBalancerListener` | Updating a listener in a load balancer |
-| `UpdateLoadBalancerSniMatch` | Updating an SNI match in a load balancer |
-| `UpdateTargetGroup` | Editing a target group |
-| `UpdateVirtualHost` | Updating a virtual host |
-| `UpdateVirtualHostRoute` | Updating a virtual host route |
+{% include [alb-events](../../_includes/audit-trails/events/alb-events.md) %}
 
 ## {{ at-name }} {#audit-trails}
 
@@ -209,7 +178,7 @@ Service name: `logging`.
 | Event name | Description |
 --- | ---
 | `CreateLogGroup` | Creating a log group |
-| `UpdateLogGroup` | Editing a log group |
+| `UpdateLogGroup` | Updating a log group |
 | `DeleteLogGroup` | Deleting a log group |
 | `SetLogGroupAccessBindings` | Setting access bindings for a log group |
 | `UpdateLogGroupAccessBindings` | Updating access bindings for a log group |
@@ -307,13 +276,13 @@ Service name: `dataproc`.
 
 | Event name | Description |
 --- | ---
-| `CreateCluster` | Creating clusters |
+| `CreateCluster` | Creating a cluster |
 | `CreateSubcluster` | Creating a subcluster |
-| `DeleteCluster` | Deleting clusters |
+| `DeleteCluster` | Deleting a cluster |
 | `DeleteSubcluster` | Deleting a subcluster |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
-| `UpdateCluster` | Updating clusters |
+| `StartCluster` | Starting a cluster |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
 | `UpdateSubcluster` | Updating subclusters |
 
 ## {{ data-transfer-name }} {#datatransfer}
@@ -449,8 +418,8 @@ Service name: `mdb.kafka`.
 
 | Event name | Description |
 --- | ---
-| `CreateCluster` | Creating clusters |
-| `DeleteCluster` | Deleting clusters |
+| `CreateCluster` | Creating a cluster |
+| `DeleteCluster` | Deleting a cluster |
 | `StartCluster` | Starting a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
@@ -479,14 +448,14 @@ Service name: `mdb.clickhouse`.
 | `AddClusterShard` | Adding a shard to a cluster |
 | `AddClusterZookeeper` | Adding a ZooKeeper subcluster to a cluster |
 | `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating clusters |
+| `CreateCluster` | Creating a cluster |
 | `CreateClusterExternalDictionary` | Creating an external dictionary |
 | `CreateDatabase` | Creating a database |
 | `CreateFormatSchema` | Creating a data format schema |
 | `CreateMlModel` | Creating a machine learning model |
 | `CreateShardGroup` | Creating a shard group |
 | `CreateUser` | Creating a database user |
-| `DeleteCluster` | Deleting clusters |
+| `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterExternalDictionary` | Editing an external dictionary |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteClusterShard` | Deleting a shard from a cluster |
@@ -499,9 +468,9 @@ Service name: `mdb.clickhouse`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
-| `UpdateCluster` | Updating clusters |
+| `StartCluster` | Starting a cluster |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
 | `UpdateClusterShard` | Editing a cluster shard |
 | `UpdateFormatSchema` | Editing a data schema format |
 | `UpdateMlModel` | Editing a machine learning model |
@@ -533,13 +502,13 @@ Service name: `mdb.greenplum`.
 
 | Event name | Description |
 --- | ---
-| `CreateCluster` | Creating clusters |
-| `DeleteCluster` | Deleting clusters |
+| `CreateCluster` | Creating a cluster |
+| `DeleteCluster` | Deleting a cluster |
 | `ExpandCluster` | Expanding a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
-| `UpdateCluster` | Updating clusters |
+| `StartCluster` | Starting a cluster |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
 
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
@@ -551,10 +520,10 @@ Service name: `mdb.mongodb`.
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `AddClusterShard` | Adding a shard to a cluster |
 | `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating clusters |
+| `CreateCluster` | Creating a cluster |
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
-| `DeleteCluster` | Deleting clusters |
+| `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteClusterShard` | Deleting a shard from a cluster |
 | `DeleteDatabase` | Deleting a database |
@@ -564,7 +533,7 @@ Service name: `mdb.mongodb`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
+| `StartCluster` | Starting a cluster |
 | `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
 | `UpdateUser` | Editing a database user |
@@ -581,16 +550,16 @@ Service name: `k8s`.
 --- | ---
 | `AutoUpgradeCluster` | Performing cluster auto-updates |
 | `AutoUpgradeNodeGroup` | Performing node group auto-updates |
-| `CreateCluster` | Creating clusters |
+| `CreateCluster` | Creating a cluster |
 | `CreateNodeGroup` | Creating a node group |
-| `DeleteCluster` | Deleting clusters |
+| `DeleteCluster` | Deleting a cluster |
 | `DeleteNodeGroup` | Deleting a node group |
 | `DeleteStoppedCluster` | Deleting a stopped cluster |
 | `InstallHelmRelease` | Installing a Helm version |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
+| `StartCluster` | Starting a cluster |
+| `StopCluster` | Stopping a cluster |
 | `UninstallHelmRelease` | Destroying a Helm version |
-| `UpdateCluster` | Updating clusters |
+| `UpdateCluster` | Updating a cluster |
 | `UpdateHelmRelease` | Updating a Helm version |
 | `UpdateNodeGroup` | Changing a node group |
 
@@ -602,11 +571,11 @@ Service name: `mdb.mysql`.
 --- | ---
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating clusters |
+| `CreateCluster` | Creating a cluster |
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
 | `DeleteBackup` | Deleting backups |
-| `DeleteCluster` | Deleting clusters |
+| `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteDatabase` | Deleting a database |
 | `DeleteUser` | Deleting a database user |
@@ -617,8 +586,8 @@ Service name: `mdb.mysql`.
 | `RevokeUserPermission` | Revoking a database user's privileges |
 | `StartCluster` | Starting a cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping cluster |
-| `UpdateCluster` | Updating clusters |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
 | `UpdateUser` | Editing a database user |
 
@@ -630,11 +599,11 @@ Service name: `mdb.postgresql`.
 --- | ---
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating clusters |
+| `CreateCluster` | Creating a cluster |
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
 | `DeleteBackup` | Deleting backups |
-| `DeleteCluster` | Deleting clusters |
+| `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteDatabase` | Deleting a database |
 | `DeleteUser` | Deleting a database user |
@@ -642,9 +611,9 @@ Service name: `mdb.postgresql`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
-| `UpdateCluster` | Updating clusters |
+| `StartCluster` | Starting a cluster |
+| `StopCluster` | Stopping a cluster |
+| `UpdateCluster` | Updating a cluster |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
 | `UpdateDatabase` | Updating a database |
 | `UpdateUser` | Editing a database user |
@@ -658,16 +627,16 @@ Service name: `mdb.redis`.
 | `AddClusterHosts` | Adding new hosts to a cluster |
 | `AddClusterShard` | Adding a shard to a cluster |
 | `BackupCluster` | Creating backups |
-| `CreateCluster` | Creating clusters |
-| `DeleteCluster` | Deleting clusters |
+| `CreateCluster` | Creating a cluster |
+| `DeleteCluster` | Deleting a cluster |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteClusterShard` | Deleting a shard from a cluster |
 | `MoveCluster` | Moving a cluster |
 | `RebalanceCluster` | Rebalancing a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting cluster |
+| `StartCluster` | Starting a cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping cluster |
+| `StopCluster` | Stopping a cluster |
 | `UpdateCluster` | Updating a cluster |
 | `UpdateClusterHosts` | Updating cluster hosts |
 
@@ -918,3 +887,5 @@ Service name: `yq`.
 | `UpdateBinding` | Updating a data binding |
 | `UpdateConnection` | Updating a connection |
 | `UpdateQuery` | Updating a query |
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

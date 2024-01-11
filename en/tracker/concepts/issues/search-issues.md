@@ -253,8 +253,8 @@ Sequence of request execution:
   - `Link`: URLs of the first and next result pages:
 
       ```
-      Link: <https://api.tracker.yandex.net/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollType=sorted&scrollTTLMillis=10000&perScroll=2000>; rel="first"
-      Link: <https://api.tracker.yandex.net/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollTTLMillis=10000&scrollId=6554d4cbbda0de18********&scrollToken=dummy-token-you-dont-have-to-specify-it>; rel="next"
+      Link: <https://{{ host }}/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollType=sorted&scrollTTLMillis=10000&perScroll=2000>; rel="first"
+      Link: <https://{{ host }}/v2/issues/_search?expand=&embed=&fields=&staleOk=false&scrollTTLMillis=10000&scrollId=6554d4cbbda0de18********&scrollToken=dummy-token-you-dont-have-to-specify-it>; rel="next"
       ```
 
       Use the URL from the header with the `rel="next"` parameter to get the next results page.

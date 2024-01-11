@@ -129,7 +129,7 @@ Enable access over HTTPS if a bucket is used for hosting a static website.
       done
       ```
 
-   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -171,7 +171,7 @@ Enable an HTTPS listener using the instructions.
       done
       ```
 
-   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -217,7 +217,7 @@ Enable an HTTPS listener using the instructions.
       done
       ```
 
-   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -429,7 +429,7 @@ Check out who is granted access to {{ kms-short-name }} keys.
 #### 4.11 For {{ kms-short-name }} keys, rotation is enabled {#keys-rotation}
 
 To improve the security of your infrastructure, we recommend that you categorize your encryption keys into two groups:
-* Keys for services that process critical data, but do not store it, e.g., {{ message-queue-name }} and {{ sf-name }}.
+* Keys for services that process critical data but do not store it. e.g., {{ message-queue-name }} and {{ sf-name }}.
 * Keys for services that store critical data, e.g., Managed Services for Databases.
 
 For the first group, we recommend that you set up automatic key rotation with a rotation period longer than the data processing period in these services. When the rotation period expires, the old key versions must be deleted. In the case of automatic rotation and the deletion of old key versions, previously processed data cannot be restored and decrypted.
@@ -454,7 +454,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
    1. In the list of services, select **{{ kms-name }}**.
    1. Go to the key settings.
    1. Find the **Rotation period** parameter.
-   1. If the parameter is set to any value other than **No rotation**, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If the parameter is set to any value different from **No rotation**, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -475,7 +475,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
       done
       ```
 
-   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -516,7 +516,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, be 
       done
       ```
 
-   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -575,7 +575,7 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
       done
       ```
 
-   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -601,7 +601,7 @@ Make sure that the secrets are used as described above.
    1. In the list of services, select **{{ sf-name }}**.
    1. Go to the function settings, the **Editor** tab.
    1. Find the **{{ lockbox-short-name }} secrets** parameter.
-   1. If you see **{{ lockbox-short-name }} secrets** in the parameters of each object, or if there are no environment variables with secret data, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If the parameters of each object specify **{{ lockbox-short-name }} secrets** or there are no environment variables with secret data, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 - Performing a check via the CLI
 
@@ -618,7 +618,7 @@ Make sure that the secrets are used as described above.
       done
       ```
 
-   1. If the list is empty, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+   1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -628,7 +628,7 @@ Delete the secret data from env and [use](../../../functions/operations/function
 
 #### 4.15 When working with {{ coi }}, secret encryption is used {#secrets-coi}
 
-{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, in particular for transferring secrets to a VM in encrypted form. For more information, refer to the [Encrypting secrets in {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) section of the {{ kms-short-name }} documentation. It is not safe to openly transmit secrets through environment variables, because they are displayed in the VM properties.
+{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, e.g., for transferring secrets to a VM in encrypted form. See the [Encrypting secrets in {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) section of the {{ kms-short-name }} documentation. It is not safe to openly transmit secrets through environment variables, because they are displayed in the VM properties.
 
 **Guides and solutions to use:**
 

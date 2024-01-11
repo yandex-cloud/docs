@@ -3,7 +3,7 @@
 - **Host**
       Address of the node that provides the API:
    ```
-   https://api.tracker.yandex.net
+   https://{{ host }}
    ```
 
 - **Authorization**
@@ -19,6 +19,6 @@
 
 - **Content-Type**
 
-   Request body format. Must be `multipart/form-data`.
+   Request body format. The required value is `multipart/form-data`.
 
 {% endcut %}

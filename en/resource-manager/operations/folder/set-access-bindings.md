@@ -14,7 +14,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. See the description of the command to assign a role for a folder:
+   1. View the description of the command to assign a role for a folder:
 
       ```bash
       yc resource-manager folder add-access-binding --help
@@ -32,7 +32,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       +----------------------+-----------+--------+--------+
       |          ID          |   NAME    | LABELS | STATUS |
       +----------------------+-----------+--------+--------+
-      | b1gd129pp9ha0vnvf5g7 | my-folder |        | ACTIVE |
+      | b1gd129pp9ha******** | my-folder |        | ACTIVE |
       +----------------------+-----------+--------+--------+
       ```
 
@@ -66,7 +66,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       Result:
 
       ```bash
-      id: gfei8n54hmfhuk5nogse
+      id: gfei8n54hmfh********
       yandex_passport_user_account:
         login: test-user
         default_email: test-user@yandex.ru
@@ -77,68 +77,9 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```bash
       yc resource-manager folder add-access-binding my-folder \
         --role editor \
-        --subject userAccount:gfei8n54hmfhuk5nogse
+        --subject userAccount:gfei8n54hmfh********
       ```
 
-- API
-
-   Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call. You will need the folder ID and the ID of the user who is assigned the role for the folder.
-
-   1. Find out the folder ID using the [list](../../api-ref/Folder/list.md) REST API method:
-      ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
-      ```
-
-      Result:
-
-      ```json
-      {
-       "folders": [
-        {
-         "id": "b1g66mft1vopnevbn57j",
-         "cloudId": "b1gd129pp9ha0vnvf5g7",
-         "createdAt": "2018-10-17T12:44:31Z",
-         "name": "my-folder",
-         "status": "ACTIVE"
-        }
-       ]
-      }
-      ```
-  1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
-      ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
-      ```
-
-      Result:
-
-      ```json
-      {
-       "id": "gfei8n54hmfhuk5nogse",
-       "yandexPassportUserAccount": {
-        "login": "test-user",
-        "defaultEmail": "test-user@yandex.ru"
-       }
-      }
-      ```
-  1. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
-
-      ```bash
-      curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-TOKEN>" \
-        -d '{
-        "accessBindingDeltas": [{
-            "action": "ADD",
-            "accessBinding": {
-                "roleId": "editor",
-                "subject": {
-                    "id": "gfei8n54hmfhuk5nogse",
-                    "type": "userAccount"
-        }}}]}' \
-        https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
-      ```
 
 - {{ TF }}
 
@@ -164,9 +105,9 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
          {% endnote %}
 
       * `member`: User to assign the role to. This is a required parameter. Possible values:
-                  * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
-         * `serviceAccount:<service account ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
-         * `federatedUser:<user account ID>`: [User account ID](../../../organization/operations/users-get.md).
+                  * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md)
+         * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md)
+         * `federatedUser:<user_account_ID>`: [User account ID](../../../organization/operations/users-get.md)
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -174,7 +115,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```hcl
       ...
       data "yandex_resourcemanager_folder" "project1" {
-        folder_id = "<folder ID>"
+        folder_id = "<folder_ID>"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -218,8 +159,69 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```
-     yc resource-manager folder list-access-bindings <folder name>|<folder ID>
+     yc resource-manager folder list-access-bindings <folder_name_or_ID>
      ```
+
+- API
+
+   Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call. You will need the folder ID and the ID of the user to whom you want to assign the role for the folder.
+
+  1. Find out the folder ID using the [list](../../api-ref/Folder/list.md) REST API method:
+     ```bash
+     curl -H "Authorization: Bearer <IAM_token>" \
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
+     ```
+
+     Result:
+
+     ```json
+     {
+       "folders": [
+        {
+         "id": "b1g66mft1vop********",
+         "cloudId": "b1gd129pp9ha********",
+         "createdAt": "2018-10-17T12:44:31Z",
+         "name": "my-folder",
+         "status": "ACTIVE"
+        }
+       ]
+     }
+     ```
+  1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+     ```bash
+     curl -H "Authorization: Bearer <IAM_token>" \
+        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+     ```
+
+     Result:
+
+     ```json
+     {
+       "id": "gfei8n54hmfh********",
+       "yandexPassportUserAccount": {
+        "login": "test-user",
+        "defaultEmail": "test-user@yandex.ru"
+       }
+     }
+     ```
+  1. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+
+   ```bash
+   curl -X POST \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer <IAM_token>" \
+     -d '{
+     "accessBindingDeltas": [{
+         "action": "ADD",
+         "accessBinding": {
+             "roleId": "editor",
+             "subject": {
+                 "id": "gfei8n54hmfh********",
+                 "type": "userAccount"
+     }}}]}' \
+     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+   ```
+
 
 {% endlist %}
 
@@ -238,11 +240,11 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
 
-   {% note alert %}
+  {% note alert %}
 
-   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
+  The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
 
-   {% endnote %}
+  {% endnote %}
 
    1. Make sure the resource has no roles assigned that you would rather not lose:
       ```bash
@@ -251,62 +253,9 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
    1. For example, assign a role to multiple users:
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
-        --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
+        --access-binding role=viewer,subject=userAccount:helj89sfj80a********
       ```
-
-- API
-
-   Assign the `editor` role to one user and the `viewer` role to another user:
-
-   ```bash
-   curl -X POST \
-     -H 'Content-Type: application/json' \
-     -H "Authorization: Bearer <IAM-TOKEN>" \
-     -d '{
-     "accessBindingDeltas": [{
-         "action": "ADD",
-         "accessBinding": {
-             "roleId": "editor",
-             "subject": {
-                 "id": "gfei8n54hmfhuk5nogse",
-                 "type": "userAccount"
-             }
-         }
-     },{
-         "action": "ADD",
-         "accessBinding": {
-             "roleId": "viewer",
-             "subject": {
-                 "id": "helj89sfj80aj24nugsz",
-                 "type": "userAccount"
-     }}}]}' \
-     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
-   ```
-
-  You can also assign roles using the [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
-
-  {% note alert %}
-
-  The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
-
-  {% endnote %}
-
-
-  ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{
-      "accessBindings": [{
-          "roleId": "editor",
-          "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
-      },{
-          "roleId": "viewer",
-          "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
-      }]}' \
-      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
-  ```
 
 - {{ TF }}
 
@@ -331,7 +280,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). Required parameter.
+      * `member`: User to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user_ID>`, where `<user_ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). This is a required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -339,7 +288,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```hcl
       ...
       data "yandex_resourcemanager_folder" "project1" {
-        folder_id = "<folder ID>"
+        folder_id = "<folder_ID>"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -388,8 +337,62 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```
-     yc resource-manager folder list-access-bindings <folder name>|<folder ID>
+     yc resource-manager folder list-access-bindings <folder_name_or_ID>
      ```
+
+- API
+
+   Assign the `editor` role to one user and the `viewer` role to another user:
+
+   ```bash
+   curl -X POST \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer <IAM_token>" \
+     -d '{
+     "accessBindingDeltas": [{
+         "action": "ADD",
+         "accessBinding": {
+             "roleId": "editor",
+             "subject": {
+                 "id": "gfei8n54hmfh********",
+                 "type": "userAccount"
+             }
+         }
+     },{
+         "action": "ADD",
+         "accessBinding": {
+             "roleId": "viewer",
+             "subject": {
+                 "id": "helj89sfj80a********",
+                 "type": "userAccount"
+     }}}]}' \
+     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+   ```
+
+  You can also assign roles using the [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
+
+  {% note alert %}
+
+  The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+
+  {% endnote %}
+
+
+  ```bash
+  curl -X POST \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer <IAM_token>" \
+     -d '{
+     "accessBindings": [{
+          "roleId": "editor",
+          "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
+     },{
+          "roleId": "viewer",
+          "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
+     }]}' \
+     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
+  ```
+
 
 {% endlist %}
 
@@ -407,10 +410,6 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [grant-role-for-sa-to-folder-via-cli](../../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md) %}
-
-- API
-
-   {% include [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
 - {{ TF }}
 
@@ -435,20 +434,20 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. This is a required parameter.
+      * `member`: User to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service_account_ID>`, where `<service_account_ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. This is a required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
       ```hcl
       ...
       data "yandex_resourcemanager_folder" "project1" {
-        folder_id = "<folder ID>"
+        folder_id = "<folder_ID>"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
         role      = "editor"
-        member    = "serviceAccount:<service account ID>"
+        member    = "serviceAccount:<service_account_ID>"
       }
       ...
       ```
@@ -485,8 +484,12 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc resource-manager folder list-access-bindings <folder name>|<folder ID>
+      yc resource-manager folder list-access-bindings <folder_name_or_ID>
       ```
+
+- API
+
+   {% include [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
 {% endlist %}
 
@@ -508,24 +511,23 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
    1. Assign the role using the command:
 
       ```bash
-      yc resource-manager folder add-access-binding <folder-name>|<folder-id> \
-          --role <role-id> \
-          --subject federatedUser:<federated-user-id>
+      yc resource-manager folder add-access-binding <folder_name_or_ID> \
+          --role <role_ID> \
+          --subject federatedUser:<user_ID>
       ```
 
       Where:
 
-      * `<folder-name>`: Folder name. You can specify a folder by its name or ID.
-      * `<folder-id>`: Folder ID.
-      * `<role-id>`: Role ID, e.g., `editor`.
-      * `<federated-user-id>`: ID of user account assigned the role.
+      * `<folder_name_or_ID>`: Folder name or ID.
+      * `--role`: Role ID, e.g., `editor`.
+      * `--subject`: ID of the user account to which the role is assigned.
 
-      For example, grant a federated user with the ID `aje6o61dvog2h6g9a33s` the `editor` role to the `my-folder` folder:
+      For example, grant a federated user with the ID `aje6o61dvog2********` the `editor` role to the `my-folder` folder:
 
       ```bash
       yc resource-manager folder add-access-binding my-folder \
           --role editor \
-          --subject federatedUser:aje6o61dvog2h6g9a33s
+          --subject federatedUser:aje6o61dvog2********
       ```
 
 {% endlist %}

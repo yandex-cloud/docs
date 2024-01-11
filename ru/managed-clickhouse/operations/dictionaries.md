@@ -20,14 +20,14 @@
 
 ## Получить список словарей {#get-dicts-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,11 +49,11 @@
 
     Подключенные словари отображаются в блоке `dictionaries:` результата выполнения команды.
 
-- API
+- API {#api}
 
     Чтобы просмотреть список словарей, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/cluster_service.md#Get).
 
-- SQL
+- SQL {#sql}
 
     1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
     1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
@@ -62,9 +62,9 @@
 
 ## Подключить словарь {#add-dictionary}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% note warning %}
 
@@ -77,7 +77,7 @@
     1. В правом верхнем углу экрана нажмите **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
     1. Укажите [настройки словаря](#settings-console) и нажмите **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
     {% note warning %}
 
@@ -106,7 +106,7 @@
            ...
         ```
 
-- API
+- API {#api}
 
     {% note warning %}
 
@@ -116,7 +116,7 @@
 
     Чтобы подключить словарь, воспользуйтесь методом REST API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateExternalDictionary](../api-ref/grpc/cluster_service.md#CreateExternalDictionary).
 
-- SQL
+- SQL {#sql}
 
     {% note warning %}
 
@@ -141,15 +141,15 @@
 
 ## Удалить словарь {#delete-dictionary}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -171,11 +171,11 @@
            --dict-name=<имя_словаря>
         ```
 
-- API
+- API {#api}
 
     Чтобы удалить словарь, воспользуйтесь методом REST API [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteExternalDictionary](../api-ref/grpc/cluster_service.md#DeleteExternalDictionary).
 
-- SQL
+- SQL {#sql}
 
     1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
     1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя_БД>.<имя_словаря>`.
@@ -396,9 +396,9 @@
 
 ## Примеры
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
     Подключите словарь с тестовыми характеристиками:
 

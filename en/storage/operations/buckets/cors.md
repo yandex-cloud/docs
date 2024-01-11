@@ -51,8 +51,8 @@
       Where:
       * `--name`: Name of the bucket to set up the CORS configuration in.
       * `--cors`: CORS parameters:
-         * `allowed-methods`: List of methods. Possible values: `method-get`, `method-put`, `method-post`, `method-delete`, and `method-head`. This parameter is required.
-         * `allowed-origins`: List of websites that allow sending cross-domain requests to a bucket. This parameter is required.
+         * `allowed-methods`: List of methods. Possible values: `method-get`, `method-put`, `method-post`, `method-delete`, and `method-head`. This is a required parameter.
+         * `allowed-origins`: List of websites that allow sending cross-domain requests to a bucket. This is a required parameter.
          * `allowed-headers`: List of allowed headers. This is an optional parameter.
          * `expose-headers`: List of headers that can be displayed in a JavaScript app in the browser. This is an optional parameter.
          * `max-age-seconds`: Time in seconds during which the results of requests to an object are cached by the browser. This is an optional parameter.
@@ -85,7 +85,7 @@
 
    To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-   1. Describe the CORS object configurations in JSON format, e.g.:
+   1. Describe the CORS object configurations in JSON format. Here is an example:
 
       ```json
       {
@@ -100,9 +100,9 @@
       }
       ```
 
-      When you're done, you can save your configuration as a file, for example, `cors.json`.
+      You can save your configuration as a file, for example, `cors.json`.
 
-   1. Upload the configuration to a bucket, for example, `shared-bucket`:
+   1. Upload the configuration to a bucket, e.g., `shared-bucket`:
 
       ```bash
       aws s3api put-bucket-cors \
@@ -122,18 +122,18 @@
       
       ```hcl
       provider "yandex" {
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-        token     = "<OAuth token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<availability_zone>"
+        token     = "<OAuth_token>"
         }
 
       resource "yandex_storage_bucket" "b" {
         bucket = "s3-website-test.hashicorp.com"
         acl    = "public-read"
 
-        access_key = "<key ID>"
-        secret_key = "<secret key>"
+        access_key = "<key_ID>"
+        secret_key = "<secret_key>"
 
         cors_rule {
           allowed_headers = ["*"]
@@ -151,28 +151,28 @@
 
       * `access_key`: ID of the static access key.
       * `secret_key`: Value of the secret access key.
-      * `bucket`: Bucket name. This parameter is required.
+      * `bucket`: Bucket name. This is a required parameter.
       * `acl`: Applied ACL policy. This is an optional parameter.
 
       `CORS` parameters:
       * `allowed_headers`: Allowed headers. This is an optional parameter.
-      * `allowed_methods`: Allowed methods. Possible values are `GET`, `PUT`, `POST`, `DELETE`, or `HEAD`. This parameter is required.
-      * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. This parameter is required.
+      * `allowed_methods`: Allowed methods. Possible values are `GET`, `PUT`, `POST`, `DELETE`, or `HEAD`. This is a required parameter.
+      * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. This is a required parameter.
       * `expose_headers`: Header that can be displayed in a JavaScript app in the browser. This is an optional parameter.
       * `max_age_seconds`: Time in seconds during which the results of requests to an object are cached by the browser. This is an optional parameter.
       * `server_side_encryption_configuration`: Bucket encryption settings on the server side. This is an optional parameter.
 
-      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
@@ -183,7 +183,7 @@
 
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 

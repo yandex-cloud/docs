@@ -33,24 +33,24 @@ A `JOIN` is not used if:
 - The dataset contains one table.
 - The dataset contains multiple tables, but the query accesses the fields of only one of those tables.
 
-For more information about optimization when using a `JOIN`, see [{#T}](../data-join.md#join-optimization).
+For more information about optimization when using `JOIN`, see [{#T}](../data-join.md#join-optimization).
 
 ## Data fields {#field}
 
 The fields define the structure and format of the dataset. The following types of fields are available:
 
 - **Dimension**. Contains values that define data characteristics, such as city, date of purchase, or product category. The aggregation function is not applied to fields with a dimension, otherwise the field becomes an measure. In the interface, dimensions are displayed in green.
-- **Measure**. Contains numeric values that aggregation functions (information) are applied to. such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it becomes a dimension. In the interface, measures are displayed in blue.
+- **Measure**. Contains numeric values that aggregation functions (information) are applied to, such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it becomes a dimension. In the interface, measures are displayed in blue.
 
 In the dataset creation interface and wizard, you can duplicate fields, create fields, and use [aggregation functions](#aggregation).
 
 {% note warning %}
 
-The maximum number of fields in a single dataset is 1200.
+The maximum number of fields in a single dataset is 1,200.
 
 {% endnote %}
 
-{{ datalens-short-name }} lets you create calculated fields using formulas.
+{{ datalens-short-name }} enables you to create calculated fields using formulas.
 To write formulas, you can use existing dataset fields, constants, and functions.
 For a full list of functions, see the [Function reference](../../function-ref/all.md).
 

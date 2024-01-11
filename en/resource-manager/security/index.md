@@ -1,12 +1,12 @@
 ---
 title: "Access management in {{ resmgr-full-name }}"
-description: "Access management in {{ resmgr-full-name }}, a service for structuring {{ yandex-cloud }} resources into folders. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ resmgr-full-name }}, a service for structuring {{ yandex-cloud }} resources into folders. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ resmgr-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
@@ -24,12 +24,30 @@ In this section, you will learn:
 
 ### Service roles {#service-roles}
 
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* {% include [resource-manager.admin](../../_includes/iam/roles/short-descriptions/resource-manager.admin.md) %}
-* {% include [resource-manager.editor](../../_includes/iam/roles/short-descriptions/resource-manager.editor.md) %}
-* {% include [resource-manager.viewer](../../_includes/iam/roles/short-descriptions/resource-manager.viewer.md) %}
-* {% include [resource-manager.auditor](../../_includes/iam/roles/short-descriptions/resource-manager.auditor.md) %}
+#### resource-manager.auditor {#resource-manager-auditor}
+
+{% include [resource-manager.auditor](../../_roles/resource-manager/auditor.md) %}
+
+#### resource-manager.viewer {#resource-manager-viewer}
+
+{% include [resource-manager.viewer](../../_roles/resource-manager/viewer.md) %}
+
+#### resource-manager.editor {#resource-manager-editor}
+
+{% include [resource-manager.editor](../../_roles/resource-manager/editor.md) %}
+
+#### resource-manager.admin {#resource-manager-admin}
+
+{% include [resource-manager.admin](../../_roles/resource-manager/admin.md) %}
+
+#### resource-manager.clouds.member {#resource-manager-clouds-member}
+
+{% include [resource-manager.clouds.member](../../_includes/roles-cloud-member.md) %}
+
+#### resource-manager.clouds.owner {#resource-manager-clouds-owner}
+
+{% include [resource-manager.clouds.owner](../../_includes/roles-cloud-owner.md) %}
+
 
 ### Primitive roles {#primitive-roles}
 

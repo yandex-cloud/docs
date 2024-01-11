@@ -19,6 +19,8 @@ items:
         href: operations/instance/instance-update.md
       - name: Управление резервными копиями
         href: operations/instance/instance-backups.md
+      - name: Миграция из пользовательской инсталляции {{ GL }}
+        href: operations/instance/migration.md
       - name: Удаление инстанса
         href: operations/instance/instance-delete.md
       - name: Создание и добавление пользователей в проект
@@ -57,6 +59,8 @@ items:
         href: concepts/approval-rules.md
       - name: Резервные копии
         href: concepts/backup.md
+      - name: Порядок миграции из пользовательской инсталляции {{ GL }}
+        href: concepts/migration.md
       - name: Безопасность в {{ GL }}
         href: concepts/security.md
       - name: Квоты и лимиты

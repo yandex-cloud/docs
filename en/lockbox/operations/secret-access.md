@@ -24,21 +24,7 @@ description: "Follow this guide to configure access to a secret."
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Get the secret ID (the `ID` column in the command output):
-
-      ```bash
-      yc lockbox secret list
-      ```
-
-      Result:
-
-      ```bash
-      +----------------------+-------------+------------+---------------------+----------------------+--------+
-      |          ID          |    NAME     | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
-      +----------------------+-------------+------------+---------------------+----------------------+--------+
-      | e6qtoqv06f1b******** | test-secret |            | 2022-09-12 08:10:11 | e6qtpq6a9k7q******** | ACTIVE |
-      +----------------------+-------------+------------+---------------------+----------------------+--------+
-      ```
+   1. {% include [get-secret-id](../../_includes/lockbox/get-secret-id.md) %}
 
    1. To assign a role for a secret:
 

@@ -102,3 +102,5 @@ We also recommend uploading audit logs to the {{ objstorage-name }} bucket.
 {% include [error-note](../../_includes/audit-trails/error-note.md) %}
 
 {% endnote %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

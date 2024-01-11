@@ -460,12 +460,21 @@ To add a new route to an HTTP router's virtual host:
          ```bash
          yc alb virtual-host insert-grpc-route <route_name> \
            --virtual-host-name <virtual_host_name> \
-           --before <route_name_to_insert_new_route_before> \
+           --before <route_name> \
            --http-router-name <HTTP_router_name> \
-           --prefix-fqmn-match /<first_word_in_service_name> \
+           --prefix-fqmn-match /<first_word> \
            --backend-group-name <backend_group_name> \
            --request-max-timeout <timeout>s
          ```
+
+         Where:
+
+         * `--virtual-host-name`: Name of the virtual host to add a route to.
+         * `--before`: Name of the route to follow the new route.
+         * `--http-router-name`: HTTP router name.
+         * `--prefix-fqmn-match`: First word in the service name.
+         * `--backend-group-name`: Name of the backend group.
+         * `--request-max-timeout`: Timeout in seconds.
 
          For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
 
@@ -503,12 +512,21 @@ To add a new route to an HTTP router's virtual host:
          ```bash
          yc alb virtual-host insert-grpc-route <route_name> \
            --virtual-host-name <virtual_host_name> \
-           --after <route_name_to_insert_new_route_after> \
+           --after <route_name> \
            --http-router-name <HTTP_router_name> \
-           --prefix-fqmn-match /<first_word_in_service_name> \
+           --prefix-fqmn-match /<first_word> \
            --backend-group-name <backend_group_name> \
            --request-max-timeout <timeout>s
          ```
+
+         Where:
+
+         * `--virtual-host-name`: Name of the virtual host to add a route to.
+         * `--after`: Name of the route to precede the new route.
+         * `--http-router-name`: HTTP router name.
+         * `--prefix-fqmn-match`: First word in the service name.
+         * `--backend-group-name`: Name of the backend group.
+         * `--request-max-timeout`: Timeout in seconds.
 
          For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
 

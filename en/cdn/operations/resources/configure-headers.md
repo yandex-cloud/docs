@@ -60,8 +60,8 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
       Result:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -101,9 +101,9 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
    1. To add headers, run:
 
       ```bash
-      yc cdn resource update <resource ID> \
-        --static-request-headers <key=value> \
-        --static-headers <key=value>
+      yc cdn resource update <resource_ID> \
+        --static-request-headers <key>=<value> \
+        --static-headers <key>=<value>
       ```
 
       Where:
@@ -131,10 +131,10 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
       }
 
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
+        token     = "<OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<availability_zone>"
       }
 
       resource "yandex_cdn_resource" "my_resource" {

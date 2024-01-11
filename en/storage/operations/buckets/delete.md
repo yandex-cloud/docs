@@ -91,7 +91,7 @@ You can only delete empty buckets. In the management console, information about 
       ```bash
       aws s3api list-buckets \
         --endpoint-url=https://{{ s3-storage-host }} \
-        --query '<query_in_JMESPath_format>' \
+        --query '<query>' \
         --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
       ```
 
@@ -111,7 +111,7 @@ You can only delete empty buckets. In the management console, information about 
       ```powershell
       Foreach($x in (aws s3api list-buckets `
         --endpoint-url=https://{{ s3-storage-host }} `
-        --query '<query_in_JMESPath_format>' `
+        --query '<query>' `
         --output text)) `
         {aws s3api delete-bucket `
         --endpoint-url=https://{{ s3-storage-host }} `
@@ -185,7 +185,7 @@ You can only delete empty buckets. In the management console, information about 
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes in the [management console]({{ link-console-main }}).
+      You can check the changes in the [management console]({{ link-console-main }}).
 
 - API
 

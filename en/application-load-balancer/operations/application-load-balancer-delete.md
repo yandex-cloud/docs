@@ -33,7 +33,7 @@ To delete an L7 load balancer:
    1. Run this command:
 
       ```bash
-      yc alb load-balancer delete <load_balancer_ID_or_name>
+      yc alb load-balancer delete <load_balancer_name_or_ID>
       ```
 
       Result:

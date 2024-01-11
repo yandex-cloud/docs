@@ -5,10 +5,12 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
+      - name: Все инструкции
+        href: operations/index.md
       - name: Управление организациями
         items:
           - name: Обзор
-            href: operations/index.md
+            href: operations/manage-org.md
           - name: Создать организацию
             href: operations/enable-org.md
           - name: Изменить данные организации
@@ -25,14 +27,24 @@ items:
             href: operations/add-account.md
           - name: Получить идентификатор или почту пользователя
             href: operations/users-get.md
-          - name: Назначить права доступа
-            href: operations/roles.md
           - name: Удалить аккаунт пользователя
             href: operations/edit-account.md
           - name: Покинуть организацию
             href: operations/leave-organization.md
       - name: Управление группами пользователей
         href: operations/manage-groups.md
+      - name: Управление доступом
+        items:
+          - name: Обзор
+            href: operations/security.md
+          - name: Назначить пользователя администратором организации
+            href: operations/add-org-admin.md
+          - name: Назначить роль пользователю
+            href: operations/add-role.md
+          - name: Назначить роль группе пользователей
+            href: operations/groups-access-binding.md
+          - name: Отозвать роль у пользователя
+            href: operations/revoke-role.md
       - name: OS Login
         items:
           - name: Включить доступ

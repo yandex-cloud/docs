@@ -8,6 +8,7 @@
 * [{#T}](relational-databases.md)
 * [{#T}](oltp.md)
 * [{#T}](olap.md)
+* [{#T}](cluster.md)
 
 ## Аналитика
 

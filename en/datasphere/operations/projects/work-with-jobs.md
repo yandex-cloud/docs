@@ -63,7 +63,7 @@ You can track the job execution progress on the project page in the {{ ml-platfo
 
 ## Example {#example}
 
-Let's take an example of training a classification model on the MNIST dataset with sample handwritten digits. Model training in {{ ml-platform-name }} is run remotely and a file with the trained model is returned as a result.
+Let's take an example of training a classification model on the MNIST dataset with sample handwritten digits. Model training in {{ ml-platform-name }} is run remotely and a file with the trained model is returned as a result. You can find other job run examples in the [repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) on GitHub.
 
 {% note warning %}
 

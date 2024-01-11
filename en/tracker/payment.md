@@ -21,9 +21,9 @@ The account will be debited only when you connect six or more users with full ac
 
 ## Can I try {{ tracker-name }} in a large team for free? {#testing}
 
-If there are not more than five users to create or edit issues on your team, you can use {{ tracker-name }} for free.
+If your team has no more than five users to create or edit issues, you can use {{ tracker-name }} for free.
 
-For six or more users, a fee will be charged for [full access to {{ tracker-name }}](access.md). But for a start, you will get an initial grant of 3,000 rubles you will be able to spend on getting to know the service.
+For six or more users, a fee will be charged for [full access to {{ tracker-name }}](access.md). But for a start, you will get an initial grant of 3,000 rubles to cover the cost of getting familiar with the service.
 
 If you contemplate a pilot {{ tracker-name }} deployment project for more than 500 users, [fill out the form]({{ link-500-users }}) to get a customized offer.
 
@@ -38,6 +38,12 @@ The fees for using {{ tracker-name }} will be debited from your [billing account
 The payment amount depends on the number of users with [full access to {{ tracker-name }}](access.md) and may grow during the month if the number of such users increases. The month's final fee will be stated in a report issued on the first day of the next month. If your billing account is at a deficit at that point, the unpaid amount will turn into arrears.
 
 For more information, see [{#T}](pay-the-bill.md).
+
+## Do I get a refund if I stop using a service before the end of the month? {#early-termination}
+
+No, you will still be charged for the full month.
+
+The billing period in {{ tracker-full-name }} is one calendar month. You are charged a preliminary payment amount at the beginning of the month. You can then use the service for any number of days until the month ends.
 
 ## How do I contact sales? {#contact-form}
 

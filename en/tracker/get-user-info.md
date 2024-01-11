@@ -14,7 +14,7 @@ To get information about the current user, use an HTTP `GET` request:
 ```json
 GET /v2/myself
 Host: {{ host }}
-Authorization: OAuth <OAuth-token>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
@@ -32,7 +32,7 @@ curl --request GET "{{ host }}/v2/myself" \
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 

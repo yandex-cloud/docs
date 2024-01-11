@@ -23,26 +23,26 @@ Resource settings [apply a short while after](#delay) you create or update the 
 
 _Domain names for content distribution_ are used in client requests to CDN servers. For example, to make the file `styles/common.css` available at `cdn.example.com/styles/common.css`, you need to enter `cdn.example.com` as a domain name.
 
-{{ cdn-name }} supports any domain names, including [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name) with local non-ASCII characters, for example, Cyrillic. Now you can specify the name in the original form (`пример.рф`) or transform them to [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) with the `xn--` (`xn--e1afmkfd.xn--p1ai`) prefixes added. In the [management console]({{ link-console-main }}), resource details show IDNs in the original form with no transformation to Punycode.
+{{ cdn-name }} supports any domain names, including [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name) with local non-ASCII characters, e.g., Cyrillic. Now you can specify the name in the original form (`пример.рф`) or transform them to [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) with the `xn--` (`xn--e1afmkfd.xn--p1ai`) prefixes added. In the [management console]({{ link-console-main }}), resource details show IDNs in the original form with no transformation to Punycode.
 
-When creating a resource, you must enter at least one domain name. The first name you enter is the primary domain name, and you can't change it after you create a resource.
+When creating a resource, you must enter at least one domain name. The first name you enter is the primary domain name, and you cannot change it after you create a resource.
 
 For the resource to run properly, you must have:
 
 * Rights to all the domain names you entered.
 * Access to DNS settings for domain names.
 
-   For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer, in the `cl-<random characters>.edgecdn.ru` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
+   For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer, in `cl-********.edgecdn.ru` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
 
    ```
-   cdn.example.com. CNAME cl-4sne12sd.edgecdn.ru
+   cdn.example.com. CNAME cl-********.edgecdn.ru
    ```
 
 {% note info %}
 
-You cannot have both a CDN resource and a mail server on the same second-level domain. We recommend creating two domains:
+You cannot have both a CDN resource and a mail server per second-level domain. We recommend creating two domains:
 
-* For content distributed over a CDN. Please note that you should only use {{ cdn-name }} with [CNAME](../../dns/concepts/resource-record.md#cname) resource records, because if using an [ANAME](../../dns/concepts/resource-record.md#aname) record, the end users will get a response unrelated to their geolocation. For more information about CNAME records and their [limitations](https://www.rfc-editor.org/rfc/rfc1912#section-2.4), see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
+* For content distributed over a CDN. Please note that you should only use {{ cdn-name }} with [CNAME](../../dns/concepts/resource-record.md#cname) resource records, because if using an [ANAME](../../dns/concepts/resource-record.md#aname) record, end users will be getting responses unrelated to their geolocation. For more information about CNAME records and their [limitations](https://www.rfc-editor.org/rfc/rfc1912#section-2.4), see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
 * For lightweight content and your mail server. In this case, you can use ANAME and [MX](../../dns/concepts/resource-record.md#mx) resource records.
 
 {% endnote %}

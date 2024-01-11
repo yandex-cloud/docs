@@ -18,7 +18,7 @@ It is the developer who decides which event should trigger the service to check 
 
 After validating a request, {{ captcha-name }} assigns it an ID: a one-time token. You can use the token to retrieve the result of a user request validation from the service. The token is valid for five minutes. After this time expires, it becomes invalid and the user has to go through the validation process again.
 
-After validation, the token is inserted into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user page, e.g.:
+After validation, the token is inserted into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user page. For example:
 
 ```HTML
 <div id="captcha-container" class="smart-captcha" ...>
@@ -44,14 +44,35 @@ Where:
 
 ### Service response {#service-response}
 
-In its response, the service will return a JSON object containing the `status` and the `message` fields, e.g.:
+In its response, the service will return a JSON object containing the `status` and the `message` fields. If the `status` field value is `ok`, the `host` field is added to a JSON object. It shows the website that validation was passed on. Here is an example:
 
-1. It is a human:
+1. It is a human. User validation was passed on the `example.com` website:
 
    ```json
    {
        "status": "ok",
-       "message": ""
+       "message": "",
+       "host": "example.com"
+   }
+   ```
+
+1. It is a human. User validation was passed on the `example.com` website through port `8080`:
+
+   ```json
+   {
+       "status": "ok",
+       "message": "",
+       "host": "example.com:8080"
+   }
+   ```
+
+1. Empty `host` field. This may indicate that the cloud is blocked or an internal service failure occurred:
+
+   ```json
+   {
+       "status": "ok",
+       "message": "",
+       "host": ""
    }
    ```
 
@@ -64,7 +85,7 @@ In its response, the service will return a JSON object containing the `status` a
    }
    ```
 
-1. Request with a fake or damaged token. It's a robot:
+1. Request with a fake or damaged token. It is a robot:
 
    ```json
    {
@@ -75,7 +96,7 @@ In its response, the service will return a JSON object containing the `status` a
 
 ### Request errors {#errors}
 
-If your request to `https://smartcaptcha.yandexcloud.net/validate` is incorrect, the service will return an error, e.g.:
+If your request to `https://smartcaptcha.yandexcloud.net/validate` is incorrect, the service will return an error. For example:
 
 1. Request missing the server key:
 

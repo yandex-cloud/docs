@@ -41,7 +41,7 @@ To delete an [origin group](../../concepts/origins.md):
 
       ```text
       - id: "90209"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5vej********
         name: test-group-1
       ...
           origin_group_id: "90208"
@@ -52,7 +52,7 @@ To delete an [origin group](../../concepts/origins.md):
    1. Delete a group of origins in the default folder:
 
       ```bash
-      yc cdn origin-group delete --id <origin group ID>
+      yc cdn origin-group delete --id <origin_group_ID>
       ```
 
       For more information about the `yc cdn origin-group delete` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/delete.md).

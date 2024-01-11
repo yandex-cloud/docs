@@ -51,13 +51,13 @@ To add a VM to a target group:
 
       ```yaml
       done (1s)
-      id: a5d751meibht4ev26...
+      id: a5d751meibht********
       name: <target_group_name>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       targets:
       ...
         - ip_address: <VM_internal_IP_address>
-          subnet_id: fo2tgfikh3hergif2...
+          subnet_id: fo2tgfikh3he********
       created_at: "2021-02-11T11:16:27.770674538Z"
       ```
 
@@ -77,7 +77,7 @@ To add a VM to a target group:
       done (1s)
       id: a5d751meibht4ev26...
       name: <target_group_name>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       targets:
       ...
         - ip_address: <target_private_IPv4_address>
@@ -122,7 +122,7 @@ To add a VM to a target group:
       * `name`: Target group name.
       * `target`: Target parameters:
          * `subnet_id`: ID of the subnet hosting the VM. You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
-         * `ip_address`: VM internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
+         * `ip_address`: VM internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet_ID>`.
 
       You can also add to a target group targets residing outside {{ vpc-name }}, e.g., those in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml):
 
@@ -208,9 +208,9 @@ To remove a VM from a target group:
       Result:
 
       ```yaml
-      id: ds7urm6dn6cm48ba7...
+      id: ds7urm6dn6cm********
       name: <target_group_name>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       created_at: "2023-06-10T13:14:55.239094324Z"
       ```
 
@@ -225,9 +225,9 @@ To remove a VM from a target group:
       Result:
 
       ```yaml
-      id: ds7urm6dn6cm48ba7...
+      id: ds7urm6dn6cm********
       name: <target_group_name>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       created_at: "2023-06-10T13:14:55.239094324Z"
       ```
 

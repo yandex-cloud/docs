@@ -26,9 +26,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Создать подключение к кластеру {#create-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Убедитесь, что сервис **{{ datalens-name }}** [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
@@ -60,9 +60,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Просмотреть список подключений кластера {#connectors-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
@@ -77,9 +77,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Изменить подключение к кластеру {#update-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
@@ -99,9 +99,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Удалить подключение к кластеру {#delete-connector}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
@@ -120,9 +120,9 @@ description: "Из статьи вы узнаете, как подключить
 
 ## Настройки подключения {#connector-settings} 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   В [консоли управления]({{ link-console-main }}) при [создании](#create-connector) или [изменении](#update-connector) подключения к кластеру:
   1. Задайте имя подключения.

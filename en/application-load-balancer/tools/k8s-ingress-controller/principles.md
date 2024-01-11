@@ -28,9 +28,11 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
       spec:
         tls:
           - hosts:
-              - <domain name>
-            secretName: yc-certmgr-cert-id-<certificate ID from {{ certificate-manager-name }}>
+              - <domain_name>
+            secretName: yc-certmgr-cert-id-<certificate_ID>
       ```
+
+      Where `secretName` is the ID of the certificate from {{ certificate-manager-full-name }}.
 
       This will create two types of listeners for the load balancer: one will accept HTTPS traffic on port 443 while the other will redirect HTTP requests (port 80) to HTTPS with the `301 Moved Permanently` status code. The traffic distribution rules for the same domain names that are explicitly specified in other `Ingress` resources lacking the `spec.tls` field, will be given priority with respect to HTTP-to-HTTPS redirects.
 

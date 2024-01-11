@@ -2,6 +2,8 @@
 
 Все хосты кластера {{ mgp-name }} располагаются в одной [зоне доступности](../../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести хосты из одной зоны в другую, [восстановите кластер из резервной копии](../cluster-backups.md#restore). Во время восстановления из резервной копии укажите новую зону доступности.
 
+{% include [zone-d-disk-restrictions](../../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+
 ## Особенности миграции в сервисе {{ data-transfer-full-name }} {#data-transfer}
 
 Если кластер выступает в роли [эндпоинта](../../../data-transfer/concepts/index.md#endpoint) при передаче данных с помощью сервиса {{ data-transfer-name }}:

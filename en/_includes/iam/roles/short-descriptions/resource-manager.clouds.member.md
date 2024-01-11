@@ -1,1 +1,0 @@
-[`resource-manager.clouds.member`](../../../../iam/concepts/access-control/roles.md#member) is required for everyone except the [cloud owners](../../../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../../../iam/concepts/users/service-accounts.md) to access resources in a cloud not owned by the organization.

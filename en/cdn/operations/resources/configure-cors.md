@@ -5,6 +5,8 @@ description: "Follow this guide to configure CORS when responding to clients."
 
 # Configuring CORS when responding to clients
 
+{% include [cors-note](../../../_includes/cdn/cors-note.md) %}
+
 To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [resource](../../concepts/resource.md):
 
 {% list tabs %}
@@ -49,8 +51,8 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       Result:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -90,7 +92,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
    1. To enable adding the `Access-Control-Allow-Origin` header, use the `--cors` flag:
 
       ```bash
-      yc cdn resource update <resource ID> --cors <CORS value>
+      yc cdn resource update <resource_ID> --cors <CORS_value>
       ```
       The `*` and `"$http_origin"` values grant access to content with any `Origin` header. To grant access only to specific origins, specify `"$http_origin"` and the origin domain names: `["domain.com", "second.dom.com"]`.
 
@@ -114,10 +116,10 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       }
 
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
+        token     = "<OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<availability_zone>"
       }
 
       resource "yandex_cdn_resource" "my_resource" {

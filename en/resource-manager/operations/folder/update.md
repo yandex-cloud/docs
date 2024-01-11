@@ -15,54 +15,12 @@ To update a folder name or description, use the management console, CLI, API, or
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. See the description of the update folder command:
+   1. View the description of the update folder command:
 
       ```bash
       yc resource-manager folder update --help
       ```
-   1. If you know the folder ID or name, proceed to the next step. Otherwise, use one of these methods to get them:
-
-      * Get a list of folders:
-
-         ```bash
-         yc resource-manager folder list
-         ```
-
-         Result:
-
-         ```
-         +----------------------+--------------------+--------+--------+-------------+
-         |          ID          |        NAME        | LABELS | STATUS | DESCRIPTION |
-         +----------------------+--------------------+--------+--------+-------------+
-         | b1gppulhhm2a******** | yet-another-folder |        | ACTIVE |             |
-         | b1gvmob95yys******** | default            |        | ACTIVE |             |
-         +----------------------+--------------------+--------+--------+-------------+
-         ```
-
-      * If you know the ID of the resource that belongs to the required folder, you can get the folder ID from the information about that resource:
-
-         ```bash
-         yc <service-name> <resource> get <resource-id>
-         ```
-
-         Where:
-         * `<service-name>`: Service name, e.g., `compute`
-         * `<resource>`: Resource category, e.g., `instance`
-         * `<resource-id>`: Resource ID
-
-         For example, the `fhmp74bfis2a********` VM belongs to the `b1gpvjd9ir42********` folder:
-
-         ```bash
-         yc compute instance get fhmp74bfis2a********
-         ```
-
-         Result:
-
-         ```
-         id: fhmp74bfis2a********
-         folder_id: b1gpvjd9ia42********
-         ...
-         ```
+   1. {% include [get-folder-id-or-name](../../../_includes/resource-manager/get-folder-id-or-name.md) %}
 
    1. Change the folder parameters, e.g., name and description. You can specify the folder to update by its name or ID.
 
@@ -75,10 +33,6 @@ To update a folder name or description, use the management console, CLI, API, or
       The command will rename the `default` folder to `myfolder` and update its description. The folder naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
-
-- API
-
-   To update a folder, use the [update](../../api-ref/Folder/update.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Update](../../api-ref/grpc/folder_service.md#Update) gRPC API call.
 
 - {{ TF }}
 
@@ -132,8 +86,12 @@ To update a folder name or description, use the management console, CLI, API, or
       You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc resource-manager folder list-operations <folder_name>|<folder_ID>
+      yc resource-manager folder list-operations <folder_name_or_ID>
       ```
+
+- API
+
+   To update a folder, use the [update](../../api-ref/Folder/update.md) REST API method for the [Folder](../../api-ref/Folder/index.md) resource or the [FolderService/Update](../../api-ref/grpc/folder_service.md#Update) gRPC API call.
 
 {% endlist %}
 

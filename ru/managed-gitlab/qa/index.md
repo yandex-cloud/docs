@@ -34,8 +34,8 @@ You are not allowed to push code to protected branches on this project.
 
 Подробнее о ролях см. в [документации {{ GL }}]({{ gl.docs }}/ee/user/permissions.html).
 
-#### Как импортировать проект из gitlab.com в {{ mgl-name }}?
+#### Как перенести данные из {{ GL }} в {{ mgl-name }}? {#migration}
 
-Воспользуйтесь инструкцией по импорту и экспорту проектов в [документации {{ GL }}]({{ gl.docs }}/ee/user/project/settings/import_export.html).
+Вы можете перенести данные из пользовательской инсталляции {{ GL }} в сервис {{ mgl-name }}. О том, как это сделать, читайте в [инструкции](../operations/instance/migration.md). Перед началом работы ознакомьтесь с [порядком предоставления услуги](../concepts/migration.md).
 
-Если по какой-то причине этот способ вам не подходит, выполните настройку интеграции сервера согласно [инструкции]({{ gl.docs }}/ee/integration/gitlab.html) и обратитесь в [техническую поддержку]({{ link-console-support }}) {{ yandex-cloud }}, указав полученные значения `Application ID` и `Secret`, а также другие желаемые параметры.
+Перенести данные из {{ GL }}.com в {{ mgl-name }} нельзя: миграция доступна только для {{ GL }}, установленного на сервер или локальный компьютер (self-managed {{ GL }}).

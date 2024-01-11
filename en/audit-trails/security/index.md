@@ -26,8 +26,6 @@ In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../res
 
 | Role | Permissions |
 ----- | -----
-| `resource-manager.clouds.member` | A role everyone requires to access cloud resources, except for [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md) |
-| `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. Can only be assigned for clouds |
 | `audit-trails.auditor` | Allows you to view information about trails |
 | `audit-trails.viewer` | Gives you access to audit logs of the trails. Includes all access rights of the `audit-trails.auditor` role |
 | `audit-trails.editor` | Allows you to manage trails (create, edit, and delete them). Includes all access rights of the `audit-trails.viewer` role |

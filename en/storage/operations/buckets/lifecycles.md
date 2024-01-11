@@ -23,7 +23,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. Define the object lifecycle configuration in JSON format, e.g.:
+   1. Define the object lifecycle configuration in JSON format. Here is an example:
 
       ```json
       {
@@ -42,7 +42,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       }
       ```
 
-      Possible configuration parameters:
+      The possible configuration parameters include:
       * `id`: Unique rule ID, which must be 255 characters or less. This is an optional parameter.
       * `enabled`: Rule status. This is a required parameter.
       * `filter`: Object filter. This is an optional parameter. It may contain:
@@ -115,7 +115,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
    To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-   1. Define the object lifecycle configuration in JSON format, e.g.:
+   1. Define the object lifecycle configuration in JSON format. Here is an example:
 
       ```json
       {
@@ -192,17 +192,17 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       
       ```hcl
       provider "yandex" {
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-        token     = "<OAuth token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<availability_zone>"
+        token     = "<OAuth_token>"
         }
 
       resource "yandex_storage_bucket" "bucket" {
-        bucket     = "<bucket name>"
+        bucket     = "<bucket_name>"
         acl        = "private"
-        access_key = "<key ID>"
-        secret_key = "<secret key>"
+        access_key = "<key_ID>"
+        secret_key = "<secret_key>"
 
         lifecycle_rule {
           id      = "log"
@@ -231,10 +231,10 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       }
 
       resource "yandex_storage_bucket" "versioning_bucket" {
-        bucket     = "<bucket name>"
+        bucket     = "<bucket_name>"
         acl        = "private"
-        access_key = "<key ID>"
-        secret_key = "<secret key>"
+        access_key = "<key_ID>"
+        secret_key = "<secret_key>"
 
         versioning {
           enabled = true

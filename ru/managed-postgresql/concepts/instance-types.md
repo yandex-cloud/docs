@@ -25,6 +25,8 @@ description: "Класс хостов определяет вычислител�
 
 Ниже приведен полный список возможных конфигураций хостов на каждой из платформ.
 
+{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+
 {% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3.md) %}

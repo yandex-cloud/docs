@@ -43,7 +43,7 @@ To edit an [origin group](../../concepts/origins.md):
 
       ```bash
       - id: "90209"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5vej********
         name: test-group-1
       ...
           origin_group_id: "90208"
@@ -54,22 +54,22 @@ To edit an [origin group](../../concepts/origins.md):
    1. Edit the settings of the origin group by specifying the group ID:
 
       ```bash
-      yc cdn origin-group update --id <origin group ID> \
-        --name <new group name> \
-        --origin source=<new origin IP address or domain name>,enabled=true \
-        --origin source=<new origin IP address or domain name>,enabled=true,backup=true
+      yc cdn origin-group update --id <origin_group_ID> \
+        --name <new_group_name> \
+        --origin source=<new_origin_IP_address_or_domain_name>,enabled=true \
+        --origin source=<new_origin_IP_address_or_domain_name>,enabled=true,backup=true
       ```
 
-      Where `origin` is the origin specification:
+      Where `--origin` is the origin specification:
       * `source`: New origin's IP address or domain name.
-      * `enabled`: Flag indicating whether an origin is enabled.
-      * `backup`: Flag indicating whether an origin is a backup.
+      * `enabled`: Origin enabled flag.
+      * `backup`: Flag marking the origin as a backup.
 
       Result:
 
       ```bash
       id: "90209"
-      folder_id: b1g86q4m5vej8lkljme5
+      folder_id: b1g86q4m5vej********
       name: test-group-22
       ...
         origin_group_id: "90209"

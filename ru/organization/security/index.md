@@ -154,7 +154,7 @@
 
   1. [Получите идентификатор пользователя](../operations/users-get.md).
 
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+  1. Сформируйте тело запроса, например, в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` — тип `userAccount` и идентификатор пользователя:
 
       Пример файла `body.json`:
 
@@ -341,6 +341,6 @@
 
 {% include [accessbinding-group-as-object](../../_includes/organization/accessbinding-group-as-subject.md) %}
 
-#### Назначить роль на Организацию {#access-binding-organization}
+#### Назначить роль на организацию {#access-binding-organization}
 
 {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}

@@ -4,14 +4,14 @@
 
 ## Получить список групп шардов в кластере {#list-shard-groups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -26,7 +26,7 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
   Чтобы получить список групп шардов в кластере, воспользуйтесь методом REST API [listShardGroups](../api-ref/Cluster/listShardGroups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListShardGroups](../api-ref/grpc/cluster_service.md#ListShardGroups) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
 
@@ -36,15 +36,15 @@
 
 ## Получить детальную информацию о группе шардов {#get-shard-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
   1. Выберите группу шардов для просмотра детальной информации о ней.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -60,7 +60,7 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
   Чтобы получить детальную информацию о группе шардов, воспользуйтесь методом REST API [getShardGroup](../api-ref/Cluster/getShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/GetShardGroup](../api-ref/grpc/cluster_service.md#GetShardGroup) и передайте в запросе:
   * Идентификатор требуемого кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
@@ -70,16 +70,16 @@
 
 ## Создать группу шардов {#create-shard-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.shard-groups.button_add-group }}**.
   1. Заполните поля формы и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -101,7 +101,7 @@
 
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -136,7 +136,7 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы создать группу шардов, воспользуйтесь методом REST API [createShardGroup](../api-ref/Cluster/createShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/CreateShardGroup](../api-ref/grpc/cluster_service.md#CreateShardGroup) и передайте в запросе:
   * Идентификатор кластера, в котором требуется создать группу, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
@@ -148,15 +148,15 @@
 
 ## Изменить группу шардов {#update-shard-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -182,7 +182,7 @@
 
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -217,7 +217,7 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы изменить группу шардов, воспользуйтесь методом REST API [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateShardGroup](../api-ref/grpc/cluster_service.md#UpdateShardGroup) и передайте в запросе:
   * Идентификатор кластера, в котором требуется изменить группу, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
@@ -236,15 +236,15 @@
 
 Таблицы, созданные поверх удаляемой группы, остаются, но становятся неработоспособными: попытки выполнить запрос к ним приведут к ошибкам. Однако такие таблицы можно удалить до или после удаления группы шардов.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -262,7 +262,7 @@
 
   Имя группы шардов можно запросить со [списком групп шардов в кластере](#list-shard-groups).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -280,7 +280,7 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы удалить группу шардов, воспользуйтесь методом REST API [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteShardGroup](../api-ref/grpc/cluster_service.md#DeleteShardGroup) и передайте в запросе:
   * Идентификатор кластера, из которого требуется удалить группу, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).

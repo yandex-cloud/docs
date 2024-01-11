@@ -14,25 +14,25 @@ The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/) is a set of tools for
 
 ## Setup {#setup}
 
-1. In your home directory, create a file called `.aws/credentials` with the static key:
+1. In your home directory, create a file named `.aws/credentials` with the static key:
 
    ```
    [default]
-     aws_access_key_id = <id>
-     aws_secret_access_key = <secretKey>
+     aws_access_key_id = <key_ID>
+     aws_secret_access_key = <secret_key>
    ```
 
-1. If you are using a LAMP image from {{ marketplace-name }}, add to the Apache `httpd.conf` configuration file (for Debian and Ubuntu — `apache2.conf`), the `HOME` environment variable with the home directory path:
+1. If you are using a LAMP image from {{ marketplace-name }}, add to the Apache `httpd.conf` configuration file (for Debian and Ubuntu — `apache2.conf`), the `HOME` environment variable with the home directory:
 
    ```
-   SetEnv HOME <home directory path>
+   SetEnv HOME <home_directory>
    ```
 
    For more information about the location and name of the Apache configuration file for different operating systems, see the [Apache HTTP Server Wiki](https://cwiki.apache.org/confluence/display/HTTPD/DistrosDefaultLayout).
 
 Instead of the `.aws/credentials` file, you can use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
 
-Use the `{{ s3-storage-host }}` address to access {{ objstorage-name }}.
+Use the {{ objstorage-name }} address to access `{{ s3-storage-host }}`.
 
 ## Code samples {#code-examples}
 

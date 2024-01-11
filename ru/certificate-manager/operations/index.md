@@ -30,6 +30,10 @@ description: "Из статьи вы узнаете как работать с {
 - [{#T}](domain/domain-modify.md)
 - [{#T}](domain/domain-delete.md)
 
-## Резервное копирование
+## Резервное копирование {#backup}
 
 - [{#T}](cert-backup.md)
+
+## Отслеживание статуса сертификата {#alerts}
+
+- [{#T}](alert.md)

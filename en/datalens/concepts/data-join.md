@@ -29,13 +29,13 @@ To join data at the dataset level, you can [add tables](#ui-join) to the workspa
 
 {% note warning %}
 
-You can't join data from different sources at the level of a single dataset.
+You cannot join data from different sources at a single dataset level.
 
 {% endnote %}
 
 #### Adding tables {#ui-join}
 
-You can [combine data](../operations/dataset/join-data.md) through the dataset creation interface by dragging tables to the workspace and configuring links between them via the [JOIN operator](dataset/data-model.md#source). For an example of combining data by adding tables, see the [use case](../../tutorials/datalens/data-from-ch-visualization.md#step2).
+You can [join data](../operations/dataset/join-data.md) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the [JOIN operator](dataset/data-model.md#source). This [use case](../../tutorials/datalens/data-from-ch-visualization.md#step2) gives an example of joining data by adding tables.
 
 #### SQL query {#sql-join}
 
@@ -79,7 +79,7 @@ Optimization is used under the following conditions:
 
 {% note info %}
 
-Optimization won't work if a dataset is described using an [SQL query to the source](../operations/dataset/add-data.md).
+Optimization will not work if a dataset is described using an [SQL query to the source](../operations/dataset/add-data.md).
 
 {% endnote %}
 
@@ -151,7 +151,7 @@ As a result of the Join, the dataset only contains rows that are common for the 
 
 ![image](../../_assets/datalens/concepts/joins/case-1-chart.png)
 
-Now let's create a chart that will only contain fields from the `Employees` table. In this case, {{ datalens-short-name }} doesn't use a `JOIN` and only works with this table. The chart displays all values from the `Employees` table and not only those that overlap with the `Departments` table.
+Now let's create a chart that will only contain fields from the `Employees` table. In this case, {{ datalens-short-name }} does not use `JOIN` and only works with this table. The chart displays all values from the `Employees` table, not just those overlapping with the `Departments` table.
 
 ![image](../../_assets/datalens/concepts/joins/case-1-chart-opt.png)
 
@@ -192,7 +192,7 @@ Next, let's only leave the `Employees` table fields in the chart. In this case, 
 
 ![image](../../_assets/datalens/concepts/joins/case-3-chart-opt.png)
 
-Let's only add fields from the first (`Departments`) and third (`Bonuses`) tables to the chart. These tables are not linked explicitly. However, each of them is linked to the `Employees` table. Therefore, {{ datalens-short-name }} doesn't optimize a query to the source. In this case, the chart will include values from all the three tables based on filtering results.
+Let's add to the chart only the fields from from the first (`Departments`) and third (`Bonuses`) tables. These tables are not linked explicitly. However, each of them is linked to the `Employees` table. Therefore, {{ datalens-short-name }} does not optimize a query to the source. In this case, the chart will include values from all the three tables based on filtering results.
 
 ![image](../../_assets/datalens/concepts/joins/case-3-chart-2.png)
 
