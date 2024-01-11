@@ -37,7 +37,7 @@ description: "Follow this guide to set up hosting."
       yc storage bucket update --help
       ```
 
-   1. Create a hosting configuration file in JSON format, e.g.:
+   1. Create a hosting configuration file in JSON format. For example:
 
       ```json
       {
@@ -55,7 +55,7 @@ description: "Follow this guide to set up hosting."
 
       ```bash
       yc storage bucket update --name <bucket_name> \
-        --website-settings-from-file <hosting_configuration_file_path>
+        --website-settings-from-file <file_path>
       ```
 
       Where:
@@ -101,15 +101,15 @@ description: "Follow this guide to set up hosting."
       ```hcl
       provider "yandex" {
         token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
         zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_storage_bucket" "test" {
-        access_key = "<static key ID>"
-        secret_key = "<secret key>"
-        bucket     = "<bucket name>"
+        access_key = "<static_key_ID>"
+        secret_key = "<secret_key>"
+        bucket     = "<bucket_name>"
         acl        = "public-read"
 
         website {
@@ -187,7 +187,7 @@ description: "Follow this guide to set up hosting."
       yc storage bucket update --help
       ```
 
-   1. Create a file with redirect settings in JSON format, e.g.:
+   1. Create a file with redirect settings in JSON format, here is an example:
 
       ```json
       {
@@ -206,7 +206,7 @@ description: "Follow this guide to set up hosting."
 
       ```bash
       yc storage bucket update --name <bucket_name> \
-        --website-settings-from-file <redirect_configuration_file_path>
+        --website-settings-from-file <file_path>
       ```
 
       Where:
@@ -336,7 +336,7 @@ description: "Follow this guide to set up hosting."
       yc storage bucket update --help
       ```
 
-   1. Create a file with conditional redirect settings in JSON format, e.g.:
+   1. Create a file with conditional redirect settings in JSON format. For example:
 
       ```json
       {
@@ -376,7 +376,7 @@ description: "Follow this guide to set up hosting."
 
       ```bash
       yc storage bucket update --name <bucket_name> \
-        --website-settings-from-file <conditional_redirect_configuration_file_path>
+        --website-settings-from-file <file_path>
       ```
 
       Where:

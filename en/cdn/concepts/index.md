@@ -1,6 +1,6 @@
 # {{ cdn-full-name }} overview
 
-{{ cdn-full-name }} provides web service developers with a _Content Delivery Network_ (CDN) functionality. The _CDN servers_ located all over the world get content from your _origins_, cache the content, and deliver it to end clients on their request. This lets you decrease the load on origins and decrease content waiting time for the end user.
+{{ cdn-full-name }} provides web service developers with a _Content Delivery Network_ (CDN) functionality. The _CDN servers_ located all over the world get content from your _origins_, cache the content, and deliver it to end clients on their request. Thus you can decrease the load on origins and shorten content waiting time for the end user.
 
 ### How CDN works
 
@@ -22,18 +22,19 @@
 
 | Concept | Description |
 | --- | --- |
-| [Resource](resource.md) | The main entity in the service that lets you configure and control content distribution from origins over the CDN. |
-| [Origins and origin groups](origins.md) | The servers that are origins of content. CDN servers access them to load files. |
-| [Exchanging data between clients and the CDN](clients-to-servers.md) | Receiving client requests by the CDN load balancer and sending response data from CDN servers. |
-| [TLS certificates](clients-to-servers-tls.md) | Certificates used for HTTPS connections between clients and the CDN load balancer. |
-| [CORS](cors.md) | Cross-domain client requests to the CDN (cross-origin resource sharing). |
-| [Content compression](compression.md) | Sending GZIP files to clients. |
-| [Exchanging data between the CDN and origins](servers-to-origins.md) | CDN server requests for files from origins and responses to them. |
-| [`Host` header](servers-to-origins-host.md) | `Host` HTTP header in CDN server requests to origins. |
-| [Content segmentation](slicing.md) | Storing large files on CDN servers in parts. |
-| [Origin shielding](origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. |
-| [Content caching](caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or at the client side. |
-| [Log export](logs.md) | Exporting CDN and shielding server request logs to object storage. |
-| [Quotas and limits](limits.md) | Service use restrictions. |
+| [Resource](./resource.md) | The main entity in the service that allows you to configure and control content distribution from origins over the CDN. |
+| [Origins and origin groups](./origins.md) | The servers that are origins of content. CDN servers access them to load files. |
+| [Exchanging data between clients and the CDN](./clients-to-servers.md) | Receiving client requests by the CDN load balancer and sending response data from CDN servers. |
+| [TLS certificates](./clients-to-servers-tls.md) | Certificates used for HTTPS connections between clients and the CDN load balancer. |
+| [CORS](./cors.md) | Cross-domain client requests to the CDN (cross-origin resource sharing). |
+| [Content compression](./compression.md) | Sending GZIP files to clients. |
+| [Exchanging data between the CDN and origins](./servers-to-origins.md) | CDN server requests for files from origins and responses to them. |
+| [`Host` header](./servers-to-origins-host.md) | `Host` HTTP header in CDN server requests to origins. |
+| [Content segmentation](./slicing.md) | Storing large files on CDN servers in parts. |
+| [Origin shielding](./origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. |
+| [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. |
+| [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. |
+| [Log export](./logs.md) | Exporting CDN and shielding server request logs to object storage. |
+| [Quotas and limits](./limits.md) | Service use restrictions. |
 
 See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).

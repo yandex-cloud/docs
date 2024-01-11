@@ -9,7 +9,7 @@ For more information, see [{#T}](concepts/server-logs.md).
 ## Log fields {#log-fields}
 
 | Field | Type | Description |
-| --- | --- | --- |
+--- | --- | ---
 | `bucket` | String | Bucket name. |
 | `bytes_received` | Int64 | Size of the request in bytes. |
 | `bytes_send` | Int64 | Response size in bytes. |
@@ -32,12 +32,12 @@ For more information, see [{#T}](concepts/server-logs.md).
 | `timestamp` | String | Date and time of the operation with the bucket in the `YYYY-MM-DDTHH:MM:MMZ` format. |
 | `user_agent` | String | Client application (user agent) that executed the request. |
 | `version_id` | String | Object version. |
-| `vhost` | String | Virtual host of the request. <br>Possible values:<br>– `{{ s3-storage-host }}`.<br>– `<bucket name>{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<bucket name>.{{ s3-web-host }}`. |
+| `vhost` | String | Virtual host of the request.<br>Possible values:<br>– `{{ s3-storage-host }}`.<br>– `<bucket_name>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<bucket_name>.{{ s3-web-host }}`. |
 
 ## Bucket request methods {#bucket-methods}
 
 | HTTP method | Subject | Description |
-| --- | --- | --- |
+|---|---|---|
 | `GET` | `SERVICE` | Listing available buckets. |
 | `GET` | `LOCATION` | Outputting the region where a bucket resides. |
 | `PUT` | `BUCKET` | Creating a bucket. |

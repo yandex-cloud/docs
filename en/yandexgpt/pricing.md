@@ -12,7 +12,7 @@ This pricing will become effective on December 6, 2023.
 
 {% endnote %}
 
-## What is included in {{ yagpt-full-name }} cost {#rules}
+## What is included in the {{ yagpt-full-name }} cost {#rules}
 
 ### Pricing unit {#unit}
 

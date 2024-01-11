@@ -55,18 +55,18 @@ A successful response contains additional data in XML format with the schema des
   <KeyMarker></KeyMarker>
   <UploadIdMarker></UploadIdMarker>
   <NextKeyMarker>my-movie.m2ts</NextKeyMarker>
-  <NextUploadIdMarker>0005B4661731B011</NextUploadIdMarker>
+  <NextUploadIdMarker>0005B466********</NextUploadIdMarker>
   <MaxUploads>3</MaxUploads>
   <IsTruncated>true</IsTruncated>
   <Upload>
     <Key>my-divisor</Key>
-    <UploadId>0005B46503714F29</UploadId>
+    <UploadId>0005B465********</UploadId>
     <Initiator>
-      <ID>ajeanexampleuser</ID>
-      <DisplayName>ajeanexampleuser</DisplayName>
+      <ID>ajeanexa********</ID>
+      <DisplayName>ajeanexa********</DisplayName>
     </Initiator>
     <Owner>
-      <ID>aje2v5og9qplr6pe0c59</ID>
+      <ID>aje2v5og9qpl********</ID>
       <DisplayName>aje2v5og9qplr6pe0c59</DisplayName>
     </Owner>
     <StorageClass>STANDARD</StorageClass>
@@ -74,13 +74,13 @@ A successful response contains additional data in XML format with the schema des
   </Upload>
   <Upload>
     <Key>my-movie.m2ts</Key>
-    <UploadId>0005B46508244E72</UploadId>
+    <UploadId>0005B465********</UploadId>
     <Initiator>
-      <ID>ajeanexampleuser</ID>
+      <ID>ajeanexa********</ID>
       <DisplayName>ajeanexampleuser</DisplayName>
     </Initiator>
     <Owner>
-      <ID>aje2v5og9qplr6pe0c59</ID>
+      <ID>aje2v5og9qpl********</ID>
       <DisplayName>aje2v5og9qplr6pe0c59</DisplayName>
     </Owner>
     <StorageClass>STANDARD</StorageClass>
@@ -88,13 +88,13 @@ A successful response contains additional data in XML format with the schema des
   </Upload>
   <Upload>
     <Key>my-movie.m2ts</Key>
-    <UploadId>0005B4661731B011</UploadId>
+    <UploadId>0005B466********</UploadId>
     <Initiator>
-      <ID>ajeanexampleuser</ID>
-      <DisplayName>ajeanexampleuser</DisplayName>
+      <ID>ajeanexa********</ID>
+      <DisplayName>ajeanexa********</DisplayName>
     </Initiator>
     <Owner>
-      <ID>aje2v5og9qplr6pe0c59</ID>
+      <ID>aje2v5og9qpl********</ID>
       <DisplayName>aje2v5og9qplr6pe0c59</DisplayName>
     </Owner>
     <StorageClass>STANDARD</StorageClass>

@@ -44,8 +44,8 @@ You can stop a resource by disabling end-user access to the content. To do this:
       Result:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -85,7 +85,7 @@ You can stop a resource by disabling end-user access to the content. To do this:
    1. Disable end-user access to content by setting the `--active` flag to `false`:
 
       ```bash
-      yc cdn resource update <resource ID> --active false
+      yc cdn resource update <resource_ID> --active false
       ```
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).

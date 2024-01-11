@@ -1,6 +1,6 @@
 ---
-title: "How to update an L7 load balancer in {{ alb-full-name }}"
-description: "Follow this guide to update an L7 load balancer."
+title: "How to edit an L7 load balancer in {{ alb-full-name }}"
+description: "Follow this guide to edit an L7 load balancer."
 ---
 
 # Editing an L7 load balancer
@@ -25,15 +25,15 @@ To update the parameters of an L7 load balancer:
 
       1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
-      1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
-      1. Edit the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
+         1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
+         1. Edit the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
 
-         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
-         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the classes of HTTP status codes.
-         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update the gRPC codes.
-         * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the percentage of logs to discard.
+            * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
+            * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the classes of HTTP status codes.
+            * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update the gRPC codes.
+            * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the percentage of logs to discard.
 
-         To add another rule, click **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
+            To add another rule, click **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
 
       1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, change the parameters of the appropriate listeners.
 
@@ -356,7 +356,7 @@ To delete a listener for your L7 load balancer:
    1. Run the following command:
 
       ```bash
-      yc alb load-balancer remove-listener <load_balancer_ID_or_name> \
+      yc alb load-balancer remove-listener <load_balancer_name_or_ID> \
         --listener-name=<listener_name>
       ```
 

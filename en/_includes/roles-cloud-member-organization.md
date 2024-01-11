@@ -7,9 +7,11 @@ The role is useful if the user needs access to {{ yandex-cloud }} resources not 
    * `resource-manager.admin`.
    * `resource-manager.editor`.
    * `resource-manager.viewer`.
+   * `resource-manager.auditor`.
    * `admin`.
    * `editor`.
    * `viewer`.
+   * `auditor`.
 
 * For a cloud:
 
@@ -25,8 +27,8 @@ To avoid giving the user additional rights, use `resource-manager.clouds.member`
 >
 > | Role | For a resource | Allows |
 > --- | --- | ---
-> | `vpc.admin` | Organization | To manage networks, routes, IP addresses and other {{ vpc-name }} resources via the CLI, API, and {{ TF }} in all clouds of the organization. |
-> | `resource-manager.clouds.member` | All clouds of the organization | To work with {{ vpc-name }} in the management console, view general information about the clouds. |
+> | `vpc.admin` | Organization | To manage networks, routes, IP addresses, and other {{ vpc-name }} resources via the CLI, API, and {{ TF }} in all the organization's clouds |
+> | `resource-manager.clouds.member` | All clouds of the organization | To work with {{ vpc-name }} resources in the management console and view general information about the clouds |
 >
 
 {% note info %}

@@ -52,8 +52,8 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
       Result:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -93,7 +93,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
    1. Enable file compression using the `--gzip-on` flag:
 
       ```bash
-      yc cdn resource update <resource ID> --gzip-on
+      yc cdn resource update <resource_ID> --gzip-on
       ```
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
@@ -116,10 +116,10 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
       }
 
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
+        token     = "<OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<availability_zone>"
       }
 
       resource "yandex_cdn_resource" "my_resource" {

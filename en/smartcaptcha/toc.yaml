@@ -35,6 +35,8 @@ items:
     items:
       - name: User validation
         href: concepts/validation.md
+      - name: Domain validation
+        href: concepts/domain-validation.md
       - name: Task types
         href: concepts/tasks.md
       - name: Widget connection methods
@@ -57,6 +59,4 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Feedback
-    href: feedback.md
 base: en/smartcaptcha

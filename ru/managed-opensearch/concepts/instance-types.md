@@ -12,6 +12,8 @@
 
 Ниже приведен полный список возможных конфигураций групп хостов на каждой из платформ.
 
+{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+
 Типы конфигураций:
 
 

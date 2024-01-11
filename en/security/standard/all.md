@@ -35,3 +35,5 @@
 ## 9. Application security {#app-security}
 
 {% include notitle [app-security](../../_includes/security/standard/app-security.md) %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

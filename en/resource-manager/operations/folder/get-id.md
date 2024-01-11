@@ -32,7 +32,7 @@ description: "In this tutorial, you will learn how to get a folder ID in {{ yand
    Result:
 
    ```
-   id: b1gd129pp9ha0vnvf5g7
+   id: b1gd129pp9ha********
    ...
    ```
 
@@ -48,15 +48,15 @@ description: "In this tutorial, you will learn how to get a folder ID in {{ yand
    +----------------------+--------------------+------------------+--------+
    |          ID          |        NAME        |      LABELS      | STATUS |
    +----------------------+--------------------+------------------+--------+
-   | b1gd129pp9ha0vnvf5g7 | my-folder          |                  | ACTIVE |
-   | b1g66mft1vopnevbn57j | default            |                  | ACTIVE |
+   | b1gd129pp9ha******** | my-folder          |                  | ACTIVE |
+   | b1g66mft1vop******** | default            |                  | ACTIVE |
    +----------------------+--------------------+------------------+--------+
    ```
 
    To view the list of folders in a different cloud, specify the folder ID in `cloud-id`:
 
    ```bash
-   yc resource-manager folder list --cloud-id b1glku4lgd6g31h5onqs
+   yc resource-manager folder list --cloud-id b1glku4lgd6g********
    ```
 
 - API

@@ -4,7 +4,7 @@
 
 ## Applying or editing a policy {#apply-policy}
 
-The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to apply or modify an access policy is `storage.configurer`. For more information, refer to the [role description](../../../storage/security/#storage-configurer).
 
 To apply or edit a bucket access policy:
 
@@ -62,7 +62,7 @@ To apply or edit a bucket access policy:
           "Effect": "Allow",
           "Principal": "*",
           "Action": "s3:GetObject",
-          "Resource": "arn:aws:s3:::<bucket name>/*",
+          "Resource": "arn:aws:s3:::<bucket_name>/*",
           "Condition": {
             "Bool": {
               "aws:SecureTransport": "true"
@@ -72,7 +72,7 @@ To apply or edit a bucket access policy:
       }
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc storage bucket update --name <bucket_name> --policy-from-file <policy_file_path>
@@ -118,7 +118,7 @@ To apply or edit a bucket access policy:
           "Effect": "Allow",
           "Principal": "*",
           "Action": "s3:GetObject",
-          "Resource": "arn:aws:s3:::<bucket name>/*",
+          "Resource": "arn:aws:s3:::<bucket_name>/*",
           "Condition": {
             "Bool": {
               "aws:SecureTransport": "true"
@@ -133,7 +133,7 @@ To apply or edit a bucket access policy:
 
       ```bash
       aws --endpoint https://{{ s3-storage-host }} s3api put-bucket-policy \
-        --bucket <bucket name> \
+        --bucket <bucket_name> \
         --policy file://policy.json
       ```
 
@@ -214,7 +214,7 @@ To apply or edit a bucket access policy:
 
 ## Viewing a policy {#view-policy}
 
-The minimum role required to view an access policy is `storage.configViewer`. See the [role description](../../../storage/security/#storage-config-viewer).
+The minimum role required to view an access policy is `storage.configViewer`. For more information, refer to the [role description](../../../storage/security/#storage-config-viewer).
 
 To view the access policy applied to a bucket:
 
@@ -233,7 +233,7 @@ To view the access policy applied to a bucket:
 
    ```bash
    aws --endpoint https://{{ s3-storage-host }} s3api get-bucket-policy \
-     --bucket <bucket name> \
+     --bucket <bucket_name> \
      --output text
    ```
 
@@ -241,7 +241,7 @@ To view the access policy applied to a bucket:
 
    ```json
    {
-     "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::<bucket name>/*\",\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"true\"}}}}"
+     "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::<bucket_name>/*\",\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"true\"}}}}"
    }
    ```
 
@@ -255,7 +255,7 @@ To view the access policy applied to a bucket:
 
 ## Deleting a policy {#delete-policy}
 
-The minimum role required to delete an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to delete an access policy is `storage.configurer`. For more information, refer to the [role description](../../../storage/security/#storage-configurer).
 
 To delete a bucket policy:
 
@@ -276,7 +276,7 @@ To delete a bucket policy:
 
    ```bash
    aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \
-     --bucket <bucket name>
+     --bucket <bucket_name>
    ```
 
 - {{ TF }}

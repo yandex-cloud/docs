@@ -29,25 +29,11 @@ To create a {{ GP }} connection:
 
    - Select in a folder
 
-      {% note info %}
-
-      Only the current organization's databases are available.
-      To connect to a database from a different organization, use the **Specify manually** connection type and make sure the database has [public access](../../../managed-greenplum/concepts/network.md#public-access-to-a-host) enabled.
-
-      {% endnote %}
-
-      Specify the connection parameters for the {{ mgp-name }} DB available in {{ yandex-cloud }}:
+      {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 
       * **Cluster**: Specify a cluster from the list of available {{ GP }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
 
-         {% note info %}
-
-         The {{ GP }} clusters are shown in the list of clusters:
-
-         * With the permissions for the user that creates the connection.
-         * Created in the same folder with the {{ datalens-short-name }} instance.
-
-         {% endnote %}
+         {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
 
       * **Hostname**: Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       * **Port**: Specify the {{ GP }} connection port. The default port is {{ port-mgp }}.
@@ -59,14 +45,7 @@ To create a {{ GP }} connection:
 
    - Specify manually
 
-      {% note info %}
-
-      You can only use managed databases with [public access](../../../managed-greenplum/concepts/network.md#public-access-to-a-host) enabled.
-      To connect to a managed database without public access, use the **Select in folder** connection type.
-
-      {% endnote %}
-
-      Specify the connection parameters for the external {{ GP }} database:
+      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
       * **Hostname**: Specify the path to a master host or a {{ GP }} master host IP address. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       * **Port**: Specify the {{ GP }} connection port. The default port is 5432.

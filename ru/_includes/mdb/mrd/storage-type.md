@@ -16,3 +16,5 @@
 
   Список классов хостов и соответствующих им платформ см. в разделе [{#T}](../../../managed-redis/concepts/instance-types.md).
 
+  {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+

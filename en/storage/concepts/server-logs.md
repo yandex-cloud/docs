@@ -30,9 +30,9 @@ The source and target buckets must be in the same [cloud](../../resource-manager
 
 Where:
 
-* `prefix`: [Prefix of the key](#key-prefix) for the log object. You can specify your own prefix when enabling logging.
+* `<prefix>`: [Prefix of the key](#key-prefix) for the log object. You can specify the prefix yourself when enabling logging.
 * `YYYY-MM-DD-HH-MM-SS`: Date and time of saving the log object in the target bucket (UTC format).
-* `ID`: Unique record ID that prevents the object from being overwritten.
+* `<ID>`: Unique record ID that prevents the object from being overwritten.
 
 ### Prefix of the key {#key-prefix}
 
@@ -63,7 +63,7 @@ Example of a record in the log file:
   "range": "-",
   "requester": "-",
   "request_args": "X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Date=20201030T072100Z\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Expires=43200\u0026X-Amz-Credential=ZGB4EY1...\u0026X-Amz-Signature=12f350...",
-  "request_id": "1235efdab7445028",
+  "request_id": "1235efda********",
   "request_path": "/my-bucket-example/path/logs/2020-11-10-14-42-11-123f57b5-1853-4120-8d7a-5bcc1e9e9b4f?X-Amz-...",
   "request_time":88,
   "scheme": "https",

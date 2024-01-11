@@ -19,76 +19,76 @@ Enable bucket versioning:
 
 - {{ yandex-cloud }} CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to edit a bucket ACL:
+   1. View a description of the CLI command to edit a bucket ACL:
 
-     ```bash
-     yc storage bucket update --help
-     ```
+      ```bash
+      yc storage bucket update --help
+      ```
 
-  1. Run the following command:
+   1. Run the following command:
 
-     ```bash
-     yc storage bucket update --name <bucket_name> --versioning versioning-enabled
-     ```
+      ```bash
+      yc storage bucket update --name <bucket_name> --versioning versioning-enabled
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     name: my-bucket
-     folder_id: csgeoelk7fl15********
-     default_storage_class: STANDARD
-     versioning: VERSIONING_ENABLED
-     max_size: "10737418240"
-     acl: {}
-     created_at: "2022-12-14T08:42:16.273717Z"
-     ```
+      ```bash
+      name: my-bucket
+      folder_id: csgeoelk7fl15********
+      default_storage_class: STANDARD
+      versioning: VERSIONING_ENABLED
+      max_size: "10737418240"
+      acl: {}
+      created_at: "2022-12-14T08:42:16.273717Z"
+      ```
 
 - AWS CLI
 
-  If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-  Run the following command:
+   Run the following command:
 
-  ```bash
-  aws --endpoint https://{{ s3-storage-host }} \
+   ```bash
+   aws --endpoint https://{{ s3-storage-host }} \
      s3api put-bucket-versioning \
      --bucket <bucket_name> \
      --versioning-configuration 'Status=Enabled'
-  ```
+   ```
 
 - {{ TF }}
 
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
+   Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
-  In the configuration file, describe the parameters of the resources you want to create:
+   In the configuration file, describe the parameters of the resources you want to create:
 
-  ```hcl
-  resource "yandex_storage_bucket" "b" {
-    bucket     = "<bucket name>"
-    access_key = "<key ID>"
-    secret_key = "<secret key>"
-    acl        = "private"
+   ```hcl
+   resource "yandex_storage_bucket" "b" {
+     bucket     = "<bucket_name>"
+     access_key = "<key_ID>"
+     secret_key = "<secret_key>"
+     acl        = "private"
 
-    versioning {
-      enabled = true
-    }
-  }
-  ```
+     versioning {
+       enabled = true
+     }
+   }
+   ```
 
-  Where:
+   Where:
 
-  * `bucket`: Bucket name. This parameter is required.
-  * `access_key`: ID of the static access key.
-  * `secret_key`: Value of the secret access key.
-  * `acl`: Applied ACL policy. The default value is `private`. This is an optional parameter.
-  * `versioning`: Bucket versioning management:
-     * `enabled`: Enables bucket versioning. This is an optional parameter.
+   * `bucket`: Bucket name. This is a required parameter.
+   * `access_key`: ID of the static access key.
+   * `secret_key`: Value of the secret access key.
+   * `acl`: Applied ACL policy. The default value is `private`. This is an optional parameter.
+   * `versioning`: Bucket versioning management:
+      * `enabled`: Enables bucket versioning. This is an optional parameter.
 
 - API
 

@@ -32,6 +32,8 @@ keywords:
 
 Ниже приведен полный список возможных конфигураций хостов на каждой из платформ.
 
+{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+
 {% include [instance-types-code](../../_includes/mdb/mes-instance-types-code.md) %}
 
 | Имя класса хостов | Количество vCPU | Гарантированная доля vCPU | RAM, ГБ | Размер <br>диска, ГБ |

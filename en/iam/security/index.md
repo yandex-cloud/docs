@@ -1,12 +1,12 @@
 ---
 title: "Access management in {{ iam-full-name }} ({{ iam-short-name }})"
-description: "Accesses in {{ iam-full-name }} ({{ iam-short-name }}), a service for identity and access management. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Accesses in {{ iam-full-name }} ({{ iam-short-name }}), a service for identity and access management. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ iam-name }}
 
 In this section, you will learn:
-* [Which resources you can assign roles to](#resources).
+* [Which resources you can assign a role for](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#choosing-roles) for particular actions.
 
@@ -48,13 +48,6 @@ For some services, you need a service account to perform operations, such as in 
 
 {% include [roles-iam-admin](../../_includes/roles-iam-admin.md) %}
 
-#### {{ roles-cloud-owner }} {#cloud-owner}
-
-{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
-
-#### {{ roles-cloud-member }} {#cloud-member}
-
-{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
 ### Primitive roles {#primitive-roles}
 

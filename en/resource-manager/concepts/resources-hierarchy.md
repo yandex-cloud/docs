@@ -39,19 +39,19 @@ By default, clouds are isolated from each other. You cannot move resources from 
 
 #### Cloud owner {#owner}
 
-When a cloud is created, the owner is assigned to it. The _cloud owner_ is a user assigned the `{{ roles-cloud-owner }}` role for this cloud.
+A newly created cloud gets an owner assigned. A _cloud owner_ is a user with the `{{ roles-cloud-owner }}` role assigned for the cloud.
 
-The owner can perform any operation with the cloud and its resources.
+An owner can perform any operation with the cloud and the resources within it.
 
-The owner can grant access to the cloud to other users: assign [roles](../../iam/concepts/access-control/roles.md) or revoke them. For example, the owner can appoint other cloud owners or denounce their owner role.
+An owner can grant access to the cloud to other users: assign and revoke various [roles](../../iam/concepts/access-control/roles.md). Only a cloud owner can assign and revoke the `resource-manager.clouds.owner` role. Cloud owners can also revoke this role from themselves.
 
-A cloud must have at least one owner. The sole owner of a cloud may not give up this role.
+A cloud must have at least one owner. The user creating a cloud becomes its owner automatically. Sole cloud owners cannot revoke the `resource-manager.clouds.owner` role from themselves.
 
 #### Cloud member {#member}
 
 The `{{ roles-cloud-member }}` role does not grant any rights to handle resources. This role is used in combination with other roles.
 
-See a detailed description of the role in the [{{ iam-full-name }}](../../iam/concepts/access-control/roles.md#member) documentation.
+{% include [roles-cloud-member-organization](../../_includes/roles-cloud-member-organization.md) %}
 
 #### Public access to the cloud {#public-access}
 

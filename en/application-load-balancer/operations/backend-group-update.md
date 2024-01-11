@@ -3,7 +3,7 @@ title: "How to edit a backend group in {{ alb-full-name }}"
 description: "Step-by-step guide for editing a backend group."
 ---
 
-# Editing backend group
+# Editing a backend group
 
 ## Update a group's basic parameters {#update-group}
 
@@ -61,7 +61,7 @@ description: "Step-by-step guide for editing a backend group."
         --new-name <new_backend_group_name> \
         --description <backend_group_description> \
         --labels key=value[,<key>=<label_value>] \
-        --connection-affinity source-ip=<true_or_false>
+        --connection-affinity source-ip=<IP-based_session_affinity_mode>
       ```
 
       Where:
@@ -72,7 +72,7 @@ description: "Step-by-step guide for editing a backend group."
 
       * `--description`: Description of the backend group. This is an optional parameter.
       * `--labels key=value`: List of labels in `key=value` format. This is an optional parameter.
-      * `--connection-affinity source-ip=<true_or_false>`: Mode of [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) based on IP (`source-ip`). This is an optional parameter. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream](../concepts/backend-group#group-types) type, the affinity mode can only be `--connection-affinity`.
+      * `--connection-affinity`: [Session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) mode based on IP (`source-ip`). It may take either the `true` or `false` value. This is an optional parameter. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream](../concepts/backend-group#group-types) type, the affinity mode can only be `--connection-affinity`.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -127,7 +127,7 @@ description: "Step-by-step guide for editing a backend group."
         }
         session_affinity {
           connection {
-            source_ip = <true_or_false>
+            source_ip = <IP-based_session_affinity_mode>
           }
         }
       ...
@@ -142,7 +142,7 @@ description: "Step-by-step guide for editing a backend group."
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: Session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
+         * `connection`: Session affinity mode based on the IP address (`source_ip`). It may take either the `true` or `false` value. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:

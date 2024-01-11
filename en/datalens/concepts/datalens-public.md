@@ -6,17 +6,27 @@ You can grant public access to charts and dashboards you create: any user can vi
 
 ## Publishing rules {#rules}
 
-To publish a chart or dashboard, grant permissions to publish related datasets and connections. To do this, you need to have `{{ permission-admin }}` permission to these objects.
-
-To protect the data, we recommend that you only grant the user rights to view those tables that are used to build the dataset when connecting to a database.
-
-We also recommend minimizing the data in a dataset and adding only the required filters to the dashboard. You can download data on a public dashboard in a machine-readable format.
-
 Before publishing data, make sure that:
 
-* Your charts and dashboards don't contain any personal data or trade secrets. Access to published data is not restricted.
-* You can't publish dashboards and charts built on the [Yandex Metrica API](../operations/connection/create-metrica-api.md) and [AppMetrica](../operations/connection/create-appmetrica.md), but you can [share](#metrica-share) them.
-* You have administrator rights to published charts and dashboards, as well as related objects.
+* You have the `{{ permission-admin }}` permission to published charts, dashboards, and related objects.
+* Your charts and dashboards do not contain any personal data or trade secrets. Access to published data is not restricted.
+* The connection your objects run on top of supports data publication. You cannot publish data from the following connections:
+
+   * [Google BigQuery](../operations/connection/create-big-query.md)
+   * [Snowflake](../operations/connection/create-snowflake.md)
+   * [Metrica](../operations/connection/create-metrica-api.md)
+   * [AppMetrica](../operations/connection/create-appmetrica.md)
+
+      {% note info %}
+
+      You can [share](#metrica-share) a dashboard or chart based on Yandex Metrica or AppMetrica data.
+
+      {% endnote %}
+
+To secure your published data:
+
+* Grant the user permission to view only the tables that are used to build a dataset when connecting to a database.
+* Minimize the data in a dataset and only add the required filters to your dashboard. You can download data on a public dashboard in a machine-readable format.
 
 ## Publishing an object {#how-to-publish}
 
@@ -40,7 +50,7 @@ To share a chart or dashboard containing Yandex Metrica or AppMetrica data, use 
 
 ## Embedding public objects {#embedded-public-chart}
 
-You can embed published dashboards and charts into a website or app using an `iframe`. You can additionally provide a parameter for the object's format:
+You can embed published dashboards and charts into a website or app using an `iframe`. You can also provide the object's format parameter:
 
 * `_theme=light`: Use the light theme for the object.
 * `_theme=dark`: Use the dark theme for the object.

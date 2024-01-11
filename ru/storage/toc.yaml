@@ -207,6 +207,22 @@ items:
         items:
           - name: Docker-контейнер для (S)FTP(S)
             href: tools/sftps.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    items:
+      - name: Действующие правила
+        href: pricing.md
+      - name: Архив
+        items:
+          - name: До 1 января 2019 года
+            href: pricing-archive/pricing-01012019.md
+          - name: С 1 января до 1 марта 2019 года
+            href: pricing-archive/pricing-01032019.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/storage/index.md
+  - name: Справочник Terraform
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -423,22 +439,12 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: update
                     href: api-ref/Bucket/update.md
-  - name: Справочник метрик
+  - name: Метрики {{ monitoring-name }}
     href: metrics.md
-  - name: Справочник логов
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
+  - name: Логи бакета
     href: logs-ref.md
-  - name: Управление доступом
-    href: security/index.md
-  - name: Правила тарификации
-    items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
-        items:
-          - name: До 1 января 2019 года
-            href: pricing-archive/pricing-01012019.md
-          - name: С 1 января до 1 марта 2019 года
-            href: pricing-archive/pricing-01032019.md
   - name: Вопросы и ответы
     href: qa.md
   - name: Обучающие курсы

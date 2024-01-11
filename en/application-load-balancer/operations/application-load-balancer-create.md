@@ -92,7 +92,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
       Where:
 
-      * `<load_balancer_name>`: Name of the new load balancer.
+      * `load_balancer_name`: Name of the new load balancer.
       * `--network-name`: Name of the network in which the load balancer is created.
       * `--security-group-id` (optional): List of one to five comma-separated [security group](../concepts/application-load-balancer.md#security-groups) IDs.
          If you omit this parameter, any traffic will be allowed for the load balancer.
@@ -144,7 +144,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
          yc alb load-balancer logging <load_balancer_name> \
            --log-group-id <log_group_ID> \
            --enable \
-           --discard codes=[<HTTP_code>,<HTTP_code_class>,<gRPC_code>],percent=<perentage_of_logs_to_discard>
+           --discard codes=[<HTTP_code>,<HTTP_code_class>,<gRPC_code>],percent=<percentage_of_logs_to_discard>
          ```
 
          Where:

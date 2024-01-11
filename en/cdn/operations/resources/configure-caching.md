@@ -62,8 +62,8 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       Result:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -103,9 +103,9 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
    1. To change the cache lifetime, run:
 
       ```bash
-      yc cdn resource update <resource ID> \
-        --cache-expiration-time <time in seconds> \
-        --browser-cache-expiration-time <time in seconds> \
+      yc cdn resource update <resource_ID> \
+        --cache-expiration-time <time> \
+        --browser-cache-expiration-time <time> \
         --ignore-cookie true \
         --ignore-query-string
       ```
@@ -137,10 +137,10 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       }
 
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
+        token     = "<OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<availability_zone>"
       }
 
       resource "yandex_cdn_resource" "my_resource" {

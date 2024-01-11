@@ -52,17 +52,17 @@ Deleting folders with objects is an asynchronous operation. Once it starts, {{ o
 
 You can specify a link to a bucket object in one of the following formats:
 - For a bucket with public access:
-  - `http(s)://<bucket>.{{ s3-storage-host }}/<key>`
-  - `https://{{ s3-storage-host }}/<bucket>/<key>`
+   - `http(s)://<bucket>.{{ s3-storage-host }}/<key>`
+   - `https://{{ s3-storage-host }}/<bucket>/<key>`
 - For a bucket with restricted access:
-  - `http(s)://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
-  - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
+   - `http(s)://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
+   - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
 
 Where:
 
-* `bucket`: Bucket name.
-* `key`: [Key](#key) (file path).
-* `parameters`: Additional parameters for accessing a bucket with restricted access, e.g., a signature and validity period.
+* `<bucket>`: Bucket name.
+* `<key>`: [Key](#key) (file path).
+* `<parameters>`: Additional parameters for accessing a bucket with restricted access, e.g., a signature and validity period.
 
 {% include [public-link](../../_includes/storage/public-link.md) %}
 

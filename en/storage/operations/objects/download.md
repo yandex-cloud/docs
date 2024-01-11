@@ -63,7 +63,7 @@ description: "In this tutorial, you will learn how to download an object from {{
       aws s3api list-objects \
           --endpoint-url https://{{ s3-storage-host }} \
           --bucket <bucket_name> \
-          --query '<query_in_JMESPath_format>' \
+          --query '<query>' \
           --output text | xargs -I {} aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket <bucket_name> --key {} <local_path>{}
       ```
 
@@ -90,7 +90,7 @@ description: "In this tutorial, you will learn how to download an object from {{
       Foreach($x in (aws s3api list-objects `
         --endpoint-url https://{{ s3-storage-host }} `
         --bucket <bucket_name> `
-        --query '<query_in_JMESPath_format>' `
+        --query '<query>' `
         --output text)) `
         {aws s3api get-object --endpoint-url https://{{ s3-storage-host }} --bucket <bucket_name> --key $x <local_path>$x}
       ```

@@ -26,7 +26,7 @@ To put or configure a retention:
         --bucket <bucket_name> \
         --key <object_key> \
         --version-id <version_ID> \
-        --retention Mode=<retention_type>,RetainUntilDate="<retain_until_date_and_time>" \
+        --retention Mode=<retention_type>,RetainUntilDate="<date_and_time>" \
         --bypass-governance-retention
       ```
 
@@ -51,7 +51,6 @@ To put or configure a retention:
    Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method.
 
 {% endlist %}
-
 
 ## Removing a governance-mode retention {#remove-governance-retention}
 

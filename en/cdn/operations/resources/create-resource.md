@@ -96,7 +96,7 @@ To create a [resource](../../concepts/resource.md):
 
       ```bash
       - id: "90209"
-        folder_id: somefolder7p********
+        folder_id: s0mefo1der7p********
         name: test-group-1
         use_next: true
         origins:
@@ -128,13 +128,19 @@ To create a [resource](../../concepts/resource.md):
    1. Create a resource:
 
       ```bash
-      yc cdn resource create <resource domain name> \
-        --origin-group-id <origin group ID> \
-        --origin-protocol <protocol for origins>
+      yc cdn resource create <resource_domain_name> \
+        --origin-group-id <origin_group_ID> \
+        --origin-protocol <protocol_used_for_origins>
       ```
 
       * Instead of `--origin-group-id`, you can specify the origin domain name using the `--origin-custom-source` flag.
       * Possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
+
+      If you want to restrict access to the new resource with [secure tokens](../../concepts/secure-tokens.md), use the following parameters:
+      * `--secure-key>`: Secret key that is an arbitrary string of 6 to 32 characters.
+      * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP.
+
+      See also [{#T}](./enable-secure-token.md).
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
@@ -143,7 +149,7 @@ To create a [resource](../../concepts/resource.md):
    Make sure the CDN provider is activated before you start using CDN resources. You can activate it in the [management console]({{ link-console-main }}) or using the [YC CLI](../../../cli/quickstart.md) command:
 
    ```
-   yc cdn provider activate --folder-id <folder ID> --type gcore
+   yc cdn provider activate --folder-id <folder_ID> --type gcore
    ```
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -162,10 +168,10 @@ To create a [resource](../../concepts/resource.md):
       }
 
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
+        token     = "<OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<availability_zone>"
       }
 
       resource "yandex_cdn_resource" "my_resource" {
@@ -251,7 +257,7 @@ To create a [resource](../../concepts/resource.md):
    Result:
 
    ```bash
-   id: someidkfjq********
+   id: s0me1dkfjq********
 
    ...
 

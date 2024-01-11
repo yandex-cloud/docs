@@ -44,7 +44,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
       ```
       - id: "90209"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5vej********
         name: test-group-1
         use_next: true
         origins:
@@ -58,7 +58,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
           source: www.example1.com
           enabled: true
       - id: "90208"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5vej********
         name: test-group
         use_next: true
         origins:
@@ -76,21 +76,21 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
    1. Create a resource with the connected origin group:
 
       ```
-      yc cdn resource create --cname <resource domain name> \
-        --origin-group-id <origin group ID> \
+      yc cdn resource create --cname <resource_domain_name> \
+        --origin-group-id <origin_group_ID> \
         --origin-protocol https
       ```
 
       Where:
 
-      * `origin-group-id`: Origin group ID.
-      * `origin-protocol`: Origin protocol.
+      * `--origin-group-id`: Origin group ID.
+      * `--origin-protocol`: Origin protocol.
 
       Result:
 
       ```
-      id: bc855oumelrqw3ceywih
-      folder_id: b1g86q4m5vej8lkljme5
+      id: bc855oumelrq********
+      folder_id: b1g86q4m5vej********
       cname: res1.example.com
       created_at: "2022-01-15T15:13:42.827643Z"
       updated_at: "2022-01-15T15:13:42.827671Z"
@@ -146,17 +146,17 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
       
       ```
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<default availability zone>"
+        token     = "<OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<default_availability_zone>"
       }
 
       resource "yandex_cdn_resource" "my_resource" {
-        cname = "<resource domain name>"
+        cname = "<resource_domain_name>"
         active = true
         origin_protocol = "https"
-        origin_group_id = <origin group ID>
+        origin_group_id = <origin_group_ID>
       }
       ```
 
@@ -219,8 +219,8 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
       Result:
 
       ```
-      - id: bc82xll34xuc4kymnpqq
-        folder_id: b1g86q4m5vej8lkljme5
+      - id: bc82xll34xuc********
+        folder_id: b1g86q4m5vej********
         cname: res1.example.com
         created_at: "2022-01-21T08:17:48.850086Z"
         updated_at: "2022-01-21T08:17:48.850125Z"
@@ -273,7 +273,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
       ```
       - id: "90209"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5vej********
         name: test-group-1
         use_next: true
         origins:
@@ -287,7 +287,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
           source: www.example1.com
           enabled: true
       - id: "90208"
-        folder_id: b1g86q4m5vej8lkljme5
+        folder_id: b1g86q4m5vej********
         name: test-group
         use_next: true
         origins:
@@ -306,15 +306,15 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
       ```
       yc cdn resource update \
-        --id <resource ID> \
-        --origin-group-id <origin group ID>
+        --id <resource_ID> \
+        --origin-group-id <origin_group_ID>
       ```
 
       Result:
 
       ```
-      id: bc8krsk72icwnvyvs6c3
-      folder_id: b1g86q4m5vej8lkljme5
+      id: bc8krsk72icw********
+      folder_id: b1g86q4m5vej********
       cname: res2.example.com
       created_at: "2022-01-15T15:29:19.103653Z"
       updated_at: "2022-01-15T15:33:22.819916Z"

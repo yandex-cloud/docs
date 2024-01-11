@@ -50,8 +50,8 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
       Result:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -91,9 +91,15 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
    1. Edit the resource settings:
 
       ```bash
-      yc cdn resource update <resource ID> \
-        <flag> <new value>
+      yc cdn resource update <resource_ID> \
+        <flag> <new_value>
       ```
+
+      If you want to restrict access to the new resource with [secure tokens](../../concepts/secure-tokens.md), use the following parameters:
+      * `--secure-key>`: Secret key that is an arbitrary string of 6 to 32 characters.
+      * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP.
+
+      See also [{#T}](./enable-secure-token.md).
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
@@ -113,7 +119,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
           active              = false
           origin_protocol     = "https"
           secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = "<origin group ID>"
+          origin_group_id     = "<origin_group_ID>"
           ...
           options {
             edge_cache_settings = "345600"
@@ -177,7 +183,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
    Change the protocol for origins from HTTP to HTTPS and select a Let's Encrypt® certificate [added](../../../certificate-manager/operations/managed/cert-create.md) to {{ certificate-manager-name }} or an [uploaded](../../../certificate-manager/operations/import/cert-create.md) certificate of your own:
 
    ```bash
-   yc cdn resource update someidkfjqjfl325fw \
+   yc cdn resource update s0me1dkfjq******** \
      --origin-protocol HTTPS \
      --cert-manager-ssl-cert-id <certificate_ID>
    ```
@@ -185,7 +191,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
    Result:
 
    ```bash
-   id: someidkfjqjfl325fw
+   id: s0me1dkfjq********
 
    ...
 

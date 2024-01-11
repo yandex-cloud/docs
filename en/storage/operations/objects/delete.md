@@ -3,7 +3,7 @@
 
 ## Deleting an object or object version without a lock {#wo-object-lock}
 
-An object or object version for which the [lock](../../concepts/object-lock.md) has not been set (for example because object lock hasn't been enabled in the bucket) can be deleted without any additional confirmation.
+An object or object version for which the [lock](../../concepts/object-lock.md) has not been set (e.g., because object lock is not enabled in the bucket) can be deleted without any additional confirmation.
 
 {% note info %}
 
@@ -76,8 +76,8 @@ To delete an object:
       ```
 
    Where:
-   * `--bucket`: Bucket name.
-   * `<object_1_key>`, `<object_2_key>`, `<object_n_key>`: [Keys](../../concepts/object.md#key) of the objects to delete.
+   * `--bucket`: Bucket name
+   * `<object_1_key>`, `<object_2_key>`, `<object_n_key>`: [Keys](../../concepts/object.md#key) of the objects to be deleted
 
    Result:
 
@@ -109,15 +109,15 @@ To delete an object:
       aws s3api list-objects \
         --endpoint-url https://{{ s3-storage-host }} \
         --bucket <bucket_name> \
-        --query '<query_in_JMESPath_format>' \
+        --query '<query>' \
         --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <bucket_name> --key {}
       ```
 
       Where:
       * `--bucket`: Bucket name
-      * `--query`: Query in the [JMESPath](https://jmespath.org/) format
+      * `--query`: Query in [JMESPath](https://jmespath.org/) format
 
-      Here is an example of a command that deletes all objects that are located in the `screenshots` folder, and whose filenames start with the date `20231002`, from `sample-bucket`:
+      Here is an example of a command that deletes from `sample-bucket` all objects located in the `screenshots` folder whose filenames start with the date `20231002`:
 
       ```bash
       aws s3api list-objects \
@@ -133,16 +133,16 @@ To delete an object:
       Foreach($x in (aws s3api list-objects `
         --endpoint-url https://{{ s3-storage-host }} `
         --bucket <bucket_name> `
-        --query '<query_in_JMESPath_format>' `
+        --query '<query>' `
         --output text)) `
         {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <bucket_name> --key $x}
       ```
 
       Where:
       * `--bucket`: Bucket name
-      * `--query`: Query in the [JMESPath](https://jmespath.org/) format
+      * `--query`: Query in [JMESPath](https://jmespath.org/) format
 
-      Here is an example of a command that deletes all objects that are located in the `screenshots` folder, and whose filenames start with the date `20231002`, from `sample-bucket`:
+      Here is an example of a command that deletes from `sample-bucket` all objects located in the `screenshots` folder whose filenames start with the date `20231002`:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
@@ -208,7 +208,7 @@ To delete an object:
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes in the [management console]({{ link-console-main }}).
+      You can check the changes in the [management console]({{ link-console-main }}).
 
 - API
 
@@ -217,7 +217,6 @@ To delete an object:
    {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
 {% endlist %}
-
 
 ## Deleting an object version with an object lock {#w-object-lock}
 
@@ -252,7 +251,7 @@ To check whether lock has been put and delete the object version when possible
       {
         ...
         "ObjectLockMode": "<type_of_object_lock_with_retention_period>",
-        "ObjectLockRetainUntilDate": "<object_lock_retain_until_date_and_time>",
+        "ObjectLockRetainUntilDate": "<date_and_time>",
         "ObjectLockLegalHoldStatus": "<status_of_legal_hold>",
         ...
       }

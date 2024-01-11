@@ -133,38 +133,38 @@ A bucket inherits access rights from its folder. If you want to know exactly wha
 
 * To get a list of folder roles, run this command:
 
-  ```bash
-  yc resource-manager folder list-access-bindings \
-    --id b1g7gvsi89m34qmcm4ke
-  ```
+   ```bash
+   yc resource-manager folder list-access-bindings \
+     --id b1g7gvsi89m3********
+   ```
 
-  Result:
+   Result:
 
-  ```bash
-  +---------+--------------+-----------------------+
-  | ROLE ID | SUBJECT TYPE |      SUBJECT ID       |
-  +---------+--------------+-----------------------+
-  | viewer  | system       | allAuthenticatedUsers |
-  | viewer  | system       | allUsers              |
-  +---------+--------------+-----------------------+
-  ```
+   ```bash
+   +---------+--------------+-----------------------+
+   | ROLE ID | SUBJECT TYPE |      SUBJECT ID       |
+   +---------+--------------+-----------------------+
+   | viewer  | system       | allAuthenticatedUsers |
+   | viewer  | system       | allUsers              |
+   +---------+--------------+-----------------------+
+   ```
 
-  The output contains `allAuthenticatedUsers` and `allUsers`. This means the users of these groups are granted rights for this folder and all resources it contains, including buckets.
+   The output contains `allAuthenticatedUsers` and `allUsers`. This means the users of these groups are granted rights for this folder and all resources it contains, including buckets.
 
 * To revoke a role from the `allAuthenticatedUsers` system group, run this command:
 
-  ```bash
-  yc resource-manager folder remove-access-binding \
-    --id b1g7gvsi89m34qmcm4ke \
-    --role viewer \
-    --allAuthenticatedUsers
-  ```
+   ```bash
+   yc resource-manager folder remove-access-binding \
+     --id b1g7gvsi89m3******** \
+     --role viewer \
+     --allAuthenticatedUsers
+   ```
 
 * To revoke a role from the `allUsers` system group, run this command:
 
-  ```bash
-  yc resource-manager folder remove-access-binding \
-    --id b1g7gvsi89m34qmcm4ke \
-    --role viewer \
-    --allUsers
-  ```
+   ```bash
+   yc resource-manager folder remove-access-binding \
+     --id b1g7gvsi89m3******** \
+     --role viewer \
+     --allUsers
+   ```

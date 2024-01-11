@@ -23,7 +23,7 @@ description: "In this tutorial, you will learn how to get a cloud ID in {{ yande
    Result:
 
    ```
-   id: b1gd129pp9ha0vnvf5g7
+   id: b1gd129pp9ha********
    ...
    ```
 
@@ -38,8 +38,8 @@ description: "In this tutorial, you will learn how to get a cloud ID in {{ yande
    +----------------------+------------+--------------------------+
    |          ID          |    NAME    |      ORGANIZATION ID     |
    +----------------------+------------+--------------------------+
-   | b1g66mft1vopnevbn57j | my-cloud-1 |                          |
-   | b1gd129pp9ha0vnvf5g7 | my-cloud-2 |                          |
+   | b1g66mft1vop******** | my-cloud-1 |                          |
+   | b1gd129pp9ha******** | my-cloud-2 |                          |
    +----------------------+------------+--------------------------+
    ```
 

@@ -55,7 +55,8 @@ To get started with {{ certificate-manager-name }}, you need:
    ```
    www.example.com CNAME www.example.com.{{ s3-web-host }}
    ```
-1. Install and configure the AWS CLI by following our [instructions](../../storage/tools/aws-cli.md#before-you-begin).
+
+1. Install and configure the AWS CLI by following [this guide](../../storage/tools/aws-cli.md#before-you-begin).
 
 ## Create a request for a Let's Encrypt certificate {#request-certificate}
 
@@ -77,42 +78,58 @@ To get started with {{ certificate-manager-name }}, you need:
 
 ## Passing the domain rights check {#validate}
 
-1. Create a file for the check:
-   1. Go to the [management console]({{ link-console-main }}).
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+### Creating a check file {#create-file}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Select a certificate with the `Validating` status in the list and click it.
    1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
       1. Copy the URL from the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field:
          * The part of the link in `http://example.com/.well-known/acme-challenge/` format is the file path.
          * The second part of the link, `rG1Mm1bJ...`, is the file name that you should use.
-      1. Copy the contents of the file from the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field.
-1. Upload the created file to the bucket so that it resides in the `.well-known/acme-challenge` directory:
+      1. Copy the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field to the file.
 
-   {% list tabs %}
+{% endlist %}
 
-   - AWS CLI
+### Uploading the file and performing the check {#upload-and-check}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. In the **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the same name as the domain.
+   1. At the top right, click **{{ ui-key.yacloud.storage.bucket.button_create }}** and create a directory named `.well-known`.
+   1. In `.well-known`, create a subdirectory named `acme-challenge`.
+   1. In `acme-challenge`, click **{{ ui-key.yacloud.storage.button_upload }}**.
+   1. In the window that opens, select the file with a record and click **Open**.
+   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
+   1. Wait until the certificate status changes to `Issued`.
+   1. Go to the `acme-challenge` subdirectory.
+   1. Click ![image](../../_assets/options.svg) to the right of the file and select **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
+   1. Confirm the deletion.
+
+- AWS CLI
+
+   1. Upload your file to the bucket so that it resides in the `.well-known/acme-challenge` subdirectory:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }} \
-         s3 cp <file_name> s3://<bucket_name>/.well-known/acme-challenge/<file_name>
+        s3 cp <file_name> s3://<bucket_name>/.well-known/acme-challenge/<file_name>
       ```
 
-   {% endlist %}
-
-1. Wait until the certificate status changes to `Issued`.
-1. Delete the file you created from the bucket:
-
-   {% list tabs %}
-
-   - AWS CLI
+   1. Wait until the certificate status changes to `Issued`.
+   1. Delete the file you created from the bucket:
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }} \
          s3 rm s3://<bucket_name>/.well-known/acme-challenge/<file_name>
       ```
 
-   {% endlist %}
-
+{% endlist %}
 
 {% note warning %}
 

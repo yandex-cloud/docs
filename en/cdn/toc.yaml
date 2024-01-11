@@ -13,6 +13,8 @@ items:
             href: operations/resources/create-resource.md
           - name: Editing basic settings of a resource
             href: operations/resources/configure-basics.md
+          - name: Getting information about a resource
+            href: operations/resources/get-resources-info.md
           - name: Configuring resource caching
             href: operations/resources/configure-caching.md
           - name: Configuring log export
@@ -33,6 +35,8 @@ items:
             href: operations/resources/enable-segmentation.md
           - name: Enabling origin shielding
             href: operations/resources/enable-shielding.md
+          - name: Setting up access via a secure token
+            href: operations/resources/enable-secure-token.md
           - name: Managing additional resource settings
             href: operations/resources/configure-additions.md
           - name: Disabling a resource
@@ -47,6 +51,8 @@ items:
             href: operations/origin-groups/edit-group.md
           - name: Connecting an origin group to a resource
             href: operations/origin-groups/bind-group-to-resource.md
+          - name: Getting information about origins
+            href: operations/origin-groups/get-group-info.md
           - name: Deleting an origin group
             href: operations/origin-groups/delete-group.md
   - name: Tutorials
@@ -57,7 +63,7 @@ items:
         href: tutorials/prefetch.md
       - name: Editing website images using Thumbor
         href: tutorials/thumbor.md
-      - name: Integrating L7 load balancer with CDN and Object Storage
+      - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
@@ -91,6 +97,8 @@ items:
             href: concepts/origins-shielding.md
       - name: Caching content
         href: concepts/caching.md
+      - name: Secure tokens
+        href: concepts/secure-tokens.md
       - name: Exporting logs
         href: concepts/logs.md
       - name: Quotas and limits

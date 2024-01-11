@@ -29,23 +29,23 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
 1. In the `secrets` directory:
    * Create a `credentials` file:
 
-     ```text
-     [default]
-       aws_access_key_id = <key_ID>
-       aws_secret_access_key = <key_contents>
-     ```
+      ```text
+      [default]
+        aws_access_key_id = <key_id>
+        aws_secret_access_key = <key_value>
+      ```
 
-     Where:
-     * `aws_access_key_id`: ID of the static access key obtained [before starting](#before-you-begin).
-     * `aws_secret_access_key`: Contents of the static access key.
+      Where:
+      * `aws_access_key_id`: ID of the static access key obtained [before starting](#before-you-begin).
+      * `aws_secret_access_key`: Contents of the static access key.
    * If you are going to use SFTP, create a file named `authorized_keys` with a public SSH key:
 
       ```text
       ssh-ed25519 AAAAB3Nz.....BdZoeQ==
       ```
 
-     
-     To learn how to create an SSH key pair, see the [{{ compute-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      
+      To learn how to create an SSH key pair, see the [{{ compute-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 
    * If you are going to use FTPS, add the `ftp.pem` TLS certificate and its `ftp.key` to the folder. For example, for testing purposes, you can issue a self-signed certificate:
@@ -63,11 +63,11 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
    ```
 
    Supported variables:
-   * `S3_BUCKET`: Bucket name or path to its folder to mount to the FTP server, in `<bucket_name>:<folder_path>` format. This is a required variable.
+   * `S3_BUCKET`: Bucket name or path to its folder to be mounted to the FTP server, in `<bucket_name>:<folder_path>` format. This is a required variable.
    * `SFTP`: Enables the use of SFTP. By default, it is set to `YES`.
    * `FTP`: Enables the use of FTP. By default, it is set to `NO`.
-   * `FTP_USER`: Username for establishing a server connection. By default, it is set to `s3`.
-   * `FTP_PASS`: User password for establishing a server connection. By default, a random password is generated and displayed in Docker container logs.
+   * `FTP_USER`: Username for a server connection. By default, it is set to `s3`.
+   * `FTP_PASS`: User password for a server connection. By default, a random password is generated and displayed in Docker container logs.
    * `FTP_PASV_ENABLE`: Enables passive FTP connection mode. By default, it is set to `YES`.
    * `FTP_PASV_MIN_PORT`: Start of the port range for passive mode. By default, it is set to `21100`.
    * `FTP_PASV_MAX_PORT`: End of the port range for passive mode. By default, it is set to `21100`.

@@ -114,7 +114,7 @@ The job `config.yaml` file contains multiple sections.
 1. The `cloud-instance-type` section defines the type of the [computing resource configuration](configurations.md) to run the job on.
 
 
-
 #### See also {#see-also}
 
-[{#T}](../operations/projects/work-with-jobs.md)
+* [{#T}](../operations/projects/work-with-jobs.md)
+* [GitHub repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) with job run examples

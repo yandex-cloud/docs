@@ -27,7 +27,7 @@
       Use the `scp` command-line utility:
 
       ```bash
-      scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
+      scp -r <path_to_file_directory> <VM_username>@<VM_IP_address>:/var/www/html
       ```
 
    - Windows {#windows}

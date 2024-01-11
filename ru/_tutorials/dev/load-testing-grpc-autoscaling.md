@@ -15,7 +15,7 @@
 ## Подготовьте облако к работе {#prepare-cloud}
 
 1. Зарегистрируйте [доменное имя](../../dns/concepts/resource-record.md) для вашего сайта.
-1. Если для вашего [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) включены [группы безопасности](../../vpc/concepts/security-groups.md), [создайте](../../vpc/operations/security-group-create.md) группу с правилами, описанными в разделе [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) с правилами, описанными в разделе [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 1. [Подготовьте кластер {{ managed-k8s-name }}](../../managed-kubernetes/quickstart.md) к работе.
 1. [Установите Metrics Provider](../../managed-kubernetes/operations/applications/metrics-provider.md).
 1. Установите Ingress-контроллер:

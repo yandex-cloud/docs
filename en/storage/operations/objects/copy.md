@@ -5,13 +5,13 @@ description: "In this tutorial, you will learn how to copy objects from a bucket
 
 # Copying objects
 
-{{ objstorage-name }} supports server-side object copy.
+{{ objstorage-name }} supports _server-side object copy_.
 
 If [encryption](../../concepts/encryption.md) in a [bucket](../../concepts/bucket.md) is disabled, [objects](../../concepts/object.md) will be copied to server-side buckets. The host on which the copy operation is run and {{ objstorage-name }} exchange nothing but object [keys](../../concepts/object.md#key). No fee is charged for the copying traffic in this case, because the traffic is internal for the object storage. However, you are [charged](../../pricing.md#prices-operations) for copy requests.
 
 If bucket objects are encrypted, first they will be copied to the host that executes the command and then uploaded to the target bucket.
 
-Large objects uploaded using [multipart uploads](../../concepts/multipart.md) are stored in the bucket in parts. They are copied by invoking [copyPart](../../s3/api-ref/multipart/copypart.md) for each object part. Therefore, multipart objects cost more to copy than regular ones.
+Large objects uploaded using [multipart uploads](../../concepts/multipart.md) are stored in the bucket in parts. They are copied by invoking [copyPart](../../s3/api-ref/multipart/copypart.md) for each part. Therefore, multipart objects cost more to copy than regular ones.
 
 You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or an [individual bucket object](#copy-single-object). You can also copy objects between [buckets of different organizations](#copy-to-another-org-bucket).
 
@@ -89,9 +89,9 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api --profile <path_to_target_bucket_configuration_file> \
+        s3api --profile <path_to_configuration_file> \
         --bucket <target_bucket_name> \
-        --grant-full-control id=<source_bucket_service_account_ID>
+        --grant-full-control id=<service_account_ID>
       ```
 
       Where:
@@ -105,7 +105,7 @@ To copy objects to a bucket hosted in a different [organization](../../../overvi
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3 cp --profile <path_to_source_bucket_configuration_file> \
+        s3 cp --profile <path_to_configuration_file> \
         s3://<source_bucket>/<object_key> \
         s3://<target_bucket>/<object_key>
       ```

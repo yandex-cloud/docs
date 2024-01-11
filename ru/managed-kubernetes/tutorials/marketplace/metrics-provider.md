@@ -17,6 +17,7 @@
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Создайте кластер {{ managed-k8s-name }} ](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
+1. [Настройте группы безопасности](../../operations/connect/security-groups.md#rules-internal) для сетевого трафика кластера {{ managed-k8s-name }}.
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 

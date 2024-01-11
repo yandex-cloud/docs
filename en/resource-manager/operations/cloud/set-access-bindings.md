@@ -13,7 +13,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 - CLI
 
-   1. See the description of the command to assign a role for a cloud:
+   1. View a description of the command to assign a role for a cloud:
 
       ```bash
       yc resource-manager cloud add-access-binding --help
@@ -31,7 +31,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       +----------------------+----------+
       |          ID          |   NAME   |
       +----------------------+----------+
-      | b1gg8sgd16g7qca5onqs | my-cloud |
+      | b1gg8sgd16g7******** | my-cloud |
       +----------------------+----------+
       ```
 
@@ -54,7 +54,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       +--------------------------------+-------------+
       ```
 
-   1. Find out the user's ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
+   1. Find out the user ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
 
       ```bash
       yc iam user-account get test-user
@@ -63,7 +63,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       Result:
 
       ```bash
-      id: gfei8n54hmfhuk5nogse
+      id: gfei8n54hmfh********
       yandex_passport_user_account:
           login: test-user
           default_email: test-user@yandex.ru
@@ -74,72 +74,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       ```bash
       yc resource-manager cloud add-access-binding my-cloud \
         --role editor \
-        --subject userAccount:<user ID>
-      ```
-
-
-- API
-
-   Use the [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings) gRPC API call.
-
-   You will need the cloud ID and the ID of the user who is assigned the role for the cloud.
-
-   1. Find out the cloud ID using the [list](../../api-ref/Cloud/list.md) REST API method:
-
-      ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
-      ```
-
-      Result:
-
-      ```bash
-      {
-       "clouds": [
-        {
-         "id": "b1gg8sgd16g7qca5onqs",
-         "createdAt": "2018-09-23T12:14:45Z",
-         "name": "cloud-b1gg8sgd16g7qc"
-        }
-       ]
-      }
-      ```
-
-   1. Find out the user ID by login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
-
-      ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
-      ```
-
-      Result:
-
-      ```bash
-      {
-       "id": "gfei8n54hmfhuk5nogse",
-       "yandexPassportUserAccount": {
-        "login": "test-user",
-        "defaultEmail": "test-user@yandex.ru"
-       }
-      }
-      ```
-
-   1. Assign the user the `editor` role for the `my-cloud` cloud. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
-
-      ```bash
-      curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-TOKEN>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "<user ID>",
-                      "type": "userAccount"
-          }}}]}' \
-          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+        --subject userAccount:<user_ID>
       ```
 
 
@@ -148,24 +83,24 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Describe the properties of the cloud access rights in a configuration file:
-      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
-      * `role`: Role to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, you can assign only one role.
+      * `cloud_id`: cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
+      * `role`: Role to be assigned. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, you can assign only one role.
       * `member`: User to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
-         * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
-         * `serviceAccount:<ID of service account>`: [ID of the service account](../../../iam/operations/sa/get-id.md).
-         * `federatedUser:<federated user ID>`: [ID of the federated user](../../../organization/operations/users-get.md).
+                  * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md)
+         * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md)
+         * `federatedUser:<federated_account_ID>`: [Federated account ID](../../../organization/operations/users-get.md)
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
-      name = "Project 1"
+        name = "Project 1"
       }
 
       resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
         role     = "editor"
-        member   = "userAccount:<user ID>"
+        member   = "userAccount:<user_ID>"
       }
       ```
 
@@ -202,6 +137,71 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
       After that access rights are granted for the cloud.
 
+- API
+
+   Use the [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings) gRPC API call.
+
+   You will need the cloud ID and the ID of the user who is assigned the role for the cloud.
+
+   1. Find out the cloud ID using the [list](../../api-ref/Cloud/list.md) REST API method:
+
+      ```bash
+      curl -H "Authorization: Bearer <IAM_token>" \
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+      ```
+
+      Result:
+
+      ```bash
+      {
+       "clouds": [
+        {
+         "id": "b1gg8sgd16g7********",
+         "createdAt": "2018-09-23T12:14:45Z",
+         "name": "cloud-b1gg8sgd16g7qc"
+        }
+       ]
+      }
+      ```
+
+   1. Find out the user ID by login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+
+      ```bash
+      curl -H "Authorization: Bearer <IAM_token>" \
+          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+      ```
+
+      Result:
+
+      ```bash
+      {
+       "id": "gfei8n54hmfh********",
+       "yandexPassportUserAccount": {
+        "login": "test-user",
+        "defaultEmail": "test-user@yandex.ru"
+       }
+      }
+      ```
+
+   1. Assign the user the `editor` role for the `my-cloud` cloud. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+
+      ```bash
+      curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM_token>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "<user_ID>",
+                      "type": "userAccount"
+          }}}]}' \
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+      ```
+
+
 {% endlist %}
 
 
@@ -233,69 +233,17 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
       ```bash
       yc resource-manager cloud set-access-bindings my-cloud \
-        --access-binding role=editor,subject=userAccount:<first user ID>
-        --access-binding role=viewer,subject=userAccount:<second user ID>
+        --access-binding role=editor,subject=userAccount:<first_user_ID>
+        --access-binding role=viewer,subject=userAccount:<second_user_ID>
       ```
 
 
       ```bash
       yc resource-manager cloud set-access-bindings my-cloud \
-        --access-binding role=editor,subject=federatedUser:<first user ID>
-        --access-binding role=viewer,subject=federatedUser:<second user ID>
+        --access-binding role=editor,subject=federatedUser:<first_user_ID>
+        --access-binding role=viewer,subject=federatedUser:<second_user_ID>
       ```
 
-- API
-
-   Assign the `editor` role to one user and the `viewer` role to another user:
-
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
-       -d '{
-       "accessBindingDeltas": [{
-           "action": "ADD",
-           "accessBinding": {
-               "roleId": "editor",
-               "subject": {
-                   "id": "<first user ID>",
-                   "type": "userAccount"
-               }
-           }
-       },{
-           "action": "ADD",
-           "accessBinding": {
-               "roleId": "viewer",
-               "subject": {
-                   "id": "<second user ID>",
-                   "type": "userAccount"
-       }}}]}' \
-       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
-   ```
-
-   You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/SetAccessBindings](../../api-ref/grpc/cloud_service.md#SetAccessBindings) gRPC API call.
-
-   {% note alert %}
-
-   The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
-
-   {% endnote %}
-
-
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
-       -d '{
-       "accessBindings": [{
-           "roleId": "editor",
-           "subject": { "id": "<first user ID>", "type": "userAccount" }
-       },{
-           "roleId": "viewer",
-           "subject": { "id": "<second user ID>", "type": "userAccount" }
-       }]}' \
-       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
-   ```
 
 - {{ TF }}
 
@@ -303,13 +251,13 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
-        name = "Project 1"
+      name = "Project 1"
       }
 
       resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
         role     = "editor"
-        member   = "userAccount:<first user ID>"
+        member   = "userAccount:<first_user_ID>"
       }
 
       resource "yandex_resourcemanager_cloud_iam_member" "viewer" {
@@ -349,6 +297,60 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
       After that access rights are granted for the cloud.
 
+- API
+
+   Assign the `editor` role to one user and the `viewer` role to another user:
+
+   ```bash
+   curl -X POST \
+       -H 'Content-Type: application/json' \
+       -H "Authorization: Bearer <IAM_token>" \
+       -d '{
+       "accessBindingDeltas": [{
+           "action": "ADD",
+           "accessBinding": {
+               "roleId": "editor",
+               "subject": {
+                   "id": "<first_user_ID>",
+                   "type": "userAccount"
+               }
+           }
+       },{
+           "action": "ADD",
+           "accessBinding": {
+               "roleId": "viewer",
+               "subject": {
+                   "id": "<second_user_ID>",
+                   "type": "userAccount"
+       }}}]}' \
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+   ```
+
+   You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/SetAccessBindings](../../api-ref/grpc/cloud_service.md#SetAccessBindings) gRPC API call.
+
+   {% note alert %}
+
+   The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+
+   {% endnote %}
+
+
+   ```bash
+   curl -X POST \
+       -H 'Content-Type: application/json' \
+       -H "Authorization: Bearer <IAM_token>" \
+       -d '{
+       "accessBindings": [{
+           "roleId": "editor",
+           "subject": { "id": "<first_user_ID>", "type": "userAccount" }
+       },{
+           "roleId": "viewer",
+           "subject": { "id": "<second_user_ID>", "type": "userAccount" }
+       }]}' \
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:setAccessBindings
+   ```
+
+
 {% endlist %}
 
 
@@ -382,7 +384,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
-      | ajebqtreob2dpblin8pe | test-sa  | test-description |
+      | ajebqtreob2d******** | test-sa  | test-description |
       +----------------------+----------+------------------+
       ```
 
@@ -391,51 +393,8 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       ```bash
       yc resource-manager cloud add-access-binding my-cloud \
         --role editor \
-        --subject serviceAccount:<service account ID>
+        --subject serviceAccount:<service_account_ID>
       ```
-
-- API
-
-   1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
-
-      ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
-      ```
-
-      Result:
-
-      ```bash
-      {
-       "serviceAccounts": [
-        {
-         "id": "ajebqtreob2dpblin8pe",
-         "folderId": "b1gvmob95yysaplct532",
-         "createdAt": "2018-10-18T13:42:40Z",
-         "name": "test-sa",
-         "description": "test-description"
-        }
-       ]
-      }
-      ```
-
-   1. Assign the `editor` role for the `my-cloud` cloud to the `test-sa` service account. In the `subject` property, specify the `serviceAccount` type and the `test-sa` ID. In the request URL, specify the `my-cloud` ID:
-
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
-       -d '{
-       "accessBindingDeltas": [{
-           "action": "ADD",
-           "accessBinding": {
-               "roleId": "editor",
-               "subject": {
-                   "id": "<service account ID>",
-                   "type": "serviceAccount"
-       }}}]}' \
-       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
-   ```
 
 - {{ TF }}
 
@@ -449,7 +408,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
         role     = "editor"
-        member   = "serviceAccount:<service account ID>"
+        member   = "serviceAccount:<service_account_ID>"
       }
       ```
 
@@ -482,6 +441,49 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
       After that access rights are granted for the cloud.
+
+- API
+
+   1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
+
+      ```bash
+      curl -H "Authorization: Bearer <IAM_token>" \
+         https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
+      ```
+
+      Result:
+
+      ```bash
+      {
+       "serviceAccounts": [
+        {
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
+         "createdAt": "2018-10-18T13:42:40Z",
+         "name": "test-sa",
+         "description": "test-description"
+        }
+       ]
+      }
+      ```
+
+   1. Assign the `editor` role for the `my-cloud` cloud to the `test-sa` service account. In the `subject` property, specify the `serviceAccount` type and the `test-sa` ID. In the request URL, specify the `my-cloud` ID:
+
+      ```bash
+      curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM_token>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "<service_account_ID>",
+                      "type": "serviceAccount"
+          }}}]}' \
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+      ```
 
 {% endlist %}
 

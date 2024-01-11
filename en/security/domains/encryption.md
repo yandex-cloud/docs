@@ -141,8 +141,8 @@ For more information about security measures for access control, see [{#T}](acce
 ### Key rotation {#key-rotation}
 
 To improve the security of your infrastructure, we recommend that you categorize your encryption keys into two groups:
-1. Keys for services that process critical data, but don't store it. For example, {{ message-queue-full-name }},{{ sf-full-name }}.
-2. Keys for services that store critical data. For example, Managed Services for Databases.
+1. Keys for services that process critical data but do not store it. For example, {{ message-queue-full-name }},{{ sf-full-name }}.
+1. Keys for services that store critical data. For example, Managed Services for Databases.
 
 For the first group of keys, we recommend that you set up automatic key rotation with a rotation period slightly longer than the data processing period in these services. When the rotation period expires, the old key versions must be deleted. In the case of automatic rotation and the deletion of old key versions, previously processed data cannot be restored and decrypted.
 

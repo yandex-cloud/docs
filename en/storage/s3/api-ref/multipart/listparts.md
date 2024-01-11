@@ -56,13 +56,13 @@ A successful response contains additional data in XML format with the schema des
 <ListPartsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Bucket>example-bucket</Bucket>
   <Key>example-object</Key>
-  <UploadId>0005B46503714F29</UploadId>
+  <UploadId>0005B465********</UploadId>
   <Initiator>
-      <ID>ajeanexampleuser</ID>
+      <ID>ajeanexa********</ID>
       <DisplayName>ajeanexampleuser</DisplayName>
   </Initiator>
   <Owner>
-      <ID>ajeanexampleuser</ID>
+      <ID>ajeanexa********</ID>
       <DisplayName>ajeanexampleuser</DisplayName>
   </Owner>
   <StorageClass>STANDARD</StorageClass>
