@@ -123,3 +123,5 @@
    {% endlist %}
 
 1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+
+{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}

@@ -796,7 +796,7 @@ To create security groups:
             path:
               prefix_match: /
           route:
-            backend_group_id: ds765atleotaiui5pqeu
+            backend_group_id: ds765atleota********
       ```
 
 - {{ TF }}
@@ -891,8 +891,8 @@ To create security groups:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-listener`.
       1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**:
-        * In the **{{ ui-key.yacloud.alb.label_port }}** field, enter `80`.
-        * In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.alb.label_address-auto }}`.
+         * In the **{{ ui-key.yacloud.alb.label_port }}** field, enter `80`.
+         * In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.alb.label_address-auto }}`.
 
       1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `canary-router`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -1126,7 +1126,7 @@ To create security groups:
             * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
             * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
             * Select **{{ ui-key.yacloud.cdn.field_access }}**.
-            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names.
+            * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names.
             * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -1324,7 +1324,7 @@ To configure DNS:
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
-      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the domain name in `cl-....edgecdn.ru` format.
+      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the domain name in `cl-********.edgecdn.ru` format.
 
    {% endlist %}
 
@@ -1332,8 +1332,8 @@ To configure DNS:
 1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` to link them to the copied domain name:
 
    ```
-   cdn CNAME cl-....edgecdn.ru
-   cdn-staging CNAME cl-....edgecdn.ru
+   cdn CNAME cl-********.edgecdn.ru
+   cdn-staging CNAME cl-********.edgecdn.ru
    ```
 
    {% include [note-dns-aname](../_includes/cdn/note-dns-aname.md) %}
@@ -1361,7 +1361,7 @@ To configure DNS:
          1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
          1. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn`.
          1. In the **{{ ui-key.yacloud.common.type }}** field, specify `CNAME`.
-         1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `cl-....edgecdn.ru` format.
+         1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `cl-********.edgecdn.ru` format.
          1. Click **{{ ui-key.yacloud.common.create }}**.
 
       1. In a similar way, in the same zone, create a CNAME record for `cdn-staging.yandexcloud.example`. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn-staging`.
@@ -1390,13 +1390,13 @@ To configure DNS:
 
          For more information about the `yc dns zone create` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/create.md).
 
-      1. In the zone, create CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` with a copied value in `cl-....edgecdn.ru` format:
+      1. In the zone, create CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` with a copied value in `cl-********.edgecdn.ru` format:
 
          ```bash
          yc dns zone add-records \
            --name canary-dns-zone \
-           --record "cdn CNAME cl-....edgecdn.ru" \
-           --record "cdn-staging CNAME cl-....edgecdn.ru"
+           --record "cdn CNAME cl-********.edgecdn.ru" \
+           --record "cdn-staging CNAME cl-********.edgecdn.ru"
          ```
 
          For more information about the `yc dns zone add-records` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/add-records.md).
@@ -1418,14 +1418,14 @@ To configure DNS:
            zone_id = ${yandex_dns_zone.canary-dns-zone.id}
            name    = "cdn"
            type    = "CNAME"
-           data    = ["<copied_value_in_the_format_cl-....edgecdn.ru>"]
+           data    = ["<copied_value_in_the_format_cl-********.edgecdn.ru>"]
          }
 
          resource "yandex_dns_recordset" "canary-recordset-staging" {
            zone_id = ${yandex_dns_zone.canary-dns-zone.id}
            name    = "cdn-staging"
            type    = "CNAME"
-           data    = ["<copied_value_in_the_format_cl-....edgecdn.ru>"]
+           data    = ["<copied_value_in_the_format_cl-********.edgecdn.ru>"]
          }
          ```
 
@@ -1455,7 +1455,7 @@ To configure DNS:
    - API
 
       1. Create a DNS zone named `canary-dns-zone` using the [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) gRPC API call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-....edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+      1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-********.edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 

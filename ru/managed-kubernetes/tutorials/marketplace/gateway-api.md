@@ -32,6 +32,7 @@
      1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
      1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.
      1. [Создайте кластер {{ k8s }}](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
+     1. [Настройте группы безопасности](../../operations/connect/security-groups.md#rules-internal) для сетевого трафика кластера {{ managed-k8s-name }}.
      1. [Создайте правило для подключения к сервисам из интернета](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) и примените его к группе узлов кластера.
 
    - {{ TF }} {#tf}
@@ -44,10 +45,10 @@
      1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-gateway-api.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gateway-api.tf). В файле описаны:
         * Сеть.
         * Подсеть.
-        * [Группа безопасности](../../operations/connect/security-groups.md) и правила, необходимые для работы кластера, группы узлов и инстанса {{ k8s }}:
-          * Правила для служебного трафика.
-          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
-          * Правила для доступа к сервисам из интернета.
+        * [Группа безопасности](../../operations/connect/security-groups.md) и правила, необходимые для работы кластера и группы узлов:
+          * [Правила для служебного трафика](../../operations/connect/security-groups.md#rules-internal).
+          * [Правила для доступа к API {{ k8s }} и управления кластером](../../operations/connect/security-groups.md#rules-master) с помощью `kubectl` через порты `443` и `6443`.
+          * [Правила для доступа к сервисам из интернета](../../operations/connect/security-groups.md#rules-nodes).
         * Кластер {{ k8s }}.
         * Сервисный аккаунт, необходимый для работы кластера и группы узлов {{ k8s }}.
      1. Укажите в файле конфигурации:

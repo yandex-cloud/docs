@@ -113,7 +113,7 @@ Create two buckets: one will store files and the other will store request logs f
       
       ```hcl
       provider "yandex" {
-        token     = "<OAuth>"
+        token     = "<OAuth_token>"
         cloud_id  = "<cloud_ID>"
         folder_id = "<folder_ID>"
         zone      = "{{ region-id }}-a"
@@ -165,6 +165,38 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 {% list tabs %}
 
+- AWS CLI
+
+   1. Create a file with logging settings in JSON format. Here is an example:
+
+      ```json
+      {
+        "LoggingEnabled": {
+            "TargetBucket": "<name_of_bucket_with_logs>",
+            "TargetPrefix": "<key_prefix>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `TargetBucket`: Name of the target bucket for the logs.
+      * `TargetPrefix`: [Prefix of the key](../../storage/concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
+
+   1. Enable logging in the bucket:
+
+      ```bash
+      aws s3api put-bucket-logging \
+        --bucket <name_of_bucket_with_files> \
+        --endpoint-url https://{{ s3-storage-host }} \
+        --bucket-logging-status file://<path_to_settings_file>
+      ```
+
+      Where:
+
+      * `--bucket`: Name of the source bucket to enable action logging for.
+      * `--bucket-logging-status`: Path to the logging settings file.
+
 - API
 
    Use the [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) API method for the bucket with files. HTTP request body:
@@ -172,12 +204,16 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    ```xml
    <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
      <LoggingEnabled>
-       <TargetBucket>name_of_bucket_with_logs</TargetBucket>
+       <TargetBucket>name of bucket with logs</TargetBucket>
+       <TargetPrefix>key prefix</TargetPrefix>
      </LoggingEnabled>
    </BucketLoggingStatus>
    ```
 
-   Where `TargetBucket` is the name of the bucket to write logs to.
+   Where:
+
+   * `TargetBucket`: Name of the bucket for the logs.
+   * `TargetPrefix`: [Prefix of the key](../../storage/concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
 
 {% endlist %}
 
@@ -207,7 +243,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
    Result:
 
    ```text
-   upload: <path_to_ycgame-update-v1.1.exe> to s3://<name_of_bucket_with_files>/ycgame-update-v1.1.exe
+   upload: <ycgame-update-v1.1.exe_file_path> to s3://<name_of_bucket_with_files>/ycgame-update-v1.1.exe
    ```
 
 - {{ TF }}
@@ -223,7 +259,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       ...
       resource "yandex_storage_object" "patch-v1-1" {
         access_key = "<static_key_ID>"
-        secret_key = "<private_key>"
+        secret_key = "<secret_key>"
         bucket = "<name_of_bucket_with_files>"
         key    = "ycgame-update-v1.1.exe"
         source = "<path_to_file>/ycgame-update-v1.1.exe"
@@ -354,10 +390,10 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       }
 
       resource "yandex_cdn_resource" "my_resource" {
-        cname           = "cdn.ycprojectblue.example"
-        active          = true
-        origin_protocol = "https"
-        origin_group_id = yandex_cdn_origin_group.my_group.id
+        cname               = "cdn.ycprojectblue.example"
+        active              = true
+        origin_protocol     = "https"
+        origin_group_id     = yandex_cdn_origin_group.my_group.id
         options {
           custom_host_header     = "<name_of_bucket_with_files>.{{ s3-storage-host }}"
         }
@@ -499,7 +535,6 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
          Where:
          * `--name`: Zone name
          * `--record`: Resource record
- 
       1. Check that the record was created:
 
          ```bash
@@ -509,16 +544,16 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
          Result:
 
          ```text
-         +----------------------------+------+-------+----------------------------+
-         |            NAME            | TTL  | TYPE  |            DATA            |
-         +----------------------------+------+-------+----------------------------+
-         | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}. |
-         |                            |      |       | ns2.{{ dns-ns-host-sld }}. |
-         | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}. |
+         +----------------------------+------+-------+------------------------------+
+         |            NAME            | TTL  | TYPE  |             DATA             |
+         +----------------------------+------+-------+------------------------------+
+         | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.         |
+         |                            |      |       | ns2.{{ dns-ns-host-sld }}.         |
+         | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.         |
          |                            |      |       | {{ dns-mx-host }}. 1 10800 |
-         |                            |      |       | 900 604800 86400           |
-         | cdn.ycprojectblue.example. |  600 | CNAME | cl-********.edgecdn.ru.    |
-         +----------------------------+------+-------+----------------------------+
+         |                            |      |       | 900 604800 86400             |
+         | cdn.ycprojectblue.example. |  600 | CNAME | cl-********.edgecdn.ru.      |
+         +----------------------------+------+-------+------------------------------+
          ```
 
          The list should contain the `cdn.ycprojectblue.example.` record.

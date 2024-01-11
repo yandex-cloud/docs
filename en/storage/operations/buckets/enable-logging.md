@@ -16,7 +16,7 @@ To log requests to the bucket:
 
    {% endcut %}
 
-{% include [target-backet-note](../../../_includes/storage/target-bucket-note.md) %}
+   {% include [target-backet-note](../../../_includes/storage/target-bucket-note.md) %}
 
 1. Enable logging in the source bucket that you want to track.
 
@@ -26,7 +26,7 @@ To log requests to the bucket:
 
       To enable logging via the [AWS CLI](../../tools/aws-cli.md):
 
-      1. Create a file with logging settings in JSON format, e.g.:
+      1. Create a file with logging settings in JSON format. Here is an example:
 
          ```json
          {
@@ -98,9 +98,9 @@ To log requests to the bucket:
 
 
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+         {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
    - API
 
@@ -112,15 +112,15 @@ To log requests to the bucket:
       <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
         <LoggingEnabled>
           <TargetBucket>target bucket name</TargetBucket>
-          <TargetPrefix>logs/</TargetPrefix>
+          <TargetPrefix>key prefix</TargetPrefix>
         </LoggingEnabled>
       </BucketLoggingStatus>
       ```
 
       Where:
 
-      * `<TargetBucket>`: Target bucket name.
-      * `<TargetPrefix>`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`. This is an optional parameter.
+      * `TargetBucket`: Target bucket name.
+      * `TargetPrefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for log objects, e.g., `logs/`.
 
    {% endlist %}
 
@@ -134,25 +134,25 @@ To get the name of the target bucket and the prefix of the key for the log objec
 
    To retrieve the logging settings via the [AWS CLI](../../tools/aws-cli.md):
 
-   1. Run this command:
+   Run this command:
 
-      ```bash
-      aws s3api get-bucket-logging \
-        --bucket <bucket_name> \
-        --output json \
-        --endpoint-url https://{{ s3-storage-host }}
-      ```
+   ```bash
+   aws s3api get-bucket-logging \
+     --bucket <bucket_name> \
+     --output json \
+     --endpoint-url https://{{ s3-storage-host }}
+   ```
 
-      Result:
+   Result:
 
-      ```json
-      {
-         "LoggingEnabled": {
-            "TargetBucket": "<bucket_name>",
-            "TargetPrefix": "<key_prefix>"
-         }
-      }
-      ```
+   ```json
+   {
+       "LoggingEnabled": {
+         "TargetBucket": "<bucket_name>",
+         "TargetPrefix": "<key_prefix>"
+       }
+   }
+   ```
 
 - API
 
@@ -235,7 +235,7 @@ To disable logging, follow these steps:
 
    {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can verify the changes in the [management console]({{ link-console-main }}).
+   You can check the changes in the [management console]({{ link-console-main }}).
 
 - API
 

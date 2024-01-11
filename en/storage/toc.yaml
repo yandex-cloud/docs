@@ -119,7 +119,7 @@ items:
         href: concepts/index.md
       - name: Bucket
         href: concepts/bucket.md
-      - name: Objects
+      - name: Object
         href: concepts/object.md
       - name: Bucket versioning
         href: concepts/versioning.md
@@ -421,6 +421,8 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: update
                     href: api-ref/Bucket/update.md
+  - name: Metric reference
+    href: metrics.md
   - name: Log reference
     href: logs-ref.md
   - name: Access management

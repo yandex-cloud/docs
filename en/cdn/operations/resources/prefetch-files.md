@@ -46,8 +46,8 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
       Result:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       created_at: "2022-01-19T09:23:57.921365Z"
       updated_at: "2022-01-19T10:55:30.305141Z"
@@ -87,8 +87,8 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
    1. Specify the paths to the files you would like to prefetch as a comma-separated list with no spaces:
 
       ```bash
-      yc cdn cache prefetch --resource-id <resource ID> \
-        --path <paths to files>
+      yc cdn cache prefetch --resource-id <resource_ID> \
+        --path <paths_to_files>
       ```
 
       For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).

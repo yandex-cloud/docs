@@ -35,8 +35,8 @@ description: "Follow this guide to delete a resource."
       Result:
 
       ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
+      id: s0me1dkfjq********
+      folder_id: s0mef01der7p********
       cname: testexample.com
       ...
       ssl_certificate:
@@ -47,7 +47,7 @@ description: "Follow this guide to delete a resource."
    1. Delete the resource:
 
       ```bash
-      yc cdn resource delete <resource ID>
+      yc cdn resource delete <resource_ID>
       ```
 
       For more information about the `yc cdn resource delete` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/delete.md).

@@ -19,10 +19,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - <domain name>
-      secretName: yc-certmgr-cert-id-<certificate ID from {{ certificate-manager-full-name }}>
+        - <domain_name>
+      secretName: yc-certmgr-cert-id-<certificate_ID>
   rules:
-    - host: <domain name>
+    - host: <domain_name>
       http:
         paths:
           - path: /app1
@@ -47,6 +47,8 @@ spec:
                 port:
                   name: http
 ```
+
+Where `secretName` is the ID of the certificate from {{ certificate-manager-full-name }}.
 
 {% endcut %}
 

@@ -45,24 +45,24 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
       
       ```
       provider "yandex" {
-        cloud_id                 = "<cloud ID>"
-        folder_id                = "<folder ID>"
-        zone                     = "{{ region-id }}-a"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
+        zone      = "{{ region-id }}-a"
         service_account_key_file = "key.json"
         }
 
 
       resource "yandex_kms_symmetric_key" "key-a" {
-        name              = "<key name>"
-        description       = "<key description>"
+        name              = "<key_name>"
+        description       = "<key_description>"
         default_algorithm = "AES_128"
         rotation_period   = "8760h" // 1 year
       }
 
       resource "yandex_storage_bucket" "test" {
-        bucket     = "<bucket name>"
-        access_key = "<static key ID>"
-        secret_key = "<secret key>"
+        bucket = "<bucket_name>"
+        access_key = "<static_key_ID>"
+        secret_key = "<secret_key>"
         server_side_encryption_configuration {
           rule {
             apply_server_side_encryption_by_default {
@@ -185,7 +185,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes in the [management console]({{ link-console-main }}).
+      You can check the changes in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

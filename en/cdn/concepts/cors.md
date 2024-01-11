@@ -1,6 +1,6 @@
 # CORS in {{ cdn-name }}
 
-{{ cdn-full-name }} [supports cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) through CORS (cross-origin resource sharing).
+{{ cdn-full-name }} supports [CORS requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
 
 In the resource settings, you can:
 
@@ -9,6 +9,8 @@ In the resource settings, you can:
 * Prohibit CORS requests: Disable adding the `Access-Control-Allow-Origin` header to the responses.
 
 CORS settings apply to all files of the resource.
+
+{% include [cors-note](../../_includes/cdn/cors-note.md) %}
 
 #### See also {#see-also}
 

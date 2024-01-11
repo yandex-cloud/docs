@@ -15,7 +15,7 @@ description: "Следуя данному руководству, вы смож�
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Создайте группы безопасности](../operations/connect/security-groups.md) для [мастера {{ k8s }}](../concepts/index.md#master) и [узлов](../concepts/index.md#node-group):
+1. [Создайте группы безопасности](../operations/connect/security-groups.md):
    * `sg-k8s` — для [мастера и группы узлов](../operations/connect/security-groups.md#rules-internal).
    * `k8s-public-services` — для [публичного доступа к сервисам из интернета](../operations/connect/security-groups.md#rules-nodes).
    * `k8s-master-whitelist` — для [доступа к API {{ k8s }}](../operations/connect/security-groups.md#rules-master).

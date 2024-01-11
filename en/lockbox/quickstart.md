@@ -31,6 +31,56 @@ You can use this logic in scripts, services, and applications where you need to 
 
 {% list tabs %}
 
+- CLI
+
+   {% include [cli-install](../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to get the contents of a secret:
+
+      ```bash
+      yc lockbox payload get --help
+      ```
+
+   1. {% include [get-secret-id](../_includes/lockbox/get-secret-id.md) %}
+
+   1. Run this command:
+
+      ```bash
+      yc lockbox payload get \
+        --id <secret_ID> \
+        --key <secret_key> \
+        --version-id <secret_version_ID>
+      ```
+
+      Where:
+
+      * `--id`: Secret ID. This is a required parameter.
+      * `--key`: Secret contents key required to get the single value. This is an optional parameter.
+      * `--version-id`: Secret version. This is an optional parameter. Defaults to the current secret version.
+
+      An example of a command used to get the contents of a secret:
+
+      ```bash
+      yc lockbox payload get \
+        --id e6qetpqfe8vv******** \
+        --version-id e6qqr7k79ecm********
+      ```
+
+      In this example, you get the contents of a `e6qqr7k79ecm********` version secret.
+
+      Result:
+
+      ```bash
+      version_id: e6qqr7k79ecm********
+      entries:
+        - key: first_key
+          text_value: value_1
+        - key: second_key
+          text_value: value_2
+      ```
+
 - API
 
    To get the content of the secret:
