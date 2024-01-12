@@ -81,36 +81,36 @@
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <ID организации> \
+            --organization-id <идентификатор_организации> \
             --auto-create-account-on-login \
             --cookie-max-age 12h \
             --issuer "http://example.com/adfs/services/trust" \
+            --sso-url "https://example.com/adfs/ls/" \            
             --sso-binding POST \
-            --sso-url "https://example.com/adfs/ls/" \
             --force-authn
         ```
 
         Где:
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-        * `organization-id` — идентификатор организации. 
-        * `auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+        * `--name` — имя федерации. Имя должно быть уникальным в каталоге.
+        * `--organization-id` — идентификатор организации. 
+        * `--auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
 
             Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
-        * `cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
+        * `--cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
+        * `--issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
             Укажите ссылку в формате `http://<ADFS>/adfs/services/trust`, где `<ADFS>` — это FQDN вашего AD FS сервера.
 
-        * `sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
+        * `--sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
             Укажите ссылку в формате `https://<ADFS>/adfs/ls/`, где `<ADFS>` — это FQDN вашего AD FS сервера.
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-        * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+        * `--sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -121,7 +121,7 @@
       ```json
       {
         "name": "my-federation",
-        "organizationId": "<ID организации>",
+        "organizationId": "<идентификатор_организации>",
         "autoCreateAccountOnLogin": true,
         "cookieMaxAge":"43200s",
         "issuer": "http://example.com/adfs/services/trust",
@@ -196,7 +196,7 @@
      ```
      resource "yandex_organizationmanager_saml_federation" federation {
       name            = "my-federation"
-      organization_id = "<ID организации>"
+      organization_id = "<идентификатор_организации>"
       auto_create_account_on_login = "true"
       issuer          = "http://example.com/adfs/services/trust"
       sso_url         = "https://example.com/adfs/ls/"
@@ -316,7 +316,7 @@
   1. Отправьте запрос на добавление сертификата:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA...
+      export IAM_TOKEN=CggaAT********
       curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -469,7 +469,7 @@ AD FS требует создавать _отношение доверия с п
 1. Чтобы добавить аватар для одного пользователя, выполните команду:
 
    ```
-   Set-ADUser <имя пользователя> -Replace @{thumbnailPhoto=([byte[]](Get-Content "<путь к изображению>" -Encoding byte))}
+   Set-ADUser <имя_пользователя> -Replace @{thumbnailPhoto=([byte[]](Get-Content "<путь_к_изображению>" -Encoding byte))}
    ```
 
 1. Чтобы массово добавить аватары для пользователей:
@@ -486,8 +486,8 @@ AD FS требует создавать _отношение доверия с п
 	  
    1. Выполните команду:
    
-      ```
-	  Import-Csv <путь к CSV-файлу> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
+    ```
+	  Import-Csv <путь_к_CSV-файлу> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
 	  ```
    
 ## Добавьте пользователей в организацию {#add-users}

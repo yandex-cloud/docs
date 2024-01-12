@@ -24,6 +24,8 @@ keywords:
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера или создайте ее.
 
+       {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
+
     1. В блоках для настройки [компонентов](../concepts/index.md#components) {{ maf-name }} — **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}** — укажите количество экземпляров и ресурсов.
 
     1. В блоке **{{ ui-key.yacloud.airflow.section_triggerer }}** включите или отключите службу Triggerer. Если служба включена, укажите количество экземпляров и ресурсов.

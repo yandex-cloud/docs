@@ -188,12 +188,9 @@ resourceId | <p>Required. ID of updated resource.</p> <p>The maximum string leng
     "ipAddressAcl": {
       "enabled": true,
       "policyType": "string",
-      "exceptedValues": {
-        "enabled": true,
-        "value": [
-          "string"
-        ]
-      }
+      "exceptedValues": [
+        "string"
+      ]
     }
   },
   "originProtocol": "string",
@@ -307,9 +304,7 @@ options.<br>secureKey.<br>type | **string**<br><p>The type of the URL signing. T
 options.<br>ipAddressAcl | **object**<br><p>Manage the state of the IP access policy option. The option controls access to content from the specified IP addresses.</p> 
 options.<br>ipAddressAcl.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource.</p> 
 options.<br>ipAddressAcl.<br>policyType | **string**<br><p>The policy type. One of allow or deny value.</p> <p>PolicyType defines type of the policy in IP address acl rules.</p> <ul> <li>POLICY_TYPE_ALLOW: Allow access to all IP addresses except the ones specified in the excepted_values field.</li> <li>POLICY_TYPE_DENY: Block access to all IP addresses except the ones specified in the excepted_values field.</li> </ul> 
-options.<br>ipAddressAcl.<br>exceptedValues | **object**<br><p>The list of IP addresses to be allowed or denied.</p> <p>A set of the string list parameters.</p> 
-options.<br>ipAddressAcl.<br>exceptedValues.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its ``value`` is applied to the resource. False - the option is disabled and its default value is used for the resource.</p> 
-options.<br>ipAddressAcl.<br>exceptedValues.<br>value[] | **string**<br><p>Value of the option.</p> 
+options.<br>ipAddressAcl.<br>exceptedValues[] | **string**<br><p>The list of IP addresses to be allowed or denied.</p> 
 originProtocol | **string**<br><p>Specify the protocol schema to be used in communication with origin.</p> <p>This option defines the protocol that will be used by CDN servers to request content from an origin source. If not specified, we will use HTTP to connect to an origin server.</p> <ul> <li>HTTP: CDN servers will connect to your origin via HTTP.</li> <li>HTTPS: CDN servers will connect to your origin via HTTPS.</li> <li>MATCH: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li> </ul> 
 active | **boolean** (boolean)<br><p>Flag to create Resource either in active or disabled state. In active state Origins payload could be transmitted from CDN CNAME requests. Default value: true</p> 
 sslCertificate | **object**<br><p>SSL Certificate options.</p> <p>A set of the personal SSL certificate parameters.</p> 

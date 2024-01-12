@@ -8,3 +8,9 @@ description: "Следуя данной инструкции, вы сможет�
 Чтобы создать датасет:
 
 {% include [datalens-create-dataset](../../../_includes/datalens/operations/datalens-create-dataset.md) %}
+
+## Замена таблицы в датасете {#replace-table}
+
+Чтобы заменить таблицу в датасете:
+
+{% include [datalens-dataset-replace-table](../../../_includes/datalens/operations/datalens-dataset-replace-table.md) %}

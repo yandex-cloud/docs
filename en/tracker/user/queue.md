@@ -28,7 +28,7 @@ If you need quick access to a particular queue, add it to your Favorites:
 
 1. Open the queue page.
 
-1. At the top of the page, under the queue name, click ![](../../_assets/tracker/svg/favourites.svg) **{{ ui-key.startrek.ui_components_macros_FavoriteButton.button-tooltip-add }}**.
+1. At the top of the page, under the queue name, click ![](../../_assets/tracker/svg/favourites.svg) **{{ ui-key.startrek.ui_components_entity-page_macros_FavoriteButton.button-tooltip-add }}**.
 
 To open the list of your favorite queues:
 

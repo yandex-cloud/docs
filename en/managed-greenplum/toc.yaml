@@ -137,6 +137,8 @@ items:
             href: api-ref/grpc/backup_service.md
           - name: ClusterService
             href: api-ref/grpc/cluster_service.md
+          - name: HBARuleService
+            href: api-ref/grpc/hba_rule_service.md
           - name: PXFDatasourceService
             href: api-ref/grpc/pxf_service.md
           - name: ResourcePresetService
@@ -159,6 +161,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Cluster/index.md
+              - name: backup
+                href: api-ref/Cluster/backup.md
               - name: create
                 href: api-ref/Cluster/create.md
               - name: delete
@@ -189,6 +193,22 @@ items:
                 href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
+          - name: HBARule
+            items:
+              - name: Overview
+                href: api-ref/HBARule/index.md
+              - name: batchUpdate
+                href: api-ref/HBARule/batchUpdate.md
+              - name: create
+                href: api-ref/HBARule/create.md
+              - name: delete
+                href: api-ref/HBARule/delete.md
+              - name: list
+                href: api-ref/HBARule/list.md
+              - name: listAtRevision
+                href: api-ref/HBARule/listAtRevision.md
+              - name: update
+                href: api-ref/HBARule/update.md
           - name: PXFDatasource
             items:
               - name: Overview

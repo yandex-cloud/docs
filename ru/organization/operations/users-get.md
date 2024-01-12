@@ -34,12 +34,12 @@ description: "Следуя данной инструкции, вы сможет�
   1. Получите информацию о пользователях, указав идентификатор организации:
 
       ```
-      yc organization-manager user list --organization-id bof33mc4bik7bg
+      yc organization-manager user list --organization-id bof33m********
       +----------------------+----------+------------------+-----------------------+
       |          ID          | USERNAME |      EMAIL       |     FEDERATION ID     |
       +----------------------+----------+------------------+-----------------------+
-      | ajeebjmlsdk9guz4kejh | hatter   | hatter@{{yandex-domain}} | gyuiawudhiksd21hsdjh  |
-      | bsdeoujmzsdks1guzker | alice    | alice@{{yandex-domain}}  |                       |
+      | ajeebjmlsdk9******** | hatter   | hatter@{{yandex-domain}} | gyuiawudhiks********  |
+      | bsdeoujmzsdk******** | alice    | alice@{{yandex-domain}}  |                       |
       +----------------------+----------+------------------+-----------------------+
       ```
 

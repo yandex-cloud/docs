@@ -13,13 +13,14 @@ For working with DataSphere Jobs, install DataSphere CLI via `pip install datasp
 | [Create](#Create) | Creates job. |
 | [Execute](#Execute) | Runs job execution. |
 | [Cancel](#Cancel) | Cancels running job. |
-| [Finalize](#Finalize) | Triggers cleanup after downloading job results. |
 | [ReadStdLogs](#ReadStdLogs) | Returns stream of job logs. |
 | [ReadLogs](#ReadLogs) | Returns stream of job logs. |
 | [DownloadJobFiles](#DownloadJobFiles) | Returns download urls for job files. |
 | [List](#List) | Lists jobs. |
 | [Get](#Get) | Returns job by id. |
 | [Delete](#Delete) | Deletes specified job. |
+| [DeleteData](#DeleteData) | Delete job data. |
+| [DeleteAllData](#DeleteAllData) | Delete all jobs data. |
 
 ## Calls ProjectJobService {#calls}
 
@@ -57,6 +58,7 @@ cmd | **string**<br>Job run command.
 env | **[Environment](#Environment)**<br>Job environment description. 
 attach_project_disk | **bool**<br>Should project disk be attached to VM. 
 cloud_instance_type | **[CloudInstanceType](#CloudInstanceType)**<br>VM specification. 
+extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage)**<br>Extended working storage configuration. 
 
 
 ### File {#File}
@@ -113,6 +115,14 @@ Field | Description
 name | **string**<br>Name of DataSphere VM configuration. 
 
 
+### ExtendedWorkingStorage {#ExtendedWorkingStorage}
+
+Field | Description
+--- | ---
+type | enum **StorageType**<br> 
+size_gb | **int64**<br> 
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -134,6 +144,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 project_id | **string**<br>ID of the project. 
+job_id | **string**<br>Job ID. 
 
 
 ### CreateProjectJobResponse {#CreateProjectJobResponse}
@@ -209,6 +220,9 @@ job_parameters | **[JobParameters](#JobParameters1)**<br>
 data_expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Job data expiration timestamp. 
 data_cleared | **bool**<br>Marks if the job data has been cleared. 
 output_files[] | **[File](#File1)**<br>Output files of the job. 
+log_files[] | **[File](#File1)**<br>Job log files. 
+diagnostic_files[] | **[File](#File1)**<br>Job diagnostics files. 
+data_size_bytes | **int64**<br>Job total data size. 
 
 
 ### JobParameters {#JobParameters1}
@@ -223,6 +237,7 @@ cmd | **string**<br>Job run command.
 env | **[Environment](#Environment1)**<br>Job environment description. 
 attach_project_disk | **bool**<br>Should project disk be attached to VM. 
 cloud_instance_type | **[CloudInstanceType](#CloudInstanceType1)**<br>VM specification. 
+extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage1)**<br>Extended working storage configuration. 
 
 
 ### FileDesc {#FileDesc1}
@@ -270,6 +285,14 @@ Field | Description
 name | **string**<br>Name of DataSphere VM configuration. 
 
 
+### ExtendedWorkingStorage {#ExtendedWorkingStorage1}
+
+Field | Description
+--- | ---
+type | enum **StorageType**<br> 
+size_gb | **int64**<br> 
+
+
 ### File {#File1}
 
 Field | Description
@@ -314,26 +337,6 @@ Field | Description
 --- | ---
 job_id | **string**<br>ID of the job. 
 reason | **string**<br>Optional cancellation reason. 
-
-
-## Finalize {#Finalize}
-
-Triggers cleanup after downloading job results.
-
-**rpc Finalize ([FinalizeProjectJobRequest](#FinalizeProjectJobRequest)) returns ([FinalizeProjectJobResponse](#FinalizeProjectJobResponse))**
-
-### FinalizeProjectJobRequest {#FinalizeProjectJobRequest}
-
-Field | Description
---- | ---
-job_id | **string**<br>ID of the job. 
-
-
-### FinalizeProjectJobResponse {#FinalizeProjectJobResponse}
-
-Field | Description
---- | ---
-job_id | **string**<br>ID of the job. 
 
 
 ## ReadStdLogs {#ReadStdLogs}
@@ -485,6 +488,9 @@ job_parameters | **[JobParameters](#JobParameters2)**<br>
 data_expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Job data expiration timestamp. 
 data_cleared | **bool**<br>Marks if the job data has been cleared. 
 output_files[] | **[File](#File3)**<br>Output files of the job. 
+log_files[] | **[File](#File3)**<br>Job log files. 
+diagnostic_files[] | **[File](#File3)**<br>Job diagnostics files. 
+data_size_bytes | **int64**<br>Job total data size. 
 
 
 ### JobParameters {#JobParameters2}
@@ -499,6 +505,7 @@ cmd | **string**<br>Job run command.
 env | **[Environment](#Environment2)**<br>Job environment description. 
 attach_project_disk | **bool**<br>Should project disk be attached to VM. 
 cloud_instance_type | **[CloudInstanceType](#CloudInstanceType2)**<br>VM specification. 
+extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage2)**<br>Extended working storage configuration. 
 
 
 ### FileDesc {#FileDesc3}
@@ -546,6 +553,14 @@ Field | Description
 name | **string**<br>Name of DataSphere VM configuration. 
 
 
+### ExtendedWorkingStorage {#ExtendedWorkingStorage2}
+
+Field | Description
+--- | ---
+type | enum **StorageType**<br> 
+size_gb | **int64**<br> 
+
+
 ### File {#File3}
 
 Field | Description
@@ -585,6 +600,9 @@ job_parameters | **[JobParameters](#JobParameters3)**<br>
 data_expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Job data expiration timestamp. 
 data_cleared | **bool**<br>Marks if the job data has been cleared. 
 output_files[] | **[File](#File4)**<br>Output files of the job. 
+log_files[] | **[File](#File4)**<br>Job log files. 
+diagnostic_files[] | **[File](#File4)**<br>Job diagnostics files. 
+data_size_bytes | **int64**<br>Job total data size. 
 
 
 ### JobParameters {#JobParameters3}
@@ -599,6 +617,7 @@ cmd | **string**<br>Job run command.
 env | **[Environment](#Environment3)**<br>Job environment description. 
 attach_project_disk | **bool**<br>Should project disk be attached to VM. 
 cloud_instance_type | **[CloudInstanceType](#CloudInstanceType3)**<br>VM specification. 
+extended_working_storage | **[ExtendedWorkingStorage](#ExtendedWorkingStorage3)**<br>Extended working storage configuration. 
 
 
 ### FileDesc {#FileDesc4}
@@ -644,6 +663,14 @@ local_modules[] | **[File](#File4)**<br>List of local modules descriptions.
 Field | Description
 --- | ---
 name | **string**<br>Name of DataSphere VM configuration. 
+
+
+### ExtendedWorkingStorage {#ExtendedWorkingStorage3}
+
+Field | Description
+--- | ---
+type | enum **StorageType**<br> 
+size_gb | **int64**<br> 
 
 
 ### File {#File4}
@@ -694,4 +721,92 @@ Field | Description
 --- | ---
 job_id | **string**<br>ID of the job. 
 
+
+## DeleteData {#DeleteData}
+
+Delete job data.
+
+**rpc DeleteData ([DeleteProjectJobDataRequest](#DeleteProjectJobDataRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteProjectJobDataMetadata](#DeleteProjectJobDataMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DeleteProjectJobDataResponse](#DeleteProjectJobDataResponse)<br>
+
+### DeleteProjectJobDataRequest {#DeleteProjectJobDataRequest}
+
+Field | Description
+--- | ---
+job_id | **string**<br>ID of the job. 
+
+
+### Operation {#Operation3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteProjectJobDataMetadata](#DeleteProjectJobDataMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteProjectJobDataResponse](#DeleteProjectJobDataResponse)>**<br>if operation finished successfully. 
+
+
+### DeleteProjectJobDataMetadata {#DeleteProjectJobDataMetadata}
+
+Field | Description
+--- | ---
+job_id | **string**<br>ID of the job. 
+
+
+### DeleteProjectJobDataResponse {#DeleteProjectJobDataResponse}
+
+Empty.
+
+## DeleteAllData {#DeleteAllData}
+
+Delete all jobs data.
+
+**rpc DeleteAllData ([DeleteAllDataRequest](#DeleteAllDataRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteAllDataMetadata](#DeleteAllDataMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DeleteAllDataResponse](#DeleteAllDataResponse)<br>
+
+### DeleteAllDataRequest {#DeleteAllDataRequest}
+
+Field | Description
+--- | ---
+project_id | **string**<br> 
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteAllDataMetadata](#DeleteAllDataMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteAllDataResponse](#DeleteAllDataResponse)>**<br>if operation finished successfully. 
+
+
+### DeleteAllDataMetadata {#DeleteAllDataMetadata}
+
+Field | Description
+--- | ---
+project_id | **string**<br> 
+
+
+### DeleteAllDataResponse {#DeleteAllDataResponse}
+
+Empty.
 

@@ -693,6 +693,7 @@ default:
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
   websql-full-name: Yandex WebSQL
+  websql-link: https://websql.cloud.yandex.ru
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
@@ -3076,6 +3077,10 @@ default:
         header-title: Checklist
       ui_components_entity-page_comments_CommentEditor_mobile:
         write-comment: Write a comment
+      ui_components_entity-page_macros_Dialog:
+        apply-button-label: Run
+      ui_components_entity-page_macros_FavoriteButton:
+        button-tooltip-add: Add to favorites
       ui_components_entity-page_sidebar_SidebarFieldsSelect:
         add-sidebar-field: Edit parameters list
       ui_components_FieldEdit:
@@ -3173,10 +3178,6 @@ default:
         description-tab: Description
         fields-tab: Parameters
         links-tab: Links
-      ui_components_macros_Dialog:
-        apply-button-label: Run
-      ui_components_macros_FavoriteButton:
-        button-tooltip-add: Add to favorites
       ui_components_ModalTextEditor:
         save: Save
       ui_components_NavigationBar_BoardsPanel:
@@ -3309,6 +3310,10 @@ default:
       ui_components_portfolios_Header:
         description-tab: About the portfolio
         projects-tab: Projects
+      ui_components_portfolios_portfolio-page_ListFilterPane:
+        filter-issues: Issues
+        filter-projects: Projects
+        search-placeholder: Search
       ui_components_portfolios_PortfolioMenu:
         remove-portfolio: Delete portfolio
       ui_components_projects_hooks:
@@ -3316,10 +3321,6 @@ default:
         delete-from-project: Delete from project
         issue-actions--move-down: Move to bottom of list
         issue-actions--move-up: Move to top of list
-      ui_components_projects_ListFilterPane:
-        filter-issues: Issues
-        filter-projects: Projects
-        search-placeholder: Search
       ui_components_projects_Sidebar:
         sidebar-param-title--endDate: Deadline
         sidebar-param-title--lead: Responsible
@@ -3847,7 +3848,7 @@ default:
         label_target-private-ip: Outside VPC
         label_targets: Targets
         label_timeout: Timeout, s
-        label_trusted-ca: Trusted CA certificate
+        label_trusted-ca: Trusted root certificate
         label_unhealthy: Unhealthy threshold
         label_upgrade-types: Valid values for the Upgrade header
         label_use-http2: HTTP/2
@@ -7061,10 +7062,10 @@ default:
                         title: Parallel snapshot settings
                     Transfer:
                       data_objects:
-                        title: List of objects to be transferred (Preview)
+                        title: List of objects to be transferred
                       title: Transfer parameters
                       transformation:
-                        title: Data transformation (Preview)
+                        title: Data transformation
                       type:
                         title: Transfer type
                     TransferType:

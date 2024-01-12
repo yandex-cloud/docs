@@ -70,9 +70,9 @@
 
 Все ресурсы будут относиться к одной [облачной сети](../vpc/concepts/network.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -81,7 +81,7 @@
     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](cli-install.md) %}
 
@@ -175,7 +175,7 @@
 
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](terraform-install.md) %}
 
@@ -231,7 +231,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   1. Создайте сеть `canary-network` с помощью вызова gRPC API [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../vpc/api-ref/Network/create.md).
   1. Создайте подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-c` в трех зонах доступности с помощью вызова gRPC API [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../vpc/api-ref/Subnet/create.md).
@@ -240,9 +240,9 @@
 
 ## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -255,7 +255,7 @@
 
   1. Таким же образом создайте «зеленый» бакет для тестовой версии бэкенда.
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Создайте «синий» бакет для стабильной версии бэкенда:
 
@@ -281,7 +281,7 @@
 
   1. Аналогично создайте «зеленый» бакет для тестовой версии бэкенда и включите публичный доступ к нему.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры «синего» (стабильная версия бэкенда) и «зеленого» (тестовая версия бэкенда) бакетов:
 
@@ -322,7 +322,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   Используйте метод REST API [create](../storage/s3/api-ref/bucket/create.md).
 
@@ -366,9 +366,9 @@
 
 1. Загрузите файлы в бакеты:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -376,7 +376,7 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html` версии 1.
      1. Таким же образом загрузите в «зеленый» бакет файл `index.html` версии 2.
 
-   - AWS CLI
+   - AWS CLI {#cli}
 
      1. Загрузите в «синий» бакет файл `index.html` версии 1:
 
@@ -404,7 +404,7 @@
         upload: v2/index.html to s3://<имя_зеленого_бакета>/index.html
         ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      1. Добавьте в конфигурационный файл параметры файлов `v1/index.html` и `v2/index.html`, загружаемых в бакеты «синий» и «зеленый» соответственно:
 
@@ -447,7 +447,7 @@
 
         1. Подтвердите создание ресурсов.
 
-   - API
+   - API {#api}
 
      Используйте метод REST API [upload](../storage/s3/api-ref/object/upload.md).
 
@@ -459,9 +459,9 @@
 
 Чтобы создать группы безопасности:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
@@ -490,7 +490,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   Выполните следующую команду:
 
@@ -552,7 +552,7 @@
 
   Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `canary-sg`:
 
@@ -610,7 +610,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../vpc/api-ref/SecurityGroup/create.md).
 
@@ -620,9 +620,9 @@
 
 ## Создайте группы бэкендов в {{ alb-name }} {#create-l7backend}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Создайте группу бэкендов `canary-bg-production` с бэкендами `canary-backend-blue` и `canary-backend-green`:
 
@@ -649,7 +649,7 @@
   
   Если вы будете выполнять следующие шаги с помощью {{ TF }}, скопируйте идентификаторы групп бэкендов `canary-bg-production` и `canary-bg-staging` со вкладки ![image](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/BackendGroup/create.md).
 
@@ -657,9 +657,9 @@
 
 ## Создайте HTTP-роутер и виртуальные хосты {#create-route-hosts}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -688,7 +688,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте HTTP-роутер `canary-router`:
 
@@ -799,7 +799,7 @@
            backend_group_id: ds765atleota********
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры HTTP-роутера `canary-router`, его виртуальных хостов и маршрутов:
 
@@ -864,7 +864,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   1. Создайте HTTP-роутер `canary-router` с помощью вызова gRPC API [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/HttpRouter/create.md).
   1. Создайте виртуальные хосты `canary-vh-production` и `canary-vh-staging`, привязанные к роутеру, и их маршруты с помощью вызова gRPC API [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/VirtualHost/create.md).
@@ -873,9 +873,9 @@
 
 ## Создайте L7-балансировщик {#create-balancer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -897,7 +897,7 @@
      1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `canary-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Получите идентификаторы подсетей сети `canary-network`:
 
@@ -1017,7 +1017,7 @@
 
      Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры L7-балансировщика `canary-balancer`:
 
@@ -1087,7 +1087,7 @@
 
      1. Подтвердите создание ресурсов.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/LoadBalancer/create.md).
 
@@ -1095,9 +1095,9 @@
 
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1147,7 +1147,7 @@
      1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Если CDN-провайдер еще не активирован, выполните команду:
       
@@ -1214,7 +1214,7 @@
      yc cdn resource update <идентификатор_ресурса> --redirect-http-to-https
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры CDN-ресурсов:
       
@@ -1303,7 +1303,7 @@
       
   После этого для ресурса будет включена переадресация.
 
-- API
+- API {#api}
 
   Используйте вызов gRPC API [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) или метод REST API [create](../cdn/api-ref/Resource/create.md).
 
@@ -1317,9 +1317,9 @@
 
 1. Получите доменное имя CDN-балансировщика:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1342,9 +1342,9 @@
 
    {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления 
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
@@ -1366,7 +1366,7 @@
 
      1. Аналогично создайте в той же зоне CNAME-запись для `cdn-staging.yandexcloud.example`. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn-staging`.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
@@ -1401,7 +1401,7 @@
 
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../cli/cli-ref/managed-services/dns/zone/add-records.md).
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      1. Добавьте в конфигурационный файл параметры DNS-зоны `canary-dns-zone` и CNAME-записей в ней:
 
@@ -1452,7 +1452,7 @@
 
         1. Подтвердите создание ресурсов.
 
-   - API
+   - API {#api}
 
      1. Создайте DNS-зону `canary-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../dns/api-ref/DnsZone/create.md).
      1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `cl-********.edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md).
@@ -1472,9 +1472,9 @@
 1. Откройте в браузере адрес `https://cdn.yandexcloud.example/index.html`. Вы должны увидеть страницу с указанием на версию 1.
 1. Удалите из кеша CDN-ресурса файл `index.html`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1485,7 +1485,7 @@
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1529,7 +1529,7 @@
 
         Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/cache/purge.md).
 
-   - API
+   - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
@@ -1542,9 +1542,9 @@
 
 1. Отключите кеширование CDN-ресурса и удалите из кеша файл `index.html`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1554,7 +1554,7 @@
      1. Отключите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - API
+   - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
@@ -1563,9 +1563,9 @@
 
 1. Удалите из кеша файл `index.html`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1576,7 +1576,7 @@
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1616,7 +1616,7 @@
           --path "/index.html"
         ```
 
-   - API
+   - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
@@ -1625,9 +1625,9 @@
 
 1. Настройте группу бэкендов `canary-bg-production` так, чтобы 20% трафика доменного имени `cdn.yandexcloud.example` приходилось на бэкенд `canary-backend-green` с версией 2:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -1642,7 +1642,7 @@
      1. Аналогично для бэкенда `canary-backend-green` установите вес 20 вместо 0.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Для бэкенда `canary-backend-blue` установите вес 80 вместо 100:
 
@@ -1696,7 +1696,7 @@
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
 
-   - API
+   - API {#api}
 
      Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).
 
@@ -1711,9 +1711,9 @@
 
 1. Снова включите кеширование:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1723,7 +1723,7 @@
      1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - API
+   - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md).
@@ -1734,9 +1734,9 @@
 
 1. Отключите кеширование CDN-ресурса и удалите из кеша файл `index.html`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1746,7 +1746,7 @@
      1. Отключите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - API
+   - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
@@ -1755,9 +1755,9 @@
 
 1. Удалите из кеша файл `index.html`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1768,7 +1768,7 @@
      1. Укажите путь к загруженному файлу: `/index.html`.
      1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1808,7 +1808,7 @@
           --path "/index.html"
         ```
 
-   - API
+   - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
@@ -1817,9 +1817,9 @@
 
 1. Перенаправьте весь трафик доменного имени `cdn.yandexcloud.example` обратно на бэкенд `canary-backend-blue` с версией 1:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -1834,7 +1834,7 @@
      1. Аналогично для бэкенда `canary-backend-green` установите вес 0 вместо 100.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - {{ yandex-cloud }} CLI
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Для бэкенда `canary-backend-blue` установите вес 100 вместо 0:
 
@@ -1886,7 +1886,7 @@
         created_at: "2021-11-03T10:28:47.680825561Z"
         ```
 
-   - API
+   - API {#api}
 
      Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).   
 
@@ -1896,9 +1896,9 @@
 1. Аналогично шагам 1–2 переключите весь трафик доменного имени `cdn-staging.yandexcloud.example` на бэкенд `canary-backend-green` с версией 2 и проверьте переключение в браузере.
 1. Снова включите кеширование:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -1908,7 +1908,7 @@
      1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - API
+   - API {#api}
 
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
      1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md).

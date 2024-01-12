@@ -12,5 +12,6 @@ Resource | Description
 [Organization](Organization/index.md) | A set of methods for managing Organization resources.
 [SshCertificate](SshCertificate/index.md) | 
 [User](User/index.md) | A set of methods for managing Organization users.
-[Federation](Federation/index.md) | A set of methods for managing federations.
+[UserSshKey](UserSshKey/index.md) | 
 [Certificate](Certificate/index.md) | A set of methods for managing certificates.
+[Federation](Federation/index.md) | A set of methods for managing federations.

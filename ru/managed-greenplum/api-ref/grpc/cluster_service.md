@@ -23,6 +23,7 @@ A set of methods for managing Greenplum® clusters.
 | [ListLogs](#ListLogs) | Retrieves logs for the specified Greenplum® cluster. |
 | [StreamLogs](#StreamLogs) | Same as [ListLogs](#ListLogs) but using server-side streaming. |
 | [ListBackups](#ListBackups) | Retrieves a list of available backups for the specified Greenplum® cluster. |
+| [Backup](#Backup) | Creates a backup for the specified Greenplum cluster. |
 | [Restore](#Restore) | Creates a new Greenplum® cluster using the specified backup. |
 
 ## Calls ClusterService {#calls}
@@ -2950,90 +2951,26 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 source_cluster_id | **string**<br>ID of the Greenplum® cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 size | **int64**<br>Size of the backup in bytes. 
+type | enum **BackupCreationType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
+method | enum **BackupMethod**<br>Method of backup creation <ul><li>`BASE`: Base backup</li><li>`INCREMENTAL`: Delta (incremental) Greenplum backup</li></ul>
+journal_size | **int64**<br>Size of the journal associated with backup, in bytes 
 
 
-## Restore {#Restore}
+## Backup {#Backup}
 
-Creates a new Greenplum® cluster using the specified backup.
+Creates a backup for the specified Greenplum cluster.
 
-**rpc Restore ([RestoreClusterRequest](#RestoreClusterRequest)) returns ([operation.Operation](#Operation7))**
+**rpc Backup ([BackupClusterRequest](#BackupClusterRequest)) returns ([operation.Operation](#Operation7))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[BackupClusterMetadata](#BackupClusterMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster7)<br>
 
-### RestoreClusterRequest {#RestoreClusterRequest}
+### BackupClusterRequest {#BackupClusterRequest}
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to create a cluster from. <br>To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
-time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp of the moment to which the Greenplum cluster should be restored. 
-folder_id | **string**<br>Required. ID of the folder to create the Greenplum® cluster in. The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the Greenplum® cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Description of the Greenplum® cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. For example, "project":"mvp" or "source":"dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster7)**<br>Required. Deployment environment of the Greenplum® cluster. 
-config | **[GreenplumRestoreConfig](#GreenplumRestoreConfig)**<br>Greenplum® cluster config. 
-master_resources | **[Resources](#Resources9)**<br>Resources of the Greenplum® master subcluster. 
-segment_resources | **[Resources](#Resources9)**<br>Resources of the Greenplum® segment subcluster. 
-network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
-security_group_ids[] | **string**<br>User security groups. 
-deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
-host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
-placement_group_id | **string**<br>ID of the placement group. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
-segment_host_count | **int64**<br>Number of segment hosts 
-segment_in_host | **int64**<br>Number of segments on each host 
-
-
-### GreenplumRestoreConfig {#GreenplumRestoreConfig}
-
-Field | Description
---- | ---
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access7)**<br>Access policy for external services. 
-zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster7). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br>Determines whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. <br>To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>`false` - do not assign a public IP to the master host. </li><li>`true` - assign a public IP to the master host.</li></ul> 
-
-
-### Access {#Access7}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
-data_transfer | **bool**<br>Allows access for DataTransfer. 
-
-
-### Resources {#Resources9}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
-### MaintenanceWindow {#MaintenanceWindow7}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>A weekly maintenance window. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
-
-Empty.
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><li>`MON`: Monday</li><li>`TUE`: Tuesday</li><li>`WED`: Wednesday</li><li>`THU`: Thursday</li><li>`FRI`: Friday</li><li>`SAT`: Saturday</li><li>`SUN`: Sunday</li></ul>
-hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
+cluster_id | **string**<br>Required. ID of the Greenplum cluster to back up. To get the Greenplum cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation7}
@@ -3046,18 +2983,18 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackupClusterMetadata](#BackupClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster7)>**<br>if operation finished successfully. 
 
 
-### RestoreClusterMetadata {#RestoreClusterMetadata}
+### BackupClusterMetadata {#BackupClusterMetadata}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the new Greenplum® cluster that is being created from a backup. 
-backup_id | **string**<br>ID of the backup that is being used for creating a cluster. 
+cluster_id | **string**<br>ID of the Greenplum cluster to back up. 
+backup_id | **string**<br> 
 
 
 ### Cluster {#Cluster7}
@@ -3081,7 +3018,7 @@ segment_in_host | **int64**<br>Number of segments per host.
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host2) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host2) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host2) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is UNBALANCED).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
 user_name | **string**<br>Owner user name. 
@@ -3098,10 +3035,19 @@ Field | Description
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 60, inclusive.
-access | **[Access](#Access8)**<br>Access policy for external services. 
+access | **[Access](#Access7)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster7)). The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster8)). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
+
+
+### Access {#Access7}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
+data_transfer | **bool**<br>Allows access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring7}
@@ -3117,7 +3063,16 @@ link | **string**<br>Link to the monitoring system charts for the Greenplum® cl
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources10)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
+resources | **[Resources](#Resources9)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
+
+
+### Resources {#Resources9}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
+disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
 
 
 ### SegmentSubclusterConfig {#SegmentSubclusterConfig7}
@@ -3125,6 +3080,27 @@ resources | **[Resources](#Resources10)**<br>Computational resources allocated t
 Field | Description
 --- | ---
 resources | **[Resources](#Resources10)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
+
+
+### MaintenanceWindow {#MaintenanceWindow7}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>An any-time maintenance window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>A weekly maintenance window. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week. <ul><li>`MON`: Monday</li><li>`TUE`: Tuesday</li><li>`WED`: Wednesday</li><li>`THU`: Thursday</li><li>`FRI`: Friday</li><li>`SAT`: Saturday</li><li>`SUN`: Sunday</li></ul>
+hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation7}
@@ -3346,6 +3322,406 @@ xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buff
 
 
 ### CloudStorage {#CloudStorage7}
+
+Field | Description
+--- | ---
+enable | **bool**<br>enable Cloud Storage for cluster 
+
+
+## Restore {#Restore}
+
+Creates a new Greenplum® cluster using the specified backup.
+
+**rpc Restore ([RestoreClusterRequest](#RestoreClusterRequest)) returns ([operation.Operation](#Operation8))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreClusterMetadata](#RestoreClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster8)<br>
+
+### RestoreClusterRequest {#RestoreClusterRequest}
+
+Field | Description
+--- | ---
+backup_id | **string**<br>Required. ID of the backup to create a cluster from. <br>To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
+time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp of the moment to which the Greenplum cluster should be restored. 
+folder_id | **string**<br>Required. ID of the folder to create the Greenplum® cluster in. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the Greenplum® cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the Greenplum® cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. For example, "project":"mvp" or "source":"dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster8)**<br>Required. Deployment environment of the Greenplum® cluster. 
+config | **[GreenplumRestoreConfig](#GreenplumRestoreConfig)**<br>Greenplum® cluster config. 
+master_resources | **[Resources](#Resources10)**<br>Resources of the Greenplum® master subcluster. 
+segment_resources | **[Resources](#Resources10)**<br>Resources of the Greenplum® segment subcluster. 
+network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>User security groups. 
+deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
+host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
+placement_group_id | **string**<br>ID of the placement group. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+segment_host_count | **int64**<br>Number of segment hosts 
+segment_in_host | **int64**<br>Number of segments on each host 
+
+
+### GreenplumRestoreConfig {#GreenplumRestoreConfig}
+
+Field | Description
+--- | ---
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access8)**<br>Access policy for external services. 
+zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). The maximum string length in characters is 50.
+assign_public_ip | **bool**<br>Determines whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. <br>To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>`false` - do not assign a public IP to the master host. </li><li>`true` - assign a public IP to the master host.</li></ul> 
+
+
+### Access {#Access8}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
+data_transfer | **bool**<br>Allows access for DataTransfer. 
+
+
+### Resources {#Resources10}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
+disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+
+
+### MaintenanceWindow {#MaintenanceWindow8}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>An any-time maintenance window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>A weekly maintenance window. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+
+Empty.
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week. <ul><li>`MON`: Monday</li><li>`TUE`: Tuesday</li><li>`WED`: Wednesday</li><li>`THU`: Thursday</li><li>`FRI`: Friday</li><li>`SAT`: Saturday</li><li>`SUN`: Sunday</li></ul>
+hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
+
+
+### Operation {#Operation8}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreClusterMetadata](#RestoreClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster8)>**<br>if operation finished successfully. 
+
+
+### RestoreClusterMetadata {#RestoreClusterMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the new Greenplum® cluster that is being created from a backup. 
+backup_id | **string**<br>ID of the backup that is being used for creating a cluster. 
+
+
+### Cluster {#Cluster8}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the platform at the moment of cluster creation. 
+folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the cluster was created. 
+name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder. The maximum string length in characters is 63.
+config | **[GreenplumConfig](#GreenplumConfig8)**<br>Greenplum® cluster configuration. 
+description | **string**<br>Description of the Greenplum® cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
+environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
+monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the Greenplum® cluster. 
+master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig8)**<br>Configuration of the Greenplum® master subcluster. 
+segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig8)**<br>Configuration of the Greenplum® segment subcluster. 
+master_host_count | **int64**<br>Number of hosts in the master subcluster. 
+segment_host_count | **int64**<br>Number of hosts in the segment subcluster. 
+segment_in_host | **int64**<br>Number of segments per host. 
+network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host2) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host2) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host2) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is UNBALANCED).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups. 
+user_name | **string**<br>Owner user name. 
+deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+cluster_config | **[ClusterConfigSet](#ClusterConfigSet8)**<br>Greenplum® and Odyssey® configuration. 
+cloud_storage | **[CloudStorage](#CloudStorage8)**<br>Cloud storage settings 
+
+
+### GreenplumConfig {#GreenplumConfig8}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the Greenplum® server software. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 60, inclusive.
+access | **[Access](#Access9)**<br>Access policy for external services. 
+zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster8)). The maximum string length in characters is 50.
+assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
+
+
+### Monitoring {#Monitoring8}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Greenplum® cluster. 
+
+
+### MasterSubclusterConfig {#MasterSubclusterConfig8}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources11)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
+
+
+### SegmentSubclusterConfig {#SegmentSubclusterConfig8}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources11)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
+
+
+### MaintenanceOperation {#MaintenanceOperation8}
+
+Field | Description
+--- | ---
+info | **string**<br>The description of the operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Delay time for the maintenance operation. 
+
+
+### ClusterConfigSet {#ClusterConfigSet8}
+
+Field | Description
+--- | ---
+greenplum_config | **oneof:** `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21`, `greenplum_config_set_6_22` or `greenplum_config_set_6`<br>
+&nbsp;&nbsp;greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#GreenplumConfigSet6_178)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#GreenplumConfigSet6_198)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#GreenplumConfigSet6_218)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#GreenplumConfigSet6_228)**<br> 
+&nbsp;&nbsp;greenplum_config_set_6 | **[GreenplumConfigSet6](#GreenplumConfigSet68)**<br> 
+pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet8)**<br>Odyssey® pool settings. 
+background_activities | **[BackgroundActivitiesConfig](#BackgroundActivitiesConfig8)**<br> 
+pxf_config | **[PXFConfigSet](#PXFConfigSet8)**<br> 
+
+
+### GreenplumConfigSet6_17 {#GreenplumConfigSet6_178}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_17 {#GreenplumConfig6_178}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment. 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of temporary spill files allowed per query at each segment. <br>Spill files, also known as workfiles, are created when a query requires more memory than there is allocated. <br>The current query is terminated if the limit is exceeded. <br>Set to zero to disable the limit. <br>Master session reloads if the parameter changes. <br>Default value is 10000. <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of transactions that can be in the `prepared` state simultaneously. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression). 
+
+
+### GreenplumConfigSet6_19 {#GreenplumConfigSet6_198}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_19 {#GreenplumConfig6_198}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment. 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of temporary spill files allowed per query at each segment. <br>Spill files, also known as workfiles, are created when a query requires more memory than there is allocated. <br>The current query is terminated if the limit is exceeded. <br>Set to zero to disable the limit. <br>Master session reloads if the parameter changes. <br>Default value is 10000. <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of transactions that can be in the `prepared` state simultaneously. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression). 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
+log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+
+
+### GreenplumConfigSet6_21 {#GreenplumConfigSet6_218}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_21](#GreenplumConfig6_218)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_21](#GreenplumConfig6_218)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_21](#GreenplumConfig6_218)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_21 {#GreenplumConfig6_218}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### GreenplumConfigSet6_22 {#GreenplumConfigSet6_228}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6_22](#GreenplumConfig6_228)**<br>Required. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_22](#GreenplumConfig6_228)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_22](#GreenplumConfig6_228)**<br>Default configuration for a Greenplum® cluster. 
+
+
+### GreenplumConfig6_22 {#GreenplumConfig6_228}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### GreenplumConfigSet6 {#GreenplumConfigSet68}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumConfig6](#GreenplumConfig68)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6](#GreenplumConfig68)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6](#GreenplumConfig68)**<br>Default configuration for a Greenplum. 
+
+
+### GreenplumConfig6 {#GreenplumConfig68}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting 
+
+
+### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet8}
+
+Field | Description
+--- | ---
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet8) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet8)). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>User-defined settings for an Odyssey® pooler. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Default configuration for an Odyssey® pooler. 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig8}
+
+Field | Description
+--- | ---
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
+size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
+client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+
+
+### BackgroundActivitiesConfig {#BackgroundActivitiesConfig8}
+
+Field | Description
+--- | ---
+table_sizes | **[TableSizes](#TableSizes8)**<br> 
+analyze_and_vacuum | **[AnalyzeAndVacuum](#AnalyzeAndVacuum8)**<br> 
+
+
+### TableSizes {#TableSizes8}
+
+Field | Description
+--- | ---
+starts[] | **[BackgroundActivityStartAt](#BackgroundActivityStartAt8)**<br> The maximum number of elements is 4.
+
+
+### BackgroundActivityStartAt {#BackgroundActivityStartAt8}
+
+Field | Description
+--- | ---
+hours | **int64**<br> Acceptable values are 0 to 23, inclusive.
+minutes | **int64**<br> Acceptable values are 0 to 59, inclusive.
+
+
+### AnalyzeAndVacuum {#AnalyzeAndVacuum8}
+
+Field | Description
+--- | ---
+start | **[BackgroundActivityStartAt](#BackgroundActivityStartAt9)**<br> 
+analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>in seconds 24*60*60-1 = 86399 Acceptable values are 0 to 86399, inclusive.
+
+
+### PXFConfigSet {#PXFConfigSet8}
+
+Field | Description
+--- | ---
+effective_config | **[PXFConfig](#PXFConfig8)**<br>Required.  
+user_config | **[PXFConfig](#PXFConfig8)**<br>User-defined settings 
+default_config | **[PXFConfig](#PXFConfig8)**<br>Default configuration 
+
+
+### PXFConfig {#PXFConfig8}
+
+Field | Description
+--- | ---
+connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Connection Acceptable values are 5 to 600, inclusive.
+upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 5 to 600, inclusive.
+max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Thread pool Acceptable values are 1 to 1024, inclusive.
+pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> The minimum value is 0.
+pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 1 to 1024, inclusive.
+xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>JVM Acceptable values are 64 to 16384, inclusive.
+xms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> Acceptable values are 64 to 16384, inclusive.
+
+
+### CloudStorage {#CloudStorage8}
 
 Field | Description
 --- | ---

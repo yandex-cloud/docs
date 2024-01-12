@@ -243,8 +243,14 @@ items:
             href: api-ref/grpc/index.md
           - name: CommunityService
             href: api-ref/grpc/community_service.md
+          - name: DatasetService
+            href: api-ref/grpc/dataset_service.md
+          - name: DockerImageService
+            href: api-ref/grpc/docker_image_service.md
           - name: ProjectService
             href: api-ref/grpc/project_service.md
+          - name: S3Service
+            href: api-ref/grpc/s3_service.md
           - name: ProjectJobService
             href: api-ref/grpc/project_job_service.md
           - name: OperationService
@@ -257,6 +263,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Community/index.md
+              - name: addResource
+                href: api-ref/Community/addResource.md
               - name: create
                 href: api-ref/Community/create.md
               - name: delete
@@ -267,16 +275,32 @@ items:
                 href: api-ref/Community/list.md
               - name: listAccessBindings
                 href: api-ref/Community/listAccessBindings.md
+              - name: removeResource
+                href: api-ref/Community/removeResource.md
               - name: setAccessBindings
                 href: api-ref/Community/setAccessBindings.md
               - name: update
                 href: api-ref/Community/update.md
               - name: updateAccessBindings
                 href: api-ref/Community/updateAccessBindings.md
+          - name: Dataset
+            items:
+              - name: Overview
+                href: api-ref/Dataset/index.md
+              - name: deactivate
+                href: api-ref/Dataset/deactivate.md
+          - name: DockerImage
+            items:
+              - name: Overview
+                href: api-ref/DockerImage/index.md
+              - name: activate
+                href: api-ref/DockerImage/activate.md
           - name: Project
             items:
               - name: Overview
                 href: api-ref/Project/index.md
+              - name: addResource
+                href: api-ref/Project/addResource.md
               - name: create
                 href: api-ref/Project/create.md
               - name: delete
@@ -297,6 +321,8 @@ items:
                 href: api-ref/Project/listAccessBindings.md
               - name: open
                 href: api-ref/Project/open.md
+              - name: removeResource
+                href: api-ref/Project/removeResource.md
               - name: setAccessBindings
                 href: api-ref/Project/setAccessBindings.md
               - name: setUnitBalance
@@ -305,6 +331,14 @@ items:
                 href: api-ref/Project/update.md
               - name: updateAccessBindings
                 href: api-ref/Project/updateAccessBindings.md
+          - name: S3
+            items:
+              - name: Overview
+                href: api-ref/S3/index.md
+              - name: activate
+                href: api-ref/S3/activate.md
+              - name: deactivate
+                href: api-ref/S3/deactivate.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
