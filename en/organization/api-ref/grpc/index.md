@@ -13,6 +13,7 @@ Service | Description
 [OrganizationService](./organization_service.md) | A set of methods for managing Organization resources.
 [SshCertificateService](./ssh_certificate_service.md) | 
 [UserService](./user_service.md) | A set of methods for managing Organization users.
+[UserSshKeyService](./user_ssh_key_service.md) | 
 [CertificateService](./certificate_service.md) | A set of methods for managing certificates.
 [FederationService](./federation_service.md) | A set of methods for managing federations.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

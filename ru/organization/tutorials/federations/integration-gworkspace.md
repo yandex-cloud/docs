@@ -61,13 +61,13 @@
   1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** скопируйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
       ```
-      https://accounts.google.com/o/saml2?idpid=<ID SAML-приложения>
+      https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
       ```
 
   1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** скопируйте ссылку, указанную в поле **URL системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
       ```
-      https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>
+      https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
       ```
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
@@ -93,47 +93,47 @@
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <ID организации> \
+            --organization-id <идентификатор_организации> \
             --auto-create-account-on-login \
             --cookie-max-age 12h \
-            --issuer "https://accounts.google.com/o/saml2?idpid=<ID SAML-приложения>" \
+            --issuer "https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>" \
+            --sso-url "https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>" \
             --sso-binding POST \
-            --sso-url "https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>" \
             --force-authn
         ```
 
         Где:
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
+        * `--name` — имя федерации. Имя должно быть уникальным в каталоге.
         
-        * `organization-id` — идентификатор организации. 
+        * `--organization-id` — идентификатор организации. 
 
-        * `auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+        * `--auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
 
             Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
-        * `cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
+        * `--cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
         
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
+        * `--issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
             Используйте ссылку, которая указанна в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Это ссылка в формате:
 
             ```
-            https://accounts.google.com/o/saml2?idpid=<ID SAML-приложения>
+            https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
             ```
 
-        * `sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
+        * `--sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
             Используйте ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
             ```
-            https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>
+            https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
             ```
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-        * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+        * `--sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -152,7 +152,7 @@
             Используйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
             ```
-            https://accounts.google.com/o/saml2?idpid=<ID SAML-приложения>
+            https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
             ```
         
         * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
@@ -161,7 +161,7 @@
             Скопируйте сюда ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
             ```
-            https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>
+            https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
             ```
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
@@ -182,10 +182,10 @@
      ```
      resource "yandex_organizationmanager_saml_federation" federation {
       name            = "my-federation"
-      organization_id = "<ID организации>"
+      organization_id = "<идентификатор_организации>"
       auto_create_account_on_login = "true"
-      issuer          = "https://accounts.google.com/o/saml2?idpid=<ID SAML-приложения>"
-      sso_url         = "https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>"
+      issuer          = "https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>"
+      sso_url         = "https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>"
       sso_binding     = "POST"
       security_settings {
          encrypted_assertions = "true"
@@ -223,11 +223,11 @@
         ```json
         {
           "name": "my-federation",
-          "organizationId": "<ID организации>",
+          "organizationId": "<идентификатор_организации>",
           "autoCreateAccountOnLogin": true,
           "cookieMaxAge":"43200s",
-          "issuer": "https://accounts.google.com/o/saml2?idpid=<ID SAML-приложения>",
-          "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>",
+          "issuer": "https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>",
+          "ssoUrl": "https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>",
           "ssoBinding": "POST",
           "securitySettings": {
             "forceAuthn": true
@@ -253,14 +253,14 @@
             Используйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
             ```
-            https://accounts.google.com/o/saml2?idpid=<ID SAML-приложения>
+            https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>
             ```
         * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
             Скопируйте сюда ссылку, указанную в поле **URL Системы единого входа** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
             ```
-            https://accounts.google.com/o/saml2/idp?idpid=<ID SAML-приложения>
+            https://accounts.google.com/o/saml2/idp?idpid=<идентификатор_SAML-приложения>
             ```
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
@@ -334,7 +334,7 @@
   1. Отправьте запрос на добавление сертификата:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
+      $ export IAM_TOKEN=CggaAT********
       $ curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -473,9 +473,9 @@
 
       Где:
 
-      * `id` — идентификатор федерации.
+      * `--id` — идентификатор федерации.
 
-      * `name-ids` — Name ID пользователей.
+      * `--name-ids` — Name ID пользователей.
 
 - API {#api}
 

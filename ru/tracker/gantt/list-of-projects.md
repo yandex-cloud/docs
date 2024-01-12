@@ -12,7 +12,7 @@
    * Слева от диаграммы отображается список проектов. Чтобы открыть список задач проекта, нажмите на значок ![](../../_assets/tracker/svg/arrow.svg) рядом с его названием. Задачи отобразятся в виде иерархического списка.
    * Сроки работы над проектами отображаются на диаграмме в виде полос, направленных вдоль оси времени. Начало каждой полосы соответствует дате начала работы над проектом, а ее конец — дате дедлайна.
 
-1. Чтобы отображать только некоторые задачи внутри проектов, настройте фильтрацию по задачам. В правой части на панели над диаграммой, в разделе **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-issues }}**, настройте фильтр, последовательно добавляя нужные параметры и задавая для них значения.
+1. Чтобы отображать только некоторые задачи внутри проектов, настройте фильтрацию по задачам. В правой части на панели над диаграммой, в разделе **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-issues }}**, настройте фильтр, последовательно добавляя нужные параметры и задавая для них значения.
 
 1. Чтобы настроить масштаб временной шкалы, в нижнем правом углу диаграммы выберите **{{ ui-key.startrek.ui_components_Gantt.scale-days }}**, **{{ ui-key.startrek.ui_components_Gantt.scale-month }}** или **{{ ui-key.startrek.ui_components_Gantt.scale-quarters }}**. Настройки масштаба сохранятся после обновления страницы или при повторном переходе в диаграмму.
 
@@ -54,8 +54,8 @@
 
 ## Отображение блока со списком задач {#tasks-view}
 
-* Чтобы найти задачи или проекты в списке, в поле **{{ ui-key.startrek.ui_components_projects_ListFilterPane.search-placeholder }}** введите текст.
+* Чтобы найти задачи или проекты в списке, в поле **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.search-placeholder }}** введите текст.
 
 * Чтобы настроить порядок отображения в списке, нажмите ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**{{ ui-key.startrek.ui_components_SortButton.default-title }}**, укажите параметр и нажмите ![](../../_assets/tracker/svg/new-first.svg). В этом случае ручное перемещение задач станет недоступно.
 
-* Чтобы отфильтровать список проектов, используйте конструктор фильтров. Для этого на панели ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Фильтры** в разделе **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-projects }}** выберите параметры и укажите значения, по которым будет сформирован список проектов. Кроме того, в разделе **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-issues }}** вы можете настроить дополнительный фильтр по задачам внутри проектов.
+* Чтобы отфильтровать список проектов, используйте конструктор фильтров. Для этого на панели ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Фильтры** в разделе **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-projects }}** выберите параметры и укажите значения, по которым будет сформирован список проектов. Кроме того, в разделе **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-issues }}** вы можете настроить дополнительный фильтр по задачам внутри проектов.

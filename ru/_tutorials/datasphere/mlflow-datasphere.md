@@ -109,6 +109,12 @@
 
 ## Создайте пару ключей SSH {#create-ssh-keys}
 
+Чтобы подключаться к [виртуальной машине](../../compute/concepts/vm.md) по [SSH](../../glossary/ssh-keygen.md), нужна пара ключей: открытый ключ размещается на ВМ, а закрытый ключ хранится у пользователя. Такой способ более безопасен, чем подключение по логину и паролю.
+
+{% include [vm-connect-ssh-linux-note](../../_includes/vm-connect-ssh-linux-note.md) %}
+
+Чтобы создать пару ключей:
+
 {% include [vm-ssh-prepare-key](../../_includes/vm-ssh-prepare-key.md) %}
 
 ## Создайте виртуальную машину {#create-vm}

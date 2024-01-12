@@ -67,6 +67,7 @@ communityId | **string**<br><p>ID of the community that the project belongs to.<
 ## Methods {#methods}
 Method | Description
 --- | ---
+[addResource](addResource.md) | Adds shared resource to project
 [create](create.md) | Creates a project in the specified folder.
 [delete](delete.md) | Deletes the specified project.
 [execute](execute.md) | Executes code in the specified cell or notebook.
@@ -77,6 +78,7 @@ Method | Description
 [list](list.md) | Lists projects for the specified community.
 [listAccessBindings](listAccessBindings.md) | Lists access bindings for the project.
 [open](open.md) | Opens the specified project.
+[removeResource](removeResource.md) | Removes shared resource from project
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the project.
 [setUnitBalance](setUnitBalance.md) | Sets the unit balance of the specified project.
 [update](update.md) | Updates the specified project.

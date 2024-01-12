@@ -185,12 +185,9 @@ resourceId | <p>Required. ID of resource.</p> <p>The maximum string length in ch
         "ipAddressAcl": {
           "enabled": true,
           "policyType": "string",
-          "exceptedValues": {
-            "enabled": true,
-            "value": [
-              "string"
-            ]
-          }
+          "exceptedValues": [
+            "string"
+          ]
         }
       }
     }
@@ -296,6 +293,4 @@ rules[].<br>options.<br>secureKey.<br>type | **string**<br><p>The type of the UR
 rules[].<br>options.<br>ipAddressAcl | **object**<br><p>Manage the state of the IP access policy option. The option controls access to content from the specified IP addresses.</p> 
 rules[].<br>options.<br>ipAddressAcl.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource.</p> 
 rules[].<br>options.<br>ipAddressAcl.<br>policyType | **string**<br><p>The policy type. One of allow or deny value.</p> <p>PolicyType defines type of the policy in IP address acl rules.</p> <ul> <li>POLICY_TYPE_ALLOW: Allow access to all IP addresses except the ones specified in the excepted_values field.</li> <li>POLICY_TYPE_DENY: Block access to all IP addresses except the ones specified in the excepted_values field.</li> </ul> 
-rules[].<br>options.<br>ipAddressAcl.<br>exceptedValues | **object**<br><p>The list of IP addresses to be allowed or denied.</p> <p>A set of the string list parameters.</p> 
-rules[].<br>options.<br>ipAddressAcl.<br>exceptedValues.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its ``value`` is applied to the resource. False - the option is disabled and its default value is used for the resource.</p> 
-rules[].<br>options.<br>ipAddressAcl.<br>exceptedValues.<br>value[] | **string**<br><p>Value of the option.</p> 
+rules[].<br>options.<br>ipAddressAcl.<br>exceptedValues[] | **string**<br><p>The list of IP addresses to be allowed or denied.</p> 

@@ -21,6 +21,8 @@ description: "Чтобы начать работать с {{ maf-full-name }}, �
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+   {% include [sg-ui-access](../_includes/mdb/maf/note-sg-ui-access.md) %}
+
 1. [Создайте бакет {{ objstorage-full-name }}](../storage/operations/buckets/create.md) для хранения [DAG-файлов](concepts/index.md#about-the-service) {{ maf-name }}.
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md).
 1. [Назначьте сервисному аккаунту роль](../iam/operations/sa/assign-role-for-sa.md) `storage.viewer` на каталог или бакет.

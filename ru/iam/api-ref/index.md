@@ -15,6 +15,6 @@ Resource | Description
 [ServiceAccount](ServiceAccount/index.md) | A set of methods for managing ServiceAccount resources.
 [UserAccount](UserAccount/index.md) | A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/#passport).
 [YandexPassportUserAccount](YandexPassportUserAccount/index.md) | A set of methods for managing YandexPassportUserAccount resources.
-[Federation](Federation/index.md) | A set of methods for managing federations.
-[Certificate](Certificate/index.md) | A set of methods for managing certificates.
 [AccessKey](AccessKey/index.md) | A set of methods for managing access keys.
+[Certificate](Certificate/index.md) | A set of methods for managing certificates.
+[Federation](Federation/index.md) | A set of methods for managing federations.

@@ -72,7 +72,7 @@
 
         ```
         -----BEGIN CERTIFICATE-----
-        <значение X509Certificate>
+        <значение_сертификата>
         -----END CERTIFICATE-----
         ```
 
@@ -192,7 +192,7 @@
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <ID организации> \
+            --organization-id <идентификатор_организации> \
             --auto-create-account-on-login \
             --encrypted-assertions \
             --cookie-max-age 12h \
@@ -206,32 +206,32 @@
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <ID организации> \
+            --organization-id <идентификатор_организации> \
             --auto-create-account-on-login \
             --encrypted-assertions \
             --cookie-max-age 12h \
             --issuer "http://<хост>:8080/auth/realms/master" \
-            --sso-binding POST \
             --sso-url "http://<хост>:8080/auth/realms/master/protocol/saml" \
+            --sso-binding POST \
             --force-authn
         ```
 
         Где:
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
+        * `--name` — имя федерации. Имя должно быть уникальным в каталоге.
 
-        * `organization-id` — идентификатор организации.
+        * `--organization-id` — идентификатор организации.
 
-        * `auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+        * `--auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
 
           Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
-        * `encrypted-assertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
+        * `--encrypted-assertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
 
-        * `cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
+        * `--cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
 
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация:
+        * `--issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация:
 
           - Keycloak 17 или новее
 
@@ -257,7 +257,7 @@
             {{ link-keycloak-example-old }}
             ```
 
-        * `sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации:
+        * `--sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации:
 
             - Keycloak 17 или новее
 
@@ -285,7 +285,7 @@
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-        * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+        * `--sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -298,7 +298,7 @@
         ```json
         {
           "name": "my-federation",
-          "organizationId": "<ID организации>",
+          "organizationId": "<идентификатор_организации>",
           "autoCreateAccountOnLogin": true,
           "cookieMaxAge":"43200s",
           "issuer": "http://<хост>:8080/realms/master",
@@ -316,7 +316,7 @@
         ```json
         {
           "name": "my-federation",
-          "organizationId": "<ID организации>",
+          "organizationId": "<идентификатор_организации>",
           "autoCreateAccountOnLogin": true,
           "cookieMaxAge":"43200s",
           "issuer": "http://<хост>:8080/auth/realms/master",
@@ -493,7 +493,7 @@
         ```
         resource "yandex_organizationmanager_saml_federation" federation {
         name            = "my-federation"
-        organization_id = "<ID организации>"
+        organization_id = "<идентификатор_организации>"
         auto_create_account_on_login = "true"
         issuer          = "http://<хост>:8080/auth/realms/master"
         sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
@@ -509,7 +509,7 @@
         ```
         resource "yandex_organizationmanager_saml_federation" federation {
         name            = "my-federation"
-        organization_id = "<ID организации>"
+        organization_id = "<идентификатор_организации>"
         auto_create_account_on_login = "true"
         issuer          = "http://<хост>:8080/realms/master"
         sso_url         = "http://<хост>:8080/realms/master/protocol/saml"
@@ -608,7 +608,7 @@
   1. Отправьте запрос на добавление сертификата:
 
      ```bash
-     $ export IAM_TOKEN=CggaATEVAgA...
+     $ export IAM_TOKEN=CggaAT********
      $ curl -X POST \
          -H "Content-Type: application/json" \
          -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -826,8 +826,8 @@
 
      Где:
 
-     * `id` — идентификатор федерации.
-     * `name-ids` — Name ID пользователей.
+     * `--id` — идентификатор федерации.
+     * `--name-ids` — Name ID пользователей.
 
 - API {#api}
 

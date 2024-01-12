@@ -12,7 +12,7 @@ To go to the Gantt chart:
    * The project list is displayed to the left of the chart. To open the list of project issues, click ![](../../_assets/tracker/svg/arrow.svg) next to the project name. The issues are displayed as a hierarchical list.
    * The project timeframes are shown on the chart as bars plotted along the time axis. The left edge of each bar indicates the start date of work on the project, while the end of the bar shows its deadline.
 
-1. To see only specific issues within your projects, set up filtering by issue. You can do this in the right-hand panel above the chart, under **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-issues }}**, by adding the parameters you need one by one and setting their values.
+1. To see only specific issues within your projects, set up filtering by issue. You can do this in the right-hand panel above the chart, under **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-issues }}**, by adding the parameters you need one by one and setting their values.
 
 1. To set up the time scale, select **{{ ui-key.startrek.ui_components_Gantt.scale-days }}**, **{{ ui-key.startrek.ui_components_Gantt.scale-month }}**, or **{{ ui-key.startrek.ui_components_Gantt.scale-quarters }}** in the bottom-right corner of the chart. The scale settings persist after refreshing the page or opening the chart again.
 
@@ -54,8 +54,8 @@ In a similar way, you can also use the chart to appoint and change assignees for
 
 ## Displaying the issue list section {#tasks-view}
 
-* To find an issue or project in the list, enter text in the **{{ ui-key.startrek.ui_components_projects_ListFilterPane.search-placeholder }}** field.
+* To find an issue or project in the list, enter text in the **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.search-placeholder }}** field.
 
 * To set up their display order in the list, click ![](../../_assets/tracker/svg/sorting.svg)&nbsp;**{{ ui-key.startrek.ui_components_SortButton.default-title }}**, specify the parameter, and click ![](../../_assets/tracker/svg/new-first.svg). In this case, you will not be able to move issues manually.
 
-* To filter the project list, use the filter builder. For this, on the ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Filters** panel, under **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-projects }}**, select the parameters and specify the values to use for generating a project list. Under **{{ ui-key.startrek.ui_components_projects_ListFilterPane.filter-issues }}**, you can also set up additional filtering by issues within your projects.
+* To filter the project list, use the filter builder. For this, on the ![](../../_assets/tracker/svg/filter.svg)&nbsp;**Filters** panel, under **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-projects }}**, select the parameters and specify the values to use for generating a project list. Under **{{ ui-key.startrek.ui_components_portfolios_portfolio-page_ListFilterPane.filter-issues }}**, you can also set up additional filtering by issues within your projects.

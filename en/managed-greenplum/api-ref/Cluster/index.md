@@ -619,6 +619,7 @@ cloudStorage.<br>enable | **boolean** (boolean)<br><p>enable Cloud Storage for c
 ## Methods {#methods}
 Method | Description
 --- | ---
+[backup](backup.md) | Creates a backup for the specified Greenplum cluster.
 [create](create.md) | Creates a Greenplum® cluster in the specified folder.
 [delete](delete.md) | Deletes the specified Greenplum® cluster.
 [expand](expand.md) | Expands the specified Greenplum® cluster.

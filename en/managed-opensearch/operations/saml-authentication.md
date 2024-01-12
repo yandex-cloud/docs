@@ -60,7 +60,7 @@ Incorrect settings may cause the cluster to fail.
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the cluster name and open the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
    1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
-   1. Specify the parameters of external authorization source:
+   1. Specify the parameters of external authentication source:
 
       * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}**: Information about the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
 
@@ -72,9 +72,9 @@ Incorrect settings may cause the cluster to fail.
 
       * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: SAML response parameter that stores the roles. If omitted, no roles are used.
 
-      * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: The SAML response parameter that stores the subject. If omitted, the `NameID` parameter is used.
+      * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: SAML response parameter that stores the subject. If omitted, the `NameID` parameter is used.
 
-      * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}**: Shows whether to activate an authorization source after creating it.
+      * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}**: Shows whether to activate an authentication source after creating it.
 
    1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
 
@@ -87,7 +87,7 @@ Incorrect settings may cause the cluster to fail.
 
          {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
-      * `True` value, in the `enabled` parameter.
+      * `true` value in the `enabled` parameter.
       * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
       * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
       * URI of the SP Entity ID (Audience URI) application, in the `spEntityId` parameter. Use the URI you specified when [configuring the IdP](#configuration-idp).

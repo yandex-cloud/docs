@@ -97,7 +97,22 @@ folderId | <p>Required. ID of the folder to list buckets in.</p> <p>To get the f
           "filter": {
             "prefix": "string",
             "objectSizeGreaterThan": "integer",
-            "objectSizeLessThan": "integer"
+            "objectSizeLessThan": "integer",
+            "tag": {
+              "key": "string",
+              "value": "string"
+            },
+            "andOperator": {
+              "prefix": "string",
+              "objectSizeGreaterThan": "integer",
+              "objectSizeLessThan": "integer",
+              "tag": [
+                {
+                  "key": "string",
+                  "value": "string"
+                }
+              ]
+            }
           },
           "expiration": {
             "date": "string",
@@ -207,6 +222,16 @@ buckets[].<br>lifecycleRules[].<br>filter | **object**<br><p>Filter that identif
 buckets[].<br>lifecycleRules[].<br>filter.<br>prefix | **string**<br><p>Key prefix that the object must have in order for the rule to apply.</p> 
 buckets[].<br>lifecycleRules[].<br>filter.<br>objectSizeGreaterThan | **integer** (int64)<br><p>Size that the object must be greater.</p> 
 buckets[].<br>lifecycleRules[].<br>filter.<br>objectSizeLessThan | **integer** (int64)<br><p>Size that the object must be less t.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>tag | **object**<br><p>Tags that the object's tag set must have for the rule to apply.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>tag.<br>key | **string**<br><p>Key of the bucket tag.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>tag.<br>value | **string**<br><p>Value of the bucket tag.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>andOperator | **object**<br><p>Apply a logical AND to all of the predicates configured inside the And operator.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>andOperator.<br>prefix | **string**
+buckets[].<br>lifecycleRules[].<br>filter.<br>andOperator.<br>objectSizeGreaterThan | **integer** (int64)
+buckets[].<br>lifecycleRules[].<br>filter.<br>andOperator.<br>objectSizeLessThan | **integer** (int64)
+buckets[].<br>lifecycleRules[].<br>filter.<br>andOperator.<br>tag[] | **object**
+buckets[].<br>lifecycleRules[].<br>filter.<br>andOperator.<br>tag[].<br>key | **string**<br><p>Key of the bucket tag.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>andOperator.<br>tag[].<br>value | **string**<br><p>Value of the bucket tag.</p> 
 buckets[].<br>lifecycleRules[].<br>expiration | **object**<br><p>Expiration rule.</p> <p>The expiration of an object is described as follows.</p> <p>For the unversioned bucket (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_DISABLED``), the object is deleted and cannot be recovered.</p> <p>For the bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``), the current version of the object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes the current version of the object.</p> <p>For the bucket with versioning suspended (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_SUSPENDED``), the current version of the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a delete marker becomes the current version of the object.</p> 
 buckets[].<br>lifecycleRules[].<br>expiration.<br>date | **string** (date-time)<br><p>Specific date of object expiration.</p> <p>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire immediately.</p> <p>Exactly one of ``date``, ``days``, and ``expiredObjectDeleteMarker`` fields can be specified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 buckets[].<br>lifecycleRules[].<br>expiration.<br>days | **integer** (int64)<br><p>Time period, in number of days from the creation or modification of the object, after which an object expires.</p> <p>Exactly one of ``days``, ``date``, and ``expiredObjectDeleteMarker`` fields can be specified.</p> 

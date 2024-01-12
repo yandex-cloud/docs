@@ -48,6 +48,18 @@ name | **string**<br>Name of the broker. The name is unique within the folder.
 description | **string**<br>Description of the broker. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the broker. <ul><li>`CREATING`: Broker is being created.</li><li>`ACTIVE`: Broker is ready to use.</li><li>`DELETING`: Broker is being deleted.</li></ul>
+log_options | **[LogOptions](#LogOptions)**<br>Options for logging broker events 
+
+
+### LogOptions {#LogOptions}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from broker disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## List {#List}
@@ -84,6 +96,18 @@ name | **string**<br>Name of the broker. The name is unique within the folder.
 description | **string**<br>Description of the broker. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the broker. <ul><li>`CREATING`: Broker is being created.</li><li>`ACTIVE`: Broker is ready to use.</li><li>`DELETING`: Broker is being deleted.</li></ul>
+log_options | **[LogOptions](#LogOptions1)**<br>Options for logging broker events 
+
+
+### LogOptions {#LogOptions1}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from broker disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## Create {#Create}
@@ -106,6 +130,7 @@ description | **string**<br>Description of the broker. The maximum string length
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 certificates[] | **Certificate**<br>Broker certificates. 
 password | **string**<br>Broker passwords. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. 
+log_options | **[LogOptions](#LogOptions2)**<br>Options for logging broker events 
 
 
 ### Certificate {#Certificate}
@@ -113,6 +138,17 @@ password | **string**<br>Broker passwords. <br>The password must contain at leas
 Field | Description
 --- | ---
 certificate_data | **string**<br>Public part of the broker certificate. 
+
+
+### LogOptions {#LogOptions2}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from broker disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation}
@@ -149,6 +185,7 @@ name | **string**<br>Name of the broker. The name is unique within the folder.
 description | **string**<br>Description of the broker. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the broker. <ul><li>`CREATING`: Broker is being created.</li><li>`ACTIVE`: Broker is ready to use.</li><li>`DELETING`: Broker is being deleted.</li></ul>
+log_options | **[LogOptions](#LogOptions3)**<br>Options for logging broker events 
 
 
 ## Update {#Update}
@@ -170,6 +207,18 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the broker. The name must be unique within the folder. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the broker. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+log_options | **[LogOptions](#LogOptions3)**<br>Options for logging broker events 
+
+
+### LogOptions {#LogOptions3}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from broker disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation1}
@@ -206,6 +255,7 @@ name | **string**<br>Name of the broker. The name is unique within the folder.
 description | **string**<br>Description of the broker. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the broker. <ul><li>`CREATING`: Broker is being created.</li><li>`ACTIVE`: Broker is ready to use.</li><li>`DELETING`: Broker is being deleted.</li></ul>
+log_options | **[LogOptions](#LogOptions4)**<br>Options for logging broker events 
 
 
 ## Delete {#Delete}
