@@ -109,13 +109,12 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
       ```
 
       ```text
-      +--------------------------+---------------------+----------------------+---------------------+-------------+
-      |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES |
-      +--------------------------+---------------------+----------------------+---------------------+-------------+
-      | c9qnfsq7tisc********:... | 2022-03-09 14:24:55 | c9qnfsq7tisc******** | 2022-03-09 14:23:55 | shard2      |
-      | c9qnfsq7tisc********:... | 2022-03-09 14:16:39 | c9qnfsq7tisc******** | 2022-03-09 14:16:37 | shard1      |
-      | ...                                                                                         |             |
-      +--------------------------+---------------------+----------------------+---------------------+-------------+
+      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+      |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
+      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+      | c9qud5etkq19********:... | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
+      | ...                      |                     |                      |                     |             |       |           |
+      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
       ```
 
    1. To restore an individual shard, pass the ID of a single backup:
@@ -203,6 +202,15 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
+   These lists contain the following information:
+
+   * Backup name.
+   * Source shard.
+   * Backup size.
+   * Backup type: `Automated` or `Manual`.
+   * Start time of backup creation in UTC (Coordinated Universal Time).
+   * End time of backup creation in UTC.
+
 - CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -216,14 +224,23 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
    ```
 
    ```text
-   +--------------------------+---------------------+----------------------+---------------------+-------------+
-   |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES |
-   +--------------------------+---------------------+----------------------+---------------------+-------------+
-   | c9qnfsq7tisc********:... | 2022-03-09 14:24:55 | c9qnfsq7tisc******** | 2022-03-09 14:23:55 | shard2      |
-   | c9qnfsq7tisc********:... | 2022-03-09 14:16:39 | c9qnfsq7tisc******** | 2022-03-09 14:16:37 | shard1      |
-   | ...                                                                                         |             |
-   +--------------------------+---------------------+----------------------+---------------------+-------------+
+   +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+   |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
+   +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+   | c9qud5etkq19********:... | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
+   | c9qud5etkq19********:... | 2023-12-07 08:17:04 | c9qud5etkq19******** | 2023-12-07 08:15:54 | shard1      | 30 KB | MANUAL    |
+   +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
    ```
+
+   The resulting table contains the following information:
+
+   * ID of the backup.
+   * End time of backup creation in UTC (Coordinated Universal Time).
+   * ID of the cluster that the backup was created for.
+   * Start time of backup creation in UTC.
+   * Source shard name.
+   * Backup size.
+   * Backup type: `Automated` or `Manual`.
 
 - API
 

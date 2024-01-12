@@ -84,30 +84,30 @@
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <ID организации> \
+            --organization-id <идентификатор_организации> \
             --auto-create-account-on-login \
             --cookie-max-age 12h \
             --issuer "https://accounts.google.com/o/saml2?idpid=C03xolm0y" \
-            --sso-binding POST \
             --sso-url "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y" \
+            --sso-binding POST \
             --force-authn
         ```
 
         Где:
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-        * `organization-id` — идентификатор организации. 
-        * `auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+        * `--name` — имя федерации. Имя должно быть уникальным в каталоге.
+        * `--organization-id` — идентификатор организации. 
+        * `--auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
 
           Если  опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
-        * `cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация. Этот же идентификатор IdP-сервер указывает в ответе сервису {{ org-name }} после того, как пользователь проходит аутентификацию.
-        * `sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
+        * `--cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
+        * `--issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация. Этот же идентификатор IdP-сервер указывает в ответе сервису {{ org-name }} после того, как пользователь проходит аутентификацию.
+        * `--sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
           {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-        * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+        * `--sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
@@ -118,7 +118,7 @@
       ```json
       {
         "name": "my-federation",
-        "organizationId": "<ID организации>",
+        "organizationId": "<идентификатор_организации>",
         "autoCreateAccountOnLogin": true,
         "cookieMaxAge":"43200s",
         "issuer": "https://accounts.google.com/o/saml2?idpid=C03xolm0y",
@@ -182,7 +182,7 @@
      ```
      resource "yandex_organizationmanager_saml_federation" federation {
       name            = "my-federation"
-      organization_id = "<ID организации>"
+      organization_id = "<идентификатор_организации>"
       auto_create_account_on_login = "true"
       issuer          = "https://accounts.google.com/o/saml2?idpid=C03xolm0y" 
       sso_url         = "https://accounts.google.com/o/saml2/idp?idpid=C03xolm0y"
@@ -288,7 +288,7 @@
   1. Отправьте запрос на добавление сертификата:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
+      $ export IAM_TOKEN=CggaAT********
       $ curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -311,21 +311,21 @@
 
 Пример SAML-сообщения:
 ```xml
-<samlp:Response ID="_bcdf7b6b-ea42-4191-8d5e-ebd4274acec6" Version="2.0" IssueInstant="2019-07-30T13:24:25.488Z"
- Destination="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
-  InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+<samlp:Response ID="_bcdf7b6b-ea42-4191-8d5e-ebd4********" Version="2.0" IssueInstant="2019-07-30T13:24:25.488Z"
+ Destination="https://{{ auth-host }}/federations/bfbrotp6l1b2********" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+  InResponseTo="19fb953133b313a86a001f2d387160e4********" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://example.org/auth</Issuer>
   <samlp:Status>
     <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
   </samlp:Status>
-  <Assertion ID="_90cd8dcc-6105-4300-9ae4-f2c8c5aeb1e5" IssueInstant="2019-07-30T13:24:25.488Z"
+  <Assertion ID="_90cd8dcc-6105-4300-9ae4-f2c8********" IssueInstant="2019-07-30T13:24:25.488Z"
    Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
     <Issuer>http://example.org/auth</Issuer>
     <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
       <ds:SignedInfo>
         <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
         <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
-        <ds:Reference URI="#_90cd8dcc-6105-4300-9ae4-f2c8c5aeb1e5">
+        <ds:Reference URI="#_90cd8dcc-6105-4300-9ae4-f2c8********">
           <ds:Transforms>
             <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
             <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
@@ -344,12 +344,12 @@
     <Subject>
       <NameID>user@example.org</NameID>
       <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu" />
+        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e4********" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="https://{{ auth-host }}/federations/bfbrotp6l1b2********" />
       </SubjectConfirmation>
     </Subject>
     <Conditions NotBefore="2019-07-30T13:24:25.482Z" NotOnOrAfter="2019-07-30T14:24:25.482Z">
       <AudienceRestriction>
-        <Audience>https://{{ auth-host }}/federations/bfbrotp6l1b2avhe1spu</Audience>
+        <Audience>https://{{ auth-host }}/federations/bfbrotp6l1b2********</Audience>
       </AudienceRestriction>
     </Conditions>
     <AttributeStatement>
@@ -470,7 +470,7 @@ gfdb+zQAvZ0eyheXyn6EswT2xMK23onGrGXya1pSiriuFKnTsq560+9X+KXCWoXWDd3yBeDAh/6x
 IS5LP/aKPnj4GF/b81IxZ0e3SEFnwQ3KDGaG8SzjqDH83WQ8tOliefS/XYZvWNIJIFm1SK556pD2
 HXiNh8ffLU6p0Nfk2qkoqsoJVR5S5Rc/XiUD6Q8T/8s27Yrzk68ql31UuGWHnvnWCM8Dc0j7+Hzf
 b4R7s4wnjOHYnV+W0fiO72xTfr721PxC9IHe8s3fagasAS4BjDE8DzxnDP+47xoZn+5HsFO5/Rtd
-UYGmIgo9HwAAAABJRU5ErkJggg==
+UYGmIgo9HwAAAABJRU********==
 ```
 
 {% endcut %}

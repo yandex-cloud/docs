@@ -1,9 +1,9 @@
 Сервис {{ speechkit-short-name }} позволяет в ходе распознавания речи автоматически определять язык речи и возвращать вместе с результатами распознавания языковые метки, содержащие вероятность правильного определения языка.
 Чтобы настроить автоматическое определение языка, необходимо в параметре `language_code` метода `LanguageRestrictionOptions()` указать значение `auto`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
     ```python
 	    language_restriction=stt_pb2.LanguageRestrictionOptions(

@@ -16,9 +16,9 @@
 
 ## Создайте сервисный аккаунт {#create-account}
    
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
    1. На вкладке **Сервисные аккаунты** нажмите кнопку **Создать сервисный аккаунт**.
@@ -30,7 +30,7 @@
 
    1. Нажмите кнопку **Создать**.
 
-- CLI
+- CLI {#cli}
 
    {% include [name-format](./cli-install.md) %}
 
@@ -54,7 +54,7 @@
    name: sa-api
    ```
 
-- API
+- API {#api}
 
    Создайте сервисный аккаунт с помощью метода REST API [create](../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md):
 
@@ -82,9 +82,9 @@
 
 ## Назначьте роли сервисному аккаунту {#assign-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
    1. Перейдите на вкладку **Права доступа**.
@@ -93,7 +93,7 @@
    1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `ai.translate.user` для {{ translate-full-name }} или `ai.vision.user` для {{ vision-full-name }}.
    1. Нажмите кнопку **Сохранить**.
 
-- CLI
+- CLI {#cli}
 
    Выполните команду:
    ```
@@ -104,7 +104,7 @@
 
    Где `--role` — `ai.translate.user` для {{ translate-full-name }} или `ai.vision.user` для {{ vision-full-name }}.
 
-- API
+- API {#api}
 
    Назначьте сервисному аккаунту роль с помощью метода REST API [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../iam/api-ref/ServiceAccount/index.md):
 
@@ -140,13 +140,13 @@
 
 ## Создайте API-ключ {#run-client}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
-   {% include [create-console](./iam/create-api-key-console.md) %}  
+   {% include [create-console](./iam/create-api-key-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [default-catalogue](./default-catalogue.md) %}
 
@@ -190,7 +190,7 @@
 
       О том, как передать ключ в запросе, читайте в документации [сервисов](../iam/concepts/authorization/api-key.md#supported-services), которые поддерживают такой способ авторизации.
 
-- API
+- API {#api}
 
    Создайте API-ключ с помощью метода REST API [create](../iam/api-ref/ApiKey/create.md) для ресурса [ApiKey](../iam/api-ref/ApiKey/index.md):
 

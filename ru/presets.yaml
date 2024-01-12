@@ -695,6 +695,7 @@ default:
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
   websql-full-name: Yandex WebSQL
+  websql-link: https://websql.cloud.yandex.ru
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
@@ -3080,6 +3081,10 @@ default:
         header-title: Чеклист
       ui_components_entity-page_comments_CommentEditor_mobile:
         write-comment: Написать комментарий
+      ui_components_entity-page_macros_Dialog:
+        apply-button-label: Выполнить
+      ui_components_entity-page_macros_FavoriteButton:
+        button-tooltip-add: Добавить в избранное
       ui_components_entity-page_sidebar_SidebarFieldsSelect:
         add-sidebar-field: Изменить список параметров
       ui_components_FieldEdit:
@@ -3177,10 +3182,6 @@ default:
         description-tab: Описание
         fields-tab: Параметры
         links-tab: Связи
-      ui_components_macros_Dialog:
-        apply-button-label: Выполнить
-      ui_components_macros_FavoriteButton:
-        button-tooltip-add: Добавить в избранное
       ui_components_ModalTextEditor:
         save: Сохранить
       ui_components_NavigationBar_BoardsPanel:
@@ -3315,6 +3316,10 @@ default:
       ui_components_portfolios_Header:
         description-tab: О портфеле
         projects-tab: Проекты
+      ui_components_portfolios_portfolio-page_ListFilterPane:
+        filter-issues: По задачам
+        filter-projects: По проектам
+        search-placeholder: Поиск
       ui_components_portfolios_PortfolioMenu:
         remove-portfolio: Удалить портфель проектов
       ui_components_projects_hooks:
@@ -3322,10 +3327,6 @@ default:
         delete-from-project: Удалить из проекта
         issue-actions--move-down: Перенести вниз списка
         issue-actions--move-up: Перенести наверх списка
-      ui_components_projects_ListFilterPane:
-        filter-issues: По задачам
-        filter-projects: По проектам
-        search-placeholder: Поиск
       ui_components_projects_Sidebar:
         sidebar-param-title--endDate: Дедлайн
         sidebar-param-title--lead: Ответственный
@@ -3853,7 +3854,7 @@ default:
         label_target-private-ip: Не из VPC
         label_targets: Целевые ресурсы
         label_timeout: Таймаут, с
-        label_trusted-ca: Сертификат от доверенного УЦ
+        label_trusted-ca: Доверенный корневой сертификат
         label_unhealthy: Порог неработоспособности
         label_upgrade-types: Допустимые значения заголовка Upgrade
         label_use-http2: HTTP/2
@@ -7069,10 +7070,10 @@ default:
                         title: Настройки параллельного копирования
                     Transfer:
                       data_objects:
-                        title: Список объектов для переноса (Превью)
+                        title: Список объектов для переноса
                       title: Параметры трансфера
                       transformation:
-                        title: Трансформация данных (Превью)
+                        title: Трансформация данных
                       type:
                         title: Тип трансфера
                     TransferType:

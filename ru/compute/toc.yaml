@@ -809,44 +809,44 @@ items:
             items:
               - name: Overview
                 href: api-ref/InstanceGroup/index.md
+              - name: create
+                href: api-ref/InstanceGroup/create.md
+              - name: createFromYaml
+                href: api-ref/InstanceGroup/createFromYaml.md
+              - name: delete
+                href: api-ref/InstanceGroup/delete.md
+              - name: get
+                href: api-ref/InstanceGroup/get.md
               - name: list
                 href: api-ref/InstanceGroup/list.md
-              - name: updateFromYaml
-                href: api-ref/InstanceGroup/updateFromYaml.md
-              - name: resumeProcesses
-                href: api-ref/InstanceGroup/resumeProcesses.md
-              - name: listInstances
-                href: api-ref/InstanceGroup/listInstances.md
               - name: listAccessBindings
                 href: api-ref/InstanceGroup/listAccessBindings.md
-              - name: update
-                href: api-ref/InstanceGroup/update.md
+              - name: listInstances
+                href: api-ref/InstanceGroup/listInstances.md
+              - name: listLogRecords
+                href: api-ref/InstanceGroup/listLogRecords.md
+              - name: listOperations
+                href: api-ref/InstanceGroup/listOperations.md
+              - name: pauseProcesses
+                href: api-ref/InstanceGroup/pauseProcesses.md
+              - name: resumeProcesses
+                href: api-ref/InstanceGroup/resumeProcesses.md
               - name: rollingRecreate
                 href: api-ref/InstanceGroup/rollingRecreate.md
-              - name: updateAccessBindings
-                href: api-ref/InstanceGroup/updateAccessBindings.md
+              - name: rollingRestart
+                href: api-ref/InstanceGroup/rollingRestart.md
               - name: setAccessBindings
                 href: api-ref/InstanceGroup/setAccessBindings.md
               - name: start
                 href: api-ref/InstanceGroup/start.md
-              - name: listOperations
-                href: api-ref/InstanceGroup/listOperations.md
-              - name: listLogRecords
-                href: api-ref/InstanceGroup/listLogRecords.md
-              - name: create
-                href: api-ref/InstanceGroup/create.md
-              - name: get
-                href: api-ref/InstanceGroup/get.md
-              - name: delete
-                href: api-ref/InstanceGroup/delete.md
-              - name: pauseProcesses
-                href: api-ref/InstanceGroup/pauseProcesses.md
-              - name: rollingRestart
-                href: api-ref/InstanceGroup/rollingRestart.md
-              - name: createFromYaml
-                href: api-ref/InstanceGroup/createFromYaml.md
               - name: stop
                 href: api-ref/InstanceGroup/stop.md
+              - name: update
+                href: api-ref/InstanceGroup/update.md
+              - name: updateAccessBindings
+                href: api-ref/InstanceGroup/updateAccessBindings.md
+              - name: updateFromYaml
+                href: api-ref/InstanceGroup/updateFromYaml.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

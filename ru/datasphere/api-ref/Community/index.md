@@ -31,11 +31,13 @@ organizationId | **string**<br><p>ID of the organization to which community belo
 ## Methods {#methods}
 Method | Description
 --- | ---
+[addResource](addResource.md) | Adds shared resource to community
 [create](create.md) | Creates community in specified organization.
 [delete](delete.md) | Deletes specified community.
 [get](get.md) | Returns community.
 [list](list.md) | List communities in specified organization.
 [listAccessBindings](listAccessBindings.md) | Lists access bindings for specified community.
+[removeResource](removeResource.md) | Removes shared resource from community
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for specified community.
 [update](update.md) | Updates specified community.
 [updateAccessBindings](updateAccessBindings.md) | Updates access bindings for specified community.
