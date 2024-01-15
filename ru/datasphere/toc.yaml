@@ -219,7 +219,7 @@ items:
             href: tutorials/mlflow-datasphere.md
       - name: Эксплуатация
         items:
-          - name: Развертывание сервиса из ячейки с кодом
+          - name: Развертывание сервиса из контрольной точки
             href: tutorials/node-from-cell.md
           - name: Развертывание сервиса на основе Docker-образа
             href: tutorials/node-from-docker.md

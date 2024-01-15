@@ -29,7 +29,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ sf-full-name }} {#sf}
 
-The [{{ sf-full-name }}](../../functions/quickstart/) service lets you run your applications in a secure, fault-tolerant, and scalable environment without creating or maintaining VMs.
+The [{{ sf-full-name }}](../../functions/quickstart/) service allows you to run your applications in a secure, fault-tolerant, and scalable environment without creating or maintaining VMs.
 
 {% include [not-charged-functions.md](../../_includes/pricing/price-formula/not-charged-functions.md) %}
 
@@ -118,3 +118,19 @@ After you spend the free amount of services, you will be charged at the applicab
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 
+
+## Examples of cost calculations with free tier {#examples}
+
+Usage cost is calculated based on the pricing plans of the relevant service and does not include the amount of services provided for free. Here is an example:
+
+### Calculation of function usage cost {#function-example}
+
+{% include [prices-example](../../_includes/functions/prices-example.md) %}
+
+### Calculation of API gateway usage cost {api-gateway-example}
+
+{% include [prices-example](../../_includes/api-gateway/prices-example.md) %}
+
+### Calculation of {{ iot-full-name }} usage cost {#iot-example}
+
+{% include [prices-example](../../_includes/iot-core/prices-example.md) %}

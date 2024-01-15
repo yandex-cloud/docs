@@ -16,7 +16,7 @@ Here are some tips for diagnosing and fixing these issues.
 1. Select databases to troubleshoot.
 
 
-1. [Enable database access in the management console](../../managed-postgresql/operations/update.md#change-additional-settings).
+1. [Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option in the cluster](../../managed-postgresql/operations/update.md#change-additional-settings).
 
 
 1. [Activate statistics collection](../../managed-postgresql/operations/performance-diagnostics.md#activate-stats-collector) about sessions and queries.
@@ -32,17 +32,21 @@ Here are some tips for diagnosing and fixing these issues.
 
 ## Diagnosing inefficient query execution {#inefficient-queries}
 
-To identify problematic queries, make a selection from the {{ PG }} system table `pg_stat_activity`:
+There are two ways to identify problematic queries:
 
-```sql
-SELECT NOW() - query_start AS duration, query, state
-FROM pg_stat_activity
-WHERE state != 'idle' ORDER BY 1 DESC;
-```
+* Make a selection from the {{ PG }} `pg_stat_activity` housekeeping table:
 
-This will return a list of queries running on the server. Pay attention to queries with a high `duration` value.
+   ```sql
+   SELECT NOW() - query_start AS duration, query, state
+   FROM pg_stat_activity
+   WHERE state != 'idle' ORDER BY 1 DESC;
+   ```
 
-To learn more about the information in the output, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+   This will return a list of queries running on the server. Pay attention to queries with a high `duration` value.
+
+   To learn more about the information in the output, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+
+* [Get and analyze query statistics](../../managed-postgresql/operations/performance-diagnostics.md#get-queries) using the diagnostics tool integrated into {{ mpg-name }}.
 
 ## Troubleshooting issues with inefficient queries {#solving-inefficient-queries}
 
@@ -63,6 +67,8 @@ There are several ways to optimize problematic queries:
 
    {% endnote %}
 
+
+* [Automatically log the query execution plan](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) using the [`auto_explain` module](https://www.postgresql.org/docs/current/auto-explain.html).
 
 * Update statistics using the [`ANALYZE`](https://www.postgresql.org/docs/current/sql-analyze.html) command.
 

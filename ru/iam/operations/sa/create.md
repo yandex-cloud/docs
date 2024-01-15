@@ -126,8 +126,8 @@
 
 {% endlist %}
 
-#### Что дальше {#what-is-next}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](assign-role-for-sa.md).
-* [{#T}](create-access-key.md).
 * [{#T}](set-access-bindings.md).
+* [{#T}](../../concepts/users/service-accounts.md#sa-key).

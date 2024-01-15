@@ -1,3 +1,4 @@
+* {% include [Field Terraform Security Group](../../fields/common/terraform/security-group.md) %}
 * {% include [Field Terraform Host](../../fields/mysql/terraform/hosts.md) %}
 * {% include [Field Terraform Port](../../fields/common/terraform/port.md) %}
 * {% include [Field Terraform CA Certificate](../../fields/common/terraform/ca-certificate.md) %}

@@ -76,31 +76,31 @@ fields |  Дополнительные поля сущности, которые
 
    ```json
    {
-      "self": "{{ host }}/{{ ver }}/entities/project/655f328da834c763********",
+      "self": "https://{{ host }}/{{ ver }}/entities/project/655f328da834c763********",
       "id": "655f328da834c763********",
       "version": 3,
       "shortId": 2,
       "entityType": "project",
-      "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
       "createdAt": "2023-11-23T11:07:57.298+0000",
       "updatedAt": "2023-11-23T15:46:26.391+0000",
       "attachments": [
          {
-            "self": "{{ host }}/{{ ver }}/attachments/8",
+            "self": "https://{{ host }}/{{ ver }}/attachments/8",
             "id": "8",
             "name": "file1.docx",
             "content": "{{ host }}/{{ ver }}/attachments/8/file1.docx",
-            "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
             "createdAt": "2023-11-23T15:46:20.617+0000",
             "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             "size": 18585
          },
          {
-            "self": "{{ host }}/{{ ver }}/attachments/9",
+            "self": "https://{{ host }}/{{ ver }}/attachments/9",
             "id": "9",
             "name": "file2.pdf",
             "content": "{{ host }}/{{ ver }}/attachments/9/file2.pdf",
-            "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
             "createdAt": "2023-11-23T15:46:25.932+0000",
             "mimetype": "application/pdf",
             "size": 175656

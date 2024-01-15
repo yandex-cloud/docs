@@ -61,14 +61,14 @@ endDate | Дата завершения проекта в формате `YYYY-M
     Тело ответа содержит информацию о созданном проекте в формате JSON.
     ```json
     {
-        "self": "{{ host }}/v2/projects/9",
+        "self": "https://{{ host }}/v2/projects/9",
         "id": "9",
         "version": 1,
         "key": "Проект",
         "name": "Проект",
         "description": "Новый проект",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
             "display": "Имя Фамилия"
         },

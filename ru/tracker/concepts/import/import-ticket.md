@@ -144,7 +144,7 @@ favoritedBy | Массив с идентификаторами или логин
 
     ```json
     {
-      "self": "{{ host }}/v2/issues/TEST-1",
+      "self": "https://{{ host }}/v2/issues/TEST-1",
       "id": "141b2ef1e4b036e9f8397458",
       "key": "TEST-1",
       "version": 1,
@@ -153,61 +153,61 @@ favoritedBy | Массив с идентификаторами или логин
       "estimation": "P1H",
       "spent": "P1H",
       "updatedBy": {
-        "self": "{{ host }}/v2/users/1110000000011111",
+        "self": "https://{{ host }}/v2/users/1110000000011111",
         "id": "1110000000011111",
         "display": "Ivan Ivanov"
       },
       "resolvedAt": "2017-09-08T09:33:42.250+0000",
       "start": "2017-09-04",
       "resolvedBy": {
-        "self": "{{ host }}/v2/users/1110000000011111",
+        "self": "https://{{ host }}/v2/users/1110000000011111",
         "id": "1110000000011111",
         "display": "Ivan Ivanov"
       },
       "description": "Test",
       "followingMaillists": [
         {
-          "self": "{{ host }}/v2/maillists/test@test.yaconnect.com",
+          "self": "https://{{ host }}/v2/maillists/test@test.yaconnect.com",
           "id": "test@test.yaconnect.com",
           "display": "test"
         },
         {
-          "self": "{{ host }}/v2/maillists/mail@test.yaconnect.com",
+          "self": "https://{{ host }}/v2/maillists/mail@test.yaconnect.com",
           "id": "mail@test.yaconnect.com",
           "display": "mail"
         }
       ],
       "fixVersions": [
         {
-          "self":"{{ host }}/v2/versions/4",
+          "self":"https://{{ host }}/v2/versions/4",
           "id":"4",
           "display":"Version 4"
         },
         {
-          "self":"{{ host }}/v2/versions/5",
+          "self":"https://{{ host }}/v2/versions/5",
           "id":"5",
           "display":"Version 5"
         },
         {
-          "self":"{{ host }}/v2/versions/6",
+          "self":"https://{{ host }}/v2/versions/6",
           "id":"6",
           "display":"Version 6"
         }
       ],
       "type": {
-        "self": "{{ host }}/v2/issuetypes/2",
+        "self": "https://{{ host }}/v2/issuetypes/2",
         "id": "2",
         "key": "task",
         "display": "Task"
       },
       "priority": {
-        "self":"{{ host }}/v2/priorities/3",
+        "self":"https://{{ host }}/v2/priorities/3",
         "id":"3",
         "key":"normal",
         "display":"Normal"
       },
       "resolution": {
-        "self":"{{ host }}/v2/resolutions/1",
+        "self":"https://{{ host }}/v2/resolutions/1",
         "id":"1",
         "key":"fixed",
         "display":"Fixed"
@@ -215,23 +215,23 @@ favoritedBy | Массив с идентификаторами или логин
       "createdAt": "2017-08-29T12:34:41.740+0000",
       "followers": [
         {
-          "self": "{{ host }}/v2/users/1110000000011111",
+          "self": "https://{{ host }}/v2/users/1110000000011111",
           "id": "1110000000011111",
           "display": "Ivan Ivanov"
         },
         {
-          "self": "{{ host }}/v2/users/2220000000022222",
+          "self": "https://{{ host }}/v2/users/2220000000022222",
           "id": "2220000000022222",
           "display": "Petr Petrov"
         }
       ],
       "assignee": {
-        "self": "{{ host }}/v2/users/1110000000011111",
+        "self": "https://{{ host }}/v2/users/1110000000011111",
         "id": "1110000000011111",
         "display": "Ivan Ivanov"
       },
       "createdBy": {
-        "self": "{{ host }}/v2/users/1110000000011111",
+        "self": "https://{{ host }}/v2/users/1110000000011111",
         "id": "1110000000011111",
         "display": "Ivan Ivanov"
       },
@@ -239,17 +239,17 @@ favoritedBy | Массив с идентификаторами или логин
       "votes": 0,
       "affectedVersions": [
         {
-          "self":"{{ host }}/v2/versions/1",
+          "self":"https://{{ host }}/v2/versions/1",
           "id":"1",
           "display":"Version 1"
         },
         {
-          "self":"{{ host }}/v2/versions/2",
+          "self":"https://{{ host }}/v2/versions/2",
           "id":"2",
           "display":"Version 2"
         },
         {
-          "self":"{{ host }}/v2/versions/3",
+          "self":"https://{{ host }}/v2/versions/3",
           "id":"3",
           "display":"Version 3"
         }
@@ -258,7 +258,7 @@ favoritedBy | Массив с идентификаторами или логин
       "end": "2017-09-07",
       "deadline": "2018-05-28",
       "queue": {
-        "self": "{{ host }}/v2/queues/TEST",
+        "self": "https://{{ host }}/v2/queues/TEST",
         "id": "1",
         "key": "TEST",
         "display": "Test"
@@ -266,36 +266,36 @@ favoritedBy | Массив с идентификаторами или логин
       "updatedAt": "2017-09-09T11:24:31.140+0000",
       "storyPoints": 1.0,
       "status": {
-        "self": "{{ host }}/v2/statuses/17",
+        "self": "https://{{ host }}/v2/statuses/17",
         "id": "17",
         "key": "closed",
         "display": "Closed"
       },
       "components":[
         {
-          "self":"{{ host }}/v2/components/7",
+          "self":"https://{{ host }}/v2/components/7",
           "id":"7",
           "display":"Component 7"
         },
         {
-          "self":"{{ host }}/v2/components/8",
+          "self":"https://{{ host }}/v2/components/8",
           "id":"8",
           "display":"Component 8"
         },
         {
-          "self":"{{ host }}/v2/components/9",
+          "self":"https://{{ host }}/v2/components/9",
           "id":"9",
           "display":"Component 9"
         }
       ],
       "access": [
         {
-          "self": "{{ host }}/v2/users/1110000000011111",
+          "self": "https://{{ host }}/v2/users/1110000000011111",
           "id": "1110000000011111",
           "display": "Ivan Ivanov"
         },
         {
-          "self": "{{ host }}/v2/users/2220000000022222",
+          "self": "https://{{ host }}/v2/users/2220000000022222",
           "id": "2220000000022222",
           "display": "Petr Petrov"
         }

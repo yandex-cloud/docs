@@ -76,10 +76,10 @@ value | Значение поля задачи. | Строка
 
     ```json
       {
-        "self": "{{ host }}/v2/queues/TEST/macros/3",
+        "self": "https://{{ host }}/v2/queues/TEST/macros/3",
         "id": 3,
         "queue": {
-          "self": "{{ host }}/v2/queues/TEST", 
+          "self": "https://{{ host }}/v2/queues/TEST", 
           "id": "1",
           "key": "TEST",
           "display": "Тестовая очередь"
@@ -89,7 +89,7 @@ value | Значение поля задачи. | Строка
         "fieldChanges": [
           {
             "field": {
-               "self": "{{ host }}/v2/fields/tags", 
+               "self": "https://{{ host }}/v2/fields/tags", 
                "id": "tags",
                "display": "Теги"
               },

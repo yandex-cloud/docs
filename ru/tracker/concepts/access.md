@@ -13,7 +13,7 @@ sourcePath: ru/tracker/api-ref/concepts/access.md
 
 * `Authorization: OAuth <ваш OAuth-токен>` — при доступе по [протоколу OAuth 2.0](#section_about_OAuth).
 
-  `Authorization: Bearer <ваш IAM-TOKEN>` — при доступе помощи [IAM-токена](#iam-token).
+  `Authorization: Bearer <ваш IAM-TOKEN>` — при доступе при помощи [IAM-токена](#iam-token).
 
 * `X-Org-ID или X-Cloud-Org-ID: <идентификатор организации>`
 

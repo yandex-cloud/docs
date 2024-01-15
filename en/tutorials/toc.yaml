@@ -385,6 +385,10 @@ items:
         href: dataplatform/rds-to-mpg.md
       - name: Migrating data from {{ ES }} to {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
+      - name: >-
+          Migrating data from a third-party {{ OS }} cluster to {{ mos-name }}
+          using {{ data-transfer-name }}
+        href: dataplatform/mos-migration-from-standalone.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: '{{ mpg-name }} performance analysis and tuning'

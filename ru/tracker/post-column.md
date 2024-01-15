@@ -88,13 +88,13 @@ statuses | Массив содержит ключи возможных стат�
 
     ```json
     {
-        "self": "{{ host }}/v2/boards/73/columns/5",
+        "self": "https://{{ host }}/v2/boards/73/columns/5",
         "id": 5,
         "name": "Согласовать",
         "statuses":
          [
             {
-               "self": "{{ host }}/v2/statuses/2",
+               "self": "https://{{ host }}/v2/statuses/2",
                "id": "2",
                "key": "needInfo",
                "display": "Требуется информация"

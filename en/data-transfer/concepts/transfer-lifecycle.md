@@ -22,8 +22,8 @@ The transition between statuses for the _{{ dt-type-copy }}_ transfer type is sh
 
 {{ data-transfer-full-name }} supports three types of data copy:
 
-* _{{ dt-copy-snapshot }}_: Copies all data from the source to the target when activating a transfer. This type of copy may take a long time if the amount of data to transfer is large. In addition, one-time copying does not factor in data changes. You can recopy the data only after the previous operation is completed.
-* _{{ dt-copy-regular }}_: Copies all data from the source to the target at certain time intervals. This copy method lets you set up regular data delivery. It is recommended for small tables that are frequently modified.
+* _{{ dt-copy-snapshot }}_: Copies all data from the source to the target when activating a transfer. Data is copied in descending order of table size (the largest tables are copied first). This type of copy may take a long time if the amount of data to transfer is large. In addition, one-time copying does not factor in data changes. You can recopy the data only after the previous operation is completed.
+* _{{ dt-copy-regular }}_: Copies all data from the source to the target at certain time intervals. This copy method allows you to set up regular data delivery. It is recommended for small frequently modified tables.
 * _{{ dt-copy-regular-incremental }}_: Copies to the target at certain time intervals only the data that has been modified in the source since the previous copy. This approach allows you to arrange data delivery to the target with the minimum possible latency and load on the data source. However, it does not allow you to factor in data delete operations in the source. For more information, see [{#T}](./regular-incremental-copy.md).
 
 ### Replication {#replication}

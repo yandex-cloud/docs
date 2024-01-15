@@ -46,40 +46,40 @@ Authorization: OAuth <OAuth-токен>
     ```json
     [
         {
-            "self": "{{ host }}/v2/issues/JUNE-2/links/4709605",
+            "self": "https://{{ host }}/v2/issues/JUNE-2/links/4709605",
             "id": 4709605,
             "type": {
-                "self": "{{ host }}/v2/linktypes/subtask",
+                "self": "https://{{ host }}/v2/linktypes/subtask",
                 "id": "subtask",
                 "inward": "Подзадача",
                 "outward": "Родительская задача"
             },
             "direction": "outward",
             "object": {
-                "self": "{{ host }}/v2/issues/TREK-9844",
+                "self": "https://{{ host }}/v2/issues/TREK-9844",
                 "id": "593cd211ef7e8a332414f2a7",
                 "key": "TREK-9844",
                 "display": "subtask"
             },
             "createdBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<id сотрудника>",
                 "display": "<отображаемое имя сотрудника>"
             },
             "updatedBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<id сотрудника>",
                 "display": "<отображаемое имя сотрудника>"
             },
             "createdAt": "2017-06-11T05:16:01.421+0000",
             "updatedAt": "2017-06-11T05:16:01.421+0000",
             "assignee": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<id сотрудника>",
                 "display": "<отображаемое имя сотрудника>"
             },
             "status": {
-                "self": "{{ host }}/v2/statuses/1",
+                "self": "https://{{ host }}/v2/statuses/1",
                 "id": "1",
                 "key": "open",
                 "display": "Открыт"

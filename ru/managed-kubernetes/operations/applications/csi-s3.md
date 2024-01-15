@@ -8,9 +8,9 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.editor`.
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Сохраните идентификатор [ключа](../../../iam/concepts/authorization/key.md) и секретный ключ — они понадобятся при установке приложения.
-1. (Опционально) Чтобы новые тома помещались в один бакет с разными префиксами, [создайте бакет](../../../storage/operations/buckets/create.md) [{{ objstorage-full-name }}](../../../storage/). Сохраните имя бакета — оно понадобится при установке приложения. Пропустите этот шаг, если для каждого тома требуется создавать отдельный бакет.
+1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../../../storage/security/index.md#storage-editor) `storage.editor`.
+1. [Создайте](../../../iam/operations/sa/create-access-key.md) статический ключ доступа для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке приложения.
+1. (Опционально) Чтобы новые тома помещались в один бакет с разными префиксами, [создайте](../../../storage/operations/buckets/create.md) бакет {{ objstorage-full-name }}. Сохраните имя бакета — оно понадобится при установке приложения. Пропустите этот шаг, если для каждого тома требуется создавать отдельный бакет.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 

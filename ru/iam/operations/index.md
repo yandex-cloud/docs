@@ -29,8 +29,6 @@ description: "Пошаговые инструкции по управлению 
 - [{#T}](sa/update.md)
 - [{#T}](sa/assign-role-for-sa.md)
 - [{#T}](sa/set-access-bindings.md)
-- [{#T}](sa/create-access-key.md)
-- [{#T}](sa/delete-access-key.md)
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
 
@@ -52,9 +50,17 @@ description: "Пошаговые инструкции по управлению 
 - [Перевыпуск IAM-токена](compromised-credentials.md#iam-reissue)
 
 
-## Ключи {#keys}
+## Статические ключи доступа {#static-keys}
+
+- [{#T}](sa/create-access-key.md)
+- [{#T}](sa/delete-access-key.md)
+
+## API-ключи {#api-keys}
 
 - [{#T}](api-key/create.md)
 - [{#T}](api-key/delete.md)
+
+## Авторизованные ключи {#authorized-keys}
+
 - [{#T}](authorized-key/create.md)
 - [{#T}](authorized-key/delete.md)

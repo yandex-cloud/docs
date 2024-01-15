@@ -9,24 +9,25 @@
 {% endnote %}
 
 После подключения вы сможете:
+
 * [Отправлять сообщения](../operations/publish.md).
 * [Подписывать устройство или реестр на получение сообщений](../operations/subscribe.md).
 
 Чтобы подключиться к {{ iot-full-name }} и начать обмен сообщениями:
-* [Подготовьтесь к работе](#before-you-begin)
-* [Создайте необходимые ресурсы {{ iot-full-name }}](#resources)
-    * [Создайте реестр и добавьте ему сертификат](#registry)
-    * [Создайте устройство и добавьте ему сертификат](#device)
-* [Подключитесь к {{ iot-full-name }}](#configure)
-* [Авторизуйтесь в {{ iot-full-name }}](#auth)
-    * [Авторизация с помощью сертификатов](#certs)
-    * [Авторизация по логину и паролю](#log-pass)
-* [Установите соединение](#connect)
-* [Подпишитесь на топик и получайте сообщения](#subscribe)
-* [Отправьте сообщение](#publish)
-* [Завершите соединение](#disconnect)
 
-## Подготовьтесь к работе {#before-you-begin}
+* [Создайте необходимые ресурсы {{ iot-full-name }}](#resources):
+  * [Создайте реестр и добавьте ему сертификат](#registry).
+  * [Создайте устройство и добавьте ему сертификат](#device).
+* [Подключитесь к {{ iot-full-name }}](#configure).
+* [Аутентифицируйтесь в {{ iot-full-name }}](#auth):
+  * [Аутентификация с помощью сертификатов](#certs).
+  * [Аутентификация по логину и паролю](#log-pass).
+* [Установите соединение](#connect).
+* [Подпишитесь на топик и получайте сообщения](#subscribe).
+* [Отправьте сообщение](#publish).
+* [Завершите соединение](#disconnect).
+
+## Перед началом работы {#before-you-begin}
 
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../cli/quickstart.md#install).
 1. Скачайте и установите [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html).
@@ -37,9 +38,9 @@
 
 Если у вас уже есть сертификат, начните со второго шага.
 
-1. Создайте сертификат для реестра: 
+1. Создайте сертификат для реестра:
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout registry-key.pem \
@@ -51,13 +52,13 @@
 
 1. Создайте реестр:
 
-   ```shell script
+   ```bash
    yc iot registry create --name my-registry
    ```
 
 1. Добавьте сертификат реестру:
 
-   ```shell script
+   ```bash
    yc iot registry certificate add \
      --registry-name my-registry \ # Имя реестра.
      --certificate-file registry-cert.pem # Путь к публичной части сертификата.
@@ -67,9 +68,9 @@
 
 Если у вас уже есть сертификат, начните со второго шага.
 
-1. Создайте сертификат для устройства: 
+1. Создайте сертификат для устройства:
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout device-key.pem \
@@ -82,13 +83,13 @@
 1. [Посмотрите список реестров](../operations/registry/registry-list.md#registry-list), в которых можно создать устройство, или [создайте новый реестр](../operations/registry/registry-create.md).
 1. Создайте устройство:
 
-   ```shell script
+   ```bash
    yc iot device create --registry-name my-registry --name my-device
    ```
 
 1. Добавьте сертификат устройству:
 
-   ```shell script
+   ```bash
    yc iot device certificate add \
      --device-name my-device \ # Имя устройства.
      --certificate-file device-cert.pem # Путь к публичной части сертификата.
@@ -120,17 +121,17 @@ connOpts.setKeepAliveInterval(keepAliveInterval);
 * `MqttConnectOptions` — класс для установки параметров соединения. Вы можете оставить настройки по умолчанию, но рекомендуется задать параметр `keepAliveInterval`. От его значения зависит частота отправки команд `PINGREQ`. Чем меньше значение `keepAliveInterval`, тем быстрее клиент понимает, что соединение было разорвано нештатным путем. Но для этого чаще отправляются тарифицируемые команды `PINGREQ`.
 * `listener` — класс, реализующий интерфейс `MqttCallback`. Он используется для обработки событий о потере связи с сервером (`connectionLost`), доставке сообщения (`deliveryComplete`) и получении нового сообщения (`messageArrived`).
 
-## Авторизуйтесь в {{ iot-full-name }} {#auth}
+## Аутентифицируйтесь в {{ iot-full-name }} {#auth}
 
-Есть два способа [авторизации](../concepts/authorization.md):
+Есть два способа [аутентификации](../concepts/authorization.md):
 * [С помощью X.509-сертификатов](#certs).
 * [По логину и паролю](#log-pass).
 
-### Авторизация с помощью сертификатов {#certs}
+### Аутентификация с помощью сертификатов {#certs}
 
-При авторизации с помощью X.509-сертификатов используются сертификаты в формате [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) (файлы с расширением .p12). Чтобы сгенерировать такой сертификат из PEM-сертификатов, выполните команду:
+При аутентификации с помощью X.509-сертификатов используются сертификаты в формате [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) (файлы с расширением .p12). Чтобы сгенерировать такой сертификат из PEM-сертификатов, выполните команду:
 
-```shell script
+```bash
 openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 ```
 
@@ -138,7 +139,7 @@ openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 
 В примере, доступном на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java), сертификаты загружаются из файлов, организованных следующим образом:
 
-```
+```text
   /my_registry        Директория реестра |текущая директория|. Пример нужно запускать из этой директории.
   `- /device          Директория устройства |device|.
   |  `- cert.pem      Сертификат устройства в PEM-формате.
@@ -154,11 +155,13 @@ openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 Сертификат удостоверяющего центра задан в виде статической переменной `TRUSTED_ROOT`.
 
 Для загрузки сертификатов в примере используется метод:
+
 ```java
 private SSLSocketFactory getSocketFactoryWithCerts(String certsDir)
 ```
 
 Загрузка сертификатов происходит в несколько этапов:
+
 1. Загрузите сертификат, используемый для аутентификации сервера:
 
     ```java
@@ -174,7 +177,8 @@ private SSLSocketFactory getSocketFactoryWithCerts(String certsDir)
     TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
     tmf.init(tks);
     ```
-1. Загрузите сертификат клиента, используемый для авторизации на сервере, из файла `keystore.p12`:
+
+1. Загрузите сертификат клиента, используемый для аутентификации на сервере, из файла `keystore.p12`:
 
     ```java
     final char[] emptyPassword = "".toCharArray();
@@ -183,7 +187,9 @@ private SSLSocketFactory getSocketFactoryWithCerts(String certsDir)
     KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
     kmf.init(ks, emptyPassword);
     ```
+
 1. Получите экземпляр класса `SSLSocketFactory`:
+
     ```java
     SSLContext ctx = SSLContext.getInstance("TLS");
     ctx.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
@@ -196,9 +202,9 @@ private SSLSocketFactory getSocketFactoryWithCerts(String certsDir)
 connOpts.setSocketFactory(sslSocketFactory);
 ```
 
-### Авторизация по логину и паролю {#log-pass}
+### Аутентификация по логину и паролю {#log-pass}
 
-Так как при авторизации по логину и паролю {{ iot-full-name }} требует TLS-протокол, то необходимо загрузить сертификат, используемый для аутентификации сервера:
+Так как при аутентификации по логину и паролю {{ iot-full-name }} требует TLS-протокол, то необходимо загрузить сертификат, используемый для аутентификации сервера:
 
 ```java
 //Загружаем сертификат удостоверяющего центра из статической переменной `TRUSTED_ROOT`.
@@ -220,7 +226,6 @@ private SSLSocketFactory getSocketFactory()
     ctx.init(null, tmf.getTrustManagers(), null);
     return ctx.getSocketFactory();
 }
-
 ```
 
 В настройках соединения укажите логин (идентификатор реестра или устройства) и пароль:
@@ -266,7 +271,6 @@ client.connect(connOpts);
 
 Где `listener` — класс, реализующий интерфейс `MqttCallback`.
 
-
 ## Подпишитесь на топик и получайте сообщения {#subscribe}
 
 Подпишитесь на топик с помощью следующего кода. В методе `subscribe` нужно указать топик `topic`, на который вы хотите подписаться, и [уровень качества обслуживания](../../glossary/qos.md) `qos`.
@@ -302,8 +306,6 @@ client.subscribe(topic, qos, messageListener);
 
 Где `messageListener` — класс, реализующий интерфейс `IMqttMessageListener`.
 
-
-
 ## Отправьте сообщение {#publish}
 
 Отправьте сообщение с помощью следующего кода. В методе `publish` нужно указать топик `topic`, в который вы хотите отправить сообщение, и текст сообщения с помощью класса `MqttMessage`. При необходимости можно указать желаемый уровень качества обслуживания `qos` для экземпляра класса `MqttMessage`.
@@ -332,7 +334,6 @@ client.connect(connOpts);
 ```
 
 Где `listener` — класс, реализующий интерфейс `MqttCallback`.
-
 
 ## Завершите соединение {#disconnect}
 

@@ -39,7 +39,7 @@ Authorization: OAuth <токен>
 
     ```json
     {
-        "self": "{{ host }}/v2/fields/ruName",
+        "self": "https://{{ host }}/v2/fields/ruName",
         "id": "ruName",
         "name": "ru_name",
         "description": "текст описания",
@@ -67,7 +67,7 @@ Authorization: OAuth <токен>
         },
         "order": 14,
         "category": {
-            "self": "{{ host }}/v2/fields/categories/58bc3b921d9c7d68164e",
+            "self": "https://{{ host }}/v2/fields/categories/58bc3b921d9c7d68164e",
             "id": "58bc3b921d9c7d68164e",
             "display": "Системные"
         }

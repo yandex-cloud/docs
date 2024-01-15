@@ -14,5 +14,6 @@
 * [В консоли недоступны закрывающие документы](closing-documents-unavailable.md)
 * [С баланса платежного аккаунта списываются средства за неиспользуемые ресурсы](billing-account-is-charged-by-unused-resources.md)
 * [Что делать, если деньги долго не приходят на баланс после платежа](recover-lost-payment.md)
-* [Устранение ошибки «Приглашение не найдено» при подключении к партнёрской программе](cannot-access-partner-programme.md)
+* [Устранение ошибки «Приглашение не найдено» при подключении к партнерской программе](cannot-access-partner-programme.md)
 * [Могут ли ресурсы удалиться при неоплате](cloud-and-files-removal.md)
+* [Облако зависло в статусе `Creating` или долго не создается](cloud-stuck-in-creating-status.md)

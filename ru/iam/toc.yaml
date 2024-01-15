@@ -41,10 +41,6 @@ items:
             href: operations/sa/assign-role-for-sa.md
           - name: Настройка прав доступа к сервисному аккаунту
             href: operations/sa/set-access-bindings.md
-          - name: Создание статических ключей доступа
-            href: operations/sa/create-access-key.md
-          - name: Удаление статических ключей доступа
-            href: operations/sa/delete-access-key.md
           - name: Получение идентификатора сервисного аккаунта
             href: operations/sa/get-id.md
           - name: Удаление сервисного аккаунта
@@ -67,6 +63,10 @@ items:
             href: operations/iam-token/create-for-federation.md
       - name: Ключи
         items:
+          - name: Создание статического ключа доступа
+            href: operations/sa/create-access-key.md
+          - name: Удаление статического ключа доступа
+            href: operations/sa/delete-access-key.md
           - name: Создание API-ключа
             href: operations/api-key/create.md
           - name: Удаление API-ключа
@@ -89,7 +89,7 @@ items:
             href: concepts/access-control/system-group.md
           - name: Ресурсы, на которые можно назначать роли
             href: concepts/access-control/resources-with-access-control.md
-      - name: Авторизация
+      - name: Авторизация и аутентификация
         items:
           - name: Обзор
             href: concepts/authorization/index.md

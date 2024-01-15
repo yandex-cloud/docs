@@ -134,31 +134,31 @@ rootOnly | Выводить только не вложенные сущност�
       "pages": 1,
       "values": [
         {
-            "self": "{{ host }}/{{ ver }}/entities/project/655f8ce5d6a39833********",
+            "self": "https://{{ host }}/{{ ver }}/entities/project/655f8ce5d6a39833********",
             "id": "655f8ce5d6a39833********",
             "version": 7,
             "shortId": 8,
             "entityType": "project",
-            "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
             "createdAt": "2023-11-23T17:33:25.427+0000",
             "updatedAt": "2023-11-24T12:21:43.838+0000",
             "fields": {
                 "entityStatus": "in_progress",
-                "followers": [{ "self": "{{ host }}/{{ ver }}/users/2222222290", "id": "2222222290", "display": "Имя Наблюдателя", "cloudUid": "ajeprm0fjnql********", "passportUid": 2222222290 }]
+                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/2222222290", "id": "2222222290", "display": "Имя Наблюдателя", "cloudUid": "ajeprm0fjnql********", "passportUid": 2222222290 }]
             }
         },
         {
-            "self": "{{ host }}/{{ ver }}/entities/project/655f3815a834c763********",
+            "self": "https://{{ host }}/{{ ver }}/entities/project/655f3815a834c763********",
             "id": "655f3815a834c763********",
             "version": 4,
             "shortId": 3,
             "entityType": "project",
-            "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
             "createdAt": "2023-11-23T11:31:33.874+0000",
             "updatedAt": "2023-11-23T21:52:10.863+0000",
             "fields": {
                 "entityStatus": "draft",
-                "followers": [{ "self": "{{ host }}/{{ ver }}/users/2222222290", "id": "2222222290", "display": "Имя Наблюдателя", "cloudUid": "ajeprm0fjnql********", "passportUid": 2222222290 }]
+                "followers": [{ "self": "https://{{ host }}/{{ ver }}/users/2222222290", "id": "2222222290", "display": "Имя Наблюдателя", "cloudUid": "ajeprm0fjnql********", "passportUid": 2222222290 }]
             }
         }
       ],

@@ -32,7 +32,9 @@
 `limit` | `string` | Нет | Да | Максимальное количество прочитанных элементов. Используется в операции [Scan](../../../ydb/docapi/api-ref/actions/scan.md).
 `exclusive_start_key` | `string` | Нет | Да | Первичный ключ элемента, с которого начнется поиск. Набор атрибутов и их значений в формате JSON. Значения атрибутов автоматически преобразовываются в объекты типа [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html). Используется в операции [Scan](../../../ydb/docapi/api-ref/actions/scan.md).
 
-## Спецификация расширения {#spec}
+## Примеры спецификаций {#examples}
+
+### Спецификация расширения {#spec}
 
 Пример [REST API](../../../glossary/rest-api.md) сервиса, который позволяет создавать, получать, обновлять и удалять сущности фильмов:
 
@@ -242,3 +244,83 @@ components:
 x-yc-apigateway:
   service_account_id: ajent55o2h**********
 ```
+
+### Спецификация для таблиц с несколькими первичными ключами {#composite-primary-key-spec}
+
+Если вы используете таблицы с несколькими первичными ключами, то опишите в спецификации каждый из них, а в запросе укажите значения обеих колонок с ключами. В примере ниже показан запрос к таблице `staff`. В ней содержится информация о сотрудниках компании и ключ, состоящий из двух колонок: `FirstName` и `LastName`.
+
+Пример спецификации {{ api-gw-name }}:
+
+```yaml
+openapi: 3.0.0
+info:
+  title: Staff API
+  version: 1.0.0
+servers:
+  - url: https://d3drb9haai**********.apigw.yandexcloud.net
+paths:
+  /staff:
+    get:
+      description: Get member info by first and last name
+      x-yc-apigateway-integration:
+        type: cloud_ydb
+        action: GetItem
+        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
+        table_name: staff
+        key: '{"FirstName": "{FirstName}", "LastName": "{LastName}"}'
+      operationId: getStaffMemberById
+      parameters:
+        - description: First name of member
+          explode: false
+          in: query
+          name: FirstName
+          required: true
+          schema:
+            type: string
+          style: simple
+        - description: Last name of member
+          explode: false
+          in: query
+          name: LastName
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+          description: success
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+          description: Got member
+components:
+  schemas:
+    success:
+      properties:
+        id:
+          type: string
+x-yc-apigateway:
+  service_account_id: ajent55o2h**********
+```
+
+Запрос для получения информации о сотруднике Иване Ивановом:
+
+```bash
+curl -X GET -H "Authorization: Bearer `yc iam create-token`" \
+"https://d5d16gda7ell********.apigw.yandexcloud.net/staff?FirstName=Ivan&LastName=Ivanov"
+```
+
+Где:
+
+* `staff` — таблица, к которой производится запрос.
+* `FirstName` — первая часть ключа. 
+* `LastName` — вторая часть ключа.
+
+В результате вернется информация о сотруднике.
