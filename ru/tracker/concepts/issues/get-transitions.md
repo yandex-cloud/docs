@@ -36,10 +36,10 @@ Authorization: OAuth <OAuth-токен>
     [
         {
             "id": "resolve",
-            "self": "{{ host }}/v2/issues/JUNE-2/transitions/resolve",
+            "self": "https://{{ host }}/v2/issues/JUNE-2/transitions/resolve",
             "display": "Решить",
             "to": {
-                "self": "{{ host }}/v2/statuses/1",
+                "self": "https://{{ host }}/v2/statuses/1",
                 "id": "1",
                 "key": "open",
                 "display": "Открыт"

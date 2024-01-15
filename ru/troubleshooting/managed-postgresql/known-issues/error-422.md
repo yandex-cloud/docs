@@ -17,7 +17,7 @@ is not present in shared_preload_libraries.»
 
 {% note alert %}
 
-Внесение изменений в настройки кластера приведёт к перезагрузке сервера PostgreSQL.
+Внесение изменений в настройки кластера приведет к перезагрузке сервера PostgreSQL.
 
 {% endnote %}
 

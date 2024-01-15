@@ -118,7 +118,7 @@ values | Значения для выпадающего списка. | Масс
     ```json
      {
         "type": "local",
-        "self": "{{ host }}/v2/queues/ORG/localFields/loc_field_key",
+        "self": "https://{{ host }}/v2/queues/ORG/localFields/loc_field_key",
         "id": "6054ae3a2b6b2c7f80bb9a93--loc_field_key",
         "name": "Название поля на русском языке",
         "description": "Описание локального поля",
@@ -136,7 +136,7 @@ values | Значения для выпадающего списка. | Масс
         },
         "order": 100, 
         "category": {
-            "self": "{{ host }}/v2/fields/categories/000000000000000000000003",
+            "self": "https://{{ host }}/v2/fields/categories/000000000000000000000003",
             "id": "000000000000000000000003",
             "display": "category_name"
         }    

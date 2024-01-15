@@ -40,7 +40,7 @@ Authorization: OAuth <OAuth-токен>
 
     ```json
      {
-        "self": "{{ host }}/v2/queues/ORG/localFields/loc_field_key",
+        "self": "https://{{ host }}/v2/queues/ORG/localFields/loc_field_key",
         "id": "6054ae3a2b6b2c7f80bb9a93--loc_field_key",
         "name": "loc_field_name",
         "description": "Описание поля",
@@ -67,12 +67,12 @@ Authorization: OAuth <OAuth-токен>
         },
         "order": 3,
         "category": {
-            "self": "{{ host }}/v2/fields/categories/000000000000000000000001",
+            "self": "https://{{ host }}/v2/fields/categories/000000000000000000000001",
             "id": "000000000000000000000001",
             "display": "Системные"
         },
         "queue": {
-            "self": "{{ host }}/v2/queues/ORG",
+            "self": "https://{{ host }}/v2/queues/ORG",
             "id": "1",
             "key": "ORG",
             "display": "Организация"

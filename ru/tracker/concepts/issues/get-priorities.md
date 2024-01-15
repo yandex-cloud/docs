@@ -54,7 +54,7 @@ localized |  Признак наличия переводов в ответе. �
     ```json
     [
         {
-            "self": "{{ host }}/v2/priorities/5",
+            "self": "https://{{ host }}/v2/priorities/5",
             "id": 5,
             "key": "blocker",
             "version": 1341632717561,

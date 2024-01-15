@@ -105,6 +105,8 @@ items:
             href: tutorials/managed-greenplum.md
           - name: Migrating data from AWS RDS for {{ PG }}
             href: tutorials/rds-to-mpg.md
+          - name: '{{ OS }} cluster'
+            href: tutorials/os-to-mos.md
       - name: Data mirroring
         items:
           - name: '{{ KF }}'
@@ -119,6 +121,8 @@ items:
             href: tutorials/mmy-to-mpg.md
           - name: '{{ PG }} to {{ MY }}'
             href: tutorials/mpg-to-mmy.md
+          - name: '{{ ES }} to {{ OS }}'
+            href: tutorials/mes-to-mos.md
       - name: Change data capture and delivery to the queue
         items:
           - name: '{{ MY }} to {{ KF }}'

@@ -1,4 +1,4 @@
-* **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — время по UTC в 24-часовом формате, в которое начинается резервное копирование кластера. Если время не задано, резервное копирование начинается в 22:00 UTC.
+* {% include [Backup time](../../../_includes/mdb/console/backup-time.md) %}
 
 * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../../../managed-clickhouse/concepts/maintenance.md):
 

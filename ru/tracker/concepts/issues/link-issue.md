@@ -65,28 +65,28 @@ issue {#issue} | Идентификатор или ключ связываемо
 
   ```json
     {
-      "self" : "{{ host }}/v2/issues/TEST-1/links/1048570",
+      "self" : "https://{{ host }}/v2/issues/TEST-1/links/1048570",
       "id" : 1048570,
       "type" : {
-        "self" : "{{ host }}/v2/linktypes/relates",
+        "self" : "https://{{ host }}/v2/linktypes/relates",
         "id" : "relates",
         "inward" : "relates",
         "outward" : "relates"
       },
       "direction" : "inward",
       "object" : {
-        "self" : "{{ host }}/v2/issues/STARTREK-2",
+        "self" : "https://{{ host }}/v2/issues/STARTREK-2",
         "id" : "4ff3e8dae4b0e2ac27f6eb43",
         "key" : "TREK-2",
         "display" : "NEW!!!"
       },
       "createdBy" : {
-        "self" : "{{ host }}/v2/users/1120000000004859",
+        "self" : "https://{{ host }}/v2/users/1120000000004859",
         "id": "<id сотрудника>",
         "display": "<отображаемое имя сотрудника>"
       },
       "updatedBy" : {
-        "self": "{{ host }}/v2/users/1120000000049224",
+        "self": "https://{{ host }}/v2/users/1120000000049224",
         "id": "<id сотрудника>",
         "display": "<отображаемое имя сотрудника>"
       },

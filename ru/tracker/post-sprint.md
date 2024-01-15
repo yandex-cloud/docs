@@ -59,19 +59,19 @@ id | Идентификатор доски. | Строка
 
     ```json
     {
-      "self" : "{{ host }}/v2/sprints/4469",
+      "self" : "https://{{ host }}/v2/sprints/4469",
       "id" : 4469,
       "version" : 1,
       "name" : "Новый Спринт",
       "board" : {
-        "self" : "{{ host }}/v2/boards/3",
+        "self" : "https://{{ host }}/v2/boards/3",
         "id" : "1",
         "display" : "Тестирование"
       },
       "status" : "draft",
       "archived" : false,
       "createdBy" : {
-        "self" : "{{ host }}/v2/users/1120000000014425",
+        "self" : "https://{{ host }}/v2/users/1120000000014425",
         "id" : "1120000000014425",
         "display" : "Виктор Булдаков"
       },

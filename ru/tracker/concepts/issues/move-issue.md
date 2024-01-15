@@ -83,7 +83,7 @@ expand | Дополнительные поля, которые будут вкл
 
     ```json
     {
-        "self": "{{ host }}/v2/issues/NEW-1",
+        "self": "https://{{ host }}/v2/issues/NEW-1",
         "id": "1a2345678b",
         "key": "NEW-1",
         "version": 2,
@@ -91,14 +91,14 @@ expand | Дополнительные поля, которые будут вкл
             "TEST-1"
         ],
         "previousQueue": {
-            "self": "{{ host }}/v2/queues/TEST",
+            "self": "https://{{ host }}/v2/queues/TEST",
             "id": "3",
             "key": "TEST",
             "display": "TEST"
         },
         "description": "<описание задачи>",
         "type": {
-            "self": "{{ host }}/v2/issuetypes/2",
+            "self": "https://{{ host }}/v2/issuetypes/2",
             "id": "2",
             "key": "task",
             "display": "Задача"
@@ -109,47 +109,47 @@ expand | Дополнительные поля, которые будут вкл
         },
         "summary": "Тест",
         "updatedBy": {
-            "self": "{{ host }}/v2/users/1234567890",
+            "self": "https://{{ host }}/v2/users/1234567890",
             "id": "1234567890",
             "display": "Имя Фамилия"
         },
         "priority": {
-            "self": "{{ host }}/v2/priorities/3",
+            "self": "https://{{ host }}/v2/priorities/3",
             "id": "3",
             "key": "normal",
             "display": "Средний"
         },
         "followers": [
             {
-                "self": "{{ host }}/v2/users/1234567890",
+                "self": "https://{{ host }}/v2/users/1234567890",
                 "id": "1234567890",
                 "display": "Имя Фамилия"
             }
         ],
         "createdBy": {
-            "self": "{{ host }}/v2/users/1234567890",
+            "self": "https://{{ host }}/v2/users/1234567890",
             "id": "1234567890",
             "display": "Имя Фамилия"
         },
         "assignee": {
-            "self": "{{ host }}/v2/users/1234567890",
+            "self": "https://{{ host }}/v2/users/1234567890",
             "id": "1234567890",
             "display": "Имя Фамилия"
         },
         "queue": {
-            "self": "{{ host }}/v2/queues/NEW",
+            "self": "https://{{ host }}/v2/queues/NEW",
             "id": "5",
             "key": "NEW",
             "display": "Очередь"
         },
         "status": {
-            "self": "{{ host }}/v2/statuses/8",
+            "self": "https://{{ host }}/v2/statuses/8",
             "id": "1",
             "key": "open",
             "display": "Открыт"
         },
         "previousStatus": {
-            "self": "{{ host }}/v2/statuses/1",
+            "self": "https://{{ host }}/v2/statuses/1",
             "id": "1",
             "key": "open",
             "display": "Открыт"

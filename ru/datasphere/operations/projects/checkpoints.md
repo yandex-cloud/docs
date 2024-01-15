@@ -2,6 +2,8 @@
 
 Список контрольных точек проекта доступен на странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** → ![checkpoints-panel](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}**. Контрольные точки доступны, только если в проекте вы уже запускали ячейки с кодом.
 
+{% include [save-state-dedicated](../../../_includes/datasphere/save-state-dedicated.md) %}
+
 ## Создать контрольную точку {#create}
 
 В [стандартном](../../concepts/save-state.md#default-save) режиме сохранения состояний контрольные точки создаются автоматически после выполнения ячейки или группы ячеек. Контрольная точка также будет создана, если вычисления в ячейке завершились с ошибкой.

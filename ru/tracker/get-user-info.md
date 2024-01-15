@@ -42,7 +42,7 @@ curl --request GET "{{ host }}/v2/myself" \
     ```json
        [
           {
-          "self": "{{ host }}/v2/users/1234567890",
+          "self": "https://{{ host }}/v2/users/1234567890",
           "uid": 1234567890,
           "login": "<user_login>",
           "trackerUid": 1234567890,

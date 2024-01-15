@@ -3594,6 +3594,7 @@ default:
         federation:
           field:
             autocreateUsers: Автоматически создавать пользователей
+            caseInsensitiveNameIds: Регистронезависимые имена пользователей
             cookieMaxAge: Время жизни cookie
             encryptedAssertions: Подписывать запросы аутентификации
             forceAuthn: Принудительная повторная аутентификация (ForceAuthn) в IdP
@@ -4392,6 +4393,7 @@ default:
         navigation-menu:
           label_account: Учетная запись
           label_billing: Биллинг
+          label_help-center: Центр поддержки
           label_monitoring: Monitoring
           label_notifications: Уведомления
         security-group-field:
