@@ -33,19 +33,19 @@ Authorization: OAuth <OAuth-токен>
     ```json
     [
       {
-        "self": "{{ host }}/v2/components/1",
+        "self": "https://{{ host }}/v2/components/1",
         "id": 1,
         "version": 3,
         "name": "Test",
         "queue": {
-            "self": "{{ host }}/v2/queues/ORG",
+            "self": "https://{{ host }}/v2/queues/ORG",
             "id": "1",
             "key": "ORG",
             "display": "Организация"
         },
         "description": "<Описание компонента>",
         "lead": {
-               "self": "{{ host }}/v2/users/1120000000016876",
+               "self": "https://{{ host }}/v2/users/1120000000016876",
                "id": "<id сотрудника>",
                "display": "<Отображаемое имя сотрудника>"
             },

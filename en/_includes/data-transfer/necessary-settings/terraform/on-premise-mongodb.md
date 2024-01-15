@@ -1,6 +1,6 @@
 * {% include [Field Database port](../../fields/common/terraform/port.md) %}
 * {% include [Field CA certificate](../../fields/mongodb/terraform/ca-certificate.md) %}
-* {% include [Field Security Group](../../fields/common/terraform/security-group.md) %}
+* {% include [Field Terraform Security Group](../../fields/common/terraform/security-group.md) %}
 * {% include [Field Subnet ID](../../fields/mongodb/terraform/subnet-id.md) %}
 * {% include [Field Replica Set](../../fields/mongodb/terraform/replica-set.md) %}
 * {% include [Field Hosts list](../../fields/mongodb/terraform/hosts-list.md) %}

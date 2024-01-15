@@ -79,4 +79,4 @@ _Организация_ — это рабочее пространство, к�
 
    * [Active Directory](tutorials/federations/integration-adfs.md).
    * [Google Workspace](tutorials/federations/integration-gworkspace.md).
-   * [Другие SAML-совместимые поставщики удостоверений](tutorials/federations/integration-common.md).
+   * [Другие SAML-совместимые поставщики удостоверений](operations/setup-federation.md).

@@ -84,14 +84,14 @@ endDate | Дата завершения проекта в формате `YYYY-M
 
     ```json
     {
-        "self": "{{ host }}/v2/projects/9",
+        "self": "https://{{ host }}/v2/projects/9",
         "id": "9",
         "version": 5,
         "key": "Проект",
         "name": "Проект",
         "description": "Проект с изменениями",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
             "display": "Имя Фамилия"
         },

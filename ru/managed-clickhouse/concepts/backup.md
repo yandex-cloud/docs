@@ -37,7 +37,7 @@ keywords:
 * [Таблицы реплицируются](replication.md#replicated-tables) не на все хосты шарда.
 * Таблицы не реплицируются и размещены на части хостов шарда.
 
-Время начала резервного копирования задается при [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-additional-settings) кластера. По умолчанию время начала — 22:00 UTC (Coordinated Universal Time). Резервное копирование начнется в течение получаса от указанного времени.
+При [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-additional-settings) кластера можно задать промежуток времени, в течение которого начинается резервное копирование. По умолчанию — `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 Резервные копии создаются только на работающих кластерах. Если вы используете кластер {{ mch-short-name }} не круглосуточно, проверьте [настройки времени начала резервного копирования](../operations/update.md#change-additional-settings).
 

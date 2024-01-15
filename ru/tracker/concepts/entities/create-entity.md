@@ -103,12 +103,12 @@ teamAccess | Доступ (обязательное для проекта, ес�
    Тело ответа содержит информацию о созданной сущности в формате JSON.
     ```json
    {
-       "self": "{{ host }}/{{ ver }}/entities/project/655f3be523db2132********",
+       "self": "https://{{ host }}/{{ ver }}/entities/project/655f3be523db2132********",
        "id": "655f3be523db2132********",
        "version": 1,
        "shortId": 6,
        "entityType": "project",
-       "createdBy": { "self": "{{ host }}/{{ ver }}/users/111111117", "id": "111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk*******", "passportUid": 111111117 },
+       "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/111111117", "id": "111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk*******", "passportUid": 111111117 },
        "createdAt": "2023-11-23T11:47:49.743+0000",
        "updatedAt": "2023-11-23T11:47:49.743+0000"
    }

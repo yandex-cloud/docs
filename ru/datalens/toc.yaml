@@ -693,6 +693,8 @@ items:
         href: dashboard/versioning.md
       - name: Параметры
         href: dashboard/dashboard_parameters.md
+      - name: Встраивание объектов
+        href: dashboard/embedded-objects.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Пошаговые инструкции

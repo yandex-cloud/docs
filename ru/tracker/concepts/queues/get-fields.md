@@ -50,7 +50,7 @@ Authorization: OAuth <OAuth-токен>
     ```json
     [
         {
-            "self": "{{ host }}/v2/fields/stand",
+            "self": "https://{{ host }}/v2/fields/stand",
             "id": "stand",
             "name": "Стенд",
             "version": 1361890459119,

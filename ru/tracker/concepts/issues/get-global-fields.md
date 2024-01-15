@@ -31,7 +31,7 @@ Authorization: OAuth <токен>
 
     ```json
     {
-        "self": "{{ host }}/v2/fields/standard_field_key",
+        "self": "https://{{ host }}/v2/fields/standard_field_key",
         "id": "standard_field_key",
         "name": "standard_field_name",
         "key": "standard_field_key",
@@ -54,7 +54,7 @@ Authorization: OAuth <токен>
         },
         "order": 1,
         "category": {
-            "self": "{{ host }}/v2/fields/categories/000000000000000000000001",
+            "self": "https://{{ host }}/v2/fields/categories/000000000000000000000001",
             "id": "000000000000000000000001",
             "display": "Системные"
         },

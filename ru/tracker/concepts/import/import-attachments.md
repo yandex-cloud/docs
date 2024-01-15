@@ -121,13 +121,13 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 
     ```json
 	{
-	  "self" : "{{ host }}/v2/issues/JUNE-2/attachments/123",
+	  "self" : "https://{{ host }}/v2/issues/JUNE-2/attachments/123",
       "id" : "123",
       "name" : "pic.png",
       "content" : "{{ host }}/v2/issues/JUNE-2/attachments/123/pic.png",
       "thumbnail" : "{{ host }}/v2/issues/JUNE-2/thumbnails/123",
 	  "createdBy" : {
-		"self" : "{{ host }}/v2/users/12314567890",
+		"self" : "https://{{ host }}/v2/users/12314567890",
 		"id" : "1234567890",
 		"display" : "<отображаемое имя сотрудника>"
 	  },

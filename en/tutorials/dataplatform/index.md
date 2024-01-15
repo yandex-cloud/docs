@@ -86,6 +86,7 @@ description: "This page provides a list of tutorials for building a data platfor
 
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mos.md)
+* [{#T}](mos-migration-from-standalone.md)
 
 
 ## {{ PG }} {#postgresql}

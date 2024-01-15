@@ -10,7 +10,7 @@ items:
       - name: Управление организациями
         items:
           - name: Обзор
-            href: operations/manage-org.md
+            href: operations/organizations-overview.md
           - name: Создать организацию
             href: operations/enable-org.md
           - name: Изменить данные организации
@@ -31,6 +31,22 @@ items:
             href: operations/edit-account.md
           - name: Покинуть организацию
             href: operations/leave-organization.md
+          - name: Управление группами пользователей
+            href: operations/manage-groups.md
+      - name: Управление федерациями удостоверений
+        items:
+          - name: Обзор
+            href: operations/manage-federations.md
+          - name: Настроить федерацию удостоверений
+            href: operations/setup-federation.md
+          - name: Настроить сопоставление групп федеративных пользователей
+            href: operations/federation-group-mapping.md
+      - name: Работа с OS Login
+        items:
+          - name: Включить доступ по OS Login
+            href: operations/os-login-access.md
+          - name: Создать профиль OS Login
+            href: operations/os-login-profile-create.md
       - name: Управление группами пользователей
         href: operations/manage-groups.md
       - name: Управление доступом
@@ -45,12 +61,6 @@ items:
             href: operations/groups-access-binding.md
           - name: Отозвать роль у пользователя
             href: operations/revoke-role.md
-      - name: OS Login
-        items:
-          - name: Включить доступ
-            href: operations/os-login-access.md
-          - name: Создать профиль
-            href: operations/os-login-profile-create.md
   - name: Практические руководства
     items:
       - name: Управление федерациями удостоверений
@@ -65,8 +75,6 @@ items:
             href: tutorials/federations/integration-azure.md
           - name: Аутентификация с помощью Keycloak
             href: tutorials/federations/integration-keycloak.md
-          - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
-            href: tutorials/federations/integration-common.md
           - name: Сопоставление групп пользователей
             items:
               - name: Сопоставление групп пользователей в Keycloak

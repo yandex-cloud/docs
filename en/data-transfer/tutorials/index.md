@@ -13,6 +13,7 @@ Migration is a task that involves transferring data from one data storage to ano
 * [Migrating {{ GP }} clusters](managed-greenplum.md)
 * [Migrating {{ MG }} clusters](managed-mongodb.md)
 * [Migrating data from AWS RDS for {{ PG }}](rds-to-mpg.md)
+* [Migrating {{ OS }} clusters](os-to-mos.md)
 
 Mirroring data across queues is a separate migration task.
 
@@ -24,6 +25,7 @@ Migration with data storage type changed.
 * [{{ PG }} to {{ ydb-short-name }}](mpg-to-ydb.md)
 * [{{ MY }} to {{ PG }}](mmy-to-mpg.md)
 * [{{ PG }} to {{ MY }}](mpg-to-mmy.md)
+* [{{ ES }} to {{ OS }}](mes-to-mos.md)
 
 ## Change data capture {#cdc}
 

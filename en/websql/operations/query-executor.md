@@ -8,11 +8,11 @@ To perform a query to a database, [establish a connection](connect.md##connect-d
 
 {% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
-  {% note info %}
+{% note info %}
 
-  A table with multiple rows might be difficult to view. Use the `LIMIT` condition and extra conditions to cap the number of displayed rows.
+A table with multiple rows may be difficult to view. Use the `LIMIT` condition and extra conditions to cap the number of displayed rows.
 
-  {% endnote %}
+{% endnote %}
 
 You can view your executed queries [in the query history](history.md) and [save them as templates](templates.md).
 
@@ -31,4 +31,4 @@ A file with the results will be added to your browser's downloads section.
 
 1. Click **Settings** (![image](../../_assets/console-icons/gear.svg)) in the bottom-left corner.
 1. Go to the **Query editor** section.
-1. Set up the options that enable you to use the editing features.
+1. Set up the editing features, editor theme (`Visual Studio` or `High Contrast`), and font size.

@@ -51,26 +51,26 @@ expand | Дополнительные поля, которые будут вкл
     ```json
     [
         {
-            "self": "{{ host }}/v2/queues/ORG",
+            "self": "https://{{ host }}/v2/queues/ORG",
             "id": 1,
             "key": "ORG",
             "version": 6,
             "name": "Default",
             "description": "Описание очереди «Default» (ORG)",
             "lead": {
-                "self": "{{ host }}/v2/users/780889736",
+                "self": "https://{{ host }}/v2/users/780889736",
                 "id": "780889736",
                 "display": "Робот сервиса Tracker "
             },
             "assignAuto": false,
             "defaultType": {
-                "self": "{{ host }}/v2/issuetypes/2",
+                "self": "https://{{ host }}/v2/issuetypes/2",
                 "id": "2",
                 "key": "task",
                 "display": "Задача"
             },
             "defaultPriority": {
-                "self": "{{ host }}/v2/priorities/3",
+                "self": "https://{{ host }}/v2/priorities/3",
                 "id": "3",
                 "key": "normal",
                 "display": "Средний"
@@ -84,26 +84,26 @@ expand | Дополнительные поля, которые будут вкл
             "useLastSignature": false
         },
         {
-            "self": "{{ host }}/v2/queues/TEST",
+            "self": "https://{{ host }}/v2/queues/TEST",
             "id": 3,
             "key": "TEST",
             "version": 8,
             "name": "Testing",
             "description": "Описание очереди «Testing» (TEST)",
             "lead": {
-                "self": "{{ host }}/v2/users/1234567890",
+                "self": "https://{{ host }}/v2/users/1234567890",
                 "id": "1234567890",
                 "display": "Имя Фамилия"
             },
             "assignAuto": true,
             "defaultType": {
-                "self": "{{ host }}/v2/issuetypes/2",
+                "self": "https://{{ host }}/v2/issuetypes/2",
                 "id": "2",
                 "key": "task",
                 "display": "Задача"
             },
             "defaultPriority": {
-                "self": "{{ host }}/v2/priorities/3",
+                "self": "https://{{ host }}/v2/priorities/3",
                 "id": "3",
                 "key": "normal",
                 "display": "Средний"

@@ -60,16 +60,16 @@ type | Ключ [типа изменения](#diff-type). | Строка
     [
      {
          "id": "6033f986bd6c4a042c688392",
-         "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
+         "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
          "issue": {
-             "self": "{{ host }}/v2/issues/TEST-27",
+             "self": "https://{{ host }}/v2/issues/TEST-27",
              "id": "6033f986bd6c4a042c688392",
              "key": "TEST-27",
              "display": "Название задачи"
          },
          "updatedAt": "2021-02-22T18:35:50.157+0000",
          "updatedBy": {
-             "self": "{{ host }}/v2/users/1234567890",
+             "self": "https://{{ host }}/v2/users/1234567890",
              "id": "1234567890",
              "display": "Имя Фамилия"
          },
@@ -78,13 +78,13 @@ type | Ключ [типа изменения](#diff-type). | Строка
          "fields": [
              {
                  "field": {
-                     "self": "{{ host }}/v2/fields/status",
+                     "self": "https://{{ host }}/v2/fields/status",
                      "id": "status",
                      "display": "Статус"
                  },
                  "from": null,
                  "to": {
-                     "self": "{{ host }}/v2/statuses/1",
+                     "self": "https://{{ host }}/v2/statuses/1",
                      "id": "1",
                      "key": "open",
                      "display": "Открыт"
@@ -94,16 +94,16 @@ type | Ключ [типа изменения](#diff-type). | Строка
      },
      {
          "id": "6033f98d4417c101b655b93b",
-         "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f98d4417c101b655b93b",
+         "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f98d4417c101b655b93b",
          "issue": {
-             "self": "{{ host }}/v2/issues/TEST-27",
+             "self": "https://{{ host }}/v2/issues/TEST-27",
              "id": "6033f986bd6c4a042c688391",
              "key": "TEST-27",
              "display": "Название задачи"
          },
          "updatedAt": "2021-02-22T18:35:57.359+0000",
          "updatedBy": {
-             "self": "{{ host }}/v2/users/1234567890",
+             "self": "https://{{ host }}/v2/users/1234567890",
              "id": "1234567890",
              "display": "Имя Фамилия"
          },
@@ -112,14 +112,14 @@ type | Ключ [типа изменения](#diff-type). | Строка
          "fields": [
              {
                  "field": {
-                     "self": "{{ host }}/v2/fields/followers",
+                     "self": "https://{{ host }}/v2/fields/followers",
                      "id": "followers",
                      "display": "Наблюдатели"
                  },
                  "from": null,
                  "to": [
                      {
-                         "self": "{{ host }}/v2/users/1234567890",
+                         "self": "https://{{ host }}/v2/users/1234567890",
                          "id": "1234567890",
                          "display": "Имя Фамилия"
                      }
@@ -129,16 +129,16 @@ type | Ключ [типа изменения](#diff-type). | Строка
      },
      {
          "id": "6033f9954417c101b655b940",
-         "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f9954417c101b655b940",
+         "self": "https://{{ host }}/v2/issues/TEST-27/changelog/6033f9954417c101b655b940",
          "issue": {
-             "self": "{{ host }}/v2/issues/TEST-27",
+             "self": "https://{{ host }}/v2/issues/TEST-27",
              "id": "6033f986bd6c4a042c688391",
              "key": "TEST-27",
              "display": "Название задачи"
          },
          "updatedAt": "2021-02-22T18:36:05.553+0000",
          "updatedBy": {
-             "self": "{{ host }}/v2/users/1234567890",
+             "self": "https://{{ host }}/v2/users/1234567890",
              "id": "1234567890",
              "display": "Имя Фамилия"
          },
@@ -147,7 +147,7 @@ type | Ключ [типа изменения](#diff-type). | Строка
          "fields": [
              {
                  "field": {
-                     "self": "{{ host }}/v2/fields/tags",
+                     "self": "https://{{ host }}/v2/fields/tags",
                      "id": "tags",
                      "display": "Теги"
                  },
@@ -160,16 +160,16 @@ type | Ключ [типа изменения](#diff-type). | Строка
      },
      {
         "id": "62bab52ca16f631eea3816a9",
-        "self": "{{ host }}/v2/issues/TEST-27/changelog/62bab52ca16f631eea3816a9",
+        "self": "https://{{ host }}/v2/issues/TEST-27/changelog/62bab52ca16f631eea3816a9",
         "issue": {
-            "self": "{{ host }}/v2/issues/TEST-27",
+            "self": "https://{{ host }}/v2/issues/TEST-27",
             "id": "5fbc929b5b28572f9418327d",
             "key": "TEST-27",
             "display": "Название задачи"
         },
         "updatedAt": "2022-06-28T08:00:44.155+0000",
         "updatedBy": {
-            "self": "{{ host }}/v2/users/1134669289",
+            "self": "https://{{ host }}/v2/users/1134669289",
             "id": "1134669289",
             "display": "Имя Фамилия"
         },
@@ -178,18 +178,18 @@ type | Ключ [типа изменения](#diff-type). | Строка
         "fields": [
             {
                 "field": {
-                    "self": "{{ host }}/v2/fields/status",
+                    "self": "https://{{ host }}/v2/fields/status",
                     "id": "status",
                     "display": "Статус"
                 },
                 "from": {
-                    "self": "{{ host }}/v2/statuses/3",
+                    "self": "https://{{ host }}/v2/statuses/3",
                     "id": "3",
                     "key": "inProgress",
                     "display": "В работе"
                 },
                 "to": {
-                    "self": "{{ host }}/v2/statuses/2",
+                    "self": "https://{{ host }}/v2/statuses/2",
                     "id": "2",
                     "key": "needInfo",
                     "display": "Требуется информация"
@@ -197,7 +197,7 @@ type | Ключ [типа изменения](#diff-type). | Строка
             },
             {
                 "field": {
-                    "self": "{{ host }}/v2/fields/statusStartTime",
+                    "self": "https://{{ host }}/v2/fields/statusStartTime",
                     "id": "statusStartTime",
                     "display": "Статус изменен"
                 },
@@ -206,35 +206,35 @@ type | Ключ [типа изменения](#diff-type). | Строка
             },
             {
                 "field": {
-                    "self": "{{ host }}/v2/fields/followers",
+                    "self": "https://{{ host }}/v2/fields/followers",
                     "id": "followers",
                     "display": "Наблюдатели"
                 },
                 "from": [
                     {
-                        "self": "{{ host }}/v2/users/780889736",
+                        "self": "https://{{ host }}/v2/users/780889736",
                         "id": "780889736",
                         "display": "Имя Фамилия"
                     },
                     {
-                        "self": "{{ host }}/v2/users/780891246",
+                        "self": "https://{{ host }}/v2/users/780891246",
                         "id": "780891246",
                         "display": "Имя Фамилия"
                     }
                 ],
                 "to": [
                     {
-                        "self": "{{ host }}/v2/users/780889736",
+                        "self": "https://{{ host }}/v2/users/780889736",
                         "id": "780889736",
                         "display": "Имя Фамилия"
                     },
                     {
-                        "self": "{{ host }}/v2/users/780891246",
+                        "self": "https://{{ host }}/v2/users/780891246",
                         "id": "780891246",
                         "display": "Имя Фамилия"
                     },
                     {
-                        "self": "{{ host }}/v2/users/1134669289",
+                        "self": "https://{{ host }}/v2/users/1134669289",
                         "id": "1134669289",
                         "display": "Имя Фамилия"
                     }
@@ -244,7 +244,7 @@ type | Ключ [типа изменения](#diff-type). | Строка
         "comments": {
             "added": [
                 {
-                    "self": "{{ host }}/v2/issues/TEST-27/comments/10",
+                    "self": "https://{{ host }}/v2/issues/TEST-27/comments/10",
                     "id": "10",
                     "display": "<текст комментария>"
                 }
@@ -253,7 +253,7 @@ type | Ключ [типа изменения](#diff-type). | Строка
         "executedTriggers": [
             {
                 "trigger": {
-                    "self": "{{ host }}/v2/queues/TEST/triggers/29",
+                    "self": "https://{{ host }}/v2/queues/TEST/triggers/29",
                     "id": "29",
                     "display": "<имя триггера>"
                 },

@@ -1,4 +1,4 @@
-- **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — время по UTC в 24-часовом формате, в которое начинается резервное копирование кластера. Если время не задано, резервное копирование начинается в 22:00 UTC.
+- {% include [Backup time](../../../_includes/mdb/console/backup-time.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}** — время, в течение которого нужно хранить созданные автоматически резервные копии. Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — {{ mpg-backup-retention }} дней. Подробнее см. в разделе [{#T}](../../../managed-postgresql/concepts/backup.md).
 

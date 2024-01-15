@@ -3588,6 +3588,7 @@ default:
         federation:
           field:
             autocreateUsers: Automatically create users
+            caseInsensitiveNameIds: Case-insensitive user names
             cookieMaxAge: Cookie lifetime
             encryptedAssertions: Sign authentication requests
             forceAuthn: Mandatory re-authentication (ForceAuthn) in IdP
@@ -4386,6 +4387,7 @@ default:
         navigation-menu:
           label_account: Account
           label_billing: Billing
+          label_help-center: Help center
           label_monitoring: Monitoring
           label_notifications: Notifications
         security-group-field:

@@ -2,16 +2,32 @@
 title: "Как настроить эндпоинт-источник {{ objstorage-name }}"
 description: "Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ objstorage-name }}."
 ---
+# Передача данных из эндпоинта-источника {{ objstorage-name }}
 
-# Настройка эндпоинта-источника {{ objstorage-name }}
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из переносить данные из хранилища в управляемые базы данных {{ yandex-cloud }} и реализовывать различные сценарии обработки и трансформации данных. Для реализации трансфера:
+
+1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
+1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
+1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
+1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
+1. Выполняйте необходимые действия по работе с хранилищем и [контролируйте трансфер](../../monitoring.md).
+1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../../data-transfer/troubleshooting/index.md) по их устранению.
+
+## Сценарии передачи данных из {{ objstorage-name }} {#scenarios}
+
+Вы можете реализовывать сценарии миграции и поставки данных из хранилища {{ objstorage-name }} в управляемые базы данных для дальнейшего хранения в облаке, обработки и загрузки в витрины данных с целью последующей визуализации.
+
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+
+## Настройка эндпоинта-источника {{ objstorage-name }} {#endpoint-settings}
 
 {% include [note-preview](../../../../_includes/preview-pp.md) %}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к S3-совместимому хранилищу.
 
-## Настройки {#settings}
+### Настройки {#settings}
 
-### Параметры настройки конфигурации бакета {#bucket-config}
+#### Параметры настройки конфигурации бакета {#bucket-config}
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}** — имя бакета.
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}** — [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) для доступа к частному бакету.
@@ -23,7 +39,7 @@ description: "Следуя данной инструкции, вы сможет�
     
 **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}** — укажите шаблон пути. Если в бакете размещаются только файлы, используйте значение `**`.
 
-### Конфигурация очереди событий {#event-queue-config}
+#### Конфигурация очереди событий {#event-queue-config}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.queue_name.title }}** — имя очереди, настроенной в бакете S3, для получения событий `s3:ObjectCreated`.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.owner_id.title }}** — идентификатор аккаунта AWS для аккаунта, создавшего очередь. Оставьте поле пустым, если бакет S3 и очередь созданы в одном и том же аккаунте.
@@ -34,7 +50,7 @@ description: "Следуя данной инструкции, вы сможет�
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.use_ssl.title }}** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.verify_ssl_cert.title }}** — разрешить самоподписанные сертификаты.
 
-### Формат данных {#data-format}
+#### Формат данных {#data-format}
    
 {% list tabs %}
 
@@ -60,9 +76,23 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endlist %}
 
-### Датасет {#dataset}
+#### Датасет {#dataset}
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.schema.title }}** — укажите схему служебной таблицы, которая будет использоваться для подключения.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.table.title }}** — укажите имя служебной таблицы, которое будет использоваться для подключения.
 
 **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — укажите JSON-схему в формате `{"<столбец>": "<тип_данных>"}` или перечислите поля для схемы результирующей таблицы. Если вы выберете `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.infer.title }}`, то схема определится автоматически.
+
+## Настройка приемника данных {#supported-targets}
+
+Настройте один из поддерживаемых приемников данных:
+
+* [{{ PG }}](../target/postgresql.md);
+* [{{ MY }}](../target/mysql.md);
+* [{{ CH }}](../target/clickhouse.md);
+* [{{ GP }}](../target/greenplum.md);
+* [{{ ydb-full-name }}](../target/yandex-database.md).
+
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+
+После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).

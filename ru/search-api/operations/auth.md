@@ -1,6 +1,6 @@
 # Аутентификация в {{ search-api-full-name }}
 
-Для работы с {{ search-api-name }} необходимо отправлять запросы к API от имени сервисного аккаунта. {{ search-api-name }} поддерживает только авторизацию с помощью [API-ключей](../../iam/concepts/authorization/api-key.md).
+Для работы с {{ search-api-name }} необходимо отправлять запросы к API от имени сервисного аккаунта. {{ search-api-name }} поддерживает только аутентификацию с помощью [API-ключей](../../iam/concepts/authorization/api-key.md).
 
 {% note warning %}
 

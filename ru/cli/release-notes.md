@@ -7,11 +7,56 @@ description: "На странице представлены релизы YC CLI
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.115.0 (18.12.23) {#version0.115.0}
+## Версия 0.116.0 (15.01.24) {#version0.116.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+#### Сети в сервисах бессерверных вычислений {#serverless}
+
+Добавлена группа команд `yc serverless network` для управления сетями, которые используются в сервисах бессерверных вычислений ({{ sf-name }}, {{ serverless-containers-name }} и {{ api-gw-name }}):
+
+  * `yc serverless network get-used` — получение информации о сети, которая подключена к ресурсам сервисов бессерверных вычислений;
+  * `yc serverless network list-used` — получение списка сетей, которые подключены к ресурсам сервисов бессерверных вычислений;
+  * `yc serverless network list-connections` — получение списка ресурсов сервисов бессерверных вычислений, которые подключены к какой-либо сети из заданной области (сеть, каталог, облако);
+  * `yc serverless network trigger-used-cleanup` — инициировать скорейшую очистку сети от системных подсетей, если она больше не используется в сервисах бессерверных вычислений.
+
+#### {{ iam-name }} {#iam}
+
+* В дерево команд `iam`, `resource-manager` и `organization-manager` добавлена поддержка листинга более 1000 ресурсов через параметр `limit`.
+
+#### {{ objstorage-name }}
+
+* В команду `yc storage bucket update --lifecycle-rules/--lifecycle-rules-from-file` добавлена поддержка `andOperation` для объединения условий в `filter`.
+* В команду `yc storage bucket update` добавлена возможность изменения используемого ключа шифрования `--encryption key-id=foobarbaz123`, `--remove-encryption`.
+
 #### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* В команде `{{ yc-mdb-ch }} cluster update` добавлена возможность указать параметр `cloud-storage-data-cache-max-size` в удобном для чтения формате.
+
+#### {{ cdn-name }} {#cdn}
+
+В команды `yc cdn resource update` и `yc cdn resource create` добавлены параметры для определения опции *ip address acl*:
+
+* `--policy-type` — политика доступа клиентов по IP-адресам. Одно из значений *allow* или *deny*;
+* `--acl-excepted-values` — список IP-адресов, доступ по которым будет разрешен или запрещен в зависимости от указанного policy-type.
+
+#### {{load-testing-name}}
+
+Добавлено дерево команд `yc loadtesting` для управления сервисом нагрузочного тестирования:
+
+* `yc loadtesting agent` — управление агентами нагрузочного тестирования;
+* `yc loadtesting test-config` — управление шаблонами конфигураций нагрузочных тестов;
+* `yc loadtesting test` — запуск нагрузочных тестов и управление проведенными нагрузочными тестами.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.115.0 (18.12.23) {#version0.115.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mgp-name }}**
 
@@ -21,16 +66,14 @@ description: "На странице представлены релизы YC CLI
 
 * Параметр `network-id` для `yc clickhouse cluster restore` теперь опциональный.
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * В команды `yc alb virtual-host create` и `yc alb virtual-host update` добавлен параметр `--security-profile-id` для указания профиля безопасности из {{ sws-name }}.
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Команды `yc compute instance`, `yc compute disk`, `yc compute image`, `yc compute snapshot`, `yc compute snapshot-schedule`, `yc compute placement-group`, `yc compute host-group`, `yc compute disk-placement-group`, `yc compute filesystem`, `yc compute gpu-cluster`: добавлена возможность отображать и управлять правами доступа с помощью `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`.
 * Добавлена команда `yc compute instance simulate-maintenance-event`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.114.0 (05.12.23) {#version0.114.0}
 

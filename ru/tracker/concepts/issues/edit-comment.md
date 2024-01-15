@@ -63,17 +63,17 @@ attachmentIds | Список [идентификаторов вложений](t
   ```json
   [ 
   {
-    "self" : "{{ host }}/v2/issues/TREK-1/comments/684",
+    "self" : "https://{{ host }}/v2/issues/TREK-1/comments/684",
     "id" : "684",  
     "longId" : "5fc4bc634e121b12f44a0488",  
     "text" : "<текст комментария>",
     "createBody" : {
-     "self" : "{{ host }}/v2/users/1120000000016876",
+     "self" : "https://{{ host }}/v2/users/1120000000016876",
      "id" : "<id пользователя>",
      "display" : "<отображаемое имя пользователя>"
     },
     "updateBody" : {
-     "self" : "{{ host }}/v2/users/1120000000016876",
+     "self" : "https://{{ host }}/v2/users/1120000000016876",
      "id" : "<id пользователя>",
      "display" : "<отображаемое имя пользователя>"
     },
@@ -81,14 +81,14 @@ attachmentIds | Список [идентификаторов вложений](t
     "updatedAt" : "2020-11-30T09:39:07.631+0000",  
     "summonees" : [
      { 
-      "self" : "{{ host }}/v2/users/1120000000016576",
+      "self" : "https://{{ host }}/v2/users/1120000000016576",
       "id" : "<id пользователя>",
       "display" : "<отображаемое имя пользователя>"
      } 
     ],
    "maillistSummonees" : [
      { 
-      "self" : "{{ host }}/v2/maillists/usertest@test.ru",
+      "self" : "https://{{ host }}/v2/maillists/usertest@test.ru",
       "id" : "<адрес рассылки>",
       "display" : "<отображаемое имя рассылки>"
      } 

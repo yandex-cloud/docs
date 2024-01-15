@@ -1,6 +1,4 @@
-- **{{ ui-key.yacloud.mdb.forms.backup-window-start }}**{#setting-backup-start}
-
-  Время по UTC (в 24-часовом формате), когда начинается [резервное копирование](../../managed-mongodb/operations/cluster-backups.md) кластера. Если время не задано, резервное копирование начнется в 22:00 UTC.
+- {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
 
 - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**{#setting-backup-saving}
   

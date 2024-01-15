@@ -93,9 +93,9 @@ active | Статус триггера. Допустимые значения:<u
     ```json
     {
     "id": 16,
-    "self": "{{ host }}/v2/queues/DESIGN/triggers/16",
+    "self": "https://{{ host }}/v2/queues/DESIGN/triggers/16",
     "queue": {
-        "self": "{{ host }}/v2/queues/DESIGN",
+        "self": "https://{{ host }}/v2/queues/DESIGN",
         "id": "26",
         "key": "DESIGN",
         "display": "Дизайн"
@@ -107,7 +107,7 @@ active | Статус триггера. Допустимые значения:<u
             "type": "Transition",
             "id": 1,
             "status": {
-                "self": "{{ host }}/v2/statuses/2",
+                "self": "https://{{ host }}/v2/statuses/2",
                 "id": "2",
                 "key": "needInfo",
                 "display": "Требуется информация"

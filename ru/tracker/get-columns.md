@@ -41,13 +41,13 @@ Authorization: OAuth <токен>
     ```json
     [
         {
-          "self": "{{ host }}/v2/boards/73/columns/1",
+          "self": "https://{{ host }}/v2/boards/73/columns/1",
           "id": 1,
           "name": "Открыт",
           "statuses":
            [
               {
-                  "self": "{{ host }}/v2/statuses/1",
+                  "self": "https://{{ host }}/v2/statuses/1",
                   "id": "1",
                   "key": "open",
                   "display": "Открыт"

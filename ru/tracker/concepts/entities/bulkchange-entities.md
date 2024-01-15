@@ -107,8 +107,8 @@ entity | Идентификатор связанной сущности. | Ст�
    ```json
    {
       "id": "6560c6f59b0b1e76********",
-      "self": "{{ host }}/{{ ver }}/bulkchange/6560c6f59b0b1e76********",
-      "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
+      "self": "https://{{ host }}/{{ ver }}/bulkchange/6560c6f59b0b1e76********",
+      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggfk3fmgnqd", "passportUid": 1111111117 },
       "createdAt": "2023-11-24T15:53:25.122+0000",
       "status": "CREATED",
       "statusText": "Операция массового редактирования задач создана.",

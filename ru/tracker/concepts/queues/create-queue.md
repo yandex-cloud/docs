@@ -69,26 +69,26 @@ resolutions | Массив с идентификаторами или ключа
 
     ```json
     {
-           "self": "{{ host }}/v2/queues/DESIGN",
+           "self": "https://{{ host }}/v2/queues/DESIGN",
            "id": "111",
            "key": "DESIGN",
            "version": 1400150916068,
            "name": "Дизайн",
            "lead": {
-              "self": "{{ host }}/v2/users/1120000000004859",
+              "self": "https://{{ host }}/v2/users/1120000000004859",
               "id": "artemredkin",
               "display": "Artem Redkin"
         },
            "assignAuto": false,
            "allowExternals" : false,
            "defaultType": {
-              "self": "{{ host }}/v2/issuetypes/2",
+              "self": "https://{{ host }}/v2/issuetypes/2",
               "id": "2",
               "key": "task",
               "display": "Task"
        },
            "defaultPriority": {
-              "self": "{{ host }}/v2/priorities/2",
+              "self": "https://{{ host }}/v2/priorities/2",
               "id": "2",
               "key": "normal",
               "display": "Normal"

@@ -11,3 +11,4 @@
 * [Виртуальная машина выключается операцией "Instance guest stop processing"](instance-guest-stop-processing.md)
 * [Устранение ошибки WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED](warning-remote-host-identification-has-changed.md)
 * [Устранение поломки нереплицируемого диска](non-replicated-disk-broke-down.md)
+* [Недоступна CUDA на платформе GPU](cuda-unavailable.md)

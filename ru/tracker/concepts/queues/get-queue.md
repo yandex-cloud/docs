@@ -60,33 +60,33 @@ expand | Дополнительные поля, которые будут вкл
 
     ```json
     {
-        "self": "{{ host }}/v2/queues/TEST",
+        "self": "https://{{ host }}/v2/queues/TEST",
         "id": "3",
         "key": "TEST",
         "version": 5,
         "name": "Test",
         "description": "Очередь, заведённая в тестовых целях",
         "lead": {
-               "self": "{{ host }}/v2/users/1120000000016876",
+               "self": "https://{{ host }}/v2/users/1120000000016876",
                "id": "<id сотрудника>",
                "display": "<отображаемое имя сотрудника>"
         },
         "assignAuto": false,
         "defaultType": {
-               "self": "{{ host }}/v2/issuetypes/1",
+               "self": "https://{{ host }}/v2/issuetypes/1",
                "id": "1",
                "key": "bug",
                "display": "Ошибка"
         },
         "defaultPriority": {
-               "self": "{{ host }}/v2/priorities/3",
+               "self": "https://{{ host }}/v2/priorities/3",
                "id": "3",
                "key": "normal",
                "display": "Средний"
         },
         "teamUsers": [
                {
-                   "self": "{{ host }}/v2/users/1120000000016876",
+                   "self": "https://{{ host }}/v2/users/1120000000016876",
                    "id": "<id сотрудника>",
                    "display": "<отображаемое имя сотрудника>"
                },
@@ -94,7 +94,7 @@ expand | Дополнительные поля, которые будут вкл
         ],
         "issueTypes": [
                {
-                   "self": "{{ host }}/v2/issuetypes/1",
+                   "self": "https://{{ host }}/v2/issuetypes/1",
                    "id": "1",
                    "key": "bug",
                    "display": "Ошибка"
@@ -103,7 +103,7 @@ expand | Дополнительные поля, которые будут вкл
         ],
         "versions": [
                {
-                   "self": "{{ host }}/v2/versions/4",
+                   "self": "https://{{ host }}/v2/versions/4",
                    "id": "4",
                    "display": "Куку"
             }
@@ -111,7 +111,7 @@ expand | Дополнительные поля, которые будут вкл
         "workflows": {
                "dev": [
                    {
-                        "self": "{{ host }}/v2/issuetypes/1",
+                        "self": "https://{{ host }}/v2/issuetypes/1",
                         "id": "1",
                         "key": "bug",
                         "display": "Ошибка"
@@ -123,19 +123,19 @@ expand | Дополнительные поля, которые будут вкл
         "issueTypesConfig": [
                {
                    "issueType": {
-                          "self": "{{ host }}/v2/issuetypes/1",
+                          "self": "https://{{ host }}/v2/issuetypes/1",
                           "id": "1",
                           "key": "bug",
                           "display": "Ошибка"
                 },
                 "workflow": {
-                          "self": "{{ host }}/v2/workflows/dev",
+                          "self": "https://{{ host }}/v2/workflows/dev",
                           "id": "dev",
                           "display": "dev"
                 },
                 "resolutions": [
                        {
-                          "self": "{{ host }}/v2/resolutions/2",
+                          "self": "https://{{ host }}/v2/resolutions/2",
                           "id": "2",
                           "key": "wontFix",
                           "display": "Не будет исправлено"

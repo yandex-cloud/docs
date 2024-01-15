@@ -51,5 +51,5 @@
 
 #### См. также {#see-also}
 
-* [Как создать статический ключ доступа](../../operations/sa/create-access-key.md)
+* [{#T}](../../operations/sa/create-access-key.md)
 * [{#T}](./index.md)

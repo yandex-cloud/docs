@@ -1,6 +1,6 @@
 * {% include [Field Terraform Cluster ID](../../fields/clickhouse/terraform/cluster-id.md) %}
 * {% include [Field Terraform Subnet ID](../../fields/clickhouse/terraform/subnet-id.md) %}
-* {% include [Field Terraform Security Group](../../fields/common/terraform/security-group.md) %}
+* {% include [Field Terraform Security Group](../../fields/common/terraform/security-group-cluster-mdb.md) %}
 
    Make sure the specified security groups are [configured](../../../../managed-clickhouse/operations/connect.md#configuring-security-groups).
 

@@ -1,4 +1,4 @@
-# Устранение ошибки The signature of response or assertion was invalid при авторизации федеративным аккаунтом
+# Устранение ошибки The signature of response or assertion was invalid при аутентификации через федеративный аккаунт
 
 ## Описание проблемы {#issue-descriprtion}
 При попытке использовать федеративную учетную запись для входа в облако отображается сообщение об ошибке:

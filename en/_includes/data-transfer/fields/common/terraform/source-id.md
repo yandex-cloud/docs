@@ -1,1 +1,1 @@
-`auth_source`: Specify the database name in the cluster.
+`auth_source`: Name of the cluster database.

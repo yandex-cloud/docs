@@ -63,33 +63,33 @@ origin | Идентификатор приложения, с объектом к
 
    ```json
     {
-        "self": "{{ host }}/{{ ver }}/issues/<issue-id>/remotelinks/51455195", 
+        "self": "https://{{ host }}/{{ ver }}/issues/<issue-id>/remotelinks/51455195", 
         "id": 51455195,
         "type": {
-            "self": "{{ host }}/{{ ver }}/linktypes/relates",
+            "self": "https://{{ host }}/{{ ver }}/linktypes/relates",
             "id": "relates",
             "inward": "Связана",
             "outward": "Связана"
         },
         "direction": "outward",
         "object": {
-            "self": "{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/<object-id>",
+            "self": "https://{{ host }}/{{ ver }}/applications/ru.yandex.bitbucket/objects/<object-id>",
             "id": "<object-id>",
             "key": "<object-key>",
             "application": {
-                "self": "{{ host }}/{{ ver }}/applications/<application-id>",
+                "self": "https://{{ host }}/{{ ver }}/applications/<application-id>",
                 "id": "<application-id>",
                 "type": "<application-type>",
                 "name": "<application-name>"
             }
         },
         "createdBy": {
-            "self": "{{ host }}/{{ ver }}/users/1120000000232694",
+            "self": "https://{{ host }}/{{ ver }}/users/1120000000232694",
             "id": "user-name",
             "display": "display-user-name"
         },
         "updatedBy": {
-            "self": "{{ host }}/{{ ver }}/users/1120000000232694",
+            "self": "https://{{ host }}/{{ ver }}/users/1120000000232694",
             "id": "user-name",
             "display": "display-user-name"
         },

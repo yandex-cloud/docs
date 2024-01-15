@@ -38,19 +38,19 @@ Authorization: OAuth <токен>
 
     ```json
     {
-      "self" : "{{ host }}/v2/sprints/4469",
+      "self" : "https://{{ host }}/v2/sprints/4469",
       "id" : 4469,
       "version" : 1435288720018,
       "name" : "спринт1",
       "board" : {
-        "self" : "{{ host }}/v2/boards/3",
+        "self" : "https://{{ host }}/v2/boards/3",
         "id" : "3",
         "display" : "Тестирование"
       },
       "status" : "in_progress",
       "archived" : false,
       "createdBy" : {
-        "self" : "{{ host }}/v2/users/1120000000014425",
+        "self" : "https://{{ host }}/v2/users/1120000000014425",
         "id" : "1120000000014425",
         "display" : "Виктор Булдаков"
       },

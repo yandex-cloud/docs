@@ -60,16 +60,16 @@ comment | Комментарий к задаче. | Строка
     ```json
     [ 
     {
-      "self" : "{{ host }}/v2/issues/DESIGN-1/transitions/close",
+      "self" : "https://{{ host }}/v2/issues/DESIGN-1/transitions/close",
       "id" : "close",
       "to" : {
-      "self" : "{{ host }}/v2/statuses/3",
+      "self" : "https://{{ host }}/v2/statuses/3",
         "id" : "3",
         "key" : "closed",
         "display" : "Closed"
       },
       "screen" : {
-        "self" : "{{ host }}/v2/screens/50c85b17e4b04b38ef31a522",
+        "self" : "https://{{ host }}/v2/screens/50c85b17e4b04b38ef31a522",
         "id" : "50c85b17e4b04b38ef31a522"
       }
      },

@@ -22,7 +22,7 @@
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [Azure Active Directory](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
-* [Другие SAML-совместимые поставщики удостоверений](../tutorials/federations/integration-common.md).
+* [Другие SAML-совместимые поставщики удостоверений](../operations/setup-federation.md).
 
 ### Сопоставление групп пользователей {#group-mapping}
 

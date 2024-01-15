@@ -13,8 +13,8 @@
 
 - CLI
 
-    - [Установка и настройка CLI](https://cloud.yandex.ru/docs/cli/quickstart);
-    - [Команда](https://cloud.yandex.ru/docs/cli/cli-ref/managed-services/compute/instance/update-network-interface) `yc compute instance update-network-interface`.
+    - [Установка и настройка CLI](../../../cli/quickstart);
+    - [Команда](../../../cli/cli-ref/managed-services/compute/instance/update-network-interface) `yc compute instance update-network-interface`.
     Пример команды:
     ```
     yc compute instance update-network-interface <ID ВМ> --network-interface-index=0 --ipv4-address=<новый IP из диапазона подсети>
@@ -28,8 +28,8 @@
 
 - API
 
-    - [REST](https://cloud.yandex.ru/docs/compute/api-ref/Instance/updateNetworkInterface);
-    - [gRPC](https://cloud.yandex.ru/docs/compute/api-ref/grpc/instance_service#UpdateNetworkInterface).
+    - [REST](../../../compute/api-ref/Instance/updateNetworkInterface);
+    - [gRPC](../../../compute/api-ref/grpc/instance_service#UpdateNetworkInterface).
 
     Выполните команду ```yc compute instance update-network-interface <идентификатор_вм> --network-interface-index=0 --ipv4-address=<новый_IP_адрес>```.
 

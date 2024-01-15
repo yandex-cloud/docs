@@ -1,4 +1,4 @@
-# Подключение Трекера после периода неактивности
+# Подключение {{ tracker-full-name }} после периода неактивности
 
 
 
@@ -12,7 +12,7 @@
 
 - Веб-интерфейс
 
-   Вам понадобится [организация Yandex Cloud](https://cloud.yandex.ru/docs/organization). Если у вас уже есть организация, подключите Tracker к ней. Если организации еще нет, ее можно создать при подключении Tracker.
+   Вам понадобится [организация Yandex Cloud](../../../organization). Если у вас уже есть организация, подключите Tracker к ней. Если организации еще нет, ее можно создать при подключении Tracker.
 
    {% note info %}
 
@@ -26,12 +26,12 @@
 
    Если у вас нет организации Yandex Cloud или вы хотите создать новую, задайте название организации, добавьте описание и нажмите кнопку **Создать**.
 
-   Yandex Tracker будет автоматически подключен для выбранной или созданной вами организации. Подробнее пишем в [документации Yandex Cloud Organization](https://cloud.yandex.ru/docs/organization).
+   Yandex Tracker будет автоматически подключен для выбранной или созданной вами организации. Подробнее пишем в [документации Yandex Cloud Organization](../../../organization).
    
 
 - Мобильное приложение
 
-   Вам понадобится [организация Yandex Cloud](https://cloud.yandex.ru/docs/organization). Если у вас уже есть организация, подключите Tracker к ней. Если организации еще нет, ее можно создать при подключении Tracker.
+   Вам понадобится [организация Yandex Cloud](../../../organization). Если у вас уже есть организация, подключите Tracker к ней. Если организации еще нет, ее можно создать при подключении Tracker.
 
    {% note info %}
 
@@ -39,16 +39,16 @@
 
    {% endnote %}
 
-   1. Откройте мобильное приложение [**Tracker**](https://cloud.yandex.ru/docs/tracker/mobile) и выберите **Войти в аккаунт на Яндексе**.
+   1. Откройте мобильное приложение [**Tracker**](../../../tracker/mobile) и выберите **Войти в аккаунт на Яндексе**.
 
-   2. [Создайте аккаунт на Яндексе](https://yandex.ru/support/passport/authorization/registration.html) или [войдите в него](https://passport.yandex.ru), если он у вас уже есть.
+   1. [Создайте аккаунт на Яндексе](https://yandex.ru/support/passport/authorization/registration.html) или [войдите в него](https://passport.yandex.ru), если он у вас уже есть.
 
      - Если у вас нет организации Yandex Cloud, откроется окно подключения Yandex Tracker. Примите условия использования Yandex Cloud и нажмите **Войти**. Для вас будет автоматически создана организация и подключен Yandex Tracker.
 
      - Если в вашей организации еще не подключен Tracker, при первом входе в мобильное приложение сервис будет подключен автоматически.
    
-   Подробнее пишем в [документации Yandex Cloud Organization](https://cloud.yandex.ru/docs/organization).
+   Подробнее пишем в [документации Yandex Cloud Organization](../../../organization).
 
-   Чтобы настроить Yandex Tracker, перейдите в [веб-интерфейс сервиса](https://tracker.yandex.ru/). Пожалуйста, обратите внимание, что некоторые возможности Tracker [недоступны в мобильном приложении](https://cloud.yandex.ru/docs/tracker/mobile#restrictions).
+   Чтобы настроить Yandex Tracker, перейдите в [веб-интерфейс сервиса](https://tracker.yandex.ru/). Пожалуйста, обратите внимание, что некоторые возможности Tracker [недоступны в мобильном приложении](../../../tracker/mobile#restrictions).
 
 {% endlist %}

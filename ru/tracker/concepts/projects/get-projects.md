@@ -44,14 +44,14 @@ expand | Дополнительные поля, которые будут вкл
 
     ```json
     {
-        "self": "{{ host }}/v2/projects/1",
+        "self": "https://{{ host }}/v2/projects/1",
         "id": "1",
         "version": 1,
         "key": "Проект 1",
         "name": "Проект 1",
         "description": "Первый проект",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
             "display": "Имя Фамилия"
         },
@@ -60,14 +60,14 @@ expand | Дополнительные поля, которые будут вкл
         "endDate": "2020-12-01"
     },
     {
-        "self": "{{ host }}/v2/projects/2",
+        "self": "https://{{ host }}/v2/projects/2",
         "id": "2",
         "version": 1,
         "key": "Проект 2",
         "name": "Проект 2",
         "description": "Еще один проект",
         "lead": {
-            "self": "{{ host }}/v2/users/12314567890",
+            "self": "https://{{ host }}/v2/users/12314567890",
             "id": "1234567890",
             "display": "Имя Фамилия"
         },
