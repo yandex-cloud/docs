@@ -31,4 +31,10 @@ A file with the results will be added to your browser's downloads section.
 
 1. Click **Settings** (![image](../../_assets/console-icons/gear.svg)) in the bottom-left corner.
 1. Go to the **Query editor** section.
-1. Set up the editing features, editor theme (`Visual Studio` or `High Contrast`), and font size.
+1. Set up the editor theme (`Visual Studio` or `High Contrast`), font size and type, and the editing features:
+   * Editor suggestions
+   * Syntax highlighting
+   * Error highlighting
+   * Minimap
+   * Autoclosing of quotes
+   * Autoclosing of parentheses

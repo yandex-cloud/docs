@@ -33,6 +33,7 @@ Aliases:
 - [yc compute instance stop](stop.md) — Stop the specified virtual machine instance
 - [yc compute instance start](start.md) — Start the specified virtual machine instance
 - [yc compute instance restart](restart.md) — Restart the specified virtual machine instance
+- [yc compute instance simulate-maintenance-event](simulate-maintenance-event.md) — Simulate a maintenance event (maintenance policy must be set)
 - [yc compute instance attach-disk](attach-disk.md) — Attach existing disk to the specified virtual machine instance
 - [yc compute instance detach-disk](detach-disk.md) — Detach disk from the specified virtual machine instance
 - [yc compute instance attach-filesystem](attach-filesystem.md) — Attach existing filesystem to the specified virtual machine instance
@@ -43,6 +44,10 @@ Aliases:
 - [yc compute instance move](move.md) — Move the specified virtual machine instance into the folder
 - [yc compute instance relocate](relocate.md) — Relocate the specified virtual machine instance to the zone
 - [yc compute instance list-operations](list-operations.md) — List operations for the specified instance
+- [yc compute instance list-access-bindings](list-access-bindings.md) — List access bindings for the specified instance
+- [yc compute instance set-access-bindings](set-access-bindings.md) — Set access bindings for the specified instance and delete all existing access bindings if there were any
+- [yc compute instance add-access-binding](add-access-binding.md) — Add access binding for the specified instance
+- [yc compute instance remove-access-binding](remove-access-binding.md) — Remove access binding for the specified instance
 
 #### Global Flags
 

@@ -32,6 +32,10 @@ Aliases:
 - [yc compute snapshot-schedule list-operations](list-operations.md) — List operations for the specified snapshot schedule
 - [yc compute snapshot-schedule list-disks](list-disks.md) — List disks attached to the specified snapshot schedule
 - [yc compute snapshot-schedule list-snapshots](list-snapshots.md) — List snapshots created by specified snapshot schedule
+- [yc compute snapshot-schedule list-access-bindings](list-access-bindings.md) — List access bindings for the specified snapshot schedule
+- [yc compute snapshot-schedule set-access-bindings](set-access-bindings.md) — Set access bindings for the specified snapshot schedule and delete all existing access bindings if there were any
+- [yc compute snapshot-schedule add-access-binding](add-access-binding.md) — Add access binding for the specified snapshot schedule
+- [yc compute snapshot-schedule remove-access-binding](remove-access-binding.md) — Remove access binding for the specified snapshot schedule
 
 #### Global Flags
 

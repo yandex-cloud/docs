@@ -70,6 +70,9 @@ Syntax:
 |`--secure-key`|<b>`string`</b><br/>A key generated on clients side that will be used for URL signing.|
 |`--enable-ip-url-signing`|The type of the URL signing with secure key and IP address. The URL could be available for all IP addresses or for the only one IP.<br/>Enable this option to give access only for specified IP address.|
 |`--clear-secure-key`|Clear secure key option.<br/>Mutually exclusive with --secure-key|
+|`--policy-type`|<b>`string`</b><br/>The policy type for ip address acl option.<br/>Must be specified with acl-excepted-values flag. Possible values:<br/>allow - to allow access to all IP addresses except the ones specified in the acl-excepted-values field.<br/>deny — to block access to all IP addresses except the ones specified in the acl-excepted-values field.|
+|`--acl-excepted-values`|<b>`value[,value]`</b><br/>The list of specified IP addresses to be allowed or denied depending on acl policy type.<br/>Provide an IP address with a subnet mask. Example, 192.168.3.2/32 or 2a03:d000:2980:7::8/128.<br/>The access policy operates on network addresses calculated based on the specified IP addresses.<br/>Therefore, after saving the resource, IP addresses will be converted to network addresses.<br/>For example, IP address 1.2.3.4/2 will be translated to network address 0.0.0.0/2.<br/>If two or more IP addresses belong to the same network, it is sufficient to specify only one of these IP addresses.|
+|`--clear-ip-address-acl`|Clear ip address acl option.<br/>Mutually exclusive with --acl-excepted-values|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -20,9 +20,18 @@ If you have a [{{ PG }}](../../managed-postgresql/operations/cluster-list.md), [
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
 
-## Renaming a connection group {#rename-group}
+## Adding a connection to a connection group {#add-connection-to-group}
 
 The databases belonging to the same cluster are displayed in the connections tree as _connection groups_. In the connection settings, such databases will have the same URL and port number.
+
+To add a connection to a group:
+
+1. Select a group in the connections tree.
+1. Click **...** to the right of the group name and select **Add connection**.
+1. In the window that opens, you will see the preconfigured settings for the cluster connection. You can specify the database name as well as the username and password for access to it.
+1. Click **Connect**.
+
+## Renaming a connection group {#rename-group}
 
 To rename a connection group:
 

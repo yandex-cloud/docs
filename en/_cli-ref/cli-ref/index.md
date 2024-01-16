@@ -61,3 +61,4 @@ Syntax:
 - [yc desktops](managed-services/desktops/index.md) — [PREVIEW] Manage Desktop resources
 - [yc storage](managed-services/storage/index.md) — Manage Yandex Object Storage resources
 - [yc backup](managed-services/backup/index.md) — Manage Yandex Cloud Backup resources
+- [yc loadtesting](managed-services/loadtesting/index.md) — Manage Yandex Load Testing resources

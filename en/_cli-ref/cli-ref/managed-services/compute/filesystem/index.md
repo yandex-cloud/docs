@@ -27,6 +27,10 @@ Aliases:
 - [yc compute filesystem resize](resize.md) — Resize the specified filesystem
 - [yc compute filesystem add-labels](add-labels.md) — Add labels to specified filesystem
 - [yc compute filesystem remove-labels](remove-labels.md) — Remove labels from specified filesystem
+- [yc compute filesystem list-access-bindings](list-access-bindings.md) — List access bindings for the specified filesystem
+- [yc compute filesystem set-access-bindings](set-access-bindings.md) — Set access bindings for the specified filesystem and delete all existing access bindings if there were any
+- [yc compute filesystem add-access-binding](add-access-binding.md) — Add access binding for the specified filesystem
+- [yc compute filesystem remove-access-binding](remove-access-binding.md) — Remove access binding for the specified filesystem
 
 #### Global Flags
 

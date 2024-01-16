@@ -5,4 +5,5 @@
    * **Port**: Specify the number of the port for connections.
    * **Database**: Enter the DB name.
    * **Username** and **Password**: Enter the username and password to access the database.
+   * **Use a certificate**: Enable this option if your cluster uses a secure SSL connection. The {{ websql-full-name }} certificate is used by default.
 1. Click **Connect**.

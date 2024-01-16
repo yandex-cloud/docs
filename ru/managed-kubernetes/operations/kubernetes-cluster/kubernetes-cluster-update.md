@@ -32,6 +32,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% endnote %}
 
+Инструкция по изменению [зоны доступности](../../../overview/concepts/geo-scope.md) кластера приведена в разделе [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 
 {% list tabs group=instructions %}
 
