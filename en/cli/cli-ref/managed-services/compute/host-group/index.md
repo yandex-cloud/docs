@@ -31,6 +31,10 @@ Aliases:
 - [yc compute host-group update-host](update-host.md) — Update host of the specified host group
 - [yc compute host-group list-instances](list-instances.md) — List instances of the specified host group
 - [yc compute host-group list-operations](list-operations.md) — List operations for the specified host group
+- [yc compute host-group list-access-bindings](list-access-bindings.md) — List access bindings for the specified host group
+- [yc compute host-group set-access-bindings](set-access-bindings.md) — Set access bindings for the specified host group and delete all existing access bindings if there were any
+- [yc compute host-group add-access-binding](add-access-binding.md) — Add access binding for the specified host group
+- [yc compute host-group remove-access-binding](remove-access-binding.md) — Remove access binding for the specified host group
 
 #### Global Flags
 

@@ -221,6 +221,8 @@ items:
             href: manager/portfolio.md
           - name: Создать портфель
             href: manager/create-portfolio.md
+      - name: Посмотреть историю изменений проекта или портфеля
+        href: manager/history.md
   - name: Доски задач
     items:
       - name: Обзор

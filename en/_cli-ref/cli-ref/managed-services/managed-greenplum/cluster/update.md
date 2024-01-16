@@ -32,6 +32,7 @@ Syntax:
 |`--websql-access`|Allow access for Web SQL.|
 |`--datatransfer-access`|Allow access for DataTransfer.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--backup-retain-period-days`|<b>`int`</b><br/>Retention time in days of automated backups|
 |`--assign-public-ip`|Whether the host should get a public IP address.|
 |`--connection-pooling-mode`|<b>`string`</b><br/>Connection pooler pooling mode Values: 'session', 'transaction'|
 |`--connection-pooling-size`|<b>`int`</b><br/>Connection pooler size|

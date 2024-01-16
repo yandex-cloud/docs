@@ -28,6 +28,10 @@ Aliases:
 - [yc compute gpu-cluster delete](delete.md) — Delete the specified GPU cluster
 - [yc compute gpu-cluster list-operations](list-operations.md) — List operations for the specified GPU cluster
 - [yc compute gpu-cluster list-instances](list-instances.md) — List instances created in the specified GPU cluster
+- [yc compute gpu-cluster list-access-bindings](list-access-bindings.md) — List access bindings for the specified GPU cluster
+- [yc compute gpu-cluster set-access-bindings](set-access-bindings.md) — Set access bindings for the specified GPU cluster and delete all existing access bindings if there were any
+- [yc compute gpu-cluster add-access-binding](add-access-binding.md) — Add access binding for the specified GPU cluster
+- [yc compute gpu-cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified GPU cluster
 
 #### Global Flags
 

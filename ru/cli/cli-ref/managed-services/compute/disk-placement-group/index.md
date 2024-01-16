@@ -28,6 +28,10 @@ Aliases:
 - [yc compute disk-placement-group delete](delete.md) — Delete the specified disk placement group
 - [yc compute disk-placement-group list-disks](list-disks.md) — List disks of the specified disk placement group
 - [yc compute disk-placement-group list-operations](list-operations.md) — List operations for the specified disk placement group
+- [yc compute disk-placement-group list-access-bindings](list-access-bindings.md) — List access bindings for the specified disk placement group
+- [yc compute disk-placement-group set-access-bindings](set-access-bindings.md) — Set access bindings for the specified disk placement group and delete all existing access bindings if there were any
+- [yc compute disk-placement-group add-access-binding](add-access-binding.md) — Add access binding for the specified disk placement group
+- [yc compute disk-placement-group remove-access-binding](remove-access-binding.md) — Remove access binding for the specified disk placement group
 
 #### Global Flags
 

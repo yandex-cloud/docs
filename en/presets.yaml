@@ -3065,6 +3065,9 @@ default:
         show-all: Show All
       ui_components_dashboard:
         summary-field-name: Summary
+      ui_components_entity-page_ActivitySection:
+        activity: Activity
+        new-activity-on-top: New comments first
       ui_components_entity-page_checklist_ChecklistActionsMenu:
         remove-title: Delete checklist
       ui_components_entity-page_checklist_ChecklistItem:
@@ -7064,7 +7067,7 @@ default:
                         title: Parallel snapshot settings
                     Transfer:
                       data_objects:
-                        title: List of objects to be transferred
+                        title: List of objects for transfer
                       title: Transfer parameters
                       transformation:
                         title: Data transformation
@@ -7528,8 +7531,8 @@ default:
         tag: 2.6.1-1b
     yc_crossplane:
       helmChart:
-        name: cr.yandex/yc-marketplace/crossplane/crossplane/crossplane
-        tag: 1.6.3-5
+        name: cr.yandex/yc-marketplace/crossplane/crossplane
+        tag: 1.14.2
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

@@ -14,7 +14,7 @@
     1. [Виртуальные машины](#compute) (по отдельности или с помощью расширения группы ВМ). 
     1. [Хосты баз данных](#mdb).
     1. (опционально) [Перезапустите](../../data-transfer/operations/transfer.md) привязанные трансферы {{ data-transfer-name }}.
-    1. [Узлы {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
+    1. [Мастера и группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 1. Если вы использовали [сетевые](../../network-load-balancer/operations/load-balancer-change-zone.md) и [L7-балансировщики](../../application-load-balancer/operations/application-load-balancer-relocate.md), добавьте перемещенные ресурсы в их целевые группы. Включите прием трафика в новой зоне у L7-балансировщиков.
 1. Убедитесь, что в подсетях в зоне `{{ region-id }}-с` не осталось ресурсов. Удалите оставшиеся ресурсы.
 1. Мигрируйте в новую зону [пустые подсети](../../vpc/operations/subnet-relocate.md).
@@ -74,7 +74,10 @@
 
 ### {{ managed-k8s-name }} {#k8s}
 
-В {{ managed-k8s-name }} поддержана миграция в другую зону доступности только для [групп узлов и нагрузки](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md). Позднее появится возможность переноса мастера.
+Чтобы мигрировать кластер {{ managed-k8s-name }} из одной зоны доступности в другую:
+
+* [Перенесите мастер](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
+* [Перенесите группу узлов и рабочую нагрузку в подах](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-node-group).
 
 ### {{ network-load-balancer-name }} {#nlb}
 

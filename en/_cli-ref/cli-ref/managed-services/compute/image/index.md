@@ -27,6 +27,10 @@ Aliases:
 - [yc compute image remove-labels](remove-labels.md) — Remove labels from specified image
 - [yc compute image delete](delete.md) — Delete the specified image
 - [yc compute image list-operations](list-operations.md) — List operations for the specified image
+- [yc compute image list-access-bindings](list-access-bindings.md) — List access bindings for the specified image
+- [yc compute image set-access-bindings](set-access-bindings.md) — Set access bindings for the specified image and delete all existing access bindings if there were any
+- [yc compute image add-access-binding](add-access-binding.md) — Add access binding for the specified image
+- [yc compute image remove-access-binding](remove-access-binding.md) — Remove access binding for the specified image
 
 #### Global Flags
 

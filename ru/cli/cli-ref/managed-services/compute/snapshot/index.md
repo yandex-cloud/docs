@@ -27,6 +27,10 @@ Aliases:
 - [yc compute snapshot remove-labels](remove-labels.md) — Remove labels from specified snapshot
 - [yc compute snapshot delete](delete.md) — Delete the specified snapshot
 - [yc compute snapshot list-operations](list-operations.md) — List operations for the specified snapshot
+- [yc compute snapshot list-access-bindings](list-access-bindings.md) — List access bindings for the specified snapshot
+- [yc compute snapshot set-access-bindings](set-access-bindings.md) — Set access bindings for the specified snapshot and delete all existing access bindings if there were any
+- [yc compute snapshot add-access-binding](add-access-binding.md) — Add access binding for the specified snapshot
+- [yc compute snapshot remove-access-binding](remove-access-binding.md) — Remove access binding for the specified snapshot
 
 #### Global Flags
 

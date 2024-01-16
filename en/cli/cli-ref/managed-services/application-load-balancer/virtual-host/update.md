@@ -27,6 +27,7 @@ Syntax:
 |`--modify-response-header`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Specifies modifications to be applied to the response headers.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Specifies the name of the header to modify.</li> <li><code>append</code>:     Specifies the value to be appended to the header.</li> <li><code>replace</code>:     Specifies the new value for the header.</li> <li><code>rename</code>:     Specifies the new name fot the header.</li> <li><code>remove</code>:     Remove the specified header</li> </ul>|
 |`--clear-response-header-modifications`|Clears all response header modifications for the virtual host.|
 |`--clear-routes`|Clears all routes for the virtual host.|
+|`--security-profile-id`|<b>`string`</b><br/>Specifies security profile ID for the virtual host.|
 
 #### Global Flags
 

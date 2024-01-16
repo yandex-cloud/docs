@@ -28,6 +28,8 @@ Syntax:
 |`--versioning`|<b>`string`</b><br/>Sets buckets versioning Values: 'versioning-disabled', 'versioning-enabled', 'versioning-suspended'|
 |`--cors`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Sets bucket cors<br/><br/>Possible property names:<br/><ul> <li><code>id</code>:     Id of the rule</li> <li><code>allowed-headers</code>:     Sets allowed headers</li> <li><code>allowed-origins</code>:     Sets allowed origins</li> <li><code>expose-headers</code>:     Sets expose headers</li> <li><code>max-age-seconds</code>:     Sets max age seconds header</li> <li><code>allowed-methods</code>:     Sets allowed methods</li> </ul>|
 |`--remove-cors`|Remove CORS of bucket|
+|`--tags`|<b>`key=value[,key=value...]`</b><br/>A list of tags KEY=VALUE pairs to add. For example, to add two tags named 'foo' and 'bar', both with the value 'baz', use '--tags foo=baz,bar=baz'.|
+|`--remove-tags`|Remove tags of bucket|
 |`--lifecycle-rules`|<b>`string`</b><br/>Sets bucket lifecycle rules from json input|
 |`--lifecycle-rules-from-file`|<b>`string`</b><br/>Loads lifecycle rules from file in json format|
 |`--remove-lifecycle-rules`|Remove lifecycle rules of bucket|
@@ -38,6 +40,8 @@ Syntax:
 |`--policy-from-file`|<b>`string`</b><br/>Same as policy but loads policy from file|
 |`--generate-lifecycle-skeleton`|Prints example of lifecycle rules|
 |`--generate-website-settings-skeleton`|Prints example of website settings|
+|`--encryption`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Sets encryption kms-master-key-id<br/><br/>Possible property names:<br/><ul> <li><code>key-id</code>:     Encryption key id</li> </ul>|
+|`--remove-encryption`|Remove encryption from the bucket|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

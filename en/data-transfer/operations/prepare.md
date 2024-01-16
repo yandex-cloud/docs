@@ -482,9 +482,7 @@ If you get an error like "`can only select from fixed tables/views`" when granti
 
 When performing a transfer from {{ PG }} to a target of any type, objects of the [large object](https://www.postgresql.org/docs/current/largeobjects.html) type will not get transferred.
 
-{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
-
-If the definition of the `VIEW` to be transferred contains an invocation of the `VOLATILE` [function]({{ pg.docs.org }}/current/xfunc-volatility.html), the transfer reads data from this `VIEW` with the `READ UNCOMMITTED` isolation level. No consistency between the `VIEW` data and the data of other objects being transferred is guaranteed. Reading data from a `MATERIALIZED VIEW` in the `VIEW` definition are equivalent to invoking the `VOLATILE` function.
+{% include [pg-types-limits](../../_includes/data-transfer/notes/pg-source-features.md) %}
 
 Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/storage-toast.html) and those of the [bytea](https://www.postgresql.org/docs/12/datatype-binary.html) type get transferred without restrictions.
 
@@ -507,7 +505,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
          * `USAGE` for the schemas of these tables and sequences.
          * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
-   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This will allow replication to continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
+   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This will allow replication to continue even after changing the master host. In some cases, a transfer may end in an error after you replace a master in your cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
    1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
@@ -552,7 +550,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-   1. Create a user account the transfer will utilize to connect to the source:
+   1. Create a user account the transfer will use to connect to the source:
 
       * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
 
@@ -653,7 +651,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
       1. Restart PostgreSQL.
 
-   1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This will allow replication to continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
+   1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This will allow replication to continue even after changing the master host. In some cases, a transfer may end in an error after you replace a master in your cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
    1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
@@ -1056,7 +1054,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
    1. To shard the migrated collections in the target cluster:
 
-      1. Prepare the database and create blank collections with the same names as in the source database.
+      1. Set up a database and populate it with empty collections with the same names as those in the source.
 
          {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 
@@ -1074,7 +1072,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
          For more information about the `shardCollection()` function, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
 
-      1. To verify that sharding is set up and enabled, get a list of available shards:
+      1. To make sure that sharding is set up and enabled, get a list of available shards:
 
          ```javascript
          sh.status()

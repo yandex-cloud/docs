@@ -31,6 +31,7 @@ Syntax:
 	- [yc compute instance stop](instance/stop.md) — Stop the specified virtual machine instance
 	- [yc compute instance start](instance/start.md) — Start the specified virtual machine instance
 	- [yc compute instance restart](instance/restart.md) — Restart the specified virtual machine instance
+	- [yc compute instance simulate-maintenance-event](instance/simulate-maintenance-event.md) — Simulate a maintenance event (maintenance policy must be set)
 	- [yc compute instance attach-disk](instance/attach-disk.md) — Attach existing disk to the specified virtual machine instance
 	- [yc compute instance detach-disk](instance/detach-disk.md) — Detach disk from the specified virtual machine instance
 	- [yc compute instance attach-filesystem](instance/attach-filesystem.md) — Attach existing filesystem to the specified virtual machine instance
@@ -41,6 +42,10 @@ Syntax:
 	- [yc compute instance move](instance/move.md) — Move the specified virtual machine instance into the folder
 	- [yc compute instance relocate](instance/relocate.md) — Relocate the specified virtual machine instance to the zone
 	- [yc compute instance list-operations](instance/list-operations.md) — List operations for the specified instance
+	- [yc compute instance list-access-bindings](instance/list-access-bindings.md) — List access bindings for the specified instance
+	- [yc compute instance set-access-bindings](instance/set-access-bindings.md) — Set access bindings for the specified instance and delete all existing access bindings if there were any
+	- [yc compute instance add-access-binding](instance/add-access-binding.md) — Add access binding for the specified instance
+	- [yc compute instance remove-access-binding](instance/remove-access-binding.md) — Remove access binding for the specified instance
 - [yc compute disk](disk/index.md) — Manage disks
 	- [yc compute disk get](disk/get.md) — Show information about the specified disk
 	- [yc compute disk list](disk/list.md) — List disks
@@ -53,6 +58,10 @@ Syntax:
 	- [yc compute disk move](disk/move.md) — Move the specified disk into the folder
 	- [yc compute disk relocate](disk/relocate.md) — Relocate the specified disk to the zone
 	- [yc compute disk list-operations](disk/list-operations.md) — List operations for the specified disk
+	- [yc compute disk list-access-bindings](disk/list-access-bindings.md) — List access bindings for the specified disk
+	- [yc compute disk set-access-bindings](disk/set-access-bindings.md) — Set access bindings for the specified disk and delete all existing access bindings if there were any
+	- [yc compute disk add-access-binding](disk/add-access-binding.md) — Add access binding for the specified disk
+	- [yc compute disk remove-access-binding](disk/remove-access-binding.md) — Remove access binding for the specified disk
 - [yc compute disk-type](disk-type/index.md) — Show available disk types
 	- [yc compute disk-type get](disk-type/get.md) — Show information about the specified disk type
 	- [yc compute disk-type list](disk-type/list.md) — List disk types
@@ -66,6 +75,10 @@ Syntax:
 	- [yc compute image remove-labels](image/remove-labels.md) — Remove labels from specified image
 	- [yc compute image delete](image/delete.md) — Delete the specified image
 	- [yc compute image list-operations](image/list-operations.md) — List operations for the specified image
+	- [yc compute image list-access-bindings](image/list-access-bindings.md) — List access bindings for the specified image
+	- [yc compute image set-access-bindings](image/set-access-bindings.md) — Set access bindings for the specified image and delete all existing access bindings if there were any
+	- [yc compute image add-access-binding](image/add-access-binding.md) — Add access binding for the specified image
+	- [yc compute image remove-access-binding](image/remove-access-binding.md) — Remove access binding for the specified image
 - [yc compute snapshot](snapshot/index.md) — Manage snapshots
 	- [yc compute snapshot get](snapshot/get.md) — Show information about the specified snapshot
 	- [yc compute snapshot list](snapshot/list.md) — List snapshots
@@ -75,6 +88,10 @@ Syntax:
 	- [yc compute snapshot remove-labels](snapshot/remove-labels.md) — Remove labels from specified snapshot
 	- [yc compute snapshot delete](snapshot/delete.md) — Delete the specified snapshot
 	- [yc compute snapshot list-operations](snapshot/list-operations.md) — List operations for the specified snapshot
+	- [yc compute snapshot list-access-bindings](snapshot/list-access-bindings.md) — List access bindings for the specified snapshot
+	- [yc compute snapshot set-access-bindings](snapshot/set-access-bindings.md) — Set access bindings for the specified snapshot and delete all existing access bindings if there were any
+	- [yc compute snapshot add-access-binding](snapshot/add-access-binding.md) — Add access binding for the specified snapshot
+	- [yc compute snapshot remove-access-binding](snapshot/remove-access-binding.md) — Remove access binding for the specified snapshot
 - [yc compute snapshot-schedule](snapshot-schedule/index.md) — Manage snapshot schedules
 	- [yc compute snapshot-schedule get](snapshot-schedule/get.md) — Show information about the specified snapshot schedule
 	- [yc compute snapshot-schedule list](snapshot-schedule/list.md) — List snapshot schedules
@@ -90,6 +107,10 @@ Syntax:
 	- [yc compute snapshot-schedule list-operations](snapshot-schedule/list-operations.md) — List operations for the specified snapshot schedule
 	- [yc compute snapshot-schedule list-disks](snapshot-schedule/list-disks.md) — List disks attached to the specified snapshot schedule
 	- [yc compute snapshot-schedule list-snapshots](snapshot-schedule/list-snapshots.md) — List snapshots created by specified snapshot schedule
+	- [yc compute snapshot-schedule list-access-bindings](snapshot-schedule/list-access-bindings.md) — List access bindings for the specified snapshot schedule
+	- [yc compute snapshot-schedule set-access-bindings](snapshot-schedule/set-access-bindings.md) — Set access bindings for the specified snapshot schedule and delete all existing access bindings if there were any
+	- [yc compute snapshot-schedule add-access-binding](snapshot-schedule/add-access-binding.md) — Add access binding for the specified snapshot schedule
+	- [yc compute snapshot-schedule remove-access-binding](snapshot-schedule/remove-access-binding.md) — Remove access binding for the specified snapshot schedule
 - [yc compute zone](zone/index.md) — Show availability zones
 	- [yc compute zone get](zone/get.md) — Show information about the specified availability zone.
 	- [yc compute zone list](zone/list.md) — List availability zones
@@ -126,6 +147,10 @@ Syntax:
 	- [yc compute placement-group delete](placement-group/delete.md) — Delete the specified placement group
 	- [yc compute placement-group list-instances](placement-group/list-instances.md) — List instances of the specified placement group
 	- [yc compute placement-group list-operations](placement-group/list-operations.md) — List operations for the specified placement group
+	- [yc compute placement-group list-access-bindings](placement-group/list-access-bindings.md) — List access bindings for the specified placement group
+	- [yc compute placement-group set-access-bindings](placement-group/set-access-bindings.md) — Set access bindings for the specified placement group and delete all existing access bindings if there were any
+	- [yc compute placement-group add-access-binding](placement-group/add-access-binding.md) — Add access binding for the specified placement group
+	- [yc compute placement-group remove-access-binding](placement-group/remove-access-binding.md) — Remove access binding for the specified placement group
 - [yc compute host-type](host-type/index.md) — Show available host types
 	- [yc compute host-type get](host-type/get.md) — Show information about the specified host type
 	- [yc compute host-type list](host-type/list.md) — List host types
@@ -141,6 +166,10 @@ Syntax:
 	- [yc compute host-group update-host](host-group/update-host.md) — Update host of the specified host group
 	- [yc compute host-group list-instances](host-group/list-instances.md) — List instances of the specified host group
 	- [yc compute host-group list-operations](host-group/list-operations.md) — List operations for the specified host group
+	- [yc compute host-group list-access-bindings](host-group/list-access-bindings.md) — List access bindings for the specified host group
+	- [yc compute host-group set-access-bindings](host-group/set-access-bindings.md) — Set access bindings for the specified host group and delete all existing access bindings if there were any
+	- [yc compute host-group add-access-binding](host-group/add-access-binding.md) — Add access binding for the specified host group
+	- [yc compute host-group remove-access-binding](host-group/remove-access-binding.md) — Remove access binding for the specified host group
 - [yc compute disk-placement-group](disk-placement-group/index.md) — Manage disk placement groups
 	- [yc compute disk-placement-group get](disk-placement-group/get.md) — Show information about the specified disk placement group
 	- [yc compute disk-placement-group list](disk-placement-group/list.md) — List disk placement groups
@@ -151,6 +180,10 @@ Syntax:
 	- [yc compute disk-placement-group delete](disk-placement-group/delete.md) — Delete the specified disk placement group
 	- [yc compute disk-placement-group list-disks](disk-placement-group/list-disks.md) — List disks of the specified disk placement group
 	- [yc compute disk-placement-group list-operations](disk-placement-group/list-operations.md) — List operations for the specified disk placement group
+	- [yc compute disk-placement-group list-access-bindings](disk-placement-group/list-access-bindings.md) — List access bindings for the specified disk placement group
+	- [yc compute disk-placement-group set-access-bindings](disk-placement-group/set-access-bindings.md) — Set access bindings for the specified disk placement group and delete all existing access bindings if there were any
+	- [yc compute disk-placement-group add-access-binding](disk-placement-group/add-access-binding.md) — Add access binding for the specified disk placement group
+	- [yc compute disk-placement-group remove-access-binding](disk-placement-group/remove-access-binding.md) — Remove access binding for the specified disk placement group
 - [yc compute filesystem](filesystem/index.md) — Manage filesystems
 	- [yc compute filesystem get](filesystem/get.md) — Show information about the specified filesystem
 	- [yc compute filesystem list](filesystem/list.md) — List filesystems
@@ -161,6 +194,10 @@ Syntax:
 	- [yc compute filesystem resize](filesystem/resize.md) — Resize the specified filesystem
 	- [yc compute filesystem add-labels](filesystem/add-labels.md) — Add labels to specified filesystem
 	- [yc compute filesystem remove-labels](filesystem/remove-labels.md) — Remove labels from specified filesystem
+	- [yc compute filesystem list-access-bindings](filesystem/list-access-bindings.md) — List access bindings for the specified filesystem
+	- [yc compute filesystem set-access-bindings](filesystem/set-access-bindings.md) — Set access bindings for the specified filesystem and delete all existing access bindings if there were any
+	- [yc compute filesystem add-access-binding](filesystem/add-access-binding.md) — Add access binding for the specified filesystem
+	- [yc compute filesystem remove-access-binding](filesystem/remove-access-binding.md) — Remove access binding for the specified filesystem
 - [yc compute gpu-cluster](gpu-cluster/index.md) — Manage GPU clusters
 	- [yc compute gpu-cluster get](gpu-cluster/get.md) — Show information about the specified GPU cluster
 	- [yc compute gpu-cluster list](gpu-cluster/list.md) — List GPU clusters
@@ -171,6 +208,10 @@ Syntax:
 	- [yc compute gpu-cluster delete](gpu-cluster/delete.md) — Delete the specified GPU cluster
 	- [yc compute gpu-cluster list-operations](gpu-cluster/list-operations.md) — List operations for the specified GPU cluster
 	- [yc compute gpu-cluster list-instances](gpu-cluster/list-instances.md) — List instances created in the specified GPU cluster
+	- [yc compute gpu-cluster list-access-bindings](gpu-cluster/list-access-bindings.md) — List access bindings for the specified GPU cluster
+	- [yc compute gpu-cluster set-access-bindings](gpu-cluster/set-access-bindings.md) — Set access bindings for the specified GPU cluster and delete all existing access bindings if there were any
+	- [yc compute gpu-cluster add-access-binding](gpu-cluster/add-access-binding.md) — Add access binding for the specified GPU cluster
+	- [yc compute gpu-cluster remove-access-binding](gpu-cluster/remove-access-binding.md) — Remove access binding for the specified GPU cluster
 - [yc compute ssh](ssh/index.md) — Connect to instance
 
 #### Global Flags

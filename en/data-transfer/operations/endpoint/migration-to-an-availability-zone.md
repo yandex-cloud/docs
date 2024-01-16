@@ -33,9 +33,8 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
    * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md).
    * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md).
    * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md).
-   * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md).
-
-   Do not place all cluster hosts in the `{{ region-id }}-d` zone; otherwise, the transfer will not operate correctly. If migrating your cluster hosts to the `{{ region-id }}-d` zone, place at least one host in the `{{ region-id }}-a` or `{{ region-id }}-b` zone. The transfer will select the appropriate zone automatically. If there is a single host in your cluster, place it in the `{{ region-id }}-a` or `{{ region-id }}-b` zone.
+   * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md)
+   * [{{ ydb-full-name }}](../../../ydb/operations/migration-to-an-availability-zone.md)
 
 1. If the [transfer type](../../concepts/transfer-lifecycle.md#transfer-types) is {{ dt-type-repl }} or {{ dt-type-copy-repl }}, restart the transfer for it to get the information about the new cluster topology. You do not need to restart {{ dt-type-copy }} transfers, as information about the new topology is provided automatically while activating them.
 

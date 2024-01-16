@@ -29,6 +29,10 @@ Aliases:
 - [yc compute disk move](move.md) — Move the specified disk into the folder
 - [yc compute disk relocate](relocate.md) — Relocate the specified disk to the zone
 - [yc compute disk list-operations](list-operations.md) — List operations for the specified disk
+- [yc compute disk list-access-bindings](list-access-bindings.md) — List access bindings for the specified disk
+- [yc compute disk set-access-bindings](set-access-bindings.md) — Set access bindings for the specified disk and delete all existing access bindings if there were any
+- [yc compute disk add-access-binding](add-access-binding.md) — Add access binding for the specified disk
+- [yc compute disk remove-access-binding](remove-access-binding.md) — Remove access binding for the specified disk
 
 #### Global Flags
 
