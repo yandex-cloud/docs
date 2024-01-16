@@ -37,6 +37,8 @@ items:
             href: operations/buckets/tagging.md
           - name: Получение информации и статистики о бакете
             href: operations/buckets/get-info.md
+          - name: Просмотр метрик бакета
+            href: operations/buckets/get-stats.md
       - name: Объекты
         items:
           - name: Загрузка объекта

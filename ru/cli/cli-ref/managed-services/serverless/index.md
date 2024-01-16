@@ -88,6 +88,11 @@ Aliases:
 	- [yc serverless mdbproxy remove-labels](mdbproxy/remove-labels.md) — Remove labels from specified proxy
 	- [yc serverless mdbproxy delete](mdbproxy/delete.md) — Delete the specified proxy
 	- [yc serverless mdbproxy list-operations](mdbproxy/list-operations.md) — Show history of the tag for the specified proxy
+- [yc serverless network](network/index.md) — Manage networks used in serverless resources
+	- [yc serverless network get-used](network/get-used.md) — Show information about the specified network used in serverless resources
+	- [yc serverless network list-used](network/list-used.md) — List networks used in serverless resources in specified scope
+	- [yc serverless network list-connections](network/list-connections.md) — List serverless resources connected to any network from specified scope (network, folder or cloud)
+	- [yc serverless network trigger-used-cleanup](network/trigger-used-cleanup.md) — Force obsolete used network to start cleanup process as soon as possible
 
 #### Global Flags
 

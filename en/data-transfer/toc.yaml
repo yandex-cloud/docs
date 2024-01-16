@@ -223,6 +223,8 @@ items:
     items:
       - name: All releases
         href: changelogs/index.md
+      - name: December 2023
+        href: changelogs/2312.md
       - name: November 2023
         href: changelogs/2311.md
       - name: October 2023
@@ -233,7 +235,7 @@ items:
         href: changelogs/2308.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

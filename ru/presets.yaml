@@ -3069,6 +3069,9 @@ default:
         show-all: Показать все
       ui_components_dashboard:
         summary-field-name: Задача
+      ui_components_entity-page_ActivitySection:
+        activity: Активность
+        new-activity-on-top: Сначала новые
       ui_components_entity-page_checklist_ChecklistActionsMenu:
         remove-title: Удалить чеклист
       ui_components_entity-page_checklist_ChecklistItem:
@@ -7534,8 +7537,8 @@ default:
         tag: 2.6.1-1b
     yc_crossplane:
       helmChart:
-        name: cr.yandex/yc-marketplace/crossplane/crossplane/crossplane
-        tag: 1.6.3-5
+        name: cr.yandex/yc-marketplace/crossplane/crossplane
+        tag: 1.14.2
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

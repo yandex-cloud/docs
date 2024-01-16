@@ -18,9 +18,9 @@
 
     Инструкции по настройке сопоставления групп некоторых поставщиков удостоверений:
 
+   * [KeyCloak](../tutorials/federations/group-mapping/keycloak.md)
    * [Microsoft AD FS](https://learn.microsoft.com/en-us/power-pages/security/authentication/saml2-settings#create-an-ad-fs-relying-party-trust)
-   * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU)
-   * [KeyCloak](https://www.keycloak.org/docs/22.0.3/server_admin/#_protocol-mappers). В дополнение к инструкции, задайте значение `member` для атрибута **Group attribute name**.
+   * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU).
 
 1. Задайте сопоставление групп пользователей в настройках федерации:
 

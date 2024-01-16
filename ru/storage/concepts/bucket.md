@@ -74,6 +74,16 @@ keywords:
 
 При необходимости, вы можете выполнить настройку разрешений для бакетов и находящихся в них объектов с помощью [ACL](acl.md).
 
+## Статистика {#stats}
+
+{{ objstorage-name }} автоматически отправляет метрики работы бакетов в сервис [{{ monitoring-full-name }}](../../monitoring/).
+
+Вы можете посмотреть статистику работы на [странице бакета](../operations/buckets/get-stats.md#storage-ui) или в [интерфейсе {{ monitoring-name }}](../operations/buckets/get-stats.md#monitoring).
+
+Список метрик, передаваемых в {{ monitoring-name }}, представлен в [справочнике](../metrics.md).
+
+Также общую статистику бакета можно [посмотреть с помощь {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
+
 ## Особенности использования {#details-of-usage}
 
 - Бакет нельзя переименовать.
