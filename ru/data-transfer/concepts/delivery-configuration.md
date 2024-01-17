@@ -25,7 +25,7 @@
     | База данных {{ OS }} — собственная или в составе [сервиса {{ mos-short-name }}](../../managed-opensearch/)  | ![yes](../../_assets/common/yes.svg) |
     | База данных {{ ydb-name }} — в составе [сервиса {{ ydb-name }}](../../ydb/)                                 | ![yes](../../_assets/common/yes.svg) |
     | Бакет [{{ objstorage-full-name }}](../../storage/)                                                          | ![no](../../_assets/common/no.svg) |
-    | Поток данных [{{ yds-full-name }}](../../data-streams/)                                    | ![no](../../_assets/common/no.svg) |
+    | Поток данных [{{ yds-full-name }}](../../data-streams/)                                                     | ![no](../../_assets/common/no.svg) |
 
 {% note tip %}
 

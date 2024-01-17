@@ -7,7 +7,7 @@ editable: false
 
 
 
-## What goes into the cost of using {{ sf-name }} {#rules}
+## What is included in the {{ sf-name }} cost {#rules}
 
 In {{ sf-name }}, you pay for the number of function calls, computing resources allocated for the function, downtime of [provisioned instances](concepts/function.md#provisioned-instances), and outgoing traffic.
 
@@ -26,36 +26,16 @@ You are only charged for the [function calls](concepts/function-invoke.md) that 
 
 ### Pricing formula {#price-formula}
 
-Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.128000 × Millions of calls
+Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.12800 × Millions of calls
 
 {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
+
 ### Example of cost calculation {#price-example}
 
-Example of calculating the cost of a function that has:
-* **Memory specified when creating the version**: 512 MB
-* **Number of function calls**: 10,000,000
-* **Execution time of each call**: 800 ms
-
-Function cost calculation:
-
-> 0.043760 × ((512 / 1,024) × (800 / 3,600 / 1,000) × 10,000,000 – 10) + 0.128000 × ((10,000,000 – 1,000,000) / 1,000,000)
->
-> Total: $49.336622
-
-Where:
-* 0.043760 is the price for 1 GB×hour.
-* 512 / 1,024 converts MB to GB, as execution time is calculated in GB×hour.
-* 800 / 3,600 / 1,000 converts milliseconds to hours, as execution time is calculated in GB×hour.
-* 10,000,000 is the number of function calls.
-* 10 is subtracted because the first 10 GB×hour are free.
-* 0.128000 is the price per 1 million function calls.
-* 10,000,000 is the number of function calls.
-* 1,000,000 is subtracted because the first million calls are free.
-* 1,000,000 is the divisor used to calculate millions of function calls.
-
+{% include [prices-example](../_includes/functions/prices-example.md) %}
 
 ## Using triggers {#triggers}
 

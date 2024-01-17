@@ -23,7 +23,7 @@ description: "Follow this guide to delete an API gateway."
    yc serverless api-gateway delete --id <API gateway ID>
    ```
 
-   Where `id` is the ID of the API gateway.
+   Where `--id` is the ID of the API gateway.
 
    Result:
 

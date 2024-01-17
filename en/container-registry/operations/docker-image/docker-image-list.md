@@ -29,7 +29,7 @@ Find out how to get:
    +----------------------+---------------------+----------------------------+------+-----------------+
    |          ID          |       CREATED       |            NAME            | TAGS | COMPRESSED SIZE |
    +----------------------+---------------------+----------------------------+------+-----------------+
-   | crp9vik7sgeco7emq743 | 2019-01-17 17:00:48 | crph8pf7irvcu3p7gjpb/myimg |  111 | 30.7 MB         |
+   | crp9vik7sgec******** | 2019-01-17 17:00:48 | crph8pf7irvc********/myimg |  111 | 30.7 MB         |
    +----------------------+---------------------+----------------------------+------+-----------------+
    ```
 
@@ -48,15 +48,15 @@ Find out how to get:
    Get detailed information about a Docker image using the `id` from the [previous](#docker-image-list) item:
 
    ```bash
-   yc container image get crphc7nnrvhlg73oeiv5
+   yc container image get crphc7nnrvhl********
    ```
 
    Result:
 
    ```bash
-   id:crphc7nnrvhlg73oeiv5
-   name: crpd50616s9a2t7gr8mi/ubuntu
-   digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
+   id:crphc7nnrvhl********
+   name: crpd50616s9a********/ubuntu
+   digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********
    ...
      size: "163"
    tags:

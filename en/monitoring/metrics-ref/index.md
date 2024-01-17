@@ -14,11 +14,19 @@ The name of the metric is written in the `name` label.
 
 Read more about the service in the [{{ alb-name }}](../../application-load-balancer/) documentation.
 
+## {{ cdn-full-name }} service {#cdn}
+
+{% include [cdn.md](../../_includes/monitoring/metrics-ref/cdn.md) %}
+
+Read more about the service in the [{{ cdn-name }}](../../cdn/) documentation.
+
 {% include [compute.md](../../_includes/monitoring/metrics-ref/compute.md) %}
 
 
 {% include [data-proc.md](../../_includes/monitoring/metrics-ref/data-proc.md) %}
 
+
+{% include [managed-kafka.md](../../_includes/monitoring/metrics-ref/managed-kafka.md) %}
 
 {% include [managed-clickhouse.md](../../_includes/monitoring/metrics-ref/managed-clickhouse.md) %}
 
@@ -28,7 +36,11 @@ Read more about the service in the [{{ alb-name }}](../../application-load-balan
 {% include [managed-greenplum.md](../../_includes/monitoring/metrics-ref/managed-greenplum.md) %}
 
 
-{% include [managed-kafka.md](../../_includes/monitoring/metrics-ref/managed-kafka.md) %}
+## {{ managed-k8s-full-name }} service {#managed-kubernetes}
+
+{% include [managed-kubernetes.md](../../_includes/monitoring/metrics-ref/managed-kubernetes.md) %}
+
+Read more about the service in the [{{ managed-k8s-name }}](../../managed-kubernetes/) documentation.
 
 
 {% include [managed-mongodb.md](../../_includes/monitoring/metrics-ref/managed-mongodb.md) %}

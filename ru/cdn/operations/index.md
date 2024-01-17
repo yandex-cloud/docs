@@ -24,6 +24,7 @@ description: "На странице представлен список поша
 * [{#T}](resources/configure-additions.md)
 * [{#T}](resources/disable-resource.md)
 * [{#T}](resources/delete-resource.md)
+* [{#T}](resources/get-stats.md)
 
 ## Группы источников {#origin-groups}
 

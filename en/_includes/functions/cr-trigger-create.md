@@ -1,10 +1,10 @@
-Create a [trigger for {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md) to invoke a {{ sf-name }} [function](../../functions/concepts/function.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or Docker image tags.
+Create a [trigger for {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md) to invoke a {{ sf-name }} [function](../../functions/concepts/function.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or [Docker image tags](../../container-registry/concepts/docker-image.md#version).
 
 ## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
-* [Registry](../../container-registry/concepts/registry.md) whose Docker image events will fire the trigger. If you do not have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
+* [Registry](../../container-registry/concepts/registry.md) whose Docker image [events](../../functions/concepts/trigger/cr-trigger.md#event) will fire the trigger. If you do not have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -15,13 +15,9 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
-
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.

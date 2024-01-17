@@ -51,7 +51,7 @@ After you create an API gateway, you can change any of its parameters and the Op
 
    1. Open the {{ TF }} configuration file and change the `name`, `description`, or `spec` parameters.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       ...
@@ -132,7 +132,7 @@ After you create an API gateway, you can change any of its parameters and the Op
       You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc serverless api-gateway get <API gateway name>
+      yc serverless api-gateway get <API_gateway_name>
       ```
 
 

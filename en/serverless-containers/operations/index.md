@@ -36,6 +36,7 @@ description: "In this tutorial, you will learn how to use the {{ serverless-cont
 
 * [Updating a name](./name-update.md)
 * [Updating a description](./description-update.md)
+* [Making a revision active](./activate-revision.md)
 * [Viewing scaling settings](./scaling-settings-list.md)
 * [Adding scaling settings](./scaling-settings-add.md)
 * [Deleting scaling settings](./scaling-settings-delete.md)

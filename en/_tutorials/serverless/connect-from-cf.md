@@ -1,8 +1,8 @@
-Create a [function](../functions/concepts/function.md) with a [Python](https://python.org/) application that runs a simple query against a {{ ydb-full-name }} database.
+Create a [function](../../functions/concepts/function.md) with a [Python](https://python.org/) application that runs a simple query against a [{{ ydb-full-name }}](../../ydb/) database.
 
-A function with an associated [service account](../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
+A function with an associated [service account](../../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
 
-The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../functions/lang/python/dependencies.md) when creating a function version. The DB connection parameters are passed to the application via environment variables.
+The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../../functions/lang/python/dependencies.md) when creating a function version. The DB connection parameters are passed to the application via environment variables.
 
 To create a function and connect to the database:
 1. [Prepare your cloud](#before-begin).
@@ -15,14 +15,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
-{% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for this scenario includes:
-* Fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
-* Fee for running queries to the database (see [{{ ydb-name }} pricing](../ydb/pricing/serverless.md)).
+* Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for running queries to the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
 
 ## Create a service account {#create-sa}
@@ -31,12 +31,12 @@ The infrastructure support cost for this scenario includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-function`. The naming requirements are as follows:
 
-      {% include [name-format](../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -52,14 +52,14 @@ The infrastructure support cost for this scenario includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-   1. Enter a name for the database. The naming requirements are as follows:
+   1. Name the database. The naming requirements are as follows:
 
-      {% include [name-format](../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
    1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
    1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-      Wait until the database starts. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+      Wait for the DB to start. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
    1. Click the name of the created database.
    1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it at the next step.
 
@@ -76,7 +76,7 @@ The infrastructure support cost for this scenario includes:
    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
    1. Enter a name and description for the function. The naming requirements are as follows:
 
-      {% include [name-format](../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `Python` as the runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -156,5 +156,5 @@ The infrastructure support cost for this scenario includes:
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. [Delete the database](../ydb/operations/manage-databases.md#delete-db).
-1. [Delete the function](../functions/operations/function/function-delete.md).
+1. [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the function](../../functions/operations/function/function-delete.md).

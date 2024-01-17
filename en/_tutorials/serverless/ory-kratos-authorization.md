@@ -157,7 +157,7 @@ The infrastructure support costs include:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is specified correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -238,7 +238,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
       1. Enter the function name: `kratos-authorizer`.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   1. Create the function version:
+   1. Create a function version:
 
       1. Select the `Node.js` runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Specify the `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` upload method and select the `index-js.zip` archive created in the [build project](#download-project) step.
@@ -250,7 +250,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-func-authorizer`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-            * `KRATOS_API_BASE_PATH`: `https://<kratos_api_gw_domain>/public`, where `<kratos_api_gw_domain>` is the API gateway service domain that you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+            * `KRATOS_API_BASE_PATH`: `https://<API_gateway_service_domain>/public`, where `<API_gateway_service_domain>` is the API gateway service domain you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -284,19 +284,19 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
         --runtime=nodejs16 \
         --entrypoint=index.js \
         --service-account-id=<service_account_ID> \
-        --environment KRATOS_API_BASE_PATH=https://<kratos_api_gw_domain>/public \
+        --environment KRATOS_API_BASE_PATH=https://<API_gateway_service_domain>/public \
         --source-path=./index-js.zip
       ```
 
       Where:
 
       * `--function-name`: Name of the function a version of which you are creating.
-      * `--memory`: RAM amount.
+      * `--memory`: Amount of RAM.
       * `--execution-timeout`: Maximum function execution time before the timeout is reached.
       * `--runtime`: Runtime environment.
       * `--entrypoint`: Entry point.
       * `--service-account-id`: ID of the `sa-func-authorizer` service account.
-      * `--environment`: Environment variables. `<kratos_api_gw_domain>`: API gateway service domain that you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+      * `--environment`: Environment variables. `<API_gateway_service_domain>`: API gateway service domain you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
       * `--source-path`: Path to the `index-js.zip` archive.
 
       Result:
@@ -337,7 +337,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
         execution_timeout  = "5"
         service_account_id = "<service_account_ID>"
         environment = {
-          KRATOS_API_BASE_PATH = https://<kratos_api_gw_domain>/public
+          KRATOS_API_BASE_PATH = https://<API_gateway_service_domain>/public
         }
         content {
           zip_filename = "./index-js.zip"
@@ -354,7 +354,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
       * `memory`: Amount of memory allocated for function execution, in MB.
       * `execution_timeout`: Function execution timeout.
       * `service_account_id`: ID of the `sa-func-authorizer` service account.
-      * `environment`: Environment variables. `<kratos_api_gw_domain>`: API gateway service domain that you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+      * `environment`: Environment variables. `<API_gateway_service_domain>`: API gateway service domain you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
       * `content`: Path to the `index-js.zip` archive with the function source code.
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
@@ -512,20 +512,17 @@ Create an API gateway that will be protected through authorization using the aut
 
 ## Check the result {#check}
 
-1. In your browser, open the Identity Server based on Ory Kratos test console page at `https://<kratos_api_gw_domain>/ui/`, where `<kratos_api_gw_domain>` is the API gateway service domain that you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+1. In your browser, open the Identity Server based on Ory Kratos test console page at `https://<API_gateway_service_domain>/ui/`, where `<API_gateway_service_domain>` is the API gateway service domain you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
 1. Register a user.
-1. Log in with user credentials: `https://<kratos_api_gw_domain>/ui/login`.
+1. Log in with user credentials: `https://<API_gateway_service_domain>/ui/login`.
 1. Open the developer console in your browser and copy the value of the `ory_kratos_session` cookie.
 1. Try to access the `for-kratos-authorization` API gateway:
 
    ```bash
-   curl 'https://<authorized_api_gw_domain>/authorized/api' -H 'Cookie: ory_kratos_session=<ory_kratos_cookie>'
+   curl 'https://<API_gateway_service_domain_for-kratos-authorization>/authorized/api' -H 'Cookie: ory_kratos_session=<cookie_value>'
    ```
 
-   Where:
-
-   * `<authorized_api_gw_domain>`: Service domain of the `for-kratos-authorization` API gateway.
-   * `<ory_kratos_cookie>`: Value of the `ory_kratos_session` cookie you copied in the previous step.
+   Where `<cookie_value>` is the value of the `ory_kratos_session` cookie you copied in the previous step.
 
 If you get `Authorized!` in response, it means that your user session is active and the API was successfully called after checking the authorization cookie.
 

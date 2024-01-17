@@ -26,7 +26,7 @@ x-yc-apigateway-integration:
   url: https://example.com/backend1
   method: POST
   headers:
-    Authorization: Basic ZjTqBB3f$IF9gdYAGlMrs2fuINjHsz
+    Authorization: Basic ZjTqBB3f$IF9gdYAGlMrs2********
   query:
     my_param: myInfo
   timeouts:

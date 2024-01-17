@@ -73,7 +73,7 @@ The infrastructure support costs include:
       yc iam service-account create --name sa-live-debug
       ```
 
-      Where `name` is the name of the service account in the following format:
+      Where `--name` is the name of the service account in the following format:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -181,7 +181,7 @@ The infrastructure support costs include:
 
          * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
          * `role`: Role being assigned. This is a required parameter.
-         * `member`: User or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+         * `member`: User or service account the role is being assigned to. It is specified in the format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
          For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
@@ -194,7 +194,7 @@ The infrastructure support costs include:
              terraform plan
             ```
 
-            If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+            If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -224,9 +224,9 @@ The infrastructure support costs include:
          ```
 
          Where:
-         * `service-account-id`: `sa-live-debug` ID.
-         * `folder-id`: ID of the folder where the service account was created.
-         * `output`: Name of the file with the authorized key.
+         * `--service-account-id`: `sa-live-debug` ID.
+         * `--folder-id`: ID of the folder the service account was created in.
+         * `--output`: Name of the file with the authorized key.
 
          Result:
 

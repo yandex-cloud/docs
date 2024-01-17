@@ -212,7 +212,7 @@ Register your bot in Telegram and get a token.
 1. Save the username to the `TG_BOT_LOGIN` variable:
 
    ```bash
-   echo "export TG_BOT_LOGIN=<username for the bot>" >> ~/.bashrc && . ~/.bashrc
+   echo "export TG_BOT_LOGIN=<bot_username>" >> ~/.bashrc && . ~/.bashrc
    echo $TG_BOT_LOGIN
    ```
 
@@ -310,7 +310,7 @@ Register your bot in Telegram and get a token.
 1. Save `key_id` to the `AWS_ACCESS_KEY_ID` variable and the secret key named `secret` to the `AWS_SECRET_ACCESS_KEY` variable:
 
    ```bash
-   echo "export AWS_ACCESS_KEY_ID=<key ID>" >> ~/.bashrc && . ~/.bashrc
+   echo "export AWS_ACCESS_KEY_ID=<key_ID>" >> ~/.bashrc && . ~/.bashrc
    echo $AWS_ACCESS_KEY_ID
 
    echo "export AWS_SECRET_ACCESS_KEY=<secret key>" >> ~/.bashrc && . ~/.bashrc
@@ -327,7 +327,7 @@ Register your bot in Telegram and get a token.
 
    * `AWS Access Key ID`: Previously obtained ID of the service account access key ( `key_id`).
    * `AWS Secret Access Key`: Previously obtained service account secret key (`secret`).
-   * `Default region name`: Use `ru-central1`.
+   * `Default region name`: Use `{{ region-id }}`.
    * `Default output format`: Leave it blank.
 
 1. Check the configuration:
@@ -357,24 +357,24 @@ Create a database named `game-data` to store the game data and a database named 
    created_at: "2023-03-30T15:01:19Z"
    name: game-data
    status: PROVISIONING
-   endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbao********/etn0ejcvmjm4********
+   endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaom********/etn0ejcvmjm4********
    serverless_database:
      storage_size_limit: "53687091200"
-   location_id: ru-central1
+   location_id: {{ region-id }}
    ...
    ```
 
-1. Save the `endpoint` value from the previous command output to the `YDB_ENDPOINT` variable. In our example, this is `grpcs://ydb.serverless.yandexcloud.net:2135`.
+1. Save the `endpoint` value from the previous command output to the `YDB_ENDPOINT` variable. In our example, it equals `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
    ```bash
-   echo "export YDB_ENDPOINT=<Document API DB endpoint>" >> ~/.bashrc && . ~/.bashrc
+   echo "export YDB_ENDPOINT=<Document_API_DB_endpoint>" >> ~/.bashrc && . ~/.bashrc
    echo $YDB_ENDPOINT
    ```
 
-1. Save the `database` value from the previous command output to the `YDB_DATABASE` variable. In our example, this is `/ru-central1/b1gia87mbaomkfvsleds/etn0ejcvmjm4********`.
+1. Save the `database` value from the previous command output to the `YDB_DATABASE` variable. In our example, it equals `/{{ region-id }}/b1gia87mbaom********/etn0ejcvmjm4********`.
 
    ```bash
-   echo "export YDB_DATABASE=<table name>" >> ~/.bashrc && . ~/.bashrc
+   echo "export YDB_DATABASE=<table_name>" >> ~/.bashrc && . ~/.bashrc
    echo $YDB_DATABASE
    ```
 
@@ -393,23 +393,23 @@ Create a database named `game-data` to store the game data and a database named 
    created_at: "2023-03-30T15:02:44Z"
    name: data-streams
    status: PROVISIONING
-   endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etn16k0e1757********
+   endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaom********/etn16k0e1757********
    serverless_database:
      storage_size_limit: "53687091200"
-   location_id: ru-central1
+   location_id: {{ region-id }}
    ```
 
-1. Save the `endpoint` value from the previous command output to the `YDB_DATA_STREAMS_ENDPOINT` variable. In our example, this is `grpcs://ydb.serverless.yandexcloud.net:2135`.
+1. Save the `endpoint` value from the previous command output to the `YDB_DATA_STREAMS_ENDPOINT` variable. In our example, it equals `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
    ```bash
-   echo "export YDB_DATA_STREAMS_ENDPOINT=<Document API DB endpoint>" >> ~/.bashrc && . ~/.bashrc
+   echo "export YDB_DATA_STREAMS_ENDPOINT=<Document_API_DB_endpoint>" >> ~/.bashrc && . ~/.bashrc
    echo $YDB_DATA_STREAMS_ENDPOINT
    ```
 
-1. Save the `database` value from the previous command output to the `YDB_DATA_STREAMS_DATABASE` variable. In our example, this is `/ru-central1/b1gia87mbaomkfvsleds/etn16k0e1757********`.
+1. Save the `database` value from the previous command output to the `YDB_DATA_STREAMS_DATABASE` variable. In our example, it equals `/{{ region-id }}/b1gia87mbaom********/etn16k0e1757********`.
 
    ```bash
-   echo "export YDB_DATA_STREAMS_DATABASE=<table name>" >> ~/.bashrc && . ~/.bashrc
+   echo "export YDB_DATA_STREAMS_DATABASE=<table_name>" >> ~/.bashrc && . ~/.bashrc
    echo $YDB_DATA_STREAMS_DATABASE
    ```
 
@@ -780,13 +780,13 @@ The following service accounts were created when deploying the project:
 1. Copy the API gateway's service domain. You can find it in the previous command output in the `domain` field.
 
 1. Find a Telegram bot named [BotFather](https://t.me/BotFather) and type the `/setdomain` command.
-1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`, the URL will look like `https://d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`.
+1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `d5d920bqkitf********.apigw.yandexcloud.net`, the URL will look like `https://d5d920bqkitf********.apigw.yandexcloud.net`.
 
 ## Test the app {#test-app}
 
 Follow the link that you sent to the Telegram bot, sign in, and open the game.
 
-The game has player statistics available. If the API gateway's service domain is `d5d920bqkitfr3nqk61s.apigw.yandexcloud.net`, the `https://d5d920bqkitfr3nqk61s.apigw.yandexcloud.net/stats.html` URL will open a page with statistics for all players.
+The game has player statistics available. If the API gateway's service domain is `d5d920bqkitf********.apigw.yandexcloud.net`, the `https://d5d920bqkitf********.apigw.yandexcloud.net/stats.html` URL will open a page with statistics for all players.
 
 ## How to delete the resources you created {#clear-out}
 

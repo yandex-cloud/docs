@@ -49,8 +49,9 @@
    1. Внесите следующие изменения в конфигурационный файл:
       * Добавьте манифест новой подсети (ресурс `yandex_vpc_subnet`) в зоне доступности, в которую вы хотите перенести группу узлов.
       * Измените параметры местоположения группы узлов (ресурс `yandex_kubernetes_node_group`):
+        * `allocation_policy.location.subnet_id` — удалите этот параметр, если он есть в манифесте.
         * `allocation_policy.location.zone` — укажите зону доступности, в которую вы хотите перенести группу узлов.
-        * `instance_template.network_interface.subnet_ids` — укажите идентификатор новой подсети.
+        * `instance_template.network_interface.subnet_ids` — укажите идентификатор новой подсети. Добавьте этот параметр, если его нет в манифесте.
 
       ```hcl
       resource "yandex_vpc_subnet" "my-new-subnet" {

@@ -25,8 +25,8 @@ Example specification:
       x-yc-apigateway-integration:
         type: cloud_ymq
         action: SendMessage
-        queue_url: https://message-queue.{{ api-host }}/b2g2emj937uxo97w65lt/dj6000000003lln607ma/pets-queue
-        folder_id: b1gmf8vk4dq3paduc4gj
+        queue_url: https://message-queue.{{ api-host }}/b2g2emj937ux********/dj6000000003********/pets-queue
+        folder_id: b1gmf8vk4dq********
         delay_seconds: 300
-        service_account_id: ajea046f05rndh38bfie
+        service_account_id: ajea046f05rn********
 ```

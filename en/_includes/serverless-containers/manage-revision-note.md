@@ -1,5 +1,5 @@
 {% note info %}
 
-To ensure the integrity of version links, you can't update or delete container revisions. When creating a new container revision, the previous one becomes obsolete and unavailable for invocations.
+To ensure the integrity of version links, you cannot update or delete container revisions.
 
 {% endnote %}

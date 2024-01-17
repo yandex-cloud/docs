@@ -6,7 +6,7 @@ The `x-yc-apigateway-integration:cloud-functions` extension invokes the specifie
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Option | Type | Description |
+| Parameter | Type | Description |
 ----|----|----
 | `function_id` | `string` | ID of the [function](../../../functions/concepts/function.md). |
 | `tag` | `string` | This is an optional parameter. [Tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`.<br>Parameters are substituted in `tag`. |
@@ -34,9 +34,9 @@ Example specification:
             type: string
       x-yc-apigateway-integration:
         type: cloud_functions
-        function_id: b095c95icnvbuf4v755l
+        function_id: b095c95icnvb********
         tag: "$latest"
-        service_account_id: ajehfe56hhlsd4n93q1
+        service_account_id: ajehfe56hhl********
 ```
 
 Function example:
@@ -93,7 +93,7 @@ Request JSON structure for version `1.0` is compatible with the request format f
     "pathParameters": <dictionary of the request path parameter values>,
     "body": <request body>,
     "isBase64Encoded": <true or false>,
-    // additional fields:    
+    // additional fields:
     "parameters": <dictionary of values of the request parameters described in the OpenAPI specification>,
     "multiValueParameters": <dictionary with lists of values of the request parameters described in the OpenAPI specification>,
     "operationId": <The operationId that corresponds to the request in the OpenAPI specification>

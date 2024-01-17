@@ -11,3 +11,4 @@ description: "На странице представлен список прак
 
 
 * [{#T}](ci-cd-serverless.md)
+* [{#T}](pg-connect.md)

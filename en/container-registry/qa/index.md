@@ -40,15 +40,15 @@ You can use `sudo` or configure [non-root access](https://docs.docker.com/engine
 #### How do I diagnose Credential Helper performance? {#cred-helper}
 
 * Check under which OS user and on which host the [CLI](../../cli/) commands are run. This must be the user that the [Credential Helper](../operations/authentication.md#cred-helper) is configured for and on whose behalf the `yc container registry configure-docker` command was run. The corresponding line must appear in the file `/home/<user>/.docker/config.json`. If you are working on a [virtual machine](../../compute/concepts/vm.md), make sure you have the Credential helper configured there as well.
-* Check if the Credential Helper is displayed in `PATH` when running commands. During authentication in {{ container-registry-name }} using the Credential Helper, Docker accesses the `docker-credential-yc` binary file. Make sure this binary file is available in `PATH` for the user working with Docker. For example, if Docker is used with `sudo`, then `configure-docker` must be run with `sudo`, too. You can check this with the `echo {{ registry }} | docker-credential-yc get` command or with `echo {{ registry }} | sudo docker-credential-yc get` if you're running commands with `sudo`. If everything is working, you'll get a response in the format `{"Username":"iam","Secret":"***<iam-token>***"}`.
+* Check if the Credential Helper is displayed in `PATH` when running commands. During authentication in {{ container-registry-name }} using the Credential Helper, Docker accesses the `docker-credential-yc` binary file. Make sure this binary file is available in `PATH` for the user working with Docker. For example, if Docker is used with `sudo`, then `configure-docker` must be run with `sudo`, too. You can check this with either `echo {{ registry }} | docker-credential-yc get` or `echo {{ registry }} | sudo docker-credential-yc get` command, if using `sudo` to run commands. If everything works fine, you will get a response in `{"Username":"iam","Secret":"***<IAM token>***"}` format.
 * If the commands run in interactive mode but fail in non-interactive mode, check the `.bashrc` file. The `yc` and `docker-credential-yc` programs are installed in a directory that is not usually available in the default `PATH`. In this case, the following lines are added to the `.bashrc` file:
 
-  ```text
-  # The next line updates PATH for {{ yandex-cloud }} CLI
-  if [ -f '/home/<user>/yandex-cloud/path.bash.inc' ]; then source '/home/<user>/yandex-cloud/path.bash.inc'; fi
-  ```
+   ```text
+   # The next line updates PATH for {{ yandex-cloud }} CLI
+   if [ -f '/home/<user>/yandex-cloud/path.bash.inc' ]; then source '/home/<user>/yandex-cloud/path.bash.inc'; fi
+   ```
 
-  The top section of the `.bashrc` file contains a condition preventing its commands from running non-interactively. That is why the commands can run when connecting to the VM manually, but fail to run when doing so via SSH.
+   The top section of the `.bashrc` file contains a condition preventing its commands from running non-interactively. That is why the commands can run when connecting to the VM manually, but fail to run when doing so via SSH.
 
 #### What does "Error response from daemon: pull access denied for <cr.yandex/registry_ID/Docker_image_name>, repository does not exist or may require 'docker login': denied: Permission denied ; requestId = <request_ID>" mean? {#permission-denied-ip}
 

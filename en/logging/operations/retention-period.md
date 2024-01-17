@@ -13,7 +13,7 @@ description: "Follow this guide to update a log group."
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. In the line with the log group, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
-   1. Edit log group parameters.
+   1. Edit the log group parameters.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
@@ -60,8 +60,8 @@ description: "Follow this guide to update a log group."
       ```hcl
       ...
       resource "yandex_logging_group" "group1" {
-        name      = "test-logging-group"
-        folder_id = "<folder_ID>"
+        name             = "test-logging-group"
+        folder_id        = "<folder_ID>"
         retention_period = "5h"
       }
       ...

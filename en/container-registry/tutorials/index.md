@@ -8,7 +8,6 @@ description: "Various {{ container-registry-full-name }} use cases in {{ yandex-
 * [{#T}](run-docker-on-vm.md)
 
 
-* [{#T}](trigger-create.md)
 * [{#T}](image-auto-scan.md)
 
 

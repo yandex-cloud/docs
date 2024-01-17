@@ -38,8 +38,8 @@ To create a bucket to place the HTML page of your service in and configure it fo
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select your working folder.
-   1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
       1. Enter the name of the bucket.
 
@@ -49,9 +49,9 @@ To create a bucket to place the HTML page of your service in and configure it fo
 
          {% endnote %}
 
-      1. Set the maximum size to `1 GB`.
-      1. Choose `Public` access to read objects.
-      1. Click **Create bucket** to complete the operation.
+      1. Set the maximum size to `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      1. Choose `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` access to read objects.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
    1. Copy the HTML code and paste it into the `index.html` file:
 
       {% cut "HTML code" %}
@@ -103,14 +103,14 @@ To create a bucket to place the HTML page of your service in and configure it fo
 
       {% endcut %}
 
-   1. Click on the name of the created bucket.
-   1. Click **Upload objects**.
+   1. Click the name of the created bucket.
+   1. Click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
    1. Specify the prepared `index.html` file.
-   1. Click **Upload**.
-   1. In the left pane, select **Website**.
-   1. Select **Hosting**.
+   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
+   1. In the left-hand panel, select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+   1. Select **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**.
    1. Specify the website's homepage: `index.html`.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 {% endlist %}
 
@@ -123,11 +123,11 @@ To create a service account for the service components to interact:
 - Management console
 
    1. Go to your working folder.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the name of the service account: `serverless-shortener`.
-   1. Click **Add role** and choose the `editor` role.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
    1. Click on the name of the created service account.
 
       Save the service account ID, you'll need it in the next steps.
@@ -143,20 +143,20 @@ To create a {{ ydb-name }} database and configure it to store URLs:
 - Management console
 
    1. Go to your working folder.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click **Create database**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
    1. Enter the DB name: `for-serverless-shortener`.
-   1. Select the **Serverless** database type.
-   1. Click **Create database**.
+   1. Select the **{{ ui-key.yacloud.ydb.forms.label_serverless-type }}** database type.
+   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
    1. Wait until the database starts.
 
       When a database is being created, it has the `Provisioning` status. When it's ready for use, the status changes to `Running`.
-   1. Click on the name of the created database.
+   1. Click the name of the created database.
 
-      Save the values of the **Endpoint**, **Database**, and **Protocol** fields of the **{{ ydb-short-name }} endpoint** section. You'll need them in the next steps.
-   1. In the left pane, select **Navigation**.
-   1. Click **SQL query**.
-   1. Copy the SQL query and paste it into the **Query** field:
+      Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value, you will need it in the next steps.
+   1. In the left-hand panel, select the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+   1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
+   1. Copy the SQL query and paste it into the **{{ ui-key.yacloud.ydb.sql.label_query }}** field:
 
       ```sql
       CREATE TABLE links
@@ -167,7 +167,7 @@ To create a {{ ydb-name }} database and configure it to store URLs:
       );
       ```
 
-   1. Click **Run**.
+   1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
 {% endlist %}
 
@@ -180,24 +180,25 @@ To create and set up a URL shortening function:
 - Management console
 
    1. Go to your working folder.
-   1. In the list of services, select **{{ sf-name }}**.
-   1. Click **Create function**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
    1. Enter the function name: `for-serverless-shortener`.
-   1. Click **Create**.
-   1. In the **Python** drop-down list, choose the `python37` runtime environment.
-   1. Click **Next**.
-   1. Copy the function code and paste it into the `index.py` file under **Function code**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
+   1. In the **Python** drop-down list, choose the `python312` runtime environment.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+   1. Copy the function code and paste it into the `index.py` file under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**.
 
       {% cut "Function code" %}
 
       ```py
-      from kikimr.public.sdk.python import client as ydb
+      import ydb
 
       import urllib.parse
       import hashlib
       import base64
       import json
       import os
+
 
       def decode(event, body):
         # The request body can be encoded.
@@ -219,13 +220,13 @@ To create and set up a URL shortening function:
         database = os.getenv("database")
         if endpoint is None or database is None:
           raise AssertionError("Enter both environment variables")
-        credentials = ydb.construct_credentials_from_environ()
+        credentials = ydb.iam.MetadataUrlCredentials()
         return ydb.DriverConfig(endpoint, database, credentials=credentials)
 
       def execute(config, query, params):
         with ydb.Driver(config) as driver:
           try:
-            driver.wait(timeout=5)
+            driver.wait(timeout=5, fail_fast=True)
           except TimeoutError:
             print("Connect failed to YDB")
             print("Last reported errors by discovery:")
@@ -234,7 +235,6 @@ To create and set up a URL shortening function:
 
           session = driver.table_client.session().create()
           prepared_query = session.prepare(query)
-
           return session.transaction(ydb.SerializableReadWrite()).execute(
             prepared_query,
             params,
@@ -263,6 +263,7 @@ To create and set up a URL shortening function:
           """
         params = {'$id': id}
         result_set = execute(config, query, params)
+
         if not result_set or not result_set[0].rows:
           return None
 
@@ -279,7 +280,6 @@ To create and set up a URL shortening function:
           # Make sure to remove them by calling urllib.parse.unquote.
           insert_link(link_id, urllib.parse.unquote(body))
           return response(200, {'Content-Type': 'application/json'}, False, json.dumps({'url': f'{original_host}/r/{link_id}'}))
-
         return response(400, {}, False, 'The url parameter is missing in the request body')
 
       def redirect(event):
@@ -314,7 +314,7 @@ To create and set up a URL shortening function:
 
       {% endcut %}
 
-   1. Copy the following text and paste it into the `requirements.txt` file under **Function code**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file named `requirements.txt` and paste the following text into it:
 
       ```txt
       ydb
@@ -324,13 +324,10 @@ To create and set up a URL shortening function:
    1. Set the timeout value to `5`.
    1. Select the `serverless-shortener` service account.
    1. Add environment variables:
-      * `endpoint`: Enter a string that is generated from the database protocol and endpoint.
-
-         For example, if the protocol is `grpcs` and the endpoint is `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, enter `{{ ydb.ep-serverless }}`.
-      * `database`: Enter the previously saved **Database** field value.
-      * `USE_METADATA_CREDENTIALS`: Enter `1`.
+      * `endpoint`: Enter the first part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+      * `database`: Enter the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-   1. Under **General information**, enable **Public function**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}**, enable the **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** option.
 
    Save the function ID, you will need it at the next steps.
 
@@ -345,10 +342,10 @@ To publish the service via {{ api-gw-name }}:
 - Management console
 
    1. Go to your working folder.
-   1. In the list of services, select **{{ api-gw-name }}**.
-   1. Click **Create API gateway**.
-   1. In the **Name** field, enter `for-serverless-shortener`.
-   1. Copy and paste the following code into the **Specification** section:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `for-serverless-shortener`.
+   1. Copy and paste the following code into the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section:
 
       {% cut "Specification" %}
 
@@ -395,7 +392,8 @@ To publish the service via {{ api-gw-name }}:
       Edit the specification code:
       * Replace `<service_account_id>` with the ID of the previously created service account.
       * Replace `<function_id>` with the ID of the previously created function.
-   1. Click **Create**.
+      * Replace `<bucket_name>` with the name of the previously created bucket.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
    1. Click on the name of the created API gateway.
    1. Copy the `url` value from the specification.
 
@@ -413,42 +411,11 @@ To check that the service components interact properly:
    You'll see the shortened URL below.
 1. Follow this link. As a result, the same page should open as when using the full URL.
 
-## Delete the service components {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To delete all the created service components:
-
-{% list tabs %}
-
-- Management console
-
-   1. Delete the API gateway:
-      1. Go to your working folder.
-      1. In the list of services, select **{{ api-gw-name }}**.
-      1. To the right of the API gateway name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. Click **Delete**.
-   1. Delete the function:
-      1. Go to your working folder.
-      1. In the list of services, select **{{ sf-name }}**.
-      1. To the right of the function name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. Click **Delete**.
-   1. Delete the database:
-      1. Go to your working folder.
-      1. In the list of services, select **{{ ydb-name }}**.
-      1. To the right of the database name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. Click **Delete**.
-   1. Delete the service account:
-      1. Go to your working folder.
-      1. At the top of the screen, go to the **Service accounts** tab.
-      1. To the right of the service account name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. Click **Delete**.
-   1. Delete the bucket:
-      1. Go to your working folder.
-      1. Select **{{ objstorage-name }}**.
-      1. Click on the name of the created bucket.
-      1. To the right of the bucket name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. Click **Delete**.
-      1. Return to the **Buckets** page.
-      1. To the right of the bucket name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-      1. Click **Delete**.
-
-{% endlist %}
+To stop paying for the resources you created:
+1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
+1. [Delete the function](../../functions/operations/function/function-delete.md).
+1. [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the bucket](../../storage/operations/buckets/delete.md).
+1. [Delete the service account](../../iam/operations/sa/delete.md).

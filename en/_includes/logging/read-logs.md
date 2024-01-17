@@ -44,7 +44,7 @@ The log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) tim
    ```
    [
      {
-       "uid": "488ece3c-75b8-4d35-95ac-2b491b123472",
+       "uid": "488ece3c-75b8-4d35-95ac-2b49********",
        "resource": {},
        "timestamp": "2023-06-22T02:10:40Z",
        "ingested_at": "2023-06-22T08:49:15.716Z",

@@ -82,6 +82,14 @@ CDN-ресурс начинает корректно работать через
 
 Посмотреть статистику можно на странице ресурса в [консоли управления]({{ link-console-main }}).
 
+## Статистика работы ресурса {#resource-stats}
+
+{{ cdn-name }} автоматически отправляет метрики работы ресурсов в сервис [{{ monitoring-full-name }}](../../monitoring/).
+
+Вы можете посмотреть статистику работы на [странице ресурса](../operations/resources/get-stats.md#cdn-ui) или в [интерфейсе {{ monitoring-name }}](../operations/resources/get-stats.md#monitoring).
+
+Список метрик, передаваемых в {{ monitoring-name }}, представлен в [справочнике](../metrics.md).
+
 #### См. также {#see-also}
 
 * [Инструкции по работе с ресурсами](../operations/index.md#resources).

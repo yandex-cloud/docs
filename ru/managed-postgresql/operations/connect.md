@@ -307,6 +307,8 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
         apt-get install postgresql-client --yes
     ```
 
+Пример подключения из {{ serverless-containers-full-name }} см. в [практическом руководстве](../../serverless-containers/tutorials/pg-connect.md).
+
 
 * Подключение с SSL
 

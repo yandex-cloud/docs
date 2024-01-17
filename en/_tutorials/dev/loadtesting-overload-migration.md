@@ -31,7 +31,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
 1. Get authenticated in Yandex OverLoad:
    1. Click **Sign in** on the [service page](https://overload.yandex.net/).
    1. Select the account you used to sign up to Yandex OverLoad: [Yandex ID](https://yandex.ru/support/id/) or [GitHub](https://docs.github.com/en/account-and-profile).
-1. Click on the account image and select **My api token**. Save the API token.
+1. Click the account image and select **My api token**. Save the API token.
 
 ## Get the test IDs {#get-test-id}
 

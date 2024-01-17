@@ -79,14 +79,14 @@ To get started in {{ yandex-cloud }}:
 1. Copy the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field value and create a link, such as `https://<domain>/hello?user=API`. Your link should look like this:
 
    ```
-   https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/hello?user=API
+   https://falrnjna8r5v********.apigw.yandexcloud.net/hello?user=API
    ```
 
 1. Access the API gateway using [curl](https://curl.haxx.se) with one of the commands:
 
    ```bash
-   curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/hello?user=API
-   curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/hello
+   curl https://falrnjna8r5v********.apigw.yandexcloud.net/hello?user=API
+   curl https://falrnjna8r5v********.apigw.yandexcloud.net/hello
    ```
 
    Result:
@@ -114,7 +114,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `list`.
       1. Click **{{ ui-key.yacloud.common.create }}**.
       1. [Make](../../functions/operations/function/function-public.md) your function public.
-   1. Create the function version:
+   1. Create a function version:
       1. In the window that opens, select the function you created.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
       1. In the window that opens, in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** field, select `nodejs12`.
@@ -166,10 +166,10 @@ Create a function to get a list of numbers. Read more about functions in the [{{
         entrypoint         = "index.handler"
         memory             = "128"
         execution_timeout  = "10"
-        service_account_id = "<Service account ID>"
+        service_account_id = "<service_account_ID>"
         tags               = ["my_tag"]
         content {
-          zip_filename = "<path to ZIP archive>"
+          zip_filename = "<path_to_ZIP_archive>"
         }
       }
       ```
@@ -199,7 +199,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -285,8 +285,8 @@ Add function information to the API gateway specification.
                          type: "integer"
             x-yc-apigateway-integration:
               type: cloud_functions
-              function_id: <function ID >
-              service_account_id: <service account ID>
+              function_id: <function_ID >
+              service_account_id: <service_account_ID>
       ```
 
 - {{ TF }}
@@ -350,8 +350,8 @@ Add function information to the API gateway specification.
                             type: "integer"
                 x-yc-apigateway-integration:
                   type: cloud_functions
-                  function_id: <function ID>
-                  service_account_id: <service account ID>
+                  function_id: <function_ID>
+                  service_account_id: <service_account_ID>
         EOT
       }
       ```
@@ -367,7 +367,7 @@ Add function information to the API gateway specification.
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -382,7 +382,7 @@ Add function information to the API gateway specification.
          All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
          ```
-         yc serverless api-gateway get <API gateway name>
+         yc serverless api-gateway get <API_gateway_name>
          ```
 
 {% endlist %}
@@ -398,7 +398,7 @@ For the API gateway to be able to invoke a function, [make](../../functions/oper
 Access the API gateway:
 
 ```bash
-curl https://falrnjna8r5vj88ero6a.apigw.yandexcloud.net/numbers
+curl https://falrnjna8r5v********.apigw.yandexcloud.net/numbers
 ```
 
 Result:

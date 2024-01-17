@@ -77,6 +77,8 @@ items:
         href: tutorials/sqoop.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
+      - name: Настройка подключения из контейнера {{ serverless-containers-name }}
+        href: tutorials/container-connect.md
       - name: >-
           Поставка данных в {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}

@@ -43,6 +43,8 @@ items:
             href: operations/resources/disable-resource.md
           - name: Удалить ресурс
             href: operations/resources/delete-resource.md
+          - name: Посмотреть статистику ресурса
+            href: operations/resources/get-stats.md
       - name: Группы источников
         items:
           - name: Создать группу источников

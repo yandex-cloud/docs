@@ -127,9 +127,66 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
 
    Where:
 
+   * `<VM_ID>`: ID of the VM instance to be moved to a different availability zone.
    * `--destination-zone-id`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) to move the VM instance to.
    * `subnet-id`: ID of the subnet in the availability zone to move the VM instance to.
    * `security-group-ids`: ID of the [security group](../../../vpc/concepts/security-groups.md) to be linked to the VM instance you move. You can link multiple security groups to a single VM instance. To do this, provide a comma-separated list of security group IDs in `[id1,id2]` format.
+
+   For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
+
+   Please note that a VM's relocation to a new subnet changes its IP addressing. If you need to specify a VM's internal IP address, use the `ipv4-address=<internal IP>` property of the `network-interface` parameter; for its public IP address, use the `nat-address=<public IP>` property of the same parameter. In other respects, setting the network interface parameters of a VM you are migrating is similar to creating an instance.
+
+   For example:
+
+   ```bash
+   yc compute instance relocate a7lh48f5jvlk******** \
+     --destination-zone-id {{ region-id }}-b \
+     --network-interface \
+       subnet-id=bltign9kcffv********,security-group-ids=c646ev94tb6k********
+   ```
+
+   In this example, a VM instance named `my-vm-1` is moved from the `{{ region-id }}-a` availability zone to the `{{ region-id }}-b` availability zone.
+
+   Result:
+
+   ```bash
+   done (3m15s)
+   id: a7lh48f5jvlk********
+   folder_id: aoeg2e07onia********
+   created_at: "2023-10-13T19:47:40Z"
+   name: my-vm-1
+   zone_id: {{ region-id }}-b
+   platform_id: standard-v3
+   resources:
+     memory: "2147483648"
+     cores: "2"
+     core_fraction: "100"
+   status: RUNNING
+   metadata_options:
+     gce_http_endpoint: ENABLED
+     aws_v1_http_endpoint: ENABLED
+     gce_http_token: ENABLED
+     aws_v1_http_token: DISABLED
+   boot_disk:
+     mode: READ_WRITE
+     device_name: a7lp7jpslu59********
+     auto_delete: true
+     disk_id: a7lp7jpslu59********
+   network_interfaces:
+     - index: "0"
+       mac_address: d0:0d:11:**:**:**
+       subnet_id: bltign9kcffv********
+       primary_v4_address:
+         address: 192.168.1.17
+       security_group_ids:
+         - c646ev94tb6k********
+   gpu_settings: {}
+   fqdn: my-vm-1.ru-central1.internal
+   scheduling_policy: {}
+   network_settings:
+     type: STANDARD
+   placement_policy: {}
+   ```
 
    If you are moving a VM with a [disk in a placement group](../../concepts/disk-placement-group.md), use this command:
 
@@ -158,11 +215,9 @@ In some cases, the process may take longer if moving to the `{{ region-id }}-d` 
 
    {% note info %}
 
-   If data is being written to the VM disks, their move may fail. In this case, stop the disk write operation or shut down the VM instance and restart the move.
+   If the VM disks are being written to, moving them may end in an error. In this case, stop writing to the disks or shut down the VM instance and restart the move.
 
    {% endnote %}
-
-Please note that migrating a VM to a new subnet changes its IP addressing. If you need to specify a VM's internal IP address, use the `ipv4-address=<internal_IP>` property of the `network-interface` parameter; for its public IP address, use the `nat-address=<public_IP>` property of the same parameter. In other respects, setting up the network interface parameters of the VM you want to migrate is similar to creating an instance.
 
 ### Example {#example}
 

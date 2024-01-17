@@ -47,7 +47,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
       {% include [repeat-request.md](repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -128,9 +128,11 @@ The trigger must be in the same cloud with the registry or device it reads messa
         name        = "<trigger_name>"
         description = "<trigger_description>"
         iot {
-          registry_id = "<registry_ID>"
-          device_id   = "<device_ID>"
-          topic       = "<topic_ID>"
+          registry_id  = "<registry_ID>"
+          device_id    = "<device_ID>"
+          topic        = "<topic_ID>"
+          batch_cutoff = 10
+          batch_size   = 1
         }
         function {
           id                 = "<function_ID>"
@@ -153,6 +155,8 @@ The trigger must be in the same cloud with the registry or device it reads messa
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.
          * `service_account_id`: ID of the service account with rights to invoke a function.
+      * `batch_cutoff`: Maximum wait time. Acceptable values are from 1 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. At the same time, the number of messages does not exceed the specified `batch-size` group.
+      * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
@@ -165,7 +169,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

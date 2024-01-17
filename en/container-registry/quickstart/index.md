@@ -1,10 +1,10 @@
 # Getting started with {{ container-registry-name }}
 
-Using these instructions, you will create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
+Use this guide to create your first [registry](../concepts/registry.md) and try your hand at managing [Docker images](../concepts/docker-image.md).
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
-To create a registry, you'll need a folder in {{ yandex-cloud }}. If you don't have any folders yet, create a new folder:
+To create a registry, you will need a folder in {{ yandex-cloud }}. If you do not have any folders yet, create one before creating a registry:
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
@@ -22,8 +22,8 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
 
    ```text
    ..done
-   id: crpc9qeoft236r8tfalm
-   folder_id: b1g0itj57rbjk9thrinv
+   id: crpc9qeoft23********
+   folder_id: b1g0itj57rbj********
    name: my-first-registry
    status: ACTIVE
    created_at: "2018-12-25T12:24:56.286Z"
@@ -58,25 +58,25 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
    docker pull ubuntu
    ```
 
-1. Assign the pulled Docker image a tag in the following format: `{{ registry }}/<registry ID>/<Docker image name>:<tag>`:
+1. Assign the pulled Docker image a tag in `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>` format:
 
    ```bash
    docker tag ubuntu \
-   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   {{ registry }}/crpc9qeoft23********/ubuntu:hello
    ```
 
 1. Push the Docker image to the repository {{ container-registry-name }}:
 
    ```bash
    docker push \
-   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   {{ registry }}/crpc9qeoft23********/ubuntu:hello
    ```
 
 1. Run the Docker image:
 
    ```bash
    docker run \
-   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   {{ registry }}/crpc9qeoft23********/ubuntu:hello
    ```
 
 #### See also {#see-also}

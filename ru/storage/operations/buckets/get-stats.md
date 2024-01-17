@@ -44,7 +44,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. На панели слева выберите ![image](../../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
   1. В строке запроса выберите параметры:
-      1. Сервис {{ objstorage-name }}.
+      1. Сервис **{{ objstorage-name }}**.
       1. Метрику, значения которой вы хотите визуализировать.
       1. Метку для метрики.
 
