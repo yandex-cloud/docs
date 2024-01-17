@@ -88,12 +88,16 @@
 
           Где:
           * `<service-name>` — название [сервиса](../cli/cli-ref/index.md#service-manage), на чей ресурс назначается роль, например `resource-manager`.
-          * `<resource>` — категория ресурса, например `cloud`.
-          * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-          * `<resource-id>` — идентификатор ресурса.
+          * `<resource>` — категория ресурса, например `cloud` - для назначения роли на все облако или `folder` - для назначения роли на каталог.
+          * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору. (имя облака или каталога)
+          * `<resource-id>` — идентификатор ресурса. (id облака или каталога)
           * `<role-id>` — назначаемая [роль](../iam/concepts/access-control/roles.md), например `{{ roles-cloud-owner }}`.
           * `<service-account-id>` — идентификатор сервисного аккаунта, которому назначается роль.
-
+     
+          Пример:
+         ```sh
+         yc resource-manager folder add-access-binding b1g6c5amah69n9hi2qu --role editor --subject serviceAccount:ajes72jixaa8iqhi2qu
+         ```
           Результат:
 
           ```text
