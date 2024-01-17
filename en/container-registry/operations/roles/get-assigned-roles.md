@@ -11,54 +11,53 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to view resource roles.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. View the roles assigned for a resource:
-     * Viewing roles for a [registry](../../concepts/registry.md):
-       1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
-       1. In the window that opens, you can see a list of users and their permissions for the registry.
-     * Viewing roles for a repository:
-       1. Select the registry.
-       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
-       1. In the window that opens, you can see a list of users and their permissions for the repository.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to view resource roles.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+   1. View the roles assigned for a resource:
+      * Viewing roles for a [registry](../../concepts/registry.md):
+         1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
+         1. In the window that opens, you can see a list of users and their permissions for the registry.
+      * Viewing roles for a repository:
+         1. Select the registry.
+         1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
+         1. In the window that opens, you can see a list of users and their permissions for the repository.
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Run this command:
+   Run this command:
 
-  ```bash
-  yc <service name> <resource> list-access-bindings <resource name>|<resource ID>
-  ```
+   ```bash
+   yc <service_name> <resource> list-access-bindings <resource_name_or_ID>
+   ```
 
-  Where:
-  * `<service name>`: Name of a `container` service.
-  * `<resource>`: Category of the resource (`registry` or `repository`).
-  * `<resource name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.
-  * `<resource id>`: ID of the resource that the role is assigned for.
+   Where:
+   * `<service_name>`: `container` service name.
+   * `<resource>`: Category of the resource (`registry` or `repository`).
+   * `<resource_name_or_ID>`: Name or ID of the resource the role is assigned for.
 
-  > For example, view the roles for the registry with the `crp0pmf1n68dh715tf02` ID:
-  >
-  > ```bash
-  > yc container registry list-access-bindings crp0pmf1n68dh715tf02
-  > ```
-  >
-  > Command result:
-  >
-  > ```bash
-  > +--------------------------+------------------+----------------------+
-  > |         ROLE ID          |   SUBJECT TYPE   |      SUBJECT ID      |
-  > +--------------------------+------------------+----------------------+
-  > | container-registry.admin | federatedAccount | kolhpriseeioo9dc3v24 |
-  > +--------------------------+------------------+----------------------+
-  > ```
+   > Example. View the roles for the registry with the `crp0pmf1n68d********` ID:
+   >
+   > ```bash
+   > yc container registry list-access-bindings crp0pmf1n68d********
+   > ```
+   >
+   > Command result:
+   >
+   > ```bash
+   > +--------------------------+------------------+----------------------+
+   > |         ROLE ID          |   SUBJECT TYPE   |      SUBJECT ID      |
+   > +--------------------------+------------------+----------------------+
+   > | container-registry.admin | federatedAccount | kolhpriseeio******** |
+   > +--------------------------+------------------+----------------------+
+   > ```
 
 - API
 
-  Use the `listAccessBindings` method for the `registry` and `repository` resources.
+   Use the `listAccessBindings` method for the `registry` and `repository` resources.
 
 {% endlist %}
 

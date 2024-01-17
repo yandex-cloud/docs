@@ -38,7 +38,7 @@ Your Telegram bot's token will be displayed.
    * ID of the previously created {{ lockbox-full-name }} secret.
 1. Click **Install** and wait for the installation to complete.
 1. On the **Overview** page, find the API gateway under **Application resources**, go to the gateway page, and copy the service domain link.
-1. To bind the function to the Telegram bot, run a request. Replace the `<bot token>` with the Telegram bot token and the `<API gateway domain>` with a link to the API gateway's service domain.
+1. To bind the function to the Telegram bot, run a request. Replace the `<bot_token>` with the Telegram bot token and the `<API_gateway_domain>` with a link to the API gateway's service domain.
 
    {% list tabs group=operating_system %}
 
@@ -47,7 +47,7 @@ Your Telegram bot's token will be displayed.
       ```bash
       curl \
         --request POST \
-        --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo
+        --url https://api.telegram.org/bot<bot_token>/setWebhook?url=https://<API_gateway_domain>/echo
       ```
 
    - Windows (cmd) {#windows-cmd}
@@ -55,7 +55,7 @@ Your Telegram bot's token will be displayed.
       ```bash
       curl ^
         --request POST ^
-        --url "https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo"
+        --url "https://api.telegram.org/bot<bot_token>/setWebhook?url=https://<API_gateway_domain>/echo"
       ```
 
    - Windows (PowerShell) {#windows-powershell}
@@ -63,7 +63,7 @@ Your Telegram bot's token will be displayed.
       ```powershell
       curl.exe `
         --request POST `
-        --url https://api.telegram.org/bot<bot token>/setWebhook?url=https://<API gateway domain>/echo
+        --url https://api.telegram.org/bot<bot_token>/setWebhook?url=https://<API_gateway_domain>/echo
       ```
 
    {% endlist %}

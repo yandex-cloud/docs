@@ -4,14 +4,13 @@ This guide is intended for Linux users. On Windows, you can follow its steps in 
 
 {% endnote %}
 
-You will create a [function](../functions/concepts/function.md) and a [Node.js app](https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs) that will make small queries to a {{ ydb-short-name }} database. You will deploy the application using Bash scripts and use the `tcs` command to compile it.
+You will create a [function](../../functions/concepts/function.md) and a [Node.js app](https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs) that will make small queries to a [{{ ydb-short-name }}](https://ydb.tech/) database. You will deploy the application using Bash scripts and use the `tcs` command to compile it.
 
-A function with an associated [service account](../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
+A function with an associated [service account](../../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
 
-The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../functions/lang/nodejs/dependencies.md) when creating a function version. The DB connection parameters are passed to the application via environment variables.
+The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../../functions/lang/nodejs/dependencies.md) when creating a [function version](../../functions/concepts/function.md#version). The DB connection parameters are passed to the application via environment variables.
 
-To set up a connection to the {{ ydb-short-name }} database:
-
+To set up a connection to a {{ ydb-short-name }} database:
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#prepare-environment).
 1. [Create a service account](#create-sa).
@@ -24,27 +23,25 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
-{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for this scenario includes:
-
-* Fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
-* Fee for querying the database (see [{{ ydb-full-name }} pricing](../ydb/pricing/serverless.md)).
+* Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for querying the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 
 
 ## Prepare the environment {#prepare-environment}
 
 1. Clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) using Git:
 
-   ```
+   ```bash
    git clone https://github.com/yandex-cloud/examples.git
    ```
 
-1. Install and initialize the [{{ yandex-cloud }} CLI](../cli/quickstart.md).
-
+1. Install and initialize the [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
 1. Go to the project root directory:
 
    ```bash
@@ -52,7 +49,6 @@ The infrastructure support cost for this scenario includes:
    ```
 
    Make sure to run all further commands in this directory.
-
 1. Install the [jq](https://stedolan.github.io/jq/download/) utility:
 
    ```bash
@@ -61,7 +57,7 @@ The infrastructure support cost for this scenario includes:
 
 1. Install [Node.js](https://nodejs.org/en/download/package-manager/):
 
-   ```
+   ```bash
    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - \
    sudo apt-get install -y nodejs
    ```
@@ -74,7 +70,7 @@ The infrastructure support cost for this scenario includes:
 
    Result:
 
-   ```bash
+   ```text
    up to date, audited 269 packages in 1s
 
    29 packages are looking for funding
@@ -89,7 +85,7 @@ The infrastructure support cost for this scenario includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the service account name: `sa-function`.
@@ -98,7 +94,7 @@ The infrastructure support cost for this scenario includes:
 
 - CLI
 
-   1. [Create](../iam/operations/sa/create.md#create-sa) a service account:
+   1. [Create](../../iam/operations/sa/create.md#create-sa) a service account:
 
       ```bash
       yc iam service-account create --name sa-function
@@ -106,14 +102,14 @@ The infrastructure support cost for this scenario includes:
 
       Result:
 
-      ```bash
+      ```text
       id: aje028do8n9r********
       folder_id: b1g681qpemb4********
       created_at: "2023-08-23T06:24:49.759304161Z"
       name: sa-function
       ```
 
-   1. [Assign](../iam/operations/sa/set-access-bindings.md#assign-role-to-sa) the `editor` role to the service account:
+   1. [Assign](../../iam/operations/sa/set-access-bindings.md#assign-role-to-sa) the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -123,7 +119,7 @@ The infrastructure support cost for this scenario includes:
 
       Result:
 
-      ```bash
+      ```text
       ...1s...done (4s)
       effective_deltas:
       - action: ADD
@@ -134,38 +130,34 @@ The infrastructure support cost for this scenario includes:
             type: serviceAccount
       ```
 
-   For more information about the commands, see the [CLI reference](../cli/cli-ref/managed-services/iam/service-account/index.md).
+   For more information about the commands, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/index.md).
 
 - {{ TF }}
 
-   {% include [terraform-install](../_includes/terraform-install.md) %}
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the service account parameters:
 
-      ```
+      ```hcl
       resource "yandex_iam_service_account" "sa" {
         name = "sa-function"
       }
       ```
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
-         ```
+         ```bash
          terraform apply
          ```
 
@@ -173,7 +165,7 @@ The infrastructure support cost for this scenario includes:
 
 - API
 
-   To create a service account and assign it a role, use the [create](../iam/api-ref/ServiceAccount/create.md) and [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) methods for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource.
+   To create a service account and assign it a [role](../../iam/concepts/access-control/roles.md), use the [create](../../iam/api-ref/ServiceAccount/create.md) and [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) methods for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
 {% endlist %}
 
@@ -189,15 +181,15 @@ The infrastructure support cost for this scenario includes:
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
-   1. Enter a description of the key so that you can easily find it in the management console.
-   1. Save the public and the private keys to the `examples/serverless/functions/YDB-connect-from-serverless-function/service_account_key_file.json` file:
+   1. Enter a description for the [authorized key](../../iam/concepts/authorization/key.md) so that you can easily find it in the management console.
+   1. Save both the private and public parts of the authorized key to the `examples/serverless/functions/YDB-connect-from-serverless-function/service_account_key_file.json` file:
 
       ```json
       {
-         "service_account_id": "<sa-function_service_account_ID>",
-         "key_algorithm": "RSA_2048",
-         "public_key": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
-         "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+        "service_account_id": "<sa-function_service_account_ID>",
+        "key_algorithm": "RSA_2048",
+        "public_key": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
+        "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
       }
       ```
 
@@ -209,15 +201,15 @@ The infrastructure support cost for this scenario includes:
    yc iam key create --service-account-name sa-function -o service_account_key_file.json
    ```
 
-   For more information about the `yc iam key create` command, see the [CLI reference](../cli/cli-ref/managed-services/iam/key/create.md).
+   For more information about the `yc iam key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/key/create.md).
 
-   If successful, a private key (`privateKey`) and public key ID (`id`) will be written to the `service_account_key_file.json` file.
+   If successful, the private part of the authorized key (`privateKey`) and the ID of its public part (`id`) will be written to the `service_account_key_file.json` file.
 
 - {{ TF }}
 
-   1. In the configuration file, describe the key parameters:
+   1. In the configuration file, describe the authorized key parameters:
 
-      ```
+      ```hcl
       resource "yandex_iam_service_account_key" "sa-auth-key" {
         service_account_id = "<sa-function_service_account_ID>"
         key_algorithm      = "RSA_2048"
@@ -225,23 +217,19 @@ The infrastructure support cost for this scenario includes:
       ```
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
-
    1. Make sure the configuration files are valid.
-
       1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
-
       1. If the configuration does not contain any errors, run this command:
 
-         ```
+         ```bash
          terraform apply
          ```
 
@@ -249,7 +237,7 @@ The infrastructure support cost for this scenario includes:
 
 - API
 
-   To create an access key, use the [create](../iam/api-ref/Key/create.md) method for the [Key](../iam/api-ref/Key/index.md) resource.
+   To create an authorized access key, use the [create](../../iam/api-ref/Key/create.md) method for the [Key](../../iam/api-ref/Key/index.md) resource.
 
 {% endlist %}
 
@@ -262,15 +250,14 @@ The infrastructure support cost for this scenario includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-   1. Enter a name for the database. The naming requirements are as follows:
+   1. Name the database. The naming requirements are as follows:
 
-      {% include [name-format](../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
    1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
    1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-      Wait until the database starts. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
-
+      Wait for the DB to start. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
    1. Click the name of the created database.
    1. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it at the next step.
 
@@ -291,7 +278,6 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
    ```
 
 1. Edit the `.env` file:
-
    * `ENDPOINT`: First part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
    * `DATABASE`: Second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
    * `FUNCTION_NAME`: `func-test-ydb`.
@@ -305,7 +291,6 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
    ```
 
    This script creates a new function in your folder and makes it public.
-
 1. Create the function version:
 
    ```bash
@@ -314,7 +299,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
    Result:
 
-   ```bash
+   ```text
    npx tsc --build tsconfig.json
    rm: couldn't delete '../build/func.zip': File or folder does not exist
    adding: queries/ (stored 0%)
@@ -363,17 +348,17 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
    1. Select the `func-test-ydb` function.
    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}** tab.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.
-   1. In your browser address bar, add the `api_key` parameter to the link, such as `?api_key=b95`:
+   1. In your browser address bar, add the `api_key` parameter to the link, e.g., `?api_key=b95`:
 
-      ```
+      ```http request
       https://functions.yandexcloud.net/efghm9el0ja9********?api_key=b95
       ```
 
-   1. If a connection to the DB is successful, a table named `b95` will be created and a single record will be added to it. A message in JSON format will appear on the page, such as:
+   1. If a connection to the DB is successful, a table named `b95` will be created and a single record will be added to it. A message in JSON format will appear on the page, e.g.:
 
       ```json
       {
-         "info": "b95 table created, one record inserted"
+        "info": "b95 table created, one record inserted"
       }
       ```
 
@@ -382,6 +367,5 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-
-1. [Delete the database](../ydb/operations/manage-databases.md#delete-db).
-1. [Delete the function](../functions/operations/function/function-delete.md).
+1. [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the function](../../functions/operations/function/function-delete.md).

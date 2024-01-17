@@ -37,22 +37,22 @@ The infrastructure support cost includes:
 
 - CLI
 
-  Create a VM specification file named `cloud-config-ports.yaml` and populate it with the following data:
+   Create a VM specification file named `cloud-config-ports.yaml` and populate it with the following data:
 
-  ```yaml
-  #cloud-config
-  runcmd:
-    - [ sudo, chmod, 666, /dev/ttyS1]
-  users:
-    - name: <username>
-      groups: sudo
-      shell: /bin/bash
-      sudo: 'ALL=(ALL) NOPASSWD:ALL'
-      ssh-authorized-keys:
-        - <public SSH key to connect to VM>
-  ```
+   ```yaml
+   #cloud-config
+   runcmd:
+     - [ sudo, chmod, 666, /dev/ttyS1]
+   users:
+     - name: <username>
+       groups: sudo
+       shell: /bin/bash
+       sudo: 'ALL=(ALL) NOPASSWD:ALL'
+       ssh-authorized-keys:
+         - <public_SSH_key_to_connect_to_VM>
+   ```
 
-  In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connection yourself.
+   In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connection yourself.
 
 {% endlist %}
 
@@ -62,70 +62,70 @@ The infrastructure support cost includes:
 
 - CLI
 
-  Create a specification for a Docker container as a file named `container-spec-ports.yaml` and populate it with the following data:
+   Create a specification for a Docker container as a file named `container-spec-ports.yaml` and populate it with the following data:
 
-  ```yaml
-  spec:
-    containers:
-    - image: ubuntu
-      name: app
-      command: ["/bin/bash", "-c", "sleep 30 && echo 'Hello World!' > /dev/ttyS1"]
-      securityContext:
-        privileged: true
-      stdin: false
-      tty: false
-      volumeMounts:
-        - mountPath: /dev/ttyS1
-          name: log-port
-    restartPolicy: Always
-    volumes:
-      - name: log-port
-        hostPath:
-          path: /dev/ttyS1
-  ```
+   ```yaml
+   spec:
+     containers:
+     - image: ubuntu
+       name: app
+       command: ["/bin/bash", "-c", "sleep 30 && echo 'Hello World!' > /dev/ttyS1"]
+       securityContext:
+         privileged: true
+       stdin: false
+       tty: false
+       volumeMounts:
+         - mountPath: /dev/ttyS1
+           name: log-port
+     restartPolicy: Always
+     volumes:
+       - name: log-port
+         hostPath:
+           path: /dev/ttyS1
+   ```
 
-  1. Create a VM with multiple [disks](../../compute/concepts/disk.md).
-     1. Get the ID of the image to create the VM:
+   1. Create a VM with multiple [disks](../../compute/concepts/disk.md).
+      1. Get the ID of the image to create the VM:
 
-        {% list tabs %}
+         {% list tabs %}
 
-        - Bash
+         - Bash
 
-          ```bash
-          IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
-          ```
+            ```bash
+            IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
+            ```
 
-        - PowerShell
+         - PowerShell
 
-          ```shell script
-          > $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | ConvertFrom-Json).id
-          ```
+            ```shell script
+            > $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | ConvertFrom-Json).id
+            ```
 
-        {% endlist %}
+         {% endlist %}
 
-     1. Create a VM:
+      1. Create a VM:
 
-        ```bash
-        yc compute instance create \
-          --name coi-vm-with-sp \
-          --zone {{ region-id }}-a \
-          --network-interface subnet-name=<subnet name>,nat-ip-version=ipv4 \
-          --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
-          --create-boot-disk image-id=$IMAGE_ID
-        ```
+         ```bash
+         yc compute instance create \
+           --name coi-vm-with-sp \
+           --zone {{ region-id }}-a \
+           --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
+           --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
+           --create-boot-disk image-id=$IMAGE_ID
+         ```
 
-        Where:
-        * `--name`: VM name.
-        * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
-        * `--network-interface`: VM network settings.
-        * `--metadata-from-file`: YAML [metadata](../../compute/concepts/vm-metadata.md) files to create the VM.
-        * `--create-boot-disk`: ID of the image to create a boot disk from.
+         Where:
+         * `--name`: VM name.
+         * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
+         * `--network-interface`: VM network settings.
+         * `--metadata-from-file`: YAML [metadata](../../compute/concepts/vm-metadata.md) files to create the VM.
+         * `--create-boot-disk`: ID of the image to create a boot disk from.
 
-        Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
-     1. Check the results.
-        1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-        1. Click the name of the `coi-vm-with-sp` VM.
-        1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select `COM2`. In a few minutes, the screen will display `Hello world!`.
+         Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
+      1. Check the result.
+         1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+         1. Click the name of the `coi-vm-with-sp` VM.
+         1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select `COM2`. In a few minutes, the screen will display `Hello world!`.
 
 {% endlist %}
 
@@ -137,19 +137,19 @@ To get the ID of the latest image used for VM creation, run:
 
 - Linux (Bash) {#linux}
 
-  ```bash
-  IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image \
-    --folder-id standard-images \
-    --format=json | jq -r .id)
-  ```
+   ```bash
+   IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image \
+     --folder-id standard-images \
+     --format=json | jq -r .id)
+   ```
 
 - Windows (PowerShell) {#windows}
 
-  ```shell script
-  $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image `
-    --folder-id standard-images `
-    --format=json | ConvertFrom-Json).id
-  ```
+   ```shell script
+   $IMAGE_ID=(yc compute image get-latest-from-family container-optimized-image `
+     --folder-id standard-images `
+     --format=json | ConvertFrom-Json).id
+   ```
 
 {% endlist %}
 
@@ -159,23 +159,23 @@ To get the ID of the latest image used for VM creation, run:
 
 - CLI
 
-  Enter a name for the [subnet](../../vpc/operations/subnet-create.md) to create your VM in and run:
+   Enter a name for the [subnet](../../vpc/operations/subnet-create.md) to create your VM in and run:
 
-  ```bash
-  yc compute instance create \
-    --name coi-vm-with-sp \
-    --zone {{ region-id }}-c \
-    --network-interface subnet-name=<subnet name>,nat-ip-version=ipv4 \
-    --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
-    --create-boot-disk image-id=$IMAGE_ID
-  ```
+   ```bash
+   yc compute instance create \
+     --name coi-vm-with-sp \
+     --zone {{ region-id }}-c \
+     --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
+     --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
+     --create-boot-disk image-id=$IMAGE_ID
+   ```
 
-  Where:
-  * `--name`: VM name.
-  * `--zone`: Availability zone.
-  * `--network-interface`: VM network settings.
-  * `--metadata-from-file`: YAML metadata files to create the VM.
-  * `--create-boot-disk`: ID of the image to create a boot disk from.
+   Where:
+   * `--name`: VM name.
+   * `--zone`: Availability zone.
+   * `--network-interface`: VM network settings.
+   * `--metadata-from-file`: YAML metadata files to create the VM.
+   * `--create-boot-disk`: ID of the image to create a boot disk from.
 
 {% endlist %}
 

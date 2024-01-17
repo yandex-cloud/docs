@@ -39,7 +39,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -98,6 +98,66 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
    status: ACTIVE
    ```
 
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create a timer:
+
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<timer_name>"
+        timer {
+          cron_expression = "<cron_expression>"
+          payload         = "<message>"
+        }
+        container {
+          id                 = "<container_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = <number_of_retry_invocation_attempts>
+          retry_interval     = <interval_between_retry_attempts>
+        }
+        dlq {
+          queue_id           = "<DLQ_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Timer name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `timer`: Trigger parameters:
+         * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
+         * `payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
+
+      * `container-name`: Container parameters:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      For more information about the `function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc serverless trigger list
+      ```
 
 - API
 

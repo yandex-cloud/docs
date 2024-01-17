@@ -537,4 +537,18 @@ items:
         href: serverless/ci-cd-serverless.md
       - name: Creating an interactive serverless application using WebSocket
         href: serverless/websocket-app.md
+      - name: >-
+          Automatically copying objects from one {{ objstorage-name }} bucket to
+          another
+        href: serverless/bucket-to-bucket-copying.md
+      - name: >-
+          Visualizing logs in {{ grafana-name }} using the {{
+          cloud-logging-full-name }} plugin
+        href: serverless/grafana-logs-plugin.md
+      - name: Canary release of a {{ sf-name }} function
+        href: serverless/canary-release.md
+      - name: Authorization using {{ sf-name }} functions in Ory Kratos
+        href: serverless/ory-kratos-authorization.md
+      - name: Interactive debugging of {{ sf-name }} functions
+        href: serverless/serverless-live-debug.md
 base: en/tutorials

@@ -11,53 +11,53 @@ description: "In this tutorial, you will learn how to get information about exis
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to get a list of repositories:
+   1. View a description of the CLI command to get a list of repositories:
 
-     ```bash
-     yc container repository list --help
-     ```
+      ```bash
+      yc container repository list --help
+      ```
 
-  1. Get a list of repositories.
-     * To get a list of all the repositories of all the registries in the current folder, run the command:
+   1. Get a list of repositories.
+      * To get a list of all the repositories of all the registries in the current folder, run the command:
 
-       ```bash
-       yc container repository list
-       ```
+         ```bash
+         yc container repository list
+         ```
 
-       Result:
+         Result:
 
-       ```bash
-       +----------------------+-----------------------------+
-       |          ID          |            NAME             |
-       +----------------------+-----------------------------+
-       | crp8bu81b5afogqjrg92 | crp0pmf1n68tt345tf02/ubuntu |
-       | crps9c63eviioaehqsif | crpl3738e9v1qb3besp7/ubuntu |
-       +----------------------+-----------------------------+
-       ```
+         ```bash
+         +----------------------+-----------------------------+
+         |          ID          |            NAME             |
+         +----------------------+-----------------------------+
+         | crp8bu81b5af******** | crp0pmf1n68t********/ubuntu |
+         | crps9c63evii******** | crpl3738e9v1********/ubuntu |
+         +----------------------+-----------------------------+
+         ```
 
-     * To get a list of all the repositories in a particular registry, run the command:
+      * To get a list of all the repositories in a particular registry, run the command:
 
-       ```bash
-       yc container repository list --registry-id <registry ID>
-       ```
+         ```bash
+         yc container repository list --registry-id <registry_ID>
+         ```
 
-       Result:
+         Result:
 
-       ```bash
-       +----------------------+-----------------------------+
-       |          ID          |            NAME             |
-       +----------------------+-----------------------------+
-       | crp8bu81b5afogqjrg92 | crp0pmf1n68tt345tf02/ubuntu |
-       +----------------------+-----------------------------+
-       ```
+         ```bash
+         +----------------------+-----------------------------+
+         |          ID          |            NAME             |
+         +----------------------+-----------------------------+
+         | crp8bu81b5af******** | crp0pmf1n68t********/ubuntu |
+         +----------------------+-----------------------------+
+         ```
 
 - API
 
-  To retrieve a list of repositories in a registry, use the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
+   To retrieve a list of repositories in a registry, use the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
 
 {% endlist %}
 
@@ -73,51 +73,51 @@ The repository appears in the list as soon as at least one [Docker image is push
 
 - CLI
 
-  1. View a description of the CLI command to get repository information:
+   1. View a description of the CLI command to get repository information:
 
-     ```bash
-     yc container repository get --help
-     ```
+      ```bash
+      yc container repository get --help
+      ```
 
-  1. Get information about the repository.
-     * By repository ID:
+   1. Get information about the repository.
+      * By repository ID:
 
-       ```bash
-       yc container repository get --id <repository ID>
-       ```
+         ```bash
+         yc container repository get --id <repository_ID>
+         ```
 
-       Result:
+         Result:
 
-       ```bash
-       name: crp0pmf1n68tt345tf02/ubuntu
-       id: crp8bu81b5afogqjrg92
-       ```
+         ```bash
+         name: crp0pmf1n68t********/ubuntu
+         id: crp8bu81b5af********
+         ```
 
-     * By repository name:
+      * By repository name:
 
-       ```bash
-       yc container repository get --name <repository name>
-       ```
+         ```bash
+         yc container repository get --name <repository_name>
+         ```
 
-       Result:
+         Result:
 
-       ```bash
-       name: crp0pmf1n68tt345tf02/ubuntu
-       id: crp8bu81b5afogqjrg92
-       ```
+         ```bash
+         name: crp0pmf1n68t********/ubuntu
+         id: crp8bu81b5af********
+         ```
 
-       You can specify both the full name of the Docker image and prefixes. For example, you can get information about the `crpvplula8p3nn86jtnb/myproject/myservice` repository by specifying `crpvplula8p3nn86jtnb/myproject/myservice`, `crpvplula8p3nn86jtnb/myproject`, or `crpvplula8p3nn86jtnb`.
+         You can specify both the full name of the Docker image and prefixes. For example, you can get information about the `crpvplula8p3********/myproject/myservice` repository by specifying `crpvplula8p3********/myproject/myservice`, `crpvplula8p3********/myproject`, or `crpvplula8p3********`.
 
 - API
 
-  Get information about the repository.
-  * By repository ID:
+   Get information about the repository.
+   * By repository ID:
 
-    Use the [Get](../../api-ref/Repository/get.md) method for the [Repository](../../api-ref/Repository/) resource. Specify the repository ID in the `repositoryId` property.
-  * By repository name:
+      Use the [Get](../../api-ref/Repository/get.md) method for the [Repository](../../api-ref/Repository/) resource. Specify the repository ID in the `repositoryId` property.
+   * By repository name:
 
-    Use the [GetByName](../../api-ref/Repository/getByName.md) method for the [Repository](../../api-ref/Repository/) resource. In the `repositoryName` property, specify the repository name.
+      Use the [GetByName](../../api-ref/Repository/getByName.md) method for the [Repository](../../api-ref/Repository/) resource. In the `repositoryName` property, specify the repository name.
 
-  You can retrieve a list of repositories in a registry by using the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
+   You can retrieve a list of repositories in a registry by using the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
 
 {% endlist %}

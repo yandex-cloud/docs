@@ -11,7 +11,7 @@ items:
         href: operations/authentication.md
       - name: Managing a Docker image
         items:
-          - name: Getting information about available Docker images
+          - name: Getting information about existing Docker images
             href: operations/docker-image/docker-image-list.md
           - name: Creating a Docker image
             href: operations/docker-image/docker-image-create.md
@@ -35,6 +35,8 @@ items:
         items:
           - name: Getting information about existing registries
             href: operations/registry/registry-list.md
+          - name: Getting information about a registry access policy
+            href: operations/registry/registry-permissions-get.md
           - name: Creating a registry
             href: operations/registry/registry-create.md
           - name: Configuring access to a registry
@@ -63,6 +65,8 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
       - name: Scanning Docker images for vulnerabilities
         href: operations/scanning-docker-image.md
+      - name: Creating a trigger for a registry
+        href: operations/trigger-create.md
       - name: Working with roles
         items:
           - name: Assigning a role
@@ -79,8 +83,6 @@ items:
         href: tutorials/index.md
       - name: Running a Docker image on a VM
         href: tutorials/run-docker-on-vm.md
-      - name: Creating a trigger with {{ sf-name }}
-        href: tutorials/trigger-create.md
       - name: Setting up automatic scanning of a Docker image
         href: tutorials/image-auto-scan.md
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
@@ -121,7 +123,7 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -253,6 +255,6 @@ items:
                 href: api-ref/Scanner/scan.md
   - name: Troubleshooting
     href: error/index.md
-  - name: Questions and answers
+  - name: Q&A
     href: qa/index.md
 base: en/container-registry

@@ -10,6 +10,8 @@ You can invoke a container:
 * Using a [trigger](#trigger).
 * Using a [{{ api-gw-full-name }} extension](#extension).
 
+{% include [active-revision](../../_includes/serverless-containers/active-revision.md) %}
+
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 ## HTTPS {#https}

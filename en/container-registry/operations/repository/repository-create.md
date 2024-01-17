@@ -5,52 +5,58 @@ description: "Follow this guide to create a repository."
 
 # Creating a repository
 
+{% note info %}
+
+A repository will only be displayed after you [push](../../operations/docker-image/docker-image-push.md) a Docker image to it.
+
+{% endnote %}
+
 To create a [repository](../../concepts/repository.md):
 
 {% list tabs %}
 
 - {{ TF }}
 
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  1. Describe the properties of the `yandex_container_repository` resource in a configuration file:
-     * `name`: Repository name as `<registry id>/<Docker image name>`. You can retrieve the [registry](../../concepts/registry.md) ID from the [folder registry list](../registry/registry-list.md#registry-list).
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-     > Here is an example of the configuration file structure:
-     >
-     > ```
-     > resource "yandex_container_repository" "my-repository" {
-     >   name = "abcd12316s9a2t7gd8ef/test-repository"
-     > }
-     > ```
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-     For more information about resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/container_repository).
+   1. Describe the properties of the `yandex_container_repository` resource in a configuration file:
 
-  1. Run a check using this command:
+      ```hcl
+      resource "yandex_container_registry" "my-registry" {
+        name = "test-registry"
+      }
 
-     ```
-     terraform plan
-     ```
+      resource "yandex_container_repository" "my-repository" {
+        name = "${yandex_container_registry.my-registry.id}/<repository_name>"
+      }
 
-     The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
+      output "my-registry-id" {
+        value = yandex_container_registry.my-registry.id
+      }
 
-     {% note alert %}
+      output "my-repository-name" {
+        value = yandex_container_repository.my-repository.name
+      }
+      ```
 
-     You will be charged for all the resources created with {{ TF }}. Check the pricing plan carefully.
+      Where `name` is the repository name in `<registry_ID>/<repository_name>` format. You can retrieve the [registry](../../concepts/registry.md) ID from the [folder registry list](../registry/registry-list.md#registry-list).
 
-     {% endnote %}
+      For more information about resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/container_repository).
 
-  1. To create resources, run the command:
+   1. Create resources:
 
-     ```
-     terraform apply
-     ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-  1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [YC CLI](../../../cli/) command:
+      ```bash
+      yc container repository list --registry-id <registry_ID>
+      ```
 
-     ```bash
-     yc container repository list --registry-id <registry id>
-     ```
+- API
+
+   To create a repository, use the [upsert](../../api-ref/Repository/upsert.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/Upsert](../../api-ref/grpc/repository_service.md#Upsert) gRPC API call.
 
 {% endlist %}

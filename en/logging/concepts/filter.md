@@ -15,43 +15,43 @@ You can filter log group records using the filter expression language. With the 
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-    1. Go to the **{{ ui-key.yacloud.logging.label_groups }}** tab.
-    1. Click the row with the log group you want to filter.
-    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
-    1. Set a filter and press **Enter**.
+   1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. Go to the **{{ ui-key.yacloud.logging.label_groups }}** tab.
+   1. Click the row with the log group you want to filter.
+   1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
+   1. Set a filter and press **Enter**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To set a filter using the filter expression language, run the command:
+   To set a filter using the filter expression language, run the command:
 
     ```
     yc logging read --group-name=default --filter="<filter>"
     ```
 
-    {% note info %}
+   {% note info %}
 
-    You can filter records using the `--filter` and other flags of the `yc logging read` command at the same time. This combines the conditions with the `AND` operator. For example, you can set a filter using the `--resource-types` flag and the `level` parameter of the `--filter` flag:
+   You can filter records using the `--filter` and other flags of the `yc logging read` command at the same time. This combines the conditions with the `AND` operator. For example, you can set a filter using the `--resource-types` flag and the `level` parameter of the `--filter` flag:
 
-    
-    ```
-    yc logging read --group-name=default --resource-types=serverless.function --filter="level=INFO"
-    ```
+   
+   ```
+   yc logging read --group-name=default --resource-types=serverless.function --filter="level=INFO"
+   ```
 
-    This filter will output records with the `INFO` logging level sent in the previous hour by {{ sf-name }} functions.
+   This filter will output records with the `INFO` logging level sent in the previous hour by {{ sf-name }} functions.
 
 
 
-    {% endnote %}
+   {% endnote %}
 
 - API
 
-    You can set a filter using the API [read](../api-ref/grpc/log_reading_service.md) method.
+   You can set a filter using the API [read](../api-ref/grpc/log_reading_service.md) method.
 
 {% endlist %}
 
@@ -129,12 +129,12 @@ Apart from checking for an exact match, the filter expression language supports 
 
 * **Greater than**, **Less than**, **Less than or equal to**, and **Greater than or equal to**
 
-    ```
-    parameter > "value"
-    parameter < "value"
-    parameter >= "value"
-    parameter <= "value"
-    ```
+   ```
+   parameter > "value"
+   parameter < "value"
+   parameter >= "value"
+   parameter <= "value"
+   ```
 
 Strings are compared in lexicographic order.
 

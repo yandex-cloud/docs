@@ -17,7 +17,7 @@ To create a trigger, you need:
 
    * To invoke a container.
    * To read from the queue the trigger receives messages from.
-   * (Optional) To write to a [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).
+   * (Optional) To write to a [dead letter queue](../../serverless-containers/concepts/dlq.md).
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
@@ -82,12 +82,7 @@ To create a trigger, you need:
    * `--name`: Trigger name.
    * `--queue`: Queue ID.
 
-      To find out the queue ID:
-
-      1. In the [management console]({{ link-console-main }}), select the folder containing the queue.
-      1. Select **{{ message-queue-name }}**.
-      1. Select the desired queue.
-      1. You can see the queue ID under **General information** in the **ARN** field.
+      {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
    * `--invoke-container-id`: Container ID.
    * `--queue-service-account-name`: Service account with rights to read messages from the queue.
@@ -114,6 +109,65 @@ To create a trigger, you need:
          service_account_id: bfbqqeo6jk**********
    status: ACTIVE
    ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create a trigger for {{ message-queue-name }}:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      
+      ```
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<trigger_name>"
+        container {
+          id                 = "<container_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+        message_queue {
+          queue_id           = "<queue_ID>"
+          service_account_id = "<service_account_ID>"
+          batch_cutoff       = "<timeout>"
+          batch_size         = "<event_batch_size>"
+        }
+      }
+      ```
+
+
+      Where:
+
+      * `name`: Trigger name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container`: Settings for the container that will be activated by the trigger:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+      * `message_queue`: Trigger parameters:
+         * `queue_id`: Queue ID.
+
+            {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
+
+         * `service_account_id`: Service account with permissions to read messages from the queue.
+
+         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc serverless trigger list
+      ```
 
 - API
 

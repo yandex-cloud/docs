@@ -1,2 +1,1 @@
-Make sure the trigger is working properly. To do this, view [function logs](../../functions/operations/function/function-logs.md): they show information about calls.
-
+Check that the trigger operates correctly. Do it by viewing [function logs](../../functions/operations/function/function-logs.md) that present information on invocations.

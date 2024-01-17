@@ -1,4 +1,4 @@
-Yandex Data Streams supports limited operations with data streams via the [Apache Kafka®](https://kafka.apache.org/) protocol. You can see the endpoints for Kafka API access on the Overview pages for the database and stream. First, request access to the Kafka API on these pages.
+Yandex Data Streams supports limited operations with data streams via the [Apache Kafka®](https://kafka.apache.org/) protocol. You can see the endpoints for Kafka API access on the Overview pages for the database and stream.
 
 Authentication is based on the service account API key (provide it as your password).
 

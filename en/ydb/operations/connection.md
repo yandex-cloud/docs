@@ -15,7 +15,7 @@ To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over
 
 ## Get connection parameters {#endpoint-and-path}
 
-You can get DB connection parameters in the {{ yandex-cloud }} management console or the {{ yandex-cloud }} CLI.
+To get the database connection details:
 
 {% list tabs %}
 
@@ -52,7 +52,7 @@ You can get DB connection parameters in the {{ yandex-cloud }} management consol
       +----------------------+----------------+-------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+---------+
       ```
 
-      DB connection parameters are specified in the `ENDPOINT` column.
+      DB connection details are specified in the `ENDPOINT` column.
 
       > For example, for a Serverless database:
       > * Endpoint: `{{ ydb.ep-serverless }}`.
@@ -61,6 +61,22 @@ You can get DB connection parameters in the {{ yandex-cloud }} management consol
       > For a Dedicated database:
       > * Endpoint: `{{ ydb.ep-dedicated }}`.
       > * Path: `{{ ydb.path-dedicated }}`.
+
+- API
+
+   Use the [get](../api-ref/Database/get.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Get](../api-ref/grpc/database_service.md#Get) gRPC API call and provide the database ID in the `databaseId` request parameter.
+
+   Database connection details are specified in the `endpoint` parameter.
+
+   > For example, for a Serverless database:
+   > * Endpoint: `{{ ydb.ep-serverless }}`.
+   > * Path: `{{ ydb.path-serverless }}`.
+   >
+   > For a Dedicated database:
+   > * Endpoint: `{{ ydb.ep-dedicated }}`.
+   > * Path: `{{ ydb.path-dedicated }}`.
+
+   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
 {% endlist %}
 

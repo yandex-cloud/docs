@@ -19,15 +19,15 @@ You can authenticate:
 
 
 * As a user:
-  * [Using an OAuth token](#user-oauth) (lifetime is **one year**).
-  * [Using an {{ iam-full-name }} token](#user-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
+   * [Using an OAuth token](#user-oauth) (lifetime is **one year**).
+   * [Using an {{ iam-full-name }} token](#user-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
 
 
 
 * As a service account:
-  * [Using authorized keys](#sa-json) (unlimited lifetime).
-  * [Using an {{ iam-name }} token](#sa-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
-  * [Using a secret of the service account](#k8s-secret) of the [external {{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or external [node group](../../managed-kubernetes/concepts/index.md#node-group) managed by {{ managed-k8s-name }}.
+   * [Using authorized keys](#sa-json) (unlimited lifetime).
+   * [Using an {{ iam-name }} token](#sa-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
+   * [Using a secret of the service account](#k8s-secret) of the [external {{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or external [node group](../../managed-kubernetes/concepts/index.md#node-group) managed by {{ managed-k8s-name }}.
 * [Using a Docker credential helper credential store](#cred-helper).
 
 The authentication command looks like this:
@@ -40,8 +40,8 @@ docker login \
 ```
 
 Where:
-* `username`: Token type. Acceptable values: `oauth`, `iam`, or `json_key`.
-* `password`: Token body.
+* `--username`: Token type. Acceptable values: `oauth`, `iam`, or `json_key`.
+* `--password`: Token body.
 * `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
 ## Authenticate as a user {#user}
@@ -80,7 +80,7 @@ Where:
    ```bash
    docker login \
      --username iam \
-     --password <{{ iam-name }} token> \
+     --password <IAM token> \
      {{ registry }}
    ```
 
@@ -103,8 +103,8 @@ Your programs can get access to {{ yandex-cloud }} resources using service accou
    Result:
 
    ```text
-   id: aje8a87g4e...
-   service_account_id: aje3932acd...
+   id: aje8a87g4eaj********
+   service_account_id: aje3932acde3********
    created_at: "2019-05-31T16:56:47Z"
    key_algorithm: RSA_2048
    ```
@@ -142,7 +142,7 @@ Your programs can get access to {{ yandex-cloud }} resources using service accou
    ```bash
    docker login \
      --username iam \
-     --password <{{ iam-name }} token> \
+     --password <IAM token> \
      {{ registry }}
    ```
 

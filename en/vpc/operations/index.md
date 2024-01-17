@@ -19,6 +19,7 @@ description: "This page provides a list of step-by-step guides for {{ vpc-name }
 - [{#T}](subnet-delete.md)
 - [{#T}](subnet-update.md)
 - [{#T}](subnet-move.md)
+- [{#T}](subnet-relocate.md)
 - [{#T}](subnet-used-addresses.md)
 
 ## Addresses {#addresses}

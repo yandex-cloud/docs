@@ -1,6 +1,7 @@
 Learn how to use serverless technologies and the Java Servlet API to create a simple web application for managing a task list.
 
 To create a web application:
+
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#preare).
 1. [Create a {{ objstorage-full-name }} bucket](#create-bucket).
@@ -19,6 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources to support a web application includes:
+
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 * Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
@@ -136,14 +138,15 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
    1. Prepare the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `servlet.zip` archive you downloaded.
    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
-   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** field, enter `5`.
+   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** field, enter `10`.
    1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, enter the account that you created when [preparing the environment](#prepare).
    1. Add environment variables:
-      * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+      * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one preceding `/?database=`), e.g., `ydb.serverless.yandexcloud.net:2135`.
       * `DATABASE`: Enter the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }}](#create-db) database (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-   1. Repeat steps 3–12 and create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
-   1. Repeat steps 3–12 and create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
+   1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
+   1. Repeat steps 3–14 and create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
+   1. Repeat steps 3–14 and create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
 
 - CLI
 
@@ -173,19 +176,20 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
         --runtime java11 \
         --entrypoint yandex.cloud.examples.serverless.todo.AddTaskServlet \
         --memory 128m \
-        --execution-timeout 5s \
+        --execution-timeout 10s \
         --source-path ./servlet.zip \
         --environment DATABASE=<DB_name>,ENDPOINT=<YDB_endpoint>
       ```
 
       Where:
-      * `function-name`: Name of the function you want to create a version of.
-      * `runtime`: Runtime environment.
-      * `entrypoint`: Entry point specified in \<function_file_name>.\<handler_name> format.
-      * `memory`: Amount of RAM.
-      * `execution-timeout`: Maximum function execution time before the timeout is reached.
-      * `source-path`: ZIP archive with the function code and required dependencies.
-      * `environment`: Environment variables in key=value format.
+
+      * `--function-name`: Name of the function you want to create a version of.
+      * `--runtime`: Runtime environment.
+      * `--entrypoint`: Entry point specified in the `<function_file_name>`.`<handler_name>` format.
+      * `--memory`: Amount of RAM.
+      * `--execution-timeout`: Maximum function execution time before the timeout is reached.
+      * `--source-path`: ZIP archive with the function code and required dependencies.
+      * `--environment`: Environment variables in `key=value` format.
 
       Result:
 
@@ -199,12 +203,24 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
       log_group_id: ckg3qh8h363p********
       ```
 
-   1. Repeat steps 1–2 and create a function named `list-tasks` with the entry point `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
-   1. Repeat steps 1–2 and create a function named `delete-task` with the entry point `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
+   1. Make the function public:
+
+      ```bash
+      yc serverless function allow-unauthenticated-invoke add-task
+      ```
+
+      Result:
+
+      ```bash
+      done (1s)
+      ```
+
+   1. Repeat steps 1–3 and create a function named `list-tasks` with the entry point `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
+   1. Repeat steps 1–3 and create a function named `delete-task` with the entry point `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
 
 - API
 
-   Use the [create](../../functions/functions/api-ref/Function/create) and the [createVersion](../../functions/functions/api-ref/Function/createVersion) API methods.
+   Use the [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion), and [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) API methods for the [Function](../../functions/functions/api-ref/Function) resource.
 
 
 - {{ yandex-cloud }} Toolkit
@@ -269,6 +285,7 @@ To ensure interaction between services, create an API gateway:
       * `/add` section, `function_id` parameter: ID of the `add-task` function.
       * `/list` section, `function_id` parameter: ID of the `list-tasks` function.
       * `/delete` section, `function_id` parameter: ID of the `delete-task` function.
+
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI
@@ -355,6 +372,7 @@ To open the app, follow the link in the **{{ ui-key.yacloud.serverless-functions
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
+
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
 * [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
 * [Delete the functions](../../functions/operations/function/function-delete.md).

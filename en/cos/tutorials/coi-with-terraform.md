@@ -30,7 +30,7 @@ In our example, we use a configuration file named `example.tf`, which is located
        }
      }
      network_interface {
-       subnet_id = "<subnet ID>"
+       subnet_id = "<subnet_ID>"
        nat = true
      }
      resources {
@@ -65,7 +65,7 @@ In our example, we use a configuration file named `example.tf`, which is located
        sudo: ALL=(ALL) NOPASSWD:ALL
        shell: /bin/bash
        ssh-authorized-keys:
-         - "<public SSH key>"
+         - "<public_SSH_key>"
    ```
 
    Where `ssh-authorized-keys` is the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -98,21 +98,21 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 - CLI
 
-  1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
-     1. In the command line, go to the `~/cloud-terraform` directory with the configuration files:
+      1. In the command line, go to the `~/cloud-terraform` directory with the configuration files:
 
-        ```bash
-        cd /Users/<username>/cloud-terraform
-        ```
+         ```bash
+         cd /Users/<username>/cloud-terraform
+         ```
 
-     1. Run a check using this command:
+      1. Run a check using this command:
 
-        ```bash
-        terraform plan
-        ```
+         ```bash
+         terraform plan
+         ```
 
-        Result:
+         Result:
 
         ```
         Refreshing Terraform state in-memory prior to plan...
@@ -124,106 +124,106 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
         "terraform apply" is subsequently run.
         ```
 
-  1. Deploy your resources in {{ yandex-cloud }}.
+   1. Deploy your resources in {{ yandex-cloud }}.
 
-     1. Run this command:
+      1. Run this command:
 
-        ```bash
-        terraform apply
-        ```
+         ```bash
+         terraform apply
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        data.yandex_compute_image.container-optimized-image: Refreshing state...
+         ```bash
+         data.yandex_compute_image.container-optimized-image: Refreshing state...
 
-        An execution plan has been generated and is shown below.
-        Resource actions are indicated with the following symbols:
-        ...
-          Terraform will perform the actions described above.
-          Only 'yes' will be accepted to approve.
+         An execution plan has been generated and is shown below.
+         Resource actions are indicated with the following symbols:
+         ...
+           Terraform will perform the actions described above.
+           Only 'yes' will be accepted to approve.
 
-          Enter a value:
-        ```
+           Enter a value:
+         ```
 
-     1. Confirm that you want to create the resources. To do this, type `yes`:
+      1. Confirm that you want to create the resources. To do this, type `yes`:
 
-        ```bash
-        Enter a value: yes
-        ```
+         ```bash
+         Enter a value: yes
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        yandex_compute_instance.instance-based-on-coi: Creating...
-        yandex_compute_instance.instance-based-on-coi: Still creating... [10s elapsed]
-        yandex_compute_instance.instance-based-on-coi: Still creating... [20s elapsed]
-        ...
-        Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+         ```bash
+         yandex_compute_instance.instance-based-on-coi: Creating...
+         yandex_compute_instance.instance-based-on-coi: Still creating... [10s elapsed]
+         yandex_compute_instance.instance-based-on-coi: Still creating... [20s elapsed]
+         ...
+         Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
-        Outputs:
+         Outputs:
 
-        external_ip = <public IP address>
-        ```
+         external_ip = <public_IP_address>
+         ```
 
-        The required resources will be created in the folder. When created, the VM is assigned an IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
+         The required resources will be created in the folder. When created, the VM is assigned an IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
-  1. Check the resources and their settings in the [management console]({{ link-console-main }}).
+   1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 
-  1. Connect to the VM with the {{ coi }}.
+   1. Connect to the VM with the {{ coi }}.
 
-     1. Run this command:
+      1. Run this command:
 
-        ```bash
-        ssh yc-user@<public IP address>
-        ```
+         ```bash
+         ssh yc-user@<public_IP_address>
+         ```
 
-        Result:
+         Result:
 
-        ```
-        The authenticity of host '<public IP address> (<public IP address>)' can't be established.
-        ECDSA key fingerprint is SHA256:JPq....
-        Are you sure you want to continue connecting (yes/no/[fingerprint])?
-        ```
+         ```
+         The authenticity of host '<public_IP_address> (<public_IP_address>)' can't be established.
+         ECDSA key fingerprint is SHA256:JPq....
+         Are you sure you want to continue connecting (yes/no/[fingerprint])?
+         ```
 
-     1. Confirm connecting to the VM. To do this, type `yes`:
+      1. Confirm connecting to the VM. To do this, type `yes`:
 
-        ```bash
-        Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-        ```
+         ```bash
+         Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        Warning: Permanently added '<public IP address>' (ECDSA) to the list of known hosts.
-        Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
+         ```bash
+         Warning: Permanently added '<public_IP_address>' (ECDSA) to the list of known hosts.
+         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
-         * Documentation:  https://help.ubuntu.com
-        ...
-        Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-        applicable law.
-        ```
+          * Documentation:  https://help.ubuntu.com
+         ...
+         Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+         applicable law.
+         ```
 
-  1. Make an HTTP request to the VM:
+   1. Make an HTTP request to the VM:
 
-     ```html
-     curl <public IP address>
-     ```
+      ```html
+      curl <public_IP_address>
+      ```
 
-     Result:
+      Result:
 
-     ```html
-     <!DOCTYPE html>
-     <html lang="en">
-     <head>
-      <meta http-equiv="refresh" content="3">
-       <title>Yandex.Scale</title>
-     </head>
-     <body>
-     <h1>Hello v1</h1>
-     </body>
-     </html>
-     ```
+      ```html
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+       <meta http-equiv="refresh" content="3">
+        <title>Yandex.Scale</title>
+      </head>
+      <body>
+      <h1>Hello v1</h1>
+      </body>
+      </html>
+      ```
 
 {% endlist %}
 
@@ -236,9 +236,9 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
    
    ```
    provider "yandex" {
-     token     = "<OAuth token>"
-     cloud_id  = "<cloud ID>"
-     folder_id = "<folder ID>"
+     token     = "<OAuth_token>"
+     cloud_id  = "<cloud_ID>"
+     folder_id = "<folder_ID>"
      zone      = "{{ region-id }}-a"
    }
    data "yandex_compute_image" "container-optimized-image" {
@@ -246,8 +246,8 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
    }
    resource "yandex_compute_instance_group" "ig-with-coi" {
      name = "ig-with-coi"
-     folder_id = "<folder ID>"
-     service_account_id = "<service account ID>"
+     folder_id = "<folder_ID>"
+     service_account_id = "<service_account_ID>"
      instance_template {
        platform_id = "standard-v3"
        resources {
@@ -261,8 +261,8 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
          }
        }
        network_interface {
-         network_id = "<network ID>"
-         subnet_ids = ["<subnet IDs>"]
+         network_id = "<network_ID>"
+         subnet_ids = ["<subnet_IDs>"]
          nat = true
        }
        metadata = {
@@ -276,7 +276,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
        }
      }
      allocation_policy {
-       zones = ["<availability zones>"]
+       zones = ["<availability_zones>"]
      }
      deploy_policy {
        max_unavailable = 2
@@ -317,21 +317,21 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
 - CLI
 
-  1. Make sure the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
-     1. In the command line, go to the `~/cloud-terraform` directory with the configuration files:
+      1. In the command line, go to the `~/cloud-terraform` directory with the configuration files:
 
-        ```bash
-        cd /Users/<username>/cloud-terraform
-        ```
+         ```bash
+         cd /Users/<username>/cloud-terraform
+         ```
 
-     1. Run a check using this command:
+      1. Run a check using this command:
 
-        ```bash
-        terraform plan
-        ```
+         ```bash
+         terraform plan
+         ```
 
-        Result:
+         Result:
 
         ```
         Refreshing Terraform state in-memory prior to plan...
@@ -343,106 +343,106 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
         "terraform apply" is subsequently run.
         ```
 
-  1. Deploy your resources in {{ yandex-cloud }}.
+   1. Deploy your resources in {{ yandex-cloud }}.
 
-     1. Run this command:
+      1. Run this command:
 
-        ```bash
-        terraform apply
-        ```
+         ```bash
+         terraform apply
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        data.yandex_compute_image.container-optimized-image: Refreshing state...
+         ```bash
+         data.yandex_compute_image.container-optimized-image: Refreshing state...
 
-        An execution plan has been generated and is shown below.
-        Resource actions are indicated with the following symbols:
-        ...
-          Terraform will perform the actions described above.
-          Only 'yes' will be accepted to approve.
+         An execution plan has been generated and is shown below.
+         Resource actions are indicated with the following symbols:
+         ...
+           Terraform will perform the actions described above.
+           Only 'yes' will be accepted to approve.
 
-          Enter a value:
-        ```
+           Enter a value:
+         ```
 
-     1. Confirm that you want to create the resources. To do this, type `yes`:
+      1. Confirm that you want to create the resources. To do this, type `yes`:
 
-        ```bash
-        Enter a value: yes
-        ```
+         ```bash
+         Enter a value: yes
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        yandex_compute_instance_group.ig-with-coi: Creating...
-        yandex_compute_instance_group.ig-with-coi: Still creating... [10s elapsed]
-        yandex_compute_instance_group.ig-with-coi: Still creating... [20s elapsed]
-        ...
-        external_ip = [
-          [
-            "<public IP address of VM1>",
-            "<public IP address of VM2>",
-          ],
-        ]
-        ```
+         ```bash
+         yandex_compute_instance_group.ig-with-coi: Creating...
+         yandex_compute_instance_group.ig-with-coi: Still creating... [10s elapsed]
+         yandex_compute_instance_group.ig-with-coi: Still creating... [20s elapsed]
+         ...
+         external_ip = [
+           [
+             "<public_IP_address_of_VM_1>",
+             "<public_IP_address_of_VM_2>",
+           ],
+         ]
+         ```
 
-        The required resources will be created in the folder. When created, each VM is assigned a public IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
+         The required resources will be created in the folder. When created, each VM is assigned a public IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
-  1. Check the resources and their settings in the [management console]({{ link-console-main }}).
+   1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 
-  1. Connect to one of the VMs with the {{ coi }}.
+   1. Connect to one of the VMs with the {{ coi }}.
 
-     1. Run this command:
+      1. Run this command:
 
-        ```bash
-        ssh yc-user@<public IP address of VM1>
-        ```
+         ```bash
+         ssh yc-user@<public_IP_address_of_VM_1>
+         ```
 
-        Result:
+         Result:
 
-        ```
-        The authenticity of host '<public IP address of VM1> (<public IP address of VM1>)' can't be established.
-        ECDSA key fingerprint is SHA256:JPq....
-        Are you sure you want to continue connecting (yes/no/[fingerprint])?
-        ```
+         ```
+         The authenticity of host '<public_IP_address_of_VM_1> (<public_IP_address_of_VM_1>)' can't be established.
+         ECDSA key fingerprint is SHA256:JPq....
+         Are you sure you want to continue connecting (yes/no/[fingerprint])?
+         ```
 
-     1. Confirm connecting to the VM. To do this, type `yes`:
+      1. Confirm connecting to the VM. To do this, type `yes`:
 
-        ```bash
-        Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-        ```
+         ```bash
+         Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        Warning: Permanently added '<public IP address of VM1>' (ECDSA) to the list of known hosts.
-        Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
+         ```bash
+         Warning: Permanently added '<public_IP_address_of_VM_1>' (ECDSA) to the list of known hosts.
+         Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-52-generic x86_64)
 
-         * Documentation:  https://help.ubuntu.com
-        ...
-        Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-        applicable law.
-        ```
+          * Documentation:  https://help.ubuntu.com
+         ...
+         Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+         applicable law.
+         ```
 
-  1. Make an HTTP request to one of the VM instances in the group:
+   1. Make an HTTP request to one of the VM instances in the group:
 
-     ```html
-     curl <public IP address of VM1>
-     ```
+      ```html
+      curl <public_IP_address_of_VM_1>
+      ```
 
-     Result:
+      Result:
 
-     ```html
-     <!DOCTYPE html>
-     <html lang="en">
-     <head>
-      <meta http-equiv="refresh" content="3">
-       <title>Yandex.Scale</title>
-     </head>
-     <body>
-     <h1>Hello v1</h1>
-     </body>
-     </html>
-     ```
+      ```html
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+       <meta http-equiv="refresh" content="3">
+        <title>Yandex.Scale</title>
+      </head>
+      <body>
+      <h1>Hello v1</h1>
+      </body>
+      </html>
+      ```
 
 {% endlist %}

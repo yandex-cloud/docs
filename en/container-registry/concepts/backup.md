@@ -15,33 +15,33 @@ To back up your Docker images:
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to view a list of registries.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-     1. You can see a list of registries on the **{{ ui-key.yacloud.cr.switch_registry }}** tab.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to view a list of registries.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+      1. You can see a list of registries on the **{{ ui-key.yacloud.cr.switch_registry }}** tab.
 
    - CLI
 
-     {% include [cli-install](../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     ```bash
-     yc container registry list
-     ```
+      ```bash
+      yc container registry list
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     +----------------------+-------------+----------------------+
-     |          ID          |   NAME      |      FOLDER ID       |
-     +----------------------+-------------+----------------------+
-     | crp1abc2tl3def1h2gu6 | my-registry | b1g23ga82bcv0cdeferg |
-     +----------------------+-------------+----------------------+
-     ```
+      ```bash
+      +----------------------+-------------+----------------------+
+      |          ID          |   NAME      |      FOLDER ID       |
+      +----------------------+-------------+----------------------+
+      | crp1abc2tl3d******** | my-registry | b1g23ga82bcv******** |
+      +----------------------+-------------+----------------------+
+      ```
 
    - API
 
-     Use the [list](../api-ref/Registry/list.md) method for the [Registry](../api-ref/Registry/) resource.
+      Use the [list](../api-ref/Registry/list.md) method for the [Registry](../api-ref/Registry/) resource.
 
    {% endlist %}
 
@@ -51,33 +51,33 @@ To back up your Docker images:
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to view information about Docker images.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-     1. On the **{{ ui-key.yacloud.cr.switch_registry }}** tab, click the name of the registry.
-     1. On the **{{ ui-key.yacloud.cr.registry.overview.section_repositories }}** page, click the name of the repository.
-     1. On the **{{ ui-key.yacloud.cr.registry.overview.section_images }}** page you can see the Docker images.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to view information about Docker images.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+      1. On the **{{ ui-key.yacloud.cr.switch_registry }}** tab, click the name of the registry.
+      1. On the **{{ ui-key.yacloud.cr.registry.overview.section_repositories }}** page, click the name of the repository.
+      1. On the **{{ ui-key.yacloud.cr.registry.overview.section_images }}** page you can see the Docker images.
 
    - CLI
 
-     ```bash
-     yc container image list --registry-name my-registry
-     ```
+      ```bash
+      yc container image list --registry-name my-registry
+      ```
 
-     Where `registry-name`: Registry name.
+      Where `registry-name`: Registry name.
 
-     Result:
+      Result:
 
-     ```bash
-     +----------------------+---------------------+-----------------------------+-------+-----------------+
-     |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
-     +----------------------+---------------------+-----------------------------+-------+-----------------+
-     | crpabcpg1pde2f33ekp4 | 2020-10-26 15:45:39 | crp1abc2tl3def1h2gu6/ubuntu | hello | 27.2 MB         |
-     +----------------------+---------------------+-----------------------------+-------+-----------------+
-     ```
+      ```bash
+      +----------------------+---------------------+-----------------------------+-------+-----------------+
+      |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
+      +----------------------+---------------------+-----------------------------+-------+-----------------+
+      | crpabcpg1pde******** | 2020-10-26 15:45:39 | crp1abc2tl3d********/ubuntu | hello | 27.2 MB         |
+      +----------------------+---------------------+-----------------------------+-------+-----------------+
+      ```
 
    - API
 
-     Use the [list](../api-ref/Image/list.md) method for the [Image](../api-ref/Image/) resource.
+      Use the [list](../api-ref/Image/list.md) method for the [Image](../api-ref/Image/) resource.
 
    {% endlist %}
 
@@ -87,18 +87,18 @@ To back up your Docker images:
 
    - CLI
 
-     ```bash
-     docker pull {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
-     ```
+      ```bash
+      docker pull {{ registry }}/crp1abc2tl3d********/ubuntu:hello
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     hello: Pulling from crp1abc2tl3def1h2gu6/ubuntu
-     Digest: sha256:1d2b339619babc2d008eca2d5293e3c43ff84cbee597ff76dd3e7f7de3e84956
-     Status: Downloaded newer image for {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
-     {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
-     ```
+      ```bash
+      hello: Pulling from crp1abc2tl3d********/ubuntu
+      Digest: sha256:1d2b339619babc2d008eca2d5293e3c43ff84cbee597ff76dd3e7f7d********
+      Status: Downloaded newer image for {{ registry }}/crp1abc2tl3d********/ubuntu:hello
+      {{ registry }}/crp1abc2tl3d********/ubuntu:hello
+      ```
 
    {% endlist %}
 
@@ -108,16 +108,16 @@ To back up your Docker images:
 
    - CLI
 
-     ```bash
-     docker image list
-     ```
+      ```bash
+      docker image list
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE
-     {{ registry }} /crp1abc2tl3def1h2gu6/ubuntu  hello   d12eaa3277bc  3 days ago  72.9MB
-     ubuntu                                       latest  d12eaa3277bc  3 days ago  72.9MB
-     ```
+      ```bash
+      REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE
+      {{ registry }} /crp1abc2tl3d********/ubuntu  hello   d12e********  3 days ago  72.9MB
+      ubuntu                                       latest  d12e********  3 days ago  72.9MB
+      ```
 
    {% endlist %}

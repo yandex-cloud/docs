@@ -29,6 +29,8 @@ items:
             href: operations/subnet-update.md
           - name: Moving a subnet between folders
             href: operations/subnet-move.md
+          - name: Moving a subnet to a different availability zone
+            href: operations/subnet-relocate.md
           - name: Viewing a list of used addresses
             href: operations/subnet-used-addresses.md
       - name: IP address
@@ -56,7 +58,7 @@ items:
             href: operations/static-gateway-move.md
       - name: Security groups
         items:
-          - name: Create a security group
+          - name: Creating a security group
             href: operations/security-group-create.md
           - name: Changing the name and description
             href: operations/security-group-update.md
@@ -66,13 +68,13 @@ items:
             href: operations/security-group-delete-rule.md
           - name: Moving a security group between folders
             href: operations/security-group-move.md
-          - name: Delete a security group
+          - name: Deleting a security group
             href: operations/security-group-delete.md
-      - name: Enable a software-accelerated network
+      - name: Enabling a software-accelerated network
         href: operations/enable-software-accelerated-network.md
       - name: DDoS protection
         items:
-          - name: Enable protection from DDoS attacks
+          - name: Enabling DDoS protection
             href: operations/enable-ddos-protection.md
           - name: Setting the MTU when DDoS protection is active
             href: operations/adjust-mtu-ddos-protection.md

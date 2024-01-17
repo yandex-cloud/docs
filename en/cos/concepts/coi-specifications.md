@@ -115,9 +115,9 @@ x-yc-disks:
 Where:
 * `version`: Specification version tag the file should start with.
 * `services`: Section that describes the services.
-* `container_name`: Docker container to be run.
+* `container_name`: Docker container you are going to run.
 * `image`: Docker image used to create and run a Docker container.
-* `ports`: Used for redirecting service ports. Specified in the `<PC port>:<container port>` format.
+* `ports`: Used for redirecting service ports. Use the format: `<PC_port>:<container_port>`.
 * `restart`: Docker container restart policy settings.
 * `volumes`: Description of the volumes used in the Docker container.
 * `x-yc-disks`: Section that describes the [disks](../../compute/concepts/disk.md) to attach. It is an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.

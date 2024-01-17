@@ -49,7 +49,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -152,6 +152,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
            stream_names   = [ "<log stream>" ]
            batch_cutoff   = 1
            batch_size     = 1
+        }
         function {
            id                 = "<function ID>"
            service_account_id = "<service account ID>"
@@ -190,7 +191,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

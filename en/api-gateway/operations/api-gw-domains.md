@@ -17,7 +17,7 @@ To connect a domain to an API gateway:
    1. Host a CNAME record with your DNS provider or on your own DNS server:
 
       ```
-      <domain> IN CNAME <API gateway service domain>
+      <domain> IN CNAME <API_gateway_service_domain>
       ```
 
       To find out an API gateway's service domain:

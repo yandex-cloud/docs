@@ -15,6 +15,12 @@ Learn more about [invoking a container](./invoke.md).
 
 You can only create a container revision from a Docker image uploaded to a [registry](../../container-registry/concepts/registry) in {{ container-registry-full-name }}. No other registries are supported. The revision contains all the information needed to run the container.
 
+Possible revision statuses include:
+* `Active`
+* `Obsolete`
+
+Invoking a container triggers the active revision. By default, it is the latest revision, but you have the option to [change the active revision](../operations/activate-revision.md). When you create a new revision, it automatically becomes active.
+
 {% include [manage-revision-note](../../_includes/serverless-containers/manage-revision-note.md) %}
 
 {% include [create-revision-note](../../_includes/serverless-containers/create-revision-note.md) %}

@@ -1,6 +1,6 @@
 ---
-title: "How to scan Docker images for vulnerabilities in {{ container-registry-full-name }}"
-description: "This guide describes how you can scan a Docker image for vulnerabilities."
+title: "How to scan a Docker image for vulnerabilities in {{ container-registry-full-name }}"
+description: "Follow tis guide to scan a Docker image for vulnerabilities."
 ---
 
 # Scanning Docker images for vulnerabilities
@@ -43,7 +43,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
    1. Get a list of the Docker images in a registry:
 
       ```bash
-      yc container image list --repository-name=<registry ID>/<Docker image name>
+      yc container image list --repository-name=<registry_ID>/<Docker_image_name>
       ```
 
       Result:
@@ -52,22 +52,22 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
       +----------------------+---------------------+-----------------------------+---------+-----------------+
       |          ID          |       CREATED       |            NAME             |  TAGS   | COMPRESSED SIZE |
       +----------------------+---------------------+-----------------------------+---------+-----------------+
-      | crpqmsqp5mtbh627i7qs | 2021-02-09 08:57:14 | crpp7p7dovf46626a7k4/ubuntu | example | 27.2 MB         |
+      | crpqmsqp5mtb******** | 2021-02-09 08:57:14 | crpp7p7dovf4********/ubuntu | example | 27.2 MB         |
       +----------------------+---------------------+-----------------------------+---------+-----------------+
       ```
 
    1. Start a Docker image scan:
 
       ```bash
-      yc container image scan <Docker image ID>
+      yc container image scan <Docker_image_ID>
       ```
 
       Result:
 
       ```text
       done (24s)
-      id: che1el9t4t95elduhuq5
-      image_id: crpqmsqp5mtbh627i7qs
+      id: che1el9t4t95********
+      image_id: crpqmsqp5mtb********
       ...
         medium: "6"
         low: "13"
@@ -77,7 +77,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
    1. Get detailed information on the scan results:
 
       ```bash
-      yc container image list-vulnerabilities --scan-result-id=<scan result ID>
+      yc container image list-vulnerabilities --scan-result-id=<ID_of_scan_results>
       ```
 
       Result:
@@ -96,7 +96,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
       To view scans by Docker image, run the command:
 
       ```bash
-      yc container image list-scan-results --repository-name=<Registry ID>/<Docker image name>
+      yc container image list-scan-results --repository-name=<registry_ID>/<Docker_image_name>
       ```
 
       Result:
@@ -105,7 +105,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
       +----------------------+----------------------+---------------------+--------+--------------------------------+
       |          ID          |        IMAGE         |     SCANNED AT      | STATUS |        VULNERABILITIES         |
       +----------------------+----------------------+---------------------+--------+--------------------------------+
-      | che1el9t4t95elduhuq5 | crpqmsqp5mtbh627i7qs | 2021-03-16 14:34:02 | READY  | medium:6, low:13, negligible:3 |
+      | che1el9t4t95******** | crpqmsqp5mtb******** | 2021-03-16 14:34:02 | READY  | medium:6, low:13, negligible:3 |
       +----------------------+----------------------+---------------------+--------+--------------------------------+
       ```
 

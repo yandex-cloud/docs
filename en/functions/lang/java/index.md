@@ -11,9 +11,9 @@ With {{ sf-name }}, you can run applications written in [Java](https://docs.orac
 
 #|
 || **Name** | **Java version** | **OS** | **Preloaded** | **Supported by the service** ||
-|| java11 | 11 | Ubuntu 18.04 | no | no ||
-|| java17 | 17 | Ubuntu 18.04 | no | no ||
-|| java21 | 21 | Ubuntu 22.04 LTS | no | yes ||
+|| java11 | 11 | Ubuntu 18.04 | No | No ||
+|| java17 | 17 | Ubuntu 18.04 | No | No ||
+|| java21 | 21 | Ubuntu 22.04 LTS | No | Yes ||
 |#
 
 

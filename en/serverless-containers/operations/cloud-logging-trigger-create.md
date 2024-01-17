@@ -47,7 +47,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -124,6 +124,77 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
    status: ACTIVE
    ```
 
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create a trigger for {{ cloud-logging-name }}:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<trigger_name>"
+        container {
+          id                 = "<container_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = "<number_of_retry_invocation_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
+        }
+        logging {
+          group_id       = "<log_group_ID>"
+          resource_types = [ "<resource_type>" ]
+          resource_ids   = [ "<resource_ID>" ]
+          levels         = [ "INFO", "ERROR" ]
+          stream_names   = [ "<log_stream>" ]
+          batch_cutoff   = "<timeout>"
+          batch_size     = "<event_batch_size>"
+        }
+        dlq {
+         queue_id           = "<DLQ_ID>"
+         service_account_id = "<service_account_ID>"
+       }
+      }
+      ```
+
+      Where:
+
+      * `name`: Trigger name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container-name`: Container parameters:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `logging`: Trigger parameters:
+         * `group_id`: Log group ID.
+         * `resource_types`: Types of resources, e.g., {{ sf-name }} functions. This is an optional parameter.
+         * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., {{ sf-name }} functions. This is an optional parameter.
+         * `levels`: Logging levels. This is an optional parameter.
+         * `stream_names`: Log streams. This is an optional parameter.
+            A trigger fires when records are added to the specified log group that satisfy all of the following parameters: `resource_ids`, `resource_types`, `stream_names`, and `levels` . If a parameter is not specified, the trigger fires for any value of the parameter.
+
+         {% include [tf-batch-msg-params](../../_includes/serverless-containers/tf-batch-msg-params.md) %}
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc serverless trigger list
+      ```
 
 - API
 

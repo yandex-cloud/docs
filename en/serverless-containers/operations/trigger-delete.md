@@ -49,6 +49,47 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
    status: PAUSED
    ```
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To delete a trigger created using {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and delete the fragment with the `function_trigger` resource description.
+
+      Sample `function_trigger` resource description in the {{ TF }} configuration:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "sc-timer"
+        timer {
+          cron_expression = "*/5 * ? * * *"
+        }
+        container {
+          id                 = "bbaomb25tl68********"
+          service_account_id = "ajej9vu5f62d********"
+          retry_attempts     = 1
+          retry_interval     = 15
+        }
+        dlq {
+          queue_id           = "yrn:yc:ymq:ru-central1:b1geoelk7fld********:formycontainer"
+          service_account_id = "ajej9vu5f62d********"
+        }
+      }
+      ```
+
+   1. Delete resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```bash
+      yc serverless trigger list
+      ```
+
 - API
 
    To delete a trigger, use the [delete](../triggers/api-ref/Trigger/delete.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Delete](../triggers/api-ref/grpc/trigger_service.md#Delete) gRPC API call.

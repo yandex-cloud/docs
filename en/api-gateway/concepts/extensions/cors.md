@@ -103,7 +103,7 @@ paths:
     x-yc-apigateway-cors:
       origin: false
     options:
-      operationId: preflightPetById
+      operationId: prefligh********
       parameters:
         - in: path
           name: petId

@@ -22,5 +22,5 @@ Where:
 * 0.128000 is the price per 1 million function calls.
 * 10,000,000 is the number of function calls.
 * 1,000,000 is subtracted because the first million invocations are free of charge.
-* 1000000 is the divisor used to calculate the number of millions of function calls.
+* 1,000,000 is the divisor used to calculate the number of millions of function calls.
 

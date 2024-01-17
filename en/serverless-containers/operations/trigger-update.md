@@ -71,6 +71,64 @@ Your changes will apply within five minutes.
 
 
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   1. Open the {{ TF }} configuration file and update the parameters of the `function_trigger` resource:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "<timer_name>"
+        timer {
+          cron_expression = "<cron_expression>"
+          payload         = "<message>"
+        }
+        container {
+          id                 = "<container_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = <number_of_retry_invocation_attempts>
+          retry_interval     = <interval_between_retry_attempts>
+        }
+        dlq {
+          queue_id           = "<DLQ_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Timer name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `timer`: Trigger parameters:
+         * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
+         * `payload`: Message to be delivered to the function if the timer triggers. The string length must not exceed 4,096 characters.
+
+      * `container`: Settings for the container that will be activated by the trigger:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      For more information about the `function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```bash
+      yc serverless trigger list
+      ```
+
 - API
 
    To update parameters of a trigger, use the [update](../triggers/api-ref/Trigger/update.md) REST API method for the [Trigger](../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Update](../triggers/api-ref/grpc/trigger_service.md#Update) gRPC API call.

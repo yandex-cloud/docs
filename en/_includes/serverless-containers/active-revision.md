@@ -1,0 +1,1 @@
+Invoking a container triggers the [active revision](../../serverless-containers/concepts/container.md#revision).

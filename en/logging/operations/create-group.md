@@ -51,13 +51,13 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
       {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
    
-   * `data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. This is an optional parameter. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
+   * `--data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. This is an optional parameter. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
+      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
       > * `aws_stream`: Stream name
       > * `{{ region-id }}`: Availability zone
-      > * `aoeu1kuk2dhtaupdb1es`: Folder ID
-      > * `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID
+      > * `aoeu1kuk2dht********`: Folder ID
+      > * `cc8029jgtuab********`: {{ ydb-full-name }} database ID
 
 
    Result:
@@ -72,7 +72,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
    name: group
    status: ACTIVE
    retention_period: 3600s
-   data_stream: /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
+   data_stream: /{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream
    ```
 
 
@@ -99,15 +99,15 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
       
       ```hcl
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
+        token     = "<OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
         zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_logging_group" "group1" {
-        name      = "<log group name>"
-        folder_id = "<folder ID>"
+        name             = "<log_group_name>"
+        folder_id        = "<folder_ID>"
         retention_period = "5h"
       }
       ```
@@ -125,7 +125,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

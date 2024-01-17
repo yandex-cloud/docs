@@ -1,6 +1,0 @@
-items:
-  - name: Overview
-    href: tts-v3/api-ref/grpc/index.md
-  - name: Synthesizer
-    href: tts-v3/api-ref/grpc/tts_service.md
-base: en/_includes/speaqual/api-ref-grpc/tts

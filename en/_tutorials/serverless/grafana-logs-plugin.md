@@ -252,7 +252,7 @@ The cost of resources includes a fee for logging operations and log storage in a
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -279,15 +279,15 @@ The cost of resources includes a fee for logging operations and log storage in a
    ```bash
    curl -X POST \
      -H 'Content-Type: application/json' \
-     -H "Authorization: Bearer <iam_token>" \
-     -d '{"serviceAccountId": "<service_account_id>"}' \
+     -H "Authorization: Bearer <IAM_token>" \
+     -d '{"serviceAccountId": "<service_account_ID>"}' \
      https://iam.{{ api-host }}/iam/v1/keys
    ```
 
    Where:
 
-   * `<iam_token>`: IAM token of the user who has permissions to create keys for the specified service account.
-   * `<service_account_id>`: ID of the service account the keys are created for.
+   * `<IAM_token>`: IAM token of the user with permissions to create keys for the specified service account.
+   * `<service_account_id>`: ID of the service account for which the keys are created.
 
    If successful, the server response will contain the private key (`privateKey`) and public key ID (`id`). Save this data. You will not be able to get the key value again.
 
@@ -356,7 +356,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
       ```hcl
       provider "yandex" {
-        token     = "<OAuth>"
+        token     = "<OAuth_token>"
         cloud_id  = "<cloud_ID>"
         folder_id = "<folder_ID>"
         zone      = "{{ region-id }}-a"
@@ -386,7 +386,7 @@ The cost of resources includes a fee for logging operations and log storage in a
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

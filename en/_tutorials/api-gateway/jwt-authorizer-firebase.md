@@ -176,8 +176,8 @@ Firebase:
 
       Where:
 
-      * `name`: API gateway name
-      * `spec`: Specification file
+      * `--name`: API gateway name
+      * `--spec`: Specification file
 
       Result:
 
@@ -511,7 +511,7 @@ Deploy a static website:
 
          * `website`: Website parameters:
             * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
-            * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. This is an optional parameter.
+            * `error_document`: Absolute path to the file displayed to the user on `4xx` errors. This is an optional parameter.
 
          For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
 

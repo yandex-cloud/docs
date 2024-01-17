@@ -15,43 +15,43 @@ Deleting a [Docker image](../../concepts/docker-image.md) is a deferred action o
 
 - Management console
 
-  To delete a Docker image:
-  1. Go to the repository to remove the image from:
-     1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-     1. Open the appropriate registry.
-     1. Open the repository.
-  1. Click the ![image](../../../_assets/console-icons/ellipsis.svg) icon next to the Docker image to delete.
-  1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
+   To delete a Docker image:
+   1. Go to the repository to remove the image from:
+      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+      1. Open the appropriate registry.
+      1. Open the repository.
+   1. Click the ![image](../../../_assets/console-icons/ellipsis.svg) icon next to the Docker image to delete.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  To delete a Docker image, use the image ID. You can retrieve the ID by [requesting a list of Docker images in the desired registry](docker-image-list.md#docker-image-list).
-  1. Delete the Docker image:
+   To delete a Docker image, use the image ID. You can retrieve the ID by [requesting a list of Docker images in the desired registry](docker-image-list.md#docker-image-list).
+   1. Delete the Docker image:
 
-     ```bash
-     yc container image delete crp9vik7sgeco7emq743
-     ```
+      ```bash
+      yc container image delete crp9vik7sgec********
+      ```
 
-  1. Make sure the Docker image has been deleted:
+   1. Make sure the Docker image has been deleted:
 
-     ```bash
-     yc container image list
-     ```
+      ```bash
+      yc container image list
+      ```
 
-     Command result:
+      Command result:
 
-     ```bash
-     +----+---------+------+------+-----------------+
-     | ID | CREATED | NAME | TAGS | COMPRESSED SIZE |
-     +----+---------+------+------+-----------------+
-     +----+---------+------+------+-----------------+
-     ```
+      ```bash
+      +----+---------+------+------+-----------------+
+      | ID | CREATED | NAME | TAGS | COMPRESSED SIZE |
+      +----+---------+------+------+-----------------+
+      +----+---------+------+------+-----------------+
+      ```
 
 - API
 
-  To delete a Docker image, use the [delete](../../api-ref/Image/delete.md) method for the [Image](../../api-ref/Image/) resource.
+   To delete a Docker image, use the [delete](../../api-ref/Image/delete.md) method for the [Image](../../api-ref/Image/) resource.
 
 {% endlist %}

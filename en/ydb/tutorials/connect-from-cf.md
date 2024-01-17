@@ -1,3 +1,3 @@
-# Connecting to a {{ ydb-short-name }} database from a Python function in {{ sf-full-name }}
+# Connecting to a {{ ydb-name }} database from a Python function in {{ sf-full-name }}
 
-{% include [connect-from-cf](../../_tutorials/connect-from-cf.md) %}
+{% include [connect-from-cf](../../_tutorials/serverless/connect-from-cf.md) %}

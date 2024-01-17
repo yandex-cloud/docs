@@ -204,7 +204,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.25, 1.26, 1.27, 1.28
   k8s-versions-regular: 1.25, 1.26, 1.27, 1.28
-  k8s-versions-stable: 1.25, 1.26, 1.27
+  k8s-versions-stable: 1.25, 1.26, 1.27, 1.28
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -733,7 +733,6 @@ default:
     ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
     host-dedicated: ydb.mdb.yandexcloud.net
-    host-serverless: ydb.serverless.yandexcloud.net
     id-dedicated: etnk1u65e4shtgj338va
     id-serverless: etnudu2n9ri35luqe4h1
     name-dedicated: ydb-dedicated
@@ -741,7 +740,6 @@ default:
     path-dedicated: /ru-central1/b1gia87mbaomkfvs6rgl/etnk1u65e4shtgj338va
     path-serverless: /ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
     port-dedicated: 2135
-    port-serverless: 2135
     version-cdc: 22.5
   yds-full-name: Yandex Data Streams
   yds-name: Data Streams
@@ -5735,6 +5733,7 @@ default:
         label_containers: Containers
         label_edit-active-revision: Make active
         label_editor: Editor
+        label_image-url: Image URL
         label_timeout: Timeout, s
         label_url: Link to invoke
         popup-confirm-edit-active-revision_button_confirm: Confirm

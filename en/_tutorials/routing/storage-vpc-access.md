@@ -15,11 +15,11 @@ After the solution is deployed in {{ yandex-cloud }}, the following resources wi
 | `s3-nat-group` | Load balancer [target group](../../network-load-balancer/concepts/target-resources.md) with VM instances that have the NAT function enabled. |
 | `nat-a1-vm`, `nat-a2-vm`, `nat-b1-vm`, and `nat-b2-vm` | NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` [availability zones](../../overview/concepts/geo-scope.md) used for routing traffic to {{ objstorage-name }} and back with translation of IP addresses for traffic sources and targets. |
 | `pub-ip-a1`, `pub-ip-a2`, `pub-ip-b1`, and `pub-ip-b2` | VM public IPs to which the {{ vpc-short-name }} cloud network translates their internal IPs. |
-| `DNS zone and A record` | Internal [DNS zone](../../dns/concepts/dns-zone.md) `{{ s3-storage-host }}.` in the `s3-vpc` network with an `A` [resource record](../../dns/concepts/resource-record.md) that maps the `{{ s3-storage-host }}` domain name to the IP address of the internal network load balancer. |
-| `s3-bucket-<...>` | [Bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }} |
+| `DNS zone and A record` | `{{ s3-storage-host }}.` private [DNS zone](../../dns/concepts/dns-zone.md) in the `s3-vpc` network with an `A` [resource record](../../dns/concepts/resource-record.md) that maps the `{{ s3-storage-host }}` domain name to the IP address of the internal network load balancer. |
+| `s3-bucket-<...>` | [Bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. |
 | `s3-subnet-a` and `s3-subnet-b` | Cloud [subnets](../../vpc/concepts/network.md#subnet) to host the NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. |
-| `test-s3-vm` | Test VM to verify access to {{ objstorage-name }} |
-| `test-s3-subnet-a` | Cloud subnet to host the test VM |
+| `test-s3-vm` | Test VM to verify access to {{ objstorage-name }}. |
+| `test-s3-subnet-a` | Cloud subnet to host the test VM. |
 
 For the cloud network with the resources hosted in [{{ dns-name }}](../../dns/concepts/), the `{{ s3-storage-host }}.` internal DNS zone and an `A` resource record are created. The A record maps the `{{ s3-storage-host }}` domain name of {{ objstorage-name }} to the IP address of the [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md). With this record, traffic from the cloud resources to {{ objstorage-name }} will be routed to the internal load balancer that will distribute the load across the NAT instances.
 
@@ -160,8 +160,8 @@ The infrastructure support costs include:
    | `bucket_console_access` | N/A | Allow bucket access via the {{ yandex-cloud }} management console. If `true`, access is allowed. To disable it, set `false`. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `bool` | `true` |
    | `mgmt_ip` | Yes | Public IP of your workstation where you are deploying the infrastructure using {{ TF }}. It is used to allow your workstation to perform actions with the bucket when deploying {{ TF }}. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `string` | `"A.A.A.A"` |
    | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ objstorage-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances. | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
-   | `vm_username` | N/A | NAT instance and test VM usernames | `string` | `"admin"` |
-   | `s3_ip` | No | {{ objstorage-name }} public IP address | `string` | `213.180.193.243` |
+   | `vm_username` | N/A | NAT instance and test VM usernames. | `string` | `"admin"` |
+   | `s3_ip` | No | {{ objstorage-name }} public IP address. | `string` | `213.180.193.243` |
    | `s3_fqdn` | No | {{ objstorage-name }} domain name | `string` | `{{ s3-storage-host }}` |
 
    {% endcut %}
@@ -230,7 +230,7 @@ The infrastructure support costs include:
    Result:
 
    ```bash
-   download: s3://<bucket-name>/s3_test_file.txt to ./s3_test_file.txt
+   download: s3://<bucket_name>/s3_test_file.txt to ./s3_test_file.txt
    ```
 
 1. You can additionally run a number of commands to test {{ objstorage-name }}. The bucket name will be fetched from the test VM environment variable.
@@ -245,7 +245,7 @@ The infrastructure support costs include:
    Result:
 
    ```text
-   upload: ./s3_test_file.txt to s3://<bucket-name>/textfile.txt
+   upload: ./s3_test_file.txt to s3://<bucket_name>/textfile.txt
    ```
 
    Get a list of objects in the bucket:
@@ -272,7 +272,7 @@ The infrastructure support costs include:
    Result:
 
    ```text
-   delete: s3://<bucket-name>/textfile.txt
+   delete: s3://<bucket_name>/textfile.txt
    ```
 
 ## Delete the resources you created {#clear-out}

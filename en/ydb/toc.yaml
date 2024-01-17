@@ -175,7 +175,7 @@ items:
     items:
       - name: Overview
         href: api-ref/overview.md
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -275,7 +275,7 @@ items:
         href: ./terraform/row-tables.md
       - name: Creating a changefeed for a table
         href: ./terraform/cdc.md
-  - name: Q&A
+  - name: FAQ
     href: faq.md
   - name: Public materials
     href: https://ydb.tech/en/docs/public-talks
