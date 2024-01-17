@@ -120,7 +120,7 @@ description: "Следуя данной инструкции, вы сможет�
   }
 
   resource "yandex_vpc_route_table" "rt" {
-    name       = test-route-table
+    name       = "test-route-table"
     network_id = "<идентификатор_сети>"
 
     static_route {
