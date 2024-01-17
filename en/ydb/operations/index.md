@@ -5,8 +5,9 @@ description: "In this tutorial, you will learn how to use the {{ ydb-full-name }
 
 # Step-by-step guides for {{ ydb-name }}
 
-* [{#T}](manage-databases.md).
-* [{#T}](connection.md).
-* [{#T}](schema.md).
-* [{#T}](crud.md).
-* [{#T}](monitoring.md).
+* [{#T}](connection.md)
+* [{#T}](manage-databases.md)
+* [{#T}](migration-to-an-availability-zone.md)
+* [{#T}](schema.md)
+* [{#T}](crud.md)
+* [{#T}](monitoring.md)

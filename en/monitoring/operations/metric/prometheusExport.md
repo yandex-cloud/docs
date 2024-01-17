@@ -6,6 +6,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
 1. Select a service from the following list:
    - `application-load-balancer`: {{ alb-name }}
    - `audit-trails`: {{ at-name }}
+   - `cdn`: {{ cdn-name }}.
    - `certificate-manager`: {{ certificate-manager-name }}
    - `compute`: {{ compute-name }}
    - `container-registry`: {{ container-registry-name }}

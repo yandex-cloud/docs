@@ -3,7 +3,7 @@ title: "Working with an API gateway using WebSocket in {{ api-gw-full-name }}"
 description: "In this tutorial, you will learn how to with an API gateway using the WebSocket protocol in {{ api-gw-name }}."
 ---
 
-# Working with an API gateway using the WebSocket protocol
+# Communicating with an API gateway using the WebSocket protocol
 
 To connect to an API gateway via the WebSocket protocol:
 
@@ -85,7 +85,7 @@ The cost of the resources includes charges for the number of API gateway request
 The message will be sent to the API gateway via the existing connection. The API gateway will call integration and send a response that you will see on your screen. The response will contain the connection ID:
 ```bash
 > Hello!
-< {"connection_id":"<connection ID>"}
+< {"connection_id":"<connection_ID>"}
 ```
 ## Test the connection {#check}
 
@@ -105,18 +105,18 @@ Open a new terminal window and test the connection using the returned connection
       ```
    1. Send a message to the client:
       ```bash
-      yc serverless api-gateway websocket send <connection ID> --data Hello!
+      yc serverless api-gateway websocket send <connection_ID> --data Hello!
       ```
    1. Close the connection:
       ```bash
-      yc serverless api-gateway websocket disconnect <connection ID>
+      yc serverless api-gateway websocket disconnect <connection_ID>
       ```
    1. Go to the terminal window with the established connection. It should display the following information:
       ```bash
-      wscat -c wss://<API gateway ID>.apigw.yandexcloud.net/connections
+      wscat -c wss://<API_gateway_ID>.apigw.yandexcloud.net/connections
       Connected (press CTRL+C to quit)
       > Hello!
-      < {"connection_id":"<connection ID>"}
+      < {"connection_id":"<connection_ID>"}
       < Hello!
       Disconnected (code: 1000, reason: "")
       ```

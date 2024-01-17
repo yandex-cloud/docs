@@ -7,17 +7,23 @@ description: "In this article, you will learn how to work with {{ cloud-logging-
 
 * [{#T}](./write-logs.md)
 * [{#T}](./read-logs.md)
-* [{#T}](./list.md)
 * [{#T}](./access-rights.md)
 
-### Managing log groups
+### Getting information about a log group {#log-group-info}
+
+* [{#T}](./list.md)
+* [{#T}](./get-group.md)
+
+### Managing a log group {#manage-log-group}
 
 * [{#T}](./create-group.md)
 * [{#T}](./retention-period.md)
 * [Viewing monitoring charts](./monitoring.md)
 * [{#T}](./delete-group.md)
 
-### Exporting logs
+### Exporting logs {#discharge-logs}
 
 * [{#T}](./create-sink.md)
 * [{#T}](./export-logs.md)
+* [{#T}](./list-sink.md)
+* [{#T}](./get-sink.md)

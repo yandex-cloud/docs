@@ -1,4 +1,4 @@
-This scenario describes how to sign [Docker images](../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in {{ container-registry-full-name }} and then set up signature verification in {{ managed-k8s-full-name }}.
+This scenario describes how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
 To sign Docker images and set up their verification:
 1. [Sign a Docker image using Cosign](#cosign).
@@ -15,35 +15,34 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually
 
-   1. [Create service accounts](../iam/operations/sa/create.md):
-      * [Service account](../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) [role](../iam/concepts/access-control/roles.md) to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-      * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
+   1. [Create service accounts](../../iam/operations/sa/create.md):
+      * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../../resource-manager/security/index.md#roles-list) [role](../../iam/concepts/access-control/roles.md) to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
       You can use the same service account for both operations.
-   1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
-   1. [Create a registry in {{ container-registry-name }}](../container-registry/operations/registry/registry-create.md).
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
+   1. [Create a registry in {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
 
 - Using {{ TF }}
 
-   1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../_includes/mdb/terraform/configure-provider.md) %}
-
+   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
    1. Download the [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/k8s-validate-cr-image.tf) configuration file to the same working directory.
 
       This file describes:
-      * [Network](../vpc/concepts/network.md#network).
-      * [Subnet](../vpc/concepts/network.md#subnet).
-      * [Security group](../managed-kubernetes/operations/connect/security-groups.md) and rules needed to run the {{ managed-k8s-name }} cluster:
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
+      * [Security group](../../managed-kubernetes/operations/connect/security-groups.md) and rules needed to run the {{ managed-k8s-name }} cluster:
          * Rules for service traffic.
          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
       * {{ managed-k8s-name }} cluster.
       * Service account required to use the {{ managed-k8s-name }} cluster and node group.
       * {{ container-registry-name }} registry.
    1. In the `k8s-validate-cr-image.tf` file, specify:
-      * [Folder ID](../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
+      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
+      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
       * {{ managed-k8s-name }} cluster CIDR.
       * Name of the cluster service account.
       * Name of the {{ container-registry-name }} registry.
@@ -56,36 +55,34 @@ If you no longer need the resources you created, [delete them](#clear-out).
       If there are any errors in the configuration files, {{ TF }} will point them out.
    1. Create the required infrastructure:
 
-      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
 ### Before you start working with the {{ managed-k8s-name }} cluster
 
-1. {% include [install-kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
-
+1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
 
 ### Add multiple Docker images to the {{ container-registry-name }} registry {#add-docker-images}.
 
-1. [Get authenticated in {{ container-registry-name }}](../container-registry/operations/authentication.md).
-1. [Create multiple Docker images](../container-registry/operations/docker-image/docker-image-create.md). One image will be signed using Cosign, while others will remain unsigned.
-1. [Push Docker images](../container-registry/operations/docker-image/docker-image-push.md) to the {{ container-registry-name }} registry.
+1. [Get authenticated in {{ container-registry-name }}](../../container-registry/operations/authentication.md).
+1. [Create multiple Docker images](../../container-registry/operations/docker-image/docker-image-create.md). One image will be signed using Cosign, while others will remain unsigned.
+1. [Push Docker images](../../container-registry/operations/docker-image/docker-image-push.md) to the {{ container-registry-name }} registry.
 
 ## Sign a Docker image using Cosign {#cosign}
 
 {% list tabs %}
 
-- Image signature based on asymmetric keys {{ kms-short-name }}
+- Image signature based on asymmetric keys {{ kms-full-name }}
 
    1. Install a special Cosign build for your OS:
 
-      {% include [install-cosign](../_includes/kms/install-cosign.md) %}
+      {% include [install-cosign](../../_includes/kms/install-cosign.md) %}
 
-   1. Get an [IAM token](../iam/concepts/authorization/iam-token.md) and save it to the `$YC_IAM_TOKEN` environment variable:
-
+   1. Get an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) and save it to the `$YC_IAM_TOKEN` environment variable:
       * **Bash:**
 
          ```bash
@@ -97,29 +94,29 @@ If you no longer need the resources you created, [delete them](#clear-out).
          ```powershell
          $env:YC_IAM_TOKEN = $(yc iam create-token)
          ```
-   1. Log in to {{ container-registry-name }}:
 
+   1. Log in to {{ container-registry-name }}:
       * **Bash:**
 
          ```bash
          docker login \
-             --username iam \
-             --password $YC_IAM_TOKEN \
-             cr.yandex
+           --username iam \
+           --password $YC_IAM_TOKEN \
+           {{ registry }}
          ```
 
       * **PowerShell:**
 
          ```powershell
          docker login `
-             --username iam `
-             --password $Env:YC_IAM_TOKEN `
-             cr.yandex
+           --username iam `
+           --password $Env:YC_IAM_TOKEN `
+           {{ registry }}
          ```
 
       Result:
 
-      ```bash
+      ```text
       WARNING! Using --password via the CLI is insecure. Use --password-stdin.
       Login succeeded
       ```
@@ -130,15 +127,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% endnote %}
 
-   1. Create a digital signature key pair and save it to {{ kms-short-name }}:
+   1. Create a digital signature key pair and save it to {{ kms-name }}:
 
       ```bash
       cosign generate-key-pair \
-          --kms yckms:///folder/<folder_ID>/keyname/<key_pair_name>
+        --kms yckms:///folder/<folder_ID>/keyname/<key_pair_name>
       ```
 
       Where:
-      * `<folder_ID>`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where the new key pair will be saved.
+      * `<folder_ID>`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where the new key pair will be saved.
       * `<key_pair_name>`: Name of the signature key pair you create.
 
       Result:
@@ -151,44 +148,42 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The utility will return the ID of the created signature key pair and save a public signature key to a local file. Save the key pair ID, you will need it in the next steps.
 
-      You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the appropriate [CLI](../cli/cli-ref/managed-services/kms/asymmetric-signature-key/list.md) command.
-
+      You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the appropriate [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-signature-key/list.md) command.
    1. Sign the image in {{ container-registry-name }}:
 
       ```bash
       cosign sign \
-          --key yckms:///<key_pair_ID> \
-          cr.yandex/<registry_ID>/<Docker_image_name>:<tag> \
-          --tlog-upload=false
+        --key yckms:///<key_pair_ID> \
+        {{ registry }}/<registry_ID>/<Docker_image_name>:<tag> \
+        --tlog-upload=false
       ```
 
       Where:
-      * `<key_pair_ID>`: ID of the signature key pair you obtained in the previous step.
-      * `<registry_id>`: [ID of the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-list.md#registry-list) in which the image you are signing is located.
-      * `<Docker_image_name>`: Name of the [Docker image](../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) you are signing in the {{ container-registry-name }} registry.
+      * `<key_pair_ID>`: ID of the signature key pair obtained in the previous step.
+      * `<registry_id>`: [ID of the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-list.md#registry-list) in which the image you are signing is located.
+      * `<Docker_image_name>`: Name of the [Docker image](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) you are signing in the {{ container-registry-name }} registry.
       * `<tag>`: Tag of the image version to be signed.
 
       Result:
 
       ```bash
-      Pushing signature to: cr.yandex/<registry_ID>/<Docker_image_name>
+      Pushing signature to: {{ registry }}/<registry_ID>/<Docker_image_name>
       ```
 
       A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
-
    1. Check manually that the Docker image signature is correct:
 
       ```bash
       cosign verify \
-          --key yckms:///<key_pair_ID> \
-          cr.yandex/<registry_ID>/<Docker_image_name>:<tag> \
-          --insecure-ignore-tlog
+        --key yckms:///<key_pair_ID> \
+        {{ registry }}/<registry_ID>/<Docker_image_name>:<tag> \
+        --insecure-ignore-tlog
       ```
 
       Where:
       * `<key_pair_ID>`: Previously obtained ID of the signature key pair.
-      * `<registry_id>`: [ID of the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-list.md#registry-list) in which the image is located.
-      * `<Docker_image_name>`: Name of the [Docker image](../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) in the {{ container-registry-name }} registry.
+      * `<registry_id>`: [ID of the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-list.md#registry-list) in which the image is located.
+      * `<Docker_image_name>`: Name of the [Docker image](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) in the {{ container-registry-name }} registry.
       * `<tag>`: Tag of the image version to verify the signature for.
 
       Result:
@@ -234,24 +229,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Enter the password for the private key. Result:
 
-      ```bash
+      ```text
       Enter password for private key:
       Pushing signature to: {{ registry }}/<registry_ID>/<Docker_image_name>
       ```
 
       A second object with the `sha256-....sig` tag and `{{ registry }}/<registry_ID>/<Docker_image_name>@sha256:...` hash should appear in the {{ container-registry-name }} registry.
-
    1. Check manually that the Docker image signature is correct:
 
       ```bash
       cosign verify \
-          --key cosign.pub \
-          {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
+        --key cosign.pub \
+        {{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
       ```
 
       Result:
 
-      ```bash
+      ```text
       Verification for {{ registry }}/<registry_ID>/<Docker_image_name>:<tag> --
       The following checks were performed on each of these signatures:
       - The cosign claims were validated
@@ -264,7 +258,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a policy for signature verification {#kyverno}
 
-1. Create an [authorized key](../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role and save it to the file:
+1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role and save it to the file:
 
    ```bash
    yc iam key create \
@@ -273,7 +267,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```
 
    Where `--service-account-name` is the name of the service account with the {{ roles-cr-puller }} role.
-
 1. Install the [Kyverno](https://kyverno.io/docs/) app to the {{ managed-k8s-name }} cluster. You need it to create a policy for verifying Docker image signatures.
    1. Add the `kyverno` repository:
 
@@ -387,11 +380,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
       clusterpolicy.kyverno.io/check-image configured
       ```
 
-1. {% include [install policy reporter](../_includes/managed-kubernetes/install-policy-reporter.md) %}
+1. {% include [install policy reporter](../../_includes/managed-kubernetes/install-policy-reporter.md) %}
 
 ## Check the result {#check-result}
 
-* Create a [pod](../managed-kubernetes/concepts/index.md#pod) from the signed Docker image:
+* Create a [pod](../../managed-kubernetes/concepts/index.md#pod) from the signed Docker image:
 
    ```bash
    kubectl run pod --image={{ registry }}/<registry_ID>/<Docker_image_name>:<tag>
@@ -429,16 +422,16 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually
 
-   1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
-   1. [Delete the service accounts](../iam/operations/sa/delete.md).
-   1. [Delete all Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
-   1. [Delete the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-delete.md).
+   1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+   1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
+   1. [Delete the service accounts](../../iam/operations/sa/delete.md).
+   1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
+   1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
 
 - Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-   1. [Delete all Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
+   1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
    1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `k8s-validate-cr-image.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -450,7 +443,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       If there are any errors in the configuration files, {{ TF }} will point them out.
    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       All the resources described in the `k8s-validate-cr-image.tf` configuration file will be deleted.
 

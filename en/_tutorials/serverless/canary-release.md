@@ -112,7 +112,7 @@ The cost of resources to support a web application includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -318,8 +318,8 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
       Where:
 
-      * `name`: API gateway name
-      * `spec`: Specification file
+      * `--name`: API gateway name
+      * `--spec`: Specification file
       * `--canary-weight`: Percentage of requests in the canary release
       * `--canary-variables`: Variables for the canary release
 

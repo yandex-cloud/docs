@@ -221,7 +221,7 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: С 1 января до 1 марта 2019 года
             href: pricing-archive/pricing-01032019.md
-  - name: Справочник CLI
+  - name: Справочник YC CLI
     href: ../cli/cli-ref/managed-services/storage/index.md
   - name: Справочник Terraform
     href: tf-ref.md

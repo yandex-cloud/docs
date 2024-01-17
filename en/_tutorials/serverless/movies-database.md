@@ -392,8 +392,9 @@ Interaction with the database via the [Document API](../../ydb/docapi/api-ref/) 
    ```
 
    Where:
-   * `role`: Role being assigned.
-   * `-subject serviceAccount`: Service account ID.
+
+   * `--role`: Role being assigned.
+   * `--subject serviceAccount`: Service account ID.
 
    The service account is assigned roles for the following actions:
    * Calling the container in [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers).
@@ -467,8 +468,9 @@ Build the application as a Docker image and run it in [{{ serverless-containers-
    ```
 
    Where:
-   * `name`: Container name.
-   * `folder-id`: ID of the folder.
+
+   * `--name`: Container name.
+   * `--folder-id`: Folder ID.
 1. The command result shows the ID of the container. Export it to the environment variable:
 
    ```bash
@@ -492,15 +494,16 @@ Build the application as a Docker image and run it in [{{ serverless-containers-
    ```
 
    Where:
-   * `folder-id`: ID of the folder.
-   * `container-id`: Container ID.
-   * `memory`: Amount of memory available for the container.
-   * `cores`: Number of vCPU cores available for the container.
-   * `execution-timeout`: Execution timeout.
-   * `concurrency`: Maximum number of concurrent container calls. If the number of requests to a container exceeds the value of the `concurrency` parameter, the service scales the container up by launching additional copies.
-   * `environment`: Environment variables. The Document API endpoint of a database is passed to the application via the `DOCUMENT_API_ENDPOINT` environment variable.
-   * `service-account-id`: Service account ID.
-   * `image`: Repository name.
+
+   * `--folder-id`: Folder ID.
+   * `--container-id`: Container ID.
+   * `--memory`: Amount of memory available for the container.
+   * `--cores`: Number of vCPU cores available for the container.
+   * `--execution-timeout`: Execution timeout.
+   * `--concurrency`: Maximum number of concurrent container calls. If the number of requests to a container exceeds the value of the `--concurrency` parameter, the service scales the container up by launching additional copies.
+   * `--environment`: Environment variables. The Document API endpoint of a database is passed to the application via the `DOCUMENT_API_ENDPOINT` environment variable.
+   * `--service-account-id`: Service account ID.
+   * `--image`: Repository name.
 
 ### Deploy the API in {{ api-gw-name }} {#deploy-api-gw}
 

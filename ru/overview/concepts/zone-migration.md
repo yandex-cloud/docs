@@ -58,6 +58,7 @@
 * [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md)
 * [{{ mrd-name }}](../../managed-redis/operations/host-migration.md)
 * [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md)
+* [{{ ydb-name }}](../../ydb/operations/migration-to-an-availability-zone.md)
 * {{ mgp-name }} — для миграции нужно восстановить кластер из [резервной копии](../../managed-greenplum/operations/cluster-backups.md).
 * [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md)
   

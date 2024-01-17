@@ -13,7 +13,7 @@ A {{ coi }} in a [{{ container-registry-name }}](../../container-registry/) regi
   Result:
 
   ```bash
-  id: <ID of latest COI version>
+  id: <ID_of_latest_COI_version>
   folder_id: standard-images
   ...
   ```
