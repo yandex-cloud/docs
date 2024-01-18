@@ -37,7 +37,7 @@ items:
         href: operations/tls-proxy.md
   - name: gRPC API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: auth.md
       - name: Speech synthesis
         items:
@@ -51,6 +51,8 @@ items:
             href: api-ref/stt/v3/grpc/index.md
           - name: Recognizer
             href: api-ref/stt/v3/grpc/stt_service.md
+  - name: Pricing policy
+    href: pricing.md
   - name: '{{ sk-hybrid-name }} administration'
     href: release-notes.md
 base: en/speechkit-hybrid

@@ -7,7 +7,7 @@ The behavior of points varies depending on the map scale:
 * When scaling down, points are clustered.
 * When scaling up, the distance between points increases and a cluster is automatically split into smaller clusters and/or individual points.
 
-If a map with the selected scale only contains a single point, it's not clustered. In this case, instead of a donut chart, you'll see a point just like in a regular scatter chart.
+If a map with the selected scale only contains a single point, it's not clustered. In this case, instead of a donut chart, you will see a point just like in a regular scatter chart.
 
 Clustering on a map improves visualization when there is a large number of points. For example, if you want to show the location of all stores in a city on a map with clustering, points on the map will not overlap.
 
@@ -16,17 +16,17 @@ Clustering on a map improves visualization when there is a large number of point
 
 ## Sections in the wizard {#wizard-sections}
 
-Restrictions:
+Limitations:
 
 * The **Point size**, **Tooltips**, and **Signatures** sections only apply to individual points.
-* The **Color** section only lets you add a dimension.
+* You can only add a dimension to the **Color** section.
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
 | Points with clusters (Geopoints) | Measure with the type [Geopoint](../concepts/data-types#geopoint). |
 | Point size | Measure. Sets a point size depending on the measure value. |
 | Colors | Dimension. Affects the intensity of point fill. |
-| Signatures | Measure. Displayed as text on a point. When used, point size control is blocked. |
+| Labels | Measure. Displayed as text on a point. When used, point size control is blocked. |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Filters | Dimension or measure. Used as a filter for the entire chart. |
@@ -38,7 +38,7 @@ Restrictions:
 1. Select the **Map** chart type.
 1. Select the **Points with clusters (Geopoints)** layer type.
 1. Drag a dimension with the [Geopoint](../concepts/data-types#geopoint) type from the dataset to the layer type selection section.
-1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/datalens/gear.svg) in the line with the section name.
+1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/console-icons/gear.svg) in the line with the section name.
 1. Color the points on the map. Drag a dimension to the **Color** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.
 

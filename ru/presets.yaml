@@ -413,6 +413,7 @@ default:
         str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15, 15-1c или 16
   pgadmin: "pgAdmin\_4"
   port-any: 0-65535
+  port-http: 80
   port-https: 443
   port-k8s: 6443
   port-mch-cli: 9440

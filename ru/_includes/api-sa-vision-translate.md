@@ -1,6 +1,6 @@
 # Настройка доступа с помощью API-ключа
 
-Для безопасной работы с сервисами {{ vision-full-name }} и {{ translate-full-name }} рекомендуется использовать авторизацию от имени [сервисного аккаунта](../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../iam/concepts/authorization/api-key.md).
+Для простой и безопасной работы с сервисами {{ vision-full-name }} и {{ translate-full-name }} рекомендуется использовать авторизацию от имени [сервисного аккаунта](../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../iam/concepts/authorization/api-key.md).
 
 Чтобы настроить авторизацию от имени сервисного аккаунта:
 
@@ -9,7 +9,6 @@
 1. [Назначьте роли сервисному аккаунту](#assign-roles).
 1. [Создайте API-ключ](#run-client).
 
- 
 ## Подготовьте облако к работе {#prepare-cloud}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -215,6 +214,6 @@
 
 Полученный API-ключ указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте API-ключ в заголовке `Authorization` в следующем формате:
 
-```
+```yaml
 Authorization: Api-Key <API-ключ>
 ```

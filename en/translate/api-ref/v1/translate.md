@@ -37,7 +37,7 @@ The response is returned in JSON format.
 ```json
 {
     "translations": [
-        {"text": <text translation>},
+        {"text": <translated_text>},
         ...
     ]
 }
@@ -49,8 +49,8 @@ The response is returned in JSON format.
 ### Sample request {#sample-request}
 
 ```httpget
-export FOLDER_ID=<folder id>
-export TOKEN=<IAM-token>
+export FOLDER_ID=<folder_ID>
+export TOKEN=<IAM_token>
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}&target=en" \

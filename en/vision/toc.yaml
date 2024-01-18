@@ -15,6 +15,10 @@ items:
             href: operations/ocr/text-detection-pdf.md
           - name: Text line recognition
             href: operations/ocr/text-detection-single-line.md
+          - name: Handwriting recognition
+            href: operations/ocr/text-detection-handwritten.md
+          - name: Table recognition
+            href: operations/ocr/text-detection-table.md
       - name: Assessing image quality
         stage: preview
         href: operations/classification/quality.md
@@ -42,7 +46,7 @@ items:
         items:
           - name: Overview
             href: concepts/ocr/index.md
-          - name: Recognition of documents
+          - name: Document recognition
             href: concepts/ocr/template-recognition.md
           - name: Supported languages
             href: concepts/ocr/supported-languages.md
@@ -68,7 +72,7 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: Vision API
         items:

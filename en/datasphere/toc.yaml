@@ -47,6 +47,8 @@ items:
             href: operations/projects/delete.md
           - name: Removing a user from a project
             href: operations/projects/delete-user.md
+          - name: Using shared resources
+            href: operations/projects/use-shared-resource.md
       - name: Working in a notebook
         items:
           - name: Connecting to JupyterLab from a local IDE
@@ -215,7 +217,7 @@ items:
             href: tutorials/s3-to-datasphere.md
           - name: Creating an MLFlow server for logging experiments and artifacts
             href: tutorials/mlflow-datasphere.md
-      - name: Use
+      - name: Deployment
         items:
           - name: Deploying a service from a code cell
             href: tutorials/node-from-cell.md
@@ -347,6 +349,6 @@ items:
     href: public-talks.md
   - name: Releases
     href: release-notes.md
-  - name: Questions and answers
+  - name: Q&A
     href: qa/index.md
 base: en/datasphere

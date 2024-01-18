@@ -1,58 +1,14 @@
-## Перед началом работы {#before-begin}
-
-{% include [curl](../curl.md) %}
-
-{% include [ai-before-beginning](../translate/ai-before-beginning.md) %}
-
-{% include [bash-windows-note-single](bash-windows-note-single.md) %}
-
 ## Перевести текст с любого языка {#any-language}
 
-Чтобы перевести текст, передайте его с помощью метода [translate](../../translate/api-ref/Translation/translate):
+Чтобы перевести текст с любого [поддерживаемого языка](../../translate/concepts/supported-languages.md), передайте его с помощью метода [translate](../../translate/api-ref/Translation/translate):
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
-    Будет выполнен перевод на русский язык двух строк с текстом: <q>Hello</q> и <q>World</q>. Язык исходного текста будет определен автоматически.
+    {% include [curl](../curl.md) %}
 
-    1. Создайте файл с телом запроса (например, `body.json`):
-
-        ```json
-        {
-            "folderId": "<идентификатор_каталога>",
-            "texts": ["Hello", "World"],
-            "targetLanguageCode": "ru"
-        }
-        ```
-
-        Где:
-
-        * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
-        * `texts` — текст для перевода в виде списка из строк.
-        * `targetLanguageCode` — язык, на который переводится текст, в формате [ISO 639-1](https://ru.wikipedia.org/wiki/ISO_639-1). Вы можете узнать код языка вместе со [списком поддерживаемых языков](../../translate/operations/list.md).
-
-    1. Передайте файл на перевод, выполнив команду:
-
-        {% include [translate-file](../translate/translate-file.md) %}
-
-        Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
-
-        В ответе сервис вернет переведенные строки текста:
-        ```json
-        {
-            "translations": [
-                {
-                "text": "Привет",
-                "detectedLanguageCode": "en"
-                },
-                {
-                "text": "Мир",
-                "detectedLanguageCode": "en"
-                }
-            ]
-        }
-        ```
+    {% include [bash](translate-bash.md) %}
 
 - Python {#python}
 

@@ -29,7 +29,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 Create a dataset based on the **Files** [connection](../../datalens/concepts/connection.md) type.
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select **Files**.
 
    ![image](../../_assets/datalens/solution-01/select-file-connection.png)
@@ -42,7 +42,7 @@ Create a dataset based on the **Files** [connection](../../datalens/concepts/con
 
    Wait until the table content appears on the screen.
 
-1. Click **Create connection**.
+1. Click **Create connection**.
 
    ![image](../../_assets/datalens/solution-01/04-save-file-connection.png)
 
@@ -66,7 +66,7 @@ Create a dataset based on the **Files** [connection](../../datalens/concepts/con
 
 1. Create a field for the superheros's average weight:
 
-   1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) in the **Weight** row.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the **Weight** row.
    1. Select **Duplicate**.
 
       ![image](../../_assets/datalens/solution-01/08-Weight-Duplication.png)
@@ -119,7 +119,7 @@ To visualize data by gender, create a bar chart type [chart](../../datalens/conc
 
       ![image](../../_assets/datalens/solution-01/16-Chart-Color-Set-Buttun.png)
 
-   1. Select the colors: **Female** — pink, **Male** — blue, **unknown** — orange.
+   1. Select the colors: pink for **Female**; blue for **Male**; orange for **unknown**.
 
       ![image](../../_assets/datalens/solution-01/17-Chart-Color-Set1.png)
 
@@ -154,7 +154,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
 1. Redefine the colors for the **Alignment** dimension.
 
    1. Click the settings icon in the **Colors** section.
-   1. Select the colors: **good** — green, **neutral** — blue, **bad** — red, **unknown** — orange.
+   1. Select the colors: green for **good**; blue for **neutral**; red for **bad**; orange for **unknown**.
 
       ![image](../../_assets/datalens/solution-01/21-Chart-Color-Set2.png)
 

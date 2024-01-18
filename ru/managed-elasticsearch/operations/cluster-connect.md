@@ -123,10 +123,10 @@ keywords:
 
 Чтобы подключаться к кластеру {{ mes-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   ```bash
   RUN apt-get update && \
@@ -134,7 +134,7 @@ keywords:
   ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   ```bash
   RUN apt-get update && \

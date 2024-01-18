@@ -45,7 +45,7 @@ items:
             href: dev-process-agile.md
           - name: Configuring issue templates
             href: dev-process-templates.md
-          - name: Connecting repositories
+          - name: Connecting a repository
             href: dev-process-repo.md
           - name: Automating recurring actions
             href: dev-process-automation.md
@@ -75,7 +75,7 @@ items:
         items:
           - name: Overview
             href: hr-process.md
-          - name: Creating an HR queue
+          - name: Creating an HR management queue
             href: hr-process-basic-queue.md
           - name: Setting up a form for creating standard issues
             href: hr-process-vacancy-queue.md
@@ -95,7 +95,7 @@ items:
         href: tutorials/tracker-cloud-function.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: about-tracker.md
       - name: Concepts
         href: glossary.md
@@ -179,7 +179,7 @@ items:
             href: manager/bulk-change.md
       - name: Setting up an issue reminder
         href: user/reminder.md
-      - name: Specifying time spent
+      - name: Adding time spent
         href: user/time-spent.md
       - name: Adding an issue field
         href: user/create-param.md
@@ -235,7 +235,7 @@ items:
         href: manager/agile-new-columns.md
       - name: Epics
         href: manager/epic-new.md
-      - name: Tools available on boards with a backlog and sprints
+      - name: Tools on boards with backlog and sprints
         items:
           - name: Overview
             href: manager/boards-instruments.md
@@ -243,7 +243,7 @@ items:
             href: manager/backlog.md
           - name: Sprints
             href: manager/create-agile-sprint.md
-          - name: Planning Poker
+          - name: Planning poker
             href: manager/poker.md
           - name: Burndown charts
             href: manager/burndown-diagram.md
@@ -341,7 +341,7 @@ items:
         items:
           - name: Overview
             href: user/trigger.md
-          - name: Creating triggers
+          - name: Creating a trigger
             href: user/create-trigger.md
           - name: Setting trigger conditions
             href: user/set-condition.md
@@ -465,7 +465,7 @@ items:
         href: mobile/sort-and-group.md
   - name: Pricing policy
     items:
-      - name: Billing
+      - name: Pricing
         href: pricing.md
       - name: Setting up a billing account
         href: billing-account.md
@@ -746,7 +746,7 @@ items:
             href: get-user.md
       - name: Possible response codes
         href: error-codes.md
-  - name: Questions and answers
+  - name: FAQs
     items:
       - name: General questions
         href: faq.md
@@ -756,18 +756,20 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: November 2023
+      - name: December 2023
         href: changelogs/index.md
+      - name: November 2023
+        href: changelogs/2311.md
       - name: October 2023
         href: changelogs/2310.md
       - name: September 2023
         href: changelogs/2309.md
       - name: August 2023
         href: changelogs/2308.md
-      - name: July 2023
-        href: changelogs/2307.md
       - name: Archive
         items:
+          - name: July 2023
+            href: changelogs/2307.md
           - name: June 2023
             href: changelogs/2306.md
           - name: May 2023

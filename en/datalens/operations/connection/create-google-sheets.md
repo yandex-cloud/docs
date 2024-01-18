@@ -45,7 +45,7 @@ To create a Google Sheets connection:
       1. Click **Add**. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
       1. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
-      To log out of your Google account, click ![image](../../../_assets/datalens/exit.svg). Click **Sign out**. The sheets from the files with restricted access will no longer be displayed.
+      To log out of your Google account, click ![image](../../../_assets/console-icons/arrow-right-from-square.svg). Click **Sign out**. The sheets from the files with restricted access will no longer be displayed.
 
    {% endlist %}
 

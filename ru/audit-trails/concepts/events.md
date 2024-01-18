@@ -109,38 +109,14 @@
 
 Имя сервиса — `backup`.
 
-Имя события | Описание
---- | ---
-`ApplyPolicy` | Применение политики резервного копирования
-`CreateDirectory` | Создание новой директории внутри ВМ
-`CreatePolicy` | Создание политики резервного копирования
-`DeleteBackup` | Удаление резервной копии
-`DeletePolicy` | Удаление политики резервного копирования
-`DeleteResource` | Удаление ВМ из сервиса {{ backup-name }}
-`ExecutePolicy` | Выполнение политики резервного копирования
-`RegisterResource` | Подключение ВМ к сервису {{ backup-name }}
-`RevokePolicy` | Отзыв политики резервного копирования
-`StartRecoverBackup` | Запуск восстановления ВМ
-`UpdatePolicy` | Изменение политики резервного копирования
+{% include [backup-events](../../_includes/audit-trails/events/backup-events.md) %}
 
 
 ## {{ cdn-name }} {#cdn}
 
 Имя сервиса — `cdn`.
 
-Имя события | Описание
---- | ---
-`gcore.CachePrefetch` | Предзагрузка кеша
-`gcore.CachePurge` | Очистка кеша
-`gcore.OriginCreate` | Создание источника
-`gcore.OriginDelete` | Удаление источника
-`gcore.OriginGroupCreate` | Создание группы источников
-`gcore.OriginGroupDelete` | Удаление группы источников
-`gcore.OriginGroupUpdate` | Изменение группы источников
-`gcore.OriginUpdate` | Измнение источника
-`gcore.ProviderActivate` | Активация провайдера
-`gcore.ResourceCreate` | Создание ресурса
-`gcore.ResourceUpdate` | Изменение ресурса
+{% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
 
 ## {{ certificate-manager-name }} {#certificate-manager}
 
@@ -546,22 +522,7 @@
 
 Имя сервиса — `k8s`.
 
-Имя события | Описание
---- | ---
-`AutoUpgradeCluster` | Автообновление кластера
-`AutoUpgradeNodeGroup` | Автообновление группы узлов
-`CreateCluster` | Создание кластера
-`CreateNodeGroup` | Создание группы узлов
-`DeleteCluster` | Удаление кластера
-`DeleteNodeGroup` | Удаление группы узлов
-`DeleteStoppedCluster` | Удаление остановленного кластера
-`InstallHelmRelease` | Установка версии Helm
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UninstallHelmRelease` | Удаление версии Helm
-`UpdateCluster` | Изменение кластера
-`UpdateHelmRelease` | Изменение версии Helm
-`UpdateNodeGroup` | Изменение группы узлов
+{% include [managed-k8s-events](../../_includes/audit-trails/events/managed-k8s-events.md) %}
 
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 

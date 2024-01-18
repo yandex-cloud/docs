@@ -10,7 +10,7 @@ The {{ yandex-cloud }} platform is hosted in four Yandex data centers located in
 * `{{ region-id }}-a`
 * `{{ region-id }}-b`
 * `{{ region-id }}-c` ([being deprecated](ru-central1-c-deprecation.md))
-* `{{ region-id }}-d` ([with some limitations](ru-central1-d-limits.md))
+* `{{ region-id }}-d`
 
 
 

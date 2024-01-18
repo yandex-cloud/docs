@@ -34,11 +34,11 @@ To secure your published data:
 
 - Dashboards
 
-  {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+   {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
 
 - Charts
 
-  {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+   {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
 
 {% endlist %}
 
@@ -68,7 +68,7 @@ To get the embed code with a preset dashboard or chart design:
 
 1. [Publish](#how-to-publish) your dashboard or chart.
 1. Open the dashboard or chart using the public link provided to you.
-1. Click ![image](../../_assets/datalens/arrow-up-right.svg) in the top-right corner and select ![image](../../_assets/datalens/code.svg) **Embed code**.
+1. Click ![image](../../_assets/console-icons/arrow-shape-turn-up-right.svg) in the top-right corner and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
 1. In the window that opens, set up the menu language, theme, and appearance. On the right of the window, copy the link or embed code with the preset design parameters.
 
 ### Filtering embedded charts {#filtering-embedded-charts}
@@ -79,7 +79,7 @@ To set up filtering:
 1. Add a chart and selector to the dashboard.
 1. [Publish](#how-to-publish) the dashboard.
 1. Set the required selector values.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) next to the chart on the dashboard and select ![image](../../_assets/datalens/code.svg) **Embed code**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the chart on the dashboard and select ![image](../../_assets/console-icons/code.svg) **Embed code**.
 1. In the window that opens, set up the menu language, theme, and appearance. On the right of the window, copy the link or embed code with the preset design and filter parameters.
 
 The filter parameters will be added to the chart URL following the question mark (`?`). If multiple parameters are provided, they will be separated by the ampersand character (`&`).

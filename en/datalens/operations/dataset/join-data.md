@@ -11,7 +11,7 @@ When [multiple source tables](../../concepts/dataset/settings.md#multi-table) ar
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/datasets.svg) **Datasets** and select the dataset you need. If you do not have a dataset, [create one](create.md).
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/circles-intersection.svg) **Datasets** and select the dataset you need. If you do not have a dataset, [create one](create.md).
 1. In the top-left corner, select the **Sources** tab.
 1. Under **Tables**, select a table and drag it to your workspace.
 1. Select another table and drag it to your workspace. A link will automatically be created between these tables based on the first matching field name and field data type.

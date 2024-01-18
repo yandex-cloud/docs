@@ -178,9 +178,9 @@
 
 1. Запустите процесс восстановления дампа:
 
-    {% list tabs %}
+    {% list tabs group=connection %}
 
-    - Подключение без TLS
+    - Подключение без TLS {#without-tls}
 
         {% include [Install requirements](../../_includes/mdb/mrd/connect/bash/install-requirements.md) %}
 
@@ -239,7 +239,7 @@
 
             Во время работы скрипта будут выводиться сообщения об ошибках вставки данных. Это нормальное поведение команды `redis-cli`, связанное с тем, что в шардированном кластере каждый шард хранит только часть данных. Подробнее см. в разделе [{#T}](../../managed-redis/concepts/sharding.md).
 
-    - Подключение с TLS
+    - Подключение с TLS {#with-tls}
 
         {% include [Install requirements SSL](../../_includes/mdb/mrd/connect/bash/install-requirements-ssl.md) %}
 

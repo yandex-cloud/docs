@@ -44,6 +44,6 @@ Audio features in this format:
 
 {% note warning %}
 
-MP3 format is not supported by API v2 recognition in [streaming](./stt/api/streaming-api.md) or [synchronous](./stt/api/request-api.md) modes.
+The MP3 format is not supported in the API v1 for [synchronous](./stt/api/request-api.md) recognition and API v2 for [streaming](./stt/api/streaming-api.md) recognition.
 
 {% endnote %}

@@ -10,13 +10,13 @@ To add an [alias](../../dashboard/link.md#alias) for a pair of widgets:
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/dashboard-0523.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
 1. At the top of the page, click **Edit**.
 1. Click **Links**.
 
    1. Select the first widget from the list.
-   1. For the second widget, select a link type in the drop-down list.
-   1. Next to the name of the second widget, click ![image](../../../_assets/plus-sign.svg).
+   1. For the second widget, select a link type from the drop-down list.
+   1. Next to the name of the second widget, click ![image](../../../_assets/console-icons/plus.svg).
    1. Set up the alias:
 
       1. In the window that opens, for both widgets, select from the list the fields for which you are creating the alias. The fields must be of the same type.

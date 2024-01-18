@@ -2,9 +2,9 @@
 
 If a dashboard includes many charts that take a long time to load and process data, this may slow down the performance of the entire dashboard. You can analyze a chart's performance with an inspector.
 
-A chart Inspector is a {{ datalens-short-name }} tool that helps you troubleshoot data loading and browser rendering issues. You can use it to determine why a chart is slow or optimize data fetching and chart rendering.
+A chart inspector is a {{ datalens-short-name }} tool that helps you troubleshoot data loading and browser rendering issues. You can use it to determine why a chart is slow or optimize data fetching and chart rendering.
 
-To open the chart inspector, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) in the top-right corner of the chart and select **Inspector**.
+To open the chart inspector, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Inspector**.
 
 {% cut "Sample chart inspector" %}
 

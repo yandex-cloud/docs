@@ -62,7 +62,7 @@ To connect to the **Heat Maps** dashboard:
 
 1. Once the token is authorized, check a connection. To do this, click **Check connection**.
 1. Leave the **Automatically create a dashboard, charts, and a dataset on the connection** option enabled.
-1. Click **Create connection**. Enter **Heatmaps Connection** or any other connection name and click **Create**.
+1. Click **Create connection**. Enter **Heatmaps Connection** or any other connection name and click **Create**.
 
 ## 2. Learn how to get started with Heat Maps {#view-dashboard}
 
@@ -70,9 +70,9 @@ To connect to the **Heat Maps** dashboard:
 
 1. When the connection is created, a folder containing a set of standard objects that your statistics are based on opens:
 
-   * ![image](../../_assets/datalens/solution-heatmap/dash.svg) Dashboard **Supply and demand**: The main page with a set of all widgets (charts, tables, and filters) where you can view the statistics. To quickly access the dashboard, save the page link to a convenient location.
-   * ![image](../../_assets/datalens/solution-heatmap/dataset.svg) Dataset **smb_geo_heat_maps_dataset**: Dataset with a set of dimensions and measures used to create charts.
-   * ![image](../../_assets/datalens/solution-heatmap/chart.svg) Charts: Set of individual visualizations in the form of diagrams and tables used on the dashboard.
+   * ![image](../../_assets/console-icons/layout-cells-large.svg) **Supply and demand** dashboard: Main page with a set of all widgets (charts, tables, and filters) where you can view the statistics. To quickly access the dashboard, save the page link to a convenient location.
+   * ![image](../../_assets/console-icons/circles-intersection.svg) **smb_geo_heat_maps_dataset** dataset: Dataset with a set of dimensions and measures used to create charts.
+   * ![image](../../_assets/console-icons/chart-column.svg) Charts: Set of individual visualizations as diagrams and tables used on the dashboard.
 
 1. Open the **Supply and demand** dashboard.
 
@@ -84,7 +84,7 @@ To connect to the **Heat Maps** dashboard:
 
    ![image](../../_assets/datalens/solution-heatmap/heat-map.png)
 
-1. Add the dashboard to **Favorites**. To do this, click ![image](../../_assets/datalens/favorites-add.svg) to the right of the dashboard name at the top of the screen. To access the **Favorites** folder, click ![image](../../_assets/datalens/favorites-list.svg) in the panel on the left.
+1. Add the dashboard to **Favorites**. To do this, click ![image](../../_assets/console-icons/star.svg) to the right of the dashboard name at the top of the screen. To access the **Favorites** folder, click ![image](../../_assets/console-icons/star.svg) in the panel on the left.
 
 You can edit it and add standard objects as you wish.
 
@@ -150,7 +150,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 - Publishing dashboards
 
    1. Open the **Supply and demand** dashboard.
-   1. At the top of the dashboard interface, click ![image](../../_assets/datalens/share.svg).
+   1. At the top of the dashboard interface, click ![image](../../_assets/console-icons/nodes-right.svg).
    1. In the public access settings window that opens, enable **Access via link**.
    1. Confirm the publishing and click **Next**.
    1. Select the charts you want to publish with the dashboard.
@@ -159,7 +159,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 - Publishing a chart
 
    1. On the navigation page, find a chart, e.g., **Demand for supply map**, and open it.
-   1. At the top of the chart interface, click ![image](../../_assets/datalens/share.svg).
+   1. At the top of the chart interface, click ![image](../../_assets/console-icons/nodes-right.svg).
    1. In the public access settings window that opens, enable **Access via link**.
    1. Confirm the publishing and click **Next**.
    1. Copy the public link and click **Apply**.
@@ -171,7 +171,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 You can embed the published charts into a website or app using the `iframe` element. To do this:
 
 1. Follow the public link to the chart.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) in the upper-right corner of the chart and select **Embed code**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Embed code**.
 1. Copy the `iframe` code to embed in a light or dark theme.
 1. Embed the code into your website.
 
