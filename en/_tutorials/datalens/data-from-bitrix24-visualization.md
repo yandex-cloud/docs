@@ -14,8 +14,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Step 1. Create a connection to Bitrix24 {#create-connection-bitrix24}
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select the [**Bitrix24**]({{ link-datalens-main }}/connections/new/bitrix24) connection type.
 
    {% cut "Selecting a connection type" %}
@@ -63,7 +63,7 @@ The dashboard is interactive, there you can:
 
 You can see a copy of the main dashboard. Feel free to edit the dashboard as you see fit. For example, in the **Leads** tab, you can change the **Dynamics in the number of leads by creation date** chart and add it to the dashboard:
 
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) in the top-right corner of the chart and select **Edit**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Edit**.
 
    {% cut "Editing charts" %}
 
@@ -87,7 +87,7 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
 
 1. Save the chart as a new object:
 
-   1. Click ![image](../../_assets/datalens/arrow-down.svg) in the top-right corner and select **Save as**.
+   1. Click ![image](../../_assets/console-icons/chevron-down.svg) in the top-right corner and select **Save as**.
 
       {% note tip %}
 
@@ -111,7 +111,7 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
 
 ## Step 3. Review the connection and dataset. Create your dataset and chart {#create-dataset-and-chart}
 
-1. Review the contents of the **Bitrix24** folder. To do this, go back to the Bitrix24 folder: click ![folder](../../_assets/datalens/folder.svg) and select **Bitrix24** in the navigation panel.
+1. Review the contents of the **Bitrix24** folder. To do this, go back to the Bitrix24 folder: click ![folder](../../_assets/console-icons/folders.svg) and select **Bitrix24** in the navigation panel.
 
    Apart from the dashboard, the folder contains two nested folders with:
 
@@ -124,7 +124,7 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
 
    * **Name**: Field name.
    * **Type**: Field [data type](../../datalens/concepts/data-types.md).
-   * **Field source**: Field in the source table or a formula for [calculations](../../datalens/concepts/calculations/index.md) (marked with the ![formula-dataset](../../_assets/datalens/formula-dataset.svg) icon).
+   * **Field source**: Field in the source table or a formula for [calculations](../../datalens/concepts/calculations/index.md) (marked with the ![formula-dataset](../../_assets/console-icons/function.svg) icon).
    * **Aggregation**: [Data aggregation function](../../datalens/concepts/dataset/data-model.md#aggregation) if it is applied to the field.
    <br>
 
@@ -164,7 +164,7 @@ To use the [Bitrix24](#create-connection-bitrix24) connection data, you can crea
 1. Select **Datasets** in the navigation panel on the left.
 1. Click **Create dataset** at the top right.
 1. Go to the **Sources** tab.
-1. Under **Connections**, click ![image](../../_assets/plus-sign.svg)**Add** and select the previously created Bitrix24 connection.
+1. Under **Connections**, click ![image](../../_assets/console-icons/plus.svg)**Add** and select the previously created Bitrix24 connection.
 1. Drag the **crm_activity** table to the workspace. Wait for the data to load.
 
    {% cut "Choosing a table" %}
@@ -182,7 +182,7 @@ To use the [Bitrix24](#create-connection-bitrix24) connection data, you can crea
 1. Go to the **Fields** tab.
 1. Create a record count field named `ID_COUNT`:
 
-   1. Duplicate the `ID` field: hover over the row with the field, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) at the end of the row, and select **Duplicate**.
+   1. Duplicate the `ID` field: hover over the row with the field, click ![image](../../_assets/console-icons/ellipsis.svg) at the end of the row, and select **Duplicate**.
 
       {% cut "Duplicating a table field" %}
 
@@ -215,7 +215,7 @@ To visualize interaction by type, create a column chart.
 
 1. Save the chart:
 
-   1. Click ![image](../../_assets/datalens/arrow-down.svg) in the top-right corner and select **Save**.
+   1. Click ![image](../../_assets/console-icons/chevron-down.svg) in the top-right corner and select **Save**.
    1. Enter `Number of interactions by type` as the new chart's name and click **Save**.
 
 ### Add a chart to your dashboard {#add-chart-on-dashboard}

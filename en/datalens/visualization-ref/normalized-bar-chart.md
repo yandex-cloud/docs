@@ -7,7 +7,7 @@ A normalized bar chart shows the contribution, as a percentage, of multiple meas
 {% cut "Source table" %}
 
 | Month | Gasoline | Rent | Food | Utility bills |
------ | ---------| ---------- | ---------- | ---------- 
+----- | ---------| ---------- | ---------- | ----------
 | January 2019 | 100 | 600 | 300 | 500 |
 | February 2019 | 150 | 600 | 250 | 700 |
 | March 2019 | 100 | 600 | 450 | 400 |
@@ -48,7 +48,7 @@ A normalized bar chart shows the contribution, as a percentage, of each category
 {% cut "Source table" %}
 
 | Month | Home appliances | Household goods | Household cleaners |
------ | ---------| ---------- | ---------- 
+----- | ---------| ---------- | ----------
 | January 2019 | 128K | 55K | 26K |
 | February 2019 | 97K | 79K | 18K |
 | March 2019 | 187K | 105K | 41K |
@@ -66,13 +66,13 @@ A normalized bar chart shows the contribution, as a percentage, of each category
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
-| Y | Dimensions. One or two dimensions can be specified. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on. |
-| X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named [Measure Names](../concepts/chart/measure-values.md). You may move [Measure Names](../concepts/chart/measure-values.md) to the Y-axis. |
-| Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of lines. [Measure Names](../concepts/chart/measure-values.md) is removed by deleting measures from the Y-axis. |
-| Sorting | Dimension or measure. Affects the sorting of columns. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
-| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
+| Y | Dimensions. You can specify one or two dimensions. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on. |
+| X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis. |
+| Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field that affects the color of lines. To remove [Measure Names](../concepts/chart/measure-values.md), delete measures from the Y-axis. |
+| Sorting | Dimension or measure. Affects the column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Labels | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a normalized bar chart {#create-diagram}
@@ -82,12 +82,12 @@ To create a normalized bar chart:
 1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
 1. Under **Dataset**, select a dataset for visualization.
 1. Select **Normalized bar chart** as the chart type.
-1. Drag one or more dimensions from the dataset to the **Y** section. The values are displayed on the Y-axis.
+1. Drag one or more dimensions from the dataset to the **Y** section. The values will be displayed on the Y axis.
 1. Drag one or more measures from the dataset to the **X** section.
-1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Colors** section.
+1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Color** section.
 
 ## Recommendations {#recomendations}
 
 * {% include [category-text](../../_includes/datalens/datalens-category-text.md) %}
-* Don't display more than 3-5 segments on the chart.
+* Do not display more than three to five segments on the chart.
 * When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting. We recommend using no more than 3-5 colors per chart. If you want to emphasize one certain measure above the others, highlight it in some bright color.

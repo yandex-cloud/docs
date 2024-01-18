@@ -4,7 +4,7 @@
 
 {% note warning %}
 
-Sprints are enabled by default on boards with a **Backlog and sprints**. If you want to use sprints on a **Basic board**, [enable a backlog on it](backlog.md#add-backlog).
+Sprints are enabled by default on boards with a **backlog and sprints**. If you want to use sprints on a **Basic board**, [enable a backlog on it](backlog.md#add-backlog).
 
 {% endnote %}
 
@@ -24,7 +24,7 @@ After you create an issue board in the **{{ ui-key.startrek.ui_components_agile_
 
 1. Enter a name for the sprint, its duration, and start and end time. To start working on the sprint immediately, leave the **{{ ui-key.startrek.ui_components_agile_common_SprintFormFields.take-sprint-to-work }}** option enabled.
 
-1. Tap **{{ ui-key.startrek.ui_components_agile_common_SprintForm.create-sprint }}**.
+1. Click **{{ ui-key.startrek.ui_components_agile_common_SprintForm.create-sprint }}**.
 
 #### Step 3. Add issues to the sprint
 
@@ -36,8 +36,18 @@ There are several ways to add an issue to a sprint:
 
 - To quickly add multiple issues, use [bulk edits](agile-new-issues.md#bulk): click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_common_IssueActionsMenu.select-issue }}** in an issue card on the board and then click other issues you want to add to the sprint. Once you select all issues, click **{{ ui-key.startrek.ui_components_agile_common_BulkActionsPanel.add-to-sprint }}** in the board's bottom panel and select the one you need.
 
+## Editing a sprint {#sprint-edit}
+
+To edit a sprint:
+
+1. To the right of the sprint header, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-edit.svg) **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardColumnHeader.column-menu--edit }}**.
+
+1. In the window that opens, you can rename the sprint, change its duration and start and end time, as well as enable the **{{ ui-key.startrek.ui_components_agile_common_SprintFormFields.take-sprint-to-work }}** option.
+
+1. To save your changes, tap **{{ ui-key.startrek.ui_components_agile_common_SprintForm.edit-sprint }}**.
+
 ## Changing sprint status {#sprint-status}
 
 When all the sprint issues are planned and the sprint date has arrived, click **{{ ui-key.startrek.ui_components_agile_common_StartSprintButton.start }}** in the board's **{{ ui-key.startrek.ui_components_agile_common_AgileTabs.backlog }}** tab next to the sprint.
 
-Once you complete your work on the sprint, click **Finish** next to it. If the sprint has any incomplete issues, you will be prompted to leave them in the current sprint, return them to the backlog, or move them to a new sprint that can be created immediately. As soon as all the issues are completed, the sprint will be displayed under **{{ ui-key.startrek.ui_components_agile_common_FinishedSprintsButton.finished-sprints }}**.
+Once you complete your work on the sprint, click **Complete** next to it. If the sprint has any incomplete issues, you will be prompted to leave them in the current sprint, return them to the backlog, or move them to a new sprint that can be created immediately. As soon as all the issues are completed, the sprint will be displayed under **{{ ui-key.startrek.ui_components_agile_common_FinishedSprintsButton.finished-sprints }}**.

@@ -297,8 +297,8 @@ For MLFlow to run automatically after the VM restarts, make it the `Systemd` ser
    ```
    Where:
 
-   * <VM_username>: VM account username.
-   * <DB_username>: Username specified when creating a database cluster.
+   * `<VM_username>`: VM account username.
+   * `<DB_username>`: Username specified when creating a database cluster.
 
 1. Run the service and enable autoload at system startup:
 

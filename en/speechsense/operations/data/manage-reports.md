@@ -24,7 +24,7 @@ You can use [reports in {{ speechsense-name }}](../../concepts/reports.md) to an
 
 1. To add more parameters, click ![image](../../../_assets/console-icons/plus.svg) **Add parameter**.
 1. Use the ![image](../../../_assets/console-icons/plus.svg) **Add filter** button to set filters to be used to select dialogs for the report. For more information on how to filter dialogs in a more practical way, see [{#T}](../../concepts/reports.md#filters).
-1. Select the connection to which you uploaded the required conversation recordings.
+1. Select a [connection](../../concepts/resources-hierarchy.md#connection) with the uploaded conversation recordings.
 1. Specify how to group the report data. For example, you can group by product, operator, or customer. Different grouping settings produce different data cross-sections.
 1. Click **Create report**.
 1. To reuse the report, click **Save report**. Specify its name and, optionally, a description.

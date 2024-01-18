@@ -52,7 +52,7 @@ To create projects, copy and paste the code into notebook cells and run them.
 1. Specify the IAM token you obtained:
 
    ```python
-   iam_token = "<iam_token>"
+   iam_token = "<IAM_token>"
    ```
 
 1. Import the required library:

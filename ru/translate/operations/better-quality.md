@@ -14,9 +14,10 @@ description: "Из статьи вы узнаете, как можно повы�
 
 {% include [curl](../../_includes/curl.md) %}
 
+{% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
+
 {% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
-{% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
 
 ## Указать язык исходного текста {#with-source-language}
 

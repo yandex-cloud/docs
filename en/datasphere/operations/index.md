@@ -28,6 +28,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](projects/restrictions.md)
 * [{#T}](projects/delete.md)
 * [{#T}](projects/delete-user.md)
+* [{#T}](projects/use-shared-resource.md)
 
 ## Working in a notebook {#notebook}
 

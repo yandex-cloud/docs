@@ -78,7 +78,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image for creating a node.
       * `vpc.user` to use the {{ ml-platform-name }} cluster network.
-      * (optional) `datasphere.user` to send requests to the node.
+      * (Optional) `datasphere.user` to send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -205,11 +205,11 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
         {{ registry }}
       ```
 
-   1. Push the Docker image to {{ container-registry-name }}. For <Registry ID>, use the ID of your registry (`datasphere-registry`):
+   1. Push the Docker image to {{ container-registry-name }}. For <registry_ID>, use the ID of your registry (`datasphere-registry`):
 
       ```bash
-      docker tag triton-docker {{ registry }}/<Registry ID>/triton:v1
-      docker push {{ registry }}/<Registry ID>/triton:v1
+      docker tag triton-docker {{ registry }}/<registry_ID>/triton:v1
+      docker push {{ registry }}/<registry_ID>/triton:v1
       ```
 
 {% endlist %}

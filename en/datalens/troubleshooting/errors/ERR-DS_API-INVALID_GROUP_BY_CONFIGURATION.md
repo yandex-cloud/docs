@@ -10,7 +10,7 @@ Use one of the methods below to resolve the error:
 
 * Enable grouping in the chart's settings:
 
-   1. Open the chart's settings. To do this, click ![image](../../../_assets/datalens/gear.svg) to the right of the chart type selector (**Table**) at the top of the widget.
+   1. Open the chart's settings. To do this, click ![image](../../../_assets/console-icons/gear.svg) to the right of the chart type selector (**Table**) at the top of the widget.
    1. In the configuration window, enable **Grouping**.
    1. Click **Apply**.
 

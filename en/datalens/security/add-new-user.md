@@ -22,7 +22,7 @@ To add or invite users, you must be the organization's administrator (`organizat
 You can add users in the service settings. To do this:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. Open the service [settings]({{ link-datalens-settings }}) and click ![image](../../_assets/datalens/service-settings.svg) in the left-hand panel.
+1. Open the service [settings]({{ link-datalens-settings }}) and click ![image](../../_assets/console-icons/sliders.svg) in the left-hand panel.
 1. Under **Manage users**, click **Invite users**.
 1. Enter the email addresses of the users you want to invite, e.g., `{{login-example}}`.
 

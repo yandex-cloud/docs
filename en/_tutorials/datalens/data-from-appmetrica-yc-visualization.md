@@ -33,7 +33,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
    1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere)
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch)
-   1. [{{ ml-platform-short-name }}. Download the test app data via Yandex Disk](#uploading-data-counter-from-disk)
+   1. [{{ ml-platform-short-name }}. Download the test app data via Yandex Disk](#uploading-data-counter-from-disk)
    1. [Export the data from AppMetrica](#uploading-data-from-appmetrica)
    1. [{{ CH }}. Get the cluster's IP address](#getting-ch-cluster-host)
    1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch)
@@ -77,7 +77,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
       ![image](../../_assets/datalens/solution-13/02-ch-settings-storage.png)
 
-   1. **Hosts**: Click the ![pencil](../../_assets/pencil.svg) icon. Enable **Public access** and click **Save**.
+   1. **Hosts**: Click the ![pencil](../../_assets/console-icons/pencil.svg) icon. Enable **Public access** and click **Save**.
    1. **Advanced settings**: Enable 4 options:
 
       * Access from {{ datalens-short-name }}
@@ -93,11 +93,11 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 1. Select **{{ ml-platform-name }}** from the list on the left.
 1. Click **Create project**.
 1. Enter `appmetrica_analysis` as the project name, and click **Create**.
-1. Open the project. To do this, in the line with the project name, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Open**.
+1. Open the project. To do this, in the line with the project name, click ![image](../../_assets/console-icons/ellipsis.svg) → **Open**.
 
 ### 1.3. Clone the repository to {{ ml-platform-short-name }} {#clone-repo-to-datasphere}
 
-1. In the upper-left corner, click **Git Clone** — ![git](../../_assets/datasphere/jupyterlab/git.svg).
+1. In the top-left corner, click **Git Clone**: ![git](../../_assets/datasphere/jupyterlab/git.svg).
 
    ![image](../../_assets/datalens/solution-13/03-cloud-jupyter-lab.png)
 
@@ -105,11 +105,11 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 ## 2. Retrieve and upload data to {{ CH }} {#get-download-data-in-ch}
 
-If you don't have a Yandex Metrica tag, it doesn't have enough data, or if you want to make sure and complete all the steps in the instructions and get a result, go to step [2.1](#uploading-data-counter-from-disk) (skip step [2.2](#uploading-data-from-appmetrica)).
+If you do not have a Yandex Metrica tag, it has not accumulated enough data, or if you want to make sure that you will get a result by completing all the guide steps, go to step [2.1](#uploading-data-counter-from-disk) (skip step [2.2](#uploading-data-from-appmetrica)).
 
 If you have the AppMetrica app and access to it, go to step [2.2](#uploading-data-from-appmetrica): this is recommended for experienced users who might need to edit scripts (skip step [2.1](#uploading-data-counter-from-disk)).
 
-### 2.1. {{ ml-platform-short-name }}. Download the test app data via Yandex Disk {#uploading-data-counter-from-disk}
+### 2.1. {{ ml-platform-short-name }}. Download the test app data via Yandex Disk {#uploading-data-counter-from-disk}
 
 {% note info %}
 
@@ -176,8 +176,8 @@ To set up the connection and export data from your app, see [Export data to {{ y
 ### 4.1. Connect to {{ datalens-short-name }} {#datalens-connection}
 
 1. In the [management console]({{ link-console-main }}), open the page of the {{ CH }} cluster you created.
-1. On the left side of the window, select ![datalens](../../_assets/datalens/chart.svg) **{{ datalens-short-name }}**.
-1. Click **Create connection**.
+1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. Click **Create connection**.
 
 ### 4.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
 
@@ -201,7 +201,7 @@ To set up the connection and export data from your app, see [Export data to {{ y
 1. Open the **Fields** tab.
 1. Create the **users** calculated field:
 
-   1. In the upper-right corner, click **Add field**.
+   1. In the top-right corner, click **Add field**.
    1. At the top left, enter the `users` field name.
    1. Paste the `countd([appmetrica_device_id])` formula in the area to the right.
    1. Click **Create**.
@@ -244,7 +244,7 @@ To set up the connection and export data from your app, see [Export data to {{ y
 
    ![image](../../_assets/datalens/solution-13/11-table-chart.png)
 
-1. In the upper-right corner, click the button to the right of **Save**, then click **Save as**.
+1. In the top-right corner, click the button to the right of **Save**, then click **Save as**.
 1. In the window that opens, enter `Table by car brands` as the chart name, then click **Save**.
 
 ## 5. Create and configure a dashboard in {{ datalens-short-name }} {#creating-configuring-dashboard}
@@ -261,7 +261,7 @@ To set up the connection and export data from your app, see [Export data to {{ y
 1. Repeat the previous step for the **Coverage and events** chart.
 1. Add and configure a selector.
 
-   1. In the upper-right corner, click **Add** → **Selector**.
+   1. In the top-right corner, click **Add** → **Selector**.
    1. In the **Dataset** list, select **autoru_backend_data**.
    1. In the **Field** list, select **event name**.
    1. In the **Default value** list, select any option.
@@ -285,7 +285,7 @@ Use QL charts to delve into event sequences and experiment in {{ datalens-short-
 
 1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
 1. Select the `AppMetrica_workshop` connection that you created in step [4.2](#creation-datalens-connection-to-ch).
-1. At the top right, click **Create SQL chart**.
+1. At the top right, click **Create QL chart**.
 1. Enter the query:
 
    ```sql
@@ -334,7 +334,7 @@ Use QL charts to delve into event sequences and experiment in {{ datalens-short-
 
    ![image](../../_assets/datalens/solution-13/14-bar-chart.png)
 
-1. In the upper-right corner, click **Save**, then enter the chart name `Event chains`.
+1. In the top-right corner, click **Save**, then enter the chart name: `Event chains`.
 1. Add the QL chart to the dashboard.
 
    1. In the menu on the left, click **Dashboards**.

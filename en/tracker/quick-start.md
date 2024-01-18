@@ -9,7 +9,7 @@ To get started with {{ tracker-name }}, create a queue: this is a shared space w
 In {{ tracker-name }}, you can [create](manager/create-queue.md) and [set up](manager/edit-queue-general.md) a queue manually, or use [automation tools](automation.md). To create a queue preconfigured for a specific workflow, we recommend using [workflow templates](manager/create-work-process.md).
 
 
-1. On the  [**My page**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
+1. On the [**My page**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
 1. Select **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-standard }}** and click **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
 1. Specify the queue parameters:
    * Issue queue name
@@ -76,10 +76,10 @@ The new issue is ready-to-go. It will appear on the board, the queue page, and t
 
 {{ tracker-name }} will help you effectively allocate team resources, assign issues, and track progress. Check the following sections to get started with {{ tracker-name }}:
 
-Section | Description
+| Section | Description |
 ------ | --------
-[{#T}](about-tracker.md) | Find out what is inside {{ tracker-name }} and how it works.
-[Change the interface language](user/personal.md#choose-language) | Choose English or Russian as your interface language.
-[{#T}](manager/queue-access.md) | Set up user access to issues in your queue.
-[{#T}](user/search-task.md) | Learn how to quickly find relevant issues.
-[{#T}](user/dashboard.md) | Create a dashboard, a page that provides statistics on your key issues.
+| [{#T}](about-tracker.md) | Find out what is inside {{ tracker-name }} and how it works. |
+| [Change the interface language](user/personal.md#choose-language) | Choose English or Russian as your interface language. |
+| [{#T}](manager/queue-access.md) | Set up user access to issues in your queue. |
+| [{#T}](user/search-task.md) | Learn how to quickly find relevant issues. |
+| [{#T}](user/dashboard.md) | Create a dashboard, a page that provides statistics on your key issues. |

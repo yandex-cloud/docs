@@ -8,9 +8,9 @@
 sudo apt update && sudo apt install -y kafkacat
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Запустите команду получения сообщений из топика:
 
@@ -39,7 +39,7 @@ sudo apt update && sudo apt install -y kafkacat
              -X sasl.password="<пароль_производителя>" -Z
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     1. Запустите команду получения сообщений из топика:
 
@@ -97,9 +97,9 @@ sudo apt update && sudo apt install -y kafkacat
     cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
     ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     1. Пример кода для отправки сообщений в топик:
 
@@ -222,7 +222,7 @@ sudo apt update && sudo apt install -y kafkacat
         dotnet run bin/Debug/netcoreapp5.0/App.dll
         ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     1. Пример кода для отправки сообщений в топик:
 
@@ -424,9 +424,9 @@ sudo apt update && sudo apt install -y kafkacat
     cp scram.go producer/scram.go && cp scram.go consumer/scram.go
     ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     1. Пример кода для отправки сообщения в топик:
 
@@ -578,7 +578,7 @@ sudo apt update && sudo apt install -y kafkacat
         ~/go-project/producer/producer
         ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     1. Пример кода для отправки сообщения в топик:
 
@@ -883,9 +883,9 @@ sudo apt update && sudo apt install -y kafkacat
     cp pom.xml producer/pom.xml && cp pom.xml consumer/pom.xml
     ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода для отправки сообщений в топик:
 
@@ -1007,7 +1007,7 @@ sudo apt update && sudo apt install -y kafkacat
       java -jar ~/project/consumer/target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Перейдите в каталог, где будет располагаться хранилище сертификатов Java:
 
@@ -1160,9 +1160,9 @@ sudo apt update && sudo apt install -y nodejs npm && \
 npm install node-rdkafka
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода для отправки сообщений в топик:
 
@@ -1257,7 +1257,7 @@ npm install node-rdkafka
       node producer.js
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода для отправки сообщений в топик:
 
@@ -1380,9 +1380,9 @@ npm install node-rdkafka
 
    {% endnote %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Запустите команду получения сообщений из топика:
 
@@ -1413,7 +1413,7 @@ npm install node-rdkafka
           --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_производителя>' password='<пароль_производителя>';"
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
 
@@ -1473,9 +1473,9 @@ sudo apt update && sudo apt install -y python3 python3-pip libsnappy-dev && \
 pip3 install kafka-python lz4 python-snappy crc32c
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода для отправки сообщения в топик:
 
@@ -1527,7 +1527,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
       python3 consumer.py
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода для отправки сообщения в топик:
 
@@ -1595,9 +1595,9 @@ pip3 install kafka-python lz4 python-snappy crc32c
 pip install confluent_kafka
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода для отправки сообщения в топик:
 
@@ -1664,7 +1664,7 @@ pip install confluent_kafka
       python3 consumer.py
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода для отправки сообщения в топик:
 

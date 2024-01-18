@@ -42,13 +42,15 @@ items:
             href: operations/project/delete-user-from-project.md
   - name: Concepts
     items:
-      - name: Dialogs in {{ speechsense-name }}
+      - name: Resource hierarchy
+        href: concepts/resources-hierarchy.md
+      - name: Dialogs
         href: concepts/dialogs.md
-      - name: Reports in {{ speechsense-name }}
+      - name: Reports
         href: concepts/reports.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

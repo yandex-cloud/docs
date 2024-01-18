@@ -49,7 +49,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 ## Step 2. Create a connection {#step2}
 
 1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select the **ClickHouse** connection.
    1. In the window that opens, specify the connection parameters:
       * Connection type: **Specify manually**.
@@ -75,7 +75,7 @@ Wait for the connection to be saved.
    1. Rename the **Name** field to **Pizzerias** in the **Name** column.
    1. For the **Coordinates** field, select the `geopoint` type.
    1. For the **Revenue** field, select the **Sum** aggregation type in the **Aggregation** column.
-   1. Duplicate the **Pizzerias** field. Click ![add-field](../../_assets/datalens/solution-09/32-settings.png) and select the **Duplicate** option.
+   1. Duplicate the **Pizzerias** field. Click ![add-field](../../_assets/console-icons/ellipsis.svg) and select the **Duplicate** option.
 
       ![dublicate-field](../../_assets/datalens/solution-09/13-dublicate-field.png)
 
@@ -133,8 +133,8 @@ Wait for the connection to be saved.
    1. Select **Less than or equal** to from the **Operation** list.
    1. Enter **10** in the **Value** field.
    1. Click **Apply filter**.
-1. The chart will show the rating of the **Top 10 pizzerias in Russia**.
-1. In the top-right corner, click ![save-button](../../_assets/datalens/solution-09/29-save-button.png) → **Save as**. Name the chart as **Top 10 pizzerias** and click **Save**.
+1. The chart will show the **Top 10 pizzerias in Russia**.
+1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as**. Name the chart as **Top 10 pizzerias** and click **Save**.
 
    ![bar-chart-1](../../_assets/datalens/solution-09/04-bar-chart-1.png)
 
@@ -149,13 +149,13 @@ Wait for the connection to be saved.
 
    ![delete-filters](../../_assets/datalens/solution-09/11-delete-filters.png)
 
-1. In the top-right corner, click ![save-button](../../_assets/datalens/solution-09/29-save-button.png) → **Save as**. Name the chart as **Revenue** and click **Save**.
+1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as**. Name the chart as **Revenue** and click **Save**.
 1. Delete the **sum(Revenue)** measure from the **Measure** section.
 1. Add the **The number of pizzerias** measure to the **Measure** section.
 
    ![indicator-metric](../../_assets/datalens/solution-09/16-indicator-metric.png)
 
-1. In the top-right corner, click ![save-button](../../_assets/datalens/solution-09/29-save-button.png) → **Save as**. Name the chart as **The number of pizzerias** and click **Save**.
+1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as**. Name the chart as **The number of pizzerias** and click **Save**.
 
 ## Step 7. Create a map chart {#step7}
 
@@ -241,13 +241,13 @@ Wait for the connection to be saved.
 
 1. Click **Save** to close the **Links** window.
 1. In the layer section, rename **Layer 1**.
-   1. To do this, click on the layer and choose ![links](../../_assets/datalens/solution-09/32-settings.png).
+   1. To do this, click on the layer and choose ![links](../../_assets/console-icons/ellipsis.svg).
 
    ![select-layer](../../_assets/datalens/solution-09/30-select-layer.png)
 
-   1. In the **Layer settings** window that opens, enter the name **DODO** and click **Apply**.
-1. Click ![plus](../../_assets/datalens/solution-09/26-plus.png) to add a layer. Rename it to **Demand for supply**.
-1. Modify geolayer type from **Points** to **Polygons**.
+   1. In the **Layer settings** window that opens, enter **DODO** as the name and click **Apply**.
+1. Click ![plus](../../_assets/console-icons/square-plus.svg) to add a layer. Rename it to **Demand for supply**.
+1. Change the geolayer type from **Points** to **Polygons**.
 
    ![geopolygon](../../_assets/datalens/solution-09/14-geopolygon.png)
 

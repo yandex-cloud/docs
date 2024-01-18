@@ -9,6 +9,6 @@ description: "{{ yagpt-full-name }} has quotas and limits. For more information 
 
 {{ yagpt-full-name }} has the following limits:
 
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def-without-ui.md) %}
 
 {% include [quotes-limits-def.md](../../_includes/yandexgpt-limits.md) %}

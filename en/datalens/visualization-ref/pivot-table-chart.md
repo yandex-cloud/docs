@@ -41,13 +41,13 @@ Pivot tables make it easier to work with large amounts of data and let you analy
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
 | Columns | Dimensions. |
-| Stings | Dimensions. |
+| Strings | Dimensions. |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**. |
 | Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure. |
-| Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
+| Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a pivot table {#create-diagram}
@@ -84,7 +84,7 @@ To create a pivot table:
 
 ### Setting up the width of table columns and rows {#set-column-width}
 
-1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/datalens/gear.svg) (the icon appears when you hover over the section).
+1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
 1. In the **Column and row width** window that opens, set up the width of columns and rows:
 
    * `Auto`: Automatic column/row width.
@@ -121,7 +121,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 {% note info %}
 
-* The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Filters** or **Dashboard filters** section.
+* The **Total** row does not support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Filters** or **Dashboard filters** section.
 * Calculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) may not work correctly in the row with totals.
 
 {% endnote %}
@@ -143,21 +143,21 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
    - For a dimension
 
-     1. Click the color scheme selection field and set a color for each dimension value.
-     1. Click **Apply**.
+      1. Click the color scheme selection field and set a color for each dimension value.
+      1. Click **Apply**.
 
    - For a measure
 
-     1. Click the gradient selection field and set up:
+      1. Click the gradient selection field and set up:
 
-        * **Gradient type**: Select 2 or 3 colors.
+         * **Gradient type**: Select 2 or 3 colors.
 
-          * Gradient color: Select a color palette for the gradient from the list.
-          * Gradient direction: Change the gradient direction using the ![image](../../_assets/datalens/swap.svg) icon.
+            * Gradient color: Select a color palette for the gradient from the list.
+            * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
 
-        * **Set threshold values**: Set numeric thresholds for each color.
+         * **Set threshold values**: Set numeric thresholds for each color.
 
-     1. Click **Apply**.
+      1. Click **Apply**.
 
    {% endlist %}
 
@@ -189,50 +189,50 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 * Use a pivot table to represent aggregate data in table format.
 * Place dimensions on the left and measures on the right. This makes the data easier to comprehend.
-* Make sure column names you use are short and easy to read.
+* Make sure column names you use are short and readable.
 * Limit the size of your tables or use filters/sorting. Tables with too many rows or columns are hard to read.
 * You can color table cells depending on the values of a measure. This will help you to highlight the values.
 * Use tables for their intended purpose only. Do not replace all data visualization types with them.
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
 
-  {% cut "Setting up auto height" %}
+   {% cut "Setting up auto height" %}
 
-  ![pivot-table-auto-height](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height.png)
+   ![pivot-table-auto-height](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height.png)
 
-  {% endcut %}
+   {% endcut %}
 
-  If you use a filter, the table height will automatically adapt to the number of rows.
+   If you use a filter, the table height will automatically adapt to the number of rows.
 
-  {% cut "Using a filter with the auto height option enabled" %}
+   {% cut "Using a filter with the auto height option enabled" %}
 
-  If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
+   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
 
-  ![pivot-table-auto-height-2](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-2.png)
+   ![pivot-table-auto-height-2](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-2.png)
 
-  If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
+   If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
 
-  ![pivot-table-auto-height-3](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-3.png)
+   ![pivot-table-auto-height-3](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-3.png)
 
-  {% endcut %}
+   {% endcut %}
 
 * Represent totals (or subtotals) as a column. To do this, use calculated fields based on [window functions](../concepts/window-function-tutorial.md) or [LOD expressions](../concepts/lod-aggregation.md). For example:
 
-  * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
-  * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
+   * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
+   * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
 
-    {% cut "Sample table" %}
+      {% cut "Sample table" %}
 
-    ![pivot-table-sum](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-sum.png)
+      ![pivot-table-sum](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-sum.png)
 
-    {% endcut %}
+      {% endcut %}
 
-  * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
+   * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
 
-    {% cut "Sample table" %}
+      {% cut "Sample table" %}
 
-    ![pivot-table-count](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-count.png)
+      ![pivot-table-count](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-count.png)
 
-    {% endcut %}
+      {% endcut %}
 
 * Use sorting. This makes the data easier to comprehend.
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.

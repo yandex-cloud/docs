@@ -8,7 +8,7 @@ Currently, versioning is only supported for [dataset-based](#dataset-based-chart
 
 {% endnote %}
 
-To go to the list of versions, click the ![image](../../../_assets/datalens/horizontal-ellipsis.svg) icon at the top of the screen and select **Change history**.
+To go to the list of versions, click the ![image](../../../_assets/console-icons/ellipsis.svg) icon at the top of the screen and select **Change history**.
 
 ![image](../../../_assets/datalens/concepts/version-list.png)
 
@@ -34,7 +34,7 @@ The following distinct versions are available:
 
    ![image](../../../_assets/datalens/concepts/draft-version.png)
 
-   To create a draft after editing a chart, click the down arrow in the upper-right corner and select **Save as draft**.
+   To create a draft after editing a chart, click the down arrow in the top-right corner and select **Save as draft**.
 
 * **Not actual**. A version that is neither actual nor a draft.
 
@@ -50,7 +50,7 @@ You can share any chart version by adding the `revId` parameter to the chart lin
 
 A new version is automatically created when you click **Save and make actual** in chart edit mode. Here are the chart configuration changes that result in a new version:
 
-* Changing chart settings that can be accessed by clicking ![image](../../../_assets/datalens/gear.svg) at the top of the screen.
+* Changing chart settings that can be accessed by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
 * Adding, renaming, or deleting chart fields.
 * Adding or deleting fields in chart sections.
 

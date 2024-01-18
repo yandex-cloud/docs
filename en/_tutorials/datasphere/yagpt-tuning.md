@@ -146,7 +146,7 @@ File content example:
 
 - {{ jlab }}Lab
 
-   Copy the code to a notebook cell if you did not use any instructions to tune the model:
+   Copy this code to a notebook cell if you did not use any instructions to tune the model:
 
     ```python
     import requests
@@ -164,7 +164,7 @@ File content example:
                 }
             ]            
     }
-    headers = {"Authorization" : "Bearer " + '<IAM_token_value>',
+    headers = {"Authorization" : "Bearer " + '<IAM_token>',
             "x-folder-id": "<folder_ID>", }
     res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
         headers=headers, json=req)
@@ -174,13 +174,13 @@ File content example:
     Where:
 
     * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-    * `temperature`: Temperature. The higher the value, the more unpredictable the result.
+    * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
     * `maxTokens`: Maximum number of tokens per model response.
-    * `<IAM_token_value>`: [IAM token of the service account](../../iam/operations/iam-token/ create-for-sa.md).
+    * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
     * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
 
     If you used instructions to tune the model, enter the text in a `system` message:
- 
+
     ```python
     import requests
     req = {
@@ -201,21 +201,21 @@ File content example:
                 }
             ]    
     }
-    headers = {"Authorization" : "Bearer " + '<IAM_token_value>',
+    headers = {"Authorization" : "Bearer " + '<IAM_token>',
                        "x-folder-id": "<folder_ID>", }
     res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
         headers=headers, json=req)
     print(res.json())
     ```
 
-   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/concepts/api.md).
+   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/api-ref/v1/index.md).
 
 - cURL
 
     {% include [curl](../../_includes/curl.md) %}
- 
+
     1. Create a JSON file with model request parameters. If you did not use any instructions to tune the model, copy the following code to the file:
- 
+
        ```json
         {
         "modelUri": "ds://<fine-tuned_model_ID>",
@@ -232,17 +232,17 @@ File content example:
         ]
         }
        ```
- 
+
        Where:
 
        * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-       * `temperature`: Temperature. The higher the value, the more unpredictable the result.
+       * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
        * `maxTokens`: Maximum number of tokens per model response.
        * `text`: Request text.
- 
+
        If you used instructions to tune the model, enter the text in a `system` message in the JSON file:
- 
-       ```json
+
+        ```json
         {
         "modelUri": "ds://<fine-tuned_model_ID>",
         "completionOptions": {
@@ -261,23 +261,23 @@ File content example:
             }
         ]
         }
-       ```
+        ```
 
     1. Send your request via a command shell:
- 
+
        ```bash
        curl --request POST
            -H "Content-Type: application/json"
-           -H "Authorization: Bearer <IAM_token_value>"
+           -H "Authorization: Bearer <IAM_token>"
            -H "x-folder-id: <folder_ID>"
            -d prompt.json
            https://llm.{{ api-host }}/foundationModels/v1/completion
        ```
- 
+
        Where:
- 
+
        * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
-       * `<IAM_token_value>`: [IAM token of the service account](../../iam/operations/iam-token/create-for-sa.md).
+       * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
        * `prompt.json`: JSON file with request parameters.
 
 {% endlist %}

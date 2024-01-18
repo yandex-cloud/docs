@@ -10,7 +10,7 @@ To revoke directory or object permissions:
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the object or folder and select **Permissions**.
+1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the object or folder and select **Permissions**.
 1. Select the user with the permission you want to revoke or choose the **All** group.
 1. In the window that opens, click **Revoke permissions**.
 
@@ -22,7 +22,7 @@ To deny a [request](request.md) for access to a folder or object:
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the object or folder and select **Permissions**.
-1. Next to the request you need, click **![image](../../../_assets/datalens/circle_stop.svg)**.
+1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the object or folder and select **Permissions**.
+1. Next to the request you need, click **![image](../../../_assets/console-icons/ban.svg)**.
 1. (Optional) Write a comment for the user requesting access.
 1. Click **Deny request**.

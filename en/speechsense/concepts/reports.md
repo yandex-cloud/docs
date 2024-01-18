@@ -52,9 +52,9 @@ There are four types of parameters:
 
 * **Customer**: Refers to the customer's behavior during the call, e.g., how fast they were speaking, whether they interrupted the agent, etc.
 
-* **General metada**: Recording data collected using the PBX. The metadata is uploaded to {{ speechsense-name }} along with the call recording and contains its key specifications, such as the agent's and customer's full names, call date and language, etc.
+* **General metada**: Recording data collected using the PBX. The metadata is uploaded to {{ speechsense-name }} together with the call recording and contains its key characteristics, such as full names of operator and customer, call date, call language, etc.
 
-* **Customer tags** and **Agent tags**: Classifiers applied to the call text recognition results. {{ speechsense-name }} determines whether the dialog has certain keywords, phrases, or tones, classifies the dialog, and adds a tag to it. {{ speechsense-name }} has preconfigured tags. For example, you can use them to learn whether the conversation featured an informal greeting or goodbye, whether the agent thanked the customer for waiting, or whether it was the customer's repeat call to support.
+* **Customer tags** and **Operator tags**: Classifiers applied to the dialog recognition results. {{ speechsense-name }} scans the dialog for specific keywords, phrases, or intonations, classifies the dialog, and adds a tag to it. {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the operator has thanked the customer for waiting, whether it was the customer's repeat call to support, etc.
 
 ### Parameter weight {#weight}
 
@@ -70,7 +70,7 @@ You can use filtering to select the dialogs to include in your report. To filter
 
 * **Filters**: Use the same fields as for the parameters.
 
-* **Connection**: Upload call recordings here. If you have multiple connections with different recordings in each of them, you can select a connection with a proper set of recordings.
+* **Connection**: Upload call recordings here. If you have multiple [connections](resources-hierarchy.md#connection) with different recordings in each of them, you can select a connection with a proper set of recordings.
 
 * **Grouping**: Choose how to group data in your report. You can only group data according to metadata fields.
 
@@ -84,13 +84,13 @@ Data cross-sections depend on the recording metadata. For example, if you want t
 
 ## Visualizing and using data in reports {#display}
 
-A report shows the numeric metrics of agent performance. It is only available in the {{ speechsense-name }} web interface as a chart and table:
+A report shows the numeric metrics of operator performance. It is only available in the {{ speechsense-name }} web interface as a chart and table:
 
-* **Chart** allows you to visually estimate which operators make fewer mistakes for which products.
+* A **chart** allows a visual estimation of which operators make fewer mistakes for which products.
 
    If you need details by a certain parameter, [switch from the chart to a dialog list](../operations/data/manage-reports.md#go-to-a-dialog). Thus you can analyze a mistake that showed up in the report.
 
-* **Table** presents numeric parameter values. Two numbers are displayed for each parameter:
+* A **table** lists numeric parameter values. There are two numbers displayed for each parameter:
 
    * Number of dialogs satisfying the specified parameter.
    * Percentage of those out of all filtered dialogs.

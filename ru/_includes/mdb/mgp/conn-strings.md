@@ -8,9 +8,9 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 Подключитесь к базе данных:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   ```bash
   psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
@@ -21,7 +21,7 @@ sudo apt update && sudo apt install --yes postgresql-client
         target_session_attrs=read-write"
   ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   {% include [default-connstring](default-connstring.md) %}
 
@@ -42,9 +42,9 @@ SELECT version();
 * Microsoft.EntityFrameworkCore
 * Npgsql.EntityFrameworkCore.PostgreSQL
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   ```csharp
   using System;
@@ -101,9 +101,9 @@ sudo apt update && sudo apt install --yes golang git && \
 go mod init example && go get github.com/jackc/pgx/v4
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода:
 
@@ -166,7 +166,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       go run connect.go
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода:
 
@@ -347,9 +347,9 @@ go mod init example && go get github.com/jackc/pgx/v4
 
     Актуальную версию `postgresql` уточняйте на [странице проекта в репозитории Maven](https://mvnrepository.com/artifact/org.postgresql/postgresql).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода:
 
@@ -390,7 +390,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода:
 
@@ -442,9 +442,9 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install pg
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `app.js`
 
@@ -469,7 +469,7 @@ npm install pg
     });
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `app.js`
 
@@ -521,9 +521,9 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 
 Драйвер {{ PG }} ODBC будет автоматически зарегистрирован в файле `/etc/odbcinst.ini`.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода:
 
@@ -548,7 +548,7 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 
       После подключения к СУБД выполните команду `SELECT version();`.
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода:
 
@@ -584,9 +584,9 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 sudo apt update && sudo apt install --yes php php-pgsql
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода:
 
@@ -618,7 +618,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       php connect.php
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода:
 
@@ -658,9 +658,9 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 Подключитесь к базе данных:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`
@@ -671,7 +671,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       user=<имя_пользователя>"
   ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`
@@ -701,9 +701,9 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install psycopg2-binary
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода:
 
@@ -736,7 +736,7 @@ pip3 install psycopg2-binary
       python3 connect.py
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода:
 
@@ -779,9 +779,9 @@ pip3 install psycopg2-binary
 sudo apt update && sudo apt install --yes ruby ruby-pg
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   1. Пример кода:
 
@@ -812,7 +812,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       ruby connect.rb
       ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   1. Пример кода:
 

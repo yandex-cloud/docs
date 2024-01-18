@@ -52,10 +52,10 @@ You can display additional lines calculated using [window functions](../../datal
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
-| X | Dimension. Only one field can be specified. This dimension is usually a date. In this case, make sure that the `Date` data type is specified for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years (to learn more, see [{#T}](../concepts/chart/settings.md#field-settings)). The **X** section is common for all layers. |
-| Layer section | Lets you add, delete, and rename layers, as well as change their order. You can select a chart type for a layer: [linear chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). A list of other sections depends on the layer chart type you selected. |
+| X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **Х** section is common for all layers. |
+| Layer section | Allows you to add, delete, and rename layers, as well as change their order. You can select a chart type for a layer: [line chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). A list of other sections depends on the layer chart type you selected. |
 
 ## Creating a combined chart {#create-diagram}
 
@@ -66,12 +66,12 @@ To create a combined chart:
 1. Select **Combined chart** as your chart type.
 
 
-1. Drag a dimension from the dataset to the **X** section. The values are displayed in the lower part of the chart on the X-axis.
-1. Select a layer chart type: linear chart ![](../../_assets/datalens/line.svg), column chart ![](../../_assets/datalens/column.svg), or area chart ![](../../_assets/datalens/area.svg). Rename the layer, if required.
+1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
+1. Select a layer chart type: line chart ![](../../_assets/datalens/line.svg), column chart ![](../../_assets/datalens/column.svg), or area chart ![](../../_assets/datalens/area.svg). Rename the layer, if required.
 1. Create a chart of the appropriate type:
 
    * [{#T}](line-chart.md#create-diagram)
    * [{#T}](column-chart.md#create-diagram)
    * [{#T}](area-chart.md#create-diagram)
 
-1. Add a new layer. To do this, click ![](../../_assets/datalens/plus.svg) to the right of the layer name.
+1. Add a new layer. To do this, click ![](../../_assets/console-icons/plus.svg) to the right of the layer name.

@@ -1,6 +1,6 @@
 # Creating a space
 
-Before you get started, [make sure](../../../iam/operations/roles/get-assigned-roles.md) your account has the `speech-sense.spaces.creator` role that allows creating a space.
+Before you get started, [make sure](../../../iam/operations/roles/get-assigned-roles.md) your account has the `speech-sense.spaces.creator` role that allows creating a [space](../../concepts/resources-hierarchy.md#space).
 
 To create a space:
 

@@ -54,12 +54,12 @@ The code is run in the cells with the header:
 
 Where:
 
-* `<cluster>`: Data Proc cluster to perform calculations on. This can be:
+* `--cluster`: Data Proc cluster computations will be performed on. This can be:
    * Name of the cluster created through the notebook interface.
    * HTTP link to the internal IP address of the `masternode` host, such as `http://10.0.0.8:8998/`.
-* `<session>`: Computing session ID. If this parameter is not specified, the default {{ dataproc-name }} cluster session is used.
-* `<input_variable>`: Variable imported to the {{ dataproc-name }} cluster from {{ ml-platform-name }}. Supported types include `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame in a cluster).
-* `<returned_variable>`: Variable to export from the {{ dataproc-name }} cluster to {{ ml-platform-name }}. Supported types include `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
+* `--session`: Computing session ID. If this parameter is not specified, the default {{ dataproc-name }} cluster session is used.
+* `--variables`: Variable imported to the {{ ml-platform-name }} cluster from {{ dataproc-name }}. Supported types include `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame in a cluster).
+* `--return_variables`: Variable to be exported from the {{ dataproc-name }} cluster to {{ ml-platform-name }}. Supported types include `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
 
 #### Example of using computing sessions with user-defined parameters {#example-custom-sessions}
 
@@ -112,4 +112,4 @@ For more information about the SQL query syntax and how to use the Spark SQL lib
 #### See also {#see-also}
 
 * [{#T}](data-proc-template.md)
-* [{#T}](../tutorials/data-proc-integration.md)
+* [{#T}](../tutorials/data-proc-integration.md).

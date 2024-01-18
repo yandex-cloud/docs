@@ -24,6 +24,8 @@ Only a community admin can share a secret in the community. To learn more about 
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the secret in.
 
+To make a secret available for use in another project, the project administrator should [add](../projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+
 ## Invoking a secret in a project cell {#call}
 
 Once you create a secret, you can use it in project cells as an environment variable.

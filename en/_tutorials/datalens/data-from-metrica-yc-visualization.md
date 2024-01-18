@@ -116,7 +116,7 @@ If you have a Yandex Metrica tag and can access it, go to step [2.1](#create-met
 ### 2.1. Yandex Metrica. Create an app and get an access token {#create-metrica-app-token}
 
 1. To work with the API, get your [OAuth token](https://tech.yandex.com/oauth/doc/dg/tasks/get-oauth-token-docpage/).
-1. Create an application:
+1. Create an app:
    1. Go to [https://oauth.yandex.ru/client/new](https://oauth.yandex.com/client/new).
    1. Enter a name for the service.
    1. Go to **Platforms** → **Web services**. In the **Redirect URI** field, enter `https://oauth.yandex.com/verification_code`.

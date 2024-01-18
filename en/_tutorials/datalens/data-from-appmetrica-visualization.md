@@ -30,8 +30,8 @@ This step is available to users who have an app in AppMetrica. If you do not hav
 
 {% endnote %}
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select **AppMetrica** as the connection type.
 
    ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)
@@ -76,7 +76,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
 
    ![image](../../_assets/datalens/solution-06/05-edit-dashboard.png)
 
-1. To delete the **Click dynamics** widget, click ![image](../../_assets/datalens/cross.svg) in the top-right corner.
+1. To delete the **Click dynamics** widget, click ![image](../../_assets/console-icons/xmark.svg) in the top-right corner.
 
    ![image](../../_assets/datalens/solution-06/06-specify-widgets.png)
 

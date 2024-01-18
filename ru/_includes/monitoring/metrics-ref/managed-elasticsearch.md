@@ -143,14 +143,14 @@ host | FQDN хоста
 | `elasticsearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `elasticsearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `elasticsearch_indices_query_cache_cache_count`<br/>`DGAUGE`, штуки | 
-| `elasticsearch_indices_query_cache_cache_size`<br/>`DGAUGE`, |  | 
+| `elasticsearch_indices_query_cache_cache_size`<br/>`DGAUGE`, байты | 
 | `elasticsearch_indices_query_cache_evictions`<br/>`DGAUGE`, штуки | 
 | `elasticsearch_indices_query_cache_hit_count`<br/>`DGAUGE`, штуки | 
 | `elasticsearch_indices_query_cache_memory_size_in_bytes`<br/>`DGAUGE`, байты | 
 | `elasticsearch_indices_query_cache_miss_count`<br/>`DGAUGE`, штуки | 
 | `elasticsearch_indices_query_cache_total_count`<br/>`DGAUGE`, штуки | 
-| `elasticsearch_indices_recovery_current_as_source`<br/>`DGAUGE`, |  | 
-| `elasticsearch_indices_recovery_current_as_target`<br/>`DGAUGE`, |  | 
+| `elasticsearch_indices_recovery_current_as_source`<br/>`DGAUGE`, штуки | 
+| `elasticsearch_indices_recovery_current_as_target`<br/>`DGAUGE`, штуки | 
 | `elasticsearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `elasticsearch_indices_refresh_external_total`<br/>`DGAUGE`, штуки | 
 | `elasticsearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, миллисекунды |

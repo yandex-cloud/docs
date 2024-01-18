@@ -48,13 +48,13 @@ This type of chart is used to see the contribution of each measure to the total 
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
-| X | Dimensions. One or two dimensions can be specified. |
-| Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named [Measure Names](../concepts/chart/measure-values.md). [Measure Names](../concepts/chart/measure-values.md) can be moved to the X-axis. |
-| Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of lines. [Measure Names](../concepts/chart/measure-values.md) is removed by deleting measures from the Y-axis. |
-| Sorting | Dimension or measure. Affects the sorting of columns. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
-| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
+| X | Dimensions. You can specify one or two dimensions. |
+| Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). [Measure Names](../concepts/chart/measure-values.md) can be moved to the X-axis. |
+| Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field that affects the color of lines. To remove [Measure Names](../concepts/chart/measure-values.md), delete measures from the Y axis. |
+| Sorting | Dimension or measure. Affects the column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Labels | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
 | Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
 | Filters | Dimension or measure. Used as a filter. |
 
@@ -65,21 +65,21 @@ To create a normalized column chart:
 1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
 1. Under **Dataset**, select a dataset for visualization.
 1. Select **Normalized column chart** as the chart type.
-1. Drag a dimension from the dataset to the **X** section. The values are displayed in the lower part of the chart on the X-axis.
+1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values are displayed as columns on the Y-axis.
 1. Drag a dimension from the dataset to the **Color** section. Columns are grouped into segments.
 
 ## Recommendations {#recomendations}
 
 * {% include [category-text](../../_includes/datalens/datalens-category-text.md) %}
-* Don't display more than 3-5 segments on the chart.
+* Do not display more than three to five segments on the chart.
 * Place segments so that the largest or most important categories are located closer to the chart base. This makes it easier to compare the values.
 * You can split a chart by dimension into a number of small charts that are convenient to compare to one another. To do this, drag a dimension from the dataset to the **Split** section.
 
-  {% cut "Chart example" %}
+   {% cut "Chart example" %}
 
-  ![normalized-bar-chart-split](../../_assets/datalens/visualization-ref/normalized-bar-chart/normalized-bar-chart-split.png)
+   ![normalized-bar-chart-split](../../_assets/datalens/visualization-ref/normalized-bar-chart/normalized-bar-chart-split.png)
 
-  {% endcut %}
+   {% endcut %}
 
 * To display the absolute values of variables, use a [column chart](column-chart.md).

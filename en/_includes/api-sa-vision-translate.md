@@ -61,18 +61,18 @@ To set up authorization on behalf of a service account:
    ```bash
    curl -X POST \
       -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM token>" \
+      -H "Authorization: Bearer <IAM_token>" \
       -d '{
             "folderId": "<folder_ID>",
-            "name": "sa-api",
+            "name": "<service_account_name>",
             "description": "service account for api"
       }' \
       https://iam.{{ api-host }}/iam/v1/serviceAccounts
    ```
    Where:
-   * `<IAM token>`: Valid IAM token required for authorization.
-   * `folderId`: ID of the folder that hosts the services.
-   * `name`: Service account name in the following format:
+   * `<IAM token>`: Valid authorization token.
+   * `folder_Id`: ID of the folder hosting the services.
+   * `<service_account_name>`: Name of the service account, e.g., `sa-api`. The name format requirements are as follows:
 
       {% include [name-format](./name-format.md) %}
 
@@ -102,8 +102,7 @@ To set up authorization on behalf of a service account:
       --subject serviceAccount:<service_account_ID>
    ```
 
-   Where:
-   <role_ID>: `ai.translate.user` for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
+   Where `--role`: `ai.translate.user` for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
 
 - API
 
@@ -130,9 +129,10 @@ To set up authorization on behalf of a service account:
    ```
 
    Where:
-   * `<IAM token>`: Valid IAM token required for authorization.
-   * `<service_account_ID>`: ID of the `sa-api` service account.
+
+   * `<IAM_token>`: Valid authorization token.
    * `<role_ID>`: `ai.translate.user` for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
+   * `<service_account_ID>`: ID of the `sa-api` service account.
 
    You can also assign service account roles using the [ServiceAccountService/SetAccessBindings](../iam/api-ref/grpc/service_account_service.md#SetAccessBindings) gRPC call.
 
@@ -168,7 +168,7 @@ To set up authorization on behalf of a service account:
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
-      | aje6o61dvog2h6g9a33s | sa-api           |                               |
+      | aje6o61dvog2******** | sa-api           |                               |
       +----------------------+------------------+-------------------------------+
       ```
 
@@ -182,10 +182,10 @@ To set up authorization on behalf of a service account:
 
       ```
       api_key:
-        id: ajeke74kbp5bfq7m6ka2
+        id: ajeke74kbp5b********
         service_account_id: ajepg0mjt06********
         created_at: "2019-04-09T08:41:27Z"
-      secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHsssT5ICtm
+      secret: AQVN1HHJReSrfo9jU3aopsXrJyfq_UHs********
       ```
 
       To learn how to provide the key to a request, read the guides for the [services](../iam/concepts/authorization/api-key.md#supported-services) that support this authorization method.
@@ -203,7 +203,8 @@ To set up authorization on behalf of a service account:
    ```
 
    Where:
-   * `<IAM token>`: Valid IAM token required for authorization.
+
+   * `<IAM_token>`: Valid authorization token.
    * `<service_account_ID>`: ID of the `sa-api` service account.
 
    You can also create an API key using the [ApiKeyService/Create](../iam/api-ref/grpc/api_key_service.md#Create) gRPC API call.

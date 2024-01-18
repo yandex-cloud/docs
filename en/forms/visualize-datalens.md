@@ -9,7 +9,7 @@ With this guide, you will learn how to visualize:
 ## Step 1. Create a database
 
 1. Go to the [{{ yandex-cloud }} management console]({{ link-console-main }}) and select the folder where you want to create a database.
-1. In the left-hand panel, click ![](../_assets/organization/icon-services-menu.svg) and select {{ mpg-full-name }}.
+1. In the left-hand panel, click ![](../_assets/console-icons/dots-9.svg) and select {{ mpg-full-name }}.
 1. In the top-right corner, click **Create cluster**.
 1. Configure the cluster:
     1. Under **Basic parameters**, fill in the **Cluster name** field. The name may contain uppercase and lowercase Latin letters, numbers, underscores, and hyphens.
@@ -62,8 +62,8 @@ With this guide, you will learn how to visualize:
 ## Step 3. Create a connection to the database
 
 1. In the [management console]({{ link-console-main }}), return to the folder with the new cluster.
-1. In the left-hand panel, click ![](../_assets/organization/icon-services-menu.svg) and select {{ sf-name }}.
-1. In the left-hand panel, click ![](../_assets/forms/svg/database-connect.svg).
+1. In the left-hand panel, click ![](../_assets/console-icons/dots-9.svg) and select {{ sf-name }}.
+1. In the left-hand panel, click ![](../_assets/console-icons/timestamps.svg).
 1. In the top-right corner, click **Create connection**.
 1. Set up a connection:
     1. Fill in the **Name** field. The name may only contain lowercase Latin letters, numbers, anhyphens.
@@ -75,7 +75,7 @@ With this guide, you will learn how to visualize:
 ## Step 4. Create a service account
 
 1. In the [management console]({{ link-console-main }}), return to the folder with the new cluster.
-1. In the top-right corner, click ![](../_assets/forms/svg/settings.svg) → **Create service account**.
+1. In the top-right corner, click ![](../_assets/console-icons/ellipsis.svg) → **Create service account**.
 1. In the service account creation window, fill in the following fields:
     1. **Name**; it may only contain lowercase Latin letters, numbers, and hyphens.
     1. **Description**; it may contain any characters.
@@ -98,7 +98,7 @@ With this guide, you will learn how to visualize:
 
 1. In the [management console]({{ link-console-main }}), return to the folder with the new cluster.
 
-1. In the left-hand panel, click ![](../_assets/organization/icon-services-menu.svg) and select {{ sf-name }}.
+1. In the left-hand panel, click ![](../_assets/console-icons/dots-9.svg) and select {{ sf-name }}.
 
 1. In the top-right corner, click **Create function**.
 
@@ -206,7 +206,7 @@ With this guide, you will learn how to visualize:
 ## Step 8. Connect {{ datalens-name }} to the database
 
 1. In the [management console]({{ link-console-main }}), return to the folder with the new cluster.
-1. In the left-hand panel, click ![](../_assets/organization/icon-services-menu.svg) and select {{ datalens-name }}.
+1. In the left-hand panel, click ![](../_assets/console-icons/dots-9.svg) and select {{ datalens-name }}.
 1. Click **Create connection** → **PostgreSQL**.
 1. Set up a connection:
     1. In the **Cloud and folder** field, select the folder where you created the cluster.
@@ -313,6 +313,6 @@ Now, your dashboard contains two similar bar charts, single- and multicolor, who
 
 ## Step 14. Set up dashboard auto-update
 
-1. In the top panel, click ![](../_assets/forms/svg/settings-2.svg).
+1. In the top panel, click ![](../_assets/console-icons/gear.svg).
 1. In the window that opens, select **Auto-update** and set the interval between dashboard updates.
 1. Click **Save**.

@@ -1,4 +1,4 @@
-# How to create a task
+# How to create an issue
 
 You can create issues in any of the available [queues](../queue-intro.md). Select the queue so that its subject corresponds to the issue's subject. If you do not know which queue to create your issue in, check with the project manager or your company's admin.
 

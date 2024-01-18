@@ -36,7 +36,7 @@ items:
     items:
       - name: Overview
         href: concepts/api.md
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: Foundation models API
         items:
@@ -132,6 +132,10 @@ items:
                 href: api-ref/v1alpha/grpc/operation_service.md
   - name: Access management
     href: security/index.md
+  - name: Troubleshooting
+    items:
+      - name: Error codes
+        href: troubleshooting/error-codes.md
   - name: Pricing policy
     href: pricing.md
   - name: Releases

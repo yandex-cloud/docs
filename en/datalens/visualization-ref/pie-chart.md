@@ -16,12 +16,12 @@ This chart shows a proportional relationship of different categories to a total 
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
 | Color | Dimension. You can only specify one field here. |
 | Measures | Measure. You can only specify one field here. |
-| Sorting | A measure or dimension from the **Color** section. Affects area sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. |
-| Signatures | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. |
+| Sorting | A measure or dimension from the **Color** section. Affects area sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Labels | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a pie chart {#create-diagram}

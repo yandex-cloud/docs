@@ -24,9 +24,9 @@ description: "Из статьи вы узнаете, как подключить
 
 1. Выберите тип подключения:
 
-   {% list tabs %}
+   {% list tabs group=connection %}
 
-   - Выбрать в каталоге
+   - Выбрать в каталоге {#catalog}
 
      {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 
@@ -42,7 +42,7 @@ description: "Из статьи вы узнаете, как подключить
      * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
      * **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
-   - Указать вручную
+   - Указать вручную {#manual}
 
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 

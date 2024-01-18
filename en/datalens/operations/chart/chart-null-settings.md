@@ -43,7 +43,7 @@ If the source data includes a row where the measure value is `null`, the chart w
 
 You can configure how the chart will display null values in the chart section settings:
 
-1. In the section with a measure whose values you want to show, in the upper-right corner, click ![image](../../../_assets/datalens/gear.svg) (the icon appears when you hover over the section).
+1. In the section with a measure whose values you want to show, in the top-right corner, click ![image](../../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
 1. Specify a value for the **Null values** option:
 
    * **Ignore**: Do not show points with `null` values. On the chart, it will appear as a line gap, skipped column or point.

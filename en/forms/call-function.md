@@ -12,7 +12,7 @@ You can integrate a form with {{ sf-name }} functions only using [forms for busi
 
 1. Go to the [{{ yandex-cloud }} management console]({{ link-console-main }}).
 1. In the left-hand panel, select the folder to create a function in.
-1. In the top-right corner, click ![](../_assets/forms/svg/settings.svg) → **Create service account**.
+1. In the top-right corner, click ![](../_assets/console-icons/ellipsis.svg) → **Create service account**.
 1. In the service account creation window, fill in the following fields:
    1. **Name**; it may only contain lowercase Latin letters, numbers, and hyphens.
    1. **Description**; it may contain any characters.
@@ -41,7 +41,7 @@ If no billing account is linked to your {{ yandex-cloud }} account, a window for
 ### Step 4. Create a cloud function {#step-four}
 
 1. Go back to the [{{ yandex-cloud }} management console]({{ link-console-main }}).
-1. In the left-hand panel, click ![](../_assets/organization/icon-services-menu.svg) and select {{ sf-name }}.
+1. In the left-hand panel, click ![](../_assets/console-icons/dots-9.svg) and select {{ sf-name }}.
 1. In the top-right corner, click **Create function**.
 1. On the function creation page, fill in the following fields:
    1. **Name**; it may only contain lowercase Latin letters, numbers, and hyphens.

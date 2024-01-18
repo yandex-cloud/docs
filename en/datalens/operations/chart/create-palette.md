@@ -11,7 +11,7 @@ To create a palette, the user needs the [admin](../../security/roles.md#datalens
 To create a color palette:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../../_assets/datalens/service-settings.svg) **Service settings**.
+1. In the left-hand panel, select ![image](../../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Under **Palettes**, add a new palette:
 
    {% list tabs %}
@@ -30,7 +30,7 @@ To create a color palette:
          * Enter the **Palette name** at the top.
          * Enter the start value for the gradient color at the bottom left and its end value at the bottom right. For example, specify `0044A3` on the left and `8CCBFF` on the right so that the gradient changes from dark-blue to light-blue.
 
-            To add an intermediate gradient value, click ![image](../../../_assets/datalens/plus.svg) at the bottom and specify the value. The changes will be displayed in the preview window.
+            To add an intermediate gradient value, click ![image](../../../_assets/console-icons/plus.svg) at the bottom and specify the value. The changes will be displayed in the preview window.
 
       1. Click **Save**.
 
@@ -59,7 +59,7 @@ To create a color palette:
 To change a color palette:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../../_assets/datalens/service-settings.svg) **Service settings**.
+1. In the left-hand panel, select ![image](../../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Go to **Palettes** and click the line with the palette to change.
 1. Make changes in the **Configure color palettes** window.
 1. Click **Save**.
@@ -75,7 +75,7 @@ Deleting a color palette resets the [color settings](../../concepts/chart/settin
 To delete a color palette:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../../_assets/datalens/service-settings.svg) **Service settings**.
+1. In the left-hand panel, select ![image](../../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Go to **Palettes** and hover over the name of the palette to delete.
-1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) on the right and select **Delete**.
+1. Click ![image](../../../_assets/console-icons/ellipsis.svg) on the right and select **Delete**.
 1. Click **Delete**.

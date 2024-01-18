@@ -13,12 +13,12 @@ This map is used to monitor how points are distributed across the area. For exam
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
 | Points (Geopoints) | Measure with the type [Geopoint](../concepts/data-types.md#geopoint). |
 | Point size | Measure. Sets a point size depending on the measure value. |
 | Colors | Dimension or measure. Affects the intensity of point fill. |
-| Signatures | Measure. Displayed as text on a point. When used, point size control is blocked. |
+| Labels | Measure. Displayed as text on a point. When used, point size control is blocked. |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Filters | Dimension or measure. Used as a filter for the entire chart. |
@@ -30,7 +30,7 @@ This map is used to monitor how points are distributed across the area. For exam
 1. Select the **Map** chart type.
 1. Select the **Points (Geopoints)** layer type.
 1. Drag a dimension with the [Geopoint](../concepts/data-types.md#geopoint) type from the dataset to the layer type selection section.
-1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/datalens/gear.svg) in the line with the section name.
+1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/console-icons/gear.svg) in the line with the section name.
 1. Color the points on the map. Move the measure or dimension to the **Colors** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.
 

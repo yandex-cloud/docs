@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
       - name: Navigation and interface
         href: getting-started/navigation.md
@@ -79,7 +79,7 @@ items:
         href: concepts/connection.md
       - name: Caching
         href: concepts/caching.md
-      - name: Joining data
+      - name: Combining data
         href: concepts/data-join.md
       - name: Step-by-step guides
         items:
@@ -101,7 +101,7 @@ items:
             items:
               - name: Connection
                 href: operations/connection/chyt/create-chyt.md
-              - name: Specifics of JOINs
+              - name: Specifics of JOIN
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Recommendations
                 href: operations/connection/chyt/chyt-recommendations.md

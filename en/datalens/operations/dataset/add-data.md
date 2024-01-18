@@ -1,5 +1,5 @@
 ---
-title: "Instructions for adding data to a {{ datalens-full-name }} dataset via an SQL query"
+title: "How to add data to a {{ datalens-full-name }} dataset via an SQL query"
 description: "In this tutorial, you will learn how to add data to a {{ datalens-full-name }} dataset using an SQL query."
 ---
 
@@ -17,13 +17,13 @@ To add data to a dataset using a SQL query:
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/datasets.svg) **Datasets** and select the dataset you need. If you do not have a dataset, [create one](create.md).
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/circles-intersection.svg) **Datasets** and select the dataset you need. If you do not have a dataset, [create one](create.md).
 1. In the top-left corner, select the **Sources** tab.
-1. In the left part of the screen, under **Connection**, click ![image](../../../_assets/plus-sign.svg) **Add**.
+1. In the left part of the screen, under **Connection**, click ![image](../../../_assets/console-icons/plus.svg) **Add**.
 
    {% note info %}
 
-   The ![image](../../../_assets/plus-sign.svg)**Add** button is only available if the source is a database.
+   The ![image](../../../_assets/console-icons/plus.svg)**Add** button is only available if the source is a database.
 
    {% endnote %}
 

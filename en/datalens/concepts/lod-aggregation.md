@@ -22,7 +22,7 @@ You can use dimensions in LOD expressions whether they are used in the chart or 
 
 ### FIXED {#fixed}
 
-The `FIXED` keyword allows you to group data by explicitly listed dimensions. If used with an empty list of dimensions, `FIXED` results in the same grouping as in the chart.
+The `FIXED` keyword allows you to group data by explicitly listed dimensions. If you use `FIXED` without a list of dimensions, all data is aggregated into a single group.
 
 **Example 1**
 
@@ -43,16 +43,16 @@ For each category in the same chart, we will calculate the deviation of the aver
 
 Let's create the `AVG([Sales]) - AVG([Sales] FIXED [Category])`measure, where:
 
-* `AVG([Sales])`: Average sales amount by category in the region (calculated with the default grouping in the chart — by the `[Region]` and `[Category]` dimensions).
+* `AVG([Sales])`: Average sales amount by category in the region (calculated with the default grouping in the chart, by the `[Region]` and `[Category]` dimensions).
 * `AVG([Sales] FIXED [Category])`: Average sales amount by category in all regions (calculated with a grouping by the `[Category]` dimension).
 
-For example, for the **Table** chart, the result looks like this:
+For example, for the **Table** chart, the result will be as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-2.png)
 
 ### INCLUDE {#include}
 
-`INCLUDE` with an empty list of dimensions is equivalent to the same grouping as in the chart.
+The `INCLUDE` keyword allows adding specified dimensions to the chart grouping. As a result, the level of detail will be greater when calculating the aggregate function.
 Expressions with `INCLUDE` can be useful if you need to calculate a measure with a higher level of detail and display it at a less detailed level in the chart. For example, you can calculate the sales amount per day and then average it.
 
 If used with an empty list of dimensions, `INCLUDE` results in the same grouping as in the chart.
@@ -90,9 +90,9 @@ Any aggregation with `INCLUDE` can be replaced by aggregation with `FIXED`. For 
 
 The `EXCLUDE` keyword allows excluding the specified dimensions from the chart grouping. As a result, the value of the aggregate function is calculated with grouping by all dimensions of the chart, except those listed.
 
-Expressions with `EXCLUDE` can be used, for example, to calculate the percentage of the total number or the difference from the total average.
+For example, expressions with `EXCLUDE` can be used to calculate the percentage of the total number or the difference from the total average.
 
-`EXCLUDE` with an empty list is equivalent to the same grouping as in the chart.
+If used with an empty list of dimensions, `EXCLUDE` results in the same grouping as in the chart.
 
 **Example 1**
 
@@ -131,7 +131,7 @@ To calculate the sales amount, we will create two measures:
 * AvgDaySales: `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date] BEFORE FILTER BY [Year])`
 * AvgDaySales by year: `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])`
 
-Let's add the `Year` dimension to the **Filters** section and set it to, e.g., `2017`. As a result, the `AvgDaySales` measure will be calculated before filtering by year is applied to the chart, and we will get the average daily sales amount per month for the entire period. The `AvgDaySales` by year measure will be calculated after applying filtering by year, and we will obtain the average daily sales amount per month for a given year (`2017`).
+Let's add the `Year` dimension to the **Filters** section and set it to, e.g., `2017`. As a result, the `AvgDaySales` measure will be calculated before filtering by year is applied to the chart, and we will get the average daily sales amount per month for the entire period. The `AvgDaySales` by year measure will be calculated after applying filtering by year and we will obtain the average daily sales amount per month for the year we picked (`2017`).
 
 For example, in the **Line chart**, the result will be as follows:
 
@@ -141,7 +141,7 @@ For example, in the **Line chart**, the result will be as follows:
 
 In some cases, LOD expressions can be used as an alternative to [window functions](../function-ref/window-functions.md).
 
-For example, the expression with `FIXED` with a list of dimensions can be used similarly to the window function with the [WITHIN](window-function-tutorial.md#within) grouping, and the expression with `EXCLUDE` — window function with the [AMONG](window-function-tutorial.md#among) grouping.
+For example, a `FIXED` expression with a list of dimensions can be used similarly to a window function with the [WITHIN](window-function-tutorial.md#within) grouping, while an `EXCLUDE` expression, to a window function with the [AMONG](window-function-tutorial.md#among) grouping.
 
 **Example 1**
 
@@ -175,19 +175,19 @@ The level of detail in LOD expressions can be used with some limitations:
 
    - Correct
 
-     ```
-     AVG(AVG([Sales] INCLUDE [City]))
-     ```
+      ```
+      AVG(AVG([Sales] INCLUDE [City]))
+      ```
 
-     In this case, the nested aggregation will be grouped by dimensions [inherited](../function-ref/aggregation-functions.md#syntax-lod-inheritance) from top-level aggregation (`[Region]` and `[Category]`) and the `[City]` dimension added to the grouping using `INCLUDE`. As a result, at the top level, aggregation will be calculated with grouping by the `[Region]` and `[Category]` chart dimensions, and nested aggregation — by the `[Region]`,`[Category]`, and `[City]` dimensions.
+      In this case, the nested aggregation will be grouped by dimensions [inherited](../function-ref/aggregation-functions.md#syntax-lod-inheritance) from the top-level aggregation (`[Region]` and `[Category]`) and the `[City]` dimension added to the grouping using `INCLUDE`. As a result, at the top level, aggregation will be calculated with grouping by the `[Region]` and `[Category]` chart dimensions, while the nested aggregation, by the `[Region]`,`[Category]`, and `[City]` dimensions.
 
    - Incorrect
 
-     ```
-     AVG([Sales] INCLUDE [City])
-     ```
+      ```
+      AVG([Sales] INCLUDE [City])
+      ```
 
-     When calculating this indicator, grouping at the top level is performed by dimensions `[Region]`,`[Category]` and `[City]`. The error in this case occurs because the `[City]` measurement (added to the grouping using `INCLUDE`) is not used in the chart.
+      When calculating this measure, grouping at the top level is performed by the `[Region]`,`[Category]` and `[City]` dimensions. The error in this case occurs because the `[City]` dimension, which is added to the grouping using `INCLUDE`, is not used in the chart.
 
    {% endlist %}
 
@@ -201,25 +201,25 @@ The level of detail in LOD expressions can be used with some limitations:
 
    - Correct
 
-     ```
-     ARG_MAX(
-          ANY([City] INCLUDE [City]),
-          AVG([Sales] INCLUDE [City],[Order Date])
-     )
-     ```
+      ```
+      ARG_MAX(
+           ANY([City] INCLUDE [City]),
+           AVG([Sales] INCLUDE [City],[Order Date])
+      )
+      ```
 
-     The `ANY([City] INCLUDE [City])` and `AVG([Sales] INCLUDE [City],[Order Date])` aggregations are at the same nesting level (inside `ARG_MAX`). The second aggregation contains all the dimensions by which the first aggregation is grouped.
+      The `ANY([City] INCLUDE [City])` and `AVG([Sales] INCLUDE [City],[Order Date])` aggregations are at the same nesting level (inside `ARG_MAX`). The second aggregation contains all dimensions by which the first aggregation is grouped.
 
    - Incorrect
 
-     ```
-     ARG_MAX(
-          ANY([City] INCLUDE [City]),
-          AVG([Sales] INCLUDE [Order Date])
-     )
-     ```
+      ```
+      ARG_MAX(
+           ANY([City] INCLUDE [City]),
+           AVG([Sales] INCLUDE [Order Date])
+      )
+      ```
 
-     The `ANY([City] INCLUDE [City])` and `AVG([Sales] INCLUDE [Order Date])` aggregations are at the same nesting level (inside `ARG_MAX`). The first aggregation has the `[City]` dimension, the second — `[Order Date]`. At the same time, there is no other aggregation with both of these dimensions.
+      The `ANY([City] INCLUDE [City])` and `AVG([Sales] INCLUDE [Order Date])` aggregations are at the same nesting level (inside `ARG_MAX`). The first aggregation has the `[City]` dimension, the second, `[Order Date]`. At the same time, there is no other aggregation that has both dimensions.
 
    {% endlist %}
 

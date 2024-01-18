@@ -175,3 +175,9 @@ Time when the resource was last updated. It is specified in [RFC3339 (Timestamps
 |#
 
 For more information about the response format and codes, see [{#T}](../../concepts/response.md).
+
+## Use cases {#examples}
+
+* [{#T}](transcribation-lpcm.md)
+* [{#T}](transcribation-ogg.md)
+* [{#T}](batch-transcribation.md).

@@ -223,7 +223,7 @@
       
       headers = {
           "Authorization": f"Bearer {IAM_SECRET}", # get IAM token from secrets
-          "x-node-id": f"{NODE_ID}",  # sample node
+          "x-node-id": f"{NODE_ID}", # sample node
           "x-folder-id": f"{FOLDER_ID}" # node folder ID
       }
       ```

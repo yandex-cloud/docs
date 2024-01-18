@@ -2,9 +2,9 @@
 
 Перед подключением установите [утилиту MongoDB Shell]({{ shell-link }}).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL для {{ MG }} 4.2 и выше
+- Подключение с SSL для {{ MG }} 4.2 и выше {#with-ssl}
 
     ```bash
     mongosh --norc \
@@ -16,7 +16,7 @@
             <имя_БД>
     ```
 
-- Подключение с SSL для {{ MG }} 4.0
+- Подключение с SSL для {{ MG }} 4.0 {#with-ssl-4}
 
     ```bash
     mongosh --norc \
@@ -28,7 +28,7 @@
             <имя_БД>
     ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     ```bash
     mongosh --norc \
@@ -53,9 +53,9 @@ sudo apt update && sudo apt install --yes golang git && \
 go get go.mongodb.org/mongo-driver/mongo
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.go`
 
@@ -99,7 +99,7 @@ go get go.mongodb.org/mongo-driver/mongo
     }
     ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.go`
 
@@ -267,9 +267,9 @@ go run connect.go
     * [mongodb-driver-sync](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync);
     * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `src/java/com/example/App.java`
 
@@ -311,7 +311,7 @@ go run connect.go
     }
     ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `src/java/com/example/App.java`
 
@@ -369,9 +369,9 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install mongodb
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `app.js`
 
@@ -407,7 +407,7 @@ npm install mongodb
     })
     ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `app.js`
 
@@ -458,9 +458,9 @@ node app.js
 sudo apt update && sudo apt install --yes php php-mongodb
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.php`
 
@@ -495,7 +495,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
     ?>
     ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.php`
 
@@ -543,9 +543,9 @@ php connect.php
 
 Перед подключением установите [утилиту MongoDB Shell](https://www.mongodb.com/try/download/shell).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL для {{ MG }} 4.2 и выше
+- Подключение с SSL для {{ MG }} 4.2 и выше {#with-ssl}
 
     ```powershell
     mongosh.exe --norc `
@@ -557,7 +557,7 @@ php connect.php
                 <имя_БД>
     ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     ```powershell
     mongosh.exe --norc `
@@ -582,9 +582,9 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.py`
 
@@ -620,7 +620,7 @@ pip3 install pyMongo
     conn.close()
     ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.py`
 

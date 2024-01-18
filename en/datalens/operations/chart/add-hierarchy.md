@@ -25,7 +25,7 @@ To add a hierarchy:
 
 
 1. Select any chart type except **Map**, **Indicator**, and **Pivot table**.
-1. To the left of the wizard interface, click **![image](../../../_assets/plus-sign.svg)** and select **Add hierarchy**.
+1. To the left of the wizard interface, click **![image](../../../_assets/console-icons/plus.svg)** and select **Add hierarchy**.
 1. Enter the hierarchy name, select dimensions, and arrange them as you see fit.
 1. In the bottom-right corner, click **Save**.
 1. Drag the created hierarchy to any available section. For example, for the **Table** chart type, you can use the **Columns** section.
@@ -33,4 +33,4 @@ To add a hierarchy:
 
 #### See also {#see-also}
 
-* [{#T}](../../concepts/data-types.md#how-to-create-tree)
+* [{#T}](../../concepts/data-types.md#how-to-create-tree).

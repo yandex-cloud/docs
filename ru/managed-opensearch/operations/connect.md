@@ -152,10 +152,10 @@ FQDN вида `c-<идентификатор_кластера>.rw.{{ dns-zone }}
 
 Чтобы подключаться к кластеру {{ mos-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     ```bash
     RUN apt-get update && \
@@ -163,7 +163,7 @@ FQDN вида `c-<идентификатор_кластера>.rw.{{ dns-zone }}
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     ```bash
     RUN apt-get update && \

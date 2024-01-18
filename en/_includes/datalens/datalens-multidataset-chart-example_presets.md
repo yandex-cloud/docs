@@ -14,7 +14,7 @@ As an example, we will use free datasets from the [marketplace](../../datalens/c
 
    ![multi-ds-chart-create](../../_assets/datalens/multi-dataset-chart/multi-ds-chart-create.png)
 
-1. At the top left of the screen, click ![image](../../_assets/datalens/angle-down.svg) in front of the **Dataset: Isolation Daily** field.
+1. At the top left of the screen, click ![image](../../_assets/console-icons/chevron-down.svg) in front of the **Dataset: Isolation Daily** field.
 1. Click **Add dataset** and select the **Weather** dataset.
 1. In the window that opens, make sure the links are set by the `Date`, `City`, and `Country` fields.
 

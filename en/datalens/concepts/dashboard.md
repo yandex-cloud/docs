@@ -1,12 +1,12 @@
 ---
 title: "{{ datalens-full-name }} dashboard"
-description: "Dashboards in {{ datalens-full-name }} are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles. You can create new dashboard pages using the tab element. {{ datalens-name }} lets you display the dashboard in full-screen mode."
+description: "Dashboards in {{ datalens-full-name }} are pages or sets of pages that contain widgets. They allow you to group charts in a single place and add captions and titles to them. You can create new dashboard pages using tabs. {{ datalens-name }} allows you to display the dashboard in full-screen mode."
 ---
 
 # {{ datalens-full-name }} dashboards
 
-_Dashboards_ are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles.
-You can create new dashboard pages using the **tab** element.
+_Dashboards_ are pages that contain widgets. They allow you to group charts in a single place and add captions and titles to them.
+You can create new dashboard pages using **tabs**.
 
 
 For more information about dashboards, see the following sections:

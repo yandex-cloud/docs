@@ -6,13 +6,13 @@
 sudo apt update && sudo apt install --yes mysql-client
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   {% include [default-connstring](default-connstring.md) %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   ```bash
   mysql --host=<FQDN_любого_хоста_{{ MY }}> \
@@ -42,9 +42,9 @@ sudo apt update && sudo apt install --yes golang git && \
 go get github.com/go-sql-driver/mysql
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   `connect.go`
 
@@ -107,7 +107,7 @@ go get github.com/go-sql-driver/mysql
 
   При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ MY }} в переменной `ca`.
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   `connect.go`
 
@@ -272,9 +272,9 @@ go run connect.go
 
     Актуальную версию `mysql-connector-java` уточняйте на [странице проекта в репозитории Maven](https://mvnrepository.com/artifact/mysql/mysql-connector-java).
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   `src/java/com/example/App.java`
 
@@ -308,7 +308,7 @@ go run connect.go
 
   В этом коде необходимо указывать полный путь к хранилищу сертификатов `YATrustStore` для драйвера {{ MY }} в свойстве `javax.net.ssl.trustStore`.
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   `src/java/com/example/App.java`
 
@@ -359,9 +359,9 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install mysql2
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
   
   `app.js`
 
@@ -393,7 +393,7 @@ npm install mysql2
 
   При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ MY }} в переменной `ca`.
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   `app.js`
 
@@ -444,9 +444,9 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
 
 Настройки подключения необходимо задать в файле `/etc/odbc.ini`.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   `odbc.ini`
 
@@ -464,7 +464,7 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
 
   При этом способе подключения в файле `/etc/odbc.ini` необходимо указывать полный путь к сертификату `root.crt` для {{ MY }} в параметре `SSLCA`.
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   `odbc.ini`
 
@@ -500,9 +500,9 @@ isql -v mysql
 sudo apt update && apt install --yes php php-mysql
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   `connect.php`
 
@@ -525,7 +525,7 @@ sudo apt update && apt install --yes php php-mysql
 
   При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ MY }} в методе `ssl_set`.
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   `connect.php`
 
@@ -561,9 +561,9 @@ php connect.php
 
 Перед подключением [скачайте](https://dev.mysql.com/downloads/shell/) и установите утилиту `MySQL Shell`.
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   ```PowerShell
   mysqlsh --host=<FQDN_любого_хоста_{{ MY }}> `
@@ -576,7 +576,7 @@ php connect.php
           --sql
   ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   ```PowerShell
   mysqlsh --host=<FQDN_любого_хоста_{{ MY }}> `
@@ -606,9 +606,9 @@ sudo apt update && sudo apt install --yes python3 python3-pip libmysqlclient-dev
 pip3 install mysqlclient
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   `connect.py`
 
@@ -631,7 +631,7 @@ pip3 install mysqlclient
   conn.close()
   ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   `connect.py`
 
@@ -673,9 +673,9 @@ python3 connect.py
 sudo apt update && sudo apt install --yes ruby ruby-mysql2
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   `connect.rb`
 
@@ -700,7 +700,7 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
   conn.close()
   ```
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   `connect.rb`
 

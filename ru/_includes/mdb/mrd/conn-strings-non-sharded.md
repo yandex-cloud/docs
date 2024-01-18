@@ -1,8 +1,8 @@
 ### Bash {#bash}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     {% include [Install requirements](./connect/bash/install-requirements.md) %}
 
@@ -34,7 +34,7 @@
         -a <пароль>
     ```
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
@@ -52,9 +52,9 @@
 
 {% include [Install requirements](./connect/go/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     **Пример кода для подключения с помощью Sentinel:**
 
@@ -130,7 +130,7 @@
     }
     ```
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.go`
 
@@ -196,9 +196,9 @@
 
 {% include [Установка зависимостей](./connect/java/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     **Пример кода для подключения с помощью Sentinel:**
 
@@ -266,7 +266,7 @@
     }
     ```
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `src/java/com/example/App.java`
 
@@ -317,9 +317,9 @@
 
 {% include [Установка зависимостей](./connect/nodejs/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     **Пример кода для подключения с помощью Sentinel:**
 
@@ -390,7 +390,7 @@
     });
     ```
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `app.js`
 
@@ -437,9 +437,9 @@
 
 {% include [Установка зависимостей](./connect/php/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     **Пример кода для подключения с помощью Sentinel:**
 
@@ -497,7 +497,7 @@
     ?>
     ```
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.php`
 
@@ -543,9 +543,9 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
 pip3 install redis
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     **Пример кода для подключения с помощью Sentinel:**
 
@@ -587,7 +587,7 @@ pip3 install redis
     print(r.get("foo"))
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.py`
 
@@ -616,9 +616,9 @@ pip3 install redis
 
 {% include [Установка зависимостей](./connect/ruby/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     **Пример кода для подключения с помощью Sentinel:**
 
@@ -669,7 +669,7 @@ pip3 install redis
     conn.close
     ```
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.rb`
 

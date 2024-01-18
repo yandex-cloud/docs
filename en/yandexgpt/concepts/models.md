@@ -2,9 +2,9 @@
 
 {% include notitle [preview-stage](../../_includes/yandexgpt/preview.md) %}
 
-{{ yagpt-full-name }} provides access to two large generative neural networks: the standard {{ yagpt-name }} Lite model suitable for real-time tasks, and the larger {{ yagpt-name }} model delivering more accurate responses to sophisticated queries.
+{{ yagpt-full-name }} provides access to two large generative neural networks: the standard {{ yagpt-name }} Lite model suitable for real-time tasks, and the larger {{ yagpt-name }} model for more accurate responses to sophisticated queries.
 
-If the standard models are not enough, you can fine-tune {{ yagpt-name }} Lite in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better understand your area or expertise.
+If the standard models are not enough, you can fine-tune {{ yagpt-name }} Lite in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) for it to better respond to your requests.
 
 Moreover, {{ yagpt-full-name }} allows obtaining text embeddings using special models for vector representation of text.
 
@@ -14,7 +14,7 @@ You can access the model's API via its [URI](https://en.wikipedia.org/wiki/URI) 
 
 | Model | URI | Operation mode |
 |---|---|---|
-| {{ yagpt-name }} | `gpt://<folder_ID>/yandexgpt/latest` | Asynchronous, synchronous ^1^ |
+| {{ yagpt-name }} | `gpt://<folder_ID>/yandexgpt/latest` | [Asynchronous, synchronous](./index.md#working-mode) ^1^ |
 | {{ yagpt-name }} Lite | `gpt://<folder_ID>/yandexgpt-lite/latest` | Asynchronous, synchronous |
 | Summary | `gpt://<folder_ID>/summarization/latest` | Asynchronous, synchronous |
 | Model fine-tuned in {{ ml-platform-full-name}} | `ds://<fine_tuned_model_ID>` | Synchronous |

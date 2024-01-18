@@ -29,7 +29,9 @@ A cluster based on the activated {{ dataproc-name }} template is created when yo
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Select the appropriate template from the list.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
-1. Enable the visibility option next to the name of the community to share the template in.
+1. Enable the visibility option next to the name of the community where you want to share the template.
+
+To make a template available for use in another project, the project administrator should [add](./projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Editing a template {#edit}
 

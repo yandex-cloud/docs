@@ -1,6 +1,6 @@
 ---
 title: "Visualizing data from {{ tracker-short-name }}"
-description: "To visualize data from {{ tracker-short-name }}, set up regular export of data to external storage and visualize the necessary metrics and data using {{ datalens-short-name }} tools."
+description: "To visualize data from {{ tracker-short-name }}, set up regular export of data to external storage and visualize the required metrics and data using {{ datalens-short-name }} tools."
 ---
 
 # Visualizing data from {{ tracker-full-name }}
@@ -20,7 +20,7 @@ To visualize the data, follow these steps:
 1. [Create a connection to {{ datalens-short-name }}](#connection-create).
 1. [Create a dataset](#dataset-create).
 1. [Create a chart](#chart-create).
-1. [Create a dashboard in {{ datalens-short-name }} and add charts there](#dashboard-create).
+1. [Create a dashboard in {{ datalens-short-name }} and add charts to it](#dashboard-create).
 
 ## Getting started {#before-you-begin}
 
@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a DB for storing the {{ tracker-short-name }} data {#database-create}
 
 1. Go to the [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. In the top-left corner, click ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select **Data platform** → **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Specify the cluster parameters:
@@ -98,7 +98,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a {{ sf-name }} function for importing the data {#function-import}
 
 1. Go to the [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. In the top-left corner, click ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select **Serverless computing** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Specify a name for the function and click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
@@ -143,7 +143,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```
 1. Create a [trigger](../../functions/concepts/trigger/index.md) to regularly export new data to the DB:
    1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** section.
-   1. Click ![trigger](../../_assets/functions/triggers.svg) → **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+   1. Click ![trigger](../../_assets/console-icons/gear-play.svg) → **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
    1. Set the trigger type to **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
    1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, select `{{ ui-key.yacloud.common.button_cron-day }}`.
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, click **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**.
@@ -154,8 +154,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a connection in {{ datalens-short-name }} {#connection-create}
 
 1. Open the **{{ mch-name}}** [cluster](#database-create).
-1. On the left side of the window, select ![datalens](../../_assets/datalens/chart.svg) **{{ datalens-short-name }}**.
-1. Click **Create connection**.
+1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. Click **Create connection**.
 1. Specify the connection settings:
    * **Connection**: `Select in a folder`.
    * **Cluster**: Cluster specified when [creating a database](#database-create).
@@ -169,7 +169,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       ![connection-settings](../../_assets/datalens/connection-settings.png =680x665)
 
-1. Click **Create connection**.
+1. Click **Create connection**.
 
 ## Create a dataset {#dataset-create}
 
@@ -186,14 +186,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
-1. Click **Create chart**.
-1. In the top-left corner, click ![image](../../_assets/datalens/datasets.svg) **Select dataset**.
+1. Click **Create chart**.
+1. In the top-left corner, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset**.
 1. In the **Datasets** drop-down list, select the [dataset](#dataset-create) you created in the previous step.
 
 
 1. On the top panel, select a [visualization type](../../datalens/visualization-ref/index.md). By default, the **Column chart** type is selected.
 
-## Create a dashboard and add charts there {#dashboard-create}
+## Create a dashboard and add charts to it {#dashboard-create}
 
 1. On the [{{ datalens-full-name }}]({{ link-datalens-main }}) home page, click **Create dashboard**.
 1. At the top of the [dashboard](#dashboard-create) page, click **Add**→ **Chart**.
