@@ -19,7 +19,7 @@ items:
         href: roles.md
       - name: Working in {{ wiki-full-name }}
         href: concepts.md
-      - name: Structure of {{ wiki-full-name }}
+      - name: '{{ wiki-full-name }} structure'
         href: structure.md
       - name: Page types
         href: pages-types.md
@@ -61,7 +61,7 @@ items:
         href: add-grid.md
       - name: Content structuring
         items:
-          - name: Table of contents
+          - name: Table of contents of a page
             href: actions/toc.md
           - name: Bookmarks on pages
             href: actions/anchor.md
@@ -79,7 +79,7 @@ items:
         href: attach-file.md
       - name: Moving a page
         href: page-management/move-page.md
-      - name: Finding text on pages
+      - name: Finding text on a page
         href: page-management/search-by-page.md
       - name: Editing a list of page authors
         href: page-management/edit-owner.md
@@ -103,7 +103,7 @@ items:
         href: cluster-overview.md
       - name: Viewing a list of your pages
         href: my-pages.md
-      - name: Viewing the pages you edited
+      - name: Viewing pages edited by me
         href: edited-pages-list.md
       - name: Viewing all links to a page
         href: all-links.md
@@ -171,18 +171,20 @@ items:
     href: pricing.md
   - name: Releases
     items:
-      - name: November 2023
+      - name: December 2023
         href: changelogs/index.md
+      - name: November 2023
+        href: changelogs/2311.md
       - name: October 2023
         href: changelogs/2310.md
       - name: September 2023
         href: changelogs/2309.md
       - name: August 2023
         href: changelogs/2308.md
-      - name: July 2023
-        href: changelogs/2307.md
       - name: Archive
         items:
+          - name: July 2023
+            href: changelogs/2307.md
           - name: June 2023
             href: changelogs/2306.md
           - name: May 2023

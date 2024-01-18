@@ -1,7 +1,7 @@
-# Analyzing Yandex Music podcast statistics (for podcasters)
+# Analyzing Yandex Music podcast statistics (for podcasters)
 
 A podcast from Yandex Music that you have access to will serve as your data source.
-Podcast analytics let you retrieve statistics and analyze podcast listening and subscriber data in Yandex Music. To work with podcast analytics, you must have access to one or more podcasts.
+With podcast analytics, you can retrieve statistics and analyze podcast listening and subscriber data in Yandex Music. To work with podcast analytics, you must have access to one or more podcasts.
 
 To visualize and analyze the data, follow these steps:
 
@@ -32,10 +32,10 @@ We recommend that you review the [Questions and answers](#qa) section to help yo
 
 {{ datalens-full-name }} is deployed on the {{ yandex-cloud }} platform.
 
-Set up {{ datalens-short-name }} based on your experience:
+Set up {{ datalens-short-name }} depending on your experience:
 
-* You're a new user (you only want to use {{ datalens-full-name }} for podcast analysis).
-* You're already using {{ datalens-full-name }} (for other purposes).
+* You are a new user (you want to use {{ datalens-full-name }} only for podcast analysis).
+* You are already using {{ datalens-full-name }} (for other purposes).
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -43,7 +43,7 @@ Set up {{ datalens-short-name }} based on your experience:
 
 {% note warning %}
 
-Only users with privileges to a Yandex Music podcast are able to create connections and process podcast analytics. If you don't have access to any podcast, no data will be displayed on the dashboard.
+Only users with rights to a Yandex Music podcast can create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.
 
 You will get access after uploading a podcast to Yandex Music. The podcast is linked to the Yandex email address specified when uploading it.
 
@@ -57,7 +57,7 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 
 1. Click **Check connection**.
 1. After successfully checking the connection, click **Create**.
-1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there isn't any data, please make sure your current account has podcast access by writing to [technical support](https://yandex.com/support/music/podcast-authors/statistics.html).
+1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there is no data, check that your current account has access to podcasts by writing to [technical support](https://yandex.com/support/music/podcast-authors/statistics.html).
 
 ### 1.3. Review podcast statistics in {{ datalens-short-name }} {#podcasts-in-datalens}
 
@@ -98,13 +98,13 @@ You can edit it and add standard objects as you wish. For example, delete an unn
 
 ### 2.1. Edit a dashboard {#changing-dashboard}
 
-You can change the order of charts and selectors, increase or decrease them, discard some data and, vice versa, put together the most necessary information. Try to edit the dashboard after making a copy of it:
+You can change the order of charts and selectors, increase or decrease their size, discard some data and, vice versa, put together the most relevant information. Try to edit the dashboard after making a copy of it:
 
-1. In the menu on the left, go to the **Dashboards** section.
-1. Next to the **Yandex Music podcast analytics** dashboard, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) and select **Copy**.
+1. In the left-hand menu, go to the **Dashboards** section.
+1. Next to the **Yandex Music podcast analytics** dashboard, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Copy**.
 1. Open the dashboard copy and go to the **Audience** tab.
 1. Click **Edit** in the top-right corner.
-1. Let's say you want to delete the **Listening platforms** chart. To do this, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) in the upper-right corner of the chart and select **Delete**.
+1. Let's say you want to delete the **Listening platforms** chart. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Delete**.
 
    ![image](../../_assets/datalens/solution-10/07-delete-chart.png)
 
@@ -140,7 +140,7 @@ You can edit and configure any charts. Let's say we want to see on the chart the
 
 1. Open the **Yandex Music podcast analytics** dashboard and click the **Listens** tab.
 1. Scroll the dashboard down to the **Listening time by time of day** chart.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) in the upper-right corner of the chart and select **Edit**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Edit**.
 
    ![image](../../_assets/datalens/solution-10/12-edit-dashboard.png)
 
@@ -188,7 +188,7 @@ Let's say we want to build a chart with the total number of times streams were l
 1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **X**.
    1. In the **Grouping** list, select **Month** and click **Apply**.
 1. Add a dimension named **Episode** to the **Colors** section.
-1. If you have too many episodes, hide the legend at the bottom of the chart. To do this, click ![image](../../_assets/datalens/gear.svg) ⟶ **Hide**, then **Apply**.
+1. If you have too many episodes, hide the legend at the bottom of the chart. To do this, click ![image](../../_assets/console-icons/gear.svg) ⟶ **Hide**, then **Apply**.
 
    ![image](../../_assets/datalens/solution-10/21-legend.png)
 
@@ -201,9 +201,9 @@ Let's say we want to build a chart with the total number of times streams were l
 
    {% endnote %}
 
-1. Go to the chart's top panel and click the navigation icon ![image](../../_assets/datalens/folder.svg).
-1. In the resulting window, select the **Yandex Music podcast analytics** dashboard.
-1. In the upper-right corner of the dashboard, click **Edit**.
+1. Go to the chart's top panel and click the navigation icon ![image](../../_assets/console-icons/folders.svg).
+1. In the window that opens, select the **Yandex Music podcast analytics** dashboard.
+1. In the top-right corner of the dashboard, click **Edit**.
 1. Click **Add** ⟶ **Chart**.
 
    ![image](../../_assets/datalens/solution-10/22-add-chart.png)
@@ -224,13 +224,13 @@ You can grant access to your personal dashboard to other users. To do this, you 
 Set up access to {{ datalens-full-name }}:
 
 1. Go to [Access control]({{ link-console-access-management }}).
-1. In the top right-hand corner, click **Add user**.
-1. Enter the user's Yandex email address. The new user appears in the list of users.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Change roles**.
-1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
+1. In the top-right corner, click **Add user**.
+1. Enter the user's Yandex email address. The new user will appear in the list of users.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the new user and select **Change roles**.
+1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/console-icons/plus.svg). Assign the `datalens.instances.user` role.
    After that, you can share a link to the dashboard with the new user.
 1. Make sure that the new user has access rights to the dashboard with podcast statistics. Open the dashboard.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Access rights**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **Access rights**.
 
    ![image](../../_assets/datalens/solution-10/25-access.png)
 
@@ -269,19 +269,19 @@ Then grant the user access to the objects: **Podcasts Analytics. Connection**, *
 To restrict shared access:
 
 1. Open the **Yandex Music podcast analytics** dashboard.
-1. Go to the chart's top panel and click the navigation icon ![image](../../_assets/datalens/folder.svg).
-1. In the window that opens, select the connection **Podcasts Analytics. Connection**. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Access rights**.
-1. Click on the All group and set the permissions to **Execute**. Shared access will be restricted: other users will be able to view statistics on the dashboard, for example, only for individual episodes, but won't be able to change these settings.
+1. Go to the chart's top panel and click the navigation icon ![image](../../_assets/console-icons/folders.svg).
+1. In the window that opens, select **Podcasts Analytics. Connection**. Click ![image](../../_assets/console-icons/ellipsis.svg) → **Access rights**.
+1. Click the **All** group and set the permissions to **Execute**. Shared access will be restricted: other users will be able to view statistics on the dashboard, for example, only for individual episodes, but will not be able to change these settings.
 
-Repeat the action for datasets **D01. Podcast listens** and **D02. Podcast subscribers**.
-If you don't want to share podcast subscriber analytics with users, you can revoke permission of dataset **D02. Podcast subscribers** for the All group.
+Repeat the action for the **D01. Podcast listens** and **D02. Podcast subscribers** datasets.
+If you do not want to share podcast subscriber analytics with users, you can revoke permission of the **D02. Podcast subscribers** dataset for the **All** group.
 
 #### 3.2.2. Restrict access to data (podcasts/episodes) {#provide-access-to-podcast}
 
 When setting up permissions to individual podcasts and episodes, specify the following:
 
-* The users who will be granted permissions to a podcast or episode.
-* The users who will be able to access everything.
+* Users to be granted permissions to a podcast or episode.
+* Users who will have full access.
 
 In this step, retain permissions to all podcasts for yourself and your colleagues.
 
@@ -332,10 +332,10 @@ Choose which data you want to restrict access to:
 To grant a user access to your {{ datalens-short-name }} instance:
 
 1. Go to [Access control]({{ link-console-access-management }}).
-1. In the top right-hand corner, click **Add user**.
-1. Enter the user's Yandex email address. The new user appears in the list of users.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Change roles**.
-1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
+1. In the top-right corner, click **Add user**.
+1. Enter the user's Yandex email address. The new user will appear in the list of users.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the new user and select **Change roles**.
+1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/console-icons/plus.svg). Assign the `datalens.instances.user` role.
 
 {% note info %}
 
@@ -393,14 +393,14 @@ The user will be able to view statistics immediately, and you can set up additio
 
    A user's permissions will remain valid until they are [revoked](#revoke-access).
 
-1. Share a link to the **Yandex Music podcast analytics** dashboard with the user. To do this, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Copy link** on the dashboard.
+1. Share a link to the **Yandex Music podcast analytics** dashboard with the user. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) → **Copy link** on the dashboard.
 
 ### 3.3. Revoke a user's access privileges {#revoke-access}
 
 If necessary, you can revoke a user's permissions:
 
-1. Go to the connection **Podcasts Analytics. Connection**.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) and select **Access rights**.
+1. Go to the **Podcasts Analytics. Connection** connection.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **Access rights**.
 1. Select the user to revoke permissions from.
 1. In the window that opens, click **Revoke permissions**.
 1. To completely disable the user's access to your dashboard with podcaster statistics:
@@ -416,7 +416,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 - Publishing dashboards
 
    1. Open the **Yandex Music podcast analytics** dashboard.
-   1. At the top of the dashboard interface, click ![image](../../_assets/datalens/share.svg).
+   1. At the top of the dashboard interface, click ![image](../../_assets/console-icons/nodes-right.svg).
    1. In the public access settings window that opens, enable **Access via link**.
    1. Confirm the publishing and click **Next**.
    1. Select the charts you want to publish with the dashboard.
@@ -424,8 +424,8 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 - Publishing a chart
 
-   1. On the navigation page, find a chart like **C07. Starts and streams: dynamics** and open it.
-   1. At the top of the chart interface, click ![image](../../_assets/datalens/share.svg).
+   1. On the navigation page, find a chart, e.g., **C07. Starts and streams: dynamics**, and open it.
+   1. At the top of the chart interface, click ![image](../../_assets/console-icons/nodes-right.svg).
    1. In the public access settings window that opens, enable **Access via link**.
    1. Confirm the publishing and click **Next**.
    1. Copy the public link and click **Apply**.
@@ -437,7 +437,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 You can embed the published charts into a website or app using the `iframe` element. To do this:
 
 1. Follow the public link to the chart.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) in the upper-right corner of the chart and select **Embed code**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Embed code**.
 1. Copy the `iframe` code to embed in a light or dark theme.
 1. Embed the code into your website.
 
@@ -469,13 +469,13 @@ New subscribers appear in the service instantly, while in the statistics only th
 
 {% cut "Why are some of my podcast episodes not included in the statistics?" %}
 
-The statistics only show episodes that are already listened to. If you don't see a certain episode at the moment, it will appear on charts later as soon as it is listened to for the first time.
+The statistics only show episodes with a history of listens. The episode you cannot see now will appear on the charts as soon as the first listen takes place.
 
 {% endcut %}
 
 {% cut "Are editorial promos shown in the statistics?" %}
 
-Promo periods and titles aren't displayed in the statistics separately, but a sharp increase in listens may indicate that the podcast was promoted.
+Promo periods and titles are not displayed in the statistics separately, but a sharp increase in listens may indicate that the podcast was promoted.
 
 {% endcut %}
 

@@ -57,3 +57,23 @@ description: "Как получить логи моей работы в серв
 #### Мой браузер просит предоставить доступ к хосту {{ jlab }}Lab. Как его дать? {#access}
 
 Сообщение провоцирует экспериментальная опция Chrome, реализующая API доступа к хранилищу. Для ее отключения введите в адресную строку браузера `chrome://flags`, через строку поиска ниже найдите **Storage Access API** и переведите эту опцию в статус **Disabled**.
+
+#### Как развернуть модель с платформы Hugging Face в {{ ml-platform-name }}? {#huggingface}
+
+Некоторые библиотеки по умолчанию скачивают модели в заранее определенные директории. После скачивания модель может быть недоступна для импорта, потому что директория располагалась не в хранилище проекта. Чтобы избежать этого, определите правильную директорию для скачивания и указывайте ее при импорте модели:
+
+```python
+cache_dir="/home/jupyter/datasphere/project/huggingface_cache_dir/"
+
+config = AutoConfig.from_pretrained("<имя_модели>", cache_dir=cache_dir)
+model = AutoModel.from_pretrained("<имя_модели>", config=config, cache_dir=cache_dir)
+```
+
+Чтобы не указывать адрес директории каждый раз, вы можете определить ее в переменной окружения. Это нужно сделать в самом начале ноутбука до импорта библиотек:
+
+```python
+import os
+os.environ['TRANSFORMERS_CACHE'] = '/home/jupyter/datasphere/project/huggingface_cache_dir/'
+```
+
+Также вы можете установить модель для работы в оффлайн-режиме, воспользовавшись [официальной документацией](https://huggingface.co/docs/transformers/installation#fetch-models-and-tokenizers-to-use-offline) Hugging Face.

@@ -14,11 +14,13 @@
 
 Создайте первое подключение к базе данных.
 
-{% include notitle [connect-db](../_includes/websql/connect-to-db.md) %}
-
 Если у вас есть кластер [{{ PG }}](../managed-postgresql/operations/cluster-list.md), [{{ CH }}](../managed-clickhouse/operations/cluster-list.md) или [{{ MY }}](../managed-mysql/operations/cluster-list.md), настроенный в {{ yandex-cloud }}, то вы можете подключиться прямо к нему:
 
 {% include notitle [connect-cluster](../_includes/websql/connect-to-cluster.md) %}
+
+Вы также можете подключиться к публично доступной базе данных через интернет:
+
+{% include notitle [connect-db](../_includes/websql/connect-to-db.md) %}
 
 Если подключение прошло успешно, то в дереве диспетчера подключений отобразится структура кластера или базы данных. Хосты одного и того же кластера будут отображаться в _группе соединений_.
 

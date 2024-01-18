@@ -215,10 +215,10 @@ mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 
 Чтобы подключаться к кластеру {{ mmy-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
   ```bash
   RUN apt-get update && \
@@ -226,7 +226,7 @@ mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
   ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
   ```bash
   RUN apt-get update && \

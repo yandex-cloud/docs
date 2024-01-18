@@ -17,7 +17,7 @@ A choropleth map is used for estimating the value of a measure within a territor
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard section<br/> | Description |
+| Wizard section | Description |
 | ----- | ---- |
 | Polygons (Geopolygons) | Measure with the type [Geopolygon](../concepts/data-types.md#geopolygon). |
 | Colors | Dimension or measure. Affects the color and intensity of area fill. |

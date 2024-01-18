@@ -65,7 +65,7 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 
 1. Save the chart:
 
-   1. In the top-right corner, click ![save-button](../_assets/datalens/save-button.svg) → **Save as copy**.
+   1. In the top-right corner, click ![save-button](../_assets/console-icons/chevron-down.svg) → **Save as copy**.
    1. In the window that opens, enter the **Sales by week** name for the new chart and click **Save**.
 
    ![create-chart-2](../_assets/datalens/quickstart/05-create-area-chart.png)
@@ -84,7 +84,7 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
    * `OrderCount`
 1. Save the chart:
 
-   1. In the top-right corner, click ![save-button](../_assets/datalens/save-button.svg) → **Save as copy**.
+   1. In the top-right corner, click ![save-button](../_assets/console-icons/chevron-down.svg) → **Save as copy**.
    1. In the window that opens, enter the **Sales map** name for the new chart and click **Save**.
 
    ![create-chart-3](../_assets/datalens/quickstart/06-create-map-chart.png)
@@ -92,7 +92,7 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 ## Create a dashboard and add charts to it {#dashboard-create}
 
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
-1. In the left-hand panel, click ![image](../_assets/datalens/dashboard-0523.svg) **Dashboards**.
+1. In the left-hand panel, click ![image](../_assets/console-icons/layout-cells-large.svg) **Dashboards**.
 1. Click **Create dashboard**.
 1. In the panel at the bottom of the page, select **Chart**.
 1. In the window that opens, click **Select**.

@@ -1,4 +1,4 @@
-# Creating a node with Python code
+# Creating a node
 
 You can deploy an individual notebook cell or a third-party [Docker image](../../../container-registry/concepts/docker-image.md) as an independent service using [nodes](../../concepts/resource-model.md#resources).
 
@@ -11,6 +11,73 @@ You can deploy an individual notebook cell or a third-party [Docker image](../..
 If your project uses packages and libraries that are not included in the [list of pre-installed software](../../concepts/preinstalled-packages.md), first [configure the node environment](node-customization.md) using a Docker image.
 
 ## Create a node {#create-node}
+
+### Node from models {#from-model}
+
+
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+1. Enter the node name in the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** field.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**, specify the resource type: **{{ ui-key.yc-ui-datasphere.common.model }}**.
+1. In the **{{ ui-key.yc-ui-datasphere.common.models }}** field, select the saved [model](../../concepts/models/index.md) and specify the input data if needed.
+
+   {% note info %}
+
+   When deploying [PyTorch models](../../concepts/models/index.md#supported-types), {{ ml-platform-name }} cannot automatically provide the input and output parameters.
+
+   If you are setting the input data, make sure to specify the output data as well. When the input data is set manually for any model type, {{ ml-platform-name }} cannot automatically provide the output data.
+
+   {% endnote %}
+
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder to create new resources in.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
+1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
+
+To view all created nodes:
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+
+### Node from a Docker image {#from-docker}
+
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+1. Specify the basic node parameters:
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Resource that a node is based on (**{{ ui-key.yc-ui-datasphere.common.cell }}** or **{{ ui-key.yc-ui-datasphere.common.docker }}**).
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name.
+   * (Optional) **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.Description }}**: Node description.
+1. Set additional parameters:
+   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the image in {{container-registry-name}}. Click **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** and specify:
+     * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
+     * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry. See [{#T}](node-customization.md).
+   * Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
+     * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select the node connection protocol: **HTTP** (**HTTP/2**) or **gRPC**.
+     * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}**: Specify the port for connecting to the node.
+     * **{{ ui-key.yc-ui-datasphere.common.timeout }}**: Set the session duration in seconds.
+     * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.idle-timeout }}**: Set the idle time before disconnecting from the node, in seconds.
+   * (Optional) Under **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
+     * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select the telemetry service (**{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}** or **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.yandex-monitoring }}**).
+     * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}**: Specify the address to send telemetry data to.
+     * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}**: Specify the port to send telemetry data to.
+   * (Optional) Under **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
+     * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}**: Protocol to perform node health checks through (**HTTP** or **gRPC**).
+     * **{{ ui-key.yc-ui-datasphere.common.port }}**: Port that node health checks are performed from.
+     * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: Path to the resource to check.
+     * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: Check duration in seconds.
+     * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: Interval between checks in seconds.
+     * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: Allowed number of failed checks.
+
+     * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: Required number of successful checks.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder to create new resources in.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
+1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
+
+To view all created nodes:
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+
+### Node from a cell {#from-cell}
 
 1. {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 1. Select the cell to deploy as a node and run it (press **Shift** + **Enter**). This will automatically create a [checkpoint](../projects/checkpoints.md) in the project.
@@ -31,46 +98,15 @@ If your project uses packages and libraries that are not included in the [list o
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
    1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the basic node parameters:
-      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Resource that a node is based on (**{{ ui-key.yc-ui-datasphere.common.cell }}** or **{{ ui-key.yc-ui-datasphere.common.docker }}**).
-      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name.
-      * (Optional) **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.Description }}**: Node description.
-   1. Depending on the node type, specify other parameters:
-
-      {% list tabs %}
-
-      - Cell
-
-         * In the **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}** field, select the previously created checkpoint.
-         * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** and **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, set the names and types of input and output variables for automatic API generation. You can add variables by clicking ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}**.
-         * (Optional) If a [nonstandard environment](node-customization.md) is used for running a cell code, select **{{ ui-key.yc-ui-datasphere.new-node.user-custom }}** under **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}** and specify:
-            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
-            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry.
-
-      - Docker image
-
-         * Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**, specify the path to the image in {{container-registry-name}}. Click **{{ ui-key.yc-ui-datasphere.common.show-additional-parameters }}** and specify:
-            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
-            * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry. For more information, refer to [{#T}](node-customization.md).
-         * Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
-            * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select the node connection protocol: **HTTP** (**HTTP/2**) or **gRPC**.
-            * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}**: Specify the port for connecting to the node.
-            * **{{ ui-key.yc-ui-datasphere.common.timeout }}**: Set the session duration in seconds.
-            * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.idle-timeout }}**: Set the idle time before disconnecting from the node, in seconds.
-         * (optional) Under **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
-            * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select the telemetry service (**{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}** or **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.yandex-monitoring }}**).
-            * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}**: Specify the address to send telemetry data to.
-            * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}**: Specify the port to send telemetry data to.
-         * (optional) Under **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
-            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}**: Protocol to perform node health checks through (**HTTP** or **gRPC**).
-            * **{{ ui-key.yc-ui-datasphere.common.port }}**: Port that node health checks are performed from.
-            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: Path to the resource to check.
-            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: Check duration in seconds.
-            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: Interval between checks in seconds.
-            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: Allowed number of failed checks.
-            * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: Required number of successful checks.
-
-      {% endlist %}
-
+       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Resource that a node is based on (**{{ ui-key.yc-ui-datasphere.common.cell }}** or **{{ ui-key.yc-ui-datasphere.common.docker }}**).
+       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name.
+       * (Optional) **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.Description }}**: Node description.
+   1. Set additional parameters:
+       * In the **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}** field, select the previously created checkpoint.
+       * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}** and **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, set the names and types of input and output variables for automatic API generation. You can add variables by clicking ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}**.
+       * (Optional) If a [nonstandard environment](node-customization.md) is used for running a cell code, select **{{ ui-key.yc-ui-datasphere.new-node.user-custom }}** under **{{ ui-key.yc-ui-datasphere.new-node.title.kernel-docker-image }}** and specify:
+         * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}**: `json_key`.
+         * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: [Secret](../../concepts/secrets.md) with a password for your container registry.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder to create new resources in.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
@@ -82,6 +118,157 @@ To view all created nodes:
 
 ## Examples {#examples}
 
+### Deploying a node from a model to transform a photo into a mosaic {#mosaic}
+
+Let us consider an example of deploying a service from a model in ONNX format. The `fast-neural-style-mosaic-onnx` model transforms an image based on a specified style. The model is taken from the [ONNX repository](https://github.com/onnx/models/).
+
+1. Create a model:
+
+   {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
+
+   1. Install the `onnx` module:
+
+   ```python
+   %pip install onnx
+   ```
+
+   1. Download the `mosaic.onnx` file:
+
+   ```python
+   !wget -O "mosaic.onnx" "https://github.com/onnx/models/raw/main/validated/vision/style_transfer/fast_neural_style/model/mosaic-8.onnx"
+   ```
+
+   1. Load the model into a variable and check it for consistency:
+
+    ```python
+    import onnx
+
+    onnx_model = onnx.load("mosaic.onnx")
+    onnx.checker.check_model(onnx_model)
+    ```
+
+   1. In the right-hand panel, select ![models](../../../_assets/console-icons/nodes-right.svg). In the window that opens, click **Create model**.
+   1. Select the name of the variable to create your model from.
+   1. Give your model a name and add a description if needed.
+   1. Click **Create**.
+
+1. Create a node:
+
+   1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+   1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+   1. Enter the node name in the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** field.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**, specify the resource type: **{{ ui-key.yc-ui-datasphere.common.model }}**.
+   1. In the **{{ ui-key.yc-ui-datasphere.common.models }}** field, select the model you created earlier.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select the folder to create new resources in.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
+   1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
+
+1. [Create secrets](../data/secrets.md#create) for testing your node:
+
+   * `IAM_SECRET` with the value of the [IAM token](../../../iam/concepts/authorization/iam-token.md).
+   * `NODE_ID` with the node ID.
+   * `FOLDER_ID` with the [folder ID](../../../resource-manager/operations/folder/get-id.md).
+
+1. Transform the image:
+
+   1. {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
+   1. Install the `tritonclient` module:
+
+      ```python
+      %pip install tritonclient[http]
+      ```
+
+   1. Import the required libraries:
+
+      ```python
+      import numpy as np
+      import matplotlib.pyplot as plt
+      from PIL import Image
+      import requests
+      import urllib
+      import os
+      %matplotlib inline
+      ```
+
+   1. Prepare your image:
+
+      ```python
+      url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
+      try: urllib.URLopener().retrieve(url, filename)
+      except: urllib.request.urlretrieve(url, filename)
+
+      # loading input and resize if needed
+      onnx_image = Image.open(filename)
+
+      size_reduction_factor = 5
+      onnx_image = onnx_image.resize((224, 224))
+
+      # Preprocess image
+      x = np.array(onnx_image).astype('float32')
+      x = np.transpose(x, [2, 0, 1])
+      onnx_input = np.expand_dims(x, axis=0)
+
+      plt.figure(figsize=(15, 15))
+      plt.imshow(onnx_image)
+      plt.show()
+      ```
+
+   1. Authenticate using the secrets created earlier:
+
+      ```python
+      IAM_SECRET = os.environ['IAM_SECRET']
+      NODE_ID = os.environ['NODE_ID']
+      FOLDER_ID = os.environ['FOLDER_ID']
+
+      headers = {
+          "Authorization": f"Bearer {IAM_SECRET}", # get IAM token from secrets
+          "x-node-id": f"{NODE_ID}", # sample node
+          "x-folder-id": f"{FOLDER_ID}" # node folder ID
+      }
+      ```
+
+   1. Send test requests with the model ID substituted as follows:
+
+      ```python
+      import tritonclient.http as httpclient
+      import ssl
+
+      # because of troubles with verification of SSL certificate from node-api.preprod
+      def insecure_ssl_context_factory():
+          context = ssl.create_default_context()
+          context.check_hostname = False
+          context.verify_mode = ssl.CERT_NONE
+          return context
+
+      model="<DataSphere_model_ID>"
+
+      # request model config with model ready status
+      print(f"""model_name: {model},\n
+            model_ready: {triton_client.is_model_ready(model_name=model, headers=headers)},\n
+            model_config: {triton_client.get_model_config(model_name=model, headers=headers)}\n""")
+      ```
+
+   1. Prepare your image and send a request to the node:
+
+      ```python
+      payload = httpclient.InferInput("input1", list(onnx_input.shape), "FP32")
+      payload.set_data_from_numpy(onnx_input, binary_data=False)
+      results = triton_client.infer(model, inputs=[payload], headers=headers)
+      ```
+
+   1. Receive the result of image transformation:
+
+      ```python
+      output = results.as_numpy("output1")[0]
+      output = np.clip(output, 0, 255)
+      output = output.transpose(1,2,0).astype("uint8")
+      img = Image.fromarray(output)
+      img
+      ```
+
+      You will get the transformed image in the response.
+
 ### Deploying a random number generator node from a cell {#randomizer}
 
 Let's look at an example of creating an API endpoint that takes a number range as its input and returns a random integer.
@@ -90,34 +277,34 @@ Let's look at an example of creating an API endpoint that takes a number range a
 1. Create a notebook by selecting **File** → **New** → **Notebook** from the menu.
 1. Declare the input parameters and do not override them in the service code. To do this, create a cell with the following code:
 
-   ```python
-   input_data = dict(left_bound=1, right_bound=10)
-   ```
+    ```python
+    input_data = dict(left_bound=1, right_bound=10)
+    ```
 
 1. Select and run the cell with the code by choosing **Run** → **Run Selected Cells** from the menu, or pressing **Shift** + **Enter**.
 1. Describe the service that will handle the API calls. Create a new cell with the code:
 
-   ```python
-   from random import randint
-   from random import seed
+    ```python
+    from random import randint
+    from random import seed
 
-   seed()
+    seed()
 
-   def generate_value(input_data):
-       return dict(generated_value=randint(
-           input_data["left_bound"],
-           input_data["right_bound"]
-       ))
+    def generate_value(input_data):
+        return dict(generated_value=randint(
+            input_data["left_bound"],
+            input_data["right_bound"]
+        ))
 
-   output_data = generate_value(input_data)
-   print(output_data)
-   ```
+    output_data = generate_value(input_data)
+    print(output_data)
+    ```
 
 1. Run the cell. The expected result from the code is a string in the following format:
 
-   ```json
-   {'generated_value': <integer from 1 to 10>}
-   ```
+    ```json
+    {'generated_value': <number_from_1_to_10>}
+    ```
 
    This will automatically create a checkpoint in the project.
 1. Pin the checkpoint:
@@ -130,19 +317,19 @@ Let's look at an example of creating an API endpoint that takes a number range a
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
    1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
    1. Specify the node parameters:
-      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**.
-      * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name, e.g., `randomizer-node`.
-      * In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** field, select the checkpoint named `randomizer-checkpoint`.
-      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: **{{ ui-key.yc-ui-datasphere.common.cell }}**.
+       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}**: Node name, e.g., `randomizer-node`.
+       * In the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.checkpoint }}** field, select the checkpoint named `randomizer-checkpoint`.
+       * Under **{{ ui-key.yc-ui-datasphere.new-node.title.input-variables }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
          * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `input_data`.
          * **{{ ui-key.yc-ui-datasphere.common.type }}**: `{{ ui-key.yc-ui-datasphere.node-page.type.dict }}`.
-      * Under **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
+       * Under **{{ ui-key.yc-ui-datasphere.new-node.title.output-variables }}**, click ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.common.add-new }}** and create a variable with the following parameters:
          * **{{ ui-key.yc-ui-datasphere.new-node.variables-form-placeholder.name }}**: `output_data`.
          * **{{ ui-key.yc-ui-datasphere.common.type }}**: `{{ ui-key.yc-ui-datasphere.node-page.type.dict }}`.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select your folder.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select:
-      * **{{ ui-key.yc-ui-datasphere.new-node.provisioning-form-label.instance-spec }}**: `c1.4`.
-      * Under **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}**, click **{{ ui-key.yc-ui-datasphere.new-node.add-new-zone }}** and select `{{ region-id }}-a`.
+       * **{{ ui-key.yc-ui-datasphere.new-node.provisioning-form-label.instance-spec }}**: `c1.4`.
+       * Under **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}**, click **{{ ui-key.yc-ui-datasphere.new-node.add-new-zone }}** and select `{{ region-id }}-a`.
          * In the menu that opens, click **{{ ui-key.yc-ui-datasphere.common.add-new }}** in the **{{ ui-key.yc-ui-datasphere.common.subnet }}** field.
          * In the window that opens, specify the ID of the subnet available in your folder. If you do not have a subnet, [create](../../../vpc/operations/subnet-create.md) one.
          * Click **{{ ui-key.yc-ui-datasphere.common.add }}**.
@@ -156,11 +343,11 @@ Let's look at an example of creating an API endpoint that takes a number range a
 1. Start a terminal and select a POST request to the API of the service you created. Such as:
 
    ```bash
-   curl -X POST 'https://datasphere.{{ api-host }}/datasphere/v1/nodes/<node ID>:execute' \
-        -H 'Authorization: Bearer <IAM token>' \
+   curl -X POST 'https://datasphere.{{ api-host }}/datasphere/v1/nodes/<node_ID>:execute' \
+        -H 'Authorization: Bearer <IAM_token>' \
         -H 'Content-Type: application/json' \
         --data-raw '{
-           "folder_id": "<folder ID>",
+           "folder_id": "<folder_ID>",
            "input": {
              "input_data": {
                "left_bound": 1,
@@ -171,9 +358,9 @@ Let's look at an example of creating an API endpoint that takes a number range a
    ```
 
    Where:
-   * `<node ID>`: Previously retrieved node ID.
+   * `<node_ID>`: Previously retrieved node ID.
    * `<IAM token>`: IAM token used for authentication.
-   * `<folder ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) where the node was created.
+   * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) where the node was created.
 
    The response should contain a random number from the specified range of 1 to 10:
 

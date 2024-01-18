@@ -111,6 +111,7 @@ subcluster_name | Имя подкластера
 | `postgres_oldest_query_duration`<br/>`DGAUGE`, секунды | Длительность самого старого запроса. |
 | `postgres_oldest_transaction_duration`<br/>`DGAUGE`, секунды | Длительность самой старой транзакции. |
 | `postgres_role_conn_limit`<br/>`DGAUGE`, штуки | Максимально возможное количество одновременных сессий пользователя. |
+| `postgres_role_total_conn_limit`<br/>`DGAUGE`, штуки | Максимально возможное количество одновременных сессий всех пользователей. |
 | `postgres_total_connections`<br/>`DGAUGE`, штуки | Количество подключений. | 
 | `postgres_wal_rate_bytes`<br/>`DGAUGE`, байт/с | Скорость записи в журнал упреждающей записи. |
 | `postgres_xid_left`<br/>`DGAUGE`, штуки | Количество оставшихся счетчиков транзакций. |

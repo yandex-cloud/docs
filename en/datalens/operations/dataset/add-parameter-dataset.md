@@ -17,7 +17,7 @@ To add a [parameter](../../concepts/parameters.md) to a dataset:
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/datasets.svg) **Datasets** and select the dataset you need. If you do not have a dataset, [create one](create.md).
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/circles-intersection.svg) **Datasets** and select the dataset you need. If you do not have a dataset, [create one](create.md).
 1. At the top of the screen, go to the **Parameters** tab.
 1. Click **Add**.
 1. In the **Add parameter** window, specify:

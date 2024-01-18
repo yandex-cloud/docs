@@ -8,40 +8,113 @@ keywords:
 
 # Запуск и управление приложениями для Spark и PySpark
 
-Чтобы запускать Spark-приложения в кластере {{ dataproc-name }}, [подготовьте данные](#prepare-data) для обработки, а затем выберите нужный вариант запуска:
+Существует несколько способов запустить Spark- и PySpark-задания в кластере {{ dataproc-name }}:
 
-* [Spark Shell](#spark-shell) (командная оболочка для языков программирования Scala и Python). Подробнее о ней читайте в [документации Spark](https://spark.apache.org/docs/latest/quick-start).
-* [Скрипт spark-submit](#spark-submit). Более подробно этот способ описан в [документации Spark](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications).
-* [Команды CLI {{ yandex-cloud }}](#run-cli-jobs).
+* [Spark Shell](#spark-shell) (командная оболочка для языков программирования Scala и Python). Расчеты запускаются не с помощью скрипта, а построчно. Подробнее о Spark Shell читайте в [документации Spark](https://spark.apache.org/docs/latest/quick-start).
+* [Скрипт spark-submit](#spark-submit). Сохраняет результаты расчета в HDFS. Подробнее о `spark-submit` читайте в [документации Spark](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications).
+* [Команды CLI {{ yandex-cloud }}](#run-cli-jobs). Позволяют сохранить результаты расчета не только в HDFS, но и в [бакете {{ objstorage-full-name }}](../../storage/concepts/bucket.md).
 
-## Подготовка данных {#prepare-data}
+Ниже рассматривается пример, по которому будет рассчитана статистика по воздушному трафику США за 2018 год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных представлен в формате [Parquet](https://parquet.apache.org/) и находится в публичном бакете {{ objstorage-full-name }} с именем `yc-mdb-examples`.
 
-Следуя этой инструкции вы рассчитаете статистику по воздушному трафику США за 2018-й год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных подготовлен в формате [Parquet](https://parquet.apache.org/) в публичном бакете {{ objstorage-full-name }} с именем `yc-mdb-examples`.
+## Перед началом работы {#before-you-begin}
 
-Для работы с {{ objstorage-name }} рекомендуется [настроить S3cmd](../../storage/tools/s3cmd.md).
+Подготовьте инфраструктуру:
 
-Список файлов можно получить с помощью команды:
+{% list tabs %}
 
-```bash
-s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
-```
+- Вручную
 
-Результат:
+    1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `data-proc-network`. При создании выключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+    1. В сети `data-proc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) со следующими параметрами:
 
-```text
-2019-09-13 17:17  19327838   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
-2019-09-13 17:17  21120204   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
-...
-```
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `data-proc-subnet-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `192.168.1.0/24`.
 
-{% note info %}
+    1. [Создайте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и таблицу маршрутизации с именем `data-proc-route-table` в сети `data-proc-network`. Привяжите таблицу к подсети `data-proc-subnet-a`.
+    1. В сети `data-proc-network` [создайте группу безопасности](../../vpc/operations/security-group-create.md) с именем `data-proc-security-group` и следующими правилами:
 
-Перед настройкой доступа к сервисам {{ yandex-cloud }} и интернет-ресурсам убедитесь, что сеть кластера [настроена правильно](./configure-network.md).
+        * По одному правилу для входящего и исходящего служебного трафика:
 
-{% endnote %}
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
+
+        * Правило для входящего трафика, чтобы подключаться к хостам подкластеров из интернета:
+
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
+        * Правило для исходящего HTTPS-трафика:
+
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
+        * Правило для исходящего HTTP-трафика:
+
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-http }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `data-proc-sa` с ролями:
+
+        * [dataproc.agent](../../iam/concepts/access-control/roles.md#mdb-dataproc-agent);
+        * [storage.admin](../../iam/concepts/access-control/roles.md#storage-admin).
+
+    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) `data-proc-bucket` с ограниченным доступом.
+    1. [Предоставьте сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) `data-proc-sa` разрешение `READ и WRITE` на бакет `data-proc-bucket`.
+    1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) любой подходящей конфигурации с настройками:
+
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `data-proc-sa`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — `{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — `data-proc-bucket`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `data-proc-network`.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `data-proc-security-group`.
+        * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** для подкластеров — предоставлен.
+
+- С помощью {{ TF }}
+
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. [Склонируйте репозиторий](https://github.com/yandex-cloud-examples/yc-data-proc-spark-pyspark). Он содержит файл с настройками провайдера и файл конфигурации инфраструктуры.
+
+        В файле конфигурации описаны:
+
+        * сеть;
+        * подсеть;
+        * NAT-шлюз и таблица маршрутизации;
+        * группы безопасности;
+        * сервисный аккаунт для работы с ресурсами кластера;
+        * бакет, в котором будут храниться зависимости заданий и результаты их выполнения;
+        * кластер {{ dataproc-name }}.
+
+    1. Укажите в файлах `.tf` необходимые параметры.
+    1. Выполните команду `terraform init` в директории с репозиторием. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 ## Использование Spark Shell {#spark-shell}
 
+1. [Подключитесь по SSH](../operations/connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
 1. Запустите Spark Shell на хосте-мастере:
 
    ```bash
@@ -83,12 +156,13 @@ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
 
 ## Использование Spark Submit {#spark-submit}
 
-Spark Submit позволяет запускать заранее написанные приложения через скрипт `spark-submit`. В качестве примера рассмотрим приложение для расчета количества перелетов по месяцам. 
+Spark Submit позволяет запускать заранее написанные приложения через скрипт `spark-submit`. Для примера рассчитывается количество перелетов по месяцам. 
 
 {% list tabs %}
 
 - PySpark Submit
 
+  1. [Подключитесь по SSH](../operations/connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
   1. На хосте-мастере создайте файл `month_stat.py` со следующим кодом:
 
      ```python
@@ -109,7 +183,7 @@ Spark Submit позволяет запускать заранее написан
          month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
 
      if __name__ == "__main__":
-             main()
+         main()
      ```
 
   1. Запустите приложение:
@@ -128,9 +202,9 @@ Spark Submit позволяет запускать заранее написан
   В примере рассматривается сборка и запуск приложения на языке программирования [Scala](https://scala-lang.org). Для сборки приложений используется [sbt](https://scala-lang.org/download/), стандартная утилита сборки Scala.
 
   Чтобы создать и запустить Spark-приложение:
-  1. Выполните команду `scala -version` на хосте-мастере, чтобы узнать необходимую версию Scala.
 
-     Следите за тем, чтобы версия Scala соответствовала версиям библиотек, которые развернуты в кластере {{ dataproc-name }}, и библиотек, которые используются в приложении. Набор библиотек по умолчанию можно найти в каталоге `/usr/lib/spark/jars` на хосте-мастере {{ dataproc-name }}.
+  1. [Подключитесь по SSH](../operations/connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
+  1. [Установите](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) стандартную утилиту сборки sbt для Scala. Она устанавливается вместе с языком программирования Scala.
   1. Создайте папку, например `spark-app`.
   1. В созданную папку добавьте файл с путем `./src/main/scala/app.scala`.
   1. Скопируйте следующий код в файл `app.scala`:
@@ -157,35 +231,70 @@ Spark Submit позволяет запускать заранее написан
         }
       ```
 
-  1. В папке `spark-app` создайте файл `build.sbt` со следующей конфигурацией:
+  1. Подготовьте данные для сборки приложения:
 
-      ```scala
-      scalaVersion  := "2.11.6"
+      1. Чтобы узнать установленную версию Scala, выполните команду `scala -version`.
+      1. Чтобы узнать версии `spark-core` и `spark-sql`, посмотрите содержимое каталога `/usr/lib/spark/jars`:
 
-      libraryDependencies ++= Seq(
-          "org.apache.spark" %% "spark-core" % "2.2.3" % "provided",
-          "org.apache.spark" %% "spark-sql" % "2.2.3" % "provided"
-      )
-      ```
+          ```bash
+          ls /usr/lib/spark/jars
+          ```
 
-     {% note info %}
+          Версии указаны в названии JAR-файлов. Пример:
 
-     Версия Scala и библиотек может измениться с обновлениями компонентов {{ dataproc-name }}.
+          ```text
+          spark-core_2.12-3.0.3.jar
+          spark-sql_2.12-3.0.3.jar
+          ```
 
-     {% endnote %}
+          Нужный номер версии — `3.0.3`.
 
-  1. Скомпилируйте и соберите jar-файл:
+      1. В папке `spark-app` создайте файл `build.sbt` с конфигурацией:
+
+          ```scala
+          scalaVersion := "<версия_Scala>"
+
+          libraryDependencies ++= Seq(
+              "org.apache.spark" %% "spark-core" % "<версия_spark-core>" % "provided",
+              "org.apache.spark" %% "spark-sql" % "<версия_spark-sql>" % "provided"
+          )
+          ```
+
+          Пример:
+
+          ```scala
+          scalaVersion := "2.12.10"
+
+          libraryDependencies ++= Seq(
+              "org.apache.spark" %% "spark-core" % "3.0.3" % "provided",
+              "org.apache.spark" %% "spark-sql" % "3.0.3" % "provided"
+          )
+          ```
+
+  1. Скомпилируйте и соберите JAR-файл:
 
       ```bash
       sbt compile && sbt package
       ```
 
+  1. Получите название собранного JAR-файла:
+
+      ```bash
+      ls ~/spark-app/target/scala-<версия_Scala>
+      ```
+
+      Результат — `spark-app_2.12-0.1.0-SNAPSHOT.jar`.
+
   1. Запустите получившееся приложение:
 
       ```bash
-      /usr/bin/spark-submit \
-          --class com.yandex.cloud.dataproc.scala.Main \
-              ./target/scala-2.11/scala-app_2.11-0.1-SNAPSHOT.jar
+      /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main target/scala-<версия_Scala>/<название_собранного_JAR-файла>
+      ```
+
+      Пример:
+
+      ```bash
+      /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main target/scala-2.12/spark-app_2.12-0.1.0-SNAPSHOT.jar
       ```
 
   1. Результат работы приложения будет выгружен в HDFS. Список получившихся файлов можно вывести командой:
@@ -196,8 +305,7 @@ Spark Submit позволяет запускать заранее написан
 
 {% endlist %}
 
-
-## Завершение работы приложения {#yarn-kill}
+### Завершение работы приложения {#yarn-kill}
 
 По умолчанию ресурсы запускаемого приложения управляются компонентом YARN. Если приложение необходимо завершить или убрать из очереди, используйте утилиту `yarn`:
 
@@ -216,200 +324,37 @@ Spark Submit позволяет запускать заранее написан
 
 ## Запуск заданий (jobs) с помощью CLI {{ yandex-cloud }} {#run-cli-jobs}
 
-{% include [cli-install](../../_includes/cli-install.md) %}
-
 {% include [cli-job-intro](../../_includes/data-proc/cli-job-intro.md) %}
 
-Результат расчета приложение сохраняет либо с помощью компонента HDFS в кластере {{ dataproc-name }}, либо в указанный вами бакет {{ objstorage-name }}.
+Результаты расчета можно сохранить в HDFS в кластере {{ dataproc-name }} или в бакете `data-proc-bucket`, указанном при создании кластера.
 
-Служебная и отладочная информация сохраняется в бакете {{ objstorage-name }}, который был указан при создании кластера {{ dataproc-name }}. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<идентификатор_кластера>/jobs/<идентификатор_задачи>`. Перед первым запуском следует назначить права `WRITE` на бакет для сервисного аккаунта, под которым будут запускаться задания.
+Служебная и отладочная информация сохраняется в бакете `data-proc-bucket`. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<идентификатор_кластера>/jobs/<идентификатор_задачи>`.
 
-Ниже приведены два варианта приложения — для Scala и Python.
+Ниже приведены два варианта приложения — для [Python](#cli-python) и [Scala](#cli-scala).
 
-### Запуск Spark Job {#cli-scala}
+### Запуск PySpark-задания {#cli-python}
 
-Основные шаги:
+Чтобы запустить PySpark-задание:
 
-1. Соберите Scala-приложение в единый JAR-файл с помощью [SBT](https://www.scala-sbt.org/index.html).
-2. Загрузите JAR-файл в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера.
-3. Запустите задание в кластере {{ dataproc-name }}.
+1. [Установите дополнительные зависимости](#infra-for-python).
+1. [Подготовьте и запустите PySpark-задание](run-cli-pyspark).
 
-#### Соберите Scala-приложение {#scala-build}
+#### Установите дополнительные зависимости {#infra-for-python}
 
-Чтобы упростить управление зависимостями, соберите приложение в один JAR-файл (fat JAR) с помощью плагина [sbt-assembly](https://github.com/sbt/sbt-assembly).
+На локальном компьютере выполните действия:
 
-Необходимую версию Scala можно узнать, выполнив команду `scala -version` на хосте-мастере. Для примера используется версия `2.11.12`. Для приложений Spark рекомендуется строго соблюдать версию Scala и версии библиотек, которые развернуты в кластере {{ dataproc-name }}. Набор библиотек по умолчанию можно посмотреть в каталоге `/usr/lib/spark/jars`.
+1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-Структура приложения:
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-```text
-spark-app
-|-project
-|  |-plugins.sbt
-|-src
-|  |-main
-|    |-scala
-|      |-app.scala
-|-build.sbt
-```
-
-Чтобы собрать приложение:
-
-1. Создайте папку `spark-app`, в ней — папки `project` и `src/main/scala`.
-1. Создайте файл `project/plugins.sbt`, который описывает подключение плагина `sbt-assembly` для сборки единого JAR-файла:
-
-    ```scala
-    addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")
-    ```
-
-1. Создайте файл `build.sbt` с описанием версии Scala, зависимостей и стратегии их слияния в одном JAR-файле:
-
-    ```scala
-    scalaVersion  := "2.11.12"
-
-    libraryDependencies ++= Seq(
-        "org.apache.spark" %% "spark-core" % "2.4.4",
-        "org.apache.spark" %% "spark-sql" % "2.4.4",
-
-    )
-
-    assemblyMergeStrategy in assembly := {
-      case PathList("org","aopalliance", xs @ _*) => MergeStrategy.last
-      case PathList("javax", "inject", xs @ _*) => MergeStrategy.last
-      case PathList("javax", "servlet", xs @ _*) => MergeStrategy.last
-      case PathList("javax", "activation", xs @ _*) => MergeStrategy.last
-      case PathList("org", "apache", xs @ _*) => MergeStrategy.last
-      case PathList("com", "google", xs @ _*) => MergeStrategy.last
-      case PathList("com", "esotericsoftware", xs @ _*) => MergeStrategy.last
-      case PathList("com", "codahale", xs @ _*) => MergeStrategy.last
-      case PathList("com", "yammer", xs @ _*) => MergeStrategy.last
-      case "about.html" => MergeStrategy.rename
-      case "overview.html" => MergeStrategy.last
-      case "META-INF/ECLIPSEF.RSA" => MergeStrategy.last
-      case "META-INF/mailcap" => MergeStrategy.last
-      case "META-INF/mimetypes.default" => MergeStrategy.last
-      case "plugin.properties" => MergeStrategy.last
-      case "log4j.properties" => MergeStrategy.last
-      case x =>
-        val oldStrategy = (assemblyMergeStrategy in assembly).value
-        oldStrategy(x)
-    }
-    ```
-1. Создайте файл `src/main/scalaapp.scala` с кодом приложения:
-
-    ```scala
-    package com.yandex.cloud.dataproc.scala
-
-    import org.apache.spark.{SparkConf, SparkContext}
-    import org.apache.spark.sql.SQLContext
-
-      object Main {
-        def main(args: Array[String]) {
-          if (args.length != 2){ //проверяем аргумент
-            System.err.println("Usage spark-app.jar <входная_директория> <выходная_директория>");
-            System.exit(-1);
-          }
-          val inDir = args(0); //URI на исходные данные
-          val outDir = args(1); //URI на директорию куда записать результат
-          val conf = new SparkConf().setAppName("Month Stat - Scala App")
-          val sc = new SparkContext(conf)
-          val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-          val df = sqlContext.read.parquet(inDir)
-          val monthStat = df.groupBy("Month").count()
-          val defaultFS = sc.hadoopConfiguration.get("fs.defaultFS") //получить эндпоинт сервера HDFS
-          val jobId = conf.get("spark.yarn.tags").replace("dataproc_job_", ""); //получить идентификатор задания
-          if (outDir.toLowerCase().startsWith("s3a://")) {
-            monthStat.repartition(1).write.format("csv").save(outDir + jobId)
-          } else {
-            monthStat.repartition(1).write.format("csv").save(defaultFS + "/" + outDir + jobId)
-          }
-
-          sc.stop()
-        }
-      }
-    ```
-1. Запустите сборку приложения в папке `spark-app`:
+1. [Установите и настройте](../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с {{ objstorage-full-name }}.
+1. Установите Python. Убедитесь, что версия Python совпадает с версией, доступной из образа. Проверить версию можно в разделе [{#T}](../concepts/environment.md). Для версии образа 2.0 используйте Python 3.8.10:
 
     ```bash
-    sbt clean && sbt compile && sbt assembly
+    sudo apt update && sudo apt install python3.8
     ```
 
-Файл будет доступен по следующему пути: `./target/scala-2.11/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
-
-#### Загрузите JAR-файл в {{ objstorage-name }} {#scala-upload}
-
-Чтобы Spark имел доступ к собранному JAR-файлу, загрузите файл в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
-
-```bash
-s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
-    s3://<бакет>/bin/
-```
-
-Для текущего примера файл загружается по адресу `s3://<бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar`.
-
-### Запустите задачу в кластере {{ dataproc-name }} {#scala-run}
-
-Чтобы Data Proc Agent смог забрать задачу из подсети пользователя, необходимо настроить [NAT-шлюз](../../vpc/concepts/gateways.md). О том, как это сделать, читайте в разделе [{#T}](./configure-network.md).
-
-Ниже приведены два шаблона команды CLI для запуска Spark-задания — с выводом результата в {{ objstorage-name }} и в HDFS.
-
-{% list tabs %}
-
-- {{ objstorage-name }}
-
-  ```bash
-  {{ yc-dp }} job create-spark \
-     --cluster-id=<идентификатор_кластера> \
-     --name=<имя_задачи> \
-     --main-class="com.yandex.cloud.dataproc.scala.Main" \
-     --main-jar-file-uri="s3a://<бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
-     --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
-     --args="s3a://<бакет>/jobs_results/"
-  ```
-
-- HDFS
-
-  CSV-файл с результатом создается в папке `/tmp/jobs/<идентификатор_задачи>/` в HDFS.
-
-  ```bash
-  {{ yc-dp }} job create-spark \
-     --cluster-id=<идентификатор_кластера> \
-     --name=<имя_задачи> \
-     --main-class="com.yandex.cloud.dataproc.scala.Main" \
-     --main-jar-file-uri="s3a://<бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
-     --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
-     --args="tmp/jobs/"
-  ```
-
-  Пример сообщения об успешном запуске задачи:
-
-  ```text
-  done (1m2s)
-  id: {your_job_id}
-  cluster_id: {your_cluster_id}
-  name: test02
-  status: DONE
-  spark_job:
-    args:
-    - s3a://yc-mdb-examples/dataproc/example01/set01
-    - s3a://<бакет>/jobs_results/
-    main_jar_file_uri: s3a://<бакет>/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar
-    main_class: com.yandex.cloud.dataproc.scala.Main
-  ```
-
-{% endlist %}
-
-### Запуск PySpark Job {#cli-python}
-
-Основные шаги:
-
-1. Подготовьте код Python-приложения.
-2. Загрузите файл с кодом в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера.
-3. Запустите задачу в кластере {{ dataproc-name }}.
-
-Версия Python-приложения должна совпадать с версией, доступной из образа. Проверить версию можно на странице [{#T}](../concepts/environment.md). Для версии образа 2.0 следует использовать Python 3.8.10.
-
-Чтобы запустить приложение:
+#### Подготовьте и запустите PySpark-задание {#run-cli-pyspark}
 
 1. Создайте файл `job.py` со следующим кодом:
 
@@ -445,40 +390,288 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
         main()
     ```
 
-1. Чтобы PySpark имел доступ к вашему коду, загрузите файл `job.py` в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
+1. Чтобы PySpark имел доступ к вашему коду, загрузите файл `job.py` в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}:
 
     ```bash
-    s3cmd put ./job.py s3://<бакет>/bin/
+    s3cmd put ./job.py s3://data-proc-bucket/bin/
     ```
 
-1. Запустите команду CLI с записью результата:
-   * В бакет {{ objstorage-name }}:
+1. Запустите задание.
+
+    Команда для запуска зависит от того, где нужно сохранить результаты задания: в {{ objstorage-name }} или HDFS.
+
+    {% list tabs %}
+
+    - {{ objstorage-name }}
 
       ```bash
       {{ yc-dp }} job create-pyspark \
          --cluster-id=<идентификатор_кластера> \
          --name=<имя_задачи> \
-         --main-python-file-uri="s3a://<бакет>/bin/job.py" \
+         --main-python-file-uri="s3a://data-proc-bucket/bin/job.py" \
          --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
-         --args="s3a://<бакет>/jobs_results/"
+         --args="s3a://data-proc-bucket/jobs_results/"
       ```
 
-   * В HDFS:
+      В команде укажите:
+
+      * `--cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list).
+      * `--name` — произвольное имя Spark-задания.
+
+      CSV-файл с результатом сохранится в бакете `data-proc-bucket`.
+
+    - HDFS
 
       ```bash
       {{ yc-dp }} job create-pyspark \
          --cluster-id=<идентификатор_кластера> \
          --name=<имя_задачи> \
-         --main-python-file-uri="s3a://<бакет>/bin/job.py" \
+         --main-python-file-uri="s3a://data-proc-bucket/bin/job.py" \
          --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
          --args="tmp/jobs/"
       ```
 
-     CSV-файл с результатом создается в папке `/tmp/jobs/<идентификатор_задачи>/` в HDFS.
+      В команде укажите:
 
-1. Чтобы посмотреть логи задачи:
+      * `--cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list).
+      * `--name` — произвольное имя Spark-задания.
 
-   ```bash
-   {{ yc-dp }} job log <имя_задачи> \
-      --cluster-id=<идентификатор_кластера>
-   ```
+      CSV-файл с результатом сохранится в папке `/tmp/jobs/<идентификатор_задачи>/` в HDFS.
+
+    {% endlist %}
+
+1. (Опционально) Посмотрите логи задачи:
+
+    ```bash
+    {{ yc-dp }} job log <идентификатор_задачи> --cluster-id=<идентификатор_кластера>
+    ```
+
+### Запуск Spark-задания {#cli-scala}
+
+Чтобы запустить Spark-задание:
+
+1. [Установите дополнительные зависимости](#infra-for-scala).
+1. [Соберите Scala-приложение](#scala-build).
+2. [Загрузите JAR-файл в {{ objstorage-name }}](#scala-upload).
+3. [Запустите Spark-задание в кластере {{ dataproc-name }}](#scala-run).
+
+#### Установите дополнительные зависимости {#infra-for-scala}
+
+1.  {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+1. [Подключитесь по SSH](../operations/connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
+1. [Установите](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) стандартную утилиту сборки `sbt` для Scala. Она устанавливается вместе с языком программирования Scala.
+1. [Установите и настройте](../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с {{ objstorage-full-name }}.
+
+#### Соберите Scala-приложение {#scala-build}
+
+Чтобы упростить управление зависимостями, соберите приложение в один JAR-файл (fat JAR) с помощью плагина [sbt-assembly](https://github.com/sbt/sbt-assembly):
+
+1. Создайте папку `spark-app`, в ней — папки `project` и `src/main/scala`.
+1. Создайте файл `spark-app/project/plugins.sbt`, который описывает подключение плагина `sbt-assembly` для сборки единого JAR-файла:
+
+    ```scala
+    addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "<версия_sbt-assembly>")
+    ```
+
+    Версию плагина `sbt-assembly` см. в его [репозитории](https://github.com/sbt/sbt-assembly), в разделе **Releases**.
+
+1. Узнайте установленную версию Scala с помощью команды `scala -version`.
+1. Создайте файл `spark-app/build.sbt` с описанием зависимостей и стратегии их слияния в одном JAR-файле. В файле `build.sbt` укажите версию Scala:
+
+    ```scala
+    scalaVersion := "<версия_Scala>"
+
+    libraryDependencies ++= Seq(
+        "org.apache.spark" %% "spark-core" % "2.4.4",
+        "org.apache.spark" %% "spark-sql" % "2.4.4",
+    )
+
+    assembly / assemblyMergeStrategy := {
+      case PathList("org","aopalliance", xs @ _*) => MergeStrategy.last
+      case PathList("javax", "inject", xs @ _*) => MergeStrategy.last
+      case PathList("javax", "servlet", xs @ _*) => MergeStrategy.last
+      case PathList("javax", "activation", xs @ _*) => MergeStrategy.last
+      case PathList("org", "apache", xs @ _*) => MergeStrategy.last
+      case PathList("com", "google", xs @ _*) => MergeStrategy.last
+      case PathList("com", "esotericsoftware", xs @ _*) => MergeStrategy.last
+      case PathList("com", "codahale", xs @ _*) => MergeStrategy.last
+      case PathList("com", "yammer", xs @ _*) => MergeStrategy.last
+      case "about.html" => MergeStrategy.rename
+      case "overview.html" => MergeStrategy.last
+      case "META-INF/ECLIPSEF.RSA" => MergeStrategy.last
+      case "META-INF/mailcap" => MergeStrategy.last
+      case "META-INF/mimetypes.default" => MergeStrategy.last
+      case "plugin.properties" => MergeStrategy.last
+      case "log4j.properties" => MergeStrategy.last
+      case "git.properties" => MergeStrategy.last
+      case x =>
+        val oldStrategy = (assembly / assemblyMergeStrategy).value
+        oldStrategy(x)
+    }
+    ```
+1. Создайте файл `spark-app/src/main/scala/app.scala` с кодом приложения:
+
+    ```scala
+    package com.yandex.cloud.dataproc.scala
+
+    import org.apache.spark.{SparkConf, SparkContext}
+    import org.apache.spark.sql.SQLContext
+
+      object Main {
+        def main(args: Array[String]) {
+          if (args.length != 2){ //проверяем аргумент
+            System.err.println("Usage spark-app.jar <входная_директория> <выходная_директория>");
+            System.exit(-1);
+          }
+          val inDir = args(0); //URI на исходные данные
+          val outDir = args(1); //URI на директорию, куда записать результат
+          val conf = new SparkConf().setAppName("Month Stat - Scala App")
+          val sc = new SparkContext(conf)
+          val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+          val df = sqlContext.read.parquet(inDir)
+          val monthStat = df.groupBy("Month").count()
+          val defaultFS = sc.hadoopConfiguration.get("fs.defaultFS") //получить эндпоинт сервера HDFS
+          val jobId = conf.get("spark.yarn.tags").replace("dataproc_job_", ""); //получить идентификатор задания
+          if (outDir.toLowerCase().startsWith("s3a://")) {
+            monthStat.repartition(1).write.format("csv").save(outDir + jobId)
+          } else {
+            monthStat.repartition(1).write.format("csv").save(defaultFS + "/" + outDir + jobId)
+          }
+
+          sc.stop()
+        }
+      }
+    ```
+1. Запустите сборку приложения в папке `spark-app`:
+
+    ```bash
+    sbt clean && sbt compile && sbt assembly
+    ```
+
+    {% cut "В случае ошибки `Error looking up function 'stat'`" %}
+
+    Если вы получили ошибку `java.lang.UnsatisfiedLinkError: Error looking up function 'stat': java: undefined symbol: stat` и ОС хоста-мастера — Ubuntu, запустите каждую команду `sbt` с флагом `-Dsbt.io.jdktimestamps=true`:
+
+    ```bash
+    sbt clean -Dsbt.io.jdktimestamps=true && \
+    sbt compile -Dsbt.io.jdktimestamps=true && \
+    sbt assembly -Dsbt.io.jdktimestamps=true
+    ```
+
+    {% endcut %}
+
+Файл будет доступен по следующему пути: `spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
+
+#### Загрузите JAR-файл в {{ objstorage-name }} {#scala-upload}
+
+Чтобы Spark имел доступ к собранному JAR-файлу, загрузите файл в бакет `data-proc-bucket`. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
+
+```bash
+s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0-SNAPSHOT.jar s3://data-proc-bucket/bin/
+```
+
+Файл загружается по адресу `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
+
+#### Запустите Spark-задание в кластере {{ dataproc-name }} {#scala-run}
+
+1. Отключитесь от хоста-мастера кластера.
+1. Запустите задание.
+
+    Команда для запуска зависит от того, где нужно сохранить результаты задания: в {{ objstorage-name }} или HDFS.
+
+    {% list tabs %}
+
+    - {{ objstorage-name }}
+
+      ```bash
+      {{ yc-dp }} job create-spark \
+         --cluster-id=<идентификатор_кластера> \
+         --name=<имя_задачи> \
+         --main-class="com.yandex.cloud.dataproc.scala.Main" \
+         --main-jar-file-uri="s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar" \
+         --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+         --args="s3a://data-proc-bucket/jobs_results/"
+      ```
+
+      В команде укажите:
+
+      * `--cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list).
+      * `--name` — произвольное имя Spark-задания.
+
+      CSV-файл с результатом сохранится в бакете `data-proc-bucket`.
+
+    - HDFS
+
+      ```bash
+      {{ yc-dp }} job create-spark \
+         --cluster-id=<идентификатор_кластера> \
+         --name=<имя_задачи> \
+         --main-class="com.yandex.cloud.dataproc.scala.Main" \
+         --main-jar-file-uri="s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar" \
+         --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+         --args="tmp/jobs/"
+      ```
+
+      В команде укажите:
+
+      * `--cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list).
+      * `--name` — произвольное имя Spark-задания.
+
+      CSV-файл с результатом сохранится в папке `/tmp/jobs/<идентификатор_задачи>/` в HDFS.
+
+      Пример сообщения об успешном запуске задачи:
+
+      ```text
+      done (1m2s)
+      id: {your_job_id}
+      cluster_id: {your_cluster_id}
+      name: test02
+      status: DONE
+      spark_job:
+        args:
+        - s3a://yc-mdb-examples/dataproc/example01/set01
+        - s3a://data-proc-bucket/jobs_results/
+        main_jar_file_uri: s3a://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar
+        main_class: com.yandex.cloud.dataproc.scala.Main
+      ```
+
+    {% endlist %}
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+{% list tabs %}
+
+- Вручную
+
+    1. [Удалите кластер {{ dataproc-name }}](../operations/cluster-delete.md).
+    1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
+    1. Удалите таблицу маршрутизации и NAT-шлюз.
+    1. [Удалите сеть](../../vpc/operations/network-delete.md).
+
+- С помощью {{ TF }}
+
+    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#infra):
+
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите конфигурационный файл `data-proc-for-spark-jobs.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в конфигурационных файлах есть ошибки, {{ TF }} на них укажет.
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Все ресурсы, которые были описаны в конфигурационном файле, будут удалены.
+
+{% endlist %}

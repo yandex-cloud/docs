@@ -1,8 +1,8 @@
 ### Bash {#bash}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     {% include [Install requirements](./connect/bash/install-requirements.md) %}
 
@@ -17,7 +17,7 @@
         -a <пароль>
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
@@ -52,9 +52,9 @@ GET foo
 
 {% include [Install requirements](./connect/go/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.go`
 
@@ -97,7 +97,7 @@ GET foo
     }
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.go`
 
@@ -204,9 +204,9 @@ GET foo
 
 {% include [Install requirements](./connect/java/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `src/java/com/example/App.java`
 
@@ -244,7 +244,7 @@ GET foo
     }
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `src/java/com/example/App.java`
 
@@ -301,9 +301,9 @@ GET foo
 
 {% include [Install requirements](./connect/nodejs/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `app.js`
 
@@ -348,7 +348,7 @@ GET foo
     });
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `app.js`
 
@@ -410,9 +410,9 @@ GET foo
 
 {% include [Install requirements](./connect/php/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.php`
 
@@ -444,7 +444,7 @@ GET foo
     ?>
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
    `connect.php`
 
@@ -494,9 +494,9 @@ pip install pip -U && \
 pip install pyopenssl redis-py-cluster setuptools_rust
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.py`
 
@@ -521,7 +521,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     print(rc.get("foo"))
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.py`
 
@@ -559,9 +559,9 @@ pip install pyopenssl redis-py-cluster setuptools_rust
 
 {% include [Install requirements](./connect/ruby/install-requirements.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.rb`
 
@@ -587,7 +587,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     conn.close
     ```
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.rb`
 

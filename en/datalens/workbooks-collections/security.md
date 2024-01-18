@@ -24,8 +24,8 @@ You can grant permissions to individual users or groups of [authenticated](../..
 To grant workbook or collection permissions:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![collections](../../_assets/datalens/collections.svg) **Collections and workbooks**.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the collection or workbook and select **Access**.
+1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the collection or workbook and select **Access**.
 
    Under **Inherited permissions**, you can see the users who inherited object permissions, because they were granted permissions to one of its parent objects. For each user, the inherited permission and the object that it is inherited from are displayed.
 
@@ -39,9 +39,9 @@ To grant workbook or collection permissions:
 To revoke workbook or collection permissions:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![collections](../../_assets/datalens/collections.svg) **Collections and workbooks**.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the collection or workbook and select **Access**.
-1. Under **Direct permissions**, click ![image](../../_assets/datalens/delete.svg) next to the user or user group to revoke permissions from.
+1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the collection or workbook and select **Access**.
+1. Under **Direct permissions**, click ![image](../../_assets/console-icons/trash-bin.svg) next to the user or user group to revoke permissions from.
 
    {% note info %}
 

@@ -22,20 +22,20 @@ The dataset is built on [Sample ClickHouse](../quickstart.md) connection tables.
 
 {% endcut %}
 
-You can use a gradient in a chart by adding a measure to the **Colors** section. For example, the higher the average order value for a product, the darker the point shade.
+You can use a gradient in a chart by adding a measure to the **Color** section. For example, the higher the average order value for a product, the darker the point shade.
 
 ![scatter-chart](../../_assets/datalens/visualization-ref/scatter-chart/gradient-scatter-chart.png)
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
 | X | Dimension or measure. Sets the X-axis value. |
 | Y | Dimension or measure. Sets the Y-axis value. |
 | Points | Dimension. Specifies the number of points on the chart. |
 | Point size | Measure. Sets a point size depending on the measure value. |
 | Colors | Dimension or measure. Affects the color of points. |
-| Sorting | Dimension. Can only use a dimension from the X-axis. Affects the sorting of the X-axis. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
+| Sorting | Dimension. Can only use a dimension from the X axis. Affects the sorting of the X axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a scatter chart {#create-diagram}
@@ -53,7 +53,7 @@ You can also:
 1. Change the color of points:
 
    1. Drag a dimension or measure to the **Colors** section.
-   1. Click ![](../../_assets/datalens/gear.svg) and set new colors.
+   1. Click ![](../../_assets/console-icons/gear.svg) and set new colors.
 
 1. Specify an additional dimension. To do this, drag a dimension to the **Points** section.
 

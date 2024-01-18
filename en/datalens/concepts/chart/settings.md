@@ -7,7 +7,7 @@ Available settings depend on the type of chart being configured.
 ## General settings {#common-settings}
 
 General settings affect the overall display of charts.
-To open general settings, click ![image](../../../_assets/datalens/gear.svg) to the left of the screen above the chart.
+To open general settings, click ![image](../../../_assets/console-icons/gear.svg) to the left of the screen above the chart.
 
 {% note warning %}
 
@@ -21,7 +21,7 @@ The availability of individual settings depends on the chart type.
 | Legend | Displays a legend below the chart. A legend contains chart colors with text descriptions that correspond to field values in the **Colors** section.<br/><br/>Possible values:<br/>**Hide**: Hides a legend.<br/>**Auto**: Displays a legend if the field is specified in the **Colors** section. |
 | Sum in tooltips | Displays a sum in a tooltip when you hover over the chart display.<br/><br/>Possible values:<br/>**On**: Displays a sum in a tooltip.<br/>**Off**: Hides a sum in a tooltip. |
 |  |
-| Navigator | Displays the navigator as an additional element below the chart. It helps reduce a selection of data displayed in the chart.<br/><br/>Possible values:<br/>**On**: Displays the navigator.<br/>**Off**: Hides the navigator.<br/>To learn more, see the [instructions](../../operations/chart/config-chart-navigator.md). |
+| Navigator | Displays the navigator as an additional element below the chart. It helps reduce a selection of data displayed in the chart.<br/><br/>Possible values:<br/>**On**: Displays the navigator.<br/>**Off**: Hides the navigator.<br/>To learn more, see [this guide](../../operations/chart/config-chart-navigator.md). |
 | Pagination | Splits a table into pages.<br/><br/>Possible values:<br/>**On**: Breaks a table in parts across pages.<br/>**Off**: Displays an entire table. |
 | Limit | Sets the number of rows to export. Also, this is the number of rows displayed per page. The setting is available if the **Pagination** setting is enabled. |
 | Grouping | Displays unique field values.<br/><br/>Possible values:<br/>**On**: Display unique values.<br/>**Off**: Display all values. |
@@ -69,7 +69,7 @@ If you apply aggregation to a dimension, it acts as a measure and the measure se
 
 ## Section settings {#section-settings}
 
-To open section settings, click ![image](../../../_assets/datalens/gear.svg) in a row with the section name.
+To open section settings, click ![image](../../../_assets/console-icons/gear.svg) in a row with the section name.
 
 ### Axes {#axis-settings}
 
@@ -150,7 +150,7 @@ Filters are available for all chart types.
 ## Map section settings {#map-settings}
 
 You can configure layers, point size and color, tooltips, and filters.
-To open section settings, click ![image](../../../_assets/datalens/gear.svg) in a row with the section name.
+To open section settings, click ![image](../../../_assets/console-icons/gear.svg) in a row with the section name.
 
 {% note warning %}
 

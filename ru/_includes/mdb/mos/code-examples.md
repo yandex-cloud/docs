@@ -1,8 +1,8 @@
 ### Bash {#bash}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     {% include [Default connection string](default-connstring.md) %}
 
@@ -19,9 +19,9 @@ go mod init opensearch-example && \
 go get github.com/opensearch-project/opensearch-go
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     1. Пример кода:
 
@@ -91,9 +91,9 @@ go get github.com/opensearch-project/opensearch-go
 
 ### PowerShell {#powershell}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
    ```powershell
    curl `
@@ -115,9 +115,9 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install opensearch-py
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
-- Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     1. Пример кода:
 

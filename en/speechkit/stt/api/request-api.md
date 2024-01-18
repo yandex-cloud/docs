@@ -44,3 +44,7 @@ The recognized text is returned in the response in the `result` field.
 ```
 
 For more information about the response format and codes, see [{#T}](../../concepts/response.md).
+
+## Use cases {#examples}
+
+* [{#T}](request-examples.md).

@@ -24,7 +24,8 @@
 
         * `<идентификатор_организации>` — идентификатор организации на [странице организаций {{ tracker-name }}]({{ link-tracker }}admin/orgs).
 
-    * **Secret token** — OAuth-токен робота, от имени которого будут добавляться связи, в формате `OAuth <токен>`.
+    * **Secret token** — OAuth-токен робота, от имени которого будут добавляться связи, в формате `OAuth <содержимое_токена>`.
+      Например: `OAuth y1_AQAD-qJScAAAEKEQbBNnChvfBIqR_yEQl_HMO0********`.
     * В блоке **Trigger** выключите все опции, кроме **Merge request events**.
     * В блоке **SSL verification** включите опцию **Enable SSL verification**.
 1. Нажмите кнопку **Add system hook** (**Add webhook** для отдельного проекта).

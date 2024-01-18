@@ -37,7 +37,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Download the [file with traffic accident statistics](https://storage.yandexcloud.net/doc-files/dtp201804-1.csv) for April-December 2018 in CSV format.
 
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select the **Files** connection type.
 
    ![image](../../_assets/datalens/solution-07/select-file-connection.png)
@@ -120,7 +120,7 @@ The dataset will consist of a single source: the CSV file.
 
    1. Click **Create**.
 
-   The preview section now correctly displays the accident date and time as a value of the `Date and time` type with the **T** separator. The new **Date and time** field is at the top of the table. Click ![image](../../_assets/datalens/formula-dataset.svg) to edit the field formula.
+   The preview section now correctly displays the accident date and time as a value of the `Date and time` type with the **T** separator. The new **Date and time** field is at the top of the table. Click ![image](../../_assets/console-icons/function.svg) to edit the field formula.
 
    ![image](../../_assets/datalens/solution-07/14-date-and-time.png)
 
@@ -204,7 +204,7 @@ The dataset will consist of a single source: the CSV file.
 
    {% note info %}
 
-   You can create calculated fields directly in charts. However, it's more convenient to do this at the dataset level. This makes them available in all charts.
+   You can create calculated fields directly in charts. However, it is more convenient to do this at the dataset level to make them available in all charts.
 
    {% endnote %}
 
@@ -290,7 +290,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       ![image](../../_assets/datalens/solution-07/33-choose-line-diagram.png)
 
-   1. The chart management sections contain the previous values. Delete them by clicking ![image](../../_assets/datalens/cross.svg).
+   1. The chart management sections contain the previous values. Delete them by clicking ![image](../../_assets/console-icons/xmark.svg).
 
    1. Drag the **Date and time** field to the **X** section and click the green calendar icon.
 
@@ -501,7 +501,7 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../../_assets/datalens/solution-07/73-geopolygons-map.png)
 
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
 1. Name the chart **Map of regions** and click **Save** once again.
 
@@ -542,7 +542,7 @@ You can now switch the type of map data visualization: heat map or region fill.
 
 To configure public access to the dashboard:
 
-1. In the upper-left corner, click ![image](../../_assets/datalens/horizontal-ellipsis.svg).
+1. In the top-left corner, click ![image](../../_assets/console-icons/ellipsis.svg).
 
    ![image](../../_assets/datalens/solution-07/85-options-dashboard.png)
 

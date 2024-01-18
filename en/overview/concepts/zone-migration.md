@@ -13,7 +13,7 @@ We are currently developing custom migration tools for {{ mkf-name }} and {{ mgl
 1. Migrate your resources to the new availability zone:
    1. [VM instances](#compute) (one by one or by expanding the VM group).
    1. [Database hosts](#mdb).
-   1. (Optional) [Restart](../../data-transfer/operations/transfer.md) the linked {{ data-transfer-name }} transfers. Please note that the service has a number of usage [restrictions](./ru-central1-d-limits.md).
+   1. (Optional) [Restart](../../data-transfer/operations/transfer.md) the linked {{ data-transfer-name }} transfers.
    1. [{{ managed-k8s-name }} nodes](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 1. If you were using [network](../../network-load-balancer/operations/load-balancer-change-zone.md) or [L7 load balancers](../../application-load-balancer/operations/application-load-balancer-relocate.md), add the resources you want to migrate to their target groups. Enable ingress traffic in the new availability zone for the L7 load balancers.
 1. Make sure the subnets in `{{ region-id }}-c` have no resources left. Delete any remaining resources.
@@ -26,7 +26,7 @@ We are currently developing custom migration tools for {{ mkf-name }} and {{ mgl
 
 To migrate [VM instances](../../compute/operations/vm-control/vm-change-zone.md) and [disks](../../compute/operations/disk-control/disk-change-zone.md), we recommend using [snapshots](../../compute/operations/disk-control/create-snapshot.md) or [{{ backup-name }}](../../backup/).
 
-These solutions provide you with control over the migration process. You can decide when to shut down the VM instance in the source availability zone and when to make it available in the target zone. The VM in the source availability zone may continue to run until you make sure that the VM you created from a snapshot works properly in the new availability zone.
+These solutions offer you control over the migration process. You can decide when to shut down the VM instance in the source availability zone and when to make it available in the target zone. The VM in the source availability zone may continue to run until you make sure that the VM you created from a snapshot works properly in the new availability zone.
 
 If snapshots are not suitable for you as a migration tool, you can migrate VM instances and disks by running the `yc compute instance relocate` or `yc compute disk relocate` command, respectively. In this case, you should still take a snapshot or make a backup in {{ backup-name }} before running the commands. This is because the migration process will change your VM's network environment, which may impact its performance. In addition, if something goes wrong during migration, you will be able to quickly restore your VM to the original availability zone from the snapshot or backup and re-attempt the migration. You can delete the snapshots and backups once the `relocate` command is executed.
 
@@ -50,7 +50,7 @@ If your group has an [L7 load balancer](../../compute/operations/instance-groups
 
 In most cases, to migrate a managed database service host, you need to create a host in the new availability zone, add it to the cluster, and specify the FQDN of the new host in the backend or client.
 
-For more information, refer to these service-specific migration guides:
+See these service-specific migration guides:
 
 * [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md)
 * [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md)
@@ -74,7 +74,7 @@ If you added a new host in the `{{ region-id }}-d` zone to a cluster that has {{
 
 ### {{ managed-k8s-name }} {#k8s}
 
-{{ managed-k8s-name }} only supports migration to a different availability zone for [node groups and workloads](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md). In the future, the service will provide an option to migrate the master host.
+{{ managed-k8s-name }} only supports migration to a different availability zone for [node groups and workloads](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md). In the future, the service will provide the master host migration option.
 
 ### {{ network-load-balancer-name }} {#nlb}
 
@@ -100,8 +100,8 @@ To migrate functions, containers, and API gateways, you need to create a subnet 
 
 ### {{ mgl-name }} {#gitlab}
 
-A tool that will allow you to migrate {{ mgl-name }} installations hosted in the `{{ region-id }}-c` availability zone on your own is currently under development and is planned to be finished by late January 2024. If you use {{ mgl-name }} in the `{{ region-id }}-c` zone, we will notify you as soon as the option to migrate resources from `{{ region-id }}-c` is added to the interface.
+A tool for unassisted migration of {{ mgl-name }} installations hosted in the `{{ region-id }}-c` availability zone is scheduled to be out by end of January 2024. If you use {{ mgl-name }} in the `{{ region-id }}-c` zone, we will notify you as soon as the option to migrate resources from `{{ region-id }}-c` is added to the interface.
 
 ### {{ cloud-desktop-name }} {#cloud-desktop}
 
-To migrate a desktop, create a new desktop in the target availability zone and manually migrate the data to that desktop. There are no specific tools for migrating desktops.
+If your desktop contains no valuable information, it is enough to [create a new desktop](../../cloud-desktop/operations/desktops/create.md) and [delete the old one](../../cloud-desktop/operations/desktops/delete.md). If there is valuable information, [create an image](../../cloud-desktop/operations/images/create-from-desktop.md) from the old desktop and then create a new desktop from that image.

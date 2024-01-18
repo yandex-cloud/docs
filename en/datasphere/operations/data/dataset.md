@@ -37,7 +37,7 @@ This method is also good for creating a dataset with data from an [{{ objstorage
    #pragma dataset init <dataset_name> --size 1Gb
 
    set -e
-   cp -r <source folder name> /home/jupyter/mnt/datasets/<dataset_name>
+   cp -r <source_folder_name> /home/jupyter/mnt/datasets/<dataset_name>
    ```
 
 {% endlist %}
@@ -102,32 +102,32 @@ To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toro
    ```python
    #pragma dataset init <dataset_name> --size 1Gb
 
-  import os
-  import boto3
+   import os
+   import boto3
 
-  S3_CREDS = {
-      "aws_access_key_id": os.environ['<secret_with_access_key_ID>'],
-      "aws_secret_access_key": os.environ['<secret_with_secret_key>']
-  }
-  bucket_name = "<bucket_name>"
+   S3_CREDS = {
+       "aws_access_key_id": os.environ['<secret_with_access_key_ID>'],
+       "aws_secret_access_key": os.environ['<secret_with_secret_key>']
+   }
+   bucket_name = "<bucket_name>"
 
-  source_path = ''
-  target_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+   source_path = ''
+   target_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
 
-  s3r = boto3.resource(service_name='s3', endpoint_url='https://storage.yandexcloud.net', **S3_CREDS)
-  bucket = s3r.Bucket(bucket_name)
+   s3r = boto3.resource(service_name='s3', endpoint_url='https://storage.yandexcloud.net', **S3_CREDS)
+   bucket = s3r.Bucket(bucket_name)
 
-  for obj in bucket.objects.filter(Prefix=source_path):
-      if not os.path.relpath(obj.key, source_path).startswith('../'):
-          os.makedirs(os.path.join(target_path, os.path.dirname(obj.key)), exist_ok=True)
-          if obj.key[-1] != '/':
-              bucket.download_file(obj.key, os.path.join(target_path, obj.key))
-  ```
+   for obj in bucket.objects.filter(Prefix=source_path):
+       if not os.path.relpath(obj.key, source_path).startswith('../'):
+           os.makedirs(os.path.join(target_path, os.path.dirname(obj.key)), exist_ok=True)
+           if obj.key[-1] != '/':
+               bucket.download_file(obj.key, os.path.join(target_path, obj.key))
+   ```
 
-  Where:
+   Where:
 
-  * `aws_access_key_id`: ID of the [static access key](../../../iam/concepts/authorization/access-key.md) [generated](../../../iam/operations/sa/create-access-key.md) for the project service account.
-  * `aws_secret_access_key`: Secret key generated for that service account.
+   * `aws_access_key_id`: ID of the [static access key](../../../iam/concepts/authorization/access-key.md) [generated](../../../iam/operations/sa/create-access-key.md) for the project service account.
+   * `aws_secret_access_key`: Secret key generated for that service account.
 
 - Yandex.Disk
 
@@ -158,32 +158,32 @@ To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toro
 
 - Google Drive
 
-  1. Install the [gdown](https://pypi.org/project/gdown/) package:
+   1. Install the [gdown](https://pypi.org/project/gdown/) package:
 
-     ```python
-     %pip install gdown
-     ```
+      ```python
+      %pip install gdown
+      ```
 
-  1. Initialize the dataset in a cell with the following code:
+   1. Initialize the dataset in a cell with the following code:
 
-     ```python
-     #pragma dataset init <dataset_name> --size 1Gb
+      ```python
+      #pragma dataset init <dataset_name> --size 1Gb
 
-     import gdown
+      import gdown
 
-     gdrive_folder_id = '<Google_Drive_folder_ID>'
-     dst_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+      gdrive_folder_id = '<Google_Drive_folder_ID>'
+      dst_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
 
-     gdown.download_folder(id=gdrive_folder_id, output=dst_path, use_cookies=False)
-     ```
+      gdown.download_folder(id=gdrive_folder_id, output=dst_path, use_cookies=False)
+      ```
 
-     Where `gdrive_folder_id` is the ID of the Google Drive folder specified in the URL after `https://drive.google.com/drive/folders/`. For example, in the `https://drive.google.com/drive/folders/exampleId` URL, the folder ID is `exampleId`.
+      Where `Google_Drive_folder_ID` is the ID of the Google Drive folder specified in the URL after `https://drive.google.com/drive/folders/`. For example, in the `https://drive.google.com/drive/folders/exampleId` URL, the folder ID is `exampleId`.
 
 {% endlist %}
 
 ## Enabling a dataset {#use}
 
-Once initialized, the dataset becomes enabled in the project and available at the path: `/home/jupyter/mnt/datasets/<dataset_name>`. Up to three datasets can be activated in a project at the same time. During your work, you can activate datasets whenever needed and disable them when you no longer need the data.
+Once initialized, the dataset becomes enabled in the project and available at the path: `/home/jupyter/mnt/datasets/<dataset_name>`. You can have up to three datasets activated in a project at the same time. During your work, you can activate datasets whenever needed and disable them when you no longer need the data.
 
 To enable a dataset:
 
@@ -202,6 +202,8 @@ On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-reso
 1. Select the appropriate dataset from the list.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the dataset in.
+
+To make a dataset available for use in another project, the project administrator should [add](../projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Deleting a dataset {#delete}
 

@@ -38,15 +38,15 @@ description: "Для корректной работы Ingress-контролл�
 Тогда в группах безопасности нужно создать следующие правила:
 * Группа безопасности кластера и группы узлов для служебного трафика:
 
-  {% list tabs %}
+  {% list tabs group=traffic %}
 
-  - Исходящий трафик
+  - Исходящий трафик {#outgoing}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
     `Весь` (`{{ port-any }}`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | Для всего исходящего трафика
 
-  - Входящий трафик
+  - Входящий трафик {#incoming}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
@@ -59,9 +59,9 @@ description: "Для корректной работы Ingress-контролл�
 
 * Группа безопасности группы узлов для подключения к сервисам из интернета:
 
-  {% list tabs %}
+  {% list tabs group=traffic %}
 
-  - Входящий трафик
+  - Входящий трафик {#incoming}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
@@ -71,9 +71,9 @@ description: "Для корректной работы Ingress-контролл�
 
 * Группа безопасности группы узлов для подключения к узлам по SSH:
 
-  {% list tabs %}
+  {% list tabs group=traffic %}
 
-  - Входящий трафик
+  - Входящий трафик {#incoming}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
@@ -83,9 +83,9 @@ description: "Для корректной работы Ingress-контролл�
 
 * Группа безопасности кластера для доступа к API {{ k8s }}:
 
-  {% list tabs %}
+  {% list tabs group=traffic %}
 
-  - Исходящий трафик
+  - Исходящий трафик {#outgoing}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
@@ -96,9 +96,9 @@ description: "Для корректной работы Ingress-контролл�
 
 * Группа безопасности группы узлов для проверок состояния бэкендов:
 
-  {% list tabs %}
+  {% list tabs group=traffic %}
 
-  - Входящий трафик
+  - Входящий трафик {#incoming}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
@@ -108,15 +108,15 @@ description: "Для корректной работы Ingress-контролл�
 
 * Группа безопасности балансировщика:
 
-  {% list tabs %}
+  {% list tabs group=traffic %}
 
-  - Исходящий трафик
+  - Исходящий трафик {#outgoing}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
     `Весь` (`{{ port-any }}`) | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.140.0.0/24`[^\[Узл\]^](#example) | Для отправки трафика, в том числе для проверок состояния, на узлы
 
-  - Входящий трафик
+  - Входящий трафик {#incoming}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---

@@ -2,10 +2,10 @@
 
 Чтобы подключаться к кластеру {{ mrd-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     ```bash
     # Собрать вручную утилиту redis-tools с поддержкой TLS.
@@ -20,7 +20,7 @@
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     ```bash
     # Собрать вручную утилиту redis-tools с поддержкой TLS.

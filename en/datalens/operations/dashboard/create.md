@@ -13,7 +13,7 @@ To create a dashboard:
 
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, click ![image](../../../_assets/datalens/dashboard-0523.svg) **Dashboards**.
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards**.
 1. Click **Create dashboard**.
 1. Add the [widgets](../../dashboard/widget.md) you need to the dashboard.
 1. In the top-right corner, click **Save**.

@@ -69,13 +69,13 @@ To create a {{ monitoring-name }} connection:
 
    {% cut "How to copy a query from {{ monitoring-name }}" %}
 
-   1. Go to the desired dashboard in {{ monitoring-name }}. For dashboard availability, you must be running one of the {{ yandex-cloud }} services.
-   1. To open the desired chart in Metric Explorer, click ![image](../../_assets/datalens/open-in-explorer.svg) in the upper-right corner of the chart.
+   1. Go to the dashboard you need in {{ monitoring-name }}. For dashboard availability, you must be running one of the {{ yandex-cloud }} services.
+   1. To open the required chart in Metric Explorer, click ![image](../../_assets/console-icons/compass.svg) in the top-right corner of the chart.
 
       ![metrica-memory-usage](../../_assets/datalens/monitoring-visualization/metrica-memory-usage.png)
 
    1. At the bottom of the screen, go to the **Queries** tab.
-   1. In the line with the desired query, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Copy as text**.
+   1. In the line with the required query, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Copy as text**.
 
       Sample request:
 
@@ -99,7 +99,7 @@ You can place the chart created on the dashboard. You can also add a selector to
 
 Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts to.
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 
 1. Click **Create dashboard**.
 

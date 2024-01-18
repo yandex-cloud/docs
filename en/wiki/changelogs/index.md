@@ -1,28 +1,17 @@
 ---
-title: "{{ wiki-full-name }} revision history for November 2023"
-description: "See below the {{ wiki-full-name }} revision history for November 2023."
+title: "{{ wiki-full-name }} revision history for December 2023"
+description: "See below the {{ wiki-full-name }} revision history for December 2023."
 ---
 
-# {{ wiki-full-name }} revision history for November 2023
+# {{ wiki-full-name }} revision history for December 2023
 
-* [Support for {{ yql-short-name }} in code blocks](#yql-in-block-code)
-* [Highlight.js plugin for code highlighting](#highlight-in-block-code)
-* [Opening a link in edit mode](#link-in-editor)
-* [New toolbar layout](#new-view-toolbar)
+* [Editing a page section](#edit-section)
 
-## Support for {{ yql-short-name }} in code blocks {#yql-in-block-code}
+## Editing a page section {#edit-section}
 
-We added support for {{ yql-short-name }} in [code blocks](../formatter.md) in the code editor and view mode.
+With the new editor, you can now edit a section on a page. To do this:
 
-## Highlight.js plugin for code highlighting {#highlight-in-block-code}
+1. Hover over the section [header](../wysiwyg/text-format.md#format-wysiwyg). The ![](../../_assets/console-icons/pencil.svg) icon will appear to the right of the header.
+1. Click the icon, and the page will switch to edit mode and focus on the selected section.
 
-The [highlight.js](https://github.com/highlightjs/highlight.js) plugin is now used for [code syntax highlighting](../static-markup/highlight.md). This enables code block syntax highlighting for YAML, Protobuf, Swift, PHP, Bash, 1C, Kotlin, Golang, Groovy, and VB_NET.
-
-## Opening a link in edit mode {#link-in-editor}
-
-You can now open a link in edit mode. To open a link, click ![](../../_assets/console-icons/arrow-up-right-from-square.svg) in the edit window.
-
-
-## New toolbar {#new-view-toolbar}
-
-Updated the toolbar to access all [formatting elements](../wysiwyg/). To use formatting elements, click ![](../../_assets/wiki/svg/actions-icon.svg) on the toolbar and select the one you need from the list of suggested elements.
+The option is available for headers of all levels.

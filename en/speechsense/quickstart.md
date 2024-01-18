@@ -15,7 +15,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
 ## Configure the environment {#set-space}
 
-1. Create a space where all your projects will be stored: select **Create space**, enter a name, (optionally) add a description, and click **Create**.
+1. Create a [space](concepts/resources-hierarchy.md#space) where all your [projects](concepts/resources-hierarchy.md#project) will be stored: select **Create space**, enter a name, add a description (optional), and click **Create**.
 1. Link a billing account to the space. This account will be debited for your use of {{ speechsense-name }}.
 
   {% note tip %}
@@ -24,7 +24,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
   {% endnote %}
 
-1. Go to the **Connections** tab and create a connection using your audio's metadata:
+1. Go to the **Connections** tab and create a [connection](concepts/resources-hierarchy.md#connection) using your audio's metadata:
 
     1. Enter the **Connection name**.
     1. Select **Two-channel audio** under **Data type**.
@@ -58,7 +58,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 
 {{ speechsense-name }} uses the [gRPC API](api-ref/grpc/index.md) to upload data.
 
-1. [Create a service account](../iam/operations/sa/create.md) with the `speech-sense.data.editor` role. This will allow the service account to upload data to the connection you created. To learn more about the roles available in the service, see [{#T}](security/index.md).
+1. [Create a service account](../iam/operations/sa/create.md) with the `speech-sense.data.editor` role. This way, the service account will be authorized to upload data to the connection you created. To learn more about the roles available in the service, see [{#T}](security/index.md).
 1. [Add the service account to the namespace](operations/space/add-user-to-space.md) with the `{{ roles-speechsense-editor }}` role.
 1. [Create an API key](../iam/operations/api-key/create.md) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
 1. [Upload your data](operations/data/upload-data.md) using a Python data transfer script. You can send your entire audio recording as one message or in snippets.

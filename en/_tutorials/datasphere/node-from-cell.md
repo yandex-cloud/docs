@@ -58,7 +58,7 @@ Create a folder to store logs of your service.
    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), such as `sa-with-network`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `vpc.user` to use the {{ ml-platform-name }} cluster network.
-      * (optional) `datasphere.user` to send requests to the node.
+      * (Optional) `datasphere.user` to send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -330,6 +330,7 @@ You can send requests from the {{ ml-platform-name }} interface or the notebook 
         ```
 
         Where:
+
         - `<node_ID>`: ID of `classifier-node`.
         - `<IAM token>`: Your account [IAM token](../../iam/operations/iam-token/create.md).
         - `<folder_ID>`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where the node was created.

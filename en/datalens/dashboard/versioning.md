@@ -2,7 +2,7 @@
 
 Dashboard versioning is the ability to store the history of dashboard configuration changes using versions. A list of versions is available to users with the lowest level of access to the dashboard: **View**.
 
-To go to the list of versions, click the ![image](../../_assets/datalens/horizontal-ellipsis.svg) icon at the top of the screen and select **Change history**.
+To go to the list of versions, click the ![image](../../_assets/console-icons/ellipsis.svg) icon at the top of the screen and select **Change history**.
 
 ![image](../../_assets/datalens/concepts/version-list.png)
 
@@ -14,21 +14,21 @@ The following distinct versions are available:
 
 * **Actual**. The most recent saved version of a dashboard. It is displayed for all users that open the dashboard for viewing from the navigation bar. Only one version of a dashboard can be current.
 
-  ![image](../../_assets/datalens/concepts/current-version.png)
+   ![image](../../_assets/datalens/concepts/current-version.png)
 
 * **Draft**. A version with unsaved dashboard changes. The main users do not see changes being made to a draft. This enables you to hide dashboard edits until a version update. A dashboard can only have one draft.
 
-  ![image](../../_assets/datalens/concepts/draft-version.png)
+   ![image](../../_assets/datalens/concepts/draft-version.png)
 
 * **Not actual**. A version that is neither actual nor a draft.
 
-  ![image](../../_assets/datalens/concepts/old-version.png)
+   ![image](../../_assets/datalens/concepts/old-version.png)
 
 ## Creating a new version {#version-create}
 
 A new version is automatically created when you click **Save** in dashboard edit mode. Dashboard configuration changes that result in a new version:
 
-* Changing dashboard settings that can be accessed by clicking ![image](../../_assets/datalens/gear.svg) at the top of the screen.
+* Changing dashboard settings that can be accessed by clicking ![image](../../_assets/console-icons/gear.svg) at the top of the screen.
 * Adding, renaming, or deleting dashboard tabs.
 * Editing links.
 * Adding and removing widgets.

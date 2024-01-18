@@ -31,7 +31,7 @@ items:
         href: appearance.md
       - name: Configuring conditions for submitting a response
         href: send-condition.md
-      - name: Customizing the result page
+      - name: Customizing the results page
         href: success-page.md
       - name: Validating a response
         href: option-validation.md
@@ -102,7 +102,7 @@ items:
         href: blocks-ref/long-text.md
       - name: TIN
         href: blocks-ref/inn.md
-      - name: Teams
+      - name: Commands
         href: blocks-ref/teams.md
       - name: Short text
         href: blocks-ref/short-text.md
@@ -112,7 +112,7 @@ items:
         href: blocks-ref/multiple.md
       - name: One answer
         href: blocks-ref/radiobutton.md
-      - name: Payment
+      - name: Billing
         href: blocks-ref/payment.md
       - name: Departments
         href: blocks-ref/departments.md
@@ -152,18 +152,20 @@ items:
     href: pricing.md
   - name: Releases
     items:
-      - name: November 2023
+      - name: December 2023
         href: changelogs/index.md
+      - name: November 2023
+        href: changelogs/2311.md
       - name: October 2023
         href: changelogs/2310.md
       - name: September 2023
         href: changelogs/2309.md
       - name: August 2023
         href: changelogs/2308.md
-      - name: July 2023
-        href: changelogs/2307.md
       - name: Archive
         items:
+          - name: July 2023
+            href: changelogs/2307.md
           - name: June 2023
             href: changelogs/2306.md
           - name: May 2023

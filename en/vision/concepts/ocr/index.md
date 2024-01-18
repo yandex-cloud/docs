@@ -19,6 +19,8 @@ In the configuration, you need to specify:
 * Model to use to detect text in the image. The available models include:
    * `page` (default): Suitable for images with any number of text lines.
    * `papers`: Suitable for recognizing multi-column text (only available in the {{ vision-short-name }} [OCR API](../../ocr/api-ref/index.md))
+   * `handwritten`: Suitable for recognizing any combination of typed and handwritten text in Russian and English.
+   * `table`: Suitable for recognizing tables in Russian and English.
 
 ### Language model detection {#detect-model}
 
@@ -115,5 +117,5 @@ Currently, the recognition accuracy value is only calculated for lines. You will
 #### What's next {#what-is-next}
 
 * [View the list of supported languages and models](supported-languages.md)
-* [Learn about known issues for the current version](known-issues.md)
+* [Learn about known issues in the current version](known-issues.md)
 * [Try recognizing text in an image](../../operations/ocr/text-detection-image.md)

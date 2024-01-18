@@ -28,7 +28,7 @@ To create a cluster from a {{ dataproc-name }} template, [activate](../operation
 You can calculate the total disk storage capacity required for different cluster configurations using this formula:
 
 ```
-<number of {{ dataproc-name }} hosts> * 256 + 128
+<number_of_Data_Proc_hosts> × 256 + 128
 ```
 
 | Cluster type | Number of hosts | Disk size |

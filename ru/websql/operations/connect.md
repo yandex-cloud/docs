@@ -10,15 +10,15 @@
 * [удалять соединения](#delete-connection), которые вам больше не нужны;
 * [работать с демо-соединениями](#demo) для знакомства с {{ websql-full-name }}. 
 
-## Подключиться к базе данных {#connect-db}
-
-{% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
-
 ## Подключиться к кластеру баз данных в {{ yandex-cloud }} {#connect-cluster}
 
 Если у вас есть кластер [{{ PG }}](../../managed-postgresql/operations/cluster-list.md), [{{ CH }}](../../managed-clickhouse/operations/cluster-list.md) или [{{ MY }}](../../managed-mysql/operations/cluster-list.md), настроенный в {{ yandex-cloud }}, то вы можете подключиться напрямую к нему:
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
+
+## Подключиться к внешней базе данных {#connect-db}
+
+{% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
 
 ## Добавить соединение в группу соединений {#add-connection-to-group}
 
@@ -76,6 +76,8 @@
 
 1. Выберите активное соединение. 
 1. Нажмите **...** справа от названия соединения и выберите **Обновить соединение**.
+
+В результате будет обновлена вся иерархия данного подключения, включая таблицы и представления. Если какую-то таблицу удалили из базы данных, то для отображения изменений в {{ websql-full-name }} необходимо обновить соединение.
 
 Для обновления всех активных соединений нажмите ![image](../../_assets/console-icons/arrows-rotate-right.svg) в правом верхнем углу панели **Диспетчер соединений**.
 

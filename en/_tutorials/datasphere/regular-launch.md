@@ -46,7 +46,7 @@ The cost of implementing regular runs includes:
 
 ### Create a service account for the {{ ml-platform-name }} project {#create-sa}
 
-To access a {{ml-platform-name }} project from a {{ sf-name }} function, you need a service account with the `datasphere.community-project.editor` role.
+To access a {{ml-platform-name }} project from a {{ sf-name }} function, you need a service account with the `{{ roles-datasphere-project-editor }}` role.
 
 {% list tabs %}
 
@@ -54,7 +54,7 @@ To access a {{ml-platform-name }} project from a {{ sf-name }} function, you nee
 
    1. Go to the `data-folder` folder.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), such as `reddit-user`.
+   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `reddit-user`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `datasphere.community-project.editor` role to the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -167,14 +167,14 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-   1. Enter a name for the function, such as `my-function`.
+   1. Enter a name for the function, e.g., `my-function`.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-function }}**.
 
 {% endlist %}
 
 ### Create a {{ sf-name }} version {#create-function-ver}
 
-[Versions](../../functions/concepts/function.md#version) contains the function code, run parameters, and all required dependencies.
+[Versions](../../functions/concepts/function.md#version) contain the function code, run parameters, and all required dependencies.
 
 {% list tabs %}
 

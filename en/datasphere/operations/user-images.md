@@ -81,6 +81,8 @@ To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../..
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the Docker image in.
 
+To make a Docker image available for use in another project, the project administrator should [add](./projects/use-shared-resource.md) it to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+
 ## Deleting a Docker image {#delete}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
