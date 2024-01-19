@@ -30,8 +30,8 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    To enable access to cluster component web interfaces, select `true` for the `--ui-proxy` parameter:
 
    ```bash
-   {{ yc-dp }} cluster update <cluster name or ID> \
-       --ui-proxy=<enable UI Proxy: true or false>
+   {{ yc-dp }} cluster update <cluster_name_or_ID> \
+      --ui-proxy=true
    ```
 
    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list).
@@ -40,7 +40,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    Use the [update](../api-ref/Cluster/update.md) API method and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
    * `True` as the value for the `uiProxy` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `uiProxy`).
 
@@ -67,7 +67,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    To retrieve a list of URLs to connect to {{ dataproc-name }} cluster component web interfaces, run the following command:
 
    ```bash
-   {{ yc-dp }} cluster list-ui-links <cluster name or ID>
+   {{ yc-dp }} cluster list-ui-links <cluster_name_or_ID>
    ```
 
    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list).
@@ -90,15 +90,15 @@ Requirements for an intermediate VM:
 * Hosted in the same network as the required {{ dataproc-name }} cluster.
 * [Security group settings](../concepts/network.md#security-groups) that allow traffic exchange with the cluster via the corresponding components' ports.
 
-For step-by-step instructions on how to configure security groups for port forwarding, see [{#T}](connect.md#configuring-security-groups).
+For step-by-step guides on how to configure security groups for port forwarding, see [{#T}](connect.md#configuring-security-groups).
 
-To connect to the desired {{ dataproc-name }} host port, run the following command:
+To connect to the {{ dataproc-name }} host port you need, run the following command:
 
 
 ```bash
 ssh -A \
-    -J <VM public IP> \
-    -L <port number>:<Data Proc host FQDN>:<port number> <username>@<Data Proc host FQDN>
+    -J <VM_public_IP_address> \
+    -L <port_number>:<Data_Proc_host_FQDN>:<port_number> <username>@<Data_Proc_host_FQDN>
 ```
 
 

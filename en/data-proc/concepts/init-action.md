@@ -80,7 +80,7 @@ For instance, an error may occur because of incompatible formats. Since the scri
 - PowerShell
 
    ```powershell
-   $file = "<script_file_name>>"; $text = [IO.File]::ReadAllText($file) -replace "`r`n", "`n"; [IO.File]::WriteAllText($file, $text)
+   $file = "<script_file_name>"; $text = [IO.File]::ReadAllText($file) -replace "`r`n", "`n"; [IO.File]::WriteAllText($file, $text)
    ```
 
 {% endlist %}

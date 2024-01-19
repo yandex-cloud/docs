@@ -7,9 +7,9 @@
 {% include [curl](../_includes/curl.md) %}
 
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Аккаунт пользователя на Яндексе
+- Аккаунт на Яндексе {#yandex-account}
 
   1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
   1. [Получите IAM-токен](../iam/operations/iam-token/create.md), необходимый для аутентификации.

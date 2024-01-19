@@ -5,17 +5,11 @@ description: "{{ alb-name }} provides the Gateway API as a tool to create and ma
 
 # Gateway API for {{ managed-k8s-name }}
 
-{% note info %}
-
-Gateway API is in the Preview stage.
-
-{% endnote %}
-
 {{ alb-name }} provides the Gateway API as a tool to create and manage load balancers in [{{ managed-k8s-full-name }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster). For more information about the Gateway API project, visit its [website](https://gateway-api.sigs.k8s.io/).
 
 Once you install the Gateway API, you can use it to create a resource named `Gateway` and associated `HTTPRoute` resources:
 * The `Gateway` resource is managed by the cluster operator. This resource describes how incoming traffic is received and the rules for selecting routes for the traffic (`HTTPRoute` resources). To receive traffic through `Gateway`, an [L7 load balancer](../../concepts/application-load-balancer.md) is created. To route the traffic, [HTTP routers](../../concepts/http-router.md) are linked to the load balancer.
-* The `HTTPRoute` resources are managed by the developers of applications — {{ k8s }} services. `HTTPRoute` is a description of the route for the incoming traffic received. Based on this description, the traffic can be routed to {{ k8s }} that serves as a backend or redirected to another URI. The `HTTPRoute` is used to create virtual hosts and routes in HTTP routers and [backend groups](../../concepts/backend-group.md).
+* The `HTTPRoute` resources are managed by the developers of the applications representing the {{ k8s }} services. `HTTPRoute` is a description of the route for the received incoming traffic. Based on this description, the traffic can be routed to a {{ k8s }} service acting as a backend or redirected to another URI. The `HTTPRoute` is used to create virtual hosts and routes in HTTP routers and [backend groups](../../concepts/backend-group.md).
 
 ## Sample configuration {#example}
 
@@ -95,15 +89,16 @@ spec:
 
 ## Installation and requirements {#install}
 
-To install Gateway API, you need:
+To install the Gateway API, you need:
 
 * {{ managed-k8s-name }} cluster.
 * Cluster node group.
 * Cluster namespace to store the [service account](../k8s-ingress-controller/service-account.md) key.
 
-To learn how to install Gateway API, see [this guide](../../operations/k8s-gateway-api-install.md).
+To learn how to install the Gateway API, see [this guide](../../operations/k8s-gateway-api-install.md).
 
 #### See also {#see-also}
 
 * [Security group configuration](../k8s-ingress-controller/security-groups.md) for a {{ k8s }} cluster and a load balancer.
 * [Service account](../k8s-ingress-controller/service-account.md) to support controller operation.
+* [Gateway API in {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/gateway-api).

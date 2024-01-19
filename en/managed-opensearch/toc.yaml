@@ -11,7 +11,7 @@ items:
         items:
           - name: Information about existing clusters
             href: operations/cluster-list.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Connection
             items:
@@ -39,7 +39,7 @@ items:
             href: operations/cluster-backups.md
           - name: Configuring access to Object Storage
             href: operations/s3-access.md
-          - name: Deleting clusters
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Managing {{ OS }} users
         href: operations/cluster-users.md
@@ -59,6 +59,10 @@ items:
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/migration-from-mkf.md
+      - name: >-
+          Migrating data from a third-party {{ OS }} cluster using {{
+          data-transfer-full-name }}
+        href: tutorials/migration-from-standalone.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -189,7 +193,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: Public materials
     href: public-talks.md
-  - name: Questions and answers
+  - name: Q&A
     items:
       - name: General questions
         href: qa/index.md

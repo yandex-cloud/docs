@@ -15,10 +15,10 @@ Before getting started, [create a service account and add it](create-user.md) to
 
 To use approval rules:
 
-1. [{#T}](#gitlab-token).
-1. [{#T}](#enable).
-1. [{#T}](#rules).
-1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages)).
+1. [{#T}](#gitlab-token)
+1. [{#T}](#enable)
+1. [{#T}](#rules)
+1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages))
 
 If necessary, enable [debugging mode](#debugging) and check out the [rules for handling exceptions](#exceptions).
 
@@ -30,19 +30,19 @@ To create a token:
 
 1. Open your {{ GL }} instance.
 1. Click the profile icon and select **Edit profile**.
-1. Navigate to **Access Tokens** in the left-hand menu.
+1. Go to **Access Tokens** in the left-hand menu.
 1. Click **Add new token**.
-1. In the window that opens, navigate to the **Token name** field and enter a name that will make it easier to locate the token within your {{ GL }} project.
+1. In the window that opens, in the **Token name** field, enter a name to easily locate the token in your {{ GL }} project.
 1. In the **Expiration date** field, specify the date when the token will expire.
 
-   The default value is one month since the creation date, with a maximum value of one year. The token expires at midnight UTC on the specified day.
+   The default value is one month from the creation date, while the maximum lifetime is one year. The token expires at midnight UTC on the specified day.
 
 1. Under **Select scopes**, select **api**.
 1. Click **Create personal access token**.
 
    A new token will be generated.
 
-1. Copy the token and save it. Afterward, it will not be possible to copy it in {{ GL }}.
+1. Copy and save it. Later you will not be able to copy it in {{ GL }}.
 
 ## Enable approval rules {#enable}
 
@@ -60,12 +60,19 @@ To create a token:
       * **URL**: `http://localhost:24080/default`.
       * In the **Trigger** section, disable all options except **Merge request events**, **Push events**, and **Repository update events**.
    1. Click **Add system hook**.
-1. Enable the approval rules in the {{ mgl-name }} instance:
+1. Enable the {{ GL }} setting which allows sending messages to the local network:
+   1. Open your {{ GL }} instance.
+   1. In the left-hand menu, select **Search or go to** → **Admin Area**.
+   1. In the left-hand menu, select **Settings** → **Network**.
+   1. In the **Outbound requests** section, enable the **Allow requests to the local network from system hooks** option.
+   1. In the list of IP addresses and domain names, specify the `http://localhost:24080` URL.
+   1. Click **Save changes**.
+1. Enable approval rules in the {{ mgl-name }} instance:
    1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ GL }} instance](../concepts/index.md#instance) is located.
    1. Select **{{ mgl-name }}**.
    1. Select the instance and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
    1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules }}** field, select the required [configuration](../concepts/approval-rules.md#packages).
-   1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules-token }}** field, specify the [earlier created token](#gitlab-token).
+   1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules-token }}** field, specify the [token you created earlier](#gitlab-token).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Set up the approval rules {#rules}
@@ -102,10 +109,10 @@ BranchGroups:
 
 Where:
 
-* `approvers`: Name of the {{ GL }} user who can approve the merge request.
-* `groups`: Name of the {{ GL }} group whose users can approve the merge request.
-* `branches`: Name of the branch the updates of which require approval.
-* `rules`: Name of the rule applied to the specified branches.
+* `approvers`: {{ GL }} user who can approve the merge request.
+* `groups`: {{ GL }} group whose users can approve the merge request.
+* `branches`: Branch the updates of which require approval.
+* `rules`: Rule applied to the specified branches.
 
 You can use the `*` wildcard instead of user names and in branch names.
 
@@ -120,7 +127,7 @@ You can use the `*` wildcard instead of user names and in branch names.
 >
 > BranchGroups:
 >   - Master:
->       branches:       
+>       branches:
 >         - master
 >       rules:
 >         - FourEyesRule
@@ -145,7 +152,7 @@ To use the Code Ownership settings when handling merge requests to specific bran
 ```text
 BranchGroups:
   - <branch_group_name>:
-      branches:        
+      branches:
         - <branch_name>
         ...
       rules:

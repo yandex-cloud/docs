@@ -20,11 +20,8 @@ Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an e
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. If the CDN provider is not activated yet, activate it:
-
-   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. Click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
-
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. {% include [activate-provider](../_includes/cdn/activate-provider.md) %}
 1. If you do not have a {{ objstorage-name }} bucket yet:
 
    1. [Create a bucket](../storage/operations/buckets/create.md).
@@ -52,7 +49,7 @@ Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an e
 
       1. In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
       1. In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`.
-      1. In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the domain name from the [bucket URL](../storage/concepts/bucket.md#bucket-url) in `<bucket name>{{ s3-storage-host }}` format. The schema (`http` or `https`) does not need to be specified. Here is an example:
+      1. In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the domain name from the [bucket URL](../storage/concepts/bucket.md#bucket-url) in `<bucket_name>{{ s3-storage-host }}` format. The schema (`http` or `https`) does not need to be specified. Here is an example:
 
          ```
          my-bucket.{{ s3-storage-host }}

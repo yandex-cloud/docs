@@ -37,7 +37,7 @@ To run a webhook in a {{ managed-k8s-name }} cluster:
 
    ```
    yc iam key create iamkey \
-       --service-account-id=<your service account ID> \
+       --service-account-id=<service_account_ID> \
        --format=json \
        --output=iamkey.json
    ```
@@ -72,18 +72,18 @@ To run a webhook in a {{ managed-k8s-name }} cluster:
      privateKeySecretRef:
       # Secret resource that will be used to store the account's private key.
       name: secret-ref
-     solvers:
-      - dns01:
-         webhook:
-           config:
-             # The ID of the folder where dns-zone located in
-             folder: <your folder ID>
-             # This is the secret used to access the service account
-             serviceAccountSecretRef:
-               name: cert-manager-secret
-               key: iamkey.json
-           groupName: acme.cloud.yandex.com
-           solverName: yandex-cloud-dns
+       solvers:
+         - dns01:
+             webhook:
+               config:
+                 # ID of the folder where dns-zone is located
+                 folder: <folder_ID>
+                 # This is the secret used to access the service account
+                 serviceAccountSecretRef:
+                   name: cert-manager-secret
+                   key: iamkey.json
+               groupName: acme.cloud.yandex.com
+               solverName: yandex-cloud-dns
    ```
 
 1. Create a file named `cluster-certificate.yml` with the `Certificate` object manifest:

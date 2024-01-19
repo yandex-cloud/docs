@@ -1,6 +1,6 @@
-## Service: {{ dataproc-full-name }} {#data-proc}
+## {{ dataproc-full-name }} {#data-proc}
 
-Common labels for all {{ dataproc-full-name }} service metrics:
+Common labels for all {{ dataproc-name }} metrics:
 
 | Label | Value |
 ----|----
@@ -70,4 +70,4 @@ Common labels for all {{ dataproc-full-name }} service metrics:
 | ----- | ----- |
 | `dataproc.cluster.neededAutoscalingNodesNumber`<br/>`DGAUGE`, pcs | {{ dataproc-full-name }} service metric for scaling by default. |
 
-Read more about the service in the [{{ dataproc-full-name }}](../../../data-proc/) documentation.
+Read more about the service in the [{{ dataproc-name }}](../../../data-proc/) documentation.

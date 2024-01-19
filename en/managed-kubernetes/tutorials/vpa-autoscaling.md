@@ -19,11 +19,20 @@ description: "Follow this guide to configure the automatic management of pod res
    * `sg-k8s`: For [master and node group](../operations/connect/security-groups.md#rules-internal).
    * `k8s-public-services`: For [public access to services from the internet](../operations/connect/security-groups.md#rules-nodes).
    * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/connect/security-groups.md#rules-master).
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating a cluster and a group of nodes:
+
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
+
    * Use the previously created security groups.
-   * Select automatic as your [public address](../../vpc/concepts/address.md#public-addresses) assignment method.
+   * If your plan is to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP to the cluster.
+
+1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
+
+   * Use the previously created security groups.
+   * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. Install {{ k8s-vpa }} from the following [repository](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
 
@@ -104,7 +113,8 @@ description: "Follow this guide to configure the automatic management of pod res
        kind:       Deployment
        name:       nginx
      updatePolicy:
-       updateMode: "Auto"
+       updateMode:  "Auto"
+       minReplicas: 1
    ```
 
    {% endcut %}

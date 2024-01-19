@@ -7,7 +7,7 @@ description: "The Fluent Bit log processor allows you to transfer the {{ managed
 
 {% note info %}
 
-You can enable sending logs from the [{{ managed-k8s-name }} cluster](../concepts/index.md#master) master host to [{{ cloud-logging-full-name }}](../../logging/) by specifying the `master logging` setting when [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating ](../operations/kubernetes-cluster/kubernetes-cluster-update.md) your cluster. The setting is only available in the CLI, {{ TF }}, and API. To learn more, see [Sending {{ managed-k8s-full-name }} cluster logs to {{ cloud-logging-name }}](../../logging/tutorials/k8s-fluent-bit-logging.md#master-logging).
+You can enable sending logs from the [{{ managed-k8s-name }} master host](../concepts/index.md#master) to [{{ cloud-logging-name }}](../../logging/) by specifying the `master logging` setting when [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../operations/kubernetes-cluster/kubernetes-cluster-update.md) your [cluster](../concepts/index.md#kubernetes-cluster). The setting is only available in the API, CLI, and {{ TF }}. To learn more, see [Sending {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}](../../logging/tutorials/k8s-fluent-bit-logging.md#master-logging).
 
 {% endnote %}
 

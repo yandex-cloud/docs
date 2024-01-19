@@ -13,71 +13,73 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
 
 - Management console
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
-    1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
-    1. (Optional) Enter a name for the job.
-    1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_mapreduce-job-type }}`.
-    1. Select one of the driver types and specify which to use to start the job:
-        * Main class name.
-        * Path to the main JAR file in the following format:
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+   1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
+   1. (Optional) Enter a name for the job.
+   1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_mapreduce-job-type }}`.
+   1. Select one of the driver types and specify which to use to start the job:
+      * Main class name.
+      * Path to the main JAR file in the following format:
 
-           {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+         {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
-    1. Specify job arguments.
+   1. Specify job arguments.
 
-       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+      {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
-    1. (optional) Specify paths to the additional JAR files, if any.
-    1. (optional) Configure advanced settings:
+   1. (Optional) Specify the paths to the additional JAR files, if any.
+   1. (Optional) Configure advanced settings:
 
-        * Specify paths to the necessary files and archives.
-        * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
+      * Specify paths to the necessary files and archives.
+      * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
 
-    1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
+   1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To create a job:
+   To create a job:
 
-    1. View a description of the CLI create command for `Mapreduce` jobs:
+   1. View a description of the CLI create command for `Mapreduce` jobs:
 
-        ```bash
-        {{ yc-dp }} job create-mapreduce --help
-        ```
+      ```bash
+      {{ yc-dp }} job create-mapreduce --help
+      ```
 
-    1. Create a job (the example does not show all the available parameters):
+   1. Create a job (the example does not show all the available parameters):
 
-        ```bash
-        {{ yc-dp }} job create-mapreduce \
-           --cluster-name=<cluster name> \
-           --name=<job name> \
-           --main-class=<main class name> \
-           --file-uris=<path to file> \
-           --archive-uris=<path to archives> \
-           --properties=<key-value> \
-           --args=<argument>
-        ```
+      ```bash
+      {{ yc-dp }} job create-mapreduce \
+         --cluster-name=<cluster_name> \
+         --name=<job_name> \
+         --main-class=<main_class_name> \
+         --file-uris=<path_to_file> \
+         --archive-uris=<paths_to_archives> \
+         --properties=<component_properties> \
+         --args=<argument>
+      ```
 
-        Pass in the paths to the files required for the job in the following format:
+      Where `--properties` specifies component properties as `key-value` pairs.
 
-        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+      Provide the paths to the files required for the job in the following format:
 
-    You can find out the cluster ID and name in a [list of clusters in the folder](./cluster-list.md#list).
+      {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+
+   You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
 - API
 
-    Use the [create](../api-ref/Job/create) API method and include the following information in the request:
+   Use the [create](../api-ref/Job/create) API method and include the following information in the request:
 
-    * Cluster ID in the `clusterId` parameter.
-    * Job name in the `name` parameter.
-    * Job properties in the `mapreduceJob` parameter.
+   * Cluster ID in the `clusterId` parameter.
+   * Job name in the `name` parameter.
+   * Job properties in the `mapreduceJob` parameter.
 
-    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list).
+   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list).
 
 {% endlist %}
 

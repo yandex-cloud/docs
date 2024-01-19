@@ -32,7 +32,7 @@
 
 - **Auto explain log min duration**{#setting-auto-explain-log-min-duration} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The minimum query execution time (in milliseconds) when logging is enabled in the `auto_explain` module. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+   The minimum query execution time (in milliseconds) when logging is enabled in the `auto_explain` module.
 
    The minimum value is `-1` (logging disabled), while the maximum one is `2147483647`. The default value is `-1`. When the value is `0`, execution plans for all queries are logged regardless of their execution time.
 
@@ -1188,7 +1188,7 @@
 
    The maximum statement duration (in milliseconds) after which the command is aborted.
 
-   The minimum value is `0`, while the maximum one is `2147483647`. The default value is `0`.
+   The minimum value is `0`, while the maximum one is `2,147,483,647`. The default value is `0`.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
 

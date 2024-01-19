@@ -104,6 +104,6 @@ The instance group appears in the list.
 
 ## What's next {#what-is-next}
 
-* Watch [tutorials for creating web services in {{ yandex-cloud }}](../../tutorials/web/index.md).
+* Watch [tutorials for creating web services in {{ yandex-cloud }}](../../tutorials/security/index.md).
 * Learn [how to work with instance groups](../operations/index.md).
 * Read [answers to frequently asked questions](../qa/general.md).

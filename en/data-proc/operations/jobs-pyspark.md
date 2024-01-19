@@ -51,24 +51,32 @@ description: "In this tutorial, you will learn how to manage PySpark jobs in {{ 
 
       ```bash
       {{ yc-dp }} job create-pyspark \
-         --cluster-name=<cluster name> \
-         --name=<job name> \
-         --main-python-file-uri=<path to main application py file> \
-         --python-file-uris=<paths to additional py files> \
-         --jar-file-uris=<paths to jar files> \
-         --archive-uris=<paths to archives> \
-         --properties=<key-value> \
-         --args=<arguments passed to job> \
-         --packages=<Maven coordinates of jar files as groupId:artifactId:version> \
-         --repositories=<additional repositories to search for packages> \
-         --exclude-packages=<packages to exclude as groupId:artifactId>
+         --cluster-name=<cluster_name> \
+         --name=<job_name> \
+         --main-python-file-uri=<path_to_main_application_py_file> \
+         --python-file-uris=<paths_to_additional_py_files> \
+         --jar-file-uris=<paths_to_jar_files> \
+         --archive-uris=<paths_to_archives> \
+         --properties=<component_properties> \
+         --args=<arguments> \
+         --packages=<Maven_coordinates_of_jar_files> \
+         --repositories=<additional_repositories> \
+         --exclude-packages=<packages_to_exclude>
       ```
 
-      Pass in the paths to the files required for the job in the following format:
+      Where:
+
+      * `--properties`: Component properties as `key-value` pairs.
+      * `--args`: Arguments passed to the job.
+      * `--packages`: Maven coordinates of JAR files as `groupId:artifactId:version`.
+      * `--repositories`: Additional repositories to search for `packages`.
+      * `--exclude-packages`: Packages to exclude as `groupId:artifactId`.
+
+      Provide the paths to the files required for the job in the following format:
 
       {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](./cluster-list.md#list).
+   You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
 - API
 

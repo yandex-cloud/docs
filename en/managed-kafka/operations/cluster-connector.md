@@ -4,14 +4,14 @@
 
 You can:
 
-* [Get a list of connectors](#list)
-* [Get detailed information about a connector](#get)
-* [Create a connector](#create)
-* [Edit a connector](#update)
-* [Pause a connector](#pause)
-* [Resume a connector](#resume)
-* [Import a connector to {{ TF }}](#import)
-* [Delete a connector](#delete)
+* [Get a list of connectors](#list).
+* [Get detailed information about a connector](#get).
+* [Create a connector](#create).
+* [Edit a connector](#update).
+* [Pause a connector](#pause).
+* [Resume a connector](#resume).
+* [Import a connector to {{ TF }}](#import).
+* [Delete a connector](#delete).
 
 ## Getting a list of connectors {#list}
 
@@ -530,7 +530,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
         terraform import yandex_mdb_kafka_connector.<connector_name> <cluster_ID>:<connector_name>
         ```
 
-        To learn more about importing connectors, see the [{{ TF }} provider documentation](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_connect.html.markdown#import).
+        To learn more about importing connectors, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_connect#import).
 
 {% endlist %}
 
@@ -648,7 +648,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
       * `egress`: If the cluster is a source.
 
    * `--tasks-max`: Number of concurrent processes. We recommend a value of at least `2` for even replication load distribution.
-   * `--properties`: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+   * `--properties`: Comma-separated list of advanced connector settings in `<key>:<value>` format. Here are some sample keys:
 
       * `key.converter`
       * `value.converter`
@@ -677,7 +677,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
 - {{ TF }}
 
-   * **properties**: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+   * **properties**: Comma-separated list of advanced connector settings in `<key>:<value>` format. Here are some sample keys:
 
       * `key.converter`
       * `value.converter`
@@ -705,8 +705,8 @@ Using import, you can bring the existing connectors under {{ TF }} management.
          * **sasl_password**: User password for connecting the connector to the cluster.
          * **sasl_mechanism**: Name and password encryption mechanism.
          * **security_protocol**: Connector connection protocol:
-            * `plaintext`, `sasl_plaintext`: For non-SSL connections.
-            * `ssl`, `sasl_ssl`: For SSL connections.
+            * `plaintext`, `sasl_plaintext`: For non-SSL connections
+            * `ssl`, `sasl_ssl`: For SSL connections
          * **ssl_truststore_certificates**: PEM certificate contents.
 
 {% endlist %}
@@ -750,7 +750,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
    * `--cluster-name`: Cluster name.
    * `--tasks-max`: Number of concurrent processes. We recommend a value of at least `2` for even replication load distribution.
-   * `--properties`: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+   * `--properties`: Comma-separated list of advanced connector settings in `<key>:<value>` format. Here are some sample keys:
 
       * `key.converter`
       * `value.converter`
@@ -768,7 +768,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
       * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
 
    * `--file-max-records`: Maximum number of records that can be written to a single file in S3-compatible storage.
-   * `--bucket-name`: The name of the bucket in S3-compatible storage to write data to.
+   * `--bucket-name`: Name of the bucket in S3-compatible storage to write data to.
    * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
    * `--region`: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
@@ -778,7 +778,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
 - {{ TF }}
 
-   * **properties**: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+   * **properties**: Comma-separated list of advanced connector settings in `<key>:<value>` format. Here are some sample keys:
 
       * `key.converter`
       * `value.converter`
@@ -798,7 +798,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
    * **file_max_records**: Maximum number of records that can be written to a single file in S3-compatible storage.
    * **s3_connection**: S3-compatible storage connection parameters:
 
-      * **bucket_name**: The name of the bucket to write data to.
+      * **bucket_name**: Name of the bucket to write data to.
       * **external_s3**: External S3-compatible storage connection parameters:
 
          * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.

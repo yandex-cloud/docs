@@ -16,7 +16,7 @@ To run Spark applications in {{ dataproc-name }} clusters, [prepare data](#prepa
 
 ## Preparing data {#prepare-data}
 
-By following this tutorial, you'll calculate statistics on 2018 US air traffic based on data from [transtats.bts.gov](https://transtats.bts.gov/). The data set is prepared in [Parquet](https://parquet.apache.org/) format in a public {{ objstorage-full-name }} bucket named `yc-mdb-examples`.
+Follow this tutorial to calculate statistics on 2018 US air traffic based on data from [transtats.bts.gov](https://transtats.bts.gov/). The data set is prepared in [Parquet](https://parquet.apache.org/) format in a public {{ objstorage-full-name }} bucket named `yc-mdb-examples`.
 
 To work with {{ objstorage-name }}, we recommend [setting up S3cmd](../../storage/tools/s3cmd.md).
 
@@ -209,7 +209,7 @@ By default, the resources of the running application are managed by the YARN com
 1. Terminate the application you no longer need:
 
    ```bash
-   yarn application -kill <application_id>
+   yarn application -kill <app_ID>
    ```
 
 For more information about YARN commands, see [YARN Commands](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YarnCommands.html).
@@ -222,7 +222,7 @@ For more information about YARN commands, see [YARN Commands](https://hadoop.apa
 
 The application saves the calculation result either using the HDFS component in the {{ dataproc-name }} cluster or to the {{ objstorage-name }} bucket you specified.
 
-The service and debugging information is saved to the {{ objstorage-name }} bucket that you specified when creating the {{ dataproc-name }} cluster. For each job, the {{ dataproc-name }} agent creates a separate folder with a path in the format `dataproc/clusters/<cluster ID>/jobs/<job ID>`. Before the initial run, assign bucket `WRITE` rights to the service account that jobs will be run under.
+The service and debugging information is saved to the {{ objstorage-name }} bucket that you specified when creating the {{ dataproc-name }} cluster. For each job, the {{ dataproc-name }} agent creates a separate folder with a path in the format `dataproc/clusters/<cluster_ID>/jobs/<job_ID>`. Before the initial run, assign bucket `WRITE` rights to the service account that jobs will be run under.
 
 Below are two application versions, one for Scala and one for Python.
 
@@ -305,12 +305,12 @@ To build an app:
 
      object Main {
        def main(args: Array[String]) {
-         if (args.length != 2){ //check arguments
-           System.err.println("Usage spark-app.jar <input_dir> <output_dir>");
+         if (args.length != 2){ //check the argument
+           System.err.println("Usage spark-app.jar <input_directory> <output_directory>");
            System.exit(-1);
          }
          val inDir = args(0); //URI to source data
-         val outDir = args(1); //URI to the folder where results are logged
+         val outDir = args(1); //URI to the output directory
          val conf = new SparkConf().setAppName("Month Stat - Scala App")
          val sc = new SparkContext(conf)
          val sqlContext = new org.apache.spark.sql.SQLContext(sc)
@@ -342,14 +342,14 @@ To make sure that Spark has access to the compiled JAR file, upload the file to 
 
 ```bash
 s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
-    s3://<your bucket>/bin/
+    s3://<bucket>/bin/
 ```
 
-In the current example, the file is uploaded to `s3://<your bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar`.
+In this example, the file is uploaded to `s3://<bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar`.
 
 ### Run the job in the {{ dataproc-name }} cluster {#scala-run}
 
-For the Data Proc Agent to be able to pick up the job from the user's subnet, set up an [NAT gateway](../../vpc/concepts/gateways.md). For more information about how to do this, see [{#T}](./configure-network.md).
+For the Data Proc Agent to be able to pick up the job from the user's subnet, set up a [NAT gateway](../../vpc/concepts/gateways.md). For more information about how to do this, see [{#T}](./configure-network.md).
 
 Below are two CLI command templates for running Spark jobs: with results output to {{ objstorage-name }} and HDFS.
 
@@ -359,24 +359,24 @@ Below are two CLI command templates for running Spark jobs: with results output 
 
    ```bash
    {{ yc-dp }} job create-spark \
-      --cluster-id=<cluster ID> \
-      --name=<job name> \
+      --cluster-id=<cluster_ID> \
+      --name=<job_name> \
       --main-class="com.yandex.cloud.dataproc.scala.Main" \
-      --main-jar-file-uri="s3a://<your bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
+      --main-jar-file-uri="s3a://<bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
       --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
-      --args="s3a://<your bucket>/jobs_results/"
+      --args="s3a://<bucket>/jobs_results/"
    ```
 
 - HDFS
 
-   A CSV file with the execution result is created in the `/tmp/jobs/<job ID>/` folder in HDFS.
+   A CSV file with the execution result is created in the `/tmp/jobs/<job_ID>/` folder in HDFS.
 
    ```bash
    {{ yc-dp }} job create-spark \
-      --cluster-id=<cluster ID> \
-      --name=<job name> \
+      --cluster-id=<cluster_ID> \
+      --name=<job_name> \
       --main-class="com.yandex.cloud.dataproc.scala.Main" \
-      --main-jar-file-uri="s3a://<your bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
+      --main-jar-file-uri="s3a://<bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
       --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
       --args="tmp/jobs/"
    ```
@@ -392,8 +392,8 @@ Below are two CLI command templates for running Spark jobs: with results output 
    spark_job:
      args:
      - s3a://yc-mdb-examples/dataproc/example01/set01
-     - s3a://<your bucket>/jobs_results/
-     main_jar_file_uri: s3a://<your bucket>/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar
+     - s3a://<bucket>/jobs_results/
+     main_jar_file_uri: s3a://<bucket>/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar
      main_class: com.yandex.cloud.dataproc.scala.Main
    ```
 
@@ -422,7 +422,7 @@ To launch an app:
    def main():
 
        if len(sys.argv) != 3:
-           print('Usage job.py <input_dir> <output_dir>')
+           print('Usage job.py <input_directory> <output_directory>')
            sys.exit(1)
 
        in_dir = sys.argv[1]
@@ -448,7 +448,7 @@ To launch an app:
 1. To make sure that PySpark has access to your code, upload the `job.py` file to the {{ objstorage-name }} bucket that the {{ dataproc-name }} cluster service account has access to. You can upload the file using [s3cmd](../../storage/tools/s3cmd.md):
 
    ```bash
-   s3cmd put ./job.py s3://<your bucket>/bin/
+   s3cmd put ./job.py s3://<bucket>/bin/
    ```
 
 1. Run the CLI command and write the result:
@@ -456,29 +456,29 @@ To launch an app:
 
       ```bash
       {{ yc-dp }} job create-pyspark \
-         --cluster-id=<cluster ID> \
-         --name=<job name> \
-         --main-python-file-uri="s3a://<your bucket>/bin/job.py" \
+         --cluster-id=<cluster_ID> \
+         --name=<job_name> \
+         --main-python-file-uri="s3a://<bucket>/bin/job.py" \
          --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
-         --args="s3a://<your bucket>/jobs_results/"
+         --args="s3a://<bucket>/jobs_results/"
       ```
 
    * To HDFS:
 
       ```bash
       {{ yc-dp }} job create-pyspark \
-         --cluster-id=<cluster ID> \
-         --name=<job name> \
-         --main-python-file-uri="s3a://<your bucket>/bin/job.py" \
+         --cluster-id=<cluster_ID> \
+         --name=<job_name> \
+         --main-python-file-uri="s3a://<bucket>/bin/job.py" \
          --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
          --args="tmp/jobs/"
       ```
 
-      A CSV file with the execution result is created in the `/tmp/jobs/<job ID>/` folder in HDFS.
+      A CSV file with the execution result is created in the `/tmp/jobs/<job_ID>/` folder in HDFS.
 
 1. To view the job logs:
 
    ```bash
-   {{ yc-dp }} job log <job name> \
-      --cluster-id=<cluster ID>
+   {{ yc-dp }} job log <job_name> \
+      --cluster-id=<cluster_ID>
    ```

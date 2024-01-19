@@ -2,14 +2,14 @@
 
 Для выполнения операций через API необходимо аутентифицироваться со своего аккаунта:
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Аккаунт на Яндексе
+- Аккаунт на Яндексе или федеративный аккаунт {#yandex-account}
 
-  1. [Получите IAM-токен](../iam/operations/iam-token/create.md).
-  2. {% include [iam-token-usage](iam-token-usage.md) %}
+  1. Получите IAM-токен для [аккаунта на Яндексе](../iam/operations/iam-token/create.md) или [федеративного аккаунта](../iam/operations/iam-token/create-for-federation.md).
+  1. {% include [iam-token-usage](iam-token-usage.md) %}
 
-- Сервисный аккаунт
+- Сервисный аккаунт {#service-account}
 
   В этом сервисе есть 2 способа аутентификации с сервисным аккаунтом:
   * С помощью [IAM-токена](../iam/concepts/authorization/iam-token.md):
@@ -27,10 +27,5 @@
           ```
           Authorization: Api-Key <API-ключ>
           ```
-
-- Федеративный аккаунт
-
-  1. [Получите IAM-токен](../iam/operations/iam-token/create-for-federation.md).
-  1. {% include [iam-token-usage](iam-token-usage.md) %}
 
 {% endlist %}

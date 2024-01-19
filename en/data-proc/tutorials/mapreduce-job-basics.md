@@ -57,12 +57,12 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
       * `-numReduceTasks`
       * `1`
       * `-input`
-      * `s3a://<input data bucket name>/cities500.txt`
+      * `s3a://<input_data_bucket_name>/cities500.txt`
       * `-output`
-      * `s3a://<output processing bucket name>/<output folder>`
+      * `s3a://<processing_output_bucket_name>/<output_folder>`
    * **{{ ui-key.yacloud.dataproc.jobs.field_files }}**:
-      * `s3a://<input data bucket name>/mapper.py`
-      * `s3a://<input data bucket name>/reducer.py`
+      * `s3a://<input_data_bucket_name>/mapper.py`
+      * `s3a://<input_data_bucket_name>/reducer.py`
    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**:
       * `mapreduce.job.maps: 6`
       * `yarn.app.mapreduce.am.resource.mb: 2048`
@@ -72,11 +72,11 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 1. [Download from the bucket](../../storage/operations/objects/download.md) and review the file with the result from the bucket:
 
-    `part-00000`
+   `part-00000`
 
-    ```text
-    3157107417
-    ```
+   ```text
+   3157107417
+   ```
 
 ## Delete the resources you created {#clear-out}
 

@@ -9,7 +9,7 @@ keywords:
 
 # Replication and fault tolerance
 
-{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel.
+{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using [rdsync](https://github.com/yandex/rdsync), a host status management agent.
 
 ## Replication {#replication}
 
@@ -26,29 +26,31 @@ For more information about how replication works in {{ RD }}, read the [relevant
 
 ## Fault tolerance {#availability}
 
-A master host can be changed both automatically as a result of a failure and [manually](../operations/failover.md). Manual master switching is available both for a [sharded cluster](./sharding.md#failover) and an unsharded one.
+To ensure fault tolerance, [rdsync](https://github.com/yandex/rdsync), a host status management agent from Yandex, was integrated into the {{ mrd-name }} architecture.
 
-High data availability in an unsharded cluster is implemented using {{ RD }} Sentinel: in a cluster consisting of three or more hosts, Sentinel services automatically manage master selection and replica configurations.
+Host status is stored in the distributed configuration management system. If the connection to the DCS (distributed configuration store, e.g., {{ ZK }}, etcd, or Consul) is lost, the agent switches the host to [protected mode]({{ rd.docs }}/manual/security/#protected-mode) and terminates client connections. When selecting a new master, if the replica host with the highest priority requires full data resync, the agent stops the replication process and selects a host with the least lag behind the master.
 
-Sentinel requires most of its services to be healthy. As a result, it is more cost-efficient to deploy clusters with an odd number of hosts when using Sentinel. For example, a cluster with three hosts can lose one host and still continue working. At the same time, a cluster with four hosts can also lose only one host: if a second host is lost, the remaining Sentinel instances will not be enough to select a new master.
+Thanks to the `rdsync` agent running in a {{ mrd-name }} cluster:
 
-A cluster consisting of two hosts does not provide full failover for the same reason: one of the two Sentinel instances will not be enough to select one host as a master if the other one fails. In this situation, the cluster can only process read operations.
+* Configurations that consist of an even number of hosts (for non-sharded clusters) or one or two shards (for sharded clusters) are fault-tolerant.
 
-{{ mrd-name }} cluster owners cannot configure Sentinel services; however, they can read the information the services provide. You can read more about Sentinel in the [relevant documentation](https://redis.io/topics/sentinel).
+* Handling [client requests]({{ rd.docs }}/reference/sentinel-clients/) for the name of a host available for writes is consistent with the `rdsync` agent and provides up-to-date information to clients, because the statuses of all hosts are known.
 
-{% note info %}
-
-Sentinel is only applied for clusters with {{ RD }} version 6.2. The `rdsync` [agent is used](switchover.md) to ensure the fault tolerance of clusters with {{ RD }} 7.0.
-
-{% endnote %}
+* The risk of losing data is reduced if using the `WAIT` command with `N/2` available replicas, where `N` is the number of cluster hosts.
 
 ### Assigning a different host as a master if the primary master fails {#master-failover}
 
-If the master host fails, any of the cluster hosts available for replication may become a new master. If the master assignment priority is set for the cluster hosts, the host with the lowest priority will be selected as a new master. The minimum value is `0`, and the maximum (default) value is `100`. A host with the `0` priority will never be selected as a master.
+If the master host fails, a host with the least lag behind the master will become a new master.
+
+If the master assignment priority is set for the cluster hosts, the host with the highest priority will become a new master. The minimum priority value is `0`, while the default one is `100`.
+
+If the replica host with the highest priority requires full data resync, the priority value will be ignored and a host with the least lag behind the master will become a new master.
+
+A master host can be changed either automatically, as a result of a failure, or [manually](../operations/failover.md). Manual master switching is available both for [sharded](./sharding.md#failover) and unsharded clusters.
 
 ## Persistence {#persistence}
 
-{{ mrd-name }} clusters use data persistence presets. You can disable persistence, if required, to improve server throughput, as the DBMS will stop writing updates out to disk.
+{{ mrd-name }} clusters use data persistence presets. You can disable persistence if needed to improve server throughput, as the DBMS will stop writing updates to disk.
 
 {% note warning %}
 

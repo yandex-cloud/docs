@@ -99,7 +99,7 @@ The infrastructure support costs include:
    1. Download the current `CoreDNS` version from the [developer page](https://github.com/coredns/coredns/releases/latest) and install it:
 
       ```bash
-      cd /var/tmp && wget <URL пакета> -O - | tar -zxvf
+      cd /var/tmp && wget <package_URL> -O - | tar -zxvf
       sudo mv coredns /usr/local/sbin
       ```
 

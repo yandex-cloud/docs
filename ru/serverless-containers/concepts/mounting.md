@@ -1,3 +1,4 @@
+
 # Монтирование бакетов в контейнер
 
 {% include [read-note](../../_includes/functions/read-note.md) %}
@@ -6,6 +7,8 @@
 
 Смонтировать можно весь бакет или [папку](../../storage/concepts/object#folder).
 
+
+{% include [roles-for-bucket-mounting](../../_includes/functions/roles-for-bucket-mounting.md) %}
 
 ## См. также {#see-also}
 

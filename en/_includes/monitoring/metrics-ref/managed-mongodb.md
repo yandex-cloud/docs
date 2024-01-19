@@ -1,4 +1,4 @@
-## {{ mmg-full-name }} service {#managed-mongodb}
+## {{ mmg-full-name }} {#managed-mongodb}
 
 Common labels for all {{ mmg-name }} metrics:
 

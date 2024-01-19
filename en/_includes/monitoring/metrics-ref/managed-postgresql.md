@@ -1,6 +1,6 @@
-## {{ mpg-full-name }} service {#managed-postgresql}
+## {{ mpg-full-name }} {#managed-postgresql}
 
-Common labels for all {{ mpg-full-name }} metrics:
+Common labels for all {{ mpg-name }} metrics:
 
 | Label | Value |
 | ----- | ----- |
@@ -62,7 +62,7 @@ The load on processor cores.
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
 | `io.utilization`<br/>`DGAUGE`, % | Disk utilization |
-| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
+| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed |
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
@@ -174,4 +174,4 @@ The load on processor cores.
 | `pooler-used_servers`<br/>`DGAUGE`, pcs | Number of server connections in the connection pooler |
 | `pooler-xact_count`<br/>`DGAUGE`, pcs | Number of transactions executed on each DB host |
 
-Read more about the service in the [{{ mpg-full-name }}](../../../managed-postgresql/) documentation.
+Read more about the service in the [{{ mpg-name }}](../../../managed-postgresql/) documentation.

@@ -25,82 +25,82 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
 1. Download a file and upload it to the input data bucket containing the Python code for the [word_count.py](https://{{ s3-storage-host }}/examples/pyspark/word_count.py) analysis routine:
 
-    {% cut "word_count.py" %}
+   {% cut "word_count.py" %}
 
-    ```python
-    import sys
-    from pyspark import SparkConf, SparkContext
-    
-    
-    def main():
-    
-        if len(sys.argv) != 3:
-            print('Usage job.py <input_dir> <output_dir>')
-            sys.exit(1)
-    
-        in_dir = sys.argv[1]
-        out_dir = sys.argv[2]
-    
-        conf = SparkConf().setAppName("Word count - PySpark")
-        sc = SparkContext(conf=conf)
-    
-        text_file = sc.textFile(in_dir)
-        counts = text_file.flatMap(lambda line: line.split(" ")) \
-            .map(lambda word: (word, 1)) \
-            .reduceByKey(lambda a, b: a + b)
-    
-        if out_dir.startswith('s3a://'):
-            counts.saveAsTextFile(out_dir) 
-        else:
-            default_fs = sc._jsc.hadoopConfiguration().get('fs.defaultFS')
-            counts.saveAsTextFile(default_fs + out_dir)
-    
-    
-    if __name__ == "__main__":
-        main()
-    ```
+   ```python
+   import sys
+   from pyspark import SparkConf, SparkContext
 
-    {% endcut %}
+
+   def main():
+
+       if len(sys.argv) != 3:
+           print('Usage job.py <input_directory> <output_directory>')
+           sys.exit(1)
+
+       in_dir = sys.argv[1]
+       out_dir = sys.argv[2]
+
+       conf = SparkConf().setAppName("Word count - PySpark")
+       sc = SparkContext(conf=conf)
+
+       text_file = sc.textFile(in_dir)
+       counts = text_file.flatMap(lambda line: line.split(" ")) \
+           .map(lambda word: (word, 1)) \
+           .reduceByKey(lambda a, b: a + b)
+
+       if out_dir.startswith('s3a://'):
+           counts.saveAsTextFile(out_dir)
+       else:
+           default_fs = sc._jsc.hadoopConfiguration().get('fs.defaultFS')
+           counts.saveAsTextFile(default_fs + out_dir)
+
+
+   if __name__ == "__main__":
+       main()
+   ```
+
+   {% endcut %}
 
 1. [Create a PySpark job](../operations/jobs-pyspark#create) with the following parameters:
 
-   * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}**: `s3a://<input data bucket name>/word_count.py`
+   * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}**: `s3a://<input_data_bucket_name>/word_count.py`
    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
 
-      * `s3a://<input data bucket name>/text.txt`
-      * `s3a://<output processing bucket name>/<output folder>`
+      * `s3a://<input_data_bucket_name>/text.txt`
+      * `s3a://<processing_output_bucket_name>/<output_folder>`
 
 1. Wait for the [job status](../operations/jobs-pyspark.md#get-info) to change to `Done`.
 
 1. [Download from the bucket](../../storage/operations/objects/download.md) and review the files with the results from the bucket:
 
-    {% cut "part-00000" %}
+   {% cut "part-00000" %}
 
-    ```text
-    ('sea', 6)
-    ('are', 2)
-    ('am', 2)
-    ('sure', 2)
-    ```
+   ```text
+   ('sea', 6)
+   ('are', 2)
+   ('am', 2)
+   ('sure', 2)
+   ```
 
-    {% endcut %}
+   {% endcut %}
 
-    {% cut "part-00001" %}
+   {% cut "part-00001" %}
 
-    ```text
-    ('she', 3)
-    ('sells', 3)
-    ('shells', 6)
-    ('on', 2)
-    ('the', 4)
-    ('shore', 3)
-    ('that', 2)
-    ('I', 2)
-    ('so', 1)
-    ('if', 1)
-    ```
+   ```text
+   ('she', 3)
+   ('sells', 3)
+   ('shells', 6)
+   ('on', 2)
+   ('the', 4)
+   ('shore', 3)
+   ('that', 2)
+   ('I', 2)
+   ('so', 1)
+   ('if', 1)
+   ```
 
-    {% endcut %}
+   {% endcut %}
 
 ## Delete the resources you created {#clear-out}
 

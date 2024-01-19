@@ -20,12 +20,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually
 
-   1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each of them with the following settings:
+   1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
 
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: `1.22` or higher
-      * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`
+      One {{ managed-k8s-name }} cluster will be used for creating a node group backup and the other one for restoring data from the backup.
 
-      One {{ managed-k8s-name }} cluster will be used for creating a node group backup and another one for recovery.
+      If you intend to use your clusters within the {{ yandex-cloud }} network, there is no need to allocate them a public IP address. To allow connections from outside the network, assign a public IP to the clusters.
+
+   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each cluster and allocate a public IP address to each group.
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
    1. [Create a service account](../../iam/operations/sa/create.md) with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with Velero.
    1. Grant the [service account](../../iam/concepts/users/service-accounts.md) **READ and WRITE** permissions to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).
@@ -110,6 +111,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To back up the {{ managed-k8s-name }} node group data:
 1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the first {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
+
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 1. Back up data from the {{ managed-k8s-name }} cluster node group:
 
@@ -141,6 +145,9 @@ To back up the {{ managed-k8s-name }} node group data:
 
 To restore data from the {{ managed-k8s-name }} cluster node group:
 1. [Configure kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) to work with the second {{ managed-k8s-name }} cluster.
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
+
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 1. Make sure the data backup is displayed in the new {{ managed-k8s-name }} cluster:
 

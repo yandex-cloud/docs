@@ -4,15 +4,15 @@ items:
   - name: Security
     items:
       - name: All tutorials
-        href: web/index.md
+        href: security/index.md
       - name: Creating a load balancer with DDoS protection
-        href: web/alb-with-ddos-protection.md
+        href: security/alb-with-ddos-protection.md
       - name: Terminating TLS connections
-        href: web/tls-termination.md
-      - name: Transferring logs from a VM instance to {{ cloud-logging-name }}
-        href: infrastructure-management/vm-fluent-bit-logging.md
+        href: security/tls-termination.md
+      - name: Delivering logs from a VM instance to {{ cloud-logging-name }}
+        href: security/vm-fluent-bit-logging.md
       - name: Writing load balancer logs to {{ PG }}
-        href: infrastructure-management/logging.md
+        href: security/logging.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -109,6 +109,8 @@ items:
               Creating a trigger for budgets that invokes a function to stop VM
               instances
             href: infrastructure-management/serverless-trigger-budget-vm.md
+          - name: Deploying a fault-tolerant architecture with preemptible VMs
+            href: infrastructure/nodejs-cron-restart-vm.md
       - name: Tools
         items:
           - name: Getting started with {{ TF }}

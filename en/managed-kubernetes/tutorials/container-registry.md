@@ -24,7 +24,7 @@ To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 ## Create service accounts {#create-sa}
 
 Create the following [service accounts](../../iam/operations/sa/create.md):
-* Service account for the resources with the [{{ roles-editor }}](../../resource-manager/security/#roles-list) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+* Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
 * Service account for [{{ managed-k8s-name }} nodes](../concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder with the Docker image registry. {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
 ### Create a service account for resources {#res-sa}
@@ -84,12 +84,21 @@ To create a service account for making the resources required by the {{ managed-
 
    {% endlist %}
 
-1. Assign the service account the [{{ roles-editor }}](../../resource-manager/security/#roles-list) role for the folder:
+1. Assign the service account the [k8s.clusters.agent](../security/index.md#k8s-clusters-agent) role for the folder:
 
    ```bash
    yc resource-manager folder add-access-binding \
      --id $FOLDER_ID \
-     --role editor \
+     --role k8s.clusters.agent \
+     --subject serviceAccount:$RES_SA_ID
+   ```
+
+1. Assign the service account the [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin) role for the folder:
+
+   ```bash
+   yc resource-manager folder add-access-binding \
+     --id $FOLDER_ID \
+     --role vpc.publicAdmin \
      --subject serviceAccount:$RES_SA_ID
    ```
 

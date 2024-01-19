@@ -13,7 +13,6 @@ To deploy a fault-tolerant architecture with a preemptible VM:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
@@ -139,7 +138,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
 {% endlist %}
 
-
 ## Prepare a ZIP archive with the function code {#zip-archive}
 
 1. Save the following code to a file named `index.js`:
@@ -206,7 +204,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
 1. Add the `index.js` and `package.json` files to the `function-js.zip` archive.
 
-
 ## Create a function {#func-create}
 
 {% list tabs %}
@@ -228,7 +225,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `function-js.zip` archive you created earlier.
       1. Specify the entry point: `index.handler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the previously created service account with rights to invoke the function.
@@ -288,7 +284,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
       ```
 
       Where:
-
       * `--function-name`: Name of the function a version of which you are creating.
       * `--memory`: Amount of RAM.
       * `--execution-timeout`: Maximum function execution time before the timeout is reached.
@@ -306,7 +301,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
          * `version-id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
          * `key`: Secret key.
          * `environment-variable`: Environment variable where the secret will be kept.
-
       * `--source-path`: Path to the `index-js.zip` archive you created earlier.
       * (Optional) `--no-logging`: Set this flag to avoid logging and paying for {{ cloud-logging-name }} use.
 
@@ -373,7 +367,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
       ```
 
       Where:
-
       * `name`: Function name.
       * `user_hash`: Arbitrary string that identifies the function version.
       * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
@@ -445,7 +438,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
 
 {% endlist %}
 
-
 ## Create a trigger {#trigger-create}
 
 {% include [trigger-time](../../_includes/functions/trigger-time.md) %}
@@ -490,7 +482,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
    ```
 
    Where:
-
    * `--name`: Trigger name.
    * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
    * `--invoke-function-name`: Name of the function being invoked.
@@ -588,7 +579,6 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/quickstart.md) to store 
    To create a timer, use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call.
 
 {% endlist %}
-
 
 ## Test the function {#test}
 

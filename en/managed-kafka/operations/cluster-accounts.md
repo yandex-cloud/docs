@@ -12,14 +12,14 @@ Users in {{ KF }}:
 * [Manage topics](cluster-topics.md#admin-api). For more information, see [{#T}](../concepts/topics.md).
 
 After [creating an {{ KF }} cluster](cluster-create.md), you can:
-* [{#T}](#create-user).
-* [{#T}](#update-password).
-* [{#T}](#update-account).
-* [{#T}](#grant-permission).
-* [{#T}](#revoke-permission).
-* [{#T}](#list-accounts).
-* [{#T}](#import-account).
-* [{#T}](#delete-account).
+* [{#T}](#create-user)
+* [{#T}](#update-password)
+* [{#T}](#update-account)
+* [{#T}](#grant-permission)
+* [{#T}](#revoke-permission)
+* [{#T}](#list-accounts)
+* [{#T}](#import-account)
+* [{#T}](#delete-account)
 
 ## Creating a user {#create-user}
 
@@ -125,7 +125,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
       * Username in the `name` parameter.
       * User password in the `password` parameter.
       * Topic permissions (one or more `permissions` parameters, one for each topic):
-         * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](cluster-topics.md#list-topics).
+         * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
          * Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
    To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster, provide the following values under `permission` in the `userSpec` parameter:
@@ -203,8 +203,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
-   * New user password, in the `password` parameter.
+   * Name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
+   * New user password in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
@@ -402,7 +402,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    To grant user permissions, use the [grantPermission](../api-ref/User/grantPermission.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/GrantPermission](../api-ref/grpc/user_service.md#GrantPermission) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * The new permission to the topic in the `permission` parameter.
+   * New permission to the topic in the `permission` parameter.
 
 
 {% endlist %}
@@ -535,7 +535,7 @@ Using import, you can bring the existing cluster users under {{ TF }} management
       terraform import yandex_mdb_kafka_user.<username> <cluster_ID>:<username>
       ```
 
-      To learn more about importing users, see the [{{ TF }} provider documentation](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_user.html.markdown#import).
+      To learn more about importing users, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_user#import).
 
 {% endlist %}
 

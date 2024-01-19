@@ -46,10 +46,10 @@ You can get detailed information about each {{ dataproc-name }} cluster.
    To get {{ dataproc-name }} cluster details, run the command:
 
    ```bash
-   {{ yc-dp }} cluster get <cluster name or ID>
+   {{ yc-dp }} cluster get <cluster_name_or_ID>
    ```
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](#list).
+   You can get the cluster ID and name with a [list of clusters in the folder](#list).
 
 - API
 
@@ -77,10 +77,10 @@ You can get detailed information about each {{ dataproc-name }} cluster.
    To get a list of operations, run the following command:
 
    ```bash
-   {{ yc-dp }} cluster list-operations <cluster ID or name>
+   {{ yc-dp }} cluster list-operations <cluster_name_or_ID>
    ```
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](#list).
+   You can get the cluster ID and name with a [list of clusters in the folder](#list).
 
 - API
 

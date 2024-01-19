@@ -1,6 +1,6 @@
-## Service: {{ mgp-full-name }} {#managed-greenplum}
+## {{ mgp-full-name }} {#managed-greenplum}
 
-Common labels for all {{ mgp-full-name }} service metrics:
+Common labels for all {{ mgp-name }} metrics:
 
 | Label | Value |
 ----|----
@@ -16,18 +16,18 @@ The load on processor cores.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance. |
-| `cpu.guarantee`<br/>`DGAUGE`, pcs | Guaranteed number of cores. |
-| `cpu.limit`<br/>`DGAUGE`, pcs | Limit on CPUs in use. |
-| `cpu.guest`<br/>`DGAUGE`, % | CPU usage, `guest` usage type. |
-| `cpu.idle`<br/>`DGAUGE`, % | CPU usage, `idle` usage type. |
-| `cpu.iowait`<br/>`DGAUGE`, % | CPU usage, `iowait` usage type. |
-| `cpu.irq`<br/>`DGAUGE`, % | CPU usage, `irq` usage type. |
-| `cpu.nice`<br/>`DGAUGE`, % | CPU usage, `nice` usage type. |
-| `cpu.softirq`<br/>`DGAUGE`, % | CPU usage, `softirq` usage type. |
-| `cpu.steal`<br/>`DGAUGE`, % | CPU usage, `steal` usage type. |
-| `cpu.system`<br/>`DGAUGE`, % | CPU usage, `system` usage type. |
-| `cpu.user`<br/>`DGAUGE`, % | CPU usage, `user` usage type. |
+| `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU performance |
+| `cpu.guarantee`<br/>`DGAUGE`, pcs | Guaranteed number of cores |
+| `cpu.limit`<br/>`DGAUGE`, pcs | Limit on CPUs in use |
+| `cpu.guest`<br/>`DGAUGE`, % | CPU usage, `guest` usage type |
+| `cpu.idle`<br/>`DGAUGE`, % | CPU usage, `idle` usage type |
+| `cpu.iowait`<br/>`DGAUGE`, % | CPU usage, `iowait` usage type |
+| `cpu.irq`<br/>`DGAUGE`, % | CPU usage, `irq` usage type |
+| `cpu.nice`<br/>`DGAUGE`, % | CPU usage, `nice` usage type |
+| `cpu.softirq`<br/>`DGAUGE`, % | CPU usage, `softirq` usage type |
+| `cpu.steal`<br/>`DGAUGE`, % | CPU usage, `steal` usage type |
+| `cpu.system`<br/>`DGAUGE`, % | CPU usage, `system` usage type |
+| `cpu.user`<br/>`DGAUGE`, % | CPU usage, `user` usage type |
 
 ### Disk metrics {#managed-greenplum-disk-metrics}
 Additional labels: `device`: Disk ID in the system.
@@ -37,7 +37,7 @@ Additional labels: `device`: Disk ID in the system.
 | `disk.free`<br/>`DGAUGE`, bytes | Free space. |
 | `disk.inodes_free`<br/>`DGAUGE`, pcs | Number of free inodes. |
 | `disk.inodes_total`<br/>`DGAUGE`, pcs | Available inodes. |
-| `disk.inodes_used`<br/>`DGAUGE`, pcs | Used inodes. |
+| `disk.inodes_used`<br/>`DGAUGE`, pcs | Number of inodes used. |
 | `disk.total`<br/>`DGAUGE`, bytes | Available space. |
 | `disk.used`<br/>`DGAUGE`, bytes | Used space. |
 | `disk.used_percent`<br/>`DGAUGE`, % | Percentage of used space. |
@@ -53,11 +53,11 @@ Additional labels: device: `dev`: Disk ID in the system.
 | `diskio.merged_writes`<br/>`DGAUGE`, pcs | Number of merged disk writes. |
 | `diskio.read_bytes`<br/>`DGAUGE`, bytes | Bytes read from disk. |
 | `diskio.read_time`<br/>`DGAUGE`, ms | Disk read time. |
-| `diskio.reads`<br/>`DGAUGE`, pcs | The number of disk reads. |
+| `diskio.reads`<br/>`DGAUGE`, pcs | Number of disk reads. |
 | `diskio.weighted_io_time`<br/>`DGAUGE`, ms | Waiting time for I/O operations. |
 | `diskio.write_bytes`<br/>`DGAUGE`, bytes | Bytes written to disk. |
 | `diskio.write_time`<br/>`DGAUGE`, ms | Disk write time. |
-| `diskio.writes`<br/>`DGAUGE`, pcs | The number of disk writes. |
+| `diskio.writes`<br/>`DGAUGE`, pcs | Number of disk writes. |
 
 ### RAM metrics {#managed-greenplum-ram-metrics}
 | Name<br/>Type, units | Description |
@@ -136,4 +136,4 @@ Additional labels: device: `dev`: Disk ID in the system.
 | `gp.spill_files_num_per_seghost`<br/>`DGAUGE`, pcs | Number of temporary files per host. |
 | `gp.spill_files_size_per_seghost`<br/>`DGAUGE`, bytes | Size of temporary files per host. |
 
-Read more about the service in the [{{ mgp-full-name }}](../../../managed-greenplum/) documentation.
+Read more about the service in the [{{ mgp-name }}](../../../managed-greenplum/) documentation.
