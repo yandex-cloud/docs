@@ -28,7 +28,7 @@ description: "In this tutorial, you will learn how to manage Spark jobs in {{ da
    1. (Optional) Specify the paths to the JAR files, if any.
    1. (Optional) Configure advanced settings:
 
-      * Specify paths to the necessary files and archives.
+      * Specify paths to the required files and archives.
       * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
 
    1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
@@ -51,25 +51,33 @@ description: "In this tutorial, you will learn how to manage Spark jobs in {{ da
 
       ```bash
       {{ yc-dp }} job create-spark \
-         --cluster-name=<cluster name> \
-         --name=<job name> \
-         --main-class=<application main class name> \
-         --main-jar-file-uri=<path to main jar file> \
-         --jar-file-uris=<path to jar file> \
-         --file-uris=<path to file> \
-         --archive-uris=<path to archive> \
-         --properties=<key-value> \
-         --args=<arguments passed to job> \
-         --packages=<Maven coordinates of jar files as groupId:artifactId:version> \
-         --repositories=<additional repositories to search for packages> \
-         --exclude-packages=<packages to exclude as groupId:artifactId>
+         --cluster-name=<cluster_name> \
+         --name=<job_name> \
+         --main-class=<name_of_main_application_class> \
+         --main-jar-file-uri=<path_to_main_jar_file> \
+         --jar-file-uris=<path_to_jar_file> \
+         --file-uris=<path_to_file> \
+         --archive-uris=<path_to_archive> \
+         --properties=<component_properties> \
+         --args=<arguments> \
+         --packages=<Maven_coordinates_of_jar_files> \
+         --repositories=<additional_repositories> \
+         --exclude-packages=<packages_to_exclude>
       ```
 
-      Pass in the paths to the files required for the job in the following format:
+      Where:
+
+      * `--properties`: Component properties as `key-value` pairs.
+      * `--args`: Arguments passed to the job.
+      * `--packages`: Maven coordinates of JAR files as `groupId:artifactId:version`.
+      * `--repositories`: Additional repositories to search for `packages`.
+      * `--exclude-packages`: Packages to exclude as `groupId:artifactId`.
+
+      Provide the paths to the files required for the job in the following format:
 
       {% include [job-properties-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](./cluster-list.md#list).
+   You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
 - API
 

@@ -1,15 +1,15 @@
-# Integrating with Argo CD
+# Integration with Argo CD
 
 [Argo CD](https://argo-cd.readthedocs.io) is a declarative GitOps tool for continuous delivery to {{ k8s }}.
 
 This tutorial describes how to integrate a [{{ mgl-full-name }} instance](../../../managed-gitlab/concepts/index.md#instance), a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster), and [Argo CD](/marketplace/products/yc/argo-cd), as well as [{{ GLR }}](/marketplace/products/yc/gitlab-runner) installed in the cluster and building Docker containers using [Kaniko](https://github.com/GoogleContainerTools/kaniko).
 
 To integrate Argo CD with {{ managed-k8s-name }} and {{ mgl-name }}:
-1. [{#T}](#create-gitlab).
-1. [{#T}](#configure-gitlab).
-1. [{#T}](#runners).
-1. [{#T}](#setup-repo).
-1. [{#T}](#deploy-argo).
+1. [{#T}](#create-gitlab)
+1. [{#T}](#configure-gitlab)
+1. [{#T}](#runners)
+1. [{#T}](#setup-repo)
+1. [{#T}](#deploy-argo)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -24,12 +24,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
    1. [Create service accounts](../../../iam/operations/sa/create.md):
-      * Service account for {{ k8s }} resources with the [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) [role](../../../iam/concepts/access-control/roles.md) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push to the [registry](../../../container-registry/concepts/registry.md) the [Docker images](../../../container-registry/concepts/docker-image.md) that you build in {{ GL }} and pull them to run [pods](../../concepts/index.md#pod).
+      * Service account for {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
+      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used by the {{ managed-k8s-name }} nodes to push the [Docker images](../../../container-registry/concepts/docker-image.md) assembled in {{ GL }} to the [registry](../../../container-registry/concepts/registry.md) and pull them to run [pods](../../concepts/index.md#pod).
 
       {% note tip %}
 
-      You can use the same service account to manage your {{ managed-k8s-name }} and its node groups.
+      You can use the same service account to manage your {{ managed-k8s-name }} cluster and its node groups.
 
       {% endnote %}
 
@@ -51,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * [Subnet](../../../vpc/concepts/network.md#subnet).
       * [Security group](../../../vpc/concepts/security-groups.md) and [rules](../../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, {{ mgl-name }} instance, and [{{ container-registry-name }} register](../../../container-registry/concepts/registry.md) to run:
          * Rules for service traffic.
-         * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
+         * Rules for accessing the {{ k8s }} API and managing a {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
          * Rules for connecting to a Git repository over SSH on port 22.
          * Rules that allow HTTP and HTTPS traffic through ports 80 and 443.
          * Rules for connecting to {{ container-registry-name }} through port 5050.
@@ -60,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ container-registry-name }} registry.
    1. Specify the following in the configuration file:
       * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-      * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
+      * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) for a {{ managed-k8s-name }} cluster and node groups.
       * {{ managed-k8s-name }} cluster CIDR.
       * Name of the service account for {{ managed-k8s-name }} resources and nodes.
       * Name of the {{ container-registry-name }} registry.
@@ -192,7 +192,7 @@ Install the following items in the local environment:
 1. In the Argo CD console, go to **Settings** → **Repositories**.
 1. Click **Connect Repo Using HTTPS**.
 1. In the resulting form, enter the settings:
-   * **Repository URL**: Repository URL like `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_name>/gitlab-test.git`.
+   * **Repository URL**: Repository URL in the following format: `https://<{{ GL }}_instance_name>.gitlab.yandexcloud.net/<admin_name>/gitlab-test.git`.
    * **Username**: `gitlab-ci-token`.
    * **Password**: A previously generated {{ GL }} token.
 1. Click **Connect**.
@@ -303,4 +303,4 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    {% endlist %}
 
-1. [Delete the {{ GL }} VM](../../../compute/operations/vm-control/vm-delete.md) or {{ mgl-name }} instance that you created.
+1. [Delete the {{ GL }} VM](../../../compute/operations/vm-control/vm-delete.md) or {{ mgl-name }} instance you created.

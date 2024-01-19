@@ -274,7 +274,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 
@@ -297,7 +297,8 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. If the CDN provider is not activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
+   1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
+
    1. Create a CDN resource:
       1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
       1. Set up the main parameters of the CDN resource as follows:

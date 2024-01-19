@@ -15,6 +15,9 @@ description: "Следуя данной инструкции, вы сможет�
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
+    1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts) с ролью:
+       * `storage.viewer`, чтобы только читать данные из смонтированного бакета.
+       * `storage.uploader`, чтобы читать данные из смонтированного бакета и записывать их в него.
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**.
     1. Укажите в поле:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-path }}** — путь монтирования. Директория, к которой смонтируется бакет, будет доступна по указанному пути.

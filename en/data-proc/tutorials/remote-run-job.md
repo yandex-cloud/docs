@@ -22,14 +22,14 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
    1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
 
       ```bash
-      ssh -A <username>@<VM FQDN>
+      ssh -A <username>@<VM_FQDN>
       ```
 
    1. Copy the repository settings from any of the {{ dataproc-name }} cluster hosts. To do this, run a sequence of commands on the VM you created.
       1. Copy the repository address:
 
          ```bash
-         ssh root@<cluster host FQDN> \
+         ssh root@<cluster_host_FQDN> \
          "cat /etc/apt/sources.list.d/yandex-dataproc.list" | \
          sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
          ```
@@ -37,7 +37,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
       1. Copy the GPG key to verify Debian package signatures:
 
          ```bash
-         ssh root@<cluster host FQDN> \
+         ssh root@<cluster_host_FQDN> \
          "cat /srv/dataproc.gpg" | sudo apt-key add -
          ```
 
@@ -63,10 +63,10 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
       ```bash
       sudo -E scp -r \
-          root@<cluster host FQDN>:/etc/hadoop/conf/* \
+          root@<cluster_host_FQDN>:/etc/hadoop/conf/* \
           /etc/hadoop/conf/ && \
       sudo -E scp -r \
-          root@<cluster host FQDN>:/etc/spark/conf/* \
+          root@<cluster_host_FQDN>:/etc/spark/conf/* \
           /etc/spark/conf/
       ```
 
@@ -74,7 +74,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
       ```bash
       sudo useradd sparkuser && \
-      ssh root@<cluster host FQDN> "
+      ssh root@<cluster_host_FQDN> "
         hadoop fs -mkdir /user/sparkuser
         sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser
         sudo -u hdfs hdfs dfs -ls /user/sparkuser
@@ -88,14 +88,14 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
    1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
 
       ```bash
-      ssh -A <username>@<VM FQDN>
+      ssh -A <username>@<VM_FQDN>
       ```
 
    1. Copy the repository settings from any of the {{ dataproc-name }} cluster hosts. To do this, run a sequence of commands on the VM you created.
       1. Copy the repository address:
 
          ```bash
-         ssh ubuntu@<cluster host FQDN> \
+         ssh ubuntu@<cluster_host_FQDN> \
          "cat /etc/apt/sources.list.d/yandex-dataproc.list" | \
          sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
          ```
@@ -103,7 +103,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
       1. Copy the GPG key to verify Debian package signatures:
 
          ```bash
-         ssh ubuntu@<cluster host FQDN> \
+         ssh ubuntu@<cluster_host_FQDN> \
          "cat /srv/dataproc.gpg" | sudo apt-key add -
          ```
 
@@ -129,10 +129,10 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
       ```bash
       sudo -E scp -r \
-          ubuntu@<cluster host FQDN>:/etc/hadoop/conf/* \
+          ubuntu@<cluster_host_FQDN>:/etc/hadoop/conf/* \
           /etc/hadoop/conf/ && \
       sudo -E scp -r \
-          ubuntu@<cluster host FQDN>:/etc/spark/conf/* \
+          ubuntu@<cluster_host_FQDN>:/etc/spark/conf/* \
           /etc/spark/conf/
       ```
 
@@ -140,7 +140,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
       ```bash
       sudo useradd sparkuser && \
-      ssh ubuntu@<cluster host FQDN> "
+      ssh ubuntu@<cluster_host_FQDN> "
         hadoop fs -mkdir /user/sparkuser
         sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser
         sudo -u hdfs hdfs dfs -ls /user/sparkuser
@@ -230,8 +230,8 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
       Result:
 
       ```text
-      20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:8032
-      20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
+      20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}/10.13.13.18:8032
+      20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}/10.13.13.18:10200
       Application Report :
           Application-Id : application_1586176069782_0003
           Application-Name : org.apache.spark.examples.SparkPi
@@ -244,9 +244,9 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
           Progress : 100%
           State : FINISHED
           Final-State : SUCCEEDED
-          Tracking-URL : rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:18080/history/application_1586176069782_0003/1
+          Tracking-URL : rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}:18080/history/application_1586176069782_0003/1
           RPC Port : 41648
-          AM Host : rc1b-dataproc-d-9cd9yoenm4npsznt.{{ dns-zone }}
+          AM Host : rc1b-dataproc-d-9cd9yoen********.{{ dns-zone }}
           Aggregate Resource Allocation : 141510 MB-seconds, 11 vcore-seconds
           Aggregate Resource Preempted : 0 MB-seconds, 0 vcore-seconds
           Log Aggregation Status : SUCCEEDED
@@ -298,7 +298,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
    1. Copy the `month_stat.py` file to the cluster's master host:
 
       ```bash
-      sudo -E scp month_stat.py <username>@<cluster host FQDN>:~/month_stat.py
+      sudo -E scp month_stat.py <username>@<cluster_host_FQDN>:~/month_stat.py
       ```
 
       {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}
@@ -315,7 +315,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
    1. The result of running the application will be exported to HDFS on the cluster. You can list the resulting files using the command:
 
       ```bash
-      ssh <username>@<cluster host FQDN> "hdfs dfs -ls /tmp/month_stat"
+      ssh <username>@<cluster_host_FQDN> "hdfs dfs -ls /tmp/month_stat"
       ```
 
       {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}

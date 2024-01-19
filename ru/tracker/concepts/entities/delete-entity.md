@@ -5,7 +5,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/delete-entity.md
 
 Запрос позволяет удалить сущность — [проект](../../manager/project-new.md) или [портфель проектов](../../manager/portfolio.md).
 
-Запрос представляет унифицированный метод удаления проектов и портфелей, расширяющий возможности API [удаления проекта](../projects/delete-project.md).
+Запрос представляет унифицированный метод удаления проектов и портфелей, более гибкий и функциональный, чем API [удаления проекта](../projects/delete-project.md).
 
 ## Формат запроса {#query}
 
@@ -23,20 +23,7 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<entityType> | Идентификатор сущности:<ul><li>project — проект;</li><li>portfolio — портфель.</li></ul>| Строка
-\<entityId> | Идентификатор сущности. | Строка
-
-{% note warning %}
-
-Идентификатор сущности не совпадает с идентификатором проекта или портфеля.
-
-{% endnote %}  
-
-{% endcut %}
+{% include [resource](../../../_includes/tracker/api/resource-entity.md) %}
 
 {% cut "Параметры запроса" %}
 
@@ -54,7 +41,7 @@ withBoard | Удалить вместе с доской. | Логический
 > - Вместе с проектом удаляется доска задач.
 >
 > ```
-> GET /v2/entities/project/655f328da834c763********?withBoard=true HTTP/1.1
+> DELETE /v2/entities/project/655f328da834c763********?withBoard=true HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}

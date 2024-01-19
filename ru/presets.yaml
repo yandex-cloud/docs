@@ -602,6 +602,8 @@ default:
   s3-c2-m8: s3-c2-m8 (2 vCPU, 8 ГБ)
   s3-dotnet-sdk-host: s3.yandexcloud.net
   s3-storage-host: storage.yandexcloud.net
+  s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
+  s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
   s3-web-host: website.yandexcloud.net
   search-api: Search API
   search-api-full-name: Yandex Search API
@@ -5455,7 +5457,6 @@ default:
             button_action-start: Запустить кластер
             button_action-stop: Остановить кластер
             label_access-datalens: Доступ из DataLens
-            label_anytime-maintenance-warning-value: Произвольное время
             label_bucket: Имя бакета
             label_hdd: Хранилище
             label_health: Состояние

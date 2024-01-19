@@ -14,7 +14,7 @@ The properties of cluster components, jobs, and environments are stored in the f
 The key can either be a simple string or contain a prefix indicating that it belongs to a [specific component](environment.md):
 
 ```text
-<key prefix>:<key body>:<value>
+<key_prefix>:<key_body>:<value>
 ```
 
 Here is an example:
@@ -97,13 +97,13 @@ Changing the `spark:spark.driver.defaultJavaOptions` or `spark:spark.executor.de
 
 The following settings are available for Apache Spark:
 
-| Configuration | Default value | Description |
+| Setup | Default value | Description |
 |:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | `fs.s3a.access.key` | N/A | [Static key](../../iam/concepts/authorization/access-key.md) ID |
 | `fs.s3a.secret.key` | N/A | Secret key |
 | `fs.s3a.endpoint` | `{{ s3-storage-host }}` | Endpoint to connect to {{ objstorage-name }} |
 | `fs.s3a.signing-algorithm` | Empty value | Signature algorithm |
-| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Identity provider |
+| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Credentials provider |
 
 For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 
@@ -113,8 +113,8 @@ To install additional Python packages, you can use the conda or pip package mana
 
 | Package manager | Key | Value | Example |
 |:------------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
-| conda | `conda:<package name>` | Number of the package version according to the [conda specification](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
-| pip | `pip:<package name>` | Number of the package version according to the [pip specification](https://www.python.org/dev/peps/pep-0440/#version-specifiers) | `pip:psycopg2 : 2.7.0` |
+| conda | `conda:<package_name>` | Number of the package version according to the [conda specification](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
+| pip | `pip:<package_name>` | Number of the package version according to the [pip specification](https://www.python.org/dev/peps/pep-0440/#version-specifiers) | `pip:psycopg2 : 2.7.0` |
 
 ## Using Apache Spark Thrift Server {#spark-thrift-server}
 

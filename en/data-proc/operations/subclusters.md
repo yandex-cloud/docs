@@ -26,7 +26,7 @@ Each cluster may have only 1 subcluster with a master host, which is why you can
    To request a list of {{ dataproc-name }} subclusters in a cluster, run the following command:
 
    ```bash
-   {{ yc-dp }} subcluster list --cluster-name=<cluster name>
+   {{ yc-dp }} subcluster list --cluster-name=<cluster_name>
    ```
 
    You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list).
@@ -87,21 +87,21 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
    1. Specify subcluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
       ```bash
-      {{ yc-dp }} subcluster create <subcluster name> \
-         --cluster-name=<cluster name> \
-         --role=<subcluster role> \
-         --resource-preset=<host class> \
-         --disk-type=<type of storage: network-ssd, network-hdd or network-ssd-nonreplicated> \
-         --disk-size=<storage size in GB> \
-         --subnet-name=<subnet name> \
-         --hosts-count=<number of hosts>
+      {{ yc-dp }} subcluster create <subcluster_name> \
+        --cluster-name=<cluster_name> \
+        --role=<subcluster_role> \
+        --resource-preset=<host_class> \
+        --disk-type=<storage_type> \
+        --disk-size=<storage_size_in_GB> \
+        --subnet-name=<subnet_name> \
+        --hosts-count=<number_of_hosts>
       ```
 
       Where:
       * `--cluster-name`: Cluster name. You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list).
       * `--role`: Subcluster role (`datanode`, or `computenode`).
       * `--resource-preset`: [Host class](../concepts/instance-types.md).
-      * `--disk-type`: [Storage type](../concepts/storage.md).
+      * `--disk-type`: [Storage type](../concepts/storage.md) (`network-ssd`, `network-hdd`, or `network-ssd-nonreplicated`).
       * `--disk-size`: Storage size in GB.
       * `--subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
       * `--hosts-count`: Subcluster host count. The minimum value is `1` and the maximum value is `32`.
@@ -114,25 +114,27 @@ The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ li
    1. In the {{ dataproc-name }} cluster description, add a `subcluster_spec` section containing the settings for the new subcluster:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name>" {
+      resource "yandex_dataproc_cluster" "data_cluster" {
         ...
         cluster_config {
           ...
           subcluster_spec {
-            name = "<subcluster name>"
-            role = "<subcluster role: COMPUTENODE or DATANODE>"
+            name = "<subcluster_name>"
+            role = "<subcluster_role>"
             resources {
-              resource_preset_id = "<host class>"
-              disk_type_id       = "<storage type>"
-              disk_size          = <storage size, GB>
+              resource_preset_id = "<host_class>"
+              disk_type_id       = "<storage_type>"
+              disk_size          = <storage_size_in_GB>
             }
-            subnet_id   = "<subnet ID in {{ TF }}>"
-            hosts_count = <number of hosts in subcluster>
+            subnet_id   = "<subnet_ID>"
+            hosts_count = <number_of_subcluster_hosts>
             ...
           }
         }
       }
       ```
+
+      Where `role` is the subcluster role, `COMPUTENODE` or `DATANODE`.
 
    1. Make sure the settings are correct.
 
@@ -175,8 +177,8 @@ You cannot delete data storage subclusters.
    To delete a subcluster in a {{ dataproc-name }} cluster, run the command:
 
    ```bash
-   {{ yc-dp }} subcluster delete <subcluster ID or name> \
-      --cluster-name=<cluster name>
+   {{ yc-dp }} subcluster delete <subcluster_name_or_ID> \
+     --cluster-name=<cluster_name>
    ```
 
    You can request a subcluster name or ID with a [list of cluster subclusters](#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).

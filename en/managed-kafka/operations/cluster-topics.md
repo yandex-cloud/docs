@@ -30,11 +30,11 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
    1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, set the basic parameters of the topic:
-      * The topic name (must be unique in the {{ KF }} cluster).
-      * The number of topic partitions.
-      * The replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
-         * For a cluster with one or two brokers: `1`
-         * For a cluster with three or more brokers: `3`
+      * Topic name (must be unique in the {{ KF }} cluster).
+      * Number of topic partitions.
+      * Replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
+         * For a cluster with one or two brokers: `1`.
+         * For a cluster with three or more brokers: `3`.
    1. Under **{{ ui-key.yacloud.kafka.section_topic-config }}**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -126,8 +126,8 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. Change the basic parameters of the topic:
       * Number of topic partitions.
       * Replication factor. This parameter value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
-         * For a cluster with one or two brokers: `1`
-         * For a cluster with three or more brokers: `3`
+         * For a cluster with one or two brokers: `1`.
+         * For a cluster with three or more brokers: `3`.
    1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -137,7 +137,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To change topic settings:
+   To update topic settings:
    1. View a description of the CLI update topic command:
 
       ```bash
@@ -188,8 +188,8 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - API
 
    To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/topic_service.md#Update) gRPC API call and provide the following in the request:
-   * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
+   * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
    * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
    * List of settings you want to update, in the `updateMask` parameter.
 
@@ -257,8 +257,8 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - API
 
    To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/topic_service.md#Get) gRPC API call and provide the following in the request:
-   * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
+   * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
 
 
 {% endlist %}
@@ -283,7 +283,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
         terraform import yandex_mdb_kafka_topic.<topic_name> <cluster_ID>:<topic_name>
         ```
 
-        To learn more about importing topics, see the [{{ TF }} provider documentation](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_topic.html.markdown#import).
+        To learn more about importing topics, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic#import).
 
 {% endlist %}
 
@@ -340,8 +340,8 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 - API
 
    To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) gRPC API call and provide the following in the request:
-   * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
+   * ID of the cluster in which the topic is located in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
 
 
 {% endlist %}

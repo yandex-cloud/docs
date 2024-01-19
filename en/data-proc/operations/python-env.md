@@ -47,7 +47,7 @@ When using PySpark, it is often required to install or update Python packages in
 1. Install `venv-pack` and other Python environment modules you need:
 
    ```bash
-   pip install venv-pack <module list>
+   pip install venv-pack <module_list>
    ```
 
    For example:
@@ -59,13 +59,13 @@ When using PySpark, it is often required to install or update Python packages in
 1. Archive the resulting environment with the `venv-pack` command:
 
    ```bash
-   venv-pack -o <archive name>.tar.gz
+   venv-pack -o <archive_name>.tar.gz
    ```
 
 1. Send the archive with the environment to the previously created {{ objstorage-short-name }} bucket:
 
    ```bash
-   hdfs dfs -copyFromLocal <archive name>.tar.gz s3a://<bucket name>/
+   hdfs dfs -copyFromLocal <archive_name>.tar.gz s3a://<bucket_name>/
    ```
 
 1. [Delete](./cluster-delete.md) the temporary {{ dataproc-name }} cluster to avoid paying for it.
@@ -85,7 +85,7 @@ When [creating a PySpark job](https://cloud.yandex.ru/docs/data-proc/operations/
 
    Make sure to run jobs in `cluster` mode so that your virtual environment is set up properly. For more information about driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
 
-* `spark.yarn.dist.archives='s3a://<bucket name>/<archive name>.tar.gz#<alias>'`: Path to the archive with the environment.
+* `spark.yarn.dist.archives='s3a://<bucket_name>/<archive_name>.tar.gz#<alias>'`: Path to the archive with the environment.
 
    After the `#` character, enter an arbitrary environment alias. The alias will be used as the name of the subdirectory the archive will be unpacked to.
 
@@ -108,20 +108,20 @@ To use Python virtual environments integrated with {{ ml-platform-full-name }}, 
 
    ```livy
    %create_livy_session \
-       --cluster <{{ dataproc-name }} cluster> --id <Livy session ID> \
-       --conf spark.yarn.dist.archives=s3a://<bucket name>/<archive name>.tar.gz#<alias> \
+       --cluster <cluster_name_or_ID> --id <Livy_session_ID> \
+       --conf spark.yarn.dist.archives=s3a://<bucket_name>/<archive_name>.tar.gz#<alias> \
        --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=./<alias>/bin/python \
-       --conf <other Spark context parameters> ...
+       --conf <other_Spark_context_parameters> ...
    ```
 
    Where:
 
-   * `<{{ dataproc-name }} cluster>`: Name or ID of the {{ dataproc-name }} cluster used for integration.
-   * `<Livy session ID>`: Any string to identify the Livy session in the cluster.
-   * `<bucket name>`: Bucket with the environment archive.
-   * `<archive name>`: Created archive with the Python environment.
+   * `<cluster_name_or_ID>`: Name or ID of the {{ dataproc-name }} cluster used for integration.
+   * `<Livy_session_ID>`: Arbitrary string to identify the Livy session in the cluster.
+   * `<bucket_name>`: Bucket with the environment archive.
+   * `<archive_name>`: Created archive with the Python environment.
    * `<alias>`: Arbitrary environment alias. The alias will be used as the name of the subdirectory the archive will be unpacked to.
-   * `<other Spark context parameters>`: Defined if needed. For a complete list of parameters, see the [Spark documentation](https://spark.apache.org/docs/latest/configuration.html#available-properties).
+   * `<other_Spark_context_parameters>`: Defined if needed. For a complete list of parameters, see the [Spark documentation](https://spark.apache.org/docs/latest/configuration.html#available-properties).
 
 Specify the created session [when running Python code in the cluster](../../datasphere/concepts/data-proc.md#run-code). Dependencies included in the virtual environment will be available for use.
 
@@ -135,7 +135,7 @@ To use Python virtual environments when working in a Zeppelin notebook:
    ```spark
    %spark.conf
    spark.submit.deployMode cluster
-   spark.yarn.dist.archives s3a://<bucket name>/<archive name>.tar.gz#<alias>
+   spark.yarn.dist.archives s3a://<bucket_name>/<archive_name>.tar.gz#<alias>
    spark.yarn.appMasterEnv.PYSPARK_PYTHON ./<alias>/bin/python
    spark.pyspark.python ./<alias>/bin/python
    ```
@@ -146,7 +146,7 @@ To use Python virtual environments when working in a Zeppelin notebook:
 
       Make sure to run jobs in `cluster` mode so that your virtual environment is set up properly. For more information about driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
 
-   * `spark.yarn.dist.archives 's3a://<bucket name>/<archive name>.tar.gz#<alias>'`: Path to the archive with the environment.
+   * `spark.yarn.dist.archives 's3a://<bucket_name>/<archive_name>.tar.gz#<alias>'`: Path to the archive with the environment.
 
       After the `#` character, enter an arbitrary environment alias. The alias will be used as the name of the subdirectory the archive will be unpacked to.
 

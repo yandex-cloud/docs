@@ -359,7 +359,7 @@
 
     * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}** — `ML_MODEL_TYPE_CATBOOST`.
     * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — `ml_test`.
-    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
+    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — `https://{{ s3-storage-host-mch }}/catboost_model.bin`.
 
 1. Установите [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
 

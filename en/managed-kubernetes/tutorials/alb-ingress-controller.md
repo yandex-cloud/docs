@@ -26,11 +26,8 @@ To set up access to the applications running in your {{ managed-k8s-name }} clus
 1. [Install the {{ alb-name }} Ingress controller](../operations/applications/alb-ingress-controller.md).
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Check that you can connect to the {{ managed-k8s-name }} cluster using `kubectl`:
 
-   ```bash
-   kubectl cluster-info
-   ```
+   {% include [Run kubectl cluster-info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 ## Set up the Ingress controller and test applications {#create-ingress-and-apps}
 
@@ -58,7 +55,7 @@ Command result:
 
    1. In a separate folder, create `demo-app-1.yaml` and `demo-app-2.yaml` application files:
 
-      {% cut "demo-app1.yaml" %}
+      {% cut "demo-app-1.yaml" %}
 
       ```yaml
       apiVersion: v1
@@ -159,7 +156,7 @@ Command result:
 
       {% endcut %}
 
-      {% cut "demo-app2.yaml" %}
+      {% cut "demo-app-2.yaml" %}
 
       ```yaml
       apiVersion: v1
@@ -305,6 +302,7 @@ Command result:
       ```
 
       Where:
+
       * `ingress.alb.yc.io/subnets`: One or more subnets that {{ alb-name }} is going to work with.
       * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow outgoing TCP connections on ports 10501 and 10502 in the {{ managed-k8s-name }} node group subnet or security group.
       * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to obtain a new IP address automatically.
@@ -316,6 +314,9 @@ Command result:
          You can replace `my-ingress-group` with any group name you like. Make sure it meets the naming [requirements]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
       (Optional) Enter the advanced settings for the controller:
+
+      {% cut "Additional settings" %}
+
       * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Set up the Ingress group](#configure-group).
       * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
 
@@ -349,6 +350,8 @@ Command result:
 
       * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
+      {% endcut %}
+
       {% note info %}
 
       The settings only apply to the hosts of the given controller rather than the entire Ingress group.
@@ -356,6 +359,7 @@ Command result:
       {% endnote %}
 
       For more information about the Ingress resource settings, see [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
+
    1. Create an Ingress controller and applications:
 
       ```bash
@@ -398,7 +402,7 @@ Command result:
       1. [Configure the website homepage and error page](../../tutorials/web/static.md#index-and-error).
    1. Create a configuration file named `demo-app-1.yaml` for your application:
 
-      {% cut "demo-app1.yaml" %}
+      {% cut "demo-app-1.yaml" %}
 
       ```yaml
       apiVersion: v1

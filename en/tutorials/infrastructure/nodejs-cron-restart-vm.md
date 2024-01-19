@@ -1,0 +1,1 @@
+{% include [nodejs-cron-restart-vm](../../_tutorials/infrastructure/nodejs-cron-restart-vm.md) %}

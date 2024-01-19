@@ -20,11 +20,11 @@
 
    ```bash
    {{ yc-dp }} job log \
-      --cluster-name=<cluster name> \
-      --name=<job name>
+      --cluster-name=<cluster_name> \
+      --name=<job_name>
    ```
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
+   You can get the cluster ID and name with a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
 
 - API
 

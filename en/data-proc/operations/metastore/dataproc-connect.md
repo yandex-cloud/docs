@@ -22,7 +22,7 @@ To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have
    1. When [creating](../cluster-create.md) or [updating](../cluster-update.md) a {{ dataproc-name }} cluster, specify the following [property](../../concepts/settings-list.md):
 
       ```text
-      spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }} cluster IP address>:{{ port-metastore }}
+      spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}
       ```
 
       To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
@@ -40,4 +40,4 @@ To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have
 
 {% endlist %}
 
-For an example of using {{ dataproc-name }} with enabled {{ metastore-name }} cluster, see the [{#T}](../../tutorials/dataproc-to-dataproc.md) tutorial.
+For an example of using {{ dataproc-name }} with a {{ metastore-name }} cluster connected, see the [{#T}](../../tutorials/dataproc-to-dataproc.md) tutorial.

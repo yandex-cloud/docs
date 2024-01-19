@@ -2,9 +2,9 @@
 
 Для работы с API {{ yagpt-name }} необходимо аутентифицироваться со своего аккаунта:
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Аккаунт на Яндексе или федеративный аккаунт
+- Аккаунт на Яндексе или федеративный аккаунт {#yandex-account}
 
   1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
@@ -18,7 +18,7 @@
      x-folder-id: <идентификатор_каталога>
      ```
 
-- Сервисный аккаунт
+- Сервисный аккаунт {#service-account}
 
    Для работы с {{ yagpt-full-name }} сервисный аккаунт должен иметь роль `{{ roles-yagpt-user }}` или выше. {{ yagpt-full-name }} поддерживает два способа аутентификации с сервисным аккаунтом:
 

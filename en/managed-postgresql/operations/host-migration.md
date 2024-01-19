@@ -26,7 +26,7 @@
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run the following command:
+      Run this command:
 
       ```bash
       {{ yc-mdb-pg }} host add \
@@ -123,3 +123,5 @@
 1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
+
+{% include [migration-in-data-transfer-pg-note](../../_includes/data-transfer/notes/postgresql-migration.md) %}

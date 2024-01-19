@@ -17,8 +17,7 @@ Maintenance includes changes within one {{ KF }} major version. For more informa
 
 You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/cluster-update.md):
 
-* **Unspecified time** (default): Maintenance can be performed at any time.
-* **On schedule**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time window when the cluster is least loaded.
+{% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
 ## Maintenance procedure {#maintenance-order}
 

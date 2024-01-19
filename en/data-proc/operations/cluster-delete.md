@@ -20,7 +20,7 @@ To delete a {{ dataproc-name }} cluster, the user must be assigned the `editor` 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the required cluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
@@ -33,7 +33,7 @@ To delete a {{ dataproc-name }} cluster, the user must be assigned the `editor` 
    To delete a cluster, run the command:
 
    ```bash
-   {{ yc-dp }} cluster delete <cluster ID or name>
+   {{ yc-dp }} cluster delete <cluster_name_or_ID>
    ```
 
    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).

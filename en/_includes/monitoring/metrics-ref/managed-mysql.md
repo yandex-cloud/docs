@@ -1,6 +1,6 @@
-## {{ mmy-full-name }} service {#managed-mysql}
+## {{ mmy-full-name }} {#managed-mysql}
 
-Common labels for all {{ mmy-full-name }} metrics:
+Common labels for all {{ mmy-name }} metrics:
 
 | Label | Value |
 ----|----
@@ -56,7 +56,7 @@ The load on processor cores.
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
 | `io.utilization`<br/>`DGAUGE`, % | Disk utilization |
-| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
+| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed |
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
@@ -158,8 +158,8 @@ The load on processor cores.
 | `mysql_config_innodb_log_file_size`<br/>`DGAUGE`, bytes | Log file size in the log group |
 | `mysql_config_max_connections`<br/>`DGAUGE`, pcs | Maximum number of concurrent connections |
 | `mysql_config_table_open_cache`<br/>`DGAUGE`, pcs | Number of open tables cache for all threads |
-| `mysql_config_thread_cache_size`<br/>`DGAUGE`, number | Number of threads that need to be cached to be reused |
-| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
+| `mysql_config_thread_cache_size`<br/>`DGAUGE`, pcs | Number of threads that need to be cached to be reused |
+| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host performance indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
 | `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>`1` if a DB host is a master, `0` if it is not. |
 | `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>`1` if a DB host is a replica, `0` if it is not. |
 | `mysql_latency_query_0.5`<br/>`DGAUGE`, seconds | Query execution time, median value |
@@ -176,4 +176,4 @@ The load on processor cores.
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if it is not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if it is not. |
 
-Read more about the service in the [{{ mmy-full-name }}](../../../managed-mysql/) documentation.
+Read more about the service in the [{{ mmy-name }}](../../../managed-mysql/) documentation.

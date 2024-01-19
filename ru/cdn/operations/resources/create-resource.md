@@ -123,7 +123,7 @@ description: "Следуя данной инструкции, вы сможет�
           origin_group_id: "90208"
           source: www.a1.com
           enabled: true
-        ```      
+      ```      
 
   1. Создайте ресурс:
   
@@ -140,9 +140,24 @@ description: "Следуя данной инструкции, вы сможет�
       * `--secure-key` — секретный ключ — произвольная строка длиной от 6 до 32 символов.
       * `--enable-ip-url-signing` — (опционально) параметр, который включает ограничение доступа к CDN-ресурсу по IP-адресу. Сам доверенный IP-адрес задается вне CDN-ресурса и указывается в качестве параметра при формировании [MD5](https://ru.wikipedia.org/wiki/MD5)-хэша для [подписанной ссылки](../../concepts/secure-tokens.md#protected-link). Если параметр не задан, доступ к файлам будет разрешен с любых IP-адресов.
 
-      Cм. также [{#T}](./enable-secure-token.md).
+      См. также [{#T}](./enable-secure-token.md).
       
       Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
+
+  1. Получите значение [CNAME-записи](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса:
+
+      ```bash
+      yc cdn resource get-provider-cname
+      ```
+
+      Результат:
+
+      ```text
+      cname: cl-ms6*****90.edgecdn.ru
+      folder_id: b1gt6g8ht345********
+      ```
+
+  1. В сервисе {{ dns-full-name }} [создайте](../../../dns/operations/resource-record-create.md) ресурсную запись с полученным значением. 
 
 - {{ TF }} {#tf}
 
@@ -208,9 +223,32 @@ description: "Следуя данной инструкции, вы сможет�
      yc cdn resource list
      ```
 
+  1. Получите значение [CNAME-записи](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса:
+
+      ```bash
+      yc cdn resource get-provider-cname
+      ```
+
+      Результат:
+
+      ```text
+      cname: cl-ms6*****90.edgecdn.ru
+      folder_id: b1gt6g8ht345********
+      ```
+
+  1. В сервисе {{ dns-full-name }} [создайте](../../../dns/operations/resource-record-create.md) ресурсную запись с полученным значением.
+
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create).
+  Если вы создаете первый ресурс, подключитесь к CDN-провайдеру. Для этого воспользуйтесь методом REST API [activate](../../api-ref/Provider/activate.md) для ресурса [Provider](../../api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../../api-ref/grpc/provider_service.md#Activate).
+
+  1. Воспользуйтесь методом REST API [create](../../api-ref/Resource/create.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create).
+
+  1. Создайте [CNAME-запись](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса в {{ dns-full-name }}:
+
+      * Чтобы получить значение CNAME-записи для CDN-ресурса, воспользуйтесь методом REST API [getProviderCName](../../api-ref/Resource/getProviderCName.md) для ресурса [Resource](../../api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/GetProviderCName](../../api-ref/grpc/resource_service.md#GetProviderCName).
+
+      * Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets).
 
 {% endlist %}
 

@@ -71,3 +71,4 @@ To learn how to install the Ingress controller, see [this guide](../../operation
 * [Controller operating principles](principles.md).
 * [Security group configuration](security-groups.md) for a {{ k8s }} cluster and a load balancer.
 * [Service account](service-account.md) to support controller operation.
+* [ALB Ingress Controller in {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/alb-ingress-controller).

@@ -22,8 +22,6 @@ For the load balancer to work correctly:
 
 When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
 
-For a load balancer to run, make sure there are subnets in all availability zones even if you are not going to accept traffic in them. If any availability zone is missing subnets, [create](../../vpc/operations/subnet-create.md) them.
-
 See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommended for load balancers.
 
 You can disable the load balancer in the selected availability zones. In this case, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue delivering traffic to backends in the availability zones where the load balancer was disabled, if this is allowed by the [locality aware routing](backend-group.md#locality) settings.
@@ -124,7 +122,7 @@ For a full list of metrics delivered to {{ monitoring-full-name }}, see the [ref
 
 {{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }}, you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
 
-For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
+To learn how to view statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
 
 ## Logging {#logging}
 

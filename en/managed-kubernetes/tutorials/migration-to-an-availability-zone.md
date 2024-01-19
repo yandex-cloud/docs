@@ -18,11 +18,11 @@
 
 Node group migration works differently depending on the type of workload in the pods:
 
-* [Stateless workload](#stateless). The functioning of applications within the pods during migration depends on how the workload is distributed among the cluster nodes. If the pods are deployed both in a node group being migrated and groups where the availability zone stays the same, the applications continue to run. If the pods are only deployed in the migrating group, both the pods and the applications within them will have to be stopped for a short period of time.
+* [Stateless workload](#stateless): The functioning of applications in the pods during migration depends on how the workload is distributed among the cluster nodes. If the pods reside both in the node group you are migrating and the groups for which the availability zone remains the same, the applications will continue to run. If the pods only reside in the group you are migrating, both the pods and the applications in them will have to be stopped for a short while.
 
    Examples of stateless workloads include the web server, {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), and REST API applications.
 
-* With [stateful workloads](#stateful), the pods and the applications have to be stopped for a short period of time, regardless of how the workload is distributed among the cluster nodes.
+* [Stateful workloads](#stateful): The pods and applications will have to be stopped for a short while regardless of the distribution of workload among the cluster nodes.
 
    Examples of stateful workloads include databases and storages.
 
@@ -80,51 +80,9 @@ Node group migration works differently depending on the type of workload in the 
 
    {% endlist %}
 
-1. Create a subnet in the availability zone you want to move your node group to.
+1. Create a subnet in the new availability zone and migrate the node group:
 
-   {% list tabs %}
-
-   - CLI
-
-      ```bash
-      yc vpc subnet create \
-         --name <subnet_name> \
-         --zone <availability_zone> \
-         --network-id <network_ID> \
-         --range <subnet_CIDR>
-      ```
-
-      In the command, specify the following subnet parameters:
-
-      * `--name`: Subnet name.
-      * `--zone`: Availability zone (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`).
-      * `--network-id`: ID of the network the new subnet belongs to.
-      * `--range`: List of IPv4 addresses for outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
-
-   {% endlist %}
-
-1. Migrate your node group to a different availability zone:
-
-   {% list tabs %}
-
-   - CLI
-
-      ```bash
-      {{ yc-k8s }} node-group update \
-         --id <node_group_ID> \
-         --location zone=<availability_zone>,subnet-id=<subnet_ID> \
-         --network-interface subnets=<subnet_ID>
-      ```
-
-      This command recreates the nodes within their group in the specified availability zone and subnet. When recreating, the deployment settings are considered: the maximum number of nodes by which you can increase or decrease the group size versus the original node count.
-
-      In the command, set the following parameter values:
-
-      * `--id`: ID of the node group to migrate to a different availability zone.
-      * `zone`: New availability zone.
-      * `subnet-id` and `subnets`: ID of the new subnet that you created when migrating the master host.
-
-   {% endlist %}
+   {% include [node-group-migration](../../_includes/managed-kubernetes/node-group-migration.md) %}
 
 1. Make sure the pods are running in the migrated node group:
 
@@ -188,7 +146,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
       kubectl apply -f snapshot.yaml
       ```
 
-   1. Make sure the snapshot has been created:
+   1. Check that the snapshot has been created:
 
       ```bash
       kubectl get volumesnapshots.snapshot.storage.k8s.io
@@ -314,51 +272,9 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
       The output of the `PersistentVolumeClaim` command will contain the size you specified in the YAML file.
 
-1. Create a subnet in the availability zone you want to move your node group to.
+1. Create a subnet in the new availability zone and migrate the node group:
 
-   {% list tabs %}
-
-   - CLI
-
-      ```bash
-      yc vpc subnet create \
-         --name <subnet_name> \
-         --zone <availability_zone> \
-         --network-id <network_ID> \
-         --range <subnet_CIDR>
-      ```
-
-      In the command, specify the following subnet parameters:
-
-      * `--name`: Subnet name.
-      * `--zone`: Availability zone (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`).
-      * `--network-id`: ID of the network the new subnet belongs to.
-      * `--range`: List of IPv4 addresses for outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
-
-   {% endlist %}
-
-1. Migrate your node group to a different availability zone:
-
-   {% list tabs %}
-
-   - CLI
-
-      ```bash
-      {{ yc-k8s }} node-group update \
-         --id <node_group_ID> \
-         --location zone=<availability_zone>,subnet-id=<subnet_ID> \
-         --network-interface subnets=<subnet_ID>
-      ```
-
-      This command recreates the nodes within their group in the specified availability zone and subnet. When recreating, the deployment settings are considered: the maximum number of nodes by which you can increase or decrease the group size versus the original node count.
-
-      In the command, set the following parameter values:
-
-      * `--id`: ID of the node group to migrate to a different availability zone.
-      * `zone`: New availability zone.
-      * `subnet-id` and `subnets`: ID of the new subnet that you created when migrating the master host.
-
-   {% endlist %}
+   {% include [node-group-migration](../../_includes/managed-kubernetes/node-group-migration.md) %}
 
 1. Restore the original number of pods managed by the `StatefulSet` controller:
 

@@ -1,6 +1,6 @@
 # Terminating TLS connections
 
-{{ alb-name }} L7 load balancers can _terminate_ TLS connections: send certificates to clients, decrypt incoming traffic to send to the backends, and encrypt backend responses to forward to clients. This scenario describes configuring a load balancer to terminate TLS connections using a certificate from {{ certificate-manager-name }} and to redirect HTTP requests to HTTPS.
+[{{ alb-full-name }}](../../application-load-balancer/) [L7 load balancers](../../application-load-balancer/concepts/application-load-balancer.md) can _terminate_ TLS connections: send certificates to clients, decrypt incoming traffic to send to the backends, and encrypt [backend](../../application-load-balancer/concepts/backend-group.md) responses to forward to clients. This scenario describes configuring a load balancer to terminate TLS connections using a [certificate](../../certificate-manager/concepts/index.md) from [{{ certificate-manager-full-name }}](../../certificate-manager/) and to redirect HTTP requests to HTTPS.
 
 This scenario uses `my-site.com` as an example domain name.
 
@@ -10,31 +10,31 @@ To create a virtual hosting:
 1. [Reserve a static public IP address](#reserve-ip).
 1. [Create security groups](#create-security-groups).
 1. [Import the site's TLS certificate into {{ certificate-manager-name }}](#import-certificate).
-1. [Create a VM group for the site](#create-ig).
+1. [Create an instance group for the website](#create-ig).
 1. [Upload the site files to the VM](#upload-site-files).
 1. [Create a backend group](#create-backend-group).
 1. [Create and configure an HTTP router](#create-http-router).
 1. [Create an L7 load balancer](#create-l7-balancer).
+1. [Configure the site's DNS](#configure-dns).
 1. [Check that the hosting is running properly](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+You can also use a [ready-made configuration file](#terraform) to deploy the infrastructure for a virtual hosting via {{ TF }}.
 
 ## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of virtual hosting includes:
-
-* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+* Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a [public static IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a cloud network {#create-network}
 
-All resources you have created in the tutorial belong to the same [cloud network](../../vpc/concepts/network.md).
+All the resources created in the use case will belong to the same [cloud network](../../vpc/concepts/network.md).
 
 To create a network:
 
@@ -48,13 +48,17 @@ To create a network:
    1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
    1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Reserve a static public IP address {#reserve-ip}
 
 For your virtual hosting to run, you need to assign a static public IP address to the L7 load balancer.
 
-To reserve an address:
+To reserve an IP address:
 
 {% list tabs %}
 
@@ -62,7 +66,11 @@ To reserve an address:
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-   1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+   1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -79,14 +87,13 @@ To create security groups:
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab.
    1. Create a security group for the load balancer:
-
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-      1. Enter a **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** for the group: `mysite-sg-balancer`.
+      1. Enter a **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** for the security group: `mysite-sg-balancer`.
       1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**: `mysite-network`.
       1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
-         | --- | --- | --- | --- | --- | --- |
+         | Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+         --- | --- | --- | --- | --- | ---
          | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
          | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
@@ -97,15 +104,11 @@ To create security groups:
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
          1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
-
-            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of [subnets](../../vpc/concepts/network.md#subnet) that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
-
          1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
-
       1. Click **{{ ui-key.yacloud.common.save }}**.
-
    1. In the same way, create a security group named `mysite-sg-vms` for the VM and a network named `mysite-network` with the following rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
@@ -113,13 +116,17 @@ To create security groups:
       | `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `mysite-sg-balancer` |
       | `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Import the site's TLS certificate into {{ certificate-manager-name }} {#import-certificate}
 
 For users to access the site using the secure HTTPS protocol (HTTP over TLS), the site must have a TLS certificate issued. For use in the L7 load balancer, import the certificate into {{ certificate-manager-name }}.
 
-If your site does not have a certificate, you can use [to get a {{ certificate-manager-name }}certificate from Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md). This does not require additional steps after creating a certificate. It is imported automatically.
+If your website does not have a certificate, you can [use {{ certificate-manager-name }} to get a certificate from Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md). This does not require additional steps after creating a certificate. It is imported automatically.
 
 To import an existing certificate for `my-site.com`:
 
@@ -135,11 +142,15 @@ To import an existing certificate for `my-site.com`:
    1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with the key or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Create a VM group for the site {#create-ig}
 
-To create a VM group for `my-site.com`:
+To create a [VM group](../../compute/concepts/instance-groups/index.md) for `my-site.com`:
 
 {% list tabs %}
 
@@ -152,8 +163,7 @@ To create a VM group for `my-site.com`:
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-
-      * Select the VM's [platform](../../compute/concepts/vm-platforms.md).
+      * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
       * Specify the required number of vCPUs and the amount of RAM.
 
       The minimum configuration is enough for functional website testing:
@@ -161,25 +171,28 @@ To create a VM group for `my-site.com`:
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
-
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** named `mysite-network` that you [created earlier](#create-network) and its subnets.
    1. Select the [previously created](#create-security-groups) `mysite-sg-vms` security group.
-   1. Specify the data required for accessing the VM:
+   1. Enter the VM access information:
       * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You need to create a key pair for the SSH connection yourself. See [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
+         You need to create a key pair for the SSH connection yourself. To learn how, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 
-      The IP address and host name (FQDN) to connect to the VM are assigned at VM creation. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
+      Once created, the VM will be assigned an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 
    1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, enter the **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** of the instance group: 2.
-   1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and specify `mysite-tg` as the group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and specify `mysite-tg` as the instance group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -187,7 +200,7 @@ It may take a few minutes to create an instance group. When the group [status](.
 
 ## Upload the site files to the VM {#upload-site-files}
 
-To test the web servers, upload the `index.html` files to the virtual machines.
+To test the web servers, upload the `index.html` files to the VM.
 
 {% cut "Example of the index.html file" %}
 
@@ -211,7 +224,7 @@ To upload a file to a VM:
 
 ## Create a backend group {#create-backend-group}
 
-You must link the target group created with the VM group to the [backend group](../../application-load-balancer/concepts/backend-group.md) that defines traffic allocation settings.
+You must link the target group created with the VM group to the backend group that defines traffic allocation settings.
 
 For the backends, groups will implement [health checks](../../application-load-balancer/concepts/backend-group.md#health-checks): the load balancer will periodically send health check requests to the VMs and expect a response after a certain delay.
 
@@ -232,6 +245,10 @@ To create a backend group for `my-site.com`:
    1. Specify the **{{ ui-key.yacloud.alb.label_port }}** that the backend VMs will use to accept health check connections: `80`.
    1. Enter the **{{ ui-key.yacloud.alb.label_path }}** to be accessed by the load balancer for health checks: `/`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -255,6 +272,10 @@ To create an HTTP router:
    1. Enter a **{{ ui-key.yacloud.common.name }}** for the route: `mysite-route`.
    1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the `my-site-bg` group.
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -288,11 +309,57 @@ To create an HTTP router:
          1. Specify the **{{ ui-key.yacloud.common.name }}** for the SNI match: `mysite-sni`.
          1. In the **{{ ui-key.yacloud.alb.label_server-names }}** field, enter `my-site.com`.
          1. Select the `mysite-cert` certificate and the `mysite-router` HTTP router.
-
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- {{ TF }}
+
+   See [How to create an infrastructure using {{ TF }}](#terraform).
 
 {% endlist %}
 
+## Configure the site's DNS {#configure-dns}
+
+The `my-site.com` domain name must be mapped to the L7 load balancer IP address using DNS records. To do this:
+
+1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. Copy the IP address of the load balancer that you created.
+1. On the site of your DNS hosting provider, go to the DNS settings.
+1. Create or edit the A record for `my-site.com` so that it links to the copied IP address:
+
+   ```text
+   my-site.com. A <L7_load_balancer_IP_address>
+   ```
+
+   If you use {{ dns-full-name }}, follow this guide to configure the record:
+
+   {% cut "Guide on configuring DNS records for {{ dns-name }}" %}
+
+   {% list tabs %}
+
+   - Management console
+
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. If you do not have a public [DNS zone](../../dns/concepts/dns-zone.md), create one:
+         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
+         1. Enter a **{{ ui-key.yacloud.common.name }}** for the zone: `tls-termination-dns`.
+         1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the site's domain name with a trailing dot: `my-site.com.`.
+         1. Select a **{{ ui-key.yacloud.common.type }}** of the zone: `{{ ui-key.yacloud.dns.label_public }}`.
+         1. Click **{{ ui-key.yacloud.common.create }}**.
+      1. Create a record in the zone:
+         1. In the list of zones, click `tls-termination-dns`.
+         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+         1. Leave the **{{ ui-key.yacloud.common.name }}** field empty so that the record matches the `my-site.com` domain name (rather than a name with a subdomain, such as `www.my-site.com`).
+         1. Select the record **{{ ui-key.yacloud.common.type }}**: **A**.
+         1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied IP address of the load balancer.
+         1. Click **{{ ui-key.yacloud.common.create }}**.
+
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
+   {% endlist %}
+
+   {% endcut %}
 
 ## Check that the hosting is running properly {#test}
 
@@ -310,3 +377,92 @@ To shut down the hosting and stop paying for the created resources:
 
 1. [Delete](../../compute/operations/instance-groups/delete.md) the `mysite-ig` instance group.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP address that you reserved.
+
+## How to create an infrastructure using {{ TF }} {#terraform}
+
+{% include [terraform-definition](../terraform-definition.md) %}
+
+To create the infrastructure for terminating TLS connections using {{ TF }}:
+
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+
+1. Prepare files with the infrastructure description:
+
+   {% list tabs %}
+
+   - Ready-made configuration
+
+      1. Clone the repository with configuration files.
+
+         ```bash
+         git clone https://github.com/yandex-cloud-examples/yc-alb-tls-termination.git
+         ```
+
+      1. Go to the directory with the repository. Make sure it contains the following files:
+
+         * `tls-termination-config.tf`: Configuration of the infrastructure you create.
+         * `tls-terminationg.auto.tfvars`: File with user data.
+
+   - Creating files manually
+
+      1. Create a directory for configuration files.
+
+      1. In the directory, create:
+
+         1. `tls-termination-config.tf` configuration file:
+
+            {% cut "tls-termination-config.tf" %}
+
+            {% include [tls-termination-config](../../_includes/application-load-balancer/tls-termination-config.md) %}
+
+            {% endcut %}
+
+         1. `tls-termination.auto.tfvars` file with user data:
+
+            {% cut "tls-termination.auto.tfvars" %}
+
+            ```hcl
+            folder_id    = "<folder_ID>"
+            vm_user      = "<VM_user_name>"
+            ssh_key_path = "<path_to_public_SSH_key>"
+            domain       = "<domain>"
+            certificate  = "<path_to_certificate_file>"
+            private_key  = "<path to_file_with_private_key"
+            ```
+
+            {% endcut %}
+
+   {% endlist %}
+
+   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+
+   * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+   * [yandex_vpc_address]({{ tf-provider-resources-link }}/vpc_address)
+   * [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+   * [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate)
+   * [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
+   * [yandex_compute_instance_group]({{ tf-provider-resources-link }}/compute_instance_group)
+   * [yandex_alb_backend_group]({{ tf-provider-resources-link }}/alb_backend_group)
+   * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router)
+   * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
+   * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
+
+1. In the `tls-termination.auto.tfvars` file, set the user-defined parameters:
+
+   * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+   * `vm_user`: VM username.
+   * `ssh_key_path`: Path to the file with the public SSH key. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `domain`: Domain to host the site.
+   * `certificate`: Path to the file with the [user certificate](../../certificate-manager/operations/import/cert-create.md#create-file).
+   * `private_key`: Path to the file with the user certificate's private key.
+
+1. Create resources:
+
+   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+1. [Upload the site files to the VM](#upload-site-files).
+1. [Check that the hosting is running properly](#test).

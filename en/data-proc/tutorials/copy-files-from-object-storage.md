@@ -52,14 +52,14 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 To use a secret storage provider, place the secrets within the components that need access to {{ objstorage-name }}. To do this, you can use [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore).
 In this example, you first create a file with secrets and then place it in HDFS:
 
-1. Specify the `access key` and `secret key`, for example:
+1. Specify the static and secret keys, e.g.:
 
    ```bash
    hadoop credential create fs.s3a.access.key \
-          -value <access key> \
+          -value <static_key> \
           -provider localjceks://file/home/jack/yc.jceks && \
    hadoop credential create fs.s3a.secret.key \
-          -value <secret key> \
+          -value <secret_key> \
           -provider localjceks://file/home/jack/yc.jceks
    ```
 
@@ -79,10 +79,10 @@ In this example, you first create a file with secrets and then place it in HDFS:
           -skipcrccheck \
           -numListstatusThreads 10 \
           s3a://yc-mdb-examples/dataproc/example01/set01 \
-          hdfs://<HDFS host>/<path>/
+          hdfs://<HDFS_host>/<path>/
    ```
 
-   `<HDFS host>` is the target HDFS server you use. You can get the default server using the command:
+   `<HDFS_host>` is the target HDFS server you use. You can get the default server using the command:
 
    ```bash
    hdfs getconf -confKey fs.defaultFS
@@ -108,7 +108,7 @@ Instead of creating a secrets file, you can pass keys in the command arguments:
 ```bash
 hadoop distcp \
        -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
-       -D fs.s3a.bucket.dataproc-examples.access.key=<access_key> \
+       -D fs.s3a.bucket.dataproc-examples.access.key=<static_key> \
        -D fs.s3a.bucket.dataproc-examples.secret.key=<secret_key> \
        -update \
        -skipcrccheck \
@@ -226,7 +226,7 @@ It may take a long time for the jobs creating or updating a large number (hundre
 
 * `hive:datanucleus.connectionPool.maxPoolSize`: Maximum size of the {{ metastore-full-name }} DB connection pool.
 * `hive:hive.metastore.fshandler.threads`: Number of threads running background operations with the file system within {{ metastore-full-name }}.
-* `spark:spark.sql.addPartitionInBatch.size`: Number of partitions updated per {{ metastore-full-name }} call. The optimal value is `10 × <hive:hive.metastore.fshandler.threads setting value>` or higher.
+* `spark:spark.sql.addPartitionInBatch.size`: Number of partitions updated per {{ metastore-full-name }} call. The optimal value is `10 × <hive:hive.metastore.fshandler.threads_setting_value>` or higher.
 
 {% note info %}
 
@@ -254,7 +254,7 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
       sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
       sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
       sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
-      sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<path to JCEKS file>");
+      sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<path_to_JCEKS_file>");
       ```
    * Using your access key and secret:
 
@@ -262,15 +262,15 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
       sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
       sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
       sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
-      sc.hadoopConfiguration.set("fs.s3a.access.key","<access key>");
-      sc.hadoopConfiguration.set("fs.s3a.secret.key","<bucket secret>");
+      sc.hadoopConfiguration.set("fs.s3a.access.key","<access_key>");
+      sc.hadoopConfiguration.set("fs.s3a.secret.key","<bucket_secret>");
       ```
 
    You can then read the file from {{ objstorage-name }}:
 
    ```scala
    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-   val df = sqlContext.read.parquet("s3a://<bucket name>/<object path>")
+   val df = sqlContext.read.parquet("s3a://<bucket_name>/<object_path>")
    ```
 
 - PySpark Shell
@@ -283,7 +283,7 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
       sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
       sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
       sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
-      sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<path to JCEKS file>")
+      sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<path_to_JCEKS_file>")
       ```
 
    * Reading a file using an access key and bucket secret:
@@ -292,8 +292,8 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
       sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
       sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
       sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
-      sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<access key>")
-      sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<bucket secret>")
+      sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<access_key>")
+      sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<bucket_secret>")
       ```
 
    Once you have access, you can read the file directly from {{ objstorage-name }}:
@@ -302,7 +302,7 @@ For more information, see the [Apache Spark documentation](https://spark.apache.
    from pyspark.sql import SQLContext
 
    sql = SQLContext(sc)
-   df = sql.read.parquet("s3a://<bucket name>/<object path>")
+   df = sql.read.parquet("s3a://<bucket_name>/<object_path>")
    ```
 
 {% endlist %}

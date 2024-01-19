@@ -20,7 +20,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where to create a service account in.
+      1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to create a service account.
       1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the name: `group-coi`.
@@ -38,18 +38,18 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
          Result:
 
          ```bash
-         id: ajeabccde01d23efl1v5
-         folder_id: b0g12ga82bcv0cdeferg
+         id: ajeabccde01d********
+         folder_id: b0g12ga82bcv********
          created_at: "2023-03-13T14:32:18.900092Z"
          name: group-coi
          ```
 
-      1. Assign the role to the service account:
+      1. Assign a role to the service account:
 
          ```bash
-         yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
+         yc resource-manager folder add-access-binding b0g12ga82bcv******** \
            --role editor \
-           --subject serviceAccount:ajeabccde01d23efl1v5
+           --subject serviceAccount:ajeabccde01d********
          ```
 
    - API
@@ -82,8 +82,8 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
          Result:
 
          ```bash
-         id: enpabce123hde4ft1r3t
-         folder_id: b0g12ga82bcv0cdeferg
+         id: enpabce123hd********
+         folder_id: b0g12ga82bcv********
          created_at: "2023-03-13T14:57:15Z"
          name: yc-auto-network
          ```
@@ -91,16 +91,16 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       1. Create a subnet in the `{{ region-id }}-a` availability zone:
 
          ```bash
-         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
+         yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-a
          ```
 
          Result:
 
          ```bash
-         id: e1lnabc23r1c9d0efoje
-         folder_id: b0g12ga82bcv0cdeferg
+         id: e1lnabc23r1c********
+         folder_id: b0g12ga82bcv********
          created_at: "2023-03-13T16:23:12Z"
-         network_id: enpabce123hde4ft1r3t
+         network_id: enpabce123hd********
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24
@@ -121,9 +121,9 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    ```yaml
    name: group-coi-containers # Instance group name that must be unique within the folder.
-   service_account_id: ajeabccde01d23efl1v5 # Service account ID.
+   service_account_id: ajeabccde01d******** # Service account ID.
    instance_template:
-     service_account_id: ajeabccde01d23efl1v5 # ID of the service account to access private Docker images.
+     service_account_id: ajeabccde01d******** # ID of the service account to access private Docker images.
      platform_id: standard-v3 # Platform ID.
      resources_spec:
        memory: 2G # Amount of memory (RAM).
@@ -131,13 +131,13 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
      boot_disk_spec:
        mode: READ_WRITE # Disk access mode (read and write).
        disk_spec:
-         image_id: <ID of latest COI version>
+         image_id: <ID_of_latest_COI_version>
          type_id: network-hdd # Disk type.
          size: 32G # Disk size. It must be at least 30 GB.
      network_interface_specs:
-      - network_id: enpabce123hde4ft1r3t # Network ID.
+      - network_id: enpabce123hd******** # Network ID.
         subnet_ids:
-          - e1lnabc23r1c9d0efoje # Subnet ID.
+          - e1lnabc23r1c******** # Subnet ID.
         primary_v4_address_spec: {
           one_to_one_nat_spec: {
             ip_version: IPV4 # IPv4 specification for public access to the VM.
@@ -192,17 +192,17 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
       ```bash
       done (48s)
-      id: cl0q12abcd4ef8m966de
-      folder_id: b0g12ga82bcv0cdeferg
+      id: cl0q12abcd4e********
+      folder_id: b0g12ga82bcv********
       ...
         target_size: "2"
-      service_account_id: ajeabccde01d23efl1v5
+      service_account_id: ajeabccde01d********
       status: ACTIVE
       ```
 
    - API
 
-     Use the [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
+      Use the [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 
@@ -229,14 +229,14 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
       +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
       |     INSTANCE ID      |           NAME            |            EXTERNAL IP           | INTERNAL IP |         STATUS         | STATUS MESSAGE |
       +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
-      | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | {{ external-ip-examples.0 }} | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
-      | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | {{ external-ip-examples.1 }} | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
+      | fhmabcv0de12******** | cl0q12abcs4g********-fmar | {{ external-ip-examples.0 }}                   | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
+      | fhmab0cdqj12******** | cl0q12abcs4g********-fqeg | {{ external-ip-examples.1 }}                   | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
       +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
       ```
 
    - API
 
-     See the list of the instance you created using the [List](../../compute/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
+      See the list of the instance you created using the [List](../../compute/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 

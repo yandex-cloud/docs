@@ -87,7 +87,7 @@ Rule settings depend on the connection method you select:
 
    When using [port forwarding](../operations/connect-interfaces.md#routing), [add](../../vpc/operations/security-group-add-rule.md) rules to the intermediate VM security group that allow incoming and outgoing traffic via the required components' ports:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `<component port>`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `<component_port>`.
 
       Port numbers for {{ dataproc-name }} components are shown in the table:
 
@@ -135,16 +135,16 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
    ssh-add ~/.ssh/example-key
    ```
 
-1. Open an SSH connection to the {{ dataproc-name }} host by specifying its FQDN or IP address if public access is enabled for the host.  For image 2.0, specify the `ubuntu` user, for image 1.4 — `root`. For example:  
+1. Open an SSH connection to the {{ dataproc-name }} host by specifying its FQDN or IP address if public access is enabled for the host.  For image 2.0, specify the `ubuntu` user, for image 1.4, `root`, e.g.:  
 
    ```bash
-   ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
+   ssh ubuntu@rc1b-dataproc-m-fh4y4nur********.{{ dns-zone }}
    ```
 
    Result:
 
    ```text
-   ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
+   ubuntu@rc1b-dataproc-m-fh4y4nur********:~#
    ```
 
 1. Make sure that Hadoop commands are executed, for example:
@@ -157,10 +157,10 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
 
    ```text
    Hadoop 2.8.5
-   Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4d24e81b5
+   Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4********
    Compiled by robot-pgaas-ci on 2019-04-16T10:35Z
    Compiled with protoc 2.5.0
-   From source with checksum 9942ca5c745417c14e318835f420733
+   From source with checksum 9942ca5c745417c14e31883********
    This command was run using /usr/lib/hadoop/hadoop-common-2.8.5.jar
    ```
 

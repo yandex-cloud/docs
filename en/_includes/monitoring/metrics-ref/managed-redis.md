@@ -1,4 +1,4 @@
-## {{ mrd-full-name }} service {#managed-redis}
+## {{ mrd-full-name }} {#managed-redis}
 
 Common labels for all {{ mrd-name }} metrics:
 

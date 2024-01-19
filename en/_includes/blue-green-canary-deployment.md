@@ -219,7 +219,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -310,7 +310,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -435,7 +435,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
             terraform plan
             ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -598,7 +598,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -852,7 +852,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1075,7 +1075,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1101,7 +1101,7 @@ To create security groups:
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. If the CDN provider is not activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
+   1. {% include [activate-provider](./cdn/activate-provider.md) %}
    1. Create a CDN resource:
 
       1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
@@ -1149,7 +1149,7 @@ To create security groups:
 
 - {{ yandex-cloud }} CLI
 
-   1. If the CDN provider is not activated yet, run the command:
+   1. If the CDN provider is not activated yet, run this command:
 
       ```bash
       yc cdn provider activate --folder-id <folder_ID> --type gcore
@@ -1262,7 +1262,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1440,7 +1440,7 @@ To configure DNS:
             terraform plan
             ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 

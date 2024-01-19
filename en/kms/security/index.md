@@ -22,7 +22,7 @@ You can manage access to {{ kms-short-name }} keys using both service and primit
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/kms/service-roles-hierarchy.png)
+![image](../../_assets/kms/service-roles-hierarchy.svg)
 
 ### Service roles {#service-roles}
 

@@ -14,10 +14,10 @@
    To get a list of jobs, run the following command:
 
    ```bash
-   {{ yc-dp }} job list --cluster-name=<cluster name>
+   {{ yc-dp }} job list --cluster-name=<cluster_name>
    ```
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
+   You can get the cluster ID and name with a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
 
 - API
 

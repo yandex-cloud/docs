@@ -15,7 +15,7 @@ items:
         href: operations/update-kubernetes.md
       - name: Configuring autoscaling
         href: operations/autoscale.md
-      - name: Connecting to cluster
+      - name: Connecting to a cluster
         items:
           - name: Connection method overview
             href: operations/connect/index.md
@@ -51,7 +51,7 @@ items:
             href: operations/applications/filebeat-oss.md
           - name: Installing Fluent Bit
             href: operations/applications/fluentbit.md
-          - name: Installing Gateway API
+          - name: Installing the Gateway API
             href: operations/applications/gateway-api.md
           - name: Installing {{ GL }} Agent
             href: operations/applications/gitlab-agent.md
@@ -124,7 +124,7 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
         items:
-          - name: Information about existing node groups
+          - name: Information about available node groups
             href: operations/node-group/node-group-list.md
           - name: Creating a node group
             href: operations/node-group/node-group-create.md
@@ -132,9 +132,9 @@ items:
             href: operations/node-connect-ssh.md
           - name: Configuring autoscaling
             href: operations/autoscale.md
-          - name: Changing a node group
+          - name: Updating a node group
             href: operations/node-group/node-group-update.md
-          - name: Managing {{ k8s }} cluster node labels
+          - name: Managing {{ k8s }} node labels
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
@@ -212,7 +212,7 @@ items:
             href: tutorials/filebeat-oss-monitoring.md
       - name: Using {{ marketplace-name }} products
         items:
-          - name: Integration with Argo CD
+          - name: Integrating with Argo CD
             href: tutorials/marketplace/argo-cd.md
           - name: Integration with Crossplane
             href: tutorials/marketplace/crossplane.md
@@ -234,6 +234,8 @@ items:
             href: tutorials/marketplace/metrics-provider.md
           - name: Editing website images using Thumbor
             href: tutorials/marketplace/thumbor.md
+          - name: Using Istio
+            href: tutorials/marketplace/istio.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -248,7 +250,7 @@ items:
             href: concepts/volume.md
           - name: Service
             href: concepts/service.md
-      - name: Node groups
+      - name: Node group
         items:
           - name: Cluster autoscaler
             href: concepts/node-group/cluster-autoscaler.md
@@ -344,7 +346,9 @@ items:
                 href: api-ref/Version/index.md
               - name: list
                 href: api-ref/Version/list.md
-  - name: Questions and answers
+  - name: Metric reference
+    href: metrics.md
+  - name: Q&A
     items:
       - name: General questions
         href: qa/general.md

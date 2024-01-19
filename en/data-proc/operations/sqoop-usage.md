@@ -3,7 +3,7 @@ title: "How to use Sqoop in {{ dataproc-full-name }}"
 description: "This guide describes how to use Sqoop."
 ---
 
-# How to use Sqoop
+# Using Sqoop
 
 [Sqoop](https://sqoop.apache.org/) is used to import databases to the {{ dataproc-name }} cluster from external sources. The section includes:
 
@@ -11,7 +11,7 @@ description: "This guide describes how to use Sqoop."
 * Scoop commands to import data to:
 
    * [{{ objstorage-full-name }}](#object-storage).
-   * [An HDFS directory](#hdfs).
+   * [HDFS directory](#hdfs).
    * [Apache Hive](#apache-hive).
    * [Apache HBase](#apache-hbase).
 
@@ -26,13 +26,13 @@ A JDBC connect string has the following format:
 - {{ PG }}
 
    ```http
-   jdbc:postgresql://<database server address>:5432/<database name>
+   jdbc:postgresql://<database_server_address>:5432/<database_name>
    ```
 
    For {{ mpg-full-name }}, use a string with a [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) pointing at the master host:
 
    ```http
-   jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<database name>
+   jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<database_name>
    ```
 
    You can get the cluster ID with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
@@ -40,13 +40,13 @@ A JDBC connect string has the following format:
 - {{ MY }}
 
    ```http
-   jdbc:mysql://<database server address>:3306/<database name>
+   jdbc:mysql://<database_server_address>:3306/<database_name>
    ```
 
    For {{ mmy-full-name }}, use a string with a [special FQDN](../../managed-mysql/operations/connect.md#fqdn-master) pointing at the master host:
 
    ```http
-   jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mmy }}/<database name>
+   jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mmy }}/<database_name>
    ```
 
    You can get the cluster ID with a [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
@@ -85,7 +85,7 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
 ## Importing with Sqoop {#import-with-sqoop}
 
-### In {{ objstorage-name }} {#object-storage}
+### To {{ objstorage-name }} {#object-storage}
 
 This type of import is available if the `Sqoop` component is enabled in the {{ dataproc-name }} cluster.
 
@@ -99,17 +99,19 @@ To import the data to the {{ objstorage-name }} bucket:
 
    ```bash
    sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-     --connect <JDBC connect string> \
-     --username <database username> \
+     --connect <JDBC_connect_string> \
+     --username <database_user_name> \
      --P \
-     --table '<database table name>' \
-     --target-dir 's3a://<bucket name for import>/<target directory>' \
-     --split-by '<table column used for splitting>'
+     --table '<database_table_name>' \
+     --target-dir 's3a://<name_of_target_bucket>/<target_folder>' \
+     --split-by '<table_column>'
    ```
+
+   Where `--split-by` is the table column used for splitting.
 
    {% note warning %}
 
-   Don't specify a name of an existing bucket directory.
+   Do not specify the name of an existing bucket directory.
 
    {% endnote %}
 
@@ -117,11 +119,11 @@ To import the data to the {{ objstorage-name }} bucket:
 
 This type of import is available if the following services are enabled in the {{ dataproc-name }} cluster:
 
-* `HBase`.
-* `HDFS`.
-* `Sqoop`.
-* `Yarn`.
-* `Zookeeper`.
+* `HBase`
+* `HDFS`
+* `Sqoop`
+* `Yarn`
+* `Zookeeper`
 
 To import the data to the HDFS directory:
 
@@ -132,17 +134,19 @@ To import the data to the HDFS directory:
 
    ```bash
    sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-     --connect <JDBC connect string> \
-     --username <database username> \
-     --table '<database table name>' \
-     --target-dir '<HDFS directory>' \
+     --connect <JDBC_connect_string> \
+     --username <database_user_name> \
+     --table '<database_table_name>' \
+     --target-dir '<HDFS_folder>' \
      --P \
-     --split-by '<table column used for the splitting>'
+     --split-by '<table_column>'
    ```
+
+   Where `--split-by` is the table column used for splitting.
 
    {% note warning %}
 
-   Don't specify a name of an existing HDFS directory.
+   Do not specify the name of an existing HDFS directory.
 
    {% endnote %}
 
@@ -150,11 +154,11 @@ To import the data to the HDFS directory:
 
 This type of import is available if the following services are enabled in the {{ dataproc-name }} cluster:
 
-* `HDFS`.
-* `Hive`.
-* `Mapreduce`.
-* `Sqoop`.
-* `Yarn`.
+* `HDFS`
+* `Hive`
+* `Mapreduce`
+* `Sqoop`
+* `Yarn`
 
 To import the data to the Hive table:
 
@@ -165,39 +169,41 @@ To import the data to the Hive table:
 1. Create a Hive database:
 
    ```bash
-   hive -e "CREATE DATABASE <Hive database name>;"
+   hive -e "CREATE DATABASE <Hive_database_name>;"
    ```
 
 1. Run this command:
 
    ```bash
    sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-     --connect <JDBC connect string> \
-     --username <source database username> \
+     --connect <JDBC_connect_string> \
+     --username <source_database_user_name> \
      --P \
-     --table '<table name in the source database>' \
+     --table '<source_database_table_name>' \
      --hive-import \
      --create-hive-table \
-     --hive-database '<Hive database name>' \
-     --hive-table '<Hive table name>' \
-     --split-by '<table column used for splitting>'
+     --hive-database '<Hive_database_name>' \
+     --hive-table '<Hive_table_name>' \
+     --split-by '<table_column>'
    ```
+
+   Where `--split-by` is the table column used for splitting.
 
    {% note warning %}
 
-   Don't specify a name of an existing Hive table.
+   Do not specify the name of an existing Hive table.
 
    {% endnote %}
 
-### In Apache HBase {#apache-hbase}
+### To Apache HBase {#apache-hbase}
 
 This type of import is available if the following services are enabled in the {{ dataproc-name }} cluster:
 
-* `HBase`.
-* `HDFS`.
-* `Sqoop`.
-* `Yarn`.
-* `Zookeeper`.
+* `HBase`
+* `HDFS`
+* `Sqoop`
+* `Yarn`
+* `Zookeeper`
 
 To import data to Apache HBase:
 
@@ -208,19 +214,21 @@ To import data to Apache HBase:
 
    ```bash
    sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-     --connect <JDBC connect string> \
-     --username <source database username> \
+     --connect <JDBC_connect_string> \
+     --username <source_database_user_name> \
      --P \
-     --table '<source database table name>' \
+     --table '<source_database_table_name>' \
      --hbase-create-table \
-     --column-family '<HBase column family>' \
-     --hbase-table '<HBase table name>' \
-     --split-by '<table column used for splitting>'
+     --column-family '<HBase_column_family>' \
+     --hbase-table '<HBase_table_name>' \
+     --split-by '<table_column>'
    ```
+
+   Where `--split-by` is the table column used for splitting.
 
    {% note warning %}
 
-   Don't specify a name of an existing HBase table.
+   Do not specify the name of an existing HBase table.
 
    {% endnote %}
 

@@ -10,13 +10,13 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
 ## Создание профиля {#initialize}
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Аккаунт на Яндексе
+- Аккаунт на Яндексе {#yandex-account}
 
   {% include [include](../_includes/cli/create-profile.md) %}
 
-- Федеративный аккаунт
+- Федеративный аккаунт {#federated-account}
 
   {% include [include](../_includes/cli/auth-federated-user.md) %}
 

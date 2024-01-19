@@ -17,8 +17,7 @@ Changing a major DBMS version is not part of maintenance. For more information a
 
 You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md):
 
-* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (default): Maintenance can be performed at any time.
-* **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time window when the cluster is least loaded.
+{% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
 ## Maintenance procedure {#maintenance-order}
 

@@ -34,8 +34,8 @@ There are two ways to send an SQL query to Hive:
 
    ```bash
    {{ yc-dp }} job create-hive \
-      --cluster-id=<cluster ID> \
-      --name=<job name> \
+      --cluster-id=<cluster_ID> \
+      --name=<job_name> \
       --query-list="SELECT Month, COUNT(*) FROM flights GROUP BY Month;"
    ```
 
@@ -43,12 +43,12 @@ There are two ways to send an SQL query to Hive:
 
    ```bash
    {{ yc-dp }} job create-hive \
-      --cluster-id=<cluster ID> \
-      --name=<job name> \
-      --query-file-uri="s3a://<your bucket>/hive-query.sql"
+      --cluster-id=<cluster_ID> \
+      --name=<job_name> \
+      --query-file-uri="s3a://<bucket>/hive-query.sql"
    ```
 
-You can find the query execution results and additional diagnostic information in the {{ objstorage-name }} bucket that you specified when creating the cluster: `s3://<your bucket>/dataproc/clusters/<cluster ID>/jobs/<job ID>/`.
+You can find the query execution results and additional diagnostic information in the {{ objstorage-name }} bucket that you specified when creating the cluster: `s3://<bucket>/dataproc/clusters/<cluster_ID>/jobs/<job_ID>/`.
 
 The job ID is contained in the YC CLI job execution command output and in the API response to the job execution.
 

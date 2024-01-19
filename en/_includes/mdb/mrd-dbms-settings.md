@@ -6,9 +6,9 @@
 
    This setting includes the following parameters:
 
-   * **Hard limit**: Hard buffer size limit (in bytes). If this value is exceeded, the connection with the client will terminate immediately. The minimum value is `0` (no limit). By default, it is set to `0`. In the management console, define units of measurement using the **Hard limit unit** parameter.
-   * **Soft limit**: Soft buffer size limit (in bytes). The connection to the client will not terminate unless this value is exceeded for a period of time specified in the **Soft seconds** parameter. The minimum value is `0` (no limit). By default, it is set to `0`. In the management console, define units of measurement using the **Soft limit unit** parameter.
-   * **Soft seconds**: Time (seconds) for which the soft buffer limit may be exceeded. The minimum value is `0`. By default, it is set to `0`.
+   * **Hard limit**: Hard buffer size limit (in bytes). If this value is exceeded, the connection with the client will terminate immediately. The minimum value is `0` (no limit). The default value is `0`. In the management console, define units of measurement using the **Hard limit unit** parameter.
+   * **Soft limit**: Soft buffer size limit (in bytes). The connection to the client will not terminate unless this value is exceeded for a period of time specified in the **Soft seconds** parameter. The minimum value is `0` (no limit). The default value is `0`. In the management console, define units of measurement using the **Soft limit unit** parameter.
+   * **Soft seconds**: Time (seconds) for which the soft buffer limit may be exceeded. The minimum value is `0`. The default value is `0`.
 
    For more information about this setting, see the [{{ RD }} documentation](https://redis.io/docs/reference/clients/#output-buffer-limits).
 
@@ -20,8 +20,8 @@
 
    This setting includes the following parameters:
 
-   * **Hard limit**: Hard buffer size limit (in bytes). If this value is exceeded, the connection with the client will terminate immediately. The minimum value is `0` (no limit). The default value is `33554432` (32 MB). In the management console, you define units of measurement using the **Hard limit unit** parameter.
-   * **Soft limit**: Soft buffer size limit (in bytes). The connection to the client will not terminate unless this value is exceeded for a period of time specified in the **Soft seconds** parameter. The minimum value is `0` (no limit). The default value is `8388608` (8 MB). In the management console, you define units of measurement using the **Soft limit unit** parameter.
+   * **Hard limit**: Hard buffer size limit (in bytes). If this value is exceeded, the connection with the client will terminate immediately. The minimum value is `0` (no limit). The default value is `33554432` (32 MB). In the management console, define units of measurement using the **Hard limit unit** parameter.
+   * **Soft limit**: Soft buffer size limit (in bytes). The connection to the client will not terminate unless this value is exceeded for a period of time specified in the **Soft seconds** parameter. The minimum value is `0` (no limit). The default value is `8388608` (8 MB). In the management console, define units of measurement using the **Soft limit unit** parameter.
    * **Soft seconds**: Time (seconds) for which soft buffer limit may be exceeded. The minimum value is `0`, while the default one is `60`.
 
    For more information about this setting, see the [{{ RD }} documentation](https://redis.io/docs/reference/clients/#output-buffer-limits).
@@ -32,7 +32,7 @@
 
    {{ RD }} uses the concept of logical databases isolated from one another. Operations with keys and values in one database do not affect data in other databases. Each database is identified by its own number (from `0` to `Databases − 1`).
 
-   The minimum value is `0`, the maximum one is `2147483647`, and the default one is `16`.
+   The minimum value is `1`, the maximum one is `2147483647`, and the default one is `16`.
 
    For more information, see the [{{ RD }} documentation](https://github.com/redis/redis/blob/6.0/redis.conf#L275).
 

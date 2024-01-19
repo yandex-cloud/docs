@@ -138,6 +138,8 @@ items:
         href: concepts/dictionaries.md
       - name: Шардирование
         href: concepts/sharding.md
+      - name: Служебные пользователи
+        href: concepts/service-users.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
       - name: Поддерживаемые клиенты

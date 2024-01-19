@@ -1,6 +1,6 @@
-# Database management in {{ mpg-name }}
+# Managing databases in {{ mpg-name }}
 
-You can add and remove databases, as well as view information about them.
+You can add, rename, and remove databases, as well as view information about them.
 
 {% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
 
@@ -154,6 +154,55 @@ You can add and remove databases, as well as view information about them.
    * New database settings in the `databaseSpec` parameter.
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+{% endlist %}
+
+## Renaming a database {#rename-db}
+
+{% list tabs %}
+
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+
+   1. Find the `yandex_mdb_postgresql_database` resource of the database.
+   1. Change the value of the `name` field:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<database_name>" {
+        ...
+        name     = "<new_database_name>"
+        ...
+      }
+      ```
+
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- API
+
+   To rename a database in a cluster, use the [update](../api-ref/User/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and provide the following in the request:
+
+   * ID of the cluster where the database is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Database name in the `databaseName` parameter. To find out the database name, [retrieve a list of databases in the cluster](#list-db).
+   * New database name in the `newDatabaseName` parameter.
+
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+   * A list of database configuration fields to be modified (`newDatabaseName` in this case) as `updateMask`.
+
+   {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

@@ -2,7 +2,7 @@
 
 You can use {{ managed-k8s-name }} to deploy, scale, and manage your containerized applications in the {{ yandex-cloud }} infrastructure.
 
-## Creating a project {#creating-project}
+## Creating and setting up a project {#creating-project}
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](running-pod-gpu.md)
@@ -69,4 +69,4 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containe
 * [{#T}](marketplace/kyverno.md)
 * [{#T}](marketplace/metrics-provider.md)
 * [{#T}](marketplace/thumbor.md)
-
+* [{#T}](marketplace/istio.md)

@@ -27,8 +27,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
       1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
       1. [Create service accounts](../../../iam/operations/sa/create.md):
-         * With the [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) role for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your {{ k8s }} cluster is created. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
-         * With the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) [role](../../../iam/concepts/access-control/roles.md). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
+         * Service account with the [roles](../../security/index.md#yc-api) `k8s.clusters.agent` and `vpc.publicAdmin` for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is created. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
+         * Service account with the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) [role](../../../iam/concepts/access-control/roles.md). Nodes will pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) on behalf of this account.
 
          {% note tip %}
 

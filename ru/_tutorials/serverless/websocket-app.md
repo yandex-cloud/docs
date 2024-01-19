@@ -225,9 +225,9 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
 
 ### Получите токен доступа {#create-token}
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Федеративный аккаунт
+- Федеративный аккаунт {#federated-account}
 
   Получите IAM-токен и сохраните его в переменную `YC_IAM_TOKEN:`
 
@@ -236,7 +236,7 @@ git clone --branch sls-demo-0323 https://github.com/yandex-cloud-examples/yc-ser
   echo $YC_IAM_TOKEN
   ```
 
-- Аккаунт на Яндексе
+- Аккаунт на Яндексе {#yandex-account}
 
   Получите OAUTH-токен и сохраните его в переменную `OAUTH_TOKEN`:
 
