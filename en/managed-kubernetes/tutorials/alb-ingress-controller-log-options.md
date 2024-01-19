@@ -31,8 +31,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. Create the following [service accounts](../../iam/operations/sa/create.md) for the {{ managed-k8s-name }} cluster:
 
-      * Service account for the resources with the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) is being created.
-      * Service account for nodes with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role to the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
+      * Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) is created.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role to the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
       * Service account for the operation of the {{ alb-name }} Ingress controller with the following roles:
 
          * [{{ roles-alb-editor }}](../../iam/concepts/access-control/roles.md#alb-editor): To create the required resources.
@@ -52,7 +52,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The key data is required for the [installation](#install-alb-ingress-controller) of the ALB Ingress Controller application.
 
-   1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../operations/node-group/node-group-create.md). When creating a cluster, specify the previously created service accounts for the resources and nodes and choose `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}` in the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** setting.
+   1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create). Use these settings:
+
+      * Specify the previously created service account for resources.
+      * If your plan is to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP to the cluster.
+
+   1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
+
+      * Specify the previously created service account for nodes.
+      * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
 
    1. Configure security groups:
 
@@ -109,6 +117,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Before you start working with the {{ managed-k8s-name }} cluster {#prepare-k8s-cluster}
 
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
 
@@ -227,7 +237,7 @@ Create [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/)
 
    {% endcut %}
 
-1. Create an application:
+1. Create an app:
 
    ```bash
    kubectl apply -f app.yaml

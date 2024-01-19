@@ -1,6 +1,6 @@
-# Editing {{ dataproc-name }} clusters
+# Updating a {{ dataproc-name }} cluster
 
-After creating a cluster, you can modify its basic and advanced settings.
+After creating a cluster, you can change its basic and advanced settings.
 
 
 You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more information, see [Working with logs](logging.md#disable-logs).
@@ -25,9 +25,9 @@ To move a cluster to a different availability zone, follow this [guide](migratio
 
    1. Change additional cluster settings:
 
-      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages protection of the cluster from accidental deletion by a user.
+      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages cluster protection against inadvertent deletion by a user.
 
-      Enabled protection will not prevent a manual connection to a cluster to delete data.
+      Enabled protection will not prevent a manual connection to the cluster and deletion of data.
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -44,11 +44,11 @@ To move a cluster to a different availability zone, follow this [guide](migratio
       ```
 
    
-   1. To edit the [log group](../../logging/concepts/log-group.md) that cluster logs are sent to, pass the log group ID in the `--log-group-id` parameter:
+   1. To edit the [log group](../../logging/concepts/log-group.md) that cluster logs are sent to, provide the log group ID in the `--log-group-id` parameter:
 
       ```bash
-      {{ yc-dp }} cluster update <cluster ID or name> \
-         --log-group-id=<log group ID>
+      {{ yc-dp }} cluster update <cluster_name_or_ID> \
+         --log-group-id=<log_group_ID>
       ```
 
       You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
@@ -57,17 +57,17 @@ To move a cluster to a different availability zone, follow this [guide](migratio
    1. To protect a cluster from accidental deletion by a user of your cloud, set `--deletion-protection` to `true`:
 
       ```bash
-      {{ yc-dp }} cluster update <cluster ID or name> \
-         --deletion-protection=<cluster deletion protection: true or false>
+      {{ yc-dp }} cluster update <cluster_name_or_ID> \
+         --deletion-protection=true
       ```
 
-      Enabled protection will not prevent a manual connection to a cluster to delete data.
+      Enabled protection will not prevent a manual connection to the cluster and deletion of data.
 
    1. To update the [component properties](../concepts/settings-list.md), provide the required property values in the `--property` parameter:
 
       ```bash
-      {{ yc-dp }} cluster update <cluster ID or name> \
-         --property "<prefix of key 1>:<key 1>=<value>", "<prefix of key 2>:<key 2>=<value>", ...
+      {{ yc-dp }} cluster update <cluster_name_or_ID> \
+         --property "<key_1_prefix>:<key_1>=<value>", "<key_2_prefix>:<key_2>=<value>", ...
       ```
 
       {% note warning %}
@@ -87,7 +87,7 @@ To move a cluster to a different availability zone, follow this [guide](migratio
    1. To activate cluster deletion protection and access to {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name>" {
+      resource "yandex_dataproc_cluster" "data_cluster" {
         ...
         deletion_protection = true
         ui_proxy            = true

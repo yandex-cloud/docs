@@ -11,7 +11,7 @@ items:
         items:
           - name: Information about existing clusters
             href: operations/cluster-list.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Changing cluster settings
             href: operations/update.md
@@ -19,17 +19,17 @@ items:
             href: operations/cluster-version-update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
-          - name: Managing hosts in a cluster
+          - name: Managing cluster hosts
             href: operations/hosts.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
-          - name: Deleting clusters
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Databases
         items:
-          - name: Preparing for connecting
+          - name: Setting up for a connection
             href: operations/connect/index.md
           - name: Connecting to a non-sharded cluster
             href: operations/connect/non-sharded.md
@@ -75,13 +75,11 @@ items:
         href: concepts/backup.md
       - name: Replication and fault tolerance
         href: concepts/replication.md
-      - name: Managing fault tolerance
-        href: concepts/switchover.md
       - name: Supported clients
         href: concepts/supported-clients.md
       - name: Memory management
         href: concepts/memory-management.md
-      - name: Available commands
+      - name: Supported commands
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -203,7 +201,7 @@ items:
     href: public-talks.md
   - name: Releases
     href: release-notes.md
-  - name: Questions and answers
+  - name: Q&A
     items:
       - name: General questions
         href: qa/general.md

@@ -23,11 +23,11 @@ You cannot cancel jobs with the status `ERROR`, `DONE`, or `CANCELLED`. To find 
    To cancel a job, run the command below:
 
    ```bash
-   {{ yc-dp }} job cancel <job ID or name> \
-     --cluster-name=<cluster name>
+   {{ yc-dp }} job cancel <job_name_or_ID> \
+     --cluster-name=<cluster_name>
    ```
 
-   You can retrieve a job name or ID in the [list of cluster jobs](#list), and a cluster name in the [list of folder clusters](../../data-proc/operations/cluster-list.md#list).
+   You can get the job name or ID with the [list of cluster jobs](#list), and the cluster name, with the [list of folder clusters](../../data-proc/operations/cluster-list.md#list).
 
 - API
 
@@ -35,6 +35,6 @@ You cannot cancel jobs with the status `ERROR`, `DONE`, or `CANCELLED`. To find 
    * Cluster ID in the `clusterId` parameter
    * Job ID in the `jobId` parameter
 
-   You can get a cluster ID with the [list of folder clusters](../../data-proc/operations/cluster-list.md#list), and a job ID, with the [list of cluster jobs](#list).
+   You can get the cluster ID with the [list of folder clusters](../../data-proc/operations/cluster-list.md#list), and the job ID, with the [list of cluster jobs](#list).
 
 {% endlist %}

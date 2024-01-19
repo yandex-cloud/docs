@@ -2,7 +2,7 @@
 
 {{ dataproc-name }} cluster logs are collected and displayed by [{{ cloud-logging-full-name }}](../../logging).
 
-To monitor the events on the cluster and its individual hosts, specify, in its settings, a relevant [log group](../../logging/concepts/log-group.md). You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group has been selected for the cluster, a default log group in the cluster directory will be used to send and store logs.
+To monitor the events on the cluster and its individual hosts, specify, in its settings, a relevant [log group](../../logging/concepts/log-group.md). You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group has been selected for a cluster, a default log group in the cluster directory will be used to send and store logs.
 
 For more information, see [{#T}](../concepts/logs.md).
 
@@ -58,7 +58,7 @@ For more information, see [{#T}](../concepts/logs.md).
 
    Examples:
 
-   * To get logs of the {{ dataproc-name }}cluster's HDFS NameNode service, run the command:
+   * To get logs of the {{ dataproc-name }} cluster's HDFS NameNode service, run this command:
 
       ```bash
       yc logging read \
@@ -140,6 +140,6 @@ For more information, see [{#T}](../concepts/logs.md).
 
 ## Storing logs {#logs-storage}
 
-Receiving and storing logs is paid based on the {{ cloud-logging-name }} [pricing rules](../../logging/pricing.md). The default log retention period is three days. To update the retention period, [edit the log group settings](../../logging/operations/retention-period.md).
+You pay for receiving and storing your logs based on the {{ cloud-logging-name }} [pricing policy](../../logging/pricing.md). The default log retention period is three days. To update the retention period, [edit the log group settings](../../logging/operations/retention-period.md).
 
-For more information about working with logs, see the [{{ cloud-logging-name }} documentation](../../logging/operations/index.md).
+For more information about logs, see the [{{ cloud-logging-name }} documentation](../../logging/operations/index.md).

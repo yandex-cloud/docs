@@ -1,14 +1,14 @@
 Для работы с API {{ speechkit-name }} пройдите аутентификацию. Ее способ зависит от типа аккаунта:
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Аккаунт на Яндексе или федеративный аккаунт
+- Аккаунт на Яндексе или федеративный аккаунт {#yandex-account}
 
   1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роли `{{ roles-speechkit-stt }}`, `{{ roles-speechkit-tts }}` или выше.
   1. {% include [iam-token-usage](../iam-token-usage-speechkit-v3.md) %}
 
-- Сервисный аккаунт
+- Сервисный аккаунт {#service-account}
 
   {{ speechkit-name }} поддерживает два способа аутентификации с сервисным аккаунтом:
 

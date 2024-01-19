@@ -39,7 +39,7 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
 - MX
 
    1. [Create a new MX record](../../dns/operations/resource-record-create.md).
-   1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the parameters of the Yandex 360 MX record to be transferred in `<Priority> <Record value>` format.
+   1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the parameters of the Yandex 360 MX record to be transferred in `<priority> <record value>` format.
    1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, enter the value of the TTL parameter from Yandex 360.
 
    For example:
@@ -51,7 +51,7 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
 - TXT
 
    1. [Create a new TXT record](../../dns/operations/resource-record-create.md).
-   1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the parameters of the Yandex 360 TXT record to be transferred in `"<record value>"` format.
+   1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the parameters of the Yandex 360 TXT record to be transferred in `"<record_value>"` format.
 
       {% note warning %}
 

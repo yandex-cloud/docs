@@ -55,12 +55,12 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
    {% cut "cities.sql" %}
 
    ```sql
-   /* Create an external table with the data contained in the CSV files: */
+   /* Create an external table with the data contained in CSV files: */
    CREATE EXTERNAL TABLE IF NOT EXISTS cities
    (city_name string, population decimal)
    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
    STORED AS TEXTFILE
-   LOCATION 's3a://<input data bucket>/cities';
+   LOCATION 's3a://<input_data_bucket>/cities';
 
    /* Show the number of cities and their total population: */
    SELECT COUNT(*) num_cities, SUM(population) sum_populataion FROM cities;
@@ -74,7 +74,7 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 1. [Create a Hive job](../operations/jobs-hive#create) with the following parameters:
 
    * **{{ ui-key.yacloud.dataproc.jobs.field_driver }}**: `File`
-   * **{{ ui-key.yacloud.dataproc.jobs.field_query-file-uri }}**: `s3a://<input data bucket name>/cities.sql`
+   * **{{ ui-key.yacloud.dataproc.jobs.field_query-file-uri }}**: `s3a://<input_data_bucket_name>/cities.sql`
 
 1. Wait for the [job status](../operations/jobs-spark.md#get-info) to change to `Done`.
 

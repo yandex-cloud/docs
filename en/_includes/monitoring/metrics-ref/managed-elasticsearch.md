@@ -1,6 +1,6 @@
-## {{ mes-full-name }} service {#managed-elasticsearch}
+## {{ mes-full-name }} {#managed-elasticsearch}
 
-Common labels for all {{ mes-full-name }} metrics:
+Common labels for all {{ mes-name }} metrics:
 
 | Label | Value |
 ----|----
@@ -58,7 +58,7 @@ The load on processor cores.
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
 | `io.utilization`<br/>`DGAUGE`, % | Disk utilization |
-| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
+| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed |
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
@@ -244,4 +244,4 @@ Metrics collected using the [API](https://www.elastic.co/guide/en/elasticsearch/
 | `elasticsearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
 | `elasticsearch_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned |
 
-Read more about the service in the [{{ mes-full-name }}](../../../managed-elasticsearch/) documentation.
+Read more about the service in the [{{ mes-name }}](../../../managed-elasticsearch/) documentation.

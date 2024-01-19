@@ -69,7 +69,7 @@ items:
         href: tutorials/blue-green-canary-deployment.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
       - name: Resource
         href: concepts/resource.md
@@ -83,7 +83,7 @@ items:
             href: concepts/clients-to-servers-tls.md
           - name: CORS
             href: concepts/cors.md
-          - name: Compressing content
+          - name: Content compression
             href: concepts/compression.md
       - name: Exchanging data between the CDN and origins
         items:
@@ -95,7 +95,7 @@ items:
             href: concepts/slicing.md
           - name: Origin shielding
             href: concepts/origins-shielding.md
-      - name: Caching content
+      - name: Content caching
         href: concepts/caching.md
       - name: Secure tokens
         href: concepts/secure-tokens.md
@@ -109,7 +109,7 @@ items:
     href: troubleshooting.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -221,6 +221,8 @@ items:
                 href: api-ref/ResourceRules/list.md
               - name: update
                 href: api-ref/ResourceRules/update.md
+  - name: Metric reference
+    href: metrics.md
   - name: Pricing policy
     href: pricing.md
 base: en/cdn

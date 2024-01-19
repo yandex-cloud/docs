@@ -12,17 +12,18 @@ description: "Various use cases for core infrastructure management systems in {{
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
 * [Fault-tolerant website with load balancing by {{ network-load-balancer-full-name }}](../web/load-balancer-website.md)
 * [Fault-tolerant website with load balancing by {{ alb-full-name }}](../web/application-load-balancer-website.md)
-* [Integrating an L7 load balancer with {{ cdn-name }} and {{ objstorage-name }}](../web/cdn-storage-integration.md)
+* [Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
 * [Running instance groups with auto-scaling](../infrastructure-management/vm-autoscale.md)
 * [Scheduled scaling of instance groups](../infrastructure-management/vm-scale-scheduled.md)
 * [Auto-scaling an instance group when processing messages from a queue in {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Updating an instance group under load](../infrastructure-management/updating-under-load.md)
-* [Creating a trigger for budgets to invoke the {{ sf-full-name }} function to stop the VM](../infrastructure-management/serverless-trigger-budget-vm.md)
+* [Creating a trigger for budgets that invokes a {{ sf-full-name }} function to stop VM instances](../infrastructure-management/serverless-trigger-budget-vm.md)
+* [Deploying a fault-tolerant architecture with preemptible VMs](../infrastructure/nodejs-cron-restart-vm.md)
 
 ## Tools {#tools}
 
 * [Getting started with {{ TF }}](../infrastructure-management/terraform-quickstart.md)
-* [Uploading {{ TF }} statuses to {{ objstorage-full-name }}](../infrastructure-management/terraform-state-storage.md)
+* [Uploading {{ TF }} statuses to {{ objstorage-name }}](../infrastructure-management/terraform-state-storage.md)
 * [Getting started with Packer](../infrastructure-management/packer-quickstart.md)
 * [Building a VM image with a set of infrastructure tools using Packer](../infrastructure-management/packer-custom-image.md)
 * [Locking {{ TF }} states using {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
@@ -42,10 +43,10 @@ description: "Various use cases for core infrastructure management systems in {{
 * [Connecting to a cloud network using OpenVPN](../routing/openvpn.md)
 * [Creating and configuring a UserGate gateway in proxy server mode](../routing/usergate-proxy.md)
 
-## {{ dns-name }} {#dns}
+## {{ dns-full-name }} {#dns}
 
 * [Configuring a local caching DNS resolver](../infrastructure-management/local-dns-cache.md)
-* [Migrating DNS zones from {{ yandex-360 }} to {{ dns-full-name }}](../infrastructure-management/connect-migration.md)
+* [Migrating DNS zones from {{ yandex-360 }} to {{ dns-name }}](../infrastructure-management/connect-migration.md)
 * [{#T}](../dataplatform/mdb-dns-peering.md)
 * [{#T}](../infrastructure-management/dns-integration.md)
 * [Creating an ACME resolver webhook for responses to DNS01 checks](../infrastructure-management/cert-manager-webhook.md)

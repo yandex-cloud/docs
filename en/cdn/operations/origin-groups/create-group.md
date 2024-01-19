@@ -13,14 +13,17 @@ To create an [origin group](../../concepts/origins.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
    1. Click **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
    1. Enter a name for the group.
    1. Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+
       * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. For more information about types, see [{#T}](../../concepts/origins.md).
       * Specify an origin.
       * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` or `{{ ui-key.yacloud.cdn.value_backup }}`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
       * Add other origins if needed.
+
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
@@ -71,13 +74,14 @@ To create an [origin group](../../concepts/origins.md):
 
 - {{ TF }}
 
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Describe the properties of the `yandex_cdn_origin_group` resource in the configuration file:
 
       Here is an example of the configuration file structure:
 
-      
       ```
       provider "yandex" {
         token     = "<OAuth_token>"
@@ -102,17 +106,26 @@ To create an [origin group](../../concepts/origins.md):
       }
       ```
 
+      Where:
 
+      * `name`: Origin group name.
+      * `use_next`: Shows if the next origin on the list should be used.
+      * `origin`: The origin specification:
+         * `source`: The origin IP address or domain name.
+         * `enabled`: Flag indicating whether an origin is enabled.
+         * `backup`: Flag indicating whether an origin is a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
 
       For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_origin_group).
 
-   1. Make sure the settings are correct.
+   1. Create resources:
 
-      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   1. Create an origin group.
+      {{ TF }} will create all the required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+      ```bash
+      yc cdn origin-group list
+      ```
 
 - API
 

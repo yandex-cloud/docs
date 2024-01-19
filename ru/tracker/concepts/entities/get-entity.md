@@ -5,7 +5,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/get-entity.md
 
 Запрос позволяет получить информацию о сущности — [проекте](../../manager/project-new.md) или [портфеле проектов](../../manager/portfolio.md).
 
-Запрос представляет унифицированный метод для получения информации о проектах и портфелях, расширяющий возможности API [получения информации о проектах](../projects/get-project.md).
+Запрос представляет унифицированный метод для получения информации о проектах и портфелях, более гибкий и функциональный, чем API [получения информации о проектах](../projects/get-project.md).
 
 ## Формат запроса {#query}
 
@@ -22,22 +22,7 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
-
-**Ресурс**
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<entityType> | Идентификатор сущности:<ul><li>project — проект;</li><li>portfolio — портфель.</li></ul>| Строка
-\<entityId> | Идентификатор сущности. | Строка
-
-{% note warning %}
-
-Идентификатор сущности не совпадает с идентификатором проекта или портфеля.
-
-{% endnote %}  
-
-{% endcut %}  
+{% include [resource](../../../_includes/tracker/api/resource-entity.md) %}
 
 {% cut "Параметры запроса" %}
 
@@ -45,8 +30,8 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
+[fields](./about-entities.md#query-params) |  Дополнительные поля сущности, которые будут включены в ответ. | Строка
 expand | Дополнительная информация, которая будет включена в ответ:<ul><li>`attachments` – вложенные файлы.</li></ul> | Строка
-fields |  Дополнительные поля сущности, которые будут включены в ответ. | Строка
 
 {% endcut %}
 
@@ -57,7 +42,7 @@ fields |  Дополнительные поля сущности, которые
 > - В ответ включено поле `teamAccess`.
 >
 > ```
-> GET /v2/entities/portfolio/655f328da834c763********?expand=attachments,fields=teamAccess HTTP/1.1
+> GET /v2/entities/portfolio/655f328da834c763********?expand=attachments&fields=teamAccess HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}

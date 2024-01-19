@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
 
-      * Service account for the resources with the [{{ roles-editor }}](../../resource-manager/security/index.md#roles-list) role for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
+      * Service account for resources with the [roles](../../managed-kubernetes/security/index.md#yc-api) `k8s.clusters.agent` and `vpc.publicAdmin` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
       * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
 

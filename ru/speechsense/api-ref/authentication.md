@@ -2,9 +2,9 @@
 
 Для работы с API {{ speechsense-name }} необходимо [создать](../../iam/operations/sa/create.md) сервисный аккаунт и использовать его для аутентификации:
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Сервисный аккаунт
+- Сервисный аккаунт {#service-account}
 
    * С помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md):
 

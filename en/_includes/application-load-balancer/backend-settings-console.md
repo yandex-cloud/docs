@@ -19,7 +19,7 @@
         * **{{ ui-key.yacloud.alb.label_protocol }}**: Backend connection protocol: `{{ ui-key.yacloud.alb.label_proto-http-plain }}` (without encryption) or `{{ ui-key.yacloud.alb.label_proto-http-tls }}` (with TLS encryption). For `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, specify:
 
            * **{{ ui-key.yacloud.alb.label_sni }}**: Host domain name for Server Name Indication, an extension to the TLS protocol.
-           * **{{ ui-key.yacloud.alb.label_trusted-ca }}**: Specify a certificate from the certificate authority that the load balancer will trust when establishing a secure connection with backend endpoints. X.509 certificates in PEM format are supported.
+           * **{{ ui-key.yacloud.alb.label_trusted-ca }}**: Specify a [root CA](https://en.wikipedia.org/wiki/Root_certificate) for a certificate chain installed on backend endpoints. [X.509](https://en.wikipedia.org/wiki/X.509) certificates in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format are supported.
 
      * For a `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend group:
 
@@ -64,4 +64,4 @@
 
    To add a health check, click **{{ ui-key.yacloud.alb.button_add-healthcheck }}** at the bottom of the backend section and specify the check settings.
 
-   To remove a health check, click ![image](../../_assets/horizontal-ellipsis.svg) next to the **HTTP health check**, **gRPC health check**, or **Stream health check** title, and select **{{ ui-key.yacloud.common.delete }}**.
+   To remove a health check, click ![image](../../_assets/console-icons/ellipsis.svg) next to the **HTTP health check**, **gRPC health check**, or **Stream health check** title, and select **{{ ui-key.yacloud.common.delete }}**.
