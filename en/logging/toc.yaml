@@ -11,10 +11,14 @@ items:
         href: operations/write-logs.md
       - name: Reading records
         href: operations/read-logs.md
-      - name: Getting a list of log groups
-        href: operations/list.md
       - name: Managing rights to access log groups
         href: operations/access-rights.md
+      - name: Getting information about a log group
+        items:
+          - name: Getting a list of log groups
+            href: operations/list.md
+          - name: Getting information about log groups
+            href: operations/get-group.md
       - name: Managing log groups
         items:
           - name: Creating a log group
@@ -25,12 +29,16 @@ items:
             href: operations/monitoring.md
           - name: Deleting a log group
             href: operations/delete-group.md
-      - name: Exporting logs
+      - name: Log export
         items:
-          - name: Creating a log sink
+          - name: Creating a sink
             href: operations/create-sink.md
           - name: Exporting logs
             href: operations/export-logs.md
+          - name: Getting a list of sinks
+            href: operations/list-sink.md
+          - name: Getting information about sinks
+            href: operations/get-sink.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -159,6 +167,6 @@ items:
                 href: api-ref/Sink/update.md
               - name: updateAccessBindings
                 href: api-ref/Sink/updateAccessBindings.md
-  - name: FAQ
+  - name: Q&A
     href: qa/index.md
 base: en/logging

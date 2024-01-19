@@ -14,7 +14,7 @@
 
    Where:
 
-   * `--min-zone-size`: Minimum number of resource units in each availability zone. The default minimum is 2. You cannot set the minimum value that is less than 2.
+   * `--min-zone-size`: Minimum number of resource units in each availability zone. The default minimum is 2. You cannot set a minimum value below 2.
    * `--max-size`: Maximum total number of resource units. By default, this number is unlimited. Make sure the value is not less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone.
 
    You can set one or both parameters in the command.

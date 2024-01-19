@@ -2,9 +2,9 @@
 
 {% include [ask-for-turning-on](../../_includes/smartwebsecurity/ask-for-turning-on.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать [профиль безопасности](../concepts/profiles.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.

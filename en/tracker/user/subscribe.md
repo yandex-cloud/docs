@@ -18,7 +18,7 @@ If you want to get notified about changes in a specific issue, subscribe to it.
 
 1. Open the issue page.
 
-1. In the **{{ ui-key.startrek-backend.fields.issue.followers }}** field on the right-hand panel, click **Add me**. If you do not see the **{{ ui-key.startrek-backend.fields.issue.followers }}** field, add it by clicking ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}**.
+1. In the **{{ ui-key.startrek-backend.fields.issue.followers }}** field on the right-hand panel, click **Add me**. If you do not see the **{{ ui-key.startrek-backend.fields.issue.followers }}** field, add it by clicking ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 
 If you followed the steps correctly, your name will be added to the Followers field. Now you will get emails with notifications about any changes in this issue.

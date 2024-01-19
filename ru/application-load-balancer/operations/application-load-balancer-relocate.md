@@ -9,9 +9,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 1. Включите для балансировщика прием трафика в новой зоне доступности:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -19,7 +19,7 @@ description: "Следуя данной инструкции, вы сможет�
       1. В открывшемся окне в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** включите прием трафика в той зоне доступности, в которую хотите перенести ВМ.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install.md](../../_includes/cli-install.md) %}
 
@@ -82,7 +82,7 @@ description: "Следуя данной инструкции, вы сможет�
           log_options: {}
           ```
 
-    - {{ TF }}
+    - {{ TF }} {#tf}
 
       Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -120,7 +120,7 @@ description: "Следуя данной инструкции, вы сможет�
           ```bash
           yc alb load-balancer get <имя_балансировщика>
           ```
-    - API
+    - API {#api}
 
       Воспользуйтесь методом REST API [update](../api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../api-ref/grpc/load_balancer_service.md#Update).
 
@@ -131,9 +131,9 @@ description: "Следуя данной инструкции, вы сможет�
 1. [Добавьте](../../application-load-balancer/operations/target-group-update.md#add-targets) в целевую группу балансировщика новые ВМ и [удалите](../../application-load-balancer/operations/target-group-update.md#remove-targets) старые.
 1. Убедитесь, что состояние виртуальных машин определяется балансировщиком как `HEALTHY`:
     
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -141,7 +141,7 @@ description: "Следуя данной инструкции, вы сможет�
       1. Перейдите на вкладку ![image](../../_assets/console-icons/heart-pulse.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}**.
       1. Раскройте список целевых ресурсов. Виртуальные машины, привязанные к целевой группе, должны иметь статус `HEALTHY`.
 
-    - API
+    - API {#api}
 
       Воспользуйтесь методом REST API [getTargetStates](../api-ref/LoadBalancer/getTargetStates.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/GetTargetStates](../api-ref/grpc/load_balancer_service.md#GetTargetStates).
 

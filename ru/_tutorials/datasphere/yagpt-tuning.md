@@ -33,9 +33,9 @@
 
 ### Создайте каталог {#create-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
@@ -47,9 +47,9 @@
 
 Обращаться к дообученной модели можно через интерфейс {{ ml-platform-name }} (Playground) или через API v1 в синхронном режиме. Если вы планируете делать запросы через API, вам понадобится сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md) `{{ roles-yagpt-user }}`. Сервисный аккаунт должен быть участником проекта {{ ml-platform-name }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
    1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -63,9 +63,9 @@
 
 Чтобы сервисный аккаунт мог обращаться к дообученной модели из кода проекта {{ ml-platform-name }}, добавьте его в список участников проекта.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
     1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.

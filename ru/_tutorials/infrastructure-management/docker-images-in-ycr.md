@@ -53,9 +53,9 @@
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
    1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
    1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы [кластер {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группа узлов](../../managed-kubernetes/concepts/index.md#node-group).
@@ -70,7 +70,7 @@
 
   1. [Создайте реестр {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -312,9 +312,9 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
    1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. Если вы зарезервировали для кластера {{ managed-k8s-name }} публичный IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
@@ -322,7 +322,7 @@
    1. [Удалите реестр {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
    1. [Удалите подсети](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

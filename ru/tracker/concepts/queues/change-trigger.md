@@ -177,9 +177,9 @@ before | Идентификатор триггера, перед которым 
    ```json
    {
       "id": 16,
-      "self": "{{ host }}/{{ ver }}/queues/DESIGN/triggers/16",
+      "self": "https://{{ host }}/{{ ver }}/queues/DESIGN/triggers/16",
       "queue": {
-         "self": "{{ host }}/{{ ver }}/queues/DESIGN",
+         "self": "https://{{ host }}/{{ ver }}/queues/DESIGN",
          "id": "26",
          "key": "DESIGN",
          "display": "Дизайн"
@@ -191,7 +191,7 @@ before | Идентификатор триггера, перед которым 
             "type": "Transition",
             "id": 2,
             "status": {
-               "self": "{{ host }}/{{ ver }}/statuses/2",
+               "self": "https://{{ host }}/{{ ver }}/statuses/2",
                "id": "2",
                "key": "needInfo",
                "display": "Требуется информация"

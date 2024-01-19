@@ -10,9 +10,9 @@ description: "Вы можете управлять правами пользов
 
 ## Изменить привилегии пользователя {#grant-privilege}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
@@ -37,7 +37,7 @@ description: "Вы можете управлять правами пользов
   1. При необходимости задайте [административные привилегии](../concepts/settings-list.md#setting-administrative-privileges) для пользователя.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -65,7 +65,7 @@ description: "Вы можете управлять правами пользов
 
       Чтобы добавить или отозвать привилегию `ALL_PRIVILEGES`, передайте в качестве названия синоним `ALL`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -100,7 +100,7 @@ description: "Вы можете управлять правами пользов
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
-- API
+- API {#api}
 
   Чтобы изменить привилегии пользователя, воспользуйтесь методом REST API [update](../api-ref/User/update.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../api-ref/grpc/user_service.md#Update) и передайте в запросе:
 

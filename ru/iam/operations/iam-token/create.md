@@ -11,9 +11,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@ description: "Следуя данной инструкции, вы сможет�
   yc iam create-token
   ```
 
-- API
+- API {#api}
 
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
 
@@ -38,3 +38,7 @@ description: "Следуя данной инструкции, вы сможет�
 ### Использование IAM-токена, полученного с помощью CLI {#use-cli}
 
 {% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
+
+#### См. также {#see-also}
+
+* [Использовать IAM-токен в Helm-чарте](../../../container-registry/operations/helm-chart/helm-chart-push.md)

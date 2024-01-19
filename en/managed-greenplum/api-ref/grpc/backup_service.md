@@ -37,6 +37,9 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 source_cluster_id | **string**<br>ID of the Greenplum® cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 size | **int64**<br>Size of the backup in bytes. 
+type | enum **BackupCreationType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
+method | enum **BackupMethod**<br>Method of backup creation <ul><li>`BASE`: Base backup</li><li>`INCREMENTAL`: Delta (incremental) Greenplum backup</li></ul>
+journal_size | **int64**<br>Size of the journal associated with backup, in bytes 
 
 
 ## List {#List}
@@ -72,5 +75,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 source_cluster_id | **string**<br>ID of the Greenplum® cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 size | **int64**<br>Size of the backup in bytes. 
+type | enum **BackupCreationType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
+method | enum **BackupMethod**<br>Method of backup creation <ul><li>`BASE`: Base backup</li><li>`INCREMENTAL`: Delta (incremental) Greenplum backup</li></ul>
+journal_size | **int64**<br>Size of the journal associated with backup, in bytes 
 
 

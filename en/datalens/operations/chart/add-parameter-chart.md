@@ -18,8 +18,8 @@ To add a [parameter](../../concepts/parameters.md) to a chart:
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/chart.svg) **Charts** and select a chart to add a parameter for.
-1. On the left of the screen, click ![image](../../../_assets/plus-sign.svg) under the dataset and select **Parameter**.
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/chart-column.svg) **Charts** and select a chart to add a parameter for.
+1. On the left of the screen, click ![image](../../../_assets/console-icons/plus.svg) under the dataset and select **Parameter**.
 1. In the **Add parameter** window, specify:
 
    * **Name**: Sets the parameter name.

@@ -4,9 +4,9 @@
 
 ## Создайте подключение {#create-connection}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   

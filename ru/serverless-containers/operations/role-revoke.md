@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Отозвать роли, назначенные на контейнер
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Выполните команду, чтобы отозвать [роль](../security/index.md) на контейнер:
 
@@ -45,7 +45,7 @@ description: "Следуя данной инструкции, вы сможет�
         done (1s)
         ```
 
-- API
+- API {#api}
 
   Чтобы отозвать роли, назначенные на контейнер, воспользуйтесь методом REST API [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/container_service.md#UpdateAccessBindings).
 

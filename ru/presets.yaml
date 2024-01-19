@@ -206,7 +206,7 @@ default:
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.25, 1.26, 1.27, 1.28
   k8s-versions-regular: 1.25, 1.26, 1.27, 1.28
-  k8s-versions-stable: 1.25, 1.26, 1.27
+  k8s-versions-stable: 1.25, 1.26, 1.27, 1.28
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -413,6 +413,7 @@ default:
         str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15, 15-1c или 16
   pgadmin: "pgAdmin\_4"
   port-any: 0-65535
+  port-http: 80
   port-https: 443
   port-k8s: 6443
   port-mch-cli: 9440
@@ -695,6 +696,7 @@ default:
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
   websql-full-name: Yandex WebSQL
+  websql-link: https://websql.cloud.yandex.ru
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
@@ -704,6 +706,8 @@ default:
   yagpt-name: YandexGPT
   yandex-360: Яндекс 360
   yandex-cloud: Yandex Cloud
+  yandex-direct: Яндекс Директ
+  yandex-oauth: Яндекс.OAuth
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
   yc-dp: yc dataproc
@@ -734,7 +738,6 @@ default:
     ep-dedicated: grpcs://lb.etnk1u65e4sh********.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
     host-dedicated: ydb.mdb.yandexcloud.net
-    host-serverless: ydb.serverless.yandexcloud.net
     id-dedicated: etnk1u65e4sh********
     id-serverless: etnudu2n9ri3********
     name-dedicated: ydb-dedicated
@@ -742,7 +745,6 @@ default:
     path-dedicated: /ru-central1/b1gia87mbaom********/etnk1u65e4sh********
     path-serverless: /ru-central1/b1gia87mbaom********/etnudu2n9ri3********
     port-dedicated: 2135
-    port-serverless: 2135
     version-cdc: 22.5
   yds-full-name: Yandex Data Streams
   yds-name: Data Streams
@@ -3041,15 +3043,6 @@ default:
         button-submit-text: Применить
       ui_components_BulkSuggestPopup:
         apply: Применить
-      ui_components_Checklist:
-        button-cancel: Отменить
-        button-submit: Сохранить
-        header-title: Чеклист
-        new-item-button-caption: Добавить пункт
-        remove-item-title: Удалить пункт
-        remove-title: Удалить чеклист
-      ui_components_CommentEditor:
-        write-comment: Написать комментарий
       ui_components_Confirm:
         ok-button-text: Да
       ui_components_CreateIssueForm:
@@ -3075,6 +3068,27 @@ default:
         show-all: Показать все
       ui_components_dashboard:
         summary-field-name: Задача
+      ui_components_entity-page_ActivitySection:
+        activity: Активность
+        new-activity-on-top: Сначала новые
+      ui_components_entity-page_checklist_ChecklistActionsMenu:
+        remove-title: Удалить чеклист
+      ui_components_entity-page_checklist_ChecklistItem:
+        button-cancel: Отменить
+        button-submit: Сохранить
+        remove-item-title: Удалить пункт
+      ui_components_entity-page_checklist_Footer:
+        new-item-button-caption: Добавить пункт
+      ui_components_entity-page_checklist_Header:
+        header-title: Чеклист
+      ui_components_entity-page_comments_CommentEditor_mobile:
+        write-comment: Написать комментарий
+      ui_components_entity-page_macros_Dialog:
+        apply-button-label: Выполнить
+      ui_components_entity-page_macros_FavoriteButton:
+        button-tooltip-add: Добавить в избранное
+      ui_components_entity-page_sidebar_SidebarFieldsSelect:
+        add-sidebar-field: Изменить список параметров
       ui_components_FieldEdit:
         form-submit: Сохранить
       ui_components_filter-field:
@@ -3161,8 +3175,6 @@ default:
         add-parameters: Добавить параметры
       ui_components_IssuesGroupHeader:
         no-epic: Без эпика
-      ui_components_IssueSidebar:
-        add-sidebar-field: Изменить список параметров
       ui_components_IssuesPresetSelect:
         preset_assignee: Я исполнитель
         preset_author: Я автор
@@ -3172,10 +3184,6 @@ default:
         description-tab: Описание
         fields-tab: Параметры
         links-tab: Связи
-      ui_components_macros_Dialog:
-        apply-button-label: Выполнить
-      ui_components_macros_FavoriteButton:
-        button-tooltip-add: Добавить в избранное
       ui_components_ModalTextEditor:
         save: Сохранить
       ui_components_NavigationBar_BoardsPanel:
@@ -3286,7 +3294,6 @@ default:
       ui_components_PageAgileBoardSettings_Header:
         settings: Настройки
       ui_components_PageCreateIssue:
-        add-parameter: Изменить список параметров
         change-template: Редактировать форму
         change-title-and-description: Изменить название и описание
         create-new: Создать форму
@@ -3311,6 +3318,10 @@ default:
       ui_components_portfolios_Header:
         description-tab: О портфеле
         projects-tab: Проекты
+      ui_components_portfolios_portfolio-page_ListFilterPane:
+        filter-issues: По задачам
+        filter-projects: По проектам
+        search-placeholder: Поиск
       ui_components_portfolios_PortfolioMenu:
         remove-portfolio: Удалить портфель проектов
       ui_components_projects_hooks:
@@ -3318,10 +3329,6 @@ default:
         delete-from-project: Удалить из проекта
         issue-actions--move-down: Перенести вниз списка
         issue-actions--move-up: Перенести наверх списка
-      ui_components_projects_ListFilterPane:
-        filter-issues: По задачам
-        filter-projects: По проектам
-        search-placeholder: Поиск
       ui_components_projects_Sidebar:
         sidebar-param-title--endDate: Дедлайн
         sidebar-param-title--lead: Ответственный
@@ -3589,6 +3596,7 @@ default:
         federation:
           field:
             autocreateUsers: Автоматически создавать пользователей
+            caseInsensitiveNameIds: Регистронезависимые имена пользователей
             cookieMaxAge: Время жизни cookie
             encryptedAssertions: Подписывать запросы аутентификации
             forceAuthn: Принудительная повторная аутентификация (ForceAuthn) в IdP
@@ -3849,7 +3857,7 @@ default:
         label_target-private-ip: Не из VPC
         label_targets: Целевые ресурсы
         label_timeout: Таймаут, с
-        label_trusted-ca: Сертификат от доверенного УЦ
+        label_trusted-ca: Доверенный корневой сертификат
         label_unhealthy: Порог неработоспособности
         label_upgrade-types: Допустимые значения заголовка Upgrade
         label_use-http2: HTTP/2
@@ -4387,6 +4395,7 @@ default:
         navigation-menu:
           label_account: Учетная запись
           label_billing: Биллинг
+          label_help-center: Центр поддержки
           label_monitoring: Monitoring
           label_notifications: Уведомления
         security-group-field:
@@ -5733,6 +5742,7 @@ default:
         label_containers: Контейнеры
         label_edit-active-revision: Сделать активной
         label_editor: Редактор
+        label_image-url: URL образа
         label_timeout: Таймаут, с
         label_url: Ссылка для вызова
         popup-confirm-edit-active-revision_button_confirm: Подтвердить
@@ -6826,6 +6836,8 @@ default:
                       service_account_id:
                         title: Сервисный аккаунт
                     ObjectStorageDataSchema:
+                      data_schema:
+                        title: Вручную
                       infer:
                         title: Автоматически
                     ObjectStorageSerializationFormatUI:
@@ -6896,6 +6908,8 @@ default:
                         title: Преобразовать комплексные значения в строки
                       connection_settings:
                         title: Настройки подключения
+                      format:
+                        title: Формат данных
                       output_encoding:
                         title: Формат сжатия
                       output_format:
@@ -7061,10 +7075,10 @@ default:
                         title: Настройки параллельного копирования
                     Transfer:
                       data_objects:
-                        title: Список объектов для переноса (Превью)
+                        title: Список объектов для переноса
                       title: Параметры трансфера
                       transformation:
-                        title: Трансформация данных (Превью)
+                        title: Трансформация данных
                       type:
                         title: Тип трансфера
                     TransferType:
@@ -7258,6 +7272,9 @@ default:
                         title: Схема
         transfer:
           transfer:
+            RenameTablesTransformer:
+              rename_tables:
+                array_item_label: Таблица
             Transformation:
               transformers:
                 array_item_label: Преобразование
@@ -7520,8 +7537,8 @@ default:
         tag: 2.6.1-1b
     yc_crossplane:
       helmChart:
-        name: cr.yandex/yc-marketplace/crossplane/crossplane/crossplane
-        tag: 1.6.3-5
+        name: cr.yandex/yc-marketplace/crossplane/crossplane
+        tag: 1.14.2
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

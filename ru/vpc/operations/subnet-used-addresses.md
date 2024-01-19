@@ -4,9 +4,9 @@
 
 Чтобы посмотреть список используемых внутренних адресов в подсети:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где расположена подсеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -14,7 +14,7 @@
   1. Нажмите на имя подсети.
   1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -46,7 +46,7 @@
       +-----------+------------+---------------------------------------+
       ```
 
-- API
+- API {#api}
 
    Воспользуйтесь методом REST API [listUsedAddresses](../api-ref/Subnet/listUsedAddresses) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/subnet_service.md#ListUsedAddresses) и передайте в запросе идентификатор изменяемой подсети в параметре `subnetId`.
 

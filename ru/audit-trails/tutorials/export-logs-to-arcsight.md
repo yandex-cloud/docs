@@ -52,9 +52,9 @@
 
 ### Создайте бакет для аудитных логов {#create-backet}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать бакет, например, `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -73,9 +73,9 @@
 
 ### Создайте ключ шифрования в сервисе {{ kms-name }} {#create-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
@@ -89,9 +89,9 @@
 
 ### Включите шифрование бакета {#backet-encoding}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, созданный ранее.
   1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
@@ -106,9 +106,9 @@
 
 Создайте сервисный аккаунт `sa-arcsight`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -129,9 +129,9 @@
 
 Идентификатор ключа и секретный ключ понадобятся вам на этапе монтирования бакета.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -147,7 +147,7 @@
 
       {% endnote %}
 
-- CLI
+- CLI {#cli}
 
   1. Создайте ключ доступа для сервисного аккаунта `sa-arcsight-bucket`:
 
@@ -174,9 +174,9 @@
 
 Назначьте сервисному аккаунту `sa-arcsight` роли `audit-trails.viewer`, `storage.uploader` и `kms.keys.encrypterDecrypter`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI 
+- CLI {#cli}
 
   1. [Роль](../../audit-trails/security/#roles) `audit-trails.viewer` на каталог:
      
@@ -229,9 +229,9 @@
 
 Назначьте сервисному аккаунту `sa-arcsight-bucket` роли `storage.viewer` и `kms.keys.encrypterDecrypter`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   1. Роль `storage.viewer` на каталог:
      
@@ -267,9 +267,9 @@
 
 ## Создайте трейл {#create-trail}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

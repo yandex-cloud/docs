@@ -11,9 +11,9 @@ description: "Из статьи вы узнаете, как удалить Docke
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы удалить Docker-образ:
   1. Перейдите в репозиторий, из которого надо удалить образ:
@@ -24,7 +24,7 @@ description: "Из статьи вы узнаете, как удалить Docke
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@ description: "Из статьи вы узнаете, как удалить Docke
      +----+---------+------+------+-----------------+
      ```
 
-- API
+- API {#api}
 
   Чтобы удалить Docker-образ, воспользуйтесь методом [delete](../../api-ref/Image/delete.md) для ресурса [Image](../../api-ref/Image/).
 

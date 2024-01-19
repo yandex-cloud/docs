@@ -69,7 +69,7 @@ items:
         href: billing/known-issues/recover-lost-payment.md
       - name: >-
           Устранение ошибки «Приглашение не найдено» при подключении к
-          партнёрской программе
+          партнерской программе
         href: billing/known-issues/cannot-access-partner-programme.md
       - name: Могут ли ресурсы удалиться при неоплате
         href: billing/known-issues/cloud-and-files-removal.md
@@ -77,6 +77,8 @@ items:
         href: billing/known-issues/balance-wrong-account-issue.md
       - name: Платежный аккаунт находится в статусе PAYMENT_NOT_CONFIRMED
         href: billing/known-issues/payment-not-confirmed-issue.md
+      - name: Облако зависло в статусе `Creating` или долго не создается
+        href: billing/known-issues/cloud-stuck-in-creating-status.md
       - name: Что делать, если документы перестали поступать в систему ЭДО?
         href: billing/known-issues/no-new-incoming-documents-in-edi.md
       - name: Примеры конфигураций и сценариев Cloud Billing
@@ -134,6 +136,8 @@ items:
         href: billing/how-to/unpin-card.md
       - name: Как остановить списания средств с платежного аккаунта
         href: billing/how-to/analyzing-charges-chart.md
+      - name: Как сменить владельца аккаунта для юридических лиц
+        href: billing/how-to/changing-account-owner-for-legal-entities.md
   - name: Business
     items:
       - name: Все решения для Business
@@ -193,6 +197,8 @@ items:
           is disabled
         href: >-
           cdn/known-issues/you-cannot-enable-redirect-http-to-https-when-https-is-disabled.md
+      - name: Сервис {{ cdn-full-name }} возвращает только один IP-адрес
+        href: cdn/known-issues/returning-only-one-ip-address.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: cdn/how-to/index.md
         hidden: true
@@ -299,6 +305,8 @@ items:
       - name: Устранение ошибки «The limit on maximum number of cores has exceeded»
         href: >-
           compute/known-issues/the-limit-of-maximum-number-of-cores-has-exceeded.md
+      - name: Недоступна CUDA на платформе GPU
+        href: compute/known-issues/cuda-unavailable.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
@@ -332,7 +340,7 @@ items:
         href: compute/how-to/create-vm-backups.md
       - name: Как подключиться по SSH от root с паролем или ключом
         href: compute/how-to/ssh-root-authorization.md
-      - name: Как отслеживать объём потребляемой памяти
+      - name: Как отслеживать объем потребляемой памяти
         href: compute/how-to/ram-monitoring.md
       - name: Как сохранить снимки и образы локально
         href: compute/how-to/download-snapshots-and-images.md
@@ -348,6 +356,8 @@ items:
           Какое максимальное количество сетевых интерфейсов можно подключить к
           одной виртуальной машине
         href: compute/how-to/maximum-web-interfaces-for-one-vm.md
+      - name: Как увеличить количество сетевых соединений
+        href: compute/how-to/increase-network-connections.md
   - name: Container Registry
     items:
       - name: Все решения для Container Registry
@@ -378,7 +388,7 @@ items:
         href: datalens/how-to/marketplace-connector-support.md
       - name: Как восстановить сломанный датасет
         href: datalens/how-to/restoring-dataset.md
-      - name: Как восстановить удалённые объекты
+      - name: Как восстановить удаленные объекты
         href: datalens/how-to/restoring-deleted-objects.md
       - name: С каких IP-адресов происходит подключение к внешним источникам данных
         href: datalens/how-to/ip-address-range.md
@@ -558,6 +568,10 @@ items:
         hidden: true
       - name: Настройка почтовых уведомлений
         href: forms/how-to/customizing-mail-notifications.md
+      - name: Как выдать пользователю доступ к редактированию формы
+        href: forms/how-to/granting-access-to-form-editing.md
+      - name: Как найти созданную форму
+        href: forms/how-to/locating-form.md
   - name: IAM
     items:
       - name: Все решения для IAM
@@ -596,6 +610,24 @@ items:
         href: iam/known-issues/invitation-already-accepted.md
       - name: Устранение ошибки Service account is not available
         href: iam/known-issues/service-account-is-not-available.md
+      - name: Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`
+        href: iam/known-issues/error-prohibited-billing-account-status.md
+      - name: >-
+          Устранение ошибки `Validation failed - access_binding_deltas Number of
+          elements must be in the range of 1 to 1000`
+        href: iam/known-issues/error-validation-failed.md
+      - name: >-
+          В списке пользователей организации не отображается федеративный
+          пользователь
+        href: iam/known-issues/federative-user-is-not-visible.md
+      - name: Пользователь не видит приглашение в организацию или роль `admin`
+        href: iam/known-issues/invitation-or-admin-role-not-seen.md
+      - name: Появление неизвестного пользователя в организации
+        href: iam/known-issues/unknown-user.md
+      - name: Устранение ошибки `Такой логин не подойдет`
+        href: iam/known-issues/invalid-login.md
+      - name: Устранение ошибки `Forbidden` при работе от имени сервисного аккаунта
+        href: iam/known-issues/error-forbidden.md
       - name: Примеры конфигураций и сценариев IAM
         href: iam/how-to/index.md
         hidden: true
@@ -609,6 +641,12 @@ items:
         href: iam/how-to/change-organization-owner.md
       - name: Как удалить организацию
         href: iam/how-to/deleting-organization.md
+      - name: Какое время жизни сессии при аутентификации федеративного пользователя
+        href: iam/how-to/cookie-expire-time.md
+      - name: >-
+          Какую минимальную роль необходимо выдать пользователю для доступа к
+          консоли
+        href: iam/how-to/minimal-accessing-role-for-console.md
   - name: KMS
     items:
       - name: Все решения для Cloud KMS
@@ -672,6 +710,16 @@ items:
         href: managed-kubernetes/known-issues/pods-stuck-in-pending-state.md
       - name: Устранение проблем с работой HPA в {{ managed-k8s-name }}
         href: managed-kubernetes/known-issues/hpa-and-metrics-server-issues.md
+      - name: >-
+          Устранение ошибки «can't use allocation_policy.locations.subnet_id
+          together with node_template.network_interface_specs»
+        href: >-
+          managed-kubernetes/known-issues/cant-use-allocation_policy-locations-subnet_id-together-with-node_template-network_interface_specs.md
+      - name: >-
+          Устранение проблем с монтированием томов к подам кластера {{
+          managed-k8s-name }} средствами csi-s3
+        href: >-
+          managed-kubernetes/known-issues/unable-to-mount-volume-to-pods-via-csi-s3.md
       - name: Примеры конфигураций и сценариев {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/index.md
         hidden: true
@@ -701,6 +749,8 @@ items:
           Использование сертификатов из {{ certificate-manager-name }} в
           балансировщиках нагрузки или в {{ managed-k8s-name }}
         href: managed-kubernetes/how-to/uploading-cert-from-yc-certmgr-to-k8s.md
+      - name: Как изменить часовой пояс на узлах кластера {{ managed-k8s-name }}
+        href: managed-kubernetes/how-to/setting-timezone-on-mk8s-worker-nodes.md
   - name: '{{ mgl-name }}'
     items:
       - name: Все решения для {{ mgl-name }}
@@ -754,6 +804,11 @@ items:
           при создании {{ network-load-balancer-name }}
         href: >-
           network-load-balancer/known-issues/permission-denied-to-create-udp-listener-in-folder.md
+      - name: >-
+          Устранение ошибки «One of the targets already a part of the another
+          target group» в {{ network-load-balancer-name }}
+        href: >-
+          network-load-balancer/known-issues/one-of-the-targets-already-a-part-of-the-another-target-group.md
   - name: Legal
     items:
       - name: Все решения для Legal
@@ -790,7 +845,7 @@ items:
       - name: Устранение ошибки доступа к бакетам S3 из кластера DataProc 1.4
         href: storage/known-issues/cannot-access-buckets.md
       - name: >-
-          Устранение ошибки 403 (не отдаётся заголовок при использовании метода
+          Устранение ошибки 403 (не отдается заголовок при использовании метода
           OPTION)
         href: storage/known-issues/error-403-cors-header.md
       - name: Устранение ошибки сертификата
@@ -816,7 +871,7 @@ items:
         href: storage/how-to/moving-data-to-other-bucket-within-folder.md
       - name: Работа напрямую с API Object Storage без использования SDK
         href: storage/how-to/curl-api-request-example.md
-      - name: Просмотр и удаление незавершённых загрузок
+      - name: Просмотр и удаление незавершенных загрузок
         href: storage/how-to/incomplete-downloads.md
       - name: Как узнать скорость загрузки и скачивания данных
         href: storage/how-to/upload-download-speed.md
@@ -963,7 +1018,7 @@ items:
         hidden: true
       - name: >-
           Как получить информацию о количестве использованных проверок за
-          определённый период
+          определенный период
         href: smartcaptcha/how-to/learning-about-monitoring-and-tarification.md
       - name: >-
           Какое время жизни токена, который возвращает метод check в
@@ -1035,6 +1090,18 @@ items:
         href: vpc/how-to/routing-traffic-between-two-vpcs.md
       - name: Подключение расширенной защиты от DDoS
         href: vpc/how-to/enable-advanced-anti-ddos-protection.md
+      - name: Как использовать IPv6-адреса
+        href: vpc/how-to/using-ipv6.md
+      - name: Как использовать отказоустойчивый VPN или NGWF
+        href: vpc/how-to/using-failsafe-vpn.md
+      - name: Как вернуть IP-адрес
+        href: vpc/how-to/restore-ip-address.md
+      - name: Как связать два облака между собой
+        href: vpc/how-to/choosing-routing-or-network.md
+      - name: В чем различие между NAT-шлюзом и NAT-инстансом
+        href: vpc/how-to/difference-nat-gateway-and-nat-instance.md
+      - name: Как перенести IP в другую зону доступности
+        href: vpc/how-to/transferring-ip-to-a-different-zone.md
   - name: Консоль управления
     items:
       - name: Все решения для Консоли управления
@@ -1060,7 +1127,7 @@ items:
           Устранение ошибки Failed to query available provider packages при
           использовании Terraform
         href: terraform/known-issues/failed-to-quety-available-provider-packages.md
-      - name: Зона создаётся публичной и приватной одновременно
+      - name: Зона создается публичной и приватной одновременно
         href: terraform/known-issues/zone-private-and-public.md
       - name: Устранение ошибки Invalid provider registry host
         href: terraform/known-issues/invalid-provider-registry-host.md
@@ -1076,13 +1143,16 @@ items:
         hidden: true
       - name: Недоступно редактирование воркфлоу
         href: tracker/known-issues/unable-to-modify-workflow.md
+      - name: Устранение ошибки `Illegal parameter` при создании очереди
+        href: tracker/known-issues/illegal-parameter-while-creating-queue.md
       - name: Примеры конфигураций и сценариев Tracker
         href: tracker/how-to/index.md
         hidden: true
-      - name: Подключение Трекера после периода неактивности
+      - name: Подключение {{ tracker-full-name }} после периода неактивности
         href: tracker/how-to/activating-tracker-after-inactivity.md
-      - name: Отключение или удаление Трекера
+      - name: Отключение или удаление {{ tracker-full-name }}
         href: tracker/how-to/deactivating-tracker.md
+      - name: Восстановление {{ tracker-full-name }} после удаления
       - name: Восстановление Трекера после удаления
         href: tracker/how-to/restoring-tracker.md
       - name: Как использовать новые доски задач
@@ -1091,8 +1161,24 @@ items:
         href: tracker/how-to/modifying-cloned-worfklows.md
       - name: Ограничение доступа к очередям
         href: tracker/how-to/limiting-queue-access.md
+      - name: Как подключить и использовать платный {{ tracker-full-name }}
+        href: tracker/how-to/using-paid-version.md
+      - name: Как войти в {{ tracker-full-name }}
+        href: tracker/how-to/logging-into-tracker.md
+      - name: Как подключить репозиторий GitLab с личного сервера
+        href: tracker/how-to/connecting-gitlab-repository.md
       - name: Как подключить и использовать платный Трекер
         href: tracker/how-to/using-paid-version.md
+      - name: >-
+          Как создавать задачу в {{ tracker-full-name }} через {{
+          forms-full-name }}
+        href: tracker/how-to/creating-tasks-via-forms.md
+      - name: Как удалить пользователя из {{ tracker-full-name }}
+        href: tracker/how-to/excluding-user-from-tracker.md
+      - name: Как добавить пользователя в {{ tracker-full-name }}
+        href: tracker/how-to/adding-user-to-tracker.md
+      - name: Как отключить почтовые уведомления в {{ tracker-full-name }}
+        href: tracker/how-to/disabling-notifications.md
   - name: Partner
     items:
       - name: Все решения для Partner
@@ -1102,7 +1188,7 @@ items:
         hidden: true
       - name: >-
           Устранение ошибки «Приглашение не найдено» при подключении к
-          партнёрской программе
+          партнерской программе
         href: partner/known-issues/cannot-access-partner-programme.md
       - name: Примеры конфигураций и сценариев Partner
         href: partner/how-to/index.md

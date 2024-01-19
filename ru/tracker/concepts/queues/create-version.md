@@ -80,11 +80,11 @@ dueDate | Дата завершения версии в формате `YYYY-MM-
     ```json
     [
         {
-            "self": "{{ host }}/v2/versions/1",
+            "self": "https://{{ host }}/v2/versions/1",
             "id": 1,
             "version": 1,
             "queue": {
-                "self": "{{ host }}/v2/queues/TESTQUEUE",
+                "self": "https://{{ host }}/v2/queues/TESTQUEUE",
                 "id": "6",
                 "key": "TESTQUEUE",
                 "display": "Test Queue"

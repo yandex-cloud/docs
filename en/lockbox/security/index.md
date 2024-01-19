@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ lockbox-full-name }}"
-description: "Access management in {{ lockbox-full-name }}, a secret storage system. This section describes which resources you can assign a role for, what roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ lockbox-full-name }}, a secret storage system. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action."
 ---
 
 # Access management in {{ lockbox-name }}
@@ -33,8 +33,6 @@ Active roles in the service:
 * {% include [lockbox-viewer](../../_includes/iam/roles/short-descriptions/lockbox-viewer.md) %}
 * {% include [lockbox-auditor](../../_includes/iam/roles/short-descriptions/lockbox-auditor.md) %}
 * {% include [lockbox-payloadviewer](../../_includes/iam/roles/short-descriptions/lockbox-payloadViewer.md) %}
-* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 
 ### Primitive roles {#primitive-roles}
 

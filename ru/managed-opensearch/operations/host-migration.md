@@ -2,9 +2,9 @@
 
 [Группы хостов](../concepts/host-groups.md) в кластере {{ mos-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести группы хостов из одной зоны в другую:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
@@ -15,6 +15,8 @@
 {% endlist %}
 
 Перенесите таким образом каждую группу хостов.
+
+{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 
 ## Особенности миграции в сервисе {{ data-transfer-full-name }} {#data-transfer}
 

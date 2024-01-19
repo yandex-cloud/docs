@@ -12,9 +12,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-mysql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
@@ -30,7 +30,7 @@
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `yds-sa` и ролью `yds.editor`. Трансфер будет использовать его для доступа к {{ yds-name }}.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -100,9 +100,9 @@
 
 1. Создайте эндпоинт-источник и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `{{ MY }}` и укажите в нем параметры подключения к кластеру:
 
@@ -114,7 +114,7 @@
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `mysql-yds.tf` переменные:
 
@@ -165,15 +165,15 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     * [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
     * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
     * [Базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     1. Удалите конфигурационный файл `mysql-yds.tf`.

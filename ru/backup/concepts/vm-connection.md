@@ -70,9 +70,9 @@ Ubuntu или CentOS должна быть установлена из публ�
 
 Чтобы агент {{ backup-name }} мог обмениваться данными с серверами [провайдера резервного копирования](index.md#providers), для ВМ должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице:
 
-{% list tabs %}
+{% list tabs group=traffic %}
 
-- Исходящий трафик
+- Исходящий трафик {#outgoing}
 
   {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
   --- | --- | --- | ---

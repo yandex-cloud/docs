@@ -1,8 +1,8 @@
 Чтобы экспортировать сертификат OS Login пользователя из организации на локальный компьютер:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 

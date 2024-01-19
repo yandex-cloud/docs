@@ -2,9 +2,9 @@
 
 Ключ шифрования необходимо указать при создании кластера {{ k8s }}, его нельзя добавить при изменении кластера.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     Укажите ключ при создании кластера {{ k8s }}:
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан кластер {{ k8s }}.
@@ -14,7 +14,7 @@
     1. Закончите заполнение параметров [создания кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -40,12 +40,7 @@
          ...
       ```
 
-- API
-
-    Укажите ключ шифрования при [создании](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластера {{ k8s }}. Для этого воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/cluster_service.md#Create).
-    Передайте идентификатор ключа в соответствующем параметре поля `kmsProvider`.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -71,6 +66,11 @@
     1. Создайте кластер.
 
         {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+
+- API {#api}
+
+    Укажите ключ шифрования при [создании](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластера {{ k8s }}. Для этого воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/cluster_service.md#Create).
+    Передайте идентификатор ключа в соответствующем параметре поля `kmsProvider`.
 
 {% endlist %}
 

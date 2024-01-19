@@ -5,9 +5,9 @@
 1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности, в которую вы переносите хосты.
 1. Добавьте хост в кластер:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
@@ -20,7 +20,7 @@
 
       1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,9 +36,9 @@
                `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false>
       ```
 
-      Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).  В параметре `zone-id` укажите зону, куда вы переносите хосты.
+      Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters). В параметре `zone-id` укажите зону, куда вы переносите хосты.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. В конфигурационный файл {{ TF }} с планом инфраструктуры добавьте манифест хоста:
 
@@ -63,7 +63,7 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API
+   - API {#api}
 
       Чтобы добавить хост в кластер, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/cluster_service.md#AddHosts) и передайте в запросе:
 
@@ -84,15 +84,15 @@
 
 1. Удалите хосты в первоначальной зоне доступности:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
-   - CLI
+   - CLI {#cli}
 
       Выполните команду для каждого хоста:
 
@@ -100,7 +100,7 @@
       {{ yc-mdb-my }} host delete <FQDN_хоста> --cluster-name <имя_кластера>
       ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       1. В конфигурационном файле {{ TF }} с планом инфраструктуры удалите из описания кластера блоки `host` с первоначальной зоной доступности.
       1. Проверьте корректность настроек.
@@ -111,7 +111,7 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API
+   - API {#api}
 
       Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/cluster_service.md#DeleteHosts) и передайте в запросе:
 
@@ -121,6 +121,8 @@
    {% endlist %}
 
 1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+
+{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
 

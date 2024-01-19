@@ -60,7 +60,7 @@ description | Описание категории. | Строка
     {
         "id" : "604f9920d23cd5e1697ee3",
         "name" : "category_name",
-        "self" : "{{ host }}/v2/fields/categories/604f9920d23cd5e1697ee3",
+        "self" : "https://{{ host }}/v2/fields/categories/604f9920d23cd5e1697ee3",
         "version" : 1
     }
     ```

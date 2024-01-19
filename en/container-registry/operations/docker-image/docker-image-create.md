@@ -6,26 +6,27 @@ The instructions describe how to create and build a [Docker image](../../concept
 
 - CLI
 
-  1. Create a file named Dockerfile and add the following lines to it:
+   1. Create a file named Dockerfile and add the lines below:
 
-     ```
-     FROM ubuntu:latest
-     CMD echo "Hi, I'm inside"
-     ```
+      ```
+      FROM ubuntu:latest
+      CMD echo "Hi, I'm inside"
+      ```
 
-     The described Docker image is based on Ubuntu and will execute one simple command.
-  1. Assemble the Docker image. For `<registry ID>`, use the `ID` received when [creating the registry](../registry/registry-create.md).
+      The described Docker image is based on Ubuntu and will execute one simple command.
 
-     ```
-     docker build . \
-       -t {{ registry }}/<registry ID>/ubuntu:hello
-     ```
+   1. Assemble the Docker image. For `<registry_ID>`, use the `ID` you got when [creating the registry](../registry/registry-create.md).
 
-     The `-t` flag assigns a URL in the format `{{ registry }}/<registry ID>/<Docker image name>:<tag>` to the Docker image. You can build Docker images without any tag. In this case, the Docker CLI will assign the default label: `latest`.
+      ```
+      docker build . \
+        -t {{ registry }}/<registry_ID>/ubuntu:hello
+      ```
+
+      The `-t` flag assigns to the Docker image a URL in `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>` format. You can build Docker images without any tag. In this case, the Docker CLI will assign the default label: `latest`.
 
 {% endlist %}
 
-Once completed, these commands will create a Docker image with the `hello` tag in your repository as well as the full address of the repository, including:
+Once these commands are completed, a Docker image will be created in your repository with the `hello` tag as well as the full address of the repository, including:
 * {{ container-registry-name }} service address `{{ registry }}`.
-* ID of your registry `<registry ID>`.
+* Your registry ID `<registry_ID>`.
 * Name of your `ubuntu` repository.

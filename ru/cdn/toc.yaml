@@ -43,6 +43,8 @@ items:
             href: operations/resources/disable-resource.md
           - name: Удалить ресурс
             href: operations/resources/delete-resource.md
+          - name: Посмотреть статистику ресурса
+            href: operations/resources/get-stats.md
       - name: Группы источников
         items:
           - name: Создать группу источников
@@ -105,8 +107,12 @@ items:
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
-  - name: Решение проблем
-    href: troubleshooting.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/cdn/index.md
+  - name: Справочник Terraform
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -221,8 +227,10 @@ items:
                 href: api-ref/ResourceRules/list.md
               - name: update
                 href: api-ref/ResourceRules/update.md
-  - name: Справочник метрик
+  - name: Метрики {{ monitoring-name }}
     href: metrics.md
-  - name: Правила тарификации
-    href: pricing.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
+  - name: Решение проблем
+    href: troubleshooting.md
 base: ru/cdn

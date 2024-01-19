@@ -20,7 +20,7 @@ After creating a security group, you can change its name and description, and [a
    To update the security group, run this command:
 
    ```
-   yc vpc security-group update <group ID> --new-name test-sg-renamed
+   yc vpc security-group update <group_ID> --new-name test-sg-renamed
    ```
 
 - {{ TF }}
@@ -80,7 +80,7 @@ After creating a security group, you can change its name and description, and [a
       You can verify the changes to the security group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
-      yc vpc security-group get <security group name>
+      yc vpc security-group get <security_group_name>
       ```
 
 - API
@@ -95,7 +95,7 @@ After creating a security group, you can change its name and description, and [a
 
    * New security group name, in the `name` parameter.
    * New security group description, in the `description` parameter.
-   * List of settings to update in the `updateMask` parameter.
+   * List of settings you want to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

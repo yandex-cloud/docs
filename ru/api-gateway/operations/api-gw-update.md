@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 После создания API-шлюза вы можете изменить любые его параметры и спецификацию OpenAPI.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо изменить API-шлюз.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -17,7 +17,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. Отредактируйте параметры API-шлюза или спецификацию OpenAPI при необходимости.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -41,7 +41,7 @@ description: "Следуя данной инструкции, вы сможет�
           --spec=<путь_к_новому_файлу_спецификации> \
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -135,14 +135,14 @@ description: "Следуя данной инструкции, вы сможет�
      yc serverless api-gateway get <имя_API-шлюза>
      ```
 
+- API {#api}
 
-- {{ yandex-cloud }} Toolkit
+  Чтобы изменить имя, описание или спецификацию API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
+
+
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
   Изменить имя, описание или спецификацию API-шлюза можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
-
-- API
-
-  Чтобы изменить имя, описание или спецификацию API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/apigateway_service.md#Update).
 
 {% endlist %}

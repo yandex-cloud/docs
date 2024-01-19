@@ -47,25 +47,25 @@ Authorization: OAuth <токен>
 
     ```json
     {
-        "self": "{{ host }}/v2/queues/TEST",
+        "self": "https://{{ host }}/v2/queues/TEST",
         "id": "3",
         "key": "TEST",
         "version": 5,
         "name": "Test",
         "lead": {
-               "self": "{{ host }}/v2/users/1120000000016876",
+               "self": "https://{{ host }}/v2/users/1120000000016876",
                "id": "<id сотрудника>",
                "display": "<отображаемое имя сотрудника>"
         },
         "assignAuto": false,
         "defaultType": {
-               "self": "{{ host }}/v2/issuetypes/1",
+               "self": "https://{{ host }}/v2/issuetypes/1",
                "id": "1",
                "key": "bug",
                "display": "Ошибка"
         },
         "defaultPriority": {
-               "self": "{{ host }}/v2/priorities/3",
+               "self": "https://{{ host }}/v2/priorities/3",
                "id": "3",
                "key": "normal",
                "display": "Средний"

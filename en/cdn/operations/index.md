@@ -9,6 +9,7 @@ description: "This page provides a list of step-by-step guides for {{ cdn-name }
 
 * [{#T}](resources/create-resource.md)
 * [{#T}](resources/configure-basics.md)
+* [{#T}](resources/get-resources-info.md)
 * [{#T}](resources/configure-caching.md)
 * [{#T}](resources/configure-logs.md)
 * [{#T}](resources/prefetch-files.md)
@@ -19,6 +20,7 @@ description: "This page provides a list of step-by-step guides for {{ cdn-name }
 * [{#T}](resources/enable-compression.md)
 * [{#T}](resources/enable-segmentation.md)
 * [{#T}](resources/enable-shielding.md)
+* [{#T}](resources/enable-secure-token.md)
 * [{#T}](resources/configure-additions.md)
 * [{#T}](resources/disable-resource.md)
 * [{#T}](resources/delete-resource.md)
@@ -28,4 +30,5 @@ description: "This page provides a list of step-by-step guides for {{ cdn-name }
 * [{#T}](origin-groups/create-group.md)
 * [{#T}](origin-groups/edit-group.md)
 * [{#T}](origin-groups/bind-group-to-resource.md)
+* [{#T}](origin-groups/get-group-info.md)
 * [{#T}](origin-groups/delete-group.md)

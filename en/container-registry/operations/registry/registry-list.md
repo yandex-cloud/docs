@@ -31,7 +31,7 @@ Find out how to get:
    +----------------------+--------+----------------------+
    |          ID          |  NAME  |      FOLDER ID       |
    +----------------------+--------+----------------------+
-   | crpd50616s9a2t7gr8mi | my-reg | b1g88tflru0ek1omtsu0 |
+   | crpd50616s9a******** | my-reg | b1g88tflru0e******** |
    +----------------------+--------+----------------------+
    ```
 
@@ -62,8 +62,8 @@ To access a registry, use the `id` or `name` parameters from the [previous](#reg
    Result:
 
    ```bash
-   id: crpd50616s9a2t7gr8mi
-   folder_id: b1g88tflru0ek1omtsu0
+   id: crpd50616s9a********
+   folder_id: b1g88tflru0e********
    name: my-reg
    status: ACTIVE
    created_at: "2019-01-09T14:34:06.601Z"

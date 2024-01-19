@@ -11,9 +11,9 @@ description: "Статический маршрут по умолчанию (0.0
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md): 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать статический маршрут.
@@ -40,7 +40,7 @@ description: "Статический маршрут по умолчанию (0.0
   1. В открывшемся окне выберите созданную таблицу в списке.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md): 
   1. Посмотрите описание команды CLI для создания таблиц маршрутизации:
@@ -133,7 +133,7 @@ description: "Статический маршрут по умолчанию (0.0
      route_table_id: enp1sdveovdp********
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -196,7 +196,7 @@ description: "Статический маршрут по умолчанию (0.0
         yc vpc route-table list
         ```
 
-- API
+- API {#api}
 
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md), воспользуйтесь методом REST API [create](../api-ref/RouteTable/create.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) и передайте в запросе:
 

@@ -1,8 +1,8 @@
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@
 
      Ключ необходим для доступа к реестру из {{ GL }}.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}

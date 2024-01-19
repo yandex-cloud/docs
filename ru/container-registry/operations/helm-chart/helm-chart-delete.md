@@ -4,9 +4,9 @@
 
 ## Удалить Helm-чарт локально
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы удалить Helm-чарт локально, выполните команду:
 
@@ -18,9 +18,9 @@
 
 ## Удалить Helm-чарт в реестре
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы удалить Helm-чарт, загруженный в {{ container-registry-name }}, выполните команду, как и для [удаления](../docker-image/docker-image-delete.md) Docker-образов:
 

@@ -120,9 +120,9 @@
 
 Создайте на выделенном хосте ВМ с загрузочным диском из импортированного образа. Укажите идентификатор выделенного хоста в параметре `--host-id`. Создать ВМ можно только с помощью CLI, [API](../glossary/rest-api.md) или Terraform. Выполните команду:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc compute instance create \

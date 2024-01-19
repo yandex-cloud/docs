@@ -36,9 +36,9 @@
 
 Чтобы создать виртуальную машину:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_name }}** введите имя виртуальной машины: `sftp-server`.

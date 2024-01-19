@@ -206,6 +206,18 @@ Field | Description
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
 object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be greater. 
 object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be less t. 
+tag | **[Tag](#Tag)**<br>Tags that the object's tag set must have for the rule to apply. 
+and_operator | **[And](#And)**<br>Apply a logical AND to all of the predicates configured inside the And operator. 
+
+
+### And {#And}
+
+Field | Description
+--- | ---
+prefix | **string**<br> 
+object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+tag[] | **[Tag](#Tag)**<br> 
 
 
 ### Tag {#Tag}
@@ -428,6 +440,18 @@ Field | Description
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
 object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be greater. 
 object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be less t. 
+tag | **[Tag](#Tag1)**<br>Tags that the object's tag set must have for the rule to apply. 
+and_operator | **[And](#And1)**<br>Apply a logical AND to all of the predicates configured inside the And operator. 
+
+
+### And {#And1}
+
+Field | Description
+--- | ---
+prefix | **string**<br> 
+object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+tag[] | **[Tag](#Tag1)**<br> 
 
 
 ### Tag {#Tag1}
@@ -690,6 +714,18 @@ Field | Description
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
 object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be greater. 
 object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be less t. 
+tag | **[Tag](#Tag3)**<br>Tags that the object's tag set must have for the rule to apply. 
+and_operator | **[And](#And2)**<br>Apply a logical AND to all of the predicates configured inside the And operator. 
+
+
+### And {#And2}
+
+Field | Description
+--- | ---
+prefix | **string**<br> 
+object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+tag[] | **[Tag](#Tag3)**<br> 
 
 
 ### ObjectLock {#ObjectLock2}
@@ -882,6 +918,18 @@ Field | Description
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
 object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be greater. 
 object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be less t. 
+tag | **[Tag](#Tag3)**<br>Tags that the object's tag set must have for the rule to apply. 
+and_operator | **[And](#And3)**<br>Apply a logical AND to all of the predicates configured inside the And operator. 
+
+
+### And {#And3}
+
+Field | Description
+--- | ---
+prefix | **string**<br> 
+object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+tag[] | **[Tag](#Tag3)**<br> 
 
 
 ### ACL {#ACL3}

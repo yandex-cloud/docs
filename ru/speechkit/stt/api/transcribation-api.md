@@ -9,7 +9,7 @@ description: "Следуя данному руководству, вы науч�
 
 * [Бакет {{ objstorage-full-name }}](../../../storage/operations/buckets/create.md), в который вы загружаете аудиофайл для распознавания.
 * [Сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `{{ roles-speechkit-stt }}` и `storage.uploader`, которые нужны для работы со {{ speechkit-name }} и {{ objstorage-name }}.
-* [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../../iam/operations/api-key/create.md) для авторизации.
+* [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../../iam/operations/api-key/create.md) для аутентификации.
 
 Подробнее о предварительной работе см. в разделе [{#T}](../transcribation.md#async-recognition).
 
@@ -18,6 +18,8 @@ description: "Следуя данному руководству, вы науч�
 Асинхронно распознать аудиофайлы можно только от имени сервисного аккаунта. Не используйте для этого [другие аккаунты в {{ yandex-cloud }}](../../../iam/concepts/index.md#accounts).
 
 {% endnote %}
+
+Сервис асинхронного распознавания располагается по адресу: `transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize`
 
 ## Отправить файл на распознавание {#sendfile}
 
@@ -31,7 +33,7 @@ description: "Следуя данному руководству, вы науч�
   "specification": {
    "languageCode": "string",
    "model": "string",
-   "profanityFilter": "string",
+   "profanityFilter": boolean,
    "literature_text": boolean,
    "audioEncoding": "string",
    "sampleRateHertz": integer,

@@ -45,9 +45,9 @@
 
 Зарегистрируйте в кластере конфигурацию `rollup` для прореживания и агрегирования или усреднения содержимого БД для Graphite:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
   
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -78,7 +78,7 @@
 
       Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
 
-- API
+- API {#api}
   
   Используйте метод REST API [update](../../managed-clickhouse/api-ref/Cluster/update.md), передав в теле запроса требуемые параметры `rollup`:
 
@@ -155,9 +155,9 @@
 
 ## Создайте таблицу на основе GraphiteMergeTree {#table-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ CH }} CLI
+- {{ CH }} CLI {#cli}
 
   В интерфейсе {{ CH }} CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/). В качестве параметра передайте имя секции `rollup`, описанной ранее:
 

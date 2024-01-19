@@ -20,9 +20,9 @@ keywords:
 
 ## Создайте кластер {#create-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   
   @[youtube](https://www.youtube.com/watch?v=vWCmvbrhDsI)
@@ -59,6 +59,8 @@ keywords:
       * облачную сеть;
       * подсеть в каждой из выбранных зон доступности;
       * [группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
+
+        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
   1. Задайте количество экземпляров и ресурсы для [компонентов](../concepts/index.md#components) {{ maf-name }}:
 

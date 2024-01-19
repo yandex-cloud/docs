@@ -26,21 +26,31 @@ items:
             href: operations/space/delete.md
           - name: Removing a user from a space
             href: operations/space/delete-user-from-space.md
+      - name: Connection management
+        items:
+          - name: Creating a connection
+            href: operations/connection/create.md
       - name: Project management
         items:
+          - name: Creating a project
+            href: operations/project/create.md
           - name: Adding a user to a project
             href: operations/project/add-user-to-project.md
+          - name: Deleting a project
+            href: operations/project/delete.md
           - name: Removing a user from a project
             href: operations/project/delete-user-from-project.md
   - name: Concepts
     items:
-      - name: Dialogs in {{ speechsense-name }}
+      - name: Resource hierarchy
+        href: concepts/resources-hierarchy.md
+      - name: Dialogs
         href: concepts/dialogs.md
-      - name: Reports in {{ speechsense-name }}
+      - name: Reports
         href: concepts/reports.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

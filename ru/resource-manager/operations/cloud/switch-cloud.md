@@ -6,16 +6,16 @@ description: "Из статьи вы узнаете, как переключит
 # Переключение на другое облако
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако или каталог.
 
       ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
 
 
-- CLI
+- CLI {#cli}
 
   Есть два способа выбрать облако, которое используется в CLI по умолчанию:
   * выбрать облако при [создании профиля](../../../cli/operations/profile/profile-create.md);
@@ -53,7 +53,7 @@ description: "Из статьи вы узнаете, как переключит
       yc config set cloud-id b1gjqgj3hhvj********
       ```
 
-- API
+- API {#api}
 
   Сейчас нет возможности переключиться на другое облако с помощью API.
 

@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Удаление API-ключа
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -17,7 +17,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-access-key }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -46,19 +46,7 @@ description: "Следуя данной инструкции, вы сможет�
         yc iam api-key delete <идентификатор>
         ```
 
-- API
-
-  Удалите API-ключ с помощью метода REST API [delete](../../api-ref/ApiKey/delete.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
-
-    ```bash
-    export APIKEY_ID=ajeke74kbp5b********
-    export IAM_TOKEN=CggaATEVAgA...
-    curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
-        https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
-    ```
-   Также API-ключ можно удалить с помощью gRPC API [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -104,5 +92,17 @@ description: "Следуя данной инструкции, вы сможет�
         ```
         yc iam key list --service-account-id <идентификатор_сервисного_аккаунта>
         ```
+
+- API {#api}
+
+  Удалите API-ключ с помощью метода REST API [delete](../../api-ref/ApiKey/delete.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
+
+    ```bash
+    export APIKEY_ID=ajeke74kbp5b********
+    export IAM_TOKEN=CggaATEVAgA...
+    curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
+        https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
+    ```
+   Также API-ключ можно удалить с помощью gRPC API [ApiKeyService/Delete](../../api-ref/grpc/api_key_service.md#Delete).
 
 {% endlist %}

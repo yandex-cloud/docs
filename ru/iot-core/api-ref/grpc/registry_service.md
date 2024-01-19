@@ -54,6 +54,18 @@ description | **string**<br>Description of the registry. 0-256 characters long.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
+log_options | **[LogOptions](#LogOptions)**<br>Options for logging registry events 
+
+
+### LogOptions {#LogOptions}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from registry disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## GetByName {#GetByName}
@@ -82,6 +94,18 @@ description | **string**<br>Description of the registry. 0-256 characters long.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
+log_options | **[LogOptions](#LogOptions1)**<br>Options for logging registry events 
+
+
+### LogOptions {#LogOptions1}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from registry disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## List {#List}
@@ -119,6 +143,18 @@ description | **string**<br>Description of the registry. 0-256 characters long.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
+log_options | **[LogOptions](#LogOptions2)**<br>Options for logging registry events 
+
+
+### LogOptions {#LogOptions2}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from registry disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## Create {#Create}
@@ -141,6 +177,7 @@ description | **string**<br>Description of the registry. The maximum string leng
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 certificates[] | **[Certificate](#Certificate)**<br>Registry certificates. 
 password | **string**<br>Registry passwords. <br>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. 
+log_options | **[LogOptions](#LogOptions3)**<br>Options for logging registry events 
 
 
 ### Certificate {#Certificate}
@@ -148,6 +185,17 @@ password | **string**<br>Registry passwords. <br>The password must contain at le
 Field | Description
 --- | ---
 certificate_data | **string**<br>Public part of the registry certificate. 
+
+
+### LogOptions {#LogOptions3}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from registry disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation}
@@ -185,6 +233,7 @@ description | **string**<br>Description of the registry. 0-256 characters long.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
+log_options | **[LogOptions](#LogOptions4)**<br>Options for logging registry events 
 
 
 ## Update {#Update}
@@ -206,6 +255,18 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the registry. The name must be unique within the folder. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 description | **string**<br>Description of the registry. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+log_options | **[LogOptions](#LogOptions4)**<br>Options for logging registry events 
+
+
+### LogOptions {#LogOptions4}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from registry disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation1}
@@ -243,6 +304,7 @@ description | **string**<br>Description of the registry. 0-256 characters long.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
+log_options | **[LogOptions](#LogOptions5)**<br>Options for logging registry events 
 
 
 ## Delete {#Delete}

@@ -18,6 +18,10 @@ items:
             href: operations/api-gw-domains.md
           - name: Specifying a cloud network
             href: operations/api-gw-network-add.md
+          - name: Setting up variables
+            href: operations/api-gw-vars.md
+          - name: Setting up a canary release
+            href: operations/api-gw-canary.md
           - name: Viewing monitoring charts
             href: operations/api-gw-monitoring.md
           - name: Viewing execution logs
@@ -116,7 +120,7 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/apigateway/authentication.md
       - name: gRPC
         items:
@@ -160,7 +164,7 @@ items:
                 href: apigateway/api-ref/ApiGateway/updateAccessBindings.md
   - name: Websocket API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/websocket/authentication.md
       - name: gRPC
         items:

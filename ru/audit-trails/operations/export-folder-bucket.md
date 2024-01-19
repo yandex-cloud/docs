@@ -13,9 +13,9 @@
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
 1. Назначьте роли сервисному аккаунту:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -65,9 +65,9 @@
 
 Чтобы создать первый трейл в {{ at-name }} и запустить процесс управления аудитными логами:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

@@ -2,7 +2,7 @@
 
 ### Добавить пользователя с правами только на чтение {#user-readonly}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - SQL
 
@@ -45,7 +45,7 @@
     REVOKE USAGE ON SCHEMA myschema FROM user2;
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     Выдать привилегию пользователю через {{ TF }} можно только в кластере с хостами в публичном доступе.
 

@@ -17,4 +17,5 @@
 * [В каких сервисах доступна тарификация по меткам](services-with-tags-available.md)
 * [Какой формат закрывающих документов в ЭДО](closing-documents-format.md)
 * [Лимит отрицательного баланса при оплате банковским переводом](overdraft-while-transferring.md)
+* [Как сменить владельца аккаунта для юридических лиц](changing-account-owner-for-legal-entities.md)
 

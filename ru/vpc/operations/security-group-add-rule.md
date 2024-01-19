@@ -7,9 +7,9 @@ description: "Добавлять правила можно через консо
 
 Если вы добавили или удалили правила, не нужно перезагружать [ВМ](../../glossary/vm.md). Правила применятся сразу ко всем ресурсам, которым назначена группа.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы добавить правило:
 
@@ -46,7 +46,7 @@ description: "Добавлять правила можно через консо
 
   1. Повторно нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   Чтобы добавить правило в существующую группу:
 
@@ -105,7 +105,7 @@ description: "Добавлять правила можно через консо
 
      Чтобы получить справку о параметре `--add-rule`, выполните команду `yc vpc security-group update-rules --help`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -262,7 +262,7 @@ description: "Добавлять правила можно через консо
      yc vpc security-group get <имя_группы_безопасности>
      ```
 
-- API
+- API {#api}
 
   Чтобы добавить правило, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) и передайте в запросе:
 

@@ -2,9 +2,9 @@
 
 После создания группы безопасности вы можете изменить ее имя и описание, а также [добавить](security-group-add-rule.md) или [удалить](security-group-delete-rule.md) правила.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы изменить имя или описание группы:
 
@@ -15,7 +15,7 @@
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите изменения в имя и описание группы и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
   
   Чтобы изменить группу безопасности, выполните команду:
 
@@ -23,7 +23,7 @@
   yc vpc security-group update <идентификатор_группы> --new-name test-sg-renamed
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
  
@@ -83,7 +83,7 @@
      yc vpc security-group get <имя_группы_безопасности>
      ```
 
-- API
+- API {#api}
 
   Чтобы изменить имя или описание группы, воспользуйтесь методом REST API [update](../api-ref/SecurityGroup/update.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update) и передайте в запросе:
 

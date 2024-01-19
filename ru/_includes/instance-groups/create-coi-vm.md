@@ -12,9 +12,9 @@
 
 1. Посмотрите описание команды [CLI](../../glossary/cli.md) для создания группы ВМ:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      {{ yc-compute-ig }} create --help
@@ -24,9 +24,9 @@
 
 1. Проверьте, есть ли в каталоге сети:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc vpc network list
@@ -189,9 +189,9 @@
 
 1. Создайте группу ВМ в каталоге по умолчанию:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      {{ yc-compute-ig }} create --file specification.yaml

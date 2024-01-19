@@ -20,6 +20,12 @@
 
 ### Создайте пару ключей SSH {#create-ssh-keys}
 
+Чтобы подключаться к [виртуальной машине](../../../compute/concepts/vm.md) по [SSH](../../../glossary/ssh-keygen.md), нужна пара ключей: открытый ключ размещается на ВМ, а закрытый ключ хранится у пользователя. Такой способ более безопасен, чем подключение по логину и паролю.
+
+{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
+
+Чтобы создать пару ключей:
+
 {% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
 
 ## Настройте облачную площадку {#cloud-setup}
@@ -124,255 +130,134 @@
 
 Для настройки шлюза используйте IP-адреса, имя пользователя и ключ SSH, которые вы указывали при создании виртуальной машины `cloud-gw`.
 
-{% note warning %}
+1. Подключитесь к виртуальной машине по [SSH](../../../glossary/ssh-keygen.md):
 
-Для настройки strongSwan [рекомендуется использовать](https://docs.strongswan.org/docs/5.9/howtos/introduction.html#_configuration_files) формат конфигурационного файла [swanctl.conf](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html). Инструкция для настройки шлюза в устаревшем формате конфигурации представлена на вкладке `ipsec.conf`.
+    ```bash
+    ssh ipsec@<x1.x1.x1.x1>
+    ```
 
-{% endnote %}
+1. Задайте параметры даты и времени для ВМ:
 
-{% list tabs %}
+    ```bash
+    sudo timedatectl set-timezone Europe/Moscow
+    sudo timedatectl set-ntp True
+    timedatectl
+    ```
 
-- swanctl.conf
+1. Для оптимальной работы протокола ICMP отключите функциональность `ICMP Redirects` на IPsec-шлюзе:
 
-  1. Подключитесь к виртуальной машине по [SSH](../../../glossary/ssh-keygen.md):
-
-      ```bash
-      ssh ipsec@<x1.x1.x1.x1>
-      ```
-
-  1. Задайте параметры даты и времени для ВМ:
-
-      ```bash
-      sudo timedatectl set-timezone Europe/Moscow
-      sudo timedatectl set-ntp True
-      timedatectl
-      ```
-
-  1. Для оптимальной работы протокола ICMP отключите функциональность `ICMP Redirects` на IPsec-шлюзе:
-
-      ```bash
+    ```bash
 	  sudo su -c "echo 'net.ipv4.conf.eth0.send_redirects=0' >> /etc/sysctl.conf"
 	  sudo su -c "echo 'net.ipv4.conf.default.send_redirects=0' >> /etc/sysctl.conf"
-      ```
+    ```
 
-      Подробнее об этом читайте в [документации strongSwan](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
+    Подробнее об этом читайте в [документации strongSwan](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
 
-  1. Создайте резервную копию файла конфигурации `swanctl.conf`:
+1. Создайте резервную копию файла конфигурации `swanctl.conf`:
 
-      ```bash
-      sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
-      ```
+    ```bash
+    sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
+    ```
 
-  1. Создайте конфигурацию для основного IPsec-шлюза в файле `/etc/swanctl/swanctl.conf`:
-  
-      ```bash
-      sudo nano /etc/swanctl/swanctl.conf
-      ```
-  
-      В открывшемся файле укажите:
+1. Создайте конфигурацию для основного IPsec-шлюза в файле `/etc/swanctl/swanctl.conf`:
 
-      ```bash
-      connections {
-        cloud-ipsec {
-          local_addrs = 172.16.0.10
-          remote_addrs = <x2.x2.x2.x2>
-          local {
-            auth = psk
-          }
-          remote {
-            auth = psk
-          }
-          version = 2 # IKEv2
-          mobike = no
-          proposals = aes128gcm16-prfsha256-ecp256, default
-          dpd_delay = 10s
-          children {
-            cloud-ipsec {
-              # List of local IPv4 subnets
-              local_ts = 172.16.1.0/24, 172.16.2.0/24
+    ```bash
+    sudo nano /etc/swanctl/swanctl.conf
+    ```
 
-              # List of remote IPv4 subnets
-              remote_ts = 10.10.0.0/16
+    В открывшемся файле укажите:
 
-              start_action = trap
-              esp_proposals = aes128gcm16
-              dpd_action = clear
-            }
+    ```bash
+    connections {
+      cloud-ipsec {
+        local_addrs = 172.16.0.10
+        remote_addrs = <x2.x2.x2.x2>
+        local {
+          auth = psk
+        }
+        remote {
+          auth = psk
+        }
+        version = 2 # IKEv2
+        mobike = no
+        proposals = aes128gcm16-prfsha256-ecp256, default
+        dpd_delay = 10s
+        children {
+          cloud-ipsec {
+            # List of local IPv4 subnets
+            local_ts = 172.16.1.0/24, 172.16.2.0/24
+
+            # List of remote IPv4 subnets
+            remote_ts = 10.10.0.0/16
+
+            start_action = trap
+            esp_proposals = aes128gcm16
+            dpd_action = clear
           }
         }
       }
+    }
 
-      # Pre-shared key (PSK) for IPsec connection
-      secrets {
-        ike-cloud-ipsec {
-          secret = <пароль_ipsec>
-        }
+    # Pre-shared key (PSK) for IPsec connection
+    secrets {
+      ike-cloud-ipsec {
+        secret = <пароль_ipsec>
       }
-      ```
-  
-      Где:
+    }
+    ```
 
-      * `cloud-ipsec` — имя IPsec-соединения.
-      * `remote_addrs` — публичный IP-адрес `<x2.x2.x2.x2>` удаленного IPsec-шлюза.
-      * `proposals` — [Internet Key Exchange Version 2 (IKEv2)](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_internet_key_exchange_version_2_ikev2). Список шифров (ciphers), которые могут использоваться для шифрования канала управления IPsec-соединением.
-      * `esp_proposals` — [Encapsulating Security Payload](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_encapsulating_security_payload_esp). Список шифров (ciphers), которые могут использоваться для шифрования передаваемых данных.
-      * `secret` — [Pre-Shared Key](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_psk_based_authentication). Ключ (пароль) `<пароль_ipsec>`, который будет использоваться для установки IPsec-соединения.
+    Где:
 
-      {% note info %}
+    * `cloud-ipsec` — имя IPsec-соединения.
+    * `remote_addrs` — публичный IP-адрес `<x2.x2.x2.x2>` удаленного IPsec-шлюза.
+    * `proposals` — [Internet Key Exchange Version 2 (IKEv2)](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_internet_key_exchange_version_2_ikev2). Список шифров (ciphers), которые могут использоваться для шифрования канала управления IPsec-соединением.
+    * `esp_proposals` — [Encapsulating Security Payload](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_encapsulating_security_payload_esp). Список шифров (ciphers), которые могут использоваться для шифрования передаваемых данных.
+    * `secret` — [Pre-Shared Key](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_psk_based_authentication). Ключ (пароль) `<пароль_ipsec>`, который будет использоваться для установки IPsec-соединения.
 
-      В файле конфигурации `swanctl.conf` вы можете указать дополнительные параметры в соответствии с [документацией strongSwan](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html).
+    {% note info %}
 
-      Например, для увеличения скорости передачи данных через IPsec-соединение используйте [оптимизированные алгоритмы шифрования](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html#_authenticated_encryption_aead_algorithms) в режиме [IKEv2](https://docs.strongswan.org/docs/5.9/features/ietf.html#_ikev2). Поддержка этих алгоритмов должна быть реализована на платформе удаленного IPsec-шлюза, если это не strongSwan.
+    В файле конфигурации `swanctl.conf` вы можете указать дополнительные параметры в соответствии с [документацией strongSwan](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html).
 
-      {% endnote %}
+    Например, для увеличения скорости передачи данных через IPsec-соединение используйте [оптимизированные алгоритмы шифрования](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html#_authenticated_encryption_aead_algorithms) в режиме [IKEv2](https://docs.strongswan.org/docs/5.9/features/ietf.html#_ikev2). Поддержка этих алгоритмов должна быть реализована на платформе удаленного IPsec-шлюза, если это не strongSwan.
 
-  1. Загрузите конфигурацию в strongSwan:
+    {% endnote %}
 
-      ```bash
-      sudo swanctl --load-all
-      ```
+1. Загрузите конфигурацию в strongSwan:
 
-  1. Перезапустите strongSwan:
+    ```bash
+    sudo swanctl --load-all
+    ```
 
-      ```bash
-      sudo systemctl restart strongswan
-      ```
+1. Перезапустите strongSwan:
 
-  1. Проверьте состояние strongSwan:
+    ```bash
+    sudo systemctl restart strongswan
+    ```
 
-      ```bash
-      sudo swanctl -L
-      ```
+1. Проверьте состояние strongSwan:
 
-  1. (Опционально) Посмотрите логи strongSwan:
+    ```bash
+    sudo swanctl -L
+    ```
 
-      ```bash
-      sudo journalctl -u strongswan --no-pager
-      sudo journalctl -u strongswan -n 20
-      sudo journalctl -u strongswan -f
-      ```
+1. (Опционально) Посмотрите логи strongSwan:
 
-  1. Закройте соединение с `cloud-gw`:
+    ```bash
+    sudo journalctl -u strongswan --no-pager
+    sudo journalctl -u strongswan -n 20
+    sudo journalctl -u strongswan -f
+    ```
 
-      ```bash
-      exit
-      ```
+1. Закройте соединение с `cloud-gw`:
 
-- ipsec.conf
+    ```bash
+    exit
+    ```
 
-  1. Подключитесь к виртуальной машине по [SSH](../../../glossary/ssh-keygen.md):
-  
-      ```bash
-      ssh ipsec@<x1.x1.x1.x1>
-      ```
-
-  1. Создайте конфигурацию для основного IPsec-шлюза в файле `/etc/swanctl/ipsec.conf`:
-
-      ```bash
-      sudo nano /etc/ipsec.conf
-      ```
-
-     В открывшемся файле конфигурации `/etc/ipsec.conf` задайте нужные параметры для настройки основного IPsec-шлюза:
-
-      ```bash
-      config setup
-        charondebug="all"
-        uniqueids=yes
-        strictcrlpolicy=no
-
-      conn cloud-to-remote-site
-        authby=secret
-        left=%defaultroute
-        leftid=<x1.x1.x1.x1>
-        leftsubnet=172.16.1.0/24
-        right=<x2.x2.x2.x2>
-        rightsubnet=10.10.0.0/16
-        ike=aes256-sha2_256-modp1024!
-        esp=aes256-sha2_256!
-        keyingtries=0
-        ikelifetime=1h
-        lifetime=8h
-        dpddelay=30
-        dpdtimeout=120
-        dpdaction=restart
-        auto=start
-      ```
-  
-      Где:
-
-      * `conn` — название подключения к удаленному IPsec-шлюзу.
-      * `leftid` — публичный IP-адрес `<x1.x1.x1.x1>` основного IPsec-шлюза со стороны {{ yandex-cloud }}.
-      * `leftsubnet` — список префиксов подсетей, которые находятся за IPsec-шлюзом со стороны {{ yandex-cloud }}.
-      * `right` — публичный IP-адрес `<x2.x2.x2.x2>` удаленного IPsec-шлюза.
-      * `rightsubnet` — список префиксов подсетей, расположенных за удаленным IPsec-шлюзом.
-      * `ike`, `esp` — алгоритмы шифрования, которые будут использоваться для организации IPsec-соединения между IPsec шлюзами. Список допустимых алгоритмов шифрования для режима [IKEv2](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html) и режима [IKEv1](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites) приведен в документации strongSwan. Режим `IKEv1` признан устаревшим и не рекомендуется к использованию.
-
-  1. Создайте конфигурацию для основного IPsec-шлюза в файле `/etc/swanctl/ipsec.secrets`:
-  
-      ```bash
-      sudo nano /etc/ipsec.secrets
-      ```
-
-     В открывшемся файле конфигурации `/etc/ipsec.secrets` укажите IP-адреса ваших IPsec-шлюзов и задайте пароль (Pre-Shared Key) для IPsec-соединения с удаленным шлюзом:
-  
-      ```bash
-      <x1.x1.x1.x1> <x2.x2.x2.x2> : PSK "<пароль_ipsec>"
-      ```
-
-      Где:
-
-      * `<пароль_ipsec>` — ключ/пароль, используемый шлюзами для установки IPsec-соединения.
-      * `<x1.x1.x1.x1>` — публичный IP-адрес основного IPsec-шлюза со стороны {{ yandex-cloud }}.
-      * `<x2.x2.x2.x2>` — публичный IP-адрес удаленного IPsec-шлюза.
-
-      В файле конфигурации вы можете указать дополнительные параметры в соответствии с [документацией strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki).
-
-      {% cut "Если вам нужно развернуть IPsec-шлюз и ресурсы за ним в одной подсети" %}
-
-        Добавьте в конфигурационный файл IPsec-шлюза исключающие правила для IP-адреса шлюза по умолчанию и собственного (приватного) IP-адреса IPsec-шлюза:
-
-        ```bash
-        conn passthrough-1
-          left=%defaultroute
-          leftsubnet=<IP-адрес_шлюза_подсети_по_умолчанию>
-          rightsubnet=10.10.0.0/8
-          type=passthrough
-          auto=route
-        conn passthrough-2
-          left=%defaultroute
-          leftsubnet=<внутренний_IP-адрес_IPsec-инстанса>
-          rightsubnet=10.0.0.0/8
-          type=passthrough
-          auto=route
-        ```
-
-        Где:
-
-        * `<IP-адрес_шлюза_подсети_по_умолчанию>` — префикс подсети в котором находятся IPsec-шлюз и ресурсы за ним.
-        * `<внутренний_ip-адрес_IPsec-инстанса>` — собственный IP-адрес IPsec-шлюза.
-
-        IPsec-шлюз будет доступен для диагностики и будет отвечать по протоколу [ICMP](https://ru.wikipedia.org/wiki/ICMP).
-
-      {% endcut %}
-
-
-  1. Перезапустите strongSwan:
-
-      ```bash
-      sudo systemctl restart strongswan-starter
-      ```
-
-  1. Закройте соединение с `cloud-gw`:
-
-      ```bash
-      exit
-      ```
-
-{% endlist %}
 
 #### Разверните тестовые ВМ на облачной площадке {#cloud-test-vm}
 
-1. [Cоздайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) `vm-a` со следующими параметрами:
+1. [Создайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) `vm-a` со следующими параметрами:
 
     * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-a`.
     * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-a`.
@@ -383,7 +268,7 @@
     * **{{ ui-key.yacloud.compute.instances.create.field_user }}** — `ipsec`.
     * **{{ ui-key.yacloud.compute.instances.create.field_key }}** — публичный SSH-ключ для доступа к ВМ.
 
-1. [Cоздайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) `vm-b` со следующими параметрами:
+1. [Создайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) `vm-b` со следующими параметрами:
 
     * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-b`.
     * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-b`.
@@ -483,224 +368,134 @@
 
 Для настройки шлюза используйте IP-адреса, имя пользователя и ключ SSH, которые вы указывали при создании ВМ `remote-gw`.
 
-{% note warning %}
+1. Подключитесь к виртуальной машине по [SSH](../../../glossary/ssh-keygen.md):
 
-Для настройки strongSwan [рекомендуется использовать](https://docs.strongswan.org/docs/5.9/howtos/introduction.html#_configuration_files) формат конфигурационного файла [swanctl.conf](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html). Инструкция для настройки шлюза в устаревшем формате конфигурации представлена на вкладке `ipsec.conf`.
+    ```bash
+    ssh ipsec@<x2.x2.x2.x2>
+    ```
 
-{% endnote %}
+1. Задайте параметры даты и времени для ВМ:
 
-{% list tabs %}
+    ```bash
+    sudo timedatectl set-timezone Europe/Moscow
+    sudo timedatectl set-ntp True
+    timedatectl
+    ```
 
-- swanctl.conf
-  
-  1. Подключитесь к виртуальной машине по [SSH](../../../glossary/ssh-keygen.md):
+1. Для оптимальной работы протокола ICMP отключите функциональность `ICMP Redirects` на IPsec-шлюзе:
 
-      ```bash
-      ssh ipsec@<x2.x2.x2.x2>
-      ```
-
-  1. Задайте параметры даты и времени для ВМ:
-
-      ```bash
-      sudo timedatectl set-timezone Europe/Moscow
-      sudo timedatectl set-ntp True
-      timedatectl
-      ```
-
-  1. Для оптимальной работы протокола ICMP отключите функциональность `ICMP Redirects` на IPsec-шлюзе:
-
-      ```bash
+    ```bash
 	  sudo su -c "echo 'net.ipv4.conf.eth0.send_redirects=0' >> /etc/sysctl.conf"
 	  sudo su -c "echo 'net.ipv4.conf.default.send_redirects=0' >> /etc/sysctl.conf"
-      ```
+    ```
 
-      Подробнее об этом читайте в [документации strongSwan](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
+    Подробнее об этом читайте в [документации strongSwan](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
 
-  1. Создайте резервную копию файла конфигурации `swanctl.conf`:
-  
-      ```bash
-      sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
-      ```
+1. Создайте резервную копию файла конфигурации `swanctl.conf`:
 
-  1. Создайте конфигурацию для удаленного IPsec-шлюза в файле `/etc/swanctl/swanctl.conf`:
+    ```bash
+    sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
+    ```
 
-      ```bash
-      sudo nano /etc/swanctl/swanctl.conf
-      ```
+1. Создайте конфигурацию для удаленного IPsec-шлюза в файле `/etc/swanctl/swanctl.conf`:
 
-      В открывшемся файле укажите:
+    ```bash
+    sudo nano /etc/swanctl/swanctl.conf
+    ```
 
-      ```bash
-      connections {
-        cloud-ipsec {
-          local_addrs = 10.10.20.20
-          remote_addrs = <x1.x1.x1.x1>
-          local {
-            auth = psk
-          }
-          remote {
-            auth = psk
-          }
-          version = 2 # IKEv2
-          mobike = no
-          proposals = aes128gcm16-prfsha256-ecp256, default
-          dpd_delay = 10s
-          children {
-            cloud-ipsec {
-              # List of local IPv4 subnets
-              local_ts = 10.10.0.0/16
+    В открывшемся файле укажите:
 
-              # List of remote IPv4 subnets
-              remote_ts = 172.16.1.0/24, 172.16.2.0/24
+    ```bash
+    connections {
+      cloud-ipsec {
+        local_addrs = 10.10.20.20
+        remote_addrs = <x1.x1.x1.x1>
+        local {
+          auth = psk
+        }
+        remote {
+          auth = psk
+        }
+        version = 2 # IKEv2
+        mobike = no
+        proposals = aes128gcm16-prfsha256-ecp256, default
+        dpd_delay = 10s
+        children {
+          cloud-ipsec {
+            # List of local IPv4 subnets
+            local_ts = 10.10.0.0/16
 
-              start_action = trap
-              esp_proposals = aes128gcm16
-              dpd_action = clear
-            }
+            # List of remote IPv4 subnets
+            remote_ts = 172.16.1.0/24, 172.16.2.0/24
+
+            start_action = trap
+            esp_proposals = aes128gcm16
+            dpd_action = clear
           }
         }
       }
+    }
 
-      # Pre-shared key (PSK) for IPsec connection
-      secrets {
-        ike-cloud-ipsec {
-          secret = <пароль_ipsec>
-        }
+    # Pre-shared key (PSK) for IPsec connection
+    secrets {
+      ike-cloud-ipsec {
+        secret = <пароль_ipsec>
       }
-      ```
+    }
+    ```
 
-      Где:
+    Где:
 
-      * `cloud-ipsec` — имя IPsec-соединения.
-      * `remote_addrs` — публичный IP-адрес `<x1.x1.x1.x1>` основного IPsec-шлюза.
-      * `proposals` — [Internet Key Exchange Version 2 (IKEv2)](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_internet_key_exchange_version_2_ikev2). Список шифров (ciphers), которые могут использоваться для шифрования канала управления IPsec-соединением.
-      * `esp_proposals` — [Encapsulating Security Payload](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_encapsulating_security_payload_esp). Список шифров (ciphers), которые могут использоваться для шифрования передаваемых данных.
-      * `secret` — [Pre-Shared Key](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_psk_based_authentication). Ключ (пароль) `<пароль_ipsec>`, который будет использоваться для установки IPsec-соединения.
+    * `cloud-ipsec` — имя IPsec-соединения.
+    * `remote_addrs` — публичный IP-адрес `<x1.x1.x1.x1>` основного IPsec-шлюза.
+    * `proposals` — [Internet Key Exchange Version 2 (IKEv2)](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_internet_key_exchange_version_2_ikev2). Список шифров (ciphers), которые могут использоваться для шифрования канала управления IPsec-соединением.
+    * `esp_proposals` — [Encapsulating Security Payload](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_encapsulating_security_payload_esp). Список шифров (ciphers), которые могут использоваться для шифрования передаваемых данных.
+    * `secret` — [Pre-Shared Key](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html#_psk_based_authentication). Ключ (пароль) `<пароль_ipsec>`, который будет использоваться для установки IPsec-соединения.
 
-      {% note info %}
+    {% note info %}
 
-      В файле конфигурации `swanctl.conf` вы можете указать дополнительные параметры в соответствии с [документацией strongSwan](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html).
+    В файле конфигурации `swanctl.conf` вы можете указать дополнительные параметры в соответствии с [документацией strongSwan](https://docs.strongswan.org/docs/5.9/swanctl/swanctlConf.html).
 
-      Например, для увеличения скорости передачи данных через IPsec-соединение используйте [оптимизированные алгоритмы шифрования](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html#_authenticated_encryption_aead_algorithms) в режиме [IKEv2](https://docs.strongswan.org/docs/5.9/features/ietf.html#_ikev2). Поддержка этих алгоритмов должна быть реализована на платформе удаленного IPsec-шлюза, если это не strongSwan.
+    Например, для увеличения скорости передачи данных через IPsec-соединение используйте [оптимизированные алгоритмы шифрования](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html#_authenticated_encryption_aead_algorithms) в режиме [IKEv2](https://docs.strongswan.org/docs/5.9/features/ietf.html#_ikev2). Поддержка этих алгоритмов должна быть реализована на платформе удаленного IPsec-шлюза, если это не strongSwan.
 
-      {% endnote %}
+    {% endnote %}
 
-  1. Загрузите конфигурацию в strongSwan:
+1. Загрузите конфигурацию в strongSwan:
 
-      ```bash
-      sudo swanctl --load-all
-      ```
+    ```bash
+    sudo swanctl --load-all
+    ```
 
-  1. Перезапустите strongSwan:
+1. Перезапустите strongSwan:
 
-      ```bash
-      sudo systemctl restart strongswan
-      ```
+    ```bash
+    sudo systemctl restart strongswan
+    ```
 
-  1. Проверьте состояние strongSwan:
+1. Проверьте состояние strongSwan:
 
-      ```bash
-      sudo swanctl -L
-      ```
+    ```bash
+    sudo swanctl -L
+    ```
 
-  1. (Опционально) Посмотрите логи strongSwan:
+1. (Опционально) Посмотрите логи strongSwan:
 
-      ```bash
-      sudo journalctl -u strongswan --no-pager
-      sudo journalctl -u strongswan -n 20
-      sudo journalctl -u strongswan -f
-      ```
+    ```bash
+    sudo journalctl -u strongswan --no-pager
+    sudo journalctl -u strongswan -n 20
+    sudo journalctl -u strongswan -f
+    ```
 
-  1. Закройте соединение с `remote-gw`:
+1. Закройте соединение с `remote-gw`:
 
-      ```bash
-      exit
-      ```
+    ```bash
+    exit
+    ```
 
-- ipsec.conf
-
-  1. Подключитесь к виртуальной машине по [SSH](../../../glossary/ssh-keygen.md):
-
-      ```bash
-      ssh ipsec@<x2.x2.x2.x2>
-      ```
-
-  1. Создайте конфигурацию для удаленного IPsec-шлюза в файле `/etc/swanctl/ipsec.conf`:
-
-      ```bash
-      sudo nano /etc/ipsec.conf
-      ```
-
-     В открывшемся файле конфигурации `/etc/ipsec.conf` задайте нужные параметры для настройки удаленного IPsec-шлюза. Значения параметров будут зеркальным отображением значений параметров основного IPsec-шлюза.
-
-      ```bash
-      config setup
-        charondebug="all"
-        uniqueids=yes
-        strictcrlpolicy=no
-
-      conn remote-site-to-cloud
-        authby=secret
-        left=%defaultroute
-        leftid=<x2.x2.x2.x2>
-        leftsubnet=10.10.0.0/16
-        right=<x1.x1.x1.x1>
-        rightsubnet=172.16.1.0/24
-        ike=aes256-sha2_256-modp1024!
-        esp=aes256-sha2_256!
-        keyingtries=0
-        ikelifetime=1h
-        lifetime=8h
-        dpddelay=30
-        dpdtimeout=120
-        dpdaction=restart
-        auto=start
-      ```
-
-      Где:
-
-      * `conn` — название подключения к IPsec-шлюзу со стороны {{ yandex-cloud }}.
-      * `leftid` — публичный IP-адрес `<x2.x2.x2.x2>` удаленного IPsec-шлюза.
-      * `leftsubnet` — список префиксов подсетей, которые находятся за удаленным IPsec-шлюзом.
-      * `right` — публичный IP-адрес `<x1.x1.x1.x1>` IPsec-шлюза со стороны {{ yandex-cloud }}.
-      * `rightsubnet` — список префиксов подсетей, расположенных за IPsec-шлюзом со стороны {{ yandex-cloud }}.
-      * `ike`, `esp` — алгоритмы шифрования, которые будут использоваться для организации IPsec-соединения между IPsec шлюзами. Список допустимых алгоритмов шифрования для режима [IKEv2](https://docs.strongswan.org/docs/5.9/config/IKEv2CipherSuites.html) и режима [IKEv1](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites) приведен в документации strongSwan. Режим `IKEv1` признан устаревшим и не рекомендуется к использованию.
-
-  1. Создайте конфигурацию для основного IPsec-шлюза в файле `/etc/swanctl/ipsec.secrets`:
-  
-      ```bash
-      sudo nano /etc/ipsec.secrets
-      ```
-
-     В открывшемся файле конфигурации `/etc/ipsec.secrets` укажите IP-адреса ваших IPsec-шлюзов и задайте пароль (Pre-Shared Key) для IPsec-соединения с основным шлюзом:
-
-      ```bash
-      <x2.x2.x2.x2> <x1.x1.x1.x1> : PSK "<пароль_ipsec>"
-      ```
-
-      Где:
-
-      * `<пароль_ipsec>` — ключ/пароль, используемый шлюзами для установки IPsec-соединения.
-      * `<x1.x1.x1.x1>` — публичный IP-адрес основного IPsec-шлюза со стороны {{ yandex-cloud }}.
-      * `<x2.x2.x2.x2>` — публичный IP-адрес удаленного IPsec-шлюза.
-
-  1. Перезапустите strongSwan:
-
-      ```bash
-      sudo systemctl restart strongswan-starter
-      ```
-
-  1. Закройте соединение с `cloud-gw`:
-
-      ```bash
-      exit
-      ```
-
-{% endlist %}
 
 #### Разверните тестовую ВМ на удаленной площадке {#remote-test-vm}
 
-[Cоздайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) со следующими параметрами:
+[Создайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) со следующими параметрами:
 
   * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-1`.
   * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-b`.
@@ -767,348 +562,276 @@ IPsec-шлюзы на основной и удаленной площадках 
 
 ### Проверьте связность между ВМ {#ipsec-test-vm}
 
-{% note warning %}
-
-Набор команд для проверки IPsec-соединения будет отличаться в зависимости от использованного формата конфигурационного файла strongSwan.
-
-{% endnote %}
-
-{% list tabs %}
-
-- swanctl.conf
-
-  1. Подключитесь к основному IPsec-шлюзу `cloud-gw`:
-
-      ```bash
-      ssh ipsec@<x1.x1.x1.x1>
-      ```
-
-      1. Проверьте состояние strongSwan:
-
-          ```bash
-          sudo swanctl -L
-          ```
-
-          Результат:
-
-          ```bash
-          cloud-to-remote-site: IKEv1/2, reauthentication every 3060s, no rekeying, dpd delay 30s
-            local:  %any
-            remote: <x2.x2.x2.x2>
-            local pre-shared key authentication:
-              id: <x1.x1.x1.x1>
-            remote pre-shared key authentication:
-              id: <x2.x2.x2.x2>
-            cloud-to-remote-site: TUNNEL, rekeying every 28260s, dpd action is restart
-              local:  172.16.1.0/24
-              remote: 10.10.0.0/16
-          cloud-ipsec: IKEv2, no reauthentication, rekeying every 14400s, dpd delay 10s
-            local:  172.16.0.10
-            remote: <x2.x2.x2.x2>
-            local pre-shared key authentication:
-            remote pre-shared key authentication:
-            cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is clear
-              local:  172.16.1.0/24 172.16.2.0/24
-              remote: 10.10.0.0/16
-          ```
-
-      1. Проверьте активные IPsec-соединения:
-
-          ```bash
-          sudo swanctl -l
-          ```
-
-          Результат:
-
-          ```bash
-          cloud-ipsec: #6, ESTABLISHED, IKEv2, 80e6fa659b4f6307_i* 9f63a85191df1e48_r
-            local  '172.16.0.10' @ 172.16.0.10[4500]
-            remote '10.10.20.20' @ <x2.x2.x2.x2>[4500]
-            AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
-            established 9716s ago, rekeying in 4107s
-            cloud-ipsec: #19, reqid 1, INSTALLED, TUNNEL-in-UDP, ESP:AES_GCM_16-128
-              installed 682s ago, rekeying in 2735s, expires in 3278s
-              in  cf9668bb,      0 bytes,     0 packets
-              out c3a00b2c,      0 bytes,     0 packets
-              local  172.16.1.0/24 172.16.2.0/24
-              remote 10.10.0.0/16
-          ```
-
-          Состояние соединения `ESTABLISHED` означает, что IPsec-соединение установилось и работает.
-
-      1. Закройте соединение с `cloud-gw`:
-
-          ```bash
-          exit
-          ```
-
-  1. Подключитесь к удаленному IPsec-шлюзу `remote-gw`:
-
-      ```bash
-      ssh ipsec@<x2.x2.x2.x2>
-      ```
-
-      1. Проверьте состояние strongSwan:
-
-          ```bash
-          sudo swanctl -L
-          ```
-
-          Результат:
-
-          ```bash
-          remote-site-to-cloud: IKEv1/2, reauthentication every 3060s, no rekeying, dpd delay 30s
-            local:  %any
-            remote: <x1.x1.x1.x1>
-            local pre-shared key authentication:
-              id: <x2.x2.x2.x2>
-            remote pre-shared key authentication:
-              id: <x1.x1.x1.x1>
-            remote-site-to-cloud: TUNNEL, rekeying every 28260s, dpd action is restart
-              local:  10.10.0.0/16
-              remote: 172.16.1.0/24
-          cloud-ipsec: IKEv2, no reauthentication, rekeying every 14400s, dpd delay 10s
-            local:  10.10.20.20
-            remote: <x1.x1.x1.x1>
-            local pre-shared key authentication:
-            remote pre-shared key authentication:
-            cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is clear
-              local:  10.10.0.0/16
-              remote: 172.16.1.0/24 172.16.2.0/24
-          ```
-
-      1. Проверьте активные IPsec-соединения:
-      
-          ```bash
-          sudo swanctl -l
-          ```
-
-          Результат:
-
-          ```bash
-          cloud-ipsec: #6, ESTABLISHED, IKEv2, 80e6fa659b4f6307_i 9f63a85191df1e48_r*
-            local  '10.10.20.20' @ 10.10.20.20[4500]
-            remote '172.16.0.10' @ <x1.x1.x1.x1>[4500]
-            AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
-            established 9833s ago, rekeying in 3346s
-            cloud-ipsec: #19, reqid 1, INSTALLED, TUNNEL-in-UDP, ESP:AES_GCM_16-128
-              installed 799s ago, rekeying in 2620s, expires in 3161s
-              in  c3a00b2c,      0 bytes,     0 packets
-              out cf9668bb,      0 bytes,     0 packets
-              local  10.10.0.0/16
-              remote 172.16.1.0/24 172.16.2.0/24
-          ```
-
-          Состояние соединения `ESTABLISHED` означает, что IPsec-соединение установилось и работает.
-
-      1. Закройте соединение с `remote-gw`:
-
-          ```bash
-          exit
-          ```
-
-  1. Подключитесь к ВМ `vm-a`:
-
-      ```bash
-      ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.1.5
-      ```
-
-      1. Задайте параметры даты и времени для ВМ:
-
-          ```bash
-          sudo timedatectl set-timezone Europe/Moscow
-          sudo timedatectl set-ntp True
-          timedatectl
-          ```
-
-      1. Проверьте IP-связность между `vm-a` и `vm-1`:
-
-          ```bash
-          ping -c4 10.10.10.10
-          ```
-
-          Результат:
-
-          ```bash
-          PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
-          64 bytes from 10.10.10.10: icmp_seq=1 ttl=58 time=4.92 ms
-          64 bytes from 10.10.10.10: icmp_seq=2 ttl=58 time=4.33 ms
-          64 bytes from 10.10.10.10: icmp_seq=3 ttl=58 time=4.31 ms
-          64 bytes from 10.10.10.10: icmp_seq=4 ttl=58 time=4.38 ms
-
-          --- 10.10.10.10 ping statistics ---
-          4 packets transmitted, 4 received, 0% packet loss, time 3005ms
-          rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
-          ```
-
-      1. Закройте соединение с `vm-a`:
-
-          ```bash
-          exit
-          ```
-
-  1. Подключитесь к ВМ `vm-b`:
-
-      ```bash
-      ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.2.5
-      ```
-
-      1. Задайте параметры даты и времени для ВМ:
-
-          ```bash
-          sudo timedatectl set-timezone Europe/Moscow
-          sudo timedatectl set-ntp True
-          timedatectl
-          ```
-
-      1. Проверьте IP-связность между `vm-b` и `vm-1`:
+1. Подключитесь к основному IPsec-шлюзу `cloud-gw`:
+
+    ```bash
+    ssh ipsec@<x1.x1.x1.x1>
+    ```
+
+    1. Проверьте состояние strongSwan:
+
+        ```bash
+        sudo swanctl -L
+        ```
+
+        Результат:
+
+        ```bash
+        cloud-to-remote-site: IKEv1/2, reauthentication every 3060s, no rekeying, dpd delay 30s
+          local:  %any
+          remote: <x2.x2.x2.x2>
+          local pre-shared key authentication:
+            id: <x1.x1.x1.x1>
+          remote pre-shared key authentication:
+            id: <x2.x2.x2.x2>
+          cloud-to-remote-site: TUNNEL, rekeying every 28260s, dpd action is restart
+            local:  172.16.1.0/24
+            remote: 10.10.0.0/16
+        cloud-ipsec: IKEv2, no reauthentication, rekeying every 14400s, dpd delay 10s
+          local:  172.16.0.10
+          remote: <x2.x2.x2.x2>
+          local pre-shared key authentication:
+          remote pre-shared key authentication:
+          cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is clear
+            local:  172.16.1.0/24 172.16.2.0/24
+            remote: 10.10.0.0/16
+        ```
+
+    1. Проверьте активные IPsec-соединения:
+
+        ```bash
+        sudo swanctl -l
+        ```
+
+        Результат:
+
+        ```bash
+        cloud-ipsec: #6, ESTABLISHED, IKEv2, 80e6fa659b4f6307_i* 9f63a85191df1e48_r
+          local  '172.16.0.10' @ 172.16.0.10[4500]
+          remote '10.10.20.20' @ <x2.x2.x2.x2>[4500]
+          AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
+          established 9716s ago, rekeying in 4107s
+          cloud-ipsec: #19, reqid 1, INSTALLED, TUNNEL-in-UDP, ESP:AES_GCM_16-128
+            installed 682s ago, rekeying in 2735s, expires in 3278s
+            in  cf9668bb,      0 bytes,     0 packets
+            out c3a00b2c,      0 bytes,     0 packets
+            local  172.16.1.0/24 172.16.2.0/24
+            remote 10.10.0.0/16
+        ```
+
+        Состояние соединения `ESTABLISHED` означает, что IPsec-соединение установилось и работает.
+
+    1. Закройте соединение с `cloud-gw`:
+
+        ```bash
+        exit
+        ```
+
+1. Подключитесь к удаленному IPsec-шлюзу `remote-gw`:
+
+    ```bash
+    ssh ipsec@<x2.x2.x2.x2>
+    ```
+
+    1. Проверьте состояние strongSwan:
+
+        ```bash
+        sudo swanctl -L
+        ```
+
+        Результат:
+
+        ```bash
+        remote-site-to-cloud: IKEv1/2, reauthentication every 3060s, no rekeying, dpd delay 30s
+          local:  %any
+          remote: <x1.x1.x1.x1>
+          local pre-shared key authentication:
+            id: <x2.x2.x2.x2>
+          remote pre-shared key authentication:
+            id: <x1.x1.x1.x1>
+          remote-site-to-cloud: TUNNEL, rekeying every 28260s, dpd action is restart
+            local:  10.10.0.0/16
+            remote: 172.16.1.0/24
+        cloud-ipsec: IKEv2, no reauthentication, rekeying every 14400s, dpd delay 10s
+          local:  10.10.20.20
+          remote: <x1.x1.x1.x1>
+          local pre-shared key authentication:
+          remote pre-shared key authentication:
+          cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is clear
+            local:  10.10.0.0/16
+            remote: 172.16.1.0/24 172.16.2.0/24
+        ```
+
+    1. Проверьте активные IPsec-соединения:
+    
+        ```bash
+        sudo swanctl -l
+        ```
+
+        Результат:
 
-          ```bash
-          ping -c4 10.10.10.10
-          ```
+        ```bash
+        cloud-ipsec: #6, ESTABLISHED, IKEv2, 80e6fa659b4f6307_i 9f63a85191df1e48_r*
+          local  '10.10.20.20' @ 10.10.20.20[4500]
+          remote '172.16.0.10' @ <x1.x1.x1.x1>[4500]
+          AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
+          established 9833s ago, rekeying in 3346s
+          cloud-ipsec: #19, reqid 1, INSTALLED, TUNNEL-in-UDP, ESP:AES_GCM_16-128
+            installed 799s ago, rekeying in 2620s, expires in 3161s
+            in  c3a00b2c,      0 bytes,     0 packets
+            out cf9668bb,      0 bytes,     0 packets
+            local  10.10.0.0/16
+            remote 172.16.1.0/24 172.16.2.0/24
+        ```
 
-          Результат:
-
-          ```bash
-          PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
-          64 bytes from 10.10.10.10: icmp_seq=1 ttl=58 time=4.92 ms
-          64 bytes from 10.10.10.10: icmp_seq=2 ttl=58 time=4.33 ms
-          64 bytes from 10.10.10.10: icmp_seq=3 ttl=58 time=4.31 ms
-          64 bytes from 10.10.10.10: icmp_seq=4 ttl=58 time=4.38 ms
+        Состояние соединения `ESTABLISHED` означает, что IPsec-соединение установилось и работает.
 
-          --- 10.10.10.10 ping statistics ---
-          4 packets transmitted, 4 received, 0% packet loss, time 3005ms
-          rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
-          ```
-
-      1. Закройте соединение с `vm-b`:
+    1. Закройте соединение с `remote-gw`:
 
-          ```bash
-          exit
-          ```
+        ```bash
+        exit
+        ```
 
-  1. Подключитесь к ВМ `vm-1`:
-
-      ```bash
-      ssh -J ipsec@<x2.x2.x2.x2> ipsec@10.10.10.10
-      ```
-
-      1. Задайте параметры даты и времени для ВМ:
-
-          ```bash
-          sudo timedatectl set-timezone Europe/Moscow
-          sudo timedatectl set-ntp True
-          timedatectl
-          ```
-
-      1. Проверьте IP-связность между `vm-1` и `vm-a`:
-
-          ```bash
-          ping -c4 172.16.1.5
-          ```
-
-          Результат:
-
-          ```bash
-          PING 172.16.1.5 (172.16.1.5) 56(84) bytes of data.
-          64 bytes from 172.16.1.5: icmp_seq=1 ttl=58 time=4.92 ms
-          64 bytes from 172.16.1.5: icmp_seq=2 ttl=58 time=4.33 ms
-          64 bytes from 172.16.1.5: icmp_seq=3 ttl=58 time=4.31 ms
-          64 bytes from 172.16.1.5: icmp_seq=4 ttl=58 time=4.38 ms
-
-          --- 172.16.1.5 ping statistics ---
-          4 packets transmitted, 4 received, 0% packet loss, time 3005ms
-          rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
-          ```
-
-      1. Проверьте IP-связность между `vm-1` и `vm-b`:
-
-          ```bash
-          ping -c4 172.16.2.5
-          ```
-
-          Результат:
-
-          ```bash
-          PING 172.16.2.5 (172.16.2.5) 56(84) bytes of data.
-          64 bytes from 172.16.2.5: icmp_seq=1 ttl=58 time=4.92 ms
-          64 bytes from 172.16.2.5: icmp_seq=2 ttl=58 time=4.33 ms
-          64 bytes from 172.16.2.5: icmp_seq=3 ttl=58 time=4.31 ms
-          64 bytes from 172.16.2.5: icmp_seq=4 ttl=58 time=4.38 ms
-
-          --- 172.16.2.5 ping statistics ---
-          4 packets transmitted, 4 received, 0% packet loss, time 3005ms
-          rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
-          ```
-      
-      1. Закройте соединение с `vm-1`:
-
-          ```bash
-          exit
-          ```
-
-- ipsec.conf
-
-  1. Подключитесь к основному IPsec-шлюзу `cloud-gw`:
-
-      ```bash
-      ssh ipsec@<x1.x1.x1.x1>
-      ```
-
-  1. Убедитесь, что соединение между шлюзами установлено:
-
-      ```bash
-      sudo ipsec status
-      ```
-
-      Результат:
-
-      ```bash
-      Routed Connections:
-      cloud-ipsec{2}:  ROUTED, TUNNEL, reqid 1
-      cloud-ipsec{2}:   172.16.1.0/24 172.16.2.0/24 === 10.10.0.0/16
-      Security Associations (1 up, 0 connecting):
-      cloud-ipsec[6]: ESTABLISHED 2 hours ago, 172.16.0.10[172.16.0.10]...<x2.x2.x2.x2>[10.10.20.20]
-      cloud-ipsec{19}:  INSTALLED, TUNNEL, reqid 1, ESP in UDP SPIs: cf9668bb_i c3a00b2c_o
-      cloud-ipsec{19}:   172.16.1.0/24 172.16.2.0/24 === 10.10.0.0/16
-      ```
-
-      Статус `ESTABLISHED` означает, что туннель между шлюзами создан.
-
-  1. Проверьте состояние демона strongSwan:
-
-      ```bash
-      systemctl status strongswan-starter
-      ```
-
-      Результат:
-
-      ```bash
-      ● strongswan-starter.service - strongSwan IPsec IKEv1/IKEv2 daemon using ipsec.conf
-          Loaded: loaded (/lib/systemd/system/strongswan-starter.service; enabled; vendor preset: enabled)
-          Active: active (running) since Sun 2023-05-28 21:54:02 MSK; 1h ago
-        Main PID: 738 (starter)
-            Tasks: 18 (limit: 1028)
-          Memory: 8.1M
-              CPU: 8.246s
-          CGroup: /system.slice/strongswan-starter.service
-                  ├─738 /usr/lib/ipsec/starter --daemon charon --nofork
-                  └─798 /usr/lib/ipsec/charon
-      ```
-
-  1. Дополнительно вы можете посмотреть подробную информацию о IPsec-соединениях и работе strongSwan:
-
-      ```bash
-      journalctl -u strongswan-starter
-      ```
-
-  1. Закройте соединение с основным IPsec-шлюзом `cloud-gw`:
-
-      ```bash
-      exit
-      ```
-
-{% endlist %}
+1. Подключитесь к ВМ `vm-a`:
+
+    ```bash
+    ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.1.5
+    ```
+
+    1. Задайте параметры даты и времени для ВМ:
+
+        ```bash
+        sudo timedatectl set-timezone Europe/Moscow
+        sudo timedatectl set-ntp True
+        timedatectl
+        ```
+
+    1. Проверьте IP-связность между `vm-a` и `vm-1`:
+
+        ```bash
+        ping -c4 10.10.10.10
+        ```
+
+        Результат:
+
+        ```bash
+        PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
+        64 bytes from 10.10.10.10: icmp_seq=1 ttl=58 time=4.92 ms
+        64 bytes from 10.10.10.10: icmp_seq=2 ttl=58 time=4.33 ms
+        64 bytes from 10.10.10.10: icmp_seq=3 ttl=58 time=4.31 ms
+        64 bytes from 10.10.10.10: icmp_seq=4 ttl=58 time=4.38 ms
+
+        --- 10.10.10.10 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+        rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
+        ```
+
+    1. Закройте соединение с `vm-a`:
+
+        ```bash
+        exit
+        ```
+
+1. Подключитесь к ВМ `vm-b`:
+
+    ```bash
+    ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.2.5
+    ```
+
+    1. Задайте параметры даты и времени для ВМ:
+
+        ```bash
+        sudo timedatectl set-timezone Europe/Moscow
+        sudo timedatectl set-ntp True
+        timedatectl
+        ```
+
+    1. Проверьте IP-связность между `vm-b` и `vm-1`:
+
+        ```bash
+        ping -c4 10.10.10.10
+        ```
+
+        Результат:
+
+        ```bash
+        PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
+        64 bytes from 10.10.10.10: icmp_seq=1 ttl=58 time=4.92 ms
+        64 bytes from 10.10.10.10: icmp_seq=2 ttl=58 time=4.33 ms
+        64 bytes from 10.10.10.10: icmp_seq=3 ttl=58 time=4.31 ms
+        64 bytes from 10.10.10.10: icmp_seq=4 ttl=58 time=4.38 ms
+
+        --- 10.10.10.10 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+        rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
+        ```
+
+    1. Закройте соединение с `vm-b`:
+
+        ```bash
+        exit
+        ```
+
+1. Подключитесь к ВМ `vm-1`:
+
+    ```bash
+    ssh -J ipsec@<x2.x2.x2.x2> ipsec@10.10.10.10
+    ```
+
+    1. Задайте параметры даты и времени для ВМ:
+
+        ```bash
+        sudo timedatectl set-timezone Europe/Moscow
+        sudo timedatectl set-ntp True
+        timedatectl
+        ```
+
+    1. Проверьте IP-связность между `vm-1` и `vm-a`:
+
+        ```bash
+        ping -c4 172.16.1.5
+        ```
+
+        Результат:
+
+        ```bash
+        PING 172.16.1.5 (172.16.1.5) 56(84) bytes of data.
+        64 bytes from 172.16.1.5: icmp_seq=1 ttl=58 time=4.92 ms
+        64 bytes from 172.16.1.5: icmp_seq=2 ttl=58 time=4.33 ms
+        64 bytes from 172.16.1.5: icmp_seq=3 ttl=58 time=4.31 ms
+        64 bytes from 172.16.1.5: icmp_seq=4 ttl=58 time=4.38 ms
+
+        --- 172.16.1.5 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+        rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
+        ```
+
+    1. Проверьте IP-связность между `vm-1` и `vm-b`:
+
+        ```bash
+        ping -c4 172.16.2.5
+        ```
+
+        Результат:
+
+        ```bash
+        PING 172.16.2.5 (172.16.2.5) 56(84) bytes of data.
+        64 bytes from 172.16.2.5: icmp_seq=1 ttl=58 time=4.92 ms
+        64 bytes from 172.16.2.5: icmp_seq=2 ttl=58 time=4.33 ms
+        64 bytes from 172.16.2.5: icmp_seq=3 ttl=58 time=4.31 ms
+        64 bytes from 172.16.2.5: icmp_seq=4 ttl=58 time=4.38 ms
+
+        --- 172.16.2.5 ping statistics ---
+        4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+        rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
+        ```
+    
+    1. Закройте соединение с `vm-1`:
+
+        ```bash
+        exit
+        ```
+
 
 ## Как удалить созданные ресурсы {#clear-out}
 

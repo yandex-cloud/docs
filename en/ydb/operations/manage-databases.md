@@ -102,7 +102,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       Where:
 
       * `name`: DB name. This is a required parameter.
-      * `deletion_protection`: DB deletion protection: `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
+      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
       * `enable_throttling_rcu_limit`: Enable the throughput limit: `true` or `false`. This is an optional parameter. The default value is `false`.
       * `provisioned_rcu_limit`: Limit on the request unit usage per second. This is an optional parameter. The default value is `0`.
       * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is `50`.
@@ -135,6 +135,15 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    >   }
    > }
    > ```
+
+- API
+
+   To create a serverless database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
+
+   * ID of the folder to host the database in the `folderId` parameter.
+   * Database name in the `name` parameter.
+   * Database throughput in the `serverlessDatabase.throttlingRcuLimit` parameter.
+   * Database size (in bytes) in the `serverlessDatabase.storageSizeLimit` parameter.
 
 {% endlist %}
 
@@ -206,7 +215,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       Where:
 
       * `name`: DB name. This is a required parameter.
-      * `deletion_protection`: DB deletion protection: `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
+      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
       * `enable_throttling_rcu_limit`: Enable the throughput limit: `true` or `false`. This is an optional parameter. The default value is `false`.
       * `provisioned_rcu_limit`: Limit on the request unit usage per second. This is an optional parameter. The default value is `0`.
       * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is `50`.
@@ -239,6 +248,24 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    >   }
    > }
    > ```
+
+- API
+
+   To change the serverless database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and specify the database ID in the `databaseId` request parameter.
+
+   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
+
+   Provide the following in the request:
+
+   * ID of the folder to host the database in the `folderId` parameter.
+   * Database name in the `name` parameter.
+   * Database throughput in the `serverlessDatabase.throttlingRcuLimit` parameter.
+   * Database size (in bytes) in the `serverlessDatabase.storageSizeLimit` parameter.
+   * Computing resource ID in the `resourcePresetId` parameter.
+   * Network ID in the `networkId` parameter.
+   * Media type in the `storageConfig.storageOptions.storageTypeId` parameter.
+   * Number of storage groups in the `storageConfig.storageOptions.groupCount` parameter.
+   * Number of database instances in the `scalePolicy.fixedScale.size` parameter.
 
 {% endlist %}
 
@@ -384,7 +411,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       * `network_id`: ID of the network the DB is connected to.
       * `subnet_ids`: List of subnet IDs, separated by commas.
       * `resource_preset_id`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
-      * `deletion_protection`: DB deletion protection: `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
+      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
       * `scale_policy`: Scaling policy, where `size` indicates the number of DB instances.
       * `storage_config`: Storage configuration, where:
          * `group_count`: Number of [storage groups](../concepts/resources.md#storage-groups).
@@ -422,6 +449,19 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    >   }
    > }
    > ```
+
+- API
+
+   To create a dedicated database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
+
+   * ID of the folder to host the database in the `folderId` parameter.
+   * Database name in the `name` parameter.
+   * Permission to assign public IP addresses to database nodes in the `dedicatedDatabase.assignPublicIps` parameter.
+   * Computing resource ID in the `resourcePresetId` parameter.
+   * Network ID in the `networkId` parameter.
+   * Media type in the `storageConfig.storageOptions.storageTypeId` parameter.
+   * Number of storage groups in the `storageConfig.storageOptions.groupCount` parameter.
+   * Number of database instances in the `scalePolicy.fixedScale.size` parameter.
 
 {% endlist %}
 
@@ -500,7 +540,17 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    yc ydb database get <DB_name>
    ```
 
+- API
+
+   To change the dedicated database parameters, use the [update](../api-ref/Database/update.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Update](../api-ref/grpc/database_service.md#Update) gRPC API call and specify the database ID in the `databaseId` request parameter.
+
+   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
+
+   In the request, provide a set of parameters used to [create the dedicated database](#create-db-dedicated) with your updated values.
+
 {% endlist %}
+
+To move a database to a different availability zone, follow [this guide](migration-to-an-availability-zone.md).
 
 ## Viewing the list of databases {#list-db}
 
@@ -517,11 +567,15 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the following command:
+   Run this command:
 
    ```bash
    yc ydb database list
    ```
+
+- API
+
+   To get a list of databases in the folder, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/database_service.md#List) gRPC API call and provide the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -542,7 +596,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the following command:
+   Run this command:
 
    ```bash
    yc ydb database delete <DB_name>
@@ -586,5 +640,11 @@ You can use the management console or {{ yandex-cloud }} CLI to:
    ```bash
    yc ydb database list
    ```
+
+- API
+
+   To delete the database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/database_service.md#Delete) gRPC API call and specify the deleted database ID in the `databaseId` request parameter.
+
+   {% include [get-db-id](../../_includes/ydb/get-db-id.md) %}
 
 {% endlist %}

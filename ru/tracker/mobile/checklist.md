@@ -12,7 +12,7 @@
 
 1. Чтобы указать исполнителя и дедлайн для этого пункта, справа от него нажмите значок ![](../../_assets/horizontal-ellipsis.svg) и выберите нужное действие.  
 
-1. Чтобы добавить очередной пункт, введите описание нового пункта и намите клавишу ввода на клавиатуре телефона. Если вы добавляете новый пункт в готовый чеклист, сначала нажмите кнопку **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** внизу списка.
+1. Чтобы добавить очередной пункт, введите описание нового пункта и намите клавишу ввода на клавиатуре телефона. Если вы добавляете новый пункт в готовый чеклист, сначала нажмите кнопку **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** внизу списка.
 
 ## Работать с чеклистом {#checklist-operations}
 
@@ -24,9 +24,9 @@
   
 * Чтобы снять отметку о выполнении пункта, нажмите отметку ![](../../_assets/tracker/checklist-checkmark.png).
   
-* Чтобы добавить пункт в чеклист, нажмите **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** внизу списка.
+* Чтобы добавить пункт в чеклист, нажмите **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** внизу списка.
   
-* Чтобы удалить пункт чеклиста, справа от пункта нажмите значок ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_Checklist.remove-item-title }}**.
+* Чтобы удалить пункт чеклиста, справа от пункта нажмите значок ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_entity-page_checklist_ChecklistItem.remove-item-title }}**.
   
 * Чтобы удалить чеклист, нажмите значок ![](../../_assets/tracker/delete-checklist-mobile.png) вверху списка.
 

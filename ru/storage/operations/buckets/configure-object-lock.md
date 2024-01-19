@@ -16,9 +16,9 @@
 
 Чтобы включить возможность блокировок:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
  
@@ -37,7 +37,7 @@
   * `--object-lock-configuration` — настройки блокировок в бакете. Значение `ObjectLockEnabled=Enabled` включает механизм блокировок.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md), методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
 
@@ -52,9 +52,9 @@
 
 Чтобы настроить блокировки по умолчанию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -118,9 +118,9 @@
 
 Чтобы выключить возможность блокировок:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
  
@@ -139,7 +139,7 @@
   * `--object-lock-configuration` — настройки блокировок в бакете. Значение `ObjectLockEnabled=""` отключает механизм блокировок.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- API
+- API {#api}
 
   Чтобы выключить возможность блокировок версий объектов в бакете, воспользуйтесь методом S3 API [putObjectLockConfiguration](../../s3/api-ref/bucket/putobjectlockconfiguration.md), методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update).
 

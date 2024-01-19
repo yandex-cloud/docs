@@ -7,9 +7,9 @@ description: "Из статьи вы узнаете, как посмотреть
 
 ## Посмотреть логи группы рабочих столов
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится группа рабочих столов.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
@@ -20,9 +20,9 @@ description: "Из статьи вы узнаете, как посмотреть
 
 ## Посмотреть логи рабочего стола
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен рабочий стол.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.

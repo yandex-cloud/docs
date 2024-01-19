@@ -13,9 +13,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы удалить HTTP-роутер:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -25,7 +25,7 @@ description: "Следуя данной инструкции, вы сможет�
      Чтобы выполнить это действие с несколькими HTTP-роутерами, выделите нужные в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -49,7 +49,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc alb http-router list
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -120,7 +120,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc alb http-router list
      ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [delete](../api-ref/HttpRouter/delete.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Delete](../api-ref/grpc/http_router_service.md#Delete).
 

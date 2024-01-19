@@ -5,7 +5,7 @@ description: "Follow this guide to send asynchronous requests to models in {{ ya
 
 # Sending an asynchronous request
 
-You can send requests to the models asynchronously. In response to such a request, you will receive the operation ID and use it to track the operation progress.
+You can send requests to the models [asynchronously](../concepts/index.md#working-mode). In response to such a request, you will receive the operation ID and use it to track the operation progress.
 
 ## Getting started {#before-begin}
 

@@ -17,9 +17,9 @@
 
 Чтобы получить реквизиты для подключения к БД:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в [консоль управления]({{ link-console-main }}).
   1. Выберите каталог с вашей БД и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -32,7 +32,7 @@
       
           >Пример пути БД: `{{ ydb.path-serverless }}`.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   1. {% include [cli-install](../../_includes/cli-install.md) %}
   1. Получите список баз в каталоге:
@@ -62,7 +62,7 @@
       >* эндпоинт — `{{ ydb.ep-dedicated }}`;
       >* путь — `{{ ydb.path-dedicated }}`.
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [get](../api-ref/Database/get.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../api-ref/grpc/database_service.md#Get) и передайте в запросе идентификатор требуемой БД в параметре `databaseId`.
 

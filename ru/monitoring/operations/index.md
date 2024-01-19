@@ -45,4 +45,5 @@ description: "На странице представлен список поша
 
 * [{#T}](prometheus/ingestion/index.md)
 * [{#T}](prometheus/querying/index.md)
+* [{#T}](prometheus/read-write-for-kubernetes.md)
 

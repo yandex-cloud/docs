@@ -27,9 +27,9 @@
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер](../../managed-redis/operations/cluster-create.md) {{ mrd-name }} любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите поддержку TLS и публичный доступ для хостов при создании кластера.
 
@@ -46,7 +46,7 @@
     1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../managed-redis/operations/connect/index.md#configuring-security-groups).
 
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -178,9 +178,9 @@
 
 1. Запустите процесс восстановления дампа:
 
-    {% list tabs %}
+    {% list tabs group=connection %}
 
-    - Подключение без TLS
+    - Подключение без TLS {#without-tls}
 
         {% include [Install requirements](../../_includes/mdb/mrd/connect/bash/install-requirements.md) %}
 
@@ -239,7 +239,7 @@
 
             Во время работы скрипта будут выводиться сообщения об ошибках вставки данных. Это нормальное поведение команды `redis-cli`, связанное с тем, что в шардированном кластере каждый шард хранит только часть данных. Подробнее см. в разделе [{#T}](../../managed-redis/concepts/sharding.md).
 
-    - Подключение с TLS
+    - Подключение с TLS {#with-tls}
 
         {% include [Install requirements SSL](../../_includes/mdb/mrd/connect/bash/install-requirements-ssl.md) %}
 
@@ -328,15 +328,15 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     * [Удалите кластер {{ mrd-full-name }}](../../managed-redis/operations/cluster-delete.md).
     * Если вы создавали промежуточную виртуальную машину, [удалите ее](../../compute/operations/vm-control/vm-delete.md).
     * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

@@ -29,6 +29,7 @@ description: "В этой инструкции вы создадите клас�
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
    {% include [k8s.tunnelClusters.agent role](../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
+1. [Настройте группы безопасности](operations/connect/security-groups.md#rules-internal) для сетевого трафика кластера {{ managed-k8s-name }}.
 
 ## Создайте кластер {{ managed-k8s-name }} {#kubernetes-cluster-create}
 
@@ -59,9 +60,9 @@ description: "В этой инструкции вы создадите клас�
 
 ## Добавьте учетные данные в конфигурационный файл kubectl {#add-conf}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../_includes/cli-install.md) %}
 

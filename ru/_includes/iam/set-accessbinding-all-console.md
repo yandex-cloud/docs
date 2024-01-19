@@ -2,9 +2,9 @@
 
 Например, разрешите любому прошедшему аутентификацию пользователю просматривать информацию об облаке `my-cloud`:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) [выберите](../../resource-manager/operations/cloud/switch-cloud.md) облако.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -16,7 +16,7 @@
   1. Выберите роль `resource-manager.viewer`.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
 
@@ -26,7 +26,7 @@
     --subject system:allAuthenticatedUsers
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Назначьте роль `viewer` системной группе `allAuthenticatedUsers`: 
 
@@ -72,7 +72,7 @@
 
       После этого будут назначены права доступа к облаку.
 
-- API
+- API {#api}
 
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
 

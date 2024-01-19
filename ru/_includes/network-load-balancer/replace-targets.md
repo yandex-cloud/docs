@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сетевой балансировщик.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
@@ -8,7 +8,7 @@
   1. Выберите нужную целевую группу.
   1. В блоке **{{ ui-key.yacloud.load-balancer.target-group.label_targets-section-title }}** удалите старые ВМ и добавьте новые.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -126,7 +126,7 @@
           address: 192.168.1.9
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -160,7 +160,7 @@
   yc load-balancer target-group get <имя_целевой_группы>
   ```
 
-- API
+- API {#api}
 
   1. Чтобы отключить ресурсы от целевой группы, воспользуйтесь методом REST API [removeTargets](../../network-load-balancer/api-ref/TargetGroup/removeTargets.md) для ресурса [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/RemoveTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#RemoveTargets).
 

@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать и настроить NAT-шлюз:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -38,7 +38,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В открывшемся окне выберите созданную таблицу в списке.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -91,7 +91,7 @@ description: "Следуя данной инструкции, вы сможет�
         --route-table-name=test-route-table
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -120,7 +120,7 @@ description: "Следуя данной инструкции, вы сможет�
   }
 
   resource "yandex_vpc_route_table" "rt" {
-    name       = test-route-table
+    name       = "test-route-table"
     network_id = "<идентификатор_сети>"
 
     static_route {
@@ -132,7 +132,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   Где `folder_id` — имя каталога, в котором находится подсеть.
 
-- API
+- API {#api}
 
   1. Создайте NAT-шлюз. Воспользуйтесь методом REST API [create](../api-ref/Gateway/create.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Create](../api-ref/grpc/gateway_service.md#Create) и передайте в запросе:
 

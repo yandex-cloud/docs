@@ -30,7 +30,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 Create a dataset based on the **Files** [connection](../../datalens/concepts/connection.md) type.
 
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) interface.
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select the **Files** connection type.
 
    ![image](../../_assets/datalens/solution-05/select-file-connection.png)
@@ -56,39 +56,39 @@ This will create the file connection. The data will be shown in the same form as
 
 1. If the workspace is empty, drag the **Moscow Population 2018.csv** spreadsheet from the selection panel to the workspace.
 
-    ![image](../../_assets/datalens/solution-05/06-drag-table.png)
+   ![image](../../_assets/datalens/solution-05/06-drag-table.png)
 
 1. Go to the **Fields** tab.
 
-    ![image](../../_assets/datalens/solution-05/07-dataset-tab.png)
+   ![image](../../_assets/datalens/solution-05/07-dataset-tab.png)
 
-1. For the fields **Area**, **Population**, and **Housing stock**, specify **Sum** as the aggregation type.
+1. For the **Area**, **Population**, and **Housing stock** fields, specify **Sum** as the aggregation type.
 
-    ![image](../../_assets/datalens/solution-05/08-change-aggregation.png)
+   ![image](../../_assets/datalens/solution-05/08-change-aggregation.png)
 
-    The fields with the defined aggregate functions become measures and change their color to blue.
+   The fields with the defined aggregate functions become measures and change their color to blue.
 
-    ![image](../../_assets/datalens/solution-05/09-measures.png)
+   ![image](../../_assets/datalens/solution-05/09-measures.png)
 
 1. For the **District coordinates** field, change the data type to **Geopolygon**.
 
-    ![image](../../_assets/datalens/solution-05/10-geopoligon.png)
+   ![image](../../_assets/datalens/solution-05/10-geopoligon.png)
 
 1. In the top-right corner, click **Save**.
 
-    ![image](../../_assets/datalens/solution-05/11-save-dataset.png)
+   ![image](../../_assets/datalens/solution-05/11-save-dataset.png)
 
-1. In the resulting window, enter **Moscow population** as the name for the dataset and click **Create**.
+1. In the window that opens, enter **Moscow population** as the dataset name and click **Create**.
 
 1. When the dataset is saved, click **Create chart**.
 
-    ![image](../../_assets/datalens/solution-05/12-create-chart.png)
+   ![image](../../_assets/datalens/solution-05/12-create-chart.png)
 
 ## Step 3. Create a chart with a map of various Moscow districts {#step3}
 
 1. Select the **Map** visualization type.
 
-    ![image](../../_assets/datalens/solution-05/13-choose-map.png)
+   ![image](../../_assets/datalens/solution-05/13-choose-map.png)
 
 1. Select **Polygons (Geopolygons)** as the layer type.
 
@@ -96,39 +96,39 @@ This will create the file connection. The data will be shown in the same form as
 
 1. Add polygons of districts to the map. To do this, drag the **Coordinates** field from **Dimensions** to the **Polygons (Geoplygons)** section.
 
-    ![image](../../_assets/datalens/solution-05/14-use-coordinates.png)
+   ![image](../../_assets/datalens/solution-05/14-use-coordinates.png)
 
 1. Change the district colors based on the population. Drag the **Population** field from **Measures** to the **Colors** section.
 
-    ![image](../../_assets/datalens/solution-05/15-use-measure.png)
+   ![image](../../_assets/datalens/solution-05/15-use-measure.png)
 
 1. In the top-right corner, click **Save**.
 
-    ![image](../../_assets/datalens/solution-05/15-1-save-chart.png)
+   ![image](../../_assets/datalens/solution-05/15-1-save-chart.png)
 
-1. In the window that opens, enter the name **Moscow population map by district** for the chart and click **Save**.
+1. In the window that opens, enter **Moscow population map by district** as the chart name and click **Save**.
 
 ## Step 4. Publish the chart {#step4}
 
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) and select **Public access** in the list that opens.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **Public access** in the list that opens.
 
-    ![image](../../_assets/datalens/solution-05/16-share-button.png)
+   ![image](../../_assets/datalens/solution-05/16-share-button.png)
 
-1. In the resulting **Public access settings** window, enable **Access via link**.
+1. In the **Public access settings** window that opens, enable **Access via link**.
 
-    ![image](../../_assets/datalens/solution-05/17-share1.png)
+   ![image](../../_assets/datalens/solution-05/17-share1.png)
 
 1. Confirm publication of the chart and its linked data.
 
 1. Copy the unique URL of the chart. Click **Apply**.
 
-    ![image](../../_assets/datalens/solution-05/18-share2.png)
+   ![image](../../_assets/datalens/solution-05/18-share2.png)
 
 1. Open a new tab in the browser and go to the copied link.
 
-    ![image](../../_assets/datalens/solution-05/19-public.png)
+   ![image](../../_assets/datalens/solution-05/19-public.png)
 
-You can share this link with your colleagues, partners, and friends. When opening the chart link, no authorization and authentication are required.
+You can share this link with your colleagues, partners, and friends. When opening the chart link, authorization and authentication are not required.
 
 **Also try:**
 

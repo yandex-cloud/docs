@@ -143,9 +143,9 @@ description: "Вы можете отслеживать состояние кла
 
 ## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
 

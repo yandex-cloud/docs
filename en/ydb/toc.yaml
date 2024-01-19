@@ -11,6 +11,8 @@ items:
         href: operations/connection.md
       - name: Managing databases
         href: operations/manage-databases.md
+      - name: Migrating a database to a different availability zone
+        href: operations/migration-to-an-availability-zone.md
       - name: Managing tables and directories
         href: operations/schema.md
       - name: Reading and writing data
@@ -173,7 +175,7 @@ items:
     items:
       - name: Overview
         href: api-ref/overview.md
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

@@ -9,9 +9,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ## Настройте асинхронный вызов {#async}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -27,7 +27,7 @@ description: "Следуя данной инструкции, вы сможет�
             * **{{ ui-key.yacloud.forms.label_service-account-select }}** — сервисный аккаунт, у которого есть права на запись в очередь.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -65,7 +65,7 @@ description: "Следуя данной инструкции, вы сможет�
     * `--async-failure-ymq-arn` — очередь {{ message-queue-name }}, в которую нужно отправлять сообщения о неуспешных вызовах функции. Если параметр не указан, сообщения не отправляются.
     * `--async-failure-sa-id` — сервисный аккаунт с правами на запись в очередь `async-failure-ymq-arn`.
 
-- API
+- API {#api}
 
     Чтобы настроить асинхронный вызов, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
 

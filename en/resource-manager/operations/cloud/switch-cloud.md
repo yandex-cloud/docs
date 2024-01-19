@@ -36,8 +36,8 @@ description: "In this tutorial, you'll learn how to switch over to another cloud
       +----------------------+----------------------+-------------------------------+
       |          ID          |         NAME         |          DESCRIPTION          |
       +----------------------+----------------------+-------------------------------+
-      | b1gg8sgd16g7qch5onqs | cloud-b1gg8sgd1g23qc | ...                           |
-      | b1gjqgj3hhvjen5iqakp | cloud-b1gjqgj3hhvjen | ...                           |
+      | b1gg8sgd16g7******** | cloud-b1gg8s******** | ...                           |
+      | b1gjqgj3hhvj******** | cloud-b1gjqg******** | ...                           |
       +----------------------+----------------------+-------------------------------+
       ```
 
@@ -50,7 +50,7 @@ description: "In this tutorial, you'll learn how to switch over to another cloud
    1. Specify the ID of the cloud to be used by default:
 
       ```
-      yc config set cloud-id b1gjqgj3hhvjen5iqakp
+      yc config set cloud-id b1gjqgj3hhvj********
       ```
 
 - API

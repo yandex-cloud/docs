@@ -28,7 +28,7 @@ Terraform самостоятельно скачает и устанавит пр
 {% list tabs group=operating_system %}
 - Linux/macOS {#linux}
     1. Откройте файл конфигурации Terraform CLI `~/.terraformrc` в любом удобном для вас текстовом редакторе.
-    2. Добавьте в него следующий блок:
+    1. Добавьте в него следующий блок:
         ```tf
         provider_installation {
             network_mirror {
@@ -42,7 +42,7 @@ Terraform самостоятельно скачает и устанавит пр
         ```
 - Windows {#windows}
     1. Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя. 
-    2. Добавьте в него следующий блок:    
+    1. Добавьте в него следующий блок:    
         ```tf
         provider_installation {
             network_mirror {

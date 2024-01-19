@@ -34,25 +34,11 @@ To create a {{ CH }} connection:
 
    - Select in a folder
 
-      {% note info %}
-
-      Only the current organization's databases are available.
-      To connect to a database from a different organization, use the **Specify manually** connection type and make sure the database has [public access](../../../managed-clickhouse/concepts/network.md#public-access-to-a-host) enabled.
-
-      {% endnote %}
-
-      Specify the connection parameters for the {{ CH }} DB available in {{ yandex-cloud }}:
+      {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 
       * **Cluster**: Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
 
-         {% note info %}
-
-         The {{ CH }} clusters are shown in the list of clusters:
-
-         * With the permissions for the user that creates the connection.
-         * Created in the same folder with the {{ datalens-short-name }} instance.
-
-         {% endnote %}
+         {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
 
       * **Hostname**: Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       * **HTTP interface port**: Specify the {{ CH }} connection port. The default port is 8443.
@@ -66,14 +52,7 @@ To create a {{ CH }} connection:
 
    - Specify manually
 
-      {% note info %}
-
-      You can only use managed databases with [public access](../../../managed-clickhouse/concepts/network.md#public-access-to-a-host) enabled.
-      To connect to a managed database without public access, use the **Select in folder** connection type.
-
-      {% endnote %}
-
-      Specify the connection parameters for the external {{ CH }} database:
+      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
       {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
 

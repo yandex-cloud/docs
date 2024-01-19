@@ -15,9 +15,9 @@
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
 
@@ -34,7 +34,7 @@
 
     1. [Настройте права доступа](../../managed-clickhouse/operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     
     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -279,13 +279,13 @@ LIMIT 10
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

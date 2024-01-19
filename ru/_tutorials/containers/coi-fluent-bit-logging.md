@@ -248,15 +248,15 @@ yc compute instance create \
 
 ## Посмотрите логи {#read-logs}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа `default`, идентификатор которой вы указали в файле `spec.yaml`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Выберите лог-группу `default`. На открывшейся странице отобразятся записи.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -270,7 +270,7 @@ yc compute instance create \
 
   Где `--group-id` — идентификатор лог-группы `default`, который указан в файле `spec.yaml`.
 
-- API
+- API {#api}
 
   Посмотреть записи в лог-группе можно с помощью метода API [read](../../logging/api-ref/grpc/log_reading_service.md).
 

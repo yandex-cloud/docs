@@ -43,7 +43,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead letter queue and the service account with write privileges for this queue.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -118,6 +118,76 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
    status: ACTIVE
    ```
 
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   To create a trigger for {{ objstorage-name }}:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      
+      ```
+      resource "yandex_function_trigger" "my_trigger" {
+        name = "<trigger_name>"
+        container {
+          id                 = "<container_ID>"
+          service_account_id = "<service_account_ID>"
+          retry_attempts     = "<number_of_retry_invocation_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
+        }
+        object_storage {
+           bucket_id    = "<bucket_ID>"
+           create       = true
+           delete       = true
+           batch_cutoff = "<timeout>"
+           batch_size   = "<event_batch_size>"
+        }
+        dlq {
+          queue_id           = "<DLQ_ID>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+      ```
+
+
+      Where:
+
+      * `name`: Trigger name. The name format is as follows:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `container`: Settings for the container that will be activated by the trigger:
+
+         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
+
+         {% include [tf-retry-params](../../_includes/serverless-containers/tf-retry-params.md) %}
+
+      * `object_storage`: Trigger parameters:
+         * `bucket_id`: Bucket ID.
+         * Select one or more [event](../concepts/trigger/os-trigger.md#event) types to be handled by the trigger:
+            * `create`: Trigger will invoke the container when a new object is created in the storage. It may take either the `true` or `false` value.
+            * `update`: Trigger will invoke the container when a new object is updated in the storage. It may take either the `true` or `false` value.
+            * `delete`: Trigger will invoke the container when a new object is deleted from the storage. It may take either the `true` or `false` value.
+
+         {% include [tf-batch-params.md](../../_includes/serverless-containers/tf-batch-params.md) %}
+
+      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
+
+      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc serverless trigger list
+      ```
 
 - API
 

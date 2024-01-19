@@ -8,9 +8,9 @@
    
 1. Создайте группу узлов с {{ k8s }}-метками:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан кластер {{ managed-k8s-name }}.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -51,7 +51,7 @@
         * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-labels }}** нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}** и укажите ее ключ и значение. Если необходимо, добавьте несколько меток.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      Создайте группу узлов {{ managed-k8s-name }}:
 
@@ -115,7 +115,7 @@
        environment: production
      ```
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
      {% note warning %}
 
@@ -150,7 +150,7 @@
 
         Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
-   - API
+   - API {#api}
 
      Чтобы создать группу узлов {{ managed-k8s-name }}, воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
 
@@ -158,9 +158,9 @@
 
 1. Посмотрите информацию о созданной группе узлов с {{ k8s }}-метками:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан кластер {{ managed-k8s-name }}.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -168,7 +168,7 @@
      1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
      1. На странице одного из узлов {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_labels }}**. На вкладке перечислены системные и пользовательские {{ k8s }}-метки узла.
 
-   - CLI
+   - CLI {#cli}
 
      1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
      1. Посмотрите все узлы кластера {{ managed-k8s-name }}:
@@ -213,7 +213,7 @@
                             yandex.cloud/preemptible=false
         ```
 
-   - API
+   - API {#api}
 
      Чтобы посмотреть информацию об узле {{ managed-k8s-name }}, воспользуйтесь методом [list](../../api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
 

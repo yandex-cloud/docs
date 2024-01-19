@@ -54,7 +54,7 @@ To attach a network disk to a VM:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
    1. Get a list of disks in the default folder:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
@@ -100,9 +100,9 @@ To attach a network disk to a VM:
 
 To use the attached disk:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
    Mount the disk:
    1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
@@ -155,7 +155,7 @@ To use the attached disk:
 
    1. Run the `df` command to check the state of the file system.
 
-- Windows
+- Windows {#windows}
 
    1. Connect to the VM [via RDP](../vm-connect/rdp.md).
    1. Run **Computer Management** (the `compmgmt.msc` snap-in) as an administrator.
@@ -177,9 +177,9 @@ To use the attached disk:
 
 To partition and mount an empty disk yourself:
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
    1. [Connect to the VM via SSH](../vm-connect/ssh.md).
    1. Check whether the disk is attached as a device and get its path in the system:
@@ -202,8 +202,8 @@ To partition and mount an empty disk yourself:
       ```
 
       Where:
-      * Network disk links look like `virtio-<disk ID>`. For example, `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` means that the unpartitioned disk with the `fhm1dn62tm5dnaspeh8n` ID is labeled as `/dev/vdc`.
-      * Local disks on [dedicated hosts](../../concepts/dedicated-host.md) have links, such as `virtio-nvme-disk-<disk_number>` (you will only have local disks if you attached them to your VM while creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled as `/dev/vda`.
+      * Network disk links have the format `virtio-<disk ID>`. For example, `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` means that an unpartitioned disk with the `fhm1dn62tm5dnaspeh8n` ID is labeled `/dev/vdc`.
+      * The links of local disks on [dedicated hosts](../../concepts/dedicated-host.md) have the format `virtio-nvme-disk-<disk_number>` (if you connected the disks to your VM when creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled `/dev/vda`.
    1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
       For example, here is how to create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.
@@ -226,7 +226,7 @@ To partition and mount an empty disk yourself:
          ```
 
       1. Press **W** to save changes.
-   1. Format the disk for the desired file system, for example, using the `mkfs` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html). To format the partition for ext4, enter:
+   1. Format the disk to a preferred file system, e.g., using the `mkfs` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html). For example, to format a partition to ext4, enter this command:
 
       ```bash
       sudo mkfs.ext4 /dev/vdc1
@@ -291,7 +291,7 @@ To partition and mount an empty disk yourself:
       /dev/vdc1         523260    3080    520180   1% /mnt/vdc1
       ```
 
-- Windows
+- Windows {#windows}
 
    1. Connect to the VM [via RDP](../vm-connect/rdp.md).
    1. Run **Computer Management** (the `compmgmt.msc` snap-in) as an administrator.
@@ -308,6 +308,6 @@ To partition and mount an empty disk yourself:
    1. Select a [partition style]({{ ms.docs }}/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) and click **OK**.
    1. Create partitions on the disk. To do this, right-click the empty disk and select **New Simple Volume**.
    1. Use the **New Simple Volume Wizard** to set the required partition size, [assign a drive letter]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter), and specify the file system type.
-   1. Open **Explorer** to make sure the attached disk is mounted and available.
+   1. Open **Explorer** to check that the attached disk is properly mounted and available.
 
 {% endlist %}

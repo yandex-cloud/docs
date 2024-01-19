@@ -17,67 +17,95 @@ items:
             href: operations/endpoint/index.md
           - name: Миграция эндпоинтов в другую зону доступности
             href: operations/endpoint/migration-to-an-availability-zone.md
-          - name: Настройка эндпоинтов-источников
+          - name: Apache Kafka®
             items:
-              - name: Apache Kafka®
+              - name: Источник
                 href: operations/endpoint/source/kafka.md
-              - name: AWS CloudTrail
-                href: operations/endpoint/source/aws-cloudtrail.md
-              - name: BigQuery
-                href: operations/endpoint/source/bigquery.md
-              - name: ClickHouse®
-                href: operations/endpoint/source/clickhouse.md
-              - name: Elasticsearch
-                href: operations/endpoint/source/elasticsearch.md
-              - name: EventHub
-                href: operations/endpoint/source/eventhub.md
-              - name: Greenplum®
-                href: operations/endpoint/source/greenplum.md
-              - name: '{{ metrika-endpoint }}'
-                href: operations/endpoint/source/metrika.md
-              - name: Microsoft SQL Server
-                href: operations/endpoint/source/mssql.md
-              - name: MongoDB
-                href: operations/endpoint/source/mongodb.md
-              - name: MySQL
-                href: operations/endpoint/source/mysql.md
-              - name: Object Storage
-                href: operations/endpoint/source/object-storage.md
-              - name: OpenSearch
-                href: operations/endpoint/source/opensearch.md
-              - name: Oracle
-                href: operations/endpoint/source/oracle.md
-              - name: PostgreSQL
-                href: operations/endpoint/source/postgresql.md
-              - name: S3
-                href: operations/endpoint/source/s3.md
-              - name: '{{ yds-full-name }}'
-                href: operations/endpoint/source/data-streams.md
-              - name: '{{ ydb-short-name }}'
-                href: operations/endpoint/source/ydb.md
-          - name: Настройка эндпоинтов-приемников
-            items:
-              - name: Apache Kafka®
+              - name: Приемник
                 href: operations/endpoint/target/kafka.md
-              - name: ClickHouse®
+          - name: AWS CloudTrail
+            items:
+              - name: Источник
+                href: operations/endpoint/source/aws-cloudtrail.md
+          - name: BigQuery
+            items:
+              - name: Источник
+                href: operations/endpoint/source/bigquery.md
+          - name: ClickHouse
+            items:
+              - name: Источник
+                href: operations/endpoint/source/clickhouse.md
+              - name: Приемник
                 href: operations/endpoint/target/clickhouse.md
-              - name: Elasticsearch
+          - name: Elasticsearch
+            items:
+              - name: Источник
+                href: operations/endpoint/source/elasticsearch.md
+              - name: Приемник
                 href: operations/endpoint/target/elasticsearch.md
-              - name: Greenplum®
+          - name: Greenplum®
+            items:
+              - name: Источник
+                href: operations/endpoint/source/greenplum.md
+              - name: Приемник
                 href: operations/endpoint/target/greenplum.md
-              - name: MongoDB
+          - name: '{{ metrika-endpoint }}'
+            items:
+              - name: Источник
+                href: operations/endpoint/source/metrika.md
+          - name: Microsoft SQL Server
+            items:
+              - name: Источник
+                href: operations/endpoint/source/mssql.md
+          - name: MongoDB
+            items:
+              - name: Источник
+                href: operations/endpoint/source/mongodb.md
+              - name: Приемник
                 href: operations/endpoint/target/mongodb.md
-              - name: MySQL
+          - name: MySQL
+            items:
+              - name: Источник
+                href: operations/endpoint/source/mysql.md
+              - name: Приемник
                 href: operations/endpoint/target/mysql.md
-              - name: Object Storage
+          - name: Object Storage
+            items:
+              - name: Источник
+                href: operations/endpoint/source/object-storage.md
+              - name: Приемник
                 href: operations/endpoint/target/object-storage.md
-              - name: OpenSearch
+          - name: OpenSearch
+            items:
+              - name: Источник
+                href: operations/endpoint/source/opensearch.md
+              - name: Приемник
                 href: operations/endpoint/target/opensearch.md
-              - name: PostgreSQL
+          - name: Oracle
+            items:
+              - name: Источник
+                href: operations/endpoint/source/oracle.md
+          - name: PostgreSQL
+            items:
+              - name: Источник
+                href: operations/endpoint/source/postgresql.md
+              - name: Приемник
                 href: operations/endpoint/target/postgresql.md
-              - name: '{{ yds-full-name }}'
+          - name: S3
+            items:
+              - name: Источник
+                href: operations/endpoint/source/s3.md
+          - name: '{{ yds-full-name }}'
+            items:
+              - name: Источник
+                href: operations/endpoint/source/data-streams.md
+              - name: Приемник
                 href: operations/endpoint/target/data-streams.md
-              - name: '{{ ydb-short-name }}'
+          - name: '{{ ydb-short-name }}'
+            items:
+              - name: Источник
+                href: operations/endpoint/source/ydb.md
+              - name: Приемник
                 href: operations/endpoint/target/yandex-database.md
       - name: Управление трансфером
         href: operations/transfer.md
@@ -175,6 +203,8 @@ items:
             href: tutorials/rdbms-to-clickhouse.md
           - name: '{{ GP }} в {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
+          - name: '{{ yandex-direct }} в {{ CH }}'
+            href: tutorials/direct-to-mch.md
       - name: Загрузка данных в {{ objstorage-name }}
         items:
           - name: '{{ MY }} в {{ objstorage-name }}'

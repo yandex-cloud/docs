@@ -50,11 +50,11 @@ Authorization: OAuth <OAuth-токен>
     ```json
     [
         {
-            "self": "{{ host }}/v2/versions/49650",
+            "self": "https://{{ host }}/v2/versions/49650",
             "id": 49650,
             "version": 1,
             "queue": {
-                "self": "{{ host }}/v2/queues/JUNE",
+                "self": "https://{{ host }}/v2/queues/JUNE",
                 "id": "1928",
                 "key": "JUNE",
                 "display": "june"

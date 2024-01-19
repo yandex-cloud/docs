@@ -90,9 +90,9 @@ values | Параметры задач, которые будут изменен
     ```json
     {
         "id": "1ab23cd4e56789012fg345h6",
-        "self": "{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
+        "self": "https://{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
         "createdBy": {
-            "self": "{{ host }}/v2/users/1234567890",
+            "self": "https://{{ host }}/v2/users/1234567890",
             "id": "1234567890",
             "display": "Имя Фамилия"
         },

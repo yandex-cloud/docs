@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать [группу размещения](../../concepts/disk-placement-group.md) для нереплицируемых дисков:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать группу размещения дисков.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -33,7 +33,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -112,7 +112,7 @@ description: "Следуя данной инструкции, вы сможет�
       ```
 
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [create](../../api-ref/DiskPlacementGroup/create.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/Create](../../api-ref/grpc/disk_placement_group_service.md#Create).
 

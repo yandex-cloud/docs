@@ -40,6 +40,7 @@ Syntax:
 |`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the host resides.|
 |`--subnet-id`|<b>`string`</b><br/>ID of the subnet that the host should be created in.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--backup-retain-period-days`|<b>`int`</b><br/>Retention time in days of automated backups|
 |`--assign-public-ip`|Whether the host should get a public IP address.|
 |`--maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Maintenance window settings<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.</li> <li><code>hour</code>:     Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.</li> <li><code>day</code>:     Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

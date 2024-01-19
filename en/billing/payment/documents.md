@@ -23,6 +23,8 @@ Soft and hard copies of a document are identical. To prepare your financial repo
 
    You can download copies of documents or request original documents and a reconciliation report in your [Yandex Balance](https://balance.yandex.ru) account.
 
+   {% include [billing.accounts.account](../../_includes/billing/accountant-role.md) %}
+
 - Residents of Kazakhstan {#kazakhstan}
 
    1. If you have used your personal account funds during the reporting period, a copy of the acceptance certificate will be sent to the email address specified in the payer's card in [Yandex Balance](../concepts/reporting-period.md) within seven (7) business days after the end of the [reporting period](https://balance.yandex.com). You can [download the acceptance certificate](../operations/download-reporting-docs.md) yourself in the management console.

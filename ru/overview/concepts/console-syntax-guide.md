@@ -11,7 +11,7 @@ description: "Сервисы {{ yandex-cloud }} предоставляют ра�
 
 {% list tabs %}
 
-- WLS
+- WSL
 
   [Windows Subsystem for Linux](https://ru.wikipedia.org/wiki/Windows_Subsystem_for_Linux) доступна в Windows 10 и старше.
 

@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
-    <rect width="20" height="20" fill="currentColor" opacity=".01" rx="1.667"/>
-    <path fill="currentColor" d="M5.211 15.5V5.36h6.952v1.715H7.26v2.4h4.233v1.716H7.26V15.5H5.21Z"/>
-    <path fill="currentColor" fill-rule="evenodd" stroke="currentColor" stroke-width=".5" d="M12.148 12.405h.878l.927 1.404.938-1.404.825.019-1.36 1.925 1.42 2.044h-.866l-1.002-1.497-.973 1.497h-.859l1.421-2.044-1.35-1.944Z" clip-rule="evenodd"/>
-</svg>

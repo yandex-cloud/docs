@@ -9,7 +9,6 @@ description: "Различные сценарии использования {{ 
 * [{#T}](integration-gworkspace.md)
 * [{#T}](integration-azure.md)
 * [{#T}](integration-keycloak.md)
-* [{#T}](integration-common.md)
 
 ## Сопоставление групп пользователей
 

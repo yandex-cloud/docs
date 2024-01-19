@@ -4,14 +4,14 @@
 
 ## Получить список целевых групп в каталоге {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -37,7 +37,7 @@
 
 
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [list](../api-ref/TargetGroup/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
 
@@ -45,15 +45,15 @@
 
 ## Получить детальную информацию о целевой группе {#get}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
     1. Нажмите на имя нужной целевой группы.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -67,7 +67,7 @@
 
     Идентификатор и имя целевой группы можно получить со [списком целевых групп в каталоге](#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [get](../api-ref/TargetGroup/get.md) и передайте идентификатор целевой группы в параметре `targetGroupId` запроса.
 
@@ -77,15 +77,15 @@
 
 ## Посмотреть список операций в целевой группе {#list-operations}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
     1. Нажмите на имя нужной целевой группы и перейдите на вкладку ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -99,7 +99,7 @@
 
     Идентификатор и имя целевой группы можно получить со [списком целевых групп в каталоге](#list).
 
-- API
+- API {#api}
 
     Воспользуйтесь методом API [listOperations](../api-ref/TargetGroup/listOperations.md) и передайте идентификатор целевой группы в параметре `networkLoadBalancerId` запроса.
 

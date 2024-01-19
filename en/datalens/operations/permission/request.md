@@ -13,13 +13,13 @@ You can also request editing permissions to a folder or object that you are allo
 
    1. Enter a username, select the permissions, and click **Request**.
 
-- Editing permissions
+- Edit permissions
 
    1. On the [navigation page]({{ link-datalens-main }}/navigation), find the folder or object.
 
       {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-   1. Click the ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the object or folder and select **Permissions**.
+   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the object or folder and select **Permissions**.
    1. In the window that opens, click **<Object_type> access**, where `<Object_type>` is a connection, dataset, chart, or dashboard.
    1. Select the permissions and click **Request**.
 

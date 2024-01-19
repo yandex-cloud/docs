@@ -42,9 +42,9 @@ C помощью сервиса {{ sws-full-name }} вы можете защит
 
 Чтобы создать профиль безопасности:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
@@ -80,9 +80,9 @@ C помощью сервиса {{ sws-full-name }} вы можете защит
 
 ## Подключите профиль безопасности к виртуальному хосту {#profile-connect}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите подключить профиль безопасности к виртуальному хосту сервиса {{ alb-name }}.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.

@@ -1,8 +1,8 @@
-# Развертывание сервиса на основе модели, обученной в {{ ml-platform-name }}
+# Развертывание сервиса из контрольной точки
 
 В {{ ml-platform-name }} вы можете не только обучить модель, но и [развернуть](../../datasphere/concepts/deploy/index.md) ее в качестве микросервиса, доступного для сторонних ресурсов.
 
-В этом примере вы обучите модель классификации предметов одежды из библиотеки [Keras](https://keras.io/about/), а затем пройдете полный путь публикации сервиса, создав [ноду](../../datasphere/concepts/resource-model.md#resources) и [алиас](../../datasphere/concepts/resource-model.md#resources). 
+В этом примере вы обучите модель классификации предметов одежды из библиотеки [Keras](https://keras.io/about/), а затем пройдете полный путь публикации сервиса, создав [ноду](../../datasphere/concepts/deploy/index.md#node) и [алиас](../../datasphere/concepts/deploy/index.md#alias). Обучение модели проводится в [режиме {{ ds }}](../../datasphere/concepts/project.md#serverless), нода создается из контрольной точки. Если вы работаете в режиме {{ dd }} и хотите развернуть модель в качестве сервиса, используйте [ноды на основе моделей](../../datasphere/operations/deploy/node-create.md#from-model).
 
 Чтобы создать микросервис на основе обученной модели:
 1. [Подготовьте инфраструктуру](#infra).
@@ -37,9 +37,9 @@
 
 Создайте каталог, в котором ваш сервис будет хранить логи.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
@@ -49,9 +49,9 @@
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
    1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -199,6 +199,8 @@
 
 
 ## Создайте контрольную точку для развертывания микросервиса {#checkpoint}
+
+{% include [save-state-dedicated](../../_includes/datasphere/save-state-dedicated.md) %}
 
 1. Создайте массив изображений в кодировке [base64](https://ru.wikipedia.org/wiki/Base64). Этот массив будет использоваться для классификации изображений с использованием обученной ML-модели. 
 

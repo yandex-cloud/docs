@@ -42,9 +42,9 @@ Authorization: OAuth <OAuth-токен>
   ```json
   {
     "id": 9,
-    "self": "{{ host }}/v2/queues/DESIGN/autoactions/9",
+    "self": "https://{{ host }}/v2/queues/DESIGN/autoactions/9",
     "queue": {
-        "self": "{{ host }}/v2/queues/DESIGN",
+        "self": "https://{{ host }}/v2/queues/DESIGN",
         "id": "26",
         "key": "DESIGN",
         "display": "Дизайн"
@@ -64,7 +64,7 @@ Authorization: OAuth <OAuth-токен>
             "type": "Transition",
             "id": 1,
             "status": {
-                "self": "{{ host }}/v2/statuses/2",
+                "self": "https://{{ host }}/v2/statuses/2",
                 "id": "2",
                 "key": "needInfo",
                 "display": "Требуется информация"

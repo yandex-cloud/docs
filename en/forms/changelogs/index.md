@@ -1,28 +1,17 @@
 ---
-title: "{{ forms-full-name }} revision history for November 2023"
-description: "See below the {{ forms-full-name }} revision history for November 2023."
+title: "{{ forms-full-name }} revision history for December 2023"
+description: "See below the {{ forms-full-name }} revision history for December 2023."
 ---
 
-# {{ forms-full-name }} revision history for November 2023
+# {{ forms-full-name }} revision history for December 2023
 
-* [Presenting the <q>One option</q> prompt as asterisks](#radiobutton-choice-star)
-* [Integration with dynamic {{ wiki-name }} tables](#wiki-grid)
-* [New prompt type: <q>Tracker</q>](#new-question-type-tracker)
+* [Renamed a button](#button-name).
+* [Increased the limit on the number of attached files](#upgrade-limit).
 
-## Presenting the <q>One option</q> prompt as asterisks {#radiobutton-choice-star}
+## Renamed a button {#button-name}
 
-[Business forms](../forms-for-org.md) now support presenting responses to the [<q>One option</q>](../blocks-ref/radiobutton.md) prompt as asterisks. Items shown as asterisks are arranged in a single row. The maximum number of response options per row is 10, the rest of them carried over to the next row. When hovering over an item, a response option is displayed as text.
+Previously, when survey respondents encountered a [**Series of questions**](../blocks-ref/series.md), they needed to click **Add a series of questions** to provide more answers to the questions in the series. User feedback showed us that respondents found this button name confusing. Based on this feedback, we decided to rename the button to **One more**.
 
-## Integration with {{ wiki-name }} dynamic tables {#wiki-grid}
+## Increased the limit on the number of attached files {#upgrade-limit}
 
-Now, you can easily integrate [{{ wiki-name }} dynamic tables](../../wiki/create-grid.md) created in the [new editor](../../wiki/new-editor.md) with forms:
-
-1. Specify the address of a dynamic table.
-1. In **Select action**, choose a table you want to integrate.
-1. Select the columns and specify what results from the forms you want to see in these columns.
-
-For more information, see [{#T}](../send-wiki.md#grid).
-
-## New prompt type: <q>Tracker</q> {#new-question-type-tracker}
-
-There is a new prompt type called [Tracker](../blocks-ref/tracker.md). Users can select {{ tracker-name }} entities from the list of suggested options. The type of entity is defined in the prompt settings, and the list is built based on the user permissions in {{ tracker-name }}.
+With {{ forms-name }}, you can [attach](../blocks-ref/file.md#alow-multi) up to 20 files to a single form. Now this limit can be increased even further if you enable [saving files from responses to an external storage](../storage-for-attached-files.md). In this case, you can attach up to 50 files to a single form.

@@ -1,0 +1,1 @@
+Если вы выбрали режим базы данных {{ dd }}, [создайте](../../../../vpc/operations/security-group-create.md) и [настройте](../../../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.

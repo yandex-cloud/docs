@@ -48,3 +48,5 @@ You can download the query execution results from the {{ yq-full-name }} user in
 
 ### {{ datalens-full-name }}
 With {{ yq-full-name }}, you can visualize data stored in {{ objstorage-full-name }}.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

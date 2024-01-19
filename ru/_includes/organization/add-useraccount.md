@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Cloud Organization
+- Cloud Organization {#cloud-org}
 
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
     1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).

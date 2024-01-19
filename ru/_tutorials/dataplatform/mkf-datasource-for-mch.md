@@ -13,9 +13,9 @@
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте необходимое количество кластеров {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-kafka/concepts/instance-types.md). Для подключения к кластерам с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластерам при их создании.
 
@@ -36,7 +36,7 @@
 
         Имена пользователей в разных кластерах могут быть одинаковыми.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -121,9 +121,9 @@
 
 ## Настройте интеграцию с {{ KF }} для кластера {{ mch-name }} {#configure-mch-for-kf}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     В зависимости от количества кластеров {{ mkf-name }}:
 
@@ -138,7 +138,7 @@
     - **Sasl username** — [имя пользователя для потребителя](#before-you-begin).
     - **Security protocol** — `SASL_SSL`.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В зависимости от количества кластеров {{ mkf-name }}:
 
@@ -333,9 +333,9 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     - Удалите кластеры:
 
@@ -346,7 +346,7 @@
     - Если вы зарезервировали для кластеров публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

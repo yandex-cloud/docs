@@ -12,9 +12,9 @@
 
 {% include [curl](../../_includes/curl.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
-
 {% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
+
+{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
 ## Распознать язык фразы {#simple-example}
 

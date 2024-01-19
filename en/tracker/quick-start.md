@@ -9,7 +9,7 @@ To get started with {{ tracker-name }}, create a queue: this is a shared space w
 In {{ tracker-name }}, you can [create](manager/create-queue.md) and [set up](manager/edit-queue-general.md) a queue manually, or use [automation tools](automation.md). To create a queue preconfigured for a specific workflow, we recommend using [workflow templates](manager/create-work-process.md).
 
 
-1. On the  [**My page**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
+1. On the [**My page**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
 1. Select **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-standard }}** and click **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
 1. Specify the queue parameters:
    * Issue queue name
@@ -60,13 +60,13 @@ Use the full form to set up all the issue attributes you need right from the sta
 
    1. If you need to upload files, click **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**.
 
-   1. You can also add checkpoints to the **Checklist**. For this, click **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** and fill out the form that opens.
+   1. You can also add checkpoints to the **Checklist**. For this, click **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** and fill out the form that opens.
 
    1. On the left-hand panel, enter the relevant issue details, for example:
       * In the **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** field, assign the issue to yourself by clicking **Assign to me**.
       * In the **{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}** field, enter an arbitrary deadline.
 
-   1. Edit the list of the issue's displayed fields if needed. To do this, click **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}** and set the relevant parameters.
+   1. Edit the list of the issue's displayed fields if needed. To do this, click **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** and set the relevant parameters.
 
 1. Click **{{ ui-key.startrek-backend.types.types.trigger.action.create.issue }}**.
 
@@ -76,10 +76,10 @@ The new issue is ready-to-go. It will appear on the board, the queue page, and t
 
 {{ tracker-name }} will help you effectively allocate team resources, assign issues, and track progress. Check the following sections to get started with {{ tracker-name }}:
 
-Section | Description
+| Section | Description |
 ------ | --------
-[{#T}](about-tracker.md) | Find out what is inside {{ tracker-name }} and how it works.
-[Change the interface language](user/personal.md#choose-language) | Choose English or Russian as your interface language.
-[{#T}](manager/queue-access.md) | Set up user access to issues in your queue.
-[{#T}](user/search-task.md) | Learn how to quickly find relevant issues.
-[{#T}](user/dashboard.md) | Create a dashboard, a page that provides statistics on your key issues.
+| [{#T}](about-tracker.md) | Find out what is inside {{ tracker-name }} and how it works. |
+| [Change the interface language](user/personal.md#choose-language) | Choose English or Russian as your interface language. |
+| [{#T}](manager/queue-access.md) | Set up user access to issues in your queue. |
+| [{#T}](user/search-task.md) | Learn how to quickly find relevant issues. |
+| [{#T}](user/dashboard.md) | Create a dashboard, a page that provides statistics on your key issues. |

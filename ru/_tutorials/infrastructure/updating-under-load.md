@@ -26,9 +26,9 @@
 
 1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-load` и назначьте ему роль `editor`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
@@ -37,7 +37,7 @@
      1. Нажмите значок ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `editor`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Создайте сервисный аккаунт:
 
@@ -64,7 +64,7 @@
           --subject serviceAccount:ajeab0cnib1pdefe21dm
         ```
 
-   - API
+   - API {#api}
 
      1. Создайте сервисный аккаунт `for-load`:
          Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create).
@@ -75,9 +75,9 @@
 
 1. Создайте [сеть](../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсети](../../vpc/concepts/network.md#subnet) в двух [зонах доступности](../../overview/concepts/geo-scope.md):
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -86,7 +86,7 @@
      1. Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Создайте сеть:
 
@@ -139,7 +139,7 @@
         - 192.168.2.0/24
         ```
 
-   - API
+   - API {#api}
 
      1. Создайте сеть:
          Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create).
@@ -152,10 +152,10 @@
 
 1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит [Docker-контейнер](/blog/posts/2022/03/docker-containers) с веб-сервером, который эмулирует нагрузку на сервис.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
    
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать группу ВМ.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -192,7 +192,7 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
  
 
-   - CLI
+   - CLI {#cli}
 
      1. Узнайте идентификатор последней версии [публичного образа](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
 
@@ -242,7 +242,7 @@
          application_load_balancer_state: {}
          ```
 
-   - API
+   - API {#api}
 
      1. Получите идентификатор последней версии образа `container-optimized-image` в семействе `standard-images`:
          Воспользуйтесь методом REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызовом gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily).
@@ -256,16 +256,16 @@
    
 1. Убедитесь, что группа ВМ создана:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева выберите ![](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Нажмите на имя группы ВМ `group-for-load`.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc compute instance-group list-instances group-for-load
@@ -283,7 +283,7 @@
      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
      ```
 
-   - API
+   - API {#api}
 
      Чтобы посмотреть список созданных групп ВМ, воспользуйтесь методом REST API [list](../../compute/api-ref/InstanceGroup/list.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/List](../../compute/api-ref/grpc/instance_group_service.md#List).
 
@@ -293,9 +293,9 @@
 
 1. Создайте сетевой балансировщик нагрузки с именем `load-generator` и подключите его к созданной группе ВМ:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать балансировщик.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
@@ -315,7 +315,7 @@
         * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   - CLI
+   - CLI {#cli}
 
      1. Получите идентификатор целевой группы `load-generator`:
      
@@ -351,7 +351,7 @@
               path: /hello
         ```
 
-   - API
+   - API {#api}
 
      1. Создайте балансировщик нагрузки с помощью метода REST API [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызова gRPC API [NetworkLoadBalancerService/Create](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Create).
      1. Добавьте обработчик к балансировщику с помощью метода REST API [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancer` или вызова gRPC API [NetworkLoadBalancerService/AddListener](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#AddListener).
@@ -362,15 +362,15 @@
 
 1. Убедитесь, что сетевой балансировщик `load-generator` создан и привязан к группе ВМ:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сетевой балансировщик.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Нажмите на имя сетевого балансировщика `load-generator`.
 
-   - CLI
+   - CLI {#cli}
 
      ```bash
      yc load-balancer network-load-balancer list
@@ -389,7 +389,7 @@
      
      
 
-   - API
+   - API {#api}
 
      Воспользуйтесь методом REST API [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/List](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#List).
 
@@ -399,15 +399,15 @@
 
 1. Получите IP-адрес созданного балансировщика:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
    
-   - Консоль управления
+   - Консоль управления {#console}
    
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Скопируйте **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** балансировщика `load-generator`.
      
-   - CLI
+   - CLI {#cli}
    
      ```bash
      yc load-balancer network-load-balancer get load-generator | grep "address"
@@ -419,7 +419,7 @@
        address: 84.252.133.110
      ```
      
-   - API
+   - API {#api}
    
      Воспользуйтесь методом REST API [get](../../network-load-balancer/api-ref/NetworkLoadBalancer/get.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Get](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Get).
      
@@ -444,9 +444,9 @@
 
 ## Обновите группу ВМ под нагрузкой {#update-spec}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -459,7 +459,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. В блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** поэтапно отобразятся изменения размера диска для всех ВМ группы.
 
-- CLI
+- CLI {#cli}
 
    1. В спецификации `specification.yaml` укажите новый размер диска — 35 ГБ — и сохраните файл:
    
@@ -487,7 +487,7 @@
       status: ACTIVE
       ```
       
-- API
+- API {#api}
 
   1. В спецификации укажите новый размер диска — 35 ГБ:
      
@@ -522,9 +522,9 @@ Transfer/sec:     206.94B
 
 Чтобы удалить созданные ресурсы:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Удалите балансировщик нагрузки:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик нагрузки.
@@ -552,7 +552,7 @@ Transfer/sec:     206.94B
          1. Также удалите подсеть `yc-auto-subnet-2`.
       1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    Выполните последовательно команды:
 
@@ -565,7 +565,7 @@ Transfer/sec:     206.94B
    yc vpc network delete yc-auto-network
    ```
   
-- API
+- API {#api}
 
   1. Удалите балансировщик `load-generator`: воспользуйтесь методом REST API [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса [NetworkLoadBalancer](../../network-load-balancer/api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Delete](../../network-load-balancer/api-ref/grpc/network_load_balancer_service.md#Delete).
   1. Удалите группу ВМ `load-generator`: воспользуйтесь методом REST API [delete](../../compute/api-ref/InstanceGroup/delete.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Delete](../../compute/api-ref/grpc/instance_group_service.md#Delete).

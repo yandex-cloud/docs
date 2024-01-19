@@ -17,9 +17,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 ### Узнать доступные версии {{ ES }} {#version-list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
@@ -37,16 +37,16 @@ description: "Следуя данной инструкции, вы сможет�
 
 ### Обновить версию {{ ES }} {#start-version-update}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию {{ ES }}.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@ description: "Следуя данной инструкции, вы сможет�
         {{ yc-mdb-es }} cluster update <имя_или_идентификатор_кластера> --version <версия_{{ ES }}>
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -99,7 +99,7 @@ description: "Следуя данной инструкции, вы сможет�
 
          {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
     Чтобы обновить версию, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
@@ -124,16 +124,16 @@ description: "Следуя данной инструкции, вы сможет�
 
 Вы можете изменить используемую кластером [редакцию {{ ES }}](../concepts/es-editions.md). Прежде чем понижать используемую редакцию, убедитесь, что сокращение функциональных возможностей не нарушит работу ваших приложений.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. В поле **{{ ui-key.yacloud.elasticsearch.base_field_edition }}** выберите нужную редакцию {{ ES }}: `Basic` или `Platinum`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -160,7 +160,7 @@ description: "Следуя данной инструкции, вы сможет�
 
         Где `--edition` — редакция {{ ES }}: `basic` или `platinum`.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -193,7 +193,7 @@ description: "Следуя данной инструкции, вы сможет�
 
     {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
     Чтобы изменить редакцию {{ ES }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 

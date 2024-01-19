@@ -26,26 +26,6 @@ For instance, allow any authenticated user to view information about the cloud `
      --subject system:allAuthenticatedUsers
    ```
 
-- API
-
-   Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the `subject` property, specify the `system` type:
-
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM_token>" \
-       -d '{
-       "accessBindingDeltas": [{
-           "action": "ADD",
-           "accessBinding": {
-               "roleId": "viewer",
-               "subject": {
-                   "id": "allAuthenticatedUsers",
-                   "type": "system"
-       }}}]}' \
-       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
-   ```
-
 - {{ TF }}
 
    1. Assign the `viewer` role to the `allAuthenticatedUsers` system group:
@@ -91,5 +71,25 @@ For instance, allow any authenticated user to view information about the cloud `
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
       After that access rights are granted for the cloud.
+
+- API
+
+   Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the `subject` property, specify the `system` type:
+
+   ```bash
+   curl -X POST \
+       -H 'Content-Type: application/json' \
+       -H "Authorization: Bearer <IAM_token>" \
+       -d '{
+       "accessBindingDeltas": [{
+           "action": "ADD",
+           "accessBinding": {
+               "roleId": "viewer",
+               "subject": {
+                   "id": "allAuthenticatedUsers",
+                   "type": "system"
+       }}}]}' \
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
+   ```
 
 {% endlist %}

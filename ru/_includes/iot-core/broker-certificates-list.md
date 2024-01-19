@@ -1,13 +1,13 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится брокер.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите брокер. Список сертификатов отобразится в разделе **{{ ui-key.yacloud.iot.label_certificates }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -30,7 +30,7 @@
   +------------------------------------------+---------------------+
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список сертификатов брокера, воспользуйтесь методом REST API [listCertificates](../../iot-core/broker/api-ref/Broker/listCertificates.md) для ресурса [Broker](../../iot-core/broker/api-ref/Broker/index.md) или вызовом gRPC API [BrokerService/ListCertificates](../../iot-core/broker/api-ref/grpc/broker_service.md#ListCertificates).
 

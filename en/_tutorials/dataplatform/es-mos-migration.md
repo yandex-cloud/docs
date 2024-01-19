@@ -12,7 +12,13 @@ You can [create {{ OS }} clusters](../../managed-opensearch/operations/cluster-c
 {% endnote %}
 
 
-There are two mechanisms to move data from a source {{ ES }} cluster to a target {{ mos-full-name }} cluster:
+There are three mechanisms to migrate data from a source {{ ES }} cluster to a target {{ mos-full-name }} cluster:
+
+* [{{ data-transfer-full-name }} service](../../data-transfer/index.yaml)
+
+   This method is good for any {{ ES }} cluster.
+
+   For an example of this kind of migration, see [Migrating data to {{ OS }} using {{ data-transfer-full-name }}](../../data-transfer/tutorials/mes-to-mos.md).
 
 * Snapshots
 
@@ -22,7 +28,7 @@ There are two mechanisms to move data from a source {{ ES }} cluster to a target
 
 * Remote [reindexing]({{ os.docs }}/opensearch/reindex-data/) (reindex data)
 
-   You can use this mechanism to move your existing indices, aliases, or data streams. This method is good for all {{ ES }} clusters of version 7.
+   You can use this mechanism to move your existing indexes, aliases, or data streams. This method is good for all {{ ES }} clusters of version 7.
 
 ## Migration using snapshots {#snapshot}
 
@@ -44,7 +50,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    {% note warning %}
 
-   Save the **key ID** and **secret key**. You will need them at the next steps.
+   Save the **key ID** and **secret key**. You will need them in the next steps.
 
    {% endnote %}
 
@@ -191,9 +197,9 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Select how to restore an index on the target cluster.
 
-   With the default settings, an attempt to restore an index will fail in a cluster where the same-name index is already open. Even in {{ mos-name }} clusters without user data, there are open system indices (such as `.apm-custom-link` or `.kibana_*`), which may interfere with the restore operation. To avoid this, use one of the following methods:
+   With the default settings, an attempt to restore an index will fail in a cluster where the same-name index is already open. Even in {{ mos-name }} clusters without user data, there are open system indexes (such as `.apm-custom-link` or `.kibana_*`), which may interfere with the restore operation. To avoid this, use one of the following methods:
 
-   * Migrate only your custom indices. The existing system indices are not migrated. The import process only affects the user-created indices on the source cluster.
+   * Migrate only your custom indexes. The existing system indexes are not migrated. The import process only affects the user-created indexes on the source cluster.
 
    * Use the `rename_pattern` and `rename_replacement` parameters. Indexes will be renamed as they are restored. To learn more, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
 
@@ -207,7 +213,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Start restoring data from the snapshot on the target cluster.
 
-   Example of restoring a snapshot with indication of the user indices, which need to be restored on the target cluster:
+   Example of restoring a snapshot with indication of the custom indexes that need to be restored on the target cluster:
 
    ```bash
    curl --request POST \
@@ -231,7 +237,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 ### Complete your migration {#finish-migration-snapshot}
 
-1. Make sure all the indices you need have been transferred to the target {{ mos-name }} cluster, and the number of documents in them is the same as in the source cluster:
+1. Make sure all the indexes you need have been transferred to the target {{ mos-name }} cluster, and the number of documents in them is the same as in the source cluster:
 
    {% list tabs %}
 
@@ -309,7 +315,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
    {% note tip %}
 
-   In {{ mos-name }} clusters, you can run re-indexing as the `admin` user assigned the `superuser` role; however, it is more secure to create separate users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
+   In {{ mos-name }} clusters, you can run re-indexing as the `admin` user with the `superuser` role; however, it is more secure to create separate users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
    {% endnote %}
 
@@ -411,7 +417,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 ### Check the result {#check-result-reindex}
 
 
-Make sure all the indices you need have been transferred to the target {{ mos-name }} cluster, and the number of documents in them is the same as in the source cluster:
+Make sure all the indexes you need have been transferred to the target {{ mos-name }} cluster, and the number of documents in them is the same as in the source cluster:
 
 {% list tabs %}
 

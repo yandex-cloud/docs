@@ -88,13 +88,13 @@ This type of chart is used to see the contribution of each measure to the total 
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
 | Y | Dimensions. You can specify one or two dimensions. |
 | X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis. |
-| Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field that affects the bar color. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the X axis. |
-| Sorting | Dimension or measure that affects column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. |
-| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
+| Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field that affects the color of columns. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the X axis. |
+| Sorting | Dimension or measure that affects column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
+| Labels | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a bar chart {#create-diagram}
@@ -106,7 +106,7 @@ To create a bar chart:
 1. Select **Line chart** as the chart type.
 1. Drag one or more dimensions from the dataset to the **Y** section. The values will be displayed on the Y axis.
 1. Drag one or more measures from the dataset to the **X** section.
-1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Colors** section.
+1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Color** section.
 
 A stacked column chart is displayed by default.
 
@@ -158,12 +158,12 @@ To color columns in a chart based on the value of a measure:
 
    {% endlist %}
 
-1. Configure a color gradient for the measure as well. To do this, in the top right-hand corner of the **Colors** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you mouse over the section).
+1. Configure a color gradient for the measure as well. To do this, in the top right-hand corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you mouse over the section).
 1. In the color settings, specify:
 
-   * **Gradient type**: Select 2 or 3 colors.
+   * **Gradient type**: Select two or three colors.
    * Gradient color: Select a color palette for the gradient from the list.
-   * Gradient direction: Change the gradient direction using the ![image](../../_assets/datalens/swap.svg) icon.
+   * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
    * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
 
 ### Configuring the display of `null` values {#null-settings}

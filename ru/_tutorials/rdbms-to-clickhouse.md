@@ -11,9 +11,9 @@
 
 Для примера все нужные ресурсы будут созданы в {{ yandex-cloud }}. Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
   1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
@@ -35,7 +35,7 @@
 
   1. [Выдайте роль](../managed-postgresql/operations/grant#grant-privilege) `mdb_replication` пользователю `pg-user` в кластере {{ mpg-name }}.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../_includes/mdb/terraform/authentication.md) %}
@@ -94,9 +94,9 @@
 
 1. Создайте трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт-источник](../data-transfer/operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
@@ -117,7 +117,7 @@
 
         1. [Создайте трансфер](../data-transfer/operations/transfer.md#create) типа [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `postgresql-to-clickhouse.tf` значение `1` для переменной `transfer_enabled`.
 
@@ -210,15 +210,15 @@ WHERE __data_transfer_delete_time == 0;
 * Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../data-transfer/operations/transfer.md#delete) его.
 * Удалите эндпоинты и кластеры:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         * [Эндпоинт-источник и эндпоинт-приемник](../data-transfer/operations/endpoint/index.md#delete).
         * [{{ mpg-name }}](../managed-postgresql/operations/cluster-delete.md).
         * [{{ mch-name }}](../managed-clickhouse/operations/cluster-delete.md).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         Если вы создали ресурсы с помощью {{ TF }}:
 

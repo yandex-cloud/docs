@@ -8,7 +8,7 @@
 
 
 
-1. On the left side of the screen, click **![image](../../../_assets/plus-sign.svg) Add**.
+1. On the left side of the screen, click **![image](../../../_assets/console-icons/plus.svg) Add**.
 1. Select a connection. If there are no connections in the list, [create one](../../../datalens/concepts/connection.md).
 1. Select tables to use as the data source for the dataset and click **Save** in the top-right corner.
 

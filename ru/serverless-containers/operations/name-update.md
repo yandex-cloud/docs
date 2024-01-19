@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Изменить имя контейнера
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -19,7 +19,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -47,7 +47,7 @@ description: "Следуя данной инструкции, вы сможет�
   status: ACTIVE
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -104,7 +104,7 @@ description: "Следуя данной инструкции, вы сможет�
   yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
   ```
 
-- API
+- API {#api}
 
   Чтобы изменить имя контейнера, воспользуйтесь методом REST API [update](../containers/api-ref/Container/update.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Update](../containers/api-ref/grpc/container_service.md#Update).
 

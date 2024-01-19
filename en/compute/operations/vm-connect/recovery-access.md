@@ -6,10 +6,10 @@ description: "Follow this guide to restore access to a VM."
 # Restoring access to a VM
 
 You may need to restore access to a [VM](../../concepts/vm.md) in the following cases:
-* [{#T}](#cloud-init).
-* [{#T}](#ssh-recovery).
-* [{#T}](#serial-console).
-* [{#T}](#os-recovery).
+* [{#T}](#cloud-init)
+* [{#T}](#ssh-recovery)
+* [{#T}](#serial-console)
+* [{#T}](#os-recovery)
 
 ## VM user credentials are lost {#cloud-init}
 
@@ -69,9 +69,9 @@ If you can't access the serial console, do the following to recover the public p
 
 The problem may occur due to an error in the SSH, [security group](../../../vpc/concepts/security-groups.md), or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
    {% note info %}
 

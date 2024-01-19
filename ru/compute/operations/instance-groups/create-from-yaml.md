@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы создать [группу виртуальных машин](../../concepts/instance-groups/index.md) по [спецификации](../../concepts/instance-groups/specification.md) в формате YAML:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@ description: "Следуя данной инструкции, вы сможет�
   
   Подробнее о команде `{{ yc-compute-ig}} create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/create.md).
 
-- API
+- API {#api}
 
   Используйте вызов [InstanceGroupService/CreateFromYaml](../../api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API или метод [createFromYaml](../../api-ref/InstanceGroup/createFromYaml.md) ресурса `InstanceGroup` REST API.
 

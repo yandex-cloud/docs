@@ -1,8 +1,11 @@
 # Перевод текста с помощью {{ translate-name }}
 
-Чтобы перевести текст, передайте его с помощью метода [translate](../api-ref/Translation/translate).
+Чтобы перевести текст, используйте метод [translate](../api-ref/Translation/translate.md).
 
-Пример в этом разделе совпадает с примером из раздела [{#T}](../quickstart.md). Другие примеры смотрите в разделе [{#T}](better-quality.md).
+## Перед началом работы {#before-begin}
+
+{% include [user-auth](../../_includes/translate/ai-before-beginning.md) %}
+
 
 {% include [translate-instruction](../../_includes/translate/translate-instruction.md) %}
 

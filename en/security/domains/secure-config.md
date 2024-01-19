@@ -45,7 +45,7 @@ With {{ TF }}, you can manage a cloud infrastructure using configuration files. 
 We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms)from {{ marketplace-full-name }} or [{{ lockbox-name }}](../../lockbox/) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
-* Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
+* Use [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) for private information to exclude it from the console output of `terraform plan` and `terraform apply`.
 * Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a {{ TF }} state to {{ objstorage-full-name }} (see [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)).
 * Use the [mechanism for transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-full-name }} features for [encrypting data in {{ TF }}](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
 
@@ -195,7 +195,7 @@ When working with the database, use [parameterized prepared statements](https://
 
 ### Network access {#ydb-network}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside {{ vpc-full-name }} and disable public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. For more information about the operating modes, see the [Serverless and Dedicated modes](../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} documentation.
+When accessing the database in dedicated mode, we recommend that you use it inside {{ vpc-full-name }} and disable public access to it from the internet. In serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. For more information about the operating modes, see the [Serverless and dedicated modes](../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} documentation.
 
 When setting up database permissions, use the principle of least privilege.
 

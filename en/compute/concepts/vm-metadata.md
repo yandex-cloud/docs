@@ -118,11 +118,11 @@ The metadata, including the user-defined one, is available in unencrypted format
 
 The list of keys that are processed in {{ yandex-cloud }} public images depends on the operating system.
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
-  * `serial-port-enable`: Flag that enables access to the [serial console](../operations/serial-console/index.md). `1` means it is enabled, while `0`, which is the default value, means it is disabled.
+  * `serial-port-enable`: Flag enabling access to the [serial console](../operations/serial-console/index.md). `1`: access enabled; `0`: (default) access disabled.
   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
    * `enable-oslogin`: Flag that enables access via [OS Login](../operations/vm-connect/os-login.md). `True` means access is enabled; `false` (default) means access is disabled.
 
@@ -140,7 +140,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
   * `ssh-keys`: Key for delivering the SSH key to Linux VMs through {{ TF }}. Specify it in `<username>:<SSH_key_content>` format, e.g., `user:ssh-ed25519 AAC4NzaC1... user@example.com`. If you specify multiple keys, only the first one will be used.
 
-- Windows
+- Windows {#windows}
 
   `user-data`: String with user metadata to be processed by the [Cloudbase-Init](https://cloudbase.it/cloudbase-init/) agent. This agent supports various [data formats](https://cloudbase-init.readthedocs.io/en/latest/userdata.html), such as PowerShell scripts that set the administrator password:
 

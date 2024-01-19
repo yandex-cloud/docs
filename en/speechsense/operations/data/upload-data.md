@@ -12,7 +12,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) or [IAM key](..
 To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` package. [How to install Python](https://www.python.org/downloads/).
 
 1. In the management console, [create a service account](../../../iam/operations/sa/create.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](../../security/index.md).
-1. Add the service account to the namespace with the `{{ roles-speechsense-data-editor }}` role. This way, the service account will be authorized to upload data to the connection you created.
+1. [Add the service account to the namespace](../space/add-user-to-space.md) with the `{{ roles-speechsense-data-editor }}` role. This will authorize the service account to upload data to the [connection](../../concepts/resources-hierarchy.md#connection) you created.
 1. [Create an API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API.
 
 1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
@@ -213,7 +213,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 
    {% endlist %}
 
-1. Set the service account's API key:
+1. Specify the service account's API key:
 
    ```bash
    export API_KEY=<service_account_API_key>

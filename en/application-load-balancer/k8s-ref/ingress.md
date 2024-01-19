@@ -73,10 +73,10 @@ Where:
 
 * `ingress.alb.yc.io/subnets` (`string`)
 
-   List of {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet) the [load balancer is located on](../concepts/application-load-balancer.md#lb-location). Subnet IDs are provided as a comma-separated list, such as:
+   List of {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet) the [load balancer resides in](../concepts/application-load-balancer.md#lb-location). Subnet IDs are provided in a comma-separated list, e.g.:
 
    ```
-   ingress.alb.yc.io/subnets: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
+   ingress.alb.yc.io/subnets: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
    ```
 
    The field is required for at least a single `Ingress` in a group (`ingress.alb.yc.io/group-name` annotation) to create one load balancer. A balancer uses all the subnets specified in the relevant `Ingress` resources.
@@ -85,10 +85,10 @@ Where:
 
 * `ingress.alb.yc.io/security-groups` (`string`)
 
-   List of {{ vpc-name }} [security groups](../../vpc/concepts/security-groups.md) for a load balancer. Group IDs are provided in a comma-separated list, such as:
+   List of {{ vpc-name }} [security groups](../../vpc/concepts/security-groups.md) for a load balancer. Group IDs are provided in a comma-separated list, e.g.:
 
    ```
-   ingress.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
+   ingress.alb.yc.io/security-groups: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
    ```
 
    A load balancer created for a group of several `Ingress` resources (`ingress.alb.yc.io/group-name` annotation) uses all the security groups specified in these `Ingress` resources.
@@ -188,7 +188,7 @@ Where:
    > ...
    > spec:
    >   rules:
-   >     - host: <domain name>
+   >     - host: <domain_name>
    >       http:
    >         paths:
    >           - path: /api/
@@ -318,9 +318,9 @@ Where:
 
    * `secretName` (`string`, required)
 
-      A reference to a TLS certificate from {{ certificate-manager-full-name }} as `yc-certmgr-cert-id-<certificate ID>`. This is the name a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a certificate is available as in {{ managed-k8s-name }}.
+      A reference to a TLS certificate from {{ certificate-manager-full-name }} in `yc-certmgr-cert-id-<certificate_ID>` format. This is the name a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) with certificate is featured as in {{ managed-k8s-name }}.
 
-      In {{ certificate-manager-name }}, you can have [a certificate issued by Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) or [load one of your own](../../certificate-manager/operations/import/cert-create.md).
+      In {{ certificate-manager-name }}, you can have [a certificate from Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) or [load one of your own](../../certificate-manager/operations/import/cert-create.md).
 
       {% include [k8s-ingress-controller-secret-name](../../_includes/application-load-balancer/k8s-ingress-controller-secret-name.md) %}
 

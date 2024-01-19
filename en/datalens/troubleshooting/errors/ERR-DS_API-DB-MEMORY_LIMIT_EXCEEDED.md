@@ -18,7 +18,7 @@ If you are going to perform optimization yourself, try enhancing your database w
 
 If {{ CH }} is your data source, find queries from {{ datalens-short-name }} in [system.query_log]({{ ch.docs }}/operations/system-tables/query_log/).
 
-If {{ PG }} MBD is your data source, review the [performance analysis](../../../tutorials/dataplatform/mpg-profiling.md).
+If {{ PG }} MDB is your data source, review the [performance analysis](../../../tutorials/dataplatform/mpg-profiling.md).
 
 {% endnote %}
 

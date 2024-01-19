@@ -1,13 +1,13 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится реестр.
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -30,7 +30,7 @@
   +------------------------------------------+---------------------+
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список сертификатов реестра, воспользуйтесь методом REST API [listCertificates](../../iot-core/api-ref/Registry/listCertificates.md) для ресурса [Registry](../../iot-core/api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/ListCertificates](../../iot-core/api-ref/grpc/registry_service.md#ListCertificates).
 

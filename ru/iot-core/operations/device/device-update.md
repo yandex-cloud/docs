@@ -6,9 +6,9 @@
 
 ## Изменить имя устройства {#update-name}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы изменить имя устройства:
 
@@ -20,7 +20,7 @@
    1. Измените поле **{{ ui-key.yacloud.common.name }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -38,7 +38,7 @@
   name: test-device
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -94,7 +94,7 @@
       yc iot device list --registry-id <идентификатор реестра>
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить имя устройства, воспользуйтесь методом REST API [update](../../api-ref/Device/update.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Update](../../api-ref/grpc/device_service.md#Update).
 
@@ -102,9 +102,9 @@
 
 ## Изменить описание устройства {#update-description}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы изменить описание устройства:
 
@@ -116,7 +116,7 @@
    1. Измените поле **{{ ui-key.yacloud.common.description }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -136,7 +136,7 @@
   description: My first device.
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -192,7 +192,7 @@
       yc iot device get <имя устройства>
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить описание устройства, воспользуйтесь методом REST API [update](../../api-ref/Device/update.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Update](../../api-ref/grpc/device_service.md#Update).
 
