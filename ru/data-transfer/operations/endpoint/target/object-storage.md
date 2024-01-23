@@ -60,4 +60,8 @@
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_interval.title }}** — интервал, спустя который файл будет записан, вне зависимости от его размера.
 
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_timezone.title }}** — часовой пояс, по времени которого раскладываются файлы. Влияет только на раскладывание файлов по папкам в бакете, но не влияет на данные внутри файлов.
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_column.title }}** — имя колонки для указания логического времени для данных. Значение по умолчанию — системное время записи. Время при записи данных в приемник преобразуется в UTC. Это поведение нельзя изменить.
+
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).

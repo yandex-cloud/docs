@@ -6,6 +6,8 @@
 
 {% include [auto-create-users](../../_includes/organization/auto-create-users.md) %}
 
+Федеративных пользователей не нужно отдельно приглашать в организацию, они добавляются автоматически после логина.
+
 ### Добавьте федеративных пользователей {#add-user-sso}
 
 {% include notitle [user-sso](add-user-sso.md) %}

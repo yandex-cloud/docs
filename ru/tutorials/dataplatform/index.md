@@ -103,6 +103,7 @@ description: "На странице представлен список прак
 * [{#T}](sqoop-mpg.md)
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
+* [{#T}](object-storage-to-postgresql.md)
 * [{#T}](mpg-to-mmy.md)
 * [{#T}](mpg-to-yds.md)
 * [{#T}](rds-to-mpg.md)
