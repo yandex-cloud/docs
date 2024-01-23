@@ -114,7 +114,7 @@ spark:spark.driver.cores : 1
 | Пакетный менеджер | Ключ                 | Значение                                                                                                                                                          | Пример                 |
 |:------------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
 | conda             | `conda:<имя_пакета>` | Номер версии пакета согласно [спецификации conda](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
-| pip               | `pip:<имя_пакета>`   | Номер версии пакета согласно [спецификации pip](https://www.python.org/dev/peps/pep-0440/#version-specifiers)                                                     | `pip:psycopg2 : 2.7.0` |
+| pip               | `pip:<имя_пакета>`   | Номер версии пакета согласно [спецификации pip](https://www.python.org/dev/peps/pep-0440/#version-specifiers)                                                     | `pip:requests : 2.31.0` |
 
 ## Использование Apache Spark Thrift Server {#spark-thrift-server}
 

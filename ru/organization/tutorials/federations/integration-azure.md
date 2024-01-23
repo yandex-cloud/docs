@@ -100,7 +100,7 @@
 
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-  1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы пользователь после аутенцификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
+  1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы пользователь после аутентификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 

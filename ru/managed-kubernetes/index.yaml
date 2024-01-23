@@ -1,7 +1,7 @@
-title: Yandex Managed Service for Kubernetes
+title: Yandex Managed Service for Kubernetes®
 description:
   - >-
-    Сервис Managed Service for Kubernetes предоставляет окружение для работы с
+    Сервис Managed Service for Kubernetes® предоставляет окружение для работы с
     <a href="/docs/glossary/containerization">контейнеризованными
     приложениями</a> в инфраструктуре Yandex Cloud. Вы можете разворачивать,
     масштабировать и управлять приложениями в контейнерах с помощью Kubernetes.

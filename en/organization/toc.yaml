@@ -23,9 +23,9 @@ items:
             href: operations/manage-users.md
           - name: Adding a user
             href: operations/add-account.md
-          - name: Get the user's ID or email
+          - name: Getting user ID or email
             href: operations/users-get.md
-          - name: Assigning access rights
+          - name: Granting permissions
             href: operations/roles.md
           - name: Deleting a user account
             href: operations/edit-account.md
@@ -33,10 +33,12 @@ items:
             href: operations/leave-organization.md
       - name: Managing user groups
         href: operations/manage-groups.md
-      - name: Enabling access via OS Login
-        href: operations/os-login-access.md
-      - name: Creating an OS Login profile
-        href: operations/os-login-profile-create.md
+      - name: OS Login
+        items:
+          - name: Enabling access
+            href: operations/os-login-access.md
+          - name: Creating a profile
+            href: operations/os-login-profile-create.md
   - name: Tutorials
     items:
       - name: Managing identity federations

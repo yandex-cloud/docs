@@ -18,6 +18,8 @@ items:
         href: operations/create-test-bucket.md
       - name: Передать логи теста в {{ cloud-logging-name }}
         href: operations/logging.md
+      - name: Сохранить артефакты теста в {{ objstorage-name }}
+        href: operations/save-artifacts.md
   - name: Практические руководства
     items:
       - name: Нагрузочное тестирование gRPC-сервиса
@@ -38,6 +40,8 @@ items:
         href: tutorials/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: tutorials/loadtesting-external-agent.md
+      - name: Сравнение результатов нагрузочных тестов
+        href: tutorials/loadtesting-results-compare.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -72,6 +76,8 @@ items:
         href: concepts/reports.md
       - name: Результаты нагрузочного теста
         href: concepts/load-test-results.md
+      - name: Сравнение результатов нагрузочных тестов
+        href: concepts/load-tests-compare.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

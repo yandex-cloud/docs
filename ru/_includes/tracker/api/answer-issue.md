@@ -62,6 +62,11 @@
         "id": "<id сотрудника>",
         "display": "<отображаемое имя сотрудника>"
         },
+    "project": {
+        "display": "Проект Стартрек",
+        "id": "1",
+        "self": "https://{{ host }}/v2/projects/1"
+    },
     "queue": {
         "self": "https://{{ host }}/v2/queues/TREK",
         "id": "111",
@@ -109,6 +114,7 @@
    [createdBy](#created-by) | Объект с информацией о создателе задачи. | Объект
    votes | Количество голосов за задачу. | Число
    [assignee](#assignee) | Объект с информацией об исполнителе задачи. | Объект
+   [project](#project) | Объект с информацией о проекте задачи. | Объект
    [queue](#queue) | Объект с информацией об очереди задачи. | Объект
    updatedAt | Дата и время последнего обновления задачи. | Строка
    [status](#status) | Объект с информацией о статусе задачи. | Объект
@@ -145,6 +151,10 @@
    **Поля объекта** `assignee` {#assignee}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
+
+   **Поля объекта** `project` {#project}
+
+   {% include [queue](../../../_includes/tracker/api/project.md) %}
 
    **Поля объекта** `queue` {#queue}
 
