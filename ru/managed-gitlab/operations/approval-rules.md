@@ -100,7 +100,7 @@ ApprovalRules:
 BranchGroups:
   - <имя_группы_веток>:
       branches:
-        - <имя_ветки>
+        - "<имя_ветки>"
         ...
       rules:
         - <имя_правила>
@@ -126,9 +126,9 @@ BranchGroups:
 >       count: 1
 >
 > BranchGroups:
->   - Master:
+>   - Main:
 >       branches:        
->         - master
+>         - "main"
 >       rules:
 >         - FourEyesRule
 > ```
@@ -153,7 +153,7 @@ BranchGroups:
 BranchGroups:
   - <имя_группы_веток>:
       branches:        
-        - <имя_ветки>
+        - "<имя_ветки>"
         ...
       rules:
         - CODE_OWNERS
