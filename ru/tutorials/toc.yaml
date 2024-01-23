@@ -428,6 +428,10 @@ items:
         href: dataplatform/mpg-ydb-replication.md
       - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
+      - name: >-
+          Перенос данных из {{ objstorage-full-name }} в {{ mpg-full-name }} с
+          использованием {{ data-transfer-full-name }}
+        href: dataplatform/object-storage-to-postgresql.md
       - name: Захват изменений {{ PG }} и поставка в {{ DS }}
         href: dataplatform/mpg-to-yds.md
       - name: >-

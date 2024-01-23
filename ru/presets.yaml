@@ -3346,7 +3346,6 @@ default:
       ui_components_promo_Page:
         login-button-label: Войти в Tracker
       ui_components_queue-admin-tab-integrations_IntegrationForms:
-        settings-button-text: Настроить формы
         title: Формы
       ui_components_queue-admin-tab-main_QueueAdminTabMain:
         save: Сохранить
@@ -3624,6 +3623,7 @@ default:
         user:
           action:
             acl: Назначить роли
+            delete: Удалить пользователя
             remove: Исключить из организации
           caption:
             federation: Федерация
@@ -5304,10 +5304,16 @@ default:
       load-testing:
         button_add-bucket: Привязать бакет
         button_add-overload-test-id: Добавить ID
+        button_comparison-test-add: Добавить к сравнению
         button_create-agent: Создать агент
         button_create-test: Создать тест
         button_duplicate-configuration: Дублировать конфигурацию
         field_config-file: Файл конфигурации
+        field_export-bucket: Имя бакета
+        field_export-enable: Сохранять артефакты
+        field_export-filter-exclude: Исключать файлы
+        field_export-filter-include: Сохранять файлы
+        field_export-is-archive: Архивировать в zip
         field_load-generator: Генератор нагрузки
         field_logging-group: Лог-группа
         field_overload-test-id: ID теста
@@ -5320,17 +5326,21 @@ default:
         label_import-tests-from-overload: Импортировать тесты из Overload
         label_local-source: С компьютера
         label_monitoring-report: Мониторинг
+        label_results-comparison-section-title: Сравнение результатов
         label_rps: Ответов в секунду
         label_settings-type-config: Конфигурационный файл
         label_settings-type-form: Форма
+        label_tables: Таблицы
         label_test-config: Конфигурация
         label_test-data_list: Хранилище тестовых данных
         label_test-report: Результаты теста
         label_test-settings: Настройки теста
+        label_tests-comparison-section-title: Сравнение
         label_tests-list: Тесты
         meta-section: Информация о тесте
         restart: Перезапустить
         section_agent: Агент
+        section_export: Логи теста
         test-data-section: Прикрепленные файлы
       lockbox:
         button_action-make-version-current: Сделать текущей версией
@@ -5356,7 +5366,7 @@ default:
         label_section-secrets: Секреты
       logging:
         button_create-group: Создать группу
-        button_create-sink: Создать приёмник
+        button_create-sink: Создать приёмник логов
         button_execute: Выполнить
         column_header-level: Уровень
         column_header-message: Сообщение
@@ -5663,7 +5673,7 @@ default:
           action_stepdown-host: Сменить мастер
       monitoring:
         button_create-alert: Создать алерт
-        button_open-in-monitoring: Открыть в Мониторинге
+        button_open-in-monitoring: Открыть в Monitoring
       mysql:
         cluster:
           switch_backups: Резервные копии
@@ -6818,6 +6828,10 @@ default:
                 form:
                   object_storage:
                     ObjectStorageAdvancedSettings:
+                      bucket_layout_column:
+                        title: Колонка с временем
+                      bucket_layout_timezone:
+                        title: Часовой пояс
                       buffer_interval:
                         title: Интервал записи
                       buffer_size:

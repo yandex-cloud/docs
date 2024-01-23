@@ -3,7 +3,6 @@
 In this scenario, you will create an [L7 load balancer](../../application-load-balancer/concepts/index.md) with a listener and [public IP address](../../vpc/concepts/address.md#public-addresses) with [DDoS protection](../../vpc/ddos-protection/index.md).
 
 To create an L7 load balancer with DDoS protection:
-
 1. [Prepare your cloud](#before-begin).
 1. [Create a cloud network](#create-network).
 1. [Create security groups](#create-security-groups).
@@ -258,7 +257,6 @@ To create an instance group:
       ```
 
       Where `security_group_ids` is the ID of the `ddos-sg-vms` security group.
-
    1. Create an instance group in the default folder:
 
       ```bash
@@ -562,12 +560,10 @@ To create a load balancer:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the `ddos-network` network and the `ddos-sg-balancer` security group.
    1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the subnets for the load balancer nodes in each availability zone and enable traffic.
    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
-
       1. Name the listener: `ddos-listener`.
       1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, enable traffic.
       1. Set the port to `80`.
       1. Select the **{{ ui-key.yacloud.alb.label_address-list }}** type and specify the [previously reserved](#reserve-ip) IP address with DDoS protection.
-
    1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `ddos-router`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -584,7 +580,6 @@ To create a load balancer:
       ```
 
       For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
-
    1. Add a listener:
 
       ```bash
@@ -691,7 +686,6 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
    {% endlist %}
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
-
    * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
    * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
    * [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)

@@ -95,6 +95,10 @@ items:
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/mkf-to-mpg.md
+      - name: >-
+          Перенос данных из {{ objstorage-full-name }} с использованием {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-postgresql.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}

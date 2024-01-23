@@ -28,3 +28,5 @@ description: "На странице представлен список прак
 * [Обучение модели в {{ ml-platform-full-name }} на данных из {{ objstorage-name }}](./s3-to-datasphere.md)
 * [Подключение к {{ objstorage-name }} из {{ vpc-short-name }}](./storage-vpc-access.md)
 
+
+* [{#T}](./object-storage-to-postgresql.md)

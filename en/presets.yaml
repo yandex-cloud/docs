@@ -3341,7 +3341,6 @@ default:
       ui_components_promo_Page:
         login-button-label: Log in to Tracker
       ui_components_queue-admin-tab-integrations_IntegrationForms:
-        settings-button-text: Setting up forms
         title: Forms
       ui_components_queue-admin-tab-main_QueueAdminTabMain:
         save: Save
@@ -3619,6 +3618,7 @@ default:
         user:
           action:
             acl: Assign bindings
+            delete: Delete user
             remove: Remove from organization
           caption:
             federation: Federation
@@ -5297,10 +5297,16 @@ default:
       load-testing:
         button_add-bucket: Link bucket
         button_add-overload-test-id: Add ID
+        button_comparison-test-add: Add to the comparison
         button_create-agent: Create agent
         button_create-test: Create test
         button_duplicate-configuration: Duplicate configuration
         field_config-file: Configuration file
+        field_export-bucket: Bucket name
+        field_export-enable: Save artifacts
+        field_export-filter-exclude: Exclude files
+        field_export-filter-include: Save files
+        field_export-is-archive: Archive in zip
         field_load-generator: Load generator
         field_logging-group: Log group
         field_overload-test-id: Test ID
@@ -5313,17 +5319,21 @@ default:
         label_import-tests-from-overload: Import tests from Overload
         label_local-source: From computer
         label_monitoring-report: Monitoring
+        label_results-comparison-section-title: Results comparison
         label_rps: Responses per second
         label_settings-type-config: Config
         label_settings-type-form: Form
+        label_tables: Tables
         label_test-config: Config
         label_test-data_list: Test data storage
         label_test-report: Test results
         label_test-settings: Test settings
+        label_tests-comparison-section-title: Comparison
         label_tests-list: Tests
         meta-section: Test information
         restart: Restart
         section_agent: Agent
+        section_export: Test logs
         test-data-section: Attached files
       lockbox:
         button_action-make-version-current: Set as current version
@@ -6811,6 +6821,10 @@ default:
                 form:
                   object_storage:
                     ObjectStorageAdvancedSettings:
+                      bucket_layout_column:
+                        title: Row time column name
+                      bucket_layout_timezone:
+                        title: Time zone
                       buffer_interval:
                         title: Flush interval
                       buffer_size:

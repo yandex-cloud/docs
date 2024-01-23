@@ -5,6 +5,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Настроить NAT-шлюз
 
+Минимально необходимые [роли](../security/#roles-list) для создания и настройки NAT-шлюза: `vpc.admin` и `vpc.gateways.user`.
+
 Чтобы создать и настроить NAT-шлюз:
 
 {% list tabs group=instructions %}
@@ -78,8 +80,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc vpc route-table create \
         --name=test-route-table \
         --network-name=<имя_сети> \
-        --route destination=0.0.0.0/0,`
-                gateway-id=enpkq1v2e7p0********
+        --route destination=0.0.0.0/0,gateway-id=enpkq1v2e7p0********
      ```
 
      Где `--network-name` — имя сети, в которой создается таблица.
@@ -106,20 +107,22 @@ description: "Следуя данной инструкции, вы сможет�
   }
 
   resource "yandex_vpc_subnet" "subnet" {
-    folder_id      = "<имя_каталога>"
+    folder_id      = "<идентификатор_каталога>"
     name           = "<имя_подсети>"
-    v4_cidr_blocks = "10.20.30.0/24"
+    v4_cidr_blocks = ["10.20.30.0/24"]
     zone           = {{ region-id }}-a
     network_id     = data.yandex_vpc_network.net.id
     route_table_id = yandex_vpc_route_table.rt.id
   }
 
   resource "yandex_vpc_gateway" "nat_gateway" {
+    folder_id      = "<идентификатор_каталога>"
     name = "test-gateway"
     shared_egress_gateway {}
   }
 
   resource "yandex_vpc_route_table" "rt" {
+    folder_id      = "<идентификатор_каталога>"
     name       = "test-route-table"
     network_id = "<идентификатор_сети>"
 
@@ -130,7 +133,7 @@ description: "Следуя данной инструкции, вы сможет�
   }
   ```
 
-  Где `folder_id` — имя каталога, в котором находится подсеть.
+  Где `folder_id` — идентификатор каталога, в котором находится подсеть.
 
 - API {#api}
 

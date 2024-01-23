@@ -10,8 +10,8 @@
 
 | Type of limit | {{ yagpt-name }} | {{ yagpt-name }} Lite and fine-tuned models |
 ----- | ----- | -----
-| Number of concurrent generations | 0 | 1 |
-| Number of requests per hour, [synchronous mode](../yandexgpt/concepts/index.md#working-mode) | 0^1^ | 100 |
+| Number of concurrent sessions | 1 | 1 |
+| Number of requests per hour, [synchronous mode](../yandexgpt/concepts/index.md#working-mode) | 100 | 100 |
 | Number of requests per second, [asynchronous mode](../yandexgpt/concepts/index.md#working-mode) (request) | 10 | 10 |
 | Number of requests per second, asynchronous mode (getting a response) | 50 | 50 |
 | Number of requests per hour, asynchronous mode (request) | 5,000 | 5,000 |

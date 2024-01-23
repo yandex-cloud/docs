@@ -117,6 +117,10 @@ items:
         href: tutorials/s3-to-datasphere.md
       - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
         href: tutorials/storage-vpc-access.md
+      - name: >-
+          Перенос данных в {{ mpg-full-name }} с использованием {{
+          data-transfer-full-name }}
+        href: tutorials/object-storage-to-postgresql.md
   - name: Концепции
     items:
       - name: Обзор

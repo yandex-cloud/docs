@@ -13,6 +13,7 @@ description: "Различные сценарии использования {{ 
 * [{#T}](./data-transfer-ydb.md)
 * [{#T}](./mpg-to-yds.md)
 * [{#T}](./mkf-to-mpg.md)
+* [{#T}](./object-storage-to-postgresql.md)
 * [{#T}](./container-connect.md)
 
 ## Репликация и миграция {#replication-and-migration}

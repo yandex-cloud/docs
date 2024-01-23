@@ -75,6 +75,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ PG }} в {{ CH }}](rdbms-to-clickhouse.md)
 * [{{ GP }} в {{ PG }}](greenplum-to-postgresql.md)
 * [{{ yandex-direct }} в {{ CH }}](direct-to-mch.md)
+* [{{ objstorage-name }} в {{ PG }}](object-storage-to-postgresql.md)
 
 ## Загрузка данных в {{ objstorage-name }} {#upload-to-storage}
 
