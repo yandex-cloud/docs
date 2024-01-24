@@ -30,7 +30,7 @@ def my_function():
     }
     head =  {
         "Authorization": "OAuth <токен>",
-        "X-Cloud-Org-ID": "<идентификатор организации>" # если только {{ ya-360 }} или оба типа организаций — X-Org-ID
+        "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
     }
     session.headers.update(head)
     response = session.post(url, json=json) # session.* - get, post, path, delete
@@ -164,58 +164,64 @@ my_function()
 - Новый тип задачи: <q>Ошибка</q>.
 - Новый приоритет задачи: <q>Низкий</q>.
 
-```
-PATCH /v2/issues/TEST-1
-Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
-{{ org-id }}
+{% list tabs %}
 
-{
-  "summary": "Новое название задачи",
-  "description": "Новое описание задачи",
-  "type": {
-      "id": "1",
-      "key": "bug"
-      },
-  "priority": {
-      "id": "2",
-      "key": "minor"
-      }
-}
-```
+- Формат запроса
 
-{% cut "Python" %}
-```python
-import requests;
+  ```
+  PATCH /v2/issues/TEST-1
+  Host: {{ host }}
+  Authorization: OAuth <OAuth-токен>
+  {{ org-id }}
 
-def my_function():
-    session = requests.Session()
-    url = "https://{{ host }}/{{ ver }}/issues/TEST-1"
-    json = {
-        "summary": "Новое название задачи",
-        "description": "Новое описание задачи",
-        "type": {
-            "id": "1",
-            "key": "bug"
-            },
-        "priority": {
-            "id": "2",
-            "key": "minor"
-            }
+  {
+    "summary": "Новое название задачи",
+    "description": "Новое описание задачи",
+    "type": {
+        "id": "1",
+        "key": "bug"
+        },
+    "priority": {
+        "id": "2",
+        "key": "minor"
         }
-    head =  {
-        "Authorization": "OAuth <токен>",
-        "X-Cloud-Org-ID": "<идентификатор организации>" # если только {{ ya-360 }} или оба типа организаций — X-Org-ID
-    }
-    session.headers.update(head)
-    response = session.patch(url, json=json)
-    data = response.json()
-    print(response)
-    print(data)
+  }
+  ```
+
+- Python
+
+  ```python
+  import requests;
+
+  def my_function():
+      session = requests.Session()
+      url = "https://{{ host }}/{{ ver }}/issues/TEST-1"
+      json = {
+          "summary": "Новое название задачи",
+          "description": "Новое описание задачи",
+          "type": {
+              "id": "1",
+              "key": "bug"
+              },
+          "priority": {
+              "id": "2",
+              "key": "minor"
+              }
+          }
+      head =  {
+          "Authorization": "OAuth <токен>",
+          "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
+      }
+      session.headers.update(head)
+      response = session.patch(url, json=json)
+      data = response.json()
+      print(response)
+      print(data)
     
-my_function()
-```
-{% endcut %}
+  my_function()
+  ```
+
+{% endlist %}
 
 {% endcut %}
 
@@ -224,33 +230,39 @@ my_function()
 - Используется HTTP-метод GET.
 - В ответе включено отображение приложений.
 
-```
-GET /v2/issues/JUNE-3?expand=attachments
-Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
-{{ org-id }}
-```
+{% list tabs %}
 
-{% cut "Python" %}
-```python
-import requests;
+- Формат запроса
 
-def my_function():
-    session = requests.Session()
-    url = "https://{{ host }}/{{ ver }}/issues/JUNE-3?expand=attachments"
-    head =  {
-        "Authorization": "OAuth <токен>",
-        "X-Cloud-Org-ID": "<идентификатор организации>" # если только {{ ya-360 }} или оба типа организаций — X-Org-ID
-    }
-    session.headers.update(head)
-    response = session.get(url)
-    data = response.json()
-    print(response)
-    print(data)
+  ```
+  GET /v2/issues/JUNE-3?expand=attachments
+  Host: {{ host }}
+  Authorization: OAuth <OAuth-токен>
+  {{ org-id }}
+  ```
+
+- Python
+
+  ```python
+  import requests;
+
+  def my_function():
+      session = requests.Session()
+      url = "https://{{ host }}/{{ ver }}/issues/JUNE-3?expand=attachments"
+      head =  {
+          "Authorization": "OAuth <токен>",
+          "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
+      }
+      session.headers.update(head)
+      response = session.get(url)
+      data = response.json()
+      print(response)
+      print(data)
     
-my_function()
-```
-{% endcut %}
+  my_function()
+  ```
+
+{% endlist %}
 
 {% endcut %}
 
@@ -261,51 +273,57 @@ my_function()
 - Новая задача является подзадачей <q>JUNE-2</q>.
 - Тип создаваемой задачи – <q>Ошибка</q>.
 - Исполнитель задачи – <user_login>
+
+{% list tabs %}
+
+- Формат запроса
  
-```
-POST /v2/issues/ HTTP/1.1
-Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
-{{ org-id }}
+  ```
+  POST /v2/issues/ HTTP/1.1
+  Host: {{ host }}
+  Authorization: OAuth <OAuth-токен>
+  {{ org-id }}
 
-{
-  "queue": "TREK",
-  "summary": "Test Issue",
-  "parent":"JUNE-2",
-  "type": "bug",
-  "assignee": "<user_login>",
-  "attachmentIds": [55, 56]
-}
-```
+  {
+    "queue": "TREK",
+    "summary": "Test Issue",
+    "parent":"JUNE-2",
+    "type": "bug",
+    "assignee": "<user_login>",
+    "attachmentIds": [55, 56]
+  }
+  ```
 
-{% cut "Python" %}
-```python
-import requests;
+- Python
 
-def my_function():
-    session = requests.Session()
-    url = "https://{{ host }}/{{ ver }}/issues/"
-    json = {
-        "queue": "TREK",
-        "summary": "Test Issue",
-        "parent":"JUNE-2",
-        "type": "bug",
-        "assignee": "<user_login>",
-        "attachmentIds": [55, 56]
-        }
-    head =  {
-        "Authorization": "OAuth <токен>",
-        "X-Cloud-Org-ID": "<идентификатор организации>" # если только {{ ya-360 }} или оба типа организаций — X-Org-ID
-    }
-    session.headers.update(head)
-    response = session.post(url, json=json)
-    data = response.json()
-    print(response)
-    print(data)
+  ```python
+  import requests;
+
+  def my_function():
+      session = requests.Session()
+      url = "https://{{ host }}/{{ ver }}/issues/"
+      json = {
+          "queue": "TREK",
+          "summary": "Test Issue",
+          "parent":"JUNE-2",
+          "type": "bug",
+          "assignee": "<user_login>",
+          "attachmentIds": [55, 56]
+          }
+      head =  {
+          "Authorization": "OAuth <токен>",
+          "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
+      }
+      session.headers.update(head)
+      response = session.post(url, json=json)
+      data = response.json()
+      print(response)
+      print(data)
     
-my_function()
-```
-{% endcut %}
+  my_function()
+  ```
+
+{% endlist %}
 
 {% endcut %}
 
@@ -315,45 +333,51 @@ my_function()
 - Ключ очереди – <q>TREK</q>.
 - Исполнитель задачи – <user_login>.
 
-```
-POST /v2/issues/_search?perPage=15
-Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
-{{ org-id }}
+{% list tabs %}
 
-{
-  "filter": {
-    "queue": "TREK",
-    "assignee": "<user_login>"
-  }
-}
-```
+- Формат запроса
 
-{% cut "Python" %}
-```python
-import requests;
+  ```
+  POST /v2/issues/_search?perPage=15
+  Host: {{ host }}
+  Authorization: OAuth <OAuth-токен>
+  {{ org-id }}
 
-def my_function():
-    session = requests.Session()
-    url = "https://{{ host }}/{{ ver }}/issues/_search?perPage=15"
-    json = {
-        "filter": {
-            "queue": "TREK",
-            "assignee": "<user_login>"
-            }
-        }
-    head =  {
-        "Authorization": "OAuth <токен>",
-        "X-Cloud-Org-ID": "<идентификатор организации>" # если только {{ ya-360 }} или оба типа организаций — X-Org-ID
+  {
+    "filter": {
+      "queue": "TREK",
+      "assignee": "<user_login>"
     }
-    session.headers.update(head)
-    response = session.post(url, json=json)
-    data = response.json()
-    print(response)
-    print(data)
+  }
+  ```
+
+- Python
+
+  ```python
+  import requests;
+
+  def my_function():
+      session = requests.Session()
+      url = "https://{{ host }}/{{ ver }}/issues/_search?perPage=15"
+      json = {
+          "filter": {
+              "queue": "TREK",
+              "assignee": "<user_login>"
+              }
+          }
+      head =  {
+          "Authorization": "OAuth <токен>",
+          "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
+      }
+      session.headers.update(head)
+      response = session.post(url, json=json)
+      data = response.json()
+      print(response)
+      print(data)
     
-my_function()
-```
-{% endcut %}
+  my_function()
+  ```
+
+{% endlist %}
 
 {% endcut %}
