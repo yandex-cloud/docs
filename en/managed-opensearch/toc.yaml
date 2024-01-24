@@ -15,7 +15,7 @@ items:
             href: operations/cluster-create.md
           - name: Connection
             items:
-              - name: Connecting to cluster
+              - name: Connecting to clusters
                 href: operations/connect.md
               - name: Configuring SAML authentication
                 href: operations/saml-authentication.md
@@ -193,7 +193,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: Public materials
     href: public-talks.md
-  - name: Q&A
+  - name: FAQ
     items:
       - name: General questions
         href: qa/index.md

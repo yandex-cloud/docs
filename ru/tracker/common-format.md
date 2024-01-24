@@ -18,30 +18,6 @@ Authorization: OAuth <токен>
 } 
 ```
 
-{% cut "Python" %}
-```python
-import requests;
-
-def my_function():
-    session = requests.Session()
-    url = "https://{{ host }}/{{ ver }}/<resources>/<resource_id>/?<param>=<value>"
-    json = {
-        # Тело запроса в формате JSON
-    }
-    head =  {
-        "Authorization": "OAuth <токен>",
-        "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
-    }
-    session.headers.update(head)
-    response = session.post(url, json=json) # session.* - get, post, path, delete
-    data = response.json()
-    print(response)
-    print(data)
-    
-my_function()
-```
-{% endcut %}
-
 {% note info %}
 
 {{ api-name }} передает и получает параметры даты и времени в часовом поясе UTC±00:00. Поэтому полученные время и дата могут отличаться от часового пояса клиента, с которого выполняется запрос.
@@ -73,10 +49,6 @@ my_function()
  - `X-Org-ID: <идентификатор организации>` или `X-Cloud-Org-ID: <идентификатор организации>`
     
    Если у вас только организация {{ org-full-name }}, используйте заголовок `X-Cloud-Org-ID`, если только {{ ya-360 }} или оба типа организаций — `X-Org-ID`. Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **ID организации для API**.
-
- - `Accept-Language: <тег языка>` — язык локализации.
-   
-   По умолчанию HTTP-запрос возвращает локализованные поля на русском языке. Чтобы получить значения локализованных полей на английском языке, укажите заголовок с тегом **en**.
     
 
 ## Формат тела запроса {#body} 
@@ -170,65 +142,25 @@ my_function()
 - Новый тип задачи: <q>Ошибка</q>.
 - Новый приоритет задачи: <q>Низкий</q>.
 
-{% list tabs %}
+```
+PATCH /v2/issues/TEST-1
+Host: {{ host }}
+Authorization: OAuth <OAuth-токен>
+{{ org-id }}
 
-- Формат запроса
-
-  ```
-  PATCH /v2/issues/TEST-1
-  Host: {{ host }}
-  Authorization: OAuth <OAuth-токен>
-  {{ org-id }}
-
-  {
-    "summary": "Новое название задачи",
-    "description": "Новое описание задачи",
-    "type": {
-        "id": "1",
-        "key": "bug"
-        },
-    "priority": {
-        "id": "2",
-        "key": "minor"
-        }
-  }
-  ```
-
-- Python
-
-  ```python
-  import requests;
-
-  def my_function():
-      session = requests.Session()
-      url = "https://{{ host }}/{{ ver }}/issues/TEST-1"
-      json = {
-          "summary": "Новое название задачи",
-          "description": "Новое описание задачи",
-          "type": {
-              "id": "1",
-              "key": "bug"
-              },
-          "priority": {
-              "id": "2",
-              "key": "minor"
-              }
-          }
-      head =  {
-          "Authorization": "OAuth <токен>",
-          "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
+{
+  "summary": "Новое название задачи",
+  "description": "Новое описание задачи",
+  "type": {
+      "id": "1",
+      "key": "bug"
+      },
+  "priority": {
+      "id": "2",
+      "key": "minor"
       }
-      session.headers.update(head)
-      response = session.patch(url, json=json)
-      data = response.json()
-      print(response)
-      print(data)
-    
-  my_function()
-  ```
-
-{% endlist %}
-
+}
+```
 {% endcut %}
 
 {% cut "Пример 2: Запрос одной задачи с указанием необходимых полей." %}
@@ -236,40 +168,12 @@ my_function()
 - Используется HTTP-метод GET.
 - В ответе включено отображение приложений.
 
-{% list tabs %}
-
-- Формат запроса
-
-  ```
-  GET /v2/issues/JUNE-3?expand=attachments
-  Host: {{ host }}
-  Authorization: OAuth <OAuth-токен>
-  {{ org-id }}
-  ```
-
-- Python
-
-  ```python
-  import requests;
-
-  def my_function():
-      session = requests.Session()
-      url = "https://{{ host }}/{{ ver }}/issues/JUNE-3?expand=attachments"
-      head =  {
-          "Authorization": "OAuth <токен>",
-          "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
-      }
-      session.headers.update(head)
-      response = session.get(url)
-      data = response.json()
-      print(response)
-      print(data)
-    
-  my_function()
-  ```
-
-{% endlist %}
-
+```
+GET /v2/issues/JUNE-3?expand=attachments
+Host: {{ host }}
+Authorization: OAuth <OAuth-токен>
+{{ org-id }}
+```
 {% endcut %}
 
 {% cut "Пример 3: Создать задачу." %}
@@ -279,58 +183,22 @@ my_function()
 - Новая задача является подзадачей <q>JUNE-2</q>.
 - Тип создаваемой задачи – <q>Ошибка</q>.
 - Исполнитель задачи – <user_login>
-
-{% list tabs %}
-
-- Формат запроса
  
-  ```
-  POST /v2/issues/ HTTP/1.1
-  Host: {{ host }}
-  Authorization: OAuth <OAuth-токен>
-  {{ org-id }}
+```
+POST /v2/issues/ HTTP/1.1
+Host: {{ host }}
+Authorization: OAuth <OAuth-токен>
+{{ org-id }}
 
-  {
-    "queue": "TREK",
-    "summary": "Test Issue",
-    "parent":"JUNE-2",
-    "type": "bug",
-    "assignee": "<user_login>",
-    "attachmentIds": [55, 56]
-  }
-  ```
-
-- Python
-
-  ```python
-  import requests;
-
-  def my_function():
-      session = requests.Session()
-      url = "https://{{ host }}/{{ ver }}/issues/"
-      json = {
-          "queue": "TREK",
-          "summary": "Test Issue",
-          "parent":"JUNE-2",
-          "type": "bug",
-          "assignee": "<user_login>",
-          "attachmentIds": [55, 56]
-          }
-      head =  {
-          "Authorization": "OAuth <токен>",
-          "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
-      }
-      session.headers.update(head)
-      response = session.post(url, json=json)
-      data = response.json()
-      print(response)
-      print(data)
-    
-  my_function()
-  ```
-
-{% endlist %}
-
+{
+  "queue": "TREK",
+  "summary": "Test Issue",
+  "parent":"JUNE-2",
+  "type": "bug",
+  "assignee": "<user_login>",
+  "attachmentIds": [55, 56]
+}
+```
 {% endcut %}
 
 {% cut "Пример 4: Найти задачи очереди, которые назначены на заданного сотрудника. Результаты отобразить постранично." %}
@@ -339,51 +207,17 @@ my_function()
 - Ключ очереди – <q>TREK</q>.
 - Исполнитель задачи – <user_login>.
 
-{% list tabs %}
+```
+POST /v2/issues/_search?perPage=15
+Host: {{ host }}
+Authorization: OAuth <OAuth-токен>
+{{ org-id }}
 
-- Формат запроса
-
-  ```
-  POST /v2/issues/_search?perPage=15
-  Host: {{ host }}
-  Authorization: OAuth <OAuth-токен>
-  {{ org-id }}
-
-  {
-    "filter": {
-      "queue": "TREK",
-      "assignee": "<user_login>"
-    }
+{
+  "filter": {
+    "queue": "TREK",
+    "assignee": "<user_login>"
   }
-  ```
-
-- Python
-
-  ```python
-  import requests;
-
-  def my_function():
-      session = requests.Session()
-      url = "https://{{ host }}/{{ ver }}/issues/_search?perPage=15"
-      json = {
-          "filter": {
-              "queue": "TREK",
-              "assignee": "<user_login>"
-              }
-          }
-      head =  {
-          "Authorization": "OAuth <токен>",
-          "X-Org-ID" или "X-Cloud-Org-ID": <идентификатор_организации>
-      }
-      session.headers.update(head)
-      response = session.post(url, json=json)
-      data = response.json()
-      print(response)
-      print(data)
-    
-  my_function()
-  ```
-
-{% endlist %}
-
+}
+```
 {% endcut %}

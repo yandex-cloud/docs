@@ -11,7 +11,7 @@ items:
         items:
           - name: Information about existing clusters
             href: operations/cluster-list.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Changing cluster settings
             href: operations/update.md
@@ -19,13 +19,13 @@ items:
             href: operations/cluster-version-update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
-          - name: Managing hosts in a cluster
+          - name: Managing cluster hosts
             href: operations/hosts.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
-          - name: Deleting clusters
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Databases
         items:
@@ -261,9 +261,9 @@ items:
                 href: api-ref/Operation/get.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
-  - name: Questions and answers
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md

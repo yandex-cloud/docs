@@ -66,7 +66,7 @@
       * `{{ roles-cr-puller }}`
 
    1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) с зональным мастером и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите созданный ранее сервисный аккаунт.
-   1. Настройте группу безопасности для работы [кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/security-groups.md) и [инстанса {{ mgl-name }}](../../managed-gitlab/operations/connect.md).
+   1. Настройте группу безопасности для работы [кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/security-groups.md) и [инстанса {{ mgl-name }}](../../managed-gitlab/operations/configure-security-group.md).
 
   1. [Создайте реестр {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
 

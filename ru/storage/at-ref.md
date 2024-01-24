@@ -8,11 +8,11 @@
 {{ at-event-prefix }}.audit.storage.<имя_события>
 ```
 
-## Справочник событий уровня конфигурации
+## Справочник событий уровня конфигурации {#control-plane-events}
 
 {% include [storage-events](../_includes/audit-trails/events/storage-events.md) %}
 
-## Справочник событий уровня сервисов
+## Справочник событий уровня сервисов {#data-plane-events}
 
 {% include notitle [preview](../_includes/note-preview-by-request.md) %}
 

@@ -8,18 +8,18 @@ description:
     cloud, including both managed database services and custom installations
     based on Yandex Compute Cloud VMs.</li> <li>Create remote DB replicas.</li>
     <li>Aggregate data from a variety of sources in a single Data Warehouse
-    powered by ClickHouse.</li> <li>Back up and save data from any available
-    source to Yandex Object Storage.</li> <li>Save arbitrary data received from
-    message brokers to Cloud Storage.</li>
+    powered by ClickHouse®.</li> <li>Back up and save data from any available
+    source to Yandex Object Storage.</li> <li>Save the data received from
+    message brokers to cloud storage.</li>
   - >-
-    Data Transfer supports several data transfer scenarios, all of which
+    Data Transfer supports various data transfer scenarios, all of which
     maintain the source's running state and minimize the downtime of
     applications using the source.
 meta:
   title: Yandex Data Transfer
   description: >-
-    Yandex Data Transfer is designed to logically transfer data between sources
-    and targets.
+    Yandex Data Transfer is designed for logically transferring data between
+    sources and targets.
 links:
   - title: Available transfers
     description: List of supported transfer types
@@ -27,9 +27,12 @@ links:
   - title: Getting started
     description: Run your first transfer
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
+  - title: Tutorials
+    description: Data transfer scenarios
+    href: tutorials/
   - title: Concepts
     description: Learn about basic concepts and service functions
     href: concepts/
@@ -45,3 +48,9 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: Troubleshooting
+    description: Known issues and how to resolve them
+    href: troubleshooting/
+  - title: Release notes
+    description: Releases and updates
+    href: release-notes/

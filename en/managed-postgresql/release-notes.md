@@ -1,6 +1,6 @@
-# {{ mpg-full-name }} releases
+# {{ mpg-full-name }} release notes
 
-This section covers the revision history for {{ mpg-name }}.
+This section contains {{ mpg-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

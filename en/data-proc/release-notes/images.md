@@ -1,6 +1,6 @@
-# {{ dataproc-full-name }} image releases
+# {{ dataproc-full-name }} image release notes
 
-For a complete listing of current and deprecated {{ dataproc-name }} images, please see [{#T}](../concepts/environment.md).
+For a complete listing of current and deprecated {{ dataproc-name }} images, refer to [{#T}](../concepts/environment.md).
 
 
 ## 2.0.69 {#2.0.69}

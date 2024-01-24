@@ -4860,6 +4860,7 @@ default:
         field_admin-login: Логин
         field_approval-rules: Правила ревью кода
         field_approval-rules-token: Gitlab токен
+        field_domain: Домен
         label_admin-section: Данные администратора
         label_configuration-section: Конфигурация
         title_backups: Резервные копии
@@ -4871,16 +4872,21 @@ default:
           perf-diag:
             label_action-terminate-query: Прервать запрос
             label_action-terminate-session: Прервать сессию
+            label_field-backend-start: Время старта
+            label_field-cpu-time: CPU time
             label_field-query-cpu-time: CPU time
             label_field-query-peak-memory: Peak memory
+            label_field-query-started: Время начала запроса
             label_filter-entity-query: Запросы
             label_filter-entity-session: Сессии
+            label_filter-monitoring-cpu-usage: CPU usage
             label_query-field-read-bytes: Disk R
             label_query-field-running-time-seconds: CPU time
             label_query-field-spill-total-bytes: Spill
             label_query-field-total-time: Total time
             label_query-field-vm-peak-kb: Peak memory
             label_query-field-write-bytes: Disk W
+            label_section_session-info: Информация о сессии
             section_command-center: Командный центр
             title_consumption-history: История потребления
             title_current-state: Текущее состояние

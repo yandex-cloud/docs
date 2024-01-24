@@ -14,11 +14,7 @@
    1. Выберите тип инстанса.
    1. Укажите [подсеть](../../vpc/concepts/network.md#subnet), в которой будет размещен инстанс. Технические ограничения {{ yandex-cloud }} временно не позволяют выбрать подсеть с диапазоном адресов `192.168.0.0/24`.
 
-      {% note warning %}
-
-      Будет использована [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) для выбранной [сети](../../vpc/concepts/network.md#network). Выбрать другую при создании инстанса нельзя. Для подключения может потребоваться дополнительная [настройка](../../managed-gitlab/operations/connect.md#configuring-security-groups) группы безопасности по умолчанию.
-
-      {% endnote %}
+      Для инстанса будет использована [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) для выбранной [сети](../../vpc/concepts/network.md#network). Если после создания инстанса не получится открыть веб-интерфейс {{ GL }}, создайте отдельную группу безопасности и [настройте ее](../../managed-gitlab/operations/configure-security-group.md) так, чтобы правила разрешали входящий трафик с нужных портов и IP-адресов.
 
    1. Выберите размер [диска](../../compute/concepts/disk.md).
    1. Укажите [доменное имя инстанса](../../compute/concepts/network.md#hostname) — для него будут автоматически созданы нужные DNS-записи в домене `.gitlab.yandexcloud.net`.

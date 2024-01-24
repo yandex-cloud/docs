@@ -1,9 +1,9 @@
 ---
-title: "Revision history for {{ yagpt-full-name }}"
-description: "This page presents the revision history for {{ yagpt-full-name }}."
+title: "{{ yagpt-full-name }} release notes"
+description: "This page contains {{ yagpt-full-name }} release notes."
 ---
 
-# {{ yagpt-full-name }} releases
+# {{ yagpt-full-name }} release notes
 
 ## Current version {#current}
 

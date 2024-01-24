@@ -70,7 +70,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API reference
+  - name: API Reference
     items:
       - name: Authentication with the API
         href: api-ref/authentication.md
@@ -136,7 +136,7 @@ items:
         href: api-ref/errors-handling.md
       - name: Troubleshooting
         href: api-ref/support-headers.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
   - name: Questions and answers
     href: qa/index.md

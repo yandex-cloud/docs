@@ -28,7 +28,8 @@ description: "Из статьи вы узнаете, как задать нас�
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
-    * [Загрузка данных из {{ GP }} в {{ PG }}](../../../tutorials/greenplum-to-postgresql.md).
+    * [Загрузка данных из {{ GP }} в {{ PG }}](../../../tutorials/greenplum-to-postgresql.md);
+    * [Загрузка данных из {{ objstorage-name }} в {{ PG }}](../../../tutorials/object-storage-to-postgresql.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 

@@ -9,10 +9,10 @@ items:
         href: operations/index.md
       - name: Получение информации об инстансах
         href: operations/instance/instance-list.md
-      - name: Создание инстанса
+      - name: Создание и активация инстанса
         href: operations/instance/instance-create.md
-      - name: Подключение к инстансу
-        href: operations/connect.md
+      - name: Настройка групп безопасности и ограничение доступа к инстансу
+        href: operations/configure-security-group.md
       - name: Остановка и запуск инстанса
         href: operations/instance/instance-stop.md
       - name: Изменение настроек инстанса

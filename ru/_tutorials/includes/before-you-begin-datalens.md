@@ -1,16 +1,16 @@
 Чтобы начать работать с {{ datalens-short-name }}:
 
 
-{% list tabs %}
+{% list tabs group=datalens_user %}
 
-- Новый пользователь
+- Новый пользователь {#new}
 
   1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
   1. Откройте [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
   1. Нажмите **Открыть DataLens**.
   1. Нажмите **Войти**.
 
-- Уже использую {{ yandex-cloud }}
+- Уже использую {{ yandex-cloud }} {#already}
 
   1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
   1. Откройте [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.

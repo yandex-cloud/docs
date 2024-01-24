@@ -84,6 +84,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/loadtesting/index.md
+  - name: Справочник Terraform
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

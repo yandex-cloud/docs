@@ -57,6 +57,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/dns/index.md
+  - name: Справочник Terraform
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -105,6 +109,8 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы
