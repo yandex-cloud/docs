@@ -1,4 +1,4 @@
-# {{ speechkit-full-name }} speech recognition service releases
+# {{ speechkit-full-name }} release notes: Speech recognition
 
 {{ speechkit-name }} provides updates based on the system model and version.
 
@@ -6,11 +6,24 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on December 29, 2023 {#291223}
+
+Updates to `general:rc`:
+
+1. Fixed [normalization](stt/normalization.md) errors for certain number representations (e.g., fifteen hundred ⟶ 1500).
+1. Added support for the following [classifiers](stt/analysis.md#classifier):
+
+   * `gender` classifier: The classification returns probability values for the `male` and `female` classes.
+   * `negative` classifier: The classification returns probability values for the `negative` and `not_negative` classes.
+   * `answerphone` classifier: The classification returns probability values for the `answerphone` and `not_answerphone` classes.
+
+1. Enabled triggering classifiers for partial recognition results (the `ON_PARTIAL` event).
+
+## Previous versions {#previous}
+
 ### Release on November 22, 2023 {#221123}
 
 All changes to the `general:rc` model are now available in the `general` model.
-
-## Previous versions {#previous}
 
 ### Release on November 10, 2023 {#101123}
 
@@ -175,7 +188,7 @@ The current release improved the quality of the Russian-language `general:rc` mo
    * Italian
    * Spanish
 
-1. New languages are also available under their codes. The `general:rc` model uses indication as a hint for language recognition. If a language is specifically indicated, the model uses it as a hint to improve recognition quality. Currently, the hint only affects recognition quality for Russian.
+1. New languages are also available under their own codes. The `general:rc` model uses indication as a hint for language recognition. If the language is indicated explicitly, the model will use it as a hint to improve the recognition quality. Currently, a hint only affects the quality of recognition of Russian.
 
 When using `general:rc`, we recommend enabling [auto-tuning](stt/additional-training.md#autotuning).
 

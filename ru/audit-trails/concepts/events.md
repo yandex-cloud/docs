@@ -138,14 +138,7 @@
 
 Имя сервиса — `dns`.
 
-Имя события | Описание
---- | ---
-`CreateDnsZone` | Создание зоны [DNS](../../glossary/dns.md)
-`DeleteDnsZone` | Удаление зоны DNS
-`SetDnsZoneAccessBindings` | Назначение привязок прав доступа к зоне DNS
-`UpdateDnsZone` | Изменение зоны DNS
-`UpdateDnsZoneAccessBindings` | Изменение привязок прав доступа к зоне DNS
-`UpdateRecordSets` | Изменение набора записей
+{% include [dns-events](../../_includes/audit-trails/events/dns-events.md) %}
 
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
@@ -163,60 +156,7 @@
 
 Имя сервиса — `compute`.
 
-Имя события | Описание
---- | ---
-`AddInstanceOneToOneNat` | Добавление публичного IP-адреса виртуальной машине
-`AttachInstanceDisk` | Подключение диска к ВМ
-`AttachInstanceFilesystem` | Подключение файловой системы к ВМ
-`ChangeDiskStatus` | Изменение статуса нереплицируемого диска
-`CrashInstance` | Аварийное отключение ВМ
-`CreateDisk` | Создание диска
-`CreateFilesystem` | Создание файловой системы
-`CreateGpuCluster` | Создание кластера GPU
-`CreateImage` | Создание образа диска
-`CreateInstance` | Создание ВМ
-`CreateSnapshot` | Создание снимка диска
-`CreateSnapshotSchedule` | Создание расписания снимков диска
-`DeleteDisk` | Удаление диска
-`DeleteFilesystem` | Удаление файловой системы
-`DeleteGpuCluster` | Удаление кластера GPU
-`DeleteImage` | Удаление образа диска
-`DeleteInstance` | Удаление ВМ
-`DeleteSnapshot` | Удаление снимка диска
-`DeleteSnapshotSchedule` | Удаление расписания снимков диска
-`DetachInstanceDisk` | Отключение диска от ВМ
-`DetachInstanceFilesystem` | Отключение файловой системы от ВМ
-`DisableSnapshotSchedule` | Отключение расписания снимков диска
-`EnableSnapshotSchedule` | Включение расписания снимков диска
-`GuestStopInstance` | Остановка ВМ по команде из этой ВМ
-`PreemptInstance` | Прерывание работы ВМ
-`RemoveInstanceOneToOneNat` | Удаление публичного IP-адреса ВМ
-`RestartInstance` | Перезагрузка ВМ
-`StartInstance` | Запуск ВМ
-`StopInstance` | Остановка ВМ
-`UpdateDisk` | Изменение диска
-`UpdateFilesystem` | Изменение файловой системы
-`UpdateGpuCluster` | Изменение кластера GPU
-`UpdateImage` | Изменение образа диска
-`UpdateInstance` | Изменение ВМ
-`UpdateInstanceMetadata` | Изменение метаданных ВМ
-`UpdateInstanceNetworkInterface` | Изменение сетевых настроек ВМ
-`UpdateSnapshot` | Изменение снимка диска
-`UpdateSnapshotSchedule` | Изменение параметров расписания снимков диска
-`UpdateSnapshotScheduleDisks` | Изменение параметров расписания снимков дисков
-`instancegroup` | Управление группой ВМ
-`instancegroup.CreateInstanceGroup` | Создание группы ВМ
-`instancegroup.DeleteInstanceGroup` | Удаление группы ВМ
-`instancegroup.DeleteInstanceGroupInstances` | Удаление ВМ из группы
-`instancegroup.PauseInstanceGroup` | Приостановка процессов управления группой ВМ
-`instancegroup.ResumeInstanceGroup` | Возобновление процессов управления группой ВМ
-`instancegroup.RollingRestartInstanceGroupInstances` | Поочередная перезагрузка ВМ из группы
-`instancegroup.SetInstanceGroupAccessBindings` | Назначение ролей на группу ВМ
-`instancegroup.StartInstanceGroup` | Запуск группы ВМ
-`instancegroup.StopInstanceGroup` | Остановка группы ВМ
-`instancegroup.StopInstanceGroupInstances` | Остановка ВМ из группы
-`instancegroup.UpdateInstanceGroup` | Изменение группы ВМ
-`instancegroup.UpdateInstanceGroupAccessBindings` | Изменение ролей для группы ВМ
+{% include [compute-events](../../_includes/audit-trails/events/compute-events.md) %}
 
 ## {{ container-registry-name }} {#container-registry}
 
@@ -642,22 +582,7 @@
 
 Имя сервиса — `loadbalancer`.
 
-Имя события | Описание
---- | ---
-`AddNetworkLoadBalancerListener` | Добавление обработчика к сетевому балансировщику
-`AddTargetGroupTargets` | Добавление ВМ к целевой группе
-`AttachNetworkLoadBalancerTargetGroup` | Подключение целевой группы к сетевому балансировщику
-`CreateNetworkLoadBalancer` | Создание сетевого балансировщика
-`CreateTargetGroup` | Создание целевой группы
-`DeleteNetworkLoadBalancer` | Удаление сетевого балансировщика
-`DeleteTargetGroup` | Удаление целевой группы
-`DetachNetworkLoadBalancerTargetGroup` | Отсоединение целевой группы от сетевого балансировщика
-`RemoveNetworkLoadBalancerListener` | Удаление обработчика из сетевого балансировщика
-`RemoveTargetGroupTargets` | Удаление ВМ из целевой группы
-`StartNetworkLoadBalancer` | Запуск сетевого балансировщика
-`StopNetworkLoadBalancer` | Остановка сетевого балансировщика
-`UpdateNetworkLoadBalancer` | Изменение сетевого балансировщика
-`UpdateTargetGroup` | Изменение целевой группы
+{% include [network-load-balancer-events](../../_includes/audit-trails/events/network-load-balancer-events.md) %}
 
 ## {{ objstorage-name }} {#objstorage}
 
@@ -762,38 +687,7 @@
 
 Имя сервиса — `network`.
 
-Имя события | Описание
---- | ---
-`AddressAttached` | Привязка адреса к облачному ресурсу
-`AddressDetached` | Отвязка адреса от облачного ресурса
-`CreateAddress` | Создание адреса облачных ресурсов
-`CreateGateway` | Создание шлюза
-`CreateNetwork` | Создание облачной сети
-`CreateRouteTable` | Создание таблицы маршрутизации
-`CreateSecurityGroup` | Создание группы безопасности
-`CreateSubnet` | Создание облачной подсети
-`DeleteAddress` | Удаление адреса облачных ресурсов
-`DeleteGateway` | Удаление шлюза
-`DeleteNetwork` | Удаление облачной сети
-`DeleteRouteTable` | Удаление таблицы маршрутизации
-`DeleteSecurityGroup` | Удаление группы безопасности
-`DeleteSubnet` | Удаление облачной подсети
-`GatewayAttached` | Добавление шлюза
-`GatewayDetached` | Отсоединение шлюза
-`MoveAddress` | Перемещение адреса облачных ресурсов в другой каталог
-`MoveGateway` | Перемещение шлюза в другой каталог
-`MoveNetwork` | Перемещение облачной сети в другой каталог
-`MoveRouteTable` | Перемещение таблицы маршрутизации в другой каталог
-`MoveSecurityGroup` | Перемещение группы безопасности в другой каталог
-`MoveSubnet` | Перемещение облачной подсети в другой каталог
-`RouteTableAttached` | Добавление таблицы маршрутизации к подсети
-`RouteTableDetached` | Отсоединение таблицы маршрутизации от подсети
-`UpdateAddress` | Изменение адреса облачных ресурсов
-`UpdateGateway` | Изменение шлюза
-`UpdateNetwork` | Изменение облачной сети
-`UpdateRouteTable` | Изменение таблицы маршрутизации
-`UpdateSecurityGroup` | Изменение группы безопасности
-`UpdateSubnet` | Изменение облачной подсети
+{% include [vpc-events](../../_includes/audit-trails/events/vpc-events.md) %}
 
 ## {{ ydb-short-name }} {#ydb}
 
@@ -801,7 +695,7 @@
 
 Имя события | Описание
 --- | ---
-`BackupDatabase` | Создание бэкапа базы данных
+`BackupDatabase` | Создание [бэкапа](../../glossary/backup.md) базы данных
 `CreateDatabase` | Создание базы данных
 `DeleteBackup` | Удаление бэкапа базы данных
 `DeleteDatabase` | Удаление базы данных

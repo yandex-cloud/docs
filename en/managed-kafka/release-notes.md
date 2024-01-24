@@ -1,6 +1,6 @@
-# Revision history for {{ mkf-full-name }}
+# {{ mkf-full-name }} release notes
 
-This section covers the revision history for {{ mkf-name }}.
+This section contains {{ mkf-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

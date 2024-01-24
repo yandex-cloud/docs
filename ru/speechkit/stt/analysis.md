@@ -14,36 +14,39 @@
 
 {{ speechkit-name }} поддерживает следующие классификаторы:
 
-| Классификатор | Описание | Поддерживаемые типы событий | 
-|---|---|---|
-| `formal_greeting` |  Формальное приветствие (например, "добрый день", "здравствуйте"") | `ON_UTTERANCE`, `ON_FINAL` |
-| `informal_greeting` | Неформальное приветствие (например, "привет", "дарова") | `ON_UTTERANCE`, `ON_FINAL` |
-| `formal_farewell` | Формальное прощание (например, "до свидания", "всего доброго") | `ON_UTTERANCE`, `ON_FINAL` |
-| `informal_farewell` | Неформальное прощание (например, "пока", "адьёс") | `ON_UTTERANCE`, `ON_FINAL` |
-| `insult` | Оскорбления (например, "дурак", "урод") | `ON_UTTERANCE`, `ON_FINAL` |
-| `profanity` | Мат | `ON_UTTERANCE`, `ON_FINAL` |
+| Классификатор | Описание | Результат | Поддерживаемые типы событий | Поддержка в версиях модели |
+|---|---|---|---|---|
+| `formal_greeting` | Формальное приветствие (например, "добрый день", "здравствуйте"") | При срабатывании | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `informal_greeting` |  Неформальное приветствие (например, "привет", "дарова") | При срабатывании | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `formal_farewell` | Формальное прощание (например, "до свидания", "всего доброго") | При срабатывании |  `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `informal_farewell` | Неформальное прощание (например, "пока", "адьёс") | При срабатывании | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `insult` | Оскорбления (например, "дурак", "урод") | При срабатывании | `ON_UTTERANCE`, `ON_FINAL` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) |
+| `profanity` | Мат | При срабатывании  | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` (в `general:rc`) | `general:rc`, `general` |
+| `gender` | Пол | Вероятности для классов `male` и `female` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
+| `negative` | Негатив | Вероятности для классов `negative` и `not_negative` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
+| `answerphone` | Автоответчик | Вероятности для классов `answerphone` и `not_answerphone` | `ON_UTTERANCE`, `ON_FINAL`, `ON_PARTIAL` | `general:rc`, `general` |
 
 {% list tabs group=programming_language %}
 
 - Python {#python}
 
   ```python
-  session_options = StreamingRequest(
-    session_options=StreamingOptions(
+  session_options = stt_pb2.StreamingRequest(
+    session_options=stt_pb2.StreamingOptions(
       recognition_model="general",
 
       # Настройки классификаторов
-      recognition_classifier=RecognitionClassifierOptions(
+      recognition_classifier=stt_pb2.RecognitionClassifierOptions(
         classifiers=[
           # Определять оскорбления в фразах
-          RecognitionClassifier(
+          stt_pb2.RecognitionClassifier(
             classifier="insult",
-            triggers=[RecognitionClassifier.ON_UTTERANCE]
+            triggers=[stt_pb2.RecognitionClassifier.ON_UTTERANCE]
           ),
           # Определять мат в фразах
-          RecognitionClassifier(
+          stt_pb2.RecognitionClassifier(
             classifier="profanity",
-            triggers=[RecognitionClassifier.ON_UTTERANCE]
+            triggers=[stt_pb2.RecognitionClassifier.ON_UTTERANCE]
           ),
         ]
       )
@@ -61,7 +64,7 @@
 После второй фразы придет два сообщения: с результатом распознавания фразы и с ответом классификатора:
  
 ```python
-StreamingResponse(
+stt_pb2.StreamingResponse(
 ...,
   classifier_update=RecognitionClassifierUpdate(
     window_type=RecognitionClassifierUpdate.LAST_UTTERANCE,

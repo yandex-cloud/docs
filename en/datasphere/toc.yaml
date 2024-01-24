@@ -237,7 +237,7 @@ items:
     items:
       - name: Overview
         href: api-ref/overview.md
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -347,8 +347,8 @@ items:
     href: pricing.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
-  - name: Q&A
+  - name: FAQ
     href: qa/index.md
 base: en/datasphere

@@ -11,7 +11,7 @@ items:
         items:
           - name: Information about existing clusters
             href: operations/cluster-list.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Changing cluster settings
             href: operations/cluster-update.md
@@ -21,7 +21,7 @@ items:
             href: operations/cluster-stop.md
           - name: Managing {{ KF }} hosts
             href: operations/cluster-hosts.md
-          - name: Deleting clusters
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Topics
         items:
@@ -245,7 +245,7 @@ items:
                 href: api-ref/Operation/get.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
   - name: FAQ
     href: qa/index.md

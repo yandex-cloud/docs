@@ -1,4 +1,4 @@
-# Archive of {{ speechkit-full-name }} releases
+# {{ speechkit-full-name }} release notes: Archive
 
 {{ speechkit-name }} provides updates based on the system model and version.
 

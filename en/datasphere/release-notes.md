@@ -1,11 +1,11 @@
-# Revision history for {{ ml-platform-full-name }}
+# {{ ml-platform-full-name }} release notes
 
-Information about changes to the {{ ml-platform-full-name }} service will be published here.
+This section shows what changed in {{ ml-platform-full-name }}.
 
 
 {% note tip %}
 
-To keep up to date with the latest changes and updates, subscribe to our [{{ ml-platform-full-name }} Community](https://t.me/yandex_datasphere) Telegram news channel.
+To keep up to date with the latest changes and updates, subscribe to our [{{ ml-platform-full-name }} Community](https://t.me/yandex_datasphere) news channel on Telegram.
 
 {% endnote %}
 
@@ -19,7 +19,7 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 1. With [{{ ml-platform-name }} Jobs](concepts/jobs.md), cloud computing resources in {{ ml-platform-name }} can now be used from a user's local environment.
 1. {{ ml-platform-name }} projects now have a new type of resources: [Models](concepts/models/index.md).
-1. Optimized JupyterLab 3 (available in [Dedicated](concepts/project.md#dedicated) mode) by adding new extensions.
+1. Optimized JupyterLab 3 (available in [dedicated](concepts/project.md#dedicated) mode) by adding new extensions.
 1. [{{ yagpt-name }} model retraining](concepts/models/foundation-models.md#yagpt-tuning) is now available at the [Preview](../overview/concepts/launch-stages.md) stage.
 1. Fixed bugs and added minor improvements in platform performance.
 

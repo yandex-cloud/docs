@@ -35,7 +35,7 @@
 
   1. [Создайте кластер {{ managed-k8s-name }}](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
   1. [Настройте группы безопасности](../../operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
-  1. [Настройте группу безопасности по умолчанию](../../../managed-gitlab/operations/connect.md) для работы [инстанса {{ mgl-name }}](../../../managed-gitlab/concepts/index.md#instance).
+  1. [Настройте группу безопасности](../../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса {{ mgl-name }}](../../../managed-gitlab/concepts/index.md#instance).
   1. [Создайте реестр {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
   1. [Сохраните идентификатор созданного реестра](../../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
 

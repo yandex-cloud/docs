@@ -1,6 +1,6 @@
-# Revision history for {{ mgp-full-name }}
+# {{ mgp-full-name }} release notes
 
-This section covers the revision history for {{ mgp-name }}.
+This section contains {{ mgp-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

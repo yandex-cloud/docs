@@ -455,6 +455,10 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: С 1 марта до 1 мая 2019 года
             href: pricing-archive/pricing-30042019.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/compute/index.md
+  - name: Справочник Terraform
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -847,6 +851,10 @@ items:
                 href: api-ref/InstanceGroup/updateAccessBindings.md
               - name: updateFromYaml
                 href: api-ref/InstanceGroup/updateFromYaml.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

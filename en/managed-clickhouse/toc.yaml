@@ -347,9 +347,9 @@ items:
                 href: api-ref/Operation/get.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
-  - name: Questions and answers
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md

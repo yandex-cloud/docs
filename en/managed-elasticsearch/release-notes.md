@@ -1,13 +1,13 @@
 ---
-title: "Revision history for {{ mes-full-name }}"
-description: "This section covers the revision history for {{ mes-name }}."
+title: "{{ mes-full-name }} release notes"
+description: "This section contains {{ mes-name }} release notes."
 ---
 
-# Revision history for {{ mes-full-name }}
+# {{ mes-full-name }} release notes
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
 
-This section covers the revision history for {{ mes-name }}.
+This section contains {{ mes-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

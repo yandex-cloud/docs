@@ -13,13 +13,13 @@ items:
             href: operations/cluster-list.md
           - name: Calculating the cluster configuration
             href: operations/calculate-specs.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Changing cluster settings
             href: operations/update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
-          - name: Managing hosts in a cluster
+          - name: Managing cluster hosts
             items:
               - name: Viewing hosts in a cluster
                 href: operations/hosts/cluster-hosts.md
@@ -29,7 +29,7 @@ items:
                 href: operations/hosts/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
-          - name: Deleting clusters
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Databases
         items:
@@ -237,9 +237,9 @@ items:
                 href: api-ref/Operation/get.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
-  - name: Questions and answers
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md
@@ -247,7 +247,7 @@ items:
         href: qa/connection.md
       - name: Backups
         href: qa/backup.md
-      - name: Updating clusters
+      - name: Updating a cluster
         href: qa/update.md
       - name: '{{ mgp-short-name }} cluster and hosts'
         href: qa/cluster-hosts.md

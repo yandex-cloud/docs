@@ -44,5 +44,5 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 Поле | Описание
 --- | ---
 languages[] | **object**<br><p>Список поддерживаемых языков.</p> 
-languages[].<br>code | **string**<br><p>Код языка. Указывается в формате <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> (например, ``en``).</p> 
+languages[].<br>code | **string**<br><p>Код <a href="/docs/translate/concepts/supported-languages">языка</a> (например, ``en``).</p> 
 languages[].<br>name | **string**<br><p>Название языка (например, ``English``).</p> 

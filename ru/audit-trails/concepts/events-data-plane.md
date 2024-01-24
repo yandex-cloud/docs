@@ -21,9 +21,7 @@
 
 Имя сервиса — `dns`.
 
-Имя события | Описание
---- | ---
-`ProcessDnsQuery` | Результат выполнения DNS запроса от клиента Cloud DNS
+{% include [dns-events-dp](../../_includes/audit-trails/events/dns-events-dp.md) %}
 
 ## {{ lockbox-name }} {#lockbox}
 

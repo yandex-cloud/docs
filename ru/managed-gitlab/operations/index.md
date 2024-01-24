@@ -7,7 +7,7 @@ description: "На странице представлен список поша
 
 * [{#T}](instance/instance-list.md)
 * [{#T}](instance/instance-create.md)
-* [{#T}](connect.md)
+* [{#T}](configure-security-group.md)
 * [{#T}](instance/instance-stop.md)
 * [{#T}](instance/instance-update.md)
 * [{#T}](instance/instance-backups.md)
