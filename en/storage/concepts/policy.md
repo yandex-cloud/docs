@@ -25,7 +25,7 @@ A bucket policy consists of rules, while a rule consists of the following basic 
 
 Resource
 
-: Bucket, a bucket object (`<bucket name>/some/key`), or a prefix (`<bucket name>/some/path/*`), including an empty prefix to indicate all objects in the bucket (`<bucket name>/*`). You can specify multiple resources in a rule.
+: Bucket, a bucket object (`<bucket_name>/some/key`), or a prefix (`<bucket_name>/some/path/*`), including an empty prefix to indicate all objects in the bucket (`<bucket_name>/*`). You can specify multiple resources in a rule.
 
   {% note info %}
 
@@ -33,7 +33,9 @@ Resource
 
   {% endnote %}
 
-  If you describe a policy in JSON format, a resource should have the `arn:aws:s3:::` prefix, such as `arn:aws:s3:::<bucket name>`.
+  If you describe a policy in JSON format, a resource should have the `arn:aws:s3:::` prefix, e.g., `arn:aws:s3:::<bucket_name>`.
+
+  If the resource name contains `?`, `*`, or `$`, enclose each instance of these characters in curly braces `{}` and precede them with `$`. For example, a record corresponding to a bucket named `my?bucket` will read `my${?}bucket`.
 
 Action
 
@@ -53,7 +55,7 @@ Condition
 
 ## Bucket access via the management console {#console-access}
 
-If a bucket has an access policy configured, access to the bucket via the {{ yandex-cloud }} management console is disabled by default. To enable bucket access, you need to add a rule under the `Statement` access policy section to allow any requests to `<bucket name>/*` and `<bucket name>` resources via the management console.
+If a bucket has an access policy configured, access to the bucket via the {{ yandex-cloud }} management console is disabled by default. To enable bucket access, you need to add a rule under the `Statement` access policy section to allow any requests to `<bucket_name>/*` and `<bucket_name>` resources via the management console.
 
 Example rule for a specific {{ yandex-cloud }} user:
 
@@ -62,12 +64,12 @@ Example rule for a specific {{ yandex-cloud }} user:
 {
   "Effect": "Allow",
   "Principal": {
-    "CanonicalUser": "<user ID>"
+    "CanonicalUser": "<user_ID>"
   },
   "Action": "*",
   "Resource": [
-    "arn:aws:s3:::<bucket name>/*",
-    "arn:aws:s3:::<bucket name>"
+    "arn:aws:s3:::<bucket_name>/*",
+    "arn:aws:s3:::<bucket_name>"
   ],
   "Condition": {
     "StringLike": {
@@ -87,130 +89,130 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
 
 * Rule that allows an anonymous user to read objects in the bucket over an encrypted connection:
 
-  ```json
-  {
-    "Id": "epd4limdp3dg********",
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Sid": "f1qqoehl1q53********",
-        "Effect": "Allow",
-        "Principal": "*",
-        "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::<bucket name>/*",
-        "Condition": {
-          "Bool": {
-            "aws:SecureTransport": "true"
-          }
-        }
-      }
-    ]
-  }
-  ```
+   ```json
+   {
+     "Id": "epd4limdp3dg********",
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "f1qqoehl1q53********",
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "s3:GetObject",
+         "Resource": "arn:aws:s3:::<bucket_name>/*",
+         "Condition": {
+           "Bool": {
+             "aws:SecureTransport": "true"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
 * Rule that only allows objects to be downloaded from a specified range of IP addresses:
 
-  ```json
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": "*",
-        "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::<bucket name>/*",
-        "Condition": {
-          "IpAddress": {
-            "aws:SourceIp": "100.101.102.128/30"
-          }
-        }
-      }
-    ]
-  }
-  ```
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "s3:GetObject",
+         "Resource": "arn:aws:s3:::<bucket_name>/*",
+         "Condition": {
+           "IpAddress": {
+             "aws:SourceIp": "100.101.102.128/30"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
 * Rule that prohibits objects to be downloaded from the specified IP address:
 
-  ```json
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": "*",
-        "Action": "*",
-        "Resource": "arn:aws:s3:::<bucket name>/*"
-      },
-      {
-        "Effect": "Deny",
-        "Principal": "*",
-        "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::<bucket name>/*",
-        "Condition": {
-          "IpAddress": {
-            "aws:SourceIp": "100.101.102.103"
-          }
-        }
-      }
-    ]
-  }
-  ```
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "*",
+         "Resource": "arn:aws:s3:::<bucket_name>/*"
+       },
+       {
+         "Effect": "Deny",
+         "Principal": "*",
+         "Action": "s3:GetObject",
+         "Resource": "arn:aws:s3:::<bucket_name>/*",
+         "Condition": {
+           "IpAddress": {
+             "aws:SourceIp": "100.101.102.103"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
 * Rule that provides different users with full access only to certain folders, with each user being able to access their own:
 
-  ```json
-  {
-    "Version":"2012-10-17",
-    "Statement":[
-      {
-        "Sid":"User1PermissionsResource",
-        "Effect":"Allow",
-        "Principal": {
-          "CanonicalUser": "<user ID>"
-        },
-        "Action": "*",
-        "Resource":["arn:aws:s3:::<bucket name>/user1path/*"]
-      },
-      {
-        "Sid":"User1PermissionsPrefix",
-        "Effect":"Allow",
-        "Principal": {
-            "CanonicalUser": "<user ID>"
-        },
-        "Action": "s3:ListBucket",
-        "Resource":["arn:aws:s3:::<bucket name>"],
-        "Condition": {
-          "StringLike": {
-            "s3:prefix": "user1path/*"
-          }
-        }
-      },
-      {
-        "Sid":"User2PermissionsResource",
-        "Effect":"Allow",
-        "Principal": {
-          "CanonicalUser": "<user ID>"
-        },
-        "Action": "*",
-        "Resource":["arn:aws:s3:::<bucket name>/user2path/*"]
-      },
-      {
-        "Sid":"User2PermissionsPrefix",
-        "Effect":"Allow",
-        "Principal": {
-          "CanonicalUser": "<user ID>"
-        },
-        "Action": "s3:ListBucket",
-        "Resource":["arn:aws:s3:::<bucket name>"],
-        "Condition": {
-          "StringLike": {
-            "s3:prefix": "user2path/*"
-          }
-        }
-      }
-    ]
-  }
-  ```
+   ```json
+   {
+     "Version":"2012-10-17",
+     "Statement":[
+       {
+         "Sid":"User1PermissionsResource",
+         "Effect":"Allow",
+         "Principal": {
+           "CanonicalUser": "<user_ID>"
+         },
+         "Action": "*",
+         "Resource":["arn:aws:s3:::<bucket_name>/user1path/*"]
+       },
+       {
+         "Sid":"User1PermissionsPrefix",
+         "Effect":"Allow",
+         "Principal": {
+             "CanonicalUser": "<user_ID>"
+         },
+         "Action": "s3:ListBucket",
+         "Resource":["arn:aws:s3:::<bucket_name>"],
+         "Condition": {
+           "StringLike": {
+             "s3:prefix": "user1path/*"
+           }
+         }
+       },
+       {
+         "Sid":"User2PermissionsResource",
+         "Effect":"Allow",
+         "Principal": {
+           "CanonicalUser": "<user_ID>"
+         },
+         "Action": "*",
+         "Resource":["arn:aws:s3:::<bucket_name>/user2path/*"]
+       },
+       {
+         "Sid":"User2PermissionsPrefix",
+         "Effect":"Allow",
+         "Principal": {
+           "CanonicalUser": "<user_ID>"
+         },
+         "Action": "s3:ListBucket",
+         "Resource":["arn:aws:s3:::<bucket_name>"],
+         "Condition": {
+           "StringLike": {
+             "s3:prefix": "user2path/*"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
 * Rule that provides each user and service account with full access to a folder with the name equal to the [user ID](../../iam/operations/users/get.md) or [service account ID](../../iam/operations/sa/get-id.md):
 
@@ -223,7 +225,7 @@ You can retrieve the user ID by following [this guide](../../iam/operations/user
          "Effect": "Allow",
          "Principal": "*",
          "Action": "*",
-         "Resource": ["arn:aws:s3:::<bucket name>/${aws:userid}/*"]
+         "Resource": ["arn:aws:s3:::<bucket_name>/${aws:userid}/*"]
        }
      ]
    }

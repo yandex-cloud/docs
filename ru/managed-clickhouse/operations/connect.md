@@ -167,10 +167,10 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы подключаться к кластеру {{ mch-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
    ```bash
    # Подключить DEB-репозиторий.
@@ -184,12 +184,12 @@ description: "Следуя данной инструкции, вы сможет�
        apt-get install wget clickhouse-client --yes && \
        # Загрузить файл конфигурации для clickhouse-client.
        mkdir --parents ~/.clickhouse-client && \
-       wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+       wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml
    ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
    
    ```bash
@@ -204,7 +204,7 @@ description: "Следуя данной инструкции, вы сможет�
        apt-get install wget clickhouse-client --yes && \
        # Загрузить файл конфигурации для clickhouse-client.
        mkdir --parents ~/.clickhouse-client && \
-       wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+       wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml && \
        # Получить SSL-сертификаты.
        mkdir --parents {{ crt-local-dir }} && \

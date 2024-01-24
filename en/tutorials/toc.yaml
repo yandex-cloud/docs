@@ -4,15 +4,15 @@ items:
   - name: Security
     items:
       - name: All tutorials
-        href: web/index.md
+        href: security/index.md
       - name: Creating a load balancer with DDoS protection
-        href: web/alb-with-ddos-protection.md
+        href: security/alb-with-ddos-protection.md
       - name: Terminating TLS connections
-        href: web/tls-termination.md
-      - name: Transferring logs from a VM instance to {{ cloud-logging-name }}
-        href: infrastructure-management/vm-fluent-bit-logging.md
+        href: security/tls-termination.md
+      - name: Delivering logs from a VM instance to {{ cloud-logging-name }}
+        href: security/vm-fluent-bit-logging.md
       - name: Writing load balancer logs to {{ PG }}
-        href: infrastructure-management/logging.md
+        href: security/logging.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -73,6 +73,8 @@ items:
         href: testing/loadtesting-overload-migration.md
       - name: Running external agents for load testing
         href: testing/loadtesting-external-agent.md
+      - name: JMeter load testing
+        href: testing/loadtesting-jmeter.md
   - name: Basic infrastructure
     items:
       - name: All tutorials
@@ -107,6 +109,8 @@ items:
               Creating a trigger for budgets that invokes a function to stop VM
               instances
             href: infrastructure-management/serverless-trigger-budget-vm.md
+          - name: Deploying a fault-tolerant architecture with preemptible VMs
+            href: infrastructure/nodejs-cron-restart-vm.md
       - name: Tools
         items:
           - name: Getting started with {{ TF }}
@@ -383,6 +387,10 @@ items:
         href: dataplatform/rds-to-mpg.md
       - name: Migrating data from {{ ES }} to {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
+      - name: >-
+          Migrating data from a third-party {{ OS }} cluster to {{ mos-name }}
+          using {{ data-transfer-name }}
+        href: dataplatform/mos-migration-from-standalone.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: '{{ mpg-name }} performance analysis and tuning'
@@ -531,4 +539,18 @@ items:
         href: serverless/ci-cd-serverless.md
       - name: Creating an interactive serverless application using WebSocket
         href: serverless/websocket-app.md
+      - name: >-
+          Automatically copying objects from one {{ objstorage-name }} bucket to
+          another
+        href: serverless/bucket-to-bucket-copying.md
+      - name: >-
+          Visualizing logs in {{ grafana-name }} using the {{
+          cloud-logging-full-name }} plugin
+        href: serverless/grafana-logs-plugin.md
+      - name: Canary release of a {{ sf-name }} function
+        href: serverless/canary-release.md
+      - name: Authorization using {{ sf-name }} functions in Ory Kratos
+        href: serverless/ory-kratos-authorization.md
+      - name: Interactive debugging of {{ sf-name }} functions
+        href: serverless/serverless-live-debug.md
 base: en/tutorials

@@ -12,9 +12,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы удалить [облачную сеть](../concepts/network.md#network):
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить облачную сеть.
@@ -22,7 +22,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. Нажмите ![image](../../_assets/options.svg) в строке нужной сети и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -57,7 +57,7 @@ description: "Следуя данной инструкции, вы сможет�
       yc vpc network delete test-network-1
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -120,7 +120,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc vpc network list
      ```
 
-- API
+- API {#api}
 
    Чтобы удалить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [delete](../api-ref/Network/delete.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../api-ref/grpc/network_service.md#Delete) и передайте в запросе идентификатор удаляемой облачной сети в параметре `networkId`.
 

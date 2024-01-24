@@ -21,10 +21,10 @@
 
     {% include [ClickHouse client config](mch/client-config.md) %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     ```bash
     clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
@@ -35,7 +35,7 @@
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     {% include [default-connstring](./mch/default-connstring.md) %}
 
@@ -49,10 +49,10 @@
 
 ### cURL {#curl}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     ```bash
     curl --header "X-ClickHouse-User: <имя_пользователя_БД>" \
@@ -61,7 +61,7 @@
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     ```bash
     curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
@@ -82,10 +82,10 @@
 sudo apt update && sudo apt install --yes golang git
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.go`
 
@@ -132,7 +132,7 @@ sudo apt update && sudo apt install --yes golang git
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.go`
 
@@ -305,10 +305,10 @@ go run connect.go
     * [clickhouse-jdbc](https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc)
     * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `src/java/com/example/App.java`
 
@@ -341,7 +341,7 @@ go run connect.go
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `src/java/com/example/App.java`
 
@@ -394,10 +394,10 @@ sudo apt update && sudo apt install --yes nodejs npm && \
 npm install querystring
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `app.js`
 
@@ -437,7 +437,7 @@ npm install querystring
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `app.js`
 
@@ -544,10 +544,10 @@ node app.js
 
     {% endcut %}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `/etc/odbc.ini`
 
@@ -563,7 +563,7 @@ node app.js
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `/etc/odbc.ini`
 
@@ -601,9 +601,9 @@ isql -v ClickHouse
 1. Выберите драйвер {{ CH }} с подходящей кодировкой и нажмите кнопку **Готово**.
 1. Укажите параметры подключения к кластеру {{ CH }}:
 
-    {% list tabs %}
+    {% list tabs group=connection %}
 
-    * Подключение без SSL
+    - Подключение без SSL {#without-ssl}
 
         * **Name** — имя подключения.
         * **Host** — [FQDN любого хоста {{ CH }}](../../managed-clickhouse/operations/connect.md#fqdn).
@@ -612,7 +612,7 @@ isql -v ClickHouse
         * **User** — имя пользователя БД.
         * **Password** — пароль пользователя БД.
 
-    * Подключение с SSL
+    - Подключение с SSL {#with-ssl}
 
         * **Name** — имя подключения.
         * **Host** — [FQDN любого хоста {{ CH }}](../../managed-clickhouse/operations/connect.md#fqdn).
@@ -650,10 +650,10 @@ isql -v ClickHouse
     sudo systemctl restart apache2
     ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.php`
 
@@ -684,7 +684,7 @@ isql -v ClickHouse
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.php`
 
@@ -732,10 +732,10 @@ php connect.php
 
 ### PowerShell {#powershell}
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     ```powershell
     curl.exe `
@@ -745,7 +745,7 @@ php connect.php
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     ```powershell
     curl.exe `
@@ -767,10 +767,10 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install clickhouse-driver
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.py`
 
@@ -786,7 +786,7 @@ pip3 install clickhouse-driver
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.py`
 
@@ -823,10 +823,10 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install requests
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.py`
 
@@ -848,7 +848,7 @@ pip3 install requests
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.py`
 
@@ -888,10 +888,10 @@ python3 connect.py
 sudo apt update && sudo apt install --yes ruby
 ```
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     `connect.rb`
 
@@ -921,7 +921,7 @@ sudo apt update && sudo apt install --yes ruby
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     `connect.rb`
 

@@ -5,9 +5,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Удалить контейнер
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
 	1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -15,7 +15,7 @@ description: "Следуя данной инструкции, вы сможет�
 	1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 	1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
 	Чтобы удалить контейнер, выполните команду:
 
@@ -29,7 +29,7 @@ description: "Следуя данной инструкции, вы сможет�
 	done (2s)
 	```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -87,7 +87,7 @@ description: "Следуя данной инструкции, вы сможет�
   yc serverless container list
   ```
 
-- API
+- API {#api}
 
   Чтобы удалить контейнер, воспользуйтесь методом REST API [delete](../containers/api-ref/Container/delete.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/Delete](../containers/api-ref/grpc/container_service.md#Delete).
 

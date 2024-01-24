@@ -5,9 +5,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 ---
 # Uploading data to a table
 
-In this example, the data for uploading contains information about series in a JSON file. For each series, the `series_id` identifier, `title`, and additional `info` are set:
-
-The structure of a JSON file with series information:
+In this example, we will upload information about various TV series from a JSON file to a [pre-built table](./create-table.md). For each series, the `series_id` ID, `title`, and additional `info` are set. The structure of a JSON file with series information:
 
 ```json
 [{

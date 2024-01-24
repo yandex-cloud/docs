@@ -14,15 +14,15 @@
 
 Подготовьте инфраструктуру поставки данных:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
     1. [Создайте в кластере-источнике пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) и [назначьте ему](../../managed-postgresql/operations/grant.md) роль `mdb_replication`.
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -113,9 +113,9 @@
 
 1. Создайте эндпоинт для источника и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) источника {{ PG }} с [настройками](../../data-transfer/operations/endpoint/source/postgresql.md):
 
@@ -131,7 +131,7 @@
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-mpg-ydb.tf` значения параметров:
 
@@ -159,9 +159,9 @@
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Убедитесь, что в базу данных {{ ydb-name }} перенеслись данные из кластера-источника {{ mpg-name }}:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Консоль управления
+    - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
         1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -191,9 +191,9 @@
 
 1. Убедитесь, что в базе данных {{ ydb-name }} отобразились сведения о добавленной строке:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Консоль управления
+    - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
         1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
@@ -201,7 +201,7 @@
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что в таблицу `public_sensors` добавились новые данные.
 
-    * {{ ydb-short-name }} CLI
+    - {{ ydb-short-name }} CLI {#cli}
 
         1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
         1. Проверьте, что в таблицу `public_sensors` добавились новые данные:
@@ -218,9 +218,9 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Вручную
+- Вручную {#manual}
 
     1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите трансфер](../../data-transfer/operations/transfer.md#delete).
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для приемника и источника.
@@ -228,7 +228,7 @@
     1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
     1. [Удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в рабочую директорию с конфигурационным файлом `data-transfer-mpg-ydb.tf`.
     1. Удалите ресурсы с помощью команды:

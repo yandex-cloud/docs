@@ -14,7 +14,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). IP connectivity between the {{ managed-k8s-name }} cluster [nodes](../concepts/index.md#node-group) and the DNS servers is required.
 1. Create {{ managed-k8s-name }} resources:
 
    {% list tabs %}
@@ -43,8 +42,7 @@ In this scenario's examples, the DNS server has the address `10.129.0.3`, the na
         * {{ managed-k8s-name }} cluster.
         * {{ managed-k8s-name }} node group.
         * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
-     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
-     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
      1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
@@ -62,9 +60,11 @@ In this scenario's examples, the DNS server has the address `10.129.0.3`, the na
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
+
 ## Configure the DNS server {#setup-dns}
 
-When setting up the configuration, it is important that there is IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can be part of {{ vpc-name }} or be accessible via VPN or {{ interconnect-name }}. The example below assumes that the DNS server has the `10.129.0.3` address and the `ns.example.com` name and serves a zone called `example.com`.
+When configuring, it is important to achieve IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers themselves can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). In the example below, a DNS server with address `10.129.0.3` and name `ns.example.com` serves the zone `example.com`.
 
 ## Specify a corporate DNS zone {#setup-zone}
 

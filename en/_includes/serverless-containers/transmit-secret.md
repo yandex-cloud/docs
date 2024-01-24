@@ -19,7 +19,10 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
       * Secret ID.
       * Secret version ID.
       * Non-secret key ID.
-   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. You can transmit several secrets to a container.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
+
+      You can transmit multiple secrets to a container. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
+
    1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. A new container revision with the specified secrets will be created.
 
 - CLI
@@ -58,6 +61,8 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
       * `id`: Secret ID.
       * `version-id`: Secret version ID.
       * `key`: Non-secret key ID.
+
+      You can transmit multiple secrets to a container. To do this, specify the `--secret` parameter as many times as needed.
 
 - API
 

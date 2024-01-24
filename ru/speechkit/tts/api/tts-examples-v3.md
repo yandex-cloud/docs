@@ -22,6 +22,12 @@
 
     - Python 3 {#python}
 
+      1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
+
+          ```bash
+          git clone https://github.com/yandex-cloud/cloudapi
+          ```
+
       1. Установите пакеты `grpcio-tools` и `pydub` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
           ```bash
@@ -30,12 +36,6 @@
           ```
 
           Пакет `grpcio-tools` нужен для генерации кода интерфейса клиента API v3 синтеза. Пакет `pydub` нужен для обработки полученных аудиофайлов.
-
-      1. Клонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
-
-          ```bash
-          git clone https://github.com/yandex-cloud/cloudapi
-          ```
 
       1. [Скачайте](https://www.ffmpeg.org/download.html) утилиту FFmpeg для корректной работы пакета `pydub`. Добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`. Для этого выполните команду:
 
@@ -75,7 +75,7 @@
           import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
           # Задайте настройки синтеза.
-          # Вместо iam_token передавайте api_key при авторизации с API-ключом 
+          # Вместо iam_token передавайте api_key при аутентификации с API-ключом 
           #def synthesize(api_key, text) -> pydub.AudioSegment: 
           def synthesize(iam_token, text) -> pydub.AudioSegment:
               request = tts_pb2.UtteranceSynthesisRequest(
@@ -85,6 +85,14 @@
                           container_audio_type=tts_pb2.ContainerAudio.WAV
                       )
                   ),
+                  # Параметры синтеза
+                  hints=[
+                    tts_pb2.Hints(voice= 'alexander'), # (Опционально) Задайте голос. Значение по умолчанию marina
+                    // если для голоса не указано роли - то ничего задавать не надо (вот это прям пропишите плиз)
+                    tts_pb2.Hints(role = 'good') # (Опционально) Укажите амплуа, только если голос их имеет
+                    tts_pb2.Hints(speed=1.1), # (Опционально) Задайте скорость синтеза
+                  ],
+
                   loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
               )
 
@@ -96,9 +104,9 @@
               # Отправьте данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
 
-              # Параметры для авторизации с IAM-токеном
+              # Параметры для аутентификации с IAM-токеном
                   ('authorization', f'Bearer {iam_token}'),
-              # Параметры для авторизации с API-ключом от имени сервисного аккаунта
+              # Параметры для аутентификации с API-ключом от имени сервисного аккаунта
               #   ('authorization', f'Api-Key {api_key}'),
               ))
 

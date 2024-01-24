@@ -9,9 +9,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Для просмотра полной информации о [бакете](../../concepts/bucket.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -77,9 +77,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Для просмотра статистики по бакету:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

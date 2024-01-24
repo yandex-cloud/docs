@@ -136,10 +136,10 @@ Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
           get:
             x-yc-apigateway-integration:
               type: object_storage
-              bucket: <bucket name>
+              bucket: <bucket_name>
               object: sayhello.png
               presigned_redirect: false
-              service_account_id: <service account ID>
+              service_account_id: <service_account_ID>
             operationId: static
       ```
 
@@ -160,13 +160,13 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the function.
+   1. In the [management console]({{ link-console-main }}), select the folder to create the function in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
    1. Enter a name for the function: `fshtb-function`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `Node.js` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, replace the contents of the `index.js` file with the code below: Replace `<API gateway domain>` with the API gateway's service domain.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, replace the contents of the `index.js` file with the code below: Replace `<API_gateway_domain>` with the API gateway's service domain.
 
       ```javascript
       const { Telegraf } = require('telegraf');
@@ -175,7 +175,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
       bot.start((ctx) => ctx.reply(`Hello. \nMy name is Serverless Hello Telegram Bot \nI'm working on Cloud Function in Yandex Cloud.`))
       bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
       bot.on('text', (ctx) => {
-          ctx.replyWithPhoto({url: '<API gateway domain>/sayhello.png'});
+          ctx.replyWithPhoto({url: '<API_gateway_domain>/sayhello.png'});
           ctx.reply(`Hello, ${ctx.message.from.username}`);
 
       });
@@ -238,23 +238,23 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
           post:
             x-yc-apigateway-integration:
               type: cloud_functions
-              function_id: <function ID>
+              function_id: <function_ID>
             operationId: fshtb-function
       ```
 
       Where `function_id` is the `fshtb-function` ID.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
-   1. Run the request replacing `<bot token>` with that of the Telegram bot and the `<API gateway domain>` with the API gateway service domain:
+   1. Run the following request in the terminal:
 
       * Linux, macOS:
 
          ```bash
          curl \
            --request POST \
-           --url https://api.telegram.org/bot<bot token>/setWebhook \
+           --url https://api.telegram.org/bot<bot_token>/setWebhook \
            --header 'content-type: application/json' \
-           --data '{"url": "<API gateway domain>/fshtb-function"}'
+           --data '{"url": "<API_gateway_domain>/fshtb-function"}'
          ```
 
       * Windows (cmd):
@@ -262,9 +262,9 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
          ```bash
          curl ^
            --request POST ^
-           --url https://api.telegram.org/bot<bot token>/setWebhook ^
+           --url https://api.telegram.org/bot<bot_token>/setWebhook ^
            --header "content-type: application/json" ^
-           --data "{\"url\": \"<API gateway domain>/fshtb-function\"}"
+           --data "{\"url\": \"<API_gateway_domain>/fshtb-function\"}"
          ```
 
       * Windows (PowerShell):
@@ -272,16 +272,21 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
          ```powershell
          curl.exe `
            --request POST `
-           --url https://api.telegram.org/bot<bot token>/setWebhook `
+           --url https://api.telegram.org/bot<bot_token>/setWebhook `
            --header '"content-type: application/json"' `
-           --data '"{ \"url\": \"<API gateway domain>/fshtb-function\" }"'
+           --data '"{ \"url\": \"<API_gateway_domain>/fshtb-function\" }"'
          ```
 
-         Result:
+      Where:
 
-         ```bash
-         {"ok":true,"result":true,"description":"Webhook was set"}
-         ```
+      * `<bot token>`: Telegram bot token.
+      * `<API_gateway_domain>`: API gateway's service domain.
+
+      Result:
+
+      ```bash
+      {"ok":true,"result":true,"description":"Webhook was set"}
+      ```
 
 {% endlist %}
 

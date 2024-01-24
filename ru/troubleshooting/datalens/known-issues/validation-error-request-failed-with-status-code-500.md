@@ -25,4 +25,4 @@ at XMLHttpRequest.y (https://yastatic.net/s3/cloud/datalens/static/freeze/js/ven
 В запросе укажите следующую информацию:
 
 1. Ссылка на проблемный дашборд;
-2. [HAR-файл](https://cloud.yandex.ru/docs/support/create-har), собранный при попытке добавления связанной таблицы в датасет.
+1. [HAR-файл](../../../support/create-har), собранный при попытке добавления связанной таблицы в датасет.

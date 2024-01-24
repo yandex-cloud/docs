@@ -4,9 +4,9 @@
 
 Как добавить ВМ в кластер, читайте в разделе [{#T}](./gpu-add-to-cluster.md)
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -32,7 +32,7 @@
       --new-name updated-gpu-cluster
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 

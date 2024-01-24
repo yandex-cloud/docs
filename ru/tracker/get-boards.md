@@ -33,14 +33,14 @@ Authorization: OAuth <токен>
     ```json
     [
       {
-      "self" : "{{ host }}/v2/boards/1",
+      "self" : "https://{{ host }}/v2/boards/1",
       "id" : 1,
       "version" : 1412806202302,
       "name" : "Тестирование",
       "columns" :
       [
        {
-        "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
+        "self" : "https://{{ host }}/v2/boards/1/columns/1387461731452",
         "id" : "1387461731452",
         "display" : "Открыт"
        },
@@ -59,7 +59,7 @@ Authorization: OAuth <токен>
       "query": "<Параметр 1>: <Значение 1> AND <Параметр 2>: <Значение 2> OR <Параметр 3>: <Значение 3>...",
       "useRanking": false,
       "country": {
-           "self": "{{ host }}/v2/countries/1",
+           "self": "https://{{ host }}/v2/countries/1",
            "id": "1",
            "display": "Россия"
             }

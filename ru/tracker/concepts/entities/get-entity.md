@@ -5,7 +5,7 @@ sourcePath: ru/tracker/api-ref/concepts/entities/get-entity.md
 
 Запрос позволяет получить информацию о сущности — [проекте](../../manager/project-new.md) или [портфеле проектов](../../manager/portfolio.md).
 
-Запрос представляет унифицированный метод для получения информации о проектах и портфелях, расширяющий возможности API [получения информации о проектах](../projects/get-project.md).
+Запрос представляет унифицированный метод для получения информации о проектах и портфелях, более гибкий и функциональный, чем API [получения информации о проектах](../projects/get-project.md).
 
 ## Формат запроса {#query}
 
@@ -22,22 +22,7 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
-
-**Ресурс**
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<entityType> | Идентификатор сущности:<ul><li>project — проект;</li><li>portfolio — портфель.</li></ul>| Строка
-\<entityId> | Идентификатор сущности. | Строка
-
-{% note warning %}
-
-Идентификатор сущности не совпадает с идентификатором проекта или портфеля.
-
-{% endnote %}  
-
-{% endcut %}  
+{% include [resource](../../../_includes/tracker/api/resource-entity.md) %}
 
 {% cut "Параметры запроса" %}
 
@@ -45,8 +30,8 @@ Authorization: OAuth <OAuth-токен>
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
+[fields](./about-entities.md#query-params) |  Дополнительные поля сущности, которые будут включены в ответ. | Строка
 expand | Дополнительная информация, которая будет включена в ответ:<ul><li>`attachments` – вложенные файлы.</li></ul> | Строка
-fields |  Дополнительные поля сущности, которые будут включены в ответ. | Строка
 
 {% endcut %}
 
@@ -57,7 +42,7 @@ fields |  Дополнительные поля сущности, которые
 > - В ответ включено поле `teamAccess`.
 >
 > ```
-> GET /v2/entities/portfolio/655f328da834c763********?expand=attachments,fields=teamAccess HTTP/1.1
+> GET /v2/entities/portfolio/655f328da834c763********?expand=attachments&fields=teamAccess HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
@@ -76,31 +61,31 @@ fields |  Дополнительные поля сущности, которые
 
    ```json
    {
-      "self": "{{ host }}/{{ ver }}/entities/project/655f328da834c763********",
+      "self": "https://{{ host }}/{{ ver }}/entities/project/655f328da834c763********",
       "id": "655f328da834c763********",
       "version": 3,
       "shortId": 2,
       "entityType": "project",
-      "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+      "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
       "createdAt": "2023-11-23T11:07:57.298+0000",
       "updatedAt": "2023-11-23T15:46:26.391+0000",
       "attachments": [
          {
-            "self": "{{ host }}/{{ ver }}/attachments/8",
+            "self": "https://{{ host }}/{{ ver }}/attachments/8",
             "id": "8",
             "name": "file1.docx",
             "content": "{{ host }}/{{ ver }}/attachments/8/file1.docx",
-            "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
             "createdAt": "2023-11-23T15:46:20.617+0000",
             "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             "size": 18585
          },
          {
-            "self": "{{ host }}/{{ ver }}/attachments/9",
+            "self": "https://{{ host }}/{{ ver }}/attachments/9",
             "id": "9",
             "name": "file2.pdf",
             "content": "{{ host }}/{{ ver }}/attachments/9/file2.pdf",
-            "createdBy": { "self": "{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
+            "createdBy": { "self": "https://{{ host }}/{{ ver }}/users/1111111117", "id": "1111111117", "display": "Имя Фамилия", "cloudUid": "ajevuhegoggf********", "passportUid": 1111111117 },
             "createdAt": "2023-11-23T15:46:25.932+0000",
             "mimetype": "application/pdf",
             "size": 175656

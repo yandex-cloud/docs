@@ -10,3 +10,4 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](security-groups-target.md)
 * [{#T}](create-test-bucket.md)
 * [{#T}](logging.md)
+* [{#T}](save-artifacts.md)

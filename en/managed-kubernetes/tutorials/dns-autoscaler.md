@@ -50,7 +50,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * {{ managed-k8s-name }} node group.
         * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
-     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
      1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
@@ -67,6 +66,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    {% endlist %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+   {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 ## Configure kube-dns-autoscaler {#configure-autoscaler}
 
@@ -304,7 +305,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Using {{ TF }}
 
   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-  1. In the terminal window, go to the directory containing the infrastructure plan.
+  1. In the terminal window, navigate to the directory with the infrastructure plan.
   1. Delete the `k8s-cluster.tf` configuration file.
   1. Make sure the {{ TF }} configuration files are correct using this command:
 

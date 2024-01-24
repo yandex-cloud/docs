@@ -4,7 +4,7 @@ Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud networ
 
 {% note info %}
 
-Only [lightweight clusters](../concepts/index.md#light-weight-clusters) can be migrated to a different availability zone. Migration of HDFS clusters is currently not supported. The support team will migrate HDFS clusters from the `{{ region-id }}-c` availability zone manually with a prior warning to the cluster owners.
+Only [lightweight clusters](../concepts/index.md#light-weight-clusters) can be migrated to a different availability zone. Migration of HDFS and {{ metastore-full-name }} clusters is currently not supported. The support team will notify cluster owners before manually migrating any HDFS and {{ metastore-name }} clusters deployed in the `{{ region-id }}-c` availability zone.
 
 {% endnote %}
 

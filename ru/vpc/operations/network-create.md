@@ -2,9 +2,9 @@
 
 Помимо облачной сети в каталоге по умолчанию вы можете создавать дополнительные облачные сети в других каталогах.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы создать [облачную сеть](../concepts/network.md):
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать облачную сеть.
@@ -18,7 +18,7 @@
   1. По умолчанию выбрана опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Если вы хотите [создать](subnet-create.md) подсети позднее, выключите опцию.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@
         description: Auto-created default network
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -138,7 +138,7 @@
         yc vpc network list
         ```
 
-- API
+- API {#api}
 
   Чтобы создать [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [create](../api-ref/Network/create.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../api-ref/grpc/network_service.md#Create) и передайте в запросе:
 
@@ -156,9 +156,9 @@
 
 Создайте облачную сеть с именем и описанием в выбранном каталоге:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```
   yc vpc network create --name test-network-1 \
@@ -166,7 +166,7 @@
     --folder-id b1gnbfd11bq5********
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры создаваемой облачной сети:
 

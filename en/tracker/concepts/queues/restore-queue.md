@@ -41,14 +41,14 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- The request is executed successfully
+- Request executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
    ```json
    {
        "self": "{{ host }}/v2/queues/TEST",
-       "id": 3,
+       "id": "3",
        "key": "TEST",
        "version": 5,
        "name": "Test",
@@ -68,7 +68,7 @@ Authorization: OAuth <token>
               "self": "{{ host }}/v2/priorities/3",
               "id": "3",
               "key": "normal",
-              "display": "Medium"
+              "display": "Normal"
        },
        "denyVoting": false
    }
@@ -76,45 +76,45 @@ Authorization: OAuth <token>
 
    {% cut "Response parameters" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Queue link | String |
-    | id | Queue ID | String |
-    | key | Queue key | String |
-    | version | Queue version. Each change to the queue increases its version number. | Number |
-    | name | Queue name | String |
-    | [lead](#lead) | Block with information about the queue owner | Objects |
-    | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Logical |
-    | [defaultType](#default-type) | Block with information about the default issue type | Objects |
-    | [defaultPriority](#default-priority) | Block with information about the default issue priority | Objects |
-    | denyVoting | Flag that shows whether voting for issues is enabled | Logical |
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Queue link | String |
+   | id | Queue ID | Number in string format |
+   | key | Queue key | String |
+   | version | Queue version. Each change to the queue increases its version number. | Number |
+   | name | Queue name | String |
+   | [lead](#lead) | Block with information about the queue owner | Object |
+   | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Boolean |
+   | [defaultType](#default-type) | Block with information about the default issue type | Object |
+   | [defaultPriority](#default-priority) | Block with information about the default issue priority | Object |
+   | denyVoting | Flag that shows whether voting for issues is enabled | Boolean |
 
-    {% include [user](../../../_includes/tracker/api/user.md) %}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
     **Object fields** `defaultType` {#default-type}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Link to the issue type | String |
-    | id | ID of the issue type | String |
-    | key | Key of the issue type | String |
-    | display | Issue type name displayed | String |
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Link to the issue type | String |
+   | id | ID of the issue type | String |
+   | key | Key of the issue type | String |
+   | display | Issue type name displayed | String |
 
     **Object fields** `defaultPriority` {#default-priority}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Link to the priority type | String |
-    | id | Priority ID | String |
-    | key | Priority key | String |
-    | display | Priority name displayed | String |
+   | Parameter | Description | Data type |
+   -------- | -------- | ----------
+   | self | Link to the priority type | String |
+   | id | Priority ID | String |
+   | key | Priority key | String |
+   | display | Priority name displayed | String |
 
-    {% endcut %}
+   {% endcut %}
 
-- The request failed
+- Request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}

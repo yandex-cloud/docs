@@ -37,9 +37,9 @@ description: "Следуя данному руководству, вы смож�
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
     - Подпишите реестр на топик одного устройства:
 
@@ -134,9 +134,9 @@ description: "Следуя данному руководству, вы смож�
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Mosquitto
+- Mosquitto {#mosquitto}
 
     - Подпишите устройство на топики — команды для конкретного устройства:
     

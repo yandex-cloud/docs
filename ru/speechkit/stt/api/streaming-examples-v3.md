@@ -20,160 +20,167 @@ description: "Следуя данной инструкции, вы сможет�
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт для работы с API {{ speechkit-short-name }}.
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-speechkit-stt }}` или выше на каталог, в котором он был создан.
 1. Получите [API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/api-key/create.md) для сервисного аккаунта.
+1. Скачайте [пример](https://{{ s3-storage-host }}/speechkit/speech.pcm) аудиофайла для распознавания или используйте свой аудиофайл.
 1. Создайте клиентское приложение:
 
     {% list tabs group=programming_language %}
 
     - Python 3 {#python}
       
+      1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
+
+         ```bash
+         git clone https://github.com/yandex-cloud/cloudapi
+         ```
+
       1. Установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
-        ```bash
-        pip install grpcio-tools
-        ```
+         ```bash
+         pip install grpcio-tools
+         ```
 
-        1. Перейдите в папку со склонированным репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
+      1. Перейдите в папку со склонированным репозиторием {{ yandex-cloud }} API, создайте папку `output` и сгенерируйте в ней код интерфейса клиента:
 
-            ```bash
-            cd <путь_к_папке_cloudapi>
-            mkdir output
-            python -m grpc_tools.protoc -I . -I third_party/googleapis \
-              --python_out=output \
-              --grpc_python_out=output \
-                google/api/http.proto \
-                google/api/annotations.proto \
-                yandex/cloud/api/operation.proto \
-                google/rpc/status.proto \
-                yandex/cloud/operation/operation.proto \
-                yandex/cloud/validation.proto \
-                yandex/cloud/ai/stt/v3/stt_service.proto \
-                yandex/cloud/ai/stt/v3/stt.proto
-            ```
+         ```bash
+         cd <путь_к_папке_cloudapi>
+         mkdir output
+         python -m grpc_tools.protoc -I . -I third_party/googleapis \
+           --python_out=output \
+           --grpc_python_out=output \
+             google/api/http.proto \
+             google/api/annotations.proto \
+             yandex/cloud/api/operation.proto \
+             google/rpc/status.proto \
+             yandex/cloud/operation/operation.proto \
+             yandex/cloud/validation.proto \
+             yandex/cloud/ai/stt/v3/stt_service.proto \
+             yandex/cloud/ai/stt/v3/stt.proto
+         ```
 
-            В результате в папке `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
+         В результате в папке `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
 
-        1. Создайте файл в корне папки `output`, например `test.py`, и добавьте в него следующий код:
+      1. Создайте файл в корне папки `output`, например `test.py`, и добавьте в него следующий код:
 
-            ```python
-            #coding=utf8
-            import argparse
+         ```python
+         #coding=utf8
+         import argparse
 
-            import grpc
+         import grpc
 
-            import yandex.cloud.ai.stt.v3.stt_pb2 as stt_pb2
-            import yandex.cloud.ai.stt.v3.stt_service_pb2_grpc as stt_service_pb2_grpc
+         import yandex.cloud.ai.stt.v3.stt_pb2 as stt_pb2
+         import yandex.cloud.ai.stt.v3.stt_service_pb2_grpc as stt_service_pb2_grpc
 
-            CHUNK_SIZE = 4000
+         CHUNK_SIZE = 4000
 
-            def gen(audio_file_name):
-                # Задайте настройки распознавания.
-                recognize_options = stt_pb2.StreamingOptions(
-                    recognition_model=stt_pb2.RecognitionModelOptions(
-                        audio_format=stt_pb2.AudioFormatOptions(
-                            raw_audio=stt_pb2.RawAudio(
-                                audio_encoding=stt_pb2.RawAudio.LINEAR16_PCM,
-                                sample_rate_hertz=8000,
-                                audio_channel_count=1
-                            )
-                        ),
-                        text_normalization=stt_pb2.TextNormalizationOptions(
-                            text_normalization=stt_pb2.TextNormalizationOptions.TEXT_NORMALIZATION_ENABLED,
-                            profanity_filter=True,
-                            literature_text=False
-                        ),
-                        language_restriction=stt_pb2.LanguageRestrictionOptions(
-                            restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
-                            language_code=['ru-RU']
-                        ),
-                        audio_processing_type=stt_pb2.RecognitionModelOptions.REAL_TIME
-                    )
-                )
+         def gen(audio_file_name):
+             # Задайте настройки распознавания.
+             recognize_options = stt_pb2.StreamingOptions(
+                 recognition_model=stt_pb2.RecognitionModelOptions(
+                     audio_format=stt_pb2.AudioFormatOptions(
+                         raw_audio=stt_pb2.RawAudio(
+                             audio_encoding=stt_pb2.RawAudio.LINEAR16_PCM,
+                             sample_rate_hertz=8000,
+                             audio_channel_count=1
+                         )
+                     ),
+                     text_normalization=stt_pb2.TextNormalizationOptions(
+                         text_normalization=stt_pb2.TextNormalizationOptions.TEXT_NORMALIZATION_ENABLED,
+                         profanity_filter=True,
+                         literature_text=False
+                     ),
+                     language_restriction=stt_pb2.LanguageRestrictionOptions(
+                         restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
+                         language_code=['ru-RU']
+                     ),
+                     audio_processing_type=stt_pb2.RecognitionModelOptions.REAL_TIME
+                 )
+             )
 
-                # Отправьте сообщение с настройками распознавания.
-                yield stt_pb2.StreamingRequest(session_options=recognize_options)
+             # Отправьте сообщение с настройками распознавания.
+             yield stt_pb2.StreamingRequest(session_options=recognize_options)
 
-                # Прочитайте аудиофайл и отправьте его содержимое порциями.
-                with open(audio_file_name, 'rb') as f:
-                    data = f.read(CHUNK_SIZE)
-                    while data != b'':
-                        yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
-                        data = f.read(CHUNK_SIZE)
+             # Прочитайте аудиофайл и отправьте его содержимое порциями.
+             with open(audio_file_name, 'rb') as f:
+                 data = f.read(CHUNK_SIZE)
+                 while data != b'':
+                     yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
+                     data = f.read(CHUNK_SIZE)
 
-            # Вместо iam_token передавайте api_key при авторизации с API-ключом 
-            # от имени сервисного аккаунта.
-            # def run(api_key, audio_file_name): 
-            def run(iam_token, audio_file_name): 
-                # Установите соединение с сервером.
-                cred = grpc.ssl_channel_credentials()
-                channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
-                stub = stt_service_pb2_grpc.RecognizerStub(channel)
+         # Вместо iam_token передавайте api_key при авторизации с API-ключом 
+         # от имени сервисного аккаунта.
+         # def run(api_key, audio_file_name): 
+         def run(iam_token, audio_file_name): 
+             # Установите соединение с сервером.
+             cred = grpc.ssl_channel_credentials()
+             channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
+             stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
-                # Отправьте данные для распознавания.
-                it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
-                # Параметры для авторизации с IAM-токеном
-                    ('authorization', f'Bearer {iam_token}'),
-                # Параметры для авторизации с API-ключом от имени сервисного аккаунта
-                #   ('authorization', f'Api-Key {api_key}'),
-                ))
+             # Отправьте данные для распознавания.
+             it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
+             # Параметры для авторизации с IAM-токеном
+                 ('authorization', f'Bearer {iam_token}'),
+             # Параметры для авторизации с API-ключом от имени сервисного аккаунта
+             #   ('authorization', f'Api-Key {api_key}'),
+             ))
 
-                # Обработайте ответы сервера и выведите результат в консоль.
-                try:
-                    for r in it:
-                        event_type, alternatives = r.WhichOneof('Event'), None
-                        if event_type == 'partial' and len(r.partial.alternatives) > 0:
-                            alternatives = [a.text for a in r.partial.alternatives]
-                        if event_type == 'final':
-                            alternatives = [a.text for a in r.final.alternatives]
-                        if event_type == 'final_refinement':
-                            alternatives = [a.text for a in r.final_refinement.normalized_text.alternatives]
-                        print(f'type={event_type}, alternatives={alternatives}')
-                except grpc._channel._Rendezvous as err:
-                    print(f'Error code {err._state.code}, message: {err._state.details}')
-                    raise err
+             # Обработайте ответы сервера и выведите результат в консоль.
+             try:
+                 for r in it:
+                     event_type, alternatives = r.WhichOneof('Event'), None
+                     if event_type == 'partial' and len(r.partial.alternatives) > 0:
+                         alternatives = [a.text for a in r.partial.alternatives]
+                     if event_type == 'final':
+                         alternatives = [a.text for a in r.final.alternatives]
+                     if event_type == 'final_refinement':
+                         alternatives = [a.text for a in r.final_refinement.normalized_text.alternatives]
+                     print(f'type={event_type}, alternatives={alternatives}')
+             except grpc._channel._Rendezvous as err:
+                 print(f'Error code {err._state.code}, message: {err._state.details}')
+                 raise err
 
-            if __name__ == '__main__':
-                parser = argparse.ArgumentParser()
-                parser.add_argument('--token', required=True, help='IAM token or API key')
-                parser.add_argument('--path', required=True, help='audio file path')
-                args = parser.parse_args()
-                run(args.token, args.path)
-            ```
+         if __name__ == '__main__':
+             parser = argparse.ArgumentParser()
+             parser.add_argument('--token', required=True, help='IAM token or API key')
+             parser.add_argument('--path', required=True, help='audio file path')
+             args = parser.parse_args()
+             run(args.token, args.path)
+         ```
 
-            Где:
+         Где:
 
-            * `audio_encoding` — [формат](../../formats.md) аудиопотока.
-            * `sample_rate_hertz` — частота дискретизации аудиопотока.
-            * `audio_channel_count` — количество аудиоканалов.
-            * `profanity_filter` — [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-            * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-            * `language_code` — [язык](../index.md#langs), для которого будет выполнено распознавание.
+         * `audio_encoding` — [формат](../../formats.md) аудиопотока.
+         * `sample_rate_hertz` — частота дискретизации аудиопотока.
+         * `audio_channel_count` — количество аудиоканалов.
+         * `profanity_filter` — [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+         * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+         * `language_code` — [язык](../index.md#langs), для которого будет выполнено распознавание.
 
-        1. Задайте [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта:
+      1. Задайте [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта:
 
-            ```bash
-            export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
-            ```
+         ```bash
+         export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
+         ```
 
-        1. Выполните созданный файл:
+      1. Выполните созданный файл:
 
-            ```bash
-            python output/test.py --token ${IAM_TOKEN} --path <путь_к_файлу_speech.pcm>
-            ```
+         ```bash
+         python output/test.py --token ${IAM_TOKEN} --path <путь_к_файлу_speech.pcm>
+         ```
 
-            Где `--path` — путь к аудиофайлу, который необходимо распознать.
+         Где `--path` — путь к аудиофайлу, который необходимо распознать.
 
-            Результат:
+         Результат:
 
-            ```bash
-            type=status_code, alternatives=None
-            type=partial, alternatives=None
-            type=partial, alternatives=['привет ми']
-            type=final, alternatives=['привет мир']
-            type=final_refinement, alternatives=['Привет мир']
-            type=eou_update, alternatives=None
-            type=partial, alternatives=None
-            type=status_code, alternatives=None
-            ```
+         ```bash
+         type=status_code, alternatives=None
+         type=partial, alternatives=None
+         type=partial, alternatives=['привет ми']
+         type=final, alternatives=['привет мир']
+         type=final_refinement, alternatives=['Привет мир']
+         type=eou_update, alternatives=None
+         type=partial, alternatives=None
+         type=status_code, alternatives=None
+         ```
 
     - Java {#java}
 

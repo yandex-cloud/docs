@@ -11,9 +11,9 @@ description: "Из статьи вы узнаете, как вызвать фу�
 
 Для примера используется функция, описанная в разделе [{#T}](../function/version-manage.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
 
@@ -40,7 +40,7 @@ description: "Из статьи вы узнаете, как вызвать фу�
 
     1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** появится результат выполнения функции.
 
-- HTTPS
+- HTTPS {#https}
 
     Вы можете найти ссылку для вызова функции:
     * в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}**. Для этого в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и нажмите на строку с нужной функцией.
@@ -88,7 +88,7 @@ description: "Из статьи вы узнаете, как вызвать фу�
         https://{{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<тег версии>
         ```
             
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -116,7 +116,7 @@ description: "Из статьи вы узнаете, как вызвать фу�
         ```
 
 
-- {{ yandex-cloud }} Toolkit
+- {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Вызвать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 

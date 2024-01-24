@@ -15,9 +15,9 @@
 
 Чтобы удалить объект:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Выберите сервис **{{ objstorage-name }}**.
@@ -38,7 +38,7 @@
   
   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -153,7 +153,7 @@
         {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key $x}
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -210,7 +210,7 @@
 
      Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом S3 API [delete](../../s3/api-ref/object/delete.md).
 
@@ -224,9 +224,9 @@
 
 Чтобы проверить, установлена ли блокировка, и удалить версию объекта при возможности:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -287,7 +287,7 @@
      * `--version-id` — идентификатор версии объекта.
      * `--bypass-governance-retention` — флаг, подтверждающий обход блокировки.
 
-- API
+- API {#api}
 
   1. Чтобы получить информацию о блокировке версии объекта, воспользуйтесь методами S3 API [getObjectRetention](../../s3/api-ref/object/getobjectretention.md) (временная блокировка) и [getObjectLegalHold](../../s3/api-ref/object/getobjectlegalhold.md) (бессрочная блокировка).
   1. Если установлена только временная управляемая блокировка (`GOVERNANCE`) и у вас есть роль `storage.admin`, для удаления версии объекта воспользуйтесь методом S3 API [delete](../../s3/api-ref/object/delete.md). Укажите в запросе идентификатор версии и заголовок `X-Amz-Bypass-Governance-Retention`, чтобы подтвердить обход блокировки.

@@ -68,7 +68,7 @@ To create and set up a NAT gateway:
       +----------------------+--------------+-------------+
       |          ID          |     NAME     | DESCRIPTION |
       +----------------------+--------------+-------------+
-      | enpkq1v2e7p0cmr7e2s0 | test-gateway |             |
+      | enpkq1v2e7p0******** | test-gateway |             |
       +----------------------+--------------+-------------+
       ```
 
@@ -77,15 +77,17 @@ To create and set up a NAT gateway:
       ```bash
       yc vpc route-table create \
         --name=test-route-table \
-        --network-name=<name of the network the table is created in> \
+        --network-name=<network_name> \
         --route destination=0.0.0.0/0,`
-                gateway-id=enpkq1v2e7p0cmr7e2s0
+                gateway-id=enpkq1v2e7p0********
       ```
+
+      Where `--network-name` is the name of the network in which you are creating the table.
 
    1. Link the table to the subnet:
 
       ```bash
-      yc vpc subnet update <subnet name> \
+      yc vpc subnet update <subnet_name> \
         --route-table-name=test-route-table
       ```
 
@@ -99,13 +101,13 @@ To create and set up a NAT gateway:
 
    ```hcl
    data "yandex_vpc_network" "net" {
-     folder_id = "<folder ID>"
-     name      = "<cloud network name>"
+     folder_id = "<folder_ID>"
+     name      = "<network_name>"
    }
 
    resource "yandex_vpc_subnet" "subnet" {
-     folder_id      = "<name of the folder where the subnet is located>"
-     name           = "<subnet name>"
+     folder_id      = "<folder_ID>"
+     name           = "<subnet_name>"
      v4_cidr_blocks = "10.20.30.0/24"
      zone           = {{ region-id }}-a
      network_id     = data.yandex_vpc_network.net.id
@@ -119,7 +121,7 @@ To create and set up a NAT gateway:
 
    resource "yandex_vpc_route_table" "rt" {
      name       = test-route-table
-     network_id = "<network ID>"
+     network_id = "<network_ID>"
 
      static_route {
        destination_prefix = "0.0.0.0/0"
@@ -127,6 +129,8 @@ To create and set up a NAT gateway:
      }
    }
    ```
+
+   Where `folder_id` is the ID of the folder hosting the subnet.
 
 - API
 

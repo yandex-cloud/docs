@@ -31,7 +31,7 @@ This step is available to users who have permission to any Yandex Metrica tag. I
 {% endnote %}
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select **Metrica**.
 
    ![image](../../_assets/datalens/solution-03/03-choose-metrica.png)
@@ -51,7 +51,7 @@ This step is available to users who have permission to any Yandex Metrica tag. I
    ![image](../../_assets/datalens/solution-03/06-01-metrica-creation-accuracy.png)
 
 1. Enable **Automatically create a dashboard, charts, and a dataset on the connection**.
-1. Click **Create connection**.
+1. Click **Create connection**.
 
    ![image](../../_assets/datalens/solution-03/06-metrica-creation3.png)
 
@@ -77,7 +77,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
 
    ![image](../../_assets/datalens/solution-03/09-edit-dashboard.png)
 
-1. Delete the **Page depth** chart. To do this, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) in the chart's upper-right corner and select **Delete**.
+1. Delete the **Page depth** chart. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Delete**.
 
    ![image](../../_assets/datalens/solution-03/10-delete-charts1.png)
 
@@ -97,7 +97,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
 
 You can edit any chart on the dashboard. For example, change the visualization type for the **Sessions by device type and OS** chart from the **Technologies** section.
 
-1. In the upper-right corner of the **Session by device type and OS** chart, click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg).
+1. In the top-right corner of the **Session by device type and OS** chart, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. Select **Edit**.
 
    ![image](../../_assets/datalens/solution-03/14-edit-chart.png)

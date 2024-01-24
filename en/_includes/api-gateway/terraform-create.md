@@ -10,12 +10,12 @@ To create an API gateway:
    * `labels`: [Labels](../../resource-manager/concepts/labels.md) for the API gateway. Set a key-value pair.
    * `spec`: API gateway specification.
 
-   Example of the configuration file structure:
+   Here is an example of the configuration file structure:
 
    ```hcl
    resource "yandex_api_gateway" "test-api-gateway" {
-     name        = "<API gateway name>"
-     description = "<API gateway description>"
+     name        = "<API_gateway_name>"
+     description = "<API_gateway_description>"
      labels      = {
        label       = "label"
        empty-label = ""
@@ -61,7 +61,7 @@ To create an API gateway:
 1. Make sure the configuration files are valid.
 
    1. In the command line, go to the directory where you created the configuration file.
-   1. Run the check using this command:
+   1. Run a check using this command:
 
       ```
       terraform plan
@@ -77,10 +77,10 @@ To create an API gateway:
       terraform apply
       ```
 
-   1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+   1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc serverless api-gateway get <API gateway name>
+      yc serverless api-gateway get <API_gateway_name>
       ```

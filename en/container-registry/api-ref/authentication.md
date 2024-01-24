@@ -1,8 +1,8 @@
 ---
 title: "Authentication in the {{ container-registry-full-name }} API"
-description: "To run operations over the {{ container-registry-full-name }} API, issue an IAM token for your account. Use the resulting IAM token to access {{ yandex-cloud }} resources over the API in the format — Authorization: Bearer <IAM-TOKEN>"
+description: "To run operations over the {{ container-registry-full-name }} API, you must get an IAM token for your account. Once you get it, specify the IAM token when accessing {{ yandex-cloud }} resources via the API in the following format: Authorization: Bearer <IAM token>"
 ---
 
-# Authentication in the {{ container-registry-name }} API
+# Authentication with the {{ container-registry-name }} API
 
 {% include notitle [auth](../../_includes/authentication.md) %}

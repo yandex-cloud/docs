@@ -1,4 +1,4 @@
-# Visualizing the data using parameters
+# Visualizing data using parameters
 
 A parameter is a variable that can substitute constant values in calculated fields.
 
@@ -8,7 +8,7 @@ You will learn how to manage visulizations using parameters:
 * Work with formulas and visualizations in charts using parameters.
 * Edit a parameter value on the dashboard using selectors with manual input.
 
-You'll use a direct connection to a demo database as your {{ CH }} data source.
+You will use a direct connection to a demo database as your {{ CH }} data source.
 
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
@@ -95,14 +95,14 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a chart with a configurable date dimension {#create-chart-grouping}
 
-1. In the upper-right corner of the dataset, click **Create chart**.
+1. In the top-right corner of the dataset, click **Create chart**.
 1. Select **Stacked area chart** as the visualization type.
 
    ![image](../../_assets/datalens/solution-parameters/select-area-chart.png)
 
 1. Add a calculated field to the chart:
 
-   1. On the left of the screen, click ![image](../../_assets/plus-sign.svg) under the dataset and select **Field**.
+   1. On the left of the screen, click ![image](../../_assets/console-icons/plus.svg) under the dataset and select **Field**.
    1. In the **Field settings** window, enter:
 
       * In the **Name** field: `Date`.
@@ -124,11 +124,11 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a chart with a configurable visualization dimension {#create-chart-measure-select}
 
-1. In the upper-right corner of the dataset, click **Create chart**.
+1. In the top-right corner of the dataset, click **Create chart**.
 1. For the visualization type, select **Line chart**.
 1. Add a calculated field for selecting a dimension to the chart:
 
-   1. On the left of the screen, click ![image](../../_assets/plus-sign.svg) under the dataset and select **Field**.
+   1. On the left of the screen, click ![image](../../_assets/console-icons/plus.svg) under the dataset and select **Field**.
    1. In the **Field settings** window, enter:
 
       * In the **Name** field: `Field`.
@@ -173,7 +173,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
    ![image](../../_assets/datalens/solution-parameters/add-chart.png)
 
 1. In the **Chart** field, click **Select**.
-1. Select the chart **Sales by product categories**. This will automatically fill in the **Name** field.
+1. Select the **Sales by product category** chart. This will automatically fill in the **Name** field.
 1. Click **Add**.
 
    ![image](../../_assets/datalens/solution-parameters/add-chart-window.png)
@@ -184,7 +184,6 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts t
 
    1. In the top-right corner, click **Save**.
    1. Enter **Visualizing data using the parameters** for the dashboard name and click **Create**.
-
 
 ## Add selectors to the dashboard {#add-selectors-on-dashboard}
 

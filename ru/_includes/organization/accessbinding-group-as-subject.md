@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора или владельца организации.
 
@@ -16,7 +16,7 @@
 
    1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -32,10 +32,10 @@
 
       Где:
 
-      * `<имя_сервиса>` — имя сервиса, для доступа к ресурсу которого назначается роль, например `resource-manager`.
-      * `<ресурс>` — категория ресурса, например `cloud`.
+      * `<имя_сервиса>` — имя сервиса, для доступа к ресурсу которого назначается роль, например, `resource-manager`.
+      * `<ресурс>` — категория ресурса, например, `cloud`.
       * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Вы можете указать имя или идентификатор ресурса.
-      * `--role` — идентификатор роли, например `{{ roles-cloud-owner }}`.
+      * `--role` — идентификатор роли, например, `{{ roles-cloud-owner }}`.
       * `--subject group` — идентификатор группы, которой назначается роль.
 
       Например, назначьте роль `resource-manager.viewer` на [облако](../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
@@ -46,7 +46,57 @@
         --subject group:aje6o61dvog2********
       ```
 
-- API
+- {{ TF }} {#tf}
+
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+    1. Добавьте в конфигурационный файл параметры ресурса, укажите нужную роль и группу:
+
+       ```
+       resource "yandex_resourcemanager_cloud_iam_member" "admin" {
+         cloud_id    = "<идентификатор_облака>"
+         role        = "<идентификатор_роли>"
+         member      = "group:<идентификатор_группы>"
+       }
+       ```
+
+       Где:
+
+       * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Вы также можете назначить роль внутри отдельного каталога. Для этого вместо `cloud_id` укажите `folder_id` и нужный идентификатор каталога в параметрах ресурса.
+       * `role` — назначаемая [роль](../../iam/concepts/access-control/roles.md). Обязательный параметр.
+       * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
+
+       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+
+    1. Создайте ресурсы:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+  
+    После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+          ```
+          terraform plan
+          ```
+
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+    1. Разверните облачные ресурсы.
+
+       1. Если в конфигурации нет ошибок, выполните команду:
+
+          ```
+          terraform apply
+          ```
+
+       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+       ```bash
+       yc resource-manager folder list-access-bindings <имя_или_идентификатор_папки>
+       ```
+
+- API {#api}
 
   Воспользуйтесь методом REST API `updateAccessBindings` для соответствующего ресурса.
 
@@ -77,54 +127,5 @@
   * [{#T}](../../iam/operations/sa/set-access-bindings.md)
   * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
   * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
-
-- Terraform
-
-    Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-    1. Добавьте в конфигурационный файл параметры ресурса, укажите нужную роль и группу:
-
-       ```
-       resource "yandex_resourcemanager_cloud_iam_member" "admin" {
-         cloud_id    = "<идентификатор_облака>"
-         role        = "<идентификатор_роли>"
-         member      = "group:<идентификатор_группы>"
-       }
-       ```
-
-       Где:
-
-       * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Вы также можете назначить роль внутри отдельного каталога. Для этого вместо `cloud_id` укажите `folder_id` и нужный идентификатор каталога в параметрах ресурса.
-       * `role` — назначаемая [роль](../../iam/concepts/access-control/roles.md). Обязательный параметр.
-       * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
-
-       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
-
-    1. Проверьте корректность конфигурационных файлов.
-
-       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-       1. Выполните проверку с помощью команды:
-
-          ```
-          terraform plan
-          ```
-
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
-
-    1. Разверните облачные ресурсы.
-
-       1. Если в конфигурации нет ошибок, выполните команду:
-
-          ```
-          terraform apply
-          ```
-
-       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-       ```bash
-       yc resource-manager folder list-access-bindings <название_папки>|<идентификатор_папки>
-       ```
 
 {% endlist %}

@@ -80,23 +80,23 @@ to | Окончание временного диапазона, в которы
     ```json
     [
     {
-      "self": "{{ host }}/v2/issues/TEST-324/worklog/1",
+      "self": "https://{{ host }}/v2/issues/TEST-324/worklog/1",
       "id": 1,
       "version": 1402121720882,
       "issue": {
-        "self": "{{ host }}/v2/issues/TEST-324",
+        "self": "https://{{ host }}/v2/issues/TEST-324",
         "id": "515ec9eae4b09cfa984e2047",
         "key": "TEST-324",
         "display": "важная задача"
       },
       "comment": "важный комментарий",
       "createdBy": {
-        "self": "{{ host }}/v2/users/1120000000014909",
+        "self": "https://{{ host }}/v2/users/1120000000014909",
         "id": "veikus",
         "display": "Artem Veikus"
       },
       "updatedBy": {
-        "self": "{{ host }}/v2/users/1120000000014909",
+        "self": "https://{{ host }}/v2/users/1120000000014909",
         "id": "veikus",
         "display": "Artem Veikus"
       },

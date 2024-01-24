@@ -67,9 +67,9 @@ description: "Узнайте, как работает Ingress-контролле
 
 Идентификаторы ресурсов балансировщика {{ alb-name }}, развернутого по конфигурации `Ingress`, указываются в пользовательском ресурсе `IngressGroupStatus` кластера {{ managed-k8s-name }}. Чтобы просмотреть их:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан нужный кластер {{ managed-k8s-name }}.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -78,7 +78,7 @@ description: "Узнайте, как работает Ingress-контролле
   1. Выберите `ingressgroupstatuses.alb.yc.io` и перейдите на вкладку **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}**.
   1. Выберите ресурс с именем группы ресурсов `Ingress`, указанным в аннотации `ingress.alb.yc.io/group-name`, и перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}**.
 
-- CLI
+- kubectl CLI {#kubectl}
 
   1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
   1. Выполните команду:

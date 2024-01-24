@@ -1,5 +1,11 @@
 # Управление пользователями
 
+{% note warning %}
+
+Для управления пользователями организации необходимо иметь права [администратора](role-model.md#admin).
+
+{% endnote %}
+
 {{ tracker-name }} поддерживает организации из {{ ya-360 }} и [{{ yandex-cloud }}]({{ link-org-main }}). Дополнительную организацию можно [подключить](https://tracker.yandex.ru/admin/orgs) на странице администрирования {{ tracker-name }}. При подключении второй организации пользователи и группы синхронизируются в {{ tracker-name }} автоматически.
 
 Чтобы работать над задачами вместе с коллегами, добавьте их в {{ tracker-name }}. Это можно сделать несколькими способами:
@@ -19,13 +25,13 @@
 
 Чтобы пригласить пользователей в организацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-full-name }}
+- {{ org-full-name }} {#cloud-org}
 
   1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-  1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/add-user.svg) **Добавить пользователя**.
+  1. На панели слева нажмите кнопку ![](../_assets/tracker/svg/add-user.svg) **Добавить пользователя** (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
 
   1. В появившемся окне перечислите через запятую почтовые адреса сотрудников (например, `{{ example-account }}`) и нажмите кнопку **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. Каждый пользователь получит письмо с предложением вступить в организацию.
   
@@ -35,11 +41,11 @@
 
   Также пригласить пользователей можно в сервисе {{ org-full-name }}, подробнее в [документации](../organization/operations/add-account.md).
 
-  Администратор сможет [назначить права](../organization/operations/roles.md) пользователю только после того, как пользователь примет приглашение. Чтобы пользователь сразу после принятия приглашения получал нужные права или состоял в [группе](../organization/concepts/groups.md), вы можете добавить его в группу {{ org-full-name }}. Для этого:
+  Администратор сможет [назначить права](../organization/operations/add-role.md) пользователю только после того, как пользователь примет приглашение. Чтобы пользователь сразу после принятия приглашения получал нужные права или состоял в [группе](../organization/concepts/groups.md), вы можете добавить его в группу {{ org-full-name }}. Для этого:
 
   1. [Отправьте приглашение](../_includes/organization/add-user.md#useraccount) в {{ org-full-name }}.
    
-  1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../_assets/console-icons/persons.svg) и нажмите строку с названием группы.
+  1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../_assets/console-icons/persons.svg) и нажмите строку с названием группы (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
 
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.
 
@@ -49,7 +55,7 @@
    
   1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
-- {{ ya-360 }}
+- {{ ya-360 }} {#ya360}
 
   Добавление пользователей в организацию доступно только в самом сервисе [{{ ya-360 }}]({{ link-ya-360 }}), на странице управления организацией. Подробнее о добавлении пользователей в {{ ya-360 }} в [документации](https://yandex.ru/support/business/users.html#add-users).
 
@@ -61,23 +67,23 @@
 
 Чтобы создать федерацию удостоверений для организации:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-full-name }}
+- {{ org-full-name }} {#cloud-org}
 
   1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-  1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
-
+  1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}** (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
+ 
   1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. Откроется страница сервиса {{ org-full-name }}.
 
-  1. Задайте настройки федерации и нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+  2. Задайте настройки федерации и нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
   
   Пользователи с корпоративными аккаунтами смогут [войти в {{ tracker-name }}](user/login.md) с помощью кнопки **Войти через SSO**.
 
   Подробнее о создании федерации читайте в документации [{{ org-full-name }}](../organization/concepts/add-federation.md).
 
-- {{ ya-360 }}
+- {{ ya-360 }} {#ya360}
 
   Следуйте [инструкции](https://yandex.ru/support/business/sso/setup.html) в документации {{ ya-360 }}.
 
@@ -89,7 +95,7 @@
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).
 
-1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
+1. На панели слева нажмите **Администрирование** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}** (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
 
 1. В блоке **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}** нажмите **{{ ui-key.startrek.ui_components_page-admin_OrganizationSmallPane.add-org-button }}**. Откроется окно с вашими организациями. Вы можете создать новую организацию или перейти в существующую.
 

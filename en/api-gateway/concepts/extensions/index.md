@@ -24,10 +24,10 @@ The `x-yc-apigateway` extension allows you to set top-level API gateway paramete
 
 ```yaml
 x-yc-apigateway:
-  service_account_id: <service account ID>
-  validator: <ValidatorObject or a link to it>
-  cors: <CorsRuleObject or a link to it>
-  rateLimit: <RateLimitObject or a link to it>
+  service_account_id: <service_account_ID>
+  validator: <ValidatorObject_or_its_link>
+  cors: <CorsRuleObject_or_its_link>
+  rateLimit: <RateLimitObject_or_its_link>
 ```
 
 ## x-yc-apigateway-integration extension {#integration}
@@ -99,9 +99,9 @@ components:
   x-yc-apigateway-integrations:
     BaseGetDefault:
       type: cloud_functions
-      function_id: b095c95icnvbuf4v755l
+      function_id: b095c95icnvb********
       tag: "$latest"
-      service_account_id: ajehfe84hhlaq4n59q1
+      service_account_id: ajehfe84hhl********
     BaseGetUnimplemented:
       type: dummy
       content:

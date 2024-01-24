@@ -63,9 +63,9 @@ To create a [backend group](../concepts/backend-group.md):
       Result:
 
       ```
-      id: a5dg2cv4ngne8575fb1p
+      id: a5dg2cv4ngne********
       name: test-backend-group
-      folder_id: aoerb349v3h4bupphtaf
+      folder_id: aoerb349v3h4********
       created_at: "2021-02-11T20:46:21.688940670Z"
       ```
 
@@ -254,7 +254,7 @@ To create a [backend group](../concepts/backend-group.md):
         name                     = "<backend_group_name>"
         session_affinity {
           connection {
-            source_ip = <true_or_false>
+            source_ip = <IP-based_session_affinity_mode>
           }
         }
 
@@ -287,7 +287,7 @@ To create a [backend group](../concepts/backend-group.md):
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: Session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
+         * `connection`: Session affinity mode based on the IP address (`source_ip`). It may take either the `true` or `false` value. The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the `Stream` type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
 
       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: `HTTP`, `gRPC`, or `Stream`.
 

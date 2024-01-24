@@ -11,4 +11,4 @@ If you want to restore the default configuration, remove the prefix or change it
 Increase a cell's computing resources in the interface:
 1. Click the button with the name of the configuration in the menu on the notebook tab.
 1. Select the desired configuration.
-1. Wait until the **<Configuration prefix> instance is ready** status appears on the notebook panel.
+1. Wait until the **<configuration_prefix> instance is ready** status appears on the notebook panel.

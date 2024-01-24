@@ -1,4 +1,4 @@
-# Синтез речи по шаблонам с помощью API v3 
+# Синтез речи по шаблонам с помощью API v3
 
 Синтез по шаблонам в {{ brand-voice-premium }} и {{ brand-voice-core }} доступен только для голосов [{{ brand-voice-name }}](../brand-voice/index.md).
 
@@ -50,12 +50,18 @@
 
 - Python 3
 
+    1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
+
+       ```bash
+       git clone https://github.com/yandex-cloud/cloudapi
+       ```
+       
     1. Установите зависимости с помощью [менеджера пакетов pip](https://pip.pypa.io/en/stable/):
 
-          ```bash
-          pip install grpcio-tools && \
-          pip install pydub
-          ```
+        ```bash
+        pip install grpcio-tools && \
+        pip install pydub
+        ```
 
         Пакет `grpcio-tools` нужен для генерации кода интерфейса клиента API v3 синтеза.
 

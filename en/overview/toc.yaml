@@ -1,4 +1,4 @@
-title: Yandex Cloud overview
+title: Platform overview
 href: index.yaml
 items:
   - name: Getting started
@@ -14,8 +14,8 @@ items:
             href: concepts/geo-scope.md
           - name: Deprecation of the {{ region-id }}-c zone
             href: concepts/ru-central1-c-deprecation.md
-          - name: Limitations in the {{ region-id }}-d zone
-            href: concepts/ru-central1-d-limits.md
+          - name: Migration to the ru-central1-d availability zone
+            href: concepts/zone-migration.md
       - name: Network overview
         href: concepts/network.md
       - name: User interaction with resources
@@ -25,7 +25,7 @@ items:
   - name: '{{ yandex-cloud }} services'
     expanded: true
     items:
-      - name: Service list
+      - name: List of services
         href: concepts/services.md
       - name: Release stages
         href: concepts/launch-stages.md

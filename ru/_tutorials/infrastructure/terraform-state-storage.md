@@ -106,7 +106,7 @@
 
       backend "s3" {
         endpoints = {
-          s3 = "{{ s3-storage-host }}"
+          s3 = "https://{{ s3-storage-host }}"
         }
         bucket = "<имя_бакета>"
         region = "{{ region-id }}"
@@ -168,7 +168,7 @@
      backend = "s3" 
      config  = {
        endpoints = {
-         s3 = "{{ s3-storage-host }}"
+         s3 = "https://{{ s3-storage-host }}"
        }
        bucket = "<имя_бакета>"
        region = "{{ region-id }}"

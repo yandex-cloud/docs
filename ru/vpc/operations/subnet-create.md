@@ -2,9 +2,9 @@
 
 [Подсети](../concepts/network.md#subnet) создаются в облачных сетях. Созданная подсеть размещается в одной из зон доступности. К подсети можно подключить ресурсы из той же зоны, где находится подсеть.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать подсеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -28,7 +28,7 @@
 
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -133,7 +133,7 @@
       ...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -193,7 +193,7 @@
         yc vpc subnet list
         ```
 
-- API
+- API {#api}
 
   Чтобы создать подсеть, воспользуйтесь методом REST API [create](../api-ref/Subnet/create.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../api-ref/grpc/subnet_service.md#Create) и передайте в запросе:
 
@@ -210,9 +210,9 @@
 
 ## Примеры {#examples}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Создайте подсеть с именем и описанием в выбранном каталоге:
 
@@ -240,7 +240,7 @@
       --ntp-server 192.168.0.101
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_vpc_subnet`:
 

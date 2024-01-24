@@ -5,11 +5,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Настроить NAT-шлюз
 
+Минимально необходимые [роли](../security/#roles-list) для создания и настройки NAT-шлюза: `vpc.admin` и `vpc.gateways.user`.
+
 Чтобы создать и настроить NAT-шлюз:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -38,7 +40,7 @@ description: "Следуя данной инструкции, вы сможет�
   1. В открывшемся окне выберите созданную таблицу в списке.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
@@ -78,8 +80,7 @@ description: "Следуя данной инструкции, вы сможет�
      yc vpc route-table create \
         --name=test-route-table \
         --network-name=<имя_сети> \
-        --route destination=0.0.0.0/0,`
-                gateway-id=enpkq1v2e7p0********
+        --route destination=0.0.0.0/0,gateway-id=enpkq1v2e7p0********
      ```
 
      Где `--network-name` — имя сети, в которой создается таблица.
@@ -91,7 +92,7 @@ description: "Следуя данной инструкции, вы сможет�
         --route-table-name=test-route-table
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -106,21 +107,23 @@ description: "Следуя данной инструкции, вы сможет�
   }
 
   resource "yandex_vpc_subnet" "subnet" {
-    folder_id      = "<имя_каталога>"
+    folder_id      = "<идентификатор_каталога>"
     name           = "<имя_подсети>"
-    v4_cidr_blocks = "10.20.30.0/24"
+    v4_cidr_blocks = ["10.20.30.0/24"]
     zone           = {{ region-id }}-a
     network_id     = data.yandex_vpc_network.net.id
     route_table_id = yandex_vpc_route_table.rt.id
   }
 
   resource "yandex_vpc_gateway" "nat_gateway" {
+    folder_id      = "<идентификатор_каталога>"
     name = "test-gateway"
     shared_egress_gateway {}
   }
 
   resource "yandex_vpc_route_table" "rt" {
-    name       = test-route-table
+    folder_id      = "<идентификатор_каталога>"
+    name       = "test-route-table"
     network_id = "<идентификатор_сети>"
 
     static_route {
@@ -130,9 +133,9 @@ description: "Следуя данной инструкции, вы сможет�
   }
   ```
 
-  Где `folder_id` — имя каталога, в котором находится подсеть.
+  Где `folder_id` — идентификатор каталога, в котором находится подсеть.
 
-- API
+- API {#api}
 
   1. Создайте NAT-шлюз. Воспользуйтесь методом REST API [create](../api-ref/Gateway/create.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Create](../api-ref/grpc/gateway_service.md#Create) и передайте в запросе:
 

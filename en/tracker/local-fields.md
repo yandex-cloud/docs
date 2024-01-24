@@ -52,9 +52,17 @@ By default, [only the queue owner](manager/queue-access.md) can configure a queu
 
 1. Click **Create**.
 
+{% note alert %}
+
+You cannot delete a created local field.
+
+You can hide a local field in the interface using [{{ api-name }}](concepts/queues/edit-local-field.md). To do this, set `"visible": false, "hidden": true`.
+
+{% endnote %}
+
 ## Edit a local queue field {#edit-local-field}
 
-Editing the parameters of a local field isn't supported in the {{ tracker-name }} web interface. To do this, you can use the [{{ api-name }}](concepts/queues/edit-local-field.md).
+Editing the parameters of a local field is not supported in the {{ tracker-name }} web interface. To do this, you can use the [{{ api-name }}](concepts/queues/edit-local-field.md).
 
 
 ## Local field constraints {#restrictions}
@@ -71,7 +79,7 @@ Editing the parameters of a local field isn't supported in the {{ tracker-name 
 
 Local fields are temporarily not supported in certain cases. Such support will be implemented later.
 
-* When creating an issue board, you won't be able to add issues automatically using the value of a local field. You can add this condition later, on the board [editing](manager/edit-agile-board.md#board-settings) page, using the [query language](user/query-filter.md).
+* When creating an issue board, you will not be able to add issues automatically using the value of a local field. You can add this condition later, on the board [editing page](manager/edit-agile-board.md#board-settings), using the [query language](user/query-filter.md).
 
 * On the issue board, local fields are not shown on [cards](manager/edit-agile-board.md#sec_layout).
 

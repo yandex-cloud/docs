@@ -144,13 +144,13 @@ In this section, you will learn to configure cluster autoscaling based on CPU lo
      while true; do wget -q -O- http://$URL; done
    ```
 
-{% note tip %}
+   {% note tip %}
 
-To increase load and accelerate the execution of the scenario, run several processes in separate windows.
+   To increase load and accelerate the execution of the scenario, run several processes in separate windows.
 
-{% endnote %}
+   {% endnote %}
 
-In the span of several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of CPU usage. When existing cluster resources become insufficient to satisfy the `requests` value, {{ k8s-ca}} will increase the number of nodes in the groups.
+   In the span of several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of CPU usage. When existing cluster resources become insufficient to satisfy the `requests` value, {{ k8s-ca}} will increase the number of nodes in the groups.
 1. Stop simulating the workload. Over the next few minutes, the number of nodes and pods will drop back to the initial state.
 
 ## Scaling based on application requests {#rps-autoscaling}
@@ -188,8 +188,8 @@ In this section, you will learn to configure cluster autoscaling based on the nu
 
    ```bash
    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
-     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts && \
-     helm repo update
+   helm repo add prometheus-community https://prometheus-community.github.io/helm-charts && \
+   helm repo update
    ```
 
 1. Install the Ingress controller:

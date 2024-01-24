@@ -2,9 +2,9 @@
 
 Алиас привязан к конкретному устройству, поэтому для изменения алиаса вам надо [узнать идентификатор или имя устройства](../device-list.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы изменить алиас:
 
@@ -16,7 +16,7 @@
    1. Измените значения полей нужного алиаса.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
     
     {% include [cli-install](../../../../_includes/cli-install.md) %}
     
@@ -45,7 +45,7 @@
       events: $devices/areqjd6un3af********/events
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
   
@@ -106,7 +106,7 @@
       yc iot device get <имя_устройства>
       ```
 
-- API
+- API {#api}
 
   Чтобы изменить алиас, воспользуйтесь методом REST API [update](../../../api-ref/Device/update.md) для ресурса [Device](../../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Update](../../../api-ref/grpc/device_service.md#Update).
 

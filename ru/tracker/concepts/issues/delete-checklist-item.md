@@ -39,14 +39,14 @@ Authorization: OAuth <токен>
 
   ```json
   {
-      "self": "{{ host }}/v2/issues/ORG-3",
+      "self": "https://{{ host }}/v2/issues/ORG-3",
       "id": "5f981c00b982f0755dbdc13d",
       "key": "ORG-3",
       "version": 151,
       "lastCommentUpdatedAt": "2020-12-13T13:18:22.965+0000",
       "pendingReplyFrom": [
           {
-              "self": "{{ host }}/v2/users/1134669289",
+              "self": "https://{{ host }}/v2/users/1134669289",
               "id": "id сотрудника",
               "display": "Имя Фамилия"
           }
@@ -54,13 +54,13 @@ Authorization: OAuth <токен>
       "summary": "Название задачи",
       "statusStartTime": "2020-11-03T11:19:24.733+0000",
       "updatedBy": {
-          "self": "{{ host }}/v2/users/19904929",
+          "self": "https://{{ host }}/v2/users/19904929",
           "id": "id сотрудника",
           "display": "Имя Фамилия"
       },
       "checklistDone": "0",
       "project": {
-        "self": "{{ host }}/v2/projects/7",
+        "self": "https://{{ host }}/v2/projects/7",
         "id": "7",
         "display": "Название проекта"
       },
@@ -71,32 +71,32 @@ Authorization: OAuth <токен>
               }
           ],
       "type": {
-          "self": "{{ host }}/v2/issuetypes/2",
+          "self": "https://{{ host }}/v2/issuetypes/2",
           "id": "2",
           "key": "task",
           "display": "Задача"
       },
       "priority": {
-          "self": "{{ host }}/v2/priorities/3",
+          "self": "https://{{ host }}/v2/priorities/3",
           "id": "3",
           "key": "normal",
           "display": "Средний"
       },
       "previousStatusLastAssignee": {
-          "self": "{{ host }}/v2/users/1134669289",
+          "self": "https://{{ host }}/v2/users/1134669289",
           "id": "id сотрудника",
           "display": "Имя Фамилия"
       },
       "createdAt": "2020-10-27T13:09:20.085+0000",
       "followers": [
           {
-              "self": "{{ host }}/v2/users/19904929",
+              "self": "https://{{ host }}/v2/users/19904929",
               "id": "id сотрудника",
               "display": "Имя Фамилия"
           }
       ],
       "createdBy": {
-          "self": "{{ host }}/v2/users/1134669289",
+          "self": "https://{{ host }}/v2/users/1134669289",
           "id": "id сотрудника",
           "display": "Имя Фамилия"
       },
@@ -128,26 +128,26 @@ Authorization: OAuth <токен>
      "checklistTotal": 4,
      "votes": 0,
      "assignee": {
-          "self": "{{ host }}/v2/users/1134669289",
+          "self": "https://{{ host }}/v2/users/1134669289",
           "id": "id сотрудника",
           "display": "Имя Фамилия"
       },
      "deadline": "2020-10-28",
      "queue": {
-          "self": "{{ host }}/v2/queues/ORG",
+          "self": "https://{{ host }}/v2/queues/ORG",
           "id": "1",
           "key": "ORG",
           "display": "Стартрек"
       },
      "updatedAt": "2021-02-16T08:28:41.095+0000",
      "status": {
-          "self": "{{ host }}/v2/statuses/2",
+          "self": "https://{{ host }}/v2/statuses/2",
           "id": "2",
           "key": "needInfo",
           "display": "Требуется информация"
       },
       "previousStatus": {
-          "self": "{{ host }}/v2/statuses/3",
+          "self": "https://{{ host }}/v2/statuses/3",
           "id": "3",
           "key": "inProgress",
           "display": "В работе"

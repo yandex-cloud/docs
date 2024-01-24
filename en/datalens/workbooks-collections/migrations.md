@@ -15,7 +15,7 @@ To migrate an object to a workbook:
 
 1. Find the required object on the [navigation page](https://datalens.yandex.ru/navigation).
 
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the object and select ![image](../../_assets/datalens/replace.svg) **Migration to workbook**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the object and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Migration to workbook**.
 1. In the window that opens, you will see a list of linked objects that will be transferred as well. If you are ready to transfer all of them to a new storage structure, click **Migrate**.
 
    {% note warning %}
@@ -42,7 +42,7 @@ Let's look at partial object migration with a chart migrated to a workbook as an
 
    1. Open the dataset and go to the **Sources** tab.
    1. Delete all the tables from the workspace.
-   1. On the left side of the screen, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to `SuperHeroes_Connection` and select **Replace connection**.
+   1. On the left side of the screen, click ![image](../../_assets/console-icons/ellipsis.svg) next to `SuperHeroes_Connection` and select **Replace connection**.
 
       ![image](../../_assets/datalens/migration/replace-connection.png =450x496)
 
@@ -54,7 +54,7 @@ Let's look at partial object migration with a chart migrated to a workbook as an
 1. In the `SuperHeroes_Gender` chart, replace the dataset with `SuperHeroes_Dataset_copy`:
 
    1. Open the chart.
-   1. On the left side of the screen, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to `SuperHeroes_Dataset` and select **Replace dataset**.
+   1. On the left side of the screen, click ![image](../../_assets/console-icons/ellipsis.svg) next to `SuperHeroes_Dataset` and select **Replace dataset**.
 
       ![image](../../_assets/datalens/migration/replace-dataset.png =450x432)
 
@@ -72,7 +72,7 @@ If after migration you want your workbook to include only certain migrated objec
 Let's create a workbook with a dataset. For source objects, we will use a [ready-made dataset]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco) of a fictional company from the {{ datalens-short-name }} {{ marketplace-short-name }}.
 
 1. On the [navigation page](https://datalens.yandex.ru/navigation), find **Sample Superstore Dataset**.
-1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the dataset and select ![image](../../_assets/datalens/replace.svg) **Migration to workbook**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dataset and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Migration to workbook**.
 1. In the window that opens, you will see a list of linked objects that will be transferred as well.
 
    ![image](../../_assets/datalens/migration/store-migrate.png =750x422)
@@ -91,6 +91,8 @@ Let's create a workbook with a dataset. For source objects, we will use a [ready
    1. In the window that opens, select the target collection and click **Copy**. To copy the workbook to a new collection, click **Create collection**.
    1. Enter a name for the new workbook, such as **Sample Superstore Copy**, then click **Copy**.
 
-1. In the **Sample Superstore Copy** workbook, go to the **All objects** tab and delete everything except **Sample Superstore Connection** and **Sample Superstore Dataset**. To do this, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to each object and select **Delete**.
+1. In the **Sample Superstore Copy** workbook, go to the **All objects** tab and delete everything except **Sample Superstore Connection** and **Sample Superstore Dataset**. To do this, click ![image](../../_assets/console-icons/ellipsis.svg) next to each object and select **Delete**.
 
 Now your **Sample Superstore Copy** only contains **Sample Superstore Connection** and **Sample Superstore Dataset**. You can create charts and a dashboard in the workbook.
+
+![image](../../_assets/datalens/migration/store-workbook-copy.png =750x422)

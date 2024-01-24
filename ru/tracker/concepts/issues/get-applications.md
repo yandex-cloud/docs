@@ -32,7 +32,7 @@ Authorization: OAuth <OAuth-токен>
     ```json
     [
         {
-            "self": "{{ host }}/{{ ver }}/applications/my-application",
+            "self": "https://{{ host }}/{{ ver }}/applications/my-application",
             "id": "my-application",
             "type": "my-application",
             "name": "Имя Приложения"

@@ -9,93 +9,138 @@ The `Ingress` resource defines the rules for distributing incoming traffic to {{
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-metadata:
-  name: <string>
-  annotations:
-    ...
+metadata: <ObjectMeta>
 spec: <IngressSpec>
 ```
 
-Where:
+#|
+|| **Field**    | **Value or type**      | **Description**                 ||
+|| `apiVersion` | `networking.k8s.io/v1` | **Required**
+                                           Kubernetes API version          ||
+|| `kind`       | `Ingress`              | Resource type                   ||
+|| `metadata`   | `ObjectMeta`           | **Required**
+                                           [Resource metadata](#metadata)  ||
+|| `spec`       | `IngressSpec`          | **Required**
+                                           [Resource specification](#spec) ||
+|#
 
-* `apiVersion`: `networking.k8s.io/v1`
-* `kind`: `Ingress`
-* `metadata` (`ObjectMeta`, required)
-
-   Resource metadata.
-
-   * `name` (`string`, required)
-
-      Resource name. For more information about format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
-
-      Does not match the balancer name in {{ alb-name }}.
-
-   * `annotations` (`map[string]string`, required)
-
-      Resource annotation. For more information, see [below](#annotations).
-
-* `spec` (`IngressSpec`, required)
-
-   Resource specification. For more information, see [below](#spec).
-
-## Annotations (metadata.annotations) {#annotations}
+{% cut "Example" %}
 
 ```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
+  name: alb-demo-tls
   annotations:
-    ingress.alb.yc.io/group-name: <string>
-    ingress.alb.yc.io/subnets: <string>
-    ingress.alb.yc.io/security-groups: <string>
-    ingress.alb.yc.io/external-ipv4-address: <string>
-    ingress.alb.yc.io/internal-ipv4-address: <string>
-    ingress.alb.yc.io/internal-alb-subnet: <string>
-    ingress.alb.yc.io/protocol: <string>
-    ingress.alb.yc.io/group-settings-name: <string>
-    ingress.alb.yc.io/transport-security: <string>
-    ingress.alb.yc.io/prefix-rewrite: <string>
-    ingress.alb.yc.io/upgrade-types: <string>
-    ingress.alb.yc.io/request-timeout: <string>
-    ingress.alb.yc.io/idle-timeout: <string>
-    ingress.alb.yc.io/modify-header-response-append: <string>
-    ingress.alb.yc.io/modify-header-response-replace: <string>
-    ingress.alb.yc.io/modify-header-response-rename: <string>
-    ingress.alb.yc.io/modify-header-response-remove: <string>
-    ingress.alb.yc.io/use-regex: <string>
+    ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
+    ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
+    ingress.alb.yc.io/external-ipv4-address: <auto_or_static_IP_address>
+    ingress.alb.yc.io/group-name: my-ingress-group
+spec:
+  tls:
+    - hosts:
+        - <domain_name>
+      secretName: yc-certmgr-cert-id-<TLS_certificate_ID>
+  rules:
+    - host: <domain_name>
+      http:
+        paths:
+          - path: /app1
+            pathType: Prefix
+            backend:
+              service:
+                name: alb-demo-1
+                port:
+                  number: 80
+          - path: /app2
+            pathType: Prefix
+            backend:
+              service:
+                name: alb-demo-2
+                port:
+                  number: 80
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: alb-demo-2
+                port:
+                  name: http
 ```
 
-Where:
+{% endcut %}
 
-* `ingress.alb.yc.io/group-name` (`string`, required)
+## ObjectMeta {#metadata}
+
+```yaml
+name: <string>
+annotations:
+  ingress.alb.yc.io/group-name: <string>
+  ingress.alb.yc.io/subnets: <string>
+  ingress.alb.yc.io/security-groups: <string>
+  ingress.alb.yc.io/external-ipv4-address: <string>
+  ingress.alb.yc.io/internal-ipv4-address: <string>
+  ingress.alb.yc.io/internal-alb-subnet: <string>
+  ingress.alb.yc.io/protocol: <string>
+  ingress.alb.yc.io/group-settings-name: <string>
+  ingress.alb.yc.io/transport-security: <string>
+  ingress.alb.yc.io/prefix-rewrite: <string>
+  ingress.alb.yc.io/upgrade-types: <string>
+  ingress.alb.yc.io/request-timeout: <string>
+  ingress.alb.yc.io/idle-timeout: <string>
+  ingress.alb.yc.io/modify-header-response-append: <string>
+  ingress.alb.yc.io/modify-header-response-replace: <string>
+  ingress.alb.yc.io/modify-header-response-rename: <string>
+  ingress.alb.yc.io/modify-header-response-remove: <string>
+  ingress.alb.yc.io/use-regex: <string>
+```
+
+#|
+|| **Field**      | **Value or type**   | **Description** ||
+|| `name`         | `string`            | **Required**
+                                          [Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names)
+                                          Does not match the load balancer name in Application Load Balancer ||
+|| `annotations`  | `map[string]string` | **Required**
+                                          [Resource annotations](#annotations) ||
+|#
+
+### Annotations (metadata.annotations) {#annotations}
+
+Annotations are collections of `key:value` pairs used for assigning metadata to objects. Annotation values are always of the `string` data type. For more information about annotations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+
+You can provide the following annotations for the `ObjectMeta` object:
+
+* **ingress.alb.yc.io/group-name** {#annot-group-name}
 
    Name of an `Ingress` resource group combined in a single load balancer. For more information about format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
    The field is required even if the load balancer uses a single `Ingress`.
 
-* `ingress.alb.yc.io/subnets` (`string`)
+* **ingress.alb.yc.io/subnets** {#annot-subnets}
 
-   List of {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet) the [load balancer is located on](../concepts/application-load-balancer.md#lb-location). Subnet IDs are provided as a comma-separated list, such as:
+   List of {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet) the [load balancer resides in](../concepts/application-load-balancer.md#lb-location). Subnet IDs are provided in a comma-separated list, e.g.:
 
+   ```yaml
+   ingress.alb.yc.io/subnets: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
    ```
-   ingress.alb.yc.io/subnets: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
-   ```
 
-   The field is required for at least a single `Ingress` in a group (`ingress.alb.yc.io/group-name` annotation) to create one load balancer. A balancer uses all the subnets specified in the relevant `Ingress` resources.
+   The field is required for at least a single `Ingress` in a group ([ingress.alb.yc.io/group-name](#annot-group-name) annotation) to create one load balancer. A balancer uses all the subnets specified in the relevant `Ingress` resources.
 
    All the subnets of a single load balancer must belong to the same network with no more than one network specified in each [availability zone](../../overview/concepts/geo-scope.md).
 
-* `ingress.alb.yc.io/security-groups` (`string`)
+* **ingress.alb.yc.io/security-groups** {#annot-security-groups}
 
-   List of {{ vpc-name }} [security groups](../../vpc/concepts/security-groups.md) for a load balancer. Group IDs are provided in a comma-separated list, such as:
+   List of {{ vpc-name }} [security groups](../../vpc/concepts/security-groups.md) for a load balancer. Group IDs are provided in a comma-separated list, e.g.:
 
+   ```yaml
+   ingress.alb.yc.io/security-groups: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
    ```
-   ingress.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
-   ```
 
-   A load balancer created for a group of several `Ingress` resources (`ingress.alb.yc.io/group-name` annotation) uses all the security groups specified in these `Ingress` resources.
+   A load balancer created for a group of several `Ingress` resources ([ingress.alb.yc.io/group-name](#annot-group-name) annotation) uses all the security groups specified in these `Ingress` resources.
 
    For proper load balancer and Ingress controller operation, the security groups must be configured as specified in [{#T}](../tools/k8s-ingress-controller/security-groups.md).
 
-* `ingress.alb.yc.io/external-ipv4-address` (`string`)
+* **ingress.alb.yc.io/external-ipv4-address** {#annot-external-ipv4-address}
 
    Configuring a load balancer's public IP.
 
@@ -103,23 +148,23 @@ Where:
 
    If you set `auto`, deleting the Ingress controller will also delete the IP address from the cloud. To avoid this, use an existing reserved IP address.
 
-   A load balancer must be configured with either a public or a private IP (`ingress.alb.yc.io/internal-ipv4-address` annotation), but not both.
+   A load balancer must be configured with either a public or a private IP ([ingress.alb.yc.io/internal-ipv4-address](#annot-internal-ipv4-address) annotation), but not both.
 
-* `ingress.alb.yc.io/internal-ipv4-address` (`string`)
+* **ingress.alb.yc.io/internal-ipv4-address** {#annot-internal-ipv4-address}
 
    Configuring a load balancer with a private IP.
 
-   The IP address must belong to the subnet specified in the `ingress.alb.yc.io/internal-alb-subnet` annotation. To use a specific IP from the subnet in question, put it in the annotation. For the load balancer to get its IP automatically, specify `auto`.
+   The IP address must belong to the subnet specified in the [ingress.alb.yc.io/internal-alb-subnet](#annot-internal-alb-subnet) annotation. To use a specific IP from the subnet in question, put it in the annotation. For the load balancer to get its IP automatically, specify `auto`.
 
-   A load balancer must be configured with either a private or a public IP (`ingress.alb.yc.io/external-ipv4-address` annotation) but not both.
+   A load balancer must be configured with either a private or a public IP ([ingress.alb.yc.io/external-ipv4-address](#annot-external-ipv4-address) annotation) but not both.
 
-* `ingress.alb.yc.io/internal-alb-subnet` (`string`)
+* **ingress.alb.yc.io/internal-alb-subnet** {#annot-internal-alb-subnet}
 
    Load balancer private IP subnet ID.
 
-   The field is required if a load balancer is configured with a private IP address (`ingress.alb.yc.io/internal-ipv4-address` annotation).
+   The field is required if a load balancer is configured with a private IP address ([ingress.alb.yc.io/internal-ipv4-address](#annot-internal-ipv4-address) annotation).
 
-* `ingress.alb.yc.io/protocol` (`string`)
+* **ingress.alb.yc.io/protocol** {#annot-protocol}
 
    Connection protocol for load balancer and backends described in `Ingress`:
 
@@ -127,80 +172,55 @@ Where:
    * `http2`: HTTP/2
    * `grpc`: gRPC
 
-* `ingress.alb.yc.io/group-settings-name` (`string`)
+* **ingress.alb.yc.io/group-settings-name** {#annot-group-settings-name}
 
    Name for the Ingress group settings combined in a single load balancer.
 
-   To specify the settings, create an additional resource named `IngressGroupSettings`, such as:
+   To specify the settings, create an additional resource named [IngressGroupSettings](#groupsettings).
 
-   ```yaml
-   apiVersion: alb.yc.io/v1alpha1
-   kind: IngressGroupSettings
-   metadata:
-     name: non-default-settings
-   logOptions:
-     logGroupID: <log_group_ID>
-     discardRules:
-       - discardPercent: 50
-         grpcCodes:
-           - OK
-           - CANCELLED
-           - UNKNOWN
-       - discardPercent: 67
-         httpCodeIntervals:
-           - HTTP_1XX
-       - discardPercent: 20
-         httpCodes:
-           - 200
-           - 404
-   ```
-
-   Specify the log group ID and parameters of the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
-
-   * `httpCodes`: HTTP status codes.
-   * `httpCodeIntervals`: Classes of HTTP status codes.
-   * `grpcCodes`: gRPC codes.
-   * `discardPercent`: Percentage of logs to discard.
-
-* `ingress.alb.yc.io/transport-security` (`string`)
+* **ingress.alb.yc.io/transport-security** {#annot-transport-security}
 
    Connection encryption protocol for load balancer and backends specified in `Ingress` directly (no `HttpBackendGroup`):
 
-   * `tls`: TLS with no certificate challenge.
+   The acceptable value is `tls`: TLS with no certificate challenge.
 
    If no annotation is specified, the load balancer connects to the backends with no encryption.
 
    For backends belonging to groups, the annotation value is ignored. When you encrypt a connection between a load balancer and grouped backends, you configure the encryption via the `spec.backend.tls` field of the `HttpBackendGroup` resource (see the [resource reference](http-backend-group.md)).
 
-* `ingress.alb.yc.io/prefix-rewrite` (`string`)
+* **ingress.alb.yc.io/prefix-rewrite** {#annot-prefix-rewrite}
 
    Substitution for URI paths or gRPC call names listed in the [`Ingress` specification](#spec) (`rules.http.paths` field) when routing requests to backends.
 
    The substitution depends on path or name type: for `pathType: Exact`, the entire path or name is replaced, for `pathType: Prefix`, only the specified initial portion is replaced.
 
-   > For example, to have the load balancer route backend requests to a specific version when handling all incoming API calls, configure the following substitution:
-   >
-   > ```yaml
-   > ...
-   > metadata:
-   >   annotations:
-   >     ingress.alb.yc.io/prefix-rewrite: /api/v4/
-   > ...
-   > spec:
-   >   rules:
-   >     - host: <domain name>
-   >       http:
-   >         paths:
-   >           - path: /api/
-   >             pathType: Prefix
-   >             ...
-   > ```
+   {% cut "Example" %}
+
+   For the load balancer to send backend requests to a particular version for all incoming requests to your API, set up the following substitution:
+
+   ```yaml
+   ...
+   metadata:
+     annotations:
+       ingress.alb.yc.io/prefix-rewrite: /api/v4/
+   ...
+   spec:
+     rules:
+       - host: <domain_name>
+         http:
+           paths:
+             - path: /api/
+               pathType: Prefix
+               ...
+   ```
+
+   {% endcut %}
 
    In {{ alb-name }}, the substitution will be configured on all [HTTP routers](../concepts/http-router.md) created for the `Ingress` resource.
 
-* `ingress.alb.yc.io/upgrade-types` (`string`)
+* **ingress.alb.yc.io/upgrade-types** {#annot-upgrade-types}
 
-   Value of the HTTP `Upgrade` header in all incoming requests supported by the load balancer. The values are given as a comma-separated list.
+   HTTP `Upgrade` header values supported by the load balancer in incoming requests. The values are given as a comma-separated list.
 
    > You can use this annotation, for instance, to enable [WebSocket](https://{{ lang }}.wikipedia.org/wiki/WebSocket) support:
    >
@@ -210,7 +230,7 @@ Where:
 
    In {{ alb-name }}, `Upgrade` will be configured on all the HTTP routers created for the `Ingress` resource.
 
-* `ingress.alb.yc.io/request-timeout` (`string`)
+* **ingress.alb.yc.io/request-timeout** {#annot-request-timeout}
 
    Maximum load balancer node/backend connection timeout. Once the timeout expires, the load balancer responds to client with `504 Gateway Timeout`.
 
@@ -218,15 +238,15 @@ Where:
 
    In {{ alb-name }}, the timeout will be configured on all HTTP routers created for the `Ingress` resource.
 
-* `ingress.alb.yc.io/idle-timeout` (`string`)
+* **ingress.alb.yc.io/idle-timeout** {#annot-idle-timeout}
 
    Maximum load balancer node/backend connection idle timeout. Once the timeout expires, the load balancer responds to client with `504 Gateway Timeout`.
 
-   Unless an annotation is specified, a connection can remain idle for any length of time until the overall timeout expires (`ingress.alb.yc.io/request-timeout` annotation).
+   Unless an annotation is specified, a connection can remain idle for any length of time until the overall timeout expires ([ingress.alb.yc.io/request-timeout](#annot-request-timeout) annotation).
 
    In {{ alb-name }}, the timeout will be configured on all HTTP routers created for the `Ingress` resource.
 
-* `ingress.alb.yc.io/modify-header-response-append` (`string`)
+* **ingress.alb.yc.io/modify-header-response-append** {#annot-modify-header-response-append}
 
    Adds a string to the response header value. The header and string should be specified in the following format:
 
@@ -237,9 +257,9 @@ Where:
    Where:
 
    * `<key>`: Name of the header to be modified.
-   * `value`: String to be added to the header value.
+   * `<value>`: String to be added to the header value.
 
-* `ingress.alb.yc.io/modify-header-response-replace` (`string`)
+* **ingress.alb.yc.io/modify-header-response-replace** {#annot-modify-header-response-replace}
 
    It replaces the response header value. The header and its new value should be specified in the following format:
 
@@ -252,7 +272,7 @@ Where:
    * `<key>`: Name of the header to be modified.
    * `<value>`: New header value.
 
-* `ingress.alb.yc.io/modify-header-response-rename` (`string`)
+* **ingress.alb.yc.io/modify-header-response-rename** {#annot-modify-header-response-rename}
 
    It renames the response header. The header and its new name should be specified in the following format:
 
@@ -265,7 +285,7 @@ Where:
    * `<key>`: Name of the header to be modified.
    * `<value>`: New header name.
 
-* `ingress.alb.yc.io/modify-header-response-remove` (`string`)
+* **ingress.alb.yc.io/modify-header-response-remove** {#annot-modify-header-response-remove}
 
    It removes the response header. The header to remove should be specified in the following format:
 
@@ -275,7 +295,7 @@ Where:
 
    Where `<key>` is the name of the header to remove.
 
-* `ingress.alb.yc.io/use-regex` (`string`)
+* **ingress.alb.yc.io/use-regex** {#annot-use-regex}
 
    Enables support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path if the `true` string is provided. Only applies if the `pathType` parameter is set to `Exact`.
 
@@ -283,98 +303,125 @@ Where:
 
 ```yaml
 tls:
-  - hosts:
-      - <string>
-      - ...
-    secretName: <string>
+  - <IngressTLS>
   - ...
 rules:
-  - host: <string>
-    http:
-      paths:
-        - path: <string>
-          pathType: <string>
-          backend: <IngressBackend>
+  - <IngressRule>
   - ...
 ```
 
-Where:
+#|
+|| **Field** | **Value or type** | **Description** ||
 
-* `tls` (`[]IngressTLS`)
+|| `tls`     | `[]IngressTLS`    | **Required**
+[Incoming HTTPS traffic settings](#tls): domain name collections and the relevant TLS certificates.
 
-   Incoming HTTPS traffic settings: domain name collections and the relevant TLS certificates.
+If the filed is specified, two types of [listeners](../concepts/application-load-balancer.md#listener) will be created for the load balancer: some will be receiving HTTPS traffic on port 443, others will redirect HTTP requests (port 80) to HTTPS. At the same time, the traffic distribution rules for the same domain names, if explicitly specified in other `Ingress` resources without the `tls` field, will be prioritized over HTTP-to-HTTPS redirects.
 
-   If the field is specified, two types of [listeners](../concepts/application-load-balancer.md#listener) will be created for the load balancer: some will be receiving HTTPS traffic on port 443, others will redirect HTTP requests (port 80) to HTTPS. At the same time, the traffic distribution rules for the same domain names, if explicitly specified in other `Ingress` resources lacking the `tls` field will be given priority with respect to HTTP-to-HTTPS redirects.
+If the field is not specified, only HTTP listeners will be created for the load balancer to handle traffic on port 80.
+||
 
-   If the field is not specified, only HTTP listeners will be created for the load balancer to handle traffic on port 80.
+|| `rules` | `[]IngressRule`  | **Required**
+[List of rules](#rule) for distribution of incoming traffic among the backends depending on domain name (`host` field) and requested resource (`http.paths` field).
 
-   * `hosts` (`[]string`, required)
+In {{ alb-name }}, the rules correspond to HTTP router [virtual hosts](../concepts/http-router.md#virtual-host).
+||
+|#
 
-      Domain names that the `secretName` TLS certificate corresponds to.
+### IngressTLS {#tls}
 
-      The load balancer will create a dedicated listener for each domain name serving as a value for the Server Name Indication (SNI) TLS extension.
+```yaml
+hosts:
+  - <string>
+  - ...
+secretName: <string>
+```
 
-      {% include [k8s-ingress-controller-hostnames-wildcard](../../_includes/application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
+#|
+|| **Field** | **Value or type** | **Description** ||
 
-   * `secretName` (`string`, required)
+|| `hosts`   | `[]string`        | **Required**
+Domain names covered by the `secretName` TLS certificate.
 
-      A reference to a TLS certificate from {{ certificate-manager-full-name }} as `yc-certmgr-cert-id-<certificate ID>`. This is the name a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a certificate is available as in {{ managed-k8s-name }}.
+The load balancer will create a dedicated listener for each domain name used as a value for the Server Name Indication (SNI) TLS extension.
 
-      In {{ certificate-manager-name }}, you can have [a certificate issued by Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) or [load one of your own](../../certificate-manager/operations/import/cert-create.md).
+{% include [k8s-ingress-controller-hostnames-wildcard](../../_includes/application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
+||
 
-      {% include [k8s-ingress-controller-secret-name](../../_includes/application-load-balancer/k8s-ingress-controller-secret-name.md) %}
+|| `secretName` | `string`  | **Required**
+Reference to a TLS certificate from {{ certificate-manager-full-name }} in `yc-certmgr-cert-id-<certificate_ID>` format. This is the name a [secret](https://kubernetes.io/docs/concepts/configuration/secret/) with certificate is featured as in {{ managed-k8s-name }}.
 
-* `rules` (`[]IngressRule`, required)
+In {{ certificate-manager-name }}, you can have [a certificate from Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) or [load one of your own](../../certificate-manager/operations/import/cert-create.md).
 
-   A list of rules for distributing incoming traffic to the backends as a function of the domain names (`host` field) and the resource being requested (`http.paths` field).
+{% include [k8s-ingress-controller-secret-name](../../_includes/application-load-balancer/k8s-ingress-controller-secret-name.md) %}
+||
+|#
 
-   In {{ alb-name }}, the rules correspond to HTTP router [virtual hosts](../concepts/http-router.md#virtual-host).
+### IngressRule {#rule}
 
-   * `host` (`string`, required)
+```yaml
+host: <string>
+http:
+  paths:
+    - path: <string>
+      pathType: <string>
+      backend: <IngressBackend>
+```
 
-      Domain name (value of `Host` header for HTTP/1.1 or `:authority` pseudo-header for HTTP/2), to which a rule applies.
+#|
+|| **Field** | **Value or type** | **Description** ||
 
-      {% include [k8s-ingress-controller-hostnames-wildcard](../../_includes/application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
+|| `host`    | `string`        | **Required**
+Domain name (value of the `Host` header for HTTP/1.1 or the `:authority` pseudo-header for HTTP/2) covered by the rule.
 
-   * `http` (`HTTPIngressRuleValue`, required)
+{% include [k8s-ingress-controller-hostnames-wildcard](../../_includes/application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
 
-      Rule for routing incoming requests with the domain name specified in the `rules.host` field as a function of the resource being requested.
+||
 
-      * `paths` (`[]HTTPIngressPath`, required)
+|| `http` | `HTTPIngressRuleValue`  | **Required**
+Rule for distribution of incoming requests with the domain name specified in the `host` field depending on requested resource.
 
-         List of routes: the resources being requested, subject to a rule and the corresponding backends.
+||
 
-         The sequence of routes on the list is important: they are matched against an incoming request in turn, and the first match is used for routing. Therefore, it is recommended that you place the most specific routes at the top of the list. This logic is different from what is described in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#multiple-matches) which prioritizes routes with the longest paths (`rules.http.paths.path` field).
+|| `http.paths` | `[]HTTPIngressPath`  | **Required**
+List of routes: requested resources covered by the rule and the corresponding backends.
 
-         {% note warning %}
+The sequence of routes on the list is important: they are matched against an incoming request in turn, and the first match is used for routing. Therefore, it is recommended that you place the most specific routes at the top of the list. This logic is different from what is described in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#multiple-matches) which prioritizes routes with the longest paths (`rules.http.paths.path` field).
 
-         If you create a load balancer for several `Ingress` resources (with the same `ingress.alb.yc.io/group-name` annotation value), and they include rules for the same domain name, the route processing sequence is only guaranteed within each of the `Ingress` resources but not <q>across</q> them.
+{% note warning %}
 
-         {% endnote %}
+If you create a load balancer for several `Ingress` resources (with the same [ingress.alb.yc.io/group-name](#annot-group-name) annotation value), and they include rules for the same domain name, the route processing sequence is only guaranteed within each of the `Ingress` resources but not <q>across</q> them.
 
-         * `pathType` (`string`, required)
+{% endnote %}
 
-            Type of reference to the requested resource:
+||
 
-            * `Exact`: path in the request URI or gRPC call name must _match_ the value in the `rules.http.paths.path` field.
-            * `Prefix`: path in request URI or gRPC call name must _begin_ with the value in the `rules.http.paths.path` field.
+|| `http.paths.path` | `string`  | **Required**
+Reference to the requested resource:
 
-            In addition to distributing traffic, the type also affects the path or call name substitution mechanism in backend requests if the substitution is configured via the `ingress.alb.yc.io/prefix-rewrite` [annotation](#annotations).
+* For simple HTTP: path in the incoming request URI (if `Exact`) or its prefix (if `Prefix`).
+* For gRPC (with the [ingress.alb.yc.io/protocol](#annot-protocol) annotation value equal to `grpc`): full gRPC call name (for `Exact`) or its prefix (for `Prefix`). Example: `/my.custom.server.Service/Method`.
 
-         * `path` (`string`, required)
+In both cases, the value must begin with `/`.
 
-            Reference to the resource being requested:
+||
 
-            * For simple HTTP: path in the incoming request URI (if `Exact`) or its prefix (if `Prefix`).
-            * For gRPC (with the `ingress.alb.yc.io/protocol` [annotation](#annotations) value equal to `grpc`): full gRPC call name (for `Exact`) or its prefix (for `Prefix`). Example: `/my.custom.server.Service/Method`.
+|| `http.paths.pathType` | `string`  | **Required**
+Type of reference to the requested resource:
 
-            In both cases, the value must begin with `/`.
+* `Exact`: path in the request URI or gRPC call name must _match_ the value in the `rules.http.paths.path` field.
+* `Prefix`: path in request URI or gRPC call name must _begin_ with the value in the `rules.http.paths.path` field.
 
-         * `backend` (`IngressBackend`, required)
+In addition to distributing traffic, the type also affects the path or call name substitution mechanism in backend requests if the substitution is configured via the [ingress.alb.yc.io/prefix-rewrite](#annot-prefix-rewrite) annotation.
 
-            Reference to a backend or a group of backends to process requests with the specified domain name or URI path or gRPC call name. For more information, see [below](#backend).
+||
 
-## IngressBackend {#backend}
+|| `http.paths.backend` | `IngressBackend`  | **Required**
+Reference to a [backend or a group of backends](#backend) to process requests with the specified domain name and URI path or gRPC call name.
+
+|#
+
+#### IngressBackend {#backend}
 
 ```yaml
 service:
@@ -388,31 +435,64 @@ resource:
   apiGroup: alb.yc.io
 ```
 
-Where:
+#|
+|| **Field** | **Value or type** | **Description** ||
 
-* `service` (`IngressServiceBackend`)
+|| `service`    | `IngressServiceBackend`        | **Required**
+Reference to the [{{ k8s }} service](../../managed-kubernetes/concepts/index.md#service) expected to process requests as a backend.
 
-   Reference to the [{{ k8s }} service](../../managed-kubernetes/concepts/index.md#service) expected to be the backend to process the requests.
+The `Service` resource this field points to must be described as in the [specification](service.md).
 
-   The `Service` resource this field points to must be described as in the [specification](service.md).
+For the `spec.rules.http.paths` list element, you must specify either a service backend or a backend group (`resource`) but not both.
 
-   For the `spec.rules.http.paths` list element, you must specify either a service backend or a backend group (`resource`) but not both.
+{% include [k8s-ingress-controller-service-backend](../../_includes/application-load-balancer/k8s-ingress-controller-service-backend.md) %}
 
-   {% include [k8s-ingress-controller-service-backend](../../_includes/application-load-balancer/k8s-ingress-controller-service-backend.md) %}
+||
 
-* `resource` (`TypedLocalObjectReference`)
+|| `resource` | `TypedLocalObjectReference`  | **Required**
+Reference to a backend group to process requests.
 
-   Reference to a backend group to process requests.
+The Ingress controller implements the `HttpBackendGroup` resource that this field points to as a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). It must be described as in the [specification](http-backend-group.md).
 
-   The Ingress controller implements the `HttpBackendGroup` resource that this field points to as a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). It must be described as in the [specification](http-backend-group.md).
+For the `spec.rules.http.paths` list element, you must specify either a backend group or a service backend (`service`) but not both.
 
-   For the `spec.rules.http.paths` list element, you must specify either a backend group or a service backend (`service`) but not both.
+* `kind`: `HttpBackendGroup`
+* `name` (`string`): Backend group name
 
-   * `kind`: `HttpBackendGroup`
-   * `name` (`string`)
+    The name must match the value specified in the `metadata.name` field of the `HttpBackendGroup` resource. For more detail, please see the [resource specification](http-backend-group.md).
 
-      Backend group name.
+* `apiGroup`: `alb.yc.io`
 
-      The name must match the value specified in the `metadata.name` field of the `HttpBackendGroup` resource. For more detail, please see the [resource specification](http-backend-group.md).
+||
+|#
 
-   * `apiGroup`: `alb.yc.io`
+## IngressGroupSettings {#groupsettings}
+
+```yaml
+apiVersion: alb.yc.io/v1alpha1
+kind: IngressGroupSettings
+metadata:
+  name: non-default-settings
+logOptions:
+  logGroupID: <log_group_ID>
+  discardRules:
+    - discardPercent: 50
+      grpcCodes:
+        - OK
+        - CANCELLED
+        - UNKNOWN
+    - discardPercent: 67
+      httpCodeIntervals:
+        - HTTP_1XX
+    - discardPercent: 20
+      httpCodes:
+        - 200
+        - 404
+```
+
+Specify log group ID and the parameters of the [log discard rules](../concepts/application-load-balancer.md#discard-logs-rules):
+
+* `httpCodes`: HTTP status codes
+* `httpCodeIntervals`: Classes of HTTP status codes
+* `grpcCodes`: gRPC codes
+* `discardPercent`: Percentage of logs to be discarded

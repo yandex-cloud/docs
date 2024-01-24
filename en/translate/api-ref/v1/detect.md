@@ -32,7 +32,7 @@ The response is returned in JSON format.
 
 ```json
 {
-    "language": <code of the language the text is in>
+    "language": <language_code>
 }
 ```
 
@@ -42,12 +42,12 @@ The response is returned in JSON format.
 ### Sample request {#sample-request}
 
 ```httpget
-export FOLDER_ID=<folder id>
-export TOKEN=<IAM-token>
+export FOLDER_ID=<folder_ID>
+export TOKEN=<IAM_token>
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}" \
-     --data-urlencode "text=Hello world" \
+     --data-urlencode "text=hello world" \
      "https://translate.{{ api-host }}/translate/v1/detect"
 ```
 

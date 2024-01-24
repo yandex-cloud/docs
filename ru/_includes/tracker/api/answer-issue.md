@@ -1,14 +1,14 @@
 ```json
 [
     {
-    "self": "{{ host }}/v2/issues/TREK-9844",
+    "self": "https://{{ host }}/v2/issues/TREK-9844",
     "id": "593cd211ef7e8a332414f2a7",
     "key": "TREK-9844",
     "version": 7,
     "lastCommentUpdatedAt": "2017-07-18T13:33:44.291+0000",
     "summary": "subtask",
     "parent": {
-        "self": "{{ host }}/v2/issues/JUNE-2",
+        "self": "https://{{ host }}/v2/issues/JUNE-2",
         "id": "593cd0acef7e8a332414f28e",
         "key": "JUNE-2",
         "display": "Task"
@@ -18,26 +18,26 @@
         ],
 
     "updatedBy": {
-        "self": "{{ host }}/v2/users/1120000000016876",
+        "self": "https://{{ host }}/v2/users/1120000000016876",
         "id": "<id сотрудника>",
         "display": "<отображаемое имя сотрудника>"
         },
     "description": "<#<html><head></head><body><div>test</div><div>&nbsp;</div><div>&nbsp;</div> </body></html>#>",
     "sprint": [
             {
-        "self": "{{ host }}/v2/sprints/5317",
+        "self": "https://{{ host }}/v2/sprints/5317",
         "id": "5317",
         "display": "спринт1"
             }
         ],
     "type": {
-        "self": "{{ host }}/v2/issuetypes/2",
+        "self": "https://{{ host }}/v2/issuetypes/2",
         "id": "2",
         "key": "task",
         "display": "Задача"
         },
     "priority": {
-        "self": "{{ host }}/v2/priorities/2",
+        "self": "https://{{ host }}/v2/priorities/2",
         "id": "2",
         "key": "normal",
         "display": "Средний"
@@ -46,37 +46,42 @@
     "createdAt": "2017-06-11T05:16:01.339+0000",
     "followers": [
         {
-        "self": "{{ host }}/v2/users/1120000000016876",
+        "self": "https://{{ host }}/v2/users/1120000000016876",
         "id": "<id сотрудника>",
         "display": "<отображаемое имя сотрудника>"
         }
         ],
     "createdBy": {
-        "self": "{{ host }}/v2/users/1120000000049224",
+        "self": "https://{{ host }}/v2/users/1120000000049224",
         "id": "<id сотрудника>",
         "display": "<отображаемое имя сотрудника>"
         },
     "votes": 0,
     "assignee": {
-        "self": "{{ host }}/v2/users/1120000000049224",
+        "self": "https://{{ host }}/v2/users/1120000000049224",
         "id": "<id сотрудника>",
         "display": "<отображаемое имя сотрудника>"
         },
+    "project": {
+        "display": "Проект Стартрек",
+        "id": "1",
+        "self": "https://{{ host }}/v2/projects/1"
+    },
     "queue": {
-        "self": "{{ host }}/v2/queues/TREK",
+        "self": "https://{{ host }}/v2/queues/TREK",
         "id": "111",
         "key": "TREK",
         "display": "Стартрек"
         },
     "updatedAt": "2017-07-18T13:33:44.291+0000",
     "status": {
-        "self": "{{ host }}/v2/statuses/1",
+        "self": "https://{{ host }}/v2/statuses/1",
         "id": "1",
         "key": "open",
         "display": "Открыт"
         },
     "previousStatus": {
-        "self": "{{ host }}/v2/statuses/2",
+        "self": "https://{{ host }}/v2/statuses/2",
         "id": "2",
         "key": "resolved",
         "display": "Решен"
@@ -109,6 +114,7 @@
    [createdBy](#created-by) | Объект с информацией о создателе задачи. | Объект
    votes | Количество голосов за задачу. | Число
    [assignee](#assignee) | Объект с информацией об исполнителе задачи. | Объект
+   [project](#project) | Объект с информацией о проекте задачи. | Объект
    [queue](#queue) | Объект с информацией об очереди задачи. | Объект
    updatedAt | Дата и время последнего обновления задачи. | Строка
    [status](#status) | Объект с информацией о статусе задачи. | Объект
@@ -145,6 +151,10 @@
    **Поля объекта** `assignee` {#assignee}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
+
+   **Поля объекта** `project` {#project}
+
+   {% include [queue](../../../_includes/tracker/api/project.md) %}
 
    **Поля объекта** `queue` {#queue}
 

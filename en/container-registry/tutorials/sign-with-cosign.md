@@ -1,3 +1,3 @@
-# Signing and verifying {{ container-registry-name }} Docker images in {{ managed-k8s-name }}
+# Signing and verifying {{ container-registry-name }} Docker images in {{ managed-k8s-full-name }}
 
-{% include notitle [sign-cr-with-cosign](../../_tutorials/sign-cr-with-cosign.md) %}
+{% include notitle [sign-cr-with-cosign](../../_tutorials/containers/sign-cr-with-cosign.md) %}

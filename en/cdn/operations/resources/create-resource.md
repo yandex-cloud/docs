@@ -19,7 +19,7 @@ To create a [resource](../../concepts/resource.md):
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. If you do not have any CDN resources, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**. A connection is established automatically.
+   1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
 
    1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 
@@ -96,7 +96,7 @@ To create a [resource](../../concepts/resource.md):
 
       ```bash
       - id: "90209"
-        folder_id: somefolder7p********
+        folder_id: s0mefo1der7p********
         name: test-group-1
         use_next: true
         origins:
@@ -128,97 +128,83 @@ To create a [resource](../../concepts/resource.md):
    1. Create a resource:
 
       ```bash
-      yc cdn resource create <resource domain name> \
-        --origin-group-id <origin group ID> \
-        --origin-protocol <protocol for origins>
+      yc cdn resource create <resource_domain_name> \
+        --origin-group-id <origin_group_ID> \
+        --origin-protocol <protocol_used_for_origins>
       ```
 
       * Instead of `--origin-group-id`, you can specify the origin domain name using the `--origin-custom-source` flag.
       * Possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
 
+      If you want to restrict access to the new resource with [secure tokens](../../concepts/secure-tokens.md), use the following parameters:
+      * `--secure-key>`: Secret key that is an arbitrary string of 6 to 32 characters.
+      * `--enable-ip-url-signing`: Optional parameter that restricts access to a CDN resource based on IP. A trusted IP address is specified as a parameter outside a CDN resource when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [signed link](../../concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP.
+
+      See also [{#T}](./enable-secure-token.md).
+
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
 - {{ TF }}
 
-   Make sure the CDN provider is activated before you start using CDN resources. You can activate it in the [management console]({{ link-console-main }}) or using the [YC CLI](../../../cli/quickstart.md) command:
+   Make sure to activate the CDN provider before a resource is created. You can activate it in the [management console]({{ link-console-main }}) or using the [YC CLI](../../../cli/quickstart.md) command:
 
+   ```bash
+   yc cdn provider activate \
+     --folder-id <folder ID> \
+     --type gcore
    ```
-   yc cdn provider activate --folder-id <folder ID> --type gcore
-   ```
+
+   Where:
+   * `--folder-id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) where you want to activate the CDN provider.
+   * `--type`: Provider type, it may only take the `gcore` value.
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the CDN resource to create:
 
-      
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source  = "yandex-cloud/yandex"
-            version = "0.69.0"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-      }
-
       resource "yandex_cdn_resource" "my_resource" {
-          cname               = "cdn1.yandex-example.ru"
-          active              = false
+          cname               = "<domain_name>"
+          active              = true
           origin_protocol     = "https"
-          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = yandex_cdn_origin_group.my_group.id
+          origin_group_id     = <origin_group_ID>
+          secondary_hostnames = ["<additional_domain_name_1>", "additional_domain_name_2"]
+          ssl_certificate {
+            type = "certificate_manager"
+            certificate_manager_id = "<certificate_ID>"
+          }
+          options {
+            redirect_http_to_https = true
+          }
       }
       ```
-
-
 
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter. The default value is `true`.
-      * `origin_protocol`: Origin protocol. This is an optional parameter. The default value is `http`.
-      * `secondary_hostnames`: Additional domain names. This is an optional parameter.
+      * `active`: (Optional) Flag indicating whether content is available to end users (`true` means that CDN content is available and `false` means it is not available). The default value is `true`.
+      * `origin_protocol`: (Optional) Origin protocol. The default value is `HTTP`.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `secondary_hostnames`: (optional) Additional domain names.
+      * `ssl_certificate`: (Optional) SSL certificate parameters:
+         * `type`: Certificate type, possible values are:
+            * `not_used`: No certificate is used. Default value:
+            * `certificate_manager`: Custom [{{ certificate-manager-full-name }}](../../../certificate-manager/concepts/imported-certificate.md) certificate. Specify the certificate ID in the `certificate_manager_id` parameter.
+         * `certificate_manager_id`: Custom certificate's ID in {{ certificate-manager-name }}.
+      * `options`: (Optional) Additional parameters of the CDN resource:
+         * `redirect_http_to_https`: Parameter for client redirects from HTTP to HTTPS, `true` or `false`. Available if an SSL certificate is used.
 
-      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+         For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
+   1. Create resources:
 
-   1. Check the configuration using this command:
-      ```
-      terraform validate
-      ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      If the configuration is correct, you will get this message:
+      {{ TF }} will create all the required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
-      ```
-      Success! The configuration is valid.
-      ```
-
-   1. Run this command:
-      ```
-      terraform plan
-      ```
-
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Apply the configuration changes:
-      ```
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
-
-      ```
+      ```bash
       yc cdn resource list
       ```
 
@@ -251,7 +237,7 @@ To create a [resource](../../concepts/resource.md):
    Result:
 
    ```bash
-   id: someidkfjq********
+   id: s0me1dkfjq********
 
    ...
 

@@ -1,4 +1,4 @@
-# Справочник метрик {{ monitoring-full-name }} 
+# Справочник метрик {{ monitoring-full-name }}
 
 В этом разделе описаны метрики L7-балансировщика, поставляемые в [{{ monitoring-name }}](../monitoring/).
 

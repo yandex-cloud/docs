@@ -18,7 +18,13 @@ description: "The page contains all guides for {{ speechsense-name }} in {{ yand
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
 
+## Connection management {#connection}
+
+* [{#T}](connection/create.md)
+
 ## Project management {#project}
 
+* [{#T}](project/create.md)
 * [{#T}](project/add-user-to-project.md)
+* [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)

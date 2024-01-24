@@ -15,9 +15,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `data-proc-network`, при создании выключив опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. В сети `data-proc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) со следующими параметрами:
@@ -60,7 +60,7 @@
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `data-proc-network`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `data-proc-security-group`.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. Если у вас еще нет {{ TF }}, [установите и настройте](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) его.
     1. [Скачайте файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -104,9 +104,9 @@
 
 Создайте ресурсы:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте внутреннюю зону DNS](../../dns/operations/zone-create-private.md) с настройками:
 
@@ -118,7 +118,7 @@
        * **{{ ui-key.yacloud.common.name }}** — `data-proc-test-user.org.`.
        * **{{ ui-key.yacloud.dns.label_records }}** — [FQDN хоста-мастера](../../data-proc/operations/connect.md#fqdn) кластера {{ dataproc-name }}.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. [Получите адрес FQDN](../../data-proc/operations/connect.md#fqdn) хоста-мастера кластера {{ dataproc-name }}.
     1. Укажите в файле `data-proc-dns-connect.tf` переменную:
@@ -151,14 +151,14 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 
 ## Удалите кластер и создайте его заново {#recreate-cluster}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Удалите кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md) и создайте новый с [идентичными характеристиками](#deploy-infrastructure).
     1. [Измените DNS-запись](../../dns/operations/resource-record-update.md), созданную [ранее](#dns-record), и укажите в параметре **{{ ui-key.yacloud.dns.label_records }}** FQDN хоста-мастера вновь созданного кластера.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. Удалите секцию `yandex_dataproc_cluster` в файле `data-proc-dns-connect.tf`.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -219,9 +219,9 @@ rc1a-dataproc-m-8kompl81232cdsu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Удалите кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
@@ -230,7 +230,7 @@ rc1a-dataproc-m-8kompl81232cdsu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
     1. [Удалите сеть](../../vpc/operations/network-delete.md).
     1. [Удалите DNS-зону](../../dns/operations/zone-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

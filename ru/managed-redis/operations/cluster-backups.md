@@ -13,9 +13,9 @@ description: "Вы можете создавать резервные копии
 
 Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в каталоге не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится. Средняя скорость восстановления из резервной копии — 10 МБайт/с.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы восстановить из резервной копии существующий кластер:
 
@@ -38,7 +38,7 @@ description: "Вы можете создавать резервные копии
 
   {{ mrd-name }} запустит операцию создания кластера из резервной копии.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@ description: "Вы можете создавать резервные копии
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
-- API
+- API {#api}
 
     Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore).
 
@@ -101,9 +101,9 @@ description: "Вы можете создавать резервные копии
 
 ## Создать резервную копию {#create-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно создать резервную копию.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
@@ -112,7 +112,7 @@ description: "Вы можете создавать резервные копии
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -134,7 +134,7 @@ description: "Вы можете создавать резервные копии
 
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
     Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -146,9 +146,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить список резервных копий {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
@@ -160,7 +160,7 @@ description: "Вы можете создавать резервные копии
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -183,7 +183,7 @@ description: "Вы можете создавать резервные копии
   +--------------------------+---------------------+----------------------+---------------------+
   ```
 
-- API
+- API {#api}
 
     Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -195,9 +195,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить информацию о резервной копии {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, информацию о копии которого нужно получить.
@@ -209,7 +209,7 @@ description: "Вы можете создавать резервные копии
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -223,7 +223,7 @@ description: "Вы можете создавать резервные копии
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API
+- API {#api}
 
     Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
@@ -233,13 +233,13 @@ description: "Вы можете создавать резервные копии
 
 ## Задать время начала резервного копирования {#set-backup-window}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Время начала резервного копирования можно задать при [создании](cluster-create.md) или [изменении](update.md#change-redis-config) кластера в блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**.
 
-- CLI
+- CLI {#cli}
 
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате `ЧЧ:ММ:СС`.
 
@@ -262,7 +262,7 @@ description: "Вы можете создавать резервные копии
      --backup-window-start 11:25:00
   ```
 
-- API
+- API {#api}
 
   Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update).
 

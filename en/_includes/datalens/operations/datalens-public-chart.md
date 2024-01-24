@@ -3,7 +3,7 @@
 
 
 1. On the [navigation page](https://datalens.yandex.ru/navigation), find the chart you need and open it.
-1. At the top of the wizard interface, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select ![image](../../../_assets/datalens/share.svg) **Public access**.
+1. At the top of the wizard interface, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/nodes-right.svg) **Public access**.
 1. In the window that opens, set up public access as follows:
 
    1. Under **Current object**, enable publishing. You will see a link for public access to the chart below.

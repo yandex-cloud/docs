@@ -28,6 +28,10 @@ Aliases:
 - [yc compute placement-group delete](delete.md) — Delete the specified placement group
 - [yc compute placement-group list-instances](list-instances.md) — List instances of the specified placement group
 - [yc compute placement-group list-operations](list-operations.md) — List operations for the specified placement group
+- [yc compute placement-group list-access-bindings](list-access-bindings.md) — List access bindings for the specified placement group
+- [yc compute placement-group set-access-bindings](set-access-bindings.md) — Set access bindings for the specified placement group and delete all existing access bindings if there were any
+- [yc compute placement-group add-access-binding](add-access-binding.md) — Add access binding for the specified placement group
+- [yc compute placement-group remove-access-binding](remove-access-binding.md) — Remove access binding for the specified placement group
 
 #### Global Flags
 

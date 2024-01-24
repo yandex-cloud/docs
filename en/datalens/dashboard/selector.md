@@ -1,10 +1,16 @@
 # Selectors
 
-Selectors are filters that affect the results of queries in their widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-A selector can be linked to a chart or another selector.
-For more information, see [{#T}](./link.md).
+Selectors are filters that affect the results of queries in the linked [widgets](./widget.md). To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
+A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
 
 A selector works within a single dashboard tab.
+
+{{ datalens-short-name }} supports multiple selector types:
+
+* **List**: Allows selecting one or multiple values from a list.
+* **Input field**: Used for entering a field value manually.
+* **Calendar**: Used for entering values of the `Date` or `Date and time` type.
+* **Checkbox**: Allows selecting one of the two possible `Boolean` type values, `True` or `False`. To choose both boolean values, use the **List** selector type.
 
 When adding a selector to a dashboard, consider how it affects chart filters:
 
@@ -14,7 +20,7 @@ When adding a selector to a dashboard, consider how it affects chart filters:
 
 To apply double filtering to a field (through a selector and chart filter), create a duplicate of this field in the chart. In this case, you can apply filtering to the duplicate within the chart and add a selector by the original field to the dashboard.
 
-Filters applied to charts using selectors are displayed in the **Dashboard filters** section. It's available if you open the chart to edit from the dashboard. To clear all the dashboard filters, click ![image](../../_assets/datalens/delete.svg) in the upper-left corner of the section.
+Filters applied to charts using selectors are displayed in the **Dashboard filters** section. It is available if you open the chart to edit from the dashboard. To clear all the dashboard filters, click ![image](../../_assets/console-icons/trash-bin.svg) in the top-left corner of the section.
 
 #### See also {#see-also}
 

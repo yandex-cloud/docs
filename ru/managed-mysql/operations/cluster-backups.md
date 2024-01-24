@@ -11,9 +11,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить список резервных копий {#list-backups}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
@@ -23,7 +23,7 @@ description: "Вы можете создавать резервные копии
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -46,7 +46,7 @@ description: "Вы можете создавать резервные копии
   +--------------------------+---------------------+----------------------+---------------------+
   ```
 
-- API
+- API {#api}
 
   Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/cluster_service.md#ListBackups) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -58,9 +58,9 @@ description: "Вы можете создавать резервные копии
 
 ## Получить информацию о резервной копии {#get-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
@@ -70,7 +70,7 @@ description: "Вы можете создавать резервные копии
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -84,7 +84,7 @@ description: "Вы можете создавать резервные копии
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API
+- API {#api}
 
   Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/backup_service.md#Get) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
 
@@ -94,9 +94,9 @@ description: "Вы можете создавать резервные копии
 
 ## Создать резервную копию {#create-backup}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
@@ -104,7 +104,7 @@ description: "Вы можете создавать резервные копии
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -126,7 +126,7 @@ description: "Вы можете создавать резервные копии
 
       Идентификатор и имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
   Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/cluster_service.md#Backup) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -142,9 +142,9 @@ description: "Вы можете создавать резервные копии
 
 Для нового кластера необходимо задать все параметры, обязательные при создании, кроме типа кластера.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Чтобы восстановить из резервной копии существующий кластер:
 
@@ -170,7 +170,7 @@ description: "Вы можете создавать резервные копии
 
   {{ mmy-name }} запустит операцию создания кластера из резервной копии.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -253,7 +253,7 @@ description: "Вы можете создавать резервные копии
           * `network-ssd-nonreplicated`.
 
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Используйте {{ TF }} для восстановления:
 
@@ -346,7 +346,7 @@ description: "Вы можете создавать резервные копии
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
   Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) и передайте в запросе:
 
@@ -358,13 +358,13 @@ description: "Вы можете создавать резервные копии
 
 ## Задать время начала резервного копирования {#set-backup-window}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
-  В [консоли управления]({{ link-console-main }}) задать время начала резервного копирования можно только при [изменении кластера](update.md).
+  В [консоли управления]({{ link-console-main }}) задать время начала резервного копирования можно при [создании](cluster-create.md) или [изменении кластера](update.md).
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -381,7 +381,7 @@ description: "Вы можете создавать резервные копии
 
   Идентификатор и имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -416,7 +416,7 @@ description: "Вы можете создавать резервные копии
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-- API
+- API {#api}
 
     Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
@@ -432,13 +432,13 @@ description: "Вы можете создавать резервные копии
 
 Минимальное значение приоритета использования хоста при создании резервных копий — `0`, максимальное — `100`, по умолчанию — `0`. Источником резервного копирования выбирается хост-реплика с наибольшим приоритетом. Подробнее см. раздел [Создание резервной копии](../concepts/backup.md#size).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   В [консоли управления]({{ link-console-main }}) приоритет хоста задается при [создании](cluster-create.md) кластера, [добавлении](../operations/hosts.md#add) в него новых хостов или [изменении настроек](../operations/hosts.md#update) существующих.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -456,7 +456,7 @@ description: "Вы можете создавать резервные копии
 
   Имя хоста можно запросить со [списком хостов в кластере](hosts.md#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API
+- API {#api}
 
   Чтобы задать приоритет хоста, воспользуйтесь методом REST API [updateHosts](../api-ref/Cluster/updateHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) и передайте в запросе:
 

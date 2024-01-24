@@ -36,9 +36,9 @@
 
 Создайте [секрет](../../lockbox/quickstart.md) {{ lockbox-name }} для хранения [OAuth-токена](../../iam/concepts/authorization/oauth-token.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать секрет.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -49,7 +49,7 @@
      * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение OAuth-токена, необходимого для авторизации функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать секрет, выполните команду:
 
@@ -72,7 +72,7 @@
       - key_token
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры секрета:
 
@@ -116,7 +116,7 @@
 
      1. Подтвердите создание секрета: введите в терминал слово `yes` и нажмите **Enter**.
 
-- API
+- API {#api}
 
   Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/secret_service.md#Create).
 
@@ -190,9 +190,9 @@
 
 ## Создайте функцию {#func-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -220,7 +220,7 @@
         * Если вы не хотите сохранять логи и платить за использование сервиса {{ cloud-logging-name }}, в блоке **{{ ui-key.yacloud.logging.label_title }}**, в поле **{{ ui-key.yacloud.logging.label_destination }}**, выберите `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`, чтобы отключить логирование.
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -289,7 +289,7 @@
        folder_id: b1g9d2k0itu4********
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры функции `function-restart-vms` и ее [версии](../../functions/concepts/function.md#version):
@@ -376,7 +376,7 @@
         status: ACTIVE
         ```
 
-- API
+- API {#api}
 
   Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/function_service.md#Create).
 
@@ -388,9 +388,9 @@
 
 {% include [trigger-time](../../_includes/functions/trigger-time.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [триггер](../../functions/concepts/trigger/index.md).
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -406,7 +406,7 @@
      * Сервисный аккаунт с правами на вызов функции, который создали ранее.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
   Чтобы создать [триггер](../../functions/concepts/trigger/index.md), который вызывает функцию, выполните команду:
 
@@ -436,7 +436,7 @@
   status: ACTIVE
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы создать [триггер](../../functions/concepts/trigger/index.md), который запускает функцию:
   1. Опишите в конфигурационном файле параметры триггера `timer`:
@@ -497,7 +497,7 @@
         status: ACTIVE
         ```
 
-- API
+- API {#api}
 
   Чтобы создать таймер, воспользуйтесь методом REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create).
 
@@ -505,9 +505,9 @@
 
 ## Протестируйте работу функции {#test}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана ваша прерываемая ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.

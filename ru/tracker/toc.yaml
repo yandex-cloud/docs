@@ -221,6 +221,8 @@ items:
             href: manager/portfolio.md
           - name: Создать портфель
             href: manager/create-portfolio.md
+      - name: Посмотреть историю изменений проекта или портфеля
+        href: manager/history.md
   - name: Доски задач
     items:
       - name: Обзор
@@ -526,7 +528,7 @@ items:
             href: concepts/issues/delete-checklist.md
           - name: Удалить пункт чеклиста
             href: concepts/issues/delete-checklist-item.md
-      - name: Проекты
+      - name: Проекты (старая версия)
         items:
           - name: Создать проект
             href: concepts/projects/create-project.md
@@ -540,7 +542,7 @@ items:
             href: concepts/projects/update-project.md
           - name: Удалить проект
             href: concepts/projects/delete-project.md
-      - name: Проекты и портфели (новая версия)
+      - name: Проекты и портфели
         items:
           - name: Проекты и портфели. Обзор
             href: concepts/entities/about-entities.md
@@ -556,6 +558,52 @@ items:
             href: concepts/entities/search-entities.md
           - name: Массовое редактирование сущностей
             href: concepts/entities/bulkchange-entities.md
+          - name: Получить историю событий сущности
+            href: concepts/entities/get-events-relative.md
+          - name: Комментарии
+            items:
+              - name: Добавить комментарий
+                href: concepts/entities/comments/add-comment.md
+              - name: Редактировать комментарий
+                href: concepts/entities/comments/patch-comment.md
+              - name: Получить все комментарии
+                href: concepts/entities/comments/get-all-comments.md
+              - name: Получить комментарий
+                href: concepts/entities/comments/get-comment.md
+              - name: Удалить комментарий
+                href: concepts/entities/comments/delete-comment.md
+          - name: Чеклисты сущности
+            items:
+              - name: Создать чеклист или добавить в него пункты
+                href: concepts/entities/checklists/add-checklist.md
+              - name: Редактировать чеклист
+                href: concepts/entities/checklists/patch-checklist.md
+              - name: Редактировать пункт
+                href: concepts/entities/checklists/patch-checklist-item.md
+              - name: Переместить пункт
+                href: concepts/entities/checklists/move-checklist-item.md
+              - name: Удалить чеклист
+                href: concepts/entities/checklists/delete-checklist.md
+              - name: Удалить один пункт
+                href: concepts/entities/checklists/delete-checklist-item.md
+          - name: Прикрепленные файлы
+            items:
+              - name: Получить список прикрепленных файлов
+                href: concepts/entities/attachments/get-all-attachments.md
+              - name: Получить информацию о прикрепленном файле
+                href: concepts/entities/attachments/get-attachment.md
+              - name: Прикрепить файл
+                href: concepts/entities/attachments/add-attachment.md
+              - name: Удалить файл
+                href: concepts/entities/attachments/delete-attachment.md
+          - name: Связи сущностей
+            items:
+              - name: Связать сущности
+                href: concepts/entities/links/add-links.md
+              - name: Получить связи
+                href: concepts/entities/links/get-links.md
+              - name: Удалить связь
+                href: concepts/entities/links/delete-link.md
       - name: Комментарии
         items:
           - name: Добавить комментарий

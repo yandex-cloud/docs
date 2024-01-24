@@ -51,9 +51,7 @@ The {{ MY }} target ignores the source schema name and creates tables in the sch
 
 ## {{ PG }} {#postgresql}
 
-{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
-
-If the definition of the `VIEW` to be transferred contains an invocation of the `VOLATILE` [function]({{ pg.docs.org }}/current/xfunc-volatility.html), the transfer reads data from this `VIEW` with the `READ UNCOMMITTED` isolation level. No consistency between the `VIEW` data and the data of other objects being transferred is guaranteed. Reading data from a `MATERIALIZED VIEW` in the `VIEW` definition are equivalent to invoking the `VOLATILE` function.
+{% include [pg-types-limits](../../_includes/data-transfer/notes/pg-source-features.md) %}
 
 The source treats `FOREIGN TABLE` as a regular view and uses the general algorithm for views when handling them.
 

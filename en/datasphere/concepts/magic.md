@@ -28,7 +28,7 @@ To run bash commands, put `bash` explicitly at the beginning of the cell:
 * With a configuration specified:
 
    ```
-   #!<configuration name>:bash
+   #!<configuration_name>:bash
    ```
 
    > For example, to run commands in the c1.4 configuration, enter `#!c1.4:bash`
@@ -60,7 +60,7 @@ The state of cells is saved after they are run and the variable values are overw
 To specify that a variable in a cell is read-only, use this command:
 
 ```
-#pragma readonly/ro <variable 1>, <variable 2>
+#pragma readonly/ro <variable_1>, <variable_2>
 ```
 
 Put this command in the first lines of the cell before the code; you may also put it after the configuration update (`#!c1.4`,&nbsp;`#!g1.1`).

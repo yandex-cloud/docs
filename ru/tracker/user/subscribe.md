@@ -18,7 +18,7 @@
 
 1. Откройте страницу задачи.
 
-1. На правой панели в поле **{{ ui-key.startrek-backend.fields.issue.followers }}** нажмите **Добавить меня**. Если поля **{{ ui-key.startrek-backend.fields.issue.followers }}** нет, добавьте его с помощью кнопки ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}**.
+1. На правой панели в поле **{{ ui-key.startrek-backend.fields.issue.followers }}** нажмите **Добавить меня**. Если поля **{{ ui-key.startrek-backend.fields.issue.followers }}** нет, добавьте его с помощью кнопки ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}**.
 
 
 Если вы все сделали правильно, в поле наблюдатели появится ваше имя. Теперь вы будете получать письма с уведомлениями о любых изменениях этой задачи.

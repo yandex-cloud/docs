@@ -6,9 +6,9 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. Если вы зарезервировали для [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) [публичный статический IP-адрес](../../vpc/concepts/address.md#public-addresses), [удалите его](../../vpc/operations/address-delete.md).
@@ -16,7 +16,7 @@
   1. [Удалите реестр {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
   1. [Удалите подсети](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
   1. В терминале перейдите в директорию с планом инфраструктуры.

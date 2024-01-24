@@ -33,11 +33,11 @@ To make it easier to compare different values, you can add conditional formattin
 
 ## Sections in the wizard {#wizard-sections}
 
-| Section<br/> in the wizard | Description |
+| Wizard section | Description |
 ----- | ----
 | Columns | Dimensions and measures to be used as columns. Field names are used as column headers. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
-| Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. |
+| Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) descending. To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a table {#create-diagram}
@@ -68,13 +68,13 @@ To create a table:
 
 ### Setting up table data sorting by multiple columns {#sorting-columns}
 
-1. On the left side of the screen above the chart, click ![image](../../_assets/datalens/gear.svg).
+1. On the left side of the screen above the chart, click ![image](../../_assets/console-icons/gear.svg).
 1. Enable the **Pagination** setting and click **Apply**.
 1. Press and hold **Ctrl** while clicking the headers of columns to change the sorting for.
 
 ### Setting up the width of table columns {#set-column-width}
 
-1. In the top-right corner of the **Columns** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you hover over the section).
+1. In the top-right corner of the **Columns** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
 1. In the **Column width** window that opens, set up the width of each column:
 
    * `Auto`: Automatic column width.
@@ -101,7 +101,7 @@ To set the width of any column to `Auto`, click **Reset**.
 
 ### Adding a row with totals {#add-totals}
 
-1. On the left side of the screen above the chart, click ![image](../../_assets/datalens/gear.svg).
+1. On the left side of the screen above the chart, click ![image](../../_assets/console-icons/gear.svg).
 1. Enable the **Totals** settings.
 
 The **Total** row is displayed in the table. Values in the row are calculated using the same formulas as [aggregation](../concepts/dataset/data-model.md#aggregation) in the measure.
@@ -115,13 +115,13 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 ### Adding row colors {#add-column-colour}
 
 1. Drag a measure to the **Color** section.
-1. In the top-right corner of the **Color** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you mouse over the section).
+1. In the top-right corner of the **Color** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you mouse over the section).
 1. Set up colors:
 
-    * **Gradient type**: Select 2 or 3 colors.
+   * **Gradient type**: Select 2 or 3 colors.
       * Gradient color: Select a color palette for the gradient from the list.
-      * Gradient direction: Change the gradient direction using the ![image](../../_assets/datalens/swap.svg) icon.
-    * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
+      * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
+   * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
 
 ### Setting up a field fill color {#set-field-colour}
 
@@ -140,21 +140,21 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
    - For a dimension
 
-     1. Click the color scheme selection field and set a color for each dimension value.
-     1. Click **Apply**.
+      1. Click the color scheme selection field and set a color for each dimension value.
+      1. Click **Apply**.
 
    - For a measure
 
-     1. Click the gradient selection field and set up:
+      1. Click the gradient selection field and set up:
 
-        * **Gradient type**: Select 2 or 3 colors.
+         * **Gradient type**: Select 2 or 3 colors.
 
-          * Gradient color: Select a color palette for the gradient from the list.
-          * Gradient direction: Change the gradient direction using the ![image](../../_assets/datalens/swap.svg) icon.
+            * Gradient color: Select a color palette for the gradient from the list.
+            * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
 
-        * **Set threshold values**: Set numeric thresholds for each color.
+         * **Set threshold values**: Set numeric thresholds for each color.
 
-     1. Click **Apply**.
+      1. Click **Apply**.
 
    {% endlist %}
 
@@ -190,68 +190,68 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
 ## Recommendations {#recomendations}
 
-* Limit the size of a table, or use filters or sorting. It is hard to read tables with a large number of rows or columns.
+* Limit the size of your tables or use filters/sorting. Tables with too many rows or columns are hard to read.
 * Use tables for their intended purpose only. Do not replace all data visualization types with them.
-* Place dimensions on the left and measures on the right. This makes it easier to comprehend the data.
+* Place dimensions on the left and measures on the right. This makes the data easier to comprehend.
 * Make sure column names you use are short and readable.
 * Enable the display of totals at the bottom of a table. If the **Pagination** option is selected, the `Total` row is placed on the last page.
 
-  {% cut "Table with totals and pagination" %}
+   {% cut "Table with totals and pagination" %}
 
-  ![table-pagination](../../_assets/datalens/visualization-ref/table-chart/table-pagination.png)
+   ![table-pagination](../../_assets/datalens/visualization-ref/table-chart/table-pagination.png)
 
-  {% endcut %}
+   {% endcut %}
 
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
 
-  {% cut "Setting up auto height" %}
+   {% cut "Setting up auto height" %}
 
-  ![table-auto-height](../../_assets/datalens/visualization-ref/table-chart/table-auto-height.png)
+   ![table-auto-height](../../_assets/datalens/visualization-ref/table-chart/table-auto-height.png)
 
-  {% endcut %}
+   {% endcut %}
 
-  If you use a filter, the table height will automatically adapt to the number of rows.
+   If you use a filter, the table height will automatically adapt to the number of rows.
 
-  {% cut "Using a filter with the auto height option enabled" %}
+   {% cut "Using a filter with the auto height option enabled" %}
 
-  If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
+   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
 
-  ![table-auto-height-2](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-2.png)
+   ![table-auto-height-2](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-2.png)
 
-  If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
+   If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
 
-  ![table-auto-height-3](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-3.png)
+   ![table-auto-height-3](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-3.png)
 
-  {% endcut %}
+   {% endcut %}
 
 * Represent totals (or subtotals) as a column. To do this, use calculated fields based on [window functions](../concepts/window-function-tutorial.md) or [LOD expressions](../concepts/lod-aggregation.md). For example:
 
-  * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
-  * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
+   * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
+   * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
 
-    {% cut "Sample table" %}
+      {% cut "Sample table" %}
 
-    ![table-sum](../../_assets/datalens/visualization-ref/table-chart/table-sum.png)
+      ![table-sum](../../_assets/datalens/visualization-ref/table-chart/table-sum.png)
 
-    {% endcut %}
+      {% endcut %}
 
-  * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
+   * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
 
-    {% cut "Sample table" %}
+      {% cut "Sample table" %}
 
-    ![table-count](../../_assets/datalens/visualization-ref/table-chart/table-count.png)
+      ![table-count](../../_assets/datalens/visualization-ref/table-chart/table-count.png)
 
-    {% endcut %}
+      {% endcut %}
 
 * Use sorting. This makes the data easier to comprehend.
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
 
 * If a table cell contains a long text, [set up](#additional-settings) the column width to enable a row break in cells.
 
-  {% cut "Setup example" %}
+   {% cut "Setup example" %}
 
-  ![table-column-width](../../_assets/datalens/visualization-ref/table-chart/table-column-width.png)
+   ![table-column-width](../../_assets/datalens/visualization-ref/table-chart/table-column-width.png)
 
-  {% endcut %}
+   {% endcut %}
 
 * When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the drop-down list of the **Units** field, the `10.3 M` value is displayed instead of `10,345,234.23`. If you set the `Precision` field value to `2`, then `123.12` is displayed instead of `123.1234`.

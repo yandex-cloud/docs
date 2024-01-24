@@ -20,8 +20,8 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
   1. Create the following [service accounts](../../../iam/operations/sa/create.md):
-     * [Service account](../../../iam/concepts/users/service-accounts.md) with the [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) [role](../../../iam/concepts/access-control/roles.md) for the folder where your {{ managed-k8s-name }} cluster will reside. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-     * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
+     * Service account with the [roles](../../security/index.md#yc-api) `k8s.clusters.agent` and `vpc.publicAdmin` for the folder where the {{ managed-k8s-name }} cluster is created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+     * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
 
      You can use the same service account for both operations.
 
@@ -43,9 +43,11 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
 - CLI
 
-   1. {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To create a cluster:
 
    1. Specify the {{ managed-k8s-name }} cluster parameters in the create command (the example shows only some of the parameters):
 
@@ -99,7 +101,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
         release_channel: REGULAR
       ```
 
-   1. To activate the Calico [network policy controller](../../concepts/network-policy.md), set the `--enable-network-policy` flag in the {{ managed-k8s-name }} cluster create command:
+   1. To enable the Calico [network policy controller](../../concepts/network-policy.md), set the `--enable-network-policy` flag in the {{ managed-k8s-name }} cluster create command:
 
       ```bash
       {{ yc-k8s }} cluster create \
@@ -118,7 +120,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
       {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-  1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` parameter of the {{ managed-k8s-name }} cluster create command:
+   1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` parameter of the {{ managed-k8s-name }} cluster create command:
 
       ```bash
       {{ yc-k8s }} cluster create \
@@ -232,54 +234,37 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
 ### Creating a zonal {{ managed-k8s-name }} cluster {#example-zonal-cluster}
 
-{% list tabs %}
+  Create a {{ managed-k8s-name }} cluster and a network for it with the following test characteristics:
 
-- {{ TF }}
+   * Name: `k8s-zonal`.
+   * [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID: `{{ tf-folder-id }}`.
+   * Network: `mynet`.
+   * Subnet: `mysubnet`. Its network settings are as follows:
 
-   Create a {{ managed-k8s-name }} cluster and a network for it with the following test characteristics:
-
-    * Name: `k8s-zonal`.
-    * Version: `1.22`.
-    * [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) ID: `{{ tf-cloud-id }}`.
-    * [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID: `{{ tf-folder-id }}`.
-    * Network: `mynet`.
-    * Subnet: `mysubnet` Its network settings are as follows:
-
-      * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
-      * Range: `10.1.0.0/16`
+      * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+      * Range: `10.1.0.0/16`.
 
    * Service account: `myaccount`.
-   * Service account permissions: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer`.
-   * [{{ kms-full-name }} encryption key](../../concepts/encryption.md): `kms-key`.
+   * Service account [roles](../../../iam/concepts/access-control/roles.md): `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.keys.encrypterDecrypter`.
+   * {{ kms-full-name }} [encryption key](../../concepts/encryption.md): `kms-key`.
    * [Security group](../../../vpc/concepts/security-groups.md): `k8s-public-services`. It contains [rules for connecting to services from the internet](../connect/security-groups.md#rules-nodes).
 
    Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
 
-   
+{% list tabs %}
+
+- {{ TF }}
+
+    
     ```hcl
     locals {
-      cloud_id    = "{{ tf-cloud-id }}"
-      folder_id   = "{{ tf-folder-id }}"
-      k8s_version = "1.22"
-      sa_name     = "myaccount"
-    }
-
-    terraform {
-      required_providers {
-        yandex = {
-          source = "yandex-cloud/yandex"
-        }
-      }
-    }
-
-    provider "yandex" {
-      folder_id = local.folder_id
+       folder_id   = "{{ tf-folder-id }}"
     }
 
     resource "yandex_kubernetes_cluster" "k8s-zonal" {
+      name = "k8s-zonal"
       network_id = yandex_vpc_network.mynet.id
       master {
-        version = local.k8s_version
         zonal {
           zone      = yandex_vpc_subnet.mysubnet.zone
           subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -291,7 +276,8 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
       depends_on = [
         yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
         yandex_resourcemanager_folder_iam_member.vpc-public-admin,
-        yandex_resourcemanager_folder_iam_member.images-puller
+        yandex_resourcemanager_folder_iam_member.images-puller,
+        yandex_resourcemanager_folder_iam_member.encrypterDecrypter
       ]
       kms_provider {
         key_id = yandex_kms_symmetric_key.kms-key.id
@@ -303,48 +289,50 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
     }
 
     resource "yandex_vpc_subnet" "mysubnet" {
+      name = "mysubnet"
       v4_cidr_blocks = ["10.1.0.0/16"]
       zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
     }
 
     resource "yandex_iam_service_account" "myaccount" {
-      name        = local.sa_name
+      name        = "zonal-k8s-account"
       description = "K8S zonal service account"
     }
 
     resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
-      # The service account is assigned the k8s.clusters.agent role.
+      # The service account is assigned the "k8s.clusters.agent" role.
       folder_id = local.folder_id
       role      = "k8s.clusters.agent"
       member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
     }
 
     resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
-      # The service account is assigned the vpc.publicAdmin role.
+      # The service account is assigned the "vpc.publicAdmin" role.
       folder_id = local.folder_id
       role      = "vpc.publicAdmin"
       member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
     }
 
     resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
-      # The service account is assigned the container-registry.images.puller role.
+      # The service account is assigned the "container-registry.images.puller" role.
       folder_id = local.folder_id
       role      = "container-registry.images.puller"
       member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
     }
 
+    resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
+      # The service account is assigned the "kms.keys.encrypterDecrypter" role.
+      folder_id = local.folder_id
+      role      = "kms.keys.encrypterDecrypter"
+      member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+    }
+
     resource "yandex_kms_symmetric_key" "kms-key" {
-      # A key for encrypting critical information, including passwords, OAuth tokens, and SSH keys.
+      # A {{ kms-full-name }} key for encrypting critical information, including passwords, OAuth tokens, and SSH keys.
       name              = "kms-key"
       default_algorithm = "AES_128"
       rotation_period   = "8760h" # 1 year.
-    }
-
-    resource "yandex_resourcemanager_folder_iam_member" "viewer" {
-      folder_id = local.folder_id
-      role      = "viewer"
-      member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
     }
 
     resource "yandex_vpc_security_group" "k8s-public-services" {
@@ -357,7 +345,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
         predefined_target = "loadbalancer_healthchecks"
         from_port         = 0
         to_port           = 65535
-     }
+      }
       ingress {
         protocol          = "ANY"
         description       = "The rule allows master-to-node and node-to-node communication inside a security group."
@@ -376,7 +364,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
         protocol          = "ICMP"
         description       = "Rule allows debugging ICMP packets from internal subnets."
         v4_cidr_blocks    = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
-     }
+      }
       ingress {
         protocol          = "TCP"
         description       = "The rule allows incoming traffic from the internet to the NodePort port range. Add ports or change existing ones to the required ports."
@@ -400,64 +388,47 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
 
 ### Creating a regional {{ managed-k8s-name }} cluster {#example-regional-cluster}
 
+Create a {{ managed-k8s-name }} cluster and a network for it with the following test characteristics:
+
+* Name: `k8s-regional`.
+* Folder ID: `{{ tf-folder-id }}`.
+* Network: `my-regional-net`.
+* Subnet: `mysubnet-a`. Its network settings are as follows:
+
+   * Availability zone: `{{ region-id }}-a`
+   * Range: `10.5.0.0/16`
+
+* Subnet: `mysubnet-b`. Its network settings are as follows:
+
+   * Availability zone: `{{ region-id }}-b`
+   * Range: `10.6.0.0/16`
+
+* Subnet: `mysubnet-d`. Its network settings are as follows:
+
+   * Availability zone: `{{ region-id }}-d`
+   * Range: `10.7.0.0/16`
+
+* Service account: `regional-k8s-account`.
+* Service account roles: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.keys.encrypterDecrypter`.
+* [Encryption key](../../concepts/encryption.md) {{ kms-full-name }}: `kms-key`.
+* Security group: `regional-k8s-sg`. It contains [rules for service traffic](../connect/security-groups.md#rules-internal).
+
+Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
+
 {% list tabs %}
 
 - {{ TF }}
 
-   Create a {{ managed-k8s-name }} cluster and a network for it with the following test characteristics:
-
-   * Name: `k8s-regional`.
-   * Version: 1.22.
-   * Cloud ID: `{{ tf-cloud-id }}`.
-   * Folder ID: `{{ tf-folder-id }}`.
-   * Network: `mynet`.
-   * Subnet: `mysubnet-a`. Its network settings are as follows:
-
-      * Availability zone: `{{ region-id }}-a`
-      * Range: `10.5.0.0/16`
-
-   * Subnet: `mysubnet-b` Its network settings are as follows:
-
-      * Availability zone: `{{ region-id }}-b`
-      * Range: `10.6.0.0/16`
-
-   * Subnet: `mysubnet-c` Its network settings are as follows:
-
-      * Availability zone: `{{ region-id }}-c`
-      * Range: `10.7.0.0/16`
-
-   * Service account: `myaccount`.
-   * Service account permissions: `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer`.
-   * {{ kms-name }} encryption key: `kms-key`.
-   * Security group: `k8s-main-sg`. It contains [rules for service traffic](../connect/security-groups.md#rules-internal).
-
-   Install {{ TF }} (unless you already have it), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
-
    
    ```hcl
    locals {
-     cloud_id    = "{{ tf-cloud-id }}"
      folder_id   = "{{ tf-folder-id }}"
-     k8s_version = "1.22"
-     sa_name     = "myaccount"
-   }
-
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
-   provider "yandex" {
-     folder_id = local.folder_id
    }
 
    resource "yandex_kubernetes_cluster" "k8s-regional" {
-     network_id = yandex_vpc_network.mynet.id
+     name = "k8s-regional"
+     network_id = yandex_vpc_network.my-regional-net.id
      master {
-       version = local.k8s_version
        regional {
          region = "{{ region-id }}"
          location {
@@ -469,48 +440,52 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
            subnet_id = yandex_vpc_subnet.mysubnet-b.id
          }
          location {
-           zone      = yandex_vpc_subnet.mysubnet-c.zone
-           subnet_id = yandex_vpc_subnet.mysubnet-c.id
+           zone      = yandex_vpc_subnet.mysubnet-d.zone
+           subnet_id = yandex_vpc_subnet.mysubnet-d.id
          }
        }
-       security_group_ids = [yandex_vpc_security_group.k8s-main-sg.id]
+       security_group_ids = [yandex_vpc_security_group.regional-k8s-sg.id]
      }
-     service_account_id      = yandex_iam_service_account.myaccount.id
-     node_service_account_id = yandex_iam_service_account.myaccount.id
+     service_account_id      = yandex_iam_service_account.my-regional-account.id
+     node_service_account_id = yandex_iam_service_account.my-regional-account.id
      depends_on = [
        yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
        yandex_resourcemanager_folder_iam_member.vpc-public-admin,
-       yandex_resourcemanager_folder_iam_member.images-puller
+       yandex_resourcemanager_folder_iam_member.images-puller,
+       yandex_resourcemanager_folder_iam_member.encrypterDecrypter
      ]
      kms_provider {
        key_id = yandex_kms_symmetric_key.kms-key.id
      }
    }
 
-   resource "yandex_vpc_network" "mynet" {
-     name = "mynet"
+   resource "yandex_vpc_network" "my-regional-net" {
+     name = "my-regional-net"
    }
 
    resource "yandex_vpc_subnet" "mysubnet-a" {
+     name = "mysubnet-a"
      v4_cidr_blocks = ["10.5.0.0/16"]
      zone           = "{{ region-id }}-a"
-     network_id     = yandex_vpc_network.mynet.id
+     network_id     = yandex_vpc_network.my-regional-net.id
    }
 
    resource "yandex_vpc_subnet" "mysubnet-b" {
+     name = "mysubnet-b"
      v4_cidr_blocks = ["10.6.0.0/16"]
      zone           = "{{ region-id }}-b"
-     network_id     = yandex_vpc_network.mynet.id
+     network_id     = yandex_vpc_network.my-regional-net.id
    }
 
-   resource "yandex_vpc_subnet" "mysubnet-c" {
+   resource "yandex_vpc_subnet" "mysubnet-d" {
+     name = "mysubnet-d"
      v4_cidr_blocks = ["10.7.0.0/16"]
-     zone           = "{{ region-id }}-c"
-     network_id     = yandex_vpc_network.mynet.id
+     zone           = "{{ region-id }}-d"
+     network_id     = yandex_vpc_network.my-regional-net.id
    }
 
-   resource "yandex_iam_service_account" "myaccount" {
-     name        = local.sa_name
+   resource "yandex_iam_service_account" "my-regional-account" {
+     name        = "regional-k8s-account"
      description = "K8S regional service account"
    }
 
@@ -518,40 +493,41 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
      # The service account is assigned the k8s.clusters.agent role.
      folder_id = local.folder_id
      role      = "k8s.clusters.agent"
-     member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+     member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
    }
 
    resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
      # The service account is assigned the vpc.publicAdmin role.
      folder_id = local.folder_id
      role      = "vpc.publicAdmin"
-     member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+     member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
    }
 
    resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
      # The service account is assigned the container-registry.images.puller role.
      folder_id = local.folder_id
      role      = "container-registry.images.puller"
-     member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+     member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+   }
+
+   resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
+     # The service account is assigned the "kms.keys.encrypterDecrypter" role.
+     folder_id = local.folder_id
+     role      = "kms.keys.encrypterDecrypter"
+     member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
    }
 
    resource "yandex_kms_symmetric_key" "kms-key" {
-     # A key for encrypting critical information, including passwords, OAuth tokens, and SSH keys.
+     # A {{ kms-full-name }} key for encrypting critical information, including passwords, OAuth tokens, and SSH keys.
      name              = "kms-key"
      default_algorithm = "AES_128"
      rotation_period   = "8760h" # 1 year.
    }
 
-   resource "yandex_resourcemanager_folder_iam_member" "viewer" {
-     folder_id = local.folder_id
-     role      = "viewer"
-     member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
-   }
-
-   resource "yandex_vpc_security_group" "k8s-main-sg" {
-     name        = "k8s-main-sg"
-     description = "Group rules ensure the basic performance of the {{ managed-k8s-name }} cluster. Apply it to the {{ managed-k8s-name }} cluster and node groups."
-     network_id  = yandex_vpc_network.mynet.id
+   resource "yandex_vpc_security_group" "regional-k8s-sg" {
+     name        = "regional-k8s-sg"
+     description = "Group rules enable basic {{ managed-k8s-name }} cluster performance. Apply it to the cluster and node groups."
+     network_id  = yandex_vpc_network.my-regional-net.id
      ingress {
        protocol          = "TCP"
        description       = "The rule allows availability checks from the load balancer address range. It is required for the operation of a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
@@ -569,7 +545,7 @@ Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-clu
      ingress {
        protocol          = "ANY"
        description       = "The rule allows pod-to-pod and service-to-service communication. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
-       v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-c.v4_cidr_blocks)
+       v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-d.v4_cidr_blocks)
        from_port         = 0
        to_port           = 65535
      }

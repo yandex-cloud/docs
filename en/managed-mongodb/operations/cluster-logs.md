@@ -36,6 +36,7 @@
       ```bash
       {{ yc-mdb-mg }} cluster list-logs <cluster_name_or_ID> \
          --limit <record_number_limit> \
+         --service-type <service_type> \
          --columns <list_of_columns_with_output_data> \
          --filter <record_filter_settings> \
          --since <left_boundary_of_time_range> \
@@ -63,7 +64,7 @@
       * {% include [logs since time](../../_includes/cli/logs/since.md) %}
       * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -98,7 +99,7 @@ This method allows you to get cluster logs in real time.
    {{ yc-mdb-mg }} cluster list-logs <cluster_name_or_ID> --follow
    ```
 
-   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

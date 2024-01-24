@@ -97,7 +97,7 @@ Type of the operation in progress: `1`, meaning the task is active.
 
 Alert triggering means that the source base generated no replicated {{ data-transfer-name }} events (individual data elements) during the evaluation window.
 
-Possible causes:
+Possible causes include:
 
 * The source base is not available over the network for {{ data-transfer-name }}, e.g., due to revoked accesses or a source base failure.
 * The source base has no data to replicate.
@@ -106,22 +106,22 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.changeitems`
+   ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.changeitems`
 
-    ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
+   ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
+   * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+   * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+   * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
-    You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
+   You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
-    Additional settings:
+   Additional settings:
 
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `5 minutes`. If the source database changes less frequently than once every five minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+   * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+   * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `5 minutes`. If the source database changes less frequently than once every five minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ### Number of target events {#target-change-items}
 
@@ -137,27 +137,27 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
-    ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
+   ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
+   ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
+   * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+   * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+   * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
-    You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
+   You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
-    Additional settings:
+   Additional settings:
 
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `5 minutes`. If the source database changes less frequently than once every five minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+   * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+   * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `5 minutes`. If the source database changes less frequently than once every five minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ### Maximum data transfer delay {#row-max-lag}
 
 Alert triggering means that the time difference between execution of the operation with rows in the source and the target has exceeded the specified threshold during the evaluation window.
 
-Possible causes:
+Possible causes include:
 
 * The target database is not available over the network for {{ data-transfer-name }}, e.g., due to revoked accesses or a target database failure.
 * Not enough resources for replication. For example, the load on the source database exceeds the capacity of the VM instance the {{ data-transfer-name }} replication is running on.
@@ -167,15 +167,15 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
+   ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `15`. If the target database is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
+   * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
+   * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `15`. If the target database is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
+   * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
-    Additional settings:
+   Additional settings:
 
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `1 minute`.
@@ -184,7 +184,7 @@ Alert parameters:
 
 Alert triggering means that no bytes of data were read from the source during the evaluation window.
 
-Possible causes:
+Possible causes include:
 
 * The source base is not available over the network for {{ data-transfer-name }}, e.g., due to revoked accesses or a source base failure.
 * The source base has no data to replicate.
@@ -193,19 +193,19 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.bytes`
-    ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
+   ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.bytes`
+   ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
+   * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
+   * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+   * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
-    Additional settings:
+   Additional settings:
 
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `15 minutes`. If the source database changes less frequently than once every 15 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+   * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+   * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `15 minutes`. If the source database changes less frequently than once every 15 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ## Specifics of working with alerts {#alert-specifics}
 

@@ -13,9 +13,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   Чтобы создать [сетевой балансировщик](../concepts/index.md):
   
@@ -64,7 +64,7 @@ description: "Следуя данной инструкции, вы сможет�
       1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
-- CLI
+- CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -102,7 +102,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -159,7 +159,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Чтобы создать новый сетевой балансировщик, воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/network_load_balancer_service.md#Create).
 
@@ -171,9 +171,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Создайте сетевой балансировщик без обработчика и целевой группы с именем `test-load-balancer-1`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
   
   Выполните следующую команду:
   
@@ -181,7 +181,7 @@ description: "Следуя данной инструкции, вы сможет�
   yc load-balancer network-load-balancer create test-load-balancer-1
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры ресурса без блока `listener` и `attached_target_group`:
 
@@ -202,7 +202,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
@@ -237,9 +237,9 @@ description: "Следуя данной инструкции, вы сможет�
     * Порт для проверок по протоколу HTTP `80`.
     * Адрес URL, по которому будут выполняться проверки `/`.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Выполните следующую команду:
 
@@ -260,7 +260,7 @@ description: "Следуя данной инструкции, вы сможет�
                    `healthcheck-http-path=/
   ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры ресурса с блоками `listener` и `attached_target_group`:
 
@@ -304,7 +304,7 @@ description: "Следуя данной инструкции, вы сможет�
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
   Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 

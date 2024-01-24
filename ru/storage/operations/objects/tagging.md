@@ -6,9 +6,9 @@
 
 ## Добавить или изменить метки {#add-edit-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -30,7 +30,7 @@
     * `Value` — значение метки, тип: `string`.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -60,7 +60,7 @@
 
   После этого к объекту будут добавлены метки. Проверить появление меток и настройки объекта можно с помощью [AWS CLI или S3 API](#get-tag).
 
-- API
+- API {#api}
 
   Чтобы добавить или изменить метки объекта, воспользуйтесь методом S3 API [putObjectTagging](../../s3/api-ref/object/putobjecttagging.md).
 
@@ -68,9 +68,9 @@
 
 ## Посмотреть метки {#get-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -103,9 +103,9 @@
           }
       ]
   }
-  ```  
+  ```
 
-- API
+- API {#api}
 
   Чтобы посмотреть метки объекта, воспользуйтесь методом S3 API [getObjectTagging](../../s3/api-ref/object/getobjecttagging.md).
 
@@ -113,9 +113,9 @@
 
 ## Удалить метки {#delete-tag}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- AWS CLI
+- AWS CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -133,7 +133,7 @@
   * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -160,7 +160,7 @@
 
   После этого у объекта будут удалены метки. Проверить удаление меток и настройки объекта можно с помощью [AWS CLI или S3 API](#get-tag).
 
-- API
+- API {#api}
 
   Чтобы удалить метки объекта, воспользуйтесь методом S3 API [deleteObjectTagging](../../s3/api-ref/object/deleteobjecttagging.md).
 

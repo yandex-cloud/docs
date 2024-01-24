@@ -11,14 +11,14 @@ To set a parameter:
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/dashboard-0523.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](../dashboard/create.md).
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](../dashboard/create.md).
 1. In the top-right corner, click **Edit**.
 1. Select a chart for which you want to set a new parameter.
-1. In the top-right corner of the chart, click ![image](../../../_assets/settings.svg).
-1. In the window that opens, click ![image](../../../_assets/datalens/angle-down.svg) **Parameters**.
-1. Click ![image](../../../_assets/plus-sign.svg) **Add parameter** at the bottom of the list.
+1. In the top-right corner of the chart, click ![image](../../../_assets/console-icons/gear.svg).
+1. In the window that opens, click ![image](../../../_assets/console-icons/chevron-down.svg) **Parameters**.
+1. Click ![image](../../../_assets/console-icons/plus.svg) **Add parameter** at the bottom of the list.
 1. In the **Name** column, enter the parameter name (key).
-1. In the **Value** column, click ![image](../../../_assets/plus-sign.svg) and set a value for the parameter. You can set multiple values.
+1. In the **Value** column, click ![image](../../../_assets/console-icons/plus.svg) and set a value for the parameter. You can set multiple values.
 1. Click **Save**.
 1. In the top-right corner of the dashboard edit window, click **Save**.
 

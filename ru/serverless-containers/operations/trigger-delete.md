@@ -5,9 +5,9 @@ description: "Из статьи вы узнаете, как удалить тр�
 
 # Удалить триггер в {{ serverless-containers-name }}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
     1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -16,7 +16,7 @@ description: "Из статьи вы узнаете, как удалить тр�
     1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
     
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../_includes/cli-install.md) %}
     
@@ -49,7 +49,7 @@ description: "Из статьи вы узнаете, как удалить тр�
     status: PAUSED
     ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -90,7 +90,7 @@ description: "Из статьи вы узнаете, как удалить тр�
       yc serverless trigger list
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить триггер, воспользуйтесь методом REST API [delete](../triggers/api-ref/Trigger/delete.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Delete](../triggers/api-ref/grpc/trigger_service.md#Delete).
 

@@ -8,9 +8,9 @@
 
 Чтобы создать диск из [образа](../../concepts/image.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -36,7 +36,7 @@
      При создании диска для него можно выбрать только одно расписание снимков. После создания диска вы сможете добавить к нему еще несколько расписаний по [инструкции](../disk-control/configure-schedule.md#add-schedule).
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -115,7 +115,7 @@
           - fhm5b617fjnj********
       ```
 
-- API
+- API {#api}
 
   1. Получите список образов с помощью метода [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API или метода [list](../../api-ref/Image/list.md) ресурса `Image` REST API.
   1. Создайте диск с помощью метода [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API или метода [create](../../api-ref/Disk/create.md) ресурса `Disk` REST API. В запросе укажите идентификатор образа.

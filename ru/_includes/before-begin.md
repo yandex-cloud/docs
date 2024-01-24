@@ -2,13 +2,13 @@
 
 Перейдите в [консоль]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции. Если такого каталога нет, создайте его:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [create-folder](create-folder.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](cli-install.md) %}
 
@@ -37,7 +37,7 @@
              --description "my first folder with description"
           ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [create](../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../resource-manager/api-ref/Folder/index.md) сервиса {{ resmgr-full-name }}.
 

@@ -19,10 +19,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - <domain name>
-      secretName: yc-certmgr-cert-id-<certificate ID from {{ certificate-manager-full-name }}>
+        - <domain_name>
+      secretName: yc-certmgr-cert-id-<certificate_ID>
   rules:
-    - host: <domain name>
+    - host: <domain_name>
       http:
         paths:
           - path: /app1
@@ -48,6 +48,8 @@ spec:
                   name: http
 ```
 
+Where `secretName` is the ID of the certificate from {{ certificate-manager-full-name }}.
+
 {% endcut %}
 
 ## Logging settings {#log-options}
@@ -69,3 +71,4 @@ To learn how to install the Ingress controller, see [this guide](../../operation
 * [Controller operating principles](principles.md).
 * [Security group configuration](security-groups.md) for a {{ k8s }} cluster and a load balancer.
 * [Service account](service-account.md) to support controller operation.
+* [ALB Ingress Controller in {{ marketplace-full-name }}]({{ link-cloud-marketplace }}/products/yc/alb-ingress-controller).

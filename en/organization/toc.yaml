@@ -23,9 +23,9 @@ items:
             href: operations/manage-users.md
           - name: Adding a user
             href: operations/add-account.md
-          - name: Get the user's ID or email
+          - name: Getting user ID or email
             href: operations/users-get.md
-          - name: Assigning access rights
+          - name: Granting permissions
             href: operations/roles.md
           - name: Deleting a user account
             href: operations/edit-account.md
@@ -33,10 +33,12 @@ items:
             href: operations/leave-organization.md
       - name: Managing user groups
         href: operations/manage-groups.md
-      - name: Enabling access via OS Login
-        href: operations/os-login-access.md
-      - name: Creating an OS Login profile
-        href: operations/os-login-profile-create.md
+      - name: OS Login
+        items:
+          - name: Enabling access
+            href: operations/os-login-access.md
+          - name: Creating a profile
+            href: operations/os-login-profile-create.md
   - name: Tutorials
     items:
       - name: Managing identity federations
@@ -99,6 +101,8 @@ items:
             href: api-ref/grpc/ssh_certificate_service.md
           - name: UserService
             href: api-ref/grpc/user_service.md
+          - name: UserSshKeyService
+            href: api-ref/grpc/user_ssh_key_service.md
           - name: CertificateService
             href: api-ref/grpc/certificate_service.md
           - name: FederationService
@@ -167,40 +171,54 @@ items:
                 href: api-ref/User/deleteMembership.md
               - name: listMembers
                 href: api-ref/User/listMembers.md
+          - name: UserSshKey
+            items:
+              - name: Overview
+                href: api-ref/UserSshKey/index.md
+              - name: create
+                href: api-ref/UserSshKey/create.md
+              - name: delete
+                href: api-ref/UserSshKey/delete.md
+              - name: get
+                href: api-ref/UserSshKey/get.md
+              - name: list
+                href: api-ref/UserSshKey/list.md
+              - name: update
+                href: api-ref/UserSshKey/update.md
+          - name: Certificate
+            items:
+              - name: Overview
+                href: api-ref/Certificate/index.md
+              - name: create
+                href: api-ref/Certificate/create.md
+              - name: delete
+                href: api-ref/Certificate/delete.md
+              - name: get
+                href: api-ref/Certificate/get.md
+              - name: list
+                href: api-ref/Certificate/list.md
+              - name: listOperations
+                href: api-ref/Certificate/listOperations.md
+              - name: update
+                href: api-ref/Certificate/update.md
           - name: Federation
             items:
               - name: Overview
                 href: api-ref/Federation/index.md
               - name: addUserAccounts
                 href: api-ref/Federation/addUserAccounts.md
+              - name: create
+                href: api-ref/Federation/create.md
+              - name: delete
+                href: api-ref/Federation/delete.md
+              - name: get
+                href: api-ref/Federation/get.md
               - name: list
                 href: api-ref/Federation/list.md
+              - name: listOperations
+                href: api-ref/Federation/listOperations.md
               - name: listUserAccounts
                 href: api-ref/Federation/listUserAccounts.md
               - name: update
                 href: api-ref/Federation/update.md
-              - name: listOperations
-                href: api-ref/Federation/listOperations.md
-              - name: create
-                href: api-ref/Federation/create.md
-              - name: get
-                href: api-ref/Federation/get.md
-              - name: delete
-                href: api-ref/Federation/delete.md
-          - name: Certificate
-            items:
-              - name: Overview
-                href: api-ref/Certificate/index.md
-              - name: list
-                href: api-ref/Certificate/list.md
-              - name: update
-                href: api-ref/Certificate/update.md
-              - name: listOperations
-                href: api-ref/Certificate/listOperations.md
-              - name: create
-                href: api-ref/Certificate/create.md
-              - name: get
-                href: api-ref/Certificate/get.md
-              - name: delete
-                href: api-ref/Certificate/delete.md
 base: en/organization

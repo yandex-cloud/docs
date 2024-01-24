@@ -17,8 +17,8 @@ To configure the total time spent value of a parent issue to automatically updat
 
 To run the scenario, you will need:
 
-* A {{ yandex-cloud }} billing account.
-* A {{ tracker-name }} account belonging to an organization connected to {{ ya-360 }} with a [role](../../organization/security/index.md#service-roles) no lower than `{{ roles-organization-admin }}`.
+* {{ yandex-cloud }} billing account.
+* {{ tracker-name }} account belonging to an organization connected to {{ ya-360 }} with a [role](../../organization/security/index.md#service-roles) no lower than `{{ roles-organization-admin }}`.
 
 {% endnote %}
 
@@ -35,8 +35,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Open ` https://oauth.yandex.ru/client/new ` in your browser and log in with your {{ tracker-name }} account.
 1. In the **Create app** form:
    1. In the **Service name** field, enter a name, e.g., `TimeUpdater`.
-   1. Under **Platforms**, enable **Web services** and enter ` https://oauth.yandex.ru/verification_code ` in the **Redirect URI** field.
-   1. Under **Data access**, in the input field, start typing `tracker`. Then, in the drop-down list, select:
+   1. Under **Platforms**, enable **Web services**, and enter ` https://oauth.yandex.ru/verification_code ` in the **Redirect URI** field.
+   1. Under **Data access**, in the input field, start typing `tracker`. Then, from the drop-down list, select:
       * `Read from Tracker`
       * `Write in Tracker`
 1. Click **Create app**.
@@ -55,14 +55,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Get an organization ID to access the API {#get-tracker-id}
 
 1. Go to [{{ tracker-name }}](https://tracker.yandex.ru/). Click **Logging in to Yandex Tracker**.
-1. In the right-hand panel, click **Admin**.
+1. In the right-hand panel, click **Administration**.
 1. Under **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.access-and-payment }}**, click **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
 1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}**, copy and save your organization ID. You will need it to create a function.
 
 ## Create a {{ sf-name }} function {#create-function}
 
 1. Go to the [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. In the top-left corner, click ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select **Serverless computing** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Enter a function name, e.g., `timeupdater`.
@@ -73,8 +73,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Attach a [test archive](https://github.com/yandex-cloud-examples/yc-tracker-summarize-spent/blob/main/build/tracker-summarize-spent.zip).
 1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `index.handler`.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** field, add:
-   * `ORG`: {{ ya-360 }} organization ID.
-   * `TOKEN`: Application access token.
+   * `ORG`: {{ ya-360 }} organization ID
+   * `TOKEN`: Application access token
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 1. Wait for the page to load. Then, in the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, copy and save the function invocation link.
    Here is an example of such a link:
@@ -87,23 +87,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Create a queue
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **Queues** → **New queue**.
+1. On the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}** → **Create queue**.
 1. Select a queue template, e.g., **Basic development model**.
 1. Enter a name, e.g., `Function Test`.
 1. Click **Create**.
 
 ### Create a trigger
 
-1. In the top-right corner of the queue page, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-1. In the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
+1. In the top-right corner of the queue page, click ![](../../_assets/console-icons/gear.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. On the left-hand panel, select **Automation** → **Triggers** and click **Create trigger**.
 1. In the **Name** field, enter a trigger name, e.g., `timeupdater`.
 1. Under **Trigger conditions**, select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-timetracking }}**  → **Time spent**.
-1. Under **Actions**, select **HTTP request**.
-1. In the form that opens, in the **URL** field, enter:
+1. Under **Trigger actions**, select **HTTP request**.
+1. In the form that opens, in the **Address** field, enter:
    ```
    	https://functions.yandexcloud.net/<function_ID>?id=not_var{{issue.key}}
    ```
-   Where `https://functions.yandexcloud.net/<function_ID>` is the function call link you saved when creating the function.
+   Where `https://functions.yandexcloud.net/<function_ID>` is the function invocation link you saved when creating the function.
    For example:
    ```
    	https://functions.yandexcloud.net/d4e94uav31086c******?id=not_var{{issue.key}}

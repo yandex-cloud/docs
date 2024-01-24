@@ -13,7 +13,7 @@
 
 {% include [stt-language-labels](../../../_includes/speechkit/stt-language-labels.md) %}
 
-## Подготовьте необходимые данные {#preparations}
+## Подготовьте необходимые ресурсы {#preparations}
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-speechkit-stt }}`.
 1. Для сервисного аккаунта [получите](../../../iam/operations/iam-token/create-for-sa#via-cli) и сохраните IAM-токен. 
@@ -105,7 +105,7 @@
                         yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                         data = f.read(CHUNK_SIZE)
 
-            # Вместо iam_token передавайте api_key при авторизации с API-ключом 
+            # Вместо iam_token передавайте api_key при аутентификации с API-ключом 
             # от имени сервисного аккаунта.
             # def run(api_key, audio_file_name):
             def run(iam_token, audio_file_name):
@@ -116,9 +116,9 @@
 
                 # Отправьте данные для распознавания.
                 it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
-                # Параметры для авторизации с IAM-токеном
+                # Параметры для аутентификации с IAM-токеном
                     ('authorization', f'Bearer {iam_token}'),
-                # Параметры для авторизации с API-ключом от имени сервисного аккаунта
+                # Параметры для аутентификации с API-ключом от имени сервисного аккаунта
                 #   ('authorization', f'Api-Key {api_key}'),
                 ))
 

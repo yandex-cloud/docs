@@ -60,7 +60,7 @@ dig example.com
 
 If you need to replace `systemd-resolved` with a different local caching DNS resolver:
 
-1. Follow the instructions in [Alternative resolvers](#alternate-resolvers) to install an alternative resolver.
+1. Follow the guide in [Alternative resolvers](#alternate-resolvers) to install an alternative resolver.
 
 1. Edit the `/etc/systemd/resolved.conf` file to disable a stub resolver and set `127.0.0.1` as the DNS server address:
 

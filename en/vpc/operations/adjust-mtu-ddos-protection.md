@@ -17,7 +17,7 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH:
 
    ```
-   ssh <user>@<vm-public-ip>
+   ssh <username>@<VM's_IP>
    ```
 
 1. Set the MTU to `1450` using the `netplan` command. Run this command:
@@ -103,7 +103,7 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
 1. [Connect](../../managed-kubernetes/operations/node-connect-ssh.md) to any production node within the cluster over SSH and check the MTU and MSS values.
 
    ```
-   ssh <username>@<production node IP>
+   ssh <username>@<production_node_IP>
    ip link show eth0 | grep mtu
    ss -i | grep mss
    ```

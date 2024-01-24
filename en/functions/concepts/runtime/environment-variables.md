@@ -24,6 +24,10 @@ You cannot calculate environment variables. Environment variable values are stri
 
 You can retrieve environment variables using standard programming language tools.
 
+## Certificate for accessing managed databases {#mdb-certificate}
+
+The environment has an SSL certificate available for accessing managed databases from your code. The certificate is stored in the `/usr/local/share/ca-certificates/yandex-internal-ca.crt` file.
+
 ## User files {#files}
 
 User files are stored in two directories:

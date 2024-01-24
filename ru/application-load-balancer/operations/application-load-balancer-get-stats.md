@@ -1,6 +1,6 @@
 # Посмотреть статистику L7-балансировщика
 
-[Статистика](../concepts/application-load-balancer.md#stats) работы балансировщика автоматически записывается в метрики сервиса [{{ monitoring-full-name }}](../../monitoring/).
+{{ alb-name }} автоматически отправляет метрики работы балансировщика в сервис [{{ monitoring-full-name }}](../../monitoring/).
 
 Полный список метрик представлен в [справочнике](../metrics.md).
 
@@ -10,9 +10,9 @@
 
 Чтобы посмотреть статистику:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -29,9 +29,9 @@
 
 Чтобы посмотреть статистику:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.

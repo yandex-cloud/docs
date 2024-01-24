@@ -35,9 +35,9 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
       +----------------------+------+---------------+----------+-------+
       |          ID          | NAME |    ADDRESS    | RESERVED | USED  |
       +----------------------+------+---------------+----------+-------+
-      | e2l50m7qo8gp35c6c58i |      | 84.252.137.20 | true     | false |
-      | e9b0qnmuh2cbglk265oi |      | 51.250.65.244 | true     | false |
-      | e9br252il3ceakc3rk94 |      | 51.250.68.195 | false    | true  |
+      | e2l50m7qo8gp******** |      | 84.252.137.20 | true     | false |
+      | e9b0qnmuh2cb******** |      | 51.250.65.244 | true     | false |
+      | e9br252il3ce******** |      | 51.250.68.195 | false    | true  |
       +----------------------+------+---------------+----------+-------+
       ```
 
@@ -52,9 +52,9 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
       +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk10aurd2c3 | default                |        | ACTIVE |
-      | b1chgf288nvg541tgu73 | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh690at5bm7 | my-folder-2            |        | ACTIVE |
+      | b1cs8ie21pk1******** | default                |        | ACTIVE |
+      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
       +----------------------+------------------------+--------+--------+
       ```
 
@@ -70,9 +70,10 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
       If the address is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
 
       Result:
+
       ```text
-       id: e9br252il3ceakc3rk94
-       folder_id: b1chgf288nvg541tgu73
+       id: e9br252il3ce********
+       folder_id: b1chgf288nvg********
        created_at: "2022-10-10T05:38:43Z"
        external_ipv4_address:
          address: 51.250.68.195
@@ -82,6 +83,7 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
        type: EXTERNAL
        ip_version: IPV4
       ```
+
       For more information about the `yc vpc address move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/address/move.md).
 
 - API
@@ -124,9 +126,9 @@ Move an address from a different folder. Specify the address ID and the source a
 - CLI
 
    ```bash
-   yc vpc address move e9br252il3ceakc3rk94 \
-     --folder-id b1chgf288nvg541tgu73 \
-     --destination-folder-id b1cs8ie21pk10aurd2c3
+   yc vpc address move e9br252il3ce******** \
+     --folder-id b1chgf288nvg******** \
+     --destination-folder-id b1cs8ie21pk1********
    ```
 
 {% endlist %}

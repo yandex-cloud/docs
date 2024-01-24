@@ -8,9 +8,9 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. [Create a _source cluster_](../../managed-postgresql/operations/cluster-create.md) with the following settings:
 
-   * With publicly available hosts.
+   * Hosts: Publicly available.
    * With the `db1` database.
-   * With the `user1` user.
+   * User: `user1`.
 
 1. [Create a {{ mkf-name }} _target cluster_](../../managed-kafka/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
 
@@ -296,7 +296,11 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
    {% endcut %}
 
-1. [Connect to the source cluster](../../managed-postgresql/operations/connect.md) and add another row to the `measurements` table:
+1. [Connect to the source cluster](../../managed-postgresql/operations/connect.md).
+
+   When connecting, the `ERROR Postgres roles LOGIN and REPLICATION are not assigned to user` error may occur. You can ignore it, as it does not affect Debezium performance.
+
+1. Add another row to the `measurements` table:
 
    ```sql
    INSERT INTO public.measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);

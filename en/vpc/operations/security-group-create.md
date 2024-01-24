@@ -39,7 +39,7 @@ To create a new [security group](../concepts/security-groups.md):
    yc vpc security-group create \
      --name test-sg-cli \
      --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
-     --network-id c645mh47vscba1d64tbs
+     --network-id c645mh47vscb********
    ```
 
    Where:
@@ -75,15 +75,15 @@ To create a new [security group](../concepts/security-groups.md):
       
       ```
       provider "yandex" {
-        token     = "<OAuth or static key of service account>"
-        folder_id = "<folder ID>"
+        token     = "<OAuth_or_static_key_of_service_account>"
+        folder_id = "<folder_ID>"
         zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_vpc_security_group" "test-sg" {
         name        = "Test security group"
         description = "Description for security group"
-        network_id  = "<Network ID>"
+        network_id  = "<network_ID>"
 
         ingress {
           protocol       = "TCP"
@@ -133,7 +133,7 @@ To create a new [security group](../concepts/security-groups.md):
    * ID of the network where the security group will be placed, in the `networkId` parameter.
    * Settings for the security group rules, in the `ruleSpecs[]` array.
 
-      * Traffic direction for which the rule is created, in the `ruleSpecs[].direction` parameter. that may take one of the following values:
+      * Traffic direction for which the rule is created, in the `ruleSpecs[].direction` parameter. The possible values include:
 
          * `ingress`: Incoming traffic
          * `egress`: Outgoing traffic

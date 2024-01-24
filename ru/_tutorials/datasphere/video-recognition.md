@@ -41,9 +41,9 @@
 
 Создайте [каталог](../../resource-manager/concepts/resources-hierarchy.md) и [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../../overview/concepts/geo-scope.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
@@ -53,9 +53,9 @@
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
    1. На вкладке **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -72,9 +72,9 @@
 
 Чтобы сервисный аккаунт мог аутентифицироваться в {{ objstorage-name }}, создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md). 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В каталоге `data-folder` перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Выберите сервисный аккаунт `sa-for-project` и нажмите на строку с его именем.
@@ -87,9 +87,9 @@
 
 ### Создайте NAT-шлюз для доступа в интернет {#create-nat}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. В каталоге `data-folder` выберите сервис **{{ vpc-name }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
@@ -122,9 +122,9 @@
 
 ### Создайте S3-бакет {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
    1. В списке сервисов выберите **{{ objstorage-name }}**.

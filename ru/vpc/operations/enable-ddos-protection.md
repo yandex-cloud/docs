@@ -5,9 +5,9 @@
 Адреса с защитой выделяются из отдельного пула, поэтому включить или выключить защиту на ранее зарезервированном адресе невозможно.
 
 ## Включение защиты от DDoS-атак при создании виртуальной машины {#enable-on-vm-creation}
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
 	В момент настройки сети на новой виртуальной машине выберите автоматически назначаемый публичный IP-адрес или выберите адрес из списка зарезервированных. 
 
@@ -17,9 +17,9 @@
 
 ## Включение защиты от DDoS-атак при резервировании адреса {#enable-on-reservation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
 	Чтобы зарезервировать защищенный статический IP-адрес:
 
@@ -31,7 +31,7 @@
 	1. Выберите опцию **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
 	1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 

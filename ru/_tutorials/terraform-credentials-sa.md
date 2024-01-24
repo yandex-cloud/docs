@@ -5,9 +5,9 @@
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../cli/quickstart.md#install) его.
 1. Если у вас еще нет сервисного аккаунта, создайте его:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
       1. На вкладке **Сервисные аккаунты** нажмите кнопку **Создать сервисный аккаунт**.
@@ -19,7 +19,7 @@
 
       1. Нажмите кнопку **Создать**.
 
-    - CLI
+    - CLI {#cli}
 
       {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
@@ -36,13 +36,13 @@
       Результат:
 
       ```yaml
-      id: ajehr0to1g8bh0la8c8r
-      folder_id: b1gv87ssvu497lpgjh5o
+      id: ajehr0to1g8b********
+      folder_id: b1gv87ssvu49********
       created_at: "2022-09-14T09:03:11.665153755Z"
       name: sa-terraform
       ```
 
-    - API
+    - API {#api}
 
       Чтобы создать сервисный аккаунт, воспользуйтесь методом [ServiceAccountService/Create](../iam/api-ref/grpc/service_account_service.md#Create) gRPC API или методом [create](../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
 
@@ -52,15 +52,15 @@
 
     {% include [sa-assign-role-note](../_includes/sa-assign-role-note.md) %}
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Консоль управления
+    - Консоль управления {#console}
 
       Чтобы назначить сервисному аккаунту роль на каталог:
 
       {% include [grant-role-console-sa](../_includes/grant-role-console-sa.md) %}
 
-    - CLI
+    - CLI {#cli}
 
       1. Узнайте идентификатор сервисного аккаунта (столбец `ID`), которому нужно назначить роль:
 
@@ -74,7 +74,7 @@
           +----------------------+--------------+
           |          ID          |     NAME     |
           +----------------------+--------------+
-          | aje6ij7qvdhbns1e91ut | sa-terraform |
+          | aje6ij7qvdhb******** | sa-terraform |
           +----------------------+--------------+
           ```
           
@@ -88,19 +88,23 @@
 
           Где:
           * `<service-name>` — название [сервиса](../cli/cli-ref/index.md#service-manage), на чей ресурс назначается роль, например `resource-manager`.
-          * `<resource>` — категория ресурса, например `cloud`.
-          * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-          * `<resource-id>` — идентификатор ресурса.
+          * `<resource>` — категория ресурса, например `cloud` — для назначения роли на все облако или `folder` — для назначения роли на каталог.
+          * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору (имя облака или каталога).
+          * `<resource-id>` — идентификатор ресурса (id облака или каталога).
           * `<role-id>` — назначаемая [роль](../iam/concepts/access-control/roles.md), например `{{ roles-cloud-owner }}`.
           * `<service-account-id>` — идентификатор сервисного аккаунта, которому назначается роль.
-
+     
+          Пример:
+         ```sh
+         yc resource-manager folder add-access-binding **********9n9hi2qu --role editor --subject serviceAccount:**********qhi2qu
+         ```
           Результат:
 
           ```text
           done (1s)
           ```
 
-    - API
+    - API {#api}
 
       {% include [grant-role-for-sa-to-folder-via-api](../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
@@ -108,9 +112,9 @@
 
 1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - CLI
+    - CLI {#cli}
 
       1. Создайте [авторизованный ключ](../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его файл:
 
@@ -129,8 +133,8 @@
           Результат:
 
           ```yaml
-          id: aje8nn871qo4a8bbopvb
-          service_account_id: ajehr0to1g8bh0la8c8r
+          id: aje8nn871qo4********
+          service_account_id: ajehr0to1g8********
           created_at: "2022-09-14T09:11:43.479156798Z"
           key_algorithm: RSA_2048
           ```

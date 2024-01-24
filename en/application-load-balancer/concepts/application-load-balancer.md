@@ -15,15 +15,12 @@ For the load balancer to work correctly:
 * The load balancer security groups must allow:
    * Receiving external incoming traffic on the ports specified in the [listener](#listener), e.g., for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR: `0.0.0.0/0`).
    * Receiving incoming traffic for health checks of load balancer nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` with the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` source.
-   * Sending traffic to backend VMs, i.e., VMs whose IP addresses are included in [target groups](target-group.md). For example, any outgoing connections to internal VM addresses (any protocol, the entire port range, CIDR: `<VM internal IP>/32`).
-* Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md), e.g., any incoming connections from subnets that [host the load balancer](#lb-location) or from one of its security groups.
-
+   * Sending traffic to backend VMs, i.e., VMs whose IP addresses are included in [target groups](target-group.md). For example, any outgoing connections to internal VM addresses (any protocol, the whole port range, CIDR: `<VM_internal_IP>/32`).
+* Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md), e.g., any incoming connections from subnets [hosting the load balancer](#lb-location)  or from at least one of its security groups.
 
 ## Host load balancer {#lb-location}
 
 When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
-
-For a load balancer to run, make sure there are subnets in all availability zones even if you are not going to accept traffic in them. If any availability zone is missing subnets, [create](../../vpc/operations/subnet-create.md) them.
 
 See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommended for load balancers.
 
@@ -125,7 +122,7 @@ For a full list of metrics delivered to {{ monitoring-full-name }}, see the [ref
 
 {{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }}, you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
 
-For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
+To learn how to view statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
 
 ## Logging {#logging}
 

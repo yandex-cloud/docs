@@ -65,7 +65,7 @@
       from yandex.cloud.speechsense.v1 import talk_service_pb2_grpc
       from yandex.cloud.speechsense.v1 import audio_pb2
 
-      # Для авторизации с IAM-токеном замените параметр api_key на iam_token
+      # Для аутентификации с IAM-токеном замените параметр api_key на iam_token
       def upload_talk(connection_id: int, metadata: Dict[str, str], api_key: str, audio_bytes: bytes):
          credentials = grpc.ssl_channel_credentials()
          channel = grpc.secure_channel('{{ speechsense-endpoint }}', credentials)
@@ -87,10 +87,10 @@
                audio_data=audio_pb2.AudioChunk(data=audio_bytes)
             )
          )
-         # Тип авторизации — API-ключ
+         # Тип аутентификации — API-ключ
          response = talk_service_stub.Upload(request, metadata=(
             ('authorization', f'Api-Key {api_key}'),
-         # Для авторизации с IAM-токеном передавайте заголовок
+         # Для аутентификации с IAM-токеном передавайте заголовок
          #  ('authorization', f'Bearer {iam_token}'),
          ))
 
@@ -166,17 +166,17 @@
                )
                data = fp.read(CHUNK_SIZE_BYTES)
 
-      # Для авторизации с IAM-токеном замените параметр api_key на iam_token
+      # Для аутентификации с IAM-токеном замените параметр api_key на iam_token
       def upload_talk(connection_id: int, metadata: Dict[str, str], api_key: str, audio_path: str):
          credentials = grpc.ssl_channel_credentials()
          channel = grpc.secure_channel('api.talk-analytics.yandexcloud.net:443', credentials)
          talk_service_stub = talk_service_pb2_grpc.TalkServiceStub(channel)
 
-         # Тип авторизации — API-ключ
+         # Тип аутентификации — API-ключ
          response = talk_service_stub.UploadAsStream(
             upload_audio_requests_iterator(connection_id, metadata, audio_path),
             metadata=(('authorization', f'Api-Key {api_key}'),
-         # Для авторизации с IAM-токеном передавайте метаданные
+         # Для аутентификации с IAM-токеном передавайте метаданные
          #  metadata=(('authorization', f'Bearer {iam_token}'),
          ))
 
@@ -240,4 +240,4 @@
    * `audio-path` — путь к файлу с аудио диалога.
    * `meta-path` — путь к файлу с метаданными диалога.
    * `connection-id` — идентификатор подключения, в которое вы загружаете данные.
-   * `key` — API-ключ для авторизации. Если вы используете IAM-токен, укажите переменную окружения `IAM_TOKEN` вместо `API_KEY`.
+   * `key` — API-ключ для аутентификации. Если вы используете IAM-токен, укажите переменную окружения `IAM_TOKEN` вместо `API_KEY`.

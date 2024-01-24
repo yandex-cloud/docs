@@ -63,7 +63,7 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
             "longId" : "5fa15a24ac894475dd14ff07",
             "text": "Comment **number one.**",
             "textHtml": "<p>Comment <strong>number one.</strong></p>\n",
-            "attachments": [{ "self": "https://api.tracker.yandex.net/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
+            "attachments": [{ "self": "https://{{ host }}/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
             "createdBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
                 "id": "<employee ID>",
@@ -94,8 +94,8 @@ expand | Additional fields to include in the response: <ul><li>`attachments`: At
    | text | Text of the comment. | String |
    | textHtml | Comment HTML markup. | String |
    | attachments | Attached files. | String |
-   | [createdBy](#object-fields-createdBy) | Object with information about the author of the comment. | Objects |
-   | [updatedBy](#object-fields-updatedBy) | Object with information about the last user to have updated the comment. | Objects |
+   | [createdBy](#object-fields-createdBy) | Object with information about the author of the comment. | Object |
+   | [updatedBy](#object-fields-updatedBy) | Object with information about the last user to have updated the comment. | Object |
    | createdAt | Comment creation date and time in the format: <br/>```YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | String |
    | updatedAt | Comment update date and time.<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | String |
    | version | Comment version. Each update increases the comment's version number. | Number |

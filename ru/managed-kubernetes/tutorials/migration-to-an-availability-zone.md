@@ -1,11 +1,15 @@
 # Миграция ресурсов {{ managed-k8s-name }} в другую зону доступности
 
-
 {% note info %}
 
-В {{ managed-k8s-name }} поддержана миграция только [группы узлов](../concepts/index.md#node-group). Позднее появится возможность перенести также [мастер](../concepts/index.md#master) в другую зону доступности.
+{% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}
 
 {% endnote %}
+
+Чтобы перенести ресурсы {{ managed-k8s-name }} из одной зоны в другую:
+
+1. [Перенесите мастер](#transfer-a-master).
+1. [Перенесите группу узлов и рабочую нагрузку в подах](#transfer-a-node-group).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -13,6 +17,288 @@
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+## Перенесите мастер в другую зону доступности {#transfer-a-master}
+
+Миграция [мастера](../concepts/index.md#master) зависит от его типа: [зональный](#zonal) или [региональный](#regional).
+
+### Миграция зонального мастера {#zonal}
+
+Зональный мастер находится в одной зоне доступности. Вы можете перенести мастер только из зоны `{{ region-id }}-c` в `{{ region-id }}-d`. Во время миграции мастер перезапускается, а {{ k8s }} API кратковременно недоступен. После миграции публичный и внутренний IP-адреса мастера сохраняются, кластер и группа узлов не пересоздаются.
+
+Чтобы перенести зональный мастер в другую зону доступности:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   1. Создайте подсеть в зоне доступности `{{ region-id }}-d`:
+
+      ```bash
+      yc vpc subnet create \
+         --name <название_подсети> \
+         --zone {{ region-id }}-d \
+         --network-id <идентификатор_сети> \
+         --range <CIDR_подсети>
+      ```
+
+      В команде укажите параметры подсети:
+
+      * `--name` — название подсети.
+      * `--zone` — зона доступности.
+      * `--network-id` — идентификатор сети, в которую входит новая подсеть.
+      * `--range` — список IPv4-адресов, откуда или куда будет поступать трафик. Например, `10.0.0.0/22` или `192.168.0.0/16`. Адреса должны быть уникальными внутри сети. Минимальный размер подсети — `/28`, а максимальный размер подсети — `/16`. Поддерживается только IPv4.
+
+   1. Перенесите мастер в другую зону доступности:
+
+      ```bash
+      {{ yc-k8s }} cluster update \
+         --name <название_кластера> \
+         --zone {{ region-id }}-d \
+         --subnet-id <идентификатор_новой_подсети>
+      ```
+
+- {{ TF }} {#tf}
+
+   {% include [master-tf-mifration-warning](../../_includes/managed-kubernetes/master-tf-mifration-warning.md) %}
+
+   1. В файле с конфигурацией кластера обновите формат блока с параметрами расположения кластера (`zonal`) без изменения значений параметров:
+
+      **Старый формат**:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "<название_кластера>" {
+         ...
+         master {
+            ...
+            zonal {
+               subnet_id = yandex_vpc_subnet.my-old-subnet.id
+               zone      = "{{ region-id }}-c"
+            }
+         }
+         ...
+      }
+      ```       
+
+      **Новый формат**: 
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "<название_кластера>" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-old-subnet.id
+               zone      = "{{ region-id }}-c"
+            }
+         }
+         ...
+      }
+      ```    
+
+   1. Убедитесь, что изменений в параметрах ресурсов {{ TF }} не обнаружено:
+
+      ```bash
+      terraform plan
+      ```
+
+      Если {{ TF }} обнаружил изменения, проверьте значения всех параметров кластера — они должны соответствовать текущему состоянию.
+
+   1. В файл с конфигурацией кластера добавьте манифест новой сети и измените местоположение кластера:
+
+      ```hcl
+      resource "yandex_vpc_subnet" "my-new-subnet" {
+         name           = "<название_сети>"
+         zone           = "{{ region-id }}-d"
+         network_id     = yandex_vpc_network.k8s-network.id
+         v4_cidr_blocks = ["<CIDR_подсети>"]
+      }
+
+      ...
+
+      resource "yandex_kubernetes_cluster" "<название_кластера>" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-new-subnet.id
+               zone      = "{{ region-id }}-d"
+            }
+         }
+         ...
+      }
+      ```
+
+      Для кластера старая подсеть `my-old-subnet` заменяется на подсеть `my-new-subnet` с параметрами:
+
+      * `name` — название подсети.
+      * `zone` — зона доступности `{{ region-id }}-d`.
+      * `network_id` — идентификатор сети, в которую входит новая подсеть.
+      * `v4_cidr_blocks` — список IPv4-адресов, откуда или куда будет поступать трафик. Например, `10.0.0.0/22` или `192.168.0.0/16`. Адреса должны быть уникальными внутри сети. Минимальный размер подсети - `/28`, а максимальный размер подсети - `/16`. Поддерживается только IPv4.
+
+   1. Проверьте корректность конфигурационного файла.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+{% endlist %}
+
+### Миграция регионального мастера {#regional}
+
+Региональный мастер создается распределенно в трех подсетях в разных зонах доступности. Для регионального мастера вы можете изменить [только одну зону доступности](../../overview/concepts/ru-central1-c-deprecation.md): с `{{ region-id }}-c` на `{{ region-id }}-d`. Для миграции указываются три подсети и зоны доступности. Во время миграции работа мастера не прерывается, кластер и группа узлов не пересоздаются.
+
+Чтобы перенести региональный мастер в другой набор зон доступности:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   1. Создайте подсеть в зоне доступности `{{ region-id }}-d`:
+
+      ```bash
+      yc vpc subnet create \
+         --name <название_подсети> \
+         --zone {{ region-id }}-d \
+         --network-id <идентификатор_сети> \
+         --range <CIDR_подсети>
+      ```
+
+      В команде укажите параметры подсети:
+
+      * `--name` — название подсети.
+      * `--zone` — зона доступности.
+      * `--network-id` — идентификатор сети, в которую входит новая подсеть.
+      * `--range` — список IPv4-адресов, откуда или куда будет поступать трафик. Например, `10.0.0.0/22` или `192.168.0.0/16`. Адреса должны быть уникальными внутри сети. Минимальный размер подсети - `/28`, а максимальный размер подсети - `/16`. Поддерживается только IPv4.
+
+   1. Переместите мастер в другой набор зон доступности:
+
+      ```bash
+      {{ yc-k8s }} cluster update \
+         --name <название_кластера> \
+         --master-location zone={{ region-id }}-a,subnet-id=<идентификатор_подсети> \
+         --master-location zone={{ region-id }}-b,subnet-id=<идентификатор_подсети> \
+         --master-location zone={{ region-id }}-d,subnet-id=<идентификатор_подсети>
+      ```
+
+      Для каждой зоны доступности укажите соответствующую подсеть.
+
+- {{ TF }} {#tf}
+
+   {% include [master-tf-mifration-warning](../../_includes/managed-kubernetes/master-tf-mifration-warning.md) %}
+
+   1. В файле с конфигурацией кластера обновите формат блока с параметрами расположения кластера (`regional`) без изменения значений параметров:
+
+      **Старый формат**:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "<название_кластера>" {
+         ...
+         master {
+            ...
+            regional {
+               region = "ru-central1"
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-a.id
+                  zone      = yandex_vpc_subnet.my-subnet-a.zone
+               }
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-b.id
+                  zone      = yandex_vpc_subnet.my-subnet-b.zone
+               }
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-c.id
+                  zone      = yandex_vpc_subnet.my-subnet-c.zone
+               }
+            }
+         }
+         ...
+      }
+      ```       
+
+      **Новый формат**: 
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "<название_кластера>" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-a.id
+               zone      = yandex_vpc_subnet.my-subnet-a.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-b.id
+               zone      = yandex_vpc_subnet.my-subnet-b.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-c.id
+               zone      = yandex_vpc_subnet.my-subnet-c.zone
+            }
+         }
+         ...
+      }
+      ```
+
+   1. Убедитесь, что изменений в параметрах ресурсов {{ TF }} не обнаружено:
+
+      ```bash
+      terraform plan
+      ```
+
+      Если {{ TF }} обнаружил изменения, проверьте значения всех параметров кластера — они должны соответствовать текущему состоянию.
+
+   1. В файл с конфигурацией кластера добавьте манифест новой подсети и измените местоположение кластера:
+
+      ```hcl
+      resource "yandex_vpc_subnet" "my-subnet-d" {
+         name           = "<название_сети>"
+         zone           = "{{ region-id }}-d"
+         network_id     = yandex_vpc_network.k8s-network.id
+         v4_cidr_blocks = ["<CIDR_подсети>"]
+      }
+
+      ...
+
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-a.id
+               zone      = yandex_vpc_subnet.my-subnet-a.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-b.id
+               zone      = yandex_vpc_subnet.my-subnet-b.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-d.id
+               zone      = yandex_vpc_subnet.my-subnet-d.zone
+            }
+            ...
+         }
+      ...
+      }
+      ```
+
+      Для кластера подсеть `my-subnet-c` заменяется на подсеть `my-subnet-d` с параметрами:
+
+      * `name` — название подсети.
+      * `zone` — зона доступности.
+      * `network_id` — идентификатор сети, в которую входит новая подсеть.
+      * `v4_cidr_blocks` — список IPv4-адресов, откуда или куда будет поступать трафик. Например, `10.0.0.0/22` или `192.168.0.0/16`. Адреса должны быть уникальными внутри сети. Минимальный размер подсети - `/28`, а максимальный размер подсети - `/16`. Поддерживается только IPv4.
+
+   1. Проверьте корректность конфигурационного файла.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+{% endlist %}
 
 ## Перенесите группу узлов и рабочую нагрузку в подах в другую зону доступности {#transfer-a-node-group}
 
@@ -30,9 +316,9 @@
 
 1. Проверьте, используются ли стратегии `nodeSelector`, `affinity` или `topology spread constraints` для привязки подов к узлам группы. Подробнее о стратегиях см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) и разделе [{#T}](../concepts/usage-recommendations.md#high-availability). Чтобы проверить привязку пода к узлам и убрать ее:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Консоль управления
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером {{ managed-k8s-name }}.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.

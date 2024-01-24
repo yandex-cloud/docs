@@ -29,15 +29,15 @@
 
 ## Получить список установленных расширений {#list-extensions}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите блок **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
   1. В колонке **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** будет отображаться список расширений, подключенных к каждой базе данных.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -52,7 +52,7 @@
 
   Включенные расширения будут перечислены в списке `extensions`.
 
-- API
+- API {#api}
 
   Чтобы получить список расширений для базы данных, воспользуйтесь методом REST API [get](../../api-ref/Database/get.md) для ресурса [Database](../../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Get](../../api-ref/grpc/database_service.md#Get) и передайте в запросе:
   
@@ -63,16 +63,16 @@
 
 ## Изменить список установленных расширений {#update-extensions}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
   1. В строке с нужной базой данных нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage-extensions }}**.
   1. Выберите необходимые расширения и нажмите кнопку **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -92,7 +92,7 @@
 
   {% endnote %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -121,7 +121,7 @@
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-- API
+- API {#api}
 
     Чтобы изменить список расширений для базы данных, воспользуйтесь методом REST API [update](../../api-ref/Database/update.md) для ресурса [Database](../../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Update](../../api-ref/grpc/database_service.md#Update) и передайте в запросе:
 

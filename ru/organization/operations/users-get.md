@@ -17,13 +17,13 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- {{ org-name }}
+- {{ org-name }} {#cloud-org}
 
   {% include [users-info](../../_includes/users-info.md) %}
 
-- CLI
+- CLI {#cli}
 
   1. Посмотрите описание команды получения информации о пользователях организации:
 
@@ -34,16 +34,16 @@ description: "Следуя данной инструкции, вы сможет�
   1. Получите информацию о пользователях, указав идентификатор организации:
 
       ```
-      yc organization-manager user list --organization-id bof33mc4bik7bg
+      yc organization-manager user list --organization-id bof33m********
       +----------------------+----------+------------------+-----------------------+
       |          ID          | USERNAME |      EMAIL       |     FEDERATION ID     |
       +----------------------+----------+------------------+-----------------------+
-      | ajeebjmlsdk9guz4kejh | hatter   | hatter@{{yandex-domain}} | gyuiawudhiksd21hsdjh  |
-      | bsdeoujmzsdks1guzker | alice    | alice@{{yandex-domain}}  |                       |
+      | ajeebjmlsdk9******** | hatter   | hatter@{{yandex-domain}} | gyuiawudhiks********  |
+      | bsdeoujmzsdk******** | alice    | alice@{{yandex-domain}}  |                       |
       +----------------------+----------+------------------+-----------------------+
       ```
 
-- API
+- API {#api}
 
   Получите параметры пользователя с помощью [запроса к API](../api-ref/User/listMembers.md).
 

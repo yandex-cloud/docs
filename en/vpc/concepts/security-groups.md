@@ -293,3 +293,5 @@ In {{ yandex-cloud }}, you can work with security groups using:
 ## Step-by-step guides for working with security groups {#security-group-howto}
 
 [Sample use cases for security groups](../../vpc/operations/index.md#security-groups) in {{ yandex-cloud }}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

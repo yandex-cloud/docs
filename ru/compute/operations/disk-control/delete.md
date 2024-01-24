@@ -15,9 +15,9 @@ description: "Удалить можно только не подключенны
 
 Чтобы удалить диск:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В консоли управления выберите каталог, которому принадлежит диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -25,7 +25,7 @@ description: "Удалить можно только не подключенны
   1. В строке с нужным диском нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -47,13 +47,7 @@ description: "Удалить можно только не подключенны
        --name first-disk
      ```
 
-- API
-
-  Чтобы удалить диск, воспользуйтесь методом REST API [delete](../../api-ref/Disk/delete.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Delete](../../api-ref/grpc/disk_service.md#Delete).
-
-  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -72,5 +66,11 @@ description: "Удалить можно только не подключенны
      {% endnote %}
 
   1. Введите слово `yes` и нажмите **Enter**.
+
+- API {#api}
+
+  Чтобы удалить диск, воспользуйтесь методом REST API [delete](../../api-ref/Disk/delete.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Delete](../../api-ref/grpc/disk_service.md#Delete).
+
+  Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
 
 {% endlist %}

@@ -7,9 +7,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 Чтобы [очистить кеш](../../concepts/caching.md) ресурса:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
@@ -28,7 +28,7 @@ description: "Следуя данной инструкции, вы сможет�
       
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-- CLI
+- CLI {#cli}
   
   {% include [include](../../../_includes/cli-install.md) %}
 
@@ -97,7 +97,7 @@ description: "Следуя данной инструкции, вы сможет�
 
       Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/cache/purge.md).
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [purge](../../api-ref/Cache/purge.md) для ресурса [Cache](../../api-ref/Cache/index.md) или вызовом gRPC API [CacheService/Purge](../../api-ref/grpc/cache_service.md#Purge).
 

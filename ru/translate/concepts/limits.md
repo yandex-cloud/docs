@@ -9,8 +9,6 @@ editable: false
 
 В API v2 сервиса {{ translate-full-name }} действуют следующие ограничения:
 
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
-
-{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def-without-ui.md) %}
 
 {% include [translate-limits](../../_includes/translate-limits.md) %}

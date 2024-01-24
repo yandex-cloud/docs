@@ -49,9 +49,9 @@ You can change the number of hosts in data storage and processing subclusters:
    1. Set a new number of hosts in the update subcluster command:
 
       ```bash
-      {{ yc-dp }} subcluster update <subcluster ID or name> \
-         --cluster-name=<cluster name> \
-         --hosts-count=<number of hosts>
+      {{ yc-dp }} subcluster update <subcluster_name_or_ID> \
+         --cluster-name=<cluster_name> \
+         --hosts-count=<number_of_hosts>
       ```
 
       You can request a subcluster name or ID with a [list of cluster subclusters](subclusters.md#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
@@ -65,14 +65,14 @@ You can change the number of hosts in data storage and processing subclusters:
    1. In the {{ dataproc-name }} cluster description, edit the value of the `hosts_count` parameter under `subcluster_spec` for the relevant data storage or processing subcluster:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name>" {
+      resource "yandex_dataproc_cluster" "data_cluster" {
         ...
         cluster_config {
           ...
           subcluster_spec {
-            name        = "<subcluster name>"
+            name        = "<subcluster_name>"
             ...
-            hosts_count = <number of hosts in subcluster>
+            hosts_count = <number_of_subcluster_hosts>
           }
         }
       }
@@ -137,9 +137,9 @@ You can change the computing power of hosts in a separate subcluster. It depends
    1. Specify the class in the update subcluster command:
 
       ```bash
-      {{ yc-dp }} subcluster update <subcluster ID or name> \
-         --cluster-name=<cluster name> \
-         --resource-preset=<host class>
+      {{ yc-dp }} subcluster update <subcluster_name_or_ID> \
+         --cluster-name=<cluster_name> \
+         --resource-preset=<host_class>
       ```
 
       You can request a subcluster name or ID with a [list of cluster subclusters](subclusters.md#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
@@ -153,15 +153,15 @@ You can change the computing power of hosts in a separate subcluster. It depends
    1. In the {{ dataproc-name }} cluster description, edit the value of the `resource_preset_id` parameter under `subcluster_spec.resources` for the relevant subcluster:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name>" {
+      resource "yandex_dataproc_cluster" data_cluster {
         ...
         cluster_config {
           ...
           subcluster_spec {
-            name = "<subcluster name>"
+            name = "<subcluster_name>"
             ...
             resources {
-              resource_preset_id = "<subcluster host class>"
+              resource_preset_id = "<subcluster_host_class>"
             ...
           }
         }
@@ -225,23 +225,23 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
    1. Set the autoscaling parameters in the update subcluster command:
 
       ```bash
-      {{ yc-dp }} subcluster update <subcluster ID or name> \
-         --cluster-name=<cluster name> \
-         --hosts-count=<minimum number of hosts> \
-         --max-hosts-count=<maximum number of hosts> \
-         --enable-preemptible=<use preemptible VMs: true or false> \
-         --warmup-duration=<instance warmup period> \
-         --stabilization-duration=<stabilization period> \
-         --measurement-duration=<utilization measurement period> \
-         --cpu-utilization-target=<target CPU utilization level, %> \
-         --autoscaling-decommission-timeout=<decommissioning timeout>
+      {{ yc-dp }} subcluster update <subcluster_name_or_ID> \
+         --cluster-name=<cluster_name> \
+         --hosts-count=<minimum_number_of_hosts> \
+         --max-hosts-count=<maximum_number_of_hosts> \
+         --enable-preemptible=<use_preemptible_VMs> \
+         --warmup-duration=<VM_warmup_time> \
+         --stabilization-duration=<stabilization_period> \
+         --measurement-duration=<utilization_measurement_interval> \
+         --cpu-utilization-target=<target_CPU_utilization_level> \
+         --autoscaling-decommission-timeout=<decommissioning_timeout>
       ```
 
       Where:
 
       * `--hosts-count`: Minimum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `32`.
       * `--max-hosts-count`: Maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
-      * `--enable-preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used.
+      * `--enable-preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It may take either the `true` or `false` value.
       * `--warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
       * `--stabilization-duration`: Period, in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
       * `--measurement-duration`: Period, in seconds, for which utilization measurements are averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
@@ -259,27 +259,35 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
    1. In the {{ dataproc-name }} cluster description, add a `subcluster_spec.autoscaling_config` section with the required autoscaling settings for the relevant subcluster:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name>" {
+      resource "yandex_dataproc_cluster" "data_cluster" {
         ...
         cluster_config {
           ...
           subcluster_spec {
-            name = "<subcluster name>"
+            name = "<subcluster_name>"
             role = "COMPUTENODE"
             ...
             autoscaling_config {
-              max_hosts_count        = <maximum number of VMs in group>
-              measurement_duration   = <load measurement interval (seconds)>
-              warmup_duration        = <VM initialization time (seconds)>
-              stabilization_duration = <stabilization period (seconds)>
-              preemptible            = <use preemptible VM: true or false>
-              cpu_utilization_target = <target vCPU workload, %>
-              decommission_timeout   = <VM decommissioning timeout (seconds)>
-            }
+            max_hosts_count        = <maximum_number_of_VMs_in_group>
+            measurement_duration   = <utilization_measurement_interval>
+            warmup_duration        = <warmup_time>
+            stabilization_duration = <stabilization_period>
+            preemptible            = <use_preemptible_VMs>
+            cpu_utilization_target = <target_vCPU_utilization_level>
+            decommission_timeout   = <decommissioning_timeout>
           }
         }
-      }
       ```
+
+      Where:
+
+      * `max_hosts_count`: Maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
+      * `measurement_duration`: Period, in seconds, for which utilization measurements are averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
+      * `warmup_duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
+      * `stabilization_duration`: Period, in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
+      * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It may take either the `true` or `false` value.
+      * `cpu_utilization_target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
+      * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
    1. Make sure the settings are correct.
 
@@ -343,9 +351,9 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
    1. Specify the required storage size in the update subcluster command:
 
       ```bash
-      {{ yc-dp }} subcluster update <subcluster ID or name> \
-         --cluster-name=<cluster name> \
-         --disk-size=<storage size in GB>
+      {{ yc-dp }} subcluster update <subcluster_name_or_ID> \
+         --cluster-name=<cluster_name> \
+         --disk-size=<storage_size_in_GB>
       ```
 
       You can request a subcluster name or ID with a [list of cluster subclusters](#list-subclusters), and a cluster name with a [list of folder clusters](cluster-list.md#list).
@@ -363,15 +371,15 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
    1. In the {{ dataproc-name }} cluster description, edit the value of the `disk_size` parameter under `subcluster_spec.resources` for the relevant subcluster:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name>" {
+      resource "yandex_dataproc_cluster" "data_cluster" {
         ...
         cluster_config {
           ...
           subcluster_spec {
-            name = "<subcluster name>"
+            name = "<subcluster_name>"
             ...
             resources {
-              disk_size = <storage size, GB>
+              disk_size = <storage_size_in_GB>
               ...
             }
           }
@@ -413,9 +421,9 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name>" {
+      resource "yandex_dataproc_cluster" "data_cluster" {
         ...
-        security_group_ids = ["<list of cluster security group IDs>"]
+        security_group_ids = [ "<list_of_cluster_security_group_IDs>" ]
       }
       ```
 

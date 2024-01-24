@@ -1,5 +1,5 @@
 {% note info %}
 
-You can create a maximum of 1000 databases in each cluster.
+You can create a maximum of {{ all-mdb.max-databases }} databases in each cluster.
 
 {% endnote %}

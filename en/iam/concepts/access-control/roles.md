@@ -581,6 +581,7 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [storage-admin](../../../_includes/iam/roles/storage-admin.md) %}
 
 
+
 ## {{ yq-full-name }} {#yq-roles}
 
 {% include [yq-invoker](../../../_includes/iam/roles/yq-invoker.md) %}
@@ -717,3 +718,5 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [roles-ai-editor](../../../_includes/roles-ai-editor.md) %}
 
 {% include [roles-ai-admin](../../../_includes/roles-ai-admin.md) %}
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

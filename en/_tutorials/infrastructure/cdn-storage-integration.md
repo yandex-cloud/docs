@@ -210,7 +210,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -291,7 +291,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -380,7 +380,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
             terraform plan
             ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -545,7 +545,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -722,7 +722,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -781,9 +781,9 @@ To create security groups:
       +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
       |          ID          |               NAME               |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |     RANGE     |
       +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
-      | e9bnnssj8sc8******** | example-subnet-{{ region-id }}-c | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-c | [10.1.0.0/16] |
-      | e2lghukd9iqo******** | example-subnet-{{ region-id }}-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-b | [10.2.0.0/16] |
-      | b0c3pte4o2kn******** | example-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.3.0.0/16] |
+      | e9bnnssj8sc8******** |   example-subnet-{{ region-id }}-c   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-c   | [10.1.0.0/16] |
+      | e2lghukd9iqo******** |   example-subnet-{{ region-id }}-b   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-b   | [10.2.0.0/16] |
+      | b0c3pte4o2kn******** |   example-subnet-{{ region-id }}-a   | b1g9hv2loamq******** | enptrcle5q3d******** |                |   {{ region-id }}-a   | [10.3.0.0/16] |
       +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
       ```
 
@@ -798,7 +798,7 @@ To create security groups:
       Result:
 
       ```
-      id: enpd133ngcnrgc8475cc
+      id: enpd133ngcnr********
       ```
 
       For more information about the `yc vpc security-group get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
@@ -945,7 +945,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -971,7 +971,8 @@ To create security groups:
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. If the CDN provider is not activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
+   1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
+
    1. Create a CDN resource:
 
       1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
@@ -1009,7 +1010,7 @@ To create security groups:
 
 - {{ yandex-cloud }} CLI
 
-   1. If the CDN provider is not activated yet, run the command:
+   1. If the CDN provider is not activated yet, run this command:
 
       ```bash
       yc cdn provider activate --folder-id <folder_ID> --type gcore
@@ -1117,7 +1118,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -1179,7 +1180,7 @@ To configure DNS:
       1. In the [management console]({{ link-console-main }}), select `example-folder`.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
-      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the domain name in `cl-....edgecdn.ru` format.
+      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the domain name in `cl-********.edgecdn.ru` format.
 
    {% endlist %}
 
@@ -1187,7 +1188,7 @@ To configure DNS:
 1. Create or edit a CNAME record for `cdn.yandexcloud.example` to link them to the copied domain name:
 
    ```
-   cdn CNAME cl-****edgecdn.ru
+   cdn CNAME cl-********.edgecdn.ru
    ```
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
@@ -1215,7 +1216,7 @@ To configure DNS:
          1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
          1. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn`.
          1. In the **{{ ui-key.yacloud.common.type }}** field, specify `CNAME`.
-         1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `cl-....edgecdn.ru` format.
+         1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `cl-********.edgecdn.ru` format.
          1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - {{ yandex-cloud }} CLI
@@ -1242,12 +1243,12 @@ To configure DNS:
 
          For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/create.md).
 
-      1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with a copied value in `cl-****edgecdn.ru` format:
+      1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with a copied value in `cl-********.edgecdn.ru` format:
 
          ```bash
          yc dns zone add-records \
            --name example-dns-zone \
-           --record "cdn CNAME cl-****edgecdn.ru" \
+           --record "cdn CNAME cl-********.edgecdn.ru" \
          ```
 
          For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
@@ -1269,7 +1270,7 @@ To configure DNS:
            zone_id = ${yandex_dns_zone.example-dns-zone.id}
            name    = "cdn"
            type    = "CNAME"
-           data    = ["<copied_value_in_the_ format_cl-****edgecdn.ru>"]
+           data    = ["<copied_value_in_the_ format_cl-********.edgecdn.ru>"]
          }
          ```
 
@@ -1284,7 +1285,7 @@ To configure DNS:
             terraform plan
             ```
 
-         If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -1299,7 +1300,7 @@ To configure DNS:
    - API
 
       1. Create a DNS zone named `example-dns-zone` using the gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` CNAME record to the zone, copying the `cl-****edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+      1. Add the `cdn` CNAME record to the zone, copying the `cl-********.edgecdn.ru` value with the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 

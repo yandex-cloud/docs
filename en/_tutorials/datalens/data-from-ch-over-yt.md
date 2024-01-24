@@ -51,7 +51,7 @@ You can go straight to creating a dataset from the connection creation interface
 
 After creating a connection, you can create a dataset over it.
 
-1. In the left-hand navigation menu, click ![icon-datasets](../../_assets/datalens/nav-datasets.svg) and then click **Create dataset** in the top-right corner.
+1. In the left-hand navigation menu, click ![icon-datasets](../../_assets/console-icons/circles-intersection.svg) and then click **Create dataset** in the top-right corner.
 1. In the window that opens, in the **Connections** section, click **+ Add**. Select the **CHYT** connection that you created earlier.
 
 1. Select the source indication method:

@@ -10,6 +10,7 @@ Service | Description
 --- | ---
 [BackupService](./backup_service.md) | A set of methods for managing backups.
 [ClusterService](./cluster_service.md) | A set of methods for managing Greenplum® clusters.
+[HBARuleService](./hba_rule_service.md) | A set of methods for managing Greenplum clusters.
 [PXFDatasourceService](./pxf_service.md) | 
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing resource presets.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

@@ -7,9 +7,9 @@ description: "Из статьи вы узнаете, как отправить �
 
 {% include [trigger](../../../_includes/data-streams/trigger.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   Чтобы отправить данные в [поток](../../concepts/glossary.md#stream-concepts), выполните команду:
 

@@ -6,16 +6,16 @@
 
 Чтобы получить информацию о группе виртуальных машин:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Нажмите на имя нужной группы.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -38,7 +38,7 @@
       {{ yc-compute-ig }} get --name first-instance-group
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом REST API [get](../../api-ref/InstanceGroup/get.md) для ресурса [InstanceGroup](../../api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Get](../../api-ref/grpc/instance_group_service.md#Get).
 

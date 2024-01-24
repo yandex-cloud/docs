@@ -28,6 +28,9 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `cpu.steal`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `steal`. | 
 | `cpu.system`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `system`. | 
 | `cpu.user`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `user`. |
+| `load.avg_15min`<br/>`DGAUGE`, % | Средняя нагрузка за 15 минут. | 
+| `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
+| `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 
 ### Метрики диска {#managed-kafka-disk-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -126,5 +129,6 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, штуки | Количество разделов, у которых число синхронизированных реплик меньше минимального допустимого значения, указанного в настройках. |
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, штуки | Количество разделов, у которых число синхронизированных реплик (in-sync replicas, ISR) меньше фактора репликации. |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, миллисекунды | Задержка запросов в {{ ZK }}.<br/>Дополнительные метки: `quantile` |
+| `kafka_shard_count`<br/>`DGAUGE`, штуки | Количество активных шардов. |
 
 Подробнее о сервисе в документации [{{ mkf-name }}](../../../managed-kafka/).

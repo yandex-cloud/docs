@@ -1,35 +1,28 @@
-Получите данные вашего аккаунта для авторизации:
+Для работы с API {{ translate-name }} необходимо отправлять данные для аутентификации в каждом запросе. Способ аутентификации зависит от типа аккаунта, от имени которого вы будете отправлять запросы:
 
-{% list tabs %}
+{% list tabs group=authentication %}
 
-- Аккаунт пользователя на Яндексе
+- Аккаунт на Яндексе или федеративный аккаунт {#yandex-account}
+  
+  {% include [user-auth](user-auth.md) %}
+  
+- Сервисный аккаунт {#service-account}
 
-  1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-  1. [Получите IAM-токен](../../iam/operations/iam-token/create.md), необходимый для аутентификации.
-  1. [Получите идентификатор любого каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-translate-user }}` или выше.
+  1. Выберите один из способов аутентификации:
+     * Получите [IAM-токен](../../iam/operations/iam-token/create-for-sa.md). Передавайте IAM-токен в заголовке `Authorization` в формате:
+     
+        ```yaml
+        Authorization: Bearer <IAM-токен>
+        ```
 
-- Сервисный аккаунт
-
-  1. Выберите способ аутентификации:
-     * Получите [IAM-токен](../../iam/operations/iam-token/create-for-sa.md), используемый в примерах.
      * [Создайте API-ключ](../../iam/operations/api-key/create.md). Передайте API-ключ в заголовке `Authorization` в следующем формате:
 
-          ```
-          Authorization: Api-Key <API-ключ>
-          ```
+        ```yaml
+        Authorization: Api-Key <API-ключ>
+        ```
   1. [Назначьте сервисному аккаунту роль](../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-translate-user }}` или выше на каталог, в котором он был создан.
 
       Не указывайте в запросах идентификатор каталога — сервис использует каталог, в котором был создан сервисный аккаунт.
-
-- Федеративный аккаунт
-
-  1. [Аутентифицируйтесь в CLI от имени федеративного пользователя](../../cli/operations/authentication/federated-user.md).
-  1. С помощью CLI получите [IAM-токен](../../iam/concepts/authorization/iam-token.md), необходимый для аутентификации:
-
-      ```bash
-      yc iam create-token
-      ```
-  1. [Получите идентификатор любого каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-translate-user }}` или выше.
   
 {% endlist %}
 

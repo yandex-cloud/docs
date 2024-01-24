@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Create a service account for the {{ ml-platform-name }} project (optional) {#create-sa}
 
-You can send requests to a fine-tuned model through the {{ ml-platform-name }} interface (Playground) or the API, using the code. If you are going to make API requests, you need a service account with the `{{ roles-yagpt-user }}` [role](../../iam/concepts/access-control/roles.md). The service account must be a {{ ml-platform-name }} project member.
+You can send requests to a fine-tuned model through the {{ ml-platform-name }} interface (Playground) or the API v1 in synchronous mode. If you are going to make API requests, you need a service account with the `{{ roles-yagpt-user }}` [role](../../iam/concepts/access-control/roles.md). The service account must be a {{ ml-platform-name }} project member.
 
 {% list tabs %}
 
@@ -67,9 +67,9 @@ To enable the service account to access the fine-tuned model from the {{ ml-plat
 
 - Management console
 
-   1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-   1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
-   1. Select the `ai-user` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
+    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+    1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
+    1. Select the `ai-user` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
 {% endlist %}
 
@@ -97,7 +97,7 @@ File content example:
 ]
 ```
 
-## Retrain the model {#model-tuning}
+## Tune the model {#model-tuning}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 
@@ -144,36 +144,141 @@ File content example:
 
     1. To change the variability, move the slider in the **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}** field. The higher the value, the more unpredictable the result.
 
-- API
+- {{ jlab }}Lab
 
-   Code to access the model:
+   Copy this code to a notebook cell if you did not use any instructions to tune the model:
 
-   ```python
-   import requests
-   req = {
-   	    "model": "general",
-   	    "instruction_uri" : "ds://<ID_of_fine-tuned_model>",
-   	    "request_text": "<text_of_request>",
-   	    "generation_options": {
-   	    "max_tokens": 1000,
-   	    "temperature": 0.1
-   	    }
-   }
-   headers = {'Authorization': 'Bearer ' + '<IAM_token>'}
-   res = requests.post("https://llm.api.cloud.yandex.net/llm/v1alpha/instruct",
-         headers=headers, json=req)
-   print(res.json())
-   ```
+    ```python
+    import requests
+    req = {
+            "modelUri": "ds://<fine-tuned_model_ID>",
+            "completionOptions": {
+                "stream": False,
+                "temperature": 0.1,
+                "maxTokens": "2000"
+            },
+            "messages": [
+                {
+                "role": "user",
+                "text": "<request_text>"
+                }
+            ]            
+    }
+    headers = {"Authorization" : "Bearer " + '<IAM_token>',
+            "x-folder-id": "<folder_ID>", }
+    res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+        headers=headers, json=req)
+    print(res.json())
+    ```
 
     Where:
 
-    * `instruction_uri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-    * `request_text`: Text of your request.
-    * `max_tokens`: Maximum number of characters per model response.
-    * `temperature`: Temperature. The higher the value, the more unpredictable the result.
-    * `Authorization`: [IAM token of the service account](../../iam/operations/iam-token/create-for-sa.md).
+    * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
+    * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
+    * `maxTokens`: Maximum number of tokens per model response.
+    * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
+    * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
 
-   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/api-ref/).
+    If you used instructions to tune the model, enter the text in a `system` message:
+
+    ```python
+    import requests
+    req = {
+            "modelUri": "ds://<fine-tuned_model_ID>",
+            "completionOptions": {
+                "stream": False,
+                "temperature": 0.1,
+                "maxTokens": "2000"
+            },
+            "messages": [
+                {
+                "role": "system",
+                "text": "<text_of_instructions>"
+                },
+                {
+                "role": "user",
+                "text": "<request_text>"
+                }
+            ]    
+    }
+    headers = {"Authorization" : "Bearer " + '<IAM_token>',
+                       "x-folder-id": "<folder_ID>", }
+    res = requests.post("https://llm.api.cloud.yandex.net/foundationModels/v1/completion",
+        headers=headers, json=req)
+    print(res.json())
+    ```
+
+   For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/api-ref/v1/index.md).
+
+- cURL
+
+    {% include [curl](../../_includes/curl.md) %}
+
+    1. Create a JSON file with model request parameters. If you did not use any instructions to tune the model, copy the following code to the file:
+
+       ```json
+        {
+        "modelUri": "ds://<fine-tuned_model_ID>",
+        "completionOptions": {
+            "stream": false,
+            "temperature": 0.1,
+            "maxTokens": "2000"
+        },
+        "messages": [
+            {
+            "role": "user",
+            "text": "<request_text>"
+            }
+        ]
+        }
+       ```
+
+       Where:
+
+       * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
+       * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
+       * `maxTokens`: Maximum number of tokens per model response.
+       * `text`: Request text.
+
+       If you used instructions to tune the model, enter the text in a `system` message in the JSON file:
+
+        ```json
+        {
+        "modelUri": "ds://<fine-tuned_model_ID>",
+        "completionOptions": {
+            "stream": false,
+            "temperature": 0.1,
+            "maxTokens": "2000"
+        },
+        "messages": [
+            {
+            "role": "system",
+            "text": "<text_of_instructions>"
+            },
+            {
+            "role": "user",
+            "text": "<request_text>"
+            }
+        ]
+        }
+        ```
+
+    1. Send your request via a command shell:
+
+       ```bash
+       curl --request POST
+           -H "Content-Type: application/json"
+           -H "Authorization: Bearer <IAM_token>"
+           -H "x-folder-id: <folder_ID>"
+           -d prompt.json
+           https://llm.{{ api-host }}/foundationModels/v1/completion
+       ```
+
+       Where:
+
+       * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
+       * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
+       * `prompt.json`: JSON file with request parameters.
 
 {% endlist %}
 

@@ -1,6 +1,7 @@
 # Markdown
 
 {{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](./widget.md#text) widget on the dashboard.
+
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
@@ -260,7 +261,7 @@ You can add images from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastat
 To upload an image from **{{ objstorage-short-name }}** to a widget:
 
 1. Open the [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![image](../../_assets/main-menu.svg) and select **{{ objstorage-short-name }}**.
+1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) and select **{{ objstorage-short-name }}**.
 1. [Create a bucket](../../storage/operations/buckets/create.md) with public access.
 1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
 1. Go to the object you got and click **Get link**.

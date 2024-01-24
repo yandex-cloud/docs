@@ -21,7 +21,7 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 
 
-1. In the left-hand panel, select ![image](../../../_assets/datalens/chart.svg) **Charts**.
+1. In the left-hand panel, select ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **QL chart**.
 1. In the window that opens, select a **Chart type**:
 
@@ -29,60 +29,60 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
    - SQL
 
-     1. Click **Select connection**.
-     1. In the list, select a database connection that you have access to. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
-     1. Click **Create**.
-     1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
-     1. In the bottom-left corner, click **Start**.
+      1. Click **Select connection**.
+      1. In the list, select a database connection that you have access to. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
+      1. Click **Create**.
+      1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
+      1. In the bottom-left corner, click **Start**.
 
-     After the query runs, a visualization of your data will be displayed.
+      After the query runs, a visualization of your data will be displayed.
 
-     {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
+      {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
 
    - {{ prometheus-name }}
 
-     1. Click **Select connection**.
-     1. In the list, select a {{ prometheus-name }} connection that you have access to.
-     1. Click **Create**.
-     1. Click **Add query** and specify a query in the {{ prometheus-name }} language.
-     1. In the bottom-left corner, click **Start**.
+      1. Click **Select connection**.
+      1. In the list, select a {{ prometheus-name }} connection that you have access to.
+      1. Click **Create**.
+      1. Click **Add query** and specify a query in the {{ prometheus-name }} language.
+      1. In the bottom-left corner, click **Start**.
 
-     After the query runs, a visualization of your data will be displayed.
+      After the query runs, a visualization of your data will be displayed.
 
-     {% include [datalens-prometheus-ch-example](../../../_includes/datalens/datalens-prometheus-ch-example.md) %}
+      {% include [datalens-prometheus-ch-example](../../../_includes/datalens/datalens-prometheus-ch-example.md) %}
 
-     QL charts built on the {{ prometheus-name }} data can be parameterized similarly to SQL charts. This type of charts also has mandatory global parameters created automatically when building a QL chart. You can override default values of these parameters.
+      QL charts built on the {{ prometheus-name }} data can be parameterized similarly to SQL charts. This type of charts also has mandatory global parameters created automatically when building a QL chart. You can override default values of these parameters.
 
-     | Parameter | Data type | Description |
-     |---|---|---|
-     | from | datetime | Lower time limit. |
-     | to | datetime | Upper time limit. |
-     | step | number | Step on the time scale (seconds). |
+      | Parameter | Data type | Description |
+      |---|---|---|
+      | from | datetime | Lower time limit |
+      | to | datetime | Upper time limit |
+      | step | number | Step on the time scale (seconds) |
 
-     On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors, `from` and `to`.
+      On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors, `from` and `to`.
 
    - {{ monitoring-short-name }}
 
-     
-     1. Click **Select connection**.
-     1. In the list, select a {{ monitoring-short-name }} connection that you have access to.
-     1. Click **Create**.
-     1. Click **Add query** and specify a query in the {{ monitoring-short-name }} language.
-     1. In the bottom-left corner, click **Start**.
+      
+      1. Click **Select connection**.
+      1. In the list, select a {{ monitoring-short-name }} connection that you have access to.
+      1. Click **Create**.
+      1. Click **Add query** and specify a query in the {{ monitoring-short-name }} language.
+      1. In the bottom-left corner, click **Start**.
 
 
-     After the query runs, a visualization of your data will be displayed.
+      After the query runs, a visualization of your data will be displayed.
 
-     {% include [datalens-monitoring-ch-example](../../../_includes/datalens/datalens-monitoring-ch-example.md) %}
+      {% include [datalens-monitoring-ch-example](../../../_includes/datalens/datalens-monitoring-ch-example.md) %}
 
-     QL charts built on the {{ monitoring-short-name }} data can be parameterized similarly to SQL charts. This type of charts also has mandatory global parameters created automatically when building a QL chart. You can override default values of these parameters.
+      QL charts built on the {{ monitoring-short-name }} data can be parameterized similarly to SQL charts. This type of charts also has mandatory global parameters created automatically when building a QL chart. You can override default values of these parameters.
 
-     | Parameter | Data type | Description |
-     |---|---|---|
-     | from | datetime | Lower time limit. |
-     | to | datetime | Upper time limit. |
+      | Parameter | Data type | Description |
+      |---|---|---|
+      | from | datetime | Lower time limit |
+      | to | datetime | Upper time limit |
 
-     On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors, `from` and `to`.
+      On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors, `from` and `to`.
 
    {% endlist %}
 
@@ -108,9 +108,16 @@ To add a parameter:
 1. Click **Add parameter**.
 1. Set the value type for the parameter, e.g., `date-interval`.
 1. Name the parameter, e.g., `interval`.
-1. Reset the default values, e.g., `2017-01-01 — 2019-12-31`.
+1. Set the default values, e.g., `2017-01-01 — 2019-12-31`.
 
    ![image](../../../_assets/datalens/parameters/date-interval.png =450x167)
+
+   Parameter values of the `date`, `datetime`, `date-interval`, and `datetime-interval` types can be specified in one of the following ways:
+
+   * **Exact date**: Specified as an exact value.
+   * **Offset from the current date**: Specified as a relative value that gets updated automatically.
+
+   Use presets to quickly fill in the values.
 
 ### Intervals {#params-interval}
 

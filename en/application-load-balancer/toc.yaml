@@ -115,7 +115,7 @@ items:
         items:
           - name: Security groups
             href: tools/k8s-ingress-controller/security-groups.md
-          - name: Service accounts
+          - name: Service account
             href: tools/k8s-ingress-controller/service-account.md
   - name: Access management
     href: security/index.md
@@ -127,7 +127,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

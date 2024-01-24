@@ -60,36 +60,36 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       +----------------------+-----------------+
       |          ID          |      NAME       |
       +----------------------+-----------------+
-      | enp34hbpj8dqebn3621l | yc-auto-subnet  |
-      | enp846vf5fus0nt3lu83 | routes-test     |
+      | enp34hbpj8dq******** | yc-auto-subnet  |
+      | enp846vf5fus******** | routes-test     |
       +----------------------+-----------------+
       ```
 
    1. Create a route table in one of the networks:
 
-      ```
+      ```bash
       yc vpc route-table create \
         --name=test-route-table \
-        --network-id=enp846vf5fus0nt3lu83 \
+        --network-id=enp846vf5fus******** \
         --route destination=0.0.0.0/0,next-hop=192.168.1.5
       ```
 
       Where:
 
-      * `name`: Name of the route table.
-      * `network-id`: ID of the network where the table will be created.
-      * `route`: Route settings with two parameters:
+      * `--name`: Name of the route table.
+      * `--network-id`: ID of the network where the table will be created.
+      * `--route`: Route settings with two parameters:
          * `destination`: Destination subnet prefix in CIDR notation.
          * `next-hop`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through.
 
       Result:
       ```
       ...done
-      id: enpsi6b08q2vfdmppsnb
-      folder_id: b1gqs1teo2q2a4vnmi2t
+      id: enpsi6b08q2v********
+      folder_id: b1gqs1teo2q2********
       created_at: "2019-06-24T09:57:54Z"
       name: test-route-table
-      network_id: enp846vf5fus0nt3lu83
+      network_id: enp846vf5fus********
       static_routes:
       - destination_prefix: 0.0.0.0/0
         next_hop_address: 192.168.1.5
@@ -108,29 +108,29 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
       |          ID          |       NAME       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
-      | b0cf2b0u7nhl75gp1c9t | subnet-1         | enp846vf5fus0nt3lu83 |                | {{ region-id }}-a | [192.168.0.0/24] |
-      | e2llnffvbakqu18hr170 | subnet-2         | enp846vf5fus0nt3lu83 |                | {{ region-id }}-b | [192.168.1.0/24] |
+      | b0cf2b0u7nhl******** | subnet-1         | enp846vf5fus******** |                | {{ region-id }}-a | [192.168.0.0/24] |
+      | e2llnffvbakq******** | subnet-2         | enp846vf5fus******** |                | {{ region-id }}-b | [192.168.1.0/24] |
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
       ```
 
    1. Link the routing table to one of the subnets:
 
       ```
-      yc vpc subnet update b0cf2b0u7nhl75gp1c9t --route-table-id enp1sdveovdpdhaao5dq
+      yc vpc subnet update b0cf2b0u7nhl******** --route-table-id enp1sdveovdp********
       ```
 
       Result:
       ```
       ..done
-      id: b0cf2b0u7nhl75gp1c9t
-      folder_id: b1gqs1teo2q2a4vnmi2t
+      id: b0cf2b0u7nhl********
+      folder_id: b1gqs1teo2q2********
       created_at: "2019-03-12T13:27:22Z"
       name: subnet-1
-      network_id: enp846vf5fus0nt3lu83
+      network_id: enp846vf5fus********
       zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 192.168.0.0/24
-      route_table_id: enp1sdveovdpdhaao5dq
+      route_table_id: enp1sdveovdp********
       ```
 
 - {{ TF }}
@@ -156,8 +156,8 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
       ```hcl
       resource "yandex_vpc_route_table" "lab-rt-a" {
-        name       = "<route table name>"
-        network_id = "<network ID>"
+        name       = "<route_table_name>"
+        network_id = "<network_ID>"
         static_route {
           destination_prefix = "10.2.0.0/16"
           next_hop_address   = "172.16.10.10"

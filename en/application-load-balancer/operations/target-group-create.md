@@ -57,16 +57,16 @@ To create a [target group](../concepts/target-group.md):
       Result:
 
       ```yaml
-      id: a5d751meibht4ev26...
+      id: a5d751meibht********
       name: <target_group_name>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       targets:
-      - ip_address: <VM_1_internal_IP_address>
-        subnet_id: fo2tgfikh3hergif2...
-      - ip_address: <VM_2_internal_IP_address>
-        subnet_id: fo2tgfikh3hergif2...
-      - ip_address: <VM_3_internal_IP_address>
-        subnet_id: fo2tgfikh3hergif2...
+      - ip_address: <internal_IP_address_of_VM_1>
+        subnet_id: fo2tgfikh3he********
+      - ip_address: <internal_IP_address_of_VM_2>
+        subnet_id: fo2tgfikh3he********
+      - ip_address: <internal_IP_address_of_VM_3>
+        subnet_id: fo2tgfikh3he********
       created_at: "2021-02-11T11:16:27.770674538Z
       ```
 
@@ -85,9 +85,9 @@ To create a [target group](../concepts/target-group.md):
       Result:
 
       ```yaml
-      id: ds7s2dld2usr59qbu...
+      id: ds7s2dld2usr********
       name: <target_group_name>
-      folder_id: aoerb349v3h4bupph...
+      folder_id: aoerb349v3h4********
       targets:
         - ip_address: <private_IPv4_address_of_target_1>
           private_ipv4_address: true

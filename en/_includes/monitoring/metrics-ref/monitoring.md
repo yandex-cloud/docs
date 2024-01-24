@@ -1,6 +1,6 @@
-## {{ monitoring-full-name }} {#monitoring}
+## {{ monitoring-full-name }} service {#monitoring}
 
-All [{{ monitoring-full-name }}](../../../monitoring/) metrics share the `service=monitoring` label.
+All [{{ monitoring-name }}](../../../monitoring/) metrics share the `service=monitoring` label.
 
 | Metric name<br/>Type, units of measurement | Description<br/>Labels |
 | -------------------------------------- | ------------------ |

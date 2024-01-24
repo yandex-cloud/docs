@@ -159,9 +159,9 @@ A cluster must include a subcluster with a master host and at least one subclust
 
    1. Configure additional cluster settings, if required:
 
-      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages protection of the cluster from accidental deletion by a user.
+      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages cluster protection against inadvertent deletion by a user.
 
-      Enabled protection will not prevent a manual connection to a cluster to delete data.
+      Enabled protection will not prevent a manual connection to the cluster and deletion of data.
 
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -193,39 +193,39 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       
       ```bash
-      {{ yc-dp }} cluster create <cluster name> \
-         --bucket=<bucket name> \
-         --zone=<availability zone> \
-         --service-account-name=<cluster service account name> \
-         --version=<image version> \
-         --services=<component list> \
-         --ssh-public-keys-file=<full path to the file with the public part of the SSH key> \
-         --subcluster name=<name of subcluster with master host>,`
+      {{ yc-dp }} cluster create <cluster_name> \
+         --bucket=<bucket_name> \
+         --zone=<availability_zone> \
+         --service-account-name=<service_account_name> \
+         --version=<image_version> \
+         --services=<list_of_components> \
+         --ssh-public-keys-file=<path_to_public_SSH_key> \
+         --subcluster name=<name_of_subcluster_with_master_host>,`
                      `role=masternode,`
-                     `resource-preset=<host class>,`
-                     `disk-type=<storage type: network-ssd, network-hdd, or network-ssd-nonreplicated>,`
-                     `disk-size=<storage size, GB>,`
-                     `subnet-name=<subnet name>,`
-                     `assign-public-ip=<public access to subcluster host: true or false> \
-         --subcluster name=<name of data storage subcluster>,`
+                     `resource-preset=<host_class>,`
+                     `disk-type=<storage_type>,`
+                     `disk-size=<storage_size_in_GB>,`
+                     `subnet-name=<subnet_name>,`
+                     `assign-public-ip=<public_access_to_subcluster_host> \
+         --subcluster name=<name_of_data_storage_subcluster>,`
                      `role=datanode,`
-                     `resource-preset=<host class>,`
-                     `disk-type=<storage type: network-ssd, network-hdd, or network-ssd-nonreplicated>,`
-                     `disk-size=<storage size, GB>,`
-                     `subnet-name=<subnet name>,`
-                     `hosts-count=<host count>,`
-                     `assign-public-ip=<public access to subcluster hosts: true or false> \
-         --deletion-protection=<cluster deletion protection: true or false> \
-         --ui-proxy=<access to component web interfaces: true or false> \
-         --log-group-id=<log group ID> \
-         --security-group-ids=<list of security group IDs>
+                     `resource-preset=<host_class>,`
+                     `disk-type=<storage_type>,`
+                     `disk-size=<storage_size_in_GB>,`
+                     `subnet-name=<subnet_name>,`
+                     `hosts-count=<number_of_hosts>,`
+                     `assign-public-ip=<public_access_to_subcluster_host> \
+         --deletion-protection=<cluster_deletion_protection> \
+         --ui-proxy=<access_to_component_web_interfaces> \
+         --log-group-id=<log_group_ID> \
+         --security-group-ids=<list_of_security_group_IDs>
       ```
 
 
 
       {% note info %}
 
-      The cluster name must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
+      It must be unique within the folder. May contain Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
 
       {% endnote %}
 
@@ -250,11 +250,11 @@ A cluster must include a subcluster with a master host and at least one subclust
          * `name`: Subcluster name.
          * `role`: Subcluster role (`masternode`, `datanode`, or `computenode`).
          * `resource-preset`: [Host class](../concepts/instance-types.md).
-         * `disk-type`: [Storage type](../concepts/storage.md).
+         * `disk-type`: [Storage type](../concepts/storage.md) (`network-ssd`, `network-hdd`, or `network-ssd-nonreplicated`).
          * `disk-size`: Storage size in GB.
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
          * `hosts-count`: Number of hosts in data storage or processing subclusters. The minimum value is `1` and the maximum value is `32`.
-         * `assign-public-ip`: Access to subcluster hosts from the internet. This way, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
+         * `assign-public-ip`: Access to subcluster hosts from the internet. It may take either the `true` or `false` value. If access is enabled, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
 
             {% note warning %}
 
@@ -262,11 +262,11 @@ A cluster must include a subcluster with a master host and at least one subclust
 
             {% endnote %}
 
-      * `--deletion-protection`: Cluster deletion protection.
+      * `--deletion-protection`: Cluster deletion protection. It may take either the `true` or `false` value.
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-      * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
+      * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md). It may take either the `true` or `false` value.
 
       
       * `--log-group-id`: [Log group ID](../concepts/logs.md).
@@ -279,8 +279,8 @@ A cluster must include a subcluster with a master host and at least one subclust
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
          ...
-         --subcluster <subcluster parameters> \
-         --subcluster <subcluster parameters> \
+         --subcluster <subcluster_parameters> \
+         --subcluster <subcluster_parameters> \
          ...
       ```
 
@@ -289,24 +289,24 @@ A cluster must include a subcluster with a master host and at least one subclust
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
          ...
-         --subcluster name=<subcluster name>,`
+         --subcluster name=<subcluster_name>,`
                      `role=computenode`
                      `...`
-                     `hosts-count=<minimum number of hosts>`
-                     `max-hosts-count=<maximum number of hosts>,`
-                     `preemptible=<use preemptible VMs: true or false>,`
-                     `warmup-duration=<instance warmup period>,`
-                     `stabilization-duration=<stabilization period>,`
-                     `measurement-duration=<utilization measurement period>,`
-                     `cpu-utilization-target=<target CPU utilization level, %>,`
-                     `autoscaling-decommission-timeout=<decommissioning timeout, seconds>
+                     `hosts-count=<minimum_number_of_hosts>`
+                     `max-hosts-count=<maximum_number_of_hosts>,`
+                     `preemptible=<use_preemptible_VMs>,`
+                     `warmup-duration=<VM_warmup_time>,`
+                     `stabilization-duration=<stabilization_period>,`
+                     `measurement-duration=<utilization_measurement_interval>,`
+                     `cpu-utilization-target=<target_CPU_utilization_level>,`
+                     `autoscaling-decommission-timeout=<decommissioning_timeout>
       ```
 
       Where:
 
       * `hosts-count`: Minimum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `32`.
       * `max-hosts-count`: Maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
-      * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used.
+      * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It may take either the `true` or `false` value.
       * `warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
       * `stabilization-duration`: Interval in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
       * `measurement-duration`: Period in seconds, for which utilization measurements should be averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
@@ -321,7 +321,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
          ...
-         --host-group-ids=<IDs of groups of dedicated hosts>
+         --host-group-ids=<IDs_of_groups_of_dedicated_hosts>
       ```
 
       {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
@@ -332,15 +332,15 @@ A cluster must include a subcluster with a master host and at least one subclust
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
          ...
-         --initialization-action uri=<initialization script URI>,`
-                                `timeout=<script execution timeout>,`
+         --initialization-action uri=<initialization_script_URI>,`
+                                `timeout=<script_execution_timeout>,`
                                 `args=["arg1","arg2","arg3",...]
       ```
 
       Where:
 
       * `URI`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
-      * (Optional) `timeout`: Script execution timeout (in seconds). If your initialization script runs longer than this time period, it will be terminated.
+      * (Optional) `timeout`: Script execution timeout in seconds. If your initialization script runs longer than this time period, it will be terminated.
       * (Optional) `args`: Arguments separated by commas with which an initialization script must be executed.
 
 - {{ TF }}
@@ -363,12 +363,14 @@ A cluster must include a subcluster with a master host and at least one subclust
       Example structure of a configuration file that describes a cloud network with a single subnet:
 
       ```hcl
-      resource "yandex_vpc_network" "<network name in {{ TF }}>" { name = "<network name>" }
+      resource "yandex_vpc_network" "test_network" {
+        name = "<network_name>"
+      }
 
-      resource "yandex_vpc_subnet" "<subnet name in {{ TF }}>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = yandex_vpc_network.<network name in {{ TF }}>.id
+      resource "yandex_vpc_subnet" "test_subnet" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = yandex_vpc_network.test_network.id
         v4_cidr_blocks = ["<subnet>"]
       }
       ```
@@ -377,35 +379,35 @@ A cluster must include a subcluster with a master host and at least one subclust
    1. Create a configuration file with a description of the [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the cluster as well as a description of the [static key](../../iam/concepts/authorization/access-key.md) and [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) to store jobs and results.
 
       ```hcl
-      resource "yandex_iam_service_account" "<name of service account in {{ TF }}>" {
-        name        = "<service account name>"
-        description = "<service account description>"
+      resource "yandex_iam_service_account" "data_proc_sa" {
+        name        = "<service_account_name>"
+        description = "<service_account_description>"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "dataproc" {
-        folder_id = "<folder ID>"
+        folder_id = "<folder_ID>"
         role      = "dataproc.agent"
-        member    = "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
+        member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
       }
 
       resource "yandex_resourcemanager_folder_iam_member" "bucket-creator" {
-        folder_id = "<folder ID>"
+        folder_id = "<folder_ID>"
         role      = "dataproc.editor"
-        member    = "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
+        member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
       }
 
-      resource "yandex_iam_service_account_static_access_key" "<static key name in {{ TF }}>" {
-        service_account_id = yandex_iam_service_account.<name of service account in {{ TF }}>.id
+      resource "yandex_iam_service_account_static_access_key" "sa_static_key" {
+        service_account_id = yandex_iam_service_account.data_proc_sa.id
       }
 
-      resource "yandex_storage_bucket" "<bucket name in {{ TF }}>" {
+      resource "yandex_storage_bucket" "data_bucket" {
         depends_on = [
           yandex_resourcemanager_folder_iam_member.bucket-creator
         ]
 
-        bucket     = "<bucket name>"
-        access_key = yandex_iam_service_account_static_access_key.<static key name in {{ TF }}>.access_key
-        secret_key = yandex_iam_service_account_static_access_key.<static key name in {{ TF }}>.secret_key
+        bucket     = "<bucket_name>"
+        access_key = yandex_iam_service_account_static_access_key.sa_static_key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
       }
       ```
 
@@ -416,68 +418,70 @@ A cluster must include a subcluster with a master host and at least one subclust
       See below a sample structure of a configuration file that describes a cluster consisting of a subcluster with a master host, a data storage subcluster, and a data processing subcluster:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name in {{ TF }}>" {
-        bucket              = "<bucket name in {{ TF }}>"
-        name                = "<cluster name>"
-        description         = "<cluster description>"
-        service_account_id  = "<service account ID in {{ TF }}>"
-        zone_id             = "<availability zone>"
-        security_group_ids  = ["<security group ID list>"]
-        deletion_protection = <deletion protection: true or false>
+      resource "yandex_dataproc_cluster" "data_cluster" {
+        bucket              = "<bucket_name>"
+        name                = "<cluster_name>"
+        description         = "<cluster_description>"
+        service_account_id  = yandex_iam_service_account.data_proc_sa.id
+        zone_id             = "<availability_zone>"
+        security_group_ids  = ["<list_of_security_group_IDs>"]
+        deletion_protection = <cluster_deletion_protection>
 
         cluster_config {
-          version_id = "<image version>"
+          version_id = "<image_version>"
 
           hadoop {
-            services   = ["<component list>"]
-            # Example list: ["HDFS", "YARN", "SPARK", "TEZ", "MAPREDUCE", "HIVE"]
+            services   = ["<list_of_components>"]
+            # list example: ["HDFS", "YARN", "SPARK", "TEZ", "MAPREDUCE", "HIVE"]
             properties = {
-              "<component properties>" = <value>
+              "<component_property>" = <value>
               ...
             }
             ssh_public_keys = [
-              file("${file("<path to file with public SSH key>")}")
+              file("${file("<path_to_public_SSH_key>")}")
             ]
           }
 
           subcluster_spec {
-            name = "<name of subcluster with master host>"
+            name = "<name_of_subcluster_with_master_host>"
             role = "MASTERNODE"
             resources {
-              resource_preset_id = "<host class>"
-              disk_type_id       = "<storage type>"
-              disk_size          = <storage size, GB>
+              resource_preset_id = "<host_class>"
+              disk_type_id       = "<storage_type>"
+              disk_size          = <storage_size_in_GB>
             }
-            subnet_id   = "<subnet ID in {{ TF }}>"
+            subnet_id   = yandex_vpc_subnet.test_subnet.id
             hosts_count = 1
           }
 
           subcluster_spec {
-            name = "<data storage subcluster name>"
+            name = "<name_of_data_storage_subcluster>"
             role = "DATANODE"
             resources {
-              resource_preset_id = "<host class>"
-              disk_type_id       = "<storage type>"
-              disk_size          = <storage size, GB>
+              resource_preset_id = "<host_class>"
+              disk_type_id       = "<storage_type>"
+              disk_size          = <storage_size_in_GB>
             }
-            subnet_id   = "<subnet ID in {{ TF }}>"
-            hosts_count = <number of subcluster hosts>
+            subnet_id   = yandex_vpc_subnet.test_subnet.id
+            hosts_count = <number_of_subcluster_hosts>
           }
 
           subcluster_spec {
-            name = "<data processing subcluster name>"
+            name = "<name_of_data_processing_subcluster>"
             role = "COMPUTENODE"
             resources {
-              resource_preset_id = "<host class>"
-              disk_type_id       = "<storage type>"
-              disk_size          = <storage size, GB>
+              resource_preset_id = "<host_class>"
+              disk_type_id       = "<storage_type>"
+              disk_size          = <storage_size_in_GB>
             }
-            subnet_id   = "<subnet ID in {{ TF }}>"
-            hosts_count = <number of subcluster hosts>
+            subnet_id   = yandex_vpc_subnet.test_subnet.id
+            hosts_count = <number_of_subcluster_hosts>
           }
         }
       }
       ```
+
+      Where `deletion_protection` is cluster deletion protection. It may take either the `true` or `false` value.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -489,12 +493,12 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% endnote %}
 
-      To access {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), add a `ui_proxy` field to the cluster description:
+      To access {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), add the `ui_proxy` field with the `true` value to the cluster description:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "<cluster name in {{ TF }}>" {
+      resource "yandex_dataproc_cluster" "data_cluster" {
         ...
-        ui_proxy = <enable UI Proxy: true or false>
+        ui_proxy = true
         ...
       }
       ```
@@ -503,20 +507,30 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       ```hcl
       subcluster_spec {
-        name = "<subcluster name>"
+        name = "<subcluster_name>"
         role = "COMPUTENODE"
         ...
         autoscaling_config {
-          max_hosts_count        = <maximum number of VMs in group>
-          measurement_duration   = <load measurement interval (seconds)>
-          warmup_duration        = <VM warmup time (seconds)>
-          stabilization_duration = <stabilization interval (seconds)>
-          preemptible            = <use preemptible VMs: true or false>
-          cpu_utilization_target = <target vCPU workload, %>
-          decommission_timeout   = <VM decommissioning timeout (seconds)>
+          max_hosts_count        = <maximum_number_of_VMs_in_group>
+          measurement_duration   = <utilization_measurement_interval>
+          warmup_duration        = <warmup_time>
+          stabilization_duration = <stabilization_period>
+          preemptible            = <use_preemptible_VMs>
+          cpu_utilization_target = <target_vCPU_utilization_level>
+          decommission_timeout   = <decommissioning_timeout>
         }
       }
       ```
+
+      Where:
+
+      * `max_hosts_count`: Maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
+      * `measurement_duration`: Period, in seconds, for which utilization measurements are averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
+      * `warmup_duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
+      * `stabilization_duration`: Period, in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
+      * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It may take either the `true` or `false` value.
+      * `cpu_utilization_target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
+      * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 

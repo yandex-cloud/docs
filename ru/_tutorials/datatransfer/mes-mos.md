@@ -14,9 +14,9 @@
 
 1. Подготовьте инфраструктуру:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте кластер {{ mes-name }}](../../managed-elasticsearch/operations/cluster-create.md) или [пользовательскую инсталляцию {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
 
@@ -32,7 +32,7 @@
 
         1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. {% include [terraform-install](../../_includes/terraform-install.md) %}
         1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
@@ -180,14 +180,14 @@
 
 1. Создайте трансфер:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-mes-mos.tf` переменные:
 
@@ -215,9 +215,9 @@
 
 Проверьте, что индекс `people` кластера {{ mos-name }} содержит отправленные данные:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     Выполните команду:
 
@@ -228,7 +228,7 @@
          --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_Data_Node>:{{ port-mos }}/people/_search?pretty'
     ```
 
-- {{ OS }} Dashboards
+- {{ OS }} Dashboards {#opensearch}
 
     1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
     1. Выберите общий тенант `Global`.
@@ -246,15 +246,15 @@
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    * Вручную
+    - Вручную {#manual}
 
         1. [Удалите кластер {{ mes-name }}](../../managed-elasticsearch/operations/cluster-delete.md).
         1. [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
         1. [Удалите подсеть](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md).
 
-    * С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         1. Удалите конфигурационный файл `data-transfer-mes-mos.tf`.

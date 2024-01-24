@@ -17,20 +17,20 @@ description: "This page provides a list of YC CLI releases and updates rolled ou
 
 #### {{ sf-name }} {#serverless-functions}
 
-Added a parameter to the `yc serverless function version create` command to specify that buckets are mounted to a function:
+Added a parameter to the `yc serverless function version create` command to specify mounting buckets to a function:
 
 * `--storage-mounts`, such as `--storage-mounts mount-point=dir,bucket=user-bucket,read-only=false`.
 
 #### {{ serverless-containers-name }} {#serverless-containers}
 
-Added a parameter to the `yc serverless container revision deploy` command to specify that buckets are mounted to a container:
+Added a parameter to the `yc serverless container revision deploy` command to specify mounting buckets to a container:
 
 * `--storage-mounts`, such as `--storage-mounts mount-point-path=/data,bucket=user-bucket,read-only=false`.
 
 ##### {{ compute-name }} {#compute}
 
 * In the `yc compute ssh` command, all temporary certificates are saved to a user's home directory.
-* In the `yc compute ssh` command, user-defined parameters are now placed at the end of the run `ssh` command.
+* In the `yc compute ssh` command, user-defined parameters are now placed at the end of the executed `ssh` command.
 * The `yc compute disk relocate` and `yc compute instance relocate` commands now enable relocation of non-replicated disks with specified placement groups and VMs with these disks.
 * Added the `--maintenance-policy` and `--maintenance-grace-period` parameters to the `yc compute instance create` and `yc compute instance update` commands.
 * Added a check for simultaneous use of the `--spread-strategy` and `--partitions` flags when creating a placement group.
@@ -38,22 +38,22 @@ Added a parameter to the `yc serverless container revision deploy` command to sp
 
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
-* Fixed the error where a response contained under 1,000 rows, while the limit exceeded 1,000 rows.
+* Fixed the error when a response contained no more than 1,000 rows with a limit of over 1,000 rows set.
 
 #### {{ cdn-name }} {#cdn}
 
-Added parameters to the `yc cdn resource update` and `yc cdn resource create` commands to set up access to a resource based on a _secure token_:
+Added parameters to the `yc cdn resource update` and `yc cdn resource create` commands for setting up resource access based on a _secure token_:
 
-* `--secure-key`: Secret key to be used to generate user-defined links.
-* `--enable-ip-url-signing`: Optional parameter that restricts access to resources based on IP.
-* `--clear-secure-key`: Parameter that disables access to a resource based on a secure token.
+* `--secure-key`: Secret key to be used for generating user-defined links.
+* `--enable-ip-url-signing`: Optional parameter that restricts resource access by IP.
+* `--clear-secure-key`: Parameter that disables resource access based on a secure token.
 
 #### Managed database services {#managed-db}
 
 **{{ mch-name }}**
 
-* Extended the list of fields presented in the default list of shards and clusters.
-* Added backup type and size info in the list of backups.
+* Extended the list of fields in the default list of shards and clusters.
+* Added backup type and size info to the list of backups.
 * Fixed the bug that occurred when trying to restore a cluster with hybrid storage or SQL Management enabled using the `yc clickhouse cluster restore` command.
 
 ## Previous releases {#previous-releases}
@@ -549,7 +549,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 * Added the `sasl-enabled-mechanisms` parameter for setting and changing the configuration settings of Kafka brokers to the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands.
 
-* Fixed the bug with the `properties` field change on connectors.
+* Fixed the bug with altering of the connectors' `properties` field.
 
 **{{ mpg-name }}**
 
@@ -1434,7 +1434,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 * `yc dataproc cluster create` and `yc dataproc cluster update` commands.
 
-   `--deletion-protection` flag allows you to enable/disable cluster protection against inadvertent deletion.
+   `--deletion-protection` flag allows you to enable/disable cluster protection against accidental deletion.
 
    To disable cluster protection from deletion, specify `--deletion-protection=false`.
 
@@ -3020,3 +3020,5 @@ Use the keys to protect your secrets, private data, and other confidential infor
    * If the `--host` flag is specified, all parameters must be entered.
    * If there are no shards, all parameters have to be entered to create a shard.
 
+
+{% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

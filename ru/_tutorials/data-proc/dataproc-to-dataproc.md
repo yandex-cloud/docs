@@ -12,9 +12,9 @@
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роль `dataproc.agent`.
     1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
@@ -37,7 +37,7 @@
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -195,16 +195,16 @@
 1. [Удалите кластер {{ metastore-name }}](../../data-proc/operations/metastore/cluster-delete.md).
 1. Удалите остальные ресурсы в зависимости от способа их создания:
 
-    {% list tabs %}
+    {% list tabs group=instructions %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Кластеры {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
         1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
         1. [Облачную сеть](../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов.
         1. В терминале перейдите в директорию с планом инфраструктуры.

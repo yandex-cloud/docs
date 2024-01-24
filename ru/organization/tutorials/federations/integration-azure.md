@@ -70,9 +70,9 @@
 
 ### Создайте федерацию {#create-federation}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
 
@@ -89,18 +89,18 @@
   1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте ссылку, которая указана в поле **Идентификатор Azure AD** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
 
       ```
-      https://sts.windows.net/<ID SAML-приложения>/
+      https://sts.windows.net/<идентификатор_SAML-приложения>/
       ```
 
   1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
 
       ```
-      https://login.microsoftonline.com/<ID SAML-приложения>/saml2
+      https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
       ```
 
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-  1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы пользователь после аутенцификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
+  1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы пользователь после аутентификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
 
      {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
@@ -108,7 +108,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
-- CLI
+- CLI {#cli}
 
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -124,106 +124,50 @@
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <ID организации> \
+            --organization-id <идентификатор_организации> \
             --auto-create-account-on-login \
             --cookie-max-age 12h \
-            --issuer "https://sts.windows.net/<ID SAML-приложения>/" \
+            --issuer "https://sts.windows.net/<идентификатор_SAML-приложения>/" \
+            --sso-url "https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2" \
             --sso-binding POST \
-            --sso-url "https://login.microsoftonline.com/<ID SAML-приложения>/saml2" \
             --force-authn
         ```
 
         Где:
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
+        * `--name` — имя федерации. Имя должно быть уникальным в каталоге.
 
-        * `organization-id` — идентификатор организации. 
+        * `--organization-id` — идентификатор организации. 
 
-        * `auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+        * `--auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
 
             Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
-        * `cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
+        * `--cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
 
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
+        * `--issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
 
             Используйте ссылку, которая указана в поле **Идентификатор Azure AD** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
             ```
-            https://sts.windows.net/<ID SAML-приложения>/
+            https://sts.windows.net/<идентификатор_SAML-приложения>/
             ```
 
-        * `sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
+        * `--sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
             Используйте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
 
             ```
-            https://login.microsoftonline.com/<ID SAML-приложения>/saml2
+            https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
             ```
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-        * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+        * `--sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
         * {% include [forceauthn-cli-enable](../../../_includes/organization/forceauth-cli-enable.md) %}
 
-- API
-
-    1. Создайте файл с телом запроса, например `body.json`:
-
-        ```json
-        {
-          "name": "my-federation",
-          "organizationId": "<ID организации>",
-          "autoCreateAccountOnLogin": true,
-          "cookieMaxAge":"43200s",
-          "issuer": "https://sts.windows.net/<ID SAML-приложения>/",
-          "ssoUrl": "https://login.microsoftonline.com/<ID SAML-приложения>/saml2",
-          "ssoBinding": "POST",
-          "securitySettings": {
-            "forceAuthn": true
-          }
-        }
-        ```
-
-        Где:
-
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-
-        * `organizationId` — идентификатор организации. 
-
-        * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
-        Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
-
-            Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
-
-        * `cookieMaxAge` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
-
-        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
-
-            Используйте ссылку, которая указана в поле **Идентификатор Azure AD** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
-
-            ```
-            https://sts.windows.net/<ID SAML-приложения>/
-            ```
-
-        * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
-
-            Используйте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
-
-            ```
-            https://login.microsoftonline.com/<ID SAML-приложения>/saml2
-            ```
-
-            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
-
-        * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
-
-        * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
-
-    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -238,7 +182,7 @@
             Используйте ссылку, которая указана в поле **Идентификатор Azure AD** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
 
             ```
-            https://sts.windows.net/<ID SAML-приложения>/
+            https://sts.windows.net/<идентификатор_SAML-приложения>/
             ```
         
         * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
@@ -247,7 +191,7 @@
             Используйте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
 
             ```
-            https://login.microsoftonline.com/<ID SAML-приложения>/saml2
+            https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
             ```
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
@@ -268,10 +212,10 @@
      ```
      resource "yandex_organizationmanager_saml_federation" federation {
       name            = "my-federation"
-      organization_id = "<ID организации>"
+      organization_id = "<идентификатор_организации>"
       auto_create_account_on_login = "true"
-      issuer          = "https://sts.windows.net/<ID SAML-приложения>/"      
-      sso_url         = "https://login.microsoftonline.com/<ID SAML-приложения>/saml2"
+      issuer          = "https://sts.windows.net/<идентификатор_SAML-приложения>/"      
+      sso_url         = "https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2"
       sso_binding     = "POST"
       security_settings {
          encrypted_assertions = "true"
@@ -302,15 +246,71 @@
 
      После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [{{ ui-key.yacloud_org.pages.federations }}({{ link-org-federations }}).
 
+- API {#api}
+
+    1. Создайте файл с телом запроса, например `body.json`:
+
+        ```json
+        {
+          "name": "my-federation",
+          "organizationId": "<идентификатор_организации>",
+          "autoCreateAccountOnLogin": true,
+          "cookieMaxAge":"43200s",
+          "issuer": "https://sts.windows.net/<идентификатор_SAML-приложения>/",
+          "ssoUrl": "https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2",
+          "ssoBinding": "POST",
+          "securitySettings": {
+            "forceAuthn": true
+          }
+        }
+        ```
+
+        Где:
+
+        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
+
+        * `organizationId` — идентификатор организации. 
+
+        * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
+        Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [системной группе](../../../iam/concepts/access-control/system-group.md) `allUsers` или `allAuthenticatedUsers`.
+
+            Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
+
+        * `cookieMaxAge` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
+
+        * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация.
+
+            Используйте ссылку, которая указана в поле **Идентификатор Azure AD** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
+
+            ```
+            https://sts.windows.net/<идентификатор_SAML-приложения>/
+            ```
+
+        * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
+
+            Используйте ссылку, которая указана в поле **URL-адрес входа** на странице **Вход на основе SAML** в Azure AD. Формат ссылки:
+
+            ```
+            https://login.microsoftonline.com/<идентификатор_SAML-приложения>/saml2
+            ```
+
+            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
+        * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+
+        * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
+
+    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
+
 {% endlist %}
 
 ### Добавьте сертификаты {#add-certificate}
 
 При аутентификации у сервиса {{ org-name }} должна быть возможность проверить сертификат IdP-сервера. Для этого добавьте [скачанный ранее](#azure-settings) сертификат в федерацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. На панели слева выберите раздел [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/console-icons/vector-square.svg).
 
@@ -328,7 +328,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -349,7 +349,7 @@
         --certificate-file certificate.cer
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/index.md):
 
@@ -366,7 +366,7 @@
   1. Отправьте запрос на добавление сертификата:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA...
+      export IAM_TOKEN=CggaAT********
       curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -419,7 +419,7 @@
 
 Данные пользователя | Комментарий | Атрибуты приложений
 ------------------- | ----------- | -------------------
-Уникальный идентификатор пользователя (Name ID) | Обязательный атрибут.<br> По умолчанию в Azure AD в качестве источника атрибута используется User Principal Name (UPN) в формате `<login>_<domain>#EXT#@<supplier>.onmicrosoft.com`. При добавлении пользователей в федерацию вручную такой формат Name ID не поддерживается. Рекомендуется в Azure AD изменить источник атрибута: вместо UPN `user.userprincipalname` выбрать адрес электронной почты `user.mail`. | Утверждение **Уникальный идентификатор пользователя (ID)**
+Уникальный идентификатор пользователя (Name ID) | Обязательный атрибут.<br> По умолчанию в Azure AD в качестве источника атрибута используется User Principal Name (UPN) в формате `<логин>_<домен>#EXT#@<поставщик>.onmicrosoft.com`. При добавлении пользователей в федерацию вручную такой формат Name ID не поддерживается. Рекомендуется в Azure AD изменить источник атрибута: вместо UPN `user.userprincipalname` выбрать адрес электронной почты `user.mail`. | Утверждение **Уникальный идентификатор пользователя (ID)**
 Фамилия | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 Имя | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 Полное имя | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: `Иван Иванов`.<br> Ограничение значения по длине: {{ saml-limit-display-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
@@ -441,9 +441,9 @@
 
 Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. О том, как назначить пользователю роль, читайте в разделе [Роли](../../security/index.md#admin).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. [Войдите в аккаунт]({{ link-passport }}) администратора или владельца организации.
 
@@ -459,7 +459,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**. Пользователи будут подключены к организации.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -480,11 +480,11 @@
 
       Где:
 
-      * `id` — идентификатор федерации.
+      * `--id` — идентификатор федерации.
 
-      * `name-ids` — Name ID пользователей.
+      * `--name-ids` — Name ID пользователей.
 
-- API
+- API {#api}
 
   Чтобы добавить пользователей федерации в облако:
 

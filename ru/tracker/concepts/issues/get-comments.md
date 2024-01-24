@@ -51,26 +51,26 @@ expand |  Дополнительные поля, которые будут вк�
 - Запрос выполнен успешно
 
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md %}
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
     Тело ответа содержит JSON-массив с информацией о комментариях:
 
     ```json
     [
         {
-            "self": "{{ host }}/v2/issues/JUNE-2/comments/9849018",
+            "self": "https://{{ host }}/v2/issues/JUNE-2/comments/9849018",
             "id": 9849018,
             "longId" : "5fa15a24ac894475dd14ff07",
             "text": "Комментарий **номер один.**",
             "textHtml": "<p>Комментарий <strong>номер один.</strong></p>\n",
             "attachments": [{ "self": "https://{{ host }}/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
             "createdBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<id сотрудника>",
                 "display": "<отображаемое имя сотрудника>"
             },
             "updatedBy": {
-                "self": "{{ host }}/v2/users/1120000000049224",
+                "self": "https://{{ host }}/v2/users/1120000000049224",
                 "id": "<id сотрудника>",
                 "display": "<отображаемое имя сотрудника>"
             },

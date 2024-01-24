@@ -1,31 +1,30 @@
-# {{ yq-full-name }} pricing policy
+# {{ yq-full-name }} pricing
 
-In {{ yq-full-name }}, the cost is based on the size of data read from data sources when running queries. If data is read from multiple sources, the total size counts.
+In {{ yq-full-name }}, you are billed for the amount of data read from sources when executing queries. If data is read from multiple sources, the volumes sum up.
 
-
-
-
-
-
-
-Special conditions:
-- If the execution of a query is interrupted due to any system reason, such a query is not charged.
-- If the execution of a query is stopped by the user, the cost is based on the size of the data read up to the point when the query was stopped.
-- If the total size of data read during a query is less than 10 MB, the size will be rounded up to 10 MB.
-
-## Cost calculation examples { #examples }
+## Prices { #prices }
 
 
 
 
+Individual conditions:
+- If a query is interrupted due to any system cause, you will not be charged for the query.
+- If a query is terminated by the user, you will be charged for the volume of data read by the time of the query termination.
+- If the total data read during query execution is less than 10 MB, it will be rounded up to 10 MB.
+
+
+## Examples of cost calculation { #examples }
+
+The examples given below disregard the free usage thresholds.
 
 
 
-## Payment for resources used in related systems { #cloud-systems }
 
-Resources used in related data storage and transmission systems utilized in {{yq-full-name}} queries are billed separately.
+## Charges for using the resources of related systems { #cloud-systems }
 
-|Resource|Description|
-|--------|-----------|
-|Reading and writing data in {{objstorage-full-name}}|[Rates](../storage/pricing.md)|
-|Reading and writing data in {{yds-full-name}}|[Rates](../data-streams/pricing.md)|
+The resources of related data storage and transfer systems used in {{ yq-full-name }} queries are billed separately.
+
+| Resource | Description |
+|---|---|
+| Reading and writing data in {{ objstorage-full-name }} | [Pricing](../storage/pricing.md) |
+| Reading and writing data in {{ yds-full-name }} | [Pricing](../data-streams/pricing.md) |

@@ -20,7 +20,7 @@ This guide will help you create your first L7 load balancer, connect a target gr
 1. Make sure the web server returns a list of folders in the directory. Open the terminal on your computer and run this command:
 
    ```bash
-   curl -v <public IP address of the test VM>
+   curl -v <public_IP_address_of_test_VM>
    ```
 
 ## Create a target group {#create-target-group}
@@ -49,7 +49,7 @@ In this example, we will assume there is only one VM in the target group.
 
    ```bash
    yc alb target-group create test-target-group \
-     --target subnet-name=<VM subnet name>,ip-address=<VM internal IP address>
+     --target subnet-name=<VM_subnet_name>,ip-address=<VM_internal_IP_address>
    ```
 
 {% endlist %}
@@ -78,7 +78,7 @@ In this example, we will assume there is only one VM in the target group.
       1. **{{ ui-key.yacloud.alb.label_unhealthy }}**: `2`
       1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_hc-type-http }}`
       1. **{{ ui-key.yacloud.alb.label_path }}**: `/`
-   1. Click **{{ ui-key.yacloud.common.create }}**
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -96,7 +96,7 @@ In this example, we will assume there is only one VM in the target group.
         --name backend-1 \
         --port 80 \
         --target-group-name test-target-group \
-        --target-group-id <target group ID> \
+        --target-group-id <target_group_ID> \
         --http-healthcheck healthy-threshold=2,unhealthy-threshold=2,timeout=1s,interval=3s,path=/
       ```
 
@@ -180,10 +180,10 @@ As an example, let's create a balancer with a node in the same subnet and same a
 
       ```bash
       yc alb load-balancer create test-load-balancer \
-        --network-name <network name> \
-        --location subnet-name=<name of subnet in {{ region-id }}-a>,zone={{ region-id }}-a \
-        --location subnet-name=<name of subnet in {{ region-id }}-b>,zone={{ region-id }}-b \
-        --location subnet-name=<name of subnet in {{ region-id }}-c>,zone={{ region-id }}-c
+        --network-name <network_name> \
+        --location subnet-name=<name_of_subnet_in_{{ region-id }}-a>,zone={{ region-id }}-a \
+        --location subnet-name=<name_of_subnet_in_{{ region-id }}-b>,zone={{ region-id }}-b \
+        --location subnet-name=<name_of_subnet_in_{{ region-id }}-c>,zone={{ region-id }}-c
       ```
 
    1. Add a listener:
@@ -191,7 +191,7 @@ As an example, let's create a balancer with a node in the same subnet and same a
       ```bash
       yc alb load-balancer add-listener test-load-balancer \
         --listener-name test-listener \
-        --http-router-id <HTTP router ID> \
+        --http-router-id <HTTP_router_ID> \
         --external-ipv4-endpoint port=80
       ```
 
@@ -202,7 +202,7 @@ As an example, let's create a balancer with a node in the same subnet and same a
 In the terminal, run the following command:
 
 ```bash
-curl -v <public IP address of the load balancer>:80
+curl -v <public_IP_address_of_load_balancer>:80
 ```
 
 The response must include an HTTP response with the code `200` and a list of folders from the root directory of the test VM in HTML markup.

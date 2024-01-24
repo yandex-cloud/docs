@@ -2,15 +2,55 @@
 title: "Как настроить эндпоинт-приемник {{ MY }} в {{ data-transfer-full-name }}"
 description: "Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ MY }} в {{ data-transfer-full-name }}."
 ---
+# Передача данных в эндпоинт-приемник {{ MY }}
 
-# Настройка эндпоинта-приемника {{ MY }}
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в базу {{ MY }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+
+1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
+1. [Настройте один из поддерживаемых источников данных](#supported-sources).
+1. [Подготовьте базу данных {{ MY }}](#prepare) к трансферу.
+1. [Настройте эндпоинт-приемник](#endpoint-settings) в {{ data-transfer-full-name }}.
+1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
+1. [Выполняйте необходимые действия по работе с базой](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) и [контролируйте трансфер](../../monitoring.md).
+1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
+
+## Сценарии передачи данных в {{ MY }} {#scenarios}
+
+1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
+  
+  * [Миграция кластера {{ MY }}](../../../tutorials/managed-mysql-to-mysql.md);
+  * [Миграция со сменой хранилища: {{ PG }} в {{ MY }}](../../../tutorials/mpg-to-mmy.md).
+
+1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
+  
+  * [Поставка данных из {{ KF }} в {{ MY }}](../../../tutorials/mkf-to-mmy.md).
+
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+
+## Настройка источника данных {#supported-sources}
+
+Настройте один из поддерживаемых источников данных:
+
+* [{{ PG }}](../source/postgresql.md);
+* [{{ MY }}](../source/mysql.md);
+* [{{ objstorage-full-name }}](../source/object-storage.md);
+* [{{ KF }}](../source/kafka.md);
+* [Aibyte](../../../transfer-matrix.md#airbyte);
+* [{{ DS }}](../source/data-streams.md);
+* [{{ ydb-name }}](../source/ydb.md).
+
+## Подготовка базы данных приемника {#prepare}
+
+{% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/mysql-prepare.md) %}
+
+## Настройка эндпоинта-приемника {{ MY }} {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
 * Настройки подключения к [кластеру {{ mmy-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
 
-## Кластер {{ mmy-name }} {#managed-service}
+### Кластер {{ mmy-name }} {#managed-service}
 
 
 {% note warning %}
@@ -22,19 +62,19 @@ description: "Из статьи вы узнаете, как задать нас�
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-target.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `mysql-target`.
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-target.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `mysql_target`.
 
@@ -66,29 +106,29 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql-target.md) %}
 
 {% endlist %}
 
-## Пользовательская инсталляция {#on-premise}
+### Пользовательская инсталляция {#on-premise}
 
 Для случая OnPremise все поля заполняются вручную.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-target.md) %}
 
-- CLI
+- CLI {#cli}
 
     * Тип эндпоинта — `mysql-target`.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-target.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `mysql_target`.
 
@@ -123,13 +163,13 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql-target.md) %}
 
 {% endlist %}
 
-## Дополнительные настройки {#additional-settings}
+### Дополнительные настройки {#additional-settings}
 
 {% note warning %}
 
@@ -137,9 +177,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.cleanup_policy.title }}** — выберите способ очистки данных в базе-приемнике перед переносом:
 
@@ -163,7 +203,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.service_database.title }}** — укажите имя схемы, в которой будут созданы служебные таблицы, необходимые для обеспечения работы трансфера.
 
-- CLI
+- CLI {#cli}
 
     * `--sql-mode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
 
@@ -173,7 +213,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * `--timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
     * `sql_mode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html). По умолчанию используется список `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`.
 
@@ -185,7 +225,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
     * `sqlMode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
 
@@ -196,3 +236,37 @@ description: "Из статьи вы узнаете, как задать нас�
     * `timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
 
 {% endlist %}
+
+После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
+
+## Действия с базой данных во время трансфера {#db-actions}
+
+{% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
+
+## Решение проблем, возникающих при переносе данных {#troubleshooting}
+
+Известные проблемы, связанные с использованием эндпоинта {{ MY }}:
+
+* [Размер лога одной транзакции превышает 4 ГБ](#binlog-size)
+* [Не добавляются новые таблицы](#no-new-tables)
+* [Ошибка при трансфере из AWS RDS for {{ MY }}](#aws-binlog-time)
+* [Ошибка трансфера при переносе таблиц без первичных ключей](#primary-keys)
+* [Ошибка обращения к бинарному логу](#binlog-bytes)
+* [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
+* [Сдвиг времени в типе данных DATETIME при трансфере в {{ CH }}](#timeshift)
+
+См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
+
+{% include [binlog-size](../../../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
+
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+
+{% include [aws-binlog-time](../../../../_includes/data-transfer/troubles/mysql/aws-binlog-time.md) %}
+
+{% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [binlog-bytes](../../../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [timezone-shift](../../../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}

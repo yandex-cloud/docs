@@ -182,10 +182,10 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
 
 Чтобы подключаться к кластеру {{ mgp-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-{% list tabs %}
+{% list tabs group=connection %}
 
 
-* Подключение без SSL
+- Подключение без SSL {#without-ssl}
 
     ```bash
     RUN apt-get update && \
@@ -193,7 +193,7 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
     ```
 
 
-* Подключение с SSL
+- Подключение с SSL {#with-ssl}
 
     ```bash
     RUN apt-get update && \

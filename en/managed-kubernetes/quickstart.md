@@ -1,6 +1,6 @@
 ---
 title: "Getting started with managed {{ k8s }}"
-description: "In this tutorial, you will create a {{ managed-k8s-name }} cluster and node group and learn how to manage them using kubectl, the {{ k8s }} command line interface. To get started, create a {{ managed-k8s-name  }} cluster, add credentials to the kubectl configuration file, and create a node group."
+description: "In this tutorial, you will create a {{ managed-k8s-name }} cluster and node group and learn how to manage them using kubectl, the {{ k8s }} command line interface. To get started, create a {{ managed-k8s-name }} cluster, add credentials to the kubectl configuration file, and create a node group."
 ---
 
 # Getting started with {{ managed-k8s-name }}
@@ -22,8 +22,9 @@ To get started with {{ managed-k8s-name }}:
 1. If you do not have a [network](../vpc/concepts/network.md#network) yet, [create one](../vpc/operations/network-create.md).
 1. If you do not have any [subnets](../vpc/concepts/network.md#subnet), [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
 1. Create the following [service accounts](../iam/operations/sa/create.md):
-   * With the [{{ roles-editor }}](../iam/concepts/access-control/roles.md#editor) role to the folder where a {{ managed-k8s-name }} cluster is being created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster requires.
-   * With the [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing a [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
+
+   * Service account with the [roles](security/index.md#yc-api) `k8s.clusters.agent` and `vpc.publicAdmin` for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+   * Service account with the [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
    You can use the same service account for both operations.
 
@@ -36,7 +37,7 @@ To get started with {{ managed-k8s-name }}:
 1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Enter the {{ managed-k8s-name }} cluster name. It must be unique within the folder.
 1. (Optional) Enter the {{ managed-k8s-name }} cluster description.
-1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify a [service account](../iam/concepts/users/service-accounts.md) with the [{{ roles-editor }}](../iam/concepts/access-control/roles.md#editor) role for creating resources.
+1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify a [service account](../iam/concepts/users/service-accounts.md) with the `k8s.clusters.agent` and `vpc.publicAdmin` roles which you intend to use to create resources.
 1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: Specify a service account with the [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) role that {{ managed-k8s-name }} nodes will use to access the Docker image registry.
 1. Specify a [release channel](concepts/release-channels-and-updates.md). You cannot edit this setting after you create a {{ managed-k8s-name }} cluster.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
@@ -67,7 +68,7 @@ For more information, see the [step-by-step guide for creating a {{ managed-k8s-
   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
   To add {{ managed-k8s-name }} cluster credentials to the kubectl configuration file:
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc managed-kubernetes cluster get-credentials test-k8s-cluster --external

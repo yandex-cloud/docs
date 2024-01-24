@@ -7,14 +7,17 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [read-note](../../../_includes/functions/read-note.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** выберите или создайте новый [сервисный аккаунт](../../../iam/concepts/users/service-accounts) с ролью:
+       * `storage.viewer`, чтобы только читать данные из смонтированного бакета.
+       * `storage.uploader`, чтобы читать данные из смонтированного бакета и записывать их в него.
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}** нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**.
     1. Укажите в поле:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-name }}** — имя точки монтирования. Директория, к которой смонтируется бакет, будет доступна по пути `/function/storage/<точка_монтирования>`.
@@ -22,7 +25,7 @@ description: "Следуя данной инструкции, вы сможет�
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}** — [папку](../../../storage/concepts/object.md#folder) в бакете. Если поле пустое, смонтируется весь бакет.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- API
+- API {#api}
 
     Чтобы смонтировать бакет, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
 

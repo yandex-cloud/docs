@@ -4,9 +4,9 @@
 
 Чтобы получить новую версию пользовательского сертификата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -23,7 +23,7 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.button_update }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -77,7 +77,7 @@
      not_before: "2020-09-15T08:12:57Z"
      ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -119,7 +119,7 @@
     yc certificate-manager certificate get <имя_сертификата>
     ```
 
-- API
+- API {#api}
 
   Чтобы обновить сертификат, воспользуйтесь методом REST API [update](../../api-ref/Certificate/update.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update).
 

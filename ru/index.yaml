@@ -183,8 +183,8 @@ links:
   - title: Object Storage
     description: Масштабируемое хранилище данных
     href: storage/
-  - title: Техническая поддержка Yandex Cloud
-    description: Техническая поддержка
+  - title: Описание технической поддержки Yandex Cloud
+    description: Правила предоставления технической поддержки
     href: support/
   - title: Tracker
     description: Инструмент для организации работы команды
@@ -210,6 +210,6 @@ links:
   - title: Облачная терминология
     description: Словарь разработчика
     href: glossary/
-  - title: YandexGPT
+  - title: YandexGPT API
     description: Генеративные языковые модели для ваших бизнес-приложений.
     href: yandexgpt/

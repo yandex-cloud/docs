@@ -266,7 +266,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
    * {{ mkf-name }} cluster name in the `name` parameter.
 
    
-   * [Security group](../../vpc/concepts/security-groups.md) identifiers in the `securityGroupIds` parameter.
+   * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
 
 
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled {{ mkf-name }} clusters) in the `maintenanceWindow` parameter.
@@ -314,7 +314,7 @@ Using import, you can bring the existing clusters under {{ TF }} management.
         terraform import yandex_mdb_kafka_cluster.<cluster_name> <cluster_ID>
         ```
 
-        To learn more about importing clusters, see the [{{ TF }} provider documentation](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_cluster.html.markdown#import).
+        To learn more about importing clusters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster#import).
 
 {% endlist %}
 

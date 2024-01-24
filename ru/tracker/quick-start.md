@@ -60,13 +60,13 @@
 
    1. Если нужно, загрузите файлы, кликнув на кнопку **{{ ui-key.startrek.ui_components_attachments-manager.attach }}**. 
 
-   1. Также вы можете добавить чекпоинты в **Чеклист**, кликнув на кнопку **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** и заполнив открывшуюся форму.
+   1. Также вы можете добавить чекпоинты в **Чеклист**, кликнув на кнопку **{{ ui-key.startrek.ui_components_entity-page_checklist_Footer.new-item-button-caption }}** и заполнив открывшуюся форму.
 
    1. На панели справа внесите необходимые данные по задаче, например:
       * в поле **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** укажите себя как исполнителя, нажав кнопку **Назначить меня**;
       * в поле **{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}** задайте произвольный дедлайн.
 
-   1. При необходимости, измените список отображаемых полей задачи. Для этого кликните на кнопку **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}** и выберите нужные параметры.
+   1. При необходимости, измените список отображаемых полей задачи. Для этого кликните на кнопку **{{ ui-key.startrek.ui_components_entity-page_sidebar_SidebarFieldsSelect.add-sidebar-field }}** и выберите нужные параметры.
 
 1. Нажмите кнопку **{{ ui-key.startrek-backend.types.types.trigger.action.create.issue }}**.
 

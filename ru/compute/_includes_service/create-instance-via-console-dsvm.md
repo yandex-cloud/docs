@@ -1,8 +1,8 @@
 Чтобы создать виртуальную машину из публичного образа [DSVM](/marketplace/products/f2e4v304qn35mhilnsbc):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана виртуальная машина.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.

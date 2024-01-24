@@ -10,7 +10,7 @@ To delete an [alias](../../dashboard/link.md#alias):
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/dashboard-0523.svg) **Dashboards** and select the dashboard you need.
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
 1. Click **Links**.
 
@@ -27,14 +27,14 @@ To delete an [alias](../../dashboard/link.md#alias):
 To delete a field from an alias:
 
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/dashboard-0523.svg) **Dashboards** and select the dashboard you need.
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
 1. Click **Links**.
 
    1. Select the widget that the alias is specified for from the list.
    1. Click the alias you need.
    1. Click the field you want to delete.
-   1. Delete the field by clicking ![image](../../../_assets/datalens/cross.svg).
+   1. Delete the field by clicking ![image](../../../_assets/console-icons/xmark.svg).
    1. In the **Links** window, click **Save**.
 
 1. In the top-right corner of the dashboard, click **Save**.

@@ -14,11 +14,11 @@
 
 {% include [read-pass](../../../_includes/iot-core/read-pass.md) %}
 
-### Добавить пароль уже созданному устройству {#add}  
+### Добавить пароль уже созданному устройству {#add}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы добавить пароль уже созданному устройству:
 
@@ -31,7 +31,7 @@
    1. В поле **{{ ui-key.yacloud.common.password }}** введите пароль, который вы будете использовать для доступа к устройству.<br/>Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).<br/>Не забудьте сохранить пароль, он вам понадобится.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -64,7 +64,7 @@
         created_at: "2019-12-16T15:11:36.892167Z"
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -130,7 +130,7 @@
       yc iot device password list --device-name <имя_устройства>
       ```
 
-- API
+- API {#api}
 
   Чтобы добавить пароль устройству, воспользуйтесь методом REST API [addPassword](../../api-ref/Device/addPassword.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/AddPassword](../../api-ref/grpc/device_service.md#AddPassword).
 
@@ -138,13 +138,13 @@
 
 ### Задать пароль устройству при создании {#create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Как задать пароль устройству при создании, читайте в разделе [{#T}](../device/device-create.md).
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -179,21 +179,21 @@
         name: device-with-pass
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    Как задать пароль устройству при создании, читайте в разделе [{#T}](../device/device-create.md).
 
-- API
+- API {#api}
 
   Чтобы задать пароль устройству при создании, воспользуйтесь методом REST API [create](../../api-ref/Device/create.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/Create](../../api-ref/grpc/device_service.md#Create).
 
-{% endlist %}  
+{% endlist %}
 
 ## Получить список паролей устройства {#list}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы просмотреть список паролей устройства:
 
@@ -206,7 +206,7 @@
 
    В разделе **{{ ui-key.yacloud.iot.label_passwords }}** отобразится список паролей устройства.
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -244,17 +244,17 @@
         +----------------------+---------------------+
         ```
 
-- API
+- API {#api}
 
   Чтобы получить список паролей устройства, воспользуйтесь методом REST API [listPasswords](../../api-ref/Device/listPasswords.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/ListPasswords](../../api-ref/grpc/device_service.md#ListPasswords).
 
-{% endlist %}     
+{% endlist %}
    
 ## Удалить пароль устройства {#delete}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
    Чтобы удалить пароль устройства:
 
@@ -266,7 +266,7 @@
    1. В строке с нужным паролем нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
     
@@ -305,7 +305,7 @@
         +----+------------+
         ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
@@ -365,7 +365,7 @@
       yc iot device password list --device-name <имя_устройства>
       ```
 
-- API
+- API {#api}
 
   Чтобы удалить пароль устройства, воспользуйтесь методом REST API [deletePassword](../../api-ref/Device/deletePassword.md) для ресурса [Device](../../api-ref/Device/index.md) или вызовом gRPC API [DeviceService/DeletePassword](../../api-ref/grpc/device_service.md#DeletePassword).
 

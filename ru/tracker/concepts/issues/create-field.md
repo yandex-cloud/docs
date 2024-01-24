@@ -113,7 +113,7 @@ values | Значения для выпадающего списка. | Масс
 
     ```json
      {
-      "self": "{{ host }}/v2/fields/global_field_key",
+      "self": "https://{{ host }}/v2/fields/global_field_key",
       "id": "global_field_key",
       "name": "Название поля на русском языке",
       "description": "Описание поля",
@@ -141,7 +141,7 @@ values | Значения для выпадающего списка. | Масс
       },
       "order": 5,
       "category": {
-          "self": "{{ host }}/v2/fields/categories/000000000000000000000001",
+          "self": "https://{{ host }}/v2/fields/categories/000000000000000000000001",
           "id": "000000000000000000000001",
           "display": "Системные"
       },

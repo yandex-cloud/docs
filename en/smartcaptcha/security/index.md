@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ captcha-name }}"
-description: "This section describes what resources you can assign a role for and what roles the service supports."
+description: "This section describes the resources for which you can assign a role and the roles existing in the service."
 ---
 
 # Access management in {{ captcha-name }}
@@ -24,7 +24,6 @@ The list below shows all roles that are considered when verifying access rights 
 
 | Role | Permissions |
 ----- | -----
-| `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
 | `smart-captcha.auditor` | Enables you to view CAPTCHA information and permissions. |
 | `smart-captcha.viewer` | Enables you to view CAPTCHA information and permissions. It includes all access rights of the `smart-captcha.auditor` role. |
 | `smart-captcha.editor` | Enables you to manage CAPTCHAS (create, change, or delete them). It includes all access rights of the `smart-captcha.viewer` role. |

@@ -4,13 +4,13 @@
 
 ## Создать сервисный аккаунт {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -32,11 +32,7 @@
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-- API
-
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../api-ref/grpc/service_account_service.md#Create).
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -83,6 +79,10 @@
         yc iam service-account list
         ```
 
+- API {#api}
+
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../api-ref/grpc/service_account_service.md#Create).
+
 {% endlist %}
 
 
@@ -92,16 +92,25 @@
 
 Создайте сервисный аккаунт с именем и описанием:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
   ```bash
   yc iam service-account create --name my-robot \
     --description "this is my favorite service account"
   ```
 
-- API
+- {{ TF }} {#tf}
+
+  ```hcl
+   resource "yandex_iam_service_account" "sa" {
+     name        = "my-robot"
+     description = "this is my favorite service account"
+   }
+  ```
+
+- API {#api}
 
   ```bash
   curl -X POST \
@@ -115,19 +124,10 @@
       https://iam.{{ api-host }}/iam/v1/serviceAccounts
   ```
 
-- {{ TF }}
-
-  ```hcl
-   resource "yandex_iam_service_account" "sa" {
-     name        = "my-robot"
-     description = "this is my favorite service account"
-   }
-  ```
-
 {% endlist %}
 
-#### Что дальше {#what-is-next}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](assign-role-for-sa.md).
-* [{#T}](create-access-key.md).
 * [{#T}](set-access-bindings.md).
+* [{#T}](../../concepts/users/service-accounts.md#sa-key).

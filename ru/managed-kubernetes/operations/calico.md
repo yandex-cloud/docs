@@ -22,9 +22,9 @@ description: "Следуя данной инструкции, вы сможет�
 
 1. Создайте инфраструктуру:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Вручную
+   - Вручную {#manual}
 
      1. [Создайте облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
      1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) задействуйте контроллер сетевых политик Calico:
@@ -32,7 +32,7 @@ description: "Следуя данной инструкции, вы сможет�
         * С помощью CLI, указав флаг `--enable-network-policy`.
         * С помощью метода [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
 
-   - С помощью {{ TF }}
+   - {{ TF }} {#tf}
 
      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -342,14 +342,14 @@ networkpolicy.networking.k8s.io/default-deny created
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Вручную
+- Вручную {#manual}
 
   1. [Удалите кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-delete.md).
   1. Если вы зарезервировали для кластера {{ managed-k8s-name }} публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
   1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   1. Удалите конфигурационный файл `k8s-calico.tf`.

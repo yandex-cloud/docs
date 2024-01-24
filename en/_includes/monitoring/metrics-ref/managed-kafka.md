@@ -1,6 +1,6 @@
-## {{ mkf-full-name }} service {#managed-kafka}
+## {{ mkf-full-name }} {#managed-kafka}
 
-Common labels for all {{ mkf-full-name }} metrics:
+Common labels for all {{ mkf-name }} metrics:
 
 | Label | Value |
 | ----- | ----- |
@@ -57,7 +57,7 @@ The load on processor cores.
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
 | `io.utilization`<br/>`DGAUGE`, % | Disk utilization |
-| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
+| `io.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed |
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second |
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 
@@ -127,4 +127,4 @@ The load on processor cores.
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, pcs | Number of partitions whose replication factor is greater than the number of their in-sync replicas (ISRs) |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, ms | Request latency in {{ ZK }}.<br/>Additional labels: `quantile`. |
 
-Read more about the service in the [{{ mkf-full-name }}](../../../managed-kafka/) documentation.
+Read more about the service in the [{{ mkf-name }}](../../../managed-kafka/) documentation.

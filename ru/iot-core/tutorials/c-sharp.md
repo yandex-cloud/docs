@@ -9,24 +9,25 @@
 {% endnote %}
 
 После подключения вы сможете:
+
 * [Отправлять сообщения](../operations/publish.md).
 * [Подписывать устройство или реестр на получение сообщений](../operations/subscribe.md).
 
 Чтобы подключиться к {{ iot-full-name }} и начать обмен сообщениями:
-* [Подготовьтесь к работе](#before-you-begin)
-* [Создайте необходимые ресурсы {{ iot-full-name }}](#resources)
-    * [Создайте реестр и добавьте ему сертификат](#registry)
-    * [Создайте устройство и добавьте ему сертификат](#device)
-* [Подключитесь к {{ iot-full-name }}](#connect)
-* [Авторизуйтесь в {{ iot-full-name }}](#auth)
-    * [Авторизация с помощью сертификатов](#certs)
-    * [Авторизация по логину и паролю](#log-pass)
-* [Установите соединение](#establish-connection)
-* [Подпишитесь на топик и получайте сообщения](#subscribe)
-* [Отправьте сообщение](#publish)
-* [Завершите соединение](#disconnect)
 
-## Подготовьтесь к работе {#before-you-begin}
+* [Создайте необходимые ресурсы {{ iot-full-name }}](#resources):
+  * [Создайте реестр и добавьте ему сертификат](#registry).
+  * [Создайте устройство и добавьте ему сертификат](#device).
+* [Подключитесь к {{ iot-full-name }}](#connect).
+* [Аутентифицируйтесь в {{ iot-full-name }}](#auth):
+  * [Аутентификация с помощью сертификатов](#certs).
+  * [Аутентификация по логину и паролю](#log-pass).
+* [Установите соединение](#establish-connection).
+* [Подпишитесь на топик и получайте сообщения](#subscribe).
+* [Отправьте сообщение](#publish).
+* [Завершите соединение}](#disconnect).
+
+## Перед началом работы {#before-you-begin}
 
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../cli/quickstart.md#install).
 1. Скачайте и установите среду разработки для платформы .Net. Например, [Microsoft Visual Studio](https://visualstudio.microsoft.com/ru/vs/).
@@ -39,7 +40,7 @@
 
 1. Создайте сертификат для реестра (пропустите этот шаг, если у вас уже есть сертификат реестра): 
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout registry-key.pem \
@@ -51,13 +52,13 @@
 
 1. Создайте реестр:
     
-   ```shell script
+   ```bash
    yc iot registry create --name my-registry
    ```
 
 1. Добавьте сертификат реестру:
 
-   ```shell script
+   ```bash
    yc iot registry certificate add \
      --registry-name my-registry \ # Имя реестра.
      --certificate-file registry-cert.pem # Путь к публичной части сертификата.
@@ -69,7 +70,7 @@
 
 1. (опционально) Создайте сертификат для устройства: 
 
-   ```shell script
+   ```bash
    openssl req -x509 \
      -newkey rsa:4096 \
      -keyout device-key.pem \
@@ -82,13 +83,13 @@
 1. [Посмотрите список реестров](../operations/registry/registry-list.md#registry-list), в которых можно создать устройство, или [создайте новый реестр](../operations/registry/registry-create.md).
 1. Создайте устройство:
 
-   ```shell script
+   ```bash
    yc iot device create --registry-name my-registry --name my-device
    ```
 
 1. Добавьте сертификат устройству:
 
-   ```shell script
+   ```bash
    yc iot device certificate add \
      --device-name my-device \ # Имя устройства.
      --certificate-file device-cert.pem # Путь к публичной части сертификата.
@@ -142,17 +143,17 @@ mqttClient.UseDisconnectedHandler(DisconnectedHandler);
     
         Чем меньше значения указанных параметров, тем быстрее клиент понимает, что соединение было разорвано нештатным путем. Но для этого чаще отправляются тарифицируемые команды `PINGREQ`.
 
-## Авторизуйтесь в {{ iot-full-name }} {#auth}
+## Аутентифицируйтесь в {{ iot-full-name }} {#auth}
 
-Есть два способа [авторизации](../concepts/authorization.md):
+Есть два способа [аутентификации](../concepts/authorization.md):
 * [С помощью X.509-сертификатов](#certs).
 * [По логину и паролю](#log-pass).
 
-### Авторизация с помощью сертификатов {#certs}
+### Аутентификация с помощью сертификатов {#certs}
 
-При авторизации с помощью X.509-сертификатов удобнее всего использовать сертификаты [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) в PFX-формате. Чтобы сгенерировать сертификат в PKCS#12-формате из PEM-сертификатов, выполните команду:
+При аутентификации с помощью X.509-сертификатов удобнее всего использовать сертификаты [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) в PFX-формате. Чтобы сгенерировать сертификат в PKCS#12-формате из PEM-сертификатов, выполните команду:
 
-```shell script
+```bash
 openssl pkcs12 -export -out cert.pfx -inkey key.pem -in cert.pem
 ```
 
@@ -162,7 +163,7 @@ openssl pkcs12 -export -out cert.pfx -inkey key.pem -in cert.pem
 X509Certificate2 certificate = new X509Certificate2(certPath);
 ```
 
-Сертификат клиента, применяемый для авторизации на сервере, указывается при настройке TLS-соединения:
+Сертификат клиента, применяемый для аутентификации на сервере, указывается при настройке TLS-соединения:
 
 ```C#
 X509Certificate2 certificate = new X509Certificate2(certPath);
@@ -210,9 +211,9 @@ private static bool CertificateValidationCallback(X509Certificate cert, X509Chai
 }
 ```
 
-### Авторизация по логину и паролю {#log-pass}
+### Аутентификация по логину и паролю {#log-pass}
 
-При авторизации по логину и паролю в {{ iot-full-name }} требуется TLS-протокол. Для этого используйте класс `MqttClientOptionsBuilderTlsParameters`:
+При аутентификации по логину и паролю в {{ iot-full-name }} требуется TLS-протокол. Для этого используйте класс `MqttClientOptionsBuilderTlsParameters`:
 
 ```C#
 // Настройка TLS-соединения
