@@ -22,8 +22,8 @@
 
 ## Сделайте бэкап сайта {#create-backup}
 
-Сделайте бэкап файлов сайта и БД одним из способов:
-* С помощью различных плагинов для WordPress (например, [BackWPup](https://ru.wordpress.org/plugins/backwpup) или [Updraft Plus](https://ru.wordpress.org/plugins/updraftplus).
+Сделайте [бэкап](../../glossary/backup.md) файлов сайта и БД одним из способов:
+* С помощью различных плагинов для WordPress (например, [BackWPup](https://ru.wordpress.org/plugins/backwpup) или [Updraft Plus](https://ru.wordpress.org/plugins/updraftplus)).
 * С помощью встроенных средств в панели управления хостингом, на котором располагается ваш сайт.
 * Скопировать все файлы на свой жесткий диск через FTP-клиент, а БД экспортировать через панель [phpMyAdmin](https://www.phpmyadmin.net/).
 

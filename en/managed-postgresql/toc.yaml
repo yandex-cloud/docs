@@ -11,7 +11,7 @@ items:
         items:
           - name: Getting information on existing clusters
             href: operations/cluster-list.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Changing {{ PG }} cluster settings
             href: operations/update.md
@@ -29,7 +29,7 @@ items:
             href: operations/storage-space.md
           - name: Updating the PostgreSQL version
             href: operations/cluster-version-update.md
-          - name: Deleting clusters
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Databases
         items:
@@ -301,15 +301,15 @@ items:
                 href: api-ref/Operation/get.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
-  - name: Questions and answers
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md
       - name: Connection
         href: qa/connection.md
-      - name: Updating clusters
+      - name: Updating a cluster
         href: qa/update.md
       - name: Cluster configuration
         href: qa/configuration.md

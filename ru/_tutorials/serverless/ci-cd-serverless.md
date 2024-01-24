@@ -69,7 +69,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
 1. [Настройте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
-1. [Настройте группу безопасности по умолчанию](../../managed-gitlab/operations/connect.md) для работы [инстанса {{ mgl-full-name }}](../../managed-gitlab/concepts/index.md#instance).
+1. [Настройте группу безопасности](../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса {{ mgl-full-name }}](../../managed-gitlab/concepts/index.md#instance).
 
 ## Создайте инстанс {{ GL }} {#create-gitlab}
 

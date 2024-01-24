@@ -167,7 +167,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Releases
+  - name: Release notes
     items:
       - name: Recognition releases
         href: release-notes-stt.md

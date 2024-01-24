@@ -33,7 +33,7 @@ items:
         href: sla.md
       - name: Quotas and limits
         href: concepts/quotas-limits.md
-      - name: Releases
+      - name: Release notes
         href: release-notes.md
       - name: Troubleshooting
         href: qa.md

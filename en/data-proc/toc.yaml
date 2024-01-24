@@ -257,7 +257,7 @@ items:
                 href: api-ref/Subcluster/update.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Release notes
     items:
       - name: Service updates
         href: release-notes/index.md

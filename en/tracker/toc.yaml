@@ -179,7 +179,7 @@ items:
             href: manager/bulk-change.md
       - name: Setting up an issue reminder
         href: user/reminder.md
-      - name: Adding time spent
+      - name: Logging spent time
         href: user/time-spent.md
       - name: Adding an issue field
         href: user/create-param.md
@@ -746,7 +746,7 @@ items:
             href: get-user.md
       - name: Possible response codes
         href: error-codes.md
-  - name: FAQs
+  - name: FAQ
     items:
       - name: General questions
         href: faq.md
@@ -754,44 +754,44 @@ items:
         href: payment.md
       - name: '{{ ya-360 }} will no longer be free of charge'
         href: organizations.md
-  - name: Releases
+  - name: Release notes
     items:
       - name: December 2023
-        href: changelogs/index.md
+        href: release-notes/index.md
       - name: November 2023
-        href: changelogs/2311.md
+        href: release-notes/2311.md
       - name: October 2023
-        href: changelogs/2310.md
+        href: release-notes/2310.md
       - name: September 2023
-        href: changelogs/2309.md
+        href: release-notes/2309.md
       - name: August 2023
-        href: changelogs/2308.md
+        href: release-notes/2308.md
       - name: Archive
         items:
           - name: July 2023
-            href: changelogs/2307.md
+            href: release-notes/2307.md
           - name: June 2023
-            href: changelogs/2306.md
+            href: release-notes/2306.md
           - name: May 2023
-            href: changelogs/2305.md
+            href: release-notes/2305.md
           - name: April 2023
-            href: changelogs/2304.md
+            href: release-notes/2304.md
           - name: March 2023
-            href: changelogs/2303.md
+            href: release-notes/2303.md
           - name: February 2023
-            href: changelogs/2302.md
+            href: release-notes/2302.md
           - name: January 2023
-            href: changelogs/2301.md
+            href: release-notes/2301.md
           - name: December 2022
-            href: changelogs/2212.md
+            href: release-notes/2212.md
           - name: November 2022
-            href: changelogs/2211.md
+            href: release-notes/2211.md
           - name: October 2022
-            href: changelogs/2210.md
+            href: release-notes/2210.md
           - name: September 2022
-            href: changelogs/2209.md
+            href: release-notes/2209.md
           - name: August 2022
-            href: changelogs/2208.md
+            href: release-notes/2208.md
   - name: Support
     href: troubleshooting.md
 base: en/tracker

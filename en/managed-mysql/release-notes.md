@@ -1,6 +1,6 @@
-# Revision history for {{ mmy-full-name }}
+# {{ mmy-full-name }} release notes
 
-This section covers the revision history for {{ mmy-name }}.
+This section contains {{ mmy-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

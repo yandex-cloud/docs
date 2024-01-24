@@ -75,12 +75,17 @@
       ![metrica-memory-usage](../../_assets/datalens/monitoring-visualization/metrica-memory-usage.png)
 
    1. В нижней части экрана перейдите на вкладку **Запросы**.
-   1. В строке с нужным запросом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Скопировать как текст**.
+   1. В строке с нужным запросом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Скопировать как текст**. В {{ datalens-short-name }} запрос нужно вводить без параметра `folderId`.
       
-      Пример запроса:
+      Пример запроса в {{ monitoring-name }}:
       
       ```sql
-      alias(series_max("systag", trunc("mem.*"{service="managed-clickhouse", host="rc1a-jn5r2zlul3iydlo2.{{ dns-zone }}", resource_id="Test", resource_type="cluster", node="*", systag!="-"})), "not_var{{systag}}")
+      "cpu_usage"{folderId="b1g9r5h41935********", service="compute", resource_id="charts-prod-vla-1"}
+      ```
+      В {{ datalens-short-name }} запрос введите без параметра `folderId`:
+
+      ```sql
+      "cpu_usage"{service="compute", resource_id="charts-prod-vla-1"}
       ```
 
    {% endcut %}

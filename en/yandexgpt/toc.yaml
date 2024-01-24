@@ -138,6 +138,6 @@ items:
         href: troubleshooting/error-codes.md
   - name: Pricing policy
     href: pricing.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
 base: en/yandexgpt

@@ -703,7 +703,7 @@ default:
   wiki-name: Wiki
   ya-360: Yandex 360 for business
   yagpt-full-name: YandexGPT API
-  yagpt-max-tokens: 7400
+  yagpt-max-tokens: 8000
   yagpt-name: YandexGPT
   yandex-360: Yandex 360
   yandex-cloud: Yandex Cloud
@@ -4853,6 +4853,7 @@ default:
         field_admin-login: Login
         field_approval-rules: Approval rules
         field_approval-rules-token: Gitlab token
+        field_domain: Domain
         label_admin-section: Administrator data
         label_configuration-section: Configuration
         title_backups: Backups
@@ -4864,16 +4865,21 @@ default:
           perf-diag:
             label_action-terminate-query: Terminate query
             label_action-terminate-session: Terminate session
+            label_field-backend-start: Start time
+            label_field-cpu-time: CPU time
             label_field-query-cpu-time: CPU time
             label_field-query-peak-memory: Peak memory
+            label_field-query-started: Query start time
             label_filter-entity-query: Queries
             label_filter-entity-session: Sessions
+            label_filter-monitoring-cpu-usage: CPU usage
             label_query-field-read-bytes: Disk R
             label_query-field-running-time-seconds: CPU Time
             label_query-field-spill-total-bytes: Spill
             label_query-field-total-time: Total time
             label_query-field-vm-peak-kb: Peak memory
             label_query-field-write-bytes: Disk W
+            label_section_session-info: Session info
             section_command-center: Command center
             title_consumption-history: Usage history
             title_current-state: Current state

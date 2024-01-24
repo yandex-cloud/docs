@@ -1,6 +1,6 @@
-# {{ mmg-full-name }} releases
+# {{ mmg-full-name }} release notes
 
-This section covers the revision history for {{ mmg-name }}.
+This section contains {{ mmg-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

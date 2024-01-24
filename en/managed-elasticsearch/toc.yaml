@@ -11,11 +11,11 @@ items:
         items:
           - name: Information about existing clusters
             href: operations/cluster-list.md
-          - name: Creating clusters
+          - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Connection
             items:
-              - name: Connecting to cluster
+              - name: Connecting to clusters
                 href: operations/cluster-connect.md
               - name: Configuring SAML authentication
                 href: operations/saml-authentication.md
@@ -39,7 +39,7 @@ items:
             href: operations/cluster-backups.md
           - name: Configuring access to Object Storage
             href: operations/s3-access.md
-          - name: Deleting clusters
+          - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Managing {{ ES }} users
         href: operations/cluster-users.md
@@ -237,9 +237,9 @@ items:
                 href: api-ref/Operation/get.md
   - name: Public materials
     href: public-talks.md
-  - name: Releases
+  - name: Release notes
     href: release-notes.md
-  - name: Questions and answers
+  - name: FAQ
     items:
       - name: General questions
         href: qa/index.md

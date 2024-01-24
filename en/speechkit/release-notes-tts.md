@@ -1,16 +1,22 @@
-# {{ speechkit-full-name }} speech synthesis service releases
+# {{ speechkit-full-name }} release notes: Speech synthesis
 
 {{ speechkit-name }} provides updates based on the system model and version.
 
-For more information about voice models, see [About the technology](tts/index.md#voices).
+For more information about voice models, see [About technology](tts/index.md#voices).
 
 ## Current version {#current}
+
+### Release on 10/01/24 {#100124}
+
+1. Added support for cardinal number normalization (English). It works for positive integer numbers only. Ordinal numbers are not supported.
+1. Added [DurationHint](./tts-v3/api-ref/grpc/tts_service.md#DurationHint) to the API, which allows you to specify minimum and maximum time spent on synthesizing the text.
+1. Added the `text_chunk`, `start_ms`, and `length_ms` fields to the [UtteranceSynthesisResponse](./tts-v3/api-ref/grpc/tts_service.md#UtteranceSynthesisResponse) message. These fields store the info on the text, as well as the start and end time of the audio included into the fragment in question.
+
+## Previous versions {#previous}
 
 ### Release on 05/12/23 {#051223}
 
 Improved the quality of speech synthesis for all languages except Russian.
-
-## Previous versions {#previous}
 
 ### Release on 23/10/23 {#231023}
 

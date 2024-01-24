@@ -48,6 +48,8 @@ items:
         href: concepts/dialogs.md
       - name: Отчеты
         href: concepts/reports.md
+      - name: Поддерживаемые форматы аудио
+        href: concepts/formats.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

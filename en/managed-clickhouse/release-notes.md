@@ -1,6 +1,6 @@
-# Revision history for {{ mch-full-name }}
+# {{ mch-full-name }} release notes
 
-This section covers the revision history for {{ mch-name }}.
+This section contains {{ mch-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

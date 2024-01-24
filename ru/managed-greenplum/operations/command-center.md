@@ -1,11 +1,15 @@
 # Мониторинг и управление сессиями и запросами в командном центре
 
-В [командном центре {{ GP }}](../concepts/command-center.md) вы можете:
+В командном центре {{ GP }} вы можете:
 
 * [{#T}](#list).
 * [{#T}](#consumption-history).
 * [{#T}](#terminate-session).
 * [{#T}](#terminate-query).
+
+Также ознакомьтесь с [примерами работы](#examples) в командном центре — они помогут понять, как и в каких ситуациях можно использовать командный центр.
+
+Подробнее о статистике, которую можно получить с помощью командного центра, читайте в разделе [{#T}](../concepts/command-center.md).
 
 {% note info %}
 
@@ -95,6 +99,45 @@
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
     1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
-    1. Подтвердите остановку сессии.
+    1. Подтвердите остановку запроса.
 
 {% endlist %}
+
+## Примеры {#examples}
+
+### Поиск текущей сессии, которая потребляет аномальное количество ресурсов {#current-session}
+
+Допустим, пользователь закончил работу с БД, но оставил свою сессию открытой. В таком случае сессия простаивает и потребляет ресурсы кластера, что приводит к снижению его производительности. Чтобы найти и прервать такую сессию:
+
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+1. Отсортируйте сессии по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
+1. Найдите сессию, статус которой — `Idle` (простаивающая) и которая длится наибольшее количество времени.
+1. Нажмите на номер этой сессии. Откроется страница с информацией по этой сессии.
+1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_section_session-info }}**, в поле **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-started }}**, посмотрите, когда был отправлен последний запрос. Если он был отправлен давно, скорее всего, пользователь не работает с БД, но не закрыл сессию. Ее можно прервать.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
+1. Подтвердите остановку сессии.
+
+### Поиск запросов, вызвавших высокую нагрузку CPU {#past-statements}
+
+Допустим, в определенный период вычислительная мощность CPU потреблялась выше обычного. Чтобы определить, какие запросы вызвали эту аномалию:
+
+1. Узнайте, когда было зафиксировано высокое потребление CPU:
+
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
+    1. Задайте фильтр **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-cpu-usage }}**.
+    1. Определите по графику, когда потребление CPU стало аномально высоким.
+
+        Для этого наведите курсор на высокий пик. Появится всплывающее окно с информацией о состоянии кластера в выбранный момент. В этом окне указано время, когда произошел всплеск.
+
+1. Определите, какие запросы привели к высокому потреблению CPU:
+
+    1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
+    1. Задайте диапазон времени на основе анализа в истории состояний.
+    1. Сгруппируйте запросы по пользователю, базе данных и идентификатору запроса. Так вы получите группы, которые содержат похожие друг на друга запросы.
+    1. Отсортируйте полученные группы запросов по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**.
+    1. Откройте группу с наибольшим значением **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**.
+    1. Посмотрите детали по каждому запросу и при необходимости отрегулируйте их. Также вы можете [прервать запрос](#terminate-query), если он все еще выполняется.
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

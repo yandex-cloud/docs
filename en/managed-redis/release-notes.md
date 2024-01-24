@@ -1,6 +1,6 @@
-# {{ mrd-full-name }} releases
+# {{ mrd-full-name }} release notes
 
-This section covers the revision history for {{ mrd-name }}.
+This section contains {{ mrd-name }} release notes.
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

@@ -1,9 +1,9 @@
 ---
-title: "Revision history for {{ vision-full-name }} image analysis service"
-description: "This page presents the revision history for {{ vision-full-name }} image analysis service."
+title: "{{ vision-full-name }} release notes"
+description: "This page contains {{ vision-full-name }} release notes."
 ---
 
-# {{ vision-full-name }} releases
+# {{ vision-full-name }} release notes
 
 ## Current version {#current}
 

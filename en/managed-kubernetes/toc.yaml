@@ -348,7 +348,7 @@ items:
                 href: api-ref/Version/list.md
   - name: Metric reference
     href: metrics.md
-  - name: Q&A
+  - name: FAQ
     items:
       - name: General questions
         href: qa/general.md
@@ -366,6 +366,6 @@ items:
         href: qa/troubleshooting.md
       - name: All questions on one page
         href: qa/all.md
-  - name: Releases
-    href: changelog.md
+  - name: Release notes
+    href: release-notes.md
 base: en/managed-kubernetes

@@ -52,7 +52,7 @@ description: "Группы безопасности позволяют конт�
 | [{{ dataproc-name }}](../../data-proc/) | [кластер](../../data-proc/concepts/network.md#security-groups) |
 | [{{ data-transfer-name }}](../../data-transfer/) | [эндпоинт](../../data-transfer/concepts/network.md#security-groups) |
 | [{{ load-testing-name }}](../../load-testing/) | [агент тестирования](../../load-testing/concepts/agent.md) |
-| [{{ mgl-name }}](../../managed-gitlab/) | [инстанс](../../managed-gitlab/operations/connect.md) |
+| [{{ mgl-name }}](../../managed-gitlab/) | [инстанс](../../managed-gitlab/operations/configure-security-group.md) |
 
 {% note info %}
 
