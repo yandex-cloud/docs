@@ -28,6 +28,8 @@
 
 После создания коннектор S3 доступен для проекта. Администратор сообщества может поделиться коннектором S3 с другими проектами сообщества, открыв к нему доступ на вкладке **{{ ui-key.yc-ui-datasphere.common.access }}** на странице просмотра коннектора S3. Ресурс, доступный для сообщества, появится на странице сообщества в разделе **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
+{% include [s3-connectors-nat-gateway](../../_includes/datasphere/s3-connectors-nat-gateway.md) %}
+
 #### См. также {#see-also}
 
 * [Как подключиться к хранилищу S3 с помощью коннектора S3](../operations/data/s3-connectors.md).

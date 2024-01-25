@@ -77,6 +77,12 @@
 
 ### {{ managed-k8s-name }} {#k8s}
 
+{% note warning %}
+
+Миграция зонального мастера временно недоступна.
+
+{% endnote %}
+
 Чтобы мигрировать кластер {{ managed-k8s-name }} из одной зоны доступности в другую:
 
 * [Перенесите мастер](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).

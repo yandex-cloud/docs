@@ -18,9 +18,15 @@ To implement an example:
 1. Get an [API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/api-key/create.md) for your service account.
 1. Create a client application:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Python 3
+   - Python 3 {#python}
+
+      1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
+
+         ```bash
+         git clone https://github.com/yandex-cloud/cloudapi
+         ```
 
       1. Install the `grpcio-tools` and `pydub` packages using the [pip](https://pip.pypa.io/en/stable/) package manager:
 
@@ -30,12 +36,6 @@ To implement an example:
          ```
 
          You need the `grpcio-tools` package to generate client interface code for the API v3 synthesis. The `pydub` package is needed to process the resulting audio files.
-
-      1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
-
-         ```bash
-         git clone https://github.com/yandex-cloud/cloudapi
-         ```
 
       1. [Download](https://www.ffmpeg.org/download.html) the FFmpeg utility for correct operation of the `pydub` package. Add the path to the directory with the executable file to the `PATH` variable. To do this, run the following command:
 
@@ -75,7 +75,7 @@ To implement an example:
          import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
          # Specify the synthesis settings.
-         # Instead of iam_token, provide api_key for authorization with an API key
+         # When authorizing with an API key, provide api_key instead of iam_token
          #def synthesize(api_key, text) -> pydub.AudioSegment:
          def synthesize(iam_token, text) -> pydub.AudioSegment:
              request = tts_pb2.UtteranceSynthesisRequest(
@@ -85,10 +85,18 @@ To implement an example:
                          container_audio_type=tts_pb2.ContainerAudio.WAV
                      )
                  ),
+                 # Synthesis parameters
+                 hints=[
+                   tts_pb2.Hints(voice= 'alexander'), # (Optional) Specify the voice. The default value is marina
+                   // If the voice role is not specified, do not change the default settings
+                   tts_pb2.Hints(role = 'good') # (Optional) Specify the role only if applicable for this voice
+                   tts_pb2.Hints(speed=1.1), # (Optional) Specify synthesis speed
+                 ],
+
                  loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
              )
 
-             # Establish a server connection.
+             # Establish connection with the server.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
              stub = tts_service_pb2_grpc.SynthesizerStub(channel)
@@ -145,7 +153,7 @@ To implement an example:
 
          As a result, the `speech.wav` file with synthesized speech will be created in the `cloudapi` directory.
 
-   - Java
+   - Java {#java}
 
       1. Install the dependencies:
 

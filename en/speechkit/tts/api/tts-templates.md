@@ -1,4 +1,4 @@
-# Pattern-based speech synthesis using API v3
+# Pattern-based speech synthesis using the API v3
 
 Pattern-based synthesis in {{ brand-voice-premium }} and {{ brand-voice-core }} is only available for [{{ brand-voice-name }}](../brand-voice/index.md) voices.
 
@@ -42,13 +42,19 @@ Examples of fixed phrases:
 
 {% include [prepare-template-synthesis](../../../_includes/speechkit/prepare-template-synthesis.md) %}
 
-## Send data to API v3 {#send-to-api}
+## Send data to the API v3 {#send-to-api}
 
 Create and run a client app to send your data to the API:
 
 {% list tabs %}
 
 - Python 3
+
+   1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
+
+      ```bash
+      git clone https://github.com/yandex-cloud/cloudapi
+      ```
 
    1. Install dependencies using the [PIP package manager](https://pip.pypa.io/en/stable/):
 

@@ -11,13 +11,9 @@ With [Synchronous Recognition API](../request.md), you can transcribe prepared a
 * Maximum duration: {{ stt-short-audioLength }}
 * Maximum number of audio channels: {{ stt-short-channelsCount }}
 
-## HTTP request {#http_request}
+The synchronous recognition service is located at: `stt.{{ api-host }}/speech/v1/stt:recognize`
 
-```
-POST https://stt.{{ api-host }}/speech/v1/stt:recognize
-```
-
-### Query parameters {#query_params}
+## Query parameters {#query_params}
 
 | Parameter | Description |
 ----- | -----
@@ -29,7 +25,7 @@ POST https://stt.{{ api-host }}/speech/v1/stt:recognize
 | sampleRateHertz | **string**<br>Sampling frequency of the audio being provided.<br/> Used if `format` is set to `lpcm`. Acceptable values include:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
 | folderId | **string**<br><p>[ID of the folder](../../../resource-manager/operations/folder/get-id.md) that you have access to. It is required for authorization with a user account (see [{#T}](../../concepts/auth.md)). Do not specify this field if you make a request on behalf of a service account.</p> <p>The maximum string length is 50 characters.</p> |
 
-### Parameters in the request body {#body_params}
+## Parameters in the request body {#body_params}
 
 The request body has to contain the binary content of an audio file.
 

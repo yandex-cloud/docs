@@ -6,15 +6,15 @@ The owner can create new folders and resources in this cloud, and manage access 
 
 ## Create a folder
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-folder](../../_includes/create-folder.md) %}
 
-- CLI
+- CLI {#cli}
 
-   1. See a description of the create folder command:
+   1. View the description of the create folder command:
 
       ```
       $ yc resource-manager folder create --help
@@ -40,7 +40,7 @@ The owner can create new folders and resources in this cloud, and manage access 
              --description "my first folder with description"
          ```
 
-- API
+- API {#api}
 
    To create a folder, use the [create](../../resource-manager/api-ref/Folder/create.md) method for the [Folder](../../resource-manager/api-ref/Folder/index.md).
 
@@ -50,18 +50,18 @@ The owner can create new folders and resources in this cloud, and manage access 
 
 The management console only allows you to change the name of a folder. To change its description, use the CLI or API.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the [home page]({{ link-console-main }}) of the management console, select the folder. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../../resource-manager/operations/cloud/switch-cloud.md).
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
    1. Enter a new name for the folder.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
-   1. See the description of the update folder command:
+   1. View the description of the update folder command:
 
       ```
       $ yc resource-manager folder update --help
@@ -115,7 +115,7 @@ The management console only allows you to change the name of a folder. To change
 
 
 
-- API
+- API {#api}
 
    To edit the folder, use the [update](../../resource-manager/api-ref/Folder/update.md) method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource.
 

@@ -4,9 +4,9 @@ The guide in this checklist item will help you set up operations with logs and a
 
 ## Create a log group {#log-group}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../../logging/concepts/log-group.md).
    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -18,7 +18,7 @@ The guide in this checklist item will help you set up operations with logs and a
    1. Set the log group record retention period. The maximum record retention period is 3 days, the minimum is 1 hour.
    1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -52,7 +52,7 @@ The guide in this checklist item will help you set up operations with logs and a
    retention_period: 3600s
    ```
 
-- API
+- API {#api}
 
    You can create a custom log group using the [create](../../logging/api-ref/LogGroup/create.md) API method.
 
@@ -60,9 +60,9 @@ The guide in this checklist item will help you set up operations with logs and a
 
 ## Assign roles for a log group {#add-access}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    To assign a [role](../../resource-manager/security/index.md) to a custom log group, run this command:
 
@@ -100,7 +100,7 @@ The guide in this checklist item will help you set up operations with logs and a
          done (1s)
          ```
 
-- API
+- API {#api}
 
    To assign [roles](../../resource-manager/security/index.md#roles-list) for a [custom log group](../../logging/concepts/log-group.md), use the API [setAccessBindings](../../logging/api-ref/LogGroup/setAccessBindings.md) method.
 

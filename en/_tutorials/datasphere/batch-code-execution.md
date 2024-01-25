@@ -38,9 +38,9 @@ The cost of implementing regular runs includes:
 
 ### Create a folder {#create-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -52,9 +52,9 @@ The cost of implementing regular runs includes:
 
 To access a {{ ml-platform-name }} project from a {{ sf-name }} function, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `{{ roles-datasphere-project-editor }}` role.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `data-folder`.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -287,9 +287,9 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
 
 To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will trigger computations in a notebook via the API.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -301,11 +301,11 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will t
 
 ### Create a {{ sf-name }} version {#create-function-ver}
 
-[Versions](../../functions/concepts/function.md#version) contains the function code, run parameters, and all required dependencies.
+[Versions](../../functions/concepts/function.md#version) contain the function code, run parameters, and all required dependencies.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.

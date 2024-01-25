@@ -38,9 +38,9 @@ The cost of training a model based on data from {{ objstorage-name }} includes:
 
 ### Create a folder {#create-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -52,9 +52,9 @@ The cost of training a model based on data from {{ objstorage-name }} includes:
 
 To access a bucket in {{ objstorage-name }}, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `storage.viewer` and `storage.uploader` roles.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `data-folder`.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -68,9 +68,9 @@ To access a bucket in {{ objstorage-name }}, you need a [service account](../../
 
 To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static key.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -78,9 +78,9 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-   1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
+   1. Save the ID and private key. After you close the dialog, the private key value will become unavailable.
 
-- CLI
+- CLI {#cli}
 
    1. Create an access key for the `datasphere-sa` service account:
 
@@ -101,7 +101,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
    1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
 
-- API
+- API {#api}
 
    To create an access key, use the [create](../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../iam/api-ref/AccessKey/index.md) resource.
 
@@ -109,13 +109,19 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
 ## Create an SSH key pair {#create-ssh-keys}
 
+To connect to a [VM](../../compute/concepts/vm.md) over SSH, you need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than connecting with login and password.
+
+{% include [vm-connect-ssh-linux-note](../../_includes/vm-connect-ssh-linux-note.md) %}
+
+To create a key pair:
+
 {% include [vm-ssh-prepare-key](../../_includes/vm-ssh-prepare-key.md) %}
 
 ## Create a VM {#create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -141,9 +147,9 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
 ## Create a managed DB {#create-db}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -161,9 +167,9 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
 ## Create a bucket {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.

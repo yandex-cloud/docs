@@ -5,17 +5,17 @@ The example shows how the [API v1](request-api.md) helps synchronously recognize
 The example uses the following parameters:
 
 * [Language](../index.md#langs): Russian.
-* Other parameters are left at their defaults.
+* Other parameters left by default.
 
 Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
 
 ## Sample request {#request_examples}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- POST request
+- POST request {#post}
 
    Send a [request](../request.md) to convert speech to text:
 
@@ -29,12 +29,12 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    Where:
 
-   * `topic`: [Language model](../models.md)
-   * `lang`: [Recognition language](../index.md#langs)
-   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md)
-   * `<IAM token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md)
+   * `topic`: [Language model](../models.md).
+   * `lang`: [Recognition language](../index.md#langs).
+   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+   * `<IAM token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
 
-- cURL
+- cURL {#curl}
 
    Send a [request](../request.md) to convert speech to text:
 
@@ -54,7 +54,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    * `--data-binary`: Name of the audio file for recognition.
    * `topic`: [Language model](../models.md).
 
-- Python 3
+- Python 3 {#python}
 
    Send a [request](../request.md) to convert speech to text:
 
@@ -88,12 +88,12 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    Where:
 
    * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md)
-   * `speech.ogg`: Name of the audio file for recognition
-   * `topic`: [Language model](../models.md)
-   * `lang`: [Recognition language](../index.md#langs)
+   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+   * `speech.ogg`: Name of the audio file for recognition.
+   * `topic`: [Language model](../models.md).
+   * `lang`: [Recognition language](../index.md#langs).
 
-- PHP
+- PHP {#php}
 
    Send a [request](../request.md) to convert speech to text:
 
@@ -131,11 +131,11 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    Where:
 
-   * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md)
-   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md)
-   * `audioFileName`: Name of the audio file for recognition
-   * `lang`: [Recognition language](../index.md#langs)
-   * `format`: [Format](../../formats.md) of the submitted audio
+   * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+   * `audioFileName`: Name of the audio file for recognition.
+   * `lang`: [Recognition language](../index.md#langs).
+   * `format`: [Format](../../formats.md) of the submitted audio.
 
 {% endlist %}
 

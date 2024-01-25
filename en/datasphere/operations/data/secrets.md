@@ -30,9 +30,9 @@ To make a secret available for use in another project, the project administrator
 
 Once you create a secret, you can use it in project cells as an environment variable.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
    ```python
    import os
@@ -40,7 +40,7 @@ Once you create a secret, you can use it in project cells as an environment vari
    os.environ['<secret_name>'] # Reference the <secret_name> secret from environment variables
    ```
 
-- bash
+- Bash {#bash}
 
    ```bash
    #!:bash

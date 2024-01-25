@@ -23,6 +23,7 @@ You can also work with {{ speechkit-name }} using the [Python SDK](../sdk/python
    * Asynchronous mode can process multi-channel audio fragments. Maximum recording duration: {{ stt-long-audioLength }}.
 
 
+
 ### Which recognition to choose {#choose-stt}
 
 |  | [Streaming recognition](streaming.md) | [Synchronous recognition](request.md) | [Asynchronous recognition](transcribation.md) |
@@ -54,10 +55,6 @@ The accuracy of speech recognition is also affected by:
 * Audio encoding quality.
 * Speech intelligibility and rate.
 * Utterance complexity and length.
-
-
-{% include [accuracy](../../_includes/speechkit/accuracy.md)%}
-
 
 #### See also {#see-also}
 

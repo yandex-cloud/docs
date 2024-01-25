@@ -30,9 +30,9 @@ The {{ dataproc-name }} cluster support cost covers the computing resources of t
 
 Create a folder where your {{ dataproc-name }} cluster will run.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -45,9 +45,9 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
 #### Create an egress NAT gateway {#create-nat}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the `data-folder` folder, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
@@ -77,9 +77,9 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 
 ### Create a service account for the {#create-sa} cluster.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -134,9 +134,9 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 
 ## Create a bucket {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -153,13 +153,13 @@ Before creating a cluster, make sure that your cloud has enough total SSD space 
 
 You can view your current resources under [Quotas]({{ link-console-quotas }}) in the management console.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** from the drop-down list.
-   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
+   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. In the **{{ ui-key.yacloud.mdb.forms.config_field_version }}** field, select `2.0`.
    1. In the **{{ ui-key.yacloud.mdb.forms.config_field_services }}** field, select: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
    1. Enter the public part of your SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field.

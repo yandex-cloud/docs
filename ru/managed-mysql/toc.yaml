@@ -123,6 +123,10 @@ items:
           Миграция данных из {{ mmy-name }} в {{ mpg-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/mmy-to-mpg.md
+      - name: >-
+          Миграция данных из {{ mmy-name }} в {{ mgp-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mmy-to-mgp.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

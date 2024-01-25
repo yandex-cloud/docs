@@ -134,6 +134,8 @@ items:
     href: security/index.md
   - name: Troubleshooting
     items:
+      - name: FAQ
+        href: qa/index.md
       - name: Error codes
         href: troubleshooting/error-codes.md
   - name: Pricing policy

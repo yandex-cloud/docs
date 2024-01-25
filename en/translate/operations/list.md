@@ -17,9 +17,9 @@ description: "In this tutorial, you will learn how to get a list of supported la
 
 Get the list of supported languages using the [listLanguages](../api-ref/Translation/listLanguages) method:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     ```bash
     export FOLDER_ID=<folder ID>

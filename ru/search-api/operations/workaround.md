@@ -10,7 +10,7 @@
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-{% include [create-sa](../../_includes/iam/create-sa-via-console.md) %}
+{% include [create-sa](../../_includes/iam/create-sa-via-console-without-role.md) %}
 
 ### Назначьте роль {#grant-role}
 

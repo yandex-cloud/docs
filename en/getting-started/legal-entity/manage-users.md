@@ -30,16 +30,16 @@ To add federation users to an organization:
 
 ## Assign roles to the users {#add-role}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    In the management console, you can only assign a role for a cloud or folder:
 
    {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
 
-- CLI
+- CLI {#cli}
 
    1. Select a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
    1. [Get the user ID](../../organization/operations/users-get.md).
@@ -68,7 +68,7 @@ To add federation users to an organization:
      --subject userAccount:aje6o61dvog2h6g9a33s
    ```
 
-- API
+- API {#api}
 
    Use the `updateAccessBindings` method for the corresponding resource.
 

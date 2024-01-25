@@ -11,6 +11,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/delete-tag.md
 
 {% endnote %}
 
+
 ## Формат запроса {#query}
 
 Перед выполнением запроса [получите доступ к API](../access.md).

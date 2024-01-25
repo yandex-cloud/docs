@@ -18,7 +18,7 @@ Text recognition from a PDF file is implemented through OCR API methods, such as
 
    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command-pdf.md) %}
 
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`.
 
    **body.json:**
    ```json
@@ -988,7 +988,7 @@ Text recognition from a PDF file is implemented in the [batchAnalyze](../../visi
 
    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command-pdf.md) %}
 
-1. Create a file with the request body (for example, `body.json`).
+1. Create a file with the request body, e.g., `body.json`.
 
    **body.json:**
    ```json
@@ -1015,9 +1015,9 @@ Text recognition from a PDF file is implemented in the [batchAnalyze](../../visi
 
 1. To get all the recognized words from the image, find all the lines with the `text` property, e.g., using the [grep](https://www.gnu.org/software/grep/) utility:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       grep -o "\"text\":\s\".*\"" output.json
@@ -1045,7 +1045,7 @@ Text recognition from a PDF file is implemented in the [batchAnalyze](../../visi
       "text": "SLOW"
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       Select-String -Pattern '\"text\":\s\".*\"' -Path .\output.json

@@ -1,18 +1,18 @@
-# Speech synthesis in OggOpus format using API v1
+# Speech synthesis in OggOpus format using the API v1
 
 With the [API v1](../request.md), you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to an [OggOpus](../../formats.md) file.
 
 The example uses the following synthesis parameters:
 
-* [Language](../index.md#langs): Russian.
-* [Voice](../voices.md): `filipp`.
-* Other parameters are left at their defaults.
+* [Language](../index.md#langs): Russian
+* [Voice](../voices.md): `filipp`
+* Other parameters left by default.
 
 The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
    Send the [request](../request.md) to convert speech to text:
 
@@ -41,7 +41,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
 
-- C#
+- C# {#csharp}
 
    Send the [request](../request.md) to convert speech to text:
 
@@ -94,7 +94,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
 
-- Python 3
+- Python 3 {#python}
 
    1. Create a file (for example, `test.py`), and add the following code to it:
 
@@ -161,7 +161,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
       The synthesized speech will be written to the `speech.ogg` file in the directory where you executed the file.
 
-- PHP
+- PHP {#php}
 
    Send the [request](../request.md) to convert speech to text:
 

@@ -41,9 +41,9 @@ The model operation cost includes:
 
 Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [network](../../vpc/concepts/network.md#network) with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -53,9 +53,9 @@ Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [n
 
 ### Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -72,9 +72,9 @@ Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [n
 
 To allow your service account to get authenticated in {{ objstorage-name }}, create a [static access key](../../iam/concepts/authorization/access-key.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the `data-folder` folder, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose the `sa-for-project` service account and click the line with its name.
@@ -87,14 +87,14 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 ### Create an egress NAT gateway {#create-nat}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the `data-folder` folder, select **{{ vpc-name }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and set the gateway parameters:
-      * Enter the gateway name, for example `nat-for-cluster`.
+      * Enter the gateway name, e.g., `nat-for-cluster`.
       * Gateway **{{ ui-key.yacloud.vpc.gateways.field_type }}**: **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
       * Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -102,7 +102,7 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
    1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and specify the route table parameters:
-      1. Enter the name, for example `route-table`.
+      1. Enter the name, e.g., `route-table`.
       1. Select the `data-folder` folder's network.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
          * In the window that opens, select **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** in the **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** field.
@@ -122,9 +122,9 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 ### Create an S3 bucket {#create-bucket}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. In the list of services, select **{{ objstorage-name }}**.
@@ -246,7 +246,7 @@ To upload and label the data:
 
 ## Prepare the ML model and calculate the properties {#get-cnn-model}
 
-Go to the **Calculating the characteristics** section. It is used to:
+Go to the **Calculating the characteristics** section. You can use it to:
 
 1. Load the ResNet50 model from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images classified into 1,000 categories.
 1. Define the `featurize_images` function. It splits the list of images into 'chunks' of 32 each, scales the images down to 224×224 pixels, and converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) for uploading to the Keras model. Next, the function calculates their properties and returns them in a NumPy array.

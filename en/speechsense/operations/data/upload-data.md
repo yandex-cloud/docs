@@ -31,9 +31,9 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 
 1. Go to the folder hosting the {{ yandex-cloud }} API repository, create the `upload_data` folder, generate the client interface code there, and navigate to the `upload_data` folder:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       cd <path_to_cloudapi_directory> && \

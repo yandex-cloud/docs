@@ -25,9 +25,9 @@ If you do not have an LPCM audio file, you can download a [sample file](https://
 
 ## Perform speech recognition via the API {#recognize-using-api}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
    {% include [async-recognition](../../../_includes/speechkit/async-recognition.md) %}
 

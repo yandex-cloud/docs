@@ -1,11 +1,11 @@
-# Speech synthesis in WAV format using API v1
+# Speech synthesis in WAV format using the API v1
 
 The example shows how you can synthesize speech from text with [TTS markup](../markup/tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file using the [API v1](../request.md).
 
 The example uses the following synthesis parameters:
 * Synthesized audio file [format](../../formats.md): LPCM with a sample rate of 48000 Hz, [WAV](https://en.wikipedia.org/wiki/WAV) container.
-* [Language](../index.md#langs): Russian.
-* [Voice](../voices.md): `filipp`.
+* [Language](../index.md#langs): Russian
+* [Voice](../voices.md): `filipp`
 
 Conversion and recording the result in WAV are performed using the [SoX](http://sox.sourceforge.net/) utility.
 
@@ -13,9 +13,9 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
 1. Synthesize a file in LPCM format:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - cURL
+   - cURL {#curl}
 
       Send the [request](../request.md) to convert speech to text:
 
@@ -45,7 +45,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       * `format`: Synthesized audio file [format](../../formats.md).
       * `sampleRateHertz`: Sample rate of an [LPCM](../../formats.md#LPCM) audio file.
 
-   - C#
+   - C# {#csharp}
 
       Send the [request](../request.md) to convert speech to text:
 
@@ -100,7 +100,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       * `format`: Synthesized audio file [format](../../formats.md).
       * `sampleRateHertz`: Sample rate of an [LPCM](../../formats.md#LPCM) audio file.
 
-   - Python 3
+   - Python 3 {#python}
 
       * Create a file (for example, `test.py`), and add the following code to it:
 
@@ -170,7 +170,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
          * `--output`: Name of the file for audio recording.
          * `--text`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
 
-   - PHP
+   - PHP {#php}
 
       Send the [request](../request.md) to convert speech to text:
 

@@ -2,6 +2,8 @@
 
 You can find a list of checkpoints on your project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** → ![checkpoints-panel](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yc-ui-datasphere.resources.checkpoint }}**. Checkpoints are only available if you have already run code cells in your project.
 
+{% include [save-state-dedicated](../../../_includes/datasphere/save-state-dedicated.md) %}
+
 ## Creating a checkpoint {#create}
 
 In [standard](../../concepts/save-state.md#default-save) state save mode, checkpoints are created automatically after running a cell or group of cells. A checkpoint is also created if computations in a cell failed.
@@ -102,6 +104,6 @@ You will see a message saying that the resource has been deleted.
 
 #### See also {#see-also}
 
-* [{#T}](../../concepts/save-state.md).
-* [{#T}](../../concepts/checkpoints.md).
-* [{#T}](../../security/index.md).
+* [{#T}](../../concepts/save-state.md)
+* [{#T}](../../concepts/checkpoints.md)
+* [{#T}](../../security/index.md)
