@@ -26,11 +26,11 @@ After initialization, dataset data cannot be changed. If the data needs to be up
 
 This method is also good for creating a dataset with data from an [{{ objstorage-full-name }}](../../../storage/) bucket or another object storage attached to the storage via an [S3 connector](connect-to-s3.md).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
-   To create a `<dataset_name>` dataset, initialize it and copy files from the folder `<source_folder_name>`:
+   To create the `<dataset_name>` dataset, initialize it and copy files from the `<source_folder_name>` folder:
 
    ```bash
    #!:bash
@@ -46,9 +46,9 @@ This method is also good for creating a dataset with data from an [{{ objstorage
 
 To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html)archive, executive the following code from a cell:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    ```bash
    #!:bash
@@ -61,7 +61,7 @@ To create a dataset named `<dataset_name>` from a [CIFAR-10](https://www.cs.toro
    rm -rf cifar-10-python.tar.gz
    ```
 
-- Python 3
+- Python 3 {#python}
 
    ```python
    #pragma dataset init <dataset_name> --size 1Gb

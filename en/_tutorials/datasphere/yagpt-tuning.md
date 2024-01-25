@@ -33,9 +33,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Create a folder {#create-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -47,9 +47,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 You can send requests to a fine-tuned model through the {{ ml-platform-name }} interface (Playground) or the API v1 in synchronous mode. If you are going to make API requests, you need a service account with the `{{ roles-yagpt-user }}` [role](../../iam/concepts/access-control/roles.md). The service account must be a {{ ml-platform-name }} project member.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -63,9 +63,9 @@ You can send requests to a fine-tuned model through the {{ ml-platform-name }} i
 
 To enable the service account to access the fine-tuned model from the {{ ml-platform-name }} project code, add it to the list of project members.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
     1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
     1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
@@ -128,9 +128,9 @@ File content example:
 
 ## Test the model {#model-test}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Playground
+- Playground {#playground}
 
     1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 
@@ -144,9 +144,9 @@ File content example:
 
     1. To change the variability, move the slider in the **{{ ui-key.yc-ui-datasphere.yagpt-playground.temperature.title }}** field. The higher the value, the more unpredictable the result.
 
-- {{ jlab }}Lab
+- {{ jlab }}Lab {#jupyterlab}
 
-   Copy this code to a notebook cell if you did not use any instructions to tune the model:
+   Copy the code to a notebook cell if you did not use any instructions to tune the model:
 
     ```python
     import requests
@@ -174,7 +174,7 @@ File content example:
     Where:
 
     * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-    * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
+    * `temperature`: Temperature. The higher the value, the more unpredictable the result.
     * `maxTokens`: Maximum number of tokens per model response.
     * `<IAM_token>`: Value of the [service account IAM token](../../iam/operations/iam-token/create-for-sa.md).
     * `<folder_ID>`: [ID of the {{ yandex-cloud }} folder](../../resource-manager/operations/folder/get-id.md) that has access to {{ yagpt-name }}.
@@ -210,7 +210,7 @@ File content example:
 
    For more information about parameters of requests to fine-tuned models, see the [{{ yagpt-full-name }} documentation](../../yandexgpt/api-ref/v1/index.md).
 
-- cURL
+- cURL {#curl}
 
     {% include [curl](../../_includes/curl.md) %}
 
@@ -236,7 +236,7 @@ File content example:
        Where:
 
        * `modelUri`: Fine-tuned model ID. You can [find](#model-tuning) it in the list of available project resources.
-       * `temperature`: Temperature. With a higher value, you get a more unpredictable result.
+       * `temperature`: Temperature. The higher the value, the more unpredictable the result.
        * `maxTokens`: Maximum number of tokens per model response.
        * `text`: Request text.
 

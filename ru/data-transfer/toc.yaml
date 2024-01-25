@@ -149,6 +149,8 @@ items:
             href: tutorials/mmy-to-mpg.md
           - name: '{{ PG }} в {{ MY }}'
             href: tutorials/mpg-to-mmy.md
+          - name: '{{ MY }} в {{ GP }}'
+            href: tutorials/mmy-to-mgp.md
           - name: '{{ ES }} в {{ OS }}'
             href: tutorials/mes-to-mos.md
       - name: Захват изменений данных и поставка в очередь

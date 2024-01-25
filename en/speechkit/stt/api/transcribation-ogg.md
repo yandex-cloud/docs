@@ -29,9 +29,9 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
    1. [Get a link to an audio file](../../../storage/operations/objects/link-for-download.md) in {{ objstorage-name }}.
    1. Create a file like `body.json` and add the following code to it:
@@ -124,7 +124,7 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
       }
       ```
 
-- Python 3
+- Python 3 {#python}
 
    1. Install the `requests` package using the [pip](https://pip.pypa.io/en/stable/) package manager:
 

@@ -1,9 +1,9 @@
 {{ speechkit-short-name }} automatically detects the language during speech recognition and returns language labels along with the recognition results indicating the probability of correct language detection.
 To configure automatic language detection, set the `language_code` parameter of the `LanguageRestrictionOptions()` method to `auto`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python 3
+- Python 3 {#python}
 
    ```python
    	    language_restriction=stt_pb2.LanguageRestrictionOptions(

@@ -8,13 +8,9 @@ API v1 does not support all {{ speechkit-name }} synthesis options. For a compar
 
 {% endnote %}
 
-## HTTP request {#http_request}
+The synthesis service is located at: `tts.{{ api-host }}/speech/v1/tts:synthesize`
 
-```
-POST https://tts.{{ api-host }}/speech/v1/tts:synthesize
-```
-
-### Parameters in the request body {#body_params}
+## Parameters in the request body {#body_params}
 
 All parameters must be [URL-encoded](https://datatracker.ietf.org/doc/html/rfc3986#section-2). The maximum size of the POST request body is 15 KB.
 
@@ -38,6 +34,6 @@ For more information about the response format and codes, see [{#T}](../concepts
 
 ## Use cases {#examples}
 
-* [{#T}](api/tts-wav.md).
-* [{#T}](api/tts-ogg.md).
-* [{#T}](api/tts-ssml.md).
+* [{#T}](api/tts-wav.md)
+* [{#T}](api/tts-ogg.md)
+* [{#T}](api/tts-ssml.md)

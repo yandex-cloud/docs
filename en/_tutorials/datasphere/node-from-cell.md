@@ -1,8 +1,8 @@
-# Deploying a service based on a model trained in {{ ml-platform-name }}
+# Deploying a service from a checkpoint
 
 In {{ ml-platform-name }}, you can both train a model and [deploy](../../datasphere/concepts/deploy/index.md) it as a microservice that can be accessed from external resources.
 
-In this example, you will train a model for classifying clothing items from the [Keras](https://keras.io/about/) library and then complete all steps required to publish a service by creating a [node](../../datasphere/concepts/resource-model.md#resources) and an [alias](../../datasphere/concepts/resource-model.md#resources).
+In this example, you will train a model for classifying clothing items from the [Keras](https://keras.io/about/) library and then complete all steps required to publish a service by creating a [node](../../datasphere/concepts/deploy/index.md#node) and an [alias](../../datasphere/concepts/deploy/index.md#alias). You will train your model in [{{ ds }} mode](../../datasphere/concepts/project.md#serverless) and create a node from a checkpoint. If you work in {{ dd }} mode and want to deploy a model as a service, use [model-based nodes](../../datasphere/operations/deploy/node-create.md#from-model).
 
 To create a microservice based on a trained model:
 1. [Prepare your infrastructure](#infra).
@@ -37,9 +37,9 @@ For more information, see [{{ ml-platform-full-name }} pricing](../../datasphere
 
 Create a folder to store logs of your service.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -49,9 +49,9 @@ Create a folder to store logs of your service.
 
 ### Create a service account for the {{ ml-platform-name }} project {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -200,6 +200,8 @@ In this example, you will use an image classification model based on [fully conn
 
 ## Create a checkpoint for deploying your microservice {#checkpoint}
 
+{% include [save-state-dedicated](../../_includes/datasphere/save-state-dedicated.md) %}
+
 1. Create an array of images in [Base64](https://en.wikipedia.org/wiki/Base64) encoding. This array will be used to classify the images based on the trained ML model.
 
     ```python
@@ -277,9 +279,9 @@ In this example, you will use an image classification model based on [fully conn
 
 You can send requests from the {{ ml-platform-name }} interface or the notebook code.
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- {{ ml-platform-name }} interface
+- {{ ml-platform-name }} interface {#datasphere}
 
     {% note info %}
 
@@ -296,7 +298,7 @@ You can send requests from the {{ ml-platform-name }} interface or the notebook 
 
       You will get the code of the image class in response.
 
-- Python
+- Python {#python}
 
     1. Define the request parameters:
 

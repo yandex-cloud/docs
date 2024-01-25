@@ -18,13 +18,20 @@ Authentication is performed under a service account using an [API key](../../../
 To implement an example from this section:
 
 1. [Create](../../../iam/operations/sa/create.md) a service account to work with the {{ speechkit-short-name }} API.
-1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role, or higher, to the service account, which will allow it to work with {{ speechkit-name }} in the folder it was created in.
+1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role or higher to the service account, which will allow it to work with {{ speechkit-name }} in the folder it was created in.
 1. Get an [API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/api-key/create.md) for your service account.
+1. Download the [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file or use your own.
 1. Create a client application:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Python 3
+   - Python 3 {#python}
+
+      1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
+
+         ```bash
+         git clone https://github.com/yandex-cloud/cloudapi
+         ```
 
       1. Install the `grpcio-tools` package using the [pip](https://pip.pypa.io/en/stable/) package manager:
 
@@ -175,7 +182,7 @@ To implement an example from this section:
          type=status_code, alternatives=None
          ```
 
-   - Java
+   - Java {#java}
 
       1. Install the dependencies:
 

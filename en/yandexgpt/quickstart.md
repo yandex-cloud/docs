@@ -22,9 +22,9 @@ To improve the quality of generated responses, {{ yagpt-full-name }} logs user p
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
    1. In the list of services, select **{{ yagpt-name }}**.
@@ -34,7 +34,7 @@ To improve the quality of generated responses, {{ yagpt-full-name }} logs user p
    1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` that determines the versatility of the model's response. With a higher value, you get less deterministic request result.
    1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The answer will be shown on the right part of the screen.
 
-- API
+- API {#api}
 
    1. Create a file with the request body (for example, `prompt.json`).
 

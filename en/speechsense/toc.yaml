@@ -62,4 +62,6 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: FAQ
+    href: qa/index.md
 base: en/speechsense

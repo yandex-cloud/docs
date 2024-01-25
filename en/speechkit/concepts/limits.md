@@ -9,8 +9,6 @@ editable: false
 
 {{ speechkit-full-name }} has the following limits:
 
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
-
-{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def-without-ui.md) %}
 
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}

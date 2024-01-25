@@ -13,10 +13,10 @@ The example uses the following parameters:
 
 {% include [stt-language-labels](../../../_includes/speechkit/stt-language-labels.md) %}
 
-## Prepare the necessary data {#preparations}
+## Prepare the required resources {#preparations}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-speechkit-stt }}` role.
-1. [Get](../../../iam/operations/iam-token/create-for-sa#via-cli) an IAM token for the service account and save it.
+1. [Get](../../../iam/operations/iam-token/create-for-sa.md#via-cli) an IAM token for the service account and save it.
 1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition or [generate](../../tts/api/tts-examples-v3.md) your own one.
 
 ## Create an application for streaming speech recognition {#recognition}
@@ -61,7 +61,7 @@ To implement an example from this section:
 
          As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-      1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
+      1. In the root of the `output` directory, create a file, e.g., `test.py`, and add to it the following code:
 
          ```python
          #coding=utf8
@@ -159,7 +159,7 @@ To implement an example from this section:
          Where:
 
          * `audio_encoding`: [Format](../../formats.md) of the audio stream.
-         * `sample_rate_hertz`: Sampling rate.
+         * `sample_rate_hertz`: Sampling rate of the audio stream.
          * `audio_channel_count`: Number of audio channels.
          * `language_code`: [Recognition language](../index.md#langs).
 

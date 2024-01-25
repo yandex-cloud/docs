@@ -11,7 +11,7 @@ description: "{{ yandex-cloud }} services provide a variety of interfaces for im
 
 {% list tabs %}
 
-- WLS
+- WSL
 
    [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) is available for Windows 10 or higher.
 

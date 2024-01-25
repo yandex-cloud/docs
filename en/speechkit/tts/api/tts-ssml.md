@@ -6,15 +6,15 @@ The example uses the following synthesis parameters:
 
 * [Language](../index.md#langs): Russian.
 * [Voice](../voices.md): `jane`.
-* Other parameters are left at their defaults.
+* Other parameters left by default.
 
 The text file is read using the [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) utility.
 
 The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    1. Create a file, e.g., `text.xml`, and enter text in the SSML format:
 

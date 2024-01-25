@@ -1,0 +1,1 @@
+{% include [network-segmentation-checkpoint](../../_tutorials/routing/network-segmentation-checkpoint.md) %}

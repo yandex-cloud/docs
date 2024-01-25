@@ -23,9 +23,9 @@ You can apply classifiers both to intermediate and final recognition results. To
 | `insult` | Insults like "idiot" or "jerk" | `ON_UTTERANCE`, `ON_FINAL` |
 | `profanity` | Profanity | `ON_UTTERANCE`, `ON_FINAL` |
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Python
+- Python {#python}
 
    ```python
    session_options = StreamingRequest(

@@ -2,7 +2,7 @@
 
     {% include [base64-encode-command](base64-encode-command.md) %}
 
-1. Create a file with the request body (for example, `body.json`). In the `content` property, specify the [Base64-encoded](../../vision/operations/base64-encode.md) image file contents.
+1. Create a file with the request body, e.g., `body.json`. In the `content` property, specify the image file contents [encoded](../../vision/operations/base64-encode.md) as Base64.
 
     For the service to automatically detect the text language, specify the `"language_codes": ["*"]` property in the configuration.
 
@@ -79,9 +79,9 @@
 
 1. To get all the recognized words from the image, find all the lines with the `text` property, e.g., using the [grep](https://www.gnu.org/software/grep/) utility:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       grep -o "\"text\":\s\".*\"" output.json
@@ -95,7 +95,7 @@
       "text": "SLOW"
       ```
 
-   - CMD
+   - CMD {#cmd}
 
       ```bash
       findstr text output.json
@@ -109,7 +109,7 @@
       "text": "SLOW"
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       Select-String -Pattern '\"text\":\s\".*\"' -Path .\output.json

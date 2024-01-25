@@ -34,9 +34,9 @@ The cost of implementing regular runs includes:
 
 ### Create a folder {#create-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -48,9 +48,9 @@ The cost of implementing regular runs includes:
 
 To access a {{ml-platform-name }} project from a {{ sf-name }} function, you need a service account with the `{{ roles-datasphere-project-editor }}` role.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -64,9 +64,9 @@ To access a {{ml-platform-name }} project from a {{ sf-name }} function, you nee
 
 To enable the service account to run a {{ ml-platform-name }} project, add it to the list of project members.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
    1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
@@ -160,9 +160,9 @@ To upload information about the most discussed stocks on Reddit and the sentimen
 
 To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} that will trigger computations in a notebook via the API.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -176,9 +176,9 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
 
 [Versions](../../functions/concepts/function.md#version) contain the function code, run parameters, and all required dependencies.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -221,9 +221,9 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
 
 To run a function every 15 minutes, you will need a [timer](../../functions/concepts/trigger/timer.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
 

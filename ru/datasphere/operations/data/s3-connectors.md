@@ -37,6 +37,8 @@
    * **{{ ui-key.yc-ui-datasphere.new-s3-page.mode }}** — режим доступа к объектному хранилищу: **{{ ui-key.yc-ui-datasphere.s3-page.mode-read }}** или **{{ ui-key.yc-ui-datasphere.s3-page.mode-read-write }}**.
 1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
+{% include [s3-connectors-nat-gateway](../../../_includes/datasphere/s3-connectors-nat-gateway.md) %}
+
 ## Подключить хранилище S3 к проекту {#mount}
 
 Перейдите на страницу коннектора S3 и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.activate }}**. После активации бакет будет доступен в интерфейсе {{ jlab }}Lab в списке на вкладке **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg), и его можно будет просматривать как файловую систему.

@@ -25,6 +25,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ PG }} в {{ ydb-short-name }}](mpg-to-ydb.md)
 * [{{ MY }} в {{ PG }}](mmy-to-mpg.md)
 * [{{ PG }} в {{ MY }}](mpg-to-mmy.md)
+* [{{ MY }} в {{ GP }}](mmy-to-mgp.md)
 * [{{ ES }} в {{ OS }}](mes-to-mos.md)
 
 ## Захват изменений данных {#cdc}

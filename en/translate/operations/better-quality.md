@@ -8,7 +8,7 @@ description: "In this article, you will learn how to improve translation accurac
 To increase the accuracy of translations:
 
 * [Specify the source language](#with-source-language). Some words are written the same in different languages, but have different meanings. If the model detects the wrong source language, these words are translated differently.
-* [Specify your translation glossary](#with-glossary). A word can be translated different ways. For example, the English word <q>oil</q> can be translated to Russian as <q>масло</q> or <q>нефть</q>. You can use a glossary to indicate the proper translation of a word or phrase. [Learn more about glossaries](../concepts/glossary.md).
+* [Specify your translation glossary](#with-glossary). A word can be translated different ways. For example, the English word <q>oil</q> can be translated to Russian as <q>масло</q> or <q>нефть</q>. You can use a glossary to indicate the proper translation of a word or phrase. You can learn more about glossaries [here](../concepts/glossary.md).
 
 ## Getting started {#before-you-begin}
 
@@ -24,9 +24,9 @@ Words are sometimes written the same in different languages but translated diffe
 
 To avoid mistakes, specify the source language in the `sourceLanguageCode` field:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     ```json
     {
@@ -72,9 +72,9 @@ Specify the glossary in the `glossaryConfig` field. Currently, you can only pass
 
 In the `sourceLanguageCode` field, specify the source language. This field is required when you use glossaries:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     ```json
     {
@@ -136,13 +136,29 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
 {% endlist %}
 
+## Escaping text {#screen}
+
+To prevent text from being translated, you can escape it in HTML format using the `span translate` tag. Here is an example:
+
+```html
+"format": "HTML",
+"texts": [
+"The e-mail has been changed. The new password is **<span translate=no>**%\$Qvd14aa2NMc**</span>**"
+],
+"translations": [
+{
+"text": "L'e-mail a été modifié. Le nouveau mot de passe est **<span translate="no">**%\$Qvd14aa2NMc**</span>**"
+ }
+]
+```
+
 ## Checking words for typos {#with-speller}
 
 Misspelled words may be translated incorrectly or transliterated. For example, the word <q>hellas</q> is translated as <q>эллада</q>. If the same word is misspelled, let's say as <q>helas</q>, it will be translated as <q>хелас</q>. To check spelling, use the `speller` parameter:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     ```json
     {

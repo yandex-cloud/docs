@@ -217,9 +217,9 @@ items:
             href: tutorials/s3-to-datasphere.md
           - name: Creating an MLFlow server for logging experiments and artifacts
             href: tutorials/mlflow-datasphere.md
-      - name: Deployment
+      - name: Use
         items:
-          - name: Deploying a service from a code cell
+          - name: Deploying a service from a checkpoint
             href: tutorials/node-from-cell.md
           - name: Deploying a service based on a Docker image
             href: tutorials/node-from-docker.md

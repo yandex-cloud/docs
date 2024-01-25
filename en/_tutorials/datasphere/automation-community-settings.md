@@ -23,9 +23,9 @@ The automation cost includes a fee for using [{{ ml-platform-name }} computing r
 
 To access your organization from {{ ml-platform-name }}, you need an [IAM token](../../iam/concepts/authorization/iam-token.md).
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -35,7 +35,7 @@ To access your organization from {{ ml-platform-name }}, you need an [IAM token]
    yc iam create-token
    ```
 
-- API
+- API {#api}
 
    {% include [owner-warning](../../_includes/iam/owner-warning.md) %}
 

@@ -19,6 +19,8 @@ Please note that you can only recognize audio files asynchronously under a servi
 
 {% endnote %}
 
+The asynchronous recognition service is located at: `transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize`
+
 ## Sending a file for recognition {#sendfile}
 
 ### Parameters in the request body {#sendfile-params}

@@ -36,9 +36,9 @@ The cost of training a model based on data from {{ objstorage-name }} includes:
 
 ### Set up a working environment {#environment-prepare}
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Windows
+- Windows {#windows}
 
    1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer site.
    1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) and unpack it to your working directory on your local desktop.
@@ -49,9 +49,9 @@ The cost of training a model based on data from {{ objstorage-name }} includes:
 
 ### Create a folder {#create-folder}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -63,9 +63,9 @@ The cost of training a model based on data from {{ objstorage-name }} includes:
 
 To access a bucket in {{ objstorage-name }}, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `storage.editor` role.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to `data-folder`.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -79,9 +79,9 @@ To access a bucket in {{ objstorage-name }}, you need a [service account](../../
 
 To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static key.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -91,7 +91,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. Create an access key for the `datasphere-sa` service account:
 
@@ -114,7 +114,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
    1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
 
-- API
+- API {#api}
 
    To create an access key, use the [create](../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../iam/api-ref/AccessKey/index.md) resource.
 
@@ -122,9 +122,9 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
 ## Create a bucket {#bucket-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -133,7 +133,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
    1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
@@ -149,7 +149,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
       make_bucket: <bucket_name>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -169,7 +169,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
       {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-- API
+- API {#api}
 
    Use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 

@@ -2,4 +2,4 @@
 
 Текст поискового запроса передается в поле `query`. При обработке учитываются особенности [языка запросов Яндекса](http://help.yandex.ru/search/?id=481939). Вместо специальных символов используйте соответствующие экранированные последовательности. 
 
-Максимальная длина запроса — {{ search-api-request-ch }} и {{ search-api-request-ch}}.
+[Максимальная длина](../../search-api/concepts/limits.md#search-api-limits) запроса — {{ search-api-request-w }} и {{ search-api-request-ch}}.
