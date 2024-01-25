@@ -398,6 +398,10 @@ items:
           Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/rds-to-mpg.md
+      - name: >-
+          Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/mmy-to-mgp.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
@@ -488,6 +492,10 @@ items:
           Реализация защищенной высокодоступной сетевой инфраструктуры с
           выделением DMZ на основе Next-Generation Firewall
         href: routing/high-accessible-dmz.md
+      - name: >-
+          Сегментация облачной инфраструктуры с помощью решения Check Point
+          Next-Generation Firewall
+        href: routing/network-segmentation-checkpoint.md
       - name: Настройка защищенного туннеля GRE поверх IPsec
         href: routing/gre-over-ipsec.md
       - name: Настройка сети для {{ dataproc-name }}

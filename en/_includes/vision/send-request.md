@@ -1,8 +1,8 @@
-Send a request using the [batchAnalyze](../../vision/vision/api-ref/Vision/batchAnalyze.md) and save the response to a file, for example, `output.json`:
+Send a request using the [batchAnalyze](../../vision/vision/api-ref/Vision/batchAnalyze.md) method and save the response to a file, e.g., `output.json`:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    ```bash
    export IAM_TOKEN=<IAM token>
@@ -13,7 +13,7 @@ Send a request using the [batchAnalyze](../../vision/vision/api-ref/Vision/batch
        https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
    ```
 
-- CMD
+- CMD {#cmd}
 
    ```cmd
    set IAM_TOKEN=<IAM token>
@@ -24,7 +24,7 @@ Send a request using the [batchAnalyze](../../vision/vision/api-ref/Vision/batch
        https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
    ```
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```powershell
    $Env:IAM_TOKEN="<IAM token>"

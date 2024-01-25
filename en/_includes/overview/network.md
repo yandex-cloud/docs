@@ -117,7 +117,7 @@ Traffic from `VM-A1` to the internet via the NAT gateway will be routed as follo
 1. Currently, network connectivity in the {{ yandex-cloud }} virtual network is only provided through IPv4. There is no support for IPv6.
 1. The {{ yandex-cloud }} virtual network runs on OSI Layer 3 (L3), which makes the use of the OSI Layer2 (L2) network technology very limited:
    1. Responses to ARP requests from VRouter (default gateway) will always be received from the same fixed MAC address.
-   1. The only transport used for networking is `Unicast`. There is no support for `Mulicast`.
+   1. The only transport used for networking is `Unicast`. There is no support for `Multicast`.
    1. Network protocols that require a single virtual IP address (VIP) across VMs, such as HSRP, VRRP, or GLBP, are not supported.
 
 ## Extra materials {#refs}

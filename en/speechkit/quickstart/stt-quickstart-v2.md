@@ -1,6 +1,6 @@
 # How to recognize long audio files in {{ speechkit-name }}
 
-The service can recognize speech [in different ways](../stt/index.md#stt-ways). The example below demonstrates an audio file recognition using the [asynchronous recognition](../stt/transcribation.md) API. This API is subject to the following limitations:
+The service can recognize speech [in different ways](../stt/index.md#stt-ways). The example below demonstrates an audio file recognition using the [asynchronous recognition](../stt/transcribation.md) API. This API has the following limitations:
 
 * Maximum audio duration: {{ stt-long-audioLength }}
 * Maximum file size: {{ stt-long-fileSize }}
@@ -13,9 +13,9 @@ If you do not have an LPCM audio file, you can download a [sample file](https://
 
 ## Speech recognition {#speech-recognition}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- cURL
+- cURL {#curl}
 
    {% include [async-recognition](../../_includes/speechkit/async-recognition.md) %}
 

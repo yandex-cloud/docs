@@ -8,7 +8,7 @@
 
 - Консоль управления {#console}
 
-  {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
+  {% include [create-sa-via-console-without-role](../../../_includes/iam/create-sa-via-console-without-role.md) %}
 
 - CLI {#cli}
 

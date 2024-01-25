@@ -22,6 +22,12 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: История изменений
+    items:
+      - name: Все изменения
+        href: release-notes/index.md
+      - name: Январь 2024
+        href: release-notes/2401.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/websql

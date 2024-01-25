@@ -16,9 +16,9 @@ To set up authorization on behalf of a service account:
 
 ## Create a service account {#create-account}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. In the **Service accounts** tab, click **Create service account**.
@@ -30,7 +30,7 @@ To set up authorization on behalf of a service account:
 
    1. Click **Create**.
 
-- CLI
+- CLI {#cli}
 
    {% include [name-format](./cli-install.md) %}
 
@@ -54,7 +54,7 @@ To set up authorization on behalf of a service account:
    name: sa-api
    ```
 
-- API
+- API {#api}
 
    Create a service account using the [create](../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource:
 
@@ -82,9 +82,9 @@ To set up authorization on behalf of a service account:
 
 ## Assign roles to the service account {#assign-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
    1. Go to **Access rights**.
@@ -93,7 +93,7 @@ To set up authorization on behalf of a service account:
    1. Click **Add role** in the dialog box that opens and select the `ai.translate.user` role for {{ translate-full-name }} or the `ai.vision.user` role for {{ vision-full-name }}.
    1. Click **Save**.
 
-- CLI
+- CLI {#cli}
 
    Run this command:
    ```
@@ -104,7 +104,7 @@ To set up authorization on behalf of a service account:
 
    Where `--role`: `ai.translate.user` for {{ translate-full-name }} or `ai.vision.user` for {{ vision-full-name }}.
 
-- API
+- {#api} API
 
    Assign the required role to the service account using the [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource:
 
@@ -140,13 +140,13 @@ To set up authorization on behalf of a service account:
 
 ## Create an API key {#run-client}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [create-console](./iam/create-api-key-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](./default-catalogue.md) %}
 
@@ -190,7 +190,7 @@ To set up authorization on behalf of a service account:
 
       To learn how to provide the key to a request, read the guides for the [services](../iam/concepts/authorization/api-key.md#supported-services) that support this authorization method.
 
-- API
+- API {#api}
 
    Create an API key using the [create](../iam/api-ref/ApiKey/create.md) REST API method for the [ApiKey](../iam/api-ref/ApiKey/index.md) resource:
 

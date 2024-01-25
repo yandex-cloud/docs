@@ -15,18 +15,18 @@ Image text recognition is implemented in the [recognize](../../ocr/api-ref/TextR
 1. Prepare an image file that meets the requirements:
 
     {% include [file-restrictions](../../../_includes/vision/ocr-file-restrictions.md) %}
- 
+
     {% note info %}
- 
-    Need a sample image? Download an image of the [penguin crossing](https://{{ s3-storage-host }}/vision/ penguins_sample.jpg) road sign.
- 
+
+    Need a sample image? Download an image of the [penguin crossing](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) road sign.
+
     {% endnote %}
 
 1. Encode the image file as Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 
-1. Create a file with the request body, for example, `body.json`.
+1. Create a file with the request body, e.g., `body.json`.
 
     **body.json:**
     ```json
@@ -242,11 +242,11 @@ Image text recognition is implemented in the [batchAnalyze](../../vision/api-ref
 
 The examples below show the script code for text recognition using the Vision API. Authentication is implemented for an account on Yandex using [OAuth token](../../../iam/concepts/authorization/oauth-token.md) ([learn more about authentication methods](../../api-ref/authentication.md)).
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Go
+- Go {#go}
 
-   Create a script file, for example `text_detection.go` and copy the following code into it:
+   Create a script file, e.g., `text_detection.go` and copy the following code into it:
 
     ```go
     package main
@@ -421,9 +421,9 @@ The examples below show the script code for text recognition using the Vision AP
     go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
     ```
 
-- Python
+- Python {#python}
 
-    Create a script file, for example `text_detection.py` and copy the following code into it:
+    Create a script file, e.g., `text_detection.py` and copy the following code into it:
  
     ```python
     # coding: utf-8

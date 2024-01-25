@@ -17,7 +17,9 @@ description: "Из статьи вы узнаете, как задать нас�
 ## Сценарии передачи данных в {{ GP }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-    * [Миграция кластера {{ GP }}](../../../tutorials/managed-greenplum.md).
+
+    * [Миграция кластера {{ GP }}](../../../tutorials/managed-greenplum.md);
+    * [Миграция со сменой хранилища: {{ MY }} в {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Поставка данных из {{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).

@@ -48,23 +48,95 @@ description: "Следуя данной инструкции, вы научит�
 
    {% include [api-parameters](../../_includes/yandexgpt/api-parameters.md) %}
 
-1. Отправьте запрос к модели, выполнив команду:
+1. Отправьте запрос к модели:
 
-   ```bash
-   export FOLDER_ID=<идентификатор_каталога>
-   export IAM_TOKEN=<IAM-токен>
-   curl --request POST \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -H "x-folder-id: ${FOLDER_ID}" \
-     -d "@<путь_до_файла_json>" \
-     "https://llm.{{ api-host }}/foundationModels/v1/completion"
-   ```
+   {% list tabs group=programming_language %}
 
-   Где:
+   - cURL {#curl}
 
-   * `FOLDER_ID`— идентификатор каталога, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
-   * `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+     Выполните команду:
+
+     ```bash
+     export FOLDER_ID=<идентификатор_каталога>
+     export IAM_TOKEN=<IAM-токен>
+     curl --request POST \
+       -H "Content-Type: application/json" \
+       -H "Authorization: Bearer ${IAM_TOKEN}" \
+       -H "x-folder-id: ${FOLDER_ID}" \
+       -d "@<путь_до_файла_json>" \
+       "https://llm.{{ api-host }}/foundationModels/v1/completion"
+     ```
+
+     Где:
+
+     * `FOLDER_ID`— идентификатор каталога, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
+     * `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+
+   - Python {#python}
+
+     1. Создайте файл `index.py` и добавьте в него код:
+
+        ```python
+        import requests
+        import json
+        import os
+
+        def gpt(auth_headers):
+
+            url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
+
+            with open('body.json', 'r', encoding='utf-8') as f:
+                data = json.dumps(json.load(f))
+            resp = requests.post(url, headers=auth_headers, data=data)
+
+            if resp.status_code != 200:
+                raise RuntimeError(
+                    'Invalid response received: code: {}, message: {}'.format(
+                        {resp.status_code}, {resp.text}
+                    )
+                )
+
+            return resp.text
+
+        if __name__ == "__main__":
+            if os.getenv('IAM_TOKEN') is not None:
+                iam_token = os.environ['IAM_TOKEN']
+                headers = {
+                    'Authorization': f'Bearer {iam_token}',
+                }
+            elif os.getenv('API_KEY') is not None:
+                api_key = os.environ['API_KEY']
+                headers = {
+                    'Authorization': f'Api-Key {api_key}',
+                }
+            else:
+                print ('Please save either an IAM token or an API key into a corresponding `IAM_TOKEN` or `API_KEY` environment variable.')
+                exit()
+
+            print(gpt(headers))
+        ```
+
+     1. Сохраните данные для аутентификации в переменную окружения:
+
+        **Для аутентификации с помощью IAM-токена:**
+
+        ```bash
+        export IAM_TOKEN=<IAM-токен>
+        ```
+
+        **Для аутентификации с помощью API-ключа:**
+
+        ```bash
+        export API_KEY=<API-ключ>
+        ```
+
+     1. Выполните созданный файл:
+
+        ```bash
+        python index.py
+        ```
+
+   {% endlist %}
 
    В ответе сервис вернет сгенерированный текст:
 

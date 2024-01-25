@@ -73,7 +73,7 @@ audio_channel_count | **int64**<br>PCM channel count. Currently only single chan
 
 Field | Description
 --- | ---
-container_audio_type | enum **ContainerAudioType**<br>Type of audio container. <ul><li>`WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li><li>`OGG_OPUS`: Data is encoded using the OPUS audio codec and compressed using the OGG container format.</li><li>`MP3`: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.</li></ul>
+container_audio_type | enum **ContainerAudioType**<br>Type of audio container. <ul><li>`WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li><li>`OGG_OPUS`: Data is encoded using the OPUS audio codec and compressed using the OGG container format.</li></ul>
 
 
 ### TextNormalizationOptions {#TextNormalizationOptions}

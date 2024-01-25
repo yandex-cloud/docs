@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-[Кластер {{ mes-name }}](../concepts/index.md) — это группа из нескольких связанных друг с другом хостов {{ ES }}. Кластер {{ mes-name }} обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с [ролью](../concepts/hosts-roles.md) _Data node_. Подробнее о ролях в кластере {{ mes-name }} см. в разделе [{#T}](../concepts/hosts-roles.md).
+[Кластер {{ mes-name }}](../concepts/index.md) — это группа из нескольких связанных друг с другом хостов {{ ES }}. [Кластер](../../glossary/cluster.md) {{ mes-name }} обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с [ролью](../concepts/hosts-roles.md) _Data node_. Подробнее о ролях в кластере {{ mes-name }} см. в разделе [{#T}](../concepts/hosts-roles.md).
 
 {% note info %}
 

@@ -40,9 +40,9 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Give your folder a name, e.g., `data-folder`.
@@ -54,9 +54,9 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 {{ ml-platform-name }} can create a node from a Docker image hosted in {{ container-registry-full-name }}. To push an image, create a registry.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. In the list of services, select **{{ container-registry-name }}**.
@@ -68,9 +68,9 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 ### Create a service account for the {{ ml-platform-name }} project {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
@@ -90,9 +90,9 @@ To allow your service account to [get authenticated in {{ container-registry-ful
 
 {% include [disclaimer](../../_includes/iam/authorized-keys-disclaimer.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Go to the `data-folder` folder.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -164,9 +164,9 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
 {% include [install cli](../../_includes/cli-install.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. [Set](../../cli/operations/profile/manage-properties.md) `data-folder` as your default folder:
 

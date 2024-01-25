@@ -8,11 +8,11 @@ The example uses the following parameters:
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
 * [Profanity filter](streaming-api.md#specification-msg): True.
 * [Intermediate result filter](streaming-api.md#specification-msg): True.
-* Other parameters are left at their defaults.
+* Other parameters left by default.
 
 To use the API, you need the `grpcio-tools` package for Python and `grpc` for Node.js.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you are using your service account, you do not need to include the folder ID in the request header. Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
 
 To try the examples in this section:
 
@@ -26,9 +26,9 @@ To try the examples in this section:
 
 1. Create a client application:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Python 3
+   - Python 3 {#python}
 
       1. Install the `grpcio-tools` package using the [pip](https://pip.pypa.io/en/stable/) package manager:
 
@@ -127,12 +127,12 @@ To try the examples in this section:
 
          Where:
 
-         * `language_code`: Recognition [language](../index.md#langs)
-         * `profanity_filter`: [Profanity filter](streaming-api.md#specification-msg)
-         * `model`: [Language model](../models.md)
-         * `partial_results`: [Filter of intermediate recognition results](streaming-api.md#specification-msg)
-         * `audio_encoding`: [Format](../../formats.md) of the audio stream
-         * `sample_rate_hertz`: Sampling rate
+         * `language_code`: [Recognition language](../index.md#langs).
+         * `profanity_filter`: [Profanity filter](streaming-api.md#specification-msg).
+         * `model`: [Language model](../models.md).
+         * `partial_results`: [Filter of intermediate recognition results](streaming-api.md#specification-msg).
+         * `audio_encoding`: [Format](../../formats.md) of the audio stream.
+         * `sample_rate_hertz`: Sampling rate of the audio stream.
 
       1. Set the [folder ID](../../../resource-manager/operations/folder/get-id.md):
 
@@ -166,7 +166,7 @@ To try the examples in this section:
          Is final: True
          ```
 
-   - Node.js
+   - Node.js {#node}
 
       1. Go to the directory with the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository, create a directory named `src`, and generate a dependency file named `package.json` in it:
 
@@ -268,12 +268,12 @@ To try the examples in this section:
 
          Where:
 
-         * `languageCode`: Recognition [language](../index.md#langs)
-         * `profanityFilter`: [Profanity filter](streaming-api.md#specification-msg)
-         * `model`: [Language model](../models.md)
-         * `partialResults`: [Filter of intermediate recognition results](streaming-api.md#specification-msg)
-         * `audioEncoding`: [Format](../../formats.md) of the audio stream
-         * `sampleRateHertz`: Sampling rate
+         * `languageCode`: [Recognition language](../index.md#langs).
+         * `profanityFilter`: [Profanity filter](streaming-api.md#specification-msg).
+         * `model`: [Language model](../models.md).
+         * `partialResults`: [Filter of intermediate recognition results](streaming-api.md#specification-msg).
+         * `audioEncoding`: [Format](../../formats.md) of the audio stream.
+         * `sampleRateHertz`: Sampling rate of the audio stream.
 
       1. Set the [folder ID](../../../resource-manager/operations/folder/get-id.md):
 

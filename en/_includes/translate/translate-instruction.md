@@ -10,13 +10,13 @@
 
 To translate a text, pass it using the [translate](../../translate/api-ref/Translation/translate) method:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    We will translate two text strings into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
 
-   1. Create a file with the request body (for example, `body.json`).
+   1. Create a file with the request body, e.g., `body.json`:
 
       ```json
       {
@@ -54,7 +54,7 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
       }
       ```
 
-- Python
+- Python {#python}
 
    This example shows how to translate the following two lines of text into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
 
@@ -131,7 +131,7 @@ To translate a text, pass it using the [translate](../../translate/api-ref/Trans
 
    {% endcut %}
 
-- PHP
+- PHP {#php}
 
    This example shows how to translate the following two lines of text into Russian: <q>Hello</q> and <q>World</q>. The source language of a text is recognized automatically.
 

@@ -46,6 +46,7 @@ description: "На странице представлен список прак
 ## {{ GP }} {#greenplum}
 
 * [{#T}](managed-kafka-to-greenplum.md)
+* [{#T}](mmy-to-mgp.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](greenplum-to-postgresql.md)
 * [{#T}](greenplum-yezzey.md)
@@ -77,6 +78,7 @@ description: "На странице представлен список прак
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mmy-to-yds.md)
 * [{#T}](mmy-to-mpg.md)
+* [{#T}](mmy-to-mgp.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](data-transfer-mmy.md)
 * [{#T}](debezium-mmy.md)

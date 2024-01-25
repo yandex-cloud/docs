@@ -22,9 +22,9 @@ In this example, we will detect the language that the phrase <q>Hello, world</q>
 
 To detect the language of the text, pass it in the [detectLanguage](../api-ref/Translation/detectLanguage) request body:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     ```bash
     export FOLDER_ID=<folder_ID>
@@ -58,9 +58,9 @@ Some words are spelled the same in different languages. For example, the English
 
 To avoid mistakes, you can use the `languageCodeHints` field to specify which languages should be given priority when determining the language of the text:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
     ```json
     {

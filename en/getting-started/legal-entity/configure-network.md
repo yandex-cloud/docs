@@ -9,9 +9,9 @@ description: "In this tutorial, you will learn how to set up a secure network co
 
 For your internet service to run, you need two static public IP addresses: one to be assigned to the VPN gateway and the other to the network load balancer.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to reserve the IP addresses.
    1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
@@ -23,9 +23,9 @@ For your internet service to run, you need two static public IP addresses: one t
 
 ## Create VMs for the service in all availability zones {#create-vms}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. Enter the VM name: `web-node-a`.
@@ -42,9 +42,9 @@ For your internet service to run, you need two static public IP addresses: one t
 
 To provide secure access to your resources, create an IPSec instance.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
    1. Enter the VM name: `vpc`.
@@ -64,9 +64,9 @@ Configure routing between the remote network and your IPSec instance. In the exa
 
 Create a route table and add [static routes](../../vpc/concepts/static-routes.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** section in the folder where you want to configure routing.
    1. Select the network to create the route table in.
@@ -84,9 +84,9 @@ Create a route table and add [static routes](../../vpc/concepts/static-routes.md
 
 To use static routes, link the route table to a subnet. To do this:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In [the management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to configure routing.
    1. Select the network with the subnets to assign the route table to.
@@ -106,9 +106,9 @@ To distribute traffic between network segments, create security groups and set u
 
 For a VPN to work properly, allow receiving and transmitting traffic to UDP ports `500` and `4500` from an external network. This is required for using the IPSec tunnel. You also need to allow traffic between the subnets of your virtual network and the network on the remote site.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to create a security group.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
@@ -177,9 +177,9 @@ Allow the following incoming connections:
 
 For the security group rules to take effect, assign the groups to the VM network interfaces.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. Select the `vpn` VM.
@@ -194,9 +194,9 @@ For the security group rules to take effect, assign the groups to the VM network
 
 The network load balancer will distribute the internet service's incoming traffic across the VMs in the target group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a network load balancer:
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the folder to create the load balancer in.

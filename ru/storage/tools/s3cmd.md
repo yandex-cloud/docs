@@ -10,7 +10,7 @@
 
 ## Установка {#installation}
 
-Чтобы узнать как скачать и установить S3cmd, ознакомьтесь с разделом [Download](https://s3tools.org/download) на официальном сайте проекта.
+Чтобы установить S3cmd, ознакомьтесь с [разделом установки](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md) в репозитории S3cmd на GitHub.
 
 ## Настройка {#setup}
 
@@ -20,11 +20,8 @@
 1. `Secret Key` — введите секретный ключ, который вы получили при генерации [статического ключа](../../iam/concepts/authorization/access-key.md).
 1. `Default Region` — введите `{{ region-id }}`.
 
-   {% note info %}
-
    Для работы с {{ objstorage-name }} всегда указывайте регион `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
 
-   {% endnote %}
 1. `S3 Endpoint` — введите `{{ s3-storage-host }}`.
 1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите `%(bucket)s.{{ s3-storage-host }}`.
 1. Значения остальных параметров оставьте без изменений.
@@ -70,17 +67,15 @@ website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 s3cmd ls
 ```
 
+Для настройки S3cmd используется сервисный аккаунт. Он может просматривать список бакетов только в том каталоге, в котором был создан. Не используйте команду, чтобы получить информацию о публичном бакете, располагающемся за пределами каталога сервисного аккаунта.
+
 ### Создать бакет {#creating-bucket}
 
 ```bash
 s3cmd mb s3://bucket
 ```
 
-{% note info %}
-
 При создании бакета помните об [ограничениях на имя](../concepts/bucket.md#naming).
-
-{% endnote %}
 
 ### Загрузить объект в холодное хранилище {#uploading-object}
 

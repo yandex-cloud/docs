@@ -1,8 +1,9 @@
 # Распознавание архива изображений в {{ vision-full-name }}
 
-Используйте сервис [{{ vision-name }}](../../vision/) для распознавания текста на изображениях. Также вы можете использовать [{{ objstorage-full-name }}](../../storage/) для хранения исходных изображений и результатов распознавания.
+С помощью сервисов [{{ vision-name }}](../../vision/) и [{{ objstorage-full-name }}](../../storage/) можно организовать распознавание текста на изображениях и хранение архива исходных изображений и результатов распознавания.
 
 Чтобы настроить инфраструктуру для распознавания текста с помощью {{ vision-name }} и автоматической выгрузки результатов в {{ objstorage-name }}:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте бакет](#create-bucket).
 1. [Создайте виртуальную машину](#create-vm).
@@ -35,12 +36,13 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-  1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
-  1. В поле **Имя** введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. В поле **Доступ к бакету** выберите **Ограниченный**.
-  1. В поле **Класс хранилища** выберите **Холодное**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -50,35 +52,31 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на странице каталога нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ. Требования к имени:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Введите имя ВМ. Требования к имени:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
-  1. В блоке **Диски и файловые хранилища** выберите параметры:
-     * **Тип** — SSD.
-     * **Размер** — 19 ГБ.
-  1. В блоке **Вычислительные ресурсы** выберите параметры:
-     * **Платформа** — Intel Cascade Lake.
-     * **Гарантированная доля vCPU** — 20%.
-     * **vCPU** — 2.
-     * **RAM** — 2 ГБ.
-  1. В блоке **Сетевые настройки** выберите [сеть](../../vpc/concepts/network.md#network) и [подсеть](../../vpc/concepts/network.md#subnet), к которым нужно подключить ВМ. Если сети нет, создайте ее:
-     1. Выберите пункт ![image](../../_assets/console-icons/plus.svg) **Создать сеть**.
-     1. В открывшемся окне укажите имя сети и каталог, в котором она будет создана.
-     1. (Опционально) Для автоматического создания подсетей выберите опцию **Создать подсети**.
-     1. Нажмите кнопку **Создать**.
-
-        У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав пункт ![image](../../_assets/console-icons/plus.svg) **Добавить подсеть**.
-  1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить ВМ случайный публичный IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы [зарезервировали](../../vpc/operations/get-static-ip.md) его заранее.
-  1. Укажите данные для доступа на ВМ:
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите параметры:
+     * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — SSD.
+     * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — 19 ГБ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите параметры:
+     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — Intel Cascade Lake.
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — 20%.
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — 2.
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — 2 ГБ.
+  1. В блоке **С{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите [сеть](../../vpc/concepts/network.md#network) и [подсеть](../../vpc/concepts/network.md#subnet), к которым нужно подключить ВМ. Если сети нет, [создайте ее](../../vpc/operations/network-create.md).
+  1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить ВМ случайный публичный IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы [зарезервировали](../../vpc/operations/get-static-ip.md) его заранее.
+  1. Укажите данные для доступа к ВМ:
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
        Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Дождитесь перехода ВМ в статус `Running` и сохраните ее публичный IP-адрес, он понадобится для SSH-подключения.
 
 {% endlist %}
@@ -142,6 +140,7 @@
      ```
 
      Сохраните идентификатор сервисного аккаунта — параметр `id`, он понадобится для дальнейшей настройки.
+     
   1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md#editor) `editor`:
 
       ```bash
@@ -304,6 +303,12 @@
 
 ### Настройте окружение {#prepare-environment}
 
+1. Установите репозиторий дополнительных пакетов `epel`:
+
+   ```bash
+   sudo yum install epel-release -y
+   ```
+
 1. Установите пакет `jq`, который понадобится для обработки результатов из {{ vision-name }}:
 
    ```bash
@@ -331,110 +336,113 @@
 
 ### Создайте скрипт {#create-script}
 
-В скрипте выполняются следующие этапы:
-1. Создаются необходимые директории.
-1. Распаковывается архив с изображениями.
-1. Последовательно обрабатываются все изображения:
-   1. Изображение кодируется по стандарту Base64.
-   1. Формируется тело запроса для конкретного изображения.
-   1. Изображение отправляется в POST-запросе в {{ vision-name }} для распознавания.
-   1. Полученный результат записывается в файл `output.json` в формате JSON.
-   1. Из файла `output.json` выделяется распознанный текст и записывается в текстовый файл.
-1. Полученные текстовые файлы запаковываются в архив.
-1. Архив с текстовыми файлами загружается в {{ objstorage-name }}.
-1. Удаляются служебные файлы.
+{% list tabs group=programming_language %}
 
-Для удобства в текст скрипта добавлены комментарии к каждому этапу.
+- Bash {#bash}
 
-Чтобы реализовать скрипт:
-1. Создайте файл, например `vision.sh`, и откройте его в текстовом редакторе `nano`:
+   В скрипте выполняются следующие этапы:
+   1. Создаются необходимые директории.
+   1. Распаковывается архив с изображениями.
+   1. Последовательно обрабатываются все изображения:
+      1. Изображение кодируется по стандарту Base64.
+      1. Формируется тело запроса для конкретного изображения.
+      1. Изображение отправляется в POST-запросе в {{ vision-name }} для распознавания.
+      1. Полученный результат записывается в файл `output.json` в формате JSON.
+      1. Из файла `output.json` выделяется распознанный текст и записывается в текстовый файл.
+   1. Полученные текстовые файлы запаковываются в архив.
+   1. Архив с текстовыми файлами загружается в {{ objstorage-name }}.
+   1. Удаляются служебные файлы.
 
-   ```bash
-   sudo nano vision.sh
-   ```
+   Для удобства в текст скрипта добавлены комментарии к каждому этапу.
 
-1. Скопируйте в файл `vision.sh` текст скрипта:
+   Чтобы реализовать скрипт:
+   1. Создайте файл, например `vision.sh`, и откройте его в текстовом редакторе `nano`:
 
-   ```bash
-   #!/bin/bash
+      ```bash
+      sudo nano vision.sh
+      ```
 
-   # Создать необходимые директории.
-   echo "Creating directories..."
+   1. Скопируйте в файл `vision.sh` текст скрипта на Bash:
 
-   # Создать директорию для распознанного текста.
-   mkdir my_pictures_text
+      ```bash
+      #!/bin/bash
 
-   # Распаковать архив с изображениями в созданную директорию.
-   echo "Extract pictures in my_pictures directory..."
-   tar -xf my_pictures.tar
+      # Создать необходимые директории.
+      echo "Creating directories..."
 
-   # Распознать изображения из архива.
-   FILES=my_pictures/*
-   for f in $FILES
-   # В цикле для каждого файла из директории произвести следующие действия:
-   do
-      # Закодировать изображение по стандарту Base64 для отправки в {{ vision-name }}.
-      CODEIMG=$(base64 -i $f | cat)
+      # Создать директорию для распознанного текста.
+      mkdir my_pictures_text
 
-      # Создать файл body.json, который будет отправляться в POST-запросе в {{ vision-name }}.
-      cat <<EOF > body.json
-   {
-     "folderId": "$FOLDERID",
-     "analyze_specs": [{
-       "content": "$CODEIMG",
-       "features": [{
-         "type": "TEXT_DETECTION",
-         "text_detection_config": {
-         "language_codes": ["en","ru"]
-         }
-       }]
-     }]
-   }
-   EOF
-     # Отправить изображение в {{ vision-name }} для распознавания и записать результат в файл output.json.
-     echo "Processing file $f in {{ vision-name }}..."
-     curl -X POST --silent \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer ${IAMTOKEN}" \
-     -d '@body.json' \
-     https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
+      # Распаковать архив с изображениями в созданную директорию.
+      echo "Extract pictures in my_pictures directory..."
+      tar -xf my_pictures.tar
 
-     # Получить имя файла с изображением для дальнейшей подстановки.
-     IMAGE_BASE_NAME=$(basename -- "$f")
-     IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
+      # Распознать изображения из архива.
+      FILES=my_pictures/*
+      for f in $FILES
+      # В цикле для каждого файла из директории произвести следующие действия:
+      do
+         # Закодировать изображение по стандарту Base64 для отправки в {{ vision-name }}.
+         CODEIMG=$(base64 -i $f | cat)
 
-     # Получить из файла output.json текстовые данные и записать их в TXT-файл с таким же именем, как у файла с изображением.
-     cat output.json | jq -r '.results[].results[].textDetection.pages[].blocks[].lines[].words[].text' | awk -v ORS=" " '{print}' > my_pictures_text/$IMAGE_NAME".txt"
-   done
+         # Создать файл body.json, который будет отправляться в POST-запросе в {{ vision-name }}.
+         cat <<EOF > body.json
+      {
+      "mimeType": "JPEG",
+      "languageCodes": ["*"],
+      "model": "page",
+      "content": "$CODEIMG"
+      }
+      EOF
+      # Отправить изображение в Vision для распознавания и записать результат в файл output.json.
+      echo "Processing file $f in Vision..."
+      curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${IAMTOKEN}" \
+        -H "x-data-logging-enabled: true" \
+        -H "x-folder-id: ${FOLDERID}" \
+        -d '@body.json' \
+        https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText \
+        -o output.json
 
-   # Запаковать содержимое директории с текстовыми файлами в архив.
-   echo "Packing text files to archive..."
-   tar -cf my_pictures_text.tar my_pictures_text
+      # Получить имя файла с изображением для дальнейшей подстановки.
+      IMAGE_BASE_NAME=$(basename -- "$f")
+      IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
 
-   # Отправить архив с текстовыми файлами в бакет.
-   echo "Sending archive to Object Storage Bucket..."
-   aws --endpoint-url=https://{{ s3-storage-host }} s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
+      # Получить из файла output.json текстовые данные и записать их в TXT-файл с таким же именем, как у файла с изображением.
+      cat output.json | jq -r '.result[].blocks[].lines[].text' | awk -v ORS=" " '{print}' > my_pictures_text/$IMAGE_NAME".txt"
+      done
 
-   # Удалить служебные файлы.
-   echo "Cleaning up..."
-   rm -f body.json
-   rm -f output.json
-   rm -rfd my_pictures
-   rm -rfd my_pictures_text
-   rm -r my_pictures_text.tar
-   ```
+      # Запаковать содержимое директории с текстовыми файлами в архив.
+      echo "Packing text files to archive..."
+      tar -cf my_pictures_text.tar my_pictures_text
 
-1. Установите разрешения на запуск скрипта:
+      # Отправить архив с текстовыми файлами в бакет.
+      echo "Sending archive to Object Storage Bucket..."
+      aws --endpoint-url=https://{{ s3-storage-host }} s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
 
-   ```bash
-   sudo chmod 755 vision.sh
-   ```
+      # Удалить служебные файлы.
+      echo "Cleaning up..."
+      rm -f body.json
+      rm -f output.json
+      rm -rfd my_pictures
+      rm -rfd my_pictures_text
+      rm -r my_pictures_text.tar
+      ```
 
-1. Запустите скрипт:
+   1. Установите разрешения на запуск скрипта:
 
-   ```bash
-   ./vision.sh
-   ```
+      ```bash
+      sudo chmod 755 vision.sh
+      ```
+
+   1. Запустите скрипт:
+
+      ```bash
+      ./vision.sh
+      ```
+
+{% endlist %}
 
 ## Проверьте корректность распознавания {#check-result}
 
@@ -443,7 +451,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором находится бакет с результатами распознавания.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Откройте бакет с результатами распознавания.
   1. Убедитесь, что в бакете появился архив `my_pictures_text.tar`.
   1. Скачайте и распакуйте архив.
@@ -454,6 +462,7 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
+
 1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты в бакете.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.
