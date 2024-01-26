@@ -8,13 +8,13 @@ The use case describes how to deploy an Always On availability group in {{ yande
 
 To create and configure an Always On availability group with an internal network load balancer:
 
-1. [Before you start](#before-begin).
+1. [Prepare your cloud](#before-begin).
 1. [Create a network infrastructure](#prepare-network).
 1. [Create an internal network load balancer](#create-load-balancer).
 1. [Create VMs for the availability group](#create-vms).
 1. [Test the availability group](#test).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your cloud {#before-begin}
 
@@ -27,9 +27,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The cost of supporting the availability group includes:
 
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
-* A fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 You can use [license mobility](../../compute/qa/licensing.md) and bring your own SQL Server license to {{ yandex-cloud }}.
 
@@ -40,16 +40,16 @@ Prepare the network infrastructure to host the availability group.
 
 1. Create a network named `ya-network`:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Management console
+   - Management console {#console}
 
       1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name: `ya-network`.
       1. Click **Create network**.
 
-   - Bash
+   - Bash {#bash}
 
       {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -59,7 +59,7 @@ Prepare the network infrastructure to host the availability group.
       yc vpc network create --name ya-network
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface to use CLI commands in PowerShell.
 
@@ -76,9 +76,9 @@ Prepare the network infrastructure to host the availability group.
    * `ya-ad-rc1a` subnet for Active Directory.
 
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Management console
+   - Management console {#console}
 
       1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Select the `ya-network` network.
@@ -94,7 +94,7 @@ Prepare the network infrastructure to host the availability group.
       * `ya-ilb-rc1a` in the `{{ region-id }}-a` availability zone: `192.168.1.48/28`.
       * `ya-ad-rc1a` in the`{{ region-id }}-a` availability zone: `10.0.0.0/28`.
 
-   - Bash
+   - Bash {#bash}
 
       ```
       yc vpc subnet create \
@@ -136,7 +136,7 @@ Prepare the network infrastructure to host the availability group.
         --network-name ya-network
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       yc vpc subnet create `
@@ -182,9 +182,9 @@ Prepare the network infrastructure to host the availability group.
 
 ## Create an internal network load balancer {#create-load-balancer}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    ```
    yc load-balancer network-load-balancer create \
@@ -192,7 +192,7 @@ Prepare the network infrastructure to host the availability group.
       --type internal
    ```
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```
    yc load-balancer network-load-balancer create `
@@ -204,9 +204,9 @@ Prepare the network infrastructure to host the availability group.
 
 ### Create a listener {#create-listener}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    Get the subnet ID:
 
@@ -222,7 +222,7 @@ Prepare the network infrastructure to host the availability group.
       --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=<subnet_ID>
    ```
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```
    $inlbSubnet = yc vpc subnet get `
@@ -240,9 +240,9 @@ Prepare the network infrastructure to host the availability group.
 
 ### Create and connect the target group to the network load balancer {#create-target-group}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    ```
    yc load-balancer target-group create \
@@ -260,7 +260,7 @@ Prepare the network infrastructure to host the availability group.
       --target-group target-group-id=<target_group_ID>,healthcheck-name=listener,healthcheck-tcp-port=59999
    ```
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```
    yc load-balancer target-group create `
@@ -304,9 +304,9 @@ The `setpass` file must be in UTF-8 encoding.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    ```
    touch ~/setpass
@@ -321,7 +321,7 @@ The `setpass` file must be in UTF-8 encoding.
    cd
    ```
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```
    ni ~/setpass
@@ -359,9 +359,9 @@ Make sure to create your VM instances on [dedicated hosts](../../compute/concept
 
 Create a bastion host with Windows Server 2022 Datacenter with a public IP address to access other VMs:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
 
 
@@ -382,7 +382,7 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
    ```
 
 
-- PowerShell
+- PowerShell {#powershell}
 
 
 
@@ -408,9 +408,9 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
 
 #### Create a VM for Active Directory {#create-ad-controller}
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
 
 
@@ -431,7 +431,7 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
    ```
 
 
-- PowerShell
+- PowerShell {#powershell}
 
 
 
@@ -459,9 +459,9 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
 
 Create three VM instances with Windows Server 2022 Datacenter for SQL Server:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
 
 
@@ -526,7 +526,7 @@ Create three VM instances with Windows Server 2022 Datacenter for SQL Server:
    ```
 
 
-- PowerShell
+- PowerShell {#powershell}
 
 
 
@@ -607,9 +607,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 1. From `ya-jump1`, connect to the `ya-ad` VM using RDP under the same account.
 1. On `ya-ad`, launch PowerShell and set the required server roles:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
@@ -619,9 +619,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 1. Create an Active Directory forest:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Install-ADDSForest `
@@ -639,9 +639,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 1. Rename the website and add the created subnets to it:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}'
@@ -656,9 +656,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 1. Specify the Forwarder for the DNS server:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Set-DnsServerForwarder '10.0.0.2'
@@ -668,9 +668,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 1. Specify the DNS server addresses:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3,127.0.0.1"
@@ -686,9 +686,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 1. On the `ya-ad` VM, launch PowerShell and create the `mssql-svc` service account:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       New-ADUser `
@@ -703,9 +703,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 1. Create groups to access backups and DB servers:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       New-AdGroup mssql-admins-grp -GroupScope:Global
@@ -716,9 +716,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 1. Add the `Administrator` account to all groups. Add the `mssql-svc` service account to the `mssql-backups-grp` group:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Add-ADGroupMember mssql-admins-grp -Members Administrator
@@ -730,9 +730,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 1. Set the [SPN](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) of the service account:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       setspn -A MSSQLSvc/ya-mssql1.yantoso.net:1433 yantoso\mssql-svc
@@ -753,9 +753,17 @@ Install SQL Server on your database servers:
 
 1. Configure internet access on the VMs with DB servers:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
+
+      ```
+      yc compute instance add-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
+      yc compute instance add-one-to-one-nat <ID_of_ya-mssql2> --network-interface-index 0
+      yc compute instance add-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
+      ```
+
+   - PowerShell {#powershell}
 
       ```
       yc compute instance add-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
@@ -763,22 +771,15 @@ Install SQL Server on your database servers:
       yc compute instance add-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
       ```
 
-   - PowerShell
-
-      ```
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql2> --network-interface-index 0
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
-      ```
    {% endlist %}
 
 1. Run the RDP client and connect to the `ya-mssql1` VM using the `Administrator` account and your password. Use the public IP address of the VM to connect.
 
 1. Start PowerShell and set the role:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Install-WindowsFeature Failover-Clustering -IncludeManagementTools
@@ -792,9 +793,9 @@ Install SQL Server on your database servers:
 
 1. Initialize and format the second logical disk:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Get-Disk | `
@@ -815,9 +816,9 @@ Install SQL Server on your database servers:
 
 1. Create folders for the distribution, backups and storage for databases, logs, and temporary files:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       mkdir C:\dist
@@ -834,9 +835,9 @@ Install SQL Server on your database servers:
 
 1. Install the SqlServer module:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Install-Module -Name SqlServer
@@ -848,9 +849,9 @@ Install SQL Server on your database servers:
 
 1. Import SqlServer module commands for PowerShell:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Import-Module SQLServer
@@ -860,9 +861,9 @@ Install SQL Server on your database servers:
 
 1. Specify the DNS server address:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3"
@@ -872,9 +873,9 @@ Install SQL Server on your database servers:
 
    Prepare data to access the domain:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       $domain_credential = `
@@ -887,9 +888,9 @@ Install SQL Server on your database servers:
 
    Add the DB server to the domain:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Add-Computer -DomainCredential $domain_credential -DomainName 'yantoso.net' -Restart -Force
@@ -903,9 +904,9 @@ Install SQL Server on your database servers:
 
 1. Configure the necessary rights to the service account:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       & secedit /export /cfg sec_conf_export.ini /areas user_rights
@@ -949,9 +950,9 @@ Install SQL Server on your database servers:
 
 1. Set up a firewall:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       New-NetFirewallRule `
@@ -991,9 +992,9 @@ Install SQL Server on your database servers:
 
 1. Install SQL Server. Mount an image, perform installation, and detach the image:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Mount-DiskImage -ImagePath C:\dist\<SQL_Server_image_name>.iso
@@ -1018,16 +1019,16 @@ Install SQL Server on your database servers:
 
 1. Disable internet access for the VM:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```
       yc compute instance remove-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
       yc compute instance remove-one-to-one-nat <ID_of_ya-mssql2> --network-interface-index 0
       yc compute instance remove-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
       ```
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       yc compute instance remove-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
@@ -1053,9 +1054,9 @@ Install SQL Server on your database servers:
 
 1. The Always On availability group requires a configured Windows Server Failover Cluster. To create it, you need to test the DB servers. On any of the cluster VMs, run:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Test-Cluster -Node 'ya-mssql1.yantoso.net'
@@ -1071,9 +1072,9 @@ Install SQL Server on your database servers:
 1. From `ya-jump1`, connect to the `ya-mssql1` VM using RDP under the `yantoso\Administrator` account.
 1. Create a cluster of three DB servers:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       New-Cluster `
@@ -1103,9 +1104,9 @@ Install SQL Server on your database servers:
 
 1. Enable TCP/IP on all VMs and add the port `14333` to receive traffic:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo")
@@ -1147,9 +1148,9 @@ Install SQL Server on your database servers:
 
 1. Give server management permissions to the `mssql-svc` service user:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql1\Default" `
@@ -1197,9 +1198,9 @@ Install SQL Server on your database servers:
 
 1. Create and start [HADR endpoints](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       New-SqlHADREndpoint -Port 5022 -Owner sa `
@@ -1228,9 +1229,9 @@ Install SQL Server on your database servers:
 
 1. Create variables with replica parameters. The main replica is `ya-mssql1`, the second and third ones are `ya-mssql2` and `ya-mssql3`, respectively.
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       $PrimaryReplica = New-SqlAvailabilityReplica `
@@ -1259,9 +1260,9 @@ Install SQL Server on your database servers:
 
 1. Create a `MyAG` availability group of replicas and add the first server to it:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       New-SqlAvailabilityGroup `
@@ -1274,9 +1275,9 @@ Install SQL Server on your database servers:
 
 1. Add the remaining servers to the availability group:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Join-SqlAvailabilityGroup -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" -Name 'MyAG'
@@ -1287,9 +1288,9 @@ Install SQL Server on your database servers:
 
 1. Create a [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description):
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       $NLBIPAddress = '192.168.1.62'
@@ -1332,9 +1333,9 @@ Install SQL Server on your database servers:
 
 1. Assign port `14333` to the listener:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Set-SqlAvailabilityGroupListener `
@@ -1346,9 +1347,9 @@ Install SQL Server on your database servers:
 
 1. Open port `14333` on each VM in the cluster:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
@@ -1389,9 +1390,9 @@ Install SQL Server on your database servers:
 
 1. Create a database on the `ya-mssql1` server:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -Query "CREATE DATABASE MyDatabase" -ServerInstance 'ya-mssql1.yantoso.net'
@@ -1401,9 +1402,9 @@ Install SQL Server on your database servers:
 
 1. Configure access settings for the backup folder on the server:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       New-SMBShare -Name SQLBackup -Path "X:\BACKUP" -FullAccess "yantoso\mssql-backups-grp"
@@ -1419,9 +1420,9 @@ Install SQL Server on your database servers:
 
 1. Create a backup of `MyDatabase` on the `ya-mssql1` VM:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Backup-SqlDatabase `
@@ -1440,9 +1441,9 @@ Install SQL Server on your database servers:
 
 1. Restore the database on the `ya-mssql2` server from the backup:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Restore-SqlDatabase `
@@ -1463,9 +1464,9 @@ Install SQL Server on your database servers:
 
 1. Restore the database on the `ya-mssql3` server from the backup:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Restore-SqlDatabase `
@@ -1486,9 +1487,9 @@ Install SQL Server on your database servers:
 
 1. Add all the databases to the availability group:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Add-SqlAvailabilityDatabase `
@@ -1512,9 +1513,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 1. Create a table in the replicated `MyDatabase` DB:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
@@ -1529,9 +1530,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 1. Add a new row to the DB table:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
@@ -1544,9 +1545,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 1. Make sure the row appears in the table:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
@@ -1566,9 +1567,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 1. Check the name of the main DB replica:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
@@ -1586,9 +1587,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 1. Run a failover to the second replica:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -Query "ALTER AVAILABILITY GROUP MyAg FAILOVER" -ServerInstance 'ya-mssql2.yantoso.net'
@@ -1598,9 +1599,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 1. Verify the name of the main replica again:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
@@ -1617,9 +1618,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 1. Add another row to the table to check the second replica for writes:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
@@ -1632,9 +1633,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
 1. Make sure the row was added:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
@@ -1650,9 +1651,9 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
    {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the created resources, [delete](../../compute/operations/vm-control/vm-delete.md) the created VMs and load balancer:
+To stop paying for the created resources, [delete](../../compute/operations/vm-control/vm-delete.md) the VMs and the load balancer you created:
 
 * `ya-jump1`;
 * `ya-ad`;

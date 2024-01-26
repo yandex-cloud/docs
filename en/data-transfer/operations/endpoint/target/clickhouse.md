@@ -15,26 +15,26 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mch.viewer }}` role](../../../../managed-clickhouse/security/index.md#mch-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mch.viewer }}` role](../../../../managed-clickhouse/security/index.md#mch-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `clickhouse-target`.
 
    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `clickhouse_target`.
 
@@ -69,7 +69,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
 
@@ -79,19 +79,19 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 Connecting to the database with explicitly specified network addresses and ports.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `clickhouse-target`.
 
    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `clickhouse_target`.
 
@@ -138,7 +138,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
 
@@ -146,9 +146,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
@@ -182,7 +182,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.flush_interval.title }}**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if {{ CH }} fails to merge data parts.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * `clickhouse_cluster_name`: Specify the name of the cluster that the data will be transferred to.
 

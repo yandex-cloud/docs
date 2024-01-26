@@ -7,9 +7,9 @@ description: "Follow this guide to delete a disk snapshot schedule."
 
 To delete a disk snapshot schedule:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -18,7 +18,7 @@ To delete a disk snapshot schedule:
    1. Next to the schedule to delete, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the schedule deletion.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -82,7 +82,7 @@ To delete a disk snapshot schedule:
       done (5s)
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -123,7 +123,7 @@ To delete a disk snapshot schedule:
    yc compute snapshot-schedule list
    ```
 
-- API
+- API {#api}
 
    1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API call.
    1. Delete a snapshot schedule using the [delete](../../api-ref/SnapshotSchedule/delete.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Delete](../../api-ref/grpc/snapshot_schedule_service.md#Delete) gRPC API call.

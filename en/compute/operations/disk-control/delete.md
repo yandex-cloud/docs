@@ -15,9 +15,9 @@ If you delete a disk, its snapshots are not deleted with it. Snapshots need to b
 
 To delete a disk:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the management console, select the folder the disk belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -25,7 +25,7 @@ To delete a disk:
    1. In the line of the appropriate disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -47,13 +47,7 @@ To delete a disk:
         --name first-disk
       ```
 
-- API
-
-  To delete a disk, use the [delete](../../api-ref/Disk/delete.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Delete](../../api-ref/grpc/disk_service.md#Delete) gRPC API call.
-
-  To request the list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -72,5 +66,11 @@ To delete a disk:
       {% endnote %}
 
    1. Type `yes` and press **Enter**.
+
+- API {#api}
+
+   To delete a disk, use the [delete](../../api-ref/Disk/delete.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Delete](../../api-ref/grpc/disk_service.md#Delete) gRPC API call.
+
+   To request the list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
 
 {% endlist %}

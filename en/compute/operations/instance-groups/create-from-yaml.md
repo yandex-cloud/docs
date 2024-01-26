@@ -7,9 +7,9 @@ description: "Follow this guide to create an instance group based on a YAML spec
 
 To create an [instance group](../../concepts/instance-groups/index.md) based on the [specification](../../concepts/instance-groups/specification.md) in YAML format:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -23,7 +23,7 @@ To create an [instance group](../../concepts/instance-groups/index.md) based on 
 
    For more information about the `{{ yc-compute-ig}} create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/create.md).
 
-- API
+- API {#api}
 
    Use the [InstanceGroupService/CreateFromYaml](../../api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call or the [createFromYaml](../../api-ref/InstanceGroup/createFromYaml.md) method of the REST API `InstanceGroup` resource.
 

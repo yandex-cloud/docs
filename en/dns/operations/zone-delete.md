@@ -7,9 +7,9 @@ description: "Follow this guide to delete a public DNS zone."
 
 To delete a [DNS zone](../concepts/dns-zone.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete a DNS zone from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -17,7 +17,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -37,10 +37,10 @@ To delete a [DNS zone](../concepts/dns-zone.md):
    1. Delete the zone from the default folder:
 
       ```
-      yc dns zone delete <zone name or ID>
+      yc dns zone delete <zone_name_or_ID>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -100,7 +100,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
       yc dns zone list
       ```
 
-- API
+- API {#api}
 
    To delete a DNS zone, use the [delete](../api-ref/DnsZone/delete.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Delete](../api-ref/grpc/dns_zone_service.md#Delete) gRPC API call.
 

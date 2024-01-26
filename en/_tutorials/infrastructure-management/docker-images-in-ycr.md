@@ -53,9 +53,9 @@ Infrastructure support costs include fees for the following resources:
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
@@ -70,7 +70,7 @@ Infrastructure support costs include fees for the following resources:
 
    1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -312,9 +312,9 @@ If you no longer need the resources you created, delete them:
 
 Delete the other resources, depending on the method used to create them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a public IP address for the {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
@@ -322,11 +322,11 @@ Delete the other resources, depending on the method used to create them:
    1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
    1. [Delete the subnets](../../vpc/operations/subnet-delete.md) and [network](../../vpc/operations/network-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
+   1. In the terminal window, navigate to the directory containing the infrastructure plan.
    1. Delete the `container-registry-and-gitlab.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

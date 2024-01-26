@@ -15,26 +15,26 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-source.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `mysql-source`.
 
    {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-source.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `mysql_source`.
 
@@ -66,7 +66,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql-source.md) %}
 
@@ -76,19 +76,19 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 For OnPremise, all fields are filled in manually.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-source.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `mysql-source`.
 
    {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-source.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `mysql_source`.
 
@@ -123,7 +123,7 @@ For OnPremise, all fields are filled in manually.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql-source.md) %}
 
@@ -131,9 +131,9 @@ For OnPremise, all fields are filled in manually.
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: Data is only transferred from listed tables. This option is specified using regular expressions.
 
@@ -147,7 +147,7 @@ For OnPremise, all fields are filled in manually.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSourceAdvancedSettings.service_database.title }}**: Database for dummy tables (`__tm_keeper` and `__tm_gtid_keeper`). By default, this is the source database the data is transferred from.
 
-- CLI
+- CLI {#cli}
 
    * `--include-table-regex`: List of included tables. If this is on, the data will only be transferred from the tables in this list. This option is specified using regular expressions.
 
@@ -161,7 +161,7 @@ For OnPremise, all fields are filled in manually.
       * `--transfer-before-data`: When activating transfer.
       * `--transfer-after-data`: When deactivating transfer.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * `include_table_regex`: List of included tables. If this is on, the data will only be transferred from the tables in this list. This option is specified using regular expressions.
 
@@ -179,11 +179,11 @@ For OnPremise, all fields are filled in manually.
 
       You can specify one of the following values for each entity:
 
-      * `BEFORE_DATA`: Move at transfer activation.
-      * `AFTER_DATA`: Move at transfer deactivation.
+      * `BEFORE_DATA`: Move when activating the transfer.
+      * `AFTER_DATA`: Move when deactivating the transfer.
       * `NEVER`: Do not move.
 
-- API
+- API {#api}
 
    * `includeTablesRegex`: List of included tables. If this is on, the data will only be transferred from the tables in this list. This option is specified using regular expressions.
 

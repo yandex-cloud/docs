@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the network load balancer is stored.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
@@ -8,7 +8,7 @@
    1. Select the target group you need.
    1. Under **{{ ui-key.yacloud.load-balancer.target-group.label_targets-section-title }}**, remove the old VMs and add new ones.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -126,7 +126,7 @@
           address: 192.168.1.9
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -160,7 +160,7 @@
    yc load-balancer target-group get <target_group_name>
    ```
 
-- API
+- API {#api}
 
    1. To remove targets from a target group, use the [removeTargets](../../network-load-balancer/api-ref/TargetGroup/removeTargets.md) REST API method for the [TargetGroup](../../network-load-balancer/api-ref/TargetGroup/index.md) resource or the [TargetGroupService/RemoveTargets](../../network-load-balancer/api-ref/grpc/target_group_service.md#RemoveTargets) gRPC API call.
 

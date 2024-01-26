@@ -89,9 +89,9 @@ The cost of building a VM image and creating a VM from it includes:
 1. [Install](../../cli/quickstart.md#install) the {{ yandex-cloud }} CLI and [create](../../cli/quickstart.md#initialize) a profile.
 1. Get information about available subnets and availability zones. If you do not have any subnets, [create](../../vpc/operations/subnet-create.md) one.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       * Run this command:
 
@@ -113,7 +113,7 @@ The cost of building a VM image and creating a VM from it includes:
 
       * Save the ID of the [subnet](../../vpc/concepts/network.md#subnet) (the `ID` column) to host the auxiliary VM used to create the image and the corresponding [availability zone](../../overview/concepts/geo-scope.md) (the `ZONE` column). You will need these parameters in the next steps.
 
-   - API
+   - API {#api}
 
       Use the [list](../../vpc/api-ref/Subnet/list.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List) gRPC API call.
 
@@ -347,9 +347,9 @@ The cost of building a VM image and creating a VM from it includes:
 
 1. Check if the built image is present in {{ yandex-cloud }}.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       Run this command:
 
@@ -367,7 +367,7 @@ The cost of building a VM image and creating a VM from it includes:
       +----------------------+------------+-----------+----------------------+--------+
       ```
 
-   - API
+   - API {#api}
 
       Use the [list](../../compute/api-ref/Image/list.md) REST API method for the [Image](../../compute/api-ref/Image/) resource or the [ImageService/List](../../compute/api-ref/grpc/image_service.md#List) gRPC API call.
 
@@ -393,9 +393,9 @@ The cost of building a VM image and creating a VM from it includes:
 
 1. Create your VM from the built image.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       Run this command:
 
@@ -414,14 +414,14 @@ The cost of building a VM image and creating a VM from it includes:
 
       Where:
 
-      * `name`: The name of the new VM.
-      * `hostname`: The VM's host name.
+      * `name`: Name of the new VM.
+      * `hostname`: VM host name.
       * `zone`: Availability zone.
-      * `create-boot-disk` are the boot disk parameters: `size` is disk size and `image-id` is the ID of the image used.
+      * `create-boot-disk`: Boot disk parameters: `size` is the disk size and `image-id` is the ID of the image used.
       * `cores`: Number of vCPUs.
       * `memory`: Amount of RAM.
       * `core-fraction`: vCPU basic performance in %.
-      * `network-interface` are the network interface parameters: `subnet-id` is subnet ID, `ipv4-address` is the internal IPv4 address, and `nat-ip-version` is the IP specification for egress NAT.
+      * `network-interface`: Network interface parameters: `subnet-id` is the subnet ID, `ipv4-address` is the internal IPv4 address, and `nat-ip-version` is the IP specification for egress NAT.
       * `ssh-key`: Public part of the SSH key.
 
       The command outputs information about the VM created. Save the VM's public IP address:
@@ -435,7 +435,7 @@ The cost of building a VM image and creating a VM from it includes:
 
       Learn more about [creating a VM from a custom image](../../compute/operations/vm-create/create-from-user-image.md).
 
-   - API
+   - API {#api}
 
       Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/instance_service.md#Create) gRPC API call.
 
@@ -450,5 +450,5 @@ The cost of building a VM image and creating a VM from it includes:
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-* [deleting a VM](../../compute/operations/vm-control/vm-delete.md).
-* [delete the image](../../compute/operations/image-control/delete.md).
+* [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
+* [Delete the image](../../compute/operations/image-control/delete.md).

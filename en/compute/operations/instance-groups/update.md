@@ -15,9 +15,9 @@ After creating an instance group, you can:
 
 To change the name and description of an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -27,7 +27,7 @@ To change the name and description of an instance group:
    1. Fill in the **{{ ui-key.yacloud.compute.groups.create.field_name }}** and **{{ ui-key.yacloud.compute.groups.create.field_description }}** fields.
    1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -48,12 +48,12 @@ To change the name and description of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.
 
-- API
+- API {#api}
 
    You can change the name and description of an instance group by using the [update](../../api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 
@@ -72,9 +72,9 @@ After creating an instance group, you can change:
 
 To change the computing resources of an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -87,7 +87,7 @@ To change the computing resources of an instance group:
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Click **{{ ui-key.yacloud.common.save }}** on the **{{ ui-key.yacloud.compute.group.edit.label_title }}** page.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -108,12 +108,12 @@ To change the computing resources of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.
 
-- API
+- API {#api}
 
    You can change the computing resources by using the [update](../../api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 
@@ -127,9 +127,9 @@ To change the computing resources of an instance group:
 
 To increase the disk size of an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -141,7 +141,7 @@ To increase the disk size of an instance group:
    1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Click **{{ ui-key.yacloud.common.save }}** on the **{{ ui-key.yacloud.compute.group.edit.label_title }}** page.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -162,12 +162,12 @@ To increase the disk size of an instance group:
    1. Update the instance group in the default folder:
 
       ```
-      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --id <VM_group_ID> --file specification.yaml
       ```
 
       {{ ig-name }} will launch the instance group update process.
 
-- API
+- API {#api}
 
    You can change the disk size by using the [update](../../api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 

@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -10,7 +10,7 @@
 
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -26,18 +26,14 @@
 
       {% include [compute-instance-list](../../compute/_includes_service/compute-instance-list.md) %}
 
-   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
    1. Delete the VM instance:
 
       ```bash
       yc compute instance delete first-instance
       ```
 
-- API
-
-   Use the [delete](../../compute/api-ref/Instance/delete.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Delete](../../compute/api-ref/grpc/instance_service.md#Delete) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../terraform-install.md) %}
 
@@ -56,5 +52,9 @@
       {% endnote %}
 
    1. Type `yes` and press **Enter**.
+
+- API {#api}
+
+   Use the [delete](../../compute/api-ref/Instance/delete.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Delete](../../compute/api-ref/grpc/instance_service.md#Delete) gRPC API call.
 
 {% endlist %}

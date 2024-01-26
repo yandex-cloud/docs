@@ -4,9 +4,9 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -77,11 +77,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 
-- API
-
-   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -91,7 +87,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
    1. In the configuration file, describe the [parameters of the virtual machine](../../operations/vm-create/create-linux-vm.md) pointing to `yandex_compute_placement_group` in the `placement_group_id` field. The `yandex_compute_instance` resource describe the virtual machine parameters.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       ...
@@ -144,6 +140,10 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       All the resources you need will then be created in the specified folder. You can check that the virtual machine has been created and added to the placement group using the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 {% endlist %}
 

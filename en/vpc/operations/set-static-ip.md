@@ -8,9 +8,9 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the appropriate address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -18,7 +18,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
    1. Click ![image](../../_assets/options.svg) next to the IP you need and select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -70,7 +70,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
       The `reserved` parameter value changed to `true` and the IP address is now static.
 
-- API
+- API {#api}
 
    To change the type of a public IP address from dynamic to static, use the [update](../api-ref/Address/update.md) REST API method for the [Address](../api-ref/Address/index.md) resource or the [AddressService/Update](../api-ref/grpc/address_service.md#Update) gRPC API call, and provide the following in the request:
 

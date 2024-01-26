@@ -40,21 +40,21 @@ Upload the created image to {{ objstorage-name }} using one of the [supported to
 
 Using the [{{ compute-name }} API](../compute/api-ref/Image/create.md), you can import the image to the service:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- CLI
+- CLI {#cli}
 
    ```
    yc compute image create --name <image name> --description <image description> --os-type windows --source-uri <link to image in Object Storage>
    ```
 
-- Bash
+- Bash {#bash}
 
    ```bash
    curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
    ```
 
-- PowerShell
+- PowerShell {#powershell}
 
    ```powershell
    function Create-YCImage {

@@ -5,13 +5,13 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
 1. If you do not have the {{ yandex-cloud }} command line interface, [install](../cli/quickstart.md#install) it.
 1. If you do not have a service account, create one:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
       1. In the **Service accounts** tab, click **Create service account**.
-      1. Enter the name of the service account.
+      1. Enter a name for the service account.
 
          The name format requirements are as follows:
 
@@ -19,7 +19,7 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
 
       1. Click **Create**.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
@@ -29,20 +29,20 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
       yc iam service-account create --name <service_account_name>
       ```
 
-      Where `name` is the name of the service account in the format:
+      Where `name` is the name of the service account in the following format:
 
       {% include [name-format](../_includes/name-format.md) %}
 
       Result:
 
       ```yaml
-      id: ajehr0to1g8bh0la8c8r
-      folder_id: b1gv87ssvu497lpgjh5o
+      id: ajehr0to1g8b********
+      folder_id: b1gv87ssvu49********
       created_at: "2022-09-14T09:03:11.665153755Z"
       name: sa-terraform
       ```
 
-   - API
+   - API {#api}
 
       To create a service account, use the method [ServiceAccountService/Create](../iam/api-ref/grpc/service_account_service.md#Create) from the gRPC API or the [create](../iam/api-ref/ServiceAccount/create.md) method for the `ServiceAccount` resource from the REST API.
 
@@ -52,15 +52,15 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
 
    {% include [sa-assign-role-note](../_includes/sa-assign-role-note.md) %}
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       To assign a service account a role for the folder:
 
       {% include [grant-role-console-sa](../_includes/grant-role-console-sa.md) %}
 
-   - CLI
+   - CLI {#cli}
 
       1. Find the ID of the service account you want to assign the role to (the `ID` column):
 
@@ -74,7 +74,7 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          +----------------------+--------------+
          |          ID          |     NAME     |
          +----------------------+--------------+
-         | aje6ij7qvdhbns1e91ut | sa-terraform |
+         | aje6ij7qvdhb******** | sa-terraform |
          +----------------------+--------------+
          ```
 
@@ -87,11 +87,11 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          ```
 
          Where:
-         * `<service-name>`: The name of the [service](../cli/cli-ref/index.md#service-manage) whose resource the role is assigned for (for example, `resource-manager`).
-         * `<resource>`: The resource category, for example, `cloud`.
-         * `<resource-name>`: The name of the resource. You can specify a resource by its name or ID.
-         * `<resource-id>`: The resource ID.
-         * `<role-id>`: The [role](../iam/concepts/access-control/roles.md) ID, for example, `{{ roles-cloud-owner }}`.
+         * `<service-name>`: Name of the [service](../cli/cli-ref/index.md#service-manage) whose resource you want to assign the role to, e.g., `resource-manager`.
+         * `<resource>`: Resource category, e.g., `cloud`.
+         * `<resource-name>`: Name of the resource. You can specify a resource by its name or ID.
+         * `<resource-id>`: Resource ID.
+         * `<role-id>`: Assigned [role](../iam/concepts/access-control/roles.md), e.g., `{{ roles-cloud-owner }}`.
          * `<service-account-id>`: The identifier of the service account assigned the role.
 
          Result:
@@ -100,7 +100,7 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          done (1s)
          ```
 
-   - API
+   - API {#api}
 
       {% include [grant-role-for-sa-to-folder-via-api](../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
@@ -108,9 +108,9 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
 
 1. Set up the CLI profile to execute operations on behalf of the service account:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       1. Create an [authorized key](../iam/concepts/authorization/key.md) for your service account and save the file:
 
@@ -129,8 +129,8 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          Result:
 
          ```yaml
-         id: aje8nn871qo4a8bbopvb
-         service_account_id: ajehr0to1g8bh0la8c8r
+         id: aje8nn871qo4********
+         service_account_id: ajehr0to1g8********
          created_at: "2022-09-14T09:11:43.479156798Z"
          key_algorithm: RSA_2048
          ```
@@ -156,9 +156,9 @@ You can also access {{ TF }} from your [Yandex account](../iam/concepts/index.md
          ```
 
          Where:
-         * `service-account-key`: A file including the service account's authorized key.
-         * `cloud-id`: [ID of the cloud](../resource-manager/operations/cloud/get-id.md).
-         * `folder-id`: [ID of the folder](../resource-manager/operations/folder/get-id.md).
+         * `service-account-key`: File with the authorized key of the service account.
+         * `cloud-id`: [Cloud ID](../resource-manager/operations/cloud/get-id.md).
+         * `folder-id`: [Folder ID](../resource-manager/operations/folder/get-id.md).
 
    {% endlist %}
 

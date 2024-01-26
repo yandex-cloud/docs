@@ -7,13 +7,13 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
 
 1. Go to the {{ yandex-cloud }} [console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder does not exist, create it:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       {% include [create-folder](../_includes/create-folder.md) %}
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -44,7 +44,7 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
               --description "my first folder with description"
             ```
 
-   - API
+   - API {#api}
 
       Use the [create](../resource-manager/api-ref/Folder/create.md) method for the [Folder](../resource-manager/api-ref/Folder/index.md) resource of the {{ resmgr-full-name }} service.
 

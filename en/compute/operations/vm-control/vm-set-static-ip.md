@@ -10,9 +10,9 @@ Public static IP addresses are charged at an individual rate. For more informati
 
 To make a VM's public IP address static:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.

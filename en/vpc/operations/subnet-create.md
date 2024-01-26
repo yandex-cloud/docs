@@ -2,9 +2,9 @@
 
 [Subnets](../concepts/network.md#subnet) are created in cloud networks. A new subnet is located in one of the availability zones. Resources can be connected to a subnet if they reside in the same availability zone as the subnet itself.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a subnet.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -28,7 +28,7 @@
 
    1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -133,7 +133,7 @@
       ...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -175,7 +175,7 @@
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -193,7 +193,7 @@
          yc vpc subnet list
          ```
 
-- API
+- API {#api}
 
    To create a subnet, use the [create](../api-ref/Subnet/create.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Create](../api-ref/grpc/subnet_service.md#Create) gRPC API call, and provide the following in the request:
 
@@ -210,9 +210,9 @@
 
 ## Examples {#examples}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    Create a subnet with a name and description in the selected folder:
 
@@ -240,7 +240,7 @@
      --ntp-server 192.168.0.101
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Describe the properties of the `yandex_vpc_subnet` resource in a configuration file:
 
@@ -270,7 +270,7 @@
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

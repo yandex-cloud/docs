@@ -6,7 +6,7 @@ description: "Follow this guide to detach file storage from a VM."
 # Detaching file storage from a VM
 
 1. Dismount your [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
-   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
+   1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
    1. If you added a line to the `/etc/fstab` file for automatically mounting file storage to the VM at startup (for example, when [attaching storage to a VM](attach-to-vm.md)), delete the line.
    1. Run this command:
 
@@ -14,7 +14,7 @@ description: "Follow this guide to detach file storage from a VM."
       sudo umount <mount path>
       ```
 
-   1. To check that your file store has been dismounted, run the command:
+   1. To check that your file storage has been dismounted, run the command:
 
       ```bash
       df -T
@@ -34,21 +34,21 @@ description: "Follow this guide to detach file storage from a VM."
       ```
 
 1. [Stop the VM](../vm-control/vm-stop-and-start.md).
-1. Detach file storage from the VM in {{ compute-name }}:
+1. Detach the file storage from the VM in {{ compute-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file store is located.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage is located.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-      1. Select the desired storage.
+      1. Select the required storage.
       1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
       1. In the line of the appropriate VM, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
       1. In the window that opens, confirm the detach operation.
 
-   - {{ TF }}
+   - {{ TF }} {#tf}
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -78,13 +78,13 @@ description: "Follow this guide to detach file storage from a VM."
 
          {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      You can verify that the storage has been detached from the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check that the storage has been detached from the VM using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc compute instance get <VM_name>
       ```
 
-   - API
+   - API {#api}
 
       Use the [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem) gRPC API call.
 

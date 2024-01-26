@@ -1,6 +1,6 @@
 ---
 title: "Recovering a disk from a snapshot"
-description: "This guide describes how you can recover a disk from a snapshot."
+description: "Follow this guide to recover a disk from a snapshot."
 ---
 
 # Recovering a disk from a snapshot
@@ -13,9 +13,9 @@ description: "This guide describes how you can recover a disk from a snapshot."
 
 To create a disk from a [snapshot](../../concepts/snapshot.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -29,7 +29,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
    1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
    1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the snapshot you need from the list below. Use the filter to find the snapshot.
-   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
+   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see the [guide](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -37,7 +37,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -115,7 +115,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
           - fhm5b617fjnj44ovhcun
       ```
 
-- API
+- API {#api}
 
    1. Retrieve a list of snapshots using the [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API method or the [list](../../api-ref/Snapshot/list.md) method of the REST API `Snapshot` resource.
    1. Create a disk using the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API method or the [create](../../api-ref/Disk/create.md) method of the REST API `Disk` resource. Specify the snapshot ID in your request.

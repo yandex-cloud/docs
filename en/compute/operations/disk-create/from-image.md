@@ -8,9 +8,9 @@
 
 To create a disk from an [image](../../concepts/image.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -29,14 +29,14 @@ To create a disk from an [image](../../concepts/image.md):
    1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
 
 
-   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
+   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see the [guide](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
       When creating a disk, you can select only one snapshot schedule. Once the disk is created, you can add a few more schedules by following the [instructions](../disk-control/configure-schedule.md#add-schedule).
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../../_includes/cli-install.md) %}
 
@@ -115,7 +115,7 @@ To create a disk from an [image](../../concepts/image.md):
           - fhm5b617fjnj********
       ```
 
-- API
+- API {#api}
 
    1. Retrieve a list of images using the [ImageService/List](../../api-ref/grpc/image_service.md#List) grPC API method or the [list](../../api-ref/Image/list.md) method of the REST API `Image` resource.
    1. Create a disk using the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API method or the [create](../../api-ref/Disk/create.md) method of the REST API `Disk` resource. Specify the image ID in your request.

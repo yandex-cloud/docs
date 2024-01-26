@@ -18,9 +18,9 @@ Using Amazon services is not part of the [{{ yandex-cloud }} Terms of Use]({{ li
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. If you do not have an AWS account, [create](https://aws.amazon.com) one.
    1. In Amazon RDS, [create a group of parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithDBInstanceParamGroups.html) and set the `rds.logical_replication` parameter to `1` in it. In other parameters, you can leave the defaults.
@@ -48,7 +48,7 @@ Prepare the infrastructure:
    1. Set up an egress [NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet that hosts the target cluster.
    1. [Download an AWS certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) for the region where the Amazon RDS for {{ PG }} instance resides.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -182,9 +182,9 @@ Prepare the infrastructure:
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
@@ -207,7 +207,7 @@ Prepare the infrastructure:
    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
    1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the `rds-pg-mpg.tf` file, set the `transfer_enabled` parameter to `1`.
 
@@ -287,16 +287,16 @@ Before deleting the created resources, [deactivate the transfer](../../data-tran
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    * [Transfer](../../data-transfer/operations/transfer.md#delete)
    * [Endpoints](../../data-transfer/operations/endpoint/index.md#delete)
    * [Amazon RDS for {{ PG }} instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html)
    * [{{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md)
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    If you created your resources using {{ TF }}:
 

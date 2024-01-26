@@ -3,13 +3,13 @@ title: "How to create a private DNS zone in {{ dns-full-name }}"
 description: "Follow this guide to create a private DNS zone."
 ---
 
-# Creating an internal DNS zone
+# Creating a private DNS zone
 
-To create an internal [DNS zone](../concepts/dns-zone.md):
+To create a private [DNS zone](../concepts/dns-zone.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you need to create a DNS zone.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -21,7 +21,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       1. **{{ ui-key.yacloud.common.name }}** of the zone.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -35,28 +35,30 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       yc dns zone create --help
       ```
 
-   1. Create a new internal DNS zone in the default folder:
+   1. Create a new private DNS zone in the default folder:
 
       ```
       yc dns zone create --name test-zone \
       --zone staging. \
-      --private-visibility network-ids=<network IDs for the zone>
+      --private-visibility network-ids=<network_IDs_for_the_zone>
       ```
+
+      Where `--private-visibility` refers to the IDs of the networks whose resources will be included in the zone.
 
       Result:
 
       ```
-      id: aet29qhara5jeg45tbjg
-      folder_id: aoerb349v3h4bupphtaf
+      id: aet29qhara5j********
+      folder_id: aoerb349v3h4********
       created_at: "2021-02-21T09:21:03.935Z"
       name: test-zone
       zone: staging.
       private_visibility:
         network_ids:
-        - <network ID>
+        - c645mh47vsc********
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -69,8 +71,8 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
          * `labels`: Set of DNS zone labels. This is an optional parameter.
-         * `public`: Zone visibility (public or internal). This is an optional parameter.
-         * `private_networks`: For an internal zone, specify the {{ vpc-name }} resources that have access to domain names within this zone. This is an optional parameter.
+         * `public`: Zone visibility, public or private. This is an optional parameter.
+         * `private_networks`: For a private zone, specify the {{ vpc-name }} resources that have access to domain names within this zone. This is an optional parameter.
 
 
       1. DNS record parameters:
@@ -81,7 +83,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
          * `ttl`: Record time to live (TTL) in seconds before updating the record value. This is an optional parameter.
          * `data`: Record value. This is an optional parameter.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_network" "foo" {}
@@ -115,7 +117,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
 
       {% note alert %}
 
@@ -133,10 +135,10 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc dns zone get <DNS zone name>
+      yc dns zone get <zone_name>
       ```
 
-- API
+- API {#api}
 
    To create a private DNS zone, use the [create](../api-ref/DnsZone/create.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Create](../api-ref/grpc/dns_zone_service.md#Create) gRPC API call.
 

@@ -13,9 +13,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create the required number of {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-create.md) in any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to clusters from a user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to clusters when creating them.
 
@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Users in different clusters may have the same names.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -121,9 +121,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Set up integration with {{ KF }} for the {{ mch-name }} cluster {#configure-mch-for-kf}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    Depending on the number of {{ mkf-name }} clusters:
 
@@ -138,7 +138,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - **Sasl username**: [Username for the consumer](#before-you-begin).
    - **Security protocol**: `SASL_SSL`.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. Depending on the number of {{ mkf-name }} clusters:
 
@@ -333,9 +333,9 @@ To learn more about how to work with data received from {{ KF }}, see the [{{ CH
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    - Delete the clusters:
 
@@ -346,7 +346,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
    - If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
 
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

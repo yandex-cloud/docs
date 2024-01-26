@@ -6,9 +6,9 @@ After you create a VM, you can change its computing resources. For more informat
 
 This section provides guidelines for changing the number and performance of vCPUs and the amount of RAM.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   To change vCPU and RAM of a VM:
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
@@ -26,7 +26,7 @@ This section provides guidelines for changing the number and performance of vCPU
   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the top-right corner.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ This section provides guidelines for changing the number and performance of vCPU
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
    1. Stop the VM:
 
       ```bash
@@ -75,7 +75,7 @@ This section provides guidelines for changing the number and performance of vCPU
       yc compute instance start first-instance
       ```
 
-- API
+- API {#api}
 
    To change vCPU and RAM of a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
@@ -91,9 +91,9 @@ When you edit VM resources, the PCI topology might change. Keep this in mind whe
 
 To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform and specify the number of GPUs.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To change the number of GPUs on the VM:
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
@@ -111,7 +111,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the top-right corner of the page.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -127,7 +127,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
    1. Stop the VM:
 
       ```bash
@@ -164,7 +164,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
       yc compute instance start first-instance
       ```
 
-- API
+- API {#api}
 
    To change a VM's platform and configuration, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
@@ -172,9 +172,9 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
 ## Changing the number of GPUs {#update-gpu}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To change the number of [GPUs](../../concepts/gpus.md) on an existing VM:
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
@@ -188,7 +188,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the top-right corner of the page.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -204,7 +204,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
    1. Stop the VM:
 
       ```bash
@@ -236,7 +236,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
       yc compute instance start first-instance
       ```
 
-- API
+- API {#api}
 
    To change the number of GPUs, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call.
 
@@ -250,9 +250,9 @@ This feature is only available upon agreement with your account manager.
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To enable a [software-accelerated network](../../concepts/software-accelerated-network.md) on an existing VM:
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.

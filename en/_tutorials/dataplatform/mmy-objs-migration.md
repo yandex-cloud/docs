@@ -14,14 +14,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration.
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -34,10 +34,10 @@ Prepare the infrastructure:
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
+      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
       * {{ mmy-name }} source cluster.
-      * A service account with the `editor`, `storage.editor`, and `storage.uploader` roles.
-      * An {{ objstorage-name }} bucket.
+      * Service account with the `editor`, `storage.editor`, and `storage.uploader` roles.
+      * {{ objstorage-name }} bucket.
       * Source endpoint.
       * Transfer.
 
@@ -118,9 +118,9 @@ Prepare the infrastructure:
 
 1. Create a source endpoint and transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -137,7 +137,7 @@ Prepare the infrastructure:
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `data-transfer-mmy-objs.tf` file, specify the variables:
 
@@ -185,20 +185,20 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
    1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
    1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
    1. If you created the service account along with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mmy-objs.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

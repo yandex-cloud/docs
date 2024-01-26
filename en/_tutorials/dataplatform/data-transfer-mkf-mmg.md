@@ -14,9 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare the data transfer infrastructure:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [{{ mmg-name }}](../../managed-mongodb/operations/connect/index.md#configuring-security-groups).
 
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
       1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -236,14 +236,14 @@ Create a local `sample.json` file with the following test data:
 
 1. Create a transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Manually
+   - Manually {#manual}
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-   - Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `data-transfer-mkf-mmg.tf` file, specify the variables:
 
@@ -310,18 +310,18 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    * [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
    * [Delete the {{ mmg-name }} cluster](../../managed-mongodb/operations/cluster-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the `data-transfer-mkf-mmg.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 

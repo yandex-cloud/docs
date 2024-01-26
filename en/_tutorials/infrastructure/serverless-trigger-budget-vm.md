@@ -34,9 +34,9 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
 ## Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -45,7 +45,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `compute.admin`, `iam.serviceAccounts.user`, and `{{ roles-functions-invoker }}` roles.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -118,7 +118,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
       done (1s)
       ```
 
-- API
+- API {#api}
 
    To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
@@ -135,9 +135,9 @@ zip src.zip index.go go.mod
 
 ## Create a {{ sf-name }} function {#create-function}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
@@ -145,7 +145,7 @@ zip src.zip index.go go.mod
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. Enter the function name: `function-for-budget`.
       1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
-   1. Create the function version:
+   1. Create a function version:
       1. Select `golang119` as the runtime environment, enable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and select the archive created in the previous step.
       1. Specify the `index.StopComputeInstances` entry point.
@@ -158,7 +158,7 @@ zip src.zip index.go go.mod
             * `TAG`: `target-for-stop`
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a function named `function-for-budget`:
       ```bash
@@ -225,7 +225,7 @@ zip src.zip index.go go.mod
         folder_id: b1gc1t4cb638********
       ```
 
-- API
+- API {#api}
 
    To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource.
 
@@ -237,9 +237,9 @@ zip src.zip index.go go.mod
 
 The user can create a budget if they have the `editor` role. To get notifications, the `viewer` role is sufficient.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account and function.
    1. In the top-left corner, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
@@ -261,7 +261,7 @@ The user can create a budget if they have the `editor` role. To get notification
       For example, you can set two thresholds: `50%` and `100%`.
    1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
 
-- API
+- API {#api}
 
    To create a budget, use the [create](../../billing/api-ref/Budget/create.md) method for the [Budget](../../billing/api-ref/Budget/index.md) resource.
 
@@ -269,9 +269,9 @@ The user can create a budget if they have the `editor` role. To get notification
 
 ## Create a trigger for budgets {#create-trigger}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account, function, and budget.
 
@@ -296,7 +296,7 @@ The user can create a budget if they have the `editor` role. To get notification
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- CLI
+- CLI {#cli}
 
    To create a trigger for budgets that will invoke the `function-for-budget`, run the command:
 
@@ -335,7 +335,7 @@ The user can create a budget if they have the `editor` role. To get notification
    status: ACTIVE
    ```
 
-- API
+- API {#api}
 
    To create a trigger for budgets, use the [create](../../functions/triggers/api-ref/Trigger/create.md) method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource.
 
@@ -343,9 +343,9 @@ The user can create a budget if they have the `editor` role. To get notification
 
 ## Create {{ compute-name }} VM instances {##create-vm}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    1. Select a subnet:
       ```
@@ -415,7 +415,7 @@ The user can create a budget if they have the `editor` role. To get notification
       placement_policy: {}
       ```
 
-- API
+- API {#api}
 
    To create a VM instance, use the [create](../../compute/api-ref/Instance/create.md) method for the [Instance](../../compute/api-ref/Instance/index.md) resource.
 

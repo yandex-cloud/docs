@@ -69,9 +69,9 @@
 
 1. Подготовьте инфраструктуру {{ yandex-cloud }}:
 
-    {% list tabs %}
+    {% list tabs group=resources %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `storage-lockbox-sa` и назначьте ему роли `storage.uploader` и `lockbox.payloadViewer`.
         1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `storage-lockbox-sa`.
@@ -85,7 +85,7 @@
         1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
         1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -151,9 +151,9 @@
 
 1. Создайте и настройте [функцию в сервисе {{ sf-name }}](../../functions/concepts/function.md):
 
-    {% list tabs %}
+    {% list tabs group=resources %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте функцию](../../functions/operations/function/function-create.md).
         1. В открывшемся редакторе выберите среду выполнения **Python** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -178,7 +178,7 @@
 
         1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}** и дождитесь завершения сборки.
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `ya-direct-to-mch.tf` переменные:
 
@@ -226,15 +226,15 @@
 
 1. Создайте эндпоинт для приемника и трансфер:
 
-    {% list tabs %}
+    {% list tabs group=resources %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) {{ mch-name }}, указав параметры созданного ранее кластера.
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create), использующий созданные эндпоинты.
 
-    - С помощью {{ TF }}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `ya-direct-to-mch.tf` переменные:
 
@@ -290,9 +290,9 @@
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-* Вручную
+- Вручную {#manual}
 
     * [Эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
     * [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
@@ -301,7 +301,7 @@
     * [Секрет в {{ lockbox-name }}](../../lockbox/operations/secret-delete.md).
     * [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-* С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. [Удалите объекты из бакета](../../storage/operations/objects/delete.md).
     1. В терминале перейдите в директорию с планом инфраструктуры.

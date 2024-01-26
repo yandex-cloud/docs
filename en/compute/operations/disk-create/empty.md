@@ -2,9 +2,9 @@
 
 You can create an empty disk of the specified size.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -32,7 +32,7 @@ You can create an empty disk of the specified size.
 
    1. Click **{{ ui-key.yacloud.compute.disks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -94,15 +94,15 @@ You can create an empty disk of the specified size.
           - fhm5b617fjnj44ovhcun
       ```
 
-- API
-
-   Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% include [terraform-empty-disk-create](../../../_includes/compute/terraform-empty-disk-create.md) %}
+
+- API {#api}
+
+   Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
 
 {% endlist %}
 

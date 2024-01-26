@@ -201,15 +201,15 @@
 1. Укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
-   {% list tabs %}
+   {% list tabs group=infrastructure_description %}
 
-   - Готовый архив
+   - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/lamp-lemp.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `lamp-lemp.tf` и файл с пользовательскими данными `lamp-lemp.auto.tfvars`.
 
-   - Вручную
+   - Вручную {#manual}
 
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `lamp-lemp.tf`:

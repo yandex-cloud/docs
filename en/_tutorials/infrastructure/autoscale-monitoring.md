@@ -26,17 +26,17 @@ This use case uses a folder named `example-folder` as an example.
 
 The cost of the infrastructure includes:
 
-* A fee for using VMs and storing an [image](../../compute/concepts/image.md) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* A fee for using public IP addresses and outgoing traffic from VMs (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* A fee for queue requests (see [{{ message-queue-name }} pricing](../../message-queue/pricing.md)).
+* Fee for using VMs and storing an [image](../../compute/concepts/image.md) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using public IP addresses and outgoing VM traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for queue requests (see [{{ message-queue-name }} pricing](../../message-queue/pricing.md)).
 
 ## Prepare the environment {#prepare}
 
 ### Create auxiliary {{ yandex-cloud }} resources {#create-aux-resources}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Create a service account named `queue-autoscale-sa` and assign it the `editor` role for the `example-folder` folder:
 
@@ -82,7 +82,7 @@ The cost of the infrastructure includes:
 
       1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Create a service account named `queue-autoscale-sa`:
 
@@ -189,7 +189,7 @@ The cost of the infrastructure includes:
       - 192.168.1.0/24
       ```
 
-- API
+- API {#api}
 
    1. Create a service account named `queue-autoscale-sa` using the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method. The response will contain the service account ID.
    1. Assign the service account the `editor` role for `example-folder` using the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call or the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method. In the request body, specify the service account ID.
@@ -237,9 +237,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
 ## Create a queue in {{ message-queue-name }} {#create-queue}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. Create a queue named `queue-autoscale-queue`:
 
@@ -259,7 +259,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          QueueUrl: <queue_URL>
          ```
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. Create a queue named `queue-autoscale-queue` and save its URL to the `queue` file:
 
@@ -282,7 +282,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003n58805qi/queue-autoscale-queue
       ```
 
-- API
+- API {#api}
 
    1. Create a queue named `queue-autoscale-queue` using the [CreateQueue](../../message-queue/api-ref/queue/CreateQueue.md). The response will contain the queue URL.
    1. Paste the queue URL into the `queue` file in the following format:
@@ -343,16 +343,16 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       {% cut "How do I find out the service account ID" %}
 
-      {% list tabs %}
+      {% list tabs group=instructions %}
 
-      - Management console
+      - Management console {#console}
 
          1. In the [management console]({{ link-console-main }}), select `example-folder`.
          1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
          1. In the list of service accounts, select `queue-autoscale-sa`.
          1. Copy the service account **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}**.
 
-      - CLI
+      - CLI {#cli}
 
          Run the following command:
 
@@ -369,7 +369,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          name: queue-autoscale-sa
          ```
 
-      - API
+      - API {#api}
 
          Use the [list](../../iam/api-ref/ServiceAccount/list.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/List](../../iam/api-ref/grpc/service_account_service.md#List) gRPC API call.
 
@@ -381,13 +381,13 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       {% cut "How do I find out the folder ID" %}
 
-      {% list tabs %}
+      {% list tabs group=instructions %}
 
-      - Management console
+      - Management console {#console}
 
          On the [cloud page]({{ link-console-cloud }}), find `example-folder` in the **{{ ui-key.yacloud.iam.cloud.folders.section_folders }}** list and copy its **{{ ui-key.yacloud.common.id }}**.
 
-      - CLI
+      - CLI {#cli}
 
          Run the following command:
 
@@ -405,7 +405,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          status: ACTIVE
          ```
 
-      - API
+      - API {#api}
 
          Use the [list](../../resource-manager/api-ref/Folder/list.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/List](../../resource-manager/api-ref/grpc/folder_service.md#List) gRPC API call.
 
@@ -417,16 +417,16 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       {% cut "How do I find out the subnet ID" %}
 
-      {% list tabs %}
+      {% list tabs group=instructions %}
 
-      - Management console
+      - Management console {#console}
 
          1. In the [management console]({{ link-console-main }}), select `example-folder`.
          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
          1. Go to ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
          1. In the list of subnets, find `queue-autoscale-subnet-a` and copy its **{{ ui-key.yacloud.vpc.network.overview.column_subnetwork_id }}**.
 
-      - CLI
+      - CLI {#cli}
 
          Run the following command:
 
@@ -447,7 +447,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          - 192.168.1.0/24
          ```
 
-      - API
+      - API {#api}
 
          Use the [list](../../vpc/api-ref/Subnet/list.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List) gRPC API call.
 
@@ -457,9 +457,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
 1. Get an [IAM token](../../iam/concepts/authorization/iam-token.md) to enable the service account to work with {{ compute-name }} and save the token to `key.json`:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       yc iam key create \
@@ -484,7 +484,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       key_algorithm: RSA_2048
       ```
 
-   - API
+   - API {#api}
 
       Use the [create](../../iam/api-ref/Key/create.md) REST API method for the [Key](../../iam/api-ref/Key/index.md) resource or the [KeyService/Create](../../iam/api-ref/grpc/key_service.md#Create) gRPC API call.
 
@@ -510,9 +510,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
 ## Create an instance group {#create-ig}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -529,7 +529,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom }}** tab and click **{{ ui-key.yacloud.common.select }}**.
       1. In the window that opens, select the created image as a boot disk:
 
-         1. Click the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}** tab.
+         1. Go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}** tab.
          1. Select an image whose name begins with `queue-autoscale-image`.
          1. Click **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
 
@@ -547,33 +547,33 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify the following values:
 
-      * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}**: `1`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}**: `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`.
+      * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}**: `1`
+      * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}**: `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`
 
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, specify the following values:
 
-      * **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}**: `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_auto-scale-type }}**: `{{ ui-key.yacloud.compute.groups.create.value_scale-regional }}`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_min-zone-size }}**: `0`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_max-size }}**: `5`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_measurement-duration }}**: `60 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_warmup-duration }}**: `0 {{ ui-key.yacloud.common.units.label_time-min_zero }}`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_cooldown-duration }}**: `5 {{ ui-key.yacloud.common.units.label_time-min_many }}`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_initial-size }}**: `1`.
+      * **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}**: `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}`
+      * **{{ ui-key.yacloud.compute.groups.create.field_auto-scale-type }}**: `{{ ui-key.yacloud.compute.groups.create.value_scale-regional }}`
+      * **{{ ui-key.yacloud.compute.groups.create.field_min-zone-size }}**: `0`
+      * **{{ ui-key.yacloud.compute.groups.create.field_max-size }}**: `5`
+      * **{{ ui-key.yacloud.compute.groups.create.field_measurement-duration }}**: `60 {{ ui-key.yacloud.common.units.label_time-sec_many }}`
+      * **{{ ui-key.yacloud.compute.groups.create.field_warmup-duration }}**: `0 {{ ui-key.yacloud.common.units.label_time-min_zero }}`
+      * **{{ ui-key.yacloud.compute.groups.create.field_cooldown-duration }}**: `5 {{ ui-key.yacloud.common.units.label_time-min_many }}`
+      * **{{ ui-key.yacloud.compute.groups.create.field_initial-size }}**: `1`
 
    1. Under **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**, specify the following values:
 
       * **{{ ui-key.yacloud.compute.groups.create.field_metric }}**: `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`.
       * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}**: `message-queue`.
       * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}**: `queue.messages.stored_count`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}**: The `queue` key and the `queue-autoscale-queue` value.
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}**: The `queue` key and the `queue-autoscale-queue` value
       * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}**: `GAUGE`.
       * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}**: `WORKLOAD`.
-      * **{{ ui-key.yacloud.compute.groups.create.field_metric-target }}**: `5`.
+      * **{{ ui-key.yacloud.compute.groups.create.field_metric-target }}**: `5`
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Get the ID of the image you created at the previous steps:
 
@@ -607,9 +607,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
          {% cut "How do I find out the network ID" %}
 
-         {% list tabs %}
+         {% list tabs group=instructions %}
 
-         - CLI
+         - CLI {#cli}
 
             Run this command:
 
@@ -626,13 +626,13 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
             name: queue-autoscale-network
             ```
 
-         - Management console
+         - Management console {#console}
 
             1. In the [management console]({{ link-console-main }}), select `example-folder`.
             1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
             1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.vpc.networks.column_id }}**.
 
-         - API
+         - API {#api}
 
             Use the [list](../../vpc/api-ref/Network/list.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List) gRPC API call.
 
@@ -652,7 +652,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       Where `--file`: Path to the instance group specification file (`spec.yaml`).
 
-- API
+- API {#api}
 
    1. Get the ID of the previously created image from the `queue-autoscale-image` family. To do this, use the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/image_service.md#GetLatestByFamily) gRPC API call or the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method.
    1. Edit the `spec.yaml` instance group specification file:
@@ -663,15 +663,15 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
          {% cut "How do I find out the network ID" %}
 
-         {% list tabs %}
+         {% list tabs group=instructions %}
 
-         - Management console
+         - Management console {#console}
 
             1. In the [management console]({{ link-console-main }}), select `example-folder`.
             1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
             1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.vpc.networks.column_id }}**.
 
-         - CLI
+         - CLI {#cli}
 
             Run the following command:
 
@@ -688,7 +688,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
             name: queue-autoscale-network
             ```
 
-         - API
+         - API {#api}
 
             Use the [list](../../vpc/api-ref/Network/list.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List) gRPC API call.
 
@@ -710,9 +710,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 1. Run `messages.sh`. This starts sending 100 messages to the `queue-autoscale-queue`.
 1. Open dashboards in {{ monitoring-full-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. Open the dashboard with information about the instance group:
 
@@ -730,7 +730,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    1. 100 messages were enqueued in `queue-autoscale-queue` (the **Message Queue** dashboard, the **Sent messages, count** and **Messages in queue, count** charts).
    1. Instances in the `queue-autoscale-ig` group started to receive messages (the **Received messages, count** chart) and delete them from the queue (the **Deleted messages, count** and **Messages in queue, count** charts).
-   1. While handling the messages, the number of instances in the group increased from one to five and, after all the messages were handled, the group became empty (the **Compute: Instance Groups** dashboard, the **Number of instances in zone B** chart).
+   1. While handling the messages, the number of instances in the group increased from one to five and, after all messages were handled, the group became empty (the **Compute: Instance Groups** dashboard, the **Number of instances in zone B** chart).
 
 ## Delete the resources you created {#clear-out}
 

@@ -14,9 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
 
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -220,9 +220,9 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster.
 
-      * (Optional) : **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+      * (Optional): **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
             Create and upload the `json_schema.json` file in JSON format:
@@ -274,9 +274,9 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
 
 1. Create an endpoint for the target and the transfer:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -297,7 +297,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
       1. In the `data-transfer-mkf-mch.tf` file, uncomment:
 
@@ -371,20 +371,20 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
    * [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
    * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
-   1. Delete the configuration file `data-transfer-mkf-mch.tf`.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
+   1. Delete the `data-transfer-mkf-mch.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash

@@ -16,16 +16,16 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mgp.viewer }}` role](../../../../managed-greenplum/security/index.md#mgp-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mgp.viewer }}` role](../../../../managed-greenplum/security/index.md#mgp-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
@@ -36,9 +36,9 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 Connecting to the database with explicitly specified network addresses and ports.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise Greenplum UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-greenplum.md) %}
 
@@ -46,9 +46,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 

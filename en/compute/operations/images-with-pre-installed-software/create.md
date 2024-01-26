@@ -7,9 +7,9 @@ description: "Follow this guide to create a VM from a public image."
 
 To create a [VM](../../concepts/vm.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
    1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
@@ -78,7 +78,7 @@ To create a [VM](../../concepts/vm.md):
 
    VM creation takes several minutes. When the VM status changes to `RUNNING`, proceed to [configuring software](setup.md). You can monitor VM statuses on the list of VMs in the folder.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -144,44 +144,50 @@ To create a [VM](../../concepts/vm.md):
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
+      
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<disk_name>"
+        type     = "<disk_type>"
+        zone     = "<availability_zone>"
+        size     = "<disk_size>"
+        image_id = "<image_ID>"
+      }
+      
       resource "yandex_compute_instance" "linux-vm" {
-
         name        = "linux-vm"
         platform_id = "standard-v3"
         zone        = "<availability_zone>"
-
+      
         resources {
           cores  = "<number_of_vCPU_cores>"
           memory = "<GB_of_RAM>"
         }
-
+      
         boot_disk {
-          initialize_params {
-            image_id = "<image_ID"
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
-
+      
         network_interface {
           subnet_id = yandex_vpc_subnet.subnet-1.id
           nat       = true
         }
-
+      
         metadata = {
           user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("<path_to_public_SSH_key>")}"
         }
       }
-
+      
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-
+      
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
         zone           = "<availability_zone>"
@@ -191,15 +197,22 @@ To create a [VM](../../concepts/vm.md):
       ```
 
       Where:
-      * `yandex_compute_instance`: Description of the VM:
-         * `name`: VM name.
-         * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
-         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot [disk](../../concepts/disk.md) settings. Specify the ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+
+      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
+         * `name`: Disk name.
+         * `type`: Disk type.
+         * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
+         * `size`: Disk size in GB.
+         * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
             {% include [id-info](../../../_includes/compute/id-info.md) %}
 
+      * `yandex_compute_instance`: Description of the VM:
+         * `name`: VM name.
+         * `platform_id`: [Platform](../../concepts/vm-platforms.md).
+         * `zone`: Availability zone to host the VM.
+         * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `boot_disk`: Boot disk settings. Specify the disk ID.
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
          * `metadata`: In the metadata, provide the username and [public key for accessing the VM via SSH](../vm-connect/ssh.md#creating-ssh-keys). For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the cloud network.
@@ -220,7 +233,7 @@ To create a [VM](../../concepts/vm.md):
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 

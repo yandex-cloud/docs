@@ -4,9 +4,9 @@ On resume, previously stopped [update](../../concepts/instance-groups/deploy/), 
 
 To resume processes in an instance group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -14,7 +14,7 @@ To resume processes in an instance group:
    1. In the line with the appropriate instance group, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-resume }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
-- API
+- API {#api}
 
    Use the [resumeProcesses](../../api-ref/InstanceGroup/resumeProcesses.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/ResumeProcesses](../../api-ref/grpc/instance_group_service.md#ResumeProcesses) gRPC API call.
 

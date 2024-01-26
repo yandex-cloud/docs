@@ -2,9 +2,9 @@
 
 In addition to the cloud network in the default folder, you can create cloud networks in other folders.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    To create a [cloud network](../concepts/network.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a cloud network.
@@ -18,7 +18,7 @@ In addition to the cloud network in the default folder, you can create cloud net
    1. The default option is **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. If you want to [create](subnet-create.md) the subnets later, disable this option.
    1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -81,7 +81,7 @@ In addition to the cloud network in the default folder, you can create cloud net
         description: Auto-created default network
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -120,7 +120,7 @@ In addition to the cloud network in the default folder, you can create cloud net
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -138,7 +138,7 @@ In addition to the cloud network in the default folder, you can create cloud net
          yc vpc network list
          ```
 
-- API
+- API {#api}
 
    To create a [cloud network](../concepts/network.md), use the [create](../api-ref/Network/create.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Create](../api-ref/grpc/network_service.md#Create) gRPC API call, and provide the following in the request:
 
@@ -156,9 +156,9 @@ In addition to the cloud network in the default folder, you can create cloud net
 
 Create a cloud network with a name and description in the selected folder:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    ```
    yc vpc network create --name test-network-1 \
@@ -166,7 +166,7 @@ Create a cloud network with a name and description in the selected folder:
      --folder-id b1gnbfd11bq5********
    ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the configuration file, describe the parameters of the cloud network to create:
 
@@ -188,7 +188,7 @@ Create a cloud network with a name and description in the selected folder:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

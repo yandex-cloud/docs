@@ -43,9 +43,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
 
 ### Create a secret with authorized keys {#create-authorized-key-secret}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to connect the external agent.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
@@ -204,9 +204,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
 
 1. Check that the external agent is available in {{ load-testing-name }}:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
       1. In the left-hand panel, go to the ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
@@ -224,9 +224,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
 
 ## View the testing results {#see-results}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
    1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
@@ -238,9 +238,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, using {{ load-
 
 To delete the external agent from {{ load-testing-name }}:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
    1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab.

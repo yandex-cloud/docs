@@ -55,13 +55,13 @@ items:
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
-      - name: '{{ GL }} integration with {{ tracker-full-name }}'
+      - name: '{{ GL }} integration with {{ tracker-name }}'
         href: dev/gitlab-tracker-integration.md
-      - name: High-performance computing (HPC) on preemptible VMs
+      - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
-      - name: Load testing of the gRPC service
+      - name: Load testing a gRPC service
         href: testing/loadtesting-grpc.md
-      - name: Deploying and load testing gRPC with scaling
+      - name: Deploying and load testing a gRPC service with scaling
         href: testing/loadtesting-grpc-autoscaling.md
       - name: Using Phantom to run a fixed-load HTTPS test
         href: testing/loadtesting-https-phantom.md
@@ -317,6 +317,11 @@ items:
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Sharding {{ mch-name }} tables
         href: dataplatform/clickhouse-sharding.md
+      - name: >-
+          Loading data from {{ yandex-direct }} to the {{ mch-full-name }} data
+          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
+          data-transfer-full-name }}
+        href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
           Configuring {{ dns-name }} for accessing {{ mch-name }} clusters from
           other cloud networks

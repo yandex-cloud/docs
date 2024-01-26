@@ -16,7 +16,12 @@ To work with {{ websql-full-name }}, use:
 
 In {{ websql-full-name }}, you can establish, update database connections and monitor their status. Database connections with the same URL and port number constitute _connection groups_. You can edit connection settings, rename or delete groups. Once you establish a connection with the database, you can view tables, schemas, and `views`.
 
-The connection manager supports operations with [demo connections](../operations/connect.md#demo) which are pre-established connections with test databases that allow you to explore the {{ websql-full-name }} features.
+In the connection manager, you can work with different types of connections:
+* [External connections](../operations/connect.md#connect-db): Connections to publicly available databases via the Internet.
+* [{{ yandex-cloud }} cluster connections](../operations/connect.md#connect-cluster): Connections to clusters of managed databases through the internal Yandex Cloud network. Such databases do not necessarily have to be publicly available.
+* [Demo connections](../operations/connect.md#demo): Pre-established connections with test databases allowing you to explore the {{ websql-full-name }} features.
+
+There are groups of tables and views within a single connection. View grouping is available when there is at least one view in the database.
 
 ## SQL queries {#tables}
 

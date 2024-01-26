@@ -3,7 +3,7 @@ title: "How to link a cloud to a billing account"
 description: "Follow this guide to link a cloud to a billing account."
 ---
 
-# Link a cloud to a billing account
+# Linking a cloud to a billing account
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
@@ -17,9 +17,9 @@ Before linking a cloud, make sure that the billing account has been activated (t
 
 To link a cloud or transfer an existing one:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 
@@ -37,7 +37,7 @@ To link a cloud or transfer an existing one:
 
   1. If you transferred a cloud, pay any outstanding charges on the old account.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 

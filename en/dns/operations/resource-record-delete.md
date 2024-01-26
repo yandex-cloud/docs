@@ -7,9 +7,9 @@ description: "Follow this guide to delete a resource record."
 
 To delete a [resource record](../concepts/resource-record.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone to delete a record from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -18,7 +18,7 @@ To delete a [resource record](../concepts/resource-record.md):
    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -32,16 +32,16 @@ To delete a [resource record](../concepts/resource-record.md):
    1. Get a list of all records in the zone:
 
       ```
-      yc dns zone list-records --name <DNS zone name>
+      yc dns zone list-records --name <zone_name>
       ```
    1. Delete a record:
 
       ```
-      yc dns zone delete-records --name <DNS name zone> \
-      --record "<domain name> <TTL> <record type> <value>"
+      yc dns zone delete-records --name <zone_name> \
+      --record "<domain_name> <TTL> <record_type> <value>"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -96,10 +96,10 @@ To delete a [resource record](../concepts/resource-record.md):
       You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc dns zone list-records <DNS zone name>
+      yc dns zone list-records <zone_name>
       ```
 
-- API
+- API {#api}
 
    To delete a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
 

@@ -8,9 +8,9 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
 
 {% endnote %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -18,7 +18,7 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
    1. In the line with the appropriate instance group, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.groups.button_action-start }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -43,7 +43,7 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
 
       {{ ig-name }} will begin starting instances in the group. Once all instances are started, the group status switches to `ACTIVE`.
 
-- API
+- API {#api}
 
    You can start an instance group using the [start](../../api-ref/InstanceGroup/start.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Start](../../api-ref/grpc/instance_group_service.md#Start) gRPC API call.
 

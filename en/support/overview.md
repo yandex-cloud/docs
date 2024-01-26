@@ -1,9 +1,9 @@
 
-# Requesting technical support
+# Procedure for providing technical support
 
 
 
-{{ yandex-cloud }} provides technical support under different service plans. You can choose the plan that's best for you. The cost of paid technical support plans includes two components: fixed and supplemental. The supplemental part is calculated as a percentage of the cost of resources used for the month. For more information about plans, see the [Pricing policy](pricing.md).
+{{ yandex-cloud }} provides technical support under different service plans. You can choose the one that best suits you. The cost of paid technical support plans includes two components: fixed and supplemental. The supplemental part is calculated as a percentage of the cost of resources used over the month. For more information about plans, see the [Pricing policy](pricing.md).
 
 
 ## Contacting support {#response-time}
@@ -26,8 +26,10 @@ The expected support specialist response time is shown in the table below. A das
 | Request to Support Center | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
 | Chat | - | 5 minutes | 5 minutes, a messenger of your choice |
 
+Only {{ yandex-cloud }} [organization members](../organization/concepts/membership.md) can send requests to support. [Make sure](./support-center.md#before-you-begin) you are making a request on behalf of the required organization.
 
-## Types of requests to {#request-types} support
+
+## Types of requests to support {#request-types}
 
 
 
@@ -35,7 +37,7 @@ The types of requests available depend on the selected plan and are shown in the
 
 {% note info %}
 
-The list of services offered under the "Premium" plan isn't fixed and can updated on a case-by-case basis.
+The list of services offered under the "Premium" plan is not exhaustive and may be updated on a case-by-case basis.
 
 {% endnote %}
 

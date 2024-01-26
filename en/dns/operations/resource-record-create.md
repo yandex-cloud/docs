@@ -7,9 +7,9 @@ description: "Follow this guide to create a resource record."
 
 To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone to create a record in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -22,22 +22,22 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
       1. Enter a **{{ ui-key.yacloud.dns.label_records }}** for the record.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the following command:
+   Run this command:
 
    ```bash
-   yc dns zone add-records --name <DNS zone name> \
-      --record "<domain name> <TTL> <record type> <value>"
+   yc dns zone add-records --name <zone_name> \
+     --record "<domain_name> <TTL> <record_type> <value>"
    ```
 
    You can add multiple records at the same time.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -85,7 +85,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
          * `name`: Zone name. It must be unique within the folder. This is an optional parameter.
          * `description`: Zone description. This is an optional parameter.
          * `labels`: Set of DNS zone labels. This is an optional parameter.
-         * `public`: Zone visibility (public or internal). This is an optional parameter.
+         * `public`: Zone visibility, public or private. This is an optional parameter.
          * `private_networks`: For a public zone, specify the {{ vpc-name }} resources that this zone is visible to. This is an optional parameter.
 
       1. `yandex_dns_recordset` parameters:
@@ -103,7 +103,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
 
       {% note alert %}
 
@@ -121,10 +121,10 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
-      yc dns zone list-records <DNS zone name>
+      yc dns zone list-records <zone_name>
       ```
 
-- API
+- API {#api}
 
    To create a resource record in a DNS zone, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
 

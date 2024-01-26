@@ -2,9 +2,9 @@
 
 When creating a VM, you need to select its [image](../../concepts/image.md) with the software that you want to use.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    You can view a list of public images when creating a virtual machine:
 
@@ -15,16 +15,16 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
    To view information about a specific image, click ![image](../../../_assets/compute/info.svg).
 
-- CLI
+- CLI {#cli}
 
    {% include [standard-images](../../../_includes/standard-images.md) %}
 
-- API
+- API {#api}
 
    1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for authentication in these examples:
-      * [Instructions](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
-      * [Instructions](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
-      * [Instructions](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+      *[Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
+      * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
+      * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
    1. Get the list of public images from {{ yandex-cloud }} using the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call. In the request, specify the following parameters:
       * Specify `standard-images` as the folder ID.
       * The folder contains many images, so specify `pageSize=1000` or use the obtained value of `nextPageToken` to get the next page.

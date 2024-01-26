@@ -123,6 +123,8 @@ default:
   domain-name-example: cdn.example.com
   ds: Serverless
   DS: YDS
+  ds-cli: DataSphere CLI
+  ds-jobs: DataSphere Jobs
   dt-copy-regular: Периодическое
   dt-copy-regular-incremental: Периодическое инкрементальное
   dt-copy-snapshot: Однократное

@@ -213,7 +213,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Start restoring data from the snapshot on the target cluster.
 
-   Example of restoring a snapshot with indication of the custom indexes that need to be restored on the target cluster:
+   Example of restoring a snapshot with indication of the custom indexes to be restored on the target cluster:
 
    ```bash
    curl --request POST \
@@ -239,9 +239,9 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Make sure all the indexes you need have been transferred to the target {{ mos-name }} cluster, and the number of documents in them is the same as in the source cluster:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       Run this command:
 
@@ -254,7 +254,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
       The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
 
-   - {{ OS }} Dashboards
+   - {{ OS }} Dashboards {#opensearch}
 
       1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
       1. Select the `Global` tenant.
@@ -419,9 +419,9 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
 Make sure all the indexes you need have been transferred to the target {{ mos-name }} cluster, and the number of documents in them is the same as in the source cluster:
 
-{% list tabs %}
+{% list tabs group=programming_language %}
 
-- Bash
+- Bash {#bash}
 
    Run this command:
 
@@ -434,7 +434,7 @@ Make sure all the indexes you need have been transferred to the target {{ mos-na
 
    The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
 
-- {{ OS }} Dashboards
+- {{ OS }} Dashboards {#opensearch}
 
    1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
    1. Select the `Global` tenant.

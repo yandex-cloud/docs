@@ -13,9 +13,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    
    1. If you use {{ vpc-name }} security groups, [configure them](../../vpc/operations/security-group-add-rule.md). Add TCP settings to the security group to allow the following:
@@ -33,9 +33,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       When creating a VM, select the security group that you set up earlier. To check the security settings, enter the VM's public IP address in the browser address bar: the default page of the web server should be displayed.
 
 
-   1. [Create a {{ mrd-name }} cluster](../../managed-redis/operations/cluster-create.md) with any suitable configuration.  When creating a {{ mrd-name }} cluster, specify the same network and security groups as those of the VM hosting the web server. 
+   1. [Create a {{ mrd-name }} cluster](../../managed-redis/operations/cluster-create.md) with any suitable configuration. When creating a {{ mrd-name }} cluster, specify the same network and security groups as those of the VM hosting the web server.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -224,15 +224,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    * [Delete the {{ mrd-full-name }} cluster](../../managed-redis/operations/cluster-delete.md).
    * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

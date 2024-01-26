@@ -15,16 +15,16 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
 
@@ -32,9 +32,9 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.shard_count.title }}**: Specify the required `N` number of shards.
 

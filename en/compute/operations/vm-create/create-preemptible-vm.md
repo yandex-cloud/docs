@@ -8,9 +8,9 @@ You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) o
 
 To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -35,12 +35,12 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       * {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
 
 
-         If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
-         * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
-         * Enter the disk name.
-         * Select the [disk type](../../concepts/disk.md#disks_types).
-         * Specify the required block size.
-         * Specify the required disk size.
+      If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
+      * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
+      * Enter the disk name.
+      * Select the [disk type](../../concepts/disk.md#disks_types).
+      * Specify the required block size.
+      * Specify the required disk size.
 
       
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
@@ -50,7 +50,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
-   
+
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
@@ -70,7 +70,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-   
+
    1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
 
@@ -94,7 +94,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
    The VM appears in the list.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -126,7 +126,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       This command creates a preemptible VM with the following characteristics:
       * Named `first-preemptible-instance`.
-      * Running CentOS 7.
+      * OS: CentOS 7.
       * In the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
       * In the `default-a` [subnet](../../../vpc/concepts/network.md#subnet).
       * With a [public IP address](../../../vpc/concepts/address.md#public-addresses).
@@ -139,19 +139,22 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-- API
-
-   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
-      resource "yandex_compute_instance" "vm-1" {
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<disk_name>"
+        type     = "<disk_type>"
+        zone     = "<availability_zone>"
+        size     = "<disk_size>"
+        image_id = "<image_ID>"
+      }
 
+      resource "yandex_compute_instance" "vm-1" {
         name                      = "preemptible-vm"
         allow_stopping_for_update = true
         platform_id               = "standard-v3"
@@ -159,13 +162,11 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
         resources {
           cores  = <number_of_vCPU_cores>
-          memory = <amount_of_RAM_in_GB>
+          memory = <GB_of_RAM>
         }
 
         boot_disk {
-          initialize_params {
-            image_id = "<image_ID>"
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
 
         network_interface {
@@ -194,13 +195,23 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       ```
 
       Where:
+
+      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
+         * `name`: Disk name.
+         * `type`: Type of the disk being created.
+         * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
+         * `size`: Disk size in GB.
+         * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+
+            {% include [id-info](../../../_includes/compute/id-info.md) %}
+
       * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
          * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
+         * `zone`: Availability zones to host the VM.
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot [disk](../../concepts/disk.md) settings. Specify the ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+         * `boot_disk`: Boot disk settings. Specify the disk ID.
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
          * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
          * `scheduling_policy`: Scheduling policy. To create a preemptible VM, set `preemptible = true`.
@@ -221,6 +232,10 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
+- API {#api}
+
+   Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
+
 {% endlist %}
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
@@ -229,9 +244,9 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
 To change the type of a VM, for example, make it preemptible:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -243,7 +258,7 @@ To change the type of a VM, for example, make it preemptible:
    1. At the top right, click ![image](../../../_assets/compute/run-vm.svg) **{{ ui-key.yacloud.compute.instances.button_action-start }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -259,7 +274,7 @@ To change the type of a VM, for example, make it preemptible:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
    1. Stop the VM:
 
       ```bash
@@ -309,11 +324,7 @@ To change the type of a VM, for example, make it preemptible:
       placement_policy: {}
       ```
 
-- API
-
-   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call. In the request body, set `"preemptible": false` in `schedulingPolicy`.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -336,7 +347,7 @@ To change the type of a VM, for example, make it preemptible:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
    1. Deploy cloud resources.
       1. If the configuration does not contain any errors, run this command:
 
@@ -348,10 +359,14 @@ To change the type of a VM, for example, make it preemptible:
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
+- API {#api}
+
+   Use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/instance_service.md#Update) gRPC API call. In the request body, set `"preemptible": false` in `schedulingPolicy`.
+
 {% endlist %}
 
 This will affect your bill for the VM usage. More about [VM pricing](../../pricing.md#prices-instance-resources).
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md)
+* [{#T}](../vm-connect/ssh.md).

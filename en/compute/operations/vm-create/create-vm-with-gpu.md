@@ -13,14 +13,14 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
 
    {% include [create-vm-with-gpu](../../../_includes/compute/create/create-vm-with-gpu-console.md) %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -64,24 +64,24 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
 
-        
-        {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+         
+         {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
 
       * `platform`: ID of the [platform](../../concepts/vm-platforms.md):
 
-        {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
+         {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
 
-      * `cores`: [Number of vCPUs](../../concepts/gpus.md)
-      * `memory`: Amount of RAM
-      * `gpus`: Number of GPUs
+      * `cores`: [Number of vCPUs](../../concepts/gpus.md).
+      * `memory`: Amount of RAM.
+      * `gpus`: Number of GPUs.
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
 
 
       * `create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
 
-        {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
+         {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
       * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
 
@@ -106,16 +106,20 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       ...
       ```
 
-- API
-
-   To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
+      resource "yandex_compute_disk" "boot-disk" {
+        name     = "<disk_name>"
+        type     = "<disk_type>"
+        zone     = "<availability_zone>"
+        size     = "<disk_size>"
+        image_id = "<image_ID>"
+      }
+
       resource "yandex_compute_instance" "vm-1" {
         name                      = "vm-with-gpu"
         allow_stopping_for_update = true
@@ -124,14 +128,12 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
         resources {
           cores  = <number_of_vCPU_cores>
-          memory = <amount_of_RAM_in_GB>
+          memory = <GB_of_RAM>
           gpus   = <number_of_GPUs>
         }
 
         boot_disk {
-          initialize_params {
-            image_id = "<image_ID>"
-          }
+          disk_id = yandex_compute_disk.boot-disk.id
         }
 
         network_interface {
@@ -156,27 +158,34 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       ```
 
       Where:
+
+      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
+         * `name`: Disk name.
+         * `type`: Type of the disk being created.
+         * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
+         * `size`: Disk size in GB.
+         * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+
+            {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
+
       * `yandex_compute_instance`: Description of the VM:
          * `name`: VM name.
          * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
          * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
-         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
+         * `zone`: Availability zone to host the VM.
 
-           
-           {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+            
+            {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
 
          * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
 
-           {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
+            {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
 
 
          * `resources`: Number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot [disk](../../concepts/disk.md) settings. Specify the ID of the selected [image](../../concepts/image.md). You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
-
-            {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
-
+         * `boot_disk`: Boot disk settings. Specify the disk ID.
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#network). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
          * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `yandex_vpc_network`: Description of the cloud network.
@@ -195,6 +204,10 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
       All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+   To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Create](../../api-ref/grpc/instance_service.md#Create) gRPC API call.
 
 {% endlist %}
 

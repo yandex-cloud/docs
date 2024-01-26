@@ -1,4 +1,4 @@
-# Mounting a bucket as a disk on Windows
+# Connecting a bucket as a disk in Windows
 
 In this tutorial, you will use [rclone](https://rclone.org) to set up synchronization of data between an {{ objstorage-full-name }} bucket and your local desktop. The bucket will be mounted as a disk in Windows.
 
@@ -46,9 +46,9 @@ The cost for bucket support includes:
 
 ## Create a service account {#create-sa}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -57,7 +57,7 @@ The cost for bucket support includes:
    1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -75,7 +75,7 @@ The cost for bucket support includes:
 
    For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
 
-- API
+- API {#api}
 
    To create the service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
@@ -83,9 +83,9 @@ The cost for bucket support includes:
 
 ## Create a static access key {#create-static-key}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
@@ -95,7 +95,7 @@ The cost for bucket support includes:
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key. Once you close the dialog, the private key value will be unavailable.
 
-- {{ yandex-cloud }} CLI
+- {{ yandex-cloud }} CLI {#cli}
 
    1. Create an access key for `sa-win-disk-connect`:
 
@@ -118,7 +118,7 @@ The cost for bucket support includes:
 
    1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
 
-- API
+- API {#api}
 
    To create an access key, use the [create](../../iam/api-ref/AccessKey/create.md) method for the [AccessKey](../../iam/api-ref/AccessKey/index.md) resource.
 
@@ -126,9 +126,9 @@ The cost for bucket support includes:
 
 ## Create a bucket {#bucket-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
@@ -137,7 +137,7 @@ The cost for bucket support includes:
    1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
    1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming):
@@ -153,7 +153,7 @@ The cost for bucket support includes:
       make_bucket: <bucket_name>
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -176,7 +176,7 @@ The cost for bucket support includes:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -188,7 +188,7 @@ The cost for bucket support includes:
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-- API
+- API {#api}
 
    Use the [create](../../storage/api-ref/Bucket/create.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) gRPC API call, or the [create](../../storage/s3/api-ref/bucket/create.md) S3 API method.
 

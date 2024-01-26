@@ -167,7 +167,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   To install the agent while creating a VM in the CLI or API, add the following line to [user-defined metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
 
   ```
-  #cloud-config\nruncmd:\n - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash"
+  #cloud-config\nruncmd:\n - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```
 
   To install the agent and send metrics properly, make sure the created VM has access to the internet.

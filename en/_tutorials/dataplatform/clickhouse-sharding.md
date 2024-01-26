@@ -23,9 +23,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
@@ -41,7 +41,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
-      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
 
       Cluster hosts must be available online.
 
@@ -60,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. If you are using security groups, [configure them](../../managed-clickhouse/operations/connect.md#configuring-security-groups) so that you can connect to the cluster from the internet.
 
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -261,14 +261,14 @@ To check the health of the created distributed table named `tutorial.hits_v1_dis
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
   1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
   1. If static public IP addresses were used for cluster access, release and [delete them](../../vpc/operations/address-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

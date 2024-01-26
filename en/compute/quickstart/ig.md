@@ -1,12 +1,12 @@
-# Creating instance groups
+# Creating an instance group
 
 Create an instance group using the [Instance Groups](../concepts/instance-groups/index.md) component in the {{ yandex-cloud }} management console.
 
 ## Getting started {#before-you-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
+1. Log in to the [management console]({{ link-console-main }}) or register as a new user. If not registered yet, navigate to the management console and follow the guide.
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an instance group {#create-ig}
 
@@ -15,7 +15,7 @@ You can create an automatically scaled group or a group with a fixed number of i
 {% include [warning.md](../../_includes/instance-groups/warning.md) %}
 
 To create an instance group:
-1. In the [management console]({{ link-console-main }}), select a folder to create your instance group in.
+1. In the [management console]({{ link-console-main }}), select the folder to create your instance group in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
 1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -26,12 +26,12 @@ To create an instance group:
 
       {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-   * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
+   * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
 
       {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-1. In the **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** section, select the desired availability zones. Group instances may reside in different availability zones and regions. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
-1. In the **{{ ui-key.yacloud.compute.groups.create.section_instance }}** section, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to set the base instance configuration:
+1. In the **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** section, select the desired [availability zones](../../overview/concepts/geo-scope.md). Instances of a group may reside in different availability zones and regions.
+1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the base instance.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public image.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
@@ -41,7 +41,7 @@ To create an instance group:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../compute/concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
-      * (Optional) Specify that you want your VM [preemptible](../../compute/concepts/preemptible-vm.md).
+      * (Optional) Specify that you want a [preemptible](../../compute/concepts/preemptible-vm.md) VM.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * Select a [cloud network](../../compute/concepts/vm.md#network) and [subnet](../../compute/concepts/network.md#subnet). If there is no subnet, create one:
          * Click **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
@@ -54,7 +54,6 @@ To create an instance group:
          * Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
          * Enter a name and description for the security group. You will be able to add rules to the security group at a later stage using **{{ vpc-name }}**.
          * Click **{{ ui-key.yacloud.common.create }}**.
-
    * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
       * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one.
       * If you selected a Linux-based public image:
@@ -66,12 +65,12 @@ To create an instance group:
       * If required, grant access to the [serial console](../operations/serial-console/index.md).
    * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify:
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}**: Number of instances that can exceed the group size.
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}**: Number of instances the group size can be reduced by.
+   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}**: Number of instances by which you can exceed the group size.
+   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}**: Number of instances by which you can reduce the group size.
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}**: Number of instances that can be created simultaneously.
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}**: Initialization interval following which the virtual machine will begin to handle load.
+   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}**: Initialization interval after which the instance will begin to receive load.
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}**: Number of instances you can stop simultaneously.
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}**: Instance shut-down strategy: `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}` or `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`.
+   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}**: Instance shut-down strategy, `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}` or `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`.
 
       For more information, see [{#T}](../concepts/instance-groups/policies/deploy-policy.md).
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
@@ -100,7 +99,7 @@ To create an instance group:
       * Set the unhealthy threshold, which is the number of failed checks after which no traffic will be routed to the VM.
 1. Click **{{ ui-key.yacloud.compute.groups.create.button_create }}**.
 
-The instance group appears in the list.
+The instance group will appear in the list.
 
 ## What's next {#what-is-next}
 

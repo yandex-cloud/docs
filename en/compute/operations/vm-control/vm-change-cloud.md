@@ -5,16 +5,16 @@ You cannot move a VM to another cloud; however, you can create an image from its
 1. Use a boot disk of your VM to [create an image](../image-create/create-from-disk.md).
 1. Get the boot disk image ID:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
       1. Copy the value from the **{{ ui-key.yacloud.compute.images.column_id }}** column of a relevant image.
 
-   - CLI
+   - CLI {#cli}
 
       {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@ You cannot move a VM to another cloud; however, you can create an image from its
       +----------------------+----------------+--------+-------------+--------+
       ```
 
-   - API
+   - API {#api}
 
       Use the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/image_service.md#List) gRPC API call.
 
@@ -44,14 +44,14 @@ You cannot move a VM to another cloud; however, you can create an image from its
 
 1. Get an ID of the cloud hosting the folder with the image:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), click the desired cloud in the list on the left.
       1. On the **{{ ui-key.yacloud.iam.cloud.switch_overview }}** tab, copy the value from the **{{ ui-key.yacloud.iam.cloud.overview.label_id }}** field.
 
-   - CLI
+   - CLI {#cli}
 
       Retrieve a list of clouds with their IDs:
 
@@ -70,7 +70,7 @@ You cannot move a VM to another cloud; however, you can create an image from its
       +----------------------+------------+--------------------------+
       ```
 
-   - API
+   - API {#api}
 
       To get the list of clouds with IDs, use the [list](../../../resource-manager/api-ref/Cloud/list.md) REST API method for the [Cloud](../../../resource-manager/api-ref/Cloud/index.md) resource or the [CloudService/List](../../../resource-manager/api-ref/grpc/cloud_service.md#List) gRPC API call.
 
@@ -80,9 +80,9 @@ You cannot move a VM to another cloud; however, you can create an image from its
 1. [Assign](../../../iam/operations/roles/grant.md) the user the `{{ roles-cloud-member }}` and `{{ roles-image-user }}` roles for the cloud.
 1. Create a new image in the target cloud:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - CLI
+   - CLI {#cli}
 
       ```bash
       yc compute image create \
@@ -92,7 +92,7 @@ You cannot move a VM to another cloud; however, you can create an image from its
         --folder-id <target_folder_ID>
       ```
 
-   - API
+   - API {#api}
 
       Use the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API call. Specify the image ID in your request.
 

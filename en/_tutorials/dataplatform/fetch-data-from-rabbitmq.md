@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any configuration with the `db1` database. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts when creating it.
 
@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md)for{{ RMQ }}. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access when creating it.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -130,13 +130,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Set up integration with {{ RMQ }} for the {{ mch-name }} cluster {#configure-mch-for-rmq}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
     In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config), specify the username and password for {{ RMQ }} authentication in **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
     Add the `clickhouse.config.rabbitmq` block with the username and password for {{ RMQ }} authentication to the cluster description:
 
@@ -314,15 +314,15 @@ The query will return a table with data sent to {{ RMQ }}.
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Manually
+- Manually {#manual}
 
    * [Delete the {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
    * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
-- Using {{ TF }}
+- {{ TF }} {#tf}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

@@ -12,9 +12,9 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 ## Settings {#settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.counter_ids.title }}**: Specify the [numbers of the tags](https://yandex.ru/support/metrica/general/tag-id.html) the data will be coming from.
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}**: Specify the token required to access the tags. To obtain it, follow [this link](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).

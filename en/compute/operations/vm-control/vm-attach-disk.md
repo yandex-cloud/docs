@@ -18,9 +18,9 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
 
 To attach a network disk to a VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -38,7 +38,7 @@ To attach a network disk to a VM:
       * Enable the **{{ ui-key.yacloud.compute.attach-disk.field_auto-delete }}** option if needed.
    1. Click **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -90,7 +90,7 @@ To attach a network disk to a VM:
       yc compute instance start first-instance
       ```
 
-- API
+- API {#api}
 
    Use the [attachDisk](../../api-ref/Instance/attachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/AttachDisk](../../api-ref/grpc/instance_service.md#AttachDisk) gRPC API call.
 
@@ -105,7 +105,7 @@ To use the attached disk:
 - Linux {#linux}
 
    Mount the disk:
-   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
+   1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
    1. Run the `blkid` command and make sure that there are no partitions with duplicate UUIDs:
 
       ```bash
@@ -169,7 +169,7 @@ To use the attached disk:
 
    1. If the attached disk is **Offline**, right-click it and select **Online**.
    1. Assign a letter to the attached disk if needed. For information about how to do this, see the [Microsoft documentation]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter).
-   1. Open **Explorer** to make sure the attached disk is mounted and available.
+   1. Open **Explorer** to check that the attached disk is properly mounted and available.
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), open the folder with the appropriate instance group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -10,7 +10,7 @@
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, disable the old availability zone.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    1. Open the instance group [specification](../../compute/concepts/instance-groups/specification.md) file and edit the instance template:
 
@@ -41,7 +41,7 @@
       ...
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    1. Open the {{ TF }} configuration file for the instance group and delete the old availability zone under `allocation_policy` and the subnet ID in the old availability zone under `network_interface`:
 
@@ -74,7 +74,7 @@
       yc compute instance-group get <instance_group_name>
       ```
 
-- API
+- API {#api}
 
    Use the [update](../../compute/api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../compute/api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 

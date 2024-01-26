@@ -14,9 +14,9 @@ For a disk to be successfully detached from a running VM, the operating system m
 
 To detach a disk from a VM:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -24,7 +24,7 @@ To detach a disk from a VM:
    1. Next to the disk you need to detach, click ![image](../../../_assets/horizontal-ellipsis.svg), and then click **{{ ui-key.yacloud.compute.disks.button_action-detach }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.popup_detach-disk_button_detach }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@ To detach a disk from a VM:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
 
    1. Get a list of disks attached to the VM:
 
@@ -70,7 +70,7 @@ To detach a disk from a VM:
       yc compute instance start first-instance
       ```
 
-- API
+- API {#api}
 
    Use the [detachDisk](../../api-ref/Instance/detachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/DetachDisk](../../api-ref/grpc/instance_service.md#DetachDisk) gRPC API call.
 

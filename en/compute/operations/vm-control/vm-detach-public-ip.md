@@ -2,9 +2,9 @@
 
 If you previously attached a public IP address to a VM, you can detach it.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -12,7 +12,7 @@ If you previously attached a public IP address to a VM, you can detach it.
    1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, in the top-right corner, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.overview.popup-confirm_button_remove-one-to-one-nat }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -33,7 +33,7 @@ If you previously attached a public IP address to a VM, you can detach it.
 
    For more information about the `yc compute instance remove-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md).
 
-- API
+- API {#api}
 
    Use the [removeOneToOneNat](../../api-ref/Instance/removeOneToOneNat.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/RemoveOneToOneNat](../../api-ref/grpc/instance_service.md#RemoveOneToOneNat) gRPC API call.
 

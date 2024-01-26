@@ -6,11 +6,11 @@ title: "How to get information about a disk placement group in {{ compute-full-n
 
 You can get the folder ID, availability zone, and other information about a disk placement group.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 To get information about a disk placement group:
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 

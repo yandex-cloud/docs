@@ -7,9 +7,9 @@ description: "Follow this guide to update a resource record."
 
 You can update the value of a [resource record](../concepts/resource-record.md). To update a record:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
@@ -18,7 +18,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
    1. Change the record TTL or value.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- CLI
+- CLI {#cli}
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -35,11 +35,11 @@ You can update the value of a [resource record](../concepts/resource-record.md).
    1. Change the record value:
 
       ```
-      yc dns zone replace-records --name <zone name> \
-      --record "<record domain name> 600 <record type> <new record value>"
+      yc dns zone replace-records --name <zone_name> \
+      --record "<domain_name> 600 <record_type> <new_value>"
       ```
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -91,10 +91,10 @@ You can update the value of a [resource record](../concepts/resource-record.md).
       You can verify that the DNS record has been updated in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command below:
 
       ```
-      yc dns zone list-records <DNS zone name>
+      yc dns zone list-records <zone_name>
       ```
 
-- API
+- API {#api}
 
    To update a resource record, use the [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call.
 

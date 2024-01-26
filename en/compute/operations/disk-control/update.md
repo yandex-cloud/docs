@@ -7,15 +7,15 @@ description: "Follow this guide to update a disk."
 
 After you create a [disk](../../concepts/disk.md), you can:
 * [Change the name and description of a disk](#change-disk-name).
-* [Increase the disk size](#change-disk-size), including that of a disk attached to a [running](../../concepts/vm-statuses.md#list-of-statuses) VM.
+* [Increase the disk size](#change-disk-size), including that of your disk attached to a [running](../../concepts/vm-statuses.md#list-of-statuses) VM.
 
-## Changing the name and description of a disk {#change-disk-name}
+## Changing disk name and description {#change-disk-name}
 
 To change the name and description of a disk:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you will be editing a disk.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -26,7 +26,7 @@ To change the name and description of a disk:
 
    {{ compute-name }} will start the operation to update the disk.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -53,7 +53,7 @@ To change the name and description of a disk:
 
       {{ compute-name }} will start the operation to update the disk.
 
-- API
+- API {#api}
 
   To change the disk name or description, use the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Update](../../api-ref/grpc/disk_service.md#Update) gRPC API call.
 
@@ -71,20 +71,20 @@ You can only change the size of a disk by increasing it. You cannot reduce the s
 
 You can increase the disk size even on a [running](../../concepts/vm-statuses.md#list-of-statuses) VM.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click ![image](../../../_assets/horizontal-ellipsis.svg) next to the required disk and select **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
-   1. Increase the disk size.
+   1. Increase disk size.
    1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
       {{ compute-name }} will launch the operation to change the disk size.
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -110,15 +110,17 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
       {{ compute-name }} will launch the operation to change the disk size.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   {% note info %}
+   {% note warning %}
 
-   To increase the size using {{ TF }}, make sure to create a disk as a separate resource. We do not recommend creating a disk in the `initialize_params` section for `yandex_compute_instance`.
+   You can increase the disk size using {{ TF }} without recreating the VM if the disk is specified in the manifest as a separate `yandex_compute_disk` resource.
+
+   If the disk is specified under `initialize_params` in the `yandex_compute_instance` resource, the VM will be recreated when increasing the disk size with the help of {{ TF }}. To increase the size of such a disk without recreating the VM, use the management console, CLI, or API.
 
    {% endnote %}
 
@@ -193,7 +195,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
       yc compute disk get <disk_name>
       ```
 
-- API
+- API {#api}
 
   You can increase the disk size by using the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/Update](../../api-ref/grpc/disk_service.md#Update) gRPC API call.
 

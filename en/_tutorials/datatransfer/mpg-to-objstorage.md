@@ -10,9 +10,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Prepare the infrastructure:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. Create a source {{ mpg-name }} cluster in any applicable [configuration](../../managed-postgresql/concepts/instance-types.md) with publicly available hosts and the following settings:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
@@ -27,7 +27,7 @@ Prepare the infrastructure:
 
    1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-sa` with the `storage.uploader` role. The transfer will use it to access the bucket.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -95,9 +95,9 @@ Prepare the infrastructure:
 
 1. Create a source endpoint and a transfer.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-* Manually
+- Manually {#manual}
 
    1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
 
@@ -105,11 +105,11 @@ Prepare the infrastructure:
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ PG }}_source_cluster>` from the drop-down list.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`.
 
    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
 
-* Using {{ TF }}
+- {{ TF }} {#tf}
 
    1. In the `postgresql-to-objstorage.tf` file, specify the variables:
 
@@ -156,18 +156,18 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 * Delete the transfer, source endpoint, cluster, and bucket:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   * Manually
+   - Manually {#manual}
 
       * [Transfer](../../data-transfer/operations/transfer.md#delete).
       * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
       * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
       * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 
-   * Using {{ TF }}
+   - {{ TF }} {#tf}
 
-      1. In the terminal window, switch to the directory containing the infrastructure plan.
+      1. In the terminal window, go to the directory containing the infrastructure plan.
       1. Delete the `postgresql-to-objstorage.tf` configuration file.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 

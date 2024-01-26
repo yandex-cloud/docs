@@ -1,8 +1,8 @@
 # Removing an instance group from a placement group
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- CLI
+- CLI {#cli}
 
    {% include [cli-install.md](../../../_includes/cli-install.md) %}
 
@@ -41,7 +41,7 @@
 
    {{ ig-name }} will start removing the instance group from the placement group.
 
-- API
+- API {#api}
 
    You can remove an instance group from a placement group by using the [update](../../api-ref/InstanceGroup/update.md) REST API method for the [InstanceGroup](../../api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Update](../../api-ref/grpc/instance_group_service.md#Update) gRPC API call.
 

@@ -18,26 +18,26 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need the [`{{ roles.mmg.viewer }}` role](../../../../managed-mongodb/security/index.md#mmg-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmg.viewer }}` role](../../../../managed-mongodb/security/index.md#mmg-viewer) or the [`viewer` primitive role](../../../../iam/concepts/access-control/roles.md#viewer) assigned to the folder where this managed database cluster resides.
 
 {% endnote %}
 
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `mongo-source`.
 
    {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `mongo_source`.
 
@@ -72,7 +72,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [Managed MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
 
@@ -83,19 +83,19 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 The settings are given for the OnPremise use case when all fields are filled in manually.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
 
-- CLI
+- CLI {#cli}
 
    * Endpoint type: `mongo-source`.
 
    {% include [On premise MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * Endpoint type: `mongo_source`.
 
@@ -139,7 +139,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
-- API
+- API {#api}
 
    {% include [On premise MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mongodb.md) %}
 
@@ -147,9 +147,9 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
 ## Additional settings {#additional-settings}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}**: Data is only transferred from listed collections. All collections are transferred by default.
 
@@ -157,7 +157,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.excluded_collections.title }}**: Data is transferred from all collections except the specified ones.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    * `secondary_preferred_mode`: If there are replicas in the cluster, they will be used for data reads instead of the master host.
 

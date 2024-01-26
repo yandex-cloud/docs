@@ -7,9 +7,9 @@ description: "Follow this guide to create file storage."
 
 To create file [storage](../../concepts/filesystem.md):
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a file storage.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -32,7 +32,7 @@ To create file [storage](../../concepts/filesystem.md):
    1. Specify the block and storage disk size.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
@@ -78,7 +78,7 @@ To create file [storage](../../concepts/filesystem.md):
    yc compute filesystem get <storage_name>
    ```
 
-- API
+- API {#api}
 
    Use the [create](../../api-ref/Filesystem/create.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Create](../../api-ref/grpc/filesystem_service.md#Create) gRPC API call.
 

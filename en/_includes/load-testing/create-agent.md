@@ -1,9 +1,9 @@
 1. If you do not have an SSH key pair yet, [create one](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Create an agent.
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your [agent](../../load-testing/concepts/agent.md).
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
@@ -41,9 +41,9 @@
 
 1. Assign a public IP to the agent to enable access over SSH:
 
-   {% list tabs %}
+   {% list tabs group=instructions %}
 
-   - Management console
+   - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the agent is located.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.

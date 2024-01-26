@@ -20,9 +20,9 @@ keywords:
 
 Подготовьте инфраструктуру:
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `data-proc-network`. При создании выключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. В сети `data-proc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) со следующими параметрами:
@@ -78,7 +78,7 @@ keywords:
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `data-proc-security-group`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** для подкластеров — предоставлен.
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -644,9 +644,9 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs %}
+{% list tabs group=resources %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Удалите кластер {{ dataproc-name }}](../operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
@@ -654,7 +654,7 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
     1. Удалите таблицу маршрутизации и NAT-шлюз.
     1. [Удалите сеть](../../vpc/operations/network-delete.md).
 
-- С помощью {{ TF }}
+- {{ TF }} {#tf}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#infra):
 

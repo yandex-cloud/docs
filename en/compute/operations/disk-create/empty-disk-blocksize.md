@@ -7,13 +7,13 @@ description: "Use this guide to create an empty disk with a large block."
 
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    See section [{#T}](../../../compute/operations/disk-create/empty.md).
 
-- CLI
+- CLI {#cli}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -64,14 +64,14 @@ description: "Use this guide to create an empty disk with a large block."
          disk_placement_policy: {}
       ```
 
-- API
-
-   Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
-
-- {{ TF }}
+- {{ TF }} {#tf}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% include [terraform-empty-disk-create](../../../_includes/compute/terraform-empty-disk-create.md) %}
+
+- API {#api}
+
+   Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/disk_service.md#Create) gRPC API call.
 
 {% endlist %}

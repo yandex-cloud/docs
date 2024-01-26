@@ -58,9 +58,9 @@ If you deploy resources of other {{ yandex-cloud }} services, the cost will chan
 
 ### Create a table {#table-create}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the database is located.
    1. In the list of services, select **{{ ydb-name }}**.
@@ -77,7 +77,7 @@ If you deploy resources of other {{ yandex-cloud }} services, the cost will chan
       Delete the other columns.
    1. Click **Create table**.
 
-- AWS CLI
+- AWS CLI {#cli}
 
    To create a table through the [AWS CLI](../../storage/tools/aws-cli.md):
    1. Run this command:
@@ -122,16 +122,16 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
 
 1. Add the [previously obtained](#create-service-account) key ID and secret key to environment variables:
 
-   {% list tabs %}
+   {% list tabs group=programming_language %}
 
-   - Bash
+   - Bash {#bash}
 
       ```bash
       export ACCESS_KEY="<key_ID>"
       export SECRET_KEY="<secret_key>"
       ```
 
-   - PowerShell
+   - PowerShell {#powershell}
 
       ```powershell
       $Env:ACCESS_KEY="<key_ID>"

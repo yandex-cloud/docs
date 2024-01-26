@@ -10,9 +10,9 @@ A non-replicated disk can only be placed in a single group and must reside in th
 
 To add a disk to a placement group:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Management console
+- Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to add a disk to a placement group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -26,7 +26,7 @@ To add a disk to a placement group:
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
 
-- API
+- API {#api}
 
    Use the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Update](../../api-ref/grpc/disk_service.md#Update) gRPC API call.
 
